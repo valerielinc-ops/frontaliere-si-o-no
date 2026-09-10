@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 10 Sep 2026 00:26:40 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 09:27:52 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -17,6 +17,62 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Bulletin du frontalier – 10 septembre 2026 : 38 minutes d&apos;attente à Gaggiolo (Cantello-Stabio)</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/bulletin-frontalier-2026-09-10/</link>
+      <description><![CDATA[Les chiffres du jour, 10 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.]]></description>
+      <content:encoded><![CDATA[Bonjour — nous sommes jeudi 10 septembre 2026. Voici le bulletin quotidien pour celles et ceux qui vivent d'un côté de la frontière et travaillent de l'autre : quatre chiffres mesurés aujourd'hui par notre suivi — files aux douanes, essence, taux de change et emploi — chacun avec le lien vers sa page en direct.
+
+## Attentes aux douanes ce matin
+
+Le dernier relevé (141 passages surveillés) place l'attente la plus longue à **Gaggiolo (Cantello-Stabio) : 38 minutes**. 114 passages ne signalent aucune file.
+
+| Douane | Attente | État |
+|---|---|---|
+| Gaggiolo (Cantello-Stabio) | 38 min | file |
+| Chiasso-Strada | 34 min | file |
+| San Pietro (Clivio-Stabio) | 8 min | ralenti |
+| Konstanz – Tägerwilen, Gottlieber Strasse | 2 min | fluide |
+| Laufenburg (Baden) – Laufenburg AG | 2 min | fluide |
+
+Le trafic change d'heure en heure — l'état en direct de chaque douane est sur la [page du temps d'attente](/fr/temps-attente-douane/).
+## Essence : où elle coûte le moins cher aujourd’hui
+
+Sur 518 communes frontalières suivies, faire le plein revient aujourd'hui moins cher en Suisse dans 85 cas et en Italie dans 52.
+
+| Commune (IT) | Sans plomb, prix minimum |
+|---|---|
+| Livigno (SO) | 1,548 €/L |
+| Veduggio con Colzano (MB) | 1,849 €/L |
+| Arcisate (VA) | 1,854 €/L |
+| Aprica (SO) | 1,919 €/L |
+| Gera Lario (CO) | 1,979 €/L |
+
+📊 **Le bon côté pour un plein.** À **Livigno** (SO), l'écart vaut aujourd'hui **28,40 € sur un plein de 50 litres** (1,548 €/L en Italie contre 2,116 €/L à la station suisse la plus proche).
+
+La station suisse la moins chère aujourd'hui est **SOCAR Samnaun** (1,38 CHF/L, ≈ 1,467 €/L), près de Curon Venosta (BZ).
+
+Les prix commune par commune, mis à jour chaque jour : [prix de l'essence à la frontière, aujourd'hui](/fr/prix-essence-suisse/aujourd-hui/).
+## Taux de change franc–euro
+
+Un franc vaut **1,0617 €** (clôture du 2026-09-09). Par rapport à la veille il perd 0,0005 € ; sur sept jours, la variation est de -0,0010 €.
+
+💡 Quand on gagne en francs et qu'on dépense en euros, le taux fait partie du salaire : sur 4 000 CHF, un centime de variation vaut 40 € par mois. Le [calculateur de salaire net](/fr/calculer-salaire/) et le [comparatif des services de change](/fr/comparaison-services/taux-change-chf-eur/) font le calcul pour votre cas.
+## Emploi : les chiffres d’hier
+
+Hier, **1 229 nouvelles offres d'emploi** en Suisse sont arrivées sur notre job board ; 8 216 sur les sept derniers jours. Au total, **28 862** annonces sont actives, de 838 entreprises.
+
+Filtrez par canton, secteur et ville : [trouver un emploi au Tessin et en Suisse](/fr/trouver-emploi-tessin/).
+
+## Comment naît ce bulletin
+
+Aucun des chiffres ci-dessus ne vient d’un flux d’agence — c’est notre propre suivi : files échantillonnées plusieurs fois par heure à chaque passage frontalier suisse, prix des carburants dans les communes frontalières italiennes et aux stations suisses proches, série officielle quotidienne CHF/EUR et crawlers de notre job board. Le bulletin sort tôt chaque matin, avant les trajets pendulaires ; les chiffres sont un instantané au moment de la publication, les pages liées restent en direct toute la journée.]]></content:encoded>
+      <pubDate>Thu, 10 Sep 2026 09:27:52 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/bollettino-frontaliere-2026-09-10</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-09-10.webp" medium="image"/>
+    </item>
     <item>
       <title>Tessin : explosion centrale ritom, dommages de la ligne du Saint-Gothard</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/centrale-ritom-explosion-ligne-saint-gothard/</link>
@@ -3360,109 +3416,6 @@ Pour plus d'informations et pour utiliser des outils utiles, consultez le [calcu
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/incendio-galleria-monte-ceneri-esercitazione</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/incendio-galleria-monte-ceneri-esercitazione.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Vivre à Pianello del Lario et travailler au Tessin en tant que frontalier</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/vivre-a-pianello-del-lario-travailler-dans-le-tessin-en-tant-que-frontalier/</link>
-      <description><![CDATA[Découvrez les connexions, les temps de trajet, le coût de la vie, les zones recommandées et les avantages/inconvénients du transfert.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Pianello del Lario est une commune italienne proche de la frontière suisse.
-- De nombreux résidents travaillent en Ticino en tant que frontaliers.
-- Le nouvel accord frontalier entrera en vigueur le 1er janvier 2024.
-
-## Faits clés
-- **Quoi**: Nouvel Accord Frontalier
-- Quand: 1er janvier 2024
-- Où: Ticino, Italie
-- Qui: Frontaliers
-- Montant: Franchise €10'000
-
-Le transfert de Pianello del Lario au Ticino est un choix de plus en plus courant parmi les travailleurs italiens. La proximité géographique et les avantages fiscaux rendent cette option attrayante. Cependant, il y a plusieurs aspects à considérer avant de prendre une décision.
-
-### Connexions et Temps de Trajet
-Pianello del Lario est bien relié au Ticino par plusieurs routes et autoroutes. Les temps de trajet varient en fonction du moyen de transport choisi et des conditions de circulation. En voiture, le trajet peut prendre environ 30-45 minutes, tandis que les transports en commun peuvent prendre jusqu'à une heure.
-
-### Coût de la Vie
-Le coût de la vie à Pianello del Lario est généralement plus bas que dans de nombreuses localités suisses. Cependant, il est important de considérer également les coûts supplémentaires liés au pendularisme, tels que le carburant, les péages autoroutiers et les billets de transport en commun.
-
-### Zones Recommandées
-Pianello del Lario offre plusieurs zones résidentielles adaptées aux frontaliers. Les zones les plus populaires sont celles proches des principaux axes routiers et des transports en commun. Il est conseillé de choisir une zone qui offre également des services essentiels tels que des écoles, des magasins et des structures sanitaires.
-
-### Avantages et Inconvénients du Transfert
-Parmi les avantages du transfert, on trouve les coûts de vie plus bas et la possibilité de vivre dans un environnement plus calme par rapport aux villes suisses. Cependant, il y a aussi des inconvénients, comme les temps de trajet et les coûts supplémentaires liés au pendularisme.
-
-### Que Considérer Avant de Déménager
-Avant de déménager, il est important de considérer plusieurs aspects, notamment la proximité des lieux de travail, les coûts de vie, les services disponibles et les implications fiscales. Il est conseillé de consulter un expert fiscal pour mieux comprendre les implications du nouvel accord frontalier.
-
-### Implications Fiscales
-Le nouvel accord frontalier, signé le 23 décembre 2020 et en vigueur à partir du 1er janvier 2024, introduit de nouvelles règles pour les frontaliers. Les nouveaux frontaliers bénéficieront d'une franchise de €10'000, tandis que les frontaliers déjà en activité avant le 17 juillet 2023 auront une franchise de €7'500 avec un régime transitoire jusqu'en 2033.
-
-### Assurance Maladie
-Les frontaliers ont droit d'option pour l'assurance maladie (LAMal). Les franchises pour les adultes varient entre CHF 300 et CHF 2'500. Il est important de choisir la franchise la plus adaptée à ses besoins et à son budget.
-
-### Contributions et Taux
-Les contributions prévoyantes en Suisse incluent l'AVS/AI/IPG à 5,3 %, l'AD/AC à 1,1 % (avec une limite de CHF 148'200), la LAINF entre 0,7 % et 1,5 % et la LPP entre 7 % et 18 % selon la tranche d'âge. En Italie, l'IRPEF varie de 23 % jusqu'à €28'000, à 35 % entre €28'001 et €50'000 et à 43 % au-delà de €50'000.
-
-### Procédure de Transfert
-La procédure de transfert nécessite plusieurs étapes, notamment la demande de permis de séjour, l'enregistrement auprès de la commune de résidence et la souscription d'une assurance maladie. Il est conseillé de suivre une liste de contrôle détaillée pour éviter les erreurs et les retards.
-
-### Outils Utiles
-Pour faciliter le transfert, il est possible d'utiliser différents outils disponibles sur le site de Frontaliere Ticino, tels que le calculateur fiscal et le comparateur d'assurances maladie. Ces outils peuvent aider à mieux comprendre les implications fiscales et à choisir la solution la plus adaptée à ses besoins.
-
-### Conclusion
-Vivre à Pianello del Lario et travailler en Ticino en tant que frontalier peut être un choix avantageux, mais il nécessite une planification minutieuse. Il est important de considérer tous les aspects, des connexions et des temps de trajet au coût de la vie et aux implications fiscales. Consulter un expert fiscal et utiliser les outils disponibles peut faciliter le processus de transfert et garantir une transition sans problème.
-
-### CTA
-Pour calculer votre salaire net et mieux comprendre les implications fiscales, utilisez notre [calculateur fiscal](nav:calculator).
-## Analyse Pratique
-L'analyse pratique des implications pour les travailleurs frontaliers révèle plusieurs aspects à considérer. Les temps de trajet et les coûts supplémentaires liés au pendularisme peuvent influencer considérablement la qualité de vie. Cependant, les coûts de vie plus bas à Pianello del Lario peuvent compenser ces inconvénients.
-
-### Comparaison Avant/Après
-Avant le nouvel accord frontalier, les travailleurs frontaliers bénéficiaient d'une franchise de 7'500 €. Avec l'entrée en vigueur du nouvel accord, les nouveaux travailleurs frontaliers auront une franchise de 10'000 €, tandis que les travailleurs frontaliers déjà en activité conserveront la franchise précédente avec un régime transitoire jusqu'en 2033.
-
-### Scénarios Concrets
-Un travailleur frontalier se trouvant dans une situation similaire pourrait bénéficier du nouvel accord frontalier, réduisant ainsi la charge fiscale. Cependant, il est important de considérer également les coûts supplémentaires liés au pendularisme et de choisir la franchise la plus adaptée à ses besoins.
-
-### Implications pour les Travailleurs Frontaliers
-Les implications du nouvel accord frontalier pour les travailleurs frontaliers sont significatives. La franchise augmentée peut réduire la charge fiscale, mais il est important de considérer également les coûts supplémentaires liés au pendularisme et de choisir la franchise la plus adaptée à ses besoins.
-
-### Procédure de Transfert
-La procédure de transfert nécessite plusieurs étapes, telles que la demande du permis de séjour, l'enregistrement auprès de la commune de résidence et la souscription d'une assurance maladie. Il est conseillé de suivre une checklist détaillée pour éviter les erreurs et les retards.
-
-### Outils Utiles
-Pour faciliter le transfert, il est possible d'utiliser divers outils disponibles sur le site de Frontaliere Ticino, tels que le calculateur fiscal et le comparateur d'assurances maladie. Ces outils peuvent aider à mieux comprendre les implications fiscales et à choisir la solution la plus adaptée à ses besoins.
-
-### Conclusion
-L'analyse pratique des implications pour les travailleurs frontaliers révèle plusieurs aspects à considérer. Les temps de trajet et les coûts supplémentaires liés au pendularisme peuvent influencer considérablement la qualité de vie. Cependant, les coûts de vie plus bas à Pianello del Lario peuvent compenser ces inconvénients. Consulter un expert fiscal et utiliser les outils disponibles peut faciliter le processus de transfert et garantir une transition sans problème.
-
-### CTA
-Pour calculer votre salaire net et mieux comprendre les implications fiscales, utilisez notre [calculateur fiscal](nav:calculator).
-
-## Outils utiles pour votre cas
-Pour vérifier votre scénario fiscal dans/hors des 20 km, utilisez le [calculateur de salaire net](nav:calculator) et le [guide déclaration fiscale](nav:tax-return).
-## Action
-Pour faciliter le transfert, il est possible de suivre une procédure étape par étape détaillée. La première chose à faire est de demander le permis de séjour et de s'inscrire auprès de la commune de résidence. Ensuite, il est nécessaire de souscrire une assurance maladie et de choisir la franchise la plus adaptée à ses besoins.
-
-### Procédure Étape par Étape
-1. Demander le permis de séjour auprès des autorités compétentes.
-2. S'inscrire auprès de la commune de résidence.
-3. Souscrire une assurance maladie et choisir la franchise la plus adaptée à ses besoins.
-4. Consulter un expert fiscal pour mieux comprendre les implications du nouvel accord frontalier.
-5. Utiliser les outils disponibles sur le site de Frontaliere Ticino pour faciliter le processus de transfert.
-
-### Outils Utiles
-Pour faciliter le transfert, il est possible d'utiliser divers outils disponibles sur le site de Frontaliere Ticino, comme le calculateur fiscal et le comparateur d'assurances maladie. Ces outils peuvent aider à mieux comprendre les implications fiscales et à choisir la solution la plus adaptée à ses besoins.
-
-### Conclusion
-Le transfert de Pianello del Lario au Tessin peut être un choix avantageux, mais il nécessite une planification minutieuse. Il est important de considérer tous les aspects, des liaisons et des temps de trajet au coût de la vie et aux implications fiscales. Consulter un expert fiscal et utiliser les outils disponibles peut faciliter le processus de transfert et garantir une transition sans problème.
-
-### CTA
-Pour calculer votre salaire net et mieux comprendre les implications fiscales, utilisez notre [calculateur fiscal](nav:calculator).]]></content:encoded>
-      <pubDate>Sun, 06 Sep 2026 15:21:32 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/vivere-pianello-del-lario-lavorare-ticino-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-pianello-del-lario-lavorare-ticino-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

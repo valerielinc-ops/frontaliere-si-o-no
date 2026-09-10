@@ -11628,6 +11628,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.esplosione-centrale-ritom-san-gottardo.title': 'Tessin: Zentralexplosion Ritom, Schaden Linie San Gottardo',
     'blog.article.esplosione-centrale-ritom-san-gottardo.excerpt': 'Mittwochmorgen, 9. September 2026: Explosion und teilweiser Einsturz im historischen Wasserkraftwerk Ritom (1917). Zwei schwer verletzte Arbeiter, laufende Ermittlungen.',
     'blog.article.esplosione-centrale-ritom-san-gottardo.imageAlt': 'Explosion im Wasserkraftwerk Ritom, Kanton Tessin, mit Strukturschäden und Einsatzkräften.',
+    'blog.article.bollettino-frontaliere-2026-09-10.title': 'Grenzgänger-Tagesbulletin – 10. September 2026: 38 Minuten Wartezeit in Gaggiolo (Cantello-Stabio)',
+    'blog.article.bollettino-frontaliere-2026-09-10.excerpt': 'Die Zahlen von heute, 10. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-10.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 10. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-10.seoDescription': 'Grenzgänger-Bulletin vom 10. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-10.ogDescription': 'Die Zahlen vom 10. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
