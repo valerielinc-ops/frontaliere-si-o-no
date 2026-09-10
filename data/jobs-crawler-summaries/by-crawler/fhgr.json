@@ -1,7 +1,7 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-09-09T23:12:45.636Z",
+  "generatedAt": "2026-09-10T23:17:38.210Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,10 +12,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9008,
-  "avgDurationMs": 9008,
+  "durationMs": 9319,
+  "avgDurationMs": 9319,
   "durationHistory": [
-    9008
+    9319
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/808/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:12:35.749Z",
+      "crawledAt": "2026-09-10T23:17:29.707Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -47,7 +47,6 @@
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/808/Application/CheckLogin/1",
       "department": "Personal",
       "contractDuration": "permanent",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-08T23:31:09.494Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -69,7 +68,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/797/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:12:36.931Z",
+      "crawledAt": "2026-09-10T23:17:30.865Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -106,7 +105,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:12:38.081Z",
+      "crawledAt": "2026-09-10T23:17:32.052Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -122,7 +121,6 @@
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/749/Application/CheckLogin/1",
       "department": "Institut für Bauen im alpinen Raum (IBAR)",
       "contractDuration": "temporary",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
