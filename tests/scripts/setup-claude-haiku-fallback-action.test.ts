@@ -28,6 +28,32 @@ describe('Claude Haiku fallback setup action', () => {
     expect(action).toContain('echo "ENABLE_HAIKU_ARTICLE_FALLBACK=1" >> "$GITHUB_ENV"');
   });
 
+  it('uses a checksum-pinned private Node runtime when the runner toolcache is rejected', () => {
+    const action = fs.readFileSync(actionPath, 'utf8');
+    const resolverRun = (YAML.parse(action) as {
+      runs?: { steps?: Array<{ id?: string; run?: string }> };
+    }).runs?.steps?.find((step) => step.id === 'trusted_toolchain')?.run;
+    expect(resolverRun).toBeTruthy();
+    const fallbackStart = (resolverRun as string).indexOf("node_version='v24.21.0'");
+    expect(fallbackStart).toBeGreaterThan(0);
+    expect(resolverRun).toContain('report_runtime_candidates()');
+    expect(resolverRun).toContain('trusted-runtime candidate=%s mode=%s owner=%s');
+    expect(resolverRun).toContain('path_components_trusted "$host_tool"');
+    expect(resolverRun).toContain(
+      'node_archive="node-' + String.fromCharCode(36, 123) + 'node_version}-linux-x64.tar.xz"',
+    );
+    expect(resolverRun).toContain(
+      "node_archive_sha256='fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6'",
+    );
+    expect(resolverRun).toContain('node_runtime_root="$(/usr/bin/mktemp -d "$runner_temp/claude-haiku-node.XXXXXX")"');
+    expect(resolverRun).toContain('/usr/bin/curl --fail --silent --show-error --location --proto \'=https\' --tlsv1.2');
+    expect(resolverRun).toContain('if [ "$archive_sha256" != "$node_archive_sha256" ]');
+    expect(resolverRun).toContain('/usr/bin/chmod -R go-rwx "$node_root"');
+    expect(resolverRun).toContain('"$node_root"/*:"$node_root"/*');
+    expect((resolverRun as string).indexOf('if [ -z "$node_realpath" ] || [ -z "$npm_realpath" ]; then', fallbackStart))
+      .toBeGreaterThan(fallbackStart);
+  });
+
   it('runs the indirect Codex npm install with no job credentials in its environment', () => {
     const action = fs.readFileSync(actionPath, 'utf8');
     const document = YAML.parse(action) as {
@@ -153,6 +179,7 @@ describe('Claude Haiku fallback setup action', () => {
     const capturePath = path.join(root, 'npm-env.json');
     const evilMarker = path.join(root, 'evil-npm-used');
     const githubEnv = path.join(root, 'github-env');
+    const githubPath = path.join(root, 'github-path');
     fs.mkdirSync(trustedBin, { recursive: true });
     fs.mkdirSync(evilBin, { recursive: true });
     fs.mkdirSync(runnerTemp, { recursive: true });
@@ -190,10 +217,10 @@ describe('Claude Haiku fallback setup action', () => {
       .map((line) => line.startsWith('        ') ? line.slice(8) : line)
       .join('\n')
       .replace(
-        'case "$global_prefix" in\n  /usr|/usr/*|/usr/local|/usr/local/*|/bin|/bin/*|/opt/hostedtoolcache|/opt/hostedtoolcache/*|/opt/runner|/opt/runner/*|/opt/homebrew|/opt/homebrew/*) ;;',
-        `case "$global_prefix" in\n  '${fixturePrefix}'|/usr|/usr/*|/usr/local|/usr/local/*|/bin|/bin/*|/opt/hostedtoolcache|/opt/hostedtoolcache/*|/opt/runner|/opt/runner/*|/opt/homebrew|/opt/homebrew/*) ;;`,
+        'case "$global_prefix" in\n  "$trusted_node_root"|"$trusted_node_root"/*|/usr|/usr/*|/usr/local|/usr/local/*|/bin|/bin/*|/opt/hostedtoolcache|/opt/hostedtoolcache/*|/opt/runner|/opt/runner/*|/opt/homebrew|/opt/homebrew/*) ;;',
+        `case "$global_prefix" in\n  '${fixturePrefix}'|"$trusted_node_root"|"$trusted_node_root"/*|/usr|/usr/*|/usr/local|/usr/local/*|/bin|/bin/*|/opt/hostedtoolcache|/opt/hostedtoolcache/*|/opt/runner|/opt/runner/*|/opt/homebrew|/opt/homebrew/*) ;;`,
       );
-    expect(setupScript).toContain(`'${fixturePrefix}'|/usr`);
+    expect(setupScript).toContain(`'${fixturePrefix}'|"$trusted_node_root"`);
     const inheritedCredentials = {
       GH_TOKEN: 'github-token-sentinel',
       GITHUB_TOKEN: 'github-actions-token-sentinel',
@@ -214,6 +241,7 @@ describe('Claude Haiku fallback setup action', () => {
           PATH: `${evilBin}:${trustedBin}:${path.dirname(trustedNode)}:/usr/bin:/bin`,
           RUNNER_TEMP: runnerTemp,
           GITHUB_ENV: githubEnv,
+          GITHUB_PATH: githubPath,
           TRUSTED_NODE: trustedNode,
           TRUSTED_NODE_SHA256: cryptoHash(trustedNode),
           TRUSTED_NPM: fakeNpmPath,
@@ -235,6 +263,7 @@ describe('Claude Haiku fallback setup action', () => {
       });
       expect(captured.env.NPM_CONFIG_GLOBALCONFIG).toMatch(/global-npmrc$/);
       expect(fs.existsSync(evilMarker)).toBe(false);
+      expect(fs.readFileSync(githubPath, 'utf8')).toBe(path.dirname(trustedNode) + '\n');
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
