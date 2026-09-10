@@ -62,6 +62,22 @@ const NAMED_ENTITIES = {
   agrave: 'à', acirc: 'â', ccedil: 'ç', oelig: 'œ',
   rsquo: '’', lsquo: '‘', rdquo: '”', ldquo: '“', ndash: '–', mdash: '—',
   laquo: '«', raquo: '»', middot: '·', hellip: '…',
+  // Extended Latin and punctuation entities observed on employer ATS pages.
+  Aacute: 'Á', Acirc: 'Â', Agrave: 'À', Atilde: 'Ã', Aring: 'Å',
+  aacute: 'á', acirc: 'â', atilde: 'ã', aring: 'å',
+  AE: 'Æ', ae: 'æ', Ccedil: 'Ç',
+  Eacute: 'É', Ecirc: 'Ê', Egrave: 'È', Euml: 'Ë',
+  Iacute: 'Í', Icirc: 'Î', Igrave: 'Ì', Iuml: 'Ï',
+  iacute: 'í', icirc: 'î', igrave: 'ì', iuml: 'ï',
+  Ntilde: 'Ñ', ntilde: 'ñ', Oacute: 'Ó', Ocirc: 'Ô', Ograve: 'Ò',
+  Oslash: 'Ø', Otilde: 'Õ', oacute: 'ó', ocirc: 'ô', ograve: 'ò',
+  oslash: 'ø', otilde: 'õ', Uacute: 'Ú', Ucirc: 'Û', Ugrave: 'Ù',
+  uacute: 'ú', ucirc: 'û', ugrave: 'ù', Yacute: 'Ý', yacute: 'ý',
+  Yuml: 'Ÿ', yuml: 'ÿ', OElig: 'Œ',
+  scaron: 'š', Scaron: 'Š', ccaron: 'č', Ccaron: 'Č', zcaron: 'ž', Zcaron: 'Ž',
+  ncaron: 'ň', Ncaron: 'Ň', thinsp: ' ',
+  bull: '•', dagger: '†', Dagger: '‡', permil: '‰', prime: '′', Prime: '″',
+  euro: '€', deg: '°', sup2: '²', sup3: '³', frac12: '½', frac14: '¼', frac34: '¾',
 };
 
 function decodeEntities(s = '') {
@@ -71,18 +87,23 @@ function decodeEntities(s = '') {
     .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)));
 }
 
-// Every value compared through `normalize` on the rendered side has already
-// been through `normalizeSpace`, while the structured side (JSON-LD) is raw:
-// collapsing internal runs here keeps that comparison symmetric. A source that
-// writes `Köchin  / Koch` with a double space in its JSON-LD title used to
-// miss its own `<h1>`, leaving the posting unmatched and the vacancy with no
-// address evidence at all (#7461).
-function normalize(s = '') {
-  return normalizeSpace(s).toLowerCase();
+// Title identity is compared through `normalizeTitleIdentity`: the rendered
+// side has already been through `normalizeSpace`, while the structured side
+// (JSON-LD) is raw. Collapsing internal runs keeps that comparison symmetric.
+// Key comparisons deliberately use `normalizeKey` below and remain strict. A
+// source that writes `Köchin  / Koch` with a double space in its JSON-LD title
+// used to miss its own `<h1>`, leaving the posting unmatched and the vacancy
+// with no address evidence at all (#7461).
+function normalizeKey(s = '') {
+  return String(s || '').trim().toLowerCase();
 }
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function normalizeTitleIdentity(s = '') {
+  return normalizeSpace(s).toLowerCase();
 }
 
 async function fetchHtml(url, validateUrl) {
@@ -166,7 +187,7 @@ function stripHtmlInline(raw = '') {
 
 function isRexxJobPosting(node) {
   const types = Array.isArray(node?.['@type']) ? node['@type'] : [node?.['@type']];
-  return types.some((type) => normalize(type) === 'jobposting');
+  return types.some((type) => normalizeKey(type) === 'jobposting');
 }
 
 function canonicalRexxUrl(value = '') {
@@ -183,11 +204,17 @@ function canonicalRexxUrl(value = '') {
 function readRexxStructuredPosting(html, title, pageUrl) {
   const postings = readRexxStructuredBlocks(html).filter(isRexxJobPosting);
   const pageIdentity = canonicalRexxUrl(pageUrl);
+  const postingsWithIdentity = postings.filter((posting) => canonicalRexxUrl(posting?.url || posting?.sameAs || ''));
+  if (postingsWithIdentity.length > 0) {
+    const identityMatches = postingsWithIdentity.filter((posting) => {
+      const postingIdentity = canonicalRexxUrl(posting?.url || posting?.sameAs || '');
+      return Boolean(pageIdentity && postingIdentity === pageIdentity);
+    });
+    return identityMatches.length === 1 ? identityMatches[0] : null;
+  }
   const candidates = postings.filter((posting) => {
     const titleMatches = title
-      && normalize(decodeEntities(posting?.title || posting?.name || '')) === normalize(title);
-    const postingIdentity = canonicalRexxUrl(posting?.url || posting?.sameAs || '');
-    if (postingIdentity) return Boolean(pageIdentity && postingIdentity === pageIdentity);
+      && normalizeTitleIdentity(decodeEntities(posting?.title || posting?.name || '')) === normalizeTitleIdentity(title);
     return titleMatches;
   });
   return candidates.length === 1 ? candidates[0] : null;
@@ -234,8 +261,8 @@ export function extractRexxDetail(html = '', pageUrl = '') {
     .replace(/<footer[\s\S]*?<\/footer>/gi, '');
 
   // Title = <h1>
-  const titleMatch = cleaned.match(/<h1[^>]*>([^<]+)<\/h1>/);
-  const title = titleMatch ? normalizeSpace(decodeEntities(titleMatch[1])) : '';
+  const titleMatch = cleaned.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = titleMatch ? normalizeSpace(decodeEntities(stripHtmlInline(titleMatch[1]))) : '';
   const structuredPosting = readRexxStructuredPosting(html, title, pageUrl);
   const structured = structuredPosting
     ? readRexxStructuredDetail(html, pageUrl)
@@ -250,11 +277,11 @@ export function extractRexxDetail(html = '', pageUrl = '') {
   const authoritativeTitle = title || normalizeSpace(decodeEntities(structuredPosting?.title || ''));
 
   // Walk all <h2>/<h3> headers in order; capture text between consecutive ones.
-  const headers = [...cleaned.matchAll(/<h([23])[^>]*>([^<]+)<\/h[23]>/g)];
+  const headers = [...cleaned.matchAll(/<h([23])[^>]*>([\s\S]*?)<\/h[23]>/gi)];
   const parts = [];
   for (let i = 0; i < headers.length; i++) {
     const h = headers[i];
-    const label = normalizeSpace(decodeEntities(h[2]));
+    const label = normalizeSpace(decodeEntities(stripHtmlInline(h[2])));
     if (STOP_HEADLINE_RX.test(label)) break;
     if (!CONTENT_HEADLINE_RX.test(label)) continue;
     const start = h.index + h[0].length;
@@ -285,7 +312,7 @@ export function extractRexxDetail(html = '', pageUrl = '') {
 /* ── Classifiers ─────────────────────────────────────────── */
 
 function detectCategory(title = '') {
-  const t = normalize(title);
+  const t = normalizeTitleIdentity(title);
   if (/\b(pflege|pflegefach|stationsleitung|fage|spitex|nachtwache|geburts|hebamme)/.test(t)) return 'Sanità / Ospedali';
   if (/\b(arzt|ärztin|oberarzt|chefarzt|leitend|medizin|chirurg|anästhes|onkolog|kardiolog|neurolog|pädiatr|gynäk|psychi|geriatr)/.test(t)) return 'Sanità / Ospedali';
   if (/\b(labor|laborant|biomedizin|radiolog|röntgen|mtra|mrt|physiother|ergo|logopäd|rehabilit|apothek|pharma)/.test(t)) return 'Sanità / Ospedali';
@@ -301,7 +328,7 @@ function detectCategory(title = '') {
 }
 
 function detectExperienceLevel(title = '') {
-  const t = normalize(title);
+  const t = normalizeTitleIdentity(title);
   if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|lehrling|lernend|apprenti|unterassistent)/.test(t)) return 'intern';
   if (/\b(junior|jr|assistent)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|chef|verantwort|leiter|leitend|stationsleitung|oberarzt|chefarzt)/.test(t)) return 'senior';
@@ -309,7 +336,7 @@ function detectExperienceLevel(title = '') {
 }
 
 function detectEmploymentType(title = '') {
-  const t = normalize(title);
+  const t = normalizeTitleIdentity(title);
   const pct = t.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || t.match(/(\d{2,3})\s*%/);
   if (pct) {
     const maxPct = pct[2] ? parseInt(pct[2], 10) : parseInt(pct[1], 10);
@@ -400,8 +427,8 @@ export function createRexxSystemsParser(config) {
     }
     const isEmployerLabel = (candidate) => {
       const locality = normalizeSpace(candidate?.addressLocality || candidate?.location || '');
-      const localityKey = normalize(locality);
-      const companyKeyNormalized = normalize(companyName);
+      const localityKey = normalizeKey(locality);
+      const companyKeyNormalized = normalizeKey(companyName);
       return localityKey === companyKeyNormalized
         || companyKeyNormalized.includes(localityKey)
         || localityKey.includes(companyKeyNormalized);
@@ -458,8 +485,8 @@ export function createRexxSystemsParser(config) {
   }
 
   function isCompanyJob(job) {
-    const key = normalize(job?.companyKey || '');
-    const url = normalize(job?.url || '');
+    const key = normalizeKey(job?.companyKey || '');
+    const url = normalizeKey(job?.url || '');
     if (key === companyKey) return true;
     if (corporateHost && url.includes(corporateHost)) return true;
     if (url.includes(atsHostLower)) return true;
