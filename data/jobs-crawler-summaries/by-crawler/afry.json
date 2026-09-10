@@ -1,16 +1,16 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-09-10T19:21:19.604Z",
+  "generatedAt": "2026-09-10T19:55:30.078Z",
   "total": 67,
   "newCount": 0,
   "updatedCount": 67,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 152031,
-  "avgDurationMs": 152031,
+  "durationMs": 161464,
+  "avgDurationMs": 161464,
   "durationHistory": [
-    152031
+    161464
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -150,6 +150,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-08T13:42:57.501Z",
+      "needsRetranslation": true,
       "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 12,
@@ -368,7 +369,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-25T21:46:23.162Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -838,7 +838,6 @@
       "firstSeenAt": "2026-07-01T21:43:04.412Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
