@@ -520,10 +520,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // A.3 — primary target keyword "calcolo stipendio netto svizzera" (vol 390).
  // See docs/seo-semrush-growth-plan.md Task A.3.
  title: 'Calcolo Stipendio Netto Svizzera 2026 — Simulatore Frontalieri',
- description: 'Con 60.000 CHF lordi un frontaliere netta circa 3.200–3.500 €/mese. Calcola il tuo netto esatto 2026: imposta alla fonte, AVS, IRPEF e franchigia 10.000 €. Gratis.',
+ description: 'Calcola lo stipendio netto da frontaliere in Svizzera: imposta alla fonte, AVS, LPP, IRPEF e franchigia di 10.000 €. Simulatore gratuito aggiornato al 2026.',
  keywords: 'calcolo stipendio netto svizzera, calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
  ogTitle: 'Calcolo Stipendio Netto Svizzera 2026 — Simulatore Frontalieri',
- ogDescription: 'Un frontaliere con 60.000 CHF lordi/anno netta circa 3.200–3.500 €/mese dopo contributi svizzeri e tasse italiane. Usa 8 simulatori gratuiti per calcolare il tuo netto esatto (accordo 2026).',
+ ogDescription: 'Simula lo stipendio netto da frontaliere con imposta alla fonte, contributi AVS/LPP, IRPEF e franchigia di 10.000 €. Calcolo gratuito aggiornato al 2026.',
  canonicalPath: '/calcola-stipendio/',
  structuredData: [
  {
@@ -2657,11 +2657,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'border-map': {
- title: 'Mappa Confine Italia Svizzera 2026: 9 Valichi Ticino',
- description: 'Mappa confine Italia-Svizzera interattiva: 9 valichi del Canton Ticino (Chiasso, Brogeda, Gaggiolo, Ponte Tresa) con tempi attesa live, webcam e comuni.',
+ title: 'Mappa confine Italia-Svizzera 2026 | Valichi del Ticino',
+ description: 'Mappa interattiva del confine Italia-Svizzera in Ticino: valichi, tempi di attesa live, webcam e comuni di frontiera.',
  keywords: 'mappa valichi ticino, mappa dogane svizzera italia, valichi confine ticino, chiasso brogeda mappa, gaggiolo ponte tresa mappa, webcam valichi confine, tempi attesa dogane ticino, comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
- ogTitle: 'Mappa Valichi Ticino-Italia | Tempi Attesa + Webcam Live',
- ogDescription: '🗺️ Mappa interattiva dei valichi di confine tra Ticino e Italia con tempi di attesa, webcam, addizionali IRPEF e comuni di frontiera.',
+ ogTitle: 'Mappa confine Italia-Svizzera 2026 | Valichi del Ticino',
+ ogDescription: 'Mappa interattiva del confine Italia-Svizzera in Ticino: valichi, tempi di attesa live, webcam e comuni di frontiera.',
  canonicalPath: '/guida-frontaliere/mappa-confine/',
  h1: 'Mappa confine Svizzera-Italia 2026 — valichi, comuni 20 km e addizionali IRPEF',
  structuredData: [
@@ -3486,11 +3486,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  jobboard: {
- title: 'Offerte di Lavoro Ticino 2026 — Lugano, Mendrisio, Bellinzona | Aggiornate Ogni Giorno',
- description: 'Cerca lavoro in Ticino: 1500+ offerte aggiornate da 100+ aziende a Lugano, Mendrisio, Bellinzona. Banche, IT, pharma, sanità. Candidatura diretta, gratis!',
+ title: 'Offerte di lavoro in Ticino 2026 | Aggiornate ogni giorno',
+ description: 'Cerca offerte di lavoro in Ticino per frontalieri: filtra per città, settore e contratto, confronta le posizioni e candidati direttamente alle aziende.',
  keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, lavoro in svizzera per italiani, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni, case anziani ticino offerte di lavoro',
- ogTitle: 'Offerte di Lavoro Ticino 2026 | Lugano, Mendrisio, Bellinzona',
- ogDescription: 'Cerca lavoro in Ticino: 1500+ offerte aggiornate da 100+ aziende a Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità, case anziani. Candidatura diretta — gratis!',
+ ogTitle: 'Offerte di lavoro in Ticino 2026 | Aggiornate ogni giorno',
+ ogDescription: 'Offerte di lavoro in Ticino per frontalieri: filtra per città, settore e contratto e candidati direttamente alle aziende.',
  canonicalPath: '/cerca-lavoro-ticino/',
  structuredData: [
  {
