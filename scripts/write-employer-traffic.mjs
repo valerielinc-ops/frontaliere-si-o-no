@@ -45,6 +45,9 @@ export function buildTrafficDocs(report) {
   if (!report || !Array.isArray(report.employers)) return [];
   const window = report.window;
   if (!window || typeof window !== 'object' || !window.from || !window.to) return [];
+  // Always emit a reader-compatible source; normalizeCrawledTrafficSource()
+  // intentionally rejects null and blank values in the publisher dashboard.
+  const source = report.source ? String(report.source) : 'posthog';
   const finiteCount = (value) => {
     if (value === undefined || value === null || value === '') return null;
     const count = Number(value);
@@ -64,7 +67,7 @@ export function buildTrafficDocs(report) {
         applyClicks,
         applyClickProxy,
         window: { ...window },
-        source: report.source ? String(report.source) : null,
+        source,
       },
     }));
 }

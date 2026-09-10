@@ -66,18 +66,24 @@ function normalizeInsightWindow(value) {
   };
 }
 
+/** serializeEmployerInsightsTotals() preserves safe historical signals without inventing a scope. */
 export function serializeEmployerInsightsTotals(totals = {}, window = null) {
   const t = totals && typeof totals === 'object' ? totals : {};
   const hasWindow = !!window && typeof window === 'object' && window.from && window.to;
-  const scopedNumber = (value) => hasWindow ? nonNegativeNumberOrNull(value) : null;
+  // Views, visitors, profile views and observed ads remain useful historical
+  // signals even when an older document predates the explicit window. Clicks
+  // and applications are period-bound claims (including cold-email copy), so
+  // keep those unavailable until the document declares their scope.
+  const historicalNumber = (value) => nonNegativeNumberOrNull(value);
+  const windowNumber = (value) => hasWindow ? nonNegativeNumberOrNull(value) : null;
   return {
-    views: scopedNumber(t.views),
-    visitors: scopedNumber(t.visitors),
-    profileViews: scopedNumber(t.profileViews),
-    applyClicks: scopedNumber(t.applyClicks),
-    applications: scopedNumber(t.applications),
-    applicationsStatus: typeof t.applicationsStatus === 'string' ? t.applicationsStatus : null,
-    adsObserved: scopedNumber(t.adsObserved ?? t.adsCount),
+    views: historicalNumber(t.views),
+    visitors: historicalNumber(t.visitors),
+    profileViews: historicalNumber(t.profileViews),
+    applyClicks: windowNumber(t.applyClicks),
+    applications: windowNumber(t.applications),
+    applicationsStatus: hasWindow && typeof t.applicationsStatus === 'string' ? t.applicationsStatus : null,
+    adsObserved: historicalNumber(t.adsObserved ?? t.adsCount),
   };
 }
 
@@ -177,14 +183,28 @@ async function loadOutreachMap(db) {
 }
 
 /** GET → lean per-company insights list merged with the editable contact. */
-async function handleList(db, newsletterSecret) {
+export async function handleList(db, newsletterSecret) {
   const [snap, contacts, outreach] = await Promise.all([
     db.collection(INSIGHTS_COLLECTION).get(),
     loadContactsMap(db),
     loadOutreachMap(db),
   ]);
 
-  const insights = snap.docs.map((doc) => {
+  // Sort the raw totals.views field before serialization, so an absent value
+  // remains distinct from an explicit zero. Do not revive `(b.totals.views ?? -1)`
+  // after serialization: that collapses all windowless legacy rows together.
+  const insightDocs = [...snap.docs].sort((a, b) => {
+    const aTotals = a.data()?.totals || {};
+    const bTotals = b.data()?.totals || {};
+    const aViews = nonNegativeNumberOrNull(aTotals.views);
+    const bViews = nonNegativeNumberOrNull(bTotals.views);
+    if (aViews === null && bViews === null) return 0;
+    if (aViews === null) return 1;
+    if (bViews === null) return -1;
+    return bViews - aViews;
+  });
+
+  const insights = insightDocs.map((doc) => {
     const d = doc.data() || {};
     const companyKey = String(d.companyKey || doc.id);
     const t = d.totals || {};
@@ -211,7 +231,6 @@ async function handleList(db, newsletterSecret) {
     };
   });
 
-  insights.sort((a, b) => (b.totals.views ?? -1) - (a.totals.views ?? -1));
   return { status: 200, body: { ok: true, insights } };
 }
 
