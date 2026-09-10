@@ -196,7 +196,8 @@ function slugify(text = '', suffix = '') {
 
 async function translateUsiTitle(text = '', sourceLang = 'it', targetLang = 'en', job = {}) {
   const source = String(text || '').trim();
-  if (!source || sourceLang === targetLang) return source;
+  if (!source || !hasUsableTitle(source)) return '';
+  if (sourceLang === targetLang) return source;
 
   const local = await translateTextWithLocalPipeline({
     text: source,
@@ -979,17 +980,18 @@ async function postProcessUsiJobs() {
           if (!translatedTitle || normalize(translatedTitle) === normalize(sourceTitle)) {
             translatedTitle = rescueUsiTitleTranslation(sourceTitle, locale) || translatedTitle;
           }
-          if (translatedTitle && normalize(translatedTitle) !== normalize(currentTitle)) {
+          if (hasUsableTitle(translatedTitle) && normalize(translatedTitle) !== normalize(currentTitle)) {
             job.titleByLocale[locale] = translatedTitle;
             fixed++;
           }
         }
-      } else if (locale === sourceLang && sourceTitle && !currentTitle) {
+      } else if (locale === sourceLang && hasUsableTitle(sourceTitle) && !currentTitle) {
         job.titleByLocale[locale] = sourceTitle;
         fixed++;
       }
 
-      const localizedTitle = String(job.titleByLocale?.[locale] || '').trim() || sourceTitle;
+      const localizedTitle = String(job.titleByLocale?.[locale] || '').trim()
+        || (hasUsableTitle(sourceTitle) ? sourceTitle : '');
       if (localizedTitle) {
         const newSlug = slugify(localizedTitle, citySuffix);
         const existingSlug = String(job.slugByLocale?.[locale] || '').trim();

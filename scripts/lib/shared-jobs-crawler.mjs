@@ -3652,7 +3652,7 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
               for (const localeKey of Object.keys(aiLocalized)) {
                 titleByLocale[localeKey] = hasUsableTitle(aiLocalized[localeKey].title)
                   ? aiLocalized[localeKey].title
-                  : title;
+                  : '';
                 descriptionByLocale[localeKey] = aiLocalized[localeKey].description;
                 requirementsByLocale[localeKey] = mergeRequirements(
                   requirementsByLocale[localeKey] || [],

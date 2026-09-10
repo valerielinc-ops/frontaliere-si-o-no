@@ -197,7 +197,9 @@ function passesQualityGate({ sourceText, candidate, kind, minChars = 0 }) {
   if (!output) return false;
   const effectiveMinChars = kind === 'title'
     ? Math.max(MIN_TITLE_CHARS, minChars)
-    : minChars;
+    : kind === 'requirement'
+      ? Math.max(2, minChars)
+      : minChars;
   if (output.length < effectiveMinChars) return false;
   if (looksLikeCopy(source, output, kind)) return false;
   if (kind === 'title' || kind === 'requirement') {
