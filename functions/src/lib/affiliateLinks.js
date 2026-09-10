@@ -11,8 +11,8 @@ import { getEnabledPartner, goPathFromId } from './affiliatePartnersRegistry.js'
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
-/** Characters Partnerize does not accept in a publisher reference. */
-export const PUBREF_INVALID_RE = /[^a-z0-9_-]+/g;
+/** Keep the network-facing reference to the documented-safe alphanumeric/hyphen alphabet. */
+export const PUBREF_INVALID_RE = /[^a-z0-9-]+/g;
 /** Network-facing publisher-reference cap; keep it explicit and observable. */
 export const PUBREF_MAX_LEN = 48;
 export const PUBREF_HASH_LEN = 7;
@@ -41,10 +41,10 @@ export function safeAffiliateToken(raw, fallback = '') {
   for (let index = 0; index < normalized.length; index += 1) {
     hash = Math.imul(hash ^ normalized.charCodeAt(index), PUBREF_HASH_MULTIPLIER);
   }
-  const suffix = `_${(hash >>> 0).toString(36).padStart(PUBREF_HASH_LEN, '0')}`;
+  const suffix = `-${(hash >>> 0).toString(36).padStart(PUBREF_HASH_LEN, '0')}`;
   const prefix = normalized
     .slice(0, PUBREF_MAX_LEN - suffix.length)
-    .replace(/[-_]+$/, '');
+    .replace(/-+$/, '');
   return `${prefix}${suffix}`;
 }
 

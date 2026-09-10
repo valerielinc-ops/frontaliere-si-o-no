@@ -30,7 +30,7 @@ describe('affiliate link attribution', () => {
       position: 'partner-page-banking-2',
     });
     expect(longPubref.length).toBeLessThanOrEqual(48);
-    expect(longPubref).toMatch(/_[a-z0-9]{7}$/);
+    expect(longPubref).toMatch(/-[a-z0-9]{7}$/);
     expect(longPubref).not.toBe(buildAffiliatePubref({
       ...longDimensions,
       position: 'partner-page-banking-3',
@@ -145,7 +145,7 @@ describe('affiliate revenue reconciliation', () => {
       currency: 'CHF',
       amount: '1,234',
       transaction_date: '2026-09-04',
-    })).toEqual(expect.objectContaining({ ok: true, value: expect.objectContaining({ amount: 1234 }) }));
+    }, { amountFormat: 'grouped' })).toEqual(expect.objectContaining({ ok: true, value: expect.objectContaining({ amount: 1234 }) }));
 
     expect(normalizeAffiliateTransaction({
       transaction_id: 'tx-grouped-dot',
@@ -173,5 +173,52 @@ describe('affiliate revenue reconciliation', () => {
         value: expect.objectContaining({ amount: expected }),
       }));
     }
+  });
+
+  it('refuses ambiguous three-digit amounts until the export format is declared', () => {
+    const row = {
+      transaction_id: 'tx-ambiguous',
+      status: 'approved',
+      currency: 'CHF',
+      amount: '12.500',
+      transaction_date: '2026-09-04',
+    };
+
+    expect(normalizeAffiliateTransaction(row)).toMatchObject({
+      ok: false,
+      errors: [expect.stringMatching(/ambiguous numeric amount/i)],
+    });
+    expect(normalizeAffiliateTransaction(row, { amountFormat: 'decimal' })).toMatchObject({
+      ok: true,
+      value: { amount: 12.5 },
+    });
+    expect(normalizeAffiliateTransaction(row, { amountFormat: 'grouped' })).toMatchObject({
+      ok: true,
+      value: { amount: 12500 },
+    });
+  });
+
+  it('carries the declared amount format from a network export into reconciliation', () => {
+    const report = reconcileAffiliateTransactions({
+      rows: [{
+        transaction_id: 'tx-export-format',
+        status: 'approved',
+        currency: 'CHF',
+        amount: '12.500',
+        transaction_date: '2026-09-04',
+      }],
+      from: '2026-09-01',
+      to: '2026-09-07',
+      exposures: { web: 1000 },
+      amountFormat: 'decimal',
+    });
+
+    expect(report.invalidRows).toBe(0);
+    expect(report.byCurrency.CHF.approved).toBe(12.5);
+  });
+
+  it('normalises underscores out of publisher references', () => {
+    expect(buildAffiliatePubref({ partnerId: 'wise', variant: 'control', surface: 'web', position: 'hero_slot', campaign: 'g4' }))
+      .toBe('wise-control-web-hero-slot-g4');
   });
 });

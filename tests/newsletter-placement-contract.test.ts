@@ -48,7 +48,7 @@ describe('newsletter placement contract', () => {
   });
 
   it('every emitted placement survives the pubref sanitiser unchanged', () => {
-    // Il redirect normalizza a `[a-z0-9_-]` e tronca: una forma che non
+    // Il redirect normalizza a `[a-z0-9-]` e tronca: una forma che non
     // sopravvive intatta arriva a Partnerize diversa da come e' stata emessa,
     // e le due meta' del funnel non si ricongiungono piu'.
     const placements = [
