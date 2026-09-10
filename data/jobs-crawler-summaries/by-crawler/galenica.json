@@ -1,40 +1,38 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-09-09T23:03:10.200Z",
-  "total": 373,
+  "generatedAt": "2026-09-10T23:06:16.687Z",
+  "total": 369,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 93572,
-  "avgDurationMs": 93572,
+  "unchangedCount": 0,
+  "durationMs": 96178,
+  "avgDurationMs": 96178,
   "durationHistory": [
-    93572
+    96178
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Senior Agile and Product Coach (f/h/d)",
+      "title": "Qualitätsmanager (w/m/d)",
       "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3133525.4060323",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3129798.4052839",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "category": "healthcare",
-      "descriptionIt": "Senior Agile and Product Coach (f/h/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "category": "technology",
+      "descriptionIt": "Qualitätsmanager (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "it",
-      "slug": "galenica-galenica-ag-senior-agile-and-product-coach-f-h-d-bern",
-      "id": "galenica-089b2fa2d56b",
+      "slug": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern",
+      "id": "galenica-da93713448c2",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 115000,
-      "salaryMax": 160000,
+      "salaryMin": 113000,
+      "salaryMax": 192000,
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddress": "Untermattweg 8",
@@ -43,7 +41,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -52,5 +49,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
