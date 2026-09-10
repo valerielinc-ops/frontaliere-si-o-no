@@ -348,7 +348,7 @@ export const SECTOR_HUB_LOCALE_PREFIX: Record<JobBoardLocale, string> = {
 export interface SectorHubPath {
   locale: JobBoardLocale;
   sector: SectorHubKey;
-  /** Canonical path with trailing slash, e.g. "/cerca-lavoro-ticino/infermieri/". */
+  /** Canonical path with trailing slash, e.g. "/jobs/sector/nursing/". */
   path: string;
 }
 
