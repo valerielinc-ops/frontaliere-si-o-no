@@ -24,6 +24,8 @@ describe('Claude Haiku fallback setup action', () => {
     expect(action).toContain('"$trusted_node" "$trusted_npm" install --global');
     expect(action).toContain('Unexpected Claude Code package version');
     expect(action).toContain('Unexpected Claude Code CLI version');
+    expect(action).toContain('claude_cli_semver="${BASH_REMATCH[1]}"');
+    expect(action).toContain("if [ \"$claude_cli_semver\" != '2.1.267' ]; then");
     expect(action).toContain('::warning::Codex CLI install failed; Claude and the normal fallback cascade remain available');
     expect(action).toContain('echo "ENABLE_HAIKU_ARTICLE_FALLBACK=1" >> "$GITHUB_ENV"');
   });
@@ -160,7 +162,7 @@ describe('Claude Haiku fallback setup action', () => {
     }
   });
 
-  it('installs the pinned Claude CLI through trusted npm without job credentials', () => {
+  it('accepts the pinned Claude CLI semver with the Claude Code output suffix', () => {
     const action = fs.readFileSync(actionPath, 'utf8');
     const setupRun = (YAML.parse(action) as {
       runs?: { steps?: Array<{ id?: string; run?: string }> };
@@ -203,7 +205,7 @@ describe('Claude Haiku fallback setup action', () => {
       "writeFileSync(join(packageRoot, 'package.json'), JSON.stringify({ version: '2.1.267' }));",
       "const claudePath = join(globalPrefix, 'bin', 'claude');",
       "mkdirSync(join(globalPrefix, 'bin'), { recursive: true });",
-      "writeFileSync(claudePath, '#!/bin/sh\\nprintf \\\"2.1.267\\\\n\\\"\\n');",
+      "writeFileSync(claudePath, '#!/bin/sh\\nprintf \\\"2.1.267 (Claude Code)\\\\n\\\"\\n');",
       'chmodSync(claudePath, 0o700);',
     ].join('\n');
     writeFileSync(fakeNpmPath, fakeNpmSource);
