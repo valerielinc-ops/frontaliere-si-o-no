@@ -1,0 +1,20 @@
+{
+  "companyKey": "freikirche-celerina",
+  "companyName": "Evang. Freikirche Celerina",
+  "companyHost": "freikirche-celerina.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.freikirche-celerina.ch/job/das-kochteam-sucht-unterstuetzung/"
+  ],
+  "detailTemplate": "/job/das-kochteam-sucht-unterstuetzung/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Kochen am Gemeinde Zmittag"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-10T09:02:23.435Z"
+}
