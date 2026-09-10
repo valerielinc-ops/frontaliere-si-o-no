@@ -156,6 +156,7 @@ import { buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/job
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
 import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/jobCardHtml';
+import { callNativeHistory } from '@/services/nativeHistoryCall';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import Callout from '@/components/shared/Callout';
@@ -2134,6 +2135,11 @@ const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactN
  );
 };
 JobBoardRailShell.displayName = 'JobBoardRailShell';
+
+function readCurrentPageViewPath(): string {
+ if (typeof window === 'undefined') return '';
+ return `${window.location.pathname}${window.location.search}${window.location.hash}`;
+}
 
 const JobBoard: React.FC<JobBoardProps> = ({
  onPostJob,
@@ -4657,22 +4663,48 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (companyHubEmployerKey) return { employerKey: companyHubEmployerKey };
   return null;
  }, [selectedJob, companyHubEmployerKey]);
- const pageViewPath = typeof window === 'undefined' ? '' : `${window.location.pathname}${window.location.search}${window.location.hash}`;
+ const [pageViewNavigationVersion, setPageViewNavigationVersion] = useState(0);
+ useEffect(() => {
+  if (typeof window === 'undefined') return;
+  const onHistoryNavigation = () => setPageViewNavigationVersion((version) => version + 1);
+  const originalPushState = window.history.pushState;
+  const wrappedPushState = function(this: History, ...args: Parameters<History['pushState']>) {
+   const result = callNativeHistory('pushState', originalPushState, this || window.history, args);
+   onHistoryNavigation();
+   return result as void;
+  } as History['pushState'];
+  window.history.pushState = wrappedPushState;
+  window.addEventListener('popstate', onHistoryNavigation);
+  window.addEventListener('hashchange', onHistoryNavigation);
+  return () => {
+   if (window.history.pushState === wrappedPushState) window.history.pushState = originalPushState;
+   window.removeEventListener('popstate', onHistoryNavigation);
+   window.removeEventListener('hashchange', onHistoryNavigation);
+  };
+ }, []);
  const pageViewTrackedKey = useRef<string | null>(null);
 
  // The central route tracker deliberately defers job-detail/company-hub
- // page_views to this point. The event is still emitted when identity is
- // unavailable; buildPageViewAttributionParams then leaves attribution empty.
+ // page_views to this point. Read the URL inside the effect: a pushState can
+ // happen before React paints the render that caused it, so a render-captured
+ // pathname can describe the previous page. The event is still emitted when
+ // identity is unavailable; buildPageViewAttributionParams then leaves
+ // attribution empty.
  useEffect(() => {
-  if (!pageViewPath) return;
-  const { pageTemplate } = deriveAnalyticsPageContext(pageViewPath);
-  if (pageTemplate !== 'job_detail' && pageTemplate !== 'jobs_company') return;
-  const path = pageViewPath;
+  const path = readCurrentPageViewPath();
+  if (!path) return;
+  const { pageTemplate } = deriveAnalyticsPageContext(path);
+  if (pageTemplate !== 'job_detail' && pageTemplate !== 'jobs_company') {
+   // The central tracker owns every other template. Clear the last deferred
+   // key so a later visit to the same job URL is a new page view.
+   pageViewTrackedKey.current = null;
+   return;
+  }
   const key = `${path}|${pageViewIdentity?.jobSlug || ''}|${pageViewIdentity?.employerKey || ''}`;
   if (pageViewTrackedKey.current === key) return;
   pageViewTrackedKey.current = key;
   Analytics.trackPageView(path, undefined, pageViewIdentity);
- }, [pageViewIdentity, pageViewPath]);
+ }, [pageViewIdentity, pageViewNavigationVersion, initialJobSlug, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor, locale]);
 
  // A search/company view momentarily shows a non-authoritative `filteredJobs`:
  // either empty while the lazy broaden / cross-locale pools are still being
