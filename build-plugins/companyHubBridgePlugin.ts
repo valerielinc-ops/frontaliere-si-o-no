@@ -148,8 +148,14 @@ interface CantonSuggestion {
 // cantons are similarly close, the one with more live openings wins.
 const CANTON_CENTRES: Readonly<Record<string, readonly [number, number]>> = {
   AG: [47.39, 8.05],
+  // Group keys are returned by resolveJobCanton; member aliases keep the
+  // ranking safe for direct canton-code inputs in legacy/profile snapshots.
+  AI: [47.36, 9.34],
+  AR: [47.36, 9.34],
   APPENZELLO: [47.36, 9.34],
   BE: [46.95, 7.45],
+  BL: [47.55, 7.67],
+  BS: [47.55, 7.67],
   BASILEA: [47.55, 7.67],
   FR: [46.80, 7.15],
   GE: [46.20, 6.15],

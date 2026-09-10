@@ -8139,23 +8139,65 @@ ${staticAnalyticsHtml}
  // Below-floor bridge (#3747, AGENTS.md § Static SEO Pages): a company whose
  // per-canton job count fluctuates under MIN_JOBS_PER_CANTON_COMPANY between
  // builds would otherwise hard-404 a previously-emitted (and possibly
- // indexed) /azienda-{slug}/ URL on GH Pages. Emit a noindex,follow bridge
- // at the same URL, pointing at the always-live canton section root — same
- // bridge pattern the sector hubs used before their floor was removed
- // (PR #3594; sector hubs went floor-less in PR #4254). Company slugs are
- // data-driven (not enumerable at module load), so searchConsoleCompat.ts
- // does NOT self-map them; its COMPANY_COMPAT_PATTERN branch already
- // resolves any residual company-hub 404 (kind 'company').
+ // indexed) /azienda-{slug}/ URL on GH Pages. Keep the same URL as a
+ // noindex,follow page, but render its live below-floor postings instead of
+ // linking only to the canton root: job-detail CTAs use this URL as the
+ // company filter, so the bridge must remain functional when it has one or
+ // two current jobs. Company slugs are data-driven (not enumerable at module
+ // load), so searchConsoleCompat.ts does NOT self-map them; its
+ // COMPANY_COMPAT_PATTERN branch already resolves any residual company-hub
+ // 404 (kind 'company').
  let companyCantonBelowFloorBridges = 0;
- const emitCompanyCantonBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, fullSlug: string): void => {
- const section = buildCantonAwareSection(locale, canton);
- const targetPath = withSlash(`${localePrefix[locale]}/${section}`.replace(/\/+/g, '/'));
- const canonicalPath = withSlash(`${localePrefix[locale]}/${section}/${fullSlug}`.replace(/\/+/g, '/'));
- const html = buildCanonicalBridgePage({
- canonicalUrl: `${BASE_URL}${targetPath}`,
- pathLabel: targetPath,
- lang: locale,
- noindex: true,
+ const emitCompanyCantonBelowFloorBridge = (
+ locale: 'it' | 'en' | 'de' | 'fr',
+ canton: string,
+ companyName: string,
+ companyJobs: ReadonlyArray<any>,
+ fullSlug: string,
+ ): void => {
+ const sectionSlug = buildCantonAwareSection(locale, canton);
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${fullSlug}`.replace(/\/+/g, '/'));
+ const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+ const cDisplay = cantonDisplayLocalComp(canton, locale);
+ const pageTitle = buildEmployerHubTitle({
+ locale,
+ companyDisplay: `${companyName} (${cDisplay})`,
+ count: companyJobs.length,
+ year: new Date().getFullYear(),
+ });
+ const pageDesc = locale === 'it' ? `${companyJobs.length} offerte di lavoro presso ${companyName} in ${cDisplay}. Annunci aggiornati quotidianamente.`
+ : locale === 'en' ? `${companyJobs.length} job openings at ${companyName} in ${cDisplay}. Listings updated daily.`
+ : locale === 'de' ? `${companyJobs.length} Stellenangebote bei ${companyName} in ${cDisplay}. Täglich aktualisiert.`
+ : `${companyJobs.length} offres d'emploi chez ${companyName} à ${cDisplay}. Annonces mises à jour quotidiennement.`;
+ const pageHeading = locale === 'it' ? `Offerte di lavoro presso ${companyName} in ${cDisplay}`
+ : locale === 'en' ? `Job openings at ${companyName} in ${cDisplay}`
+ : locale === 'de' ? `Stellenangebote bei ${companyName} in ${cDisplay}`
+ : `Offres d'emploi chez ${companyName} à ${cDisplay}`;
+ const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
+ const itemListLd = inlineScriptJson({
+ '@context': 'https://schema.org',
+ '@type': 'ItemList',
+ name: pageTitle,
+ numberOfItems: companyJobs.length,
+ itemListElement: companyJobs.map((job: any, i: number) =>
+ mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
+ });
+ const allJobsLabel = locale === 'it' ? `Vedi tutte le offerte in ${cDisplay}`
+ : locale === 'en' ? `View all jobs in ${cDisplay}`
+ : locale === 'de' ? `Alle Stellen in ${cDisplay} ansehen`
+ : `Voir toutes les offres à ${cDisplay}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n<ul class="s-0WjlyL">${jobCardListBody(companyJobs, locale)}</ul>\n<p><a href="${sectionRootUrl}">${esc(allJobsLabel)}</a></p>`;
+ const html = buildSeoPageHtml({
+ locale,
+ title: pageTitle,
+ description: pageDesc,
+ canonicalUrl,
+ robots: 'noindex,follow',
+ ogLocale: localeOg[locale],
+ hreflangHtml: '',
+ jsonLdScripts: [itemListLd],
+ bodyHtml,
+ distDir,
  });
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
@@ -8169,6 +8211,7 @@ ${staticAnalyticsHtml}
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
+ activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  companyCantonBelowFloorBridges++;
  };
  for (const canton of SHARED_ALL_CANTON_CODES) {
@@ -8176,19 +8219,19 @@ ${staticAnalyticsHtml}
  const byCompany = cantonCompanyBuckets.get(canton);
  if (!byCompany) continue;
  for (const [cSlug, { name: companyName, jobs: companyJobs }] of byCompany) {
- if (companyJobs.length < MIN_JOBS_PER_CANTON_COMPANY) {
- for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
- emitCompanyCantonBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}`);
- }
- continue;
- }
  const sortedJobs = [...companyJobs].sort((a: any, b: any) => {
  const da = firstParsableMs(b.crawledAt, b.datePosted);
  const db = firstParsableMs(a.crawledAt, a.datePosted);
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
+ if (companyJobs.length < MIN_JOBS_PER_CANTON_COMPANY) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitCompanyCantonBelowFloorBridge(locale, canton, companyName, sortedJobs, `${companyRoutePrefix[locale]}-${cSlug}`);
+ }
+ continue;
+ }
  // Keep the complete canton/company result set. `jobCardListBody` inserts the
  // shared in-feed ad after every third card; a cap here made the page claim 58
  // openings while exposing only 30 and also hid the later ad slots.
