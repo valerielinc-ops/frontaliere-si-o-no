@@ -45,7 +45,8 @@ function sourceRuntime(details: Record<string, {
   body: string;
   title?: string;
   href?: string;
-}>) {
+  responseBodies?: Record<string, string>;
+}>, listingHtml = '') {
   const links = Object.keys(details).map((id) =>
     `<a href="${details[id].href || `/Vacancies/${id}/Description/1`}">${details[id].title || `Position ${id}`}</a>`).join('\n');
   const requested: string[] = [];
@@ -54,9 +55,12 @@ function sourceRuntime(details: Record<string, {
     if (url === 'https://recruitingapp-2677.umantis.com/robots.txt') {
       return response(url, 200, 'User-agent: *\nAllow: /');
     }
-    if (url === SEED_URL) return response(url, 200, links);
+    if (url === SEED_URL) return response(url, 200, listingHtml || links);
     const id = /\/Vacancies\/(\d+)\//.exec(url)?.[1] || '';
-    if (id && details[id]) return response(url, details[id].status ?? 200, details[id].body);
+    if (id && details[id]) {
+      const body = details[id].responseBodies?.[new URL(url).search] || details[id].body;
+      return response(url, details[id].status ?? 200, body);
+    }
     throw new Error(`unexpected URL ${url}`);
   });
   return {
@@ -217,6 +221,54 @@ describe('E-Recruiting LLB-Gruppe Stellen crawler parser', () => {
       expect(assertCompleteRecruitingapp2677Snapshot(jobs)).toBe(true);
       expect(requested).toContain('https://recruitingapp-2677.umantis.com/Vacancies/1994/Description/1');
       expect(requested).toContain('https://recruitingapp-2677.umantis.com/Vacancies/1983/Description/1');
+    });
+
+    it('preserves the generic rendered-empty proof for a genuinely empty board', async () => {
+      const { runtime } = sourceRuntime({}, '<div>Es wurden noch keine Einträge erfasst</div>');
+
+      const jobs = await fetchAllRecruitingapp2677Jobs(runtime);
+
+      expect(jobs).toEqual([]);
+      expect(assertCompleteRecruitingapp2677Snapshot(jobs)).toBe(true);
+    });
+
+    it('fails closed when duplicate listing links disagree even after a third link', async () => {
+      const { runtime } = sourceRuntime({
+        '1994': { title: 'Kundenberater:in', body: foreignDetail('Kundenberater:in', 'Vaduz') },
+      }, `<a href="/Vacancies/1994/Description/1">Title A</a>
+        <a href="/Vacancies/1994/Description/1?second=1">Title B</a>
+        <a href="/Vacancies/1994/Description/1?third=1">Title C</a>`);
+
+      await expect(fetchAllRecruitingapp2677Jobs(runtime))
+        .rejects.toThrow('incomplete detail snapshot (1/1)');
+    });
+
+    it('fails closed when repeated detail identity includes an earlier thin response', async () => {
+      const { runtime } = sourceRuntime({
+        '1994': {
+          title: 'Kundenberater:in',
+          body: foreignDetail('Kundenberater:in', 'Vaduz'),
+          responseBodies: {
+            '?thin=1': '<main><h1>Kundenberater:in</h1></main>',
+          },
+        },
+      }, `<a href="/Vacancies/1994/Description/1">Kundenberater:in</a>
+        <a href="/Vacancies/1994/Description/1?thin=1">Kundenberater:in</a>`);
+
+      await expect(fetchAllRecruitingapp2677Jobs(runtime))
+        .rejects.toThrow('incomplete detail snapshot (1/1)');
+    });
+
+    it('finds the source locality in a later intro block', async () => {
+      const body = foreignDetail('Kundenberater:in', 'Vaduz')
+        .replace('<main><div class="content-width">', '<main><div class="intro"><p>Legacy metadata</p></div><div class="content-width">');
+      const { runtime } = sourceRuntime({
+        '1994': { title: 'Kundenberater:in', body },
+      });
+
+      const jobs = await fetchAllRecruitingapp2677Jobs(runtime);
+
+      expect(assertCompleteRecruitingapp2677Snapshot(jobs)).toBe(true);
     });
 
     it('fails the whole batch when one detail request is unavailable', async () => {

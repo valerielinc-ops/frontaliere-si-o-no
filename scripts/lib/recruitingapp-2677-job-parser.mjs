@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { fetch as undiciFetch } from 'undici';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { isAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   runUmantisSpecWithEmptyProof,
   umantisAuthoritativeEmptyOrNull,
@@ -55,8 +56,10 @@ function normalizeSpace(s = '') {
  */
 function extractRecruitingapp2677DetailFields(html = '', pageUrl = '') {
   const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl);
-  const intro = /<(?:div|section)\b[^>]*\bclass\s*=\s*["'][^"']*\bintro\b[^"']*["'][^>]*>[\s\S]*?<\/(?:div|section)>/i.exec(String(html || ''))?.[0] || '';
-  const introLine = stripHtml(intro).split('\n').find((line) => line.includes('◆')) || '';
+  const introRx = /<(?:div|section)\b[^>]*\bclass\s*=\s*["'][^"']*\bintro\b[^"']*["'][^>]*>[\s\S]*?<\/(?:div|section)>/gi;
+  const introLine = [...String(html || '').matchAll(introRx)]
+    .flatMap(([intro]) => stripHtml(intro).split('\n'))
+    .find((line) => line.includes('◆')) || '';
   const parts = introLine.split('◆').map(normalizeSpace).filter(Boolean);
   const location = parts.length >= 3 ? parts[1] : '';
   if (location) {
@@ -167,7 +170,10 @@ function detectEmploymentType(text = '') {
 async function fetchJobListings(runtime = {}) {
   const attemptedDetailIds = new Set();
   const listingTitles = new Map();
+  const conflictingListingIds = new Set();
   const observedDetails = new Map();
+  const invalidDetailIds = new Set();
+  const conflictingDetailIds = new Set();
   // Keep the same Undici implementation that the production polite-fetch
   // dispatcher uses; the built-in fetch can silently return empty bodies here.
   const sourceFetch = runtime.fetchImpl || undiciFetch;
@@ -187,11 +193,18 @@ async function fetchJobListings(runtime = {}) {
       for (const link of extractLinks(html, response.url || rawUrl)) {
         const id = umantisVacancyIdentity(link.url);
         const title = normalizeSpace(link.text || '');
-        if (!id || title.length < 4 || !/^\/Vacancies\/\d+\/Description\/1\/?$/i.test(new URL(link.url).pathname)) {
+        let pathname = '';
+        try { pathname = new URL(link.url).pathname; } catch { continue; }
+        if (!id || title.length < 4 || !/^\/Vacancies\/\d+\/Description\/1\/?$/i.test(pathname)) {
           continue;
         }
+        if (conflictingListingIds.has(id)) continue;
         const previousTitle = listingTitles.get(id);
-        listingTitles.set(id, previousTitle && normalize(previousTitle) !== normalize(title) ? '' : title);
+        if (previousTitle !== undefined && normalize(previousTitle) !== normalize(title)) {
+          conflictingListingIds.add(id);
+          continue;
+        }
+        listingTitles.set(id, title);
       }
     }
     return response;
@@ -202,7 +215,7 @@ async function fetchJobListings(runtime = {}) {
     const vacancyId = umantisVacancyIdentity(pageUrl);
     if (vacancyId) {
       const decision = resolveDetailOrListingSwissGeography(detail, {});
-      observedDetails.set(vacancyId, {
+      const observation = {
         id: vacancyId,
         title: normalizeSpace(detail.title || ''),
         rich: isSufficientVacancyDescription(detail.description),
@@ -210,7 +223,24 @@ async function fetchJobListings(runtime = {}) {
         locations: (detail.locationCandidates || [])
           .map((candidate) => normalizeSpace(candidate?.addressLocality || candidate?.location || ''))
           .filter(Boolean),
-      });
+      };
+      const previous = observedDetails.get(vacancyId);
+      if (!observation.title || !observation.rich || observation.locations.length === 0) {
+        invalidDetailIds.add(vacancyId);
+      }
+      if (previous) {
+        if (!previous.title || !previous.rich || previous.locations.length === 0) {
+          invalidDetailIds.add(vacancyId);
+        }
+        if (normalize(previous.title) !== normalize(observation.title)
+          || previous.rich !== observation.rich
+          || previous.swiss !== observation.swiss
+          || previous.locations.join('\u001f') !== observation.locations.join('\u001f')) {
+          conflictingDetailIds.add(vacancyId);
+        }
+      } else {
+        observedDetails.set(vacancyId, observation);
+      }
     }
     return detail;
   };
@@ -225,10 +255,12 @@ async function fetchJobListings(runtime = {}) {
     discoveredCount: listingTitles.size,
     attemptedDetailCount: attemptedDetailIds.size,
     detailCount: details.length,
-    publishedCount: rows.length,
     complete: listingTitles.size > 0
       && attemptedDetailIds.size === listingTitles.size
       && details.length === listingTitles.size
+      && conflictingListingIds.size === 0
+      && invalidDetailIds.size === 0
+      && conflictingDetailIds.size === 0
       && details.every((detail) => detail.rich && detail.locations.length > 0)
       && details.every((detail) => attemptedDetailIds.has(detail.id)
         && normalize(listingTitles.get(detail.id)) === normalize(detail.title)),
@@ -243,6 +275,7 @@ async function fetchJobListings(runtime = {}) {
 }
 
 export function assertCompleteRecruitingapp2677Snapshot(jobs) {
+  if (isAuthoritativeEmptySnapshot(jobs)) return true;
   if (!Array.isArray(jobs) || jobs.length !== 0) return false;
   const proof = jobs.authoritativeSnapshotProof;
   if (!proof?.complete || proof.discoveredCount <= 0 || proof.publishedCount !== 0) return false;
@@ -270,7 +303,8 @@ export async function fetchAllRecruitingapp2677Jobs(runtime = {}) {
     console.warn('⚠️ No job listings returned.');
     const authoritativeEmpty = umantisAuthoritativeEmptyOrNull(listings, RECRUITINGAPP_2677_COMPANY_NAME);
     if (authoritativeEmpty) return authoritativeEmpty;
-    return attachSnapshotProof([], listings?.authoritativeSnapshotProof || emptySnapshotProof());
+    const proof = listings?.authoritativeSnapshotProof || emptySnapshotProof();
+    return attachSnapshotProof([], { ...proof, publishedCount: 0 });
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -338,5 +372,6 @@ export async function fetchAllRecruitingapp2677Jobs(runtime = {}) {
   }
 
   console.log(`\n📋 Total E-Recruiting LLB-Gruppe Stellen jobs discovered: ${jobs.length}`);
-  return attachSnapshotProof(jobs, listings.authoritativeSnapshotProof || emptySnapshotProof());
+  const proof = listings.authoritativeSnapshotProof || emptySnapshotProof();
+  return attachSnapshotProof(jobs, { ...proof, publishedCount: jobs.length });
 }
