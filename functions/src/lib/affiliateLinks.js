@@ -13,6 +13,8 @@ const BASE_URL = 'https://frontaliereticino.ch';
 
 /** Keep the network-facing reference to the documented-safe alphanumeric/hyphen alphabet. */
 export const PUBREF_INVALID_RE = /[^a-z0-9-]+/g;
+/** UTM identifiers keep the existing underscore-compatible campaign contract. */
+const TOKEN_INVALID_RE = /[^a-z0-9_-]+/g;
 /** Network-facing publisher-reference cap; keep it explicit and observable. */
 export const PUBREF_MAX_LEN = 48;
 export const PUBREF_HASH_LEN = 7;
@@ -21,20 +23,16 @@ export const PUBREF_HASH_MULTIPLIER = 0x01000193;
 
 const SENSITIVE_ATTRIBUTION_RE = /@|%40|(?:^|[-_])(email|token|auth|secret|password|phone|uid|user)(?:$|[-_])/i;
 
-/**
- * Convert an attribution identifier to the network-safe alphabet.
- *
- * Attribution inputs are identifiers chosen by the product, never recipient
- * data. If a caller accidentally hands us an email/token-like value, omit it
- * instead of laundering it into a plausible-looking slug.
- */
-export function safeAffiliateToken(raw, fallback = '') {
+function normaliseAffiliateToken(raw, invalidRe) {
   const value = String(raw ?? '').trim();
-  if (!value || SENSITIVE_ATTRIBUTION_RE.test(value)) return fallback;
-  const normalized = value
+  if (!value || SENSITIVE_ATTRIBUTION_RE.test(value)) return '';
+  return value
     .toLowerCase()
-    .replace(PUBREF_INVALID_RE, '-')
+    .replace(invalidRe, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function capAffiliateToken(normalized) {
   if (normalized.length <= PUBREF_MAX_LEN) return normalized;
 
   let hash = PUBREF_HASH_SEED;
@@ -44,13 +42,26 @@ export function safeAffiliateToken(raw, fallback = '') {
   const suffix = `-${(hash >>> 0).toString(36).padStart(PUBREF_HASH_LEN, '0')}`;
   const prefix = normalized
     .slice(0, PUBREF_MAX_LEN - suffix.length)
-    .replace(/-+$/, '');
+    .replace(/[-_]+$/, '');
   return `${prefix}${suffix}`;
+}
+
+/**
+ * Convert an attribution identifier to the network-safe alphabet.
+ *
+ * Attribution inputs are identifiers chosen by the product, never recipient
+ * data. If a caller accidentally hands us an email/token-like value, omit it
+ * instead of laundering it into a plausible-looking slug.
+ */
+export function safeAffiliateToken(raw, fallback = '') {
+  const normalized = normaliseAffiliateToken(raw, TOKEN_INVALID_RE);
+  return normalized ? capAffiliateToken(normalized) : fallback;
 }
 
 /** Normalise one Partnerize publisher reference. */
 export function sanitizeAffiliatePubref(raw) {
-  return safeAffiliateToken(raw);
+  const normalized = normaliseAffiliateToken(raw, PUBREF_INVALID_RE);
+  return normalized ? capAffiliateToken(normalized) : '';
 }
 
 /**
