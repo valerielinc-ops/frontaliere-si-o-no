@@ -582,6 +582,30 @@ describe('review gate: citazioni e conferme', () => {
     expect(historicalImportantFindings([first, second, confirmed], { includeLatest: true })).toHaveLength(2);
   });
 
+  it('non riusa un basename con riga quando due finding hanno companion path diversi', () => {
+    const first = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`helper.mjs:L7`: 🔴 Important: primo difetto; companion `src/a/other.mjs:L20`.',
+    ].join('\n'));
+    const second = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`helper.mjs:L7`: 🔴 Important: secondo difetto; companion `src/b/other.mjs:L20`.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `helper.mjs:L7`: ok.',
+      'Fix di `src/a/other.mjs:L20`: ok.',
+      'Fix di `src/b/other.mjs:L20`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([first, second, confirmed], { includeLatest: true })).toHaveLength(2);
+  });
+
   it('NON chiude un finding se la conferma cita un file omonimo in un altra cartella', () => {
     // NB: non usare `a/` e `b/` come cartelle — sono i prefissi di diff che
     // normalizePath rimuove per progetto, quindi collasserebbero sullo stesso path.
