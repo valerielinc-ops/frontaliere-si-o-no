@@ -71,6 +71,7 @@ export function placementToken(raw) {
   return String(raw)
     .toLowerCase()
     .replace(/[^a-z0-9-]+/g, '-')
+    .replace(/-+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
 
@@ -104,4 +105,4 @@ export function newsletterRecommendedPlacement(campaign, goId, slot) {
  * sanitiser and still be unreadable by the consumer — the test pins both sides
  * against this.
  */
-export const NEWSLETTER_PLACEMENT_RE = /^nl-(partner-\d+|recommended-\d+-[a-z0-9-]+)-[a-z0-9-]+$/;
+export const NEWSLETTER_PLACEMENT_RE = /^nl-(partner-\d+|recommended-\d+-[a-z0-9]+(?:-[a-z0-9]+)*)-[a-z0-9]+(?:-[a-z0-9]+)*$/;

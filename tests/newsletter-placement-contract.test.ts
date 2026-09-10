@@ -63,6 +63,16 @@ describe('newsletter placement contract', () => {
     }
   });
 
+  it('canonicalizes repeated separators before the placement reaches the redirect', () => {
+    const placement = newsletterRecommendedPlacement('weekly__--2026', 'wise');
+
+    expect(placement).toBe('nl-recommended-1-weekly-2026-wise');
+    expect(placement).toMatch(NEWSLETTER_PLACEMENT_RE);
+    expect(sanitizePubref(placement)).toBe(placement);
+    expect('nl-recommended-1-weekly--2026-wise').not.toMatch(NEWSLETTER_PLACEMENT_RE);
+    expect('nl-recommended-1--wise').not.toMatch(NEWSLETTER_PLACEMENT_RE);
+  });
+
   it('the four surfaces rendering the same block do not collapse into one pubref', () => {
     // weekly / job alert / welcome / drip rendono lo STESSO blocco verso lo
     // stesso `/go/{goId}/`: se lo slot non porta la campagna, Partnerize vede
