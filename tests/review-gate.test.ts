@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   classifyReview,
+  auditHistoricalCitations,
   followupIssueBody,
   followupItemsFromBody,
   extractFileCitations,
@@ -530,6 +531,24 @@ describe('review gate: citazioni e conferme', () => {
     expect(extractFileCitations('`w/v.mjs`')).toEqual([{ path: 'w/v.mjs', line: null }]);
   });
 
+  it('non interpreta un suffisso di filename come una citazione troncata', () => {
+    expect(extractFileCitations('`lib/foo.js-old`')).toEqual([]);
+    expect(extractFileCitations('`foo.ts.bak`')).toEqual([]);
+    expect(extractFileCitations('`foo.ts_old`')).toEqual([]);
+  });
+
+  it('l audit storico segnala un path estensione-troncato ancora non risolvibile', () => {
+    const review = bot('## Findings (Important: 1, Nit: 0)\n\n`src/Foo.ts:L7`: 🔴 Important: rotto.\n');
+    const result = auditHistoricalCitations([review], ['src/Foo.tsx']);
+    expect(result.truncatedUnresolvable).toEqual([
+      expect.objectContaining({
+        citation: { path: 'src/Foo.ts', line: 7 },
+        candidate: 'src/Foo.tsx',
+      }),
+    ]);
+    expect(result.openFindings).toHaveLength(1);
+  });
+
   it('una conferma col path completo chiude un finding che citava il nome nudo', () => {
     const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`helper.mjs:L7`: 🔴 Important: rotto.\n');
     const confirmed = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/lib/helper.mjs:L7`: ok.\n\n## LGTM');
@@ -542,6 +561,49 @@ describe('review gate: citazioni e conferme', () => {
     const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L7`: 🔴 Important: rotto.\n');
     const other = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/lib/helper.mjs:L99`: ok.\n\n## LGTM');
     expect(historicalImportantFindings([opened, other], { includeLatest: true })).toHaveLength(1);
+  });
+
+  it('chiude un finding a riga con una conferma senza riga solo quando il path è univoco', () => {
+    const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`x/y.mjs:L7-L9`: 🔴 Important: rotto.\n');
+    const confirmed = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `x/y.mjs`: ok.\n\n## LGTM');
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
+  it('mantiene aperte due citazioni dello stesso path quando la conferma non indica la riga', () => {
+    const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`x/y.mjs:L7` e `x/y.mjs:L12`: 🔴 Important: due difetti distinti.\n');
+    const confirmed = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `x/y.mjs`: ok.\n\n## LGTM');
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(1);
+  });
+
+  it('non lascia che un basename senza riga chiuda finding aperti in cartelle diverse', () => {
+    const first = bot('## Findings (Important: 1, Nit: 0)\n\n`src/helper.mjs:L7`: 🔴 Important: primo difetto.\n');
+    const second = bot('## Findings (Important: 1, Nit: 0)\n\n`lib/helper.mjs:L7`: 🔴 Important: secondo difetto.\n');
+    const confirmed = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `helper.mjs:L7`: ok.\n\n## LGTM');
+    expect(historicalImportantFindings([first, second, confirmed], { includeLatest: true })).toHaveLength(2);
+  });
+
+  it('non riusa un basename con riga quando due finding hanno companion path diversi', () => {
+    const first = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`helper.mjs:L7`: 🔴 Important: primo difetto; companion `src/a/other.mjs:L20`.',
+    ].join('\n'));
+    const second = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`helper.mjs:L7`: 🔴 Important: secondo difetto; companion `src/b/other.mjs:L20`.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `helper.mjs:L7`: ok.',
+      'Fix di `src/a/other.mjs:L20`: ok.',
+      'Fix di `src/b/other.mjs:L20`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([first, second, confirmed], { includeLatest: true })).toHaveLength(2);
   });
 
   it('NON chiude un finding se la conferma cita un file omonimo in un altra cartella', () => {
