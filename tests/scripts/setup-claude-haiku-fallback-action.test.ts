@@ -205,7 +205,7 @@ describe('Claude Haiku fallback setup action', () => {
       "writeFileSync(join(packageRoot, 'package.json'), JSON.stringify({ version: '2.1.267' }));",
       "const claudePath = join(globalPrefix, 'bin', 'claude');",
       "mkdirSync(join(globalPrefix, 'bin'), { recursive: true });",
-      "writeFileSync(claudePath, '#!/bin/sh\\nprintf \\\"2.1.267 (Claude Code)\\\\n\\\"\\n');",
+      "writeFileSync(claudePath, '#!/bin/sh\\nprintf \\\"2.1.267 (Claude Code)\\\\n\\\"; printf \\\"diagnostic: runtime ready\\\\n\\\"\\n');",
       'chmodSync(claudePath, 0o700);',
     ].join('\n');
     writeFileSync(fakeNpmPath, fakeNpmSource);
