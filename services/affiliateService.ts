@@ -249,6 +249,12 @@ export function buildAffiliateUrl(
  try {
  const url = new URL(partner.url);
  if (isPartnerizeUrl(partner.url)) {
+ // Partnerize deeplinks use an unencoded `destination:` segment. WHATWG URL
+ // parsing then exposes a destination query as `url.search`; appending
+ // `pubref` would silently attach our tracking parameter to the destination
+ // instead of the Partnerize wrapper. Keep an ambiguous link untouched until
+ // its destination is encoded/fixed at the source.
+ if (url.search) return partner.url;
  const pubref = sanitizePubref(placement || source);
  if (pubref) url.searchParams.set('pubref', pubref);
  return url.toString();
