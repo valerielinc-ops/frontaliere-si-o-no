@@ -455,6 +455,11 @@ const DETAIL_DROP_ABORT_RATIO = 0.5;
 // crossing the ratio takes at least three dropped pages, which is no longer a
 // couple of vacancies ending on the same day.
 const DETAIL_DROP_ABORT_MIN_BATCH = 4;
+const isRetryableHttpStatus = (status) => Number.isFinite(status) && RETRYABLE_STATUS.has(status);
+
+function singleLineErrorMessage(error) {
+  return normalizeSpace(error?.message || error || 'unknown error');
+}
 
 /**
  * Fetch and strictly apply all detail payloads with bounded concurrency.
@@ -522,7 +527,7 @@ export async function enrichCoopSourceBackedJobs(jobs, {
                 },
               },
             });
-            if (!res?.ok && RETRYABLE_STATUS.has(res?.status)) {
+            if (!res?.ok && isRetryableHttpStatus(res?.status)) {
               const err = new Error(`HTTP ${res.status}`);
               err.status = res.status;
               throw err;
@@ -534,10 +539,10 @@ export async function enrichCoopSourceBackedJobs(jobs, {
         }, { label: `coop-detail:${url.hostname}` });
       } catch (error) {
         if (preserveListingOnTransientFailure
-          && Number.isFinite(error?.status)
-          && RETRYABLE_STATUS.has(error.status)) {
+          && error?.retryExhausted === true
+          && isRetryableHttpStatus(error.status)) {
           output[index] = job;
-          unavailable.push({ url: url.toString(), reason: error.message });
+          unavailable.push({ url: url.toString(), reason: singleLineErrorMessage(error) });
           continue;
         }
         throw error;
@@ -547,7 +552,10 @@ export async function enrichCoopSourceBackedJobs(jobs, {
           gone.push({ url: url.toString(), status: response.status });
           continue;
         }
-        if (preserveListingOnTransientFailure && RETRYABLE_STATUS.has(response?.status)) {
+        // The normal transport throws retryable statuses so fetchWithRetry
+        // can retry them; keep this defensive Response path on the same
+        // explicit HTTP-status allowlist for custom/injected transports.
+        if (preserveListingOnTransientFailure && isRetryableHttpStatus(response?.status)) {
           output[index] = job;
           unavailable.push({ url: url.toString(), reason: `HTTP ${response.status}` });
           continue;
@@ -583,8 +591,8 @@ export async function enrichCoopSourceBackedJobs(jobs, {
     if (typeof onRejected === 'function') onRejected(rejected.map(({ url }) => url));
   }
   if (unavailable.length > 0) {
-    const unavailableLabels = unavailable.map(({ url, reason }) => `${url} (${reason})`);
-    console.warn(`⚠️  Kept ${unavailable.length}/${input.length} listing-backed Coop-family vacancies after transient detail failures: ${unavailableLabels.join(', ')}`);
+    console.warn(`⚠️  Kept ${unavailable.length}/${input.length} listing-backed Coop-family vacancies after retryable detail failures:`);
+    for (const { url, reason } of unavailable) console.warn(`  - ${url} (${reason})`);
   }
   return output.filter((job) => job !== undefined);
 }
