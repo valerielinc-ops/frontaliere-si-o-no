@@ -447,8 +447,10 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
 
   it('usa un bundle deterministico e non scarica il diff completo nelle review incrementali', () => {
     expect(TESTS_YML).toContain('review-bundle.md');
-    expect(TESTS_YML).toContain('elif [ -n "${INCREMENTAL_BASE:-}" ]; then');
-    expect(TESTS_YML).toContain('full PR diff omitted; see delta.patch');
+    const prefetch = YAML.parse(TESTS_YML).jobs.vitest.steps.find((step: any) => step.id === 'prefetch');
+    expect(prefetch.env.INCREMENTAL_BASE).toBe('${{ steps.tier.outputs.incremental_base }}');
+    expect(prefetch.run).toContain('node scripts/ci/prefetch-review-diff.mjs || exit 1');
+    expect(prefetch.run).not.toContain('gh pr diff');
     expect(TESTS_YML).toContain('review-code-files.txt');
     expect(TESTS_YML).toContain('delta-files.txt');
     expect(TESTS_YML).toContain('set_tier incremental-high claude-opus-5 35');
