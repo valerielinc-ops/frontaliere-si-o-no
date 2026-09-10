@@ -11631,6 +11631,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.esplosione-centrale-ritom-san-gottardo.title': 'Tessin : explosion centrale ritom, dommages de la ligne du Saint-Gothard',
     'blog.article.esplosione-centrale-ritom-san-gottardo.excerpt': 'Matinée du mercredi 9 septembre 2026 : explosion et effondrement partiel dans la centrale hydroélectrique historique de Ritom (1917). Deux ouvriers grièvement blessés, enquête en cours.',
     'blog.article.esplosione-centrale-ritom-san-gottardo.imageAlt': 'Explosion à la centrale hydroélectrique du Ritom, Canton du Tessin, montrant des dommages structurels et l\'intervention des secours.',
+    'blog.article.bollettino-frontaliere-2026-09-10.title': 'Bulletin du frontalier – 10 septembre 2026 : 38 minutes d\'attente à Gaggiolo (Cantello-Stabio)',
+    'blog.article.bollettino-frontaliere-2026-09-10.excerpt': 'Les chiffres du jour, 10 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-10.imageAlt': 'Les chiffres du jour pour les frontaliers – 10 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-10.seoDescription': 'Bulletin du frontalier du 10 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-10.ogDescription': 'Les chiffres du 10 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;

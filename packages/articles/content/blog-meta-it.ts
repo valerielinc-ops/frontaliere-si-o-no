@@ -11630,6 +11630,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.esplosione-centrale-ritom-san-gottardo.title': 'Ticino: esplosione centrale ritom, danni linea san gottardo',
     'blog.article.esplosione-centrale-ritom-san-gottardo.excerpt': 'Mattinata di mercoledì 9 settembre 2026: esplosione e crollo parziale nella storica centrale idroelettrica del Ritom (1917). Due operai feriti gravemente, indagini in corso.',
     'blog.article.esplosione-centrale-ritom-san-gottardo.imageAlt': 'Esplosione nella centrale idroelettrica del Ritom, Canton Ticino, con danni strutturali e intervento dei soccorsi.',
+    'blog.article.bollettino-frontaliere-2026-09-10.title': 'Bollettino del frontaliere – 10 settembre 2026: a Gaggiolo (Cantello-Stabio) 38 minuti di coda',
+    'blog.article.bollettino-frontaliere-2026-09-10.excerpt': 'I numeri di oggi, 10 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-10.imageAlt': 'I numeri del giorno per i frontalieri – 10 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-10.seoDescription': 'Bollettino frontalieri del 10 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-10.ogDescription': 'I numeri del 10 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
