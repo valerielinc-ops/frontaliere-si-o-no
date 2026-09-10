@@ -835,7 +835,7 @@ async function mintFollowup({ repo, pr, prUrl, findings }) {
   return { number: result.number, url: result.url, bodySynced: true };
 }
 
-function logClassification(classification) {
+export function logClassification(classification) {
   for (const finding of classification.outside) {
     for (const path of finding.resolvedFiles) {
       console.log(`review-gate: DECLASSIFIED finding=${finding.findingNumber} path=${path} reason=all cited files resolved outside current PR diff`);
@@ -845,7 +845,10 @@ function logClassification(classification) {
     console.log(`review-gate: BLOCKING finding=${finding.findingNumber} path=${finding.resolvedFiles.join(',')} reason=at least one cited file is in the current PR diff`);
   }
   for (const finding of classification.unresolved) {
-    console.log(`review-gate: BLOCKING finding=${finding.findingNumber} reason=${finding.reason}`);
+    const expectedKey = finding.citations?.length === 0
+      ? ` expectedKey=${JSON.stringify(findingKey(finding))}`
+      : '';
+    console.log(`review-gate: BLOCKING finding=${finding.findingNumber} reason=${finding.reason}${expectedKey}`);
   }
 }
 

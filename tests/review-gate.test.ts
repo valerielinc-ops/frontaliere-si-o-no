@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   classifyReview,
   auditHistoricalCitations,
@@ -7,6 +7,7 @@ import {
   extractFileCitations,
   historicalImportantFindings,
   importantFindings,
+  logClassification,
   CODEX_REVIEW_MARKER,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
@@ -349,6 +350,19 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 
     expect(result.approved).toBe(false);
     expect(result.classification.unresolved).toHaveLength(1);
+  });
+
+  it('emits the exact normalized key for an unresolved unanchored Important', async () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      logClassification(await classifyCurrentDiff(unanchoredImportantReview.body));
+
+      expect(log).toHaveBeenCalledWith(
+        'review-gate: BLOCKING finding=1 reason=nessun file citato expectedKey="🔴 Important: process contract remains unresolved"',
+      );
+    } finally {
+      log.mockRestore();
+    }
   });
 
   it('allows an unanchored Important after its normalized text has an explicit confirmation', async () => {
