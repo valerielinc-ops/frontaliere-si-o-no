@@ -4,6 +4,9 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import {
   FORCE_KILL_GRACE_MS,
+  POSIX_PROCESS_GROUPS,
+  childSpawnOptions,
+  forceChildTermination,
   isChildRunning,
   requestChildTermination,
 } from './child-lifecycle.mjs';
@@ -209,6 +212,8 @@ function main() {
   }
   let activeConnections = 0;
   const children = new Set();
+  const pendingProcessGroups = new Set();
+  const useProcessGroups = POSIX_PROCESS_GROUPS;
   const clients = new Set();
   let shuttingDown = false;
   let shutdownFinalized = false;
@@ -239,22 +244,31 @@ function main() {
     let terminationRequested = false;
     let responseSent = false;
     let timedOut = false;
+    const completeProcessGroupTermination = () => {
+      pendingProcessGroups.delete(child);
+      if (shuttingDown && children.size === 0 && pendingProcessGroups.size === 0) finalizeShutdown();
+    };
     const terminateChild = (reason) => {
-      if (!child || childExited) return;
+      if (!child || (childExited && !useProcessGroups)) return;
       if (reason === 'child-timeout' || reason === 'socket-timeout') timedOut = true;
       if (terminationRequested) return;
       terminationRequested = true;
-      childTerminationTimer = requestChildTermination(child);
+      const timer = requestChildTermination(child, {
+        processGroup: useProcessGroups,
+        onComplete: completeProcessGroupTermination,
+      });
+      childTerminationTimer = timer;
+      if (useProcessGroups && timer) pendingProcessGroups.add(child);
     };
     client.once('close', () => {
-      if (child && !childExited) terminateChild('client-disconnected');
+      if (child && (!childExited || useProcessGroups)) terminateChild('client-disconnected');
       if (childExited) releaseSlot();
     });
     const finish = (result) => {
       if (responseSent) return;
       responseSent = true;
       if (childTimer) clearTimeout(childTimer);
-      if (childTerminationTimer) clearTimeout(childTerminationTimer);
+      if (childTerminationTimer && !useProcessGroups) clearTimeout(childTerminationTimer);
       if (childExited) releaseSlot();
       responseFor(client, result);
     };
@@ -295,7 +309,11 @@ function main() {
         finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
         return;
       }
-      child = spawn(realGit, childArgs, { cwd, env: baseEnv });
+      child = spawn(realGit, childArgs, {
+        cwd,
+        env: baseEnv,
+        ...childSpawnOptions({ processGroup: useProcessGroups }),
+      });
       childExited = false;
       children.add(child);
       childTimer = setTimeout(() => terminateChild('child-timeout'), CHILD_TIMEOUT_MS);
@@ -323,12 +341,16 @@ function main() {
         if (outputTooLarge) terminateChild('output-limit');
       });
       child.on('error', (error) => {
+        if (useProcessGroups && !terminationRequested) terminateChild('child-exited');
         childExited = true;
         children.delete(child);
         finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
-        if (shuttingDown && children.size === 0) finalizeShutdown();
+        if (shuttingDown && children.size === 0 && pendingProcessGroups.size === 0) finalizeShutdown();
       });
       child.on('close', (code) => {
+        // A Git transport helper can outlive the git leader. Reap the whole
+        // dedicated group even after the leader has emitted close.
+        if (useProcessGroups && !terminationRequested) terminateChild('child-exited');
         childExited = true;
         children.delete(child);
         releaseSlot();
@@ -336,7 +358,7 @@ function main() {
           ? `${stderr}Codex Git bridge child timed out\n`
           : outputTooLarge ? `${stderr}Codex Git bridge output exceeded its limit\n` : stderr;
         finish({ code: timedOut || outputTooLarge ? 1 : code ?? 1, stdout, stderr: detail });
-        if (shuttingDown && children.size === 0) finalizeShutdown();
+        if (shuttingDown && children.size === 0 && pendingProcessGroups.size === 0) finalizeShutdown();
       });
     });
   });
@@ -363,12 +385,21 @@ function main() {
     shuttingDown = true;
     for (const client of clients) client.destroy();
     for (const child of children) {
-      if (isChildRunning(child)) requestChildTermination(child);
+      if (isChildRunning(child)) {
+        const timer = requestChildTermination(child, {
+          processGroup: useProcessGroups,
+          onComplete: () => {
+            pendingProcessGroups.delete(child);
+            if (shuttingDown && children.size === 0 && pendingProcessGroups.size === 0) finalizeShutdown();
+          },
+        });
+        if (useProcessGroups && timer) pendingProcessGroups.add(child);
+      }
     }
     shutdownTimer = setTimeout(() => {
-      for (const child of children) {
-        if (isChildRunning(child)) child.kill('SIGKILL');
-      }
+      for (const child of children) forceChildTermination(child, { processGroup: useProcessGroups });
+      for (const child of pendingProcessGroups) forceChildTermination(child, { processGroup: useProcessGroups });
+      pendingProcessGroups.clear();
       finalizeShutdown();
     }, SHUTDOWN_TIMEOUT_MS);
     if (children.size === 0) finalizeShutdown();

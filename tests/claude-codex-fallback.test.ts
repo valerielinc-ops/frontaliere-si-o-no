@@ -1,5 +1,6 @@
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
 import {
+  existsSync,
   mkdtempSync,
   mkdirSync,
   readFileSync,
@@ -47,6 +48,9 @@ import {
   validateGitArgs,
 } from '../.github/actions/claude-codex-fallback/git-bridge-server.mjs';
 import {
+  POSIX_PROCESS_GROUPS,
+  childSpawnOptions,
+  forceChildTermination,
   isChildRunning,
   requestChildTermination,
 } from '../.github/actions/claude-codex-fallback/child-lifecycle.mjs';
@@ -377,6 +381,72 @@ describe('validator dei bridge host-side', () => {
     expect(isChildRunning(stubborn)).toBe(false);
     expect(requestChildTermination(stubborn, { graceMs: 1 })).toBeNull();
   });
+
+  it('termina il gruppo Git POSIX e il discendente che eredita il marker/token', async () => {
+    if (!POSIX_PROCESS_GROUPS) return;
+    const root = mkdtempSync(join(tmpdir(), 'codex-process-group-'));
+    const marker = join(root, 'marker.txt');
+    const pidFile = join(root, 'descendant.pid');
+    const nodePath = process.execPath;
+    const pathValue = process.env.PATH || '/usr/bin:/bin';
+    const waitFor = async (predicate, timeoutMs = 1_500) => {
+      const deadline = Date.now() + timeoutMs;
+      while (Date.now() < deadline) {
+        if (predicate()) return;
+        await new Promise((resolve) => setTimeout(resolve, 10));
+      }
+      throw new Error('process-group fixture timed out');
+    };
+    const isAlive = (pid) => {
+      try {
+        process.kill(pid, 0);
+        return true;
+      } catch {
+        return false;
+      }
+    };
+    const descendantScript = [
+      "require('node:fs').writeFileSync(process.env.MARKER_FILE, process.env.FIXTURE_TOKEN);",
+      'setInterval(() => {}, 1_000);',
+    ].join('');
+    const parentScript = [
+      "const {spawn}=require('node:child_process');",
+      "const {writeFileSync}=require('node:fs');",
+      `const descendant=spawn(process.execPath,['-e',${JSON.stringify(descendantScript)}],{stdio:'ignore'});`,
+      `writeFileSync(${JSON.stringify(pidFile)},String(descendant.pid));`,
+      // Model git exiting while git-remote-https remains in its process group.
+      'process.exit(0);',
+    ].join('');
+    const child = spawn(nodePath, ['-e', parentScript], {
+      ...childSpawnOptions({ processGroup: true }),
+      env: {
+        PATH: pathValue,
+        MARKER_FILE: marker,
+        FIXTURE_TOKEN: 'fixture-token',
+      },
+      stdio: 'ignore',
+    });
+    const childClosed = new Promise((resolve) => child.once('close', resolve));
+    try {
+      await waitFor(() => {
+        if (!existsSync(pidFile) || !existsSync(marker)) return false;
+        return readFileSync(marker, 'utf8') === 'fixture-token';
+      });
+      const descendantPid = Number(readFileSync(pidFile, 'utf8'));
+      expect(Number.isInteger(descendantPid)).toBe(true);
+      expect(readFileSync(marker, 'utf8')).toBe('fixture-token');
+      await childClosed;
+      requestChildTermination(child, {
+        graceMs: 50,
+        processGroup: true,
+      });
+      await waitFor(() => !isAlive(descendantPid));
+      expect(isAlive(descendantPid)).toBe(false);
+    } finally {
+      forceChildTermination(child, { processGroup: true });
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('sanitizzazione git host-side', () => {
@@ -618,7 +688,13 @@ describe('copertura workflow diretti', () => {
     expect(ghBridge).toContain('net.createServer({ allowHalfOpen: true }');
     expect(ghBridge).toContain("terminateChild('client-disconnected')");
     expect(ghBridge).toContain('requestChildTermination(child)');
-    expect(lifecycle).toContain("child.kill('SIGKILL')");
+    expect(lifecycle).toContain('POSIX_PROCESS_GROUPS');
+    expect(lifecycle).toContain('detached: true');
+    expect(lifecycle).toContain('process.kill(-pid, signal)');
+    expect(lifecycle).toContain('child.kill(signal)');
+    expect(gitBridge).toContain('childSpawnOptions({ processGroup: useProcessGroups })');
+    expect(gitBridge).toContain('forceChildTermination(child, { processGroup: useProcessGroups })');
+    expect(gitBridge).toContain('pendingProcessGroups');
     expect(ghBridge).toContain('GH_HOST: host');
     expect(ghBridge).toContain('GH_REPO: scope.repository');
     expect(ghBridge).toContain('GH_TOKEN: scope.token');
@@ -629,7 +705,7 @@ describe('copertura workflow diretti', () => {
     expect(gitBridge).toContain('GIT_COMMON_DIR: shadowCommonDir');
     expect(gitBridge).toContain('net.createServer({ allowHalfOpen: true }');
     expect(gitBridge).toContain("terminateChild('client-disconnected')");
-    expect(gitBridge).toContain('requestChildTermination(child)');
+    expect(gitBridge).toContain('requestChildTermination(child, {');
     expect(gitBridge).toContain('MAX_REQUEST_BYTES');
     expect(gitBridge).toContain('SHUTDOWN_TIMEOUT_MS');
     expect(gitBridge).toContain('const clients = new Set()');
