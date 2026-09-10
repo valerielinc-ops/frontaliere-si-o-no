@@ -180,7 +180,12 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
     ['scripts/update-hofweissbad-jobs.mjs'],
   ])('%s asks the pipeline for a source-proven zero', (runner) => {
     const source = readRepoFile(runner);
-    expect(source).toContain('validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(');
+    // recruitingapp-2677 proves a complete foreign snapshot before allowing
+    // an empty result; the other runners use the generic rendered-empty proof.
+    const validator = runner === 'scripts/update-recruitingapp-2677-jobs.mjs'
+      ? 'validateAuthoritativeSnapshot: assertCompleteRecruitingapp2677Snapshot'
+      : 'validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(';
+    expect(source).toContain(validator);
     expect(source).toContain('allowAuthoritativeEmptySnapshot: true');
     expect(source).toContain("authoritativeSnapshotScope: 'empty-only'");
   });

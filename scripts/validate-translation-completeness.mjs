@@ -51,9 +51,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { requireDataPath, ROOT } from './lib/resolve-data-path.mjs';
+import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
+
+export { MIN_TITLE_CHARS };
 
 export const LOCALES = ['it', 'en', 'de', 'fr'];
-export const MIN_TITLE_CHARS = 3;
 export const MIN_DESCRIPTION_CHARS = 120;
 const SAMPLE_LIMIT = 10;
 

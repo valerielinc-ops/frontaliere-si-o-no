@@ -115,7 +115,7 @@ import {
 import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
-import { hasConcatenatedWords } from './translation-quality.mjs';
+import { hasConcatenatedWords, hasUsableTitle } from './translation-quality.mjs';
 import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import {
   extractMigrosStructuredData,
@@ -1974,6 +1974,15 @@ export function ensureLocaleFields(job) {
 
   for (const locale of LOCALES) {
     const currentTitle = normalizeSpace(titleByLocale[locale] || '');
+    // A non-source slot with a pre-existing 1–2 character title is not a
+    // translated title and must not fall through the stable-content branch.
+    // Clear it before the source-copy/empty-slot split so the next
+    // localization pass receives an explicit retranslation signal.
+    if (locale !== titleSourceLang && currentTitle && !hasUsableTitle(currentTitle)) {
+      titleByLocale[locale] = '';
+      out.needsRetranslation = true;
+      continue;
+    }
     if (locale === titleSourceLang) {
       if (!currentTitle || currentTitle !== sourceTitle) {
         if (sourceTitle) titleByLocale[locale] = sourceTitle;
@@ -2009,7 +2018,7 @@ export function ensureLocaleFields(job) {
       // now accepts flagged slots instead of skipping them.
       if (verdict.reason === 'source-copy') {
         const heuristicReplacement = heuristicTranslateJobTitle(sourceTitle, locale);
-        if (heuristicReplacement &&
+        if (hasUsableTitle(heuristicReplacement) &&
             heuristicReplacement.toLowerCase() !== sourceTitle.toLowerCase() &&
             !isLowQualityLocalizedTitle(heuristicReplacement)) {
           titleByLocale[locale] = heuristicReplacement;
@@ -2019,7 +2028,7 @@ export function ensureLocaleFields(job) {
       // Locale slot was already empty — try heuristic fill
       const translated = heuristicTranslateJobTitle(sourceTitle, locale);
       if (
-        translated &&
+        hasUsableTitle(translated) &&
         translated.toLowerCase() !== sourceTitle.toLowerCase() &&
         !isLowQualityLocalizedTitle(translated)
       ) {
@@ -3650,7 +3659,10 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
             });
             if (aiLocalized) {
               for (const localeKey of Object.keys(aiLocalized)) {
-                titleByLocale[localeKey] = aiLocalized[localeKey].title || title;
+                const localizedTitle = aiLocalized[localeKey].title;
+                titleByLocale[localeKey] = hasUsableTitle(localizedTitle)
+                  ? String(localizedTitle).trim()
+                  : '';
                 descriptionByLocale[localeKey] = aiLocalized[localeKey].description;
                 requirementsByLocale[localeKey] = mergeRequirements(
                   requirementsByLocale[localeKey] || [],

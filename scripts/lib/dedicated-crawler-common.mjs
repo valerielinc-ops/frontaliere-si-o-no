@@ -26,7 +26,13 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
 import { WORKDAY_HOST_RE, workdayReqFromLeaf, UMANTIS_HOST_RE, UMANTIS_VACANCY_PATH_RE } from './job-url-key.mjs';
 import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
-import { isAcceptableTranslation, hasConcatenatedWords, isStructureFlattenedCopy } from './translation-quality.mjs';
+import {
+  isAcceptableTranslation,
+  hasConcatenatedWords,
+  MIN_TITLE_CHARS,
+  hasUsableTitle,
+  isStructureFlattenedCopy,
+} from './translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 import { intFromEnv } from './int-from-env.mjs';
@@ -51,7 +57,7 @@ async function translateJobFieldWithFallback({
     context,
     minChars,
   });
-  if (local) return local;
+  if (local && (kind !== 'title' || hasUsableTitle(local))) return local;
 
   const translated = await freeTranslateWithRetry({
     text,
@@ -64,11 +70,11 @@ async function translateJobFieldWithFallback({
     fieldType: kind === 'title' ? 'title' : 'description',
     maxRetries: 2,
   });
-  if (translated) return translated;
+  if (translated && (kind !== 'title' || hasUsableTitle(translated))) return translated;
 
   if (kind === 'title') {
     const heuristicTitle = heuristicTranslateJobTitle(String(text || ''), targetLang);
-    if (heuristicTitle && normalize(heuristicTitle) !== normalize(text)) {
+    if (hasUsableTitle(heuristicTitle) && normalize(heuristicTitle) !== normalize(text)) {
       return heuristicTitle;
     }
     // Do NOT fall back to source text — storing wrong-language content is worse than empty.
@@ -2337,32 +2343,40 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   // "Lokführer:in" → "Lokführer/in", "Mitarbeiter:innen" → "Mitarbeiter/innen"
   // The colon-before-suffix pattern confuses AI models and causes truncated output.
   const cleanTitle = (ns || normalize)(title || '').replace(/(\w):in(nen)?\b/gi, '$1/in$2');
-  if (!cleanTitle || locale === sourceLang) return cleanTitle;
+  // A provider title is input, not a safe fallback: the shared quality floor
+  // must run before the same-locale passthrough and before any cache/LLM path.
+  // Otherwise a one- or two-character source can be persisted verbatim.
+  const sourceTitleIsUsable = hasUsableTitle(cleanTitle);
+  if (!sourceTitleIsUsable) return '';
+  if (locale === sourceLang) return cleanTitle;
   // Brand-name guard: restore any protected brand that a translator accidentally translated.
   const _rb = (t) => restoreProtectedBrands(cleanTitle, t);
 
   // Local pipeline first
   const localPipeline = await translateTextWithLocalPipeline({
-    text: cleanTitle, sourceLang, targetLang: locale, kind: 'title', context: { title: cleanTitle }, minChars: 2,
+    text: cleanTitle, sourceLang, targetLang: locale, kind: 'title', context: { title: cleanTitle }, minChars: MIN_TITLE_CHARS,
   });
-  if (localPipeline && localPipeline.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(localPipeline);
+  if (hasUsableTitle(localPipeline) && localPipeline.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(localPipeline);
 
   if (buildAiCacheKey && getCachedAiResponse) {
     const cacheKey = buildAiCacheKey('translate-title-v2', [cleanTitle, locale, sourceLang]);
     const fromCache = getCachedAiResponse(cacheKey);
     if (typeof fromCache === 'string') {
-      if (fromCache !== AI_CACHE_RAW_SENTINEL) return _rb(fromCache);
+      if (fromCache !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(fromCache) &&
+          fromCache.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(fromCache);
       const sentinelFallback = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
-      if (sentinelFallback && sentinelFallback.toLowerCase() !== cleanTitle.toLowerCase() &&
+      if (hasUsableTitle(sentinelFallback) && sentinelFallback.toLowerCase() !== cleanTitle.toLowerCase() &&
           !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(sentinelFallback))) {
         setCachedAiResponse(cacheKey, sentinelFallback);
         return _rb(sentinelFallback);
       }
-      return cleanTitle;
+      // A cache sentinel/short response is a failed target translation. Do
+      // not turn the source title into a permanent locale copy.
+      return '';
     }
     // DeepL / free-translate first
     const deepl = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
-    if (deepl && deepl.length >= 2 &&
+    if (hasUsableTitle(deepl) &&
         !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(deepl)) &&
         !titleHasItalianWords(deepl, locale) &&
         !titleLooksUntranslatedFromSource(deepl, sourceLang, locale)) {
@@ -2405,7 +2419,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
           try {
             const retry = await callLLM([{ role: 'user', content: retryPrompt }], { temperature: 0.2, maxTokens: 80, jsonMode: false });
             const retryClean = (ns || normalize)(sanitizeAiOutput(String(retry || '')).replace(/^["']|["']$/g, ''));
-            if (retryClean &&
+            if (hasUsableTitle(retryClean) &&
                 !titleHasItalianWords(retryClean, locale) &&
                 !titleLooksUntranslatedFromSource(retryClean, sourceLang, locale) &&
                 retryClean.toLowerCase() !== cleanTitle.toLowerCase()) {
@@ -2414,7 +2428,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
           } catch { /* keep first translation */ }
         }
         translated = _rb(translated);
-        if (translated && translated.toLowerCase() !== cleanTitle.toLowerCase() &&
+        if (hasUsableTitle(translated) && translated.toLowerCase() !== cleanTitle.toLowerCase() &&
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(translated))) {
           setCachedAiResponse(cacheKey, translated);
           return translated;
@@ -2422,24 +2436,27 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       } catch { /* fallback below */ }
     }
     const fallback = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
-    if (fallback) {
+    if (hasUsableTitle(fallback) && fallback.toLowerCase() !== cleanTitle.toLowerCase()) {
       const restoredFallback = _rb(fallback);
       setCachedAiResponse(cacheKey, restoredFallback);
       return restoredFallback;
     }
     const heuristic = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
-    if (heuristic && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(heuristic))) {
+    if (hasUsableTitle(heuristic) && heuristic.toLowerCase() !== cleanTitle.toLowerCase() &&
+        !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(heuristic))) {
       setCachedAiResponse(cacheKey, heuristic);
       return heuristic;
     }
     setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
-    return cleanTitle;
+    return '';
   }
 
   // No cache — simple fallback
   const simple = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
-  if (simple) return _rb(simple);
-  return _rb(heuristicTranslateJobTitle(cleanTitle, locale) || cleanTitle);
+  if (hasUsableTitle(simple) && simple.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(simple);
+  const heuristic = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
+  if (hasUsableTitle(heuristic) && heuristic.toLowerCase() !== cleanTitle.toLowerCase()) return heuristic;
+  return '';
 }
 
 export async function aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, maxLocales = 4, minChars = 120 }, ctx = {}) {
@@ -2893,12 +2910,12 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       })
       .map(async (locale) => {
         const forced = await aiTranslateJobTitleDCC({ title: sourceTitle, locale, sourceLang: titleSourceLang }, ctx);
-        if (forced && forced.toLowerCase() !== sourceTitle.toLowerCase() &&
+        if (hasUsableTitle(forced) && forced.toLowerCase() !== sourceTitle.toLowerCase() &&
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(forced))) {
           return { locale, title: forced };
         }
         const fallback = heuristicTranslateJobTitle(sourceTitle, locale);
-        if (fallback && fallback.toLowerCase() !== sourceTitle.toLowerCase() &&
+        if (hasUsableTitle(fallback) && fallback.toLowerCase() !== sourceTitle.toLowerCase() &&
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(fallback))) {
           return { locale, title: fallback };
         }
@@ -2944,7 +2961,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
             (!currentTitle || currentTitle.toLowerCase() === sourceTitle.toLowerCase() ||
              isQueuedBrokenTitle(locale, currentTitle))) {
           const translated = await aiTranslateJobTitleDCC({ title: sourceTitle, locale, sourceLang: titleSourceLang }, ctx);
-          if (translated && translated.toLowerCase() !== sourceTitle.toLowerCase() &&
+          if (hasUsableTitle(translated) && translated.toLowerCase() !== sourceTitle.toLowerCase() &&
               !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(translated))) {
             title = translated;
           }
@@ -3354,9 +3371,9 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
               company: job.company || '',
               location: job.location || '',
             },
-            minChars: 2,
+            minChars: MIN_TITLE_CHARS,
           });
-          if (translatedTitle) {
+          if (hasUsableTitle(translatedTitle)) {
             job.titleByLocale[locale] = String(translatedTitle).trim();
             jobTranslated = true;
             // FRO-327: clear retranslation flag on success
