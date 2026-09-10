@@ -10,7 +10,7 @@ const recovery = readWorkflow('retry-code-check-after-body-edit.yml');
 const script = recovery.jobs.recover.steps[0].with.script;
 const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 
-async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false } = {}) {
+async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false } = {}) {
   const reruns: number[] = [];
   let reads = 0;
   const run = { id: 42, status, conclusion, run_attempt: 1 };
@@ -23,7 +23,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
         reRunWorkflow: async ({ run_id }: { run_id: number }) => { reruns.push(run_id); },
       },
     },
-    paginate: async (endpoint: string) => endpoint === 'runs' ? [run] : [{ conclusion, steps: [{ name: 'PR-body completeness + multi-issue Closes (no checkout, all events)', conclusion: body }] }],
+    paginate: async (endpoint: string) => endpoint === 'runs' ? (olderFailed ? [run, { id: 41, status: 'completed', conclusion: 'failure', run_attempt: 1 }] : [run]) : [{ conclusion, steps: [{ name: 'PR-body completeness + multi-issue Closes (no checkout, all events)', conclusion: body }] }],
   };
   await new AsyncFunction('github', 'context', 'core', script)(github, {
     repo: { owner: 'owner', repo: 'repo' }, payload: { pull_request: { number: 1, head: { sha: 'head' } } },
@@ -73,6 +73,10 @@ describe('one code verdict and selective body recovery', () => {
     expect(await runRecovery({ body: 'success', status: 'in_progress', conclusion: '' })).toEqual([]);
     expect(await runRecovery({ body: 'success', conclusion: 'success' })).toEqual([]);
     expect(await runRecovery({ body: 'skipped' })).toEqual([]);
+  });
+
+  it('preserves a newer queued attempt instead of rerunning an older failed body', async () => {
+    expect(await runRecovery({ status: 'queued', body: '', conclusion: '', olderFailed: true })).toEqual([]);
   });
 
   it('recovers an edit arriving while the failed preflight is finishing', async () => {

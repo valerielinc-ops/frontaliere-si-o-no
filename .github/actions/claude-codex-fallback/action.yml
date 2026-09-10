@@ -1028,7 +1028,7 @@ runs:
         TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
         RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
       run: |
-        set -uo pipefail
+        set -euo pipefail
         runtime_snapshot_outcome="${{ steps.runtime_snapshot.outcome }}"
         preflight_outcome="${{ steps.preflight.outcome }}"
         runtime_outcome="${{ steps.runtime.outcome }}"
@@ -1070,6 +1070,10 @@ runs:
           EXEC_FILE="$EXEC_FILE" \
           FALLBACK_ATTEMPTED=false \
           "$TRUSTED_NODE" "$RUNTIME_ROOT/ci/claude-codex-fallback.mjs" >/dev/null
+          if [ ! -s "$EVIDENCE_FILE" ]; then
+            echo "::error::Codex fallback evidence was not produced."
+            exit 1
+          fi
           if [ -f "$EVIDENCE_FILE" ]; then
             cat "$EVIDENCE_FILE" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             printf 'fallback_evidence_file=%s\n' "$EVIDENCE_FILE" >> "$GITHUB_OUTPUT"

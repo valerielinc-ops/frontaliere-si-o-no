@@ -1896,6 +1896,7 @@ jobs:
           REPO: ${{ github.repository }}
           CTX_DIR: ${{ runner.temp }}/review-ctx
           TIER: ${{ steps.tier.outputs.tier }}
+          REVIEW_DIFF_EXCLUSIONS: data,public,reports,_newsletter_variants,docs
         run: |
           set -uo pipefail
           mkdir -p "$CTX_DIR"
@@ -1943,29 +1944,10 @@ jobs:
           # realmente da rivalutare rispetto alla precedente review.
           if [ "${TIER:-}" = "minimal" ]; then
             : > "$CTX_DIR/diff.patch"
-          elif [ -n "${INCREMENTAL_BASE:-}" ]; then
-            echo "(incremental review: full PR diff omitted; see delta.patch)" > "$CTX_DIR/diff.patch"
           else
-            gh pr diff "$PR_NUMBER" --repo "$REPO" \
-              --exclude 'data/**' --exclude 'public/**' --exclude 'reports/**' \
-              --exclude '_newsletter_variants/**' --exclude 'docs/**' \
-              > "$CTX_DIR/diff.patch" \
-              || echo "(diff fetch failed — rieseguire gh pr diff manualmente)" > "$CTX_DIR/diff.patch"
-          fi
-          if [ -n "${INCREMENTAL_BASE:-}" ]; then
-            # Fetch compare once and derive both outputs locally. The old
-            # implementation made separate compare calls for the tier and the
-            # bundle, while Claude also received the complete PR file list.
-            if gh api "repos/$REPO/compare/$INCREMENTAL_BASE...$HEAD_SHA" \
-              > "$CTX_DIR/compare.json" 2>/dev/null; then
-              jq -r '.files[]? | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | .filename' \
-                "$CTX_DIR/compare.json" > "$CTX_DIR/delta-files.txt"
-              jq -r '.files[]? | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | "\(.filename)\n\(.patch // "(binary/large)")"' \
-                "$CTX_DIR/compare.json" > "$CTX_DIR/delta.patch"
-            else
-              echo "(delta fetch failed — compare unavailable)" > "$CTX_DIR/delta.patch"
-              : > "$CTX_DIR/delta-files.txt"
-            fi
+            # Resolve/hydrate the complete scoped patch on the host. A missing
+            # patch must fail here, not force the model to rebuild it via API.
+            node scripts/ci/prefetch-review-diff.mjs || exit 1
           fi
           gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '[.[] | select(.body // "" | contains("<!-- sibling-check -->"))] | last | .body // empty' \
@@ -2103,6 +2085,7 @@ jobs:
           # issues:write, senza restrizione su Bash/Write/Edit.
           claude_args: "--effort medium --max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
+            Report the exact workflow tier `${{ steps.tier.outputs.tier }}` in Scope; this classifies review scope, not model reasoning effort.
             PR review automation for #${{ steps.resolve.outputs.pr_number }} (HEAD ${{ steps.resolve.outputs.head_sha }}), tier ${{ steps.tier.outputs.tier }}.
 
             Read `REVIEW.md` first; it is the single source of truth for severity, scope, required checks, and output format. Do not read `AGENTS.md` unless REVIEW.md explicitly requires a specific rule.
