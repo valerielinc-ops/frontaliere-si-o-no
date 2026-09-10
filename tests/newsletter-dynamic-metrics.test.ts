@@ -1,11 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import {
-  NEWSLETTER_JOB_LIMIT,
-  getNewsletterCandidateLimit,
-  rankNewsletterJobs,
-} from '../scripts/send-newsletter.mjs';
+import { JOB_EMAIL_RANKING_DEFAULTS } from '../functions/src/lib/jobEmailRanking.js';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -86,7 +82,15 @@ describe('newsletter article header images', () => {
 });
 
 describe('newsletter job selection defaults', () => {
-  it('keeps four rendered jobs while treatment inspects a wider candidate pool', () => {
+  it('keeps four rendered jobs while treatment inspects a wider candidate pool', async () => {
+    // Keep send-newsletter.mjs behind this single behavior case: its top-level
+    // readJobEmailRankingConfig() and getCascadeDailyCapacity() imports are
+    // irrelevant to the metric tests above and should not load their graph.
+    const {
+      NEWSLETTER_JOB_LIMIT,
+      getNewsletterCandidateLimit,
+      rankNewsletterJobs,
+    } = await import('../scripts/send-newsletter.mjs');
     const candidates = Array.from({ length: getNewsletterCandidateLimit('treatment') }, (_, index) => ({
       slug: `job-${index}`,
       relevanceScore: 1,
@@ -94,7 +98,12 @@ describe('newsletter job selection defaults', () => {
 
     expect(getNewsletterCandidateLimit('control')).toBe(NEWSLETTER_JOB_LIMIT);
     expect(getNewsletterCandidateLimit('treatment')).toBeGreaterThan(NEWSLETTER_JOB_LIMIT);
-    expect(rankNewsletterJobs(candidates, { variant: 'treatment' })).toHaveLength(NEWSLETTER_JOB_LIMIT);
+    expect(rankNewsletterJobs(candidates, {
+      variant: 'treatment',
+      // The treatment branch requires both the variant and config.enabled.
+      // Pin it explicitly so the test cannot silently exercise control.
+      config: { ...JOB_EMAIL_RANKING_DEFAULTS, enabled: true },
+    })).toHaveLength(NEWSLETTER_JOB_LIMIT);
   });
 
   it('newsletter-content.mjs quality gate requires 120+ chars', () => {

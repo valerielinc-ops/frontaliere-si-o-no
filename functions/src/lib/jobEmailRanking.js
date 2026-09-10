@@ -264,23 +264,41 @@ function rankTieBreak(a, b) {
   return freshnessB - freshnessA;
 }
 
-function insertExplorationSlots(exploit, explore, limit) {
-  if (explore.length === 0) return exploit.slice(0, limit);
+function insertExplorationSlots(exploit, explore, limit, fallback = []) {
+  const safeLimit = Math.max(0, Math.trunc(limit));
+  if (safeLimit === 0) return [];
   const result = [];
+  const selected = new Set();
+  const add = (candidate) => {
+    if (result.length >= safeLimit || selected.has(candidate)) return;
+    selected.add(candidate);
+    result.push(candidate);
+  };
+
+  if (explore.length === 0) {
+    exploit.forEach(add);
+  }
+
   let exploitIndex = 0;
   let exploreIndex = 0;
   const slots = explore.length;
-  for (let position = 0; position < limit && (exploitIndex < exploit.length || exploreIndex < slots); position++) {
-    const nextExplorePosition = Math.floor(((exploreIndex + 1) * limit) / (slots + 1));
+  for (let position = 0; explore.length > 0 && position < safeLimit && (exploitIndex < exploit.length || exploreIndex < slots); position++) {
+    const nextExplorePosition = Math.floor(((exploreIndex + 1) * safeLimit) / (slots + 1));
     if (exploreIndex < slots && position === nextExplorePosition) {
-      result.push(explore[exploreIndex++]);
+      add(explore[exploreIndex++]);
     } else if (exploitIndex < exploit.length) {
-      result.push(exploit[exploitIndex++]);
+      add(exploit[exploitIndex++]);
     } else if (exploreIndex < slots) {
-      result.push(explore[exploreIndex++]);
+      add(explore[exploreIndex++]);
     }
   }
-  return result.slice(0, limit);
+
+  // `maxConsecutiveExposures` can remove the preferred exploit candidates.
+  // Fill the requested safeLimit from the ranked pool when the interleaving
+  // is short, so `insertExplorationSlots(...)` never under-fills while enough
+  // candidates remain available.
+  fallback.forEach(add);
+  return result;
 }
 
 /**
@@ -377,7 +395,7 @@ export function rankEmailJobs(jobs, {
     ? capped
     : sorted;
   const exploit = exploitSource.filter((candidate) => !exploreIds.has(candidate.jobId));
-  const selected = insertExplorationSlots(exploit, explore, safeLimit);
+  const selected = insertExplorationSlots(exploit, explore, safeLimit, sorted);
   return selected.map(({ ranking: meta, ...job }, index) => ({
     ...job,
     ranking: { ...meta, position: index + 1 },

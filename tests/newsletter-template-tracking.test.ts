@@ -116,6 +116,28 @@ describe('newsletter template v2', () => {
     expect(html.match(/class="job-title"/g)).toHaveLength(NEWSLETTER_JOB_LIMIT);
     expect(html).not.toContain(`Limit Test Job ${NEWSLETTER_JOB_LIMIT}`);
   });
+
+  it('counts the visible job cards in the CTA when totalJobs is larger', () => {
+    const matchedJobs = Array.from({ length: NEWSLETTER_JOB_LIMIT + 1 }, (_, index) => ({
+      title: `CTA Test Job ${index}`,
+      company: `Company ${index}`,
+      location: 'Lugano',
+      url: `/cerca-lavoro-ticino/cta-test-job-${index}/`,
+    }));
+
+    const html = buildNewsletter({
+      exchangeRate: SAMPLE_EXCHANGE,
+      matchedJobs,
+      totalJobs: 99,
+      featuredTool: SAMPLE_TOOL,
+      weeklyFact: SAMPLE_FACT,
+      locale: 'it',
+      unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+    });
+
+    expect(html).toContain(`Tutte le ${NEWSLETTER_JOB_LIMIT} offerte`);
+    expect(html).not.toContain('Tutte le 99 offerte');
+  });
 });
 
 describe('newsletter content v2', () => {
