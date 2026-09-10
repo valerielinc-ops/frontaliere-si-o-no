@@ -214,7 +214,10 @@ runs:
           exit 1
         }
         toolchain_path="$(/usr/bin/dirname "$npm_realpath"):$("/usr/bin/dirname" "$node_realpath"):/usr/bin:/bin"
-        npm_version="$(/usr/bin/env -i PATH="$toolchain_path" HOME=/tmp CI=true NPM_CONFIG_USERCONFIG=/dev/null NPM_CONFIG_GLOBALCONFIG=/dev/null "$node_realpath" "$npm_realpath" --version 2>/dev/null || true)"
+        npm_global_config="$(/usr/bin/mktemp "$runner_temp/claude-haiku-toolchain.XXXXXX")"
+        /usr/bin/chmod 600 "$npm_global_config"
+        npm_version="$(/usr/bin/env -i PATH="$toolchain_path" HOME=/tmp CI=true NPM_CONFIG_USERCONFIG=/dev/null NPM_CONFIG_GLOBALCONFIG="$npm_global_config" "$node_realpath" "$npm_realpath" --version 2>/dev/null || true)"
+        /bin/rm -f -- "$npm_global_config"
         case "$npm_version" in
           [0-9]*.[0-9]*.[0-9]*) ;;
           *) echo '::error::Trusted npm launcher returned an invalid version.'; exit 1 ;;
@@ -298,12 +301,15 @@ runs:
         chmod 700 "$install_root"
         mkdir -p "$install_root/cache"
         chmod 700 "$install_root/cache"
+        global_npmrc="$install_root/global-npmrc"
+        : > "$global_npmrc"
+        chmod 600 "$global_npmrc"
         clean_env=(
           PATH="$safe_path"
           HOME="$install_root"
           CI=true
           NPM_CONFIG_USERCONFIG=/dev/null
-          NPM_CONFIG_GLOBALCONFIG=/dev/null
+          NPM_CONFIG_GLOBALCONFIG="$global_npmrc"
           npm_config_cache="$install_root/cache"
         )
         global_prefix="$(/usr/bin/env -i "${clean_env[@]}" "$trusted_node" "$trusted_npm" prefix --global)"
@@ -404,6 +410,9 @@ runs:
         npmrc="$codex_prefix/npmrc"
         : > "$npmrc"
         chmod 600 "$npmrc"
+        global_npmrc="$codex_prefix/global-npmrc"
+        : > "$global_npmrc"
+        chmod 600 "$global_npmrc"
         # Run npm with a throw-away environment. This strips all job-level
         # credentials (including GitHub and package-manager tokens) and keeps
         # user config/cache inside this action-owned temporary prefix.
@@ -412,7 +421,7 @@ runs:
           HOME="$npm_home" \
           CI="true" \
           NPM_CONFIG_USERCONFIG="$npmrc" \
-          NPM_CONFIG_GLOBALCONFIG=/dev/null \
+          NPM_CONFIG_GLOBALCONFIG="$global_npmrc" \
           npm_config_cache="$npm_cache" \
           "$trusted_node" "$trusted_npm" install --prefix "$codex_prefix" --no-save --no-package-lock \
             --no-fund --no-audit @openai/codex@0.153.4; then

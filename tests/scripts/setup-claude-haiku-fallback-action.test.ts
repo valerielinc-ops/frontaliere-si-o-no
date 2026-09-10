@@ -40,7 +40,7 @@ describe('Claude Haiku fallback setup action', () => {
     expect(installRun).toContain('HOME="$npm_home"');
     expect(installRun).toContain('CI="true"');
     expect(installRun).toContain('NPM_CONFIG_USERCONFIG="$npmrc"');
-    expect(installRun).toContain('NPM_CONFIG_GLOBALCONFIG=/dev/null');
+    expect(installRun).toContain('NPM_CONFIG_GLOBALCONFIG="$global_npmrc"');
     expect(installRun).toContain('npm_config_cache="$npm_cache"');
     expect(installRun).toContain('"$trusted_node" "$trusted_npm" install');
     expect(action).toContain('TRUSTED_NPM: ${{ steps.trusted_toolchain.outputs.npm_realpath }}');
@@ -141,7 +141,7 @@ describe('Claude Haiku fallback setup action', () => {
     }).runs?.steps?.find((step) => step.id === 'setup_claude_cli')?.run;
     expect(setupRun).toBeTruthy();
     expect(setupRun).toContain('@anthropic-ai/claude-code@2.1.267');
-    expect(setupRun).toContain('NPM_CONFIG_GLOBALCONFIG=/dev/null');
+    expect(setupRun).toContain('NPM_CONFIG_GLOBALCONFIG="$global_npmrc"');
     expect(setupRun).toContain('"$trusted_node" "$trusted_npm" install --global');
 
     const root = mkdtempSync(path.join(tmpdir(), 'haiku-claude-install-env-'));
@@ -231,9 +231,9 @@ describe('Claude Haiku fallback setup action', () => {
       }
       expect(captured.env).toMatchObject({
         CI: 'true',
-        NPM_CONFIG_GLOBALCONFIG: '/dev/null',
         NPM_CONFIG_USERCONFIG: '/dev/null',
       });
+      expect(captured.env.NPM_CONFIG_GLOBALCONFIG).toMatch(/global-npmrc$/);
       expect(fs.existsSync(evilMarker)).toBe(false);
     } finally {
       rmSync(root, { recursive: true, force: true });
