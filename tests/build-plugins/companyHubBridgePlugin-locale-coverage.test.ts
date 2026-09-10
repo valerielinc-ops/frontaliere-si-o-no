@@ -199,7 +199,7 @@ describe('companyHubBridgePlugin — autoDiscoverCompanyHubs seeds legacy compan
   });
 });
 
-describe('companyHubBridgePlugin — legacy aliases reuse evergreen employer profiles', () => {
+describe('companyHubBridgePlugin — legacy aliases stay canton-scoped', () => {
   const tmpDirs: string[] = [];
 
   afterEach(() => {
@@ -208,7 +208,7 @@ describe('companyHubBridgePlugin — legacy aliases reuse evergreen employer pro
     }
   });
 
-  it('serves the complete profile HTML for a cross-canton legacy company URL', async () => {
+  it('does not replace an empty canton filter with the Switzerland-wide employer profile', async () => {
     const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'company-hub-profile-alias-test-'));
     tmpDirs.push(rootDir);
 
@@ -219,6 +219,13 @@ describe('companyHubBridgePlugin — legacy aliases reuse evergreen employer pro
         crawlerKey: 'nestle',
         assembledAt: new Date().toISOString(),
         jobs: [{ id: 'nestle-1', company: 'Nestlé', companyKey: 'nestle', canton: 'VD' }],
+      }),
+      'utf-8',
+    );
+    fs.writeFileSync(
+      path.join(rootDir, 'data', 'employer-profiles.json'),
+      JSON.stringify({
+        profiles: [{ slug: 'nestle', name: 'Nestlé', cantons: [{ name: 'VD', count: 58 }] }],
       }),
       'utf-8',
     );
@@ -246,10 +253,15 @@ describe('companyHubBridgePlugin — legacy aliases reuse evergreen employer pro
       'index.html',
     );
     const legacyHtml = fs.readFileSync(legacyPath, 'utf-8');
-    expect(legacyHtml).toContain('data-profile-list');
-    expect(legacyHtml).toContain('ft-infeed-ad');
-    expect(legacyHtml).toContain('href="https://frontaliereticino.ch/aziende/nestle/"');
-    expect(legacyHtml).toContain('history.replaceState');
-    expect(legacyHtml).not.toContain('nessun annuncio attivo');
+    expect(legacyHtml).toContain('Nessun annuncio di Nestlé in Ticino');
+    expect(legacyHtml).toMatch(/robots[^>]+index,\s*follow/);
+    expect(legacyHtml).toContain('href="https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-nestle/"');
+    expect(legacyHtml).toContain('data-company-canton-fallback');
+    expect(legacyHtml).toContain('58 annunci');
+    expect(legacyHtml).toContain('href="https://frontaliereticino.ch/cerca-lavoro-vaud/azienda-nestle/"');
+    expect(legacyHtml).not.toContain('data-profile-list');
+    expect(legacyHtml).not.toContain('ft-infeed-ad');
+    expect(legacyHtml).not.toContain('href="https://frontaliereticino.ch/aziende/nestle/"');
+    expect(legacyHtml).not.toContain('history.replaceState');
   });
 });
