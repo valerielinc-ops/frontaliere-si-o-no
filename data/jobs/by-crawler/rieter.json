@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rieter",
-  "assembledAt": "2026-09-09T23:07:04.242Z",
+  "assembledAt": "2026-09-10T23:05:59.888Z",
   "jobs": [
     {
       "id": "rieter-2c8a16865e5a",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer-100-wmd---4065731",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:54.722Z",
+      "crawledAt": "2026-09-10T23:05:51.491Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -98,7 +98,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Security-Engineer--4066616",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:54.011Z",
+      "crawledAt": "2026-09-10T23:05:50.908Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -163,7 +163,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Engineer--4058728",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:53.351Z",
+      "crawledAt": "2026-09-10T23:05:50.344Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Rieter AG",
@@ -187,7 +187,8 @@
         "senior-system-ingegnere-rieter-winterthur",
         "senior-system-engineer-rieter-winterthur",
         "senior-system-ingenieur-rieter-winterthur",
-        "senior-system-engineer-100-w-m-d-rieter-winterthur"
+        "senior-system-engineer-100-w-m-d-rieter-winterthur",
+        "senior-network-ingegnere-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -195,7 +196,8 @@
           "senior-system-ingegnere-rieter-winterthur",
           "senior-system-engineer-rieter-winterthur",
           "senior-system-ingenieur-rieter-winterthur",
-          "senior-system-engineer-100-w-m-d-rieter-winterthur"
+          "senior-system-engineer-100-w-m-d-rieter-winterthur",
+          "senior-network-ingegnere-rieter-winterthur"
         ],
         "en": [
           "senior-system-engineer-rieter-winterthur",
@@ -256,7 +258,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Senior-Consultant-Service-and-Repair-CS-100-wmd---4065727",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:52.681Z",
+      "crawledAt": "2026-09-10T23:05:49.743Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -332,7 +334,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/OT-Development-Lead-Digital-Controls-Architecture-100-fmd---4065735",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:51.979Z",
+      "crawledAt": "2026-09-10T23:05:49.179Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -352,6 +354,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-08T23:22:19.615Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -397,7 +400,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/IT-Project-Manager--4057804",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:51.268Z",
+      "crawledAt": "2026-09-10T23:05:48.597Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -417,11 +420,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-project-manager-rieter-winterthur"
+        "it-project-manager-rieter-winterthur",
+        "responsabile-del-progetto-it-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-project-manager-rieter-winterthur"
+          "it-project-manager-rieter-winterthur",
+          "responsabile-del-progetto-it-rieter-winterthur"
         ],
         "de": [
           "it-project-manager-rieter-winterthur"
@@ -476,7 +481,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Head-of-Trade-Compliance--4054686",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:50.583Z",
+      "crawledAt": "2026-09-10T23:05:48.001Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -496,11 +501,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-trade-compliance-rieter-winterthur"
+        "head-of-trade-compliance-rieter-winterthur",
+        "responsabile-trade-compliance-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-trade-compliance-rieter-winterthur"
+          "head-of-trade-compliance-rieter-winterthur",
+          "responsabile-trade-compliance-rieter-winterthur"
         ],
         "de": [
           "head-of-trade-compliance-rieter-winterthur"
@@ -528,9 +535,9 @@
       "id": "rieter-2e674e3bdb38",
       "slug": "amministratore-di-sistema-erp-specialista-di-processo-m-f-d-100-rieter-winterthur-wadenswil",
       "slugByLocale": {
-        "de": "erp-system-administrator-in-prozess-spezialist-m-w-d-100-rieter-winterthur-wadenswil",
         "it": "amministratore-di-sistema-erp-specialista-di-processo-m-f-d-100-rieter-winterthur-wadenswil",
         "en": "erp-system-administrator-in-prozess-spezialist-m-w-d-100-rieter-winterthur-wadenswil",
+        "de": "erp-system-administrator-in-prozess-spezialist-m-w-d-100-rieter-winterthur-wadenswil",
         "fr": "administrateur-systeme-erp-et-specialiste-des-processus-h-f-d-100-rieter-winterthur-wadenswil"
       },
       "company": "Rieter",
@@ -538,16 +545,16 @@
       "companyDomain": "rieter.com",
       "title": "ERP System Administrator/in & Prozess Spezialist (m/w/d) 100%",
       "titleByLocale": {
-        "de": "ERP System Administrator/in & Prozess Spezialist (m/w/d) 100%",
-        "it": "Amministratore di sistema ERP & Specialista di processo (m/f/d) 100%",
+        "it": "ERP System Administrator/in & Prozess Spezialist (m/w/d) 100%",
         "en": "ERP System Administrator & Process Specialist (m/f/d) 100%",
+        "de": "ERP System Administrator/in & Prozess Spezialist (m/w/d) 100%",
         "fr": "Administrateur système ERP et spécialiste des processus (h/f/d) 100%"
       },
       "description": "Rieter ist der weltweit führende Systemanbieter für die Verarbeitung von Natur- und Chemiefasern zu Kurz- und Langstapelgarnen sowie für die Herstellung von Filamentgarnen, Chemiefasern und Nonwoven. Mit seinem umfassenden Technologieportfolio deckt Rieter die gesamte textile Wertschöpfungskette ab – von der Faser bis zum Garn sowie von der Schmelze bis zum texturierten Filament, zur synthetischen Stapelfaser und zum Vliesstoff. Das Unternehmen mit Hauptsitz in Winterthur (Schweiz) entwickelt und fertigt komplexe Spinnereianlagen, Maschinen, Systeme und Komponenten für eine effiziente und wirtschaftliche Produktion. Die führenden Technologien von Rieter ermöglichen einen minimalen Ressourceneinsatz und leisten damit einen wesentlichen Beitrag zur Nachhaltigkeit entlang der globalen textilen Wertschöpfungskette. Rieter besteht seit über 230 Jahren, ist mit 22 Produktionsstandorten in neun Ländern vertreten und beschäftigt weltweit rund 6 400 Mitarbeitende, davon etwa 9% in der Schweiz. Rieter ist an der SIX Swiss Exchange unter dem Tickersymbol RIEN kotiert.\n\nSie haben Power, sind vielseitig einsetzbar sowie dienstleistungs- und zielorientiert? Sie arbeiten gerne in einem Team, sind neugierig und finden immer wieder innovative Wege, um an Ihr Ziel zu gelangen? Dann passen Sie perfekt zu uns und können unser Team stärken als\n\nWir stellen uns eine sympathische, initiative Person vor, die gerne selbstständig die vielseitigen Aufgaben in unserem eingespielten Team übernimmt und auch in hektischen Zeiten den Überblick behält.\n\nIhre Hauptaufgaben und Verantwortlichkeiten\n\n• Betreuung und Weiterentwicklung des ERP-Systems, einschliesslich User Support in den Bereichen Incident, Service Request, Problem und Change\n\n• Mitarbeit in Projekten sowie Einführung von Erweiterungen und Durchführung des Lifecycle Managements\n\n• Erstellung, Pflege und Aktualisierung von Systemdokumentationen und User-Anleitungen\n\n• Betreuung und Koordination externer Support-Partner und Lieferanten\n\n• Betreuung, Analyse und Optimierung von Geschäfts- und Produktionsprozessen\n\n• Digitalisierung und Weiterentwicklung bestehender sowie neuer Geschäfts- und Produktionsprozesse\n\n• Unterstützung der Bereiche Finance & Controlling\n\nDas bringen Sie mit\n\n• Abgeschlossene IT-Ausbildung oder Studium sowie Berufserfahrung in der Betreuung von ERP-Systemen\n\n• Sehr gute Kenntnisse eines ERP-/PPS-Systems, vorzugsweise PSIPENTA\n\n• Gute Kenntnisse der Produktions- und Logistikprozesse in einem Maschinen- oder Apparatebauunternehmen\n\n• Interesse an den eingesetzten Technologien und deren Weiterentwicklung\n\n• Hohe Zuverlässigkeit, Selbständigkeit und Eigenverantwortung\n\n• Pflichtbewusste, kontaktfreudige und flexible Persönlichkeit\n\n• Ausgeprägtes Qualitäts- und Sicherheitsbewusstsein\n\n• Stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Von Vorteil sind Erfahrungen mit ERP-Multisite-Konfigurationen sowie Kenntnisse in Crystal Reports, VBA und Java\n\nUnser Angebot\n\n• Sie erwartet eine interessante, anspruchsvolle und abwechslungsreiche Tätigkeit in einem kleinen, kollegialen Team, in der Sie Ihre vielseitigen Erfahrungen gezielt einbringen können. Eine offene Unternehmenskultur, flache Hierarchien und eine gelebte &bdquo;Open-Door-Kultur“ schaffen ein Umfeld, in dem Eigeninitiative und der Austausch von Ideen ausdrücklich erwünscht sind. Darüber hinaus bieten wir Ihnen Freiraum, eigene Ideen einzubringen und umzusetzen, eine moderne Infrastruktur, Möglichkeiten zur beruflichen Weiterbildung sowie die Chance, an der Weiterentwicklung unserer Lösungen aktiv mitzuwirken. Abgerundet wird das Angebot durch zeitgemässe und attraktive Anstellungsbedingungen.\n\nFühlen Sie sich angesprochen? Falls Sie sich in diesem Profil wiedererkennen und in einem erfolgreichen Team mitwirken möchten, freuen wir uns Sie bald kennen zu lernen. Ihre vollständigen Bewerbungsunterlagen senden Sie uns ausschliesslich online.\n\nBereich: Information Technology\n\nLevel: Berufserfahrene",
       "descriptionByLocale": {
-        "de": "Rieter ist der weltweit führende Systemanbieter für die Verarbeitung von Natur- und Chemiefasern zu Kurz- und Langstapelgarnen sowie für die Herstellung von Filamentgarnen, Chemiefasern und Nonwoven. Mit seinem umfassenden Technologieportfolio deckt Rieter die gesamte textile Wertschöpfungskette ab – von der Faser bis zum Garn sowie von der Schmelze bis zum texturierten Filament, zur synthetischen Stapelfaser und zum Vliesstoff. Das Unternehmen mit Hauptsitz in Winterthur (Schweiz) entwickelt und fertigt komplexe Spinnereianlagen, Maschinen, Systeme und Komponenten für eine effiziente und wirtschaftliche Produktion. Die führenden Technologien von Rieter ermöglichen einen minimalen Ressourceneinsatz und leisten damit einen wesentlichen Beitrag zur Nachhaltigkeit entlang der globalen textilen Wertschöpfungskette. Rieter besteht seit über 230 Jahren, ist mit 22 Produktionsstandorten in neun Ländern vertreten und beschäftigt weltweit rund 6 400 Mitarbeitende, davon etwa 9% in der Schweiz. Rieter ist an der SIX Swiss Exchange unter dem Tickersymbol RIEN kotiert.\n\nSie haben Power, sind vielseitig einsetzbar sowie dienstleistungs- und zielorientiert? Sie arbeiten gerne in einem Team, sind neugierig und finden immer wieder innovative Wege, um an Ihr Ziel zu gelangen? Dann passen Sie perfekt zu uns und können unser Team stärken als\n\nWir stellen uns eine sympathische, initiative Person vor, die gerne selbstständig die vielseitigen Aufgaben in unserem eingespielten Team übernimmt und auch in hektischen Zeiten den Überblick behält.\n\nIhre Hauptaufgaben und Verantwortlichkeiten\n\n• Betreuung und Weiterentwicklung des ERP-Systems, einschliesslich User Support in den Bereichen Incident, Service Request, Problem und Change\n\n• Mitarbeit in Projekten sowie Einführung von Erweiterungen und Durchführung des Lifecycle Managements\n\n• Erstellung, Pflege und Aktualisierung von Systemdokumentationen und User-Anleitungen\n\n• Betreuung und Koordination externer Support-Partner und Lieferanten\n\n• Betreuung, Analyse und Optimierung von Geschäfts- und Produktionsprozessen\n\n• Digitalisierung und Weiterentwicklung bestehender sowie neuer Geschäfts- und Produktionsprozesse\n\n• Unterstützung der Bereiche Finance & Controlling\n\nDas bringen Sie mit\n\n• Abgeschlossene IT-Ausbildung oder Studium sowie Berufserfahrung in der Betreuung von ERP-Systemen\n\n• Sehr gute Kenntnisse eines ERP-/PPS-Systems, vorzugsweise PSIPENTA\n\n• Gute Kenntnisse der Produktions- und Logistikprozesse in einem Maschinen- oder Apparatebauunternehmen\n\n• Interesse an den eingesetzten Technologien und deren Weiterentwicklung\n\n• Hohe Zuverlässigkeit, Selbständigkeit und Eigenverantwortung\n\n• Pflichtbewusste, kontaktfreudige und flexible Persönlichkeit\n\n• Ausgeprägtes Qualitäts- und Sicherheitsbewusstsein\n\n• Stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Von Vorteil sind Erfahrungen mit ERP-Multisite-Konfigurationen sowie Kenntnisse in Crystal Reports, VBA und Java\n\nUnser Angebot\n\n• Sie erwartet eine interessante, anspruchsvolle und abwechslungsreiche Tätigkeit in einem kleinen, kollegialen Team, in der Sie Ihre vielseitigen Erfahrungen gezielt einbringen können. Eine offene Unternehmenskultur, flache Hierarchien und eine gelebte &bdquo;Open-Door-Kultur“ schaffen ein Umfeld, in dem Eigeninitiative und der Austausch von Ideen ausdrücklich erwünscht sind. Darüber hinaus bieten wir Ihnen Freiraum, eigene Ideen einzubringen und umzusetzen, eine moderne Infrastruktur, Möglichkeiten zur beruflichen Weiterbildung sowie die Chance, an der Weiterentwicklung unserer Lösungen aktiv mitzuwirken. Abgerundet wird das Angebot durch zeitgemässe und attraktive Anstellungsbedingungen.\n\nFühlen Sie sich angesprochen? Falls Sie sich in diesem Profil wiedererkennen und in einem erfolgreichen Team mitwirken möchten, freuen wir uns Sie bald kennen zu lernen. Ihre vollständigen Bewerbungsunterlagen senden Sie uns ausschliesslich online.\n\nBereich: Information Technology\n\nLevel: Berufserfahrene",
         "it": "Rieter è il fornitore leader mondiale di sistemi per la lavorazione di fibre naturali e artificiali in filati corti e lunghi e per la produzione di filati di filamento, fibre artificiali e non tessuti. Con il suo portafoglio tecnologico completo, Rieter copre l'intera catena del valore tessile – dalla fibra al filato e dal filamento fuso a strutturato, fibra sintetica di graffe e tessuto non tessuto. Con sede a Winterthur (Svizzera), l'azienda sviluppa e produce complessi impianti di filatura, macchine, sistemi e componenti per una produzione efficiente ed economica. Le principali tecnologie di Rieter consentono un uso minimo delle risorse e contribuiscono in modo significativo alla sostenibilità lungo la catena globale del valore tessile. Rieter esiste da oltre 230 anni, ha 22 siti produttivi in nove paesi e impiega circa 6.400 persone in tutto il mondo, di cui circa il 9% in Svizzera. Rieter è quotata sulla SIX Swiss Exchange sotto il simbolo RIEN.\n\nHai il potere, sei versatile e orientato al servizio e all'obiettivo? Ti piace lavorare in una squadra, sei curioso e sempre trovare modi innovativi per raggiungere il tuo obiettivo? Allora si adatta perfettamente a noi e può rafforzare il nostro team come\n\nImmaginiamo una persona simpatica, di iniziativa che ama indipendentemente prendere in consegna i compiti versatili nel nostro team consolidato e mantiene una panoramica anche in tempi frenetici.\n\nI vostri compiti principali e responsabilità\n\n• Supporto e ulteriore sviluppo del sistema ERP, compreso il supporto utente nei settori di incidente, richiesta di servizio, problema e cambiamento\n\n• Collaborazione in progetti e introduzione di estensioni e implementazione della gestione del ciclo di vita\n\n• Creazione, manutenzione e aggiornamento della documentazione del sistema e delle istruzioni dell'utente\n\n• Sostegno e coordinamento di partner e fornitori esterni di supporto\n\n• Supporto, analisi e ottimizzazione dei processi aziendali e produttivi\n\n• Digitalizzazione e ulteriore sviluppo dei processi di produzione e di business esistenti e nuovi\n\n• Supporto per finanza e controllo\n\nEcco cosa portano con loro.\n\n• Formazione IT completata o studi, nonché esperienza professionale nella supervisione dei sistemi ERP\n\n• Ottima conoscenza di un sistema ERP/PPS, preferibilmente PSIPENTA\n\n• Buona conoscenza dei processi produttivi e logistici in una società di costruzione di macchine o apparati\n\n• Interessi delle tecnologie utilizzate e loro ulteriore sviluppo\n\n• Alta affidabilità, indipendenza e responsabilità personale\n\n• Duty-conscious, personalità socievole e flessibile\n\n• Forte consapevolezza della qualità e della sicurezza\n\n• Conoscenza di stile-confidente di tedesco e inglese in parole e scrittura\n\n• Esperienza con configurazioni multisito ERP e conoscenza di Crystal Reports, VBA e Java\n\nLa nostra offerta\n\n• Si aspetta un lavoro interessante, impegnativo e variegato in un team piccolo e collegiale, in cui puoi contribuire alla tua esperienza versatile. Una cultura aziendale aperta, gerarchie piatte e una cultura open-door creano un ambiente in cui l'iniziativa e lo scambio di idee sono espressamente desiderati. Inoltre, offriamo la libertà di contribuire e implementare le proprie idee, un'infrastruttura moderna, opportunità di ulteriore formazione professionale e l'opportunità di partecipare attivamente all'ulteriore sviluppo delle nostre soluzioni. L'offerta è arrotondata da condizioni di lavoro contemporanee e attraenti.\n\nTi senti indirizzato? Se ti riconosci in questo profilo e vuoi partecipare a una squadra di successo, non vediamo l'ora di incontrarti presto. Potete inviarci i vostri documenti applicativi completi esclusivamente online.\n\nArea: Information Technology\n\nLivello: professionisti esperti",
         "en": "Rieter is the world’s leading system supplier for the processing of natural and man-made fibres into short and long staple yarns and for the production of filament yarns, man-made fibres and nonwovens. With its comprehensive technology portfolio, Rieter covers the entire textile value chain – from fiber to yarn as well as from melt to textured filament, synthetic staple fiber and nonwoven fabric. Headquartered in Winterthur (Switzerland), the company develops and manufactures complex spinning plants, machines, systems and components for efficient and economical production. Rieter’s leading technologies enable a minimal use of resources and thus make a significant contribution to sustainability along the global textile value chain. Rieter has existed for more than 230 years, has 22 production sites in nine countries and employs around 6,400 people worldwide, of which around 9% are in Switzerland. Rieter is listed on the SIX Swiss Exchange under the ticker symbol RIEN.\n\nYou have power, are versatile and service- and goal-oriented? You enjoy working in a team, are curious and always find innovative ways to reach your goal? Then you fit perfectly with us and can strengthen our team as\n\nWe imagine a sympathetic, initiative person who likes to independently take over the versatile tasks in our well-established team and keeps an overview even in hectic times.\n\nYour main tasks and responsibilities\n\n• Support and further development of the ERP system, including user support in the areas of incident, service request, problem and change\n\n• Collaboration in projects as well as introduction of extensions and implementation of lifecycle management\n\n• Creation, maintenance and updating of system documentation and user instructions\n\n• Support and coordination of external support partners and suppliers\n\n• Support, analysis and optimization of business and production processes\n\n• Digitalization and further development of existing and new business and production processes\n\n• Support for Finance & Controlling\n\nThis is what they bring with them.\n\n• Completed IT training or studies as well as professional experience in the supervision of ERP systems\n\n• Very good knowledge of an ERP/PPS system, preferably PSIPENTA\n\n• Good knowledge of production and logistics processes in a machine or apparatus construction company\n\n• Interest in the technologies used and their further development\n\n• High reliability, independence and personal responsibility\n\n• Duty-conscious, sociable and flexible personality\n\n• Strong quality and safety awareness\n\n• Style-confident knowledge of German and English in words and writing\n\n• Experience with ERP multisite configurations as well as knowledge of Crystal Reports, VBA and Java\n\nOur offer\n\n• She expects an interesting, demanding and varied job in a small, collegial team, in which you can contribute your versatile experience. An open corporate culture, flat hierarchies and an open-door culture create an environment in which initiative and the exchange of ideas are expressly desired. In addition, we offer you freedom to contribute and implement your own ideas, a modern infrastructure, opportunities for further vocational training and the opportunity to actively participate in the further development of our solutions. The offer is rounded off by contemporary and attractive employment conditions.\n\nDo you feel addressed? If you recognize yourself in this profile and would like to participate in a successful team, we look forward to meeting you soon. You can send us your complete application documents exclusively online.\n\nArea: Information Technology\n\nLevel: Experienced professionals",
+        "de": "Rieter ist der weltweit führende Systemanbieter für die Verarbeitung von Natur- und Chemiefasern zu Kurz- und Langstapelgarnen sowie für die Herstellung von Filamentgarnen, Chemiefasern und Nonwoven. Mit seinem umfassenden Technologieportfolio deckt Rieter die gesamte textile Wertschöpfungskette ab – von der Faser bis zum Garn sowie von der Schmelze bis zum texturierten Filament, zur synthetischen Stapelfaser und zum Vliesstoff. Das Unternehmen mit Hauptsitz in Winterthur (Schweiz) entwickelt und fertigt komplexe Spinnereianlagen, Maschinen, Systeme und Komponenten für eine effiziente und wirtschaftliche Produktion. Die führenden Technologien von Rieter ermöglichen einen minimalen Ressourceneinsatz und leisten damit einen wesentlichen Beitrag zur Nachhaltigkeit entlang der globalen textilen Wertschöpfungskette. Rieter besteht seit über 230 Jahren, ist mit 22 Produktionsstandorten in neun Ländern vertreten und beschäftigt weltweit rund 6 400 Mitarbeitende, davon etwa 9% in der Schweiz. Rieter ist an der SIX Swiss Exchange unter dem Tickersymbol RIEN kotiert.\n\nSie haben Power, sind vielseitig einsetzbar sowie dienstleistungs- und zielorientiert? Sie arbeiten gerne in einem Team, sind neugierig und finden immer wieder innovative Wege, um an Ihr Ziel zu gelangen? Dann passen Sie perfekt zu uns und können unser Team stärken als\n\nWir stellen uns eine sympathische, initiative Person vor, die gerne selbstständig die vielseitigen Aufgaben in unserem eingespielten Team übernimmt und auch in hektischen Zeiten den Überblick behält.\n\nIhre Hauptaufgaben und Verantwortlichkeiten\n\n• Betreuung und Weiterentwicklung des ERP-Systems, einschliesslich User Support in den Bereichen Incident, Service Request, Problem und Change\n\n• Mitarbeit in Projekten sowie Einführung von Erweiterungen und Durchführung des Lifecycle Managements\n\n• Erstellung, Pflege und Aktualisierung von Systemdokumentationen und User-Anleitungen\n\n• Betreuung und Koordination externer Support-Partner und Lieferanten\n\n• Betreuung, Analyse und Optimierung von Geschäfts- und Produktionsprozessen\n\n• Digitalisierung und Weiterentwicklung bestehender sowie neuer Geschäfts- und Produktionsprozesse\n\n• Unterstützung der Bereiche Finance & Controlling\n\nDas bringen Sie mit\n\n• Abgeschlossene IT-Ausbildung oder Studium sowie Berufserfahrung in der Betreuung von ERP-Systemen\n\n• Sehr gute Kenntnisse eines ERP-/PPS-Systems, vorzugsweise PSIPENTA\n\n• Gute Kenntnisse der Produktions- und Logistikprozesse in einem Maschinen- oder Apparatebauunternehmen\n\n• Interesse an den eingesetzten Technologien und deren Weiterentwicklung\n\n• Hohe Zuverlässigkeit, Selbständigkeit und Eigenverantwortung\n\n• Pflichtbewusste, kontaktfreudige und flexible Persönlichkeit\n\n• Ausgeprägtes Qualitäts- und Sicherheitsbewusstsein\n\n• Stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Von Vorteil sind Erfahrungen mit ERP-Multisite-Konfigurationen sowie Kenntnisse in Crystal Reports, VBA und Java\n\nUnser Angebot\n\n• Sie erwartet eine interessante, anspruchsvolle und abwechslungsreiche Tätigkeit in einem kleinen, kollegialen Team, in der Sie Ihre vielseitigen Erfahrungen gezielt einbringen können. Eine offene Unternehmenskultur, flache Hierarchien und eine gelebte &bdquo;Open-Door-Kultur“ schaffen ein Umfeld, in dem Eigeninitiative und der Austausch von Ideen ausdrücklich erwünscht sind. Darüber hinaus bieten wir Ihnen Freiraum, eigene Ideen einzubringen und umzusetzen, eine moderne Infrastruktur, Möglichkeiten zur beruflichen Weiterbildung sowie die Chance, an der Weiterentwicklung unserer Lösungen aktiv mitzuwirken. Abgerundet wird das Angebot durch zeitgemässe und attraktive Anstellungsbedingungen.\n\nFühlen Sie sich angesprochen? Falls Sie sich in diesem Profil wiedererkennen und in einem erfolgreichen Team mitwirken möchten, freuen wir uns Sie bald kennen zu lernen. Ihre vollständigen Bewerbungsunterlagen senden Sie uns ausschliesslich online.\n\nBereich: Information Technology\n\nLevel: Berufserfahrene",
         "fr": "Rieter est le premier fournisseur mondial de systèmes pour la transformation des fibres naturelles et artificielles en fils courts et longs et pour la production de fils de filaments, de fibres synthétiques et de nontissés. Avec son portefeuille technologique complet, Rieter couvre l'ensemble de la chaîne de valeur textile – de la fibre au fil ainsi que de la fusion au filament texturé, de la fibre synthétique discontinue et du tissu non tissé. Basée à Winterthur (Suisse), l'entreprise développe et fabrique des installations de filature complexes, des machines, des systèmes et des composants pour une production efficace et économique. Les technologies de pointe de Rieter permettent une utilisation minimale des ressources et contribuent ainsi de manière significative à la durabilité tout au long de la chaîne de valeur mondiale du textile. Rieter existe depuis plus de 230 ans, compte 22 sites de production dans neuf pays et emploie environ 6 400 personnes dans le monde, dont environ 9 % en Suisse. Rieter est coté sur la SIX Swiss Exchange sous le symbole RIEN.\n\nVous avez de la puissance, êtes-vous polyvalent et axé sur le service et le but? Vous aimez travailler en équipe, êtes curieux et toujours trouver des moyens innovants d'atteindre votre objectif? Alors vous vous adaptez parfaitement à nous et peut renforcer notre équipe comme\n\nNous imaginons une personne compatissante et d'initiative qui aime prendre en charge de manière indépendante les tâches polyvalentes dans notre équipe bien établie et qui garde une vue d'ensemble même en période agitée.\n\nVos principales tâches et responsabilités\n\n• Appui et poursuite du développement du PGI, y compris l ' appui aux utilisateurs dans les domaines des incidents, des demandes de services, des problèmes et des changements\n\n• Collaboration dans les projets et introduction des extensions et mise en œuvre de la gestion du cycle de vie\n\n• Création, maintenance et mise à jour de la documentation du système et des instructions de l'utilisateur\n\n• Appui et coordination des partenaires et fournisseurs extérieurs\n\n• Soutien, analyse et optimisation des processus d'entreprise et de production\n\n• Numérisation et poursuite du développement des entreprises et des procédés de production existants et nouveaux\n\n• Soutien au financement et au contrôle\n\nC'est ce qu'ils apportent.\n\n• Formation ou études en TI terminées ainsi que l'expérience professionnelle dans la supervision des systèmes de PGI\n\n• Très bonne connaissance d'un système ERP/PPS, de préférence PSIPENTA\n\n• Bonne connaissance des processus de production et de logistique dans une entreprise de construction de machines ou d'appareils\n\n• Intérêt pour les technologies utilisées et leur développement ultérieur\n\n• Haute fiabilité, indépendance et responsabilité personnelle\n\n• Personnalité consciente du devoir, sociable et flexible\n\n• Forte sensibilisation à la qualité et à la sécurité\n\n• Style-connaissance de l'allemand et de l'anglais en mots et en écriture\n\n• Expérience avec les configurations multisite ERP ainsi que connaissance de Crystal Reports, VBA et Java\n\nNotre offre\n\n• Elle s'attend à un travail intéressant, exigeant et varié dans une petite équipe collégiale, dans laquelle vous pouvez apporter votre expérience polyvalente. Une culture d'entreprise ouverte, des hiérarchies plates et une culture de porte ouverte créent un environnement dans lequel l'initiative et l'échange d'idées sont expressément souhaités. En outre, nous vous offrons la liberté de contribuer et de mettre en œuvre vos propres idées, une infrastructure moderne, des possibilités de formation professionnelle et la possibilité de participer activement au développement de nos solutions. L'offre est complétée par des conditions d'emploi contemporaines et attrayantes.\n\nVous sentez-vous adressé ? Si vous vous reconnaissez dans ce profil et souhaitez participer à une équipe réussie, nous sommes impatients de vous rencontrer bientôt. Vous pouvez nous envoyer vos documents de candidature en ligne.\n\nDomaine : Technologies de l'information\n\nNiveau: Professionnels expérimentés"
       },
       "location": "Winterthur/ Wädenswil",
@@ -555,7 +562,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/ERP-System-Administratorin-Prozess-Spezialist-mwd-100--4067091",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:06:49.930Z",
+      "crawledAt": "2026-09-10T23:05:47.427Z",
       "addressLocality": "Winterthur/ Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -573,6 +580,21 @@
       "jobReqId": "2606151538st",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "erp-system-administrator-in-prozess-spezialist-m-w-d-100-rieter-winterthur-wadenswil",
+        "amministratore-di-sistema-erp-specialista-di-processo-m-f-d-100-rieter-winterthur-wadenswil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "erp-system-administrator-in-prozess-spezialist-m-w-d-100-rieter-winterthur-wadenswil",
+          "amministratore-di-sistema-erp-specialista-di-processo-m-f-d-100-rieter-winterthur-wadenswil"
+        ],
+        "fr": [
+          "erp-system-administrator-in-prozess-spezialist-m-w-d-100-rieter-winterthur-wadenswil"
+        ]
+      },
+      "firstSeenAt": "2026-09-09T13:47:39.743Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -585,19 +607,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-09T13:47:39.743Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "erp-system-administrator-in-prozess-spezialist-m-w-d-100-rieter-winterthur-wadenswil"
-        ],
-        "fr": [
-          "erp-system-administrator-in-prozess-spezialist-m-w-d-100-rieter-winterthur-wadenswil"
-        ]
-      },
-      "previousSlugs": [
-        "erp-system-administrator-in-prozess-spezialist-m-w-d-100-rieter-winterthur-wadenswil"
-      ]
+      }
     },
     {
       "id": "rieter-b2c063694e2b",
@@ -630,7 +640,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation-100-wmd---4042993",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:49.247Z",
+      "crawledAt": "2026-09-10T23:05:46.844Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -726,87 +736,6 @@
           "@type": "QuantitativeValue",
           "minValue": 121500,
           "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "rieter-f4fb4b48f764",
-      "slug": "amministrazione-delle-esportazioni-80-100-rieter-pfaffikon-zh",
-      "slugByLocale": {
-        "it": "amministrazione-delle-esportazioni-80-100-rieter-pfaffikon-zh",
-        "en": "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
-        "de": "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
-        "fr": "administration-des-exportations-et-des-ventes-80-100-rieter-pfaffikon-zh"
-      },
-      "company": "Rieter",
-      "companyKey": "rieter",
-      "companyDomain": "rieter.com",
-      "title": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
-      "titleByLocale": {
-        "it": "Amministrazione delle esportazioni (80 % - 100 %)",
-        "en": "Export and Sales Administration (80 % - 100 %)",
-        "de": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
-        "fr": "Administration des exportations et des ventes (80 % - 100 %)"
-      },
-      "description": "Bräcker AG, weltweit führender Anbieter von Ringen und Ringläufern für Ringspinnmaschinen, ist eine Tochtergesellschaft des Rieter-Konzerns. Mit Hauptsitz im schweizerischen Pfäffikon bietet Bräcker Mehrwert für seine Kunden mit hoch entwickeltem Branchenwissen, innovativen Lösungen, ausgezeichneten Leistungen im After-Sales-Bereich und einer globalen Präsenz. Die Hauptprodukte des Unternehmens – Ringe und Ringläufer für Ringspinnmaschinen – werden in Pfäffikon und Wintzenheim (Frankreich) hergestellt. Das Produktspektrum des Unternehmens beinhaltet ferner Schleifmaschinen für die Wartung von Walzenbezügen.\n\nFür unser Team im Verkaufsinnendienst suchen wir eine offene, humorvolle und initiative Persönlichkeit als\n\nIhre Hauptaufgaben und Verantwortlichkeiten\n\n• Technische und kommerzielle Klärung von Offerten und Aufträgen\n\n• Preis- und Terminbestimmungen anhand Unterlagen und in Zusammenarbeit mit internen Stellen (Lager, Produktionsplanung)\n\n• Offertstellung und Auftragsabwicklung inkl. Versand/Export\n\n• Terminüberwachung der Aufträge und der nötigen Freigabe-Dokumente wie Importlizenzen, Akkreditive etc.\n\n• Versand der Aufträge auf dem Luft-, See- und Landweg mit Erstellung der Rechnungen und sämtlicher Exportpapiere unter Beachtung allfälliger L/C-, CAD- oder anderen Vorschriften\n\n• Schriftliche und telefonische Kontakte mit Spediteuren, Kontrollstellen, Handelskammer, Konsulaten, Banken\n\n• Bemusterungen\n\n• Nachfassen von Offerten\n\n• Zahlungserinnerungen an Kunden\n\nIhr Anforderungsprofil\n\n• Kaufmännische Grundausbildung; Weiterbildung im Bereich Export von Vorteil\n\n• Erfahrung in der Auftragsbearbeitung und Export in einem Industriebetrieb\n\n• Gute SAP-Kenntnisse (SD Modul) & MS Office-Kenntnisse\n\n• Gute Sprachkenntnisse in Englisch, weitere Sprachen von Vorteil\n\n• Kundenorientiertes Verhalten\n\nUnsere Versprechen\n\n• Die Mitarbeit in einem führenden Unternehmen\n\n• Eine vielseitige Tätigkeit mit Raum zur Eigeninitiative\n\n• Faire Anstellungsbedingungen und ein angenehmes Arbeitsklima\n\n• Die Möglichkeit teilweise im Home-Office zu arbeiten\n\nWenn Sie Freude an einer selbständigen Tätigkeit haben und gerne in einem internationalen Umfeld arbeiten, dann erwartet Frau Carmela Greter gerne Ihre Bewerbungsunterlagen per E-Mail. Direktbewerbungen werden bevorzugt.\n\nBereich: Administration\n\nLevel: Berufserfahrene",
-      "descriptionByLocale": {
-        "it": "Bräcker AG, il fornitore leader mondiale di anelli e ring per macchine per la filatura anelli, è una filiale del Gruppo Rieter. Con sede a Pfäffikon, Svizzera, Bräcker offre un valore aggiunto ai propri clienti con conoscenze di settore altamente sviluppate, soluzioni innovative, servizi post-vendita eccellenti e una presenza globale. I principali prodotti dell’azienda – anelli e anelli per macchine a gironi – sono prodotti in Pfäffikon e Wintzenheim (Francia). La gamma di prodotti dell'azienda comprende anche rettificatrici per la manutenzione di coperture.\n\nPer il nostro team di vendita stiamo cercando una personalità aperta, umoristica e di iniziativa come\n\nI vostri compiti principali e responsabilità\n\n• Chiari tecnici e commerciali delle offerte e degli ordini\n\n• Prezzi e scadenze basate su documenti e in collaborazione con gli organismi interni (stock, pianificazione della produzione)\n\n• Elaborazione di offerte e ordini incl. Spedizione/esportazione\n\n• Programma di monitoraggio degli ordini e dei documenti di rilascio necessari come licenze di importazione, lettere di credito ecc.\n\n• Erogazione di ordini per via aerea, marittima e terrestre con preparazione di fatture e di tutti i documenti di esportazione in conformità a qualsiasi L/C, CAD o altre normative\n\n• Contatti scritti e telefonici con spedizionieri, organi di controllo, camere di commercio, consolati, banche\n\n• Campioni\n\n• Replica delle offerte\n\n• Promemoria di pagamento ai clienti\n\nIl tuo profilo di richiesta\n\n• Formazione commerciale di base; La formazione all'esportazione è un vantaggio\n\n• Esperienza nell'elaborazione degli ordini ed esportazione in un'azienda industriale\n\n• Buone conoscenze SAP (modulo SD) e conoscenze MS Office\n\n• Buone competenze linguistiche in inglese, altre lingue benefiche\n\n• Comportamento orientato al cliente\n\nLe nostre promesse\n\n• Lavorare in una società leader\n\n• Un'attività versatile con spazio per propria iniziativa\n\n• Condizioni di lavoro eque e un ambiente di lavoro piacevole\n\n• La possibilità di lavorare parzialmente nell'ufficio\n\nSe ti piace il lavoro autonomo e vuoi lavorare in un ambiente internazionale, la signora Carmela Greter è felice di aspettarti i tuoi documenti di candidatura via e-mail. Le applicazioni dirette sono preferite.\n\nArea: Amministrazione\n\nLivello: professionisti esperti",
-        "en": "Bräcker AG, the world’s leading supplier of rings and ring travelers for ring spinning machines, is a subsidiary of the Rieter Group. Headquartered in Pfäffikon, Switzerland, Bräcker offers added value to its customers with highly developed industry knowledge, innovative solutions, excellent after-sales services and a global presence. The company’s main products – rings and ring travelers for ring spinning machines – are manufactured in Pfäffikon and Wintzenheim (France). The company’s product range also includes grinding machines for the maintenance of roll covers.\n\nFor our sales team we are looking for an open, humorous and initiative personality as\n\nYour main tasks and responsibilities\n\n• Technical and commercial clarification of offers and orders\n\n• Pricing and deadlines based on documents and in cooperation with internal bodies (stocks, production planning)\n\n• Offering and order processing incl. Shipping/export\n\n• Schedule monitoring of orders and the necessary release documents such as import licenses, letters of credit etc.\n\n• Dispatch of orders by air, sea and land with preparation of invoices and all export documents in compliance with any L/C, CAD or other regulations\n\n• Written and telephone contacts with forwarders, control bodies, chambers of commerce, consulates, banks\n\n• Samples\n\n• Replication of offers\n\n• Payment reminders to customers\n\nYour requirement profile\n\n• Basic commercial training; Export training is an advantage\n\n• Experience in order processing and export in an industrial company\n\n• Good SAP knowledge (SD module) & MS Office knowledge\n\n• Good language skills in English, other languages beneficial\n\n• Customer-oriented behaviour\n\nOur promises\n\n• Working in a leading company\n\n• A versatile activity with space for own initiative\n\n• Fair employment conditions and a pleasant working environment\n\n• The possibility to work partially in the home office\n\nIf you enjoy self-employment and would like to work in an international environment, then Mrs. Carmela Greter is happy to expect your application documents by e-mail. Direct applications are preferred.\n\nArea: Administration\n\nLevel: Experienced professionals",
-        "de": "Bräcker AG, weltweit führender Anbieter von Ringen und Ringläufern für Ringspinnmaschinen, ist eine Tochtergesellschaft des Rieter-Konzerns. Mit Hauptsitz im schweizerischen Pfäffikon bietet Bräcker Mehrwert für seine Kunden mit hoch entwickeltem Branchenwissen, innovativen Lösungen, ausgezeichneten Leistungen im After-Sales-Bereich und einer globalen Präsenz. Die Hauptprodukte des Unternehmens – Ringe und Ringläufer für Ringspinnmaschinen – werden in Pfäffikon und Wintzenheim (Frankreich) hergestellt. Das Produktspektrum des Unternehmens beinhaltet ferner Schleifmaschinen für die Wartung von Walzenbezügen.\n\nFür unser Team im Verkaufsinnendienst suchen wir eine offene, humorvolle und initiative Persönlichkeit als\n\nIhre Hauptaufgaben und Verantwortlichkeiten\n\n• Technische und kommerzielle Klärung von Offerten und Aufträgen\n\n• Preis- und Terminbestimmungen anhand Unterlagen und in Zusammenarbeit mit internen Stellen (Lager, Produktionsplanung)\n\n• Offertstellung und Auftragsabwicklung inkl. Versand/Export\n\n• Terminüberwachung der Aufträge und der nötigen Freigabe-Dokumente wie Importlizenzen, Akkreditive etc.\n\n• Versand der Aufträge auf dem Luft-, See- und Landweg mit Erstellung der Rechnungen und sämtlicher Exportpapiere unter Beachtung allfälliger L/C-, CAD- oder anderen Vorschriften\n\n• Schriftliche und telefonische Kontakte mit Spediteuren, Kontrollstellen, Handelskammer, Konsulaten, Banken\n\n• Bemusterungen\n\n• Nachfassen von Offerten\n\n• Zahlungserinnerungen an Kunden\n\nIhr Anforderungsprofil\n\n• Kaufmännische Grundausbildung; Weiterbildung im Bereich Export von Vorteil\n\n• Erfahrung in der Auftragsbearbeitung und Export in einem Industriebetrieb\n\n• Gute SAP-Kenntnisse (SD Modul) & MS Office-Kenntnisse\n\n• Gute Sprachkenntnisse in Englisch, weitere Sprachen von Vorteil\n\n• Kundenorientiertes Verhalten\n\nUnsere Versprechen\n\n• Die Mitarbeit in einem führenden Unternehmen\n\n• Eine vielseitige Tätigkeit mit Raum zur Eigeninitiative\n\n• Faire Anstellungsbedingungen und ein angenehmes Arbeitsklima\n\n• Die Möglichkeit teilweise im Home-Office zu arbeiten\n\nWenn Sie Freude an einer selbständigen Tätigkeit haben und gerne in einem internationalen Umfeld arbeiten, dann erwartet Frau Carmela Greter gerne Ihre Bewerbungsunterlagen per E-Mail. Direktbewerbungen werden bevorzugt.\n\nBereich: Administration\n\nLevel: Berufserfahrene",
-        "fr": "Bräcker AG, premier fournisseur mondial d'anneaux et de voyageurs d'anneaux pour machines à filer, est une filiale du groupe Rieter. Basé à Pfäffikon, en Suisse, Bräcker offre une valeur ajoutée à ses clients avec une connaissance de l'industrie hautement développée, des solutions innovantes, d'excellents services après-vente et une présence mondiale. Les principaux produits de la société – bagues et voyageurs de bagues pour machines à filer – sont fabriqués à Pfäffikon et Wintzenheim (France). La gamme de produits de l'entreprise comprend également des machines à meuler pour l'entretien des couvertures en rouleaux.\n\nPour notre équipe commerciale, nous recherchons une personnalité ouverte, humoristique et d'initiative\n\nVos principales tâches et responsabilités\n\n• Clarification technique et commerciale des offres et commandes\n\n• Prix et délais basés sur des documents et en coopération avec des organismes internes (stocks, planification de la production)\n\n• Offre et traitement des commandes incl. Expédition/exportation\n\n• Planifier la surveillance des commandes et des documents de mainlevée nécessaires, comme les licences d'importation, les lettres de crédit, etc.\n\n• Livraison des commandes par voie aérienne, maritime et terrestre avec établissement des factures et de tous les documents d'exportation conformément à tout règlement L/C, CAD ou autre\n\n• Contacts écrits et téléphoniques avec transitaires, organes de contrôle, chambres de commerce, consulats, banques\n\n• Échantillons\n\n• Réplication des offres\n\n• Rappels de paiement aux clients\n\nVotre profil de demande\n\n• Formation commerciale de base; La formation à l'exportation est un avantage\n\n• Expérience dans le traitement des commandes et l'exportation dans une entreprise industrielle\n\n• Bonnes connaissances SAP (module SD) et connaissances MS Office\n\n• Bonnes compétences linguistiques en anglais, autres langues bénéfiques\n\n• Comportement orienté vers le client\n\nNos promesses\n\n• Travailler dans une entreprise leader\n\n• Une activité polyvalente avec un espace pour sa propre initiative\n\n• Des conditions d'emploi équitables et un environnement de travail agréable\n\n• La possibilité de travailler partiellement dans le bureau à domicile\n\nSi vous aimez le travail indépendant et que vous souhaitez travailler dans un environnement international, Mme Carmela Greter est heureuse d'attendre vos documents de candidature par courriel. Les demandes directes sont préférées.\n\nDomaine: Administration\n\nNiveau: Professionnels expérimentés"
-      },
-      "location": "Pfäffikon ZH",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4059400",
-      "source": "Rieter Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:22:21.298Z",
-      "addressLocality": "Pfäffikon",
-      "addressRegion": "Zürich",
-      "streetAddress": "Obermattstrasse 65",
-      "postalCode": "8330",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "finance",
-      "contract": "internship",
-      "employmentType": "FULL_TIME",
-      "sector": "Industria / Macchinari Tessili",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4059400",
-      "jobReqId": "2601080745cg",
-      "employerBrand": "Bräcker AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
-        "administration-des-exportations-et-des-ventes-80-100-rieter-pfaffikon-zh",
-        "sachbearbeiter-in-export-e-sales-administration-80-100-rieter-pfaffikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
-          "administration-des-exportations-et-des-ventes-80-100-rieter-pfaffikon-zh",
-          "sachbearbeiter-in-export-e-sales-administration-80-100-rieter-pfaffikon"
-        ],
-        "fr": [
-          "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh"
-        ]
-      },
-      "firstSeenAt": "2026-08-24T21:36:53.049Z",
-      "salaryMin": 113000,
-      "salaryMax": 198500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 198500,
           "unitText": "YEAR"
         }
       },

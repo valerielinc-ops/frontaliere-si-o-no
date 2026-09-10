@@ -1,21 +1,21 @@
 {
   "key": "rieter",
   "label": "Rieter",
-  "generatedAt": "2026-09-09T23:07:04.247Z",
-  "total": 11,
+  "generatedAt": "2026-09-10T23:05:59.894Z",
+  "total": 10,
   "discovered": null,
   "parsed": 9,
   "lastFetchOutcome": null,
-  "written": 11,
+  "written": 10,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 12039,
-  "avgDurationMs": 12039,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 10432,
+  "avgDurationMs": 10432,
   "durationHistory": [
-    12039
+    10432
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/ERP-System-Administratorin-Prozess-Spezialist-mwd-100--4067091",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:06:49.930Z",
+      "crawledAt": "2026-09-10T23:05:47.427Z",
       "addressLocality": "Winterthur/ Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -47,13 +47,12 @@
       "postedDate": "2026-09-09",
       "applyUrl": "https://live.solique.ch/rieter/en/jobs/ERP-System-Administratorin-Prozess-Spezialist-mwd-100--4067091",
       "jobReqId": "2606151538st",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:47:39.743Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -69,7 +68,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/OT-Development-Lead-Digital-Controls-Architecture-100-fmd---4065735",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:51.979Z",
+      "crawledAt": "2026-09-10T23:05:49.179Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -86,7 +85,6 @@
       "applyUrl": "https://live.solique.ch/rieter/en/jobs/OT-Development-Lead-Digital-Controls-Architecture-100-fmd---4065735",
       "jobReqId": "2601071445fr",
       "employerBrand": "Rieter AG",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-08T23:22:19.615Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -108,7 +106,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Security-Engineer--4066616",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:54.011Z",
+      "crawledAt": "2026-09-10T23:05:50.908Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -146,7 +144,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Senior-Consultant-Service-and-Repair-CS-100-wmd---4065727",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:52.681Z",
+      "crawledAt": "2026-09-10T23:05:49.743Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -184,7 +182,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer-100-wmd---4065731",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:54.722Z",
+      "crawledAt": "2026-09-10T23:05:51.491Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -222,7 +220,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/IT-Project-Manager--4057804",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:51.268Z",
+      "crawledAt": "2026-09-10T23:05:48.597Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -260,7 +258,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Engineer--4058728",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:53.351Z",
+      "crawledAt": "2026-09-10T23:05:50.344Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Rieter AG",
@@ -299,7 +297,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Head-of-Trade-Compliance--4054686",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:50.583Z",
+      "crawledAt": "2026-09-10T23:05:48.001Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -337,7 +335,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation-100-wmd---4042993",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:49.247Z",
+      "crawledAt": "2026-09-10T23:05:46.844Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -364,8 +362,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "rieter-f4fb4b48f764",
       "slug": "amministrazione-delle-esportazioni-80-100-rieter-pfaffikon-zh",
@@ -400,7 +397,6 @@
       "salaryMax": 198500,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -408,7 +404,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "rieter-0800f06a9a7a",
       "slug": "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur",
@@ -443,7 +441,7 @@
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
