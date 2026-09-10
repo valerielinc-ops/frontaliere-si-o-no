@@ -456,7 +456,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       ...historicalImportantReview,
       body: [
         reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
-        '- ❓ q: rischio operativo non funnel-critical, solo diagnostico.',
+        '- ❓ q: rischio operativo solo diagnostico — deferred, non funnel-critical.',
       ].join('\n'),
       commit_id: HEAD_SHA,
     };
@@ -470,6 +470,29 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     });
 
     expect(result.approved).toBe(true);
+    expect(result.classification.outsideOnly).toBe(true);
+  });
+
+  it('does not treat funnel words inside the question as an explicit disposition', async () => {
+    const outsideOnlyReview = {
+      ...historicalImportantReview,
+      body: [
+        reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
+        '- `scripts/redirects.mjs:L41`: ❓ q: the canonical redirect remains deferred until the post-merge sweep; can it alter funnel routing?',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[outsideOnlyReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
     expect(result.classification.outsideOnly).toBe(true);
   });
 
