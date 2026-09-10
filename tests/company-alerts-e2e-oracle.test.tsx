@@ -9,7 +9,7 @@
  */
 
 import { afterAll, afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import type { ComponentType } from 'react';
 import { baseCompanySlug, canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { companyFollowMountPlaceholder } from '../build-plugins/shared/companyFollowMountPlaceholder';
@@ -298,9 +298,16 @@ describe('E oracle: public company identity and hydrated CTA', () => {
       errors);
 
     const dialog = screen.queryByRole('dialog');
+    if (dialog) {
+      // Adversarial fixture: an unlabeled secondary control must not steal the
+      // acceptance click merely because it renders first in the dialog.
+      const secondary = document.createElement('button');
+      secondary.type = 'button';
+      secondary.textContent = 'Controllo secondario';
+      dialog.prepend(secondary);
+    }
     const accept = dialog
-      ? Array.from(dialog.querySelectorAll<HTMLButtonElement>('button'))
-        .find((button) => !button.getAttribute('aria-label'))
+      ? within(dialog).queryByRole('button', { name: 'Segui Acme' })
       : null;
     check('E-POS-03-popup-keeps-inline-acceptance', Boolean(accept), true, errors);
     if (accept) {
@@ -747,6 +754,7 @@ describe('E oracle: sender, matching, provider, and writeback', () => {
     ];
     const previousEnv = Object.fromEntries(envKeys.map((key) => [key, process.env[key]]));
     const realFetch = globalThis.fetch;
+    const preEnvironmentCascade = await import('../functions/src/emailCascade.js');
     let mailgunSends = 0;
     let mailjetSends = 0;
     const response = (json: Record<string, unknown>) => ({
@@ -777,7 +785,15 @@ describe('E oracle: sender, matching, provider, and writeback', () => {
         return response({});
       }) as typeof globalThis.fetch;
 
+      // The module may have been imported by another test before this env
+      // setup. Force the cascade under test to observe this test's provider
+      // contract from a fresh module graph rather than a cached module.
+      vi.resetModules();
       const { sendEmailCascade } = await import('../functions/src/emailCascade.js');
+      check('E-NEG-13-provider-import-is-isolated',
+        sendEmailCascade === preEnvironmentCascade.sendEmailCascade,
+        false,
+        errors);
       const result = await sendEmailCascade([{
         payload: {
           from: 'Company Alert Oracle <company-alert-oracle@example.test>',
