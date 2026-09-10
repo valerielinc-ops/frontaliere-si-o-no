@@ -78,10 +78,61 @@ runs:
       shell: bash
       run: |
         set +e
-        node_bin="$(command -v node || true)"
+        realpath_bin=''
+        if [ -x /usr/bin/realpath ]; then
+          realpath_bin=/usr/bin/realpath
+        elif [ -x /bin/realpath ]; then
+          realpath_bin=/bin/realpath
+        fi
+        workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
+        action_path="${GITHUB_ACTION_PATH:-${PWD:-$(pwd)}}"
         runner_tmp="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
+        workspace_root="$([ -n "$realpath_bin" ] && "$realpath_bin" "$workspace_root" 2>/dev/null || true)"
+        action_path="$([ -n "$realpath_bin" ] && "$realpath_bin" "$action_path" 2>/dev/null || true)"
+        runner_tmp="$([ -n "$realpath_bin" ] && "$realpath_bin" "$runner_tmp" 2>/dev/null || true)"
+        find_trusted_node() {
+          local path_entry candidate resolved
+          [ -n "$realpath_bin" ] || return 1
+          [ -n "$workspace_root" ] || return 1
+          [ -n "$action_path" ] || return 1
+          [ -n "$runner_tmp" ] || return 1
+          while IFS= read -r path_entry; do
+            [ -n "$path_entry" ] || continue
+            case "$path_entry" in
+              /*) ;;
+              *) continue ;;
+            esac
+            case "$path_entry" in
+              /tmp|/tmp/*|"$workspace_root"|"$workspace_root"/*|"$action_path"|"$action_path"/*|"$runner_tmp"|"$runner_tmp"/*)
+                continue
+                ;;
+            esac
+            candidate="$path_entry/node"
+            [ -f "$candidate" ] || continue
+            [ -x "$candidate" ] || continue
+            resolved="$("$realpath_bin" "$candidate" 2>/dev/null || true)"
+            [ -n "$resolved" ] || continue
+            case "$resolved" in
+              /usr/bin/node|/usr/local/bin/node|/opt/hostedtoolcache/node/*/bin/node|/opt/homebrew/bin/node|/opt/homebrew/Cellar/node/*/bin/node|/usr/local/Cellar/node/*/bin/node)
+                ;;
+              *)
+                continue
+                ;;
+            esac
+            [ -f "$resolved" ] && [ -x "$resolved" ] || continue
+            printf '%s' "$resolved"
+            return 0
+          done < <(printf '%s\n' "${PATH:-}" | /usr/bin/tr ':' '\n' 2>/dev/null)
+          return 1
+        }
+        node_realpath="$(find_trusted_node || true)"
+        if [ -z "$node_realpath" ]; then
+          echo "::warning::Codex CLI install could not resolve a trusted Node runtime; Claude and the normal fallback cascade remain available"
+          exit 0
+        fi
+        node_bin="$node_realpath"
         codex_prefix="$(mktemp -d "$runner_tmp/claude-haiku-codex-cli.XXXXXX")"
-        if [ -z "$node_bin" ] || [ -z "$codex_prefix" ] || [ ! -d "$codex_prefix" ]; then
+        if [ -z "$codex_prefix" ] || [ ! -d "$codex_prefix" ]; then
           echo "::warning::Codex CLI install could not allocate its credential-free temporary prefix; Claude and the normal fallback cascade remain available"
           exit 0
         fi
@@ -139,6 +190,7 @@ runs:
         printf 'codex_realpath=%s\n' "$codex_realpath" >> "$GITHUB_OUTPUT"
         printf 'codex_sha256=%s\n' "$codex_sha256" >> "$GITHUB_OUTPUT"
         printf 'codex_prefix=%s\n' "$codex_prefix" >> "$GITHUB_OUTPUT"
+        printf 'node_realpath=%s\n' "$node_realpath" >> "$GITHUB_OUTPUT"
         echo "codex CLI installed and attested (0.153.4)"
 
     # Keep the subscription secret on this one action step. Only an explicit
@@ -154,8 +206,26 @@ runs:
         CODEX_CLI_REALPATH: ${{ steps.install_codex_cli.outputs.codex_realpath }}
         CODEX_CLI_SHA256: ${{ steps.install_codex_cli.outputs.codex_sha256 }}
         CODEX_CLI_PREFIX: ${{ steps.install_codex_cli.outputs.codex_prefix }}
+        TRUSTED_NODE: ${{ steps.install_codex_cli.outputs.node_realpath }}
       run: |
         set +e
+        node_bin="${TRUSTED_NODE:-}"
+        case "$node_bin" in
+          /usr/bin/node|/usr/local/bin/node|/opt/hostedtoolcache/node/*/bin/node|/opt/homebrew/bin/node|/opt/homebrew/Cellar/node/*/bin/node|/usr/local/Cellar/node/*/bin/node)
+            ;;
+          *)
+            echo "::warning::Codex auth broker could not use its attested Node runtime; Claude and the normal fallback cascade remain available"
+            exit 0
+            ;;
+        esac
+        if [ ! -f "$node_bin" ] || [ ! -x "$node_bin" ] || [ -L "$node_bin" ]; then
+          echo "::warning::Codex auth broker attested Node runtime is not a real executable; Claude and the normal fallback cascade remain available"
+          exit 0
+        fi
+        # The secret is present in this step from the first shell instruction;
+        # remove the job-controlled PATH before invoking any external helper.
+        PATH='/usr/bin:/bin'
+        export PATH
         auth_tmp="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
         auth_dir="$(mktemp -d "$auth_tmp/claude-haiku-codex-broker.XXXXXX")"
         if [ -z "$auth_dir" ] || [ ! -d "$auth_dir" ]; then
@@ -170,17 +240,10 @@ runs:
           rm -rf -- "$auth_dir"
           exit 0
         fi
-        node_bin="$(command -v node || true)"
-        if [ -z "$node_bin" ]; then
-          echo "::warning::Codex auth broker could not find node; Claude and the normal fallback cascade remain available"
-          rm -f -- "$auth_fifo"
-          rmdir -- "$auth_dir" 2>/dev/null || true
-          exit 0
-        fi
         # The broker receives the credential only through the FIFO. Start it
         # with an empty environment so CODEX_AUTH_JSON from this step cannot
         # leak into the long-lived broker process or any diagnostics.
-        nohup env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
+        nohup /usr/bin/env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
           --socket "$broker_socket" --ttl-ms 1800000 \
           --codex-bin "$CODEX_CLI_BIN" --codex-realpath "$CODEX_CLI_REALPATH" \
           --codex-sha256 "$CODEX_CLI_SHA256" --codex-prefix "$CODEX_CLI_PREFIX" \

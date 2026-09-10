@@ -30,6 +30,9 @@ describe('Claude Haiku fallback setup action', () => {
     expect(installRun).toContain('CI="true"');
     expect(installRun).toContain('NPM_CONFIG_USERCONFIG="$npmrc"');
     expect(installRun).toContain('npm_config_cache="$npm_cache"');
+    expect(installRun).toContain('find_trusted_node()');
+    expect(installRun).toContain('/opt/hostedtoolcache/node/*/bin/node');
+    expect(installRun).toContain('/tmp|/tmp/*');
     expect(installRun).not.toContain('env -u');
 
     const root = mkdtempSync(path.join(tmpdir(), 'haiku-codex-install-env-'));
@@ -85,6 +88,8 @@ describe('Claude Haiku fallback setup action', () => {
           PATH: `${fakeBin}:${process.env.PATH || '/usr/bin:/bin'}`,
           HOME: path.join(root, 'job-home'),
           CI: 'false',
+          GITHUB_WORKSPACE: path.resolve(path.dirname(actionPath), '../../..'),
+          GITHUB_ACTION_PATH: path.dirname(actionPath),
           RUNNER_TEMP: runnerTemp,
           GITHUB_OUTPUT: outputPath,
         },
@@ -114,6 +119,58 @@ describe('Claude Haiku fallback setup action', () => {
     }
   });
 
+  it('skips Node shims in /tmp, workspace, action, and RUNNER_TEMP before selecting host Node', () => {
+    const action = fs.readFileSync(actionPath, 'utf8');
+    const installRun = (YAML.parse(action) as {
+      runs?: { steps?: Array<{ id?: string; run?: string }> };
+    }).runs?.steps?.find((step) => step.id === 'install_codex_cli')?.run;
+    expect(installRun).toBeTruthy();
+
+    const functionStart = (installRun as string).indexOf('find_trusted_node() {');
+    const functionEnd = (installRun as string).indexOf('\nnode_realpath=', functionStart);
+    expect(functionStart).toBeGreaterThanOrEqual(0);
+    expect(functionEnd).toBeGreaterThan(functionStart);
+    const resolverSource = (installRun as string).slice(functionStart, functionEnd)
+      .split('\n')
+      .map((line) => line.startsWith('        ') ? line.slice(8) : line)
+      .join('\n');
+
+    const root = mkdtempSync(path.join(tmpdir(), 'haiku-codex-node-trust-'));
+    const workspace = path.join(root, 'workspace');
+    const actionDir = path.join(root, 'action');
+    const runnerTemp = path.join(root, 'runner-temp');
+    const tmpEvil = path.join(root, 'tmp-evil');
+    const trustedNode = fs.realpathSync(process.execPath);
+    const trustedNodeDir = path.dirname(trustedNode);
+    const roots = [workspace, actionDir, runnerTemp, tmpEvil];
+    for (const directory of roots) fs.mkdirSync(directory, { recursive: true });
+
+    const quote = (value: string) => `'${value.replaceAll("'", "'\\''")}'`;
+    try {
+      for (const maliciousDir of roots) {
+        const maliciousNode = path.join(maliciousDir, 'node');
+        writeFileSync(maliciousNode, '#!/bin/sh\nexit 97\n');
+        chmodSync(maliciousNode, 0o755);
+        const script = [
+          'set -euo pipefail',
+          `realpath_bin=${quote(fs.existsSync('/usr/bin/realpath') ? '/usr/bin/realpath' : '/bin/realpath')}`,
+          `workspace_root=${quote(fs.realpathSync(workspace))}`,
+          `action_path=${quote(fs.realpathSync(actionDir))}`,
+          `runner_tmp=${quote(fs.realpathSync(runnerTemp))}`,
+          resolverSource,
+          'find_trusted_node',
+        ].join('\n');
+        const selected = execFileSync('/bin/bash', ['-c', script], {
+          encoding: 'utf8',
+          env: { PATH: `${maliciousDir}:${trustedNodeDir}:/usr/bin:/bin` },
+        }).trim();
+        expect(selected, `resolver selected malicious Node from ${maliciousDir}`).toBe(trustedNode);
+      }
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('keeps auth inside a one-shot broker and exposes its socket only as an action output', () => {
     const action = fs.readFileSync(actionPath, 'utf8');
     expect(action).toContain('codex_auth_json:');
@@ -131,6 +188,9 @@ describe('Claude Haiku fallback setup action', () => {
     expect(action).toContain('--codex-prefix "$CODEX_CLI_PREFIX"');
     expect(action).toContain('claude-haiku-codex-cli.XXXXXX');
     expect(action).toContain('env -i PATH="$PATH"');
+    expect(action).toContain('TRUSTED_NODE: ${{ steps.install_codex_cli.outputs.node_realpath }}');
+    expect(action).toContain('node_bin="${TRUSTED_NODE:-}"');
+    expect(action).not.toContain('node_bin="$(command -v node || true)"');
     expect(action).toContain('--ttl-ms 1800000');
     expect(action).not.toContain('--ttl-ms 25200000');
     expect(action).not.toContain('CODEX_AUTH_BROKER_SOCKET=');
