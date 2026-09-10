@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
   buildAffiliatePubref,
   buildAffiliateLinkHref,
+  PUBREF_ALLOWED_RE,
   safeAffiliateToken,
+  sanitizePubref,
 } from '../services/affiliateService';
 import {
   normalizeAffiliateTransaction,
@@ -241,26 +243,31 @@ describe('affiliate revenue reconciliation', () => {
   });
 
   it('refuses ambiguous three-digit amounts until the export format is declared', () => {
-    const row = {
-      transaction_id: 'tx-ambiguous',
-      status: 'approved',
-      currency: 'CHF',
-      amount: '12.500',
-      transaction_date: '2026-09-04',
-    };
+    for (const [index, [amount, decimal, grouped]] of ([
+      ['12.500', 12.5, 12500],
+      ['12,500', 12.5, 12500],
+    ] as const).entries()) {
+      const row = {
+        transaction_id: `tx-ambiguous-${index}`,
+        status: 'approved',
+        currency: 'CHF',
+        amount,
+        transaction_date: '2026-09-04',
+      };
 
-    expect(normalizeAffiliateTransaction(row)).toMatchObject({
-      ok: false,
-      errors: [expect.stringMatching(/ambiguous numeric amount/i)],
-    });
-    expect(normalizeAffiliateTransaction(row, { amountFormat: 'decimal' })).toMatchObject({
-      ok: true,
-      value: { amount: 12.5 },
-    });
-    expect(normalizeAffiliateTransaction(row, { amountFormat: 'grouped' })).toMatchObject({
-      ok: true,
-      value: { amount: 12500 },
-    });
+      expect(normalizeAffiliateTransaction(row)).toMatchObject({
+        ok: false,
+        errors: [expect.stringMatching(/ambiguous numeric amount/i)],
+      });
+      expect(normalizeAffiliateTransaction(row, { amountFormat: 'decimal' })).toMatchObject({
+        ok: true,
+        value: { amount: decimal },
+      });
+      expect(normalizeAffiliateTransaction(row, { amountFormat: 'grouped' })).toMatchObject({
+        ok: true,
+        value: { amount: grouped },
+      });
+    }
   });
 
   it('carries the declared amount format from a network export into reconciliation', () => {
@@ -304,7 +311,9 @@ describe('affiliate revenue reconciliation', () => {
   });
 
   it('normalises underscores out of publisher references', () => {
-    expect(buildAffiliatePubref({ partnerId: 'wise', variant: 'control', surface: 'web', position: 'hero_slot', campaign: 'g4' }))
-      .toBe('wise-control-web-hero-slot-g4');
+    const pubref = buildAffiliatePubref({ partnerId: 'wise', variant: 'control', surface: 'web', position: 'hero_slot', campaign: 'g4' });
+    expect(pubref).toBe('wise-control-web-hero-slot-g4');
+    expect(PUBREF_ALLOWED_RE.test(pubref)).toBe(true);
+    expect(sanitizePubref('wise_control_web_hero_slot_g4')).toBe(pubref);
   });
 });
