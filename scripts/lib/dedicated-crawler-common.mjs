@@ -2362,14 +2362,17 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
     const cacheKey = buildAiCacheKey('translate-title-v2', [cleanTitle, locale, sourceLang]);
     const fromCache = getCachedAiResponse(cacheKey);
     if (typeof fromCache === 'string') {
-      if (fromCache !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(fromCache)) return _rb(fromCache);
+      if (fromCache !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(fromCache) &&
+          fromCache.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(fromCache);
       const sentinelFallback = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
       if (hasUsableTitle(sentinelFallback) && sentinelFallback.toLowerCase() !== cleanTitle.toLowerCase() &&
           !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(sentinelFallback))) {
         setCachedAiResponse(cacheKey, sentinelFallback);
         return _rb(sentinelFallback);
       }
-      return cleanTitle;
+      // A cache sentinel/short response is a failed target translation. Do
+      // not turn the source title into a permanent locale copy.
+      return '';
     }
     // DeepL / free-translate first
     const deepl = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
@@ -2433,26 +2436,27 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       } catch { /* fallback below */ }
     }
     const fallback = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
-    if (hasUsableTitle(fallback)) {
+    if (hasUsableTitle(fallback) && fallback.toLowerCase() !== cleanTitle.toLowerCase()) {
       const restoredFallback = _rb(fallback);
       setCachedAiResponse(cacheKey, restoredFallback);
       return restoredFallback;
     }
     const heuristic = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
-    if (hasUsableTitle(heuristic) && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(heuristic))) {
+    if (hasUsableTitle(heuristic) && heuristic.toLowerCase() !== cleanTitle.toLowerCase() &&
+        !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(heuristic))) {
       setCachedAiResponse(cacheKey, heuristic);
       return heuristic;
     }
     setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
-    return cleanTitle;
+    return '';
   }
 
   // No cache — simple fallback
   const simple = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
-  if (hasUsableTitle(simple)) return _rb(simple);
-  const heuristic = heuristicTranslateJobTitle(cleanTitle, locale);
-  if (hasUsableTitle(heuristic)) return _rb(heuristic);
-  return hasUsableTitle(cleanTitle) ? cleanTitle : '';
+  if (hasUsableTitle(simple) && simple.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(simple);
+  const heuristic = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
+  if (hasUsableTitle(heuristic) && heuristic.toLowerCase() !== cleanTitle.toLowerCase()) return heuristic;
+  return '';
 }
 
 export async function aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, maxLocales = 4, minChars = 120 }, ctx = {}) {

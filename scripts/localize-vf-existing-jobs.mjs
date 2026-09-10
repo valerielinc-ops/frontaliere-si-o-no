@@ -151,7 +151,7 @@ async function translateText({ text, sourceLang = 'en', targetLang = 'it', minCh
   return merged;
 }
 
-async function localizeJob(job) {
+export async function localizeJob(job, { translate = translateText } = {}) {
   const out = { ...job };
   const sourceTitle = normalize(job?.title || '');
   const sourceDescription = cleanDescription(job?.description || '');
@@ -170,9 +170,17 @@ async function localizeJob(job) {
   for (const locale of LOCALES) {
     if (locale === sourceLang) continue;
     const currentTitle = normalize(out.titleByLocale[locale] || '');
-    if (!currentTitle || currentTitle.toLowerCase() === sourceTitle.toLowerCase()) {
+    const hasUnusableExistingTitle = Boolean(currentTitle) && !hasUsableTitle(currentTitle);
+    if (hasUnusableExistingTitle) {
+      // A truthy one-/two-character slot must not bypass the translation
+      // branch: clear it first and leave an explicit queue marker if the
+      // replacement is unavailable.
+      out.titleByLocale[locale] = '';
+      out.needsRetranslation = true;
+    }
+    if (!currentTitle || hasUnusableExistingTitle || currentTitle.toLowerCase() === sourceTitle.toLowerCase()) {
       // eslint-disable-next-line no-await-in-loop
-      const translatedTitle = await translateText({
+      const translatedTitle = await translate({
         text: sourceTitle,
         sourceLang,
         targetLang: locale,
@@ -188,7 +196,7 @@ async function localizeJob(job) {
       currentDesc.toLowerCase() === sourceDescription.toLowerCase();
     if (!mustTranslateDesc) continue;
     // eslint-disable-next-line no-await-in-loop
-    const translatedDesc = await translateText({
+    const translatedDesc = await translate({
       text: sourceDescription,
       sourceLang,
       targetLang: locale,
@@ -253,7 +261,10 @@ async function main() {
   console.log(`✅ Localized VF jobs updated: ${selected.length}`);
 }
 
-main().catch((error) => {
-  console.error(`❌ localize-vf-existing-jobs failed: ${error?.message || error}`);
-  process.exit(1);
-});
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) {
+  main().catch((error) => {
+    console.error(`❌ localize-vf-existing-jobs failed: ${error?.message || error}`);
+    process.exit(1);
+  });
+}

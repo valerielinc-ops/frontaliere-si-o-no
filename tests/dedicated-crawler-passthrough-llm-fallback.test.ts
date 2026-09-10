@@ -95,6 +95,30 @@ describe('aiTranslateJobDescriptionDCC — passthrough rifiutato vs motori giu\'
     expect(freeTranslateWithRetry).not.toHaveBeenCalled();
   });
 
+  it('non ripubblica la sorgente quando una cache sentinel e un retry corto falliscono', async () => {
+    const title = 'Rare title Qzx';
+    const { cache, ctx } = makeCtx();
+    cache.set(`translate-title-v2:${title.toLowerCase()}|de|en`, '__RAW__');
+    vi.mocked(freeTranslateWithRetry).mockResolvedValue('AB');
+
+    await expect(aiTranslateJobTitleDCC(
+      { title, locale: 'de', sourceLang: 'en' },
+      ctx,
+    )).resolves.toBe('');
+    expect(freeTranslateWithRetry).toHaveBeenCalledTimes(1);
+  });
+
+  it('non usa la sorgente quando il percorso senza cache riceve solo un echo', async () => {
+    const title = 'Rare title Qzx';
+    const { ctx } = makeCtx({ buildAiCacheKey: undefined, getCachedAiResponse: undefined });
+    vi.mocked(freeTranslateWithRetry).mockResolvedValue(title);
+
+    await expect(aiTranslateJobTitleDCC(
+      { title, locale: 'de', sourceLang: 'en' },
+      ctx,
+    )).resolves.toBe('');
+  });
+
   it('sul passthrough di un testo gia\' nel locale target non chiama il modello e memoizza la sentinella', async () => {
     vi.mocked(freeTranslateWithRetryDetailed).mockResolvedValue({ text: '', passthrough: true });
     vi.mocked(freeTranslateWithRetry).mockResolvedValue('');
