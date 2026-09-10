@@ -66,24 +66,86 @@ runs:
       shell: bash
       run: |
         npm install -g @anthropic-ai/claude-code
-        # Codex is an optional replacement after a Claude usage limit. A
-        # failed install must never hide Claude or stop the normal cascade.
-        if npm install -g --no-fund --no-audit @openai/codex@0.153.4; then
-          echo "codex CLI installed (0.153.4)"
-        else
-          echo "::warning::Codex CLI install failed; Claude and the normal fallback cascade remain available"
-        fi
         echo "ENABLE_HAIKU_ARTICLE_FALLBACK=1" >> "$GITHUB_ENV"
+
+    # Keep the Codex binary outside the mutable checkout and out of the global
+    # PATH. The broker receives this action-owned path plus its attestation;
+    # consumer steps can only send a prompt over the socket and cannot replace
+    # the binary with a pre-existing `codex` executable.
+    - name: Install pinned Codex CLI for the indirect fallback
+      id: install_codex_cli
+      if: env.HAIKU_FALLBACK_GATE != '0' && inputs.codex_auth_json != ''
+      shell: bash
+      run: |
+        set +e
+        node_bin="$(command -v node || true)"
+        runner_tmp="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
+        codex_prefix="$(mktemp -d "$runner_tmp/claude-haiku-codex-cli.XXXXXX")"
+        if [ -z "$node_bin" ] || [ -z "$codex_prefix" ] || [ ! -d "$codex_prefix" ]; then
+          echo "::warning::Codex CLI install could not allocate its credential-free temporary prefix; Claude and the normal fallback cascade remain available"
+          exit 0
+        fi
+        chmod 700 "$codex_prefix"
+        npmrc="$codex_prefix/npmrc"
+        : > "$npmrc"
+        chmod 600 "$npmrc"
+        # No auth secret is in this step. Also ignore any runner-level package
+        # credentials while downloading the pinned public package.
+        if ! env -u CODEX_AUTH_JSON -u CODEX_AUTH_FILE -u CODEX_API_KEY \
+          -u OPENAI_API_KEY -u OPENAI_BASE_URL -u ANTHROPIC_API_KEY \
+          -u CLAUDE_CODE_OAUTH_TOKEN NPM_CONFIG_USERCONFIG="$npmrc" \
+          npm install --prefix "$codex_prefix" --no-save --no-package-lock \
+            --no-fund --no-audit @openai/codex@0.153.4; then
+          echo "::warning::Codex CLI install failed; Claude and the normal fallback cascade remain available"
+          rm -rf -- "$codex_prefix"
+          exit 0
+        fi
+        codex_link="$codex_prefix/node_modules/.bin/codex"
+        if [ ! -f "$codex_link" ] || [ ! -x "$codex_link" ]; then
+          echo "::warning::Pinned Codex CLI did not expose an executable; Claude and the normal fallback cascade remain available"
+          rm -rf -- "$codex_prefix"
+          exit 0
+        fi
+        codex_realpath="$($node_bin -e 'console.log(require("node:fs").realpathSync(process.argv[1]))' "$codex_link" 2>/dev/null)"
+        case "$codex_realpath" in
+          "$codex_prefix"/*) ;;
+          *)
+            echo "::warning::Pinned Codex CLI resolved outside its temporary prefix; Claude and the normal fallback cascade remain available"
+            rm -rf -- "$codex_prefix"
+            exit 0
+            ;;
+        esac
+        codex_version="$($codex_realpath --version 2>&1)"
+        if ! printf '%s\n' "$codex_version" | grep -Eq '(^|[^0-9])0\.153\.4([^0-9]|$)'; then
+          echo "::warning::Pinned Codex CLI version attestation failed; Claude and the normal fallback cascade remain available"
+          rm -rf -- "$codex_prefix"
+          exit 0
+        fi
+        codex_sha256="$($node_bin --input-type=module -e 'import fs from "node:fs"; import crypto from "node:crypto"; console.log(crypto.createHash("sha256").update(fs.readFileSync(process.argv[1])).digest("hex"));' "$codex_realpath" 2>/dev/null)"
+        if ! printf '%s' "$codex_sha256" | grep -Eq '^[a-f0-9]{64}$'; then
+          echo "::warning::Pinned Codex CLI digest attestation failed; Claude and the normal fallback cascade remain available"
+          rm -rf -- "$codex_prefix"
+          exit 0
+        fi
+        printf 'codex_bin=%s\n' "$codex_realpath" >> "$GITHUB_OUTPUT"
+        printf 'codex_realpath=%s\n' "$codex_realpath" >> "$GITHUB_OUTPUT"
+        printf 'codex_sha256=%s\n' "$codex_sha256" >> "$GITHUB_OUTPUT"
+        printf 'codex_prefix=%s\n' "$codex_prefix" >> "$GITHUB_OUTPUT"
+        echo "codex CLI installed and attested (0.153.4)"
 
     # Keep the subscription secret on this one action step. Only an explicit
     # AI consumer step receives the output socket path; unrelated housekeeping
     # steps do not inherit a broker capability.
     - name: Start Codex auth broker for the indirect fallback
       id: start_codex_auth_broker
-      if: env.HAIKU_FALLBACK_GATE != '0' && inputs.codex_auth_json != ''
+      if: env.HAIKU_FALLBACK_GATE != '0' && inputs.codex_auth_json != '' && steps.install_codex_cli.outputs.codex_bin != ''
       shell: bash
       env:
         CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
+        CODEX_CLI_BIN: ${{ steps.install_codex_cli.outputs.codex_bin }}
+        CODEX_CLI_REALPATH: ${{ steps.install_codex_cli.outputs.codex_realpath }}
+        CODEX_CLI_SHA256: ${{ steps.install_codex_cli.outputs.codex_sha256 }}
+        CODEX_CLI_PREFIX: ${{ steps.install_codex_cli.outputs.codex_prefix }}
       run: |
         set +e
         auth_tmp="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
@@ -112,12 +174,15 @@ runs:
         # leak into the long-lived broker process or any diagnostics.
         nohup env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
           --socket "$broker_socket" --ttl-ms 1800000 \
+          --codex-bin "$CODEX_CLI_BIN" --codex-realpath "$CODEX_CLI_REALPATH" \
+          --codex-sha256 "$CODEX_CLI_SHA256" --codex-prefix "$CODEX_CLI_PREFIX" \
           < "$auth_fifo" > /dev/null 2>&1 &
         broker_pid=$!
         if ! printf '%s' "$CODEX_AUTH_JSON" > "$auth_fifo"; then
           echo "::warning::Codex auth broker could not receive its credential; Claude and the normal fallback cascade remain available"
           kill "$broker_pid" 2>/dev/null || true
           rm -f -- "$auth_fifo" "$broker_socket"
+          rm -rf -- "$CODEX_CLI_PREFIX"
           rmdir -- "$auth_dir" 2>/dev/null || true
           exit 0
         fi
@@ -132,6 +197,7 @@ runs:
           echo "::warning::Codex auth broker did not become ready; Claude and the normal fallback cascade remain available"
           kill "$broker_pid" 2>/dev/null || true
           rm -f -- "$auth_fifo" "$broker_socket"
+          rm -rf -- "$CODEX_CLI_PREFIX"
           rmdir -- "$auth_dir" 2>/dev/null || true
           exit 0
         fi
@@ -144,6 +210,8 @@ runs:
     # instead of requiring a forensic dig through job.steps[].conclusion.
     - name: Diagnose Claude CLI Haiku fallback state
       shell: bash
+      env:
+        CODEX_CLI_BIN: ${{ steps.install_codex_cli.outputs.codex_bin }}
       run: |
         echo "ENABLE_HAIKU_ARTICLE_FALLBACK=${ENABLE_HAIKU_ARTICLE_FALLBACK:-<unset>} (raw RC value)"
         echo "HAIKU_FALLBACK_GATE=${HAIKU_FALLBACK_GATE:-<unset>} (resolved gate)"
@@ -152,8 +220,8 @@ runs:
         else
           echo "claude CLI: NOT on PATH — Haiku fallback will hit ENOENT if the runtime gate offers it this run"
         fi
-        if command -v codex >/dev/null 2>&1; then
-          echo "codex CLI: present ($(codex --version 2>&1 | head -1))"
+        if [ -n "$CODEX_CLI_BIN" ]; then
+          echo "codex CLI: attested at $CODEX_CLI_BIN (version 0.153.4)"
         else
-          echo "codex CLI: NOT on PATH — Claude usage-limit fallback will continue to the normal model chain"
+          echo "codex CLI: unavailable or failed attestation — Claude usage-limit fallback will continue to the normal model chain"
         fi

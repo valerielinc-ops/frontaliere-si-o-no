@@ -18,13 +18,15 @@
  */
 
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 
 const CODEX_MODEL = 'gpt-5.6-luna';
 const CODEX_EFFORT = 'medium';
+const CODEX_CLI_VERSION = '0.153.4';
 const CODEX_PROFILE = 'claude-haiku-fallback';
 const MAX_REQUEST_BYTES = 1024 * 1024;
 const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
@@ -40,6 +42,10 @@ function argument(name, fallback = '') {
 
 const socketArgument = argument('--socket');
 const socketPath = socketArgument ? path.resolve(socketArgument) : '';
+const codexCliArgument = argument('--codex-bin');
+const codexCliRealpathArgument = argument('--codex-realpath');
+const codexCliSha256Argument = argument('--codex-sha256').toLowerCase();
+const codexCliPrefixArgument = argument('--codex-prefix');
 const ttlRaw = Number(argument('--ttl-ms', String(DEFAULT_TTL_MS)));
 const ttlMs = Number.isFinite(ttlRaw) && ttlRaw > 0 ? ttlRaw : DEFAULT_TTL_MS;
 
@@ -102,7 +108,7 @@ enabled = false
 
 function childEnv(codexHome, codexTmp) {
   const env = {
-    PATH: process.env.PATH || '/usr/bin:/bin',
+    PATH: safePath(),
     CODEX_HOME: codexHome,
     TMPDIR: codexTmp,
   };
@@ -110,6 +116,88 @@ function childEnv(codexHome, codexTmp) {
     if (process.env[key]) env[key] = process.env[key];
   }
   return env;
+}
+
+function safePath() {
+  const nodeDir = path.dirname(process.execPath);
+  return process.platform === 'win32'
+    ? `${nodeDir};C:\\Windows\\System32;C:\\Windows`
+    : `${nodeDir}:/usr/bin:/bin`;
+}
+
+function sha256File(filePath) {
+  return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+}
+
+function assertOutsideWorkspace(target, label) {
+  let workspace;
+  try { workspace = fs.realpathSync(process.cwd()); } catch { return; }
+  const relative = path.relative(workspace, target);
+  if (relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative))) {
+    throw new Error(`Codex CLI ${label} must be outside the mutable workspace`);
+  }
+}
+
+/**
+ * Validate the action-attested CLI before reading CODEX_AUTH_JSON. The
+ * consumer only gets the Unix socket and cannot choose this path; the broker
+ * accepts an absolute path from the setup action only after checking that it
+ * remains in the private temporary prefix, has the expected digest, and
+ * reports the pinned version without inheriting credentials.
+ */
+function validateCodexCli() {
+  if (!path.isAbsolute(codexCliArgument) || !path.isAbsolute(codexCliRealpathArgument) || !path.isAbsolute(codexCliPrefixArgument)) {
+    throw new Error('Codex CLI requires absolute --codex-bin, --codex-realpath, and --codex-prefix');
+  }
+  if (!/^[a-f0-9]{64}$/.test(codexCliSha256Argument)) {
+    throw new Error('Codex CLI requires a valid --codex-sha256 attestation');
+  }
+
+  const prefixStat = fs.lstatSync(codexCliPrefixArgument);
+  if (prefixStat.isSymbolicLink() || !prefixStat.isDirectory() || (prefixStat.mode & 0o777) !== 0o700) {
+    throw new Error('Codex CLI prefix must be a real private 0700 directory');
+  }
+  const prefix = fs.realpathSync(codexCliPrefixArgument);
+  if (!path.basename(prefix).startsWith('claude-haiku-codex-cli.')) {
+    throw new Error('Codex CLI prefix is not an action-owned temporary directory');
+  }
+  assertOutsideWorkspace(prefix, 'prefix');
+
+  const cliStat = fs.lstatSync(codexCliArgument);
+  if (cliStat.isSymbolicLink() || !cliStat.isFile() || (cliStat.mode & 0o111) === 0) {
+    throw new Error('Codex CLI path must be a real file, not a symlink');
+  }
+  const cli = fs.realpathSync(codexCliArgument);
+  const expectedCli = fs.realpathSync(codexCliRealpathArgument);
+  if (cli !== expectedCli) throw new Error('Codex CLI realpath attestation does not match');
+  const relative = path.relative(prefix, cli);
+  if (relative.startsWith('..') || path.isAbsolute(relative)) {
+    throw new Error('Codex CLI must remain inside its private temporary prefix');
+  }
+  assertOutsideWorkspace(cli, 'binary');
+  if (sha256File(cli) !== codexCliSha256Argument) {
+    throw new Error('Codex CLI digest attestation does not match');
+  }
+
+  const versionProbe = spawnSync(cli, ['--version'], {
+    cwd: prefix,
+    env: {
+      PATH: safePath(),
+      CODEX_HOME: prefix,
+      TMPDIR: prefix,
+    },
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    timeout: 5000,
+    killSignal: 'SIGKILL',
+  });
+  if (versionProbe.error) throw new Error(`Codex CLI version probe failed: ${versionProbe.error.message}`);
+  const versionOutput = `${versionProbe.stdout || ''}\n${versionProbe.stderr || ''}`;
+  const versionMatch = versionOutput.match(/(?:^|[^0-9])v?(\d+\.\d+\.\d+)(?:[^0-9]|$)/);
+  if (versionProbe.status !== 0 || versionMatch?.[1] !== CODEX_CLI_VERSION) {
+    throw new Error(`Codex CLI version mismatch: expected ${CODEX_CLI_VERSION}`);
+  }
+  return { cli, prefix };
 }
 
 /**
@@ -226,7 +314,10 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
       );
       args.push('-');
 
-      child = spawn(process.env.CODEX_CLI_BIN || 'codex', args, {
+      if (fs.realpathSync(codexCliPath) !== codexCliPath || sha256File(codexCliPath) !== codexCliSha256) {
+        throw new Error('Codex CLI changed after attestation');
+      }
+      child = spawn(codexCliPath, args, {
         stdio: ['pipe', 'ignore', 'ignore'],
         env: childEnv(codexHome, codexTmp),
         cwd: codexWorkspace,
@@ -288,6 +379,9 @@ function validateRequest(request) {
 let authJson = '';
 let activeChild = null;
 let activeRuntimeCleanup = null;
+let codexCliPath = '';
+let codexCliSha256 = '';
+let codexCliPrefix = '';
 let server;
 let closed = false;
 let consumed = false;
@@ -304,6 +398,12 @@ function cleanup() {
   activeRuntimeCleanup = null;
   try { runtimeCleanup?.(); } catch (error) {
     console.error(`Codex auth broker runtime cleanup failed: ${error.message}`);
+  }
+  if (codexCliPrefix) {
+    try { fs.rmSync(codexCliPrefix, { recursive: true, force: true }); } catch (error) {
+      console.error(`Codex auth broker CLI prefix cleanup failed: ${error.message}`);
+    }
+    codexCliPrefix = '';
   }
   if (!firstCleanup) return;
   try { server?.close(); } catch { /* already closed */ }
@@ -475,8 +575,11 @@ function requestCleanup() {
   });
 }
 
-function start(auth) {
+function start(auth, cliConfig) {
   authJson = auth;
+  codexCliPath = cliConfig.cli;
+  codexCliSha256 = codexCliSha256Argument;
+  codexCliPrefix = cliConfig.prefix;
   validateSocketParent();
   // The client half-closes after sending the request while Codex is still
   // running; keep the server side open until the response is written.
@@ -498,13 +601,22 @@ if (process.argv.includes('--cleanup')) {
     process.exitCode = 1;
   });
 } else {
-  readStdin().then((auth) => {
-    if (!auth.trim()) throw new Error('Codex auth broker received an empty credential');
-    start(auth);
-  }).catch((error) => {
+  let cliConfig;
+  try {
+    cliConfig = validateCodexCli();
+  } catch (error) {
     console.error(`Codex auth broker unavailable: ${error.message}`);
     process.exitCode = 1;
-  });
+  }
+  if (cliConfig) {
+    readStdin().then((auth) => {
+      if (!auth.trim()) throw new Error('Codex auth broker received an empty credential');
+      start(auth, cliConfig);
+    }).catch((error) => {
+      console.error(`Codex auth broker unavailable: ${error.message}`);
+      process.exitCode = 1;
+    });
+  }
 }
 
 process.once('SIGTERM', () => { cleanup(); process.exit(0); });

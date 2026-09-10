@@ -1,3 +1,4 @@
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import net from 'node:net';
 import os from 'node:os';
@@ -52,10 +53,14 @@ function request(socketPath: string, payload: unknown) {
   });
 }
 
-function writeFakeCodex(root: string) {
+function writeFakeCodex(root: string, version = '0.153.4') {
   const fake = path.join(root, 'fake-codex.mjs');
   fs.writeFileSync(fake, `#!/usr/bin/env node
     import fs from 'node:fs';
+    if (process.argv.includes('--version')) {
+      console.log('OpenAI Codex v${version}');
+      process.exit(0);
+    }
     const output = process.argv[process.argv.indexOf('--output-last-message') + 1];
     const authPath = process.env.CODEX_HOME + '/auth.json';
     const auth = fs.readFileSync(authPath, 'utf8');
@@ -73,6 +78,10 @@ function writeHangingCodex(root: string, { descendant = false } = {}) {
     import fs from 'node:fs';
     import path from 'node:path';
     import { spawn } from 'node:child_process';
+    if (process.argv.includes('--version')) {
+      console.log('OpenAI Codex v0.153.4');
+      process.exit(0);
+    }
     const output = process.argv[process.argv.indexOf('--output-last-message') + 1];
     const runtimeRoot = path.dirname(path.dirname(output));
     ${descendant ? `
@@ -86,6 +95,24 @@ function writeHangingCodex(root: string, { descendant = false } = {}) {
   `);
   fs.chmodSync(fake, 0o700);
   return fake;
+}
+
+function codexPrefix(root: string) {
+  const prefix = path.join(root, 'claude-haiku-codex-cli.fixture');
+  fs.mkdirSync(prefix, { mode: 0o700 });
+  fs.chmodSync(prefix, 0o700);
+  return prefix;
+}
+
+function codexAttestationArgs(codexBin: string, prefix: string) {
+  const realpath = fs.realpathSync(codexBin);
+  const sha256 = crypto.createHash('sha256').update(fs.readFileSync(realpath)).digest('hex');
+  return [
+    '--codex-bin', realpath,
+    '--codex-realpath', realpath,
+    '--codex-sha256', sha256,
+    '--codex-prefix', fs.realpathSync(prefix),
+  ];
 }
 
 function brokerTempRoots() {
@@ -232,16 +259,75 @@ describe('Codex auth broker runtime contract', () => {
     expect(log).not.toMatch(/unknown (?:field|key)|failed to (?:load|parse).*config|could not load source profile|invalid permission profile/i);
   });
 
+  it('rejects a PATH-only Codex binary before consuming the credential', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const pathBin = path.join(root, 'codex');
+    const marker = path.join(root, 'path-binary-ran');
+    fs.writeFileSync(pathBin, `#!/usr/bin/env node
+      import fs from 'node:fs';
+      fs.writeFileSync(${JSON.stringify(marker)}, 'executed');
+    `);
+    fs.chmodSync(pathBin, 0o700);
+    const socketPath = path.join(root, 'auth.sock');
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000'], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: `${root}:${process.env.PATH || '/usr/bin:/bin'}` },
+    });
+    children.push(child);
+    child.stdin.on('error', () => {});
+    child.stdin.end('{"access_token":"path-must-not-run"}');
+    await Promise.race([
+      once(child, 'exit'),
+      new Promise((_, reject) => setTimeout(
+        () => reject(new Error('broker did not reject a PATH-only Codex binary')), 2000,
+      )),
+    ]);
+    expect(child.exitCode).not.toBe(0);
+    expect(fs.existsSync(marker)).toBe(false);
+    expect(fs.existsSync(socketPath)).toBe(false);
+  });
+
+  it('rejects an attested Codex path when its reported version is not 0.153.4', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeFakeCodex(prefix, '0.153.3');
+    const socketPath = path.join(root, 'auth.sock');
+    const stderr: string[] = [];
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stderr?.setEncoding('utf8');
+    child.stderr?.on('data', (chunk) => stderr.push(String(chunk)));
+    child.stdin.on('error', () => {});
+    child.stdin.end('{"access_token":"wrong-version-must-not-run"}');
+    await Promise.race([
+      once(child, 'exit'),
+      new Promise((_, reject) => setTimeout(
+        () => reject(new Error('broker did not reject the Codex version mismatch')), 2000,
+      )),
+    ]);
+    expect(child.exitCode).not.toBe(0);
+    expect(stderr.join('')).toContain('version mismatch');
+    expect(fs.existsSync(socketPath)).toBe(false);
+  });
+
   it('runs Codex with a private 0600 auth file, never returns auth, and cleans up', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
     fs.chmodSync(root, 0o700);
     roots.push(root);
     const socketPath = path.join(root, 'auth.sock');
-    const fakeCodex = writeFakeCodex(root);
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeFakeCodex(prefix);
     const secret = '{"access_token":"runtime-only-secret"}';
-    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000'], {
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
       stdio: ['pipe', 'ignore', 'pipe'],
-      env: { PATH: process.env.PATH || '/usr/bin:/bin', CODEX_CLI_BIN: fakeCodex },
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
     });
     children.push(child);
     child.stdin.end(secret);
@@ -262,7 +348,7 @@ describe('Codex auth broker runtime contract', () => {
       new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit')), 2000)),
     ]);
     expect(fs.existsSync(socketPath)).toBe(false);
-    expect(fs.readdirSync(root)).toEqual(['fake-codex.mjs']);
+    expect(fs.existsSync(root)).toBe(false);
   });
 
   it('kills Codex and removes its private auth runtime when the client disconnects', async () => {
@@ -270,15 +356,16 @@ describe('Codex auth broker runtime contract', () => {
     fs.chmodSync(root, 0o700);
     roots.push(root);
     const socketPath = path.join(root, 'auth.sock');
-    const hangingCodex = writeHangingCodex(root);
+    const prefix = codexPrefix(root);
+    const hangingCodex = writeHangingCodex(prefix);
     const existingRuntimes = new Set(
       brokerTempRoots().flatMap((tempRoot) => fs.readdirSync(tempRoot)
         .filter((name) => name.startsWith('codex-haiku-broker-'))
         .map((name) => `${tempRoot}/${name}`)),
     );
-    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000'], {
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000', ...codexAttestationArgs(hangingCodex, prefix)], {
       stdio: ['pipe', 'ignore', 'pipe'],
-      env: { PATH: process.env.PATH || '/usr/bin:/bin', CODEX_CLI_BIN: hangingCodex },
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
     });
     children.push(child);
     child.stdin.end('{"access_token":"disconnect-only"}');
@@ -317,15 +404,16 @@ describe('Codex auth broker runtime contract', () => {
     fs.chmodSync(root, 0o700);
     roots.push(root);
     const socketPath = path.join(root, 'auth.sock');
-    const hangingCodex = writeHangingCodex(root);
+    const prefix = codexPrefix(root);
+    const hangingCodex = writeHangingCodex(prefix);
     const existingRuntimes = new Set(
       brokerTempRoots().flatMap((tempRoot) => fs.readdirSync(tempRoot)
         .filter((name) => name.startsWith('codex-haiku-broker-'))
         .map((name) => `${tempRoot}/${name}`)),
     );
-    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000'], {
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000', ...codexAttestationArgs(hangingCodex, prefix)], {
       stdio: ['pipe', 'ignore', 'pipe'],
-      env: { PATH: process.env.PATH || '/usr/bin:/bin', CODEX_CLI_BIN: hangingCodex },
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
     });
     children.push(child);
     child.stdin.end('{"access_token":"timeout-only"}');
@@ -353,15 +441,16 @@ describe('Codex auth broker runtime contract', () => {
     fs.chmodSync(root, 0o700);
     roots.push(root);
     const socketPath = path.join(root, 'auth.sock');
-    const hangingCodex = writeHangingCodex(root, { descendant: true });
+    const prefix = codexPrefix(root);
+    const hangingCodex = writeHangingCodex(prefix, { descendant: true });
     const existingRuntimes = new Set(
       brokerTempRoots().flatMap((tempRoot) => fs.readdirSync(tempRoot)
         .filter((name) => name.startsWith('codex-haiku-broker-'))
         .map((name) => `${tempRoot}/${name}`)),
     );
-    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000'], {
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000', ...codexAttestationArgs(hangingCodex, prefix)], {
       stdio: ['pipe', 'ignore', 'pipe'],
-      env: { PATH: process.env.PATH || '/usr/bin:/bin', CODEX_CLI_BIN: hangingCodex },
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
     });
     children.push(child);
     child.stdin.end('{"access_token":"signal-only"}');
@@ -405,11 +494,12 @@ describe('Codex auth broker runtime contract', () => {
     fs.chmodSync(root, 0o700);
     roots.push(root);
     const socketPath = path.join(root, 'auth.sock');
-    const fakeCodex = writeFakeCodex(root);
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeFakeCodex(prefix);
     const secret = '{"access_token":"still-private"}';
-    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000'], {
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
       stdio: ['pipe', 'ignore', 'pipe'],
-      env: { PATH: process.env.PATH || '/usr/bin:/bin', CODEX_CLI_BIN: fakeCodex },
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
     });
     children.push(child);
     child.stdin.end(secret);
@@ -430,10 +520,11 @@ describe('Codex auth broker runtime contract', () => {
     fs.chmodSync(root, 0o700);
     roots.push(root);
     const socketPath = path.join(root, 'auth.sock');
-    const fakeCodex = writeFakeCodex(root);
-    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000'], {
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeFakeCodex(prefix);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000', ...codexAttestationArgs(fakeCodex, prefix)], {
       stdio: ['pipe', 'ignore', 'pipe'],
-      env: { PATH: process.env.PATH || '/usr/bin:/bin', CODEX_CLI_BIN: fakeCodex },
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
     });
     children.push(child);
     child.stdin.end('{"access_token":"cleanup-only"}');
