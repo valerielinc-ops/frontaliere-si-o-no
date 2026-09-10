@@ -186,7 +186,17 @@ jobs:
             for (const doc of afterSnapshot.docs) {
               if (!before.has(doc.id)) restore.push({ id: doc.id, operation: 'delete' });
             }
-            await applyItems(restore);
+            let committed = 0;
+            try {
+              committed = await applyItems(restore);
+            } catch (error) {
+              committed = Number.isInteger(error?.committedItems) ? error.committedItems : committed;
+              throw new Error(`rollback incomplete: committed ${committed}/${restore.length} documents; ${error.message}`, { cause: error });
+            }
+            if (committed !== restore.length) {
+              throw new Error(`rollback incomplete: committed ${committed}/${restore.length} documents`);
+            }
+            return { attempted: restore.length, committed };
           }
 
           try {
@@ -212,10 +222,10 @@ jobs:
             console.log(`Committed and verified ${written} employer_insights documents; existing collection count is ${afterSnapshot.size}.`);
           } catch (error) {
             try {
-              await rollback();
-              console.error('Write failed; previous employer_insights snapshot restored.');
+              const rollbackResult = await rollback();
+              console.error(`Write failed; previous employer_insights snapshot restored (${rollbackResult.committed}/${rollbackResult.attempted} documents).`);
             } catch (rollbackError) {
-              throw new Error(`write failed and rollback failed: ${error.message}; rollback: ${rollbackError.message}`);
+              throw new Error(`write failed; rollback status: ${rollbackError.message}; original write: ${error.message}`, { cause: rollbackError });
             }
             throw error;
           }

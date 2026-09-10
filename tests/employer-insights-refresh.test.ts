@@ -1,0 +1,65 @@
+import { readFileSync } from 'node:fs';
+import { describe, expect, it } from 'vitest';
+
+import { commitInChunks } from '../scripts/lib/firestore-batch.mjs';
+
+const REFRESH_WORKFLOW_SOURCE = readFileSync(
+  new URL('../.github/workflows/employer-insights-refresh.yml', import.meta.url),
+  'utf8',
+);
+
+describe('employer insights refresh rollback', () => {
+  it('reports items committed before a later Firestore chunk fails', async () => {
+    let commitCount = 0;
+    const committedBatches: unknown[][] = [];
+    const db = {
+      batch() {
+        const operations: unknown[] = [];
+        const batch = {
+          set(ref: unknown, data: unknown) {
+            operations.push({ ref, data });
+            return batch;
+          },
+          update(ref: unknown, data: unknown) {
+            operations.push({ ref, data });
+            return batch;
+          },
+          delete(ref: unknown) {
+            operations.push({ ref });
+            return batch;
+          },
+          async commit() {
+            commitCount += 1;
+            committedBatches.push(operations);
+            if (commitCount === 2) throw new Error('second chunk unavailable');
+          },
+        };
+        return batch;
+      },
+    };
+
+    const result = await commitInChunks(
+      db as never,
+      ['before-a', 'before-b', 'after-a'],
+      (batch, item) => batch.set({ id: item }, { item }),
+      { chunkSize: 2 },
+    ).catch((error: unknown) => error as Error & { committedItems?: number });
+
+    expect(result).toMatchObject({
+      message: 'second chunk unavailable',
+      committedItems: 2,
+    });
+    expect(committedBatches).toHaveLength(2);
+    expect(committedBatches[0]).toHaveLength(2);
+    expect(committedBatches[1]).toHaveLength(1);
+  });
+
+  it('keeps rollback completion and partial progress visible in the workflow error', () => {
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('error?.committedItems');
+    expect(REFRESH_WORKFLOW_SOURCE).toMatch(
+      /rollback incomplete: committed \$\{committed\}\/\$\{restore\.length\} documents/,
+    );
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('rollbackResult.committed');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('rollback status:');
+  });
+});

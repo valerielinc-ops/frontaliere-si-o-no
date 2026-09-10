@@ -187,6 +187,42 @@ describe('employer insights event coverage', () => {
     expect(payload.documents).toEqual([doc]);
   });
 
+  it('normalizes query coverage aliases before validating the dry-run envelope', () => {
+    const [doc] = build([event({ eventKey: 'normalized-dry-run-event' })]);
+    const payload = buildDryRunPayload({
+      documents: [doc],
+      generatedAt: WINDOW.to,
+      source: 'posthog',
+      window: WINDOW,
+      queryCoverage: {
+        pageSize: 10_000,
+        sourceObserved: 1,
+        totalBeforeCut: 1,
+        groupRowsBeforeCut: 1,
+        rowsReturned: 1,
+        returned: 1,
+        pages: 1,
+        truncated: false,
+        queryHash: 'query-hash',
+        snapshotId: 'snapshot-id',
+      },
+    });
+
+    expect(payload.coverage).toMatchObject({
+      sourceObserved: 1,
+      totalRows: 1,
+      returnedRows: 1,
+      returned: 1,
+      pages: 1,
+      queryHash: 'query-hash',
+      snapshotId: 'snapshot-id',
+    });
+    expect(validateEmployerInsightsPayload(payload, {
+      currentDocumentCount: 1,
+      expectedSource: 'posthog',
+    })).toMatchObject({ ok: true });
+  });
+
   it('serializes a zero-observed company instead of dropping the source state', () => {
     const [doc] = build([], [job()]);
 
