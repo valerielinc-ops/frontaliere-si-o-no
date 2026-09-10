@@ -496,6 +496,30 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.outsideOnly).toBe(true);
   });
 
+  it('does not infer report-only disposition from prose inside an adversarial question', async () => {
+    const outsideOnlyReview = {
+      ...historicalImportantReview,
+      body: [
+        reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
+        '## Adversarial check',
+        '- ❓ q: runtime behavior is report-only; non-funnel-critical remains unverified.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[outsideOnlyReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
+    expect(result.classification.outsideOnly).toBe(true);
+  });
+
   it('still blocks an in-scope Important without an LGTM', async () => {
     const inScopeReview = {
       ...historicalImportantReview,
