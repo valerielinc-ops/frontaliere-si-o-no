@@ -21,6 +21,7 @@ const STATUS_ALIASES = new Map([
 
 const STATUS_PRIORITY = { pending: 1, approved: 2, reversed: 3 };
 const GROUPED_THOUSANDS_RE = /^-?(?:[1-9]\d{0,2})([,.]\d{3})+$/;
+const AMBIGUOUS_AMOUNT = Symbol('ambiguous amount');
 
 const FIELD_ALIASES = {
   transactionId: ['transactionId', 'transaction_id', 'id', 'commissionId', 'commission_id'],
@@ -48,9 +49,16 @@ function asIsoDate(raw) {
   return Number.isFinite(time) ? new Date(time).toISOString() : null;
 }
 
-function asMoney(raw) {
+function normaliseAmountFormat(raw) {
+  const value = String(raw ?? '').trim().toLowerCase();
+  if (!value || value === 'auto') return null;
+  return value === 'decimal' || value === 'grouped' ? value : undefined;
+}
+
+function asMoney(raw, amountFormat = null) {
   if (typeof raw === 'number') return Number.isFinite(raw) ? raw : null;
   const compact = String(raw ?? '').replace(/[^0-9,.-]/g, '');
+  if (!compact) return null;
   const comma = compact.lastIndexOf(',');
   const dot = compact.lastIndexOf('.');
   let normalized = compact;
@@ -59,14 +67,26 @@ function asMoney(raw) {
     const decimal = comma > dot ? ',' : '.';
     const thousands = decimal === ',' ? /\./g : /,/g;
     normalized = compact.replace(thousands, '').replace(decimal, '.');
-  } else if (comma !== -1) {
-    normalized = GROUPED_THOUSANDS_RE.test(compact)
-      ? compact.replace(/,/g, '')
-      : compact.replace(',', '.');
-  } else if (dot !== -1) {
-    normalized = GROUPED_THOUSANDS_RE.test(compact)
-      ? compact.replace(/\./g, '')
-      : compact;
+  } else if (comma !== -1 || dot !== -1) {
+    const separator = comma !== -1 ? ',' : '.';
+    const grouped = GROUPED_THOUSANDS_RE.test(compact);
+    if (grouped && amountFormat === 'grouped') {
+      normalized = compact.replaceAll(separator, '');
+    } else if (grouped && amountFormat === 'decimal') {
+      normalized = compact.replace(separator, '.');
+    } else if (grouped) {
+      // 12.500 may be twelve and a half or twelve thousand five hundred.
+      // Never guess a 1,000x multiplier when the export did not declare its
+      // precision/separator convention.
+      if (/^-?0[,.]\d{3}$/.test(compact)) normalized = compact.replace(separator, '.');
+      else if ((compact.match(new RegExp(`\\${separator}`, 'g')) || []).length > 1) {
+        normalized = compact.replaceAll(separator, '');
+      } else {
+        return AMBIGUOUS_AMOUNT;
+      }
+    } else {
+      normalized = compact.replace(separator, '.');
+    }
   }
   const value = Number(normalized);
   return Number.isFinite(value) ? value : null;
@@ -90,18 +110,23 @@ function normaliseId(raw) {
  * Normalise one network row. Invalid rows are returned as a diagnostic, not
  * silently counted as zero.
  */
-export function normalizeAffiliateTransaction(row) {
+export function normalizeAffiliateTransaction(row, { amountFormat = null } = {}) {
   const transactionId = normaliseId(firstValue(row, FIELD_ALIASES.transactionId));
   const status = normaliseStatus(firstValue(row, FIELD_ALIASES.status));
   const currency = asCurrency(firstValue(row, FIELD_ALIASES.currency));
-  const amount = asMoney(firstValue(row, FIELD_ALIASES.amount));
+  const normalisedAmountFormat = normaliseAmountFormat(amountFormat);
+  const amount = normalisedAmountFormat === undefined
+    ? null
+    : asMoney(firstValue(row, FIELD_ALIASES.amount), normalisedAmountFormat);
   const occurredAt = asIsoDate(firstValue(row, FIELD_ALIASES.occurredAt));
   const updatedAt = asIsoDate(firstValue(row, FIELD_ALIASES.updatedAt));
   const errors = [];
   if (!transactionId) errors.push('missing transaction id');
   if (!status) errors.push('unsupported status');
   if (!currency) errors.push('missing ISO-4217 currency');
-  if (amount === null) errors.push('missing numeric amount');
+  if (normalisedAmountFormat === undefined) errors.push('unsupported amount format');
+  else if (amount === AMBIGUOUS_AMOUNT) errors.push('ambiguous numeric amount; specify amountFormat as decimal or grouped');
+  else if (amount === null) errors.push('missing numeric amount');
   if (!occurredAt) errors.push('missing transaction date');
   if (errors.length) return { ok: false, errors, row };
 
@@ -149,10 +174,10 @@ function ratePerThousand(amount, denominator) {
  * `exposures.web` and `exposures.email` are deliberately independent. The
  * caller must provide the denominator; absent data stays null/unmeasurable.
  * @param {{ rows?: object[], from?: string|null, to?: string|null,
- *   exposures?: { web?: number|null, email?: number|null } }} [args]
+ *   exposures?: { web?: number|null, email?: number|null }, amountFormat?: string|null }} [args]
  * @returns {object}
  */
-export function reconcileAffiliateTransactions({ rows, from = null, to = null, exposures = {} } = {}) {
+export function reconcileAffiliateTransactions({ rows, from = null, to = null, exposures = {}, amountFormat = null } = {}) {
   const sourceRows = Array.isArray(rows) ? rows : null;
   if (!sourceRows) {
     return {
@@ -169,7 +194,7 @@ export function reconcileAffiliateTransactions({ rows, from = null, to = null, e
   const invalidRows = [];
   const revisions = new Map();
   for (const row of sourceRows) {
-    const normalised = normalizeAffiliateTransaction(row);
+    const normalised = normalizeAffiliateTransaction(row, { amountFormat });
     if (!normalised.ok) {
       invalidRows.push(normalised);
       continue;
@@ -210,9 +235,14 @@ export function reconcileAffiliateTransactions({ rows, from = null, to = null, e
   }
 
   const hasDenominator = webExposures !== null || emailExposures !== null;
+  const allSuppliedRowsInvalid = sourceRows.length > 0
+    && invalidRows.length === sourceRows.length;
+  const status = allSuppliedRowsInvalid || !hasDenominator ? 'unmeasurable' : 'measurable';
   return {
-    status: hasDenominator ? 'measurable' : 'unmeasurable',
-    reason: hasDenominator ? null : 'web/email exposure denominator is missing',
+    status,
+    reason: allSuppliedRowsInvalid
+      ? 'affiliate export rows are all invalid'
+      : hasDenominator ? null : 'web/email exposure denominator is missing',
     period: { from, to },
     invalidRows: invalidRows.length,
     invalidReasons: [...new Set(invalidRows.flatMap((entry) => entry.errors))],
@@ -252,8 +282,8 @@ export function parseAffiliateCsv(text) {
 }
 
 /** Summarise a JSON/CSV export into rows plus optional exposure denominators. */
-export function parseAffiliateExport(raw, { webExposures = null, emailExposures = null } = {}) {
-  if (Array.isArray(raw)) return { rows: raw, exposures: { web: webExposures, email: emailExposures } };
+export function parseAffiliateExport(raw, { webExposures = null, emailExposures = null, amountFormat = null } = {}) {
+  if (Array.isArray(raw)) return { rows: raw, exposures: { web: webExposures, email: emailExposures }, amountFormat };
   if (raw && typeof raw === 'object') {
     return {
       rows: raw.transactions || raw.rows || [],
@@ -261,7 +291,8 @@ export function parseAffiliateExport(raw, { webExposures = null, emailExposures 
         web: raw.exposures?.web ?? webExposures,
         email: raw.exposures?.email ?? emailExposures,
       },
+      amountFormat: raw.amountFormat ?? amountFormat,
     };
   }
-  return { rows: [], exposures: { web: webExposures, email: emailExposures } };
+  return { rows: [], exposures: { web: webExposures, email: emailExposures }, amountFormat };
 }

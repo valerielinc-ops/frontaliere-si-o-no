@@ -9,6 +9,7 @@
  * Usage:
  *   node scripts/affiliate-revenue-report.mjs --input export.json --from 2026-09-01 --to 2026-09-07 --web-exposures 1000
  *   node scripts/affiliate-revenue-report.mjs --input export.csv --email-delivered 500 --markdown
+ *   node scripts/affiliate-revenue-report.mjs --input export.csv --amount-format decimal
  */
 
 import { readFileSync } from 'node:fs';
@@ -29,6 +30,7 @@ const from = valueAfter('--from');
 const to = valueAfter('--to');
 const webExposures = valueAfter('--web-exposures');
 const emailExposures = valueAfter('--email-delivered');
+const amountFormat = valueAfter('--amount-format') || process.env.AFFILIATE_REVENUE_AMOUNT_FORMAT || null;
 const markdown = args.includes('--markdown');
 
 function renderMarkdown(report) {
@@ -83,8 +85,15 @@ function main() {
   const parsed = parseAffiliateExport(raw, {
     webExposures: numericOrNull(webExposures),
     emailExposures: numericOrNull(emailExposures),
+    amountFormat,
   });
-  const report = reconcileAffiliateTransactions({ rows: parsed.rows, from, to, exposures: parsed.exposures });
+  const report = reconcileAffiliateTransactions({
+    rows: parsed.rows,
+    from,
+    to,
+    exposures: parsed.exposures,
+    amountFormat: parsed.amountFormat,
+  });
   process.stdout.write(markdown ? renderMarkdown(report) + '\n' : JSON.stringify(report, null, 2) + '\n');
 }
 

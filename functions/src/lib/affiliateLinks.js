@@ -11,8 +11,10 @@ import { getEnabledPartner, goPathFromId } from './affiliatePartnersRegistry.js'
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
-/** Characters Partnerize does not accept in a publisher reference. */
-export const PUBREF_INVALID_RE = /[^a-z0-9_-]+/g;
+/** Keep the network-facing reference to the documented-safe alphanumeric/hyphen alphabet. */
+export const PUBREF_INVALID_RE = /[^a-z0-9-]+/g;
+/** UTM identifiers keep the existing underscore-compatible campaign contract. */
+const TOKEN_INVALID_RE = /[^a-z0-9_-]+/g;
 /** Network-facing publisher-reference cap; keep it explicit and observable. */
 export const PUBREF_MAX_LEN = 48;
 export const PUBREF_HASH_LEN = 7;
@@ -20,6 +22,29 @@ export const PUBREF_HASH_SEED = 0x811c9dc5;
 export const PUBREF_HASH_MULTIPLIER = 0x01000193;
 
 const SENSITIVE_ATTRIBUTION_RE = /@|%40|(?:^|[-_])(email|token|auth|secret|password|phone|uid|user)(?:$|[-_])/i;
+
+function normaliseAffiliateToken(raw, invalidRe) {
+  const value = String(raw ?? '').trim();
+  if (!value || SENSITIVE_ATTRIBUTION_RE.test(value)) return '';
+  return value
+    .toLowerCase()
+    .replace(invalidRe, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function capAffiliateToken(normalized, hashSeparator) {
+  if (normalized.length <= PUBREF_MAX_LEN) return normalized;
+
+  let hash = PUBREF_HASH_SEED;
+  for (let index = 0; index < normalized.length; index += 1) {
+    hash = Math.imul(hash ^ normalized.charCodeAt(index), PUBREF_HASH_MULTIPLIER);
+  }
+  const suffix = `${hashSeparator}${(hash >>> 0).toString(36).padStart(PUBREF_HASH_LEN, '0')}`;
+  const prefix = normalized
+    .slice(0, PUBREF_MAX_LEN - suffix.length)
+    .replace(/[-_]+$/, '');
+  return `${prefix}${suffix}`;
+}
 
 /**
  * Convert an attribution identifier to the network-safe alphabet.
@@ -29,28 +54,14 @@ const SENSITIVE_ATTRIBUTION_RE = /@|%40|(?:^|[-_])(email|token|auth|secret|passw
  * instead of laundering it into a plausible-looking slug.
  */
 export function safeAffiliateToken(raw, fallback = '') {
-  const value = String(raw ?? '').trim();
-  if (!value || SENSITIVE_ATTRIBUTION_RE.test(value)) return fallback;
-  const normalized = value
-    .toLowerCase()
-    .replace(PUBREF_INVALID_RE, '-')
-    .replace(/^-+|-+$/g, '');
-  if (normalized.length <= PUBREF_MAX_LEN) return normalized;
-
-  let hash = PUBREF_HASH_SEED;
-  for (let index = 0; index < normalized.length; index += 1) {
-    hash = Math.imul(hash ^ normalized.charCodeAt(index), PUBREF_HASH_MULTIPLIER);
-  }
-  const suffix = `_${(hash >>> 0).toString(36).padStart(PUBREF_HASH_LEN, '0')}`;
-  const prefix = normalized
-    .slice(0, PUBREF_MAX_LEN - suffix.length)
-    .replace(/[-_]+$/, '');
-  return `${prefix}${suffix}`;
+  const normalized = normaliseAffiliateToken(raw, TOKEN_INVALID_RE);
+  return normalized ? capAffiliateToken(normalized, '_') : fallback;
 }
 
 /** Normalise one Partnerize publisher reference. */
 export function sanitizeAffiliatePubref(raw) {
-  return safeAffiliateToken(raw);
+  const normalized = normaliseAffiliateToken(raw, PUBREF_INVALID_RE);
+  return normalized ? capAffiliateToken(normalized, '-') : '';
 }
 
 /**

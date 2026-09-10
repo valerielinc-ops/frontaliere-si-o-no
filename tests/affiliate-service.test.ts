@@ -151,6 +151,7 @@ describe('affiliateService config gates', () => {
   it('normalises pubref values to a dashboard-safe slug', () => {
     expect(sanitizePubref('NL Partner #2')).toBe('nl-partner-2');
     expect(sanitizePubref('/cerca-lavoro-ticino/')).toBe('cerca-lavoro-ticino');
+    expect(sanitizePubref('hero_slot')).toBe('hero-slot');
     expect(sanitizePubref('---')).toBe('');
     expect(sanitizePubref('x'.repeat(200)).length).toBeLessThanOrEqual(PUBREF_MAX_LEN);
     // a value that would be truncated mid-separator must not end with one
