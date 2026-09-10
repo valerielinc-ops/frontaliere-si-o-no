@@ -17,7 +17,7 @@
       "title": "Betriebselektriker*in",
       "titleByLocale": {
         "it": "Elettricista industriale",
-        "en": "Betriebselektriker*in",
+        "en": "Work electricians",
         "de": "Betriebselektriker*in",
         "fr": "Électricien industriel"
       },
@@ -72,7 +72,6 @@
           "betriebselektriker-in-lindt-sprungli-kilchberg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:36:22.956Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -183,7 +182,6 @@
           "patissien-90-lindt-sprungli-kilchberg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:36:19.739Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -376,7 +374,6 @@
           "apprentissage-comme-ingenieur-automatique-efz-debut-de-l-apprentissage-a-partir-de-l-ete-2027-lindt-sprungli-kilchberg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:36:11.891Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -540,7 +537,6 @@
           "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:36:10.494Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -704,7 +700,6 @@
           "lindt-chocolate-advisor-verkaufer-in-lindt-shop-tivoli-20-40-lindt-spruengli-spreitenbach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:36:16.577Z",
       "salaryMin": 29600,
       "salaryMax": 45400,
@@ -945,7 +940,6 @@
           "aushilfsmitarbeiter-in-personalrestaurant-lindt-sprungli-kilchberg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T22:19:17.065Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1111,7 +1105,6 @@
           "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:27:06.080Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -1266,7 +1259,6 @@
           "group-communications-manager-con-focus-sulla-sostenibilita-lindt-sprungli-kilchberg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T21:58:39.091Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -1516,7 +1508,6 @@
           "lindt-chocolate-conseiller-verkaufer-in-lindt-shop-basel-50-60-lindt-sprungli-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T08:59:13.326Z",
       "salaryMin": 44400,
       "salaryMax": 68100,
@@ -1661,10 +1652,7 @@
       "jobReqId": "JR103315",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "ict-support-specialist-100-lindt-spruengli-kilchberg",
-        "ict-support-specialista-100-lindt-sprungli-kilchberg"
-      ],
+      "firstSeenAt": "2026-09-08T23:41:33.059Z",
       "previousSlugsByLocale": {
         "it": [
           "ict-support-specialist-100-lindt-spruengli-kilchberg",
@@ -1674,8 +1662,10 @@
           "ict-support-specialist-100-lindt-spruengli-kilchberg"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-08T23:41:33.059Z",
+      "previousSlugs": [
+        "ict-support-specialist-100-lindt-spruengli-kilchberg",
+        "ict-support-specialista-100-lindt-sprungli-kilchberg"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
