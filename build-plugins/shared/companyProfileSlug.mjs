@@ -88,3 +88,20 @@ export function canonicalCompanyProfileSlug(company, companyKey) {
   // truth: brandCanonicalMap). Unmanaged slugs pass through unchanged.
   return resolveBrandCanonical(base) ?? base;
 }
+
+/**
+ * Canonical URL path for an evergreen employer profile.
+ *
+ * The profile emitter and legacy company-hub bridges need the same
+ * locale-aware `/aziende/<slug>/` shape. Keeping the path builder beside the
+ * slug builder prevents a future locale-prefix drift from splitting those
+ * surfaces again.
+ *
+ * @param {string} locale One of `it`, `en`, `de` or `fr`.
+ * @param {string} slug Canonical company-profile slug.
+ * @returns {string} Trailing-slash canonical path.
+ */
+export function buildEmployerProfilePath(locale, slug) {
+  const prefix = locale === 'it' ? '' : `/${locale}`;
+  return `${prefix}/aziende/${slug}/`;
+}

@@ -46,7 +46,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, localizedContract, type JobCardJob } from './shared/jobCardHtml';
+import { renderJobCardListHtml, localizedContract, type JobCardJob } from './shared/jobCardHtml';
 import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { renderEmployerCtaBlock } from './shared/employerCtaBlock';
 import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder';
@@ -58,7 +58,7 @@ import { logBuildMem } from './shared/buildMemLog';
 import { resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
 import { buildCurrentWeekPath } from './weeklyEmployersData';
 import { buildSectorHubPath, SECTOR_HUB_KEYS, type SectorHubKey } from './jobSectorLanding';
-import { canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
+import { buildEmployerProfilePath, canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
 import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
 import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
 import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
@@ -73,19 +73,7 @@ const OG_LOCALE: Record<Locale, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH
  * every locale (same approach as publisher's `/lavoro/`) keeps the router match,
  * the hreflang set and the compat self-map trivial. */
 const localePrefix = (locale: Locale): string => (locale === 'it' ? '' : `/${locale}`);
-const profilePath = (locale: Locale, slug: string): string => `${localePrefix(locale)}/aziende/${slug}/`;
-
-/** Max active jobs listed (cards + structured data) per page — keeps HTML +
- * JSON-LD within the page-weight budget; the full list lives on the hubs.
- * Was 24 (audit:text-html-ratio regression #4593: at 24 cards + a full
- * JobPosting ItemList per card, markup outweighs visible text ~25:1 even
- * with a fully expanded intro — verified against real data/employer-
- * profiles.json profiles, no card count got a typical profile over the 10%
- * floor without gutting the list to 1-2 items). 8 matches the sibling
- * per-company job cap already used by weeklyEmployersPlugin.ts
- * (`limitJobs = 10`) — a curated top-N preview, "see all" lives in
- * exploreLinksHtml's canton/weekly links, same UX pattern as those pages. */
-const MAX_JOBS_LISTED = 8;
+const profilePath = (locale: Locale, slug: string): string => buildEmployerProfilePath(locale, slug);
 
 export interface EmployerProfile {
   slug: string;
@@ -456,7 +444,7 @@ function citiesProse(profile: EmployerProfile, locale: Locale): string {
 }
 
 /** Real contract-type majority across the company's FULL active-job set
- * (not just the ≤MAX_JOBS_LISTED cards shown) — genuine aggregate fact,
+ * (the same set rendered as cards below) — genuine aggregate fact,
  * distinct from the per-job contract badge already on each card. Returns
  * '' when the data is too sparse/fragmented to say anything meaningful
  * (no single contract type reaches a majority), same graceful-skip pattern
@@ -476,9 +464,8 @@ function contractMixProse(jobs: CorpusJob[], locale: Locale): string {
 }
 
 /** Real salary min–max range across postings with a reported/estimated
- * figure — distinct from the single median stat tile, and from the
- * per-card salary line (this is the FULL active-job range, not just the
- * ≤MAX_JOBS_LISTED shown). Returns '' when there isn't a genuine range
+ * figure — distinct from the single median stat tile and the per-card salary
+ * line. Returns '' when there isn't a genuine range
  * (fewer than 2 data points, or min === max — nothing to compare). */
 function salaryRangeProse(jobs: CorpusJob[], locale: Locale): string {
   const values = jobs
@@ -497,14 +484,7 @@ function salaryRangeProse(jobs: CorpusJob[], locale: Locale): string {
  * computed from the company's full active-job set. Real per-company detail,
  * not filler — length scales with the company's actual canton/city
  * footprint (data/employer-profiles.json caps both arrays at 6, so this
- * never runs away). Part of the audit:text-html-ratio fix (#4593): PR
- * #4611's MAX_JOBS_LISTED reduction (24→8) + earlier prose expansion
- * narrowed the gap but the LIVE measured ratio (~5%, validate-dist run
- * 29794187475) was roughly half PR #4611's own local estimate (~9.8%) —
- * this adds genuine additional facts rather than re-tuning MAX_JOBS_LISTED
- * again (that lever was already verified NOT to help: more cards add more
- * per-job JobPosting JSON-LD, mandated complete by Non-Negotiable #3, far
- * faster than they add visible card text — see MAX_JOBS_LISTED comment).
+ * never runs away).
  * Does not guarantee every one of the ~1860 profiles clears the 10% floor
  * (a handful with no contract/salary data at all get none of the two new
  * sentences); see PR body for the honest remaining gap. */
@@ -562,11 +542,17 @@ ${items}
 </section>`;
 }
 
+interface ProfileRenderOptions {
+  /** Keep the indexability probe free of manual ad markup. */
+  interleaveInfeedAds?: boolean;
+}
+
 function renderProfileBody(
   profile: EmployerProfile,
   jobs: CorpusJob[],
   locale: Locale,
   allActiveJobs: CorpusJob[] = jobs,
+  options: ProfileRenderOptions = {},
 ): string {
   const name = profile.name;
   const tiles = [
@@ -577,31 +563,34 @@ function renderProfileBody(
     profile.trend?.added ? statTile(`${NEW_ROLES_LABEL[locale]} (${profile.trend.windowDays}g)`, `+${profile.trend.added}`) : '',
   ].filter(Boolean).join('');
 
-  const cards = jobs
-    .map((job) => {
+  const cardItems = jobs.flatMap((job): Array<{ job: JobCardJob; href: string }> => {
       const href = jobDetailPath(job, locale);
-      if (!href) return '';
-      const cardJob: JobCardJob = {
-        title: job.title,
-        titleByLocale: job.titleByLocale,
-        company: job.company,
-        companyKey: job.companyKey,
-        location: job.location,
-        addressLocality: job.addressLocality,
-        canton: job.canton,
-        contract: job.contract,
-        postedDate: job.postedDate,
-        datePosted: job.datePosted,
-        salaryMin: job.salaryMin ?? null,
-        salaryMax: job.salaryMax ?? null,
-        salarySource: job.salarySource,
-        companyDomain: job.companyDomain,
-        url: job.url,
-      };
-      return renderJobCardHtml(cardJob, { href, locale });
-    })
-    .filter(Boolean)
-    .join('\n');
+      if (!href) return [];
+      return [{
+        href,
+        job: {
+          title: job.title,
+          titleByLocale: job.titleByLocale,
+          company: job.company,
+          companyKey: job.companyKey,
+          location: job.location,
+          addressLocality: job.addressLocality,
+          canton: job.canton,
+          contract: job.contract,
+          postedDate: job.postedDate,
+          datePosted: job.datePosted,
+          salaryMin: job.salaryMin ?? null,
+          salaryMax: job.salaryMax ?? null,
+          salarySource: job.salarySource,
+          companyDomain: job.companyDomain,
+          url: job.url,
+        },
+      }];
+    });
+  const jobListHtml = renderJobCardListHtml(cardItems, {
+    locale,
+    interleaveInfeedAds: options.interleaveInfeedAds,
+  });
 
   return `<main class="seo-static-content max-w-[820px] mx-auto px-5 pt-6 pb-14 leading-relaxed text-body">
 ${breadcrumbHtml(locale, name)}
@@ -614,10 +603,7 @@ ${companyFollowMountPlaceholder({ company: name, companyKey: profile.companyKey,
 <section class="mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(introProse(profile, allActiveJobs, locale))}</p></section>
 <section class="mb-2">
 <h2 class="text-lg font-bold text-strong mb-3">${esc(JOBS_HEADING[locale])} (${profile.activeJobs})</h2>
-${JOB_CARD_ICON_SYMBOLS}
-<div class="grid gap-3">
-${cards}
-</div>
+${jobListHtml}
 </section>
 ${exploreLinksHtml(profile, locale)}
 ${renderEmployerCtaBlock(locale, 'employer_profile')}
@@ -762,7 +748,10 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             firstDateMs(b.postedDate, b.datePosted, b.crawledAt, b.firstSeenAt) -
             firstDateMs(a.postedDate, a.datePosted, a.crawledAt, a.firstSeenAt),
           );
-        const listed = group.slice(0, MAX_JOBS_LISTED);
+        // The heading and the visible list must describe the same live set.
+        // The previous top-N preview made a page say "77" while rendering only
+        // eight cards, and also hid the shared every-third-card ad cadence.
+        const listed = group;
         // Display the LIVE active count (corpus at build time) rather than the
         // committed snapshot, and gate indexability on it — so a dataset that
         // has drifted below the floor since it was generated auto-downgrades to
@@ -805,9 +794,18 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         // page never points an alternate at a noindex sibling (reviewer
         // adversarial check). Rendering is reused in the emit loop below.
         const rendered = LOCALES.map((locale) => {
-          const bodyHtml = renderProfileBody(liveProfile, listed, locale, group);
+          // Probe without manual ad markup; noindex/thin pages must not carry
+          // manual slots. Indexable pages are rendered again with the shared
+          // list renderer, which inserts ads after cards 3, 6, 9, … up to the
+          // site's account-safety cap.
+          const probeBodyHtml = renderProfileBody(liveProfile, listed, locale, group, {
+            interleaveInfeedAds: false,
+          });
           const meetsFloor = liveActive >= MIN_ACTIVE_JOBS || demandHold;
-          const indexable = meetsFloor && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
+          const indexable = meetsFloor && countHtmlBodyWords(probeBodyHtml) >= MIN_INDEXABLE_WORDS;
+          const bodyHtml = indexable
+            ? renderProfileBody(liveProfile, listed, locale, group, { interleaveInfeedAds: true })
+            : probeBodyHtml;
           return { locale, bodyHtml, indexable };
         });
         if (demandHold && liveActive < MIN_ACTIVE_JOBS && rendered.some((r) => r.indexable)) heldByDemand++;
@@ -830,11 +828,8 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           // ("embeds COMPLETE JobPosting structured data (Non-Negotiable #3)")
           // asserts every mandatory JobPosting field on THIS page's ItemList
           // items too — that test is the project's actual encoded contract
-          // for this page, overriding the "list pages don't need full
-          // JobPosting" Google-policy argument. Reverted; the ratio fix here
-          // is MAX_JOBS_LISTED (24→8) + the expanded real prose only (see
-          // that constant's comment) — text-html-ratio still needs an honest
-          // baseline for this bucket regardless (see PR body).
+          // for this page. The ItemList now stays aligned with every visible
+          // card instead of describing a hidden top-N preview.
           const itemListElements = listed
             .map((job) => {
               // Same guard as the job cards (renderProfileBody): a job whose
@@ -906,7 +901,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           if (locale === 'it' && indexable) {
             sitemapEntries.push({ canonical: urlPath, alternates });
           }
-          if (locale === 'it') employerJobCounts.set(slug, profile.activeJobs);
+          if (locale === 'it') employerJobCounts.set(slug, liveActive);
         }
       }
 
