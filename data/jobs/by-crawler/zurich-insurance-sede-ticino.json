@@ -73,10 +73,10 @@
       "id": "zurich-insurance-sede-ticino-1371660557",
       "slug": "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich",
       "slugByLocale": {
+        "de": "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich",
         "it": "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich",
         "en": "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "de": "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "fr": "actuaire-principal-des-prix-vie-d-entreprise-pensions-h-f-d-zurich-insurance-sede-ticino-zurich-1371660557"
       },
       "slugDisambiguator": "1371660557",
       "company": "Zurich Insurance (sede Ticino)",
@@ -138,10 +138,10 @@
       "id": "zurich-insurance-sede-ticino-1371690457",
       "slug": "business-analista-con-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich-1371690457",
       "slugByLocale": {
+        "de": "business-analyst-mit-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich",
         "it": "business-analista-con-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich-1371690457",
         "en": "business-analyst-mit-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "de": "business-analyst-mit-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "business-analyste-mit-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich-1371690457"
+        "fr": "analyste-d-affaires-avec-l-integration-de-focus-h-f-d-zurich-insurance-sede-ticino-zurich-1371690457"
       },
       "slugDisambiguator": "1371690457",
       "company": "Zurich Insurance (sede Ticino)",
@@ -202,21 +202,23 @@
           "business-analyst-mit-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich"
         ],
         "fr": [
-          "business-analyst-mit-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich"
+          "business-analyst-mit-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich",
+          "business-analyste-mit-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich-1371690457"
         ]
       },
       "previousSlugs": [
-        "business-analyst-mit-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "business-analyst-mit-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "business-analyste-mit-fokus-integration-m-w-d-zurich-insurance-sede-ticino-zurich-1371690457"
       ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1371668357",
-      "slug": "customer-support-specalist-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "specificatore-del-supporto-clienti-m-f-d-zurich-insurance-sede-ticino-zurich-1371668357",
       "slugByLocale": {
-        "it": "customer-support-specalist-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "en": "customer-support-specalist-m-w-d-zurich-insurance-sede-ticino-zurich",
         "de": "customer-support-specalist-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "customer-support-specalist-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "it": "specificatore-del-supporto-clienti-m-f-d-zurich-insurance-sede-ticino-zurich-1371668357",
+        "en": "customer-support-specalist-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "fr": "assistance-a-la-clientele-specalist-h-f-d-zurich-insurance-sede-ticino-zurich-1371668357"
       },
       "slugDisambiguator": "1371668357",
       "company": "Zurich Insurance (sede Ticino)",
@@ -271,7 +273,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T13:56:26.262Z"
+      "firstSeenAt": "2026-09-09T13:56:26.262Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-support-specalist-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "customer-support-specalist-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "customer-support-specalist-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1371598757",

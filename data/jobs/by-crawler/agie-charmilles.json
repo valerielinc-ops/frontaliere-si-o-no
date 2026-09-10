@@ -40,9 +40,9 @@
       },
       "slugByLocale": {
         "it": "meccanica-w-m-d-agie-charmilles-sa-biel-bienne",
-        "en": "polymechaniker-m-w-d-agie-charmilles-sa-biel-bienne",
+        "en": "polymechanics-w-m-d-agie-charmilles-sa-biel-bienne",
         "de": "polymechaniker-w-m-d-agie-charmilles-biel-bienne",
-        "fr": "polymechaniker-m-w-d-agie-charmilles-sa-biel-bienne"
+        "fr": "polymecanique-m-j-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-0852c2cbfb49",
       "previousSlugsByLocale": {
@@ -50,14 +50,17 @@
           "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
         ],
         "en": [
-          "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
+          "polymechaniker-w-m-d-agie-charmilles-biel-bienne",
+          "polymechaniker-m-w-d-agie-charmilles-sa-biel-bienne"
         ],
         "fr": [
-          "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
+          "polymechaniker-w-m-d-agie-charmilles-biel-bienne",
+          "polymechaniker-m-w-d-agie-charmilles-sa-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
+        "polymechaniker-w-m-d-agie-charmilles-biel-bienne",
+        "polymechaniker-m-w-d-agie-charmilles-sa-biel-bienne"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -439,8 +442,7 @@
           "diagnose-engineer-80-100-agie-charmilles-biel-snnrtz"
         ],
         "en": [
-          "diagnose-engineer-80-100-agie-charmilles-sa-biel-bienne",
-          "diagnose-engineer-80-100-agie-charmilles-sa-berne"
+          "diagnose-engineer-80-100-agie-charmilles-sa-biel-bienne"
         ]
       },
       "previousSlugs": [
@@ -1224,9 +1226,9 @@
       },
       "slugByLocale": {
         "it": "automatiker-cfc-agie-charmilles-sa-bienne",
-        "en": "automatiker-efz-agie-charmilles-bienne",
+        "en": "automatic-efz-agie-charmilles-sa-bienne",
         "de": "automatiker-efz-agie-charmilles-bienne",
-        "fr": "automatiker-efz-agie-charmilles-bienne"
+        "fr": "efz-automatique-agie-charmilles-sa-bienne"
       },
       "id": "agie-charmilles-9dc89a54b496",
       "salaryMin": 77000,
@@ -1246,6 +1248,12 @@
       "firstSeenAt": "2026-09-09T13:53:49.097Z",
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-efz-agie-charmilles-bienne"
+        ],
+        "en": [
+          "automatiker-efz-agie-charmilles-bienne"
+        ],
+        "fr": [
           "automatiker-efz-agie-charmilles-bienne"
         ]
       },

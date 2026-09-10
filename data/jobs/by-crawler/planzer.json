@@ -54,13 +54,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-stuckgut-m-w-d-planzer-seewen",
-        "carico-generale-m-f-d-planzer-seewen"
+        "disponent-stuckgut-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-stuckgut-m-w-d-planzer-seewen",
-          "carico-generale-m-f-d-planzer-seewen"
+          "disponent-stuckgut-m-w-d-planzer-seewen"
         ],
         "en": [
           "disponent-stuckgut-m-w-d-planzer-seewen"
@@ -90,7 +88,7 @@
       "slugByLocale": {
         "it": "cat-be-night-driver-m-f-d-planzer-geneve-aeroport",
         "en": "chauffeur-cat-be-de-nuit-m-f-d-planzer-geneve-aeroport",
-        "de": "chauffeur-cat-be-de-nuit-m-w-d-planzer-geneve-aeroport",
+        "de": "katze-seien-sie-nachtfahrer-m-w-d-planzer-geneve-aeroport",
         "fr": "chauffeur-cat-be-de-nuit-m-f-d-planzer-geneve-aeroport"
       },
       "company": "Planzer",
@@ -136,17 +134,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chauffeur-cat-be-de-nuit-m-f-d-planzer-geneve-aeroport",
-        "katze-seien-sie-nachtfahrer-m-w-d-planzer-geneve-aeroport",
-        "cat-be-night-driver-m-f-d-planzer-geneve-aeroport"
+        "chauffeur-cat-be-de-nuit-m-w-d-planzer-geneve-aeroport"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-cat-be-de-nuit-m-f-d-planzer-geneve-aeroport",
-          "cat-be-night-driver-m-f-d-planzer-geneve-aeroport"
+          "chauffeur-cat-be-de-nuit-m-f-d-planzer-geneve-aeroport"
         ],
         "de": [
           "chauffeur-cat-be-de-nuit-m-f-d-planzer-geneve-aeroport",
-          "katze-seien-sie-nachtfahrer-m-w-d-planzer-geneve-aeroport"
+          "chauffeur-cat-be-de-nuit-m-w-d-planzer-geneve-aeroport"
         ]
       },
       "firstSeenAt": "2026-09-08T23:20:25.729Z",
@@ -284,13 +280,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "paketzusteller-m-w-d-planzer-bern",
-        "consegna-del-pacchetto-m-f-d-planzer-bern"
+        "paketzusteller-m-w-d-planzer-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "paketzusteller-m-w-d-planzer-bern",
-          "consegna-del-pacchetto-m-f-d-planzer-bern"
+          "paketzusteller-m-w-d-planzer-bern"
         ],
         "en": [
           "paketzusteller-m-w-d-planzer-bern"
@@ -460,12 +454,12 @@
     },
     {
       "id": "planzer-2eec64270eac",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-seewen",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-seewen",
       "slugByLocale": {
-        "it": "chauffeur-kat-ce-m-w-d-planzer-seewen",
-        "en": "chauffeur-kat-ce-m-w-d-planzer-seewen",
         "de": "chauffeur-kat-ce-m-w-d-planzer-seewen",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-seewen"
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-seewen",
+        "en": "chauffeur-kat-ce-m-w-d-planzer-seewen",
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -521,7 +515,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T13:45:02.165Z"
+      "firstSeenAt": "2026-09-09T13:45:02.165Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-seewen"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-seewen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-seewen"
+      ]
     },
     {
       "id": "planzer-d98d8ec549f1",
@@ -787,13 +792,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-kommissionierung-m-w-d-planzer-daniken",
-        "team-leader-nella-raccolta-m-f-d-planzer-daniken"
+        "teamleiter-kommissionierung-m-w-d-planzer-daniken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-kommissionierung-m-w-d-planzer-daniken",
-          "team-leader-nella-raccolta-m-f-d-planzer-daniken"
+          "teamleiter-kommissionierung-m-w-d-planzer-daniken"
         ],
         "en": [
           "teamleiter-kommissionierung-m-w-d-planzer-daniken"
@@ -870,14 +873,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-projektleiter-hr-systeme-m-w-d-planzer-dallikon",
-        "senior-projektleiter-risorse-umane-systeme-m-w-d-planzer-dallikon",
-        "senior-project-manager-hr-systems-m-f-d-planzer-dallikon"
+        "senior-projektleiter-risorse-umane-systeme-m-w-d-planzer-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-projektleiter-hr-systeme-m-w-d-planzer-dallikon",
-          "senior-projektleiter-risorse-umane-systeme-m-w-d-planzer-dallikon",
-          "senior-project-manager-hr-systems-m-f-d-planzer-dallikon"
+          "senior-projektleiter-risorse-umane-systeme-m-w-d-planzer-dallikon"
         ],
         "en": [
           "senior-projektleiter-hr-systeme-m-w-d-planzer-dallikon"
@@ -1085,13 +1086,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-lackiererei-pw-lkw-m-w-d-planzer-dallikon",
-        "team-leader-vernice-negozio-pw-truck-m-f-d-planzer-dallikon"
+        "teamleiter-lackiererei-pw-lkw-m-w-d-planzer-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-lackiererei-pw-lkw-m-w-d-planzer-dallikon",
-          "team-leader-vernice-negozio-pw-truck-m-f-d-planzer-dallikon"
+          "teamleiter-lackiererei-pw-lkw-m-w-d-planzer-dallikon"
         ],
         "en": [
           "teamleiter-lackiererei-pw-lkw-m-w-d-planzer-dallikon"
@@ -1168,13 +1167,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fuhrparkleiter-m-w-d-planzer-schmerikon",
-        "gestore-delle-pulci-m-f-d-planzer-schmerikon"
+        "fuhrparkleiter-m-w-d-planzer-schmerikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fuhrparkleiter-m-w-d-planzer-schmerikon",
-          "gestore-delle-pulci-m-f-d-planzer-schmerikon"
+          "fuhrparkleiter-m-w-d-planzer-schmerikon"
         ],
         "en": [
           "fuhrparkleiter-m-w-d-planzer-schmerikon"

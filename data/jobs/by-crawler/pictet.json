@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-marketing-manager-germany-pictet-frankfurt",
-        "senior-marketing-manager-germania-pictet-group-frankfurt"
+        "senior-marketing-manager-germany-pictet-frankfurt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-marketing-manager-germany-pictet-frankfurt",
-          "senior-marketing-manager-germania-pictet-group-frankfurt"
+          "senior-marketing-manager-germany-pictet-frankfurt"
         ],
         "de": [
           "senior-marketing-manager-germany-pictet-frankfurt"
@@ -127,13 +125,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fund-analyst-pictet-geneva",
-        "fund-analista-pictet-group-geneva"
+        "fund-analyst-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fund-analyst-pictet-geneva",
-          "fund-analista-pictet-group-geneva"
+          "fund-analyst-pictet-geneva"
         ],
         "de": [
           "fund-analyst-pictet-geneva"
@@ -207,26 +203,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "paralegal-officer-pictet-luxembourg",
-        "parajuriste-pictet-group-luxembourg",
-        "ufficiale-del-paralegal-pictet-group-luxembourg",
-        "paralegal-officer-pictet-group-luxembourg"
+        "parajuriste-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "paralegal-officer-pictet-luxembourg",
-          "ufficiale-del-paralegal-pictet-group-luxembourg"
+          "paralegal-officer-pictet-luxembourg"
         ],
         "de": [
           "paralegal-officer-pictet-luxembourg"
         ],
         "fr": [
           "paralegal-officer-pictet-luxembourg",
-          "parajuriste-pictet-group-luxembourg",
-          "paralegal-officer-pictet-group-luxembourg"
+          "parajuriste-pictet-group-luxembourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:33:31.605Z",
+      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -290,13 +282,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-specialist-pictet-geneva",
-        "investment-specialista-pictet-group-geneva"
+        "investment-specialist-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-specialist-pictet-geneva",
-          "investment-specialista-pictet-group-geneva"
+          "investment-specialist-pictet-geneva"
         ],
         "de": [
           "investment-specialist-pictet-geneva"
@@ -497,13 +487,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "trainee-data-management-pictet-luxembourg",
-        "stagiaire-gestion-des-donnees-pictet-group-luxembourg",
-        "apprendista-data-management-pictet-group-luxembourg"
+        "stagiaire-gestion-des-donnees-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-data-management-pictet-luxembourg",
-          "apprendista-data-management-pictet-group-luxembourg"
+          "trainee-data-management-pictet-luxembourg"
         ],
         "de": [
           "trainee-data-management-pictet-luxembourg"
@@ -512,8 +500,8 @@
           "stagiaire-gestion-des-donnees-pictet-group-luxembourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:40:23.293Z",
+      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -577,18 +565,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
-        "funzionario-fiscale-imposte-cliente-regolazione-reporting-pictet-group-luxembourg"
+        "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
-          "funzionario-fiscale-imposte-cliente-regolazione-reporting-pictet-group-luxembourg"
-        ],
-        "de": [
           "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
         ],
         "fr": [
+          "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
+        ],
+        "de": [
           "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
         ]
       },
@@ -686,12 +672,12 @@
     },
     {
       "id": "pictet-b0c838ee10ab",
-      "slug": "asia-operational-risk-lead-pictet-hong-kong",
+      "slug": "piombo-di-rischio-operativo-asia-pictet-group-hong-kong",
       "slugByLocale": {
-        "it": "asia-operational-risk-lead-pictet-hong-kong",
         "en": "asia-operational-risk-lead-pictet-hong-kong",
-        "de": "asia-operational-risk-lead-pictet-hong-kong",
-        "fr": "asia-operational-risk-lead-pictet-hong-kong"
+        "it": "piombo-di-rischio-operativo-asia-pictet-group-hong-kong",
+        "de": "fuhrendes-operatives-risiko-in-asien-pictet-group-hong-kong",
+        "fr": "asie-risque-operationnel-chef-de-file-pictet-group-hong-kong"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -745,7 +731,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T13:50:15.287Z"
+      "firstSeenAt": "2026-09-09T13:50:15.287Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "asia-operational-risk-lead-pictet-hong-kong"
+        ],
+        "de": [
+          "asia-operational-risk-lead-pictet-hong-kong"
+        ],
+        "fr": [
+          "asia-operational-risk-lead-pictet-hong-kong"
+        ]
+      },
+      "previousSlugs": [
+        "asia-operational-risk-lead-pictet-hong-kong"
+      ]
     },
     {
       "id": "pictet-4e780c85cc50",
