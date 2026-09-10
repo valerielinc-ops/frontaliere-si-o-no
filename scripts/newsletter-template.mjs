@@ -25,7 +25,7 @@ const BORDER_COLOR = '#dbe2ea';
 // ─── i18n for newsletter template ─────────────────────────────
 const NL_TRANSLATIONS = {
   it: {
-    weeklyTag: 'Frontaliere Weekly',
+    weeklyTag: 'Il briefing della settimana',
     heroTitle: 'Le cose utili della settimana, senza rumore.',
     heroSubtitle: 'Cambio CHF/EUR, guide pratiche e un solo strumento da aprire subito.',
     heroBullet2: 'Una guida utile da leggere in 3 minuti',
@@ -62,7 +62,7 @@ const NL_TRANSLATIONS = {
     schemaCta: 'Apri offerte di oggi',
   },
   en: {
-    weeklyTag: 'Frontaliere Weekly',
+    weeklyTag: 'Your weekly briefing',
     heroTitle: 'This week\'s essentials, no noise.',
     heroSubtitle: 'CHF/EUR rate, practical guides and one tool to open right away.',
     heroBullet2: 'A useful guide to read in 3 minutes',
@@ -99,7 +99,7 @@ const NL_TRANSLATIONS = {
     schemaCta: 'Open today\'s offers',
   },
   de: {
-    weeklyTag: 'Frontaliere Weekly',
+    weeklyTag: 'Dein Wochenbrief',
     heroTitle: 'Das Wichtigste der Woche, ohne Lärm.',
     heroSubtitle: 'CHF/EUR-Kurs, praktische Ratgeber und ein Tool zum Ausprobieren.',
     heroBullet2: 'Ein nützlicher Ratgeber in 3 Minuten',
@@ -136,7 +136,7 @@ const NL_TRANSLATIONS = {
     schemaCta: 'Aktuelle Angebote öffnen',
   },
   fr: {
-    weeklyTag: 'Frontaliere Weekly',
+    weeklyTag: 'Le briefing de la semaine',
     heroTitle: 'L\'essentiel de la semaine, sans bruit.',
     heroSubtitle: 'Taux CHF/EUR, guides pratiques et un outil à ouvrir tout de suite.',
     heroBullet2: 'Un guide utile à lire en 3 minutes',

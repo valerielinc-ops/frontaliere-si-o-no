@@ -85,6 +85,7 @@ const QA_DIR = path.resolve(ROOT, 'docs', 'newsletter-qa');
 const BASE_URL = 'https://frontaliereticino.ch';
 const ADMIN_EMAIL = process.env.NEWSLETTER_ADMIN_EMAIL || 'valerielinc@gmail.com';
 const DEFAULT_FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
+const NEWSLETTER_UNSUBSCRIBE_LABEL = 'Weekly Brief';
 const FROM_EMAIL = process.env.NEWSLETTER_FROM || DEFAULT_FROM_EMAIL;
 const EXPERIMENTAL_MODE = process.env.NEWSLETTER_EXPERIMENTAL_MODE !== 'false';
 const SEND_ENABLED = process.env.NEWSLETTER_ENABLE_SEND === 'true';
@@ -1590,8 +1591,8 @@ async function fetchSubscribers() {
 function makeMailtoUnsubscribe(email) {
   const local = (FROM_EMAIL.match(/<([^>]+)>/)?.[1] || FROM_EMAIL).trim();
   const to = local || 'newsletter@frontaliereticino.ch';
-  const subject = encodeURIComponent('Unsubscribe Frontaliere Weekly');
-  const body = encodeURIComponent(`Please unsubscribe ${email} from Frontaliere Weekly.`);
+  const subject = encodeURIComponent(`Unsubscribe ${NEWSLETTER_UNSUBSCRIBE_LABEL}`);
+  const body = encodeURIComponent(`Please unsubscribe ${email} from ${NEWSLETTER_UNSUBSCRIBE_LABEL}.`);
   return `mailto:${to}?subject=${subject}&body=${body}`;
 }
 
@@ -1601,7 +1602,8 @@ function buildEmailHeaders(email, campaign) {
   return {
     'List-Unsubscribe': `<${makeOneClickUnsubscribeUrl(email)}>, <${makeMailtoUnsubscribe(email)}>`,
     'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
-    'List-ID': `Frontaliere Weekly <weekly.frontaliereticino.ch>`,
+    // Keep the stable list identifier while using the new neutral display label.
+    'List-ID': `${NEWSLETTER_UNSUBSCRIBE_LABEL} <weekly.frontaliereticino.ch>`,
     'Feedback-ID': `${campaignKey}:frontaliere-weekly:frontaliere-ticino`,
     'X-Entity-Ref-ID': `${campaignKey}-${emailKey}`,
     'X-Campaign-Id': campaign,

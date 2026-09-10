@@ -27,7 +27,7 @@ describe('newsletter template v2', () => {
     });
 
     expect(html).toContain('<!DOCTYPE html>');
-    expect(html).toContain('Frontaliere Weekly');
+    expect(html).toContain('<title>Il briefing della settimana</title>');
     expect(html).toContain('1.0942');
     expect(html).toContain('Software Engineer');
     expect(html).toContain('Accountant');

@@ -28,6 +28,10 @@ describe('FALLBACK_SUBJECT', () => {
       it('contains real word content (not emoji-only)', () => {
         expect(/[\p{L}]{3,}/u.test(subject)).toBe(true);
       });
+
+      it('does not label the subscriber by profession or status', () => {
+        expect(subject).not.toMatch(/frontaliere|frontalier|grenzg[aä]nger|cross[- ]border/i);
+      });
     });
   }
 });
