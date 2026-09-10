@@ -701,12 +701,17 @@ describe('review gate: citazioni e conferme', () => {
     expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
   });
 
-  it('NON chiude un finding diverso sullo stesso file a un altra riga', () => {
-    // Il caso negativo: la riga resta un uguaglianza esatta, altrimenti una
-    // conferma su un difetto chiuderebbe anche il difetto accanto.
+  it('chiude un anchor spostato sulla riga nuova quando il path è univoco', () => {
     const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L7`: 🔴 Important: rotto.\n');
-    const other = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/lib/helper.mjs:L99`: ok.\n\n## LGTM');
-    expect(historicalImportantFindings([opened, other], { includeLatest: true })).toHaveLength(1);
+    const moved = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/lib/helper.mjs:L99`: ok.\n\n## LGTM');
+    expect(historicalImportantFindings([opened, moved], { includeLatest: true })).toHaveLength(0);
+  });
+
+  it('mantiene aperti finding distinti sullo stesso file quando la conferma cambia riga', () => {
+    const first = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L7`: 🔴 Important: primo difetto.\n');
+    const second = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L12`: 🔴 Important: secondo difetto.\n');
+    const ambiguous = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/lib/helper.mjs:L99`: ok.\n\n## LGTM');
+    expect(historicalImportantFindings([first, second, ambiguous], { includeLatest: true })).toHaveLength(2);
   });
 
   it('chiude un finding a riga con una conferma senza riga solo quando il path è univoco', () => {
