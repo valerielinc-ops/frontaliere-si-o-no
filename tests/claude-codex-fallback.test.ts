@@ -858,7 +858,10 @@ describe('copertura workflow diretti', () => {
 
   it('accetta permessi eseguibili 0755 e rifiuta directory group/world-writable', () => {
     const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
-    const runnerRoot = mkdtempSync(join(tmpdir(), 'codex-mode-trust-'));
+    // The resolver intentionally rejects writable ancestors such as the
+    // runner's /tmp. Keep this positive fixture under the checkout, whose
+    // ancestors model the trusted toolcache path on GitHub-hosted runners.
+    const runnerRoot = mkdtempSync(join(repoRoot, '.codex-mode-trust-'));
     const trustedRoot = join(runnerRoot, 'trusted-bin');
     const writableDir = join(runnerRoot, 'group-writable');
     mkdirSync(trustedRoot, { recursive: true, mode: 0o755 });
