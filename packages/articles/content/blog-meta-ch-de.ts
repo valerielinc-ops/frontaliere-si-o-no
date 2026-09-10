@@ -6253,6 +6253,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.f-35-amherd-prescrizione-responsabilita.title': 'F-35: Amherd haftet für Mehrkosten',
     'blog.article.f-35-amherd-prescrizione-responsabilita.excerpt': 'CDG stellt fest, dass Amherd die Kostenrisiken F-35 Monate zuvor kannte. Dreijährige Verjährung fällig, Wyssmann bittet um Unterbrechung.',
     'blog.article.f-35-amherd-prescrizione-responsabilita.imageAlt': 'Bundeshaus in Bern mit Schweizer Flagge bei Sonnenuntergang',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.title': 'Stefan Leist zum Vizedir. Eidg.Finanzverwaltung ernannt',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.excerpt': 'Karin Keller-Sutter ernennt Stefan Leist per 1. Oktober 2026 zum stellvertretenden Direktor EFV. Bereits seit dem 1. März 2026 an der Spitze der Division Finanzpolitik.',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.imageAlt': 'Stefan Leist, neuer Vizedirektor der Eidgenössischen Finanzverwaltung',
 };
 
 export default blogMetaChDe;

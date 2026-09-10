@@ -6253,6 +6253,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.f-35-amherd-prescrizione-responsabilita.title': 'F-35: Amherd Risks Liability for Extra Costs',
     'blog.article.f-35-amherd-prescrizione-responsabilita.excerpt': 'CdG ascertains that Amherd knew of the F-35 cost risks months earlier. Three-year prescription expiring, Wyssmann asks for an interruption.',
     'blog.article.f-35-amherd-prescrizione-responsabilita.imageAlt': 'Federal Palace in Bern with Swiss flag at sunset',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.title': 'Stefan Leist appointed Deputy Director Federal Administration of Finance',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.excerpt': 'Karin Keller-Sutter appoints Stefan Leist as AFF Deputy Director from 1 October 2026. Already leading the Financial Policy Division since 1 March 2026.',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.imageAlt': 'Stefan Leist, new deputy director of Federal Finance Administration',
 };
 
 export default blogMetaChEn;
