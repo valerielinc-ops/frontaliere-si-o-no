@@ -11626,6 +11626,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-assunzioni-lugano-interrogazione.title': 'Frontier workers in Lugano: question from the Municipality',
     'blog.article.frontalieri-assunzioni-lugano-interrogazione.excerpt': 'Omar Wicht questions the Municipality of Lugano about the hiring of border workers since 2024. A request for clarity on the number, dicasteries and reasons for the selections in the public sector.',
     'blog.article.frontalieri-assunzioni-lugano-interrogazione.imageAlt': 'Lugano city administration where cross-border worker hiring is managed and scrutinized',
+    'blog.article.esplosione-centrale-ritom-san-gottardo.title': 'Ticino: central RITOM explosion, Saint Gotthard line damage',
+    'blog.article.esplosione-centrale-ritom-san-gottardo.excerpt': 'Wednesday morning, 9 September 2026: explosion and partial collapse in the historic Ritom hydroelectric plant (1917). Two workers seriously injured, ongoing investigation.',
+    'blog.article.esplosione-centrale-ritom-san-gottardo.imageAlt': 'Explosion at the Ritom hydroelectric power plant, Canton Ticino, showing structural damage and emergency response.',
 };
 
 export default blogMetaEn;

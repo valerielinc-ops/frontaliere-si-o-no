@@ -11625,6 +11625,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-assunzioni-lugano-interrogazione.title': 'Grenzgänger in Lugano: Anfrage der Gemeinde',
     'blog.article.frontalieri-assunzioni-lugano-interrogazione.excerpt': 'Omar Wicht hinterfragt bei der Stadtverwaltung Lugano die Einstellung von Grenzgängern ab 2024. Er bittet um Klarstellung hinsichtlich der Anzahl, der betroffenen Abteilungen und der Auswahlkriterien im öffentlichen Sektor.',
     'blog.article.frontalieri-assunzioni-lugano-interrogazione.imageAlt': 'Lugano, wo die Gemeindeveraltung Einstellungen von Grenzgängern verwaltet',
+    'blog.article.esplosione-centrale-ritom-san-gottardo.title': 'Tessin: Zentralexplosion Ritom, Schaden Linie San Gottardo',
+    'blog.article.esplosione-centrale-ritom-san-gottardo.excerpt': 'Mittwochmorgen, 9. September 2026: Explosion und teilweiser Einsturz im historischen Wasserkraftwerk Ritom (1917). Zwei schwer verletzte Arbeiter, laufende Ermittlungen.',
+    'blog.article.esplosione-centrale-ritom-san-gottardo.imageAlt': 'Explosion im Wasserkraftwerk Ritom, Kanton Tessin, mit Strukturschäden und Einsatzkräften.',
 };
 
 export default blogMetaDe;

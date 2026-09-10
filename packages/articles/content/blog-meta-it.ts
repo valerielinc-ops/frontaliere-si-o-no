@@ -11627,6 +11627,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-assunzioni-lugano-interrogazione.title': 'Frontalieri a Lugano: interrogazione del Municipio',
     'blog.article.frontalieri-assunzioni-lugano-interrogazione.excerpt': 'Omar Wicht interroga il Municipio di Lugano sulle assunzioni di frontalieri dal 2024. Una richiesta di chiarezza su numero, dicasteri e motivi delle selezioni nel settore pubblico.',
     'blog.article.frontalieri-assunzioni-lugano-interrogazione.imageAlt': 'Lugano, dove il Municipio gestisce le assunzioni di frontalieri e cittadini stranieri nell\'amministrazione comunale',
+    'blog.article.esplosione-centrale-ritom-san-gottardo.title': 'Ticino: esplosione centrale ritom, danni linea san gottardo',
+    'blog.article.esplosione-centrale-ritom-san-gottardo.excerpt': 'Mattinata di mercoledì 9 settembre 2026: esplosione e crollo parziale nella storica centrale idroelettrica del Ritom (1917). Due operai feriti gravemente, indagini in corso.',
+    'blog.article.esplosione-centrale-ritom-san-gottardo.imageAlt': 'Esplosione nella centrale idroelettrica del Ritom, Canton Ticino, con danni strutturali e intervento dei soccorsi.',
 };
 
 export default blogMetaIt;
