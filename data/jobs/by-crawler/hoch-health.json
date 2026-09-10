@@ -6318,7 +6318,6 @@
           "mitarbeiter-in-lebensmitteleinkauf-100-hoch-health-st-gallen",
           "collaboratore-trice-lebensmitteleinkauf-100-hoch-health-ostschweiz-st-gallen",
           "mitarbeiter-in-lebensmitteleinkauf-100-kssg-ch",
-          "collaboratore-trice-lebensmitteleinkauf-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "collaboratore-trice-zentrales-patientenmanagement-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "en": [
@@ -6338,7 +6337,6 @@
         "employee-food-shopping-100-hoch-health-ostschweiz-st-gallen",
         "achats-de-produits-alimentaires-employes-100-hoch-health-ostschweiz-st-gallen",
         "mitarbeiter-in-lebensmitteleinkauf-100-kssg-ch",
-        "collaboratore-trice-lebensmitteleinkauf-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "collaboratore-trice-zentrales-patientenmanagement-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "firstSeenAt": "2026-08-20T09:48:52.579Z",
@@ -19123,12 +19121,12 @@
     },
     {
       "id": "hoch-health-553a9d6d4788",
-      "slug": "sachbearbeiter-in-vermietung-100-hoch-health-st-gallen",
+      "slug": "affitto-agente-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "sachbearbeiter-in-vermietung-100-hoch-health-st-gallen",
-        "it": "sachbearbeiter-in-vermietung-100-hoch-health-st-gallen",
-        "en": "sachbearbeiter-in-vermietung-100-hoch-health-st-gallen",
-        "fr": "sachbearbeiter-in-vermietung-100-hoch-health-st-gallen"
+        "it": "affitto-agente-100-hoch-health-ostschweiz-st-gallen",
+        "en": "agent-rental-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "location-d-agents-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -19187,14 +19185,22 @@
       "firstSeenAt": "2026-09-09T23:24:17.825Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-aufnahme-60-hoch-health-st-gallen"
+          "sachbearbeiter-in-aufnahme-60-hoch-health-st-gallen",
+          "sachbearbeiter-in-vermietung-100-hoch-health-st-gallen"
         ],
         "de": [
           "sachbearbeiter-in-aufnahme-60-hoch-health-st-gallen"
+        ],
+        "en": [
+          "sachbearbeiter-in-vermietung-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-vermietung-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-aufnahme-60-hoch-health-st-gallen"
+        "sachbearbeiter-in-aufnahme-60-hoch-health-st-gallen",
+        "sachbearbeiter-in-vermietung-100-hoch-health-st-gallen"
       ]
     },
     {

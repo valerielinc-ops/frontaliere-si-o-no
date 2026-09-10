@@ -162,12 +162,12 @@
     },
     {
       "id": "planzer-abced3cb4f09",
-      "slug": "teamleiter-kommissionierung-m-w-d-planzer-kallnach",
+      "slug": "team-leader-nella-raccolta-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "teamleiter-kommissionierung-m-w-d-planzer-kallnach",
-        "it": "teamleiter-kommissionierung-m-w-d-planzer-kallnach",
-        "en": "teamleiter-kommissionierung-m-w-d-planzer-kallnach",
-        "fr": "teamleiter-kommissionierung-m-w-d-planzer-kallnach"
+        "it": "team-leader-nella-raccolta-m-f-d-planzer-kallnach",
+        "en": "team-leader-picking-m-f-d-planzer-kallnach",
+        "fr": "chef-d-equipe-selection-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -225,7 +225,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:04:47.520Z"
+      "firstSeenAt": "2026-09-09T23:04:47.520Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-kommissionierung-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "teamleiter-kommissionierung-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "teamleiter-kommissionierung-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-kommissionierung-m-w-d-planzer-kallnach"
+      ]
     },
     {
       "id": "planzer-50b8ef5f9b49",
@@ -309,12 +323,12 @@
     },
     {
       "id": "planzer-d22981386ef4",
-      "slug": "collaboratore-trice-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
+      "slug": "funzionamento-a-turni-dei-dipendenti-m-f-d-planzer-pratteln",
       "slugByLocale": {
         "de": "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
-        "it": "collaboratore-trice-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
-        "en": "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
-        "fr": "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
+        "it": "funzionamento-a-turni-dei-dipendenti-m-f-d-planzer-pratteln",
+        "en": "employees-handling-shift-operation-m-f-d-planzer-pratteln",
+        "fr": "employes-charges-de-l-operation-de-poste-h-f-d-planzer-pratteln"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -361,11 +375,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
+          "collaboratore-trice-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
+        ],
+        "en": [
+          "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
+        ],
+        "fr": [
           "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
+        "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
+        "collaboratore-trice-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -384,12 +406,12 @@
     },
     {
       "id": "planzer-92ab5bef1f6c",
-      "slug": "logistiker-kommissionierung-m-w-d-planzer-lyss",
+      "slug": "logistica-di-raccolta-m-f-d-planzer-lyss",
       "slugByLocale": {
         "de": "logistiker-kommissionierung-m-w-d-planzer-lyss",
-        "it": "logistiker-kommissionierung-m-w-d-planzer-lyss",
-        "en": "logistiker-kommissionierung-m-w-d-planzer-lyss",
-        "fr": "logistiker-kommissionierung-m-w-d-planzer-lyss"
+        "it": "logistica-di-raccolta-m-f-d-planzer-lyss",
+        "en": "logistics-picking-m-f-d-planzer-lyss",
+        "fr": "recherche-logistique-h-f-d-planzer-lyss"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -447,7 +469,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:04:45.324Z"
+      "firstSeenAt": "2026-09-09T23:04:45.324Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistiker-kommissionierung-m-w-d-planzer-lyss"
+        ],
+        "en": [
+          "logistiker-kommissionierung-m-w-d-planzer-lyss"
+        ],
+        "fr": [
+          "logistiker-kommissionierung-m-w-d-planzer-lyss"
+        ]
+      },
+      "previousSlugs": [
+        "logistiker-kommissionierung-m-w-d-planzer-lyss"
+      ]
     },
     {
       "id": "planzer-2eec64270eac",
@@ -527,12 +563,12 @@
     },
     {
       "id": "planzer-d98d8ec549f1",
-      "slug": "sachbearbeiter-paket-m-w-d-planzer-st-gallen",
+      "slug": "pacchetto-personale-m-f-d-planzer-st-gallen",
       "slugByLocale": {
         "de": "sachbearbeiter-paket-m-w-d-planzer-st-gallen",
-        "it": "sachbearbeiter-paket-m-w-d-planzer-st-gallen",
-        "en": "sachbearbeiter-paket-m-w-d-planzer-st-gallen",
-        "fr": "sachbearbeiter-paket-m-w-d-planzer-st-gallen"
+        "it": "pacchetto-personale-m-f-d-planzer-st-gallen",
+        "en": "personnel-package-m-f-d-planzer-st-gallen",
+        "fr": "paquet-personnel-h-f-d-planzer-st-gallen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -590,7 +626,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:04:43.878Z"
+      "firstSeenAt": "2026-09-09T23:04:43.878Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-paket-m-w-d-planzer-st-gallen"
+        ],
+        "en": [
+          "sachbearbeiter-paket-m-w-d-planzer-st-gallen"
+        ],
+        "fr": [
+          "sachbearbeiter-paket-m-w-d-planzer-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-paket-m-w-d-planzer-st-gallen"
+      ]
     },
     {
       "id": "planzer-5de5fa552087",
@@ -598,8 +648,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-flottenmanagement-m-w-d-planzer-dallikon",
         "it": "collaboratore-trice-flottenmanagement-m-w-d-planzer-dallikon",
-        "en": "mitarbeiter-flottenmanagement-m-w-d-planzer-dallikon",
-        "fr": "mitarbeiter-flottenmanagement-m-w-d-planzer-dallikon"
+        "en": "employee-fleet-management-m-f-d-planzer-dallikon",
+        "fr": "gestion-de-la-flotte-des-employes-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -647,6 +697,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-flottenmanagement-m-w-d-planzer-dallikon"
+        ],
+        "en": [
+          "mitarbeiter-flottenmanagement-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "mitarbeiter-flottenmanagement-m-w-d-planzer-dallikon"
         ]
       },
       "previousSlugs": [
@@ -669,12 +725,12 @@
     },
     {
       "id": "planzer-a46b15649f2c",
-      "slug": "disponent-stuckgut-m-w-d-planzer-buchs",
+      "slug": "carico-generale-m-f-d-planzer-buchs",
       "slugByLocale": {
         "de": "disponent-stuckgut-m-w-d-planzer-buchs",
-        "it": "disponent-stuckgut-m-w-d-planzer-buchs",
-        "en": "disponent-stuckgut-m-w-d-planzer-buchs",
-        "fr": "disponent-stuckgut-m-w-d-planzer-buchs"
+        "it": "carico-generale-m-f-d-planzer-buchs",
+        "en": "disponent-general-cargo-m-f-d-planzer-buchs",
+        "fr": "depannage-de-la-cargaison-generale-h-f-d-planzer-buchs"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -732,7 +788,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:04:42.221Z"
+      "firstSeenAt": "2026-09-09T23:04:42.221Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-stuckgut-m-w-d-planzer-buchs"
+        ],
+        "en": [
+          "disponent-stuckgut-m-w-d-planzer-buchs"
+        ],
+        "fr": [
+          "disponent-stuckgut-m-w-d-planzer-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-stuckgut-m-w-d-planzer-buchs"
+      ]
     },
     {
       "id": "planzer-a0e0dac3032c",

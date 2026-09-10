@@ -48,7 +48,7 @@
         "it": "risorse-umane-business-partner-ibsa-institut-biochimique-collina-d-ti-3md54o",
         "en": "hr-business-partner-ibsa-institut-biochimique-collina-d-ti-3md54o",
         "de": "personalwesen-business-partner-ibsa-institut-biochimique-collina-d-ti-3md54o",
-        "fr": "hr-business-partner-ibsa-institut-biochimique-collina-d-oro"
+        "fr": "partenaire-operationnel-rh-ibsa-institut-biochimique-collina-d-oro"
       },
       "requirementsByLocale": {
         "it": [
@@ -71,12 +71,14 @@
           "hr-business-partner-ibsa-institut-biochimique-collina-d-ti"
         ],
         "fr": [
-          "hr-business-partner-ibsa-institut-biochimique-collina-d-ti-3md54o"
+          "hr-business-partner-ibsa-institut-biochimique-collina-d-ti-3md54o",
+          "hr-business-partner-ibsa-institut-biochimique-collina-d-oro"
         ]
       },
       "previousSlugs": [
         "hr-business-partner-ibsa-institut-biochimique-collina-d-ti",
-        "hr-business-partner-ibsa-institut-biochimique-collina-d-ti-3md54o"
+        "hr-business-partner-ibsa-institut-biochimique-collina-d-ti-3md54o",
+        "hr-business-partner-ibsa-institut-biochimique-collina-d-oro"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

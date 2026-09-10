@@ -1104,12 +1104,12 @@
     },
     {
       "id": "puk-zuerich-835c7ec15aeb",
-      "slug": "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster",
+      "slug": "psicologo-senior-psicologo-senior-psychiatrische-universitatsklinik-zurich-uster",
       "slugByLocale": {
         "de": "oberpsychologin-oberpsychologe-puk-zuerich-uster",
-        "it": "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster",
-        "en": "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster",
-        "fr": "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster"
+        "it": "psicologo-senior-psicologo-senior-psychiatrische-universitatsklinik-zurich-uster",
+        "en": "senior-psychologist-senior-psychologist-psychiatrische-universitatsklinik-zurich-uster",
+        "fr": "psychologue-senior-psychologue-senior-psychiatrische-universitatsklinik-zurich-uster"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -1158,11 +1158,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "oberpsychologin-oberpsychologe-puk-zuerich-uster"
+          "oberpsychologin-oberpsychologe-puk-zuerich-uster",
+          "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster"
+        ],
+        "en": [
+          "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster"
+        ],
+        "fr": [
+          "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster"
         ]
       },
       "previousSlugs": [
-        "oberpsychologin-oberpsychologe-puk-zuerich-uster"
+        "oberpsychologin-oberpsychologe-puk-zuerich-uster",
+        "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -6069,8 +6077,7 @@
           "sous-assistants-psychiatrische-universitatsklinik-zurich",
           "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
           "sub-assistants-psychiatrische-universitatsklinik-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
@@ -6102,7 +6109,8 @@
           "sous-assistants-psychiatrische-universitatsklinik-zurich",
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-puk-zuerich-zurich",
-          "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich"
+          "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich",
+          "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische"
         ]
       },
       "previousSlugs": [
@@ -6172,9 +6180,7 @@
         "sous-assistants-psychiatrische-universitatsklinik-zurich",
         "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
         "sub-assistants-psychiatrische-universitatsklinik-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

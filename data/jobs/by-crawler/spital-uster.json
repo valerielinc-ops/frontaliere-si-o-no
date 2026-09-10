@@ -4568,8 +4568,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-endoskopie-40-60-spital-uster-ch",
         "it": "collaboratore-trice-endoskopie-40-60-spital-uster",
-        "en": "mitarbeiter-in-endoskopie-40-60-spital-uster-ch",
-        "fr": "mitarbeiter-in-endoskopie-40-60-spital-uster-ch"
+        "en": "employee-endoscopy-40-60-spital-uster-uster",
+        "fr": "endoscopie-des-employes-40-60-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4615,6 +4615,12 @@
       "department": "Medizintechn. und medizintherapeutisches Personal",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-endoskopie-40-60-spital-uster-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-endoskopie-40-60-spital-uster-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-endoskopie-40-60-spital-uster-ch"
         ]
       },

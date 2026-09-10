@@ -484,12 +484,12 @@
     },
     {
       "id": "merian-iselin-a2920ea033ab",
-      "slug": "mitarbeiterin-collaboratore-trice-reinigung-praxen-e-institute-merian-iselin-klinik-basel",
+      "slug": "pratiche-e-istituti-di-pulizia-dei-dipendenti-merian-iselin-klinik-basel",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-reinigung-praxen-und-institute-merian-iselin-basel",
-        "it": "mitarbeiterin-collaboratore-trice-reinigung-praxen-e-institute-merian-iselin-klinik-basel",
-        "en": "mitarbeiterin-mitarbeiter-reinigung-praxen-und-institute-merian-iselin-basel",
-        "fr": "mitarbeiterin-mitarbeiter-reinigung-praxen-und-institute-merian-iselin-basel"
+        "it": "pratiche-e-istituti-di-pulizia-dei-dipendenti-merian-iselin-klinik-basel",
+        "en": "employee-cleaning-practices-and-institutes-merian-iselin-klinik-basel",
+        "fr": "pratiques-et-instituts-de-nettoyage-des-employes-merian-iselin-klinik-basel"
       },
       "company": "Merian Iselin Klinik",
       "companyKey": "merian-iselin",
@@ -534,11 +534,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-reinigung-praxen-und-institute-merian-iselin-basel",
+          "mitarbeiterin-collaboratore-trice-reinigung-praxen-e-institute-merian-iselin-klinik-basel"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-reinigung-praxen-und-institute-merian-iselin-basel"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-reinigung-praxen-und-institute-merian-iselin-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-reinigung-praxen-und-institute-merian-iselin-basel"
+        "mitarbeiterin-mitarbeiter-reinigung-praxen-und-institute-merian-iselin-basel",
+        "mitarbeiterin-collaboratore-trice-reinigung-praxen-e-institute-merian-iselin-klinik-basel"
       ],
       "salaryMin": 67500,
       "salaryMax": 84500,

@@ -2677,8 +2677,8 @@
       "slugByLocale": {
         "de": "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern",
         "it": "apprendistato-kauffrau-kaufmann-cfc-per-musiktalente-stadt-bern",
-        "en": "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern",
-        "fr": "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern"
+        "en": "apprenticeship-businesswoman-kaufmann-efz-for-music-talents-stadt-bern-bern",
+        "fr": "apprenticeship-businesswoman-kaufmann-efz-pour-les-talents-musicaux-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2725,6 +2725,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern"
+        ],
+        "fr": [
           "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern"
         ]
       },

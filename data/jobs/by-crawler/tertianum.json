@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "tertianum-9a7b21ac8202",
-      "slug": "pflegefachfrau-mann-hf-fh-dnii-60-100-tertianum-richterswil",
+      "slug": "professionista-hf-fh-dnii-60-100-tertianum-richterswil",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-fh-dnii-60-100-tertianum-richterswil",
-        "it": "pflegefachfrau-mann-hf-fh-dnii-60-100-tertianum-richterswil",
-        "en": "pflegefachfrau-mann-hf-fh-dnii-60-100-tertianum-richterswil",
-        "fr": "pflegefachfrau-mann-hf-fh-dnii-60-100-tertianum-richterswil"
+        "it": "professionista-hf-fh-dnii-60-100-tertianum-richterswil",
+        "en": "care-professional-hf-fh-dnii-60-100-tertianum-richterswil",
+        "fr": "soins-professionnels-hf-fh-dnii-60-100-tertianum-richterswil"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -65,16 +65,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:20:02.080Z"
+      "firstSeenAt": "2026-09-09T23:20:02.080Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-mann-hf-fh-dnii-60-100-tertianum-richterswil"
+        ],
+        "en": [
+          "pflegefachfrau-mann-hf-fh-dnii-60-100-tertianum-richterswil"
+        ],
+        "fr": [
+          "pflegefachfrau-mann-hf-fh-dnii-60-100-tertianum-richterswil"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-mann-hf-fh-dnii-60-100-tertianum-richterswil"
+      ]
     },
     {
       "id": "tertianum-c3315f270eac",
-      "slug": "fachfrau-mann-gesundheit-cfc-60-100-tertianum-richterswil",
+      "slug": "specialista-sanitario-efz-60-100-tertianum-richterswil",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-60-100-tertianum-richterswil",
-        "it": "fachfrau-mann-gesundheit-cfc-60-100-tertianum-richterswil",
-        "en": "fachfrau-mann-gesundheit-efz-60-100-tertianum-richterswil",
-        "fr": "fachfrau-mann-gesundheit-efz-60-100-tertianum-richterswil"
+        "it": "specialista-sanitario-efz-60-100-tertianum-richterswil",
+        "en": "health-specialist-efz-60-100-tertianum-richterswil",
+        "fr": "specialiste-de-la-sante-efz-60-100-tertianum-richterswil"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -119,11 +133,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-60-100-tertianum-richterswil",
+          "fachfrau-mann-gesundheit-cfc-60-100-tertianum-richterswil"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-60-100-tertianum-richterswil"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-60-100-tertianum-richterswil"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-60-100-tertianum-richterswil"
+        "fachfrau-mann-gesundheit-efz-60-100-tertianum-richterswil",
+        "fachfrau-mann-gesundheit-cfc-60-100-tertianum-richterswil"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -219,8 +241,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-service-tertianum-luzern",
         "it": "collaboratore-trice-service-tertianum-luzern",
-        "en": "mitarbeiter-in-service-tertianum-luzern",
-        "fr": "mitarbeiter-in-service-tertianum-luzern"
+        "en": "staff-service-tertianum-luzern",
+        "fr": "service-du-personnel-tertianum-luzern"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -265,6 +287,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-service-tertianum-luzern"
+        ],
+        "en": [
+          "mitarbeiter-in-service-tertianum-luzern"
+        ],
+        "fr": [
           "mitarbeiter-in-service-tertianum-luzern"
         ]
       },
@@ -878,13 +906,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz-2027-tertianum",
-          "formazione-per-dipl-infermiere-a-hf-con-posto-di-studio-2027-tertianum-solothurn"
+          "ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz-2027-tertianum"
         ]
       },
       "previousSlugs": [
-        "ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz-2027-tertianum",
-        "formazione-per-dipl-infermiere-a-hf-con-posto-di-studio-2027-tertianum-solothurn"
+        "ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz-2027-tertianum"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2596,9 +2622,9 @@
     },
     {
       "id": "tertianum-57f61878cf77",
-      "slug": "pflegefachfrau-mann-tertianum-uster",
+      "slug": "infermieristica-professionale-tertianum-uster",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-uster",
+        "it": "infermieristica-professionale-tertianum-uster",
         "en": "nursing-professional-tertianum-uster",
         "de": "pflegefachfrau-mann-tertianum-uster",
         "fr": "professionnels-des-soins-infirmiers-tertianum-uster"
@@ -2643,11 +2669,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infermieristica-professionale-tertianum-uster"
+        "pflegefachfrau-mann-tertianum-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermieristica-professionale-tertianum-uster"
+          "pflegefachfrau-mann-tertianum-uster"
         ]
       },
       "firstSeenAt": "2026-09-04T13:49:28.804Z",
@@ -5134,9 +5160,7 @@
         "it": [
           "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-kirchdorf",
           "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-weesen",
-          "salute-professionale-tertianum-weesen",
-          "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen",
-          "specialista-in-assistenza-sanitaria-efz-80-100-tertianum-weesen"
+          "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen",
@@ -5152,11 +5176,7 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-kirchdorf",
         "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-weesen",
-        "salute-professionale-tertianum-weesen",
-        "professional-health-tertianum-weesen",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen",
-        "fachfrau-mann-gesundheit-tertianum-weesen",
-        "specialista-in-assistenza-sanitaria-efz-80-100-tertianum-weesen",
         "healthcare-specialist-efz-80-100-tertianum-weesen"
       ],
       "firstSeenAt": "2026-07-16T22:58:03.987Z",
@@ -7077,7 +7097,7 @@
         "it": "apprendista-ristorazione-professionale-uomo-tertianum-pfaffikon",
         "en": "apprentice-restoration-professional-man-tertianum-pfaffikon",
         "de": "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon",
-        "fr": "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
+        "fr": "apprentissage-restauration-professionnelle-tertianum-pfaffikon"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -7123,8 +7143,7 @@
         "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon",
         "apprendista-restaurationsfachfrau-mann-tertianum-pfaffikon",
         "apprentice-restaurationsfachfrau-mann-tertianum-pfaffikon",
-        "apprentissage-restauration-professionnelle-homme-tertianum-pfaffikon",
-        "apprentissage-restauration-professionnelle-tertianum-pfaffikon"
+        "apprentissage-restauration-professionnelle-homme-tertianum-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7137,7 +7156,7 @@
         ],
         "fr": [
           "apprentissage-restauration-professionnelle-homme-tertianum-pfaffikon",
-          "apprentissage-restauration-professionnelle-tertianum-pfaffikon"
+          "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:48.899Z",

@@ -1813,12 +1813,12 @@
     },
     {
       "id": "claraspital-0b153032c0d7",
-      "slug": "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-st-claraspital-basel",
+      "slug": "case-manager-stazionario-r-limitato-al-31-12-2026-st-claraspital-basel",
       "slugByLocale": {
         "de": "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel",
-        "it": "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-st-claraspital-basel",
-        "en": "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel",
-        "fr": "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel"
+        "it": "case-manager-stazionario-r-limitato-al-31-12-2026-st-claraspital-basel",
+        "en": "stationary-r-case-manager-limited-to-31-12-2026-st-claraspital-basel",
+        "fr": "gestionnaire-de-cas-fixe-r-limite-au-31-12-2026-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -1867,20 +1867,24 @@
           "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel",
           "case-manager-stazionario-limitato-al-31-12-2026-st-claraspital-basel",
           "stationary-case-manager-limited-to-31-12-2026-st-claraspital-basel",
-          "gestionnaire-de-cas-stationnaire-limite-au-31-12-2026-st-claraspital-basel"
+          "gestionnaire-de-cas-stationnaire-limite-au-31-12-2026-st-claraspital-basel",
+          "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-st-claraspital-basel"
         ],
         "en": [
-          "stationary-case-manager-limited-to-31-12-2026-st-claraspital-basel"
+          "stationary-case-manager-limited-to-31-12-2026-st-claraspital-basel",
+          "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel"
         ],
         "fr": [
-          "gestionnaire-de-cas-stationnaire-limite-au-31-12-2026-st-claraspital-basel"
+          "gestionnaire-de-cas-stationnaire-limite-au-31-12-2026-st-claraspital-basel",
+          "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel"
         ]
       },
       "previousSlugs": [
         "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel",
         "case-manager-stazionario-limitato-al-31-12-2026-st-claraspital-basel",
         "stationary-case-manager-limited-to-31-12-2026-st-claraspital-basel",
-        "gestionnaire-de-cas-stationnaire-limite-au-31-12-2026-st-claraspital-basel"
+        "gestionnaire-de-cas-stationnaire-limite-au-31-12-2026-st-claraspital-basel",
+        "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-st-claraspital-basel"
       ],
       "salaryMin": 119000,
       "salaryMax": 166000,

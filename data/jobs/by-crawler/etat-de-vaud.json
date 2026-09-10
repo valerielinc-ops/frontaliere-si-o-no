@@ -3605,10 +3605,10 @@
     },
     {
       "id": "etat-de-vaud-5853",
-      "slug": "assistant-e-social-e-etat-de-vaud-orbe",
+      "slug": "assistente-sociale-etat-de-vaud-administration-cantonale-vaudoise-orbe",
       "slugByLocale": {
         "fr": "assistant-e-social-e-etat-de-vaud-orbe",
-        "it": "assistant-e-social-e-etat-de-vaud-orbe",
+        "it": "assistente-sociale-etat-de-vaud-administration-cantonale-vaudoise-orbe",
         "en": "assistant-e-social-e-etat-de-vaud-orbe",
         "de": "assistent-e-social-e-etat-de-vaud-administration-cantonale-vaudoise-orbe"
       },
@@ -3665,15 +3665,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:25.866Z"
+      "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-etat-de-vaud-orbe"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-etat-de-vaud-orbe"
+      ]
     },
     {
       "id": "etat-de-vaud-5850",
-      "slug": "intervenant-e-socio-educatif-ve-etat-de-vaud-orbe",
+      "slug": "partecipante-socio-educativo-etat-de-vaud-administration-cantonale-vaudoise-orbe",
       "slugByLocale": {
-        "it": "intervenant-e-socio-educatif-ve-etat-de-vaud-orbe",
-        "en": "intervenant-e-socio-educatif-ve-etat-de-vaud-orbe",
-        "de": "intervenant-e-socio-educatif-ve-etat-de-vaud-orbe",
+        "it": "partecipante-socio-educativo-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+        "en": "socio-educational-participant-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+        "de": "soziopadagogischer-teilnehmer-etat-de-vaud-administration-cantonale-vaudoise-orbe",
         "fr": "intervenant-e-socio-educatif-ve-etat-de-vaud-orbe"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3729,15 +3737,29 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "intervenant-e-socio-educatif-ve-etat-de-vaud-orbe"
+        ],
+        "en": [
+          "intervenant-e-socio-educatif-ve-etat-de-vaud-orbe"
+        ],
+        "de": [
+          "intervenant-e-socio-educatif-ve-etat-de-vaud-orbe"
+        ]
+      },
+      "previousSlugs": [
+        "intervenant-e-socio-educatif-ve-etat-de-vaud-orbe"
+      ]
     },
     {
       "id": "etat-de-vaud-5851",
-      "slug": "huissier-ere-d-un-office-de-faillites-etat-de-vaud-lausanne",
+      "slug": "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "huissier-ere-d-un-office-de-faillites-etat-de-vaud-lausanne",
-        "en": "huissier-ere-d-un-office-de-faillites-etat-de-vaud-lausanne",
-        "de": "huissier-ere-d-un-office-de-faillites-etat-de-vaud-lausanne",
+        "it": "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "office-of-bankruptcy-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "buro-des-konkurses-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "fr": "huissier-ere-d-un-office-de-faillites-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3793,15 +3815,29 @@
           "maxValue": 118000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "huissier-ere-d-un-office-de-faillites-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "huissier-ere-d-un-office-de-faillites-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "huissier-ere-d-un-office-de-faillites-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "huissier-ere-d-un-office-de-faillites-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5844",
-      "slug": "huissier-ere-judiciaire-ad-hoc-etat-de-vaud-lausanne",
+      "slug": "apparecchio-giudiziario-ad-hoc-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "huissier-ere-judiciaire-ad-hoc-etat-de-vaud-lausanne",
-        "en": "huissier-ere-judiciaire-ad-hoc-etat-de-vaud-lausanne",
-        "de": "huissier-ere-judiciaire-ad-hoc-etat-de-vaud-lausanne",
+        "it": "apparecchio-giudiziario-ad-hoc-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "judicial-apparatus-ad-hoc-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "justizapparat-ad-hoc-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "fr": "huissier-ere-judiciaire-ad-hoc-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3857,15 +3893,29 @@
           "maxValue": 118000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "huissier-ere-judiciaire-ad-hoc-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "huissier-ere-judiciaire-ad-hoc-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "huissier-ere-judiciaire-ad-hoc-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "huissier-ere-judiciaire-ad-hoc-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5807",
-      "slug": "chef-fe-s-de-projet-specialistes-lhand-et-bruit-etat-de-vaud-lausanne",
+      "slug": "lhand-project-manager-e-rumore-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "chef-fe-s-de-projet-specialistes-lhand-et-bruit-etat-de-vaud-lausanne",
-        "en": "chef-fe-s-de-projet-specialistes-lhand-et-bruit-etat-de-vaud-lausanne",
-        "de": "chef-fe-s-de-projet-specialistes-lhand-et-bruit-etat-de-vaud-lausanne",
+        "it": "lhand-project-manager-e-rumore-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "lhand-project-managers-and-noise-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "lhand-projektmanager-und-larm-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "fr": "chef-fe-s-de-projet-specialistes-lhand-et-bruit-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3921,7 +3971,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-s-de-projet-specialistes-lhand-et-bruit-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "chef-fe-s-de-projet-specialistes-lhand-et-bruit-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "chef-fe-s-de-projet-specialistes-lhand-et-bruit-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-s-de-projet-specialistes-lhand-et-bruit-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5745",

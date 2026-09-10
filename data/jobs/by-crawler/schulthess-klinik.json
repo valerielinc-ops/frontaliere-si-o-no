@@ -246,7 +246,7 @@
       "slug": "segreto-medico-segreto-medico-chirurgia-della-mano-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
         "it": "segreto-medico-segreto-medico-chirurgia-della-mano-schulthess-klinik-lengghalde-2-zurich",
-        "en": "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich",
+        "en": "medical-secretary-medical-secretary-hand-surgery-schulthess-klinik-lengghalde-2-zurich",
         "de": "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich",
         "fr": "secretaire-medical-secretaire-medical-chirurgie-manuelle-schulthess-klinik-lengghalde-2-zurich"
       },
@@ -291,15 +291,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich",
-        "medical-secretary-medical-secretary-hand-surgery-schulthess-klinik-lengghalde-2-zurich"
+        "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
-          "medical-secretary-medical-secretary-hand-surgery-schulthess-klinik-lengghalde-2-zurich"
+          "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich"
         ],
         "fr": [
           "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich"
@@ -802,7 +801,7 @@
       "slug": "specialista-di-anaestesia-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
         "it": "specialista-di-anaestesia-schulthess-klinik-lengghalde-2-zurich",
-        "en": "anasthesiepflegefachfrau-anasthesiepflegefachmann-schulthess-klinik-lengghalde-2-zurich",
+        "en": "anaesthesia-specialist-schulthess-klinik-lengghalde-2-zurich",
         "de": "anasthesiepflegefachfrau-anasthesiepflegefachmann-schulthess-klinik-lengghalde-2-zurich",
         "fr": "specialiste-de-l-anesthesie-schulthess-klinik-lengghalde-2-zurich"
       },
@@ -848,7 +847,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "anasthesiepflegefachfrau-anasthesiepflegefachmann-schulthess-klinik-lengghalde-2-zurich",
-        "anaesthesia-specialist-schulthess-klinik-lengghalde-2-zurich",
         "anaesthesia-nurse-anaesthesia-nurse-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
@@ -856,8 +854,8 @@
           "anasthesiepflegefachfrau-anasthesiepflegefachmann-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
-          "anaesthesia-specialist-schulthess-klinik-lengghalde-2-zurich",
-          "anaesthesia-nurse-anaesthesia-nurse-schulthess-klinik-lengghalde-2-zurich"
+          "anaesthesia-nurse-anaesthesia-nurse-schulthess-klinik-lengghalde-2-zurich",
+          "anasthesiepflegefachfrau-anasthesiepflegefachmann-schulthess-klinik-lengghalde-2-zurich"
         ],
         "fr": [
           "anasthesiepflegefachfrau-anasthesiepflegefachmann-schulthess-klinik-lengghalde-2-zurich"
