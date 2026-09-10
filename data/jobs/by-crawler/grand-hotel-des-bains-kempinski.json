@@ -777,7 +777,8 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-15T22:00:09.508Z",
       "retranslationAttempts": 0,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Front Office Agent (f/m/d)",
@@ -1821,7 +1822,8 @@
       },
       "previousSlugs": [
         "chef-de-rang-f-m-d-crazy-pizza-restaurant-557852"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Spa Attendant (f/m/d)",
@@ -1969,7 +1971,8 @@
       "previousSlugs": [
         "receptionniste-spa-en-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Hairdresser (f/m/d)",
@@ -2178,7 +2181,8 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-20T21:31:07.414Z",
       "salarySource": "reported",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Roomservice Manager (f/m/d)",

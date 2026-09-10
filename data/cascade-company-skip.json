@@ -1,5 +1,5 @@
 {
-  "run": 20,
+  "run": 21,
   "companies": {
     "postfinance": {
       "sterile": 1,
@@ -42,12 +42,26 @@
       "signature": "ced15d04377d89d2"
     },
     "burkhalter-group": {
-      "sterile": 1,
-      "signature": "272883b964e59ed3"
+      "sterile": 0,
+      "signature": "272883b964e59ed3",
+      "skipUntilRun": 24
     },
     "migros-ticino": {
+      "sterile": 0,
+      "signature": "90e473f33488da21",
+      "skipUntilRun": 24
+    },
+    "grand-hotel-des-bains-kempinski": {
       "sterile": 1,
-      "signature": "90e473f33488da21"
+      "signature": "d9f0e22ece3feccf"
+    },
+    "interdiscount": {
+      "sterile": 1,
+      "signature": "825ef319b720e06f"
+    },
+    "c-and-a-schweiz": {
+      "sterile": 1,
+      "signature": "c4dd21cb0b542968"
     }
   }
 }
