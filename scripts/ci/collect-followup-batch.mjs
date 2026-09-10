@@ -400,7 +400,7 @@ export function main() {
   const query = `repo:${REPO} is:pr is:merged merged:>=${watermark}`;
   const prListRaw = gh([
     'api', `search/issues?q=${encodeURIComponent(query)}&per_page=${SEARCH_PAGE_SIZE}`,
-    '--paginate', '--slurp', ...repoArgs,
+    '--paginate', '--slurp',
   ]);
   if (prListRaw === null) throw new Error('gh api search PR non riuscita: elenco incompleto');
   const mergedPages = parseMergedPRPages(prListRaw);

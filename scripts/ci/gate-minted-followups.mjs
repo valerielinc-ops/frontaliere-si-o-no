@@ -596,12 +596,12 @@ function gh(args, { allowFail = false } = {}) {
 }
 
 /** Read every open follow-up issue through REST pagination, fail-closed. */
-function listOpenFollowupIssues(repoArgs) {
+function listOpenFollowupIssues() {
   const repository = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
   if (!repository) return null;
   const raw = gh([
     'api', `repos/${repository}/issues?state=open&labels=follow-up&per_page=100`,
-    '--paginate', '--slurp', ...repoArgs,
+    '--paginate', '--slurp',
   ], { allowFail: true });
   return parseOpenFollowupPages(raw);
 }
@@ -852,7 +852,7 @@ function main() {
   // esiste. La `list` REST e' immediatamente consistente. Niente `body` qui: con ~170
   // issue follow-up il dump e' emoji-heavy e grosso — i corpi si leggono uno per uno,
   // solo per le poche issue che il filtro sul titolo seleziona davvero.
-  const open = listOpenFollowupIssues(repoArgs);
+  const open = listOpenFollowupIssues();
   if (open === null) {
     // A failed/incomplete listing is not an empty queue: continuing would make
     // a missing bucket look like a successful no-op and could strand a marker.
