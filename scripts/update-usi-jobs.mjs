@@ -220,7 +220,7 @@ async function translateUsiTitle(text = '', sourceLang = 'it', targetLang = 'en'
     maxRetries: 0,
   });
   if (hasUsableTitle(fallback) && normalize(fallback) !== normalize(source)) return String(fallback).trim();
-  return source;
+  return hasUsableTitle(source) ? source : '';
 }
 
 function rescueUsiTitleTranslation(text = '', targetLang = 'it') {
@@ -981,7 +981,7 @@ async function postProcessUsiJobs() {
             translatedTitle = rescueUsiTitleTranslation(sourceTitle, locale) || translatedTitle;
           }
           if (hasUsableTitle(translatedTitle) && normalize(translatedTitle) !== normalize(currentTitle)) {
-            job.titleByLocale[locale] = translatedTitle;
+            job.titleByLocale[locale] = String(translatedTitle).trim();
             fixed++;
           }
         }

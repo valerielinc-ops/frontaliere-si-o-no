@@ -1011,7 +1011,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   const localeDescriptions = {};
   for (const locale of ['it', 'de', 'fr']) {
     const localized = localizedLoginData[locale];
-    if (hasUsableTitle(localized?.title)) localeTitles[locale] = localized.title;
+    if (hasUsableTitle(localized?.title)) localeTitles[locale] = String(localized.title).trim();
     if (localized?.description) localeDescriptions[locale] = localized.description;
   }
   if (!localeTitles[resolvedSourceLocale]) localeTitles[resolvedSourceLocale] = title;
@@ -1024,7 +1024,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
         targetLang: locale,
         maxRetries: 2,
       });
-      if (hasUsableTitle(translatedTitle)) localeTitles[locale] = translatedTitle;
+      if (hasUsableTitle(translatedTitle)) localeTitles[locale] = String(translatedTitle).trim();
     }
     if (!localeDescriptions[locale] && localeDescriptions[resolvedSourceLocale]) {
       const translatedDescription = await freeTranslateWithRetry({
