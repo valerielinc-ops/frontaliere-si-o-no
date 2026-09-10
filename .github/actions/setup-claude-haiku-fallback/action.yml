@@ -428,8 +428,12 @@ runs:
           echo '::error::Pinned Claude Code CLI was not installed at its trusted global prefix.'
           exit 1
         }
-        claude_cli_version="$("$claude_realpath" --version 2>&1 || true)"
-        if [ "$claude_cli_version" != '2.1.267' ]; then
+        claude_cli_version="$("$claude_realpath" --version 2>&1 | head -n 1 || true)"
+        claude_cli_semver=''
+        if [[ "$claude_cli_version" =~ ^([0-9]+\.[0-9]+\.[0-9]+)([[:space:]]+\(Claude[[:space:]]Code\))?$ ]]; then
+          claude_cli_semver="${BASH_REMATCH[1]}"
+        fi
+        if [ "$claude_cli_semver" != '2.1.267' ]; then
           echo "::error::Unexpected Claude Code CLI version: $claude_cli_version"
           exit 1
         fi
