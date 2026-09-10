@@ -201,6 +201,28 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('CHF 127');
   });
 
+  it('renders the complete active list and uses the shared in-feed cadence', () => {
+    const html = read('aziende/acme-corp/index.html');
+    // buildSeoPageHtml minifies simple class attributes without quotes in the
+    // test output; assert on the semantic class token instead of serialization.
+    const cardCount = (html.match(/<article\b[^>]*\bjc-card\b/g) ?? []).length;
+    const infeedAdCount = (html.match(/\bft-infeed-ad\b/g) ?? []).length;
+    const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map((m) => JSON.parse(m[1]));
+    const itemList = scripts.find((s) => s['@type'] === 'ItemList');
+
+    // Six valid detail slugs are emitted; the seventh fixture is intentionally
+    // slugless and must stay excluded from both the card list and ItemList.
+    expect(cardCount).toBe(6);
+    expect(infeedAdCount).toBe(1); // after card 3, never after the last card
+    const cardPositions = [...html.matchAll(/\bjc-card\b/g)].map((m) => m.index ?? -1);
+    const adPosition = html.indexOf('ft-infeed-ad');
+    expect(adPosition).toBeGreaterThan(cardPositions[2]);
+    expect(adPosition).toBeLessThan(cardPositions[3]);
+    expect(itemList.numberOfItems).toBe(cardCount);
+    expect(itemList.itemListElement).toHaveLength(cardCount);
+  });
+
   it('embeds COMPLETE JobPosting structured data (Non-Negotiable #3)', () => {
     const html = read('aziende/acme-corp/index.html');
     const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]

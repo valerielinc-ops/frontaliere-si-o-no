@@ -61,8 +61,10 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
   });
 
   it('defines the per-canton company and company×city below-floor bridge helpers and wires them in (#3747)', () => {
-    expect(source).toContain('const emitCompanyCantonBelowFloorBridge = (locale: \'it\' | \'en\' | \'de\' | \'fr\', canton: string, fullSlug: string): void => {');
-    expect(source).toContain('emitCompanyCantonBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}`);');
+    expect(source).toContain('const emitCompanyCantonBelowFloorBridge = (');
+    expect(source).toContain('companyName: string,');
+    expect(source).toContain('companyJobs: ReadonlyArray<any>,');
+    expect(source).toContain('emitCompanyCantonBelowFloorBridge(locale, canton, companyName, sortedJobs, `${companyRoutePrefix[locale]}-${cSlug}`);');
     expect(source).toContain('const emitCompanyCityBelowFloorBridge = (locale: \'it\' | \'en\' | \'de\' | \'fr\', canton: string, fullSlug: string): void => {');
     expect(source).toContain('emitCompanyCityBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}-${citySlug}`);');
   });
@@ -73,10 +75,9 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
     expect(source).not.toContain('if (ccJobs.length < MIN_JOBS_PER_CANTON_COMPANY_CITY) continue;');
   });
 
-  it('every below-floor bridge points at the canton-root hub section via buildCantonAwareSection, matching the unconditionally-emitted canton hub', () => {
+  it('every below-floor bridge uses the canton-aware section and the right noindex contract', () => {
     for (const helperStart of [
       "const emitEditorialBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, slug: string): void => {",
-      "const emitCompanyCantonBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, fullSlug: string): void => {",
       "const emitCompanyCityBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, fullSlug: string): void => {",
     ]) {
       const startIdx = source.indexOf(helperStart);
@@ -85,6 +86,15 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
       expect(body).toContain('buildCantonAwareSection(locale, canton)');
       expect(body).toContain('noindex: true');
     }
+
+    const companyStart = source.indexOf('const emitCompanyCantonBelowFloorBridge = (');
+    expect(companyStart).toBeGreaterThan(-1);
+    const companyBody = source.slice(companyStart, companyStart + 6000);
+    expect(companyBody).toContain('buildCantonAwareSection(locale, canton)');
+    expect(companyBody).toContain("robots: 'noindex,follow'");
+    expect(companyBody).toContain('canonicalUrl,');
+    expect(companyBody).toContain('jobCardListBody(companyJobs, locale)');
+    expect(companyBody).toContain('mapCantonJobToListItem');
   });
 
   it('defines the TI location/type/sector below-floor bridge helpers and wires them into every floor-check site', () => {

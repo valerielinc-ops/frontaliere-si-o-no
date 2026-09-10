@@ -19,11 +19,15 @@
  *     - body: H1 "Annunci di {Company}" + count + locale lede
  *     - SPA hydrates with company filter → real listings + AdSense
  *
- *   unmatched (11 URLs, company has rotated out or never existed):
- *     - canonical → section landing
- *     - body: "Azienda non disponibile" + browse-all CTA
+ *   unmatched (company has rotated out or has no job in this section):
+ *     - keep the legacy URL as a canton-scoped, indexable empty state with a
+ *       self-canonical; the national `/aziende/<slug>/` profile is a different
+ *       intent and must not replace this filter page;
+ *     - when the employer has active jobs elsewhere, show a prominent link to
+ *       the nearest canton-specific company filter with its live count;
+ *     - declared brand aliases still use their explicit noindex bridge.
  *
- * Both: `robots: 'index,follow'`, collision-safe.
+ * Matched pages and empty legacy filters are `index,follow`, collision-safe.
  *
  * Sitemap policy: bridge pages NOT added — they're alias filter URLs.
  */
@@ -37,7 +41,8 @@ import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale
 import { isSliceFile } from '../scripts/lib/crawler-slice-files.mjs';
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { COMPANY_ROUTE_PREFIX } from './shared/cantonSection';
+import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
+import { getCantonDisplayName } from './shared/cantonDisplay';
 import { buildCanonicalBridgePage } from './constants';
 import { isBrandAlias, resolveBrandCanonical } from './shared/brandCanonicalMap';
 import { buildTitleWithBrand, composePlaceTitle } from './shared/titleSuffix';
@@ -58,17 +63,6 @@ const COMPANY_SEGMENT_PREFIXES = new Set(['azienda', 'company', 'unternehmen', '
 const LOCALE_PREFIX: Record<Locale, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
 const OG_LOCALE: Record<Locale, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
 
-// Switzerland-wide aggregator hub used as canonical target for unmatched
-// (`Azienda non più attiva`) bridges. The aggregator covers every canton,
-// not just TI, so it is the safe consolidation target for cross-canton
-// company URLs (e.g. `azienda-grace-la-margna-st-moritz` → GR canton).
-const AGGREGATOR_SLUG: Record<Locale, string> = {
-  it: 'cerca-lavoro-svizzera',
-  en: 'find-jobs-switzerland',
-  de: 'jobs-in-schweiz',
-  fr: 'trouver-emploi-suisse',
-};
-
 interface HubEntry {
   readonly locale: Locale;
   readonly companySlug: string;
@@ -87,10 +81,6 @@ interface BridgeCopy {
   readonly matchedDescription: (c: string, n: number) => string;
   readonly matchedH1: (c: string, n: number) => string;
   readonly matchedLede: (c: string, n: number) => string;
-  readonly unmatchedTitle: string;
-  readonly unmatchedDescription: string;
-  readonly unmatchedH1: (c: string) => string;
-  readonly unmatchedLede: string;
   readonly browseAllLabel: string;
 }
 
@@ -104,10 +94,6 @@ const COPY: Record<Locale, BridgeCopy> = {
     matchedDescription: (c, n) => `${n} annunci attivi di ${c} per frontalieri italo-svizzeri. Stipendio netto Permit G/B, fiscalità Accordo 2026, mappa pendolarismo TILO.`,
     matchedH1: (c, n) => `${n} annunci di ${c}`,
     matchedLede: (c, n) => `Trovi ${n} annunci attivi di ${c} aggiornati ogni giorno. Ogni offerta riporta il calcolo automatico dello stipendio netto Permit G (vivere in Italia) vs Permit B (vivere in Svizzera), le tempistiche di pendolarismo verso il confine ticinese e le agevolazioni fiscali introdotte dal Nuovo Accordo bilaterale italo-svizzero del 2026.`,
-    unmatchedTitle: 'Azienda non più attiva — alternative aggiornate ogni giorno',
-    unmatchedDescription: 'Nessun annuncio attivo per questa azienda. Esplora oltre 2000 offerte frontaliere su tutto il Ticino, filtrabili per ruolo, città, contratto e azienda.',
-    unmatchedH1: (c) => `${c} — nessun annuncio attivo`,
-    unmatchedLede: 'In questo momento non ci sono annunci attivi per l\'azienda cercata. Sul job board frontaliere trovi ogni giorno offerte aggiornate in tutto il Ticino, filtrabili per ruolo, città, tipo di contratto e azienda. Iscriviti per ricevere notifiche quando arrivano nuovi annunci compatibili.',
     browseAllLabel: 'Sfoglia tutti gli annunci attivi',
   },
   en: {
@@ -119,10 +105,6 @@ const COPY: Record<Locale, BridgeCopy> = {
     matchedDescription: (c, n) => `${n} active openings at ${c} for Italian-Swiss cross-border workers. Permit G/B net salary, 2026 bilateral agreement tax adjustments, TILO commute map.`,
     matchedH1: (c, n) => `${n} openings at ${c}`,
     matchedLede: (c, n) => `Find ${n} active openings at ${c}, updated daily. Each listing carries the automatic net-salary calculation under Permit G (commuting from Italy) vs Permit B (Swiss residency), commute timetables to the Ticino border and the tax adjustments introduced by the 2026 Italy-Switzerland bilateral agreement.`,
-    unmatchedTitle: 'Employer no longer active — alternatives updated daily',
-    unmatchedDescription: 'No active openings at this employer. Browse 2000+ cross-border job listings across Ticino, filtered by role, city, contract type and employer.',
-    unmatchedH1: (c) => `${c} — no active listings`,
-    unmatchedLede: 'There are no active listings for the employer you searched. Our cross-border job board refreshes daily with new openings across all of Ticino, filtered by role, city, contract type and employer. Subscribe for notifications when matching openings are posted.',
     browseAllLabel: 'Browse all active listings',
   },
   de: {
@@ -134,10 +116,6 @@ const COPY: Record<Locale, BridgeCopy> = {
     matchedDescription: (c, n) => `${n} aktive Stellen bei ${c} für italienisch-schweizerische Grenzgänger. Permit G/B Nettolohn, Steuer-Anpassungen Abkommen 2026, TILO-Pendelfahrpläne.`,
     matchedH1: (c, n) => `${n} Inserate von ${c}`,
     matchedLede: (c, n) => `Finden Sie ${n} aktive Stellen bei ${c}, täglich aktualisiert. Jedes Inserat enthält die automatische Nettolohn-Berechnung unter Permit G (Pendeln aus Italien) vs Permit B (Wohnsitz Schweiz), Pendlerfahrpläne zur Tessiner Grenze und die steuerlichen Anpassungen des neuen italienisch-schweizerischen Abkommens 2026.`,
-    unmatchedTitle: 'Arbeitgeber nicht mehr aktiv — täglich aktualisierte Alternativen',
-    unmatchedDescription: 'Keine offenen Stellen bei diesem Arbeitgeber. Über 2000 Grenzgänger-Inserate im Tessin, filterbar nach Rolle, Stadt, Vertragsart und Arbeitgeber.',
-    unmatchedH1: (c) => `${c} — keine aktiven Inserate`,
-    unmatchedLede: 'Es gibt derzeit keine aktiven Inserate für den gesuchten Arbeitgeber. Unser Grenzgänger-Job-Board wird täglich mit neuen Stellen im gesamten Tessin aktualisiert, filterbar nach Rolle, Stadt, Vertragsart und Arbeitgeber.',
     browseAllLabel: 'Alle aktiven Stellen ansehen',
   },
   fr: {
@@ -149,16 +127,243 @@ const COPY: Record<Locale, BridgeCopy> = {
     matchedDescription: (c, n) => `${n} offres actives chez ${c} pour frontaliers italo-suisses. Salaire net Permit G/B, ajustements fiscaux Accord 2026, horaires TILO.`,
     matchedH1: (c, n) => `${n} annonces de ${c}`,
     matchedLede: (c, n) => `Trouvez ${n} offres actives chez ${c}, mises à jour quotidiennement. Chaque annonce inclut le calcul automatique du salaire net sous Permit G (frontalier depuis l'Italie) vs Permit B (résidence suisse), les horaires de transport vers la frontière tessinoise et les ajustements fiscaux du nouvel Accord bilatéral italo-suisse 2026.`,
-    unmatchedTitle: 'Employeur non disponible — alternatives mises à jour quotidiennement',
-    unmatchedDescription: 'Aucune offre active chez cet employeur. Parcourez plus de 2000 annonces frontalières au Tessin, filtrables par rôle, ville, type de contrat et entreprise.',
-    unmatchedH1: (c) => `${c} — aucune offre active`,
-    unmatchedLede: 'Il n\'y a actuellement aucune offre active pour l\'employeur recherché. Notre job board frontalier s\'actualise quotidiennement avec de nouvelles offres dans tout le Tessin, filtrables par rôle, ville, type de contrat et employeur.',
     browseAllLabel: 'Parcourir toutes les annonces actives',
   },
 };
 
 function esc(value: string): string {
   return String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+type CompanyCantonCounts = Map<string, number>;
+type CompanyCantonAvailability = Map<string, CompanyCantonCounts>;
+
+interface CantonSuggestion {
+  readonly code: string;
+  readonly count: number;
+}
+
+// Approximate canton-capital centres used only to choose the empty-state
+// suggestion. This is a ranking aid, not a commute-distance claim; if two
+// cantons are similarly close, the one with more live openings wins.
+const CANTON_CENTRES: Readonly<Record<string, readonly [number, number]>> = {
+  AG: [47.39, 8.05],
+  // Group keys are returned by resolveJobCanton; member aliases keep the
+  // ranking safe for direct canton-code inputs in legacy/profile snapshots.
+  AI: [47.36, 9.34],
+  AR: [47.36, 9.34],
+  APPENZELLO: [47.36, 9.34],
+  BE: [46.95, 7.45],
+  BL: [47.55, 7.67],
+  BS: [47.55, 7.67],
+  BASILEA: [47.55, 7.67],
+  FR: [46.80, 7.15],
+  GE: [46.20, 6.15],
+  GL: [47.04, 9.07],
+  GR: [46.85, 9.53],
+  JU: [47.36, 7.34],
+  LU: [47.05, 8.31],
+  NE: [46.99, 6.93],
+  NW: [46.96, 8.37],
+  OW: [46.90, 8.25],
+  SG: [47.42, 9.38],
+  SH: [47.70, 8.63],
+  SO: [47.21, 7.54],
+  SZ: [47.02, 8.65],
+  TG: [47.56, 8.90],
+  TI: [46.20, 9.02],
+  UR: [46.88, 8.64],
+  VD: [46.52, 6.63],
+  VS: [46.23, 7.36],
+  ZG: [47.17, 8.52],
+  ZH: [47.38, 8.54],
+};
+
+function cantonDistance(code: string, originCode: string): number {
+  const centre = CANTON_CENTRES[code];
+  const origin = CANTON_CENTRES[originCode] ?? CANTON_CENTRES.TI;
+  if (!centre || !origin) return Number.POSITIVE_INFINITY;
+  // One degree of longitude is shorter than one degree of latitude at
+  // the origin's latitude. Only relative ordering matters here.
+  const latKm = (centre[0] - origin[0]) * 111;
+  const lonKm = (centre[1] - origin[1]) * 75;
+  return Math.hypot(latKm, lonKm);
+}
+
+function activeJobIdentity(job: Record<string, unknown>, company: string, canton: string): string {
+  const stable = job.id || job.url || job.slug;
+  if (stable) return String(stable);
+  return [company, job.title, job.location, canton].map((part) => String(part || '')).join('|');
+}
+
+/**
+ * Read the same active crawler slices that seed company-hub discovery and
+ * build a live company → canton → count index for empty-state suggestions.
+ * The generated employer-profile dataset overrides slice counts when present,
+ * because it is the same filtered snapshot used by `/aziende/<slug>/` and is
+ * therefore the right count to expose in the suggestion banner. The fallback
+ * to data/jobs.json keeps curated GSC entries useful in a checkout that has no
+ * per-crawler slices.
+ */
+function loadCompanyCantonAvailability(rootDir: string): CompanyCantonAvailability {
+  const availability: CompanyCantonAvailability = new Map();
+  const crawlerDir = path.join(rootDir, 'data', 'jobs', 'by-crawler');
+  const sources: string[] = [];
+  if (fs.existsSync(crawlerDir)) {
+    for (const file of fs.readdirSync(crawlerDir)) {
+      if (isSliceFile(file)) sources.push(path.join(crawlerDir, file));
+    }
+  }
+  if (sources.length === 0) {
+    const assembledPath = path.join(rootDir, 'data', 'jobs.json');
+    if (fs.existsSync(assembledPath)) sources.push(assembledPath);
+  }
+
+  const seenJobs = new Set<string>();
+  for (const source of sources) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(source, 'utf-8')) as { jobs?: unknown };
+      const jobs = Array.isArray(parsed?.jobs) ? parsed.jobs as Array<Record<string, unknown>> : [];
+      for (const job of jobs) {
+        const company = String(job.company || '').trim();
+        if (!company) continue;
+        const canton = resolveJobCanton({
+          canton: typeof job.canton === 'string' ? job.canton : undefined,
+          location: typeof job.location === 'string' ? job.location : undefined,
+        });
+        const identity = activeJobIdentity(job, company, canton);
+        const companySlugs = new Set([
+          slugifyCompanyName(company),
+          slugifyCompanyName(String(job.companyKey || '')),
+        ].filter(Boolean));
+        for (const companySlug of companySlugs) {
+          const seenKey = `${companySlug}::${identity}`;
+          if (seenJobs.has(seenKey)) continue;
+          seenJobs.add(seenKey);
+          const byCanton = availability.get(companySlug) ?? new Map<string, number>();
+          byCanton.set(canton, (byCanton.get(canton) ?? 0) + 1);
+          availability.set(companySlug, byCanton);
+        }
+      }
+    } catch {
+      // A malformed optional slice must not prevent the other bridges from
+      // being emitted; autoDiscoverCompanyHubs follows the same policy.
+    }
+  }
+
+  const profilesPath = path.join(rootDir, 'data', 'employer-profiles.json');
+  if (fs.existsSync(profilesPath)) {
+    try {
+      const dataset = JSON.parse(fs.readFileSync(profilesPath, 'utf-8')) as {
+        profiles?: Array<{
+          slug?: string;
+          name?: string;
+          companyKey?: string;
+          cantons?: Array<{ name?: string; count?: number }>;
+        }>;
+      };
+      for (const profile of dataset.profiles ?? []) {
+        const counts = new Map<string, number>();
+        for (const canton of profile.cantons ?? []) {
+          const code = resolveJobCanton({ canton: String(canton.name || '') });
+          const count = Number(canton.count);
+          if (Number.isFinite(count) && count > 0) counts.set(code, count);
+        }
+        if (counts.size === 0) continue;
+        const profileSlugs = new Set([
+          String(profile.slug || '').trim(),
+          slugifyCompanyName(String(profile.name || '')),
+          slugifyCompanyName(String(profile.companyKey || '')),
+        ].filter(Boolean));
+        for (const companySlug of profileSlugs) availability.set(companySlug, new Map(counts));
+      }
+    } catch {
+      // Keep the crawler-derived availability if the optional profile snapshot
+      // is absent or malformed.
+    }
+  }
+  return availability;
+}
+
+function findCompanyCantonSuggestions(
+  entry: HubEntry,
+  availability: CompanyCantonAvailability,
+  currentCanton: string,
+): CantonSuggestion[] {
+  const byCanton = availability.get(entry.companySlug)
+    ?? availability.get(slugifyCompanyName(entry.displayName));
+  if (!byCanton) return [];
+  return [...byCanton.entries()]
+    .filter(([code, count]) => code !== currentCanton && count > 0)
+    .map(([code, count]) => ({ code, count }))
+    .sort((a, b) => {
+      const distanceDelta = cantonDistance(a.code, currentCanton) - cantonDistance(b.code, currentCanton);
+      if (distanceDelta !== 0) return distanceDelta;
+      if (a.count !== b.count) return b.count - a.count;
+      return a.code.localeCompare(b.code);
+    });
+}
+
+function buildCantonCompanyPath(locale: Locale, canton: string, companySlug: string): string {
+  const section = resolveCantonSection(locale, canton);
+  return `${LOCALE_PREFIX[locale]}/${section}/${COMP_PREFIX[locale]}-${companySlug}/`.replace(/\/+/g, '/');
+}
+
+function localizedCountLabel(locale: Locale, count: number): string {
+  if (locale === 'it') return `${count} annunci${count === 1 ? 'o' : ''}`;
+  if (locale === 'en') return `${count} opening${count === 1 ? '' : 's'}`;
+  if (locale === 'de') return `${count} Stelle${count === 1 ? '' : 'n'}`;
+  return `${count} offre${count === 1 ? '' : 's'}`;
+}
+
+function renderOtherCantonBanner(
+  entry: HubEntry,
+  currentCanton: string,
+  suggestions: readonly CantonSuggestion[],
+): string {
+  const nearest = suggestions[0];
+  if (!nearest) return '';
+  const locale = entry.locale;
+  const currentCantonLabel = getCantonDisplayName(currentCanton, locale);
+  const cantonLabel = getCantonDisplayName(nearest.code, locale);
+  const companyLabel = esc(entry.displayName);
+  const currentCantonLabelHtml = esc(currentCantonLabel);
+  const cantonLabelHtml = esc(cantonLabel);
+  const href = `${BASE_URL}${buildCantonCompanyPath(locale, nearest.code, entry.companySlug)}`;
+  const countLabel = localizedCountLabel(locale, nearest.count);
+  const heading = locale === 'it'
+    ? `Altri annunci di ${entry.displayName}`
+    : locale === 'en'
+      ? `More ${entry.displayName} openings`
+      : locale === 'de'
+        ? `Weitere Stellen bei ${entry.displayName}`
+        : `D'autres offres chez ${entry.displayName}`;
+  const body = locale === 'it'
+    ? `Non risultano annunci attivi di ${companyLabel} in ${currentCantonLabelHtml}. Il cantone più vicino con offerte è ${cantonLabelHtml}: <strong>${esc(countLabel)}</strong>.`
+    : locale === 'en'
+      ? `There are no active ${companyLabel} openings in ${currentCantonLabelHtml}. The nearest canton with jobs is ${cantonLabelHtml}: <strong>${esc(countLabel)}</strong>.`
+      : locale === 'de'
+        ? `Derzeit gibt es keine aktiven Stellen von ${companyLabel} im Kanton ${currentCantonLabelHtml}. Im nächstgelegenen Kanton mit offenen Stellen, ${cantonLabelHtml}, gibt es <strong>${esc(countLabel)}</strong>.`
+        : `Aucune offre active de ${companyLabel} n'est actuellement disponible dans le canton de ${currentCantonLabelHtml}. Le canton le plus proche avec des offres est ${cantonLabelHtml} : <strong>${esc(countLabel)}</strong>.`;
+  const cta = locale === 'it'
+    ? `Vedi gli annunci in ${cantonLabel}`
+    : locale === 'en'
+      ? `View openings in ${cantonLabel}`
+      : locale === 'de'
+        ? `Stellen in ${cantonLabel} ansehen`
+        : `Voir les offres à ${cantonLabel}`;
+  const alternatives = suggestions.slice(1, 4).map((suggestion) => {
+    const label = getCantonDisplayName(suggestion.code, locale);
+    const altHref = `${BASE_URL}${buildCantonCompanyPath(locale, suggestion.code, entry.companySlug)}`;
+    return `<a href="${esc(altHref)}">${esc(label)} (${suggestion.count})</a>`;
+  }).join(' · ');
+  const moreLabel = locale === 'it' ? 'Altre sedi:' : locale === 'en' ? 'Other locations:' : locale === 'de' ? 'Weitere Standorte:' : 'Autres sites :';
+  return `<aside class="s-0kclVO" data-company-canton-fallback aria-label="${esc(heading)}">
+    <h2 class="s-0mu3_h">${esc(heading)}</h2>
+    <p class="s-0kQbve">${body}</p>
+    <p class="s-4GMup_"><a class="s-_B_R2g" href="${esc(href)}">${esc(cta)} →</a></p>
+    ${alternatives ? `<p class="s-4s9CFT">${esc(moreLabel)} ${alternatives}</p>` : ''}
+  </aside>`;
 }
 
 function buildHubPath(locale: Locale, companySlug: string): string {
@@ -197,16 +402,20 @@ function buildEntryHubPath(entry: HubEntry): string {
   return pathFromHubUrl(entry) ?? buildHubPath(entry.locale, entry.companySlug);
 }
 
+/** Resolve the canton section encoded by a legacy company URL. */
+function cantonCodeFromEntry(entry: HubEntry): string {
+  const parts = buildEntryHubPath(entry).split('/').filter(Boolean);
+  const sectionIndex = entry.locale === 'it' ? 0 : 1;
+  const section = parts[sectionIndex] ?? SECTION_SLUG[entry.locale];
+  return ALL_CANTON_CODES.find((code) => resolveCantonSection(entry.locale, code) === section) ?? 'TI';
+}
+
 function sectionPathFromEntry(entry: HubEntry): string {
   const hubPath = buildEntryHubPath(entry);
   const parts = hubPath.split('/').filter(Boolean);
   const sectionParts = entry.locale === 'it' ? parts.slice(0, 1) : parts.slice(0, 2);
   if (sectionParts.length > 0) return withLeadingTrailingSlash(sectionParts.join('/'));
   return `${LOCALE_PREFIX[entry.locale]}/${SECTION_SLUG[entry.locale]}/`.replace(/\/+/g, '/');
-}
-
-function buildAggregatorCanonical(locale: Locale): string {
-  return `${BASE_URL}${LOCALE_PREFIX[locale]}/${AGGREGATOR_SLUG[locale]}/`.replace(/(?<!:)\/+/g, '/');
 }
 
 // Reverse-derive [sectionSlug, locale] tuples from the cathedral-allowed
@@ -293,9 +502,12 @@ function parseCompanyHubUrl(rawUrl: string): ParsedCompanyHubUrl | null {
  *  4. `data/jobs/by-crawler/<key>.json`    — forward coverage for every crawler-known company.
  *
  * Entries are always emitted as `kind: 'unmatched'` because the canonical
- * company landing for in-dataset companies is already emitted by
- * `jobsSeoPagesPlugin`; the bridge's existing `fs.existsSync` guard skips
- * any auto-discovered slug whose canonical HTML was already written.
+ * company landing for in-dataset companies is already emitted by the other
+ * SSG plugins. At closeBundle the bridge emits a self-canonical,
+ * indexable canton-filter empty state when the specialised emitter has no
+ * active jobs for that section; it never substitutes the Switzerland-wide
+ * profile. The empty state links to the nearest active company canton when
+ * the crawler has one.
  */
 export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
   const seen = new Map<string, HubEntry>(); // key = `${locale}::${companySlug}`
@@ -417,6 +629,7 @@ export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
 function renderMatchedPage(entry: HubEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
+  const cantonDisplay = getCantonDisplayName(cantonCodeFromEntry(entry), locale);
   const hubPath = buildEntryHubPath(entry);
   const canonicalUrl = `${BASE_URL}${hubPath}`;
   const sectionPath = sectionPathFromEntry(entry);
@@ -428,9 +641,7 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
   // preserved (CLAUDE.md non-negotiables #15/#17).
   const proseOpts = {
     locale: locale as CantonSeoLocale,
-    // The bridge plugin targets TI-section URLs (cerca-lavoro-ticino/);
-    // canton display is Ticino for every entry in this plugin's data file.
-    cantonDisplay: locale === 'it' ? 'Ticino' : locale === 'en' ? 'Ticino' : locale === 'de' ? 'Tessin' : 'Tessin',
+    cantonDisplay,
     slot: 'company-landing' as const,
     entityName: entry.displayName,
     countHint: entry.jobCount,
@@ -466,23 +677,48 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
   });
 }
 
-function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
+function renderUnmatchedPage(
+  entry: HubEntry,
+  distDir: string,
+  availability: CompanyCantonAvailability,
+): string {
   const locale = entry.locale;
   const copy = COPY[locale];
-  // Canonical points to the Switzerland-wide aggregator so cross-canton
-  // company URLs (e.g. /azienda-grace-la-margna-st-moritz/ → GR) consolidate
-  // onto the Swiss-wide hub instead of the TI section landing. The
-  // BreadcrumbList still describes the bridge URL the visitor landed on.
-  const canonicalUrl = buildAggregatorCanonical(locale);
+  const currentCanton = cantonCodeFromEntry(entry);
+  const cantonDisplay = getCantonDisplayName(currentCanton, locale);
+  const hubPath = buildEntryHubPath(entry);
+  const canonicalUrl = `${BASE_URL}${hubPath}`;
   const sectionPath = `${BASE_URL}${sectionPathFromEntry(entry)}`.replace(/(?<!:)\/+/g, '/');
-  const hubAbsoluteUrl = `${BASE_URL}${buildEntryHubPath(entry)}`;
-  // ── audit:text-html-ratio gate ────────────────────────────────────
-  // Unmatched bridge pages emitted ~6.4 KB of HTML with ~350 bytes
-  // visible text (~5.4 % ratio). Append canton-aware prose helper for
-  // company-landing slot. Same mobile-first positioning as matched.
+  const cantonSuggestions = findCompanyCantonSuggestions(entry, availability, currentCanton);
+  const otherCantonBannerHtml = renderOtherCantonBanner(entry, currentCanton, cantonSuggestions);
+  // An unmatched legacy company URL is still a valid canton filter: it means
+  // that the employer is known elsewhere, but there is no active posting in
+  // this section today. Keep that fact on the URL itself. Do not consolidate
+  // it to `/aziende/<slug>/`, whose intent and job set are Switzerland-wide.
+  const emptyTitle = locale === 'it'
+    ? `${entry.displayName}: nessun annuncio in ${cantonDisplay}`
+    : locale === 'en'
+      ? `${entry.displayName}: no jobs in ${cantonDisplay}`
+      : locale === 'de'
+        ? `${entry.displayName}: keine Stellen im ${cantonDisplay}`
+        : `${entry.displayName} : aucune offre dans le ${cantonDisplay}`;
+  const emptyDescription = locale === 'it'
+    ? `Al momento non risultano annunci attivi di ${entry.displayName} in ${cantonDisplay}. Questa pagina mantiene il filtro cantonale e viene aggiornata con il job board.`
+    : locale === 'en'
+      ? `There are currently no active ${entry.displayName} jobs in ${cantonDisplay}. This page keeps the canton filter and is refreshed with the job board.`
+      : locale === 'de'
+        ? `Derzeit gibt es keine aktiven Stellen von ${entry.displayName} im Kanton ${cantonDisplay}. Diese Seite behält den Kantonsfilter und wird mit dem Job Board aktualisiert.`
+        : `Il n'y a actuellement aucune offre active de ${entry.displayName} dans le canton de ${cantonDisplay}. Cette page conserve le filtre cantonal et est actualisée avec le job board.`;
+  const emptyH1 = locale === 'it'
+    ? `Nessun annuncio di ${entry.displayName} in ${cantonDisplay}`
+    : locale === 'en'
+      ? `No ${entry.displayName} jobs in ${cantonDisplay}`
+      : locale === 'de'
+        ? `Keine Stellen von ${entry.displayName} im ${cantonDisplay}`
+        : `Aucune offre de ${entry.displayName} dans le ${cantonDisplay}`;
   const proseOpts = {
     locale: locale as CantonSeoLocale,
-    cantonDisplay: locale === 'it' ? 'Ticino' : locale === 'en' ? 'Ticino' : locale === 'de' ? 'Tessin' : 'Tessin',
+    cantonDisplay,
     slot: 'company-landing' as const,
     entityName: entry.displayName,
     countHint: null,
@@ -491,8 +727,9 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
   };
   const proseHtml = renderCantonSeoProse(proseOpts);
   const bodyHtml = `<main class="cluster-seo-prose s-zry6VY">
-    <header class="s-v0ohjg"><h1 class="s-hiC5FI">${esc(copy.unmatchedH1(entry.displayName))}</h1></header>
-    <p class="s-cbFAda">${esc(copy.unmatchedLede)}</p>
+    <header class="s-v0ohjg"><h1 class="s-hiC5FI">${esc(emptyH1)}</h1></header>
+    <p class="s-cbFAda">${esc(emptyDescription)}</p>
+    ${otherCantonBannerHtml}
     <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(sectionPath)}">${esc(copy.browseAllLabel)} →</a></p>
     ${proseHtml}
   </main>`;
@@ -502,7 +739,7 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
     sectionLabel: JOBS_SECTION_LABEL[locale],
     sectionPath: sectionPathFromEntry(entry),
     pageLabel: entry.displayName,
-    canonicalUrl: hubAbsoluteUrl,
+    canonicalUrl,
   });
   const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -511,7 +748,7 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
     mainEntity: buildCantonSeoProseFaqItems(proseOpts),
   });
   return buildSeoPageHtml({
-    locale, title: copy.unmatchedTitle, description: copy.unmatchedDescription,
+    locale, title: emptyTitle, description: emptyDescription,
     canonicalUrl, robots: 'index,follow', ogType: 'website', ogLocale: OG_LOCALE[locale],
     hreflangHtml: '', jsonLdScripts: [breadcrumbLd, faqLd], bodyHtml, distDir, seoMainClass: 'cluster-seo-prose',
   });
@@ -520,16 +757,13 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
 // autoDiscoverCompanyHubs() seeds candidates straight from the crawler
 // universe (data/jobs/by-crawler/*.json), independent of BRAND_CANONICAL_MAP,
 // so a declared alias slug (e.g. `migros-ticino`) can be discovered here too.
-// jobsSeoPagesPlugin owns the correct noindex→primary bridge for that slug,
+// jobsSeoPagesPlugin owns the correct noindex→primary bridge for that alias,
 // but its emission is data-dependent (BRAND_UMBRELLAS aggregation must find
 // a qualifying entry); when it doesn't fire for a given build, this plugin's
-// `fs.existsSync` skip-guard sees no file and falls through to
-// `renderUnmatchedPage`, wrongly canonicalizing the alias to the
-// Switzerland-wide aggregator instead of the brand primary (issue #3232
-// recurrence, tests/seo/brand-dedup.test.ts). Bridging to the SAME primary
-// here — via the same `buildCanonicalBridgePage` helper jobsSeoPagesPlugin
-// uses for its own alias pages — makes the two emitters agree regardless of
-// write order, closing the race structurally instead of one build at a time.
+// `fs.existsSync` skip-guard sees no file and falls through to the same
+// explicit brand-alias bridge. Keeping that fallback here — via the same
+// `buildCanonicalBridgePage` helper jobsSeoPagesPlugin uses — makes the two
+// emitters agree regardless of write order, closing the race structurally.
 function renderBrandAliasBridge(entry: HubEntry, canonicalSlug: string): string {
   const primaryHubPath = buildHubPath(entry.locale, canonicalSlug);
   const companyName = entry.displayName;
@@ -584,6 +818,7 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
       // crawler universe. Curated entries always win on conflict so
       // hand-classified matched/unmatched data stays authoritative.
       const discovered = autoDiscoverCompanyHubs(rootDir);
+      const companyCantonAvailability = loadCompanyCantonAvailability(rootDir);
       const curatedKeys = new Set(curatedHubs.map((h) => `${h.locale}::${h.companySlug}`));
       const merged: HubEntry[] = [
         ...curatedHubs,
@@ -606,7 +841,7 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
           ? renderBrandAliasBridge(entry, brandCanonicalSlug)
           : entry.kind === 'matched'
             ? renderMatchedPage(entry, distDir)
-            : renderUnmatchedPage(entry, distDir);
+            : renderUnmatchedPage(entry, distDir, companyCantonAvailability);
 
         try {
           fs.mkdirSync(path.dirname(indexTarget), { recursive: true });

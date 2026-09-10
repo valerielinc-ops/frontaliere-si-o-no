@@ -4188,7 +4188,10 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${xDefaultHrefC}">`,
  ].join('\n');
 
- const jobListHtml = jobCardListBody(companyJobs.slice(0, 20), locale);
+ // The employer profile and the canton-specialised company page must expose
+ // the same complete active set. The shared renderer owns the ad cadence, so
+ // do not silently turn a count such as 58/77 into a top-20 preview.
+ const jobListHtml = jobCardListBody(companyJobs, locale);
 
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
@@ -4263,7 +4266,7 @@ ${staticAnalyticsHtml}
  // structured data points at the actually-emitted job-detail page
  // (not the soft-canonical TI redirect). Otherwise Google ingests
  // canonical chains in rich-result candidates.
- const itemListItems = companyJobs.slice(0, 10).map((job, idx) => {
+ const itemListItems = companyJobs.map((job, idx) => {
  const jSlug = localizedSlug(job, locale);
  const jobCantonForList = sharedResolveJobCanton(job as { canton?: string; location?: string });
  const sectionForJob = jobCantonForList ? sharedResolveCantonSection(locale, jobCantonForList) : sectionByLocale[locale];
@@ -4312,7 +4315,7 @@ ${staticAnalyticsHtml}
  )}</p></div>`,
  )
  .join('');
- const openRolesListHtml = jobCardListBody(companyJobs.slice(0, 10), locale);
+ const openRolesListHtml = jobCardListBody(companyJobs, locale);
  const listingUrlCurated = `${BASE_URL}${withSlash(
  `${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'),
  )}`;
@@ -8098,26 +8101,22 @@ ${staticAnalyticsHtml}
  /* ── Per-canton company hubs (Phase 3.3) ─────────────────────
   * Additive: for every non-TI canton, for every company with ≥ 3 jobs in
   * that canton, emit /cerca-lavoro-{cantonSlug}/azienda-{companySlug}/ —
-  * a thin per-canton company hub page (H1, intro, filtered job list,
-  * canonical pointing at itself).
+  * a canton-specialised company page (H1, intro, complete filtered job list,
+  * shared card/ad format, canonical pointing at itself).
   *
-  * TI company hubs at /cerca-lavoro-ticino/azienda-{slug}/ stay byte-
-  * identical — handled exclusively by the legacy `for (const [cSlug, ...]
-  * of companyMap)` emit block above. BRAND_CANONICAL_MAP and
+  * TI company hubs at /cerca-lavoro-ticino/azienda-{slug}/ remain handled
+  * exclusively by the legacy `for (const [cSlug, ...] of companyMap)` emit
+  * block above. BRAND_CANONICAL_MAP and
   * EMPLOYER_BRANDS aliasing are NOT touched: TI canonical for a brand
   * stays the TI URL, and the new per-canton hubs each carry their own
   * self-canonical `<link rel="canonical">`.
   *
-  * Rationale for the thin variant (see CLAUDE.md / orchestrator note):
-  * the full TI company-hub template (curated EOC/Lidl prose, founded/size
-  * enrichment, full sector/city chip rows, curated FAQ) is too entangled
-  * with BRAND_CANONICAL_MAP to safely fork per-canton without risking the
-  * TI canonical. The thin variant ships the SEO funnel today; richer
-  * per-canton enrichment can land as a follow-up.
+  * The national `/aziende/<slug>/` page owns the Switzerland-wide employer
+  * intent; these URLs own the narrower canton intent. Their self-canonical
+  * and filtered list keep the two surfaces materially different for search.
   */
  {
  const MIN_JOBS_PER_CANTON_COMPANY = 3;
- const COMPANY_CANTON_JOB_CAP = 30;
  // Bucket (canton, companyCanonicalSlug) → jobs[], with display-name.
  type CompCanton = { name: string; jobs: typeof validJobs };
  const cantonCompanyBuckets: Map<string, Map<string, CompCanton>> = new Map();
@@ -8140,23 +8139,65 @@ ${staticAnalyticsHtml}
  // Below-floor bridge (#3747, AGENTS.md § Static SEO Pages): a company whose
  // per-canton job count fluctuates under MIN_JOBS_PER_CANTON_COMPANY between
  // builds would otherwise hard-404 a previously-emitted (and possibly
- // indexed) /azienda-{slug}/ URL on GH Pages. Emit a noindex,follow bridge
- // at the same URL, pointing at the always-live canton section root — same
- // bridge pattern the sector hubs used before their floor was removed
- // (PR #3594; sector hubs went floor-less in PR #4254). Company slugs are
- // data-driven (not enumerable at module load), so searchConsoleCompat.ts
- // does NOT self-map them; its COMPANY_COMPAT_PATTERN branch already
- // resolves any residual company-hub 404 (kind 'company').
+ // indexed) /azienda-{slug}/ URL on GH Pages. Keep the same URL as a
+ // noindex,follow page, but render its live below-floor postings instead of
+ // linking only to the canton root: job-detail CTAs use this URL as the
+ // company filter, so the bridge must remain functional when it has one or
+ // two current jobs. Company slugs are data-driven (not enumerable at module
+ // load), so searchConsoleCompat.ts does NOT self-map them; its
+ // COMPANY_COMPAT_PATTERN branch already resolves any residual company-hub
+ // 404 (kind 'company').
  let companyCantonBelowFloorBridges = 0;
- const emitCompanyCantonBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, fullSlug: string): void => {
- const section = buildCantonAwareSection(locale, canton);
- const targetPath = withSlash(`${localePrefix[locale]}/${section}`.replace(/\/+/g, '/'));
- const canonicalPath = withSlash(`${localePrefix[locale]}/${section}/${fullSlug}`.replace(/\/+/g, '/'));
- const html = buildCanonicalBridgePage({
- canonicalUrl: `${BASE_URL}${targetPath}`,
- pathLabel: targetPath,
- lang: locale,
- noindex: true,
+ const emitCompanyCantonBelowFloorBridge = (
+ locale: 'it' | 'en' | 'de' | 'fr',
+ canton: string,
+ companyName: string,
+ companyJobs: ReadonlyArray<any>,
+ fullSlug: string,
+ ): void => {
+ const sectionSlug = buildCantonAwareSection(locale, canton);
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${fullSlug}`.replace(/\/+/g, '/'));
+ const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+ const cDisplay = cantonDisplayLocalComp(canton, locale);
+ const pageTitle = buildEmployerHubTitle({
+ locale,
+ companyDisplay: `${companyName} (${cDisplay})`,
+ count: companyJobs.length,
+ year: new Date().getFullYear(),
+ });
+ const pageDesc = locale === 'it' ? `${companyJobs.length} offerte di lavoro presso ${companyName} in ${cDisplay}. Annunci aggiornati quotidianamente.`
+ : locale === 'en' ? `${companyJobs.length} job openings at ${companyName} in ${cDisplay}. Listings updated daily.`
+ : locale === 'de' ? `${companyJobs.length} Stellenangebote bei ${companyName} in ${cDisplay}. Täglich aktualisiert.`
+ : `${companyJobs.length} offres d'emploi chez ${companyName} à ${cDisplay}. Annonces mises à jour quotidiennement.`;
+ const pageHeading = locale === 'it' ? `Offerte di lavoro presso ${companyName} in ${cDisplay}`
+ : locale === 'en' ? `Job openings at ${companyName} in ${cDisplay}`
+ : locale === 'de' ? `Stellenangebote bei ${companyName} in ${cDisplay}`
+ : `Offres d'emploi chez ${companyName} à ${cDisplay}`;
+ const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
+ const itemListLd = inlineScriptJson({
+ '@context': 'https://schema.org',
+ '@type': 'ItemList',
+ name: pageTitle,
+ numberOfItems: companyJobs.length,
+ itemListElement: companyJobs.map((job: any, i: number) =>
+ mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
+ });
+ const allJobsLabel = locale === 'it' ? `Vedi tutte le offerte in ${cDisplay}`
+ : locale === 'en' ? `View all jobs in ${cDisplay}`
+ : locale === 'de' ? `Alle Stellen in ${cDisplay} ansehen`
+ : `Voir toutes les offres à ${cDisplay}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n<ul class="s-0WjlyL">${jobCardListBody(companyJobs, locale)}</ul>\n<p><a href="${sectionRootUrl}">${esc(allJobsLabel)}</a></p>`;
+ const html = buildSeoPageHtml({
+ locale,
+ title: pageTitle,
+ description: pageDesc,
+ canonicalUrl,
+ robots: 'noindex,follow',
+ ogLocale: localeOg[locale],
+ hreflangHtml: '',
+ jsonLdScripts: [itemListLd],
+ bodyHtml,
+ distDir,
  });
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
@@ -8170,6 +8211,7 @@ ${staticAnalyticsHtml}
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
+ activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  companyCantonBelowFloorBridges++;
  };
  for (const canton of SHARED_ALL_CANTON_CODES) {
@@ -8177,20 +8219,23 @@ ${staticAnalyticsHtml}
  const byCompany = cantonCompanyBuckets.get(canton);
  if (!byCompany) continue;
  for (const [cSlug, { name: companyName, jobs: companyJobs }] of byCompany) {
- if (companyJobs.length < MIN_JOBS_PER_CANTON_COMPANY) {
- for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
- emitCompanyCantonBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}`);
- }
- continue;
- }
  const sortedJobs = [...companyJobs].sort((a: any, b: any) => {
  const da = firstParsableMs(b.crawledAt, b.datePosted);
  const db = firstParsableMs(a.crawledAt, a.datePosted);
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
- const cappedJobs = sortedJobs.slice(0, COMPANY_CANTON_JOB_CAP);
+ if (companyJobs.length < MIN_JOBS_PER_CANTON_COMPANY) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitCompanyCantonBelowFloorBridge(locale, canton, companyName, sortedJobs, `${companyRoutePrefix[locale]}-${cSlug}`);
+ }
+ continue;
+ }
+ // Keep the complete canton/company result set. `jobCardListBody` inserts the
+ // shared in-feed ad after every third card; a cap here made the page claim 58
+ // openings while exposing only 30 and also hid the later ad slots.
+ const cappedJobs = sortedJobs;
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompanyCanton = startTimer();
@@ -8255,7 +8300,7 @@ ${staticAnalyticsHtml}
  // Embed a full JobPosting per item (capped description, never throws → falls
  // back to a name+url stub). Mirrors the editorial-landing ItemList; the
  // authoritative per-job JobPosting still lives on each linked detail page.
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) =>
+ itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
  // Organization JSON-LD — derived from job data (no curated overlay).
