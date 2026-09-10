@@ -1,6 +1,52 @@
 # Follow-up Triage Instructions
 
-Contratto operativo per `post-merge-followup.yml`. Triage automatico post-merge: estrae lavoro residuo da PR body + reviewer comments, lo raccoglie in **una sola issue aggregata** con label `follow-up` per evitare evaporazione dello scope deferred.
+Contratto operativo per `post-merge-followup.yml`. Il triage automatico post-merge estrae
+lavoro residuo da PR body + reviewer comments e lo raccoglie in un bucket giornaliero
+`follow-up` per repository target. Non esiste più una issue per PR: per ogni chiave di
+giorno riuscito e per ogni repository target può esistere al massimo un bucket.
+
+## Contratto corrente — bucket giornaliero
+
+La forma canonica è:
+
+```text
+follow-up(daily:YYYY-MM-DD): N item — owner/repo
+```
+
+La chiave è il giorno della run di triage riuscita in `Europe/Zurich`, mai `mergedAt`.
+Il watermark resta l'inizio dell'ultima run riuscita: una run fallita non lo avanza e
+il retry rilegge la stessa finestra. Il commento `## Post-merge follow-up triage` resta
+obbligatorio su ogni PR e continua a essere il marker di idempotenza per-PR, anche
+quando i finding della PR vengono aggiunti a un bucket già esistente.
+
+Una PR di fix daily che porta `Addresses #<bucket>` e `Follow-up item: FU-...` non
+genera un nipote: il gate la lascia passare soltanto per cercare finding nuovi. Quelli
+già coperti dal padre si deduplicano/aggiornano in `Sources`; quelli genuinamente nuovi
+si aggiungono al bucket padre (riportandolo a `collecting` se era `sealed`, poi il gate
+lo risigilla). Se il padre non è leggibile, si segnala il blocco sulla PR e non si crea
+un contenitore alternativo.
+
+Ogni bucket ha il ciclo `State: collecting` → `State: sealed`. Durante la raccolta il
+bucket non porta `agent:fix` né `agent:fix-queued`; il gate deterministico finale
+riusa `hasFalsifiableAcceptance()` e, solo dopo aver completato tutti i chunk, demota
+gli item non verificabili, sigilla il corpo e aggiunge `agent:fix-queued`. Un errore
+lascia il bucket `collecting` e non deve perdere né item né watermark.
+
+Ogni item usa un ID stabile `FU-YYYY-MM-DD-NNN` e contiene almeno `State`, `Sources`,
+`Target repository`, `Target file`, `Original text`, `Suggested action` e `Acceptance
+token`. Il fingerprint di dedup è `target repository + target file + token/azione
+normalizzata`; un match accorpa le PR nella riga `Sources` invece di duplicare l'item.
+Le append concorrenti richiedono lettura immediatamente precedente, confronto della
+baseline e ricostruzione dell'append su una lettura nuova in caso di divergenza; gli
+eventi di sealing/demozione vanno anche in commenti append-only.
+
+Il drainer promuove un bucket solo se è `sealed`, esiste un item `open` e non c'è già
+una PR aperta che dichiara quel suo ID. `issue-fix` seleziona un solo item `open` per
+run. Una PR parziale usa sempre `Addresses #<bucket>` e `Follow-up item:
+FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`; il reconciler marca gli item uno per uno
+con evidenza e chiude il bucket soltanto quando tutti gli item validi sono `done` e
+provati. Body illeggibile, stato ambiguo, acceptance assente o prova debole lasciano
+il lavoro aperto.
 
 ## Gate grandchild-suppression (zero-Claude, PRIMA del triage)
 
@@ -10,11 +56,11 @@ Contratto operativo per `post-merge-followup.yml`. Triage automatico post-merge:
 
 Il treadmill brucia **~470 run Claude/sett** (×~3 run l'una: triage → `issue-fix` → `pr-review-loop`) sulla quota Max OAuth **condivisa** con la sessione interattiva owner (vedi `AGENTS.md → Auth automazioni & frugalità quota`).
 
-Lo step deterministico `scripts/ci/is-followup-fix-pr.mjs` (zero-Claude) gira **prima** dello step Claude e lo **salta interamente** (`if: steps.gchild.outputs.is_followup_fix != 'true'`) quando la PR mergiata dichiara di chiudere/superare (`Closes`/`Fixes`/`Resolves`/`Supersedes #N`) almeno una issue con label `follow-up`. Effetto: niente nipote + run Claude risparmiata. Lo scope deferred di un fix-di-follow-up, se reale, appartiene alla issue follow-up **padre** (resta aperta finché non risolta del tutto) — non va mintato un nipote. Parsing close-keyword = `closedIssueRefs()` in `scripts/ci/followup-resolution-match.mjs`, **stessa** regex di `closingMergedPr` (single source, AGENTS.md #6). **Proceed-safe** (direzione opposta al gate already-resolved): body illeggibile / ref non parsati / `gh issue view` in errore → `false` → triage gira (mai perdere un follow-up di PR organica).
+Lo step deterministico `scripts/ci/is-followup-fix-pr.mjs` (zero-Claude) gira **prima** dello step Claude e salta i normali fixer branch che puntano a una issue `follow-up`: niente nipote + run Claude risparmiata. Una fix daily con entrambi i marker `Addresses #<bucket>` e `Follow-up item: FU-...` riceve invece una deroga limitata: il collector la include solo per cercare finding nuovi e li aggiunge al bucket **padre**, mai a una nuova issue. Lo scope deferred di un fix-di-follow-up, se reale, appartiene alla issue padre (resta aperta finché non risolta del tutto). **Proceed-safe**: branch/body illeggibile o `gh issue view` in errore → triage normale, mai perdere un follow-up di PR organica.
 
 ## Scopo
 
-Ogni 🟡 nit, ❓ q del reviewer bot e voce `## Non implementato` del PR body DEVE risultare in: (a) un item nella issue aggregata `follow-up` della PR, (b) drop motivato, o (c) — se è pura verifica del sito live senza file da editare — una voce nella checklist `Live-verification` batchata del commento di chiusura (nessuna issue, nessun fixer; vedi `## Filtro scopo → Hard-exclude: live-verification-only item`). Nessun silent ignore. Filtra via scopo progetto (vedi `REVIEW.md` → "Scopo progetto").
+Ogni 🟡 nit, ❓ q del reviewer bot e voce `## Non implementato` del PR body DEVE risultare in: (a) un item nel bucket giornaliero `follow-up` del repository target, (b) drop motivato, o (c) — se è pura verifica del sito live senza file da editare — una voce nella checklist `Live-verification` batchata del commento di chiusura (nessuna issue, nessun fixer; vedi `## Filtro scopo → Hard-exclude: live-verification-only item`). Nessun silent ignore. Filtra via scopo progetto (vedi `REVIEW.md` → "Scopo progetto").
 
 ## Input
 
@@ -121,58 +167,76 @@ Il ramo nuovo vive in `hasFalsifiableAcceptance()`, cioè nell'unico simbolo che
 ## Dedup
 
 Tre livelli, in quest'ordine:
-- **PR-level**: `gh issue list --label follow-up --state all --search "follow-up(#$PR_NUMBER)"` — se esiste già una issue aggregata per questa PR → **skip totale** (idempotenza re-run / backfill), log "already triaged #N". Mai una seconda issue aggregata per la stessa PR.
-- **Item-level**, per ogni candidate: `gh issue list --label follow-up --state all --search "<keyword from item>"` — match titolo/sezione >70% similar → **escludi l'item** + log "duplicate of #N". Item che referenzia `#NNN` con issue/PR open → escludi l'item.
+- **PR-level**: rileggi i commenti della PR e cerca il marker `## Post-merge follow-up triage` — se esiste, salta quella PR (idempotenza re-run/backfill). Il marker non identifica più un issue per-PR: i finding possono essere già nel bucket giornaliero del repository target.
+- **Bucket-level**: per ogni candidate calcola `(daily key, target repository)` e cerca `follow-up(daily:<key>)` nello stesso repository. Se esiste, aggiungi solo gli item nuovi al suo body `collecting`; se non esiste, crea un solo bucket. Se una retry attraversa la mezzanotte e trova un bucket `collecting` storico che contiene una PR della finestra, riusa quella chiave/titolo; una retry non deve creare un secondo bucket per la stessa finestra.
+- **Item-level**: fingerprint `target repository + target file + token/azione normalizzata`; un match già presente nel bucket o in una follow-up aperta accorpa la PR nella riga `Sources` e non duplica l'item. Il match titolo/sezione >70% e i riferimenti a issue/PR aperte restano dedup conservativo.
 - **In-flight PR overlap** (anti self-flag): se l'item riguarda file specifici (path nel testo / `## Suggested action`), raccogli i file target ed esegui `gh pr list --state open --json number,title` + `gh pr diff <n> --name-only` sulle PR aperte. Se una PR aperta **già modifica** uno di quei file → **escludi l'item** + log "in-flight in PR #N" (un follow-up su un file che un'altra PR sta riscrivendo nasce obsoleto e fa partire il fixer su lavoro in corso; vedi `ISSUES.md → "Pre-condizioni — overlap-file"`). Nel dubbio (item non file-specifico) → non escludere.
+
+Il gate `is-followup-fix-pr.mjs` mantiene la soppressione dei nipoti per le fix PR
+normali. Per una fix daily riconoscibile dai due marker (`Addresses` + `Follow-up item`)
+emette una deroga limitata: il collector la include soltanto per cercare finding nuovi,
+che devono essere deduplicati e aggiunti al bucket padre; non può nascere una nuova
+issue per quella PR.
 
 Se dopo il dedup zero item sopravvivono → nessuna issue, summary "zero outstanding items".
 
 ## Issue format
 
-**UNA sola issue aggregata per PR** (non N issue separate): tutti i candidate item validi diventano sezioni `### N.` della stessa issue. Motivo: con `follow-up` auto-routed a `agent:fix` (#922), N issue = N run fixer serializzate sulla quota condivisa; 1 issue aggregata = 1 dispatch fixer. È la leva di frugalità più grossa sul volume di issue auto-generate (vedi `ISSUES.md → Frugalità quota` e `AGENTS.md → Auth automazioni & frugalità quota`).
+**Un solo bucket per giorno e repository target** (non una issue per PR e non una issue
+per item). Una PR può contribuire al bucket del sito e, se necessario, a quello del
+corpus, ma mai mescolare i due repository nella stessa issue. Il bucket può ricevere
+append da più PR e viene lavorato dal fixer un item alla volta.
 
 ```markdown
-Title: follow-up(#<PR>): <N> item deferred — <PR short title>
+Title: follow-up(daily:<YYYY-MM-DD>): <N> item — <owner/repo>
 
 Body:
-## Origine
-- PR: #<PR_NUMBER> <PR_TITLE> (merged <mergedAt>)
-- URL: <PR url>
+## Batch
+- Daily key: <YYYY-MM-DD> (Europe/Zurich)
+- State: collecting | sealed
+- Target repository: <owner/repo>
 
 ## Item
 
-### 1. <one-line item>
-- Source: <PR body Non implementato | reviewer 🟡 nit | reviewer ❓ q | adversarial check>
+### FU-<YYYY-MM-DD>-001 — <one-line item>
+- State: open | in-progress | done | blocked
+- Sources: PR #<PR_NUMBER>; reviewer 🟡 nit
 - Stato dichiarato nella PR: <lo stato letterale verbatim, es. `blocked: <causa>` | nessuno>
+- Target file: `path/to/file.mjs`
 - Original text:
   > <verbatim>
-- Rationale: <perché passa il filtro>
-- Suggested action: <concrete next step se ovvio dal contesto; altrimenti "investigate + decide drop or impl">
-- METRICA: prima=<n> atteso=<n> | COMANDO: <comando che nomina un file/script/test>   ← facoltativa; ammette l'item anche senza token distintivo
+- Funnel area: <monetizzazione | traffico | UX>
+- Suggested action: <next step concreto>
+- Acceptance token: `<token-codice-distintivo>`
 
-### 2. <one-line item>
-- Source: ...
+### FU-<YYYY-MM-DD>-002 — <one-line item>
+- State: open
+- Sources: PR #<PR_NUMBER>
 - Stato dichiarato nella PR: ...
+- Target file: `path/to/other.mjs`
 - Original text:
   > ...
 - Rationale: ...
 - Suggested action: ...
+- Acceptance token: `otherGuard()`
 ```
 
 `Stato dichiarato nella PR` è **obbligatorio su ogni item, anche quando è `nessuno`**. È il campo che permette a un agente di distinguere a macchina un residuo che aspetta una decisione umana da uno che potrebbe chiudere subito; senza, l'unico modo è rileggere la PR d'origine a mano, ed è per questo che la coda non si smaltisce. Un item che riporta `nessuno` NON va filtrato via: va aperto lo stesso e sarà il fixer a qualificarlo.
 
-Anche con UN solo candidate item la issue mantiene la forma aggregata (un'unica sezione `### 1.`) → formato uniforme, parsabile dal fixer.
+Anche con un solo candidate item il bucket mantiene ID, stato e schema completo. Gli ID
+sono assegnati una sola volta e non vengono rinumerati quando un item viene demoto.
 
 Labels: `follow-up`, più UNO tra `funnel-monetization` / `funnel-seo` / `funnel-ux` per ogni funnel-area inferita dall'unione degli item (mix di item → più funnel-* label).
 
 ## Closing comment
 
-Dopo aver creato la issue aggregata (o droppato tutti gli item), posta UN commento sulla PR riepilogativo:
+Dopo aver aggiunto gli item al bucket (o droppato tutti gli item), posta UN commento sulla
+PR riepilogativo. Il commento è sempre per-PR, anche quando il bucket è condiviso:
 
 ```markdown
 ## Post-merge follow-up triage
 
-Created: 1 aggregated issue #<id> con N item:
+Created/updated: daily bucket #<id> `follow-up(daily:<YYYY-MM-DD>)` con N item:
 - <item1 one-line>
 - <item2 one-line>
 
@@ -187,7 +251,7 @@ Skipped: P item (🔴 pre-merge or duplicate active follow-up)
 
 La sezione `Live-verification` raccoglie **tutti** gli item `live-verify-only` (vedi `## Filtro scopo → Hard-exclude: live-verification-only item`): checklist `- [ ]` batchata, una sola per PR, **nessuna issue creata e nessun fixer dispatchato** — è solo un promemoria per la verifica manuale dell'owner sul sito deployato. Ometti la sezione se Q=0. Mai promuovere una voce live-verify a issue.
 
-Se zero item sopravvivono al filtro+dedup (e nessuna voce live-verify) → posta `## Post-merge follow-up triage: zero outstanding items.` (nessuna issue creata). Se sopravvivono SOLO voci live-verify (zero issue) → posta il summary con la sola sezione `Live-verification` e la riga `Created: 0 issue (solo live-verification batchata)`.
+Se zero item sopravvivono al filtro+dedup (e nessuna voce live-verify) → posta `## Post-merge follow-up triage: zero outstanding items.` (nessun bucket creato o aggiornato). Se sopravvivono SOLO voci live-verify (zero issue) → posta il summary con la sola sezione `Live-verification` e la riga `Created: 0 issue (solo live-verification batchata)`.
 
 ## Supersede detection → spostata su `followup-reconcile` (deterministica, zero-Claude)
 
@@ -196,9 +260,19 @@ Se zero item sopravvivono al filtro+dedup (e nessuna voce live-verify) → posta
 **2026-06-10 — auto-close a due tier (drena la pila `maybe-resolved` senza perdere qualità).** Il vecchio "la chiusura resta umana" lasciava i `maybe-resolved` a un umano che non arrivava → coda mai convergente (driver #1 del treadmill). Ora `reconcile` chiude in autonomia, ma SOLO con **doppia conferma separata nel tempo** + più veti di sicurezza:
 
 1. **1ª detection** (issue non ancora `maybe-resolved`) → commento advisory + label `maybe-resolved`. **Finestra di grazia**: l'umano ha fino al run successivo per obiettare (rimuovere la label, aggiungere `keep-open`/`pinned`, riaprire lo scope).
-2. **2ª conferma** (la issue porta GIÀ `maybe-resolved` da un run precedente, è ANCORA risolta, ha il nostro commento-marker, è **single-item**, **non** ha label keep-open/strategica, e l'evidenza è **forte**) → **auto-close** `--reason completed` + label `fu-resolved-auto`.
+2. **2ª conferma** (la issue porta GIÀ `maybe-resolved` da un run precedente, è ANCORA risolta, ha il nostro commento-marker, è un bucket con **tutti** gli item validi `done` — oppure una legacy **single-item** —, **non** ha label keep-open/strategica, e l'evidenza è **forte**) → **auto-close** `--reason completed` + label `fu-resolved-auto`.
 
-Veti all'auto-close (restano flag→umano): **multi-item aggregati** (`N item`, N≥2 — un sub-item prose-only non contribuisce token, "tutti i token presenti" non prova che ogni item sia fatto) — **NB: questo veto vale solo per il path `reconcile` cron; un `Closes #N` nel body di una PR chiude #N al merge via GitHub-native bypassando il veto, perciò il fixer non deve mai mettere `Closes #<aggregata>` su un fix parziale (1 item/run), vedi `ISSUES.md` step 7 + gate `pr-body-contract.yml` (recidiva #3050 → #3036)**; label **keep-open/pinned/revenue/tracker/do-not-close**; **evidenza debole** (singolo token poco specifico tipo `meta.model`, 1 solo segno di punteggiatura — `isStrongAutoCloseEvidence` esige ≥2 token distinti OPPURE 1 token "ricco" con ≥2 segni). Rimozione della label dopo il flag = **obiezione umana** → il bot tace. La chiusura è **reversibile** (si riapre da sola se il segnale ricorre, titoli monitor dedup-stabili). Kill-switch: repo-var `RECONCILE_NO_AUTOCLOSE=1` o input `no_autoclose` → torna flag-only. Logica pura testata in `tests/reconcile-followups-decision.test.ts`; matcher condiviso con il pre-flight di `issue-fix` (`followup-resolution-match.mjs`, AGENTS.md #6).
+Per un bucket giornaliero il veto è item-per-item: body non leggibile, ID mancanti,
+stato diverso da `sealed`, acceptance assente, item non `done`, token non confermati o
+evidenza debole impediscono la chiusura. Il bucket si chiude solo quando **ogni item
+valido** è `done` e la prova supera `isStrongAutoCloseEvidence()`. Un `Closes #N` nel
+body di una PR resta vietato per i fix parziali perché GitHub chiuderebbe il bucket
+prima degli altri item: usare `Addresses #N` + `Follow-up item: FU-...`. Le label
+**keep-open/pinned/revenue/tracker/do-not-close** restano veti umani. Rimozione della
+label dopo il flag = **obiezione umana** → il bot tace. La chiusura è reversibile; il
+kill-switch `RECONCILE_NO_AUTOCLOSE=1` torna flag-only. Logica pura testata in
+`tests/reconcile-followups-decision.test.ts`; matcher condiviso con il pre-flight di
+`issue-fix` (`followup-resolution-match.mjs`, AGENTS.md #6).
 
 Gap residuo accettato: un refactor che rende moot un item SENZA aggiungere i token citati non viene flaggato (reconcile cerca i token verbatim). Trade-off scelto per ridurre la spesa Claude per-merge.
 
@@ -231,4 +305,6 @@ nel repo Valerie come ripiego: segnalare il blocco sulla PR per il retry success
 - Mai chiudere/riaprire issue.
 - Zero finding accettabile (PR LGTM puro senza Non implementato). NON inventare.
 - Incerto sul filtro scopo → crea issue comunque, rationale "needs triage". Drop è più costoso di una issue extra.
-- Limite hard: max 10 item nella issue aggregata. Oltre → includi i primi 10 e aggiungi in coda al summary "throttled: >10 item, restanti richiedono triage manuale".
+- Nessun limite che tronchi gli item nel bucket. Se il batch supera il budget della
+  sessione, usa chunk seriali e continua ad aggiungere allo stesso bucket; il limite
+  vale soltanto per il chunk/sessione e non può perdere i residui.

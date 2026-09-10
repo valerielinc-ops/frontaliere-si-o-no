@@ -88,6 +88,7 @@ async function runContractCheck(body: string): Promise<ContractResult> {
   const github = {
     paginate: async () => [] as unknown[],
     rest: {
+      pulls: { get: async () => ({ data: { body } }) },
       issues: {
         listComments: async () => ({ data: [] }),
         createComment: async ({ body: b }: { body: string }) => { calls.comments.push(b); },
@@ -100,7 +101,7 @@ async function runContractCheck(body: string): Promise<ContractResult> {
   };
   const context = {
     repo: { owner: 'valerielinc-ops', repo: 'frontaliere-si-o-no' },
-    payload: { pull_request: { number: 1, body } },
+    payload: { pull_request: { number: 1, body: 'stale event snapshot' } },
   };
   // eslint-disable-next-line no-new-func -- deliberately sandboxing the real workflow script, see file header
   const fn = new Function('github', 'context', 'core', `return (async () => {\n${script}\n})();`);

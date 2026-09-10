@@ -76,6 +76,8 @@ import {
   reviewSkippedByGuard,
   reviewAbortedWithoutVerdict,
   reviewStepIsInFlight,
+  jobRefFromCheckRun,
+  currentAttemptJobSteps,
 } from './lib/vitestCheck.mjs';
 import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment } from './lib/prComments.mjs';
 import { runBudgetFromEnv, rotateForFairness } from './lib/run-budget.mjs';
@@ -425,13 +427,10 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
   // Rosso da review gate: causa del messaggio SEMPRE (anche a one-shot già
   // speso, altrimenti il commento tornerebbe a dire «far passare i test» a una
   // PR i cui test sono verdi), ma esenzione dalla precondizione una volta sola.
-  const reviewGateRed = vitestConclusion === 'failure' && vitestRedIsReviewGate(head);
-  // Il Jobs API viene letto di nuovo solo nel caso raro in cui il gate sia già
-  // stato riconosciuto come unico rosso: qui servono i discriminanti più fini
-  // (guard skip vs abort esplicito) per scegliere la causa del commento.
-  const reviewSteps = reviewGateRed ? vitestJobSteps(head) : [];
-  const reviewSkipped = reviewGateRed && reviewSkippedByGuard(reviewSteps);
-  const reviewAborted = reviewGateRed && reviewAbortedWithoutVerdict(reviewSteps);
+  const steps = vitestConclusion === 'failure' ? vitestJobSteps(head) : [];
+  const reviewGateRed = vitestFailureIsReviewGate(steps);
+  const reviewSkipped = reviewGateRed && reviewSkippedByGuard(steps);
+  const reviewAborted = reviewGateRed && reviewAbortedWithoutVerdict(steps);
   const reviewGateReason = reviewGateRed && !reviewSkipped && !(prior && prior.reviewGateUsed)
     ? 'review-gate' : '';
   const reviewGateUsed = Boolean((prior && prior.reviewGateUsed) || reviewGateReason);
@@ -580,30 +579,25 @@ function mainTestsRuns() {
 /** Gli step del job che ha prodotto l'ultimo check-run vitest COMPLETATO
  * sull'head. Il job id si ricava dal `details_url` del check-run
  * (`.../runs/<run_id>/job/<job_id>`), che è l'unico riferimento che la
- * check-runs API dà al job di Actions. `[]` se il link non è parsabile o la
- * chiamata fallisce → `vitestFailureIsReviewGate` risponde `false` e vale la
+ * check-runs API dà al job di Actions. Accetta solo il job del tentativo
+ * corrente con lo stesso head e verdetto: un rerun può lasciare link vecchi.
+ * `[]` se il link non è parsabile, il job è superato o la chiamata fallisce →
+ * `vitestFailureIsReviewGate` risponde `false` e vale la
  * precondizione normale (fail-CLOSED: nel dubbio non si ricicla). */
 const _vitestJobSteps = new Map();
 function vitestJobSteps(head) {
   if (_vitestJobSteps.has(head)) return _vitestJobSteps.get(head);
   const last = latestCompletedVitestExecutionRun(checkRunsOf(head));
-  const m = /\/job\/(\d+)/.exec((last && last.details_url) || '');
-  if (!m) {
+  const ref = jobRefFromCheckRun(last);
+  if (!ref) {
     _vitestJobSteps.set(head, []);
     return [];
   }
-  const out = gh(['api', `repos/${REPO}/actions/jobs/${m[1]}`, '--jq', '.steps'],
+  const out = gh(['api', `repos/${REPO}/actions/runs/${ref.runId}/jobs?filter=latest&per_page=100`, '--paginate', '--jq', '.jobs'],
     { json: true, allowFail: true });
-  const steps = Array.isArray(out) ? out : [];
+  const steps = currentAttemptJobSteps({ checkRun: last, jobId: ref.jobId, jobs: out });
   _vitestJobSteps.set(head, steps);
   return steps;
-}
-
-/** Il rosso del check vitest sull'head è lo step del REVIEW GATE (LGTM mancante
- * o finding 🔴) e non i test? Vedi `vitestFailureIsReviewGate` e il commento di
- * `REVIEW_GATE_MARKER`. Una sola chiamata API, e solo quando serve davvero. */
-function vitestRedIsReviewGate(head) {
-  return vitestFailureIsReviewGate(vitestJobSteps(head));
 }
 
 /** Il vitest rosso sull'head NON è attribuibile alla PR (main rosso al momento
@@ -626,7 +620,7 @@ function hasCommentMarker(num, marker) {
 
 /** C'è una review Claude ANCORA in volo sull'head (Jobs API: lo step `Run Claude
  * review` è `queued`/`in_progress`)? Dal 2026-08-26 la review vive dentro il
- * job `vitest execution`: cercare un check-run chiamato `review`
+ * job `vitest (unit + integration)`: cercare un check-run chiamato `review`
  * è quindi un segnale morto. Il push del rebase si autentica via
  * App/PAT (x-access-token) e quindi RI-TRIGGERA `pull_request` → `pr-review-loop`
  * ha `cancel-in-progress: true` → il nostro push CANCELLA la review in corso e ne

@@ -25,7 +25,8 @@ function collectContextRun(): string {
 function fixerPrompt(): string {
   const workflow: any = YAML.parse(readFileSync(WORKFLOW, 'utf8'));
   const step = workflow?.jobs?.['redflag-fix']?.steps?.find(
-    (candidate: any) => candidate?.uses === 'anthropics/claude-code-action@v1',
+    (candidate: any) => candidate?.uses === 'anthropics/claude-code-action@v1'
+      || candidate?.uses === './.github/actions/claude-codex-fallback',
   );
   expect(step?.with?.prompt, 'the Claude prompt is missing').toEqual(expect.any(String));
   return step.with.prompt;

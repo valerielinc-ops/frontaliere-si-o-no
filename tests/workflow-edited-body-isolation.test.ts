@@ -1,192 +1,90 @@
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
-import { latestCompletedRunByName } from '../scripts/ci/lib/vitestCheck.mjs';
-import {
-  VITEST_CHECK_NAME,
-  VITEST_EXECUTION_JOB_NAME,
-} from '../scripts/ci/lib/constants.mjs';
+import { VITEST_CHECK_NAME, VITEST_EXECUTION_JOB_NAME } from '../scripts/ci/lib/constants.mjs';
 
-type WorkflowStep = {
-  name?: string;
-  if?: string;
-  run?: string;
-  uses?: string;
-  with?: { script?: string };
-};
+const readWorkflow = (name: string) => YAML.parse(readFileSync(new URL(`../.github/workflows/${name}`, import.meta.url), 'utf8'));
+const workflow = readWorkflow('tests.yml');
+const job = workflow.jobs.vitest;
+const recovery = readWorkflow('retry-code-check-after-body-edit.yml');
+const script = recovery.jobs.recover.steps[0].with.script;
+const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 
-type WorkflowJob = {
-  name?: string;
-  if?: string;
-  needs?: string[] | string;
-  steps?: WorkflowStep[];
-};
-
-const workflowText = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
-const workflow = YAML.parse(workflowText) as {
-  concurrency?: { group?: string };
-  jobs?: Record<string, WorkflowJob>;
-};
-const jobs = workflow.jobs ?? {};
-const codeJob = jobs.vitest;
-const requiredJob = jobs['vitest-required'];
-const bodyJob = jobs['body-contract'];
-
-const contractStep = (job: WorkflowJob | undefined) =>
-  job?.steps?.find((step) => step.name?.startsWith('PR-body completeness + multi-issue Closes'));
-
-describe('tests.yml: body edit isolation', () => {
-  it('keeps edited reachable and partitions its concurrency from synchronize', () => {
-    const types = workflowText.match(/^[ \t]+types:\s*\[([^\]]+)\]/m)?.[1]
-      ?.split(',')
-      .map((type) => type.trim());
-    expect(types).toContain('edited');
-    expect(types).toContain('synchronize');
-
-    const group = workflow.concurrency?.group ?? '';
-    const lane = group.match(
-      /\$\{\{\s*github\.event\.action\s*==\s*'edited'\s*&&\s*'([^']+)'\s*\|\|\s*github\.event\.action\s*==\s*'labeled'\s*&&\s*'([^']+)'\s*\|\|\s*'([^']+)'\s*\}\}/,
-    );
-    expect(lane, 'concurrency.group must assign metadata and code events to different lanes').toBeTruthy();
-    if (!lane) return;
-
-    const renderGroup = (action: 'edited' | 'labeled' | 'synchronize') =>
-      group.replace(lane[0], action === 'edited' ? lane[1] : action === 'labeled' ? lane[2] : lane[3]);
-    expect(lane[1]).toBe('body');
-    expect(lane[2]).toBe('label');
-    expect(lane[3]).toBe('code');
-    expect(renderGroup('edited')).not.toBe(renderGroup('synchronize'));
-    expect(renderGroup('labeled')).not.toBe(renderGroup('synchronize'));
-    expect(renderGroup('edited')).not.toBe(renderGroup('labeled'));
-  });
-
-  it('keeps edited body isolation while the required wrapper checks prior code verdicts', () => {
-    expect(codeJob?.name).toBe(VITEST_EXECUTION_JOB_NAME);
-    expect(requiredJob?.name).toBe(VITEST_CHECK_NAME);
-    expect(bodyJob?.name).toBe('PR body contract');
-    expect(bodyJob?.name).not.toBe(VITEST_CHECK_NAME);
-
-    expect(String(codeJob?.if).replace(/\s+/g, '')).toBe(
-      "${{github.event.action!='edited'&&(github.event.action!='labeled'||contains(github.event.pull_request.labels.*.name,'stale-review'))}}",
-    );
-    expect(bodyJob?.if).toContain("github.event_name == 'pull_request'");
-    expect(bodyJob?.if).toContain("github.event.action == 'edited'");
-
-    const heavyContract = contractStep(codeJob);
-    const editedContract = contractStep(bodyJob);
-    expect(heavyContract?.uses).toBe('actions/github-script@v8');
-    expect(editedContract?.uses).toBe('actions/github-script@v8');
-    expect(editedContract?.with?.script).toBe(heavyContract?.with?.script);
-    expect(bodyJob?.steps).toHaveLength(1);
-    expect(bodyJob?.steps?.[0]?.name).toContain('PR-body completeness');
-    expect(bodyJob?.steps?.[0]?.if).toContain('github.event_name ==');
-    expect(bodyJob?.steps?.[0]?.if).not.toContain("github.event.action != 'edited'");
-
-    expect(String(requiredJob?.if).replace(/\s+/g, '')).toBe('${{always()}}');
-    expect(requiredJob?.needs).toEqual(['vitest']);
-
-    // Il wrapper required non deve fidarsi dello skip: sui percorsi body-only
-    // deve verificare lo storico dei check-run dello SHA corrente.
-    const requiredRun = requiredJob?.steps?.find(
-      (step) => step.name === 'Require vitest execution job to complete',
-    )?.run;
-    expect(requiredRun).toContain('gh api --paginate --slurp');
-    expect(requiredRun).toContain('vitest execution');
-    expect(requiredRun).toContain('latest_execution');
-
-    expect(codeJob?.steps?.some((step) => step.name === 'Require approving Claude review')).toBe(true);
-    const skippedReviewGuard = codeJob?.steps?.find(
-      (step) => step.name === 'Fail when required review gate is skipped',
-    );
-    expect(skippedReviewGuard?.if).toContain('always()');
-    expect(skippedReviewGuard?.if).toContain("steps.resolve.outputs.should_review == 'true'");
-    expect(skippedReviewGuard?.if).toContain("steps.guard.outputs.skip != 'true'");
-    expect(skippedReviewGuard?.if).toContain("steps.review_gate.outcome == 'skipped'");
-    expect(skippedReviewGuard?.run).toContain('exit 1');
-    expect(codeJob?.steps?.some((step) => step.name === 'Rebase near-merge PRs after review or stale rescue')).toBe(true);
-  });
-
-  it('rende bloccanti skip/cancel senza un precedente execution success', () => {
-    const requiredStep = requiredJob?.steps?.find(
-      (step) => step.name === 'Require vitest execution job to complete',
-    );
-    expect(requiredStep?.if).toContain('always()');
-    expect(requiredStep?.run).toContain('EXECUTION_RESULT');
-    expect(requiredStep?.run).toContain('exit 1');
-
-    const runRequiredCheck = (executionResult: string, conclusions: string[] = []) => execFileSync(
-      'bash',
-      ['-euo', 'pipefail', '-c', requiredStep?.run ?? ''],
-      {
-        env: {
-          ...process.env,
-          EXECUTION_RESULT: executionResult,
-          HEAD_SHA: 'head-sha-fixture',
-          REPO: 'owner/repo',
-          CHECK_RUNS_JSON: JSON.stringify([
-            {
-              check_runs: conclusions.map((conclusion, index) => ({
-                name: 'vitest execution',
-                status: 'completed',
-                conclusion,
-                completed_at: `2026-09-08T08:2${index}:00Z`,
-              })),
-            },
-          ]),
-        },
-        stdio: 'ignore',
+async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false } = {}) {
+  const reruns: number[] = [];
+  let reads = 0;
+  const run = { id: 42, status, conclusion, run_attempt: 1 };
+  const github = {
+    rest: {
+      pulls: { get: async () => ({ data: { state: 'open', head: { sha: ++reads > 1 && changedHead ? 'new' : 'head' } } }) },
+      actions: {
+        listWorkflowRuns: 'runs', listJobsForWorkflowRun: 'jobs',
+        getWorkflowRun: async () => ({ data: { ...run, status: finishing ? 'completed' : status, conclusion: finishing ? 'failure' : conclusion, run_attempt: changedAttempt ? 2 : 1 } }),
+        reRunWorkflow: async ({ run_id }: { run_id: number }) => { reruns.push(run_id); },
       },
-    );
+    },
+    paginate: async (endpoint: string) => endpoint === 'runs' ? (olderFailed ? [run, { id: 41, status: 'completed', conclusion: 'failure', run_attempt: 1 }] : [run]) : [{ conclusion, steps: [{ name: 'PR-body completeness + multi-issue Closes (no checkout, all events)', conclusion: body }] }],
+  };
+  await new AsyncFunction('github', 'context', 'core', script)(github, {
+    repo: { owner: 'owner', repo: 'repo' }, payload: { pull_request: { number: 1, head: { sha: 'head' } } },
+  }, { info: () => undefined });
+  return reruns;
+}
 
-    expect(() => runRequiredCheck('failure'), 'failure deve bloccare').toThrow();
-    expect(() => runRequiredCheck('skipped'), 'skip senza storico deve bloccare').toThrow();
-    expect(() => runRequiredCheck('skipped', ['failure']), 'skip dopo failure deve bloccare').toThrow();
-    expect(() => runRequiredCheck('skipped', ['success', 'failure']), 'un rosso successivo deve bloccare').toThrow();
-    expect(() => runRequiredCheck('skipped', ['failure', 'success']), 'un verde successivo può soddisfare').not.toThrow();
-    expect(() => runRequiredCheck('cancelled', ['cancelled']), 'cancel dopo cancel deve bloccare').toThrow();
-    expect(() => runRequiredCheck('skipped', ['skipped']), 'skip storico non è un verdetto').toThrow();
-    expect(() => runRequiredCheck('skipped', ['success'])).not.toThrow();
-    expect(() => runRequiredCheck('cancelled', ['success'])).not.toThrow();
-    expect(() => runRequiredCheck('success')).not.toThrow();
+describe('one code verdict and selective body recovery', () => {
+  it('has exactly one unconditional required execution job and no metadata triggers', () => {
+    expect(Object.keys(workflow.jobs)).toEqual(['vitest']);
+    expect(job.name).toBe(VITEST_CHECK_NAME);
+    expect(job.name).toBe(VITEST_EXECUTION_JOB_NAME);
+    expect(job.if).toBeUndefined();
+    expect(workflow.on.pull_request.types).not.toContain('edited');
+    expect(workflow.on.pull_request.types).not.toContain('labeled');
+    expect(workflow.on.pull_request.types).toContain('synchronize');
   });
 
-  it('non interpreta skipped o assenza del check required sulla HEAD come verdetto', () => {
-    expect(latestCompletedRunByName([
-      {
-        name: VITEST_CHECK_NAME,
-        status: 'completed',
-        conclusion: 'skipped',
-        completed_at: '2026-09-08T08:20:00Z',
-      },
-    ], VITEST_CHECK_NAME)).toBeNull();
-    expect(latestCompletedRunByName([], VITEST_CHECK_NAME)).toBeNull();
+  it('rejects the current PR body before checkout and guards independent steps after failure', () => {
+    const first = job.steps[0];
+    expect(first.id).toBe('body_contract');
+    expect(first.uses).toBe('actions/github-script@v8');
+    expect(first.with.script).toContain('github.rest.pulls.get');
+    expect(first.with.script).toContain('currentPr.body');
+    expect(job.steps.findIndex((step: { uses?: string }) => step.uses?.startsWith('actions/checkout@'))).toBeGreaterThan(0);
+    for (const step of job.steps.slice(1)) {
+      if (step.if) expect(step.if).toContain("steps.body_contract.outcome != 'failure'");
+    }
+    expect(job.steps.some((step: { name?: string }) => step.name === 'Require approving Claude review')).toBe(true);
+    expect(job.steps.some((step: { name?: string }) => step.name === 'Fail when required review gate is skipped')).toBe(true);
   });
 
-  it('does not let the edited body check replace a code verdict', () => {
-    const completed = latestCompletedRunByName(
-      [
-        {
-          name: requiredJob?.name,
-          status: 'completed',
-          conclusion: 'failure',
-          completed_at: '2026-09-08T08:20:00Z',
-        },
-        {
-          name: bodyJob?.name,
-          status: 'completed',
-          conclusion: 'success',
-          completed_at: '2026-09-08T08:20:05Z',
-        },
-        {
-          name: requiredJob?.name,
-          status: 'completed',
-          conclusion: 'skipped',
-          completed_at: '2026-09-08T08:20:10Z',
-        },
-      ],
-      VITEST_CHECK_NAME,
-    );
-    expect(completed?.conclusion).toBe('failure');
+  it('runs only API recovery from trusted main, without publishing a PR-head check', () => {
+    expect(recovery.on).toEqual({ pull_request_target: { types: ['edited'] } });
+    expect(recovery.jobs.recover.if).toBe('github.event.changes.body != null');
+    expect(recovery.jobs.recover.steps).toHaveLength(1);
+    expect(script).not.toContain('createCheckRun');
+    expect(script).not.toContain('exec(');
+  });
+
+  it('retries a failed body preflight after an edit', async () => {
+    expect(await runRecovery()).toEqual([42]);
+  });
+
+  it('preserves passing body verdicts, running tests and failures later in the pipeline', async () => {
+    expect(await runRecovery({ body: 'success' })).toEqual([]);
+    expect(await runRecovery({ body: 'success', status: 'in_progress', conclusion: '' })).toEqual([]);
+    expect(await runRecovery({ body: 'success', conclusion: 'success' })).toEqual([]);
+    expect(await runRecovery({ body: 'skipped' })).toEqual([]);
+  });
+
+  it('preserves a newer queued attempt instead of rerunning an older failed body', async () => {
+    expect(await runRecovery({ status: 'queued', body: '', conclusion: '', olderFailed: true })).toEqual([]);
+  });
+
+  it('recovers an edit arriving while the failed preflight is finishing', async () => {
+    expect(await runRecovery({ status: 'in_progress', conclusion: '', finishing: true })).toEqual([42]);
+  });
+
+  it('does not restart an old head or an attempt already retried', async () => {
+    expect(await runRecovery({ changedHead: true })).toEqual([]);
+    expect(await runRecovery({ changedAttempt: true })).toEqual([]);
   });
 });

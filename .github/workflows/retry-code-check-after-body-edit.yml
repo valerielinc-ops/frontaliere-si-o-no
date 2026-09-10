@@ -1,0 +1,65 @@
+name: Retry code check after corrected PR body
+run-name: 'Body recovery · PR #${{ github.event.pull_request.number }}'
+
+# API-only recovery on trusted main. This does not publish a check on the PR
+# head, validate code, or execute any file/string from the pull request.
+on:
+  pull_request_target:
+    types: [edited]
+
+permissions:
+  actions: write
+  pull-requests: read
+
+concurrency:
+  group: body-recovery-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    if: github.event.changes.body != null
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retry only a failed body preflight on the current head
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const repo = context.repo;
+            const number = context.payload.pull_request.number;
+            const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
+            if (pr.state !== 'open' || pr.head.sha !== context.payload.pull_request.head.sha) return;
+            const runs = await github.paginate(github.rest.actions.listWorkflowRuns, {
+              ...repo, workflow_id: 'tests.yml', head_sha: pr.head.sha, per_page: 100,
+            });
+            const latest = runs.sort((a, b) => b.id - a.id)[0];
+            if (!latest) return;
+            // Inspect the latest attempt only, never an old failure underneath
+            // a running retry. A passed preflight means edits cannot restart CI.
+            const jobs = await github.paginate(github.rest.actions.listJobsForWorkflowRun, {
+              ...repo, run_id: latest.id, filter: 'latest', per_page: 100,
+            });
+            const failedBody = jobs.some(job => job.steps?.some(step => step.name.startsWith('PR-body completeness + multi-issue Closes') &&
+                step.conclusion === 'failure'));
+            if (!failedBody) {
+              core.info('Body preflight did not fail; preserve the existing code verdict.');
+              return;
+            }
+            // An edit may arrive while the failed preflight run is finishing.
+            // Wait only for this failed preflight, never for running tests.
+            let settled = latest;
+            for (let poll = 0; settled.status !== 'completed' && poll < 10; poll++) {
+              await new Promise(resolve => setTimeout(resolve, 1000));
+              ({ data: settled } = await github.rest.actions.getWorkflowRun({ ...repo, run_id: latest.id }));
+              if (settled.run_attempt !== latest.run_attempt) return;
+            }
+            if (settled.status !== 'completed' || settled.conclusion !== 'failure') return;
+            // Recheck both head and attempt after reading jobs. Duplicate edit
+            // deliveries must not restart a retry that is already queued.
+            const [{ data: currentPr }, { data: currentRun }] = await Promise.all([
+              github.rest.pulls.get({ ...repo, pull_number: number }),
+              github.rest.actions.getWorkflowRun({ ...repo, run_id: latest.id }),
+            ]);
+            if (currentPr.state !== 'open' || currentPr.head.sha !== pr.head.sha ||
+                currentRun.status !== 'completed' || currentRun.run_attempt !== latest.run_attempt) return;
+            await github.rest.actions.reRunWorkflow({ ...repo, run_id: latest.id });
+            core.info(`Retrying code run ${latest.id}: its body preflight failed and the description changed.`);

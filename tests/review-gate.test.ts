@@ -6,6 +6,7 @@ import {
   extractFileCitations,
   historicalImportantFindings,
   importantFindings,
+  CODEX_REVIEW_MARKER,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
 
@@ -367,6 +368,26 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.findings).toHaveLength(0);
   });
 
+  it('resolves a PR body finding only with an explicit matching metadata line', () => {
+    const opened = { ...historicalImportantReview, body: 'PR body:L4: 🔴 Important: runner measurements missing.' };
+    const review = (confirmation: string) => ({
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n${confirmation}\n## LGTM`,
+    });
+    for (const confirmation of ['', 'Fix di `PR body:L5`: ok.', 'Fix di `docs/PR.md:L4`: ok.']) {
+      expect(historicalImportantFindings([opened, review(confirmation)], { includeLatest: true })).toHaveLength(1);
+    }
+    expect(historicalImportantFindings([opened, review('Fix di `PR body:L4`: ok.')], { includeLatest: true })).toHaveLength(0);
+    // Metadata is never classified as an outside-diff file.
+    expect(importantFindings(opened.body)[0].citations).toEqual([]);
+  });
+
+  it('does not let a body confirmation resolve accompanying code citations', () => {
+    const opened = { ...historicalImportantReview, body: 'PR body:L4: 🔴 Important: `src/changed.mjs:L12` still breaks.' };
+    const confirmed = { ...alignmentLgtmReview, body: 'Fix di `PR body:L4`: ok.\n## LGTM' };
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(1);
+  });
+
   it('reuses the existing outside-diff declassification for inherited findings', async () => {
     const outsideReview = {
       ...historicalImportantReview,
@@ -414,10 +435,86 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       reviewCommit: PRIOR_SHA,
     });
   });
+
+  it('accepts a Codex review only with strict evidence, marker and exact HEAD', async () => {
+    const codexReview = {
+      user: { type: 'Bot', login: 'github-actions[bot]' },
+      body: `${CODEX_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[codexReview]],
+      codexEvidence: {
+        provider: 'codex',
+        model: 'gpt-5.6-luna',
+        effort: 'max',
+        trigger: 'runtime-429',
+        status: 'success',
+      },
+      mutate: false,
+    });
+
+    expect(result).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
+  });
+
+  it('fails closed when Codex evidence is requested but the marked review is absent', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[approvingBotReview]],
+      codexEvidence: {
+        provider: 'codex',
+        model: 'gpt-5.6-luna',
+        effort: 'max',
+        trigger: 'preflight-quota',
+        status: 'success',
+      },
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/review Codex marcata/i);
+  });
+
+  it('fails closed when a caller supplies only a Codex success status', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[approvingBotReview]],
+      codexEvidence: { status: 'success' },
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/evidenza Codex assente/i);
+  });
 });
 
 describe('review gate: citazioni e conferme', () => {
   const bot = (body: string) => ({ user: { type: 'Bot', login: 'claude[bot]' }, body, commit_id: 'c'.repeat(40) });
+
+
+  it('recognizes a Markdown-escaped primary anchor without treating a mentioned helper as another finding', () => {
+    const opened = bot('## Findings (Important: 1, Nit: 0)\n\n🔴 Important: `\\.github/actions/claude-codex-fallback/action.yml:L1065-L1079` — calls `claude-codex-fallback.mjs` without checking its exit.');
+    expect(importantFindings(opened.body)[0].citations).toEqual([
+      { path: '.github/actions/claude-codex-fallback/action.yml', line: 1065 },
+    ]);
+    const confirmed = bot('## Findings (Important: 0, Nit: 0)\nFix di `.github/actions/claude-codex-fallback/action.yml:L1065-L1079`: ok.\n## LGTM');
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
+  it('retains every precise anchor and explicit companion path until each is confirmed', () => {
+    const opened = bot('## Findings\n🔴 Important: `src/a.ts:L3` and `src/b.ts:L4` are broken; also fix `src/helper.ts`.');
+    const partial = bot('## Findings\nFix di `src/a.ts:L3`: ok.\n## LGTM');
+    const remaining = historicalImportantFindings([opened, partial], { includeLatest: true });
+    expect(remaining).toHaveLength(1);
+    expect(remaining[0].citations).toHaveLength(3);
+  });
 
   it('non tronca le estensioni piu lunghe di un prefisso valido', () => {
     // `ts` viene prima di `tsx` nell'alternanza: senza il lookahead il path

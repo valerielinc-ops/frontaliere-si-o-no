@@ -129,7 +129,7 @@ describe('claude CLI: il tetto al thinking arriva al processo', () => {
     // osservabile e' identico in ogni caso, quindi la proprieta' si fissa dove
     // vive: nella forma del sorgente.
     expect(claudeCliChildEnv({ MAX_THINKING_TOKENS: '' }).MAX_THINKING_TOKENS).toBe('');
-    expect(AI_MODELS_SRC).toMatch(/String\(base\.MAX_THINKING_TOKENS\)\.trim\(\) !== ''/);
+    expect(AI_MODELS_SRC).toMatch(/String\(base\.MAX_THINKING_TOKENS\)\.trim\(\) === ''/);
   });
 
   it('il default e\' «non impostare», e la misura resta accanto alla decisione', () => {

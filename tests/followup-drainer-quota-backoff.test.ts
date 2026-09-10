@@ -24,9 +24,10 @@ import {
   isAgeOutEligible,
 } from '../scripts/ci/followup-drainer.mjs';
 import { formatRateLimitComment, maxQuotaResetsAt } from '../scripts/ci/claude-rate-limit.mjs';
-import { beaconCandidates } from '../scripts/ci/check-quota-backoff.mjs';
+import { beaconCandidates, quotaFallbackDecision } from '../scripts/ci/check-quota-backoff.mjs';
 
-type Comment = { body?: string; createdAt?: string };
+type Comment = { body?: string; createdAt?: string; author?: { login?: string } };
+const bot = { login: 'github-actions' };
 const nowSec = () => Math.floor(Date.now() / 1000);
 const iso = (msAgo: number) => new Date(Date.now() - msAgo).toISOString();
 const DAY = 86_400_000;
@@ -74,13 +75,13 @@ describe('il commento del fixer resta leggibile dal drainer', () => {
 describe('maxQuotaResetsAt (beacon di backoff, helper condiviso gate↔drainer)', () => {
   it('estrae la scadenza dal commento del fixer', () => {
     const resets = nowSec() + 3600;
-    expect(maxQuotaResetsAt([{ body: formatRateLimitComment({ resetsAt: resets }) }])).toBe(resets);
+    expect(maxQuotaResetsAt([{ body: formatRateLimitComment({ resetsAt: resets }), author: bot }])).toBe(resets);
   });
 
   it('beacon senza esito successivo → resta attivo', () => {
     const resets = nowSec() + 3600;
     const comments: Comment[] = [
-      { body: formatRateLimitComment({ resetsAt: resets }), createdAt: iso(120_000) },
+      { body: formatRateLimitComment({ resetsAt: resets }), createdAt: iso(120_000), author: bot },
     ];
     expect(maxQuotaResetsAt(comments)).toBe(resets);
   });
@@ -89,8 +90,8 @@ describe('maxQuotaResetsAt (beacon di backoff, helper condiviso gate↔drainer)'
     const earlierReset = nowSec() + 7200;
     const laterReset = nowSec() + 3600;
     const comments: Comment[] = [
-      { body: formatRateLimitComment({ resetsAt: earlierReset }), createdAt: iso(120_000) },
-      { body: formatRateLimitComment({ resetsAt: laterReset }), createdAt: iso(60_000) },
+      { body: formatRateLimitComment({ resetsAt: earlierReset }), createdAt: iso(120_000), author: bot },
+      { body: formatRateLimitComment({ resetsAt: laterReset }), createdAt: iso(60_000), author: bot },
     ];
     expect(maxQuotaResetsAt(comments)).toBe(earlierReset);
   });
@@ -99,8 +100,8 @@ describe('maxQuotaResetsAt (beacon di backoff, helper condiviso gate↔drainer)'
     const a = nowSec() + 3600;
     const b = nowSec() + 9000;
     const comments: Comment[] = [
-      { body: `<!-- QUOTA_RESETS_AT: ${b} -->`, createdAt: iso(600_000) },
-      { body: `<!-- QUOTA_RESETS_AT: ${a} -->`, createdAt: iso(60_000) },
+      { body: `<!-- FIX_OUTCOME: rate-limited -->\n<!-- QUOTA_RESETS_AT: ${b} -->`, createdAt: iso(600_000), author: bot },
+      { body: `<!-- FIX_OUTCOME: rate-limited -->\n<!-- QUOTA_RESETS_AT: ${a} -->`, createdAt: iso(60_000), author: bot },
     ];
     // Non «il più recente»: riaprire il drain prima del reset reale
     // riprodurrebbe esattamente la cascata che il backoff esiste per fermare.
@@ -122,8 +123,8 @@ describe('maxQuotaResetsAt (beacon di backoff, helper condiviso gate↔drainer)'
   it('beacon seguito da un esito non-rate-limited → superato', () => {
     const resets = nowSec() + 3600;
     const comments: Comment[] = [
-      { body: formatRateLimitComment({ resetsAt: resets }), createdAt: iso(120_000) },
-      { body: '<!-- FIX_OUTCOME: already-fixed -->', createdAt: iso(60_000) },
+      { body: formatRateLimitComment({ resetsAt: resets }), createdAt: iso(120_000), author: bot },
+      { body: '<!-- FIX_OUTCOME: already-fixed -->', createdAt: iso(60_000), author: bot },
     ];
     expect(maxQuotaResetsAt(comments)).toBeNull();
   });
@@ -172,5 +173,32 @@ describe('beaconCandidates — la ricerca del beacon resta bounded', () => {
   it('date illeggibili → issue ignorata, mai un crash del gate', () => {
     const out = beaconCandidates([[{ number: 1, updatedAt: 'non-una-data' }, iss(2, 1)]], { now, lookbackH: 24, max: 5 });
     expect(out).toEqual([2]);
+  });
+});
+
+describe('quota preflight projection — Codex fallback is opt-in and non-mutating', () => {
+  const nowSec = 1_800_000_000;
+
+  it('keeps the historical blocking output when Codex mode is off', () => {
+    expect(quotaFallbackDecision({
+      resetsAt: nowSec + 600,
+      nowSec,
+      codexFallbackMode: false,
+    })).toEqual({ active: true, quotaBlocked: true, codexFallback: false });
+  });
+
+  it('projects an active beacon to one Codex fallback without blocking', () => {
+    expect(quotaFallbackDecision({
+      resetsAt: nowSec + 600,
+      nowSec,
+      codexFallbackMode: true,
+    })).toEqual({ active: true, quotaBlocked: false, codexFallback: true });
+  });
+
+  it('does not trigger fallback after reset or for an absent beacon', () => {
+    expect(quotaFallbackDecision({ resetsAt: nowSec - 1, nowSec, codexFallbackMode: true }))
+      .toEqual({ active: false, quotaBlocked: false, codexFallback: false });
+    expect(quotaFallbackDecision({ resetsAt: null, nowSec, codexFallbackMode: true }))
+      .toEqual({ active: false, quotaBlocked: false, codexFallback: false });
   });
 });

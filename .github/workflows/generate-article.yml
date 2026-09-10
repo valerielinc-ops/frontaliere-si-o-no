@@ -216,7 +216,10 @@ jobs:
       # about to be copy-pasted into more workflows for the fleet-wide
       # rollout — see .github/actions/setup-claude-haiku-fallback/action.yml
       # for the full rationale + incident history).
-      - uses: ./.github/actions/setup-claude-haiku-fallback
+      - id: setup_claude_haiku_fallback
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
       # Primary identity for the self-trigger dispatch below = GitHub App
       # installation token (`frontaliere-automation[bot]`): auto-mints, no expiry
@@ -416,6 +419,7 @@ jobs:
           # always pass: ai-models.mjs only offers the model when this AND the
           # RC flag are both set (isClaudeCliFallbackEnabled/hasClaudeCodeOauthToken).
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           # A free-text URL pasted straight onto a command line was the clearest
           # injection site in this repo (#5032). It arrives through the
           # environment, where it is data, and is quoted at every use.
@@ -1112,6 +1116,19 @@ jobs:
       # CHI CHIUDE: close-recovered-failure-issues.mjs sul primo run verde
       # successivo — il titolo `Workflow Failure: <name:>` è il suo pattern, e
       # `name:` combacia, quindi `gh run list -w` risolve il run.
+      - name: Cleanup Codex auth broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then
+            exit 0
+          fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
+            --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
+            || echo "::warning::Codex auth broker cleanup did not complete"
+
       - name: Report failure to GitHub Issues
         if: failure()
         uses: ./.github/actions/report-failure

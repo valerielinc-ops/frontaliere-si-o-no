@@ -29,7 +29,9 @@ permissions:
   issues: write
 
 concurrency:
-  group: followup-reconcile
+  # Deve coincidere con post-merge-followup.yml e followup-drainer.yml: il reconciler
+  # e il gate di sealing possono scrivere lo stesso bucket daily.
+  group: followup-daily-${{ github.repository }}
   cancel-in-progress: false
 
 jobs:

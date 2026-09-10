@@ -65,6 +65,18 @@ import {
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { runBudgetFromEnv } from './lib/run-budget.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import {
+  bucketState,
+  dailyKeyFromBucketBody,
+  dailyBucketInfo,
+  hasDailyBucketRepositoryConsistency,
+  hasStableItemIds,
+  hasStableItemIdsForDailyKey,
+  hasUnterminatedMarkdownFence,
+  followupItemMarkers,
+  parseFollowupItems,
+  selectFirstOpenItem,
+} from './followup-resolution-match.mjs';
 
 export {
   detectWorkflowScoped,
@@ -75,6 +87,84 @@ export {
   latestFixOutcomeEntryFromComments,
   latestFixOutcomeFromComments,
 };
+
+/** A daily bucket is not promotable until the deterministic mint gate sealed it. */
+export function isDailyBucketCollecting(issue) {
+  return !!dailyBucketInfo(issue?.title || '') && bucketState(issue?.body || '') !== 'sealed';
+}
+
+/**
+ * Queue guard for a sealed bucket: malformed IDs or no open item are left untouched,
+ * while the fixer receives exactly one stable item at a time through the workflow.
+ */
+export function dailyBucketQueueDecision(issue) {
+  const info = dailyBucketInfo(issue?.title || '');
+  if (!info) return { eligible: true, reason: null, item: null };
+  if (hasUnterminatedMarkdownFence(issue?.body || '')) {
+    return { eligible: false, reason: 'unterminated-markdown-fence', item: null };
+  }
+  if (bucketState(issue?.body || '') !== 'sealed') return { eligible: false, reason: 'bucket-collecting', item: null };
+  if (dailyKeyFromBucketBody(issue?.body || '') !== info.dailyKey) {
+    return { eligible: false, reason: 'mismatched-daily-key', item: null };
+  }
+  if (!hasDailyBucketRepositoryConsistency(issue?.body || '', info.targetRepository)) {
+    return { eligible: false, reason: 'mismatched-target-repository', item: null };
+  }
+  const items = parseFollowupItems(issue?.body || '');
+  if (info.itemCount !== items.length) {
+    return { eligible: false, reason: 'mismatched-item-count', item: null };
+  }
+  if (!hasStableItemIds(issue?.body || '')) return { eligible: false, reason: 'missing-stable-item-id', item: null };
+  if (!hasStableItemIdsForDailyKey(issue?.body || '', info.dailyKey)) {
+    return { eligible: false, reason: 'mismatched-stable-item-id', item: null };
+  }
+  const item = selectFirstOpenItem(issue?.body || '');
+  return item
+    ? { eligible: true, reason: null, item }
+    : { eligible: false, reason: 'no-open-item', item: null };
+}
+
+/**
+ * Return the open PR that explicitly claims a daily-bucket item, if any.
+ * A PR for another item in the same bucket must not hold this item back; the
+ * marker is the item-level mutex required by the daily contract.
+ *
+ * @param {string} itemId
+ * @param {Array<{number?: number, title?: string, body?: string}>} openPrs
+ * @returns {{number?: number, title?: string, body?: string}|null}
+ */
+export function openPrForDailyItem(itemId, openPrs) {
+  const wanted = String(itemId || '').toUpperCase();
+  if (!/^FU-\d{4}-\d{2}-\d{2}-\d{3}$/.test(wanted)) return null;
+  return (Array.isArray(openPrs) ? openPrs : []).find((pr) =>
+    followupItemMarkers(`${pr?.title || ''}\n${pr?.body || ''}`).includes(wanted),
+  ) || null;
+}
+
+/**
+ * Flatten the shape returned by `gh api --paginate --slurp`.  A successful empty
+ * listing is an empty array; malformed output is *not* an empty listing, because
+ * treating an API/parser failure as "no mutex PR" would allow two fix PRs for one
+ * daily item.
+ */
+export function flattenPaginatedOpenPrs(raw) {
+  if (!Array.isArray(raw)) return null;
+  const flattened = raw.flat(Infinity);
+  return flattened.every((pr) => pr && typeof pr === 'object' && !Array.isArray(pr))
+    ? flattened
+    : null;
+}
+
+/** Fail-closed decision for the daily item-level PR mutex. */
+export function dailyMutexDecision(itemId, scan) {
+  if (!scan || scan.ok !== true || !Array.isArray(scan.prs)) {
+    return { eligible: false, reason: 'open-pr-scan-unavailable', pr: null };
+  }
+  const pr = openPrForDailyItem(itemId, scan.prs);
+  return pr
+    ? { eligible: false, reason: 'item-pr-open', pr }
+    : { eligible: true, reason: null, pr: null };
+}
 
 // --- BUDGET DI RUN (#5162) ---------------------------------------------------
 // Il job `drain` ha 6 minuti per SETUP + LAVORO, e il setup non è una costante:
@@ -1793,6 +1883,29 @@ function gh(args, { json = true } = {}) {
   return json ? JSON.parse(out) : out;
 }
 
+/**
+ * Complete, paginated open-PR scan used only for the daily item mutex.  This is
+ * intentionally separate from the historical overlap map: that map is
+ * fail-open for a transient diff failure, while a daily item must never be
+ * promoted when we cannot prove that no claiming PR exists.
+ */
+function loadOpenPrsForDailyMutex() {
+  try {
+    const raw = gh([
+      'api', `repos/${REPO}/pulls?state=open&per_page=100`,
+      '--paginate', '--slurp',
+    ]);
+    const prs = flattenPaginatedOpenPrs(raw);
+    if (!prs || !prs.every((pr) => Number.isInteger(Number(pr.number)) && Number(pr.number) > 0
+      && typeof pr.title === 'string' && (typeof pr.body === 'string' || pr.body === null))) {
+      return { ok: false, prs: [] };
+    }
+    return { ok: true, prs };
+  } catch {
+    return { ok: false, prs: [] };
+  }
+}
+
 /** Quante run issue-fix sono in volo (queued|in_progress). 0 = slot libero. */
 function inFlightFixCount() {
   let n = 0;
@@ -2591,16 +2704,16 @@ function quotaResetsAt(num) {
 }
 
 /**
- * Carica la mappa PR aperta → {title, files modificati} per il ciclo drainer
+ * Carica la mappa PR aperta → {title, body, files modificati} per il ciclo drainer
  * corrente. In caso di errore gh → mappa vuota (bias a promuovere: mai bloccare
  * una promozione per un glitch API transiente).
- * @returns {Map<number, {title:string, files:Set<string>}>}
+ * @returns {Map<number, {title:string, body:string, files:Set<string>}>}
  */
 function loadOpenPrFilesMap() {
   const map = new Map();
   let openPrs;
   try {
-    openPrs = gh(['pr', 'list', '--state', 'open', '--json', 'number,title', '--limit', '50']);
+    openPrs = gh(['pr', 'list', '--state', 'open', '--json', 'number,title,body', '--limit', '50']);
   } catch { return map; } // lista PR non disponibile → mappa vuota → promuovi
   for (const pr of Array.isArray(openPrs) ? openPrs : []) {
     try {
@@ -2608,7 +2721,7 @@ function loadOpenPrFilesMap() {
       const files = new Set(
         String(diffOut || '').split('\n').map((l) => l.trim()).filter(Boolean),
       );
-      map.set(pr.number, { title: String(pr.title || ''), files });
+      map.set(pr.number, { title: String(pr.title || ''), body: String(pr.body || ''), files });
     } catch { /* diff non disponibile → salta questa PR (bias a promuovere) */ }
   }
   return map;
@@ -3691,6 +3804,7 @@ export function runDrain() {
 
   let overlapSkipped = 0;
   let prFilesMap = null; // lazy: caricato al primo candidato con path estratti, poi cached
+  let dailyOpenPrScan = null; // complete/paginated scan; null means not needed yet
 
   // --- GROUPING (B19): pianifica prima, arma solo il leader ------------------
   // Il planner legge la stessa coda ma con i body. Un errore nella lettura è
@@ -3705,6 +3819,9 @@ export function runDrain() {
   if (queuedWithBodies !== null) {
     const groupable = queuedWithBodies
       .filter((i) => queuedNumbers.has(Number(i.number)))
+      // A daily bucket is already an aggregate with its own one-item circuit
+      // breaker; grouping it with another issue would authorize a multi-item PR.
+      .filter((i) => !dailyBucketInfo(i.title || ''))
       .filter((i) => isIssueGroupable(i, { repository: REPO }))
       .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
     const plannedGroups = groupIssueQueue(groupable, {
@@ -3833,6 +3950,28 @@ export function runDrain() {
       const raw = gh(['issue', 'view', String(cand.number), '--repo', REPO, '--json', 'body'], { json: true });
       body = String(raw?.body || '');
     } catch { body = ''; } // body illeggibile → bias a promuovere (non parkare a vuoto)
+
+    const dailyQueue = dailyBucketQueueDecision({ ...cand, body });
+    if (!dailyQueue.eligible) {
+      // A collecting bucket may receive more source items on a retry. Never let a
+      // partially assembled body leak into `agent:fix`; the next successful mint gate
+      // seals it and adds the queue label atomically. Unknown/malformed state also stays
+      // open for a safe retry instead of being silently discarded.
+      console.log(`SKIP #${cand.number} (${dailyQueue.reason}) → daily bucket non promuovibile; resta in coda senza run fixer`);
+      continue;
+    }
+    if (dailyQueue.item) {
+      if (dailyOpenPrScan === null) dailyOpenPrScan = loadOpenPrsForDailyMutex();
+      const mutex = dailyMutexDecision(dailyQueue.item.id, dailyOpenPrScan);
+      if (!mutex.eligible) {
+        if (mutex.reason === 'item-pr-open') {
+          console.log(`SKIP #${cand.number} (${dailyQueue.item.id} già dichiarato nella PR #${mutex.pr?.number}) → item in volo, resta in coda`);
+        } else {
+          console.log(`SKIP #${cand.number} (${dailyQueue.item.id} mutex PR illeggibile) → scansione open PR fail-closed, resta in coda`);
+        }
+        continue;
+      }
+    }
 
     // Check: malformed body (escalation #2291) — body vuoto/stub brucia turni inutilmente.
     if (detectMalformedBody(cand.title, body)) {

@@ -18,6 +18,8 @@ import {
   latestCompletedConclusionByName,
   vitestVerdictIsTransientCancellation,
   vitestFailureIsNotAttributableToPr,
+  jobRefFromCheckRun,
+  currentAttemptJobSteps,
 } from '../scripts/ci/lib/vitestCheck.mjs';
 import {
   VITEST_CHECK_NAME,
@@ -29,6 +31,25 @@ const vitest = (conclusion: string | null, completed_at: string | null, status =
   status,
   conclusion,
   completed_at,
+});
+
+describe('identità del job condivisa con il corpus', () => {
+  const checkRun = { conclusion: 'failure', head_sha: 'head', details_url: 'https://github.com/owner/repo/actions/runs/10/job/20' };
+  const steps = [{ name: 'Require approving Claude review', conclusion: 'failure' }];
+  const job = { id: 20, status: 'completed', conclusion: 'failure', head_sha: 'head', steps };
+
+  it('legge gli step soltanto dal job del tentativo corrente', () => {
+    expect(jobRefFromCheckRun(checkRun)).toEqual({ runId: '10', jobId: '20' });
+    expect(currentAttemptJobSteps({ checkRun, jobId: '20', jobs: [job] })).toBe(steps);
+    expect(currentAttemptJobSteps({ checkRun, jobId: '20', jobs: [{ ...job, id: 21 }] })).toEqual([]);
+  });
+
+  it('rifiuta un job pendente, un altro head o un verdetto diverso', () => {
+    for (const mismatch of [{ status: 'in_progress' }, { head_sha: 'other' }, { conclusion: 'success' }]) {
+      expect(currentAttemptJobSteps({ checkRun, jobId: '20', jobs: [{ ...job, ...mismatch }] })).toEqual([]);
+    }
+    expect(jobRefFromCheckRun({})).toBeNull();
+  });
 });
 
 describe('latestCompletedVitestConclusion (#2394 stale-check-run guard)', () => {
@@ -76,19 +97,20 @@ describe('latestCompletedVitestConclusion (#2394 stale-check-run guard)', () => 
     expect(latestCompletedVitestConclusion([vitest('skipped', '2026-06-17T08:30:00Z')])).toBe('');
   });
 
-  it('separa il check required dal job di esecuzione che porta gli step', () => {
+  it('seleziona lo stesso job per il verdetto required e gli step di esecuzione', () => {
     const runs = [
-      vitest('success', '2026-06-17T08:30:00Z'),
+      vitest('success', '2026-06-17T08:00:00Z'),
       {
         name: VITEST_EXECUTION_JOB_NAME,
         status: 'completed',
-        conclusion: 'success',
+        conclusion: 'failure',
         completed_at: '2026-06-17T08:29:00Z',
         details_url: 'https://github.com/owner/repo/actions/runs/1/job/2',
       },
     ];
+    expect(VITEST_EXECUTION_JOB_NAME).toBe(VITEST_CHECK_NAME);
     expect(latestCompletedVitestExecutionRun(runs)?.details_url).toContain('/job/2');
-    expect(latestCompletedVitestConclusion(runs)).toBe('success');
+    expect(latestCompletedVitestConclusion(runs)).toBe('failure');
   });
 
   it('nessun vitest concluso (solo pending) → "" (gate attende, invariante #1454)', () => {

@@ -403,6 +403,9 @@ describe('generatori del body PR — keyword di chiusura', () => {
     expect(
       closingRefFor({ number: 3378, title: 'follow-up(#1): 1 item deferred — batch backfill', body: '', labels: followUp })!.line,
     ).toBe('Closes #3378');
+    expect(
+      closingRefFor({ number: 8101, title: 'follow-up(daily:2026-09-09): 1 item — owner/repo', body: '', labels: followUp })!.line,
+    ).toBe('Addresses #8101');
     // Senza label `follow-up` la regola non si applica: è una issue ordinaria.
     expect(
       closingRefFor({ number: 7, title: '3 items deferred', body: '', labels: [{ name: 'bug' }] })!.line,

@@ -19,44 +19,49 @@
  *  - **Idempotenza:** scarta le PR che hanno GIÀ un commento
  *    `## Post-merge follow-up triage` (il marker che Claude posta su OGNI PR
  *    processata) → niente doppio-triage sulla finestra di overlap.
+ *    Una PR di fix daily con `Addresses` + `Follow-up item: FU-...` è l'unica
+ *    eccezione al grandchild gate: passa per cercare finding nuovi nel bucket padre.
  *  - **Gate per-PR riusati BYTE-PER-BYTE:** ogni candidato passa per i due gate
  *    deterministici esistenti, invocati come subprocess (`is-followup-fix-pr.mjs`
  *    grandchild-suppression + `followup-has-candidates.mjs` no-op), così il risparmio
  *    dei gate è preservato anche nel modello batch. Tieni solo le PR che passano
  *    ENTRAMBI (mirror esatto dell'`if:` che il workflow aveva sullo step Claude).
- *  - **PROCEED-SAFE:** errore di query/parse su una singola PR (lista, commenti,
- *    gate inconcludente) → la PR viene INCLUSA nel batch (mai escludere per dubbio),
- *    con motivo loggato. Meglio una run Claude in più che perdere un follow-up.
+ *  - **PROCEED-SAFE per i gate per-PR:** un gate inconcludente lascia la PR nel
+ *    batch (mai persa). Le sorgenti della raccolta — watermark, elenco paginato e
+ *    commenti — invece falliscono chiuse: un output vuoto non può mascherare un
+ *    errore e far avanzare il watermark.
  *
- * Output (GITHUB_OUTPUT): `batch_prs=<csv di numeri>`, `batch_count=<n>`,
- *   `max_turns=<n>` (min(26 + 8*batch_count, 80); MAI < 26 — AGENTS.md vieta di
- *   abbassare i turni di post-merge-followup, qui li alza in proporzione al batch).
+ * Output (GITHUB_OUTPUT): `collection_ok=true|false`, `batch_prs=<csv di numeri>`,
+ *   `batch_count=<n>`, `max_turns=<n>` e `daily_key=YYYY-MM-DD` (giorno di triage
+ *   riuscito in Zurich).
  *
  * Uso:  node scripts/ci/collect-followup-batch.mjs
  * Env:  GH_REPO|GITHUB_REPOSITORY, GITHUB_OUTPUT/GITHUB_STEP_SUMMARY (opz),
- *       FALLBACK_HOURS (opz, default 6), PR_LIMIT (opz, default 100).
+ *       FALLBACK_HOURS (opz, default 6).
  *       Richiede `gh` in PATH.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { dailyBucketInfo, dailyKeyZurich } from './followup-resolution-match.mjs';
 
 const WORKFLOW = 'post-merge-followup.yml';
 const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
 const FALLBACK_HOURS = Number(process.env.FALLBACK_HOURS) || 6;
-const PR_LIMIT = Number(process.env.PR_LIMIT) || 100;
+const SEARCH_PAGE_SIZE = 100;
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
-const repoArgs = (process.env.GH_REPO || process.env.GITHUB_REPOSITORY)
-  ? ['--repo', process.env.GH_REPO || process.env.GITHUB_REPOSITORY]
+const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
+const repoArgs = REPO
+  ? ['--repo', REPO]
   : [];
 
 function gh(args) {
   try {
     return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
   } catch {
-    return ''; // proceed-safe: any gh fault → caller treats as "can't confirm".
+    return null;
   }
 }
 
@@ -81,7 +86,7 @@ export function canonicalLogin(login) {
  * Watermark = start of the LAST SUCCESSFUL run of this workflow. A failed run does
  * NOT advance it → the window is re-covered next time (no follow-up lost). Prefers
  * `startedAt`, falls back to `createdAt`, then to now − FALLBACK_HOURS.
- * @param {string} runListJson  output of `gh run list ... --json createdAt,startedAt`
+ * @param {string} runListJson  output of `gh run list ... --json createdAt,startedAt,event`
  * @param {number} [nowMs]
  * @param {number} [fallbackHours]
  * @returns {string} ISO8601
@@ -100,9 +105,89 @@ export function computeWatermarkISO(runListJson, nowMs = Date.now(), fallbackHou
 }
 
 /**
- * Parse `gh pr list --json number,title,author,mergedAt,headRefName` and keep only
- * eligible-author PRs. Proceed-safe: unparseable list → [] (the run logs it; the
- * next scheduled run re-covers the window since the watermark didn't advance).
+ * Validate the successful-run response before it is allowed to define a
+ * watermark. An empty list is a valid first run; a non-empty list with an
+ * unreadable first timestamp is an incomplete API response and must block the
+ * collector instead of silently falling back to now-minus-six-hours.
+ *
+ * @param {string} runListJson
+ * @returns {Array<{createdAt?:string,startedAt?:string,event:string}>|null}
+ */
+export function parseSuccessfulRunList(runListJson) {
+  let runs;
+  try {
+    runs = JSON.parse(runListJson || '');
+  } catch {
+    return null;
+  }
+  if (!Array.isArray(runs)) return null;
+  if (!runs.length) return runs;
+  const scheduled = [];
+  for (const run of runs) {
+    if (!run || typeof run !== 'object' || Array.isArray(run)) return null;
+    if (typeof run.event !== 'string' || !run.event.trim()) return null;
+    // `workflow_dispatch` can be a successful run immediately before the cron.
+    // It is deliberately not a watermark: only the scheduled cadence owns the
+    // automatic collection window.  Filter before looking at timestamps so a
+    // malformed/manual run cannot become a false checkpoint.
+    if (run.event !== 'schedule') continue;
+    const timestamp = run.startedAt || run.createdAt;
+    if (typeof timestamp !== 'string' || Number.isNaN(Date.parse(timestamp))) return null;
+    scheduled.push(run);
+  }
+  return scheduled;
+}
+
+/**
+ * Parse one complete `gh api --paginate --slurp search/issues` response. Search API
+ * caps a query at 1,000 results; a short page set or `incomplete_results` is therefore
+ * an error, not an empty collection. The caller must keep the watermark unchanged.
+ *
+ * @param {string} searchPagesJson
+ * @returns {Array<{number:number,title?:string,author?:{login:string},mergedAt?:string,headRefName?:string}>|null}
+ */
+export function parseMergedPRPages(searchPagesJson) {
+  let pages;
+  try {
+    pages = JSON.parse(searchPagesJson || '');
+  } catch {
+    return null;
+  }
+  if (!Array.isArray(pages) || !pages.length) return null;
+  const records = [];
+  const seen = new Set();
+  let totalCount = null;
+  for (const page of pages) {
+    if (!page || typeof page !== 'object' || Array.isArray(page)
+        || page.incomplete_results !== false || !Array.isArray(page.items)) return null;
+    const pageTotal = Number(page.total_count);
+    if (!Number.isInteger(pageTotal) || pageTotal < 0) return null;
+    if (totalCount === null) totalCount = pageTotal;
+    if (pageTotal !== totalCount) return null;
+    for (const item of page.items) {
+      const number = Number(item?.number);
+      const login = item?.user?.login;
+      const mergedAt = item?.pull_request?.merged_at;
+      if (!Number.isInteger(number) || number <= 0 || typeof login !== 'string' || !login.trim()
+          || typeof mergedAt !== 'string' || Number.isNaN(Date.parse(mergedAt))) return null;
+      if (seen.has(number)) return null;
+      seen.add(number);
+      records.push({
+        number,
+        title: item.title,
+        author: { login },
+        mergedAt,
+        headRefName: item?.head?.ref || '',
+      });
+    }
+  }
+  return totalCount === records.length ? records : null;
+}
+
+/**
+ * Parse a legacy `gh pr list --json number,title,author,mergedAt,headRefName` payload
+ * and keep only eligible-author PRs. This pure compatibility helper remains lenient;
+ * the CLI uses `parseMergedPRPages()` above and fails closed before calling it.
  * @param {string} prListJson
  * @returns {Array<{number:number, title?:string, headRefName?:string}>}
  */
@@ -137,6 +222,70 @@ export function hasTriageComment(commentsJson, prefix = TRIAGE_COMMENT_PREFIX) {
   return comments.some((c) => typeof c?.body === 'string' && c.body.trimStart().startsWith(prefix));
 }
 
+/** Return the latest follow-up marker body, or null when comments are unreadable. */
+export function latestTriageCommentBody(commentsJson, prefix = TRIAGE_COMMENT_PREFIX) {
+  let data;
+  try {
+    data = JSON.parse(commentsJson || '');
+  } catch {
+    return null;
+  }
+  const comments = Array.isArray(data)
+    ? data
+    : data && Array.isArray(data.comments) ? data.comments : null;
+  if (!comments) return null;
+  const bodies = comments
+    .map((comment) => typeof comment?.body === 'string' ? comment.body : '')
+    .filter((body) => body.trimStart().startsWith(prefix));
+  return bodies.length ? bodies[bodies.length - 1] : null;
+}
+
+/**
+ * Extract the persistence claim from a marker.  A zero-result/backfill marker
+ * intentionally needs no bucket; every other successful marker must name one or
+ * more daily issues.  This is only an expectation parser — the issue bodies are
+ * checked by `verifyTriageMarkerPersistence` before idempotency skips a PR.
+ */
+export function triageMarkerPersistenceExpectation(markerBody) {
+  const body = String(markerBody || '');
+  const buckets = [...body.matchAll(/\bbucket\s+#([1-9]\d*)\b/gi)]
+    .map((match) => Number(match[1]));
+  const uniqueBuckets = [...new Set(buckets)];
+  const noBucketExpected = /zero outstanding items|backfill skipped|Created:\s*0 issue\s*\(solo live-verification batchata\)/i.test(body);
+  return {
+    buckets: uniqueBuckets,
+    requiresBucket: uniqueBuckets.length > 0 || !noBucketExpected,
+  };
+}
+
+/** Prove one persisted daily bucket contains a live item sourced by this PR. */
+export function persistedBucketIssueMatches(issue, prNumber) {
+  const info = dailyBucketInfo(issue?.title || '');
+  const body = String(issue?.body || '');
+  const pr = String(Number(prNumber));
+  return !!info
+    && /^###\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\b/m.test(body)
+    && new RegExp(`^\\s*-\\s+Sources?:[^\\n]*\\bPR\\s+#${pr}\\b`, 'im').test(body);
+}
+
+/**
+ * Check marker idempotency against durable bucket/item evidence.
+ * `readIssue` returns an issue object, `null` for an unavailable read, and may be
+ * injected in tests. Unknown is deliberately returned as `null`, so a transient
+ * API failure keeps the PR in the next batch instead of skipping it forever.
+ */
+export function verifyTriageMarkerPersistence(markerBody, prNumber, readIssue) {
+  const expectation = triageMarkerPersistenceExpectation(markerBody);
+  if (!expectation.requiresBucket) return true;
+  if (!expectation.buckets.length || typeof readIssue !== 'function') return false;
+  for (const number of expectation.buckets) {
+    const issue = readIssue(number);
+    if (issue === null || issue === undefined) return null;
+    if (Number(issue.number) !== number || !persistedBucketIssueMatches(issue, prNumber)) return false;
+  }
+  return true;
+}
+
 /**
  * Turni Claude proporzionati al batch: min(26 + 8*n, 80), floor 26 (mai abbassare).
  * Era min(20+6n,60) — bump fleet-wide 2026-07-17 (owner) di tutti i cap max-turns
@@ -146,66 +295,117 @@ export function maxTurnsFor(batchCount) {
   return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 80);
 }
 
+/**
+ * The bucket key belongs to the triage run, not to an individual merge event. An
+ * explicit value is accepted for workflow retries/tests, while the default is the
+ * current successful triage day in Europe/Zurich.
+ */
+export function triageDailyKey(nowMs = Date.now()) {
+  return process.env.TRIAGE_DAILY_KEY || dailyKeyZurich(nowMs);
+}
+
+/**
+ * Keep ordinary follow-up fixes out of the batch, but let a marker-complete daily
+ * partial fix reach the parent-bucket triage path. Unknown gate results stay fail-open.
+ */
+export function shouldTriageAfterFixGate({ isFollowupFix, followupPartial } = {}) {
+  return isFollowupFix !== true || followupPartial === true;
+}
+
+/**
+ * A marker-complete daily partial fix must still reach Claude even when the
+ * source PR has no ordinary `## Non implementato`/reviewer candidate. Its
+ * purpose is to inspect the fix PR for genuinely new findings and append them
+ * to the parent bucket; the no-op gate cannot see that parent-bucket contract.
+ */
+export function shouldTriageAfterCandidateGate({ hasCandidates, followupPartial } = {}) {
+  return hasCandidates !== false || followupPartial === true;
+}
+
 // ── I/O helpers ─────────────────────────────────────────────────────
 
 /**
- * Invoke an existing per-PR gate script as a subprocess and parse its
- * `key=value` stdout line. Reuses the gate logic byte-per-byte (no modification →
- * no risk to its tests / proceed-safe semantics). GITHUB_OUTPUT/STEP_SUMMARY are
- * blanked for the child so it only prints to stdout (no pollution of OUR outputs).
- * @returns {boolean|null} parsed boolean, or null when inconclusive (proceed-safe).
+ * Invoke an existing per-PR gate script as a subprocess. GITHUB_OUTPUT/STEP_SUMMARY
+ * are blanked for the child so it only prints to stdout (no pollution of OUR outputs).
+ * @returns {string|null} stdout, or null when inconclusive (proceed-safe).
  */
-function runGate(scriptName, prNumber, outputKey) {
+function runGateOutput(scriptName, prNumber) {
   try {
-    const out = execFileSync('node', [path.join(HERE, scriptName)], {
+    return execFileSync('node', [path.join(HERE, scriptName)], {
       encoding: 'utf-8',
       maxBuffer: 32 * 1024 * 1024,
       env: { ...process.env, PR_NUMBER: String(prNumber), GITHUB_OUTPUT: '', GITHUB_STEP_SUMMARY: '' },
     });
-    const m = new RegExp(`${outputKey}=(true|false)`).exec(out);
-    return m ? m[1] === 'true' : null;
   } catch {
     return null; // proceed-safe: gate crash → inconclusive → caller includes the PR.
   }
 }
 
-function emit(batch) {
+function gateBoolean(output, outputKey) {
+  if (output === null) return null;
+  const m = new RegExp(`(?:^|\\n)${outputKey}=(true|false)(?:\\n|$)`).exec(output);
+  return m ? m[1] === 'true' : null;
+}
+
+function runGate(scriptName, prNumber, outputKey) {
+  return gateBoolean(runGateOutput(scriptName, prNumber), outputKey);
+}
+
+function emit(batch, dailyKey = triageDailyKey(), { collectionOk = true } = {}) {
   const csv = batch.join(',');
   const count = batch.length;
+  const ok = collectionOk === true;
   const maxTurns = maxTurnsFor(count);
+  console.log(`collection_ok=${ok}`);
   console.log(`batch_count=${count}`);
   console.log(`batch_prs=${csv}`);
   console.log(`max_turns=${maxTurns}`);
+  console.log(`daily_key=${dailyKey}`);
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(
       process.env.GITHUB_OUTPUT,
-      `batch_prs=${csv}\nbatch_count=${count}\nmax_turns=${maxTurns}\n`,
+      `collection_ok=${ok}\nbatch_prs=${csv}\nbatch_count=${count}\nmax_turns=${maxTurns}\ndaily_key=${dailyKey}\n`,
     );
   }
   if (process.env.GITHUB_STEP_SUMMARY) {
     fs.appendFileSync(
       process.env.GITHUB_STEP_SUMMARY,
-      `## Follow-up batch collected: ${count} PR\n` +
+      `## Follow-up batch collected: ${count} PR\nDaily key: ${dailyKey} (Europe/Zurich).\n` +
       (count ? `PR: ${csv} — max-turns ${maxTurns}.\n` : `Nessuna PR da triagiare in questa finestra.\n`),
     );
   }
 }
 
 export function main() {
+  const dailyKey = triageDailyKey();
+  if (!REPO) throw new Error('GH_REPO/GITHUB_REPOSITORY mancante: raccolta non verificabile');
+  console.log(`Daily key (successful triage day, Europe/Zurich): ${dailyKey}`);
   // 1. Watermark = start of the last SUCCESSFUL run (failed run → re-covered later).
   const runListRaw = gh([
     'run', 'list', `--workflow=${WORKFLOW}`, '--status', 'success',
-    '--json', 'createdAt,startedAt', '--limit', '1', ...repoArgs,
+    '--event', 'schedule', '--json', 'createdAt,startedAt,event', '--limit', '1', ...repoArgs,
   ]);
-  const watermark = computeWatermarkISO(runListRaw);
+  if (runListRaw === null) throw new Error('gh run list non riuscita: watermark non verificabile');
+  const successfulRuns = parseSuccessfulRunList(runListRaw);
+  if (!successfulRuns) throw new Error('risposta gh run list non parsabile/incompleta: watermark non verificabile');
+  // Use the already-filtered schedule-only response.  Keeping the raw response
+  // here would let a dispatch run advance the watermark despite `--event` being
+  // removed/ignored by an older gh version or a mocked runner.
+  const watermark = computeWatermarkISO(JSON.stringify(successfulRuns));
   console.log(`Watermark (last successful run start, fallback now-${FALLBACK_HOURS}h): ${watermark}`);
 
   // 2. Merged PRs since the watermark, eligible authors only.
+  // Search API pagination has an explicit total_count, unlike `gh pr list --limit`
+  // which silently truncated the batch at 100 results and advanced the watermark.
+  const query = `repo:${REPO} is:pr is:merged merged:>=${watermark}`;
   const prListRaw = gh([
-    'pr', 'list', '--state', 'merged', '--search', `merged:>=${watermark}`,
-    '--json', 'number,title,author,mergedAt,headRefName', '--limit', String(PR_LIMIT), ...repoArgs,
+    'api', `search/issues?q=${encodeURIComponent(query)}&per_page=${SEARCH_PAGE_SIZE}`,
+    '--paginate', '--slurp',
   ]);
-  const candidates = parseMergedPRs(prListRaw);
+  if (prListRaw === null) throw new Error('gh api search PR non riuscita: elenco incompleto');
+  const mergedPages = parseMergedPRPages(prListRaw);
+  if (!mergedPages) throw new Error('risposta paginata PR incompleta/non verificabile');
+  const candidates = parseMergedPRs(JSON.stringify(mergedPages));
   console.log(`Merged PRs since watermark (eligible authors): ${candidates.length}`);
 
   const batch = [];
@@ -214,27 +414,53 @@ export function main() {
 
     // Idempotency: already triaged?
     const commentsRaw = gh(['pr', 'view', String(n), ...repoArgs, '--json', 'comments']);
-    if (commentsRaw && hasTriageComment(commentsRaw)) {
-      console.log(`PR #${n}: already has '${TRIAGE_COMMENT_PREFIX}' comment → skip (idempotent).`);
-      continue;
+    if (commentsRaw === null) throw new Error(`commenti PR #${n} non leggibili: raccolta incompleta`);
+    let commentsPayload;
+    try { commentsPayload = JSON.parse(commentsRaw); } catch { commentsPayload = null; }
+    if (!Array.isArray(commentsPayload)
+        && !(commentsPayload && Array.isArray(commentsPayload.comments))) {
+      throw new Error(`commenti PR #${n} non parsabili: raccolta incompleta`);
     }
-    if (!commentsRaw) {
-      console.log(`PR #${n}: comments unreadable — PROCEED-SAFE (treat as not-yet-triaged).`);
+    if (hasTriageComment(commentsRaw)) {
+      const markerBody = latestTriageCommentBody(commentsRaw);
+      const persistence = verifyTriageMarkerPersistence(markerBody, n, (bucket) => {
+        const bucketRaw = gh(['issue', 'view', String(bucket), ...repoArgs, '--json', 'number,title,body']);
+        if (bucketRaw === null) return null;
+        try {
+          const issue = JSON.parse(bucketRaw);
+          return issue && typeof issue === 'object' && !Array.isArray(issue) ? issue : false;
+        } catch {
+          return false;
+        }
+      });
+      if (persistence === true) {
+        console.log(`PR #${n}: already has '${TRIAGE_COMMENT_PREFIX}' plus persisted bucket/item evidence → skip (idempotent).`);
+        continue;
+      }
+      console.log(`PR #${n}: marker presente ma bucket/item non provato (${persistence === null ? 'lettura indisponibile' : 'evidenza assente/invalida'}) → resta nel batch per retry.`);
     }
 
     // Gate 1: grandchild-suppression. true → it's a follow-up fix → skip.
-    const isFix = runGate('is-followup-fix-pr.mjs', n, 'is_followup_fix');
-    if (isFix === true) {
+    const fixGateOutput = runGateOutput('is-followup-fix-pr.mjs', n);
+    const isFix = gateBoolean(fixGateOutput, 'is_followup_fix');
+    const isPartialDailyFix = gateBoolean(fixGateOutput, 'followup_partial');
+    if (!shouldTriageAfterFixGate({ isFollowupFix: isFix, followupPartial: isPartialDailyFix })) {
       console.log(`PR #${n}: follow-up FIX (grandchild-suppression) → skip.`);
       continue;
     }
     if (isFix === null) console.log(`PR #${n}: grandchild gate inconclusive — PROCEED-SAFE (keep).`);
+    if (isFix === true && isPartialDailyFix === true) {
+      console.log(`PR #${n}: partial daily follow-up FIX → keep for parent-bucket triage; no grandchild issue.`);
+    }
 
     // Gate 2: no-op candidate pre-gate. false → nothing to triage → skip.
     const hasCand = runGate('followup-has-candidates.mjs', n, 'has_candidates');
-    if (hasCand === false) {
+    if (!shouldTriageAfterCandidateGate({ hasCandidates: hasCand, followupPartial: isPartialDailyFix })) {
       console.log(`PR #${n}: no plausible candidate (no-op gate) → skip.`);
       continue;
+    }
+    if (hasCand === false && isPartialDailyFix === true) {
+      console.log(`PR #${n}: partial daily follow-up FIX has no ordinary candidate → keep to inspect parent bucket for new findings.`);
     }
     if (hasCand === null) console.log(`PR #${n}: candidate gate inconclusive — PROCEED-SAFE (keep).`);
 
@@ -242,17 +468,20 @@ export function main() {
     console.log(`PR #${n}: passes both gates → added to batch.`);
   }
 
-  emit(batch);
+  emit(batch, dailyKey);
 }
 
 // CLI entrypoint only (importing for tests must not invoke gh). Proceed-safe: any
-// uncaught error → emit an empty batch (no run; the watermark holds → next
-// scheduled run re-covers the window, nothing lost).
+// An uncaught collection error emits an explicit failed output and exits nonzero;
+// the workflow verifier then fails the job, so the success watermark cannot advance.
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     main();
   } catch (e) {
-    console.log(`collect-followup-batch: unexpected error (${e?.message || e}) — emitting empty batch (window re-covered next run).`);
-    emit([]);
+    console.error(`collect-followup-batch: unexpected error (${e?.message || e}) — collection_ok=false, watermark invariato.`);
+    try { emit([], triageDailyKey(), { collectionOk: false }); } catch (emitError) {
+      console.error(`collect-followup-batch: impossibile scrivere gli output di errore (${emitError?.message || emitError}).`);
+    }
+    process.exitCode = 1;
   }
 }

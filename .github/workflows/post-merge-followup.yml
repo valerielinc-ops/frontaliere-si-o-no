@@ -24,10 +24,10 @@ permissions:
   actions: read # collect-followup-batch.mjs legge `gh run list` per il watermark
 
 concurrency:
-  # Serializza le run schedulate (cancel-in-progress:false → una run in coda attende,
-  # mai cancellata). Con watermark-su-successo l'overlap non perde dati, ma serializzare
-  # evita doppio-triage concorrente sulla stessa finestra. Pattern = followup-reconcile.yml.
-  group: post-merge-followup
+  # Questo è il mutex condiviso con followup-reconcile.yml e followup-drainer.yml:
+  # gate, reconciler e queue writer possono toccare lo stesso bucket daily. La chiave
+  # è repo-scoped (non workflow-scoped), e cancel:false conserva la run già partita.
+  group: followup-daily-${{ github.repository }}
   cancel-in-progress: false
 
 jobs:
@@ -65,8 +65,12 @@ jobs:
       #    invocati come subprocess: risparmio preservato anche in batch).
       #  - workflow_dispatch → batch = [pr_number] diretto (backfill volontario,
       #    bypass gate: il prompt Claude ri-verifica eligibility).
-      # PROCEED-SAFE: dubbio/errore su una PR → inclusa nel batch (mai persa).
-      # Emette batch_prs (csv), batch_count, max_turns. Vedi scripts/ci/collect-followup-batch.mjs.
+      # PROCEED-SAFE: un gate per-PR inconcludente → PR inclusa nel batch (mai persa);
+      # errori delle sorgenti di raccolta → collection_ok=false e run rossa.
+      # Emette collection_ok, batch_prs (csv), batch_count, max_turns e daily_key
+      # (Europe/Zurich). collection_ok è distinto dal batch vuoto: un errore di
+      # raccolta non può essere interpretato come "nessuna PR".
+      # Vedi scripts/ci/collect-followup-batch.mjs.
       - name: Collect follow-up batch
         id: collect
         env:
@@ -81,7 +85,9 @@ jobs:
             {
               echo "batch_prs=${PR}"
               echo "batch_count=1"
+              echo "collection_ok=true"
               echo "max_turns=34" # = maxTurnsFor(1) — tenere allineato a collect-followup-batch.mjs
+              echo "daily_key=$(TZ=Europe/Zurich date +%F)"
             } >> "$GITHUB_OUTPUT"
           else
             node scripts/ci/collect-followup-batch.mjs
@@ -113,6 +119,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          CODEX_FALLBACK_MODE: '1'
         # Senza ISSUE_NUMBER lo script è in sola RILEVAZIONE: legge il beacon
         # `<!-- QUOTA_RESETS_AT: … -->` lasciato sulle issue della coda issue-fix
         # (stessa quota, stesso account) e non modifica nessuna label.
@@ -128,7 +135,7 @@ jobs:
         # perderebbe per sempre il batch di PR non triagiate. Fallire è il
         # comportamento CORRETTO e identico a quello odierno (la run moriva
         # comunque sul 429); l'unica differenza è che non spendiamo la chiamata.
-        if: steps.quota.outputs.quota_blocked == 'true'
+        if: steps.quota.outputs.quota_blocked == 'true' && steps.quota.outputs.codex_fallback != 'true'
         run: |
           echo "::error::post-merge-followup: quota Claude esaurita (reset epoch ${{ steps.quota.outputs.resets_at }}) — salto la chiamata Claude, che morirebbe su HTTP 429 a turno 1. Il watermark NON avanza: la prossima run schedulata (≤3h) ri-copre l'intera finestra, nessuna PR persa."
           exit 1
@@ -233,15 +240,21 @@ jobs:
         # ridondante (lo step di skip sopra esce 1 e GitHub salta già il resto) ma
         # esplicita: il gate non deve dipendere dall'ordine degli step per reggere.
         if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
-        uses: anthropics/claude-code-action@v1
+        uses: ./.github/actions/claude-codex-fallback
+        # The shared action invokes `uses: anthropics/claude-code-action@v1` for
+        # Claude and switches to the one-shot Codex subscription fallback only on
+        # a detected usage-limit/quota response.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}
+          TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
           REPO: ${{ github.repository }}
           GITHUB_PAT: ${{ env.GITHUB_PAT }}
           EVENT_NAME: ${{ github.event_name }}
         with:
+          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # `allowed_non_write_users` (sotto) funziona SOLO con `github_token` esplicito,
           # non con la sola GitHub App auth di `claude_code_oauth_token` (docs/security.md
@@ -252,6 +265,11 @@ jobs:
           # `permissions:` del job (pull-requests/issues write), scade a fine job — NON un
           # PAT statico.
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          codex_github_token: ${{ secrets.GITHUB_TOKEN }}
+          # The corpus PAT is a separate host-side bridge scope. It is never
+          # included in the Codex child environment and is accepted only for
+          # nanakokyobashi-rgb/frontaliere-articles issue operations.
+          codex_corpus_github_token: ${{ env.GITHUB_PAT }}
           # Il merge che alimenta questo workflow è fatto da automation interna con DUE
           # actor bot distinti — entrambi vanno in whitelist o claude-code-action aborta
           # "Workflow initiated by non-human actor":
@@ -301,15 +319,28 @@ jobs:
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}
             Conteggio: ${{ steps.collect.outputs.batch_count }}
+            Daily key (Europe/Zurich, solo se la triage run riesce): ${{ steps.collect.outputs.daily_key }}
 
             Itera su OGNI PR del batch ed esegui il workflow FOLLOWUP.md per ciascuna, in
             modo INDIPENDENTE: un errore su una PR non deve impedire di processare le altre.
+            I finding validi non diventano issue per-PR: vengono prima raccolti e poi
+            raggruppati per repository target nel bucket giornaliero della chiave sopra.
 
             **Bootstrap (UNA volta, condiviso per TUTTO il batch — non ri-leggere per ogni PR):**
             1. Leggi `FOLLOWUP.md` — contratto operativo completo (parse rules, filtro scopo, dedup, issue format, closing comment).
             2. Leggi `REVIEW.md → "Scopo progetto"` per il filtro funnel.
-            3. `gh issue list --label follow-up --state all --json number,title --limit 50` (SOLO `number,title`: il bulk overview serve per la vista d'insieme/titoli; il dedup vero è item-level scoped via `--search`. MAI aggiungere `,body`: con ~170 issue follow-up il dump arriva a ~170KB emoji-heavy, troncato a un boundary di surrogate UTF-16 → lone surrogate → `400 no low surrogate in string`, ogni run fallisce.) Riusa questa lista per il dedup su tutte le PR del batch.
+            3. `gh issue list --label follow-up --state all --json number,title --limit 300` (SOLO `number,title`: il bulk overview serve per la vista d'insieme; il dedup vero è item-level e il body va letto solo per i bucket daily candidati). Riusa questa lista per il dedup su tutte le PR del batch.
             4. Il contesto per-PR del batch è già prefetchato (zero-Claude, token-lever) in `${{ runner.temp }}/followup-ctx/followup-bundle.md`: leggilo con `Read` — contiene, per ciascuna PR #N del batch, `gh pr view` (number/title/body/mergedAt/mergeCommit/url/author) + le review, e l'elenco delle PR aperte con i rispettivi file (per l'In-flight PR overlap sotto). Non ripetere queste chiamate per-PR a meno che la sezione della PR risulti vuota/incompleta nel bundle.
+
+            **Protocollo bucket giornaliero (vincolante):**
+            - La chiave è `${{ steps.collect.outputs.daily_key }}` in `Europe/Zurich`, derivata dal giorno della triage riuscita, MAI da `mergedAt`. Lo stesso retry può quindi raccogliere la finestra arretrata nello stesso bucket della run.
+            - Dopo aver applicato tutti i filtri esistenti, determina il repository target di ogni item e raggruppa per `(daily_key, target repository)`: sito e corpus sono issue separate. Il titolo canonico è `follow-up(daily:YYYY-MM-DD): N item — owner/repo`.
+            - Cerca prima un issue aperto con quella chiave e quel repository. Se esiste, rileggi il body immediatamente prima dell'append; confronta la baseline (o una hash), ricostruisci l'append dalla lettura nuova su divergenza e non sovrascrivere contenuto concorrente. Se trovi un bucket `collecting` storico che contiene una PR della finestra, riusa quella chiave/titolo anche se il retry è entrato nel giorno successivo: mai sdoppiare la finestra. Se non esiste, crea UNA sola issue per gruppo con `State: collecting`; non aggiungere `agent:fix` né `agent:fix-queued` durante la raccolta.
+            - Ogni item deve avere un ID stabile `FU-YYYY-MM-DD-NNN`, assegnato una sola volta, e i campi `Target repository`, `Target file`, `Original text`, `Suggested action`, `Acceptance token`, `Sources`. Deduplica col fingerprint `target repository + target file + token/azione normalizzata`; su match aggiungi la PR alla riga `Sources`, non un secondo item.
+            - Il body resta `State: collecting` finché tutti i chunk seriali del batch sono conclusi. Non troncare mai il set per un cap “max 10”: il cap vale solo per chunk/sessione. Un errore lascia il bucket collecting e la finestra senza avanzare; il retry riusa la stessa chiave e le PR già commentate restano idempotenti.
+            - Se `batch_count` supera il budget della sessione, lavora in chunk seriali: dopo ogni chunk salva gli item nel bucket esistente, poi continua dal primo PR non commentato. Non aprire un secondo bucket per lo stesso `(daily_key, target repository)`.
+            - Solo il gate zero-Claude successivo demota gli item privi di acceptance falsificabile, porta il bucket a `State: sealed` e aggiunge `agent:fix-queued`. Un bucket collecting non è lavorabile dal drainer.
+            - Una PR di fix daily con `Addresses #<bucket>` e `Follow-up item: FU-...` passa il gate anti-nipote solo per cercare finding nuovi: non creare issue figlie. Leggi il bucket padre nello stesso repository target; i finding già coperti dal padre aggiornano `Sources`/si deduplicano, quelli genuinamente nuovi si appendono al padre (se sealed, riportalo a collecting per il gate successivo). Se il padre è illeggibile, posta il blocco sulla PR e non creare un contenitore alternativo.
 
             **Per OGNI PR #N del batch (CSV sopra):**
             - **Backfill check (SOLO se `EVENT_NAME=workflow_dispatch`):** ri-verifica che
@@ -356,15 +387,15 @@ jobs:
               NB: dopo di te gira uno step deterministico (`scripts/ci/gate-minted-followups.mjs`) che ri-applica questa regola con la funzione vera, non con la tua lettura di questa riga. Un item che non la rispetta viene demoto dal corpo della issue e conservato nel commento della PR.
             - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip).
             - **In-flight PR overlap** (anti self-flag): escludi item su file che una PR aperta sta già modificando — usa `## Open PRs` + `## Open PR changed files` già nel bundle (punto 4 del Bootstrap), non rifare `gh pr list`/`gh pr diff --name-only` → log "in-flight in PR #N". Vedi FOLLOWUP.md § Dedup.
-            - Crea issue per candidate validi, **max 10 per PR**. Label: `follow-up` + UNO funnel-* se inferibile.
+            - Non creare issue per-PR: aggiungi tutti i candidate validi al bucket giornaliero/repository target, senza un cap che tronchi gli item. Il cap è ammesso solo per il chunk/sessione. Label del bucket: `follow-up` + UNO funnel-* se inferibile; non aggiungere `agent:fix`/`agent:fix-queued` finché il gate non ha sigillato il bucket.
             - **OBBLIGATORIO:** posta `## Post-merge follow-up triage` summary commento su QUELLA PR (#N) — SEMPRE, anche con zero candidate (`## Post-merge follow-up triage: zero outstanding items.`). Questo commento è il MARKER DI IDEMPOTENZA del batch: senza, la prossima run schedulata ri-triagia la stessa PR. Include la sezione `Live-verification` (checklist `- [ ]` batchata) se ce ne sono; vedi FOLLOWUP.md § Closing comment.
 
             **Constraint:**
-            - Read-only eccetto `gh issue create`, `gh pr comment`.
-            - Mai modificare PR label/state/title. Mai chiudere/riaprire issue.
+            - Le scritture ammesse sono `gh issue create/edit/comment` sul repository target e `gh pr comment` sulla PR sorgente; mai modificare PR label/state/title e mai chiudere/riaprire issue dal triage.
+            - Le append al body sono concorrenti: lettura subito prima, confronto baseline/hash, ricostruzione su body nuovo e commento append-only per gli eventi di stato. Un errore di append non deve cancellare item già presenti.
             - Incerto sul filtro → crea con rationale "needs triage".
             - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
-            - NB: la supersede detection NON è scope di questo prompt — la fa già `followup-reconcile.yml` deterministico daily (zero-Claude).
+            - NB: la supersede detection NON è scope di questo prompt — la fa già `followup-reconcile.yml` deterministico daily (zero-Claude). Una PR nata per un bucket porta `Follow-up item: FU-...` e `Addresses #<bucket>`; non usare `Closes` finché resta anche un item aperto.
 
       # NB: niente self-retry step (era richiesto dal modello per-PR, dove un run fallito
       # = triage perso per sempre). Nel modello batch il watermark avanza SOLO su run di
@@ -372,6 +403,147 @@ jobs:
       # schedulata (≤3h) ri-copre l'intera finestra; l'idempotenza (commento
       # `## Post-merge follow-up triage`) salta le PR già processate e riprende le altre.
       # Retry at-least-once by-construction, senza ricorsione né `actions: write`.
+
+      # Do not infer completion from an action exit code: Claude/Codex can stop
+      # after one chunk while the batch still contains other PRs.  The gate may
+      # seal a collecting bucket only when every PR in the positive batch carries
+      # the required idempotency marker and the action/fallback itself succeeded.
+      # A successful empty collection is complete without invoking Claude; an
+      # empty/failed collection is not. The explicit collection_ok output keeps
+      # those states distinct so a collector error cannot advance the watermark.
+      - name: Verify complete follow-up triage (zero-Claude)
+        id: triage_complete
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
+          BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}
+          COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}
+          CLAUDE_OUTCOME: ${{ steps.followup.outputs.claude_outcome }}
+          FALLBACK_SUCCESS: ${{ steps.followup.outputs.fallback_success }}
+          CORPUS_REPO: nanakokyobashi-rgb/frontaliere-articles
+          GITHUB_PAT_NANAKO: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
+          GITHUB_PAT: ${{ env.GITHUB_PAT }}
+        run: |
+          set -uo pipefail
+          complete=false
+          count="${BATCH_COUNT:-}"
+          csv="${BATCH_PRS:-}"
+          collection_ok="${COLLECTION_OK:-false}"
+          marker_ok=true
+          actual=0
+          seen=""
+          action_ok=false
+          persistence_ok=true
+
+          # A PR marker is only an idempotency claim.  For a non-empty result it
+          # must point to a durable daily bucket whose body contains both a stable
+          # item heading and this PR in Sources.  This catches a successful marker
+          # comment followed by a failed issue create/edit; otherwise the next run
+          # would skip the PR forever.  The bucket can live in either repository.
+          bucket_persisted_for_pr() {
+            bucket="$1"
+            pr_number="$2"
+            for target_repo in "${REPO:-}" "${CORPUS_REPO:-}"; do
+              [ -n "$target_repo" ] || continue
+              target_token="${GH_TOKEN:-}"
+              if [ "$target_repo" = "${CORPUS_REPO:-}" ]; then
+                target_token="${GITHUB_PAT_NANAKO:-${GITHUB_PAT:-}}"
+              fi
+              [ -n "$target_token" ] || continue
+              issue_json=$(GH_TOKEN="$target_token" gh issue view "$bucket" --repo "$target_repo" --json number,title,body 2>/dev/null) || continue
+              if printf '%s' "$issue_json" | jq -e --arg bucket "$bucket" --arg pr "$pr_number" '
+                ((.number | tostring) == $bucket)
+                and ((.title // "") | test("^follow-up\\(daily:[0-9]{4}-[0-9]{2}-[0-9]{2}\\):[[:space:]]+[0-9]+[[:space:]]+items?"))
+                and ((.body // "") | test("(?m)^### FU-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}"))
+                and ((.body // "") | test("(?m)^-[[:space:]]+Sources?:[^\\n]*PR[[:space:]]+#" + $pr + "([^0-9]|$)"))
+              ' >/dev/null 2>&1; then
+                return 0
+              fi
+            done
+            return 1
+          }
+
+          if [ "$collection_ok" != true ]; then
+            echo "triage incompleta: collection_ok non è true (raccolta fallita/illeggibile)"
+            marker_ok=false
+          elif ! [[ "$count" =~ ^[0-9]+$ ]]; then
+            echo "triage incompleta: batch_count non numerico"
+            marker_ok=false
+          elif [ "$count" -eq 0 ]; then
+            if [ -n "$(printf '%s' "$csv" | tr -d '[:space:]')" ]; then
+              echo "triage incompleta: batch_count=0 ma BATCH_PRS non è vuoto"
+              marker_ok=false
+            else
+              # There is no Claude action for a genuinely empty, successfully
+              # collected window. This is the only zero-batch completion path.
+              action_ok=true
+            fi
+          else
+            IFS=',' read -ra prs <<< "$csv"
+            for raw_pr in "${prs[@]}"; do
+              pr=$(printf '%s' "$raw_pr" | tr -d '[:space:]')
+              if ! [[ "$pr" =~ ^[1-9][0-9]*$ ]]; then
+                echo "triage incompleta: BATCH_PRS contiene un PR non numerico"
+                marker_ok=false
+                continue
+              fi
+              case ",${seen}," in
+                *,"$pr",*)
+                  echo "triage incompleta: PR #$pr duplicata nel batch"
+                  marker_ok=false
+                  continue
+                  ;;
+              esac
+              seen="${seen:+$seen,}${pr}"
+              actual=$((actual + 1))
+              comments=$(gh pr view "$pr" --repo "$REPO" --json comments 2>/dev/null) || comments=""
+              if [ -z "$comments" ] || ! printf '%s' "$comments" | jq -e '[.comments[]?.body // "" | contains("## Post-merge follow-up triage")] | any' >/dev/null 2>&1; then
+                echo "triage incompleta: PR #$pr senza marker di triage leggibile"
+                marker_ok=false
+              else
+                marker_body=$(printf '%s' "$comments" | jq -r '[.comments[]?.body // "" | select(contains("## Post-merge follow-up triage"))] | last // ""' 2>/dev/null || true)
+                bucket_refs=$(printf '%s' "$marker_body" | grep -Eo 'bucket #[0-9]+' | sed -E 's/.*#//' | sort -un || true)
+                if printf '%s' "$marker_body" | grep -Eiq 'zero outstanding items|backfill skipped|Created:[[:space:]]*0 issue[[:space:]]*\(solo live-verification batchata\)'; then
+                  if [ -n "$bucket_refs" ]; then
+                    echo "triage incompleta: PR #$pr dichiara zero issue ma il marker cita bucket persistiti ambigui"
+                    persistence_ok=false
+                  fi
+                elif [ -z "$bucket_refs" ]; then
+                  echo "triage incompleta: marker PR #$pr senza riferimento a un bucket persistito"
+                  persistence_ok=false
+                else
+                  while IFS= read -r bucket; do
+                    [ -n "$bucket" ] || continue
+                    if ! bucket_persisted_for_pr "$bucket" "$pr"; then
+                      echo "triage incompleta: bucket #$bucket per PR #$pr non leggibile o senza item/Source persistito"
+                      persistence_ok=false
+                    fi
+                  done < <(printf '%s\n' "$bucket_refs")
+                fi
+              fi
+            done
+            if [ "$actual" -ne "$count" ] 2>/dev/null; then
+              echo "triage incompleta: batch_count=$count ma PR verificate=$actual"
+              marker_ok=false
+            fi
+          fi
+          if [ "$count" -gt 0 ] 2>/dev/null; then
+            if [ "${CLAUDE_OUTCOME:-}" = success ] || [ "${FALLBACK_SUCCESS:-}" = true ]; then
+              action_ok=true
+            else
+              echo "triage incompleta: batch positivo senza esito Claude/Codex riuscito"
+            fi
+          fi
+          if [ "$marker_ok" = true ] && [ "$persistence_ok" = true ] && [ "$action_ok" = true ]; then
+            complete=true
+          fi
+          echo "triage_complete=$complete" >> "$GITHUB_OUTPUT"
+          echo "triage_complete=$complete (batch_count=${count:-missing}, verified_prs=$actual, persistence_ok=$persistence_ok, action_ok=$action_ok)"
+          if [ "$complete" != true ]; then
+            exit 1
+          fi
 
       # Gate DETERMINISTICO in ingresso sul conio (zero-Claude). Il divieto di mintare
       # item senza condizione di accettazione falsificabile esiste gia' sopra, ma vive
@@ -388,25 +560,31 @@ jobs:
       # timeout DOPO aver creato una issue; `continue-on-error` perche' un guasto qui non
       # deve poter far cadere il triage (la issue resta intatta, e' il verso sicuro).
       - name: Gate sul conio — demota gli item senza condizione di accettazione (zero-Claude)
-        if: always() && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        if: always()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
+          TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
+          COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}
+          TRIAGE_COMPLETE: ${{ steps.triage_complete.outputs.triage_complete }}
         run: node scripts/ci/gate-minted-followups.mjs
 
       # Le follow-up che riguardano il producer vengono coniate sul corpus, non sul
       # sito. Il gate deve quindi leggere/scrivere le issue su Nanako ma commentare la
       # PR sorgente qui: `GATE_PR_REPO` separa i due repository nel gate.
       - name: Gate sul conio — corpus (zero-Claude)
-        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        if: always()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           GH_REPO: nanakokyobashi-rgb/frontaliere-articles
           GATE_PR_REPO: ${{ github.repository }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
+          TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
+          COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}
+          TRIAGE_COMPLETE: ${{ steps.triage_complete.outputs.triage_complete }}
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then
             echo "::warning::Gate sul conio corpus saltato: GITHUB_PAT_NANAKO/GITHUB_PAT assente; issue lasciate intatte."
@@ -415,7 +593,7 @@ jobs:
           node scripts/ci/gate-minted-followups.mjs
 
       - name: Claude usage metrics
-        if: always()
+        if: always() && steps.followup.outputs.fallback_used != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to the run
         # Step Summary + a grep-able CLAUDE_USAGE line to the log. Best-effort: never fails.
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.followup.outputs.execution_file }}" "post-merge-followup"

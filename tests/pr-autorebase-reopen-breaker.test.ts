@@ -434,7 +434,7 @@ describe('#7429 — il rosso da REVIEW GATE non è il rosso dei test', () => {
   it('WIRING: guardedReopen calcola il rosso-da-gate e lo rende one-shot', () => {
     // Senza il wiring la decisione pura resterebbe irraggiungibile — la stessa
     // forma della guardia morta già fissata sopra per lo stuck-red.
-    expect(script).toMatch(/vitestRedIsReviewGate\(head\)/);
+    expect(script).toMatch(/vitestFailureIsReviewGate\(steps\)/);
     expect(script).toMatch(/failureNotAttributable:\s*stuckRedReason\s*\|\|\s*reviewGateReason/);
     expect(script).toMatch(/reviewGateFailure:\s*reviewGateRed/);
     // Il one-shot vive nello STATO dello sticky, non in un secondo commento:

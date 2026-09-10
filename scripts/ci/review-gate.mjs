@@ -8,17 +8,24 @@
  * Le review successive non possono cancellare uno storico Important: resta
  * aperto finche' una review successiva conferma esplicitamente il fix dell'ancora
  * (`Fix di \`path:L<linea>\`: ok.` oppure, per un finding senza citazioni,
- * `Fix di \`testo normalizzato\`: ok.`), oppure il finding viene classificato
+ * `Fix di \`testo normalizzato\`: ok.`; per il body vale anche l'ancora
+ * `Fix di \`PR body:L<linea>\`: ok.`), oppure il finding viene classificato
  * fuori dal diff.
  * Ogni informazione mancante resta bloccante: una lista incompleta, vuota o un
  * tree non risolvibile non autorizzano mai un'inferenza «fuori dal diff».
  */
+import { isReviewTestPath, findTestOnlyApproval } from './review-test-policy.mjs';
 import { execFileSync } from 'node:child_process';
-import { realpathSync, appendFileSync } from 'node:fs';
+import { realpathSync, readFileSync, appendFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import {
+  isValidCodexFallbackEvidence,
+  parseCodexFallbackEvidence,
+  FALLBACK_STATUS,
+} from './claude-codex-fallback.mjs';
 
 export const FOLLOWUP_MARKER = 'OUT_OF_SCOPE_REVIEW_FOLLOWUP';
 const MAX_FOLLOWUP_BODY_LEN = 60_000;
@@ -26,6 +33,11 @@ const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*/u;
 const FINDING_MARKER_RE = /🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
+// This is deliberately narrower than REVIEWER_LOGIN_RE and is accepted only
+// together with a validated Codex evidence file plus an exact HEAD commit and
+// review marker. It does not broaden ordinary Claude reviewer identity.
+const CODEX_REVIEWER_LOGIN_RE = /^(?:github-actions\[bot\]|frontaliere-automation\[bot\])$/iu;
+export const CODEX_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
 // L'alternanza delle estensioni e' first-match-wins: senza il lookahead finale
 // `ts` vince su `tsx` e `js` su `json`/`jsx`, e la citazione viene troncata a un
@@ -33,7 +45,7 @@ const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
 // bloccante per progetto, quindi il refuso teneva aperto per sempre un finding
 // gia' confermato risolto. Il lookahead impone che l'estensione finisca davvero
 // li', e rende l'ordine delle alternative irrilevante.
-const FILE_CITATION_RE = /(?:^|[\s([{"'`])((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9]))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
+const FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9]))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
 
 /**
  * Normalize a review citation without turning an unsafe/ambiguous path into a
@@ -148,15 +160,22 @@ export function importantFindings(body) {
     const text = lines.slice(index, end).join('\n').trim();
     const parserUncertain = markerLines.some(({ line: markerLine, index: markerIndex, marker }) =>
       markerIndex > index && markerIndex < end && !isFindingStart(markerLine, marker));
+    const citations = extractFileCitations(text);
+    // When precise locations exist, bare filenames in the explanation are
+    // context, not additional anchors. Preserve every explicit path/line.
+    const hasPreciseAnchor = citations.some(citation => citation.line !== null);
     return {
       line,
       text,
       lineNumber: index + 1,
       findingNumber: markerIndex + 1,
-      citations: extractFileCitations(text),
+      citations: hasPreciseAnchor
+        ? citations.filter(citation => citation.line !== null || citation.path.includes('/'))
+        : citations,
       parserUncertain,
     };
-  });
+  }).filter(finding => finding.parserUncertain || !finding.citations.length
+    || !finding.citations.every(citation => isReviewTestPath(citation.path)));
 }
 
 function suffixMatches(candidate, wanted) {
@@ -419,6 +438,13 @@ function findingKey(finding) {
     .trim();
 }
 
+// PR metadata is not a repository path: keep it out of diff classification.
+// Only an explicit line anchor can resolve a historical body finding.
+function prBodyAnchor(text) {
+  const match = String(text || '').match(/^\s*(?:[-*]\s*)?`?PR body[:#]L?([1-9]\d*)(?:[-–]\d+)?(?=$|[`:\s])/iu);
+  return match ? Number(match[1]) : null;
+}
+
 function fixConfirmations(body) {
   const confirmations = [];
   for (const line of String(body || '').split(/\r?\n/u)) {
@@ -427,6 +453,7 @@ function fixConfirmations(body) {
     const text = match[1].trim();
     confirmations.push({
       citations: extractFileCitations(text),
+      bodyAnchor: prBodyAnchor(text),
       key: findingKey({ citations: [], text }),
     });
   }
@@ -452,7 +479,9 @@ function citationConfirmed(citation, confirmations) {
 
 function findingConfirmed(finding, confirmations) {
   if (finding.citations.length === 0) {
-    return confirmations.some((confirmation) => confirmation.key === findingKey(finding));
+    const bodyAnchor = prBodyAnchor(finding.line);
+    return confirmations.some((confirmation) => confirmation.key === findingKey(finding)
+      || (bodyAnchor !== null && confirmation.bodyAnchor === bodyAnchor));
   }
   return finding.citations.every((citation) => citationConfirmed(citation, confirmations));
 }
@@ -518,6 +547,27 @@ function latestReviewer(reviews) {
     review?.user?.type === 'Bot' && REVIEWER_LOGIN_RE.test(review.user.login || ''),
   );
   return bots.length ? bots[bots.length - 1] : null;
+}
+
+function latestCodexReviewer(reviews, headSha) {
+  const list = reviewerList(reviews);
+  for (let index = list.length - 1; index >= 0; index -= 1) {
+    const review = list[index];
+    if (review?.user?.type !== 'Bot' || !CODEX_REVIEWER_LOGIN_RE.test(review.user.login || '')) continue;
+    if (String(review.commit_id || '') !== String(headSha || '')) continue;
+    if (!String(review.body || '').includes(CODEX_REVIEW_MARKER)) continue;
+    return review;
+  }
+  return null;
+}
+
+function readCodexEvidenceFile(file) {
+  if (!file) return null;
+  try {
+    return parseCodexFallbackEvidence(readFileSync(realpathSync(file), 'utf8'));
+  } catch {
+    return null;
+  }
 }
 
 function fetchRepositoryPaths(repo, pr) {
@@ -720,6 +770,8 @@ export async function runReviewGate({
   prUrl,
   mutate = true,
   reviews,
+  codexEvidence,
+  codexEvidenceFile,
   fingerprintFn = fingerprint,
   classifyAndMintReviewFn = classifyAndMintReview,
 } = {}) {
@@ -728,7 +780,23 @@ export async function runReviewGate({
   }
 
   const reviewHistory = reviews ?? readReviews(repo, pr);
-  const latest = latestReviewer(reviewHistory);
+  const structuredCodexEvidence = codexEvidence
+    || readCodexEvidenceFile(codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
+  const automatic = findTestOnlyApproval(reviewHistory, headSha, { ghFn: gh, repo, pr });
+  if (automatic) return { approved: true, reason: 'tests-only owner policy', review: automatic, reviewCommit: headSha };
+  const codexEvidenceRequested = Boolean(codexEvidence || codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
+  if (codexEvidenceRequested
+      && (!isValidCodexFallbackEvidence(structuredCodexEvidence)
+        || structuredCodexEvidence.status !== FALLBACK_STATUS.SUCCESS)) {
+    return { approved: false, reason: 'evidenza Codex assente, non valida o fallita' };
+  }
+  const codexReview = structuredCodexEvidence?.status === FALLBACK_STATUS.SUCCESS
+    ? latestCodexReviewer(reviewHistory, headSha)
+    : null;
+  if (codexEvidenceRequested && !codexReview) {
+    return { approved: false, reason: 'evidenza Codex valida ma nessuna review Codex marcata sulla HEAD' };
+  }
+  const latest = codexReview || latestReviewer(reviewHistory);
   if (!latest) return { approved: false, reason: 'nessuna review Claude leggibile' };
   const body = String(latest.body || '');
   const historical = historicalImportantFindings(reviewHistory);

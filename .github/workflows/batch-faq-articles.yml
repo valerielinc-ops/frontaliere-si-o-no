@@ -110,7 +110,10 @@ jobs:
       # reached only after every free-tier model has failed. See
       # .github/actions/setup-claude-haiku-fallback/action.yml for the full
       # rationale + incident history.
-      - uses: ./.github/actions/setup-claude-haiku-fallback
+      - id: setup_claude_haiku_fallback
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
       # App installation token = primary push identity so the data commit on main
       # re-triggers deploy (GITHUB_TOKEN would not, anti-recursion). Falls back to
@@ -145,6 +148,7 @@ jobs:
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_LIMIT: ${{ inputs.limit || '200' }}
           INPUT_CONCURRENCY: ${{ inputs.concurrency || '1' }}
@@ -243,6 +247,19 @@ jobs:
           echo "- **Concurrency**: $INPUT_CONCURRENCY" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Skip translate**: $INPUT_SKIP_TRANSLATE" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Modified files**: ${{ steps.count.outputs.modified_count || '0' }}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Cleanup Codex auth broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then
+            exit 0
+          fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
+            --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
+            || echo "::warning::Codex auth broker cleanup did not complete"
 
       - name: Report failure to GitHub Issues
         if: failure()
