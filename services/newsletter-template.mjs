@@ -50,7 +50,8 @@ const RED = '#ef4444';
 
 const NL_I18N = {
   it: {
-    greeting: 'Buongiorno, frontaliere.',
+    newsletterTitle: 'Il briefing della settimana',
+    greeting: 'Buongiorno.',
     greetingNamed: 'Buongiorno, {name}.',
     greetingSub: 'Ecco cosa succede ai tuoi soldi questa settimana.',
     rateCta: 'Confronta i tassi di cambio \u2192',
@@ -61,7 +62,7 @@ const NL_I18N = {
     jobsSub: 'Selezionate a mano, non da un algoritmo che pensa che tu voglia fare il "Growth Hacker" a Zugo.',
     jobsCta: 'Tutte le {n} offerte \u2192',
     articleTitle: 'Da leggere',
-    toolsTitle: 'I tuoi attrezzi da frontaliere',
+    toolsTitle: 'I tuoi strumenti per la settimana',
     toolsSub: 'Quelli che il tuo commercialista usa di nascosto (e ti fa pagare 200\u20ac a consulenza).',
     closerText: 'Ti è piaciuta questa email? Inoltrala a quel collega che chiede sempre "ma com\u2019è il cambio oggi?".',
     closerTag: 'Alla prossima. ☕',
@@ -72,7 +73,7 @@ const NL_I18N = {
     unsubText: 'Non la vuoi pi\u00f9? {link} \u2014 giuro che non piangeremo. (Forse un po\u2019.)',
     unsubLink: 'Cancellati',
     prefsLink: 'Gestisci preferenze',
-    copyright: 'Newsletter artigianale, 0% spam, 100% frontaliere',
+    copyright: 'Newsletter artigianale, 0% spam, 100% utile',
     jobsLabel: 'Lavoro',
     toolsLabel: 'Strumenti',
     topClicked: '\ud83d\udd25 Più cliccata',
@@ -91,7 +92,7 @@ const NL_I18N = {
     articleCta: 'Leggi l\u2019analisi completa \u2192',
     topRead: '\ud83d\udd25 Più letto',
     defaultQuote: 'La cosa più bella di vivere al confine è che puoi scegliere in quale Paese avere il mal di testa fiscale.',
-    defaultQuoteSource: 'Anonimo frontaliere, probabilmente in coda a Brogeda',
+    defaultQuoteSource: 'Anonimo, probabilmente in coda a Brogeda',
     toolCalc: 'Calcola Stipendio',
     toolCalcDesc: 'Dal lordo al netto in 5 secondi. Con AVS, LPP, imposta alla fonte e conversione CHF/EUR.',
     toolLamal: 'Confronto LAMal',
@@ -102,7 +103,8 @@ const NL_I18N = {
     toolFxDesc: 'Tasso aggiornato ogni ora + confronto tra banche e servizi. Perché 0.2% di differenza su 60k sono 120\u20ac.',
   },
   en: {
-    greeting: 'Good morning, frontaliere.',
+    newsletterTitle: 'Your weekly briefing',
+    greeting: 'Good morning.',
     greetingNamed: 'Good morning, {name}.',
     greetingSub: 'Here\u2019s what\u2019s happening to your money this week.',
     rateCta: 'Compare exchange rates \u2192',
@@ -113,7 +115,7 @@ const NL_I18N = {
     jobsSub: 'Hand-picked, not by an algorithm that thinks you want to be a "Growth Hacker" in Zug.',
     jobsCta: 'All {n} jobs \u2192',
     articleTitle: 'Worth reading',
-    toolsTitle: 'Your frontaliere toolkit',
+    toolsTitle: 'Your tools for the week',
     toolsSub: 'The ones your accountant uses secretly (and charges you \u20ac200 per consultation).',
     closerText: 'Liked this email? Forward it to that colleague who always asks "what\u2019s the rate today?".',
     closerTag: 'See you next time. ☕',
@@ -124,7 +126,7 @@ const NL_I18N = {
     unsubText: 'Had enough? {link} \u2014 no hard feelings. (Maybe a little.)',
     unsubLink: 'Unsubscribe',
     prefsLink: 'Manage preferences',
-    copyright: 'Handcrafted newsletter, 0% spam, 100% frontaliere',
+    copyright: 'Handcrafted newsletter, 0% spam, 100% useful',
     jobsLabel: 'Jobs',
     toolsLabel: 'Tools',
     topClicked: '\ud83d\udd25 Most clicked',
@@ -143,7 +145,7 @@ const NL_I18N = {
     articleCta: 'Read the full analysis \u2192',
     topRead: '\ud83d\udd25 Most read',
     defaultQuote: 'The best thing about living on the border is choosing which country gives you the fiscal headache.',
-    defaultQuoteSource: 'Anonymous frontaliere, probably stuck in the Brogeda queue',
+    defaultQuoteSource: 'Anonymous, probably stuck in the Brogeda queue',
     toolCalc: 'Salary Calculator',
     toolCalcDesc: 'From gross to net in 5 seconds. With AVS, LPP, withholding tax, and CHF/EUR conversion.',
     toolLamal: 'LAMal Comparison',
@@ -154,7 +156,8 @@ const NL_I18N = {
     toolFxDesc: 'Rate updated hourly + comparison across banks and services. Because 0.2% on 60k is \u20ac120.',
   },
   de: {
-    greeting: 'Guten Morgen, Grenzg\u00e4nger.',
+    newsletterTitle: 'Dein Wochenbrief',
+    greeting: 'Guten Morgen.',
     greetingNamed: 'Guten Morgen, {name}.',
     greetingSub: 'Das passiert diese Woche mit deinem Geld.',
     rateCta: 'Wechselkurse vergleichen \u2192',
@@ -165,7 +168,7 @@ const NL_I18N = {
     jobsSub: 'Von Hand ausgew\u00e4hlt, nicht von einem Algorithmus.',
     jobsCta: 'Alle {n} Stellen \u2192',
     articleTitle: 'Lesenswert',
-    toolsTitle: 'Dein Grenzg\u00e4nger-Werkzeugkasten',
+    toolsTitle: 'Deine Tools für diese Woche',
     toolsSub: 'Die Tools, die dein Steuerberater heimlich nutzt.',
     closerText: 'Hat dir diese E-Mail gefallen? Leite sie an den Kollegen weiter, der immer fragt "Wie steht der Kurs?".',
     closerTag: 'Bis zum nächsten Mal. ☕',
@@ -176,7 +179,7 @@ const NL_I18N = {
     unsubText: 'Genug? {link} \u2014 wir weinen nicht. (Vielleicht ein bisschen.)',
     unsubLink: 'Abmelden',
     prefsLink: 'Einstellungen verwalten',
-    copyright: 'Handgemachter Newsletter, 0% Spam, 100% Grenzg\u00e4nger',
+    copyright: 'Handgemachter Newsletter, 0% Spam, 100% n\u00fctzlich',
     jobsLabel: 'Stellen',
     toolsLabel: 'Tools',
     topClicked: '\ud83d\udd25 Meistgeklickt',
@@ -195,7 +198,7 @@ const NL_I18N = {
     articleCta: 'Vollst\u00e4ndige Analyse lesen \u2192',
     topRead: '\ud83d\udd25 Meistgelesen',
     defaultQuote: 'Das Sch\u00f6nste am Leben an der Grenze ist, dass man w\u00e4hlen kann, in welchem Land man die Steuer-Kopfschmerzen hat.',
-    defaultQuoteSource: 'Anonymer Grenzg\u00e4nger, wahrscheinlich in der Schlange am Brogeda',
+    defaultQuoteSource: 'Anonym, wahrscheinlich in der Schlange am Brogeda',
     toolCalc: 'Gehaltsrechner',
     toolCalcDesc: 'Vom Brutto zum Netto in 5 Sekunden. Mit AHV, BVG, Quellensteuer und CHF/EUR-Umrechnung.',
     toolLamal: 'KVG-Vergleich',
@@ -206,7 +209,8 @@ const NL_I18N = {
     toolFxDesc: 'St\u00fcndlich aktualisierter Kurs + Vergleich zwischen Banken. 0,2% bei 60k sind 120\u20ac.',
   },
   fr: {
-    greeting: 'Bonjour, frontalier.',
+    newsletterTitle: 'Le briefing de la semaine',
+    greeting: 'Bonjour.',
     greetingNamed: 'Bonjour, {name}.',
     greetingSub: 'Voici ce qui arrive \u00e0 ton argent cette semaine.',
     rateCta: 'Comparer les taux de change \u2192',
@@ -217,7 +221,7 @@ const NL_I18N = {
     jobsSub: 'S\u00e9lectionn\u00e9es \u00e0 la main, pas par un algorithme.',
     jobsCta: 'Toutes les {n} offres \u2192',
     articleTitle: '\u00c0 lire',
-    toolsTitle: 'Tes outils de frontalier',
+    toolsTitle: 'Tes outils de la semaine',
     toolsSub: 'Ceux que ton comptable utilise en secret (et te facture 200\u20ac la consultation).',
     closerText: 'Tu as aimé cet email ? Transfère-le au collègue qui demande toujours "c\u2019est quoi le taux ?".',
     closerTag: 'À la prochaine. ☕',
@@ -228,7 +232,7 @@ const NL_I18N = {
     unsubText: 'Tu n\u2019en veux plus ? {link} \u2014 on ne pleurera pas. (Un peu peut-\u00eatre.)',
     unsubLink: 'Se d\u00e9sinscrire',
     prefsLink: 'G\u00e9rer les pr\u00e9f\u00e9rences',
-    copyright: 'Newsletter artisanale, 0% spam, 100% frontalier',
+    copyright: 'Newsletter artisanale, 0% spam, 100% utile',
     jobsLabel: 'Emplois',
     toolsLabel: 'Outils',
     topClicked: '\ud83d\udd25 Plus cliqu\u00e9e',
@@ -247,7 +251,7 @@ const NL_I18N = {
     articleCta: 'Lire l\u2019analyse compl\u00e8te \u2192',
     topRead: '\ud83d\udd25 Plus lu',
     defaultQuote: 'Le plus beau quand on vit \u00e0 la fronti\u00e8re, c\u2019est de pouvoir choisir dans quel pays avoir la migraine fiscale.',
-    defaultQuoteSource: 'Frontalier anonyme, probablement dans la file au Brogeda',
+    defaultQuoteSource: 'Anonyme, probablement dans la file au Brogeda',
     toolCalc: 'Calcul de salaire',
     toolCalcDesc: 'Du brut au net en 5 secondes. Avec AVS, LPP, imp\u00f4t \u00e0 la source et conversion CHF/EUR.',
     toolLamal: 'Comparaison LAMal',
@@ -835,7 +839,7 @@ export function buildNewsletter(data) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>Frontaliere Weekly</title>
+  <title>${escapeHtml(nlT(locale, 'newsletterTitle'))}</title>
   <!--[if mso]><style>table{border-collapse:collapse;}td{padding:0;}</style><![endif]-->
   <style>
     body{margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;}

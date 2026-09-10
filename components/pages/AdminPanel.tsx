@@ -1148,7 +1148,7 @@ export default function AdminPanel() {
  const state = await runWorkflowAction('send-newsletter.yml', {
  mode: 'test',
  target_email: String(user.email).trim().toLowerCase(),
- subject: nlSubject.trim() || 'Frontaliere Weekly',
+ subject: nlSubject.trim() || 'Il briefing della settimana',
  });
  const outcome = classifyWorkflowRunUiOutcome(state);
  if (outcome === 'unknown') {
@@ -1274,7 +1274,7 @@ export default function AdminPanel() {
  });
  setNlPreviewHtml(result.html);
  // Update subject field with AI-generated subject if user hasn't typed one
- if (!nlSubject.trim() || nlSubject === 'Frontaliere Weekly') {
+ if (!nlSubject.trim() || nlSubject === 'Il briefing della settimana') {
  setNlSubject(result.subject);
  }
  } catch (err) {

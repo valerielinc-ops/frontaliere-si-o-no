@@ -1121,7 +1121,7 @@ export function buildSubjectPrompt(ctx) {
       `- Direct benefit: "💰 Simula il netto 2026 in 30 sec"`,
       `- Urgency/FOMO: "🔥 Scadenza fiscale: hai controllato?"`,
       `- Question hook: "🤔 Permesso G o B? Il calcolo che conta"`,
-      `- News peg: "📰 ${today}: cosa cambia per i frontalieri"`,
+      `- News peg: "📰 ${today}: cosa cambia tra Italia e Svizzera"`,
     ],
     en: [
       `- Curiosity gap: "⚡ CHF rate is dropping: how much are you losing?"`,
@@ -1129,7 +1129,7 @@ export function buildSubjectPrompt(ctx) {
       `- Direct benefit: "💰 Simulate your 2026 net pay in 30 sec"`,
       `- Urgency/FOMO: "🔥 Tax deadline: have you checked?"`,
       `- Question hook: "🤔 Permit G or B? The calc that matters"`,
-      `- News peg: "📰 ${today}: what's changing for frontalieri"`,
+      `- News peg: "📰 ${today}: what's changing between Italy and Switzerland"`,
     ],
     de: [
       `- Curiosity gap: "⚡ CHF-Kurs fällt: wie viel verlierst du?"`,
@@ -1137,7 +1137,7 @@ export function buildSubjectPrompt(ctx) {
       `- Direct benefit: "💰 Nettolohn 2026 in 30 Sek berechnen"`,
       `- Urgency/FOMO: "🔥 Steuerfrist: schon geprüft?"`,
       `- Question hook: "🤔 Bewilligung G oder B? Die Rechnung zählt"`,
-      `- News peg: "📰 ${today}: was sich für Grenzgänger ändert"`,
+      `- News peg: "📰 ${today}: was sich zwischen Italien und der Schweiz ändert"`,
     ],
     fr: [
       `- Curiosity gap: "⚡ Le taux CHF baisse : combien tu perds ?"`,
@@ -1145,7 +1145,7 @@ export function buildSubjectPrompt(ctx) {
       `- Direct benefit: "💰 Simule ton net 2026 en 30 sec"`,
       `- Urgency/FOMO: "🔥 Échéance fiscale : t'as vérifié ?"`,
       `- Question hook: "🤔 Permis G ou B ? Le calcul qui compte"`,
-      `- News peg: "📰 ${today} : ce qui change pour les frontaliers"`,
+      `- News peg: "📰 ${today} : ce qui change entre l'Italie et la Suisse"`,
     ],
   };
   const examples = (examplesByLocale[locale] || examplesByLocale.it).join('\n');
@@ -1177,6 +1177,7 @@ export function buildSubjectPrompt(ctx) {
     `- ${voiceByLocale[locale] || voiceByLocale.it}`,
     `- NO exact numbers (exchange rates, percentages)`,
     `- NO generic words like "update", "newsletter", "weekly" or their ${langName} equivalents`,
+    `- Do not label the reader or audience as "frontaliere", "frontalier", "Grenzgänger", "cross-border worker" or any local equivalent; lead with the topic or benefit instead`,
     `- ONE hook only. Make the reader NEED to open the email.`,
     `- Output ONLY the subject line in ${langName}. No quotes, no translation, no explanation.`,
   ].join('\n');
@@ -1210,10 +1211,10 @@ export function buildSubjectPrompt(ctx) {
 //   - non-empty word content (catches all-emoji/all-punct edge cases)
 // Validated by tests/newsletter-fallback-subjects.test.ts.
 export const FALLBACK_SUBJECT = {
-  it: '\u26a1 Frontaliere: cambio, lavoro, zero fuffa',
-  en: '\u26a1 Frontaliere: rates, jobs, no fluff',
-  de: '\u26a1 Frontaliere: Kurs, Jobs, kein Quatsch',
-  fr: '\u26a1 Frontaliere: taux, emplois, z\u00e9ro blabla',
+  it: '\u26a1 Cambio, lavoro e tasse: zero fuffa',
+  en: '\u26a1 Rates, jobs and tax: no fluff',
+  de: '\u26a1 Kurs, Jobs und Steuern: kein Quatsch',
+  fr: '\u26a1 Taux, emplois et imp\u00f4ts : z\u00e9ro blabla',
 };
 
 export function getFallbackBriefing(locale, exchangeRate) {

@@ -37,6 +37,7 @@ describe('SUBJECT_VARIANTS', () => {
           expect(subject.endsWith('...')).toBe(false);
           expect(subject.endsWith('…')).toBe(false);
           expect(/[\p{L}]{3,}/u.test(subject)).toBe(true);
+          expect(subject).not.toMatch(/frontaliere|frontalier|grenzg[aä]nger|cross[- ]border/i);
         });
         it(`styleDirective[${loc}] is non-empty`, () => {
           expect(getVariantStyleDirective(variant.id, loc).length).toBeGreaterThan(10);
@@ -114,6 +115,12 @@ describe('buildSubjectPrompt variant injection', () => {
     for (const v of SUBJECT_VARIANTS) {
       expect(system).not.toContain(getVariantStyleDirective(v.id, 'it'));
     }
+  });
+
+  it('asks the model to lead with the topic instead of an audience label', () => {
+    const { system } = buildSubjectPrompt(baseCtx as Parameters<typeof buildSubjectPrompt>[0]);
+    expect(system).toMatch(/Do not label the reader or audience/i);
+    expect(system).toMatch(/lead with the topic or benefit/i);
   });
 });
 

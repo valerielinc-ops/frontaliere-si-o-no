@@ -217,7 +217,7 @@ export async function buildNewsletterPreviewHtml(
 
  // Use the same article as the real email
  const defaultArticle = {
- title: 'Votazioni cantonali Ticino 2026: cosa cambia per i frontalieri',
+ title: 'Votazioni cantonali Ticino 2026: 4 temi che toccano il tuo portafoglio',
  excerpt: 'SSR, imposizione individuale, fondo climatico: 4 temi su cui voti (o dovresti). Ecco cosa significa per il tuo portafoglio.',
  // `url` — matches renderArticle's destructured param and directUrl()
  // call in services/newsletter-template.mjs (the live template).

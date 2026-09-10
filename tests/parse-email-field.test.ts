@@ -64,7 +64,7 @@ describe('parseEmailField', () => {
 
 // The reported case: subscriber whose `email` field holds the full display
 // string and has no separate `name` → greeting must become "Buongiorno, Mario."
-// instead of the generic "Buongiorno, frontaliere." (mirrors send-newsletter's
+// instead of the generic "Buongiorno." (mirrors send-newsletter's
 // resolution: row.name || parseEmailField(row.email).displayName).
 describe('greeting harvested from a polluted email field', () => {
   it('greets by first name when name lives inside the email field', () => {
@@ -146,7 +146,7 @@ describe('subscriberFromFirestoreRow first-name resolution', () => {
       const s = subscriberFromFirestoreRow({ email, name: null });
       expect(s?.firstName).toBeNull();
       expect(s?.firstNameToPersist).toBeNull();
-      expect(personalizeGreeting('it', s?.firstName)).toBe('Buongiorno, frontaliere.');
+      expect(personalizeGreeting('it', s?.firstName)).toBe('Buongiorno.');
     }
   });
 });
