@@ -32,14 +32,14 @@ function normaliseAffiliateToken(raw, invalidRe) {
     .replace(/^-+|-+$/g, '');
 }
 
-function capAffiliateToken(normalized) {
+function capAffiliateToken(normalized, hashSeparator) {
   if (normalized.length <= PUBREF_MAX_LEN) return normalized;
 
   let hash = PUBREF_HASH_SEED;
   for (let index = 0; index < normalized.length; index += 1) {
     hash = Math.imul(hash ^ normalized.charCodeAt(index), PUBREF_HASH_MULTIPLIER);
   }
-  const suffix = `-${(hash >>> 0).toString(36).padStart(PUBREF_HASH_LEN, '0')}`;
+  const suffix = `${hashSeparator}${(hash >>> 0).toString(36).padStart(PUBREF_HASH_LEN, '0')}`;
   const prefix = normalized
     .slice(0, PUBREF_MAX_LEN - suffix.length)
     .replace(/[-_]+$/, '');
@@ -55,13 +55,13 @@ function capAffiliateToken(normalized) {
  */
 export function safeAffiliateToken(raw, fallback = '') {
   const normalized = normaliseAffiliateToken(raw, TOKEN_INVALID_RE);
-  return normalized ? capAffiliateToken(normalized) : fallback;
+  return normalized ? capAffiliateToken(normalized, '_') : fallback;
 }
 
 /** Normalise one Partnerize publisher reference. */
 export function sanitizeAffiliatePubref(raw) {
   const normalized = normaliseAffiliateToken(raw, PUBREF_INVALID_RE);
-  return normalized ? capAffiliateToken(normalized) : '';
+  return normalized ? capAffiliateToken(normalized, '-') : '';
 }
 
 /**

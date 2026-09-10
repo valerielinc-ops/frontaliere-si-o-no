@@ -174,7 +174,7 @@ function ratePerThousand(amount, denominator) {
  * `exposures.web` and `exposures.email` are deliberately independent. The
  * caller must provide the denominator; absent data stays null/unmeasurable.
  * @param {{ rows?: object[], from?: string|null, to?: string|null,
- *   exposures?: { web?: number|null, email?: number|null } }} [args]
+ *   exposures?: { web?: number|null, email?: number|null }, amountFormat?: string|null }} [args]
  * @returns {object}
  */
 export function reconcileAffiliateTransactions({ rows, from = null, to = null, exposures = {}, amountFormat = null } = {}) {

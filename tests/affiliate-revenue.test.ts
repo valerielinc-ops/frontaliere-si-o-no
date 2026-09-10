@@ -2,10 +2,12 @@ import { describe, expect, it } from 'vitest';
 import {
   buildAffiliatePubref,
   buildAffiliateLinkHref,
+  safeAffiliateToken,
 } from '../services/affiliateService';
 import {
   normalizeAffiliateTransaction,
   parseAffiliateCsv,
+  parseAffiliateExport,
   reconcileAffiliateTransactions,
 } from '../scripts/lib/affiliateRevenue.mjs';
 
@@ -70,6 +72,25 @@ describe('affiliate link attribution', () => {
     expect(url.searchParams.get('pos')).toContain('web-unknown');
     expect(url.searchParams.has('ne')).toBe(false);
     expect(url.searchParams.has('ac')).toBe(false);
+  });
+
+  it('preserves the legacy underscore cap for long UTM tokens and hyphenates pubrefs', () => {
+    const longCampaign = `weekly_${'x'.repeat(60)}`;
+    expect(safeAffiliateToken(longCampaign)).toMatch(/_[a-z0-9]{7}$/);
+    const href = buildAffiliateLinkHref({ id: 'wise' }, {
+      surface: 'web',
+      position: 'exchange-1',
+      campaign: longCampaign,
+      variant: 'control',
+    });
+    expect(new URL(href).searchParams.get('utm_campaign')).toMatch(/_[a-z0-9]{7}$/);
+    expect(buildAffiliatePubref({
+      partnerId: 'wise',
+      surface: 'web',
+      position: 'exchange-1',
+      campaign: longCampaign,
+      variant: 'control',
+    })).toMatch(/-[a-z0-9]{7}$/);
   });
 });
 
@@ -202,6 +223,23 @@ describe('affiliate revenue reconciliation', () => {
     }
   });
 
+  it('accepts unambiguous mixed separators under either declared format', () => {
+    for (const amount of ['1,234.56', '1.234,56']) {
+      for (const amountFormat of ['decimal', 'grouped'] as const) {
+        expect(normalizeAffiliateTransaction({
+          transaction_id: `tx-mixed-${amount}-${amountFormat}`,
+          status: 'approved',
+          currency: 'CHF',
+          amount,
+          transaction_date: '2026-09-04',
+        }, { amountFormat })).toMatchObject({
+          ok: true,
+          value: { amount: 1234.56 },
+        });
+      }
+    }
+  });
+
   it('refuses ambiguous three-digit amounts until the export format is declared', () => {
     const row = {
       transaction_id: 'tx-ambiguous',
@@ -242,6 +280,27 @@ describe('affiliate revenue reconciliation', () => {
 
     expect(report.invalidRows).toBe(0);
     expect(report.byCurrency.CHF.approved).toBe(12.5);
+  });
+
+  it('prefers the amount format declared in JSON over the CLI fallback', () => {
+    const parsed = parseAffiliateExport({
+      amountFormat: 'grouped',
+      transactions: [{
+        transaction_id: 'tx-json-format',
+        status: 'approved',
+        currency: 'CHF',
+        amount: '12.500',
+        transaction_date: '2026-09-04',
+      }],
+    }, { amountFormat: 'decimal' });
+
+    expect(parsed.amountFormat).toBe('grouped');
+    const report = reconcileAffiliateTransactions({
+      rows: parsed.rows,
+      exposures: { web: 1000 },
+      amountFormat: parsed.amountFormat,
+    });
+    expect(report.byCurrency.CHF.approved).toBe(12500);
   });
 
   it('normalises underscores out of publisher references', () => {
