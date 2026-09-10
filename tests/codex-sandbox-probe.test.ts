@@ -26,7 +26,7 @@ function runProbe(failure = '') {
     return spawnSync('/bin/sh', ['-c', probe], {
       encoding: 'utf8',
       env: {
-        PATH: `${bin}:/usr/bin:/bin`, CODEX_REALPATH: '/usr/bin/true', CODEX_BIN: '/usr/bin/true',
+        PATH: `${bin}:/usr/bin:/bin`, CODEX_REALPATH: '/usr/bin/true', CODEX_NODE_REAL: '/usr/bin/true', CODEX_BIN: join(root, 'denied-prefix', 'bin', 'codex'),
         CODEX_HOME: home, CODEX_OUTSIDE_PROBE: join(root, 'outside'), TMPDIR: scratch,
         PROBE_GIT_DIR: gitDir, PROBE_FAILURE: failure,
       },
@@ -42,6 +42,11 @@ describe('the actual sandbox preflight shell', () => {
   });
   it.each(['scratch', 'hooks', 'auth', 'outside'])('fails before starting Codex when %s violates the profile', failure => {
     expect(runProbe(failure)).not.toBe(0);
+  });
+  it('uses the verified launcher directly, without the inaccessible npm symlink', () => {
+    expect(probe).toContain('"$CODEX_NODE_REAL" "$CODEX_REALPATH" --version');
+    expect(probe).not.toContain('"$CODEX_BIN" --version');
+    expect(runProbe()).toBe(0);
   });
   it('does not deny the TMPDIR alias that points at the allowed scratch root', () => {
     expect(action).not.toMatch(/":tmpdir"\s*=\s*"deny"/);

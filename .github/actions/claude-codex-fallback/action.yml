@@ -918,7 +918,7 @@ runs:
         PATH="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_NODE_REAL="$node_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
           set -eu
           test -x "$CODEX_REALPATH"
-          "$CODEX_BIN" --version >/dev/null
+          "$CODEX_NODE_REAL" "$CODEX_REALPATH" --version >/dev/null
           git_dir="$(git rev-parse --git-dir)"
           common_git_dir="$(git rev-parse --git-common-dir)"
           probe="$git_dir/codex-fallback-probe.$$"

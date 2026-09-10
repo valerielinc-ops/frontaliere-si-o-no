@@ -661,7 +661,7 @@ describe('copertura workflow diretti', () => {
     expect(codexBlock).not.toContain('npm install --global');
     expect(codexBlock).toContain('"$codex_bin" sandbox');
     expect(codexBlock).toContain('"$codex_bin" exec');
-    expect(codexBlock).toContain('"$CODEX_BIN" --version');
+    expect(codexBlock).toContain('"$CODEX_NODE_REAL" "$CODEX_REALPATH" --version');
     expect(action).toContain('CODEX_SANITIZER_GIT="$git_host_realpath"');
     expect(action).toContain('"$node_realpath" "$runtime_snapshot/action/sanitize-git-config.mjs"');
     expect(action).toContain('snapshot_file "$workspace_root/scripts/ci/claude-rate-limit-contract.mjs"');
