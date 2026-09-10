@@ -263,7 +263,7 @@ async function fetchJobDetail(externalPath) {
  * Extract a city name from Workday's locationsText field.
  * Handles "N Locations" format by returning empty string.
  */
-function parseWorkdayLocation(locText = '') {
+export function parseWorkdayLocation(locText = '') {
   return firstLocationSegment(locText).split(/\s*,\s*/)[0].trim();
 }
 

@@ -15,6 +15,7 @@
  */
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
@@ -95,10 +96,8 @@ export const isTicinoLocation = isSwissLocation;
  * Workday format: "CHE - Lugano" or "Lugano, Switzerland"
  */
 export function parseWorkdayCity(locText = '') {
-  const cleaned = String(locText || '').trim();
-  const parts = cleaned.split(/\s*-\s*/);
-  const city = parts.length > 1 ? parts.slice(1).join('-').trim() : cleaned;
-  return city.replace(/,\s*switzerland$/i, '').trim() || cleaned;
+  const city = firstLocationSegment(locText).split(/\s*,\s*/)[0].trim();
+  return city;
 }
 
 /**
