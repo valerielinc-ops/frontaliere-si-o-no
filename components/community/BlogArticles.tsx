@@ -8,7 +8,12 @@ import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData, learnRuntimeBlogSlugs, learnRuntimeSwissSlugs } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { stripMarkdownPlain } from '@/build-plugins/shared/stripMarkdownPlain';
-import { normalizeArticleMarkdown } from '@/packages/articles/engine/shared/normalizeArticleMarkdown';
+import {
+ advanceMarkdownFence,
+ markdownFenceFor,
+ normalizeArticleMarkdown,
+ type MarkdownFence,
+} from '@/packages/articles/engine/shared/normalizeArticleMarkdown';
 import { isFaqQuestionHeading } from '@/build-plugins/shared/faqQuestionPrefixes';
 import type { BlogArticleId, AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
@@ -433,10 +438,14 @@ export type H2BoundaryOutcome = 'emitted' | 'deferred' | 'skipped';
  * property of THIS function, and asserting it through the whole component would
  * drown it in i18n/router/Suspense setup.
  *
- * `onH2Boundary` is a test probe (production callers pass four arguments): it
- * fires once per `## ` block that reaches the ad boundary, so a branch that
- * consumes a heading block without offering it a slot is detectable by counting
- * (issue #7748). It never influences placement.
+ * `text` is normalized by `collectBodyParts` before the production call. The
+ * optional shared ID set lets consecutive body segments use the same anchor
+ * namespace.
+ *
+ * `onH2Boundary` is a test probe: it fires once per `## ` block that reaches
+ * the ad boundary, so a branch that consumes a heading block without offering
+ * a slot is detectable by counting (issue #7748). It never influences
+ * placement.
  */
 export function renderFormattedContent(
  text: string,
@@ -444,13 +453,12 @@ export function renderFormattedContent(
  adRenderer?: (keyPrefix: string) => ReactElement | null,
  minWordGap: number = AD_MIN_WORD_GAP,
  onH2Boundary?: (outcome: H2BoundaryOutcome, key: string) => void,
+ usedHeadingIds: Set<string> = new Set(),
 ): ReactElement {
  // Auto-link keywords if navigators provided
- const normalizedText = normalizeArticleMarkdown(text);
- const processed = navigators ? autoLinkKeywords(normalizedText, navigators) : normalizedText;
+ const processed = navigators ? autoLinkKeywords(text, navigators) : text;
 
  const renderedBlocks: ReactElement[] = [];
- const usedHeadingIds = new Set<string>();
 
  // Section-aware ad gating: emit an ad before each H2 boundary (so the ad sits
  // between section A's end and section B's H2) and once at end-of-segment,
@@ -525,8 +533,23 @@ export function renderFormattedContent(
  };
 
  let blockquoteCount = 0;
+ let markdownFence: MarkdownFence | null = null;
  for (let idx = 0; idx < blocks.length; idx += 1) {
  const trimmed = blocks[idx].trim();
+ const blockLines = trimmed.split('\n');
+ const wasInsideFence = markdownFence !== null;
+ const opensFence = !wasInsideFence && markdownFenceFor(blockLines[0]) !== null;
+ markdownFence = advanceMarkdownFence(blockLines, markdownFence);
+
+ if (wasInsideFence || opensFence) {
+  renderedBlocks.push(
+   <p key={'code-' + idx} className="text-body leading-relaxed">
+   {renderInlineFormatting(trimmed, navigators)}
+   </p>,
+  );
+  markContent(countWordsIn(trimmed));
+  continue;
+ }
 
  // Flush an ad deferred by the H2 lookahead, once the block it would have
  // straddled is behind us. A run of consecutive straddle blocks (a citation
@@ -800,15 +823,21 @@ interface TocHeading {
  level: 2 | 3;
 }
 
-/** Extract H2/H3 headings from markdown body text segments */
+/** Extract H2/H3 headings from already-normalized markdown body segments. */
 export function extractHeadings(bodySegments: string[]): TocHeading[] {
  const headings: TocHeading[] = [];
  const usedIds = new Set<string>();
  for (const body of bodySegments) {
  if (!body || body.startsWith('blog.article.')) continue;
- const blocks = normalizeArticleMarkdown(body).split('\n\n');
+ let markdownFence: MarkdownFence | null = null;
+ const blocks = body.split('\n\n');
  for (const block of blocks) {
- const trimmed = block.trim();
+  const lines = block.split('\n');
+  const wasInsideFence = markdownFence !== null;
+  const opensFence = !wasInsideFence && markdownFenceFor(lines[0]) !== null;
+  markdownFence = advanceMarkdownFence(lines, markdownFence);
+  if (wasInsideFence || opensFence) continue;
+  const trimmed = block.trim();
  let level: 2 | 3 | null = null;
  let raw = '';
  if (trimmed.startsWith('#### ')) {
@@ -2070,6 +2099,7 @@ function BlogArticles({
  }
 
  const bodySegments = collectBodyParts(article.id, t);
+ const usedHeadingIds = new Set<string>();
  const presentSegments = bodySegments;
  const combinedBody = presentSegments.join(' ');
  const bodyWordCount = combinedBody.split(/\s+/).filter(Boolean).length;
@@ -2582,7 +2612,7 @@ function BlogArticles({
  </>
  )}
 
- {renderFormattedContent(segment, navigators, makeInlineAd, adDensity.minWordGap)}
+ {renderFormattedContent(segment, navigators, makeInlineAd, adDensity.minWordGap, undefined, usedHeadingIds)}
  </Fragment>
   );
  })}

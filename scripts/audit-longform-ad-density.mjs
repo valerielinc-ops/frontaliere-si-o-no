@@ -24,6 +24,7 @@ import {
   inlineSlotIndex,
   resolveArticleAdDensity,
 } from '../services/articleAdDensity.ts';
+import { advanceMarkdownFence, markdownFenceFor, normalizeArticleMarkdown } from '../packages/articles/engine/shared/normalizeArticleMarkdown.ts';
 import { extractBodies } from './lib/blog-body-io.mjs';
 import { isAdStraddleBlock, isListBlock, isTableBlock, LIST_ITEM_RE } from '../services/adPlacement.ts';
 
@@ -153,8 +154,17 @@ function replaySegment(segment, state, boundaryStats) {
   }
 
   const blocks = segment.split('\n\n').filter(block => block.trim());
+  let fence = null;
   for (let index = 0; index < blocks.length; index += 1) {
     const trimmed = blocks[index].trim();
+    const lines = trimmed.split('\n');
+    const wasInsideFence = fence !== null;
+    const opensFence = !wasInsideFence && markdownFenceFor(lines[0]) !== null;
+    fence = advanceMarkdownFence(lines, fence);
+    if (wasInsideFence || opensFence) {
+      markContent(countWords(trimmed));
+      continue;
+    }
     if (pendingAd && !isAdStraddleBlock(trimmed)) flushPendingAd();
 
     if (trimmed.startsWith('#### ')) {
@@ -194,7 +204,7 @@ function articleSegments(filePath, id) {
   const source = fs.readFileSync(filePath, 'utf8');
   return Object.entries(extractBodies(source, id))
     .sort(([a], [b]) => a.localeCompare(b))
-    .map(([, body]) => body);
+    .map(([, body]) => normalizeArticleMarkdown(body));
 }
 
 export function auditLongformAdDensity(bodyDir = DEFAULT_BODY_DIR) {

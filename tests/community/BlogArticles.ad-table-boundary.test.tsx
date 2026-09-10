@@ -16,6 +16,8 @@ import { describe, it, expect } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 import { extractHeadings, renderFormattedContent, isTableBlock, isAdStraddleBlock } from '@/components/community/BlogArticles';
+import { normalizeArticleMarkdown } from '@/packages/articles/engine/shared/normalizeArticleMarkdown';
+import { resolveArticleAdDensity, STANDARD_ARTICLE_AD_DENSITY } from '@/services/articleAdDensity';
 import { flattenedSwissBody1, flattenedSwissBody3, flattenedSwissBodies } from '../fixtures/flattenedArticleBodies';
 
 const AD_MARKER = 'data-testid="inline-ad"';
@@ -63,7 +65,7 @@ describe('flattened article headings', () => {
   const malformed = '## In short - Point one - Point two ## Key facts - What: value - When: today ## Accident Details The medical emergency continued ## Additional information For more details, consult the official source.';
 
   it('keeps the TOC labels short and distinct', () => {
-    expect(extractHeadings([malformed]).map((heading) => heading.text)).toEqual([
+    expect(extractHeadings([normalizeArticleMarkdown(malformed)]).map((heading) => heading.text)).toEqual([
       'In short',
       'Key facts',
       'Accident Details',
@@ -80,7 +82,7 @@ describe('flattened article headings', () => {
   });
 
   it('keeps the reported article out of the long-label TOC failure mode', () => {
-    const headings = extractHeadings([flattenedSwissBody1]);
+    const headings = extractHeadings([normalizeArticleMarkdown(flattenedSwissBody1)]);
 
     expect(headings.map((heading) => heading.text)).toEqual([
       'In short',
@@ -92,14 +94,14 @@ describe('flattened article headings', () => {
   });
 
   it('keeps every body section of the reported article out of the long-label failure mode', () => {
-    const headings = flattenedSwissBodies.flatMap((body) => extractHeadings([body]));
+    const headings = flattenedSwissBodies.flatMap((body) => extractHeadings([normalizeArticleMarkdown(body)]));
 
     expect(headings).toContainEqual(expect.objectContaining({ text: 'Medical emergency: Swiss flight back over the Atlantic' }));
     expect(headings.every((heading) => heading.text.length <= 120)).toBe(true);
   });
 
   it('renders recovered headings as separate semantic blocks', () => {
-    const html = renderToStaticMarkup(renderFormattedContent(malformed));
+    const html = renderToStaticMarkup(renderFormattedContent(normalizeArticleMarkdown(malformed)));
     expect(html).toContain('<h2');
     expect(html).toContain('>In short</h2>');
     expect(html).toContain('>Key facts</h2>');
@@ -107,16 +109,82 @@ describe('flattened article headings', () => {
   });
 
   it('keeps rendered heading IDs aligned with deduplicated TOC IDs', () => {
-    const html = renderToStaticMarkup(renderFormattedContent(flattenedSwissBody3));
+    const normalized = normalizeArticleMarkdown(flattenedSwissBody3);
+    const html = renderToStaticMarkup(renderFormattedContent(normalized));
     const renderedIds = [...html.matchAll(/<h[2-4][^>]* id="([^"]+)"/g)].map((match) => match[1]);
-    const tocIds = extractHeadings([flattenedSwissBody3]).map((heading) => heading.id);
+    const tocIds = extractHeadings([normalized]).map((heading) => heading.id);
 
     expect(new Set(renderedIds).size).toBe(renderedIds.length);
     expect(renderedIds).toEqual(tocIds);
   });
+
+  it('deduplicates rendered IDs across body segments in the same order as the TOC', () => {
+    const segments = [
+      '## Sezione ripetuta\n\nPrimo contenuto.',
+      '## Sezione ripetuta\n\nSecondo contenuto.',
+    ];
+    const usedHeadingIds = new Set<string>();
+    const html = segments
+      .map((segment) => renderToStaticMarkup(
+        renderFormattedContent(segment, undefined, undefined, undefined, undefined, usedHeadingIds),
+      ))
+      .join('');
+    const renderedIds = [...html.matchAll(/<h[2-4][^>]* id="([^"]+)"/g)].map((match) => match[1]);
+
+    expect(renderedIds).toEqual(extractHeadings(segments).map((heading) => heading.id));
+    expect(renderedIds).toEqual(['sezione-ripetuta', 'sezione-ripetuta-2']);
+  });
+
+  it('does not split tables or fenced code, and stays stable on a second pass', () => {
+    const fence = String.fromCharCode(96).repeat(3);
+    const source = [
+      '| Voce | Nota con ## marker interno |',
+      '|---|---|',
+      '| Valore | altro testo |',
+      '',
+      fence + 'md',
+      '',
+      '## heading dentro fence - con testo lungo',
+      '',
+      fence,
+      '',
+      'Introduzione ## Heading reale For more details, consult the source.',
+    ].join('\n');
+    const normalized = normalizeArticleMarkdown(source);
+
+    expect(normalized).toContain('| Voce | Nota con ## marker interno |');
+    expect(normalized).toContain('## heading dentro fence - con testo lungo');
+    expect(normalized).toContain('Introduzione\n\n## Heading reale\n\nFor more details, consult the source.');
+    expect(normalizeArticleMarkdown(normalized)).toBe(normalized);
+    expect(extractHeadings([normalizeArticleMarkdown(source)]).map((heading) => heading.text)).toEqual(['Heading reale']);
+  });
 });
 
 describe('inline ads around a table that opens a section (#7337)', () => {
+  it('keeps short recovered sections at the standard ad gap', () => {
+    const source = [
+      words(250),
+      '## Prima For more details, consult the source.',
+      '## Seconda For more details, consult the source.',
+      '## Terza For more details, consult the source.',
+      '## Quarta For more details, consult the source.',
+    ].join(' ');
+    const normalized = normalizeArticleMarkdown(source);
+    const profile = resolveArticleAdDensity([normalized]);
+    const boundaries: string[] = [];
+    const html = renderToStaticMarkup(renderFormattedContent(
+      normalized,
+      undefined,
+      (key) => <div key={key} data-testid="inline-ad" />,
+      profile.minWordGap,
+      (outcome) => boundaries.push(outcome),
+    ));
+
+    expect(extractHeadings([normalized])).toHaveLength(4);
+    expect(profile.minWordGap).toBe(STANDARD_ARTICLE_AD_DENSITY.minWordGap);
+    expect(boundaries).toHaveLength(4);
+    expect(countAds(html)).toBe(1);
+  });
   it('emits no ad between the H2 and the table it introduces', () => {
     const html = render(bodyWithTable);
     const h2 = html.indexOf('<h2');
