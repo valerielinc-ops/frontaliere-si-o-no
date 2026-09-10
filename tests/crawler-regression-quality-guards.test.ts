@@ -203,6 +203,15 @@ describe('Crawler wiring — Coop and Migros import the shared guards', () => {
     expect(src).toContain("allowedHosts: ['jobs.fenaco.com']");
   });
 
+  it('Baronie writes through per-crawler scratch storage and guards the optional public mirror', () => {
+    const src = readFileSync(resolve(__dirname, '..', 'scripts/update-baronie-jobs.mjs'), 'utf8');
+    expect(src).toContain("import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';");
+    expect(src).toContain('const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);');
+    expect(src).toContain('const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;');
+    expect(src).toContain('if (fs.existsSync(path.dirname(PUBLIC_JOBS)))');
+    expect(src).not.toContain("path.resolve(ROOT, 'public', 'data', 'jobs.json')");
+  });
+
   it('Coop-family detail validation keeps the 15% body-ratio boundary', () => {
     const markdown = `## Aufgaben\n- ${'Source-backed Inhalt mit belastbarer Detailtiefe. '.repeat(12)}`;
     const textLength = markdown.replace(/[#\-*>\n]/g, ' ').replace(/\s+/g, ' ').trim().length;
