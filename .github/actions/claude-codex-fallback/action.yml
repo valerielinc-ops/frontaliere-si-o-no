@@ -122,8 +122,7 @@ runs:
           /usr/bin/stat -c '%u' "$1" 2>/dev/null || /usr/bin/stat -f '%u' "$1" 2>/dev/null || true
         }
         path_components_trusted() {
-          local current="$1" mode owner current_uid parent
-          current_uid="$(/usr/bin/id -u)"
+          local current="$1" mode owner parent
           while :; do
             [ -e "$current" ] || return 1
             mode="$(stat_mode "$current")"
@@ -138,7 +137,10 @@ runs:
             # Interpret it as octal before masking group/other write bits;
             # matching the literal digits would incorrectly reject 5 (r-x).
             (( (8#$mode & 022) == 0 )) || return 1
-            [ "$owner" = '0' ] || [ "$owner" = "$current_uid" ] || return 1
+            # Only root-owned components are trusted. A runner-owned toolcache
+            # can be rewritten by setup actions and must fail closed; the
+            # fixed system roots below remain the fallback runtime locations.
+            [ "$owner" = '0' ] || return 1
             [ "$current" = '/' ] && break
             parent="$(/usr/bin/dirname "$current")"
             [ "$parent" != "$current" ] || break
@@ -153,6 +155,11 @@ runs:
             esac
           done
           return 1
+        }
+        trusted_path_entries() {
+          printf '%s\n' "${PATH:-}"
+          # Do not rely on PATH ordering for the root-owned system fallback.
+          printf '%s\n' /usr/local/bin /usr/bin /bin
         }
         find_trusted_tool() {
           local binary="$1" path_entry candidate resolved
@@ -173,7 +180,7 @@ runs:
             [ -f "$resolved" ] || continue
             printf '%s' "$resolved"
             return 0
-          done < <(printf '%s\n' "${PATH:-}" | "$tr_cmd" ':' '\n')
+          done < <(trusted_path_entries | "$tr_cmd" ':' '\n')
           return 1
         }
         find_trusted_npm() {
@@ -194,7 +201,7 @@ runs:
             [ -f "$resolved" ] || continue
             printf '%s' "$resolved"
             return 0
-          done < <(printf '%s\n' "${PATH:-}" | "$tr_cmd" ':' '\n')
+          done < <(trusted_path_entries | "$tr_cmd" ':' '\n')
           return 1
         }
         node_realpath="$(find_trusted_tool node || true)"
@@ -1019,6 +1026,21 @@ runs:
         RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
       run: |
         set -uo pipefail
+        runtime_snapshot_outcome="${{ steps.runtime_snapshot.outcome }}"
+        preflight_outcome="${{ steps.preflight.outcome }}"
+        runtime_outcome="${{ steps.runtime.outcome }}"
+        if [ "$runtime_snapshot_outcome" != 'success' ]; then
+          echo "::error::Codex fallback decision step runtime_snapshot ended with outcome=$runtime_snapshot_outcome."
+          exit 1
+        fi
+        if [ "$preflight_outcome" != 'success' ]; then
+          echo "::error::Codex fallback decision step preflight ended with outcome=$preflight_outcome."
+          exit 1
+        fi
+        if [ "$runtime_outcome" != 'success' ]; then
+          echo "::error::Codex fallback decision step runtime ended with outcome=$runtime_outcome."
+          exit 1
+        fi
         fallback=false
         trigger=''
         if [ "$PREFLIGHT_FALLBACK" = 'true' ]; then
@@ -1119,6 +1141,26 @@ runs:
         set -uo pipefail
         if [ "${{ steps.trusted_node.outcome }}" != 'success' ]; then
           echo '::error::Trusted Node runtime resolution failed; fallback steps were not run.'
+          exit 1
+        fi
+        runtime_snapshot_outcome="${{ steps.runtime_snapshot.outcome }}"
+        preflight_outcome="${{ steps.preflight.outcome }}"
+        runtime_outcome="${{ steps.runtime.outcome }}"
+        finalize_outcome="${{ steps.finalize.outcome }}"
+        if [ "$runtime_snapshot_outcome" != 'success' ]; then
+          echo "::error::Codex fallback step runtime_snapshot ended with outcome=$runtime_snapshot_outcome."
+          exit 1
+        fi
+        if [ "$preflight_outcome" != 'success' ]; then
+          echo "::error::Codex fallback step preflight ended with outcome=$preflight_outcome."
+          exit 1
+        fi
+        if [ "$runtime_outcome" != 'success' ]; then
+          echo "::error::Codex fallback step runtime ended with outcome=$runtime_outcome."
+          exit 1
+        fi
+        if [ "$finalize_outcome" != 'success' ]; then
+          echo "::error::Codex fallback step finalize ended with outcome=$finalize_outcome."
           exit 1
         fi
         if [ "${{ steps.finalize.outputs.fallback_used }}" = 'true' ]; then

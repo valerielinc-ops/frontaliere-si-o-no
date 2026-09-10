@@ -614,6 +614,9 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('/opt/hostedtoolcache');
     expect(action).toContain('/home/runner/work/_tool|/opt/hostedtoolcache');
     expect(action).toContain('(( (8#$mode & 022) == 0 )) || return 1');
+    expect(action).toContain("[ \"$owner\" = '0' ] || return 1");
+    expect(action).not.toContain("[ \"$owner\" = '0' ] || [ \"$owner\" = \"$current_uid\" ] || return 1");
+    expect(action).toContain("printf '%s\\n' /usr/local/bin /usr/bin /bin");
     expect(action).toContain('npm_realpath=');
     expect(action).toContain('gh_realpath=');
     expect(action).toContain('git_realpath=');
@@ -840,7 +843,7 @@ describe('copertura workflow diretti', () => {
       resolverSource,
       'for tool in node npm gh git; do',
       '  if [ "$tool" = npm ]; then selected="$(find_trusted_npm || true)"; else selected="$(find_trusted_tool "$tool" || true)"; fi',
-      '  test -z "$selected"',
+      `  case "$selected" in '${evilDir}'/*) exit 1 ;; esac`,
       'done',
     ].join('\n');
     try {
@@ -896,9 +899,13 @@ describe('copertura workflow diretti', () => {
         'for trusted_root in /usr/bin /usr/local/bin /bin "$runner_tool_cache" /opt/hostedtoolcache /opt/runner /opt/homebrew; do',
         `for trusted_root in '${trustedRootQuoted}'; do`,
       );
-    const script = [
+    const rootOwnedResolverSource = resolverSource.replace(
+      /stat_owner\(\) \{[\s\S]*?\n\}/,
+      "stat_owner() { printf '0'; }",
+    );
+    const rootOwnedScript = [
       'set -euo pipefail',
-      resolverSource,
+      rootOwnedResolverSource,
       `selected="$(find_trusted_tool node)"`,
       'test -x "$selected"',
       'node_mode="$(stat_mode "$selected")"',
@@ -909,8 +916,27 @@ describe('copertura workflow diretti', () => {
       `if trusted_prefix '${realpathSync(runnerTemp)}'; then exit 1; fi`,
       `if path_components_trusted '${writableDir}'; then exit 1; fi`,
     ].join('\n');
+    const runnerOwnedResolverSource = resolverSource.replace(
+      /stat_owner\(\) \{[\s\S]*?\n\}/,
+      "stat_owner() { printf '1001'; }",
+    );
+    const runnerOwnedScript = [
+      'set -euo pipefail',
+      runnerOwnedResolverSource,
+      'selected="$(find_trusted_tool node || true)"',
+      'test -z "$selected"',
+    ].join('\n');
     try {
-      execFileSync('/bin/bash', ['-c', script], {
+      execFileSync('/bin/bash', ['-c', rootOwnedScript], {
+        encoding: 'utf8',
+        env: {
+          PATH: trustedRoot,
+          GITHUB_WORKSPACE: realpathSync(runnerRoot),
+          CODEX_ACTION_PATH: realpathSync(runnerRoot),
+          RUNNER_TEMP: realpathSync(runnerRoot),
+        },
+      });
+      execFileSync('/bin/bash', ['-c', runnerOwnedScript], {
         encoding: 'utf8',
         env: {
           PATH: trustedRoot,
@@ -922,6 +948,64 @@ describe('copertura workflow diretti', () => {
     } finally {
       rmSync(runnerRoot, { recursive: true, force: true });
     }
+  });
+
+  it('propaga ogni failure o skip inatteso dei passi di decisione', () => {
+    const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
+    expect(action).toContain('runtime_snapshot_outcome="${{ steps.runtime_snapshot.outcome }}"');
+    expect(action).toContain('preflight_outcome="${{ steps.preflight.outcome }}"');
+    expect(action).toContain('runtime_outcome="${{ steps.runtime.outcome }}"');
+    expect(action).toContain('finalize_outcome="${{ steps.finalize.outcome }}"');
+    const preserveStart = action.indexOf('    - name: Preserve primary/fallback outcome');
+    const runStart = action.indexOf('      run: |\n', preserveStart);
+    expect(preserveStart).toBeGreaterThanOrEqual(0);
+    expect(runStart).toBeGreaterThan(preserveStart);
+    const preserveScript = action.slice(runStart + '      run: |\n'.length)
+      .split('\n')
+      .map((line) => line.startsWith('        ') ? line.slice(8) : line)
+      .join('\n');
+    const runPreserve = (overrides: Record<string, string> = {}) => {
+      const values: Record<string, string> = {
+        trusted_node: 'success',
+        runtime_snapshot: 'success',
+        preflight: 'success',
+        runtime: 'success',
+        finalize: 'success',
+        fallback_used: 'false',
+        fallback_success: 'false',
+        claude: 'success',
+        ...overrides,
+      };
+      const expressions: Record<string, string> = {
+        '${{ steps.trusted_node.outcome }}': values.trusted_node,
+        '${{ steps.runtime_snapshot.outcome }}': values.runtime_snapshot,
+        '${{ steps.preflight.outcome }}': values.preflight,
+        '${{ steps.runtime.outcome }}': values.runtime,
+        '${{ steps.finalize.outcome }}': values.finalize,
+        '${{ steps.finalize.outputs.fallback_used }}': values.fallback_used,
+        '${{ steps.finalize.outputs.fallback_success }}': values.fallback_success,
+        '${{ steps.claude.outcome }}': values.claude,
+      };
+      let script = preserveScript;
+      for (const [expression, value] of Object.entries(expressions)) {
+        script = script.replaceAll(expression, value);
+      }
+      try {
+        execFileSync('/bin/bash', ['-c', script], { encoding: 'utf8' });
+        return 0;
+      } catch (error) {
+        return (error as { status?: number }).status ?? 1;
+      }
+    };
+    expect(runPreserve()).toBe(0);
+    for (const step of ['runtime_snapshot', 'preflight', 'runtime', 'finalize']) {
+      for (const outcome of ['failure', 'skipped']) {
+        expect(runPreserve({ [step]: outcome })).not.toBe(0);
+      }
+    }
+    expect(runPreserve({ trusted_node: 'failure' })).not.toBe(0);
+    expect(runPreserve({ fallback_used: 'true', fallback_success: 'true' })).toBe(0);
+    expect(runPreserve({ fallback_used: 'true', fallback_success: 'false' })).not.toBe(0);
   });
 
   it('esegue il preflight dal runtime snapshot minimale senza import mancanti', () => {
