@@ -525,6 +525,33 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'zurich-insurance': cLogo('zurichinsurance.ch'),
  'zurich-insurance-sede-ticino': gFavicon('zurich.ch'),
  'zurzach-care': cLogo('zurzachcare.ch'),
+ // Logo backlog #6504: five batches consolidated because they share this
+ // registry and the same audit/download path (#6918–#6922).
+ 'fachkraft': cLogo('fachkraft.ch'),
+ 'stadt-zuerich': cLogo('stadt-zuerich.ch'),
+ 'kanton-aargau': 'https://www.ag.ch/favicon.ico',
+ 'ksml': gFavicon('be.ch'),
+ 'kanton-zuerich': gFavicon('zh.ch'),
+ 'raiffeisen': cLogo('raiffeisen.ch'),
+ 'medbase': cLogo('medbase.ch'),
+ 'ottos': cLogo('ottos.ch'),
+ 'equans': cLogo('equans.ch'),
+ 'etat-de-fribourg': cLogo('fr.ch'),
+ 'zfv-unternehmungen': cLogo('zfv.ch'),
+ 'on-running': cLogo('on-running.com'),
+ 'deloitte': cLogo('deloitte.com'),
+ 'pfister': cLogo('pfister.ch'),
+ 'kanton-st-gallen': cLogo('sg.ch'),
+ 'endress-hauser': cLogo('endress.com'),
+ 'kanton-basel-landschaft': cLogo('baselland.ch'),
+ 'rheinmetall-air-defence': cLogo('rheinmetall.com'),
+ 'etat-de-vaud': '/images/logos/etat-de-vaud.svg',
+ 'eraneos': cLogo('eraneos.com'),
+ 'vz-vermoegenszentrum': cLogo('vermoegenszentrum.ch'),
+ 'zkb': '/images/logos/zkb.svg',
+ 'siemens': cLogo('siemens.com'),
+ 'google-switzerland': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+ 'css-versicherung': cLogo('css.ch'),
 };
 
 // Overlay the locally-mirrored logo paths on top of the registry. Any slug
