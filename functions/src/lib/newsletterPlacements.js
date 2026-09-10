@@ -96,7 +96,9 @@ export function placementToken(raw) {
  * @returns {string}
  */
 export function newsletterRecommendedPlacement(campaign, goId, slot) {
-  return `nl-recommended-${placementSlot(slot)}-${placementToken(campaign || 'recommended')}-${goId}`;
+  const recommended = 'recommended';
+  const campaignToken = placementToken(campaign || recommended) || recommended;
+  return `nl-recommended-${placementSlot(slot)}-${campaignToken}-${goId}`;
 }
 
 /**

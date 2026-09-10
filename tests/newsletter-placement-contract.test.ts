@@ -73,6 +73,14 @@ describe('newsletter placement contract', () => {
     expect('nl-recommended-1--wise').not.toMatch(NEWSLETTER_PLACEMENT_RE);
   });
 
+  it('falls back to the recommended campaign when a truthy campaign normalizes empty', () => {
+    const placement = newsletterRecommendedPlacement('☃️', 'wise', 2);
+
+    expect(placement).toBe('nl-recommended-2-recommended-wise');
+    expect(placement).toMatch(NEWSLETTER_PLACEMENT_RE);
+    expect(sanitizePubref(placement)).toBe(placement);
+  });
+
   it('the four surfaces rendering the same block do not collapse into one pubref', () => {
     // weekly / job alert / welcome / drip rendono lo STESSO blocco verso lo
     // stesso `/go/{goId}/`: se lo slot non porta la campagna, Partnerize vede
