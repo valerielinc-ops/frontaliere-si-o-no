@@ -12,7 +12,9 @@ function decodeFirebaseApiKey(encoded: string, mask: string): string {
 }
 
 /** The same public API key used by services/firebase.ts initializeApp(). */
-export const FIREBASE_API_KEY = import.meta.env.VITE_FIREBASE_API_KEY
+const configuredFirebaseApiKey = import.meta.env?.VITE_FIREBASE_API_KEY
+ || (typeof process !== 'undefined' ? process.env.VITE_FIREBASE_API_KEY : undefined);
+export const FIREBASE_API_KEY = configuredFirebaseApiKey
  || decodeFirebaseApiKey(ENCODED_FIREBASE_API_KEY, FIREBASE_API_KEY_MASK);
 
 /** Firebase Auth's browser persistence key for the default app. */

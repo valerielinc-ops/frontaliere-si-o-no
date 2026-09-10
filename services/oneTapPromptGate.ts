@@ -1,4 +1,4 @@
-const ONETAP_PROMPTED_KEY = 'onetap_prompted';
+export const ONETAP_PROMPTED_KEY = 'onetap_prompted';
 export const ONETAP_PENDING_KEY = 'onetap_pending';
 
 export interface OneTapPromptStorage {
@@ -19,5 +19,3 @@ export function claimOneTapPrompt(storage: OneTapPromptStorage): boolean {
  return false;
  }
 }
-
-export { ONETAP_PROMPTED_KEY };

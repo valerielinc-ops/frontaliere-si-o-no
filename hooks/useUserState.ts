@@ -13,6 +13,7 @@
 import { useState, useEffect, useCallback, type Dispatch, type SetStateAction, type MutableRefObject } from 'react';
 import { useAuth, getAuthEmail, promptOneTap, cancelOneTap, getUserPhotoURL, getUserDisplayName } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
+import { claimOneTapPrompt } from '@/services/oneTapPromptGate';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { ContactPrefill } from '@/components/pages/ContactPage';
 import type { SimulationInputs } from '@/types';
@@ -153,10 +154,8 @@ export function useUserState(
  return;
  }
  if (authLoading) return;
- if (sessionStorage.getItem('onetap_prompted')) return;
-
- sessionStorage.setItem('onetap_prompted', '1');
- promptOneTap();
+ if (!claimOneTapPrompt(window.sessionStorage)) return;
+ void Promise.resolve(promptOneTap()).catch(() => {});
 
  return () => { cancelOneTap(); };
  }, [authLoading, authUser]);
