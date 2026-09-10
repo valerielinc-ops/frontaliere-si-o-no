@@ -235,9 +235,14 @@ export function reconcileAffiliateTransactions({ rows, from = null, to = null, e
   }
 
   const hasDenominator = webExposures !== null || emailExposures !== null;
+  const allSuppliedRowsInvalid = sourceRows.length > 0
+    && invalidRows.length === sourceRows.length;
+  const status = allSuppliedRowsInvalid || !hasDenominator ? 'unmeasurable' : 'measurable';
   return {
-    status: hasDenominator ? 'measurable' : 'unmeasurable',
-    reason: hasDenominator ? null : 'web/email exposure denominator is missing',
+    status,
+    reason: allSuppliedRowsInvalid
+      ? 'affiliate export rows are all invalid'
+      : hasDenominator ? null : 'web/email exposure denominator is missing',
     period: { from, to },
     invalidRows: invalidRows.length,
     invalidReasons: [...new Set(invalidRows.flatMap((entry) => entry.errors))],

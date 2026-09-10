@@ -105,6 +105,33 @@ describe('affiliate revenue reconciliation', () => {
     expect(report.byCurrency.CHF.approvedPer1000Exposures.email).toBeNull();
   });
 
+  it('is unmeasurable when every supplied export row is invalid, even with exposures', () => {
+    const report = reconcileAffiliateTransactions({
+      rows: [{ status: 'approved', currency: 'CHF', amount: '12.500', transaction_date: '2026-09-04' }],
+      from: '2026-09-01',
+      to: '2026-09-07',
+      exposures: { web: 1000 },
+    });
+
+    expect(report.status).toBe('unmeasurable');
+    expect(report.reason).toMatch(/all invalid/i);
+    expect(report.invalidRows).toBe(1);
+    expect(report.deduplicatedTransactions).toBe(0);
+  });
+
+  it('keeps a genuinely empty valid period measurable when exposures exist', () => {
+    const report = reconcileAffiliateTransactions({
+      rows: [{ ...rows[0], transaction_date: '2026-08-31' }],
+      from: '2026-09-01',
+      to: '2026-09-07',
+      exposures: { web: 1000 },
+    });
+
+    expect(report.status).toBe('measurable');
+    expect(report.reason).toBeNull();
+    expect(report.deduplicatedTransactions).toBe(0);
+  });
+
   it('rejects malformed rows with an explicit diagnostic', () => {
     const result = normalizeAffiliateTransaction({ status: 'approved', amount: 2, currency: 'CHF' });
     expect(result.ok).toBe(false);
