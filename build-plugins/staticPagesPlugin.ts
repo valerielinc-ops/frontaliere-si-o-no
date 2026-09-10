@@ -65,6 +65,7 @@ import { parseSlugRegistry } from '../scripts/lib/article-slug-registry.mjs';
 // pill was the reason the DE FAQ hub — alone among the four locales — stayed
 // buried and its 103 entries sat at BFS depth 5 (issue #5428).
 import { buildFaqHubPath } from '../data/faq-hub/routes';
+import { PHARMACY_HUB_PATH } from '../services/pharmacies/types';
 // Same story, same rail, the other eleven pills: the guide/fisco hrefs below
 // were hand-copied literals that had drifted from `services/routeSlugs.data.ts`
 // on EN and DE. Derived now from SLUG_TABLES, one module for the four copies
@@ -999,7 +1000,7 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
 }
 
 // ── Locale main nav (crawlable) ─────────────────────────────────────
-// The 16-anchor pipe nav that every buildPage() artifact ships (see
+// The 17-anchor pipe nav that every buildPage() artifact ships (see
 // `navHtml` in the page builder). Hoisted to module scope — it is no
 // longer buildPage()-private, because the locale-root SPA shells need the
 // SAME table and CLAUDE.md non-negotiable #6 forbids a second copy of it.
@@ -1017,10 +1018,11 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
 // one hop further: `sitemap-salary-stats.xml` went 12 → 75 URLs past the
 // depth-4 cap (all 24 cantons × en/de/fr), and `/de/haeufige-fragen/`'s 103
 // entries went to depth 5 with it. Run 31342536200, issue #5428.
-const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
+export const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
  it: [
  { href: '/', label: 'Simulatore Fiscale' },
  { href: '/compara-servizi/', label: 'Confronta Servizi' },
+ { href: PHARMACY_HUB_PATH.it, label: 'Farmacie e turni' },
  { href: '/tasse-e-pensione/', label: 'Tasse e Pensione' },
  { href: '/guida-frontaliere/', label: 'Guida Frontaliere' },
  { href: '/domande-frequenti-frontalieri/', label: 'FAQ' },
@@ -1040,6 +1042,7 @@ const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
  en: [
  { href: '/en/', label: 'Tax Simulator' },
  { href: '/en/service-comparison/', label: 'Compare Services' },
+ { href: PHARMACY_HUB_PATH.en, label: 'Pharmacies and duties' },
  { href: '/en/taxes-and-pension/', label: 'Taxes & Pensions' },
  { href: '/en/cross-border-guide/', label: 'Cross-Border Guide' },
  { href: '/en/cross-border-faq/', label: 'FAQ' },
@@ -1054,6 +1057,7 @@ const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
  de: [
  { href: '/de/', label: 'Steuersimulator' },
  { href: '/de/service-vergleich/', label: 'Dienste Vergleichen' },
+ { href: PHARMACY_HUB_PATH.de, label: 'Apotheken und Notdienst' },
  { href: '/de/grenzgaenger-besteuerung-leitfaden-2026/', label: 'Steuern & Vorsorge' },
  { href: '/de/grenzgaenger-ratgeber/', label: 'Grenzgänger-Leitfaden' },
  { href: '/de/grenzgaenger-faq/', label: 'FAQ' },
@@ -1068,6 +1072,7 @@ const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
  fr: [
  { href: '/fr/', label: 'Simulateur Fiscal' },
  { href: '/fr/comparaison-services/', label: 'Comparer les Services' },
+ { href: PHARMACY_HUB_PATH.fr, label: 'Pharmacies et gardes' },
  { href: '/fr/impots-et-retraite/', label: 'Impôts & Retraite' },
  { href: '/fr/guide-frontalier/', label: 'Guide Frontalier' },
  { href: '/fr/faq-frontaliers/', label: 'FAQ' },

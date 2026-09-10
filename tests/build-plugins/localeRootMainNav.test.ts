@@ -1,12 +1,12 @@
 /**
- * Regression guard for issue #5428 — the locale-root SPA shells must link the
- * two hubs their whole subtree hangs off.
+ * Regression guard for issues #5428 and #8191 — the locale-root SPA shells
+ * must link the hubs their whole subtree hangs off.
  *
  * What broke, and why a unit test is the right net for it
  * ------------------------------------------------------
  * `/en/`, `/de/`, `/fr/` used to be written by staticPagesPlugin's generic
  * hreflang-variant loop, i.e. by `buildPage()`, which appends the locale's
- * 16-anchor pipe nav (`NAV_LABELS[locale]`) to every artifact it emits. Issue
+ * 17-anchor pipe nav (`NAV_LABELS[locale]`) to every artifact it emits. Issue
  * #5468 handed those three paths to the post-loop "Locale-root SPA shells"
  * ratchet instead (the loop now `continue`s on them) so they would stop losing
  * the homepage SEO block to `_qw`'s first-write-wins dedup. The ratchet mirrors
@@ -45,10 +45,12 @@ import { describe, it, expect } from 'vitest';
 
 import {
   injectLocaleMainNav,
+  NAV_LABELS,
   renderLocaleRootShell,
 } from '../../build-plugins/staticPagesPlugin';
 import { SITE_MAP_PAGE_DIR } from '../../build-plugins/shared/siteMapPageDir';
 import { buildFaqHubPath } from '../../data/faq-hub/routes';
+import { PHARMACY_HUB_PATH } from '../../services/pharmacies/types';
 
 /** Minimal stand-in for the mirrored IT root the ratchet starts from. */
 const SHELL = '<html lang="it"><body><div id="root"><main id="main-content"></main></div></body></html>';
@@ -84,6 +86,17 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
       expect(html).toContain(`href="${buildFaqHubPath(locale)}"`);
     },
   );
+
+  it.each(NON_IT_LOCALES)('/%s/ links its own pharmacy directory hub', (locale) => {
+    const html = renderLocaleRoot(locale);
+    expect(html).toContain(`href="${PHARMACY_HUB_PATH[locale]}"`);
+  });
+
+  it.each(['it', ...NON_IT_LOCALES] as const)('%s homepage nav keeps the canonical pharmacy hub path', (locale) => {
+    expect(NAV_LABELS[locale]).toEqual(
+      expect.arrayContaining([{ href: PHARMACY_HUB_PATH[locale], label: expect.any(String) }]),
+    );
+  });
 
   // The DE slug is called out on its own because it is the one that had
   // drifted: a generic "some FAQ anchor is present" assertion would have
