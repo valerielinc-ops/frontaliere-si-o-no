@@ -24,6 +24,13 @@
 import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
 import { normalizeDescriptionBullets } from '../crawler-template.mjs';
+import {
+  FOREIGN_COUNTRY_NAME_LABELS,
+  ISO_ALPHA2_COUNTRY_CODES,
+  ISO_ALPHA3_COUNTRY_CODES,
+  SWISS_COUNTRY_LABELS,
+} from '../prospector/country-inventory.mjs';
+import { KNOWN_CANTON_CODES } from '../job-location-display.mjs';
 import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
 
 /* ── Errors ────────────────────────────────────────────────────────────── */
@@ -618,18 +625,72 @@ function slugifyTitle(text = '', suffix = '') {
   return truncateSlugAtWordBoundary(s, 200);
 }
 
+const normalizeLocationMarker = (value) => String(value || '')
+  .toLowerCase()
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .replace(/[^a-z0-9]+/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+function isAdministrativeLocationCode(value) {
+  const token = String(value || '').trim();
+  if (!token) return false;
+  const upper = token.toUpperCase();
+  return /^[A-Z]{2,3}$/.test(upper)
+    && (ISO_ALPHA2_COUNTRY_CODES.has(upper)
+      || ISO_ALPHA3_COUNTRY_CODES.has(upper)
+      || KNOWN_CANTON_CODES.has(upper));
+}
+
+function isAdministrativeLocationMarker(value) {
+  if (isAdministrativeLocationCode(value)) return true;
+  const token = String(value || '').trim();
+  if (!token) return false;
+  const folded = normalizeLocationMarker(token);
+  return SWISS_COUNTRY_LABELS.has(folded) || FOREIGN_COUNTRY_NAME_LABELS.has(folded);
+}
+
+function stripTrailingAdministrativeMarker(value) {
+  const commaHead = String(value || '').split(/\s*,\s*/)[0].trim();
+  const suffix = commaHead.match(/^(.+?)\s*[-–—]\s*([^,]+)$/);
+  const suffixToken = suffix?.[2]?.trim() || '';
+  const cityPrefix = suffix?.[1]?.trim() || '';
+  // An all-uppercase suffix can be part of an all-uppercase hyphenated city
+  // (`ST-MAURICE`). Country names in Workday are title-cased; codes remain
+  // unambiguous and are still stripped by the branch below.
+  const suffixIsUppercaseCityToken = /^[A-Z][A-Z\s]*$/.test(suffixToken)
+    && !isAdministrativeLocationCode(suffixToken);
+  const saintCity = /^(?:st\.?|saint)$/i.test(cityPrefix);
+  if (suffix && !saintCity && !suffixIsUppercaseCityToken && isAdministrativeLocationMarker(suffixToken)) {
+    return suffix[1].trim();
+  }
+  return String(value || '').trim();
+}
+
 export function firstLocationSegment(locText = '') {
   const cleaned = String(locText || '').trim();
   if (/\d+\s+location/i.test(cleaned)) return '';
-  if (/^[A-Z]{2,3}$/.test(cleaned)) return ''; // Bare country code is not useful as a city
-  const countryPrefix = cleaned.match(/^[A-Z]{2,3}\s*[-–—]\s*(.+)$/);
-  const locationText = countryPrefix?.[1]?.trim() || cleaned;
+
+  // A country prefix is the spaced form emitted by Workday (`CH - Visp`).
+  // Requiring the space after the dash matters: `ST-MAURICE` is a city, not
+  // the country-code prefix `ST` followed by a city named `MAURICE`.
+  const prefixMatch = cleaned.match(/^([A-Z]{2,3})\s*[-–—]\s+(.+)$/)
+    || cleaned.match(/^(.+?)\s+[-–—]\s+(.+)$/);
+  const countryPrefix = prefixMatch && isAdministrativeLocationMarker(prefixMatch[1])
+    ? prefixMatch
+    : null;
+  const locationText = countryPrefix?.[2]?.trim() || cleaned;
+
   // Split only on a spaced dash: an unspaced dash belongs to a hyphenated city
-  // such as "Plan-les-Ouates" or "St-Maurice".
+  // such as "Plan-les-Ouates" or "St-Maurice". A trailing canton/country
+  // marker without spaces (`Sion-VS`, `Visp-Switzerland`) is stripped below.
   const parts = locationText.split(/\s+[-–—]\s+/).map((part) => part.trim()).filter(Boolean);
-  // Some Workday tenants prefix the city with the country code (e.g. "CH - Visp").
-  // Do not publish that prefix as the workplace when selecting the first segment.
-  return parts.find((part) => !/^[A-Z]{2,3}$/.test(part)) || '';
+  // Bare country/canton codes are not cities; country *names* are kept for
+  // the existing region-only fallback (`Switzerland` remains honest data).
+  const first = parts.find((part) => !isAdministrativeLocationCode(part));
+  if (!first) return '';
+  return stripTrailingAdministrativeMarker(first);
 }
 
 /**

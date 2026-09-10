@@ -172,6 +172,11 @@ describe('isTicinoLocation', () => {
 describe('parseWorkdayCity', () => {
   it('extracts city from "CHE - Lugano"', () => { expect(parseWorkdayCity('CHE - Lugano')).toBe('Lugano'); });
   it('extracts city from "Lugano, Switzerland"', () => { expect(parseWorkdayCity('Lugano, Switzerland')).toBe('Lugano'); });
+  it('preserves hyphenated uppercase cities and strips administrative suffixes', () => {
+    expect(parseWorkdayCity('ST-MAURICE')).toBe('ST-MAURICE');
+    expect(parseWorkdayCity('Sion-VS')).toBe('Sion');
+    expect(parseWorkdayCity('Visp-Switzerland')).toBe('Visp');
+  });
 });
 
 describe('detectCategory', () => {

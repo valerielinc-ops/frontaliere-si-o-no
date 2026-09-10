@@ -38,6 +38,7 @@ import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-location
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -252,12 +253,7 @@ async function fetchJobDetail(externalPath) {
 // ─────────────────────────────────────────────────────────────
 
 function parseWorkdayLocation(locText = '') {
-  // Format: "CHE - Cadempino" or "CHE - Plan-les-Ouates"
-  const cleaned = String(locText || '').trim();
-  const parts = cleaned.split(/\s*-\s*/);
-  // last part is the city
-  const city = parts.length > 1 ? parts.slice(1).join('-').trim() : cleaned;
-  return city || cleaned;
+  return firstLocationSegment(locText);
 }
 
 function inferCanton(location = '') {

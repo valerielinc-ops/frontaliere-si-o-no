@@ -19,6 +19,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
+import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -240,11 +241,7 @@ async function fetchJobDetail(externalPath) {
  * Parse city name from Workday location text like "CH - Visp".
  */
 function parseWorkdayLocation(locText = '') {
-  const cleaned = String(locText || '').trim();
-  if (/\d+\s+location/i.test(cleaned)) return '';
-  // Workday format: "CH - Visp" or "CH - Basel"
-  const match = cleaned.match(/-\s*(.+)$/);
-  return match ? match[1].trim() : cleaned;
+  return firstLocationSegment(locText);
 }
 
 function inferCanton(location = '') {
