@@ -6247,6 +6247,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-corruzione-restituzione-banche.title': 'Bribery money: the Swiss dilemma',
     'blog.article.svizzera-corruzione-restituzione-banche.excerpt': 'Return of illicit funds: a long and complex process. Why does Switzerland not oblige banks to pay directly to the injured states?',
     'blog.article.svizzera-corruzione-restituzione-banche.imageAlt': 'Swiss federal banking authority headquarters overseeing illicit fund restitution procedures',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.title': 'Wages and work Thurgau: sectors, levels and contracts',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.excerpt': 'In the canton of Thurgau there is no federal minimum wage; the weekly hours are 45 or 50 depending on the sector, with AVS/AHV contributions at 5.3% for the employee.',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.imageAlt': 'Swiss office building with alpine backdrop, representing the cantonal labour market',
 };
 
 export default blogMetaChEn;

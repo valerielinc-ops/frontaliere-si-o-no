@@ -6247,6 +6247,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-corruzione-restituzione-banche.title': 'Argent de corruption : le dilemme suisse',
     'blog.article.svizzera-corruzione-restituzione-banche.excerpt': 'Restitution de fonds illicites : un processus long et complexe. Pourquoi la Suisse n\'oblige-t-elle pas les banques à verser directement aux États lésés ?',
     'blog.article.svizzera-corruzione-restituzione-banche.imageAlt': 'Autorité bancaire fédérale suisse supervisant les procédures de restitution des fonds illicites',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.title': 'Salaires et travail Thurgovie : secteurs, niveaux et contrats',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.excerpt': 'Dans le canton de Thurgovie, il n\'existe pas de salaire minimum fédéral ; les heures hebdomadaires sont de 45 ou 50 selon le secteur, avec des cotisations AVS/AHV à 5,3 % pour le salarié.',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.imageAlt': 'Bureau suisse avec panorama alpin, symbole du marché du travail cantonal',
 };
 
 export default blogMetaChFr;
