@@ -9,6 +9,12 @@ const REFRESH_WORKFLOW_SOURCE = readFileSync(
 );
 
 describe('employer insights refresh rollback', () => {
+  it('runs the now-supported GA4 identity feed on the periodic trigger', () => {
+    expect(REFRESH_WORKFLOW_SOURCE).toMatch(/on:\s*[\s\S]*schedule:\s*[\s\S]*cron:\s*'15 5 \* \* \*'/);
+    expect(REFRESH_WORKFLOW_SOURCE).toMatch(/ga4\) ;;/);
+    expect(REFRESH_WORKFLOW_SOURCE).not.toContain('has no complete GA4 identity feed yet');
+  });
+
   it('reports items committed before a later Firestore chunk fails', async () => {
     let commitCount = 0;
     const committedBatches: unknown[][] = [];
