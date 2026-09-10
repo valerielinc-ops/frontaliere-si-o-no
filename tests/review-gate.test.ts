@@ -428,6 +428,51 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.blocking).toBe(false);
   });
 
+  it('requires an LGTM when an outside-only review leaves a funnel question unresolved', async () => {
+    const outsideOnlyReview = {
+      ...historicalImportantReview,
+      body: [
+        reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
+        '- ❓ q: the funnel-critical fallback may still regress.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[outsideOnlyReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
+    expect(result.classification.outsideOnly).toBe(true);
+  });
+
+  it('allows an explicitly non-funnel question beside an outside-only finding', async () => {
+    const outsideOnlyReview = {
+      ...historicalImportantReview,
+      body: [
+        reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
+        '- ❓ q: rischio operativo non funnel-critical, solo diagnostico.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[outsideOnlyReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.classification.outsideOnly).toBe(true);
+  });
+
   it('still blocks an in-scope Important without an LGTM', async () => {
     const inScopeReview = {
       ...historicalImportantReview,

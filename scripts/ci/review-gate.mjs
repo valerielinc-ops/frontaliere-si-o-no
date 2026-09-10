@@ -32,6 +32,8 @@ const MAX_FOLLOWUP_BODY_LEN = 60_000;
 const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*/u;
 const FINDING_MARKER_RE = /🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
+const QUESTION_MARKER_RE = /^\s*(?:[-*+>]\s*)*❓\s*q\s*:/iu;
+const NON_FUNNEL_QUESTION_RE = /\b(?:non|not)[-\s]?funnel(?:[-\s]?critical)?\b|\bdeferred\b/iu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
 // This is deliberately narrower than REVIEWER_LOGIN_RE and is accepted only
 // together with a validated Codex evidence file plus an exact HEAD commit and
@@ -231,6 +233,14 @@ function emptyClassification(findings = []) {
     outsideOnly: false,
     blocking: false,
   };
+}
+
+// An adversarial `❓ q:` may still describe a funnel-critical risk. The
+// outside-only exception is safe without `## LGTM` only when the reviewer
+// explicitly disposes of every question as non-funnel/deferred.
+function hasUnresolvedFunnelQuestion(body) {
+  return String(body || '').split(/\r?\n/u).some((line) =>
+    QUESTION_MARKER_RE.test(line) && !NON_FUNNEL_QUESTION_RE.test(line));
 }
 
 /**
@@ -974,7 +984,8 @@ export async function runReviewGate({
   // for empty, in-scope, and unresolved verdicts.
   const outsideOnlyWithoutLgtm = !body.includes('## LGTM')
     && classification.outsideOnly
-    && !classification.blocking;
+    && !classification.blocking
+    && !hasUnresolvedFunnelQuestion(body);
   if (!body.includes('## LGTM') && !outsideOnlyWithoutLgtm) {
     return { approved: false, reason: 'manca ## LGTM', classification, review: latest };
   }
