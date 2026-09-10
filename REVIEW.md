@@ -117,7 +117,7 @@ Gli **stati letterali** ammessi sono CINQUE, e sono quelli che le macchine ricon
 
 ### Pre-output adversarial check (tier high)
 
-PR a tier `high` (vedi tabella "Tier review"): prima del summary finale, includi sezione `## Adversarial check` con 3 cose NON verificate (regex edge case non testato, exit-code path non esplorato, file related non aperto, idempotency assumption). Surface come ❓ q dove pertinente. Tier normal: skip questa sezione.
+PR a tier `high` (vedi tabella "Tier review"): prima del summary finale, includi sezione `## Adversarial check` con 3 cose NON verificate (regex edge case non testato, exit-code path non esplorato, file related non aperto, idempotency assumption). Surface come ❓ q dove pertinente. Ogni `❓ q:` che resta non-funnel deve terminare con la disposizione esplicita `— deferred, non funnel-critical.`; scrivere `(report-only)`, `non-funnel-critical` o `deferred` soltanto nel testo della domanda non è una disposizione. Un rischio funnel-critical va promosso a 🔴 Important e non può ricevere quel suffisso. Tier normal: skip questa sezione.
 
 **Le "cose non verificate" sono rischi di COMPORTAMENTO/correttezza, mai "manca un test".** Non scrivere voci adversarial del tipo "questo branch non ha test" / "andrebbe pinnato con un test" (vedi IGNORA → test coverage): sono missing-coverage travestiti e violano la regola. Surface invece il rischio sottostante — *il comportamento X su input degenere potrebbe sbagliare* — come ❓ q (o 🔴 se funnel-critical). La differenza è netta: "non so se `parseFoo()` gestisce il null → potrebbe emettere structured-data invalido" = valido (rischio di comportamento); "manca un test per il ramo null di `parseFoo()`" = vietato (coverage).
 
@@ -175,7 +175,7 @@ Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
 <lista>
 
 ## Adversarial check
-<solo tier high: 3 cose NON verificate>
+<solo tier high: 3 cose NON verificate, ognuna con `— deferred, non funnel-critical.` se non-funnel>
 ```
 
 Zero 🔴 Important: chiudi con `## LGTM` + frase recap. **Critico:** la stringa esatta `## LGTM` triggera auto-merge in `auto-merge-on-lgtm.yml`. Non scrivere mai `## LGTM` se hai aperto un 🔴 in findings o adversarial check, **né se hai un ❓ funnel-critical non escalato** (vedi Verification → escalation): o lo promuovi a 🔴, o apri follow-up issue + lo dichiari, prima di poter scrivere `## LGTM`.
