@@ -458,7 +458,8 @@
       },
       "streetAddress": "Via Industria 1",
       "firstSeenAt": "2026-09-01T14:18:46.369Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Senior IT Project Manager",
@@ -1716,7 +1717,8 @@
       },
       "previousSlugs": [
         "senior-technical-business-analyst-cash-operations-payments-avaloq-bioggio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Technical Leader IT – Infrastructure & Platform Delivery",

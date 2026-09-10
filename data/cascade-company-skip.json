@@ -1,5 +1,5 @@
 {
-  "run": 18,
+  "run": 19,
   "companies": {
     "postfinance": {
       "sterile": 1,
@@ -36,16 +36,6 @@
     "ffs-officine-ferrovie-federali": {
       "sterile": 1,
       "signature": "f27cebbc78000cc9"
-    },
-    "burkhalter-group": {
-      "sterile": 0,
-      "signature": "af53e61c453e189a",
-      "skipUntilRun": 17
-    },
-    "c-and-a-schweiz": {
-      "sterile": 0,
-      "signature": "c4dd21cb0b542968",
-      "skipUntilRun": 17
     },
     "manor": {
       "sterile": 1,

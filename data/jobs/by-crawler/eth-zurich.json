@@ -449,7 +449,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "eth-zurich-560ec7892cc4",

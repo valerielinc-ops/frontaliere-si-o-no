@@ -686,7 +686,7 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-09T23:10:07.457Z",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8044",
       "streetAddress": "Orellistrasse 21",
@@ -727,7 +727,8 @@
           "maxValue": 122500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "zfv-unternehmungen-2fccb09080b4",
