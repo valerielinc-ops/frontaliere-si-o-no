@@ -7,13 +7,14 @@ export interface HubProfileIdentity {
  *
  * The profile emitter already applies the canonical dominant-companyKey
  * resolution across the complete employer group. Reuse that result whenever
- * an indexable profile exists; only below-floor hubs need the deterministic
- * URL-slug fallback, never an order-dependent job pick.
+ * it is present; if a rendered profile has no crawler key, keep the hub's
+ * canonical slug as the deterministic identity fallback. Never choose an
+ * order-dependent job pick.
  */
 export function resolveHubCompanyKey(
   hubSlug: string,
   profileIdentity?: HubProfileIdentity,
 ): string | null {
-  if (profileIdentity) return String(profileIdentity.companyKey || '').trim() || null;
-  return String(hubSlug || '').trim() || null;
+  const profileKey = String(profileIdentity?.companyKey || '').trim();
+  return profileKey || String(hubSlug || '').trim() || null;
 }

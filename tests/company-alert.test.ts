@@ -1423,6 +1423,29 @@ describe('CTA on the static company hubs /cerca-lavoro-.../ (#8105)', () => {
       .toContain('companyKey: profile.companyKey ?? null');
   });
 
+  it('keeps hub/profile slugs aligned and falls back to the canonical hub slug', () => {
+    const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
+    expect(plugin).toContain('return canonicalCompanyProfileSlug(company, companyKey);');
+    expect(canonicalCompanyProfileSlug('Migros Ticino', 'migros-ticino')).toBe('migros');
+    expect(resolveHubCompanyKey('migros', { companyKey: null })).toBe('migros');
+    expect(plugin).toContain('if (emitted.indexable) emittedEmployerHubs.set');
+    expect(readRepoFile('build-plugins/shared/buildSignals.ts')).toContain('readonly indexable: boolean;');
+    expect(readRepoFile('build-plugins/employerProfilePagesPlugin.ts')).toContain('indexable,');
+    expect(readRepoFile('build-plugins/employerProfilePagesLinksPlugin.ts'))
+      .toContain('if (!p.indexable) continue;');
+  });
+
+  it('enumerates every data-company-key consumer through the canonical alert key', () => {
+    const mount = readRepoFile('components/community/CompanyFollowMount.tsx');
+    const cta = readRepoFile('components/community/CompanyFollowCta.tsx');
+    const button = readRepoFile('components/community/CompanyFollowButton.tsx');
+    expect(mount).toContain('companyKey: (el.dataset.companyKey || \'\').trim() || null');
+    expect(mount).toContain('companyAlertKey(target.props.company, target.props.companyKey || undefined)');
+    expect(cta).toContain('companyAlertKey(String(company), companyKey || undefined)');
+    expect(cta).toContain('companyFollowCooldownKey(String(company || \'\'), companyKey)');
+    expect(button).toContain('companyAlertKey(company, companyKey || undefined)');
+  });
+
   it('maps the hub surface end to end instead of falling back to profile analytics', () => {
     expect(readRepoFile('components/community/CompanyFollowMount.tsx'))
       .toContain("employer_hub: 'company_follow_hub'");

@@ -2737,7 +2737,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (const emitted of await employerProfilesFlushed) {
  const m = /^(?:\/(en|de|fr))?\/aziende\/([^/]+)\/$/.exec(emitted.path);
  if (m) {
- emittedEmployerHubs.set(`${m[1] ?? 'it'}|${m[2]}`, emitted.path);
+ if (emitted.indexable) emittedEmployerHubs.set(`${m[1] ?? 'it'}|${m[2]}`, emitted.path);
  emittedEmployerProfilesBySlug.set(m[2], emitted);
  }
  }
