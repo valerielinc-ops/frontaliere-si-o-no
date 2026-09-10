@@ -210,9 +210,11 @@ function readRexxStructuredPosting(html, title, pageUrl) {
       const postingIdentity = canonicalRexxUrl(posting?.url || posting?.sameAs || '');
       return Boolean(pageIdentity && postingIdentity === pageIdentity);
     });
-    return identityMatches.length === 1 ? identityMatches[0] : null;
+    if (identityMatches.length === 1) return identityMatches[0];
   }
   const candidates = postings.filter((posting) => {
+    const postingIdentity = canonicalRexxUrl(posting?.url || posting?.sameAs || '');
+    if (postingIdentity) return false;
     const titleMatches = title
       && normalizeTitleIdentity(decodeEntities(posting?.title || posting?.name || '')) === normalizeTitleIdentity(title);
     return titleMatches;

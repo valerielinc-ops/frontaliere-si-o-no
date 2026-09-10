@@ -382,6 +382,26 @@ describe('Kantonsspital Uri shared rexx parser', () => {
     expect(extractRexxDetail(html, DETAIL_URL).sourceAddresses).toHaveLength(1);
   });
 
+  it('falls back to the sole URL-less title match when a related posting has another URL', () => {
+    const body = 'Das Kantonsspital Uri stellt mit seinem erweiterten Leistungsangebot die medizinische Grundversorgung für die Region sicher. '.repeat(10);
+    const posting = (title: string, extra: Record<string, unknown> = {}) => ({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title,
+      description: body,
+      datePosted: SOURCE_POSTED_DATE,
+      hiringOrganization: { '@type': 'Organization', name: 'Kantonsspital Uri' },
+      jobLocation: { '@type': 'Place', address: { addressLocality: 'Kantonsspital Uri', addressRegion: 'Uri', postalCode: '6460', addressCountry: 'CH' } },
+      ...extra,
+    });
+    const html = `<html><head>${[
+      posting('Related vacancy', { url: SECOND_DETAIL_URL }),
+      posting('Koch / Köchin'),
+    ].map((value) => `<script type="application/ld+json">${JSON.stringify(value)}</script>`).join('')}</head><body><h1>Koch / Köchin</h1><h2>Ihre Aufgaben</h2><p>${body}</p></body></html>`;
+
+    expect(extractRexxDetail(html, DETAIL_URL).sourceAddresses).toHaveLength(1);
+  });
+
   it('keeps whitespace-sensitive employer and URL keys strict', async () => {
     const html = realRexxDetailFixture({
       locality: 'Kantonsspital  Uri',
