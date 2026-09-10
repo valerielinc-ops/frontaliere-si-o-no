@@ -7948,8 +7948,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const teaserPending = !descriptionPreview
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
  const gateCompanySlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
- const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobSlug: gateCompanySlug }, locale);
  const gateJobCanton = resolveJobCanton(selectedJob);
+ const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: gateJobCanton, jobSlug: gateCompanySlug }, locale);
  // City link is ALWAYS canton-semantic: /cerca-lavoro-<canton>/<città>/ for
  // EVERY canton (incl. TI) — a city must never sit under a foreign section
  // (e.g. Zürich under /cerca-lavoro-ticino/ is semantically wrong). Known
@@ -8556,8 +8556,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
  const detailPageUrl = `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`;
  const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
- const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySearchSlug }, locale);
  const detailJobCanton = resolveJobCanton(selectedJob);
+ const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: detailJobCanton, jobSlug: companySearchSlug }, locale);
  // Job-specific FAQ (build-plugins/shared/jobPostingFaq.ts) — the same
  // deterministic template + canonical schema builder that services/seoService.ts
  // uses for the runtime FAQPage JSON-LD on client-side navigation, so the
@@ -8623,13 +8623,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
  Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
- // Full navigation to the static company hub (HTTP 200) which lists the
- // company's jobs across ALL cantons. An SPA re-filter scopes to the current
- // canton shard and clobbers the static list with an empty result — the
- // /cerca-lavoro-ticino/azienda-X/ "0 results" bug for cross-canton employers
- // (e.g. PwC: 109 static jobs vs 0 in the TI shard). The viewed job is active,
- // so its company always has a current-build hub (companySearchHref uses the
- // canonical slug that mirrors the emitter).
+ // Full navigation to the static company hub for the job's canton. The URL is
+ // intentionally canton-scoped: `/aziende/<slug>/` is the Switzerland-wide
+ // employer profile, while this page answers the narrower "company in this
+ // canton" intent. The viewed job is active, so its company always has a
+ // current-build canton hub (companySearchHref uses the same slug as the
+ // emitter).
  window.location.assign(companySearchHref.split('?')[0]);
  };
  const parserCoverage = (() => {
