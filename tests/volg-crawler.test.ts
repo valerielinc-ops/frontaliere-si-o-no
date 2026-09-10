@@ -75,7 +75,7 @@ const FIXTURE_HTML = `<!DOCTYPE html>
 </html>`;
 
 describe('Volg source-detail wiring', () => {
-  it('uses the shared Coop-family detail contract with transient listing fallback', () => {
+  it('uses the shared Coop-family detail contract with retryable-status listing fallback', () => {
     const runner = fs.readFileSync(path.resolve(import.meta.dirname, '../scripts/update-volg-jobs.mjs'), 'utf8');
     expect(runner).toContain('enrichCoopSourceBackedJobs');
     expect(runner).toContain("allowedHosts: ['jobs.fenaco.com']");

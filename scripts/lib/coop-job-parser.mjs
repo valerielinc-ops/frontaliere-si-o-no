@@ -14,7 +14,7 @@ import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirects,
 } from './prospector/public-fetch-policy.mjs';
-import { fetchWithRetry, isTransientFetchError, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -475,9 +475,10 @@ const DETAIL_DROP_ABORT_MIN_BATCH = 4;
  * content on an indexable URL is Non-Negotiable #4 — so it leaves the batch,
  * and only a batch-wide share of rejections is read as drift and fails closed.
  * `preserveListingOnTransientFailure` keeps the listing-derived record when a
- * detail request exhausts retries on a transient HTTP/network failure. The
- * listing has already passed the source discovery path and its rich fallback
- * is safer than aborting an otherwise complete crawl for one 503.
+ * detail request exhausts retries on an explicitly retryable HTTP status. A
+ * network/DNS/TLS error remains fail-closed: the listing alone cannot prove
+ * that the source is still reachable, while its rich fallback is safe for an
+ * otherwise complete crawl that received one 503.
  */
 export async function enrichCoopSourceBackedJobs(jobs, {
   fetchImpl = undiciFetch,
@@ -532,7 +533,9 @@ export async function enrichCoopSourceBackedJobs(jobs, {
           }
         }, { label: `coop-detail:${url.hostname}` });
       } catch (error) {
-        if (preserveListingOnTransientFailure && isTransientFetchError(error)) {
+        if (preserveListingOnTransientFailure
+          && Number.isFinite(error?.status)
+          && RETRYABLE_STATUS.has(error.status)) {
           output[index] = job;
           unavailable.push({ url: url.toString(), reason: error.message });
           continue;
