@@ -432,6 +432,9 @@ async function enrichWithDetails(jobs) {
   const enriched = await enrichCoopSourceBackedJobs(jobs, {
     allowedHosts: ['jobs.fenaco.com'],
     concurrency: 4,
+    // A transient detail outage must not abort the complete, already parsed
+    // listing batch. buildJob() supplies the validated >=50-word fallback.
+    preserveListingOnTransientFailure: true,
   });
   jobs.splice(0, jobs.length, ...enriched);
   console.log(`  📄 Detail pages: ${enriched.length} source-backed`);
