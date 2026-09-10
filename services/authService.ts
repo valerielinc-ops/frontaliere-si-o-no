@@ -14,6 +14,7 @@ import { hasActiveSlot } from '@/services/popupQueue';
 import { reportCaughtError } from '@/services/errorReporter';
 import { isNewsletterAutologinInFlight, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 import { resilientImport } from '@/services/resilientImport';
+import { getFirebaseAuthPersistenceKey } from '@/services/firebaseAuthPersistence';
 // Static, unlike the Firestore/newsletter modules below: consentTexts.ts is a
 // frozen constant table with no dependencies, so there is nothing to defer —
 // and a consent proof that failed to load would silently un-fix #5678.
@@ -42,12 +43,11 @@ function logAuthDebug(event: string, details?: Record<string, unknown>): void {
 }
 
 /** Lightweight synchronous check for an existing Firebase Auth session in localStorage. */
-function hasPersistedAuthSession(): boolean {
+export function hasPersistedAuthSession(): boolean {
+ if (typeof window === 'undefined') return false;
  try {
- for (let i = 0; i < localStorage.length; i++) {
- const key = localStorage.key(i);
- if (key && key.startsWith('firebase:authUser:')) return true;
- }
+ const activeKey = getFirebaseAuthPersistenceKey();
+ return window.localStorage.getItem(activeKey) !== null;
  } catch { /* localStorage unavailable */ }
  return false;
 }
@@ -957,8 +957,8 @@ export function useAuth(): AuthState & {
  // A persisted Firebase session is also auth-dependent: until the listener
  // resolves, rendering the anonymous UI causes a visible gate/login flash.
  if (hasPersistedAuthSession()) return true;
- if (sessionStorage.getItem('auth_redirect_provider')) return true;
  if (typeof window !== 'undefined') {
+ if (window.sessionStorage.getItem('auth_redirect_provider')) return true;
  if (window.location.pathname.includes('/gestione-contenuti-xk9mp2q')) return true;
  const p = new URLSearchParams(window.location.search);
  if (p.get('mode') === 'signIn' && p.get('oobCode')) return true;

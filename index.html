@@ -524,18 +524,22 @@
         var cc = ow.customchoice = ow.customchoice || {};
         if (cc.registry) return; // don't overwrite a registry set elsewhere
         // Grant access (suppress the Offerwall) for existing newsletter
-        // subscribers OR signed-in users. Firebase Auth persists the session in a
-        // `firebase:authUser:<…>` localStorage key (see authService
-        // hasPersistedAuthSession), so a logged-in user is detected synchronously
-        // — no async auth hydration wait (initialize must resolve in < 1s). Only
+        // subscribers OR signed-in users. Firebase Auth persists the session in
+        // `firebase:authUser:<apiKey>:[DEFAULT]`; use the active key so a stale
+        // key from another Firebase project cannot suppress the Offerwall.
+        // The key is replaced by Vite when configured and falls back to the same
+        // public default used by services/firebaseAuthPersistence.ts.
+        var firebaseApiKey = '%VITE_FIREBASE_API_KEY%';
+        if (!firebaseApiKey || firebaseApiKey === '%VITE_FIREBASE_API_KEY%' || firebaseApiKey === 'your-firebase-api-key') {
+          firebaseApiKey = 'AIzaSyCxbA2_3BiBOjZryR5LOXCf_c2-Sgg7YSc';
+        }
+        var firebaseAuthPersistenceKey = 'firebase:authUser:' + firebaseApiKey + ':[DEFAULT]';
+        // No async auth hydration wait (initialize must resolve in < 1s). Only
         // anonymous, non-subscribed readers (the funnel target) see the Offerwall.
         function hasAccess(){
           try {
             if (window.localStorage.getItem('newsletter_subscribed') === 'true') return true;
-            for (var i = 0; i < window.localStorage.length; i++) {
-              var k = window.localStorage.key(i);
-              if (k && k.indexOf('firebase:authUser:') === 0) return true;
-            }
+            if (window.localStorage.getItem(firebaseAuthPersistenceKey) !== null) return true;
           } catch (e) { /* localStorage unavailable */ }
           return false;
         }

@@ -28,6 +28,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { useAuth } from '@/services/authService';
+import { getFirebaseAuthPersistenceKey } from '@/services/firebaseAuthPersistence';
 import {
   upsertNewsletterSubscriber,
   markNewsletterSubscribedLocally,
@@ -134,19 +135,16 @@ function normalizeLocale(code?: string | null, fallback?: string): OfferwallLoca
  * Synchronous "already has access" check for the Offerwall gate. Grants access
  * (suppresses the Offerwall) when the visitor is EITHER an existing newsletter
  * subscriber (local flag set by markNewsletterSubscribedLocally) OR signed in to
- * the site. Firebase Auth persists the session under a `firebase:authUser:<…>`
- * localStorage key (mirrored from authService.hasPersistedAuthSession), so a
- * logged-in user is detected without waiting for async auth hydration — the
- * registry's initialize() must resolve in <1s. Keeps gating to anonymous,
- * non-subscribed readers (the funnel target); registered users never see it.
+ * the site. Firebase Auth persists the session under the active persistence
+ * key (mirrored from authService.hasPersistedAuthSession), so a logged-in user
+ * is detected without waiting for async auth hydration — the registry's
+ * initialize() must resolve in <1s. Keeps gating to anonymous, non-subscribed
+ * readers (the funnel target); registered users never see it.
  */
 function offerwallHasAccess(w: any): boolean {
   try {
     if (w.localStorage.getItem('newsletter_subscribed') === 'true') return true;
-    for (let i = 0; i < w.localStorage.length; i++) {
-      const k = w.localStorage.key(i);
-      if (k && k.indexOf('firebase:authUser:') === 0) return true;
-    }
+    if (w.localStorage.getItem(getFirebaseAuthPersistenceKey()) !== null) return true;
   } catch { /* localStorage unavailable */ }
   return false;
 }
@@ -278,7 +276,7 @@ const OfferwallNewsletterGate: React.FC = () => {
   // grant the Offerwall reward immediately. (Auth providers auto-subscribe to the
   // newsletter — same as NewsletterPopup — so no extra subscribe call is needed.)
   // The LinkedIn flow redirects away and returns logged-in: the gate is gone by
-  // then, but offerwallHasAccess()'s firebase:authUser scan suppresses the
+  // then, but offerwallHasAccess()'s active Firebase Auth key suppresses the
   // Offerwall on the returning pageview, so access is granted there too.
   useEffect(() => {
     if (open && user) {
