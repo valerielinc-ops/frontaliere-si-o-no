@@ -94,6 +94,24 @@ describe('job localization pipeline', () => {
     expect(stats.providerHits.libretranslate).toBe(1);
   });
 
+  it('keeps the two-character requirement floor when a caller passes a lower minimum', async () => {
+    const fetchMock = vi.fn(async () => ({
+      ok: true,
+      json: async () => ({ translatedText: 'X' }),
+    }));
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    const translated = await translateTextWithLocalPipeline({
+      text: 'Conoscenza API REST',
+      sourceLang: 'it',
+      targetLang: 'en',
+      kind: 'requirement',
+      minChars: 0,
+    });
+
+    expect(translated).toBe('');
+  });
+
   it('localizes full job payloads including requirements', async () => {
     const fetchMock = vi.fn(async (url: string, init?: RequestInit) => {
       const body = JSON.parse(String(init?.body || '{}'));

@@ -76,6 +76,9 @@ const DEFAULT_PAGE_SIZE = 20;
 const DEFAULT_MAX_PAGES = 100000; // uncapped — loop breaks on yielded>=total / partial page
 const DEFAULT_MIN_DELAY_MS = 2000;
 const DEFAULT_TIMEOUT_MS = 20000;
+// `ST` is both an ISO country code and the common compact prefix in
+// `ST-MAURICE`; only the explicitly spaced form is unambiguous there.
+const AMBIGUOUS_COMPACT_LOCATION_CODES = new Set(['ST']);
 
 /* ── URL building ──────────────────────────────────────────────────────── */
 
@@ -672,11 +675,18 @@ export function firstLocationSegment(locText = '') {
   const cleaned = String(locText || '').trim();
   if (/\d+\s+location/i.test(cleaned)) return '';
 
-  // A country prefix is the spaced form emitted by Workday (`CH - Visp`).
-  // Requiring the space after the dash matters: `ST-MAURICE` is a city, not
-  // the country-code prefix `ST` followed by a city named `MAURICE`.
-  const prefixMatch = cleaned.match(/^([A-Z]{2,3})\s*[-–—]\s+(.+)$/)
-    || cleaned.match(/^(.+?)\s+[-–—]\s+(.+)$/);
+  // Workday emits both spaced (`CH - Visp`) and compact (`CH-Visp`) country
+  // prefixes. Keep the compact `ST-MAURICE` city boundary: `ST` is also an
+  // ISO country code, so that particular unspaced form is ambiguous.
+  const codePrefixMatch = cleaned.match(/^([A-Z]{2,3})(\s*[-–—]\s*)(.+)$/);
+  const codePrefix = codePrefixMatch?.[1] || '';
+  const codeSeparator = codePrefixMatch?.[2] || '';
+  const codeIsExplicitlySpaced = /^\s+[-–—]\s+$/.test(codeSeparator);
+  const compactCodeIsUnambiguous = !AMBIGUOUS_COMPACT_LOCATION_CODES.has(codePrefix)
+    || codeIsExplicitlySpaced;
+  const prefixMatch = codePrefixMatch && compactCodeIsUnambiguous
+    ? [codePrefixMatch[0], codePrefix, codePrefixMatch[3]]
+    : cleaned.match(/^(.+?)\s+[-–—]\s+(.+)$/);
   const countryPrefix = prefixMatch && isAdministrativeLocationMarker(prefixMatch[1])
     ? prefixMatch
     : null;

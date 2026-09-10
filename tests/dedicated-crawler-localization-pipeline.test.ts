@@ -76,6 +76,58 @@ describe('dedicated crawler localization pipeline integration', () => {
     expect(fetchMock).toHaveBeenCalled();
   });
 
+  it('skips a two-character provider title before persisting locale slots', async () => {
+    const sourceTitle = 'Assistente amministrativo';
+    fs.writeFileSync(jobsPath, `${JSON.stringify([{
+      slug: 'job-short-title-provider',
+      company: 'Demo SA',
+      location: 'Lugano',
+      title: sourceTitle,
+      description: '## Responsabilita\n- Supporto al team operativo e amministrativo su pratiche ricorrenti\n- Preparazione documenti, archivio e gestione corrispondenza\n\n## Requisiti\n- Esperienza in amministrazione di almeno 3 anni\n- Capacita di lavorare con processi strutturati e documentazione interna',
+      titleByLocale: { it: sourceTitle },
+      descriptionByLocale: {
+        it: '## Responsabilita\n- Supporto al team operativo e amministrativo su pratiche ricorrenti\n- Preparazione documenti, archivio e gestione corrispondenza\n\n## Requisiti\n- Esperienza in amministrazione di almeno 3 anni\n- Capacita di lavorare con processi strutturati e documentazione interna',
+      },
+      slugByLocale: { it: 'job-short-title-provider' },
+    }], null, 2)}\n`, 'utf-8');
+
+    const fetchMock = vi.fn(async (url: string, init?: RequestInit) => {
+      const body = JSON.parse(String(init?.body || '{}'));
+      const target = body.targetLang || body.target;
+      const text = String(body.text || body.q || '');
+      if (text === sourceTitle && String(url).includes(':9001')) {
+        return { ok: true, json: async () => ({ translatedText: 'AB' }) };
+      }
+      if (text === sourceTitle) {
+        const titles: Record<string, string> = {
+          en: 'Administrative Assistant',
+          de: 'Administrative Assistenz',
+          fr: 'Assistant administratif',
+        };
+        return { ok: true, json: async () => ({ translatedText: titles[target] }) };
+      }
+      return {
+        ok: true,
+        json: async () => ({
+          translatedText: target === 'en'
+            ? '## Responsibilities\n- Support the operational and administrative team on recurring processes\n- Prepare documents, archives and inbound correspondence\n\n## Requirements\n- At least 3 years of administrative experience\n- Comfortable with structured workflows and internal documentation'
+            : target === 'de'
+              ? '## Aufgaben\n- Das operative und administrative Team bei wiederkehrenden Prozessen unterstuetzen\n- Dokumente, Archiv und eingehende Korrespondenz vorbereiten\n\n## Anforderungen\n- Mindestens 3 Jahre Verwaltungserfahrung\n- Sicher im Umgang mit strukturierten Ablaufen und interner Dokumentation'
+              : '## Responsabilites\n- Soutenir l equipe operationnelle et administrative sur les processus recurrents\n- Preparer les documents, les archives et la correspondance entrante\n\n## Exigences\n- Au moins 3 ans d experience administrative\n- A l aise avec des processus structures et la documentation interne',
+        }),
+      };
+    });
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    await translateMissingJobLocales({ dataJobsPath: jobsPath });
+    const jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+
+    expect(jobs[0].titleByLocale.en).toBe('Administrative Assistant');
+    expect(jobs[0].titleByLocale.de).toBe('Administrative Assistenz');
+    expect(jobs[0].titleByLocale.fr).toBe('Assistant administratif');
+    expect(Object.values(jobs[0].titleByLocale).every((title) => String(title).trim().length >= 3)).toBe(true);
+  });
+
   it('leaves locale empty and sets needsRetranslation when translation providers return nothing', { timeout: 45000 }, async () => {
     fs.writeFileSync(jobsPath, `${JSON.stringify([{
       slug: 'job-title-fallback',

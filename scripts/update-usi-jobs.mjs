@@ -48,6 +48,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { extractDrupalNodeId, extractIrsolDetailPage, MIN_IRSOL_BODY_LENGTH } from './lib/irsol-html-parser.mjs';
 import { translateTextWithLocalPipeline } from './lib/job-localization-pipeline.mjs';
+import { hasUsableTitle, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
@@ -195,7 +196,8 @@ function slugify(text = '', suffix = '') {
 
 async function translateUsiTitle(text = '', sourceLang = 'it', targetLang = 'en', job = {}) {
   const source = String(text || '').trim();
-  if (!source || sourceLang === targetLang) return source;
+  if (!source || !hasUsableTitle(source)) return '';
+  if (sourceLang === targetLang) return source;
 
   const local = await translateTextWithLocalPipeline({
     text: source,
@@ -207,9 +209,9 @@ async function translateUsiTitle(text = '', sourceLang = 'it', targetLang = 'en'
       company: job.company || USI_COMPANY_NAME,
       location: job.location || DEFAULT_CITY,
     },
-    minChars: 2,
+    minChars: MIN_TITLE_CHARS,
   });
-  if (local && normalize(local) !== normalize(source)) return String(local).trim();
+  if (hasUsableTitle(local) && normalize(local) !== normalize(source)) return String(local).trim();
 
   const fallback = await freeTranslateWithRetry({
     text: source,
@@ -217,8 +219,8 @@ async function translateUsiTitle(text = '', sourceLang = 'it', targetLang = 'en'
     targetLang,
     maxRetries: 0,
   });
-  if (fallback && normalize(fallback) !== normalize(source)) return String(fallback).trim();
-  return source;
+  if (hasUsableTitle(fallback) && normalize(fallback) !== normalize(source)) return String(fallback).trim();
+  return hasUsableTitle(source) ? source : '';
 }
 
 function rescueUsiTitleTranslation(text = '', targetLang = 'it') {
@@ -971,24 +973,48 @@ async function postProcessUsiJobs() {
 
     for (const locale of LOCALES) {
       const currentTitle = String(job.titleByLocale?.[locale] || '').trim();
-      if (locale !== sourceLang && sourceTitle) {
-        const needsTitleTranslation = !currentTitle || normalize(currentTitle) === normalize(sourceTitle);
-        if (needsTitleTranslation) {
-          let translatedTitle = await translateUsiTitle(sourceTitle, sourceLang, locale, job);
-          if (!translatedTitle || normalize(translatedTitle) === normalize(sourceTitle)) {
-            translatedTitle = rescueUsiTitleTranslation(sourceTitle, locale) || translatedTitle;
+      const clearUnusableTitle = () => {
+        const changed = Boolean(currentTitle) || job.needsRetranslation !== true;
+        job.titleByLocale[locale] = '';
+        job.needsRetranslation = true;
+        if (changed) fixed++;
+      };
+
+      if (locale !== sourceLang) {
+        if (hasUsableTitle(sourceTitle)) {
+          const needsTitleTranslation = !hasUsableTitle(currentTitle)
+            || normalize(currentTitle) === normalize(sourceTitle);
+          if (needsTitleTranslation) {
+            let translatedTitle = await translateUsiTitle(sourceTitle, sourceLang, locale, job);
+            if (!translatedTitle || normalize(translatedTitle) === normalize(sourceTitle)) {
+              translatedTitle = rescueUsiTitleTranslation(sourceTitle, locale) || translatedTitle;
+            }
+            if (hasUsableTitle(translatedTitle) &&
+                normalize(translatedTitle) !== normalize(sourceTitle) &&
+                normalize(translatedTitle) !== normalize(currentTitle)) {
+              job.titleByLocale[locale] = String(translatedTitle).trim();
+              fixed++;
+            } else if (!hasUsableTitle(translatedTitle) || normalize(translatedTitle) === normalize(sourceTitle)) {
+              clearUnusableTitle();
+            }
           }
-          if (translatedTitle && normalize(translatedTitle) !== normalize(currentTitle)) {
-            job.titleByLocale[locale] = translatedTitle;
-            fixed++;
-          }
+        } else if (!hasUsableTitle(currentTitle)) {
+          // No usable source exists to translate. Clear a short/empty target
+          // slot and leave an explicit queue marker instead of preserving a
+          // one-/two-character value that bypasses the translation branch.
+          clearUnusableTitle();
         }
-      } else if (locale === sourceLang && sourceTitle && !currentTitle) {
-        job.titleByLocale[locale] = sourceTitle;
-        fixed++;
+      } else if (locale === sourceLang) {
+        if (hasUsableTitle(sourceTitle) && !hasUsableTitle(currentTitle)) {
+          job.titleByLocale[locale] = sourceTitle;
+          fixed++;
+        } else if (!hasUsableTitle(currentTitle)) {
+          clearUnusableTitle();
+        }
       }
 
-      const localizedTitle = String(job.titleByLocale?.[locale] || '').trim() || sourceTitle;
+      const localizedTitle = String(job.titleByLocale?.[locale] || '').trim()
+        || (hasUsableTitle(sourceTitle) ? sourceTitle : '');
       if (localizedTitle) {
         const newSlug = slugify(localizedTitle, citySuffix);
         const existingSlug = String(job.slugByLocale?.[locale] || '').trim();

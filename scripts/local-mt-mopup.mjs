@@ -60,6 +60,7 @@ import { readRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './l
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens } from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
+import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -69,7 +70,6 @@ const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const PY_SCRIPT = path.join(__dirname, 'local-mt-translate.py');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
-const MIN_TITLE_CHARS = 3;
 
 /**
  * Rollout switch for the language arm of classifyMopupWrite() (workspace issue

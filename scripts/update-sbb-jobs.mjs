@@ -58,7 +58,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
-import { isAcceptableTranslation } from './lib/translation-quality.mjs';
+import { hasUsableTitle, isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
 import { getCompanyDefaults, getCantonDisplayName, isTargetCanton } from './lib/crawler-location-config.mjs';
@@ -1009,12 +1009,18 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
 
   const localeTitles = {};
   const localeDescriptions = {};
+  const normalizedSourceTitle = String(title || '').trim();
   for (const locale of ['it', 'de', 'fr']) {
     const localized = localizedLoginData[locale];
-    if (localized?.title) localeTitles[locale] = localized.title;
+    if (hasUsableTitle(localized?.title)) localeTitles[locale] = String(localized.title).trim();
     if (localized?.description) localeDescriptions[locale] = localized.description;
   }
-  if (!localeTitles[resolvedSourceLocale]) localeTitles[resolvedSourceLocale] = title;
+  // Never seed a locale slot from a provider title below the shared floor.
+  // Such a title must remain absent so the downstream queue can retry it,
+  // rather than publishing a one-/two-character source-language placeholder.
+  if (!localeTitles[resolvedSourceLocale] && hasUsableTitle(normalizedSourceTitle)) {
+    localeTitles[resolvedSourceLocale] = normalizedSourceTitle;
+  }
   if (!localeDescriptions[resolvedSourceLocale]) localeDescriptions[resolvedSourceLocale] = description;
   for (const locale of ['it', 'en', 'de', 'fr']) {
     if (!localeTitles[locale] && localeTitles[resolvedSourceLocale]) {
@@ -1024,7 +1030,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
         targetLang: locale,
         maxRetries: 2,
       });
-      if (translatedTitle) localeTitles[locale] = translatedTitle;
+      if (hasUsableTitle(translatedTitle)) localeTitles[locale] = String(translatedTitle).trim();
     }
     if (!localeDescriptions[locale] && localeDescriptions[resolvedSourceLocale]) {
       const translatedDescription = await freeTranslateWithRetry({
@@ -1044,7 +1050,9 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   const localeRequirements = { it: requirements, en: requirements, de: requirements, fr: requirements };
   const localeSlugs = Object.fromEntries(
     ['it', 'en', 'de', 'fr'].map((locale) => {
-      const localizedTitle = String(localeTitles[locale] || title).trim();
+      // Slugs may retain the usable source title when a target translation is
+      // unavailable; this fallback never writes the title into localeTitles.
+      const localizedTitle = String(localeTitles[locale] || normalizedSourceTitle).trim();
       return [locale, slugify(`${localizedTitle}-${SBB_KEY}-${slugLocation}`) || slugBase];
     })
   );

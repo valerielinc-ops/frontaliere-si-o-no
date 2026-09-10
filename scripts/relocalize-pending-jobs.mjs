@@ -58,6 +58,7 @@ import { logCascadeSummary } from './lib/free-translate.mjs';
 import { markRunStart, readRunStartMs, recordRunPhase } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
+import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import {
   applyThinkingArm,
   assignThinkingArm,
@@ -89,7 +90,6 @@ const ALLOW_NO_TRAFFIC = String(process.env.RELOCALIZE_ALLOW_NO_TRAFFIC || '0') 
 const TRANSLATION_CACHE_DIR = path.join(ROOT, 'data', 'translation-cache');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
-const MIN_TITLE_CHARS = 3;
 const DRY_RUN = String(process.env.RELOCALIZE_DRY_RUN || '0') === '1';
 // After this many runs where a flagged job still fails isIncomplete(), give up:
 // LibreTranslate cannot satisfy the locale detectors (proper-noun-heavy text,
