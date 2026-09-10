@@ -172,6 +172,28 @@ describe('job email ranking', () => {
     expect(ranked[0].slug).toBe('top');
   });
 
+  it('fills the safe limit when consecutive-exposure filtering removes exploit candidates', () => {
+    const jobs = Array.from({ length: 6 }, (_, index) => ({
+      slug: `capped-${index}`,
+      relevanceScore: 10 - index,
+    }));
+    const statsByJob = new Map(jobs.map((job) => [job.slug, {
+      impressions: 10,
+      clicks: 1,
+      consecutive_exposures: 3,
+    }]));
+
+    const ranked = rankEmailJobs(jobs, {
+      variant: 'treatment',
+      limit: 4,
+      config: { ...CONFIG, epsilon: 0, maxConsecutiveExposures: 3 },
+      statsByJob,
+    });
+
+    expect(ranked).toHaveLength(4);
+    expect(new Set(ranked.map((job) => job.slug)).size).toBe(4);
+  });
+
   it('clamps malformed environment settings to safe bounds', () => {
     expect(readJobEmailRankingConfig({
       JOB_EMAIL_RANKING_ENABLED: 'off',
