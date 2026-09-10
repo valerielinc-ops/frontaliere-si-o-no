@@ -1,18 +1,49 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-09-09T23:04:03.575Z",
-  "total": 7,
-  "newCount": 0,
+  "generatedAt": "2026-09-10T23:06:42.109Z",
+  "total": 8,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3453,
-  "avgDurationMs": 3453,
+  "durationMs": 3669,
+  "avgDurationMs": 3669,
   "durationHistory": [
-    3453
+    3669
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Jurist/in",
+      "slug": "jurist-in-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/jurist-in/8273841a-9747-4441-919d-29a9b01d68aa",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19847",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux, Schweiz",
+      "addressLocality": "Posieux",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-10",
+      "validThrough": "2026-10-14",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Landwirtschaftliche/r Fachmitarbeiter/in Obstbau",
@@ -114,47 +145,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-27T00:35:38.161Z",
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Futtermittelinspektor/in",
-      "slug": "futtermittelinspektor-in-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/futtermittelinspektor-in/91dbc73e-9ddd-4e45-afbb-43828163217f",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20093",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux, Schweiz",
-      "addressLocality": "Posieux",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-26",
-      "validThrough": "2026-09-27",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-1172f22c489c",
-      "salaryMin": 89000,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-01T14:09:40.655Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
         "completeness": 19
       }
     },
@@ -190,6 +186,42 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "Futtermittelinspektor/in",
+      "slug": "futtermittelinspektor-in-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/futtermittelinspektor-in/91dbc73e-9ddd-4e45-afbb-43828163217f",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20093",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux, Schweiz",
+      "addressLocality": "Posieux",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-26",
+      "validThrough": "2026-09-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-1172f22c489c",
+      "salaryMin": 89000,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-01T14:09:40.655Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 19
       }
@@ -261,11 +293,11 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-09T13:44:14.822Z",
-      "_qualityScore": 83,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     }

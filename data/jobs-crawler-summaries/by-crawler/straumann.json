@@ -1,23 +1,24 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-09-09T23:03:37.395Z",
+  "generatedAt": "2026-09-10T23:06:14.609Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
   "written": 5,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6075,
-  "avgDurationMs": 6075,
+  "durationMs": 6741,
+  "avgDurationMs": 6741,
   "durationHistory": [
-    6075
+    6741
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "straumann-14050b270e0d",
       "slug": "clinical-workflow-product-manager-straumann-ch",
@@ -30,7 +31,7 @@
       "url": "https://careers.straumann.com/global/en/job/21501/clinical-workflow-product-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:03:29.460Z",
+      "crawledAt": "2026-09-10T23:06:06.939Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -45,16 +46,15 @@
       "featured": false,
       "postedDate": "2026-09-09",
       "applyUrl": "https://careers.straumann.com/global/en/job/21501/clinical-workflow-product-manager",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-09-09T23:03:29.460Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "straumann-e645c45f1e85",
       "slug": "packaging-development-engineer-straumann-ch",
@@ -67,7 +67,7 @@
       "url": "https://careers.straumann.com/global/en/job/21468/packaging-development-engineer",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:03:30.175Z",
+      "crawledAt": "2026-09-10T23:06:08.089Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -103,7 +103,7 @@
       "url": "https://careers.straumann.com/global/en/job/21464/facility-management-and-workplace-project-manager-straumann-campus-basel",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:03:28.567Z",
+      "crawledAt": "2026-09-10T23:06:07.776Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -140,7 +140,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:03:29.120Z",
+      "crawledAt": "2026-09-10T23:06:07.267Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -155,7 +155,7 @@
       "featured": false,
       "postedDate": "2026-07-07",
       "applyUrl": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:59.400Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -177,7 +177,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:03:28.239Z",
+      "crawledAt": "2026-09-10T23:06:06.459Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
