@@ -14,18 +14,10 @@ import type { FirebasePerformance, PerformanceTrace } from "firebase/performance
 import type { AppCheck } from "firebase/app-check";
 import { reportCaughtError } from '@/services/errorReporter';
 import { isRecaptchaClientReady, type RecaptchaLikeWindow } from '@/services/recaptchaReady';
-
-const _K = 'JztKDydNL0lRMwFyR3MKcyFaPABJPEF4I2lwFGxORhwwVgkHPyFT';
-const _S = 'fr0nt4l13r3-t1c1n0';
-function _d(e: string, k: string): string {
- const b = Uint8Array.from(atob(e), c => c.charCodeAt(0));
- let r = '';
- for (let i = 0; i < b.length; i++) r += String.fromCharCode(b[i] ^ k.charCodeAt(i % k.length));
- return r;
-}
+import { FIREBASE_API_KEY } from '@/services/firebaseAuthPersistence';
 
 const firebaseConfig = {
- apiKey: import.meta.env.VITE_FIREBASE_API_KEY || _d(_K, _S),
+ apiKey: FIREBASE_API_KEY,
  // Use the default Firebase auth domain (frontaliere-ticino.firebaseapp.com), NOT the
  // custom auth.frontaliereticino.ch domain. The custom domain requires
  // Custom auth domain — auth.frontaliereticino.ch is registered as an authorized

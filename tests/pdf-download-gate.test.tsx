@@ -4,6 +4,7 @@ import { CONSENT_TEXTS } from '@/services/consentTexts';
 import { render, screen, fireEvent, cleanup, waitFor, act } from '@testing-library/react';
 import PdfDownloadGate from '@/components/shared/PdfDownloadGate';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { getFirebaseAuthPersistenceKey } from '@/services/firebaseAuthPersistence';
 
 const authMock = vi.hoisted(() => {
   let currentUser: any = null;
@@ -74,7 +75,7 @@ describe('PdfDownloadGate', () => {
   });
 
   it('bypasses the gate when a firebase auth session key exists', () => {
-    localStorage.setItem('firebase:authUser:abc123', '{}');
+    localStorage.setItem(getFirebaseAuthPersistenceKey(), '{}');
     const anchor = renderGatedAnchor();
     fireEvent.click(anchor);
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
