@@ -30,14 +30,14 @@ describe('personalizeGreeting', () => {
   });
 
   it('falls back to the generic greeting when no usable name', () => {
-    expect(personalizeGreeting('it', null)).toBe('Buongiorno, frontaliere.');
-    expect(personalizeGreeting('it', 'newsletter@x.ch')).toBe('Buongiorno, frontaliere.');
-    expect(personalizeGreeting('en', '')).toBe('Good morning, frontaliere.');
+    expect(personalizeGreeting('it', null)).toBe('Buongiorno.');
+    expect(personalizeGreeting('it', 'newsletter@x.ch')).toBe('Buongiorno.');
+    expect(personalizeGreeting('en', '')).toBe('Good morning.');
   });
 
   it('never injects HTML (malicious name is rejected → generic)', () => {
     const out = personalizeGreeting('it', '<img src=x onerror=alert(1)>');
-    expect(out).toBe('Buongiorno, frontaliere.');
+    expect(out).toBe('Buongiorno.');
     expect(out).not.toContain('<img');
   });
 
