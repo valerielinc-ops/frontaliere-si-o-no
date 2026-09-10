@@ -443,6 +443,21 @@ describe('source-detail fidelity checks', () => {
     });
   });
 
+  it('accepts a Swiss municipality followed by its canton code', () => {
+    for (const location of ['Chur, GR', 'Bulle, FR', 'Biel, BE']) {
+      const html = `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Role',
+        jobLocation: { address: { addressLocality: location } },
+      })}</script>`;
+
+      expect(extractSourceLocationObservation(html), location).toEqual({
+        location,
+        evidence: 'jsonld',
+      });
+    }
+  });
+
   it('keeps a Swiss locality with a street number when no postal code is present', () => {
     const html = `<script type="application/ld+json">${JSON.stringify({
       '@type': 'JobPosting',
@@ -702,6 +717,129 @@ describe('source-detail fidelity checks', () => {
 
     expect(result.locationMismatch).toBe(false);
     expect(result.locationAuthority).toBe('source-corroborated');
+  });
+
+  it('does not corroborate a structured address whose postal locality pair is incoherent', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Zürich',
+        sourceLang: 'de',
+        description: 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      {
+        title: 'Verkaufsberater*in',
+        location: 'Dietikon, Dietikon',
+        description: 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+        locationCandidates: [
+          {
+            location: 'Marktgasse 12, 3011 Bern',
+            streetAddress: 'Marktgasse 12',
+            addressLocality: 'Zürich',
+            postalCode: '3011',
+          },
+        ],
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(true);
+    expect(result.locationAuthority).toBe('source-detail');
+  });
+
+  it('uses the first municipality in a duplicated city-canton location', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Zurigo, Zurigo',
+        sourceLang: 'de',
+        description: 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      {
+        title: 'Verkaufsberater*in',
+        location: 'Dietikon, Dietikon',
+        description: 'Arbeitsort: Reckenholzstrasse 191, 8046 Zürich. '
+          + 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationAuthority).toBe('source-corroborated');
+  });
+
+  it('does not let a duplicated canton label bypass the bare-canton guard', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Argovia, Argovia',
+        sourceLang: 'de',
+        description: 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      {
+        title: 'Verkaufsberater*in',
+        location: 'Dietikon, Dietikon',
+        description: 'Standorte im Kanton Bern e ulteriori sedi. '
+          + 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(true);
+    expect(result.locationAuthority).toBe('source-detail');
+  });
+
+  it('prioritises an explicit workplace label over a multi-site description', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Zürich',
+        sourceLang: 'de',
+        description: 'Wir suchen una Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      {
+        title: 'Verkaufsberater*in',
+        location: 'Dietikon, Dietikon',
+        description: 'Unsere Filialen: 3011 Bern und 8046 Zürich.',
+        workplaceLabels: ['Arbeitsort: Marktgasse 12, 3011 Bern'],
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(true);
+    expect(result.locationAuthority).toBe('source-detail');
+  });
+
+  it('rejects a foreign five-digit postal code while retaining four-digit evidence', () => {
+    const foreign = compareSourceDetail(
+      {
+        addressLocality: 'Fribourg',
+        sourceLang: 'de',
+        description: 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      {
+        title: 'Role',
+        location: 'Freiburg im Breisgau',
+        description: 'Arbeitsort: 79098 Freiburg im Breisgau. '
+          + 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+        locationCandidates: [{ addressLocality: 'Fribourg', postalCode: '79098' }],
+      },
+      { locationEvidence: 'jsonld' },
+    );
+    expect(foreign.locationMismatch).toBe(true);
+
+    const swiss = compareSourceDetail(
+      {
+        addressLocality: 'Zug',
+        sourceLang: 'de',
+        description: 'Wir suchen una Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      {
+        title: 'Role',
+        location: 'Dietikon, Dietikon',
+        description: 'Arbeitsort: 6300 Zug. '
+          + 'Wir suchen una Fachperson fuer unsere Filiale. '.repeat(10),
+        locationCandidates: [{ addressLocality: 'Zug', postalCode: '6300' }],
+      },
+      { locationEvidence: 'jsonld' },
+    );
+    expect(swiss.locationMismatch).toBe(false);
   });
 
   // Issue #7772: the published value is the Italian exonym on the Italian
