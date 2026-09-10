@@ -81101,6 +81101,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-lavoro-turgovia-settori-livelli': {
+    title: 'Salari e lavoro Turgovia: settori, livelli e contratti',
+    description: 'Nel cantone Turgovia non esiste un salario minimo federale; le ore settimanali sono 45 o 50 a seconda del settore, con contributi AVS/AHV al 5.3%',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, lavoro, turgovia, settori',
+    ogTitle: 'Salari e lavoro Turgovia: settori, livelli e contratti',
+    ogDescription: 'Nel cantone Turgovia non esiste un salario minimo federale; le ore settimanali sono 45 o 50 a seconda del settore, con contributi AVS/AHV al 5.3% per il dipendente.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-turgovia-settori-livelli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e lavoro Turgovia: settori, livelli e contratti",
+      "description": "Nel cantone Turgovia non esiste un salario minimo federale; le ore settimanali sono 45 o 50 a seconda del settore, con contributi AVS/AHV al 5.3%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-turgovia-settori-livelli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio svizzero con vista alpina, simbolo del mercato del lavoro cantonale"
+      },
+      "datePublished": "2026-09-10T00:11:38+00:00",
+      "dateModified": "2026-09-10T00:11:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-turgovia-settori-livelli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

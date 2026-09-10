@@ -6247,6 +6247,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-corruzione-restituzione-banche.title': 'Korruptionsgeld: Das Schweizer Dilemma',
     'blog.article.svizzera-corruzione-restituzione-banche.excerpt': 'Rückzahlung rechtswidriger Gelder: ein langwieriger und komplexer Prozess. Warum verpflichtet die Schweiz die Banken nicht, direkt an die geschädigten Staaten zu zahlen?',
     'blog.article.svizzera-corruzione-restituzione-banche.imageAlt': 'Schweizer Bundesbankbehörde überwacht Rückgabeverfahren für rechtswidrige Gelder',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.title': 'Löhne und Arbeit Thurgau: Branchen, Ebenen und Verträge',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.excerpt': 'Im Kanton Thurgau gibt es keinen eidgenössischen Mindestlohn; die Wochenstunden betragen je nach Branche 45 oder 50 Stunden, mit AHV/AHV-Beiträgen von 5.3% für den Arbeitnehmer.',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.imageAlt': 'Schweizer Bürogebäude mit Alpenblick, Symbol für den kantonalen Arbeitsmarkt',
 };
 
 export default blogMetaChDe;

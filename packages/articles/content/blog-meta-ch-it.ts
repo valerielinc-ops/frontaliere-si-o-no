@@ -6247,6 +6247,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-corruzione-restituzione-banche.title': 'Denaro da corruzione: il dilemma svizzero',
     'blog.article.svizzera-corruzione-restituzione-banche.excerpt': 'Restituzione di fondi illeciti: un processo lungo e complesso. Perché la Svizzera non obbliga le banche a versare direttamente agli Stati lesi?',
     'blog.article.svizzera-corruzione-restituzione-banche.imageAlt': 'Sede della regolamentazione bancaria federale svizzera che supervisiona il sistema di restituzione dei fondi illeciti',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.title': 'Salari e lavoro Turgovia: settori, livelli e contratti',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.excerpt': 'Nel cantone Turgovia non esiste un salario minimo federale; le ore settimanali sono 45 o 50 a seconda del settore, con contributi AVS/AHV al 5.3% per il dipendente.',
+    'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.imageAlt': 'Ufficio svizzero con vista alpina, simbolo del mercato del lavoro cantonale',
 };
 
 export default blogMetaChIt;
