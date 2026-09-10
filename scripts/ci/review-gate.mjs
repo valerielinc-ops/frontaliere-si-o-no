@@ -503,7 +503,9 @@ function confirmationHasUniqueTarget(candidate, finding, openFindings) {
   // anchor, even when two historical findings carry the same anchor while
   // describing different companion paths. Basenames and path-only confirms
   // still need the global uniqueness guard below.
-  if (candidate.line !== null && findingMatches[0].path === candidate.path) return true;
+  if (candidate.line !== null
+      && candidate.path.includes('/')
+      && findingMatches[0].path === candidate.path) return true;
 
   const openMatches = openFindings.filter((openFinding) =>
     openFinding.citations.some(matchesCitation),
