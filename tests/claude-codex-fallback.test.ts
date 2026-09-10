@@ -673,12 +673,12 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('test "$(dd if="$probe" bs=16 count=1 2>/dev/null)" = probe');
     expect(action).toContain('printf probe > "$common_probe"');
     expect(action).toContain('test "$(dd if="$common_probe" bs=16 count=1 2>/dev/null)" = probe');
-    expect(action).toContain('! touch "$common_git_dir/hooks/codex-fallback-probe.$$" 2>/dev/null');
-    expect(action).toContain('! dd if="$CODEX_HOME/auth.json" of=/dev/null bs=1 count=1 2>/dev/null');
+    expect(action).toContain('if touch "$common_git_dir/hooks/codex-fallback-probe.$$" 2>/dev/null; then exit 1; fi');
+    expect(action).toContain('if dd if="$CODEX_HOME/auth.json" of=/dev/null bs=1 count=1 2>/dev/null; then exit 1; fi');
     expect(action).toContain('tmp_probe="$TMPDIR/codex-fallback-tmp-probe.$$"');
     expect(action).toContain('":root" = "deny"');
     expect(action).toContain('":minimal" = "read"');
-    expect(action).toContain('":tmpdir" = "deny"');
+    expect(action).not.toContain('":tmpdir" = "deny"');
     expect(action).toContain('":slash_tmp" = "deny"');
     expect(action).toContain('[permissions.codex-fallback.filesystem.":workspace_roots"]');
     expect(action).toContain('scratch_dir="$CODEX_HOME/scratch"');
@@ -688,7 +688,7 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('PATH="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin"');
     expect(action).toContain('gh --version >/dev/null');
     expect(action).toContain('printf probe > "$probe"');
-    expect(action).toContain('! dd if="$CODEX_HOME/auth.json" of=/dev/null bs=1 count=1 2>/dev/null');
+    expect(action).toContain('if dd if="$CODEX_HOME/auth.json" of=/dev/null bs=1 count=1 2>/dev/null; then exit 1; fi');
     expect(action).toContain('--strict-config');
     expect(action).toContain('--ignore-user-config');
     expect(action).toContain('permissions.codex-fallback.filesystem=$codex_filesystem');

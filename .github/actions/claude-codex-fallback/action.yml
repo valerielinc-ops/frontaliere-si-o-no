@@ -761,7 +761,6 @@ runs:
         [permissions.codex-fallback.filesystem]
         ":root" = "deny"
         ":minimal" = "read"
-        ":tmpdir" = "deny"
         ":slash_tmp" = "deny"
         "$auth_file_toml" = "deny"
         [permissions.codex-fallback.filesystem.":workspace_roots"]
@@ -818,7 +817,10 @@ runs:
         # `--ignore-user-config` does not disable CODEX_HOME/auth.json loading.
         git_filesystem_rules='{"."="write","hooks"="read","config"="read"}'
         common_filesystem_rules='{"."="read","objects"="write","refs"="write","logs"="write","packed-refs"="write","hooks"="read","config"="read"}'
-        base_filesystem_rules='{":root"="deny",":minimal"="read",":tmpdir"="deny",":slash_tmp"="deny",":workspace_roots"={"."="write"}'
+        # TMPDIR is the explicit scratch allowlist below. A :tmpdir deny would
+        # resolve to that same path and override its write grant. Root and /tmp
+        # remain denied outside the explicit workspace/runtime/scratch roots.
+        base_filesystem_rules='{":root"="deny",":minimal"="read",":slash_tmp"="deny",":workspace_roots"={"."="write"}'
         codex_filesystem_rules="\"$trusted_node_realpath_toml\"={\".\"=\"read\"},\"$codex_realpath_toml\"={\".\"=\"read\"},\"$codex_launcher_dir_toml\"={\".\"=\"read\"}"
         if [ "$codex_runtime_root" != "$codex_launcher_dir" ]; then
           codex_filesystem_rules="$codex_filesystem_rules,\"$codex_runtime_root_toml\"={\".\"=\"read\"}"
@@ -914,6 +916,7 @@ runs:
         # uses real file operations: the explicit gitdir/common overrides must
         # create/read/remove probes, while hooks/auth/runner files stay denied.
         PATH="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_NODE_REAL="$node_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
+          set -eu
           test -x "$CODEX_REALPATH"
           "$CODEX_BIN" --version >/dev/null
           git_dir="$(git rev-parse --git-dir)"
@@ -926,13 +929,13 @@ runs:
           printf probe > "$common_probe"
           test "$(dd if="$common_probe" bs=16 count=1 2>/dev/null)" = probe
           rm -f "$common_probe"
-          ! touch "$common_git_dir/hooks/codex-fallback-probe.$$" 2>/dev/null
-          ! dd if="$CODEX_HOME/auth.json" of=/dev/null bs=1 count=1 2>/dev/null
+          if touch "$common_git_dir/hooks/codex-fallback-probe.$$" 2>/dev/null; then exit 1; fi
+          if dd if="$CODEX_HOME/auth.json" of=/dev/null bs=1 count=1 2>/dev/null; then exit 1; fi
           tmp_probe="$TMPDIR/codex-fallback-tmp-probe.$$"
           printf probe > "$tmp_probe"
           test "$(dd if="$tmp_probe" bs=16 count=1 2>/dev/null)" = probe
           rm -f "$tmp_probe"
-          ! dd if="$CODEX_OUTSIDE_PROBE" of=/dev/null bs=1 count=1 2>/dev/null
+          if dd if="$CODEX_OUTSIDE_PROBE" of=/dev/null bs=1 count=1 2>/dev/null; then exit 1; fi
           gh --version >/dev/null
           auth_status=0
           auth_output="$(gh auth token 2>/dev/null)" || auth_status=$?
