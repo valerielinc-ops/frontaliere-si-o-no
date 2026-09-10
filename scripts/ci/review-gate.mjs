@@ -44,8 +44,10 @@ const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
 // path che non esiste (`Foo.tsx:L107` -> `Foo.ts`). Un path non risolvibile e'
 // bloccante per progetto, quindi il refuso teneva aperto per sempre un finding
 // gia' confermato risolto. Il lookahead impone che l'estensione finisca davvero
-// li', e rende l'ordine delle alternative irrilevante.
-const FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9]))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
+// li', e rende l'ordine delle alternative irrilevante. I caratteri validi nei
+// nomi file dopo l'estensione sono esclusi: altrimenti `foo.ts.bak` verrebbe
+// ancora letto come la citazione troncata `foo.ts`.
+const FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9_.@-]))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
 
 /**
  * Normalize a review citation without turning an unsafe/ambiguous path into a
@@ -72,10 +74,10 @@ function citationPathAndLine(rawPath, fullMatch) {
 }
 
 /** Extract file-like citations from one finding, deduplicated by path+line. */
-export function extractFileCitations(text) {
+function extractFileCitationsWith(text, pattern) {
   const citations = [];
-  FILE_CITATION_RE.lastIndex = 0;
-  for (const match of String(text || '').matchAll(FILE_CITATION_RE)) {
+  pattern.lastIndex = 0;
+  for (const match of String(text || '').matchAll(pattern)) {
     const citation = citationPathAndLine(match[1], match[0]);
     if (citation.path) citations.push(citation);
   }
@@ -86,6 +88,18 @@ export function extractFileCitations(text) {
     seen.add(key);
     return true;
   });
+}
+
+export function extractFileCitations(text) {
+  return extractFileCitationsWith(text, FILE_CITATION_RE);
+}
+
+// Historical audit oracle: this mirrors the pre-#8189 parser so the audit can
+// quantify findings the old first-match extension bug would have left open.
+const LEGACY_FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
+
+function extractLegacyFileCitations(text) {
+  return extractFileCitationsWith(text, LEGACY_FILE_CITATION_RE);
 }
 
 function isInsideCodeSpan(line, index) {
@@ -105,7 +119,7 @@ function firstFindingMarker(line) {
  * marker without a location is still a finding (and will remain unresolved),
  * while a marker quoted inside another finding is not a new boundary.
  */
-function isFindingStart(line, marker) {
+function isFindingStart(line, marker, extractCitations = extractFileCitations) {
   if (!marker) return false;
   const prefix = String(line).slice(0, marker.index).trim();
   const structuralPrefix = prefix
@@ -113,7 +127,7 @@ function isFindingStart(line, marker) {
     .replace(/^(?:[_*~`]\s*)+/u, '')
     .trim();
   if (!structuralPrefix || /^[#*_~`]+$/u.test(structuralPrefix)) return true;
-  if (extractFileCitations(structuralPrefix).length > 0) return true;
+  if (extractCitations(structuralPrefix).length > 0) return true;
   return /(?:^|\s)(?:L?\d+)(?:[-–]\d+)?\s*:\s*$/iu.test(structuralPrefix)
     || /`[^`\n]+`\s*:\s*$/u.test(structuralPrefix);
 }
@@ -140,13 +154,13 @@ function importantFindingLine(line) {
  * severity or at the next H2, so `## Adversarial check` and the summary cannot
  * leak paths into the previous finding.
  */
-export function importantFindings(body) {
+function parseImportantFindings(body, extractCitations) {
   const lines = String(body || '').split(/\r?\n/u);
   const markerLines = lines
     .map((line, index) => ({ line, index, marker: firstFindingMarker(line) }))
     .filter(({ marker }) => marker);
   const starts = markerLines
-    .filter(({ line, marker }) => isFindingStart(line, marker))
+    .filter(({ line, marker }) => isFindingStart(line, marker, extractCitations))
     .map(({ index }) => index);
   const markers = lines
     .map((line, index) => ({ line, index }))
@@ -159,8 +173,10 @@ export function importantFindings(body) {
     const end = Math.min(nextFinding, nextH2 === -1 ? lines.length : nextH2);
     const text = lines.slice(index, end).join('\n').trim();
     const parserUncertain = markerLines.some(({ line: markerLine, index: markerIndex, marker }) =>
-      markerIndex > index && markerIndex < end && !isFindingStart(markerLine, marker));
-    const citations = extractFileCitations(text);
+      markerIndex > index
+      && markerIndex < end
+      && !isFindingStart(markerLine, marker, extractCitations));
+    const citations = extractCitations(text);
     // When precise locations exist, bare filenames in the explanation are
     // context, not additional anchors. Preserve every explicit path/line.
     const hasPreciseAnchor = citations.some(citation => citation.line !== null);
@@ -176,6 +192,10 @@ export function importantFindings(body) {
     };
   }).filter(finding => finding.parserUncertain || !finding.citations.length
     || !finding.citations.every(citation => isReviewTestPath(citation.path)));
+}
+
+export function importantFindings(body) {
+  return parseImportantFindings(body, extractFileCitations);
 }
 
 function suffixMatches(candidate, wanted) {
@@ -464,26 +484,51 @@ function fixConfirmations(body) {
 // coincide in modo stretto. Il path puo' differire in specificita' — una review
 // cita spesso il nome nudo (`foo.js`) e la conferma il path completo
 // (`dir/foo.js`) — e quello e' lo stesso suffix-matching che `resolveCitedPath`
-// usa gia'. La RIGA invece resta un'uguaglianza esatta, entrambe presenti o
-// entrambe assenti: senza quel vincolo una conferma su un file chiuderebbe
-// anche un finding DIVERSO sullo stesso file a un'altra riga, che e' proprio la
-// scorciatoia che questo gate esiste per impedire.
-function citationConfirmed(citation, confirmations) {
-  return confirmations.some((confirmation) => confirmation.citations.some((candidate) =>
-    candidate.line === citation.line
-    && (candidate.path === citation.path
-      || suffixMatches(candidate.path, citation.path)
-      || suffixMatches(citation.path, candidate.path)),
-  ));
+// usa gia'. Una conferma senza riga puo' chiudere un'ancora con riga solo se
+// identifica una singola citazione nel finding e un singolo finding aperto:
+// cosi' non chiude in blocco citazioni multiple o basename omonimi.
+function citationPathMatches(candidate, wanted) {
+  return candidate === wanted
+    || suffixMatches(candidate, wanted)
+    || suffixMatches(wanted, candidate);
 }
 
-function findingConfirmed(finding, confirmations) {
+function confirmationHasUniqueTarget(candidate, finding, openFindings) {
+  const matchesCitation = (citation) => citationPathMatches(candidate.path, citation.path)
+    && (candidate.line === null || candidate.line === citation.line);
+  const findingMatches = finding.citations.filter(matchesCitation);
+  if (findingMatches.length !== 1) return false;
+
+  // A fully qualified path plus an explicit line is already an unambiguous
+  // anchor, even when two historical findings carry the same anchor while
+  // describing different companion paths. Basenames and path-only confirms
+  // still need the global uniqueness guard below.
+  if (candidate.line !== null && findingMatches[0].path === candidate.path) return true;
+
+  const openMatches = openFindings.filter((openFinding) =>
+    openFinding.citations.some(matchesCitation),
+  );
+  return openMatches.length === 1;
+}
+
+function citationConfirmed(citation, confirmations, finding, openFindings) {
+  return confirmations.some((confirmation) => confirmation.citations.some((candidate) => {
+    if (!citationPathMatches(candidate.path, citation.path)) return false;
+    if (!confirmationHasUniqueTarget(candidate, finding, openFindings)) return false;
+    return candidate.line === citation.line
+      || (candidate.line === null && citation.line !== null);
+  }));
+}
+
+function findingConfirmed(finding, confirmations, openFindings = [finding]) {
   if (finding.citations.length === 0) {
     const bodyAnchor = prBodyAnchor(finding.line);
     return confirmations.some((confirmation) => confirmation.key === findingKey(finding)
       || (bodyAnchor !== null && confirmation.bodyAnchor === bodyAnchor));
   }
-  return finding.citations.every((citation) => citationConfirmed(citation, confirmations));
+  return finding.citations.every((citation) =>
+    citationConfirmed(citation, confirmations, finding, openFindings),
+  );
 }
 
 /**
@@ -492,7 +537,10 @@ function findingConfirmed(finding, confirmations) {
  * review bodies; this preserves the path+line anchors without adding storage.
  * `includeLatest` is used by the reviewer bundle, before the new review exists.
  */
-export function historicalImportantFindings(reviews, { includeLatest = false } = {}) {
+export function historicalImportantFindings(
+  reviews,
+  { includeLatest = false, citationExtractor = extractFileCitations } = {},
+) {
   const bots = reviewerList(reviews).filter((review) =>
     review?.user?.type === 'Bot' && REVIEWER_LOGIN_RE.test(review.user.login || ''),
   );
@@ -502,15 +550,16 @@ export function historicalImportantFindings(reviews, { includeLatest = false } =
   const latestIndex = bots.length - 1;
   for (const [index, review] of bots.entries()) {
     const confirmations = fixConfirmations(review?.body);
+    const openFindings = [...open.values()].map(({ finding }) => finding);
     for (const [key, entry] of open.entries()) {
       if (entry.reviewIndex >= index) continue;
-      if (findingConfirmed(entry.finding, confirmations)) {
+      if (findingConfirmed(entry.finding, confirmations, openFindings)) {
         open.delete(key);
       }
     }
     if (!includeLatest && index === latestIndex) break;
 
-    for (const finding of importantFindings(review?.body)) {
+    for (const finding of parseImportantFindings(review?.body, citationExtractor)) {
       open.set(findingKey(finding), {
         finding,
         reviewIndex: index,
@@ -523,6 +572,80 @@ export function historicalImportantFindings(reviews, { includeLatest = false } =
     ...finding,
     reviewCommit,
   }));
+}
+
+function truncatedPathCandidates(citation, repositoryPaths) {
+  const wanted = normalizePath(citation?.path);
+  if (!wanted || !Array.isArray(repositoryPaths)) return [];
+  const marker = `/${wanted}`;
+  return repositoryPaths.filter((path) => {
+    const normalized = normalizePath(path, { stripGitPrefix: false });
+    if (!normalized || normalized === wanted || suffixMatches(normalized, wanted)) return false;
+    const markerIndex = normalized.lastIndexOf(marker);
+    const suffix = markerIndex === -1 && normalized.startsWith(wanted)
+      ? normalized.slice(wanted.length)
+      : markerIndex === -1
+        ? ''
+        : normalized.slice(markerIndex + marker.length);
+    return suffix.length > 0 && /^[A-Za-z0-9_.@-]+$/u.test(suffix);
+  });
+}
+
+/**
+ * Audit a persisted review history against the final repository tree. The
+ * legacy count is an evidence line for the old extension parser; the current
+ * count is the fail-closed result that must be zero before the audit passes.
+ */
+export function auditHistoricalCitations(reviews, repositoryPaths) {
+  const list = reviewerList(reviews);
+  const findingCitations = (extractCitations) => list.flatMap((review, reviewIndex) =>
+    parseImportantFindings(review?.body, extractCitations).flatMap((finding) =>
+      finding.citations.map((citation) => ({ reviewIndex, citation }))));
+  const citations = findingCitations(extractFileCitations);
+  const legacyCitations = findingCitations(extractLegacyFileCitations);
+  const truncated = citations.flatMap(({ reviewIndex, citation }) => {
+    if (resolveCitedPath(citation, repositoryPaths).status === 'resolved') return [];
+    return truncatedPathCandidates(citation, repositoryPaths).map((candidate) => ({
+      reviewIndex,
+      citation,
+      candidate,
+    }));
+  });
+  const seen = new Set();
+  const uniqueTruncated = truncated.filter(({ reviewIndex, citation, candidate }) => {
+    const key = `${reviewIndex}:${citation.path}:${citation.line || ''}:${candidate}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  const legacyTruncated = legacyCitations.flatMap(({ reviewIndex, citation }) => {
+    if (resolveCitedPath(citation, repositoryPaths).status === 'resolved') return [];
+    return truncatedPathCandidates(citation, repositoryPaths).map((candidate) => ({
+      reviewIndex,
+      citation,
+      candidate,
+    }));
+  });
+  const legacySeen = new Set();
+  const uniqueLegacyTruncated = legacyTruncated.filter(({ reviewIndex, citation, candidate }) => {
+    const key = `${reviewIndex}:${citation.path}:${citation.line || ''}:${candidate}`;
+    if (legacySeen.has(key)) return false;
+    legacySeen.add(key);
+    return true;
+  });
+  const current = historicalImportantFindings(list, { includeLatest: true });
+  const legacy = historicalImportantFindings(list, {
+    includeLatest: true,
+    citationExtractor: extractLegacyFileCitations,
+  });
+  return {
+    reviewCount: list.length,
+    citationCount: citations.length,
+    truncatedUnresolvable: uniqueTruncated,
+    legacyTruncatedUnresolvable: uniqueLegacyTruncated,
+    legacyOpenFindings: legacy,
+    openFindings: current,
+  };
 }
 
 /** Insert inherited findings before the latest review's LGTM marker. */
@@ -570,16 +693,13 @@ function readCodexEvidenceFile(file) {
   }
 }
 
-function fetchRepositoryPaths(repo, pr) {
+function fetchRepositoryTreePaths(repo, sha) {
   try {
-    const base = String(gh([
-      'api', `repos/${repo}/pulls/${pr}`, '--jq', '.base.sha',
-    ], { json: false })).trim();
-    if (!/^[0-9a-f]{40}$/iu.test(base)) {
-      console.log('review-gate: tree non recuperabile (base SHA assente o non valida).');
+    if (!/^[0-9a-f]{40}$/iu.test(String(sha || ''))) {
+      console.log('review-gate: tree non recuperabile (SHA assente o non valida).');
       return null;
     }
-    const tree = gh(['api', `repos/${repo}/git/trees/${base}?recursive=1`]);
+    const tree = gh(['api', `repos/${repo}/git/trees/${sha}?recursive=1`]);
     if (tree?.truncated || !Array.isArray(tree?.tree) || tree.tree.length === 0) {
       console.log('review-gate: tree non recuperabile (risposta troncata o vuota).');
       return null;
@@ -593,6 +713,20 @@ function fetchRepositoryPaths(repo, pr) {
     console.log(`review-gate: tree non recuperabile (${String(error).slice(0, 160)}).`);
     return null;
   }
+}
+
+function fetchRepositoryPaths(repo, pr) {
+  const base = String(gh([
+    'api', `repos/${repo}/pulls/${pr}`, '--jq', '.base.sha',
+  ], { json: false })).trim();
+  return fetchRepositoryTreePaths(repo, base);
+}
+
+function fetchRepositoryHeadPaths(repo, pr) {
+  const head = String(gh([
+    'api', `repos/${repo}/pulls/${pr}`, '--jq', '.head.sha',
+  ], { json: false })).trim();
+  return fetchRepositoryTreePaths(repo, head);
 }
 
 function readReviews(repo, pr) {
@@ -865,6 +999,32 @@ async function main() {
   console.log(`review-gate: approved=true (review commit ${result.reviewCommit}).`);
 }
 
+async function auditHistoricalCitationsMain() {
+  const repo = process.env.AUDIT_REPO
+    || process.env.REPO
+    || process.env.GITHUB_REPOSITORY
+    || 'valerielinc-ops/frontaliere-si-o-no';
+  const pr = process.env.AUDIT_PR || process.env.PR_NUMBER || '8158';
+  if (!/^\d+$/u.test(String(pr))) throw new Error('PR audit non valido');
+
+  const reviews = readReviews(repo, pr);
+  const repositoryPaths = fetchRepositoryHeadPaths(repo, pr);
+  if (!repositoryPaths) throw new Error('tree HEAD non recuperabile per audit storico');
+  const result = auditHistoricalCitations(reviews, repositoryPaths);
+  console.log(`review-gate: historical citation audit ${repo}#${pr}`);
+  console.log(`review-gate: reviews=${result.reviewCount} citations=${result.citationCount}`);
+  console.log(`review-gate: legacy-open-findings=${result.legacyOpenFindings.length}`);
+  console.log(`review-gate: current-open-findings=${result.openFindings.length}`);
+  console.log(`review-gate: legacy-truncated-unresolvable=${result.legacyTruncatedUnresolvable.length}`);
+  console.log(`review-gate: truncated-unresolvable=${result.truncatedUnresolvable.length}`);
+  for (const item of result.truncatedUnresolvable) {
+    console.log(`review-gate: truncated path=${item.citation.path} candidate=${item.candidate}`);
+  }
+  if (result.openFindings.length > 0 || result.truncatedUnresolvable.length > 0) {
+    throw new Error('audit storico non risolto');
+  }
+}
+
 async function scopeMain() {
   const repo = process.env.REPO || process.env.GITHUB_REPOSITORY || '';
   const pr = process.env.PR_NUMBER || '';
@@ -906,10 +1066,11 @@ const isDirectRun = (() => {
 
 if (isDirectRun) {
   try {
-    if (process.argv.includes('--scope')) await scopeMain();
+    if (process.argv.includes('--audit-historical-citations')) await auditHistoricalCitationsMain();
+    else if (process.argv.includes('--scope')) await scopeMain();
     else await main();
   } catch (error) {
-    if (!process.argv.includes('--scope')) {
+    if (!process.argv.includes('--scope') && !process.argv.includes('--audit-historical-citations')) {
       try { writeApproved(false); } catch { /* un write output fallito non puo' rendere verde il gate */ }
     }
     console.error(`review-gate: errore conservativo: ${String(error)}`);
