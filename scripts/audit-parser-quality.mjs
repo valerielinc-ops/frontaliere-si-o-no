@@ -384,7 +384,8 @@ function isSwissCantonCodeInLocation(segment, value) {
   const locationWithoutSegment = String(value || '').split(/[,;/|()]+/)
     .filter((part) => normalizePlace(part) !== normalizePlace(segment))
     .join(' ');
-  return canonicalLocationTokens(locationWithoutSegment).some((token) => SWISS_REGION_NAMES.has(token));
+  return Boolean(swissMunicipalityKey(locationWithoutSegment))
+    || canonicalLocationTokens(locationWithoutSegment).some((token) => SWISS_REGION_NAMES.has(token));
 }
 
 function hasExplicitForeignCountry(value, addressCountry = '') {
@@ -631,6 +632,25 @@ function namesPostalAddressedLocality(value, publishedTokens) {
   return new RegExp(`(?:^| )\\d{4} ${publishedTokens.join(' ')}(?: |$)`).test(haystack);
 }
 
+function structuredAddressIsCoherent(candidate) {
+  const postalCode = plainText(candidate?.postalCode || '');
+  const localityTokens = canonicalLocationTokens(candidate?.addressLocality || '');
+  if (!/^\d{4}$/.test(postalCode) || !localityTokens.length) return false;
+
+  // Some extractors keep the postal code only in `postalCode`, while others
+  // repeat it in `location`. When the combined address carries that evidence,
+  // require the postal code to sit next to the SAME locality; otherwise an
+  // organisation address and a workplace locality can be fused into one
+  // apparently valid candidate (#7866). A bare locality plus a separate
+  // postalCode field remains valid because there is no contradictory text to
+  // inspect (for example `location: 'Zug', postalCode: '6300'`).
+  const addressText = [candidate?.location, candidate?.streetAddress]
+    .filter((value) => typeof value === 'string' && value.trim())
+    .join(' ');
+  if (!addressText || !/\b\d{4}\b/.test(normalizePlace(addressText))) return true;
+  return namesPostalAddressedLocality(addressText, localityTokens);
+}
+
 /**
  * The same per-vacancy evidence read off a structured address instead of the
  * prose: a candidate that carries BOTH a postal code and an `addressLocality`
@@ -642,7 +662,8 @@ function structuredAddressNamesLocality(detail, publishedLocation) {
   const publishedMunicipality = swissMunicipalityKey(publishedLocation);
   if (!publishedMunicipality) return false;
   const candidates = Array.isArray(detail?.locationCandidates) ? detail.locationCandidates : [];
-  return candidates.some((candidate) => /\b\d{4,5}\b/.test(plainText(candidate?.postalCode || ''))
+  return candidates.some((candidate) => structuredAddressIsCoherent(candidate)
+    && /\b\d{4}\b/.test(plainText(candidate?.postalCode || ''))
     && swissMunicipalityKey(candidate?.addressLocality || '') === publishedMunicipality);
 }
 
@@ -702,8 +723,15 @@ export function sourceCorroboratesPublishedLocation(detail, publishedLocation) {
   // is the same statement, and restricting it to the label left the homonym
   // cities red on every ATS that has no such field (#7713).
   const publishedTokens = canonicalLocationTokens(publishedLocation);
-  const postalAddressed = [detail?.title || '', detail?.description || '', ...workplaceLabels]
-    .some((value) => namesPostalAddressedLocality(value, publishedTokens));
+  const firstPublishedComponent = plainText(publishedLocation).split(',')[0]?.trim() || '';
+  const publishedLocalityTokens = swissMunicipalityKey(firstPublishedComponent)
+    ? canonicalLocationTokens(firstPublishedComponent)
+    : publishedTokens;
+  const sourceEvidenceTexts = workplaceLabels.length > 0
+    ? workplaceLabels
+    : [detail?.title || '', detail?.description || ''];
+  const postalAddressed = sourceEvidenceTexts
+    .some((value) => namesPostalAddressedLocality(value, publishedLocalityTokens));
   if (postalAddressed) return true;
   if (structuredAddressNamesLocality(detail, publishedLocation)) return true;
   // Canonical tokens, not the raw string: `Argovia` and `Aargau` are the same
@@ -713,9 +741,7 @@ export function sourceCorroboratesPublishedLocation(detail, publishedLocation) {
   // Same alias resolution as the postal branch: the prose of a German or
   // French page names `Freiburg`/`Bienne` for a value published as `Fribourg`
   // or `Biel`, and comparing the raw normalised strings missed it.
-  const haystack = aliasedPlaceTokens(
-    [detail?.title || '', detail?.description || '', ...workplaceLabels].join(' '),
-  ).join(' ');
+  const haystack = aliasedPlaceTokens(sourceEvidenceTexts.join(' ')).join(' ');
   if (!haystack) return false;
   return ` ${haystack} `.includes(` ${publishedTokens.join(' ')} `);
 }
