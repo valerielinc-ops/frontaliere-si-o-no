@@ -79,7 +79,13 @@ function RevealSection({
 }
 
 type MetricValue = number | null | undefined;
-type MetricState = 'observed' | 'zero-observed' | 'data-missing' | 'source-unavailable';
+type MetricState =
+  | 'observed'
+  | 'zero-observed'
+  | 'data-missing'
+  | 'source-unavailable'
+  | 'coverage-partial';
+type MetricCoverageStatus = string | null | undefined;
 
 function windowLabel(window: EmployerInsightsWindow | null | undefined): string {
   if (!window?.from || !window.to) return 'finestra non disponibile';
@@ -88,18 +94,34 @@ function windowLabel(window: EmployerInsightsWindow | null | undefined): string 
   return `${window.from} → ${window.to} · ${timezone}${inclusive}`;
 }
 
+/** `metricState()` treats only finite non-negative values as observed. */
 function metricState(
   value: MetricValue,
   source: string | null | undefined,
   window: EmployerInsightsWindow | null | undefined,
+  coverageStatuses: readonly MetricCoverageStatus[] = [],
 ): { display: string; state: MetricState; source: string } {
   const hasSource = typeof source === 'string' && source.trim().length > 0;
   const sourceLabel = hasSource ? source.trim() : 'sorgente non disponibile';
+  const coverageState = coverageStatuses.reduce<MetricState | null>((state, status) => {
+    if (state === 'source-unavailable') return state;
+    if (typeof status !== 'string') return state;
+    const normalized = status.trim().toLowerCase();
+    if (normalized === 'source_unavailable') return 'source-unavailable';
+    if (normalized !== 'observed' && normalized !== 'zero_observed') return 'coverage-partial';
+    return state;
+  }, null);
+  if (coverageState === 'source-unavailable') {
+    return { display: 'non disponibile', state: coverageState, source: sourceLabel };
+  }
   if (!hasSource) {
     return { display: 'non disponibile', state: 'source-unavailable', source: sourceLabel };
   }
-  if (!window?.from || !window.to || typeof value !== 'number' || !Number.isFinite(value)) {
+  if (!window?.from || !window.to || typeof value !== 'number' || !Number.isFinite(value) || !(value >= 0)) {
     return { display: 'non disponibile', state: 'data-missing', source: sourceLabel };
+  }
+  if (coverageState === 'coverage-partial') {
+    return { display: nf.format(value), state: coverageState, source: sourceLabel };
   }
   if (value === 0) return { display: '0', state: 'zero-observed', source: sourceLabel };
   return { display: nf.format(value), state: 'observed', source: sourceLabel };
@@ -109,6 +131,7 @@ function metricStateLabel(state: MetricState): string {
   if (state === 'zero-observed') return 'zero osservato';
   if (state === 'data-missing') return 'dato assente';
   if (state === 'source-unavailable') return 'sorgente non disponibile';
+  if (state === 'coverage-partial') return 'copertura parziale';
   return 'dato osservato';
 }
 
@@ -119,6 +142,7 @@ function MetricCard({
   value,
   source,
   window,
+  coverageStatuses,
   compact = false,
 }: {
   icon: React.ReactNode;
@@ -127,9 +151,10 @@ function MetricCard({
   value: MetricValue;
   source: string | null | undefined;
   window: EmployerInsightsWindow | null | undefined;
+  coverageStatuses?: readonly MetricCoverageStatus[];
   compact?: boolean;
 }): React.ReactElement {
-  const metric = metricState(value, source, window);
+  const metric = metricState(value, source, window, coverageStatuses);
   const displayWindow = windowLabel(window);
   return (
     <div
@@ -159,8 +184,13 @@ function MetricCard({
   );
 }
 
+/** `additionalWindowLabel()` keeps producer window keys readable in the UI. */
 function additionalWindowLabel(key: string): string {
-  return key.endsWith('d') ? `${key.slice(0, -1)} giorni` : key;
+  const normalized = key.trim().toLowerCase();
+  if (/^all(?:[-_ ]?time)$/.test(normalized)) return 'Periodo completo';
+  const days = normalized.match(/^p?(\d+)\s*d$/);
+  if (days) return `${Number(days[1])} giorni`;
+  return 'Finestra aggiuntiva';
 }
 
 /* ────────────────────────────────────────────────────────────────────────── */
@@ -171,6 +201,9 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
   const { totals, trend, ads } = data;
   const eventSource = data.source;
   const applicationSource = data.applicationsCoverage?.source;
+  const applicationCoverageStatus = data.applicationsCoverage
+    ? data.applicationsCoverage.status
+    : undefined;
   const trendUp =
     trend.length >= 2 ? trend[trend.length - 1].views >= trend[0].views : true;
 
@@ -207,6 +240,7 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
             description="Invii registrati dalla sorgente delle candidature; non si sommano ai click."
             source={applicationSource}
             window={data.window}
+            coverageStatuses={[applicationCoverageStatus, totals.applicationsStatus]}
           />
           <MetricCard
             icon={<Building2 className="w-5 h-5" />}
@@ -303,6 +337,7 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
                     description="Invii"
                     source={applicationSource}
                     window={summary.window}
+                    coverageStatuses={[applicationCoverageStatus, summary.totals.applicationsStatus]}
                   />
                   <MetricCard
                     compact

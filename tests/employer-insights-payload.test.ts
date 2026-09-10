@@ -231,4 +231,58 @@ describe('employer insights payload UI', () => {
     expect(sourceUnavailableHtml.match(/sorgente non disponibile/g)?.length).toBeGreaterThanOrEqual(4);
     expect(sourceUnavailableHtml).not.toMatch(/Click per candidarsi[\s\S]{0,240}>0<|Click per candidarsi[\s\S]{0,240}>701</);
   });
+
+  it('does not present negative observations as observed metrics', () => {
+    const html = render({
+      ...basePayload,
+      totals: { ...basePayload.totals, views: -1 },
+    });
+
+    expect(html).toContain('aria-label="Visualizzazioni annuncio: non disponibile"');
+    expect(html).not.toContain('aria-label="Visualizzazioni annuncio: -1"');
+    expect(html).toMatch(/Visualizzazioni annuncio<\/p><p[^>]*>dato assente<\/p>/);
+  });
+
+  it('normalizes additional window keys and hides raw technical keys', () => {
+    const summary = { window, totals: basePayload.totals, trend: [] };
+    const html = render({
+      ...basePayload,
+      additionalWindows: {
+        'all-time': summary,
+        '90D': summary,
+        P30D: summary,
+        'unexpected-window': summary,
+      },
+    });
+
+    expect(html).toMatch(/<h3[^>]*>Periodo completo<\/h3>/);
+    expect(html).toMatch(/<h3[^>]*>90 giorni<\/h3>/);
+    expect(html).toMatch(/<h3[^>]*>30 giorni<\/h3>/);
+    expect(html).toMatch(/<h3[^>]*>Finestra aggiuntiva<\/h3>/);
+    expect(html).not.toMatch(/<h3[^>]*>all-time<\/h3>/);
+    expect(html).not.toMatch(/<h3[^>]*>90D<\/h3>/);
+    expect(html).not.toMatch(/<h3[^>]*>P30D<\/h3>/);
+    expect(html).not.toMatch(/<h3[^>]*>unexpected-window<\/h3>/);
+  });
+
+  it('marks applications as partial when either coverage status is incomplete', () => {
+    const payloads = [
+      {
+        ...basePayload,
+        applicationsCoverage: { source: 'applications-source', status: 'partial' },
+        totals: { ...basePayload.totals, applicationsStatus: 'observed' },
+      },
+      {
+        ...basePayload,
+        applicationsCoverage: { source: 'applications-source', status: 'observed' },
+        totals: { ...basePayload.totals, applicationsStatus: 'partial' },
+      },
+    ];
+
+    for (const payload of payloads) {
+      const html = render(payload);
+      expect(html).toMatch(/Candidature inviate<\/p><p[^>]*>copertura parziale<\/p>/);
+      expect(html).toContain('aria-label="Candidature inviate: 302"');
+    }
+  });
 });
