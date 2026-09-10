@@ -100,11 +100,13 @@ describe('GA4 page_view employer attribution', () => {
     expect(jobBoardSource).toMatch(
       /companyRouteSlugCandidates\(job\.company, job\.companyKey\)/,
     );
-    expect(jobBoardSource).toContain(
-      "const pageViewPath = typeof window === 'undefined' ? '' : `${window.location.pathname}${window.location.search}${window.location.hash}`;",
-    );
-    expect(jobBoardSource).toContain('}, [pageViewIdentity, pageViewPath]);');
-    expect(jobBoardSource).toContain("if (!pageViewPath) return;");
+    expect(jobBoardSource).toContain('function readCurrentPageViewPath(): string');
+    expect(jobBoardSource).toContain('const path = readCurrentPageViewPath();');
+    expect(jobBoardSource).toContain('const [pageViewNavigationVersion, setPageViewNavigationVersion] = useState(0);');
+    expect(jobBoardSource).toContain("window.addEventListener('popstate', onHistoryNavigation)");
+    expect(jobBoardSource).toContain('window.history.pushState = wrappedPushState;');
+    expect(jobBoardSource).toContain('pageViewTrackedKey.current = null;');
+    expect(jobBoardSource).not.toContain('const pageViewPath = typeof window');
     expect(jobBoardSource).toContain("pageTemplate !== 'job_detail'");
     expect(jobBoardSource).not.toContain('if (!pageViewIdentity || !pageViewPath) return;');
     expect(uiStateSource).toMatch(
