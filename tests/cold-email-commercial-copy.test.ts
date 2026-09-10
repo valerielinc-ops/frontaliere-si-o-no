@@ -20,7 +20,9 @@ const buildSequence = rawBuildSequence as unknown as (
 ) => ReturnType<typeof rawBuildSequence>;
 
 const PERIOD = 'negli ultimi 90 giorni';
-const REPORT_WINDOW = '2026-06-12T00:00:00.000Z → 2026-09-10T00:00:00.000Z';
+const HUMAN_REPORT_WINDOW = 'dal 12 giugno al 10 settembre 2026';
+const RAW_ISO_PERIOD = '2026-06-10T00:00:00.000Z → 2026-09-08T00:00:00.000Z';
+const HUMAN_ISO_PERIOD = "dal 10 giugno all'8 settembre 2026";
 
 describe('cold-email commercial copy', () => {
   it('selects raw apply clicks before the legacy proxy and labels the fallback', () => {
@@ -80,6 +82,30 @@ describe('cold-email commercial copy', () => {
     expect(t2.body).not.toContain('Ciao Denise,\n\n\nCon l\'annuncio sponsorizzato');
   });
 
+  it('formats an ISO period for the commercial email and never exposes the raw timestamp', () => {
+    const [t1] = buildSequence({
+      company: 'Acme SA',
+      metricValue: 31,
+      metricLabel: 'click per candidarsi',
+      periodLabel: RAW_ISO_PERIOD,
+    });
+
+    expect(t1.body).toContain(`${HUMAN_ISO_PERIOD} abbiamo registrato 31 click per candidarsi`);
+    expect(t1.body).not.toContain(RAW_ISO_PERIOD);
+  });
+
+  it('keeps the measurement window in the commercial message', () => {
+    const sequence = buildSequence({
+      company: 'Acme SA',
+      metricValue: 31,
+      metricLabel: 'click per candidarsi',
+      periodLabel: RAW_ISO_PERIOD,
+    });
+    const copy = sequence.map((touch: { body: string }) => touch.body).join('\n');
+
+    expect(copy).toContain(HUMAN_ISO_PERIOD);
+  });
+
   it.each([
     '23 persone',
     '23 candidati',
@@ -137,7 +163,7 @@ describe('cold-email commercial copy', () => {
       expect(fs.existsSync(path.join(outDir, '01-click-first.md'))).toBe(true);
       expect(fs.existsSync(path.join(outDir, '01-proxy-first.md'))).toBe(false);
       const draft = fs.readFileSync(path.join(outDir, '01-click-first.md'), 'utf8').toLowerCase();
-      expect(draft).toContain(`click per candidarsi (${REPORT_WINDOW.toLowerCase()}): **31**`);
+      expect(draft).toContain(`click per candidarsi (${HUMAN_REPORT_WINDOW}): **31**`);
       expect(draft).not.toContain('candidati inviati');
       expect(draft).not.toContain('23 persone');
       expect(draft).not.toContain('23 candidati');

@@ -12,7 +12,8 @@ export interface ColdEmailTouch {
 
 export interface BuildSequenceArgs {
   company?: string;
-  candidates: number;
+  metricValue?: number | null;
+  metricLabel?: 'click per candidarsi' | 'segnali di interesse';
   periodLabel: string;
   contactName?: string;
   topRole?: string;
@@ -20,3 +21,4 @@ export interface BuildSequenceArgs {
 
 export function buildSequence(args: BuildSequenceArgs): ColdEmailTouch[];
 export function bodyToHtml(body: string): string;
+export function formatItalianPeriodLabel(periodLabel: string): string;

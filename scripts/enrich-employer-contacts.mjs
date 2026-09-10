@@ -2,7 +2,7 @@
 /**
  * Enrichment contatti HR per l'outreach (passo #1 del piano).
  *
- * Per ogni azienda target del report candidati-per-azienda:
+ * Per ogni azienda target del report delle metriche di outreach:
  *   1) trova il RUOLO più cliccato (PostHog) → personalizzazione Livello 4 email;
  *   2) prova a estrarre un'email di contatto HR dalle pagine careers/contatti
  *      (best-effort, public pages) con priorità hr@/lavoro@/candidature@/jobs@.
@@ -11,7 +11,7 @@
  *
  * NON invia nulla. Solo arricchimento dati locali.
  *
- * Nessuna azienda esclusa: prende le prime `--top` per candidati inviati. Ogni
+ * Nessuna azienda esclusa: prende le prime `--top` per metrica di outreach. Ogni
  * contatto è etichettato col settore (pubblico/multinazionale/pmi) come contesto
  * per calibrare il messaggio a mano, ma il tag NON filtra.
  *
@@ -24,6 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { classifySector, slugify } from './lib/employer-sectors.mjs';
+import { selectOutreachMetric } from './generate-cold-emails.mjs';
 import { apexDomain, pickBestEmail, inferPatternEmail } from './lib/email-finder.mjs';
 import { ATS_DOMAINS, mxOk, findDomain, scrapeCompanyEmails } from './lib/email-enrichment.mjs';
 
@@ -83,8 +84,13 @@ async function run() {
   const contactsPath = path.join(ROOT, 'data/employer-outreach/contacts.json');
 
   const report = JSON.parse(fs.readFileSync(path.resolve(reportPath), 'utf8'));
-  // Nessuna azienda esclusa: prendi le prime `top` per candidati inviati.
-  const targets = (report.employers || []).slice(0, top);
+  // Nessuna azienda esclusa: prendi le prime `top` per metrica di outreach.
+  const targets = (report.employers || [])
+    .map((entry) => ({ entry, metric: selectOutreachMetric(entry) }))
+    .sort((a, b) => (b.metric?.value ?? -1) - (a.metric?.value ?? -1)
+      || String(a.entry.key || a.entry.name || '').localeCompare(String(b.entry.key || b.entry.name || '')))
+    .slice(0, top)
+    .map(({ entry }) => entry);
 
   const existing = fs.existsSync(contactsPath) ? JSON.parse(fs.readFileSync(contactsPath, 'utf8')) : {};
   const roles = await topRoles(targets, days);
@@ -120,13 +126,14 @@ async function run() {
       }
     }
     existing[key] = {
-      name: e.name, candidates: e.candidates, sector, topRole: role,
+      name: e.name, sector, topRole: role,
       careersUrl: e.careersUrl || prev.careersUrl || '', domain,
       contactName: prev.contactName || '', contactRole: prev.contactRole || '', linkedinUrl: prev.linkedinUrl || '',
       email, emailSource, emailInferred, mxVerified: mx,
     };
     const tag = email ? `✓ ${email} (${emailSource}${mx ? ', mx✓' : ''})` : (emailInferred ? `~ ${emailInferred} (inferita)` : (domain ? '⚠ no email' : '⚠ no domain'));
-    console.log(`  ${e.candidates.toString().padStart(3)}  [${sector.padEnd(13)}]  ${tag}  ${e.name}`);
+    const metric = selectOutreachMetric(e);
+    console.log(`  [${metric?.label || 'metrica non disponibile'}]  [${sector.padEnd(13)}]  ${tag}  ${e.name}`);
   }
 
   fs.mkdirSync(path.dirname(contactsPath), { recursive: true });
