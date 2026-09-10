@@ -48,6 +48,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { extractDrupalNodeId, extractIrsolDetailPage, MIN_IRSOL_BODY_LENGTH } from './lib/irsol-html-parser.mjs';
 import { translateTextWithLocalPipeline } from './lib/job-localization-pipeline.mjs';
+import { hasUsableTitle, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
@@ -207,9 +208,9 @@ async function translateUsiTitle(text = '', sourceLang = 'it', targetLang = 'en'
       company: job.company || USI_COMPANY_NAME,
       location: job.location || DEFAULT_CITY,
     },
-    minChars: 2,
+    minChars: MIN_TITLE_CHARS,
   });
-  if (local && normalize(local) !== normalize(source)) return String(local).trim();
+  if (hasUsableTitle(local) && normalize(local) !== normalize(source)) return String(local).trim();
 
   const fallback = await freeTranslateWithRetry({
     text: source,
@@ -217,7 +218,7 @@ async function translateUsiTitle(text = '', sourceLang = 'it', targetLang = 'en'
     targetLang,
     maxRetries: 0,
   });
-  if (fallback && normalize(fallback) !== normalize(source)) return String(fallback).trim();
+  if (hasUsableTitle(fallback) && normalize(fallback) !== normalize(source)) return String(fallback).trim();
   return source;
 }
 

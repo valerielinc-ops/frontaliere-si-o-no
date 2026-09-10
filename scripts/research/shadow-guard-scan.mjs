@@ -18,9 +18,9 @@ import path from 'node:path';
 import { listSliceFileNames } from '../lib/crawler-slice-files.mjs';
 import { needsWork, missingSlots } from '../local-mt-mopup.mjs';
 import { titleLooksUntranslated } from '../lib/job-locale-utils.mjs';
+import { MIN_TITLE_CHARS } from '../lib/translation-quality.mjs';
 
 const MIN_DESC_CHARS = 120;
-const MIN_TITLE_CHARS = 3;
 
 const slicesDir = process.argv[2];
 const outPath = process.argv[3] || '/dev/stdout';

@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { intFromEnv } from './int-from-env.mjs';
+import { MIN_TITLE_CHARS } from './translation-quality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -194,10 +195,12 @@ function passesQualityGate({ sourceText, candidate, kind, minChars = 0 }) {
   const source = normalizeParagraphs(sourceText);
   const output = normalizeParagraphs(candidate);
   if (!output) return false;
-  if (output.length < minChars) return false;
+  const effectiveMinChars = kind === 'title'
+    ? Math.max(MIN_TITLE_CHARS, minChars)
+    : minChars;
+  if (output.length < effectiveMinChars) return false;
   if (looksLikeCopy(source, output, kind)) return false;
   if (kind === 'title' || kind === 'requirement') {
-    if (output.length < Math.max(2, minChars)) return false;
     // Reject titles that look truncated mid-word: single short word ending with
     // lowercase that is a prefix of a word in the source text
     if (kind === 'title' && output.length < source.length * 0.6) {
@@ -477,7 +480,7 @@ export async function localizeJobContentWithPipeline({
       targetLang: locale,
       kind: 'title',
       context,
-      minChars: 2,
+      minChars: MIN_TITLE_CHARS,
     });
     const translatedDescription = await translateTextWithLocalPipeline({
       text: cleanDescription,

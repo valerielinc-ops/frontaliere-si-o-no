@@ -21,6 +21,15 @@
  * equivalent so both translation paths reject the same defect.
  */
 
+// The deploy validator rejects locale titles shorter than three characters.
+// Keep this floor shared by every writer so a provider cannot persist a title
+// that the dist gate will reject on the next validation run.
+export const MIN_TITLE_CHARS = 3;
+
+export function hasUsableTitle(value) {
+  return String(value || '').trim().length >= MIN_TITLE_CHARS;
+}
+
 // A faithful translation stays within a reasonable band of the source length.
 export const MIN_TRANSLATION_RATIO = 0.6;
 // Absolute character floor: anything shorter is too thin to be a real

@@ -58,7 +58,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
-import { isAcceptableTranslation } from './lib/translation-quality.mjs';
+import { hasUsableTitle, isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
 import { getCompanyDefaults, getCantonDisplayName, isTargetCanton } from './lib/crawler-location-config.mjs';
@@ -1011,7 +1011,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   const localeDescriptions = {};
   for (const locale of ['it', 'de', 'fr']) {
     const localized = localizedLoginData[locale];
-    if (localized?.title) localeTitles[locale] = localized.title;
+    if (hasUsableTitle(localized?.title)) localeTitles[locale] = localized.title;
     if (localized?.description) localeDescriptions[locale] = localized.description;
   }
   if (!localeTitles[resolvedSourceLocale]) localeTitles[resolvedSourceLocale] = title;
@@ -1024,7 +1024,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
         targetLang: locale,
         maxRetries: 2,
       });
-      if (translatedTitle) localeTitles[locale] = translatedTitle;
+      if (hasUsableTitle(translatedTitle)) localeTitles[locale] = translatedTitle;
     }
     if (!localeDescriptions[locale] && localeDescriptions[resolvedSourceLocale]) {
       const translatedDescription = await freeTranslateWithRetry({

@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isAcceptableTranslation } from './lib/translation-quality.mjs';
+import { hasUsableTitle, isAcceptableTranslation, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 
@@ -176,9 +176,9 @@ async function localizeJob(job) {
         text: sourceTitle,
         sourceLang,
         targetLang: locale,
-        minChars: 2,
+        minChars: MIN_TITLE_CHARS,
       });
-      if (translatedTitle) out.titleByLocale[locale] = translatedTitle;
+      if (hasUsableTitle(translatedTitle)) out.titleByLocale[locale] = translatedTitle;
     }
 
     const currentDesc = cleanDescription(out.descriptionByLocale[locale] || '');

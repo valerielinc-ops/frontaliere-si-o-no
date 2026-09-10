@@ -115,7 +115,7 @@ import {
 import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
-import { hasConcatenatedWords } from './translation-quality.mjs';
+import { hasConcatenatedWords, hasUsableTitle } from './translation-quality.mjs';
 import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import {
   extractMigrosStructuredData,
@@ -2009,7 +2009,7 @@ export function ensureLocaleFields(job) {
       // now accepts flagged slots instead of skipping them.
       if (verdict.reason === 'source-copy') {
         const heuristicReplacement = heuristicTranslateJobTitle(sourceTitle, locale);
-        if (heuristicReplacement &&
+        if (hasUsableTitle(heuristicReplacement) &&
             heuristicReplacement.toLowerCase() !== sourceTitle.toLowerCase() &&
             !isLowQualityLocalizedTitle(heuristicReplacement)) {
           titleByLocale[locale] = heuristicReplacement;
@@ -2019,7 +2019,7 @@ export function ensureLocaleFields(job) {
       // Locale slot was already empty — try heuristic fill
       const translated = heuristicTranslateJobTitle(sourceTitle, locale);
       if (
-        translated &&
+        hasUsableTitle(translated) &&
         translated.toLowerCase() !== sourceTitle.toLowerCase() &&
         !isLowQualityLocalizedTitle(translated)
       ) {
@@ -3650,7 +3650,9 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
             });
             if (aiLocalized) {
               for (const localeKey of Object.keys(aiLocalized)) {
-                titleByLocale[localeKey] = aiLocalized[localeKey].title || title;
+                titleByLocale[localeKey] = hasUsableTitle(aiLocalized[localeKey].title)
+                  ? aiLocalized[localeKey].title
+                  : title;
                 descriptionByLocale[localeKey] = aiLocalized[localeKey].description;
                 requirementsByLocale[localeKey] = mergeRequirements(
                   requirementsByLocale[localeKey] || [],
