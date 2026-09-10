@@ -16,6 +16,7 @@
  */
 
 import fs from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { detectClaudeRateLimit } from './claude-rate-limit.mjs';
 
 /** Modello e reasoning effort vincolanti per l'esecuzione di fallback. */
@@ -231,6 +232,6 @@ function main() {
   }
 }
 
-if (process.argv[1] && new URL(`file://${process.argv[1]}`).href === import.meta.url) {
+if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
   main();
 }

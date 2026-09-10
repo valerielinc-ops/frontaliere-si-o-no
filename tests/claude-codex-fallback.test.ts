@@ -1,5 +1,6 @@
 import { execFileSync, spawn } from 'node:child_process';
 import {
+  copyFileSync,
   existsSync,
   chmodSync,
   mkdtempSync,
@@ -604,16 +605,21 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('copy_bridge_file gh-bridge.sh gh');
     expect(action).toContain('copy_bridge_file git-bridge.sh git');
     expect(action).toContain('copy_bridge_file child-lifecycle.mjs child-lifecycle.mjs');
-    expect(action).toContain('find_host_gh()');
+    expect(action).toContain('find_trusted_tool()');
+    expect(action).toContain('trusted_roots=()');
+    expect(action).toContain('path_components_trusted()');
+    expect(action).toContain('/opt/hostedtoolcache');
+    expect(action).toContain('npm_realpath=');
+    expect(action).toContain('gh_realpath=');
+    expect(action).toContain('git_realpath=');
     expect(action).toContain('realpath "$candidate"');
     expect(action).toContain('copy_attested_file "$gh_binary_source" "$gh_host_tools/bin/gh"');
-    expect(action).toContain('find_host_git() { find_host_binary git; }');
     expect(action).toContain('copy_attested_file "$git_binary_source" "$gh_host_tools/bin/git"');
     expect(action).toContain('copy_attested_file "$git_binary_source" "$git_sandbox_binary"');
     expect(action).toContain('git_host_realpath');
     expect(action).toContain('sha256_file');
     expect(action).toContain('Resolve trusted Node runtime');
-    expect(action).toContain('find_trusted_node()');
+    expect(action).toContain('find_trusted_tool()');
     expect(action).toContain('node_sha256=');
     expect(action).toContain('Snapshot Codex fallback runtime before Claude');
     expect(action).not.toContain('gh_host_launcher');
@@ -638,6 +644,9 @@ describe('copertura workflow diretti', () => {
     const codexBlock = action.slice(codexStart, action.indexOf('- name: Record structured Codex fallback evidence'));
     expect(installBlock).toContain('env -i');
     expect(installBlock).toContain('NPM_CONFIG_USERCONFIG=/dev/null');
+    expect(installBlock).toContain('TRUSTED_NPM: ${{ steps.trusted_node.outputs.npm_realpath }}');
+    expect(installBlock).toContain('"$trusted_npm" install --global');
+    expect(installBlock).toContain('PATH="$(/usr/bin/dirname "$trusted_npm"):$(/usr/bin/dirname "$trusted_node"):/usr/bin:/bin"');
     expect(installBlock).toContain('npm_config_prefix="$codex_prefix"');
     expect(installBlock).toContain('codex_path="$codex_prefix/bin/codex"');
     expect(installBlock).toContain('case "$codex_path" in');
@@ -652,6 +661,7 @@ describe('copertura workflow diretti', () => {
     expect(codexBlock).toContain('"$CODEX_BIN" --version');
     expect(action).toContain('CODEX_SANITIZER_GIT="$git_host_realpath"');
     expect(action).toContain('"$node_realpath" "$runtime_snapshot/action/sanitize-git-config.mjs"');
+    expect(action).toContain('snapshot_file "$workspace_root/scripts/ci/claude-rate-limit-contract.mjs"');
     expect(action).toContain('git rev-parse --git-dir');
     expect(action).toContain('git rev-parse --git-common-dir');
     expect(action).toContain('"$auth_file_toml" = "deny"');
@@ -701,6 +711,10 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('"$TRUSTED_NODE" -e');
     expect(action).toContain('CODEX_GIT_AUTH="$codex_github_auth"');
     expect(action).toContain('CODEX_REAL_GIT="$git_host_realpath"');
+    expect(action).toContain('TRUSTED_GH_SHA256: ${{ steps.trusted_node.outputs.gh_sha256 }}');
+    expect(action).toContain('TRUSTED_GIT_SHA256: ${{ steps.trusted_node.outputs.git_sha256 }}');
+    expect(action).toContain('verify_trusted_tool gh "$gh_binary_source"');
+    expect(action).toContain('verify_trusted_tool git "$git_binary_source"');
     expect(action).toContain('CODEX_GIT_REAL="$git_sandbox_binary"');
     expect(action).toContain('CODEX_GIT_REMOTE="$codex_git_remote"');
     expect(action).toContain('CODEX_GIT_HOST_SCRATCH="$git_bridge_host_scratch"');
@@ -784,56 +798,91 @@ describe('copertura workflow diretti', () => {
     expect(ghBridge).toContain('resolveGhScope(args');
   });
 
-  it('rifiuta uno shim Node nel runner-temp e seleziona il binario attestato fuori dalle radici scrivibili', () => {
+  it('rifiuta gli shim Node/npm/gh/git da /tmp/evil prima dell’attestazione', () => {
     const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
     const runnerRoot = mkdtempSync(join(tmpdir(), 'codex-node-trust-'));
     const runnerTemp = join(runnerRoot, 'runner-temp');
     const workspace = join(runnerRoot, 'workspace');
     const actionPath = join(runnerRoot, 'action');
-    const trustedDir = mkdtempSync(join(tmpdir(), 'codex-node-host-'));
+    const evilDir = mkdtempSync(join(tmpdir(), 'evil-path-'));
     mkdirSync(runnerTemp, { recursive: true });
     mkdirSync(workspace, { recursive: true });
     mkdirSync(actionPath, { recursive: true });
     const resolvedRunnerTemp = realpathSync(runnerTemp);
     const resolvedWorkspace = realpathSync(workspace);
     const resolvedActionPath = realpathSync(actionPath);
-    const shim = join(runnerTemp, 'node');
-    const trustedNode = join(trustedDir, 'node');
-    writeFileSync(shim, '#!/bin/sh\nexit 97\n');
-    chmodSync(shim, 0o755);
-    symlinkSync(process.execPath, trustedNode);
+    for (const tool of ['node', 'npm', 'gh', 'git']) {
+      const shim = join(evilDir, tool);
+      writeFileSync(shim, '#!/bin/sh\nexit 97\n');
+      chmodSync(shim, 0o755);
+    }
     const stepStart = action.indexOf('    - name: Resolve trusted Node runtime');
     const snapshotStart = action.indexOf('    - name: Snapshot Codex fallback runtime before Claude');
     expect(stepStart).toBeGreaterThanOrEqual(0);
     expect(snapshotStart).toBeGreaterThan(stepStart);
     const step = action.slice(stepStart, snapshotStart);
-    const functionStart = step.indexOf('        find_trusted_node() {');
+    const functionStart = step.indexOf('        workspace_root=');
     const functionEnd = step.indexOf('\n        node_realpath=', functionStart);
     expect(functionStart).toBeGreaterThanOrEqual(0);
     expect(functionEnd).toBeGreaterThan(functionStart);
-    const functionSource = step.slice(functionStart, functionEnd)
+    const resolverSource = step.slice(functionStart, functionEnd)
       .split('\n')
       .map((line) => line.startsWith('        ') ? line.slice(8) : line)
       .join('\n');
     const quote = (value: string) => `'${value.replaceAll("'", "'\\''")}'`;
     const script = [
       'set -euo pipefail',
-      `workspace_root=${quote(resolvedWorkspace)}`,
-      `action_path=${quote(resolvedActionPath)}`,
-      `runner_temp=${quote(resolvedRunnerTemp)}`,
-      functionSource,
-      'find_trusted_node',
+      resolverSource,
+      'for tool in node npm gh git; do',
+      '  selected="$(find_trusted_tool "$tool" || true)"',
+      '  test -z "$selected"',
+      'done',
     ].join('\n');
     try {
       const selected = execFileSync('/bin/bash', ['-c', script], {
         encoding: 'utf8',
-        env: { PATH: `${resolvedRunnerTemp}:${trustedDir}:/usr/bin:/bin` },
+        env: {
+          PATH: evilDir,
+          GITHUB_WORKSPACE: resolvedWorkspace,
+          CODEX_ACTION_PATH: resolvedActionPath,
+          RUNNER_TEMP: resolvedRunnerTemp,
+        },
       }).trim();
-      expect(selected).toBe(realpathSync(process.execPath));
-      expect(selected).not.toContain(resolvedRunnerTemp);
+      expect(selected).toBe('');
     } finally {
       rmSync(runnerRoot, { recursive: true, force: true });
-      rmSync(trustedDir, { recursive: true, force: true });
+      rmSync(evilDir, { recursive: true, force: true });
+    }
+  });
+
+  it('esegue il preflight dal runtime snapshot minimale senza import mancanti', () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-runtime-snapshot-'));
+    const snapshotCi = join(root, 'ci');
+    const output = join(root, 'github-output');
+    mkdirSync(snapshotCi, { recursive: true });
+    writeFileSync(output, '');
+    const runtimeFiles = [
+      'claude-codex-fallback.mjs',
+      'claude-rate-limit.mjs',
+      'claude-rate-limit-contract.mjs',
+    ];
+    try {
+      for (const name of runtimeFiles) {
+        copyFileSync(resolve(repoRoot, 'scripts', 'ci', name), join(snapshotCi, name));
+      }
+      const snapshotEntry = realpathSync(join(snapshotCi, 'claude-codex-fallback.mjs'));
+      const stdout = execFileSync(process.execPath, [snapshotEntry], {
+        encoding: 'utf8',
+        env: {
+          PREFLIGHT_BLOCKED: 'true',
+          FALLBACK_ATTEMPTED: 'false',
+          GITHUB_OUTPUT: output,
+        },
+      });
+      expect(stdout).toContain('fallback=true');
+      expect(readFileSync(output, 'utf8')).toContain('trigger=preflight-quota');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
     }
   });
 });

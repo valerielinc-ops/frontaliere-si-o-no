@@ -69,7 +69,7 @@
  * senza alcun guadagno di comportamento. Vedi `## Non implementato` della PR.
  */
 
-import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
+import { FIX_OUTCOME_RE } from './claude-rate-limit-contract.mjs';
 
 /** Codice FIX_OUTCOME granulare per una run che non è mai partita per quota. */
 export const RATE_LIMITED_OUTCOME = 'rate-limited';
@@ -77,8 +77,8 @@ export const RATE_LIMITED_OUTCOME = 'rate-limited';
 /**
  * Beacon della finestra di quota. Deliberatamente un commento HTML SEPARATO dal
  * marker `<!-- FIX_OUTCOME: ... -->`: quest'ultimo è parsato con
- * `FIX_OUTCOME_RE` (definita in `close-recovered-failure-issues.mjs`, importata
- * da `followup-drainer.mjs` e dagli altri consumer), che
+ * `FIX_OUTCOME_RE` (definita in `claude-rate-limit-contract.mjs`, importata
+ * anche dagli altri consumer), che
  * non ammette attributi extra dentro lo stesso commento. Tenerli separati evita
  * di dover toccare quella regex (e di romperla per tutti gli altri codici).
  */

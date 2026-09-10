@@ -92,33 +92,79 @@ runs:
         workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
         action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
         runner_temp="${RUNNER_TEMP:-/tmp}"
+        realpath_cmd=''
+        for candidate_realpath in /usr/bin/realpath /bin/realpath; do
+          if [ -x "$candidate_realpath" ]; then realpath_cmd="$candidate_realpath"; break; fi
+        done
+        [ -n "$realpath_cmd" ] || { echo '::error::Trusted realpath utility is unavailable.'; exit 1; }
+        realpath() { "$realpath_cmd" "$@"; }
+        tr_cmd=/usr/bin/tr
+        [ -x "$tr_cmd" ] || tr_cmd=/bin/tr
+        [ -x "$tr_cmd" ] || { echo '::error::Trusted tr utility is unavailable.'; exit 1; }
         workspace_root="$(realpath "$workspace_root")"
         action_path="$(realpath "$action_path")"
         runner_temp="$(realpath "$runner_temp")"
-        find_trusted_node() {
-          local path_entry candidate resolved
+        trusted_roots=()
+        for trusted_root in /usr/bin /usr/local/bin /bin /opt/hostedtoolcache /opt/runner /opt/homebrew; do
+          [ -d "$trusted_root" ] || continue
+          trusted_root="$(realpath "$trusted_root" 2>/dev/null || true)"
+          [ -n "$trusted_root" ] && trusted_roots+=("$trusted_root")
+        done
+        stat_mode() {
+          /usr/bin/stat -c '%a' "$1" 2>/dev/null || /usr/bin/stat -f '%Lp' "$1" 2>/dev/null || true
+        }
+        stat_owner() {
+          /usr/bin/stat -c '%u' "$1" 2>/dev/null || /usr/bin/stat -f '%u' "$1" 2>/dev/null || true
+        }
+        path_components_trusted() {
+          local current="$1" mode owner current_uid parent
+          current_uid="$(/usr/bin/id -u)"
+          while :; do
+            [ -e "$current" ] || return 1
+            mode="$(stat_mode "$current")"
+            owner="$(stat_owner "$current")"
+            [ -n "$mode" ] && [ -n "$owner" ] || return 1
+            mode="${mode: -3}"
+            case "${mode:1:2}" in *[2-7]*) return 1 ;; esac
+            [ "$owner" = '0' ] || [ "$owner" = "$current_uid" ] || return 1
+            [ "$current" = '/' ] && break
+            parent="$(/usr/bin/dirname "$current")"
+            [ "$parent" != "$current" ] || break
+            current="$parent"
+          done
+        }
+        trusted_prefix() {
+          local resolved="$1" trusted_root
+          for trusted_root in "${trusted_roots[@]}"; do
+            case "$resolved" in
+              "$trusted_root"/*) return 0 ;;
+            esac
+          done
+          return 1
+        }
+        find_trusted_tool() {
+          local binary="$1" path_entry candidate resolved
           while IFS= read -r path_entry; do
             [ -n "$path_entry" ] || continue
+            case "$path_entry" in /*) ;; *) continue ;; esac
             candidate="$path_entry/node"
+            [ "$binary" = 'node' ] || candidate="$path_entry/$binary"
             [ -f "$candidate" ] || continue
             [ -x "$candidate" ] || continue
             resolved="$(realpath "$candidate" 2>/dev/null || true)"
             [ -n "$resolved" ] || continue
-            case "$resolved" in
-              "$workspace_root"/*|"$action_path"/*|"$runner_temp"/*)
-                continue
-                ;;
-            esac
+            trusted_prefix "$resolved" || continue
+            path_components_trusted "$resolved" || continue
             case "$resolved" in
               *.mjs|*.js) continue ;;
             esac
             [ -f "$resolved" ] || continue
             printf '%s' "$resolved"
             return 0
-          done < <(printf '%s\n' "${PATH:-}" | tr ':' '\n')
+          done < <(printf '%s\n' "${PATH:-}" | "$tr_cmd" ':' '\n')
           return 1
         }
-        node_realpath="$(find_trusted_node || true)"
+        node_realpath="$(find_trusted_tool node || true)"
         if [ -z "$node_realpath" ]; then
           echo '::error::Trusted Node runtime must resolve outside writable runner trees.'
           exit 1
@@ -153,8 +199,16 @@ runs:
         }
         node_sha256="$(sha256_file "$node_realpath")"
         [ -n "$node_sha256" ] || { echo '::error::Unable to attest trusted Node runtime.'; exit 1; }
-        printf 'node_realpath=%s\nnode_version=%s\nnode_sha256=%s\n' \
-          "$node_realpath" "$node_version" "$node_sha256" >> "$GITHUB_OUTPUT"
+        npm_realpath="$(find_trusted_tool npm || true)"
+        gh_realpath="$(find_trusted_tool gh || true)"
+        git_realpath="$(find_trusted_tool git || true)"
+        npm_sha256=''; gh_sha256=''; git_sha256=''
+        [ -n "$npm_realpath" ] && npm_sha256="$(sha256_file "$npm_realpath")"
+        [ -n "$gh_realpath" ] && gh_sha256="$(sha256_file "$gh_realpath")"
+        [ -n "$git_realpath" ] && git_sha256="$(sha256_file "$git_realpath")"
+        printf 'node_realpath=%s\nnode_version=%s\nnode_sha256=%s\nnpm_realpath=%s\nnpm_sha256=%s\ngh_realpath=%s\ngh_sha256=%s\ngit_realpath=%s\ngit_sha256=%s\n' \
+          "$node_realpath" "$node_version" "$node_sha256" \
+          "$npm_realpath" "$npm_sha256" "$gh_realpath" "$gh_sha256" "$git_realpath" "$git_sha256" >> "$GITHUB_OUTPUT"
 
     - name: Snapshot Codex fallback runtime before Claude
       id: runtime_snapshot
@@ -184,6 +238,7 @@ runs:
         done
         snapshot_file "$workspace_root/scripts/ci/claude-codex-fallback.mjs" "$snapshot_root/ci/claude-codex-fallback.mjs"
         snapshot_file "$workspace_root/scripts/ci/claude-rate-limit.mjs" "$snapshot_root/ci/claude-rate-limit.mjs"
+        snapshot_file "$workspace_root/scripts/ci/claude-rate-limit-contract.mjs" "$snapshot_root/ci/claude-rate-limit-contract.mjs"
         printf 'runtime_root=%s\n' "$snapshot_root" >> "$GITHUB_OUTPUT"
 
     - name: Decide Claude usage-limit fallback (preflight)
@@ -232,8 +287,37 @@ runs:
       shell: bash
       env:
         NPM_CONFIG_USERCONFIG: /dev/null
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+        TRUSTED_NODE_SHA256: ${{ steps.trusted_node.outputs.node_sha256 }}
+        TRUSTED_NPM: ${{ steps.trusted_node.outputs.npm_realpath }}
+        TRUSTED_NPM_SHA256: ${{ steps.trusted_node.outputs.npm_sha256 }}
       run: |
         set -euo pipefail
+        trusted_node="${TRUSTED_NODE:?Trusted Node runtime unavailable}"
+        trusted_node_sha256="${TRUSTED_NODE_SHA256:?Trusted Node digest unavailable}"
+        trusted_npm="${TRUSTED_NPM:?Trusted npm runtime unavailable}"
+        trusted_npm_sha256="${TRUSTED_NPM_SHA256:?Trusted npm digest unavailable}"
+        [ -x "$trusted_node" ] && [ -x "$trusted_npm" ] || {
+          echo '::error::Trusted Node/npm runtime is not executable.'
+          exit 1
+        }
+        sha256_file() {
+          if [ -x /usr/bin/sha256sum ]; then
+            /usr/bin/sha256sum -- "$1" | /usr/bin/cut -d ' ' -f 1
+          elif [ -x /usr/bin/shasum ]; then
+            /usr/bin/shasum -a 256 -- "$1" | /usr/bin/cut -d ' ' -f 1
+          else
+            return 1
+          fi
+        }
+        [ "$(sha256_file "$trusted_node")" = "$trusted_node_sha256" ] || {
+          echo '::error::Trusted Node runtime changed after preflight attestation.'
+          exit 1
+        }
+        [ "$(sha256_file "$trusted_npm")" = "$trusted_npm_sha256" ] || {
+          echo '::error::Trusted npm runtime changed after preflight attestation.'
+          exit 1
+        }
         install_home="$(mktemp -d "${RUNNER_TEMP:-/tmp}/codex-cli-install.XXXXXX")"
         chmod 700 "$install_home"
         codex_prefix="$install_home/prefix"
@@ -247,13 +331,13 @@ runs:
         # This step intentionally has neither CODEX_HOME/auth.json nor any
         # bridge token. Keep npm's cache/user config in the throw-away home.
         env -i \
-          PATH="$PATH" \
+          PATH="$(/usr/bin/dirname "$trusted_npm"):$(/usr/bin/dirname "$trusted_node"):/usr/bin:/bin" \
           HOME="$install_home" \
           CI="true" \
           NPM_CONFIG_USERCONFIG=/dev/null \
           npm_config_cache="$install_home/cache" \
           npm_config_prefix="$codex_prefix" \
-          npm install --global --no-fund --no-audit @openai/codex@0.153.4 >/dev/null
+          "$trusted_npm" install --global --no-fund --no-audit @openai/codex@0.153.4 >/dev/null
         codex_path="$codex_prefix/bin/codex"
         case "$codex_path" in
           /*) ;;
@@ -269,8 +353,8 @@ runs:
           exit 1
         fi
         codex_realpath="$(realpath "$codex_path")"
-        codex_launcher_dir="$(dirname "$codex_realpath")"
-        codex_runtime_root="$(dirname "$codex_realpath")"
+        codex_launcher_dir="$(/usr/bin/dirname "$codex_realpath")"
+        codex_runtime_root="$(/usr/bin/dirname "$codex_realpath")"
         codex_package_root="$codex_prefix/lib/node_modules/@openai/codex"
         if [ -d "$codex_package_root" ]; then
           codex_runtime_root="$(realpath "$codex_package_root")"
@@ -319,6 +403,10 @@ runs:
         TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
         TRUSTED_NODE_VERSION: ${{ steps.trusted_node.outputs.node_version }}
         TRUSTED_NODE_SHA256: ${{ steps.trusted_node.outputs.node_sha256 }}
+        TRUSTED_GH: ${{ steps.trusted_node.outputs.gh_realpath }}
+        TRUSTED_GH_SHA256: ${{ steps.trusted_node.outputs.gh_sha256 }}
+        TRUSTED_GIT: ${{ steps.trusted_node.outputs.git_realpath }}
+        TRUSTED_GIT_SHA256: ${{ steps.trusted_node.outputs.git_sha256 }}
         CODEX_RUNTIME_SNAPSHOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
         CODEX_GH_AUTH: ${{ inputs.codex_github_token }}
         CODEX_CORPUS_GH_AUTH: ${{ inputs.codex_corpus_github_token }}
@@ -328,6 +416,10 @@ runs:
         CODEX_OUTPUT: ${{ runner.temp }}/codex-fallback-${{ github.run_id }}-${{ github.run_attempt }}.txt
       run: |
         set -euo pipefail
+        realpath_cmd=/usr/bin/realpath
+        [ -x "$realpath_cmd" ] || realpath_cmd=/bin/realpath
+        [ -x "$realpath_cmd" ] || { echo '::error::Trusted realpath utility is unavailable.'; exit 1; }
+        realpath() { "$realpath_cmd" "$@"; }
         # The pinned CLI was installed in a separate, credential-free step.
         # Resolve and attest Node before touching any token-bearing local.
         trusted_node="${TRUSTED_NODE:?Trusted Node runtime unavailable}"
@@ -414,41 +506,6 @@ runs:
         action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
         runtime_snapshot="${CODEX_RUNTIME_SNAPSHOT:?Codex fallback runtime snapshot unavailable}"
         workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
-        find_host_binary() {
-          local binary="$1" path_entry candidate resolved
-          while IFS= read -r path_entry; do
-            [ -n "$path_entry" ] || continue
-            candidate="$path_entry/$binary"
-            [ -x "$candidate" ] || continue
-            resolved="$(realpath "$candidate" 2>/dev/null || true)"
-            [ -n "$resolved" ] || continue
-            case "$resolved" in
-              "$workspace_root"/*|"$action_path"/*|"$scratch_dir"/*|"$runner_temp"/*)
-                continue
-                ;;
-            esac
-            case "$resolved" in
-              *.mjs|*.js) continue ;;
-            esac
-            [ -f "$resolved" ] || continue
-            printf '%s' "$resolved"
-            return 0
-          done < <(printf '%s\n' "$PATH" | tr ':' '\n')
-          return 1
-        }
-        find_host_gh() { find_host_binary gh; }
-        find_host_git() { find_host_binary git; }
-        gh_binary_source="$(find_host_gh || true)"
-        if [ -z "$gh_binary_source" ]; then
-          echo "::error::The GitHub CLI binary must resolve outside the writable workspace/runner-temp trees."
-          exit 1
-        fi
-        git_binary_source="$(find_host_git || true)"
-        if [ -z "$git_binary_source" ]; then
-          echo "::error::The Git CLI binary must resolve outside the writable workspace/runner-temp trees."
-          exit 1
-        fi
-
         gh_host_tools="$(mktemp -d "$runner_temp/codex-gh-host.XXXXXX")"
         chmod 700 "$gh_host_tools"
         mkdir -p "$gh_host_tools/bin"
@@ -459,6 +516,30 @@ runs:
         sha256_file() {
           "$node_realpath" -e 'const fs=require("node:fs"); const crypto=require("node:crypto"); process.stdout.write(crypto.createHash("sha256").update(fs.readFileSync(process.argv[1])).digest("hex"));' "$1"
         }
+        verify_trusted_tool() {
+          local label="$1" expected="$2" expected_digest="$3" current
+          case "$expected" in
+            /*) ;;
+            *) echo "::error::Trusted $label path is not absolute."; exit 1 ;;
+          esac
+          [ -f "$expected" ] && [ -x "$expected" ] || {
+            echo "::error::Trusted $label path is not an executable regular file."
+            exit 1
+          }
+          current="$(realpath "$expected" 2>/dev/null || true)"
+          [ "$current" = "$expected" ] || {
+            echo "::error::Trusted $label path changed after preflight attestation."
+            exit 1
+          }
+          [ -n "$expected_digest" ] && [ "$(sha256_file "$current")" = "$expected_digest" ] || {
+            echo "::error::Trusted $label digest changed after preflight attestation."
+            exit 1
+          }
+        }
+        gh_binary_source="${TRUSTED_GH:?Trusted GitHub CLI path unavailable}"
+        git_binary_source="${TRUSTED_GIT:?Trusted Git path unavailable}"
+        verify_trusted_tool gh "$gh_binary_source" "${TRUSTED_GH_SHA256:-}"
+        verify_trusted_tool git "$git_binary_source" "${TRUSTED_GIT_SHA256:-}"
         copy_attested_file() {
           local source="$1" target="$2" source_real target_real source_digest target_digest
           source_real="$(realpath "$source")"
