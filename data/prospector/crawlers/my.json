@@ -1,20 +1,20 @@
 {
   "companyKey": "my",
-  "companyName": "IBB Energie AG",
+  "companyName": "Caprez",
   "companyHost": "my.jobalino.ch",
   "platform": "jobalino.ch",
   "mode": "jsonld",
   "seedUrls": [
-    "https://my.jobalino.ch/job/de/a35820aa4b6cc0ba6ff10810892f3952/lehrstelle-netzelektriker-in-efz-august-2026"
+    "https://my.jobalino.ch/job/658ee306b792c/caprez-ingenieure-ag/bauingenieurin-technikerin-tiefbau"
   ],
-  "detailTemplate": "/job/de/a35820aa4b6cc0ba6ff10810892f3952/lehrstelle-netzelektriker-in-efz-august-2026",
-  "detailEnrichment": true,
+  "detailTemplate": "/job/658ee306b792c/caprez-ingenieure-ag/bauingenieurin-technikerin-tiefbau",
+  "detailEnrichment": false,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [
-    "Lehrstelle Netzelektriker/in EFZ - August 2027 / 100%"
+    "BauingenieurIn / TechnikerIn Tiefbau / 60% - 100%"
   ],
-  "canton": "AG",
+  "canton": "GR",
   "sourceLang": "de",
-  "learnedAt": "2026-09-08T09:10:36.698Z"
+  "learnedAt": "2026-09-10T09:01:22.981Z"
 }
