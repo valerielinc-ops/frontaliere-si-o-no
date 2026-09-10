@@ -11634,6 +11634,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-10.imageAlt': 'The day\'s numbers for cross-border commuters – September 10, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-10.seoDescription': 'Cross-border brief, September 10, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-10.ogDescription': 'The numbers for September 10, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.uss-stipendi-minimo-2027.title': 'Switzerland, request for a minimum salary of 5,000 francs',
+    'blog.article.uss-stipendi-minimo-2027.excerpt': 'The Swiss Trade Union (USS) is proposing an increase of 2.5% and a minimum wage of 5,000 francs for graduates by 2027.',
+    'blog.article.uss-stipendi-minimo-2027.imageAlt': 'Professional scene in Ticino-Italy border region, workplace context, daylight, high quality',
 };
 
 export default blogMetaEn;

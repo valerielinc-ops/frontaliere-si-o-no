@@ -11636,6 +11636,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-10.imageAlt': 'Les chiffres du jour pour les frontaliers – 10 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-10.seoDescription': 'Bulletin du frontalier du 10 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-10.ogDescription': 'Les chiffres du 10 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.uss-stipendi-minimo-2027.title': 'Suisse, demande de salaire minimum de 5 000 francs',
+    'blog.article.uss-stipendi-minimo-2027.excerpt': 'L\'Union syndicale suisse (USS) propose une augmentation de 2,5% et un salaire minimum de 5.000 francs pour les diplômés pour 2027.',
+    'blog.article.uss-stipendi-minimo-2027.imageAlt': 'Scène professionnelle dans la région frontalière Tessin-Italie, contexte de travail, lumière du jour, haute qualité',
 };
 
 export default blogMetaFr;
