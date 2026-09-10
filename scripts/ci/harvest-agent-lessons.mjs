@@ -25,6 +25,7 @@ import fs from 'node:fs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
+import { REVIEWER_BOT_LOGIN_RE } from './lib/constants.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const WINDOW_DAYS = intFromEnv('WINDOW_DAYS', 14);
@@ -308,12 +309,34 @@ const NEGATED_IMPACT_CLAUSE_RE =
 //     avanti nella frase.
 const CONTRASTIVE_NEGATED_TAIL_RE =
   new RegExp(String.raw`(\b(?:${IMPACT_VERB})\b(?:(?!\b(?:${IMPACT_VERB})\b)${CLAUSE_BODY})*?),\s*(?:e\s+|ma\s+)?(?:non|not)\b${CLAUSE_BODY}*`, 'giu');
+// Confine di frase, nella STESSA accezione di `CLAUSE_BODY`: `;`, `—`, a capo, e
+// il punto solo se seguito da spazio o fine riga (dentro un code span non lo e').
+// Tenerne una definizione sola e' cio' che impedisce al guard di sweep e allo
+// strip di disaccordarsi su dove finisce una frase.
+const SENTENCE_BOUNDARY_RE = /[;—\n]|\.(?=\s|$)/gu;
+// La frase che contiene lo span `[start, end)`: dal confine precedente al primo
+// confine successivo. I confini interni allo span non esistono per costruzione
+// (`CLAUSE_BODY` li esclude), ma vengono comunque saltati invece di troncare.
+function sentenceAround(text, start, end) {
+  let from = 0;
+  SENTENCE_BOUNDARY_RE.lastIndex = 0;
+  for (let m = SENTENCE_BOUNDARY_RE.exec(text); m; m = SENTENCE_BOUNDARY_RE.exec(text)) {
+    if (m.index < start) from = m.index + m[0].length;
+    else if (m.index >= end) return text.slice(from, m.index);
+  }
+  return text.slice(from);
+}
+
 export function stripNegatedImpactClauses(text) {
   const s = String(text ?? '');
-  if (SWEEP_ASSERTION_RE.test(s)) return s;
+  // Preserve sweep assertions only in their own sentence. The contrastive
+  // regex captures the legitimate prefix, which must survive the stripping.
+  const stripUnlessSweep = (match, offset, whole) =>
+    SWEEP_ASSERTION_RE.test(sentenceAround(whole, offset, offset + match.length)) ? match : ' ';
   return s
-    .replace(NEGATED_IMPACT_CLAUSE_RE, ' ')
-    .replace(CONTRASTIVE_NEGATED_TAIL_RE, '$1 ');
+    .replace(NEGATED_IMPACT_CLAUSE_RE, stripUnlessSweep)
+    .replace(CONTRASTIVE_NEGATED_TAIL_RE, (match, prefix, offset, whole) =>
+      SWEEP_ASSERTION_RE.test(sentenceAround(whole, offset, offset + match.length)) ? match : prefix + ' ');
 }
 
 export function bucketFinding(text) {
@@ -399,7 +422,9 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
   for (const { number, reviews, mergedAt } of prs || []) {
     const seenBuckets = new Set(); // per-PR dedup across all its reviews
     for (const r of reviews || []) {
-      if (r.author?.login !== 'claude') continue;
+      // GraphQL exposes bot logins without the REST [bot] suffix.
+      const reviewerLogin = String(r.author?.login || '').replace(/\[bot\]$/i, '') + '[bot]';
+      if (!REVIEWER_BOT_LOGIN_RE.test(reviewerLogin)) continue;
       for (const line of String(r.body || '').split('\n')) {
         const sev = detectSeverity(line);
         if (!sev || !COUNTABLE_SEVERITIES.has(sev)) continue;
@@ -468,19 +493,6 @@ export function hasEnumeratedItems(body) {
   const numberedSections = (b.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length;
   if (numberedSections >= 2) return true;
   const lines = b.split('\n');
-  const isListItemStart = (line) => /^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line);
-  const isBoldTitleLead = (rest, allLines = [], start = 0) => {
-    const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
-    let candidate = String(rest || '');
-    if (bold.test(candidate)) return true;
-    for (let i = start; i < allLines.length; i++) {
-      const line = allLines[i];
-      if (isListItemStart(line)) break;
-      candidate += '\n' + line;
-      if (bold.test(candidate)) return true;
-    }
-    return false;
-  };
   const orderedBoldItems = lines.reduce((count, line, index) => {
     const match = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(line);
     return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
@@ -491,6 +503,19 @@ export function hasEnumeratedItems(body) {
     return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
   }, 0);
   return boldLeadBullets >= 2;
+}
+
+function isBoldTitleLead(rest, lines = [], start = 0) {
+  const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
+  let candidate = String(rest || '');
+  if (bold.test(candidate)) return true;
+  for (let i = start; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
+    candidate += '\n' + line;
+    if (bold.test(candidate)) return true;
+  }
+  return false;
 }
 
 // Pure → unit-tested. `labels` is an array of label-name strings.
