@@ -199,6 +199,11 @@ export function isConnectionLevelFetchError(err) {
  *
  * @param {() => Promise<T>} attemptFn — performs one fetch attempt
  * @param {Object} [opts] — { retries, retryBaseMs, label, isTransient }
+ *
+ * When a retryable failure exhausts its retry budget, the thrown error is
+ * tagged with `retryExhausted = true`. This separates the terminal outcome
+ * from the classifier used to decide whether another attempt is worthwhile;
+ * callers must still require their own safe evidence before degrading.
  * @returns {Promise<T>}
  */
 export async function fetchWithRetry(attemptFn, opts = {}) {
@@ -216,7 +221,19 @@ export async function fetchWithRetry(attemptFn, opts = {}) {
       return await attemptFn();
     } catch (err) {
       lastErr = err;
-      if (attempt >= maxRetries || !transient(err)) throw err;
+      const retryable = transient(err);
+      if (!retryable) throw err;
+      if (attempt >= maxRetries) {
+        if (err && (typeof err === 'object' || typeof err === 'function')) {
+          try {
+            err.retryExhausted = true;
+          } catch {
+            // A frozen third-party error remains fail-closed for callers that
+            // require this marker; it is still rethrown unchanged below.
+          }
+        }
+        throw err;
+      }
       const delay = baseMs * 2 ** attempt;
       const jitter = Math.floor(Math.random() * baseMs);
       if (opts.label) {
