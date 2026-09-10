@@ -81140,6 +81140,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-f-35-amherd-prescrizione-responsabilita': {
+    title: 'F-35: Amherd rischia responsabilità per costi extra',
+    description: 'CdG: Amherd sapeva dei rischi costi F-35 mesi prima. Prescrizione triennale in scadenza, Wyssmann (UDC) chiede interruzione. Possibile danno erariale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, f-35, amherd, rischia, responsabilità',
+    ogTitle: 'F-35: Amherd rischia responsabilità per costi extra non comunicati',
+    ogDescription: 'La Commissione della gestione accerta che l\'ex consigliera federale Viola Amherd conosceva i rischi di costi aggiuntivi sugli F-35 prima di informare il Consiglio federale. Il consigliere nazionale UDC Rémy Wyssmann chiede di bloccare la prescrizione',
+    canonicalPath: '/articoli-svizzera/f-35-amherd-prescrizione-responsabilita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "F-35: Amherd rischia responsabilità per costi extra",
+      "description": "CdG: Amherd sapeva dei rischi costi F-35 mesi prima. Prescrizione triennale in scadenza, Wyssmann (UDC) chiede interruzione. Possibile danno erariale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/f-35-amherd-prescrizione-responsabilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna con bandiera svizzera al tramonto"
+      },
+      "datePublished": "2026-09-10T02:33:16+00:00",
+      "dateModified": "2026-09-10T02:33:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/f-35-amherd-prescrizione-responsabilita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

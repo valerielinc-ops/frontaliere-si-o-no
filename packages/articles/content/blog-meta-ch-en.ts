@@ -6250,6 +6250,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.title': 'Wages and work Thurgau: sectors, levels and contracts',
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.excerpt': 'In the canton of Thurgau there is no federal minimum wage; the weekly hours are 45 or 50 depending on the sector, with AVS/AHV contributions at 5.3% for the employee.',
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.imageAlt': 'Swiss office building with alpine backdrop, representing the cantonal labour market',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.title': 'F-35: Amherd Risks Liability for Extra Costs',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.excerpt': 'CdG ascertains that Amherd knew of the F-35 cost risks months earlier. Three-year prescription expiring, Wyssmann asks for an interruption.',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.imageAlt': 'Federal Palace in Bern with Swiss flag at sunset',
 };
 
 export default blogMetaChEn;
