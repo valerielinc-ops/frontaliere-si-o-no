@@ -145,6 +145,18 @@ describe('fetchWithRetry', () => {
     expect(attempt).toHaveBeenCalledTimes(3); // 1 + 2 retries
   });
 
+  it('marks a retryable terminal error without marking a persistent error', async () => {
+    const exhausted = Object.assign(new Error('HTTP 503'), { status: 503 });
+    await expect(fetchWithRetry(vi.fn().mockRejectedValue(exhausted), { retries: 0, retryBaseMs: 0 }))
+      .rejects.toBe(exhausted);
+    expect((exhausted as Error & { retryExhausted?: boolean }).retryExhausted).toBe(true);
+
+    const persistent = Object.assign(new Error('HTTP 403'), { status: 403 });
+    await expect(fetchWithRetry(vi.fn().mockRejectedValue(persistent), { retries: 0, retryBaseMs: 0 }))
+      .rejects.toBe(persistent);
+    expect((persistent as Error & { retryExhausted?: boolean }).retryExhausted).toBeUndefined();
+  });
+
   it('supports a custom isTransient predicate', async () => {
     const attempt = vi.fn().mockRejectedValue(new Error('weird-but-retryable'));
     await expect(

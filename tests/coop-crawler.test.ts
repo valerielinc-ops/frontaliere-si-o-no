@@ -1040,6 +1040,66 @@ describe('Coop-family source-detail contract (#5253)', () => {
       .rejects.toThrow(/HTTP 403/);
   });
 
+  it('keeps the listing fallback when a Volg detail request exhausts transient retries (#8117)', async () => {
+    const [companyKey, url] = cases[3];
+    const job = {
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    };
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      return new Response(null, { status: 503 });
+    };
+    const previousRetries = process.env.JOBS_CRAWLER_RETRIES;
+    const previousBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+    process.env.JOBS_CRAWLER_RETRIES = '0';
+    process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+    try {
+      const enriched = await enrichCoopSourceBackedJobs([job], {
+        fetchImpl,
+        allowedHosts: ['jobs.fenaco.com'],
+        preserveListingOnTransientFailure: true,
+      });
+      expect(enriched).toEqual([job]);
+      expect(enriched[0]._enrichedFromDetail).toBeUndefined();
+      expect(attempts).toBe(1);
+    } finally {
+      if (previousRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
+      else process.env.JOBS_CRAWLER_RETRIES = previousRetries;
+      if (previousBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousBaseMs;
+    }
+  });
+
+  it('fails closed instead of preserving a listing after a terminal DNS failure', async () => {
+    const [companyKey, url] = cases[3];
+    const job = {
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    };
+    const fetchImpl = async () => {
+      const error = Object.assign(new Error('getaddrinfo ENOTFOUND jobs.fenaco.com'), { code: 'ENOTFOUND' });
+      throw error;
+    };
+    const previousRetries = process.env.JOBS_CRAWLER_RETRIES;
+    const previousBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+    process.env.JOBS_CRAWLER_RETRIES = '0';
+    process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+    try {
+      await expect(enrichCoopSourceBackedJobs([job], {
+        fetchImpl,
+        allowedHosts: ['jobs.fenaco.com'],
+        preserveListingOnTransientFailure: true,
+      })).rejects.toThrow(/ENOTFOUND/);
+    } finally {
+      if (previousRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
+      else process.env.JOBS_CRAWLER_RETRIES = previousRetries;
+      if (previousBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousBaseMs;
+    }
+  });
+
   it('rejects a cross-host redirect before fetching or publishing its payload', async () => {
     const job = {
       id: 'stable', companyKey: 'jumbo', url: cases[2][1], title: 'Verkäuferin Verkäufer',

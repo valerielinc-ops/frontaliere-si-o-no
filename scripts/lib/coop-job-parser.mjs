@@ -426,7 +426,9 @@ export function applyCoopSourceDetailToJob(job, jsonLd) {
 // retires them) instead of aborting the crawl: a single expired posting used to
 // throw `HTTP 410` and kill the whole run with the other ~97 vacancies already
 // parsed, which is what made `Run fust` a chronic failure (#6659). Every other
-// non-ok status still fails the batch closed.
+// non-ok status still fails the batch closed. Callers may opt into keeping the
+// already validated listing record for transient detail outages; persistent
+// source/quality failures remain fail-closed.
 const GONE_STATUS = new Set([404, 410]);
 // Past this share of the batch "the vacancies expired / this one posting is
 // thin" stops being a credible reading — that is source drift (host migration,
@@ -453,6 +455,11 @@ const DETAIL_DROP_ABORT_RATIO = 0.5;
 // crossing the ratio takes at least three dropped pages, which is no longer a
 // couple of vacancies ending on the same day.
 const DETAIL_DROP_ABORT_MIN_BATCH = 4;
+const isRetryableHttpStatus = (status) => Number.isFinite(status) && RETRYABLE_STATUS.has(status);
+
+function singleLineErrorMessage(error) {
+  return normalizeSpace(error?.message || error || 'unknown error');
+}
 
 /**
  * Fetch and strictly apply all detail payloads with bounded concurrency.
@@ -472,6 +479,11 @@ const DETAIL_DROP_ABORT_MIN_BATCH = 4;
  * `Run fust` chronic (#6659). The record is unpublishable either way — thin
  * content on an indexable URL is Non-Negotiable #4 — so it leaves the batch,
  * and only a batch-wide share of rejections is read as drift and fails closed.
+ * `preserveListingOnTransientFailure` keeps the listing-derived record when a
+ * detail request exhausts retries on an explicitly retryable HTTP status. A
+ * network/DNS/TLS error remains fail-closed: the listing alone cannot prove
+ * that the source is still reachable, while its rich fallback is safe for an
+ * otherwise complete crawl that received one 503.
  */
 export async function enrichCoopSourceBackedJobs(jobs, {
   fetchImpl = undiciFetch,
@@ -480,11 +492,13 @@ export async function enrichCoopSourceBackedJobs(jobs, {
   timeoutMs = 20000,
   onGone = null,
   onRejected = null,
+  preserveListingOnTransientFailure = false,
 } = {}) {
   const input = Array.isArray(jobs) ? jobs : [];
   const output = new Array(input.length);
   const gone = [];
   const rejected = [];
+  const unavailable = [];
   const validateUrl = createSpecUrlPolicy({
     seedUrls: allowedHosts.map((hostname) => `https://${hostname}`),
   });
@@ -495,35 +509,55 @@ export async function enrichCoopSourceBackedJobs(jobs, {
       if (!allowedHosts.includes(url.hostname)) {
         throw new Error(`Untrusted Coop-family detail host: ${url.hostname}`);
       }
-      const response = await fetchWithRetry(async () => {
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeoutMs);
-        try {
-          const res = await fetchFollowingValidatedRedirects(url.toString(), {
-            fetchImpl,
-            validateUrl,
-            requestOptions: {
-              signal: controller.signal,
-              dispatcher: validateUrl.dispatcher,
-              headers: {
-                Accept: 'text/html',
-                'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      let response;
+      try {
+        response = await fetchWithRetry(async () => {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), timeoutMs);
+          try {
+            const res = await fetchFollowingValidatedRedirects(url.toString(), {
+              fetchImpl,
+              validateUrl,
+              requestOptions: {
+                signal: controller.signal,
+                dispatcher: validateUrl.dispatcher,
+                headers: {
+                  Accept: 'text/html',
+                  'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+                },
               },
-            },
-          });
-          if (!res?.ok && RETRYABLE_STATUS.has(res?.status)) {
-            const err = new Error(`HTTP ${res.status}`);
-            err.status = res.status;
-            throw err;
+            });
+            if (!res?.ok && isRetryableHttpStatus(res?.status)) {
+              const err = new Error(`HTTP ${res.status}`);
+              err.status = res.status;
+              throw err;
+            }
+            return res;
+          } finally {
+            clearTimeout(timer);
           }
-          return res;
-        } finally {
-          clearTimeout(timer);
+        }, { label: `coop-detail:${url.hostname}` });
+      } catch (error) {
+        if (preserveListingOnTransientFailure
+          && error?.retryExhausted === true
+          && isRetryableHttpStatus(error.status)) {
+          output[index] = job;
+          unavailable.push({ url: url.toString(), reason: singleLineErrorMessage(error) });
+          continue;
         }
-      }, { label: `coop-detail:${url.hostname}` });
+        throw error;
+      }
       if (!response?.ok) {
         if (GONE_STATUS.has(response?.status)) {
           gone.push({ url: url.toString(), status: response.status });
+          continue;
+        }
+        // The normal transport throws retryable statuses so fetchWithRetry
+        // can retry them; keep this defensive Response path on the same
+        // explicit HTTP-status allowlist for custom/injected transports.
+        if (preserveListingOnTransientFailure && isRetryableHttpStatus(response?.status)) {
+          output[index] = job;
+          unavailable.push({ url: url.toString(), reason: `HTTP ${response.status}` });
           continue;
         }
         throw new Error(`HTTP ${response?.status || 'unknown'}`);
@@ -538,7 +572,7 @@ export async function enrichCoopSourceBackedJobs(jobs, {
     }
   });
   await Promise.all(workers);
-  if (gone.length === 0 && rejected.length === 0) return output;
+  if (gone.length === 0 && rejected.length === 0 && unavailable.length === 0) return output;
   const dropped = gone.length + rejected.length;
   if (input.length >= DETAIL_DROP_ABORT_MIN_BATCH && dropped > input.length * DETAIL_DROP_ABORT_RATIO) {
     throw new Error(
@@ -555,6 +589,10 @@ export async function enrichCoopSourceBackedJobs(jobs, {
     const rejectedLabels = rejected.map(({ url, reason }) => `${url} (${reason})`);
     console.warn(`⚠️  Dropped ${rejected.length}/${input.length} unusable Coop-family detail payloads: ${rejectedLabels.join(', ')}`);
     if (typeof onRejected === 'function') onRejected(rejected.map(({ url }) => url));
+  }
+  if (unavailable.length > 0) {
+    console.warn(`⚠️  Kept ${unavailable.length}/${input.length} listing-backed Coop-family vacancies after retryable detail failures:`);
+    for (const { url, reason } of unavailable) console.warn(`  - ${url} (${reason})`);
   }
   return output.filter((job) => job !== undefined);
 }
