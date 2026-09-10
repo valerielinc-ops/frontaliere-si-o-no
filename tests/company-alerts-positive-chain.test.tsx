@@ -74,6 +74,13 @@ const doubles = vi.hoisted(() => {
       company_follow_only: true,
       sourceChannel: 'company_follow_button',
       consentText: 'synthetic company follow confirmation',
+      metadata: {
+        signup: {
+          channel: 'company-follow',
+          version: 1,
+        },
+      },
+      account_deleted_at: 'stale-account-marker',
     };
     // The real upsert owns this first confirmation-email side effect.  The
     // fake records it without rendering or sending a message.
@@ -175,7 +182,7 @@ const adminDouble = vi.hoisted(() => {
   const firestoreFactory: any = vi.fn();
   firestoreFactory.FieldValue = {
     serverTimestamp: vi.fn(() => new Date()),
-    delete: vi.fn(() => null),
+    delete: vi.fn(() => ({ __fakeFieldValue: 'delete' })),
     increment: vi.fn((value: number) => value),
   };
   firestoreFactory.Timestamp = {
@@ -277,6 +284,45 @@ const COMPANY_KEY = 'acme';
 const NOVELTY_WINDOW_MS = 6 * 60 * 60 * 1000;
 
 function createManagementDb(email: string, initial: Record<string, any>) {
+  const isFirestoreMap = (value: unknown): value is Record<string, any> => Boolean(
+    value
+      && typeof value === 'object'
+      && !Array.isArray(value)
+      && !(value instanceof Date),
+  );
+  const isDeleteFieldValue = (value: unknown): boolean => (
+    isFirestoreMap(value) && value.__fakeFieldValue === 'delete'
+  );
+  const cloneFirestoreValue = (value: any): any => {
+    if (Array.isArray(value)) return value.map(cloneFirestoreValue);
+    if (!isFirestoreMap(value)) return value;
+    return Object.fromEntries(
+      Object.entries(value).map(([key, nested]) => [key, cloneFirestoreValue(nested)]),
+    );
+  };
+  const applySet = (
+    existing: Record<string, any> | undefined,
+    patch: Record<string, any>,
+    options?: { merge?: boolean },
+  ): Record<string, any> => {
+    const mergeMap = (base: Record<string, any>, values: Record<string, any>) => {
+      const next = cloneFirestoreValue(base) as Record<string, any>;
+      for (const [key, value] of Object.entries(values)) {
+        if (isDeleteFieldValue(value)) {
+          delete next[key];
+        } else if (isFirestoreMap(value) && isFirestoreMap(next[key])) {
+          next[key] = mergeMap(next[key], value);
+        } else {
+          next[key] = cloneFirestoreValue(value);
+        }
+      }
+      return next;
+    };
+
+    // Admin Firestore replaces a document unless { merge: true } is passed;
+    // merge mode recursively preserves maps and applies FieldValue.delete().
+    return mergeMap(options?.merge === true ? (existing || {}) : {}, patch);
+  };
   const docs: Record<string, Record<string, any>> = {
     [`newsletter_subscribers/${email}`]: { ...initial },
   };
@@ -292,8 +338,8 @@ function createManagementDb(email: string, initial: Record<string, any>) {
               exists: Boolean(docs[`${name}/${id}`]),
               data: () => docs[`${name}/${id}`],
             }),
-            set: async (data: Record<string, any>) => {
-              docs[`${name}/${id}`] = { ...(docs[`${name}/${id}`] || {}), ...data };
+            set: async (data: Record<string, any>, options?: { merge?: boolean }) => {
+              docs[`${name}/${id}`] = applySet(docs[`${name}/${id}`], data, options);
             },
             collection: (subName: string) => ({
               add: async (data: Record<string, any>) => {
@@ -428,6 +474,13 @@ async function runChain(locale: 'it' | 'en', round: number) {
   expect(doubles.state.subscriber?.status, 'ring 4: confirmed company-follow address stays newsletter-suppressed').toBe('suppressed');
   expect(doubles.state.subscriber?.company_follow_confirmed_at, 'ring 4: confirmation proof is recorded').toBeTruthy();
   expect(doubles.state.subscriber?.company_follow_followup_pending, 'ring 4: confirmed follow is queued for alert flush').toBe(true);
+  expect(doubles.state.subscriber?.metadata, 'ring 4: merge keeps nested subscriber metadata').toEqual({
+    signup: {
+      channel: 'company-follow',
+      version: 1,
+    },
+  });
+  expect(doubles.state.subscriber?.account_deleted_at, 'ring 4: FieldValue.delete removes stale account marker').toBeUndefined();
   expect(doubles.state.alerts, 'ring 4: confirmation step itself still has no alert write').toHaveLength(0);
 
   // Ring 5 — the post-confirmation flush uses the real CompanyAlert writer.
