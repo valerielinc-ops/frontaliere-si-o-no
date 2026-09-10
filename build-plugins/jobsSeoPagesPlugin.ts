@@ -4188,7 +4188,10 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${xDefaultHrefC}">`,
  ].join('\n');
 
- const jobListHtml = jobCardListBody(companyJobs.slice(0, 20), locale);
+ // The employer profile and the canton-specialised company page must expose
+ // the same complete active set. The shared renderer owns the ad cadence, so
+ // do not silently turn a count such as 58/77 into a top-20 preview.
+ const jobListHtml = jobCardListBody(companyJobs, locale);
 
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
@@ -4263,7 +4266,7 @@ ${staticAnalyticsHtml}
  // structured data points at the actually-emitted job-detail page
  // (not the soft-canonical TI redirect). Otherwise Google ingests
  // canonical chains in rich-result candidates.
- const itemListItems = companyJobs.slice(0, 10).map((job, idx) => {
+ const itemListItems = companyJobs.map((job, idx) => {
  const jSlug = localizedSlug(job, locale);
  const jobCantonForList = sharedResolveJobCanton(job as { canton?: string; location?: string });
  const sectionForJob = jobCantonForList ? sharedResolveCantonSection(locale, jobCantonForList) : sectionByLocale[locale];
@@ -4312,7 +4315,7 @@ ${staticAnalyticsHtml}
  )}</p></div>`,
  )
  .join('');
- const openRolesListHtml = jobCardListBody(companyJobs.slice(0, 10), locale);
+ const openRolesListHtml = jobCardListBody(companyJobs, locale);
  const listingUrlCurated = `${BASE_URL}${withSlash(
  `${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'),
  )}`;
@@ -8098,26 +8101,22 @@ ${staticAnalyticsHtml}
  /* ── Per-canton company hubs (Phase 3.3) ─────────────────────
   * Additive: for every non-TI canton, for every company with ≥ 3 jobs in
   * that canton, emit /cerca-lavoro-{cantonSlug}/azienda-{companySlug}/ —
-  * a thin per-canton company hub page (H1, intro, filtered job list,
-  * canonical pointing at itself).
+  * a canton-specialised company page (H1, intro, complete filtered job list,
+  * shared card/ad format, canonical pointing at itself).
   *
-  * TI company hubs at /cerca-lavoro-ticino/azienda-{slug}/ stay byte-
-  * identical — handled exclusively by the legacy `for (const [cSlug, ...]
-  * of companyMap)` emit block above. BRAND_CANONICAL_MAP and
+  * TI company hubs at /cerca-lavoro-ticino/azienda-{slug}/ remain handled
+  * exclusively by the legacy `for (const [cSlug, ...] of companyMap)` emit
+  * block above. BRAND_CANONICAL_MAP and
   * EMPLOYER_BRANDS aliasing are NOT touched: TI canonical for a brand
   * stays the TI URL, and the new per-canton hubs each carry their own
   * self-canonical `<link rel="canonical">`.
   *
-  * Rationale for the thin variant (see CLAUDE.md / orchestrator note):
-  * the full TI company-hub template (curated EOC/Lidl prose, founded/size
-  * enrichment, full sector/city chip rows, curated FAQ) is too entangled
-  * with BRAND_CANONICAL_MAP to safely fork per-canton without risking the
-  * TI canonical. The thin variant ships the SEO funnel today; richer
-  * per-canton enrichment can land as a follow-up.
+  * The national `/aziende/<slug>/` page owns the Switzerland-wide employer
+  * intent; these URLs own the narrower canton intent. Their self-canonical
+  * and filtered list keep the two surfaces materially different for search.
   */
  {
  const MIN_JOBS_PER_CANTON_COMPANY = 3;
- const COMPANY_CANTON_JOB_CAP = 30;
  // Bucket (canton, companyCanonicalSlug) → jobs[], with display-name.
  type CompCanton = { name: string; jobs: typeof validJobs };
  const cantonCompanyBuckets: Map<string, Map<string, CompCanton>> = new Map();
@@ -8190,7 +8189,10 @@ ${staticAnalyticsHtml}
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
- const cappedJobs = sortedJobs.slice(0, COMPANY_CANTON_JOB_CAP);
+ // Keep the complete canton/company result set. `jobCardListBody` inserts the
+ // shared in-feed ad after every third card; a cap here made the page claim 58
+ // openings while exposing only 30 and also hid the later ad slots.
+ const cappedJobs = sortedJobs;
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompanyCanton = startTimer();
@@ -8255,7 +8257,7 @@ ${staticAnalyticsHtml}
  // Embed a full JobPosting per item (capped description, never throws → falls
  // back to a name+url stub). Mirrors the editorial-landing ItemList; the
  // authoritative per-job JobPosting still lives on each linked detail page.
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) =>
+ itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
  // Organization JSON-LD — derived from job data (no curated overlay).

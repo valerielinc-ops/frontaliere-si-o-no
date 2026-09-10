@@ -285,18 +285,25 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
     expect(renders, 'JobBoard must render the hub CTA in the gate AND the detail').toBe(2);
   });
 
-  it('the active detail company link prefers the proven profile and keeps a safe fallback', () => {
-    const link = readRepoFile('components/community/EmployerCompanyLink.tsx');
+  it('the active detail company link stays scoped to the viewed canton', () => {
     const board = readRepoFile('components/community/JobBoard.tsx');
 
-    expect(link).toContain("from '@/hooks/useEmployerHub'");
-    expect(link).toContain('href={employerHub?.href ?? fallbackHref}');
-    expect(link).toContain("Analytics.trackSelectContent('employer_hub_open', employerHub.slug)");
-    expect(link).toContain('onFallbackClick(event)');
-    expect(board).toContain("from '@/components/community/EmployerCompanyLink'");
-    expect(board.split('<EmployerCompanyLink').length - 1).toBe(2);
-    expect(board).toContain('fallbackHref={gateCompanyHref}');
-    expect(board).toContain('fallbackHref={companySearchHref}');
+    expect(board).not.toContain("from '@/components/community/EmployerCompanyLink'");
+    expect(board).toContain('jobBoardCanton: gateJobCanton, jobSlug: gateCompanySlug');
+    expect(board).toContain('jobBoardCanton: detailJobCanton, jobSlug: companySearchSlug');
+    expect(board).toContain('onClickCapture={openGateCompanyFilter}');
+    expect(board).toContain('onClickCapture={openCompanyFilter}');
+  });
+
+  it('canton company pages expose the complete filtered set through the shared card renderer', () => {
+    const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
+
+    expect(plugin).toContain('const cappedJobs = sortedJobs;');
+    expect(plugin).not.toContain('COMPANY_CANTON_JOB_CAP');
+    expect(plugin).toContain('const jobListHtml = jobCardListBody(companyJobs, locale);');
+    expect(plugin).toContain('const openRolesListHtml = jobCardListBody(companyJobs, locale);');
+    expect(plugin).toContain('const jobCardListBody = (jobs: ReadonlyArray<any>, locale:');
+    expect(plugin).toContain('shouldPlaceInfeedAd(i + 1)');
   });
 
   it('the runtime helper covers all four locales', () => {

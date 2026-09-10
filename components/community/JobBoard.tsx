@@ -31,7 +31,6 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
 import { createPublisherApplyEventId, trackPublisherJobView, trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
 import PublisherApplyForm from '@/components/community/PublisherApplyForm';
-import EmployerCompanyLink from '@/components/community/EmployerCompanyLink';
 import { renderPublisherMarkdown } from '@/services/publisherMarkdown';
 import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import {
@@ -7949,8 +7948,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const teaserPending = !descriptionPreview
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
  const gateCompanySlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
- const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobSlug: gateCompanySlug }, locale);
  const gateJobCanton = resolveJobCanton(selectedJob);
+ const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: gateJobCanton, jobSlug: gateCompanySlug }, locale);
  // City link is ALWAYS canton-semantic: /cerca-lavoro-<canton>/<città>/ for
  // EVERY canton (incl. TI) — a city must never sit under a foreign section
  // (e.g. Zürich under /cerca-lavoro-ticino/ is semantically wrong). Known
@@ -8057,16 +8056,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex-1 min-w-0">
  <h1 className="text-xl font-bold font-display text-heading leading-tight break-words [hyphens:auto]">{localizedTitle}</h1>
  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1.5 text-sm leading-tight text-subtle">
- <EmployerCompanyLink
- company={companyName}
- companyKey={selectedJob.companyKey}
- locale={locale as Locale}
- fallbackHref={gateCompanyHref}
- onFallbackClick={openGateCompanyFilter}
+ <a
+ href={gateCompanyHref}
+ onClickCapture={openGateCompanyFilter}
  className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
- >
- <Building2 size={14} />{companyName}
- </EmployerCompanyLink>
+ ><Building2 size={14} />{companyName}</a>
  {jobLocation && gateLocationHref && (
  <a
  href={gateLocationHref}
@@ -8562,8 +8556,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
  const detailPageUrl = `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`;
  const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
- const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySearchSlug }, locale);
  const detailJobCanton = resolveJobCanton(selectedJob);
+ const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: detailJobCanton, jobSlug: companySearchSlug }, locale);
  // Job-specific FAQ (build-plugins/shared/jobPostingFaq.ts) — the same
  // deterministic template + canonical schema builder that services/seoService.ts
  // uses for the runtime FAQPage JSON-LD on client-side navigation, so the
@@ -8629,13 +8623,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
  Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
- // Full navigation to the static company hub (HTTP 200) which lists the
- // company's jobs across ALL cantons. An SPA re-filter scopes to the current
- // canton shard and clobbers the static list with an empty result — the
- // /cerca-lavoro-ticino/azienda-X/ "0 results" bug for cross-canton employers
- // (e.g. PwC: 109 static jobs vs 0 in the TI shard). The viewed job is active,
- // so its company always has a current-build hub (companySearchHref uses the
- // canonical slug that mirrors the emitter).
+ // Full navigation to the static company hub for the job's canton. The URL is
+ // intentionally canton-scoped: `/aziende/<slug>/` is the Switzerland-wide
+ // employer profile, while this page answers the narrower "company in this
+ // canton" intent. The viewed job is active, so its company always has a
+ // current-build canton hub (companySearchHref uses the same slug as the
+ // emitter).
  window.location.assign(companySearchHref.split('?')[0]);
  };
  const parserCoverage = (() => {
@@ -8941,15 +8934,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {selectedJob.featured && <Star className="inline-block w-4 h-4 ml-2 text-warning fill-warning" />}
  </h1>
  <p className="mt-1 text-sm text-body break-words">
- <EmployerCompanyLink
- company={selectedJob.company}
- companyKey={selectedJob.companyKey}
- locale={locale as Locale}
- fallbackHref={companySearchHref}
- onFallbackClick={openCompanyFilter}
+ <a
+ href={companySearchHref}
+ onClickCapture={openCompanyFilter}
  className="hover:text-accent hover:underline underline-offset-2 transition-colors"
- >{selectedJob.company}
- </EmployerCompanyLink>
+ >{selectedJob.company}</a>
  {' · '}
  {detailLocationHref ? (
  <a
