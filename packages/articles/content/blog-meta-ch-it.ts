@@ -6256,6 +6256,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stefan-leist-vicedirettore-aff-2026.title': 'Stefan Leist nominato vicedirettore Amministrazione federale finanze',
     'blog.article.stefan-leist-vicedirettore-aff-2026.excerpt': 'Karin Keller-Sutter nomina Stefan Leist vicedirettore AFF dal 1° ottobre 2026. Già alla guida della divisione Politica finanziaria dal 1° marzo 2026.',
     'blog.article.stefan-leist-vicedirettore-aff-2026.imageAlt': 'Stefan Leist, nuovo vicedirettore dell\'Amministrazione federale delle finanze',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.title': 'Imposte cantonali Giura: aliquote, scaglioni e deduzioni 2024',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.excerpt': 'Guida pratica al sistema fiscale del Cantone Giura: struttura a tre livelli, moltiplicatori comunali, deduzioni ammesse e portale ufficiale per la dichiarazione.',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.imageAlt': 'Ufficio dell\'amministrazione fiscale cantonale svizzera con sportelli per contribuenti',
 };
 
 export default blogMetaChIt;

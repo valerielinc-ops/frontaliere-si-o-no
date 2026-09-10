@@ -6256,6 +6256,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stefan-leist-vicedirettore-aff-2026.title': 'Stefan Leist zum Vizedir. Eidg.Finanzverwaltung ernannt',
     'blog.article.stefan-leist-vicedirettore-aff-2026.excerpt': 'Karin Keller-Sutter ernennt Stefan Leist per 1. Oktober 2026 zum stellvertretenden Direktor EFV. Bereits seit dem 1. März 2026 an der Spitze der Division Finanzpolitik.',
     'blog.article.stefan-leist-vicedirettore-aff-2026.imageAlt': 'Stefan Leist, neuer Vizedirektor der Eidgenössischen Finanzverwaltung',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.title': 'Kantonale Steuern Jura: Steuersätze, Staffeln und Abzüge 2024',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.excerpt': 'Praktischer Leitfaden zum Steuersystem des Kantons Jura: dreistufige Struktur, kommunale Multiplikatoren, zulässige Abzüge und offizielles Deklarationsportal.',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.imageAlt': 'Schweizer kantonales Steueramt mit Bürgerschaltern',
 };
 
 export default blogMetaChDe;
