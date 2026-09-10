@@ -225,6 +225,11 @@ describe('parseWorkdayCity', () => {
   });
   it('extracts city from "City, Country"', () => { expect(parseWorkdayCity('Zurich, Switzerland')).toBe('Zurich'); });
   it('extracts city from "CHE - Lugano"', () => { expect(parseWorkdayCity('CHE - Lugano')).toBe('Lugano'); });
+  it('preserves hyphenated uppercase cities and strips administrative suffixes', () => {
+    expect(parseWorkdayCity('ST-MAURICE')).toBe('ST-MAURICE');
+    expect(parseWorkdayCity('Sion-VS')).toBe('Sion');
+    expect(parseWorkdayCity('Visp-Switzerland')).toBe('Visp');
+  });
   it('handles plain "Switzerland"', () => { expect(parseWorkdayCity('Switzerland')).toBe('Switzerland'); });
   it('handles "Lugano, Switzerland"', () => { expect(parseWorkdayCity('Lugano, Switzerland')).toBe('Lugano'); });
   it('skips Postfach and extracts real city from "Street, Postfach, City / Canton"', () => {

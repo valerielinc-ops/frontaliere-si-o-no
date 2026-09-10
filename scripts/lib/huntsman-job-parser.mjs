@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
+import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -205,12 +206,7 @@ async function fetchJobDetail(externalPath) {
 /* ── Location & canton ────────────────────────────────────── */
 
 function parseWorkdayLocation(locText = '') {
-  const cleaned = String(locText || '').trim();
-  if (/\d+\s+location/i.test(cleaned)) return '';
-  // Workday format: "Switzerland - Monthey" or "Germany - Bad Sackingen"
-  const parts = cleaned.split(/\s*-\s*/);
-  // Return city part (last segment for "Country - City" format)
-  return parts.length >= 2 ? parts.slice(1).join('-').trim() : parts[0].trim();
+  return firstLocationSegment(locText);
 }
 
 function inferCanton(location = '') {

@@ -4,6 +4,7 @@ import {
   SWISS_LIFE_COMPANY_NAME,
   isSwissLifeJob,
   isTrustedDomain,
+  parseWorkdayLocation,
 } from '../scripts/lib/swiss-life-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -12,6 +13,13 @@ describe('Swiss Life crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(SWISS_LIFE_KEY).toBe('swiss-life');
     expect(SWISS_LIFE_COMPANY_NAME).toBe('Swiss Life');
+  });
+
+  it('keeps the city before a mixed canton/country suffix', () => {
+    expect(parseWorkdayLocation('Sion – VS, Suisse romande')).toBe('Sion');
+    expect(parseWorkdayLocation('Sion-VS')).toBe('Sion');
+    expect(parseWorkdayLocation('Visp-Switzerland')).toBe('Visp');
+    expect(parseWorkdayLocation('ST-MAURICE')).toBe('ST-MAURICE');
   });
 
   // ── isCompanyJob ──

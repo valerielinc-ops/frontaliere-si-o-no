@@ -20,6 +20,7 @@ import {
   fetchWorkdayJobs,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
+  firstLocationSegment,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
 
@@ -227,10 +228,7 @@ async function fetchJobListings() {
  * Parse a Workday location string like "CH - Lausanne" → "Lausanne".
  */
 function parseWorkdayLocation(locText = '') {
-  const cleaned = String(locText || '').trim();
-  if (/\d+\s+location/i.test(cleaned)) return '';
-  const match = cleaned.match(/-\s*(.+)$/);
-  return match ? match[1].trim() : cleaned;
+  return firstLocationSegment(locText);
 }
 
 /**

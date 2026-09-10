@@ -1,4 +1,5 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 /**
  * Otis SA — Workday API job parser
  *
@@ -101,11 +102,12 @@ export function parseWorkdayCity(locText = '') {
   const cleaned = String(locText || '').trim();
   if (!cleaned) return '';
 
-  // Format: "CHE - City" (handle before comma-based parsing)
-  if (!cleaned.includes(',') && /^[A-Z]{2,3}\s*-\s*.+/.test(cleaned)) {
-    const dashParts = cleaned.split(/\s*-\s*/);
-    return dashParts.slice(1).join('-').trim() || cleaned;
-  }
+  // Keep the shared Workday boundary rules in sync with the newer client:
+  // country prefixes, canton/country suffixes, and hyphenated cities must not
+  // be reinterpreted by this legacy parser's comma fallback.
+  const sharedCity = firstLocationSegment(cleaned);
+  if (sharedCity && sharedCity !== cleaned) return sharedCity;
+  if (!sharedCity) return '';
 
   const commaParts = cleaned.split(',').map((s) => s.trim());
   const countryRe = /^(switzerland|svizzera|suisse|schweiz)$/i;

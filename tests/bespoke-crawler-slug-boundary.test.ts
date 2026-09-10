@@ -350,8 +350,28 @@ describe('Workday shared client compatibility', () => {
       locationsText: 'CH \u2014 Sion',
     }).location).toBe('Sion');
     expect(firstLocationSegment('CH - Plan-les-Ouates')).toBe('Plan-les-Ouates');
+    expect(firstLocationSegment('Switzerland - Monthey')).toBe('Monthey');
     expect(firstLocationSegment('St-Maurice')).toBe('St-Maurice');
+    expect(firstLocationSegment('ST-MAURICE')).toBe('ST-MAURICE');
+    expect(firstLocationSegment('Sion-VS')).toBe('Sion');
+    expect(firstLocationSegment('Visp-Switzerland')).toBe('Visp');
+    expect(firstLocationSegment('NY')).toBe('NY');
+    expect(firstLocationSegment('CHE')).toBe('');
     expect(firstLocationSegment('Visp – Switzerland')).toBe('Visp');
+  });
+
+  it('routes legacy Workday siblings through the same city-boundary helper', () => {
+    const siblings = [
+      ['scripts/update-bracco-jobs.mjs', './lib/ats-clients/workday-client.mjs'],
+      ['scripts/lib/huntsman-job-parser.mjs', './ats-clients/workday-client.mjs'],
+      ['scripts/lib/logitech-job-parser.mjs', './ats-clients/workday-client.mjs'],
+      ['scripts/lib/arxada-job-parser.mjs', './ats-clients/workday-client.mjs'],
+    ] as const;
+    for (const [file, importPath] of siblings) {
+      const source = fs.readFileSync(path.resolve(process.cwd(), file), 'utf8');
+      expect(source, file).toContain(`from '${importPath}'`);
+      expect(source, file).toContain('return firstLocationSegment(locText);');
+    }
   });
 
   it('caps long shared output at a deterministic token boundary', () => {
