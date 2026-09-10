@@ -18,7 +18,7 @@ function fixture({ files = ['tests/a.test.ts'], complete = true, changedHead = f
 }
 describe('owner policy excluding test files from review', () => {
   it('recognizes test directories and colocated tests without excluding application or runner config', () => {
-    for (const p of ['tests/setup.ts', 'generator/tests/a.test.mjs', 'src/__tests__/a.ts', 'src/a.spec.tsx', 'src/a.test.mts']) expect(isReviewTestPath(p), p).toBe(true);
+    for (const p of ['tests/setup.ts', 'generator/tests/a.test.mjs', 'src/__tests__/a.ts', 'src/a.spec.tsx', 'src/a.test.mts', 'src/a.test.d.ts', 'src/a.spec.d.mts']) expect(isReviewTestPath(p), p).toBe(true);
     for (const p of ['src/tests-api.ts', 'vitest.config.ts', '.github/workflows/tests.yml', 'scripts/test-runner.mjs', 'src/a.ts']) expect(isReviewTestPath(p), p).toBe(false);
   });
   it('requires a nonempty complete exclusively-test snapshot', () => {

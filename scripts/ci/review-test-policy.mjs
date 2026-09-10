@@ -6,10 +6,12 @@ import { pathToFileURL } from 'node:url';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 
 export const TEST_REVIEW_MARKER = '<!-- TEST_ONLY_AUTOMATIC_REVIEW -->';
-export const TEST_PATH_RE = /(?:^|\/)(?:tests|__tests__)\/|\.(?:test|spec)\.[cm]?[jt]sx?$/;
+const TEST_EXTENSIONS = ['js', 'jsx', 'ts', 'tsx', 'mjs', 'cjs', 'mts', 'cts', 'd.ts', 'd.mts', 'd.cts'];
+export const TEST_PATH_RE = new RegExp('(?:^|/)(?:tests|__tests__)/|\\.(?:test|spec)\\.(?:'
+  + TEST_EXTENSIONS.map(ext => ext.replaceAll('.', '\\.')).join('|') + ')$');
 export const TEST_DIFF_EXCLUSIONS = [
   ':(glob,exclude)**/tests/**', ':(glob,exclude)**/__tests__/**',
-  ...['js', 'jsx', 'ts', 'tsx', 'mjs', 'cjs', 'mts', 'cts'].flatMap(ext =>
+  ...TEST_EXTENSIONS.flatMap(ext =>
     ['test', 'spec'].map(kind => `:(glob,exclude)**/*.${kind}.${ext}`)),
 ];
 export const isReviewTestPath = path => typeof path === 'string' && TEST_PATH_RE.test(path);

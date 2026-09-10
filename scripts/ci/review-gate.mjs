@@ -44,7 +44,7 @@ const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
 // bloccante per progetto, quindi il refuso teneva aperto per sempre un finding
 // gia' confermato risolto. Il lookahead impone che l'estensione finisca davvero
 // li', e rende l'ordine delle alternative irrilevante.
-const FILE_CITATION_RE = /(?:^|[\s([{"'`])((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9]))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
+const FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9]))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
 
 /**
  * Normalize a review citation without turning an unsafe/ambiguous path into a
@@ -159,12 +159,18 @@ export function importantFindings(body) {
     const text = lines.slice(index, end).join('\n').trim();
     const parserUncertain = markerLines.some(({ line: markerLine, index: markerIndex, marker }) =>
       markerIndex > index && markerIndex < end && !isFindingStart(markerLine, marker));
+    const citations = extractFileCitations(text);
+    // When precise locations exist, bare filenames in the explanation are
+    // context, not additional anchors. Preserve every explicit path/line.
+    const hasPreciseAnchor = citations.some(citation => citation.line !== null);
     return {
       line,
       text,
       lineNumber: index + 1,
       findingNumber: markerIndex + 1,
-      citations: extractFileCitations(text),
+      citations: hasPreciseAnchor
+        ? citations.filter(citation => citation.line !== null || citation.path.includes('/'))
+        : citations,
       parserUncertain,
     };
   }).filter(finding => finding.parserUncertain || !finding.citations.length

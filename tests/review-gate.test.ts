@@ -478,6 +478,24 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 describe('review gate: citazioni e conferme', () => {
   const bot = (body: string) => ({ user: { type: 'Bot', login: 'claude[bot]' }, body, commit_id: 'c'.repeat(40) });
 
+
+  it('recognizes a Markdown-escaped primary anchor without treating a mentioned helper as another finding', () => {
+    const opened = bot('## Findings (Important: 1, Nit: 0)\n\n🔴 Important: `\\.github/actions/claude-codex-fallback/action.yml:L1065-L1079` — calls `claude-codex-fallback.mjs` without checking its exit.');
+    expect(importantFindings(opened.body)[0].citations).toEqual([
+      { path: '.github/actions/claude-codex-fallback/action.yml', line: 1065 },
+    ]);
+    const confirmed = bot('## Findings (Important: 0, Nit: 0)\nFix di `.github/actions/claude-codex-fallback/action.yml:L1065-L1079`: ok.\n## LGTM');
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
+  it('retains every precise anchor and explicit companion path until each is confirmed', () => {
+    const opened = bot('## Findings\n🔴 Important: `src/a.ts:L3` and `src/b.ts:L4` are broken; also fix `src/helper.ts`.');
+    const partial = bot('## Findings\nFix di `src/a.ts:L3`: ok.\n## LGTM');
+    const remaining = historicalImportantFindings([opened, partial], { includeLatest: true });
+    expect(remaining).toHaveLength(1);
+    expect(remaining[0].citations).toHaveLength(3);
+  });
+
   it('non tronca le estensioni piu lunghe di un prefisso valido', () => {
     // `ts` viene prima di `tsx` nell'alternanza: senza il lookahead il path
     // citato diventava un file che non esiste, e un path non risolvibile e'

@@ -28,6 +28,7 @@ describe('host-prepared complete review patch', () => {
     mkdirSync(join(f.repo, 'tests'));
     writeFileSync(join(f.repo, 'tests/a.test.ts'), 'excluded test content\n');
     writeFileSync(join(f.repo, 'a.spec.ts'), 'excluded spec content\n');
+    writeFileSync(join(f.repo, 'a.test.d.ts'), 'excluded declaration test\n');
     writeFileSync(join(f.repo, 'large.js'), Array.from({ length: 21000 }, (_, i) => `const value${i} = ${i};`).join('\n') + '\n');
     writeFileSync(join(f.repo, 'data/generated.json'), 'generated-only\n');
     rmSync(join(f.repo, 'deleted.js'));
@@ -42,6 +43,7 @@ describe('host-prepared complete review patch', () => {
     expect(patch).not.toContain('generated-only');
     expect(patch).not.toContain('excluded test content');
     expect(patch).not.toContain('excluded spec content');
+    expect(patch).not.toContain('excluded declaration test');
     expect(names).toEqual(['binary.bin', 'deleted.js', 'large.js']);
   });
 
