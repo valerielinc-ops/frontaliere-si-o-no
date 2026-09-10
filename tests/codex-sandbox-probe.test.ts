@@ -19,8 +19,8 @@ function runProbe(failure = '') {
     if (failure === 'scratch') writeFileSync(scratch, 'not a directory');
     else mkdirSync(scratch);
     const executable = (name: string, body: string) => writeFileSync(join(bin, name), '#!/bin/sh\n' + body, { mode: 0o755 });
-    executable('git', 'case "$1" in rev-parse) printf "%s\\n" "$PROBE_GIT_DIR";; remote) exit 0;; *) exit 1;; esac\n');
-    executable('gh', '[ "$1" = "--version" ]\n');
+    executable('git', 'case "$1" in rev-parse) printf "%s\\n" "$PROBE_GIT_DIR";; remote) exit 0;; ls-remote) [ "$PROBE_FAILURE" != "git-bridge" ];; *) exit 1;; esac\n');
+    executable('gh', 'case "$1" in --version) exit 0;; api) [ "$PROBE_FAILURE" != "bridge" ] || exit 2; printf "%s\\n" "$GITHUB_REPOSITORY";; *) exit 1;; esac\n');
     executable('touch', '[ "$PROBE_FAILURE" = "hooks" ]\n');
     executable('dd', 'case "$1" in "if=$CODEX_HOME/auth.json") [ "$PROBE_FAILURE" = "auth" ]; exit $?;; "if=$CODEX_OUTSIDE_PROBE") [ "$PROBE_FAILURE" = "outside" ]; exit $?;; esac\nexec /bin/dd "$@"\n');
     return spawnSync('/bin/sh', ['-c', probe], {
@@ -28,7 +28,7 @@ function runProbe(failure = '') {
       env: {
         PATH: `${bin}:/usr/bin:/bin`, CODEX_REALPATH: '/usr/bin/true', CODEX_NODE_REAL: '/usr/bin/true', CODEX_BIN: join(root, 'denied-prefix', 'bin', 'codex'),
         CODEX_HOME: home, CODEX_OUTSIDE_PROBE: join(root, 'outside'), TMPDIR: scratch,
-        PROBE_GIT_DIR: gitDir, PROBE_FAILURE: failure,
+        GITHUB_REPOSITORY: 'valerielinc-ops/frontaliere-si-o-no', PROBE_GIT_DIR: gitDir, PROBE_FAILURE: failure,
       },
     }).status;
   } finally {
@@ -40,7 +40,7 @@ describe('the actual sandbox preflight shell', () => {
   it('succeeds only when scratch/git are usable and protected paths stay inaccessible', () => {
     expect(runProbe()).toBe(0);
   });
-  it.each(['scratch', 'hooks', 'auth', 'outside'])('fails before starting Codex when %s violates the profile', failure => {
+  it.each(['scratch', 'hooks', 'auth', 'outside', 'bridge', 'git-bridge'])('fails before starting Codex when %s violates the profile', failure => {
     expect(runProbe(failure)).not.toBe(0);
   });
   it('uses the verified launcher directly, without the inaccessible npm symlink', () => {

@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import net from 'node:net';
+import * as net from './bridge-transport.mjs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import {

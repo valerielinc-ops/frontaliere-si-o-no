@@ -264,7 +264,7 @@ runs:
         for name in \
           gh-bridge.sh gh-bridge-client.mjs gh-bridge-server.mjs \
           git-bridge.sh git-bridge-client.mjs git-bridge-server.mjs \
-          child-lifecycle.mjs sanitize-git-config.mjs; do
+          child-lifecycle.mjs bridge-transport.mjs sanitize-git-config.mjs; do
           snapshot_file "$action_path/$name" "$snapshot_root/action/$name"
         done
         snapshot_file "$workspace_root/scripts/ci/claude-codex-fallback.mjs" "$snapshot_root/ci/claude-codex-fallback.mjs"
@@ -641,6 +641,7 @@ runs:
         copy_bridge_file gh-bridge-client.mjs gh-client.mjs
         copy_bridge_file gh-bridge-server.mjs gh-server.mjs
         copy_bridge_file child-lifecycle.mjs child-lifecycle.mjs
+        copy_bridge_file bridge-transport.mjs bridge-transport.mjs
         copy_bridge_file git-bridge.sh git
         copy_bridge_file git-bridge-client.mjs git-client.mjs
         copy_bridge_file git-bridge-server.mjs git-server.mjs
@@ -747,8 +748,6 @@ runs:
         # Git server uses it for a sanitized common-dir config shadow.
         git_bridge_host_scratch="$(mktemp -d "$runner_temp/codex-git-bridge.XXXXXX")"
         chmod 700 "$git_bridge_host_scratch"
-        gh_socket_toml="$(toml_quote_path "$gh_socket")"
-        git_socket_toml="$(toml_quote_path "$git_socket")"
         cat > "$config_file" <<EOF
         default_permissions = "codex-fallback"
 
@@ -758,9 +757,6 @@ runs:
 
         [permissions.codex-fallback.network]
         enabled = false
-        [permissions.codex-fallback.network.unix_sockets]
-        "$gh_socket_toml" = "allow"
-        "$git_socket_toml" = "allow"
 
         [permissions.codex-fallback.filesystem]
         ":root" = "deny"
@@ -834,9 +830,9 @@ runs:
         else
           codex_filesystem="${base_filesystem_rules},\"$auth_file_toml\"={\".\"=\"deny\"},\"$scratch_dir_toml\"={\".\"=\"write\"},\"$bridge_dir_toml\"={\".\"=\"read\"},$codex_filesystem_rules,\"$git_dir_toml\"=$git_filesystem_rules,\"$common_git_dir_toml\"=$common_filesystem_rules}"
         fi
-        codex_unix_sockets="{\"$gh_socket_toml\"=\"allow\",\"$git_socket_toml\"=\"allow\"}"
 
         env -i \
+          CODEX_BRIDGE_TRANSPORT=files \
           CODEX_GH_AUTH="$codex_github_auth" \
           CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth" \
           CODEX_GH_SOCKET="$gh_socket" \
@@ -857,15 +853,16 @@ runs:
         }
         trap stop_gh_bridge EXIT
         for _ in $(seq 1 50); do
-          [ -S "$gh_socket" ] && break
+          [ -d "$gh_socket" ] && break
           kill -0 "$gh_server_pid" 2>/dev/null || break
           sleep 0.1
         done
-        if [ ! -S "$gh_socket" ]; then
+        if [ ! -d "$gh_socket" ]; then
           echo "::error::The Codex GitHub bridge did not start."
           exit 1
         fi
         env -i \
+          CODEX_BRIDGE_TRANSPORT=files \
           CODEX_GIT_AUTH="$codex_github_auth" \
           CODEX_GIT_SOCKET="$git_socket" \
           CODEX_REAL_GIT="$git_host_realpath" \
@@ -902,12 +899,12 @@ runs:
         }
         trap cleanup_bridge EXIT
         for _ in $(seq 1 50); do
-          [ -S "$gh_socket" ] && [ -S "$git_socket" ] && break
+          [ -d "$gh_socket" ] && [ -d "$git_socket" ] && break
           kill -0 "$gh_server_pid" 2>/dev/null || break
           kill -0 "$git_server_pid" 2>/dev/null || break
           sleep 0.1
         done
-        if [ ! -S "$git_socket" ]; then
+        if [ ! -d "$git_socket" ]; then
           echo "::error::The Codex Git bridge did not start."
           exit 1
         fi
@@ -919,7 +916,7 @@ runs:
         # request. It catches malformed/unsupported permission TOML early and
         # uses real file operations: the explicit gitdir/common overrides must
         # create/read/remove probes, while hooks/auth/runner files stay denied.
-        PATH="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_NODE_REAL="$node_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
+        CODEX_BRIDGE_TRANSPORT=files PATH="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_NODE_REAL="$node_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
           set -eu
           test -x "$CODEX_REALPATH"
           "$CODEX_NODE_REAL" "$CODEX_REALPATH" --version >/dev/null
@@ -941,6 +938,10 @@ runs:
           rm -f "$tmp_probe"
           if dd if="$CODEX_OUTSIDE_PROBE" of=/dev/null bs=1 count=1 2>/dev/null; then exit 1; fi
           gh --version >/dev/null
+          # A denied auth command alone cannot distinguish a working bridge
+          # from a sandbox that blocks every connection to its IPC endpoint.
+          gh api "repos/$GITHUB_REPOSITORY" >/dev/null
+          git ls-remote origin HEAD >/dev/null
           auth_status=0
           auth_output="$(gh auth token 2>/dev/null)" || auth_status=$?
           test "$auth_status" -ne 0
@@ -964,6 +965,7 @@ runs:
           FIX_TIER FIX_ROUND BATCH_PRS BATCH_COUNT TRIAGE_DAILY_KEY EVENT_NAME BODY_FILE
         )
         codex_env=(
+          "CODEX_BRIDGE_TRANSPORT=files"
           "CODEX_HOME=$CODEX_HOME"
           "PATH=$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin"
           "HOME=$scratch_home"
@@ -985,7 +987,7 @@ runs:
         for name in "${metadata_vars[@]}"; do
           if [ -n "${!name+x}" ]; then codex_env+=("$name=${!name}"); fi
         done
-        codex_env_patterns='["PATH","HOME","TMPDIR","PWD","SHELL","USER","LOGNAME","LANG","LC_*","CI","GITHUB_REPOSITORY","GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_WORKFLOW","GITHUB_EVENT_NAME","GITHUB_SHA","GITHUB_REF","GITHUB_REF_NAME","GITHUB_HEAD_REF","GITHUB_BASE_REF","GITHUB_SERVER_URL","GITHUB_API_URL","GITHUB_GRAPHQL_URL","GITHUB_WORKSPACE","GITHUB_ACTOR","GITHUB_TRIGGERING_ACTOR","GITHUB_EVENT_PATH","RUNNER_TEMP","CTX_DIR","PR_BODY_GATE_BIN","REPO","ISSUE_NUMBER","ISSUE_TITLE","ISSUE_GROUP","ISSUE_GROUP_LABEL","ISSUE_GROUP_NUMBERS","PR_NUMBER","PR_TITLE","HEAD_SHA","REVIEW_TIER","INCREMENTAL_BASE","FIX_TIER","FIX_ROUND","BATCH_PRS","BATCH_COUNT","TRIAGE_DAILY_KEY","EVENT_NAME","BODY_FILE","CODEX_NODE_REAL","CODEX_GH_SOCKET","CODEX_GH_CLIENT","CODEX_GH_REAL","CODEX_GIT_SOCKET","CODEX_GIT_CLIENT","CODEX_GIT_REAL"]'
+        codex_env_patterns='["CODEX_BRIDGE_TRANSPORT","PATH","HOME","TMPDIR","PWD","SHELL","USER","LOGNAME","LANG","LC_*","CI","GITHUB_REPOSITORY","GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_WORKFLOW","GITHUB_EVENT_NAME","GITHUB_SHA","GITHUB_REF","GITHUB_REF_NAME","GITHUB_HEAD_REF","GITHUB_BASE_REF","GITHUB_SERVER_URL","GITHUB_API_URL","GITHUB_GRAPHQL_URL","GITHUB_WORKSPACE","GITHUB_ACTOR","GITHUB_TRIGGERING_ACTOR","GITHUB_EVENT_PATH","RUNNER_TEMP","CTX_DIR","PR_BODY_GATE_BIN","REPO","ISSUE_NUMBER","ISSUE_TITLE","ISSUE_GROUP","ISSUE_GROUP_LABEL","ISSUE_GROUP_NUMBERS","PR_NUMBER","PR_TITLE","HEAD_SHA","REVIEW_TIER","INCREMENTAL_BASE","FIX_TIER","FIX_ROUND","BATCH_PRS","BATCH_COUNT","TRIAGE_DAILY_KEY","EVENT_NAME","BODY_FILE","CODEX_NODE_REAL","CODEX_GH_SOCKET","CODEX_GH_CLIENT","CODEX_GH_REAL","CODEX_GIT_SOCKET","CODEX_GIT_CLIENT","CODEX_GIT_REAL"]'
 
         set +e
         printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_bin" exec \
@@ -996,7 +998,6 @@ runs:
           -c 'default_permissions="codex-fallback"' \
           -c 'permissions.codex-fallback.extends=":workspace"' \
           -c 'permissions.codex-fallback.network.enabled=false' \
-          -c "permissions.codex-fallback.network.unix_sockets=$codex_unix_sockets" \
           -c "permissions.codex-fallback.filesystem=$codex_filesystem" \
           -c model_reasoning_effort=max \
           -c shell_environment_policy.ignore_default_excludes=false \

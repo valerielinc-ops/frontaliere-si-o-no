@@ -600,7 +600,8 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('extends = ":workspace"');
     expect(action).toContain('[permissions.codex-fallback.network]');
     expect(action).toContain('enabled = false');
-    expect(action).toContain('[permissions.codex-fallback.network.unix_sockets]');
+    expect(action).toContain('CODEX_BRIDGE_TRANSPORT=files');
+    expect(action).not.toContain('[permissions.codex-fallback.network.unix_sockets]');
     expect(action).toContain('CODEX_ACTION_PATH: ${{ github.action_path }}');
     expect(action).toContain('codex_corpus_github_token:');
     expect(action).toContain('copy_bridge_file gh-bridge.sh gh');

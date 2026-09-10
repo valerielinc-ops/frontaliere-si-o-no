@@ -1,4 +1,4 @@
-import net from 'node:net';
+import * as net from './bridge-transport.mjs';
 
 const MAX_REQUEST_BYTES = 64 * 1024;
 const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
