@@ -65,6 +65,7 @@
  * Exit 0 sempre (anche quando NON mergia): un gate non soddisfatto è un esito
  * atteso (l'altro trigger ri-valuterà), non un errore di workflow.
  */
+import { isReviewTestPath, findTestOnlyApproval } from './review-test-policy.mjs';
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -241,7 +242,7 @@ export function codeContributionFingerprint(files) {
   if (!Array.isArray(files)) return null;
   const parts = [];
   for (const f of files) {
-    if (NON_REVIEWABLE_FINGERPRINT_RE.test(f.filename || '')) continue; // dati/static: non è contributo CODE
+    if ((isReviewTestPath(f.filename) && (!f.previous_filename || isReviewTestPath(f.previous_filename))) || NON_REVIEWABLE_FINGERPRINT_RE.test(f.filename || '')) continue; // dati/static: non è contributo CODE
     // `patch` assente (binario/troppo grande) su un file CODE modificato -> bail.
     if (f.patch === undefined && f.status !== 'removed' && f.status !== 'added') return null;
     // Tieni SOLO le righe di contenuto +/- (escludi header +++/--- e hunk @@):
@@ -458,7 +459,8 @@ function main() {
   const botReviews = (reviews || []).filter(
     (r) => isReviewerBot(r.user)
   );
-  const lastBot = botReviews.length ? botReviews[botReviews.length - 1] : null;
+  const lastBot = findTestOnlyApproval(reviews, head, { ghFn: gh, repo: REPO, pr: PR })
+    || (botReviews.length ? botReviews[botReviews.length - 1] : null);
   const body = lastBot ? (lastBot.body || '') : '';
   // Un 🔴 Important reale del reviewer BLOCCA sempre, anche su una PR drift (se il
   // 🔴 c'è, il reviewer HA girato e ha trovato qualcosa). Marker tollerante al

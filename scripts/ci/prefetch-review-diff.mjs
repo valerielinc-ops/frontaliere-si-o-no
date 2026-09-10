@@ -1,4 +1,5 @@
 /** Build the review patch on the host, before the network-isolated reviewer starts. */
+import { TEST_DIFF_EXCLUSIONS } from './review-test-policy.mjs';
 import { execFileSync } from 'node:child_process';
 import { openSync, closeSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -16,7 +17,7 @@ export function writeReviewDiff({ base, head, directory, exclusions, incremental
   sha(base); sha(head);
   // Explicit pathspecs filter generated trees BEFORE Git requests missing blobs
   // from a partial clone. No GitHub diff/compare patch-size or file-count caps.
-  const paths = ['.', ...exclusions.map(path => `:(top,exclude)${path}/**`)];
+  const paths = ['.', ...TEST_DIFF_EXCLUSIONS, ...exclusions.map(path => `:(top,exclude)${path}/**`)];
   const args = ['--no-pager', 'diff', '--no-ext-diff', '--no-textconv', '--no-renames', base, head];
   const names = run('git', [...args, '--name-only', '-z', '--', ...paths], { cwd })
     .split('\0').filter(Boolean);

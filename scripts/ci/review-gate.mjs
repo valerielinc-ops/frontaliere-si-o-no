@@ -13,6 +13,7 @@
  * Ogni informazione mancante resta bloccante: una lista incompleta, vuota o un
  * tree non risolvibile non autorizzano mai un'inferenza «fuori dal diff».
  */
+import { isReviewTestPath, findTestOnlyApproval } from './review-test-policy.mjs';
 import { execFileSync } from 'node:child_process';
 import { realpathSync, readFileSync, appendFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
@@ -166,7 +167,8 @@ export function importantFindings(body) {
       citations: extractFileCitations(text),
       parserUncertain,
     };
-  });
+  }).filter(finding => finding.parserUncertain || !finding.citations.length
+    || !finding.citations.every(citation => isReviewTestPath(citation.path)));
 }
 
 function suffixMatches(candidate, wanted) {
@@ -763,6 +765,8 @@ export async function runReviewGate({
   const reviewHistory = reviews ?? readReviews(repo, pr);
   const structuredCodexEvidence = codexEvidence
     || readCodexEvidenceFile(codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
+  const automatic = findTestOnlyApproval(reviewHistory, headSha, { ghFn: gh, repo, pr });
+  if (automatic) return { approved: true, reason: 'tests-only owner policy', review: automatic, reviewCommit: headSha };
   const codexEvidenceRequested = Boolean(codexEvidence || codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
   if (codexEvidenceRequested
       && (!isValidCodexFallbackEvidence(structuredCodexEvidence)
