@@ -259,7 +259,7 @@ import {
   flushPendingCompanyFollows,
   readPendingCompanyFollows,
 } from '@/services/companyFollowIntent';
-import { getActiveSlotId } from '@/services/popupQueue';
+import { getActiveSlotId, hasActiveSlot } from '@/services/popupQueue';
 import { getLocale, setLocale } from '@/services/i18n';
 import { companyFollowMountPlaceholder } from '../build-plugins/shared/companyFollowMountPlaceholder';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
@@ -362,6 +362,12 @@ async function runChain(locale: 'it' | 'en', round: number) {
   doubles.reset();
   setLocale(locale);
   window.history.replaceState({}, '', expectedPath);
+
+  // Ring 1 — popup arbitration precondition. This chain verifies the
+  // positive visibility path only when no other prompt owns the shared slot;
+  // Ring 2 must not imply that the company prompt wins an unrelated contest.
+  expect(hasActiveSlot(), 'ring 1: shared popup slot is free before mount').toBe(false);
+  expect(getActiveSlotId(), 'ring 1: popup queue has no owner before mount').toBeNull();
 
   // Ring 1 — public single-company profile and the real SSG island contract.
   document.body.innerHTML = `<main data-public-company-profile><h1>${COMPANY}</h1>${companyFollowMountPlaceholder({
