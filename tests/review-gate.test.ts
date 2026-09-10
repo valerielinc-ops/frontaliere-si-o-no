@@ -408,6 +408,114 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.blocking).toBe(false);
   });
 
+  it('approves an applicable outside-only Important without requiring an LGTM', async () => {
+    const outsideOnlyReview = {
+      ...historicalImportantReview,
+      body: reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[outsideOnlyReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.classification.outsideOnly).toBe(true);
+    expect(result.classification.blocking).toBe(false);
+  });
+
+  it('requires an LGTM when an outside-only review leaves a funnel question unresolved', async () => {
+    const outsideOnlyReview = {
+      ...historicalImportantReview,
+      body: [
+        reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
+        '- `scripts/ci/review-gate.mjs:L36`: ❓ q: the funnel-critical fallback may still regress.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[outsideOnlyReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
+    expect(result.classification.outsideOnly).toBe(true);
+  });
+
+  it('allows an explicitly non-funnel question beside an outside-only finding', async () => {
+    const outsideOnlyReview = {
+      ...historicalImportantReview,
+      body: [
+        reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
+        '- ❓ q: rischio operativo solo diagnostico — deferred, non funnel-critical.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[outsideOnlyReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.classification.outsideOnly).toBe(true);
+  });
+
+  it('does not treat funnel words inside the question as an explicit disposition', async () => {
+    const outsideOnlyReview = {
+      ...historicalImportantReview,
+      body: [
+        reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
+        '- `scripts/redirects.mjs:L41`: ❓ q: the canonical redirect remains deferred until the post-merge sweep; can it alter funnel routing?',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[outsideOnlyReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
+    expect(result.classification.outsideOnly).toBe(true);
+  });
+
+  it('still blocks an in-scope Important without an LGTM', async () => {
+    const inScopeReview = {
+      ...historicalImportantReview,
+      body: reviewFor('src/changed.mjs', 'the current parser is still unsafe').replace(/\n## LGTM$/u, ''),
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[inScopeReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
+    expect(result.classification.inScope).toHaveLength(1);
+  });
+
   it('blocks with zero bot reviews on the HEAD and no carry-forward', async () => {
     const result = await runReviewGate({
       repo: 'owner/repo',
