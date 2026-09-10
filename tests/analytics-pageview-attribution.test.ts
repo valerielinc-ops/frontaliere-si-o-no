@@ -175,7 +175,7 @@ describe('GA4 page_view employer attribution', () => {
     const capture = vi.mocked(captureEvent);
     const path = '/offerte-di-lavoro-ticino/same-route-new-visit/';
     const now = vi.spyOn(Date, 'now');
-    now.mockReturnValueOnce(2_000).mockReturnValueOnce(2_501);
+    now.mockReturnValueOnce(2_000).mockReturnValueOnce(2_200);
     let historyState: Record<string, unknown> = { route: { entry: 'first' } };
     const pageWindow = {
       location: { origin: 'https://example.test', pathname: path },
@@ -202,6 +202,12 @@ describe('GA4 page_view employer attribution', () => {
       expect(pageViews).toHaveLength(2);
       expect(pageViews[0][1]).toMatchObject({ emission_id: expect.any(String) });
       expect(pageViews[1][1].emission_id).not.toBe(pageViews[0][1].emission_id);
+      const result = collapseTechnicalDuplicates(pageViews.map(([, params]) => ({
+        event: '$pageview',
+        observed: 1,
+        emissionId: params.emission_id || '',
+      })));
+      expect(result).toMatchObject({ observed: 2, removed: 0, dedupUnavailable: 0 });
     } finally {
       now.mockRestore();
       vi.unstubAllGlobals();
