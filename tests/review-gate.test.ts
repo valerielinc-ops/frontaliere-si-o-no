@@ -408,6 +408,46 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.blocking).toBe(false);
   });
 
+  it('approves an applicable outside-only Important without requiring an LGTM', async () => {
+    const outsideOnlyReview = {
+      ...historicalImportantReview,
+      body: reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[outsideOnlyReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.classification.outsideOnly).toBe(true);
+    expect(result.classification.blocking).toBe(false);
+  });
+
+  it('still blocks an in-scope Important without an LGTM', async () => {
+    const inScopeReview = {
+      ...historicalImportantReview,
+      body: reviewFor('src/changed.mjs', 'the current parser is still unsafe').replace(/\n## LGTM$/u, ''),
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[inScopeReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
+    expect(result.classification.inScope).toHaveLength(1);
+  });
+
   it('blocks with zero bot reviews on the HEAD and no carry-forward', async () => {
     const result = await runReviewGate({
       repo: 'owner/repo',

@@ -964,7 +964,18 @@ export async function runReviewGate({
     logClassification(classification);
   }
 
-  if (!body.includes('## LGTM')) {
+  // A reviewer must not approve while an Important finding is still in scope
+  // (or cannot be resolved). Once every Important is conservatively classified
+  // outside this PR diff, however, the finding is debt recorded in the
+  // aggregate follow-up and the review has no in-scope blocker left to approve.
+  // Requiring a literal LGTM in that one case deadlocks otherwise safe PRs:
+  // Claude correctly withholds LGTM for the historical out-of-diff finding,
+  // while this gate correctly declassifies it. Keep the literal requirement
+  // for empty, in-scope, and unresolved verdicts.
+  const outsideOnlyWithoutLgtm = !body.includes('## LGTM')
+    && classification.outsideOnly
+    && !classification.blocking;
+  if (!body.includes('## LGTM') && !outsideOnlyWithoutLgtm) {
     return { approved: false, reason: 'manca ## LGTM', classification, review: latest };
   }
   if (classification.blocking) {
