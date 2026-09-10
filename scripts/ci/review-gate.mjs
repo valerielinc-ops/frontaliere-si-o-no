@@ -32,7 +32,7 @@ const MAX_FOLLOWUP_BODY_LEN = 60_000;
 const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*/u;
 const FINDING_MARKER_RE = /🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
-const QUESTION_MARKER_RE = /^\s*(?:[-*+>]\s*)*❓\s*q\s*:/iu;
+const QUESTION_MARKER_RE = /❓\s*q\s*:/iu;
 const NON_FUNNEL_QUESTION_RE = /\b(?:non|not)[-\s]?funnel(?:[-\s]?critical)?\b|\bdeferred\b/iu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
 // This is deliberately narrower than REVIEWER_LOGIN_RE and is accepted only

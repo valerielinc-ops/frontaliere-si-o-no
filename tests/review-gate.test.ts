@@ -433,7 +433,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       ...historicalImportantReview,
       body: [
         reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
-        '- ❓ q: the funnel-critical fallback may still regress.',
+        '- `scripts/ci/review-gate.mjs:L36`: ❓ q: the funnel-critical fallback may still regress.',
       ].join('\n'),
       commit_id: HEAD_SHA,
     };
