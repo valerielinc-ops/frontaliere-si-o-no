@@ -2343,7 +2343,11 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   // "Lokführer:in" → "Lokführer/in", "Mitarbeiter:innen" → "Mitarbeiter/innen"
   // The colon-before-suffix pattern confuses AI models and causes truncated output.
   const cleanTitle = (ns || normalize)(title || '').replace(/(\w):in(nen)?\b/gi, '$1/in$2');
-  if (!hasUsableTitle(cleanTitle)) return '';
+  // A provider title is input, not a safe fallback: the shared quality floor
+  // must run before the same-locale passthrough and before any cache/LLM path.
+  // Otherwise a one- or two-character source can be persisted verbatim.
+  const sourceTitleIsUsable = hasUsableTitle(cleanTitle);
+  if (!sourceTitleIsUsable) return '';
   if (locale === sourceLang) return cleanTitle;
   // Brand-name guard: restore any protected brand that a translator accidentally translated.
   const _rb = (t) => restoreProtectedBrands(cleanTitle, t);

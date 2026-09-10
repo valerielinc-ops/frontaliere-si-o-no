@@ -1009,13 +1009,17 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
 
   const localeTitles = {};
   const localeDescriptions = {};
+  const normalizedSourceTitle = String(title || '').trim();
   for (const locale of ['it', 'de', 'fr']) {
     const localized = localizedLoginData[locale];
     if (hasUsableTitle(localized?.title)) localeTitles[locale] = String(localized.title).trim();
     if (localized?.description) localeDescriptions[locale] = localized.description;
   }
-  if (!localeTitles[resolvedSourceLocale] && hasUsableTitle(title)) {
-    localeTitles[resolvedSourceLocale] = String(title).trim();
+  // Never seed a locale slot from a provider title below the shared floor.
+  // Such a title must remain absent so the downstream queue can retry it,
+  // rather than publishing a one-/two-character source-language placeholder.
+  if (!localeTitles[resolvedSourceLocale] && hasUsableTitle(normalizedSourceTitle)) {
+    localeTitles[resolvedSourceLocale] = normalizedSourceTitle;
   }
   if (!localeDescriptions[resolvedSourceLocale]) localeDescriptions[resolvedSourceLocale] = description;
   for (const locale of ['it', 'en', 'de', 'fr']) {
@@ -1046,7 +1050,9 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   const localeRequirements = { it: requirements, en: requirements, de: requirements, fr: requirements };
   const localeSlugs = Object.fromEntries(
     ['it', 'en', 'de', 'fr'].map((locale) => {
-      const localizedTitle = String(localeTitles[locale] || title).trim();
+      // Slugs may retain the usable source title when a target translation is
+      // unavailable; this fallback never writes the title into localeTitles.
+      const localizedTitle = String(localeTitles[locale] || normalizedSourceTitle).trim();
       return [locale, slugify(`${localizedTitle}-${SBB_KEY}-${slugLocation}`) || slugBase];
     })
   );

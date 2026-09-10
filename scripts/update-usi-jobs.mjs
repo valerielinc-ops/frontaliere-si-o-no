@@ -973,31 +973,43 @@ async function postProcessUsiJobs() {
 
     for (const locale of LOCALES) {
       const currentTitle = String(job.titleByLocale?.[locale] || '').trim();
-      if (locale !== sourceLang && sourceTitle) {
-        const needsTitleTranslation = !hasUsableTitle(currentTitle)
-          || normalize(currentTitle) === normalize(sourceTitle);
-        if (needsTitleTranslation) {
-          let translatedTitle = await translateUsiTitle(sourceTitle, sourceLang, locale, job);
-          if (!translatedTitle || normalize(translatedTitle) === normalize(sourceTitle)) {
-            translatedTitle = rescueUsiTitleTranslation(sourceTitle, locale) || translatedTitle;
+      const clearUnusableTitle = () => {
+        const changed = Boolean(currentTitle) || job.needsRetranslation !== true;
+        job.titleByLocale[locale] = '';
+        job.needsRetranslation = true;
+        if (changed) fixed++;
+      };
+
+      if (locale !== sourceLang) {
+        if (hasUsableTitle(sourceTitle)) {
+          const needsTitleTranslation = !hasUsableTitle(currentTitle)
+            || normalize(currentTitle) === normalize(sourceTitle);
+          if (needsTitleTranslation) {
+            let translatedTitle = await translateUsiTitle(sourceTitle, sourceLang, locale, job);
+            if (!translatedTitle || normalize(translatedTitle) === normalize(sourceTitle)) {
+              translatedTitle = rescueUsiTitleTranslation(sourceTitle, locale) || translatedTitle;
+            }
+            if (hasUsableTitle(translatedTitle) &&
+                normalize(translatedTitle) !== normalize(sourceTitle) &&
+                normalize(translatedTitle) !== normalize(currentTitle)) {
+              job.titleByLocale[locale] = String(translatedTitle).trim();
+              fixed++;
+            } else if (!hasUsableTitle(translatedTitle) || normalize(translatedTitle) === normalize(sourceTitle)) {
+              clearUnusableTitle();
+            }
           }
-          if (hasUsableTitle(translatedTitle) &&
-              normalize(translatedTitle) !== normalize(sourceTitle) &&
-              normalize(translatedTitle) !== normalize(currentTitle)) {
-            job.titleByLocale[locale] = String(translatedTitle).trim();
-            fixed++;
-          } else if (!hasUsableTitle(translatedTitle) || normalize(translatedTitle) === normalize(sourceTitle)) {
-            job.titleByLocale[locale] = '';
-            fixed++;
-          }
+        } else if (!hasUsableTitle(currentTitle)) {
+          // No usable source exists to translate. Clear a short/empty target
+          // slot and leave an explicit queue marker instead of preserving a
+          // one-/two-character value that bypasses the translation branch.
+          clearUnusableTitle();
         }
       } else if (locale === sourceLang) {
         if (hasUsableTitle(sourceTitle) && !hasUsableTitle(currentTitle)) {
           job.titleByLocale[locale] = sourceTitle;
           fixed++;
         } else if (!hasUsableTitle(currentTitle)) {
-          job.titleByLocale[locale] = '';
-          fixed++;
+          clearUnusableTitle();
         }
       }
 
