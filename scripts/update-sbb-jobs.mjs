@@ -1014,7 +1014,9 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     if (hasUsableTitle(localized?.title)) localeTitles[locale] = String(localized.title).trim();
     if (localized?.description) localeDescriptions[locale] = localized.description;
   }
-  if (!localeTitles[resolvedSourceLocale]) localeTitles[resolvedSourceLocale] = title;
+  if (!localeTitles[resolvedSourceLocale] && hasUsableTitle(title)) {
+    localeTitles[resolvedSourceLocale] = String(title).trim();
+  }
   if (!localeDescriptions[resolvedSourceLocale]) localeDescriptions[resolvedSourceLocale] = description;
   for (const locale of ['it', 'en', 'de', 'fr']) {
     if (!localeTitles[locale] && localeTitles[resolvedSourceLocale]) {

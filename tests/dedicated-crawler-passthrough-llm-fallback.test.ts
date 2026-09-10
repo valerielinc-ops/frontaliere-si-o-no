@@ -1,5 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { aiTranslateJobDescriptionDCC } from '@/scripts/lib/dedicated-crawler-common.mjs';
+import {
+  aiTranslateJobDescriptionDCC,
+  aiTranslateJobTitleDCC,
+} from '@/scripts/lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry, freeTranslateWithRetryDetailed } from '@/scripts/lib/free-translate.mjs';
 import { detectLanguageWithConfidence } from '@/scripts/lib/detect-language.mjs';
 
@@ -76,6 +79,20 @@ describe('aiTranslateJobDescriptionDCC — passthrough rifiutato vs motori giu\'
   beforeEach(() => {
     vi.mocked(freeTranslateWithRetry).mockReset();
     vi.mocked(freeTranslateWithRetryDetailed).mockReset();
+  });
+
+  it('rifiuta titoli sotto il floor anche quando il locale coincide con la sorgente', async () => {
+    const { ctx } = makeCtx();
+
+    await expect(aiTranslateJobTitleDCC(
+      { title: 'AB', locale: 'de', sourceLang: 'it' },
+      ctx,
+    )).resolves.toBe('');
+    await expect(aiTranslateJobTitleDCC(
+      { title: 'AB', locale: 'it', sourceLang: 'it' },
+      ctx,
+    )).resolves.toBe('');
+    expect(freeTranslateWithRetry).not.toHaveBeenCalled();
   });
 
   it('sul passthrough di un testo gia\' nel locale target non chiama il modello e memoizza la sentinella', async () => {

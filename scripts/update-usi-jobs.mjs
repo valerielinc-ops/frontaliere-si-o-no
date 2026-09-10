@@ -974,20 +974,31 @@ async function postProcessUsiJobs() {
     for (const locale of LOCALES) {
       const currentTitle = String(job.titleByLocale?.[locale] || '').trim();
       if (locale !== sourceLang && sourceTitle) {
-        const needsTitleTranslation = !currentTitle || normalize(currentTitle) === normalize(sourceTitle);
+        const needsTitleTranslation = !hasUsableTitle(currentTitle)
+          || normalize(currentTitle) === normalize(sourceTitle);
         if (needsTitleTranslation) {
           let translatedTitle = await translateUsiTitle(sourceTitle, sourceLang, locale, job);
           if (!translatedTitle || normalize(translatedTitle) === normalize(sourceTitle)) {
             translatedTitle = rescueUsiTitleTranslation(sourceTitle, locale) || translatedTitle;
           }
-          if (hasUsableTitle(translatedTitle) && normalize(translatedTitle) !== normalize(currentTitle)) {
+          if (hasUsableTitle(translatedTitle) &&
+              normalize(translatedTitle) !== normalize(sourceTitle) &&
+              normalize(translatedTitle) !== normalize(currentTitle)) {
             job.titleByLocale[locale] = String(translatedTitle).trim();
+            fixed++;
+          } else if (!hasUsableTitle(translatedTitle) || normalize(translatedTitle) === normalize(sourceTitle)) {
+            job.titleByLocale[locale] = '';
             fixed++;
           }
         }
-      } else if (locale === sourceLang && hasUsableTitle(sourceTitle) && !currentTitle) {
-        job.titleByLocale[locale] = sourceTitle;
-        fixed++;
+      } else if (locale === sourceLang) {
+        if (hasUsableTitle(sourceTitle) && !hasUsableTitle(currentTitle)) {
+          job.titleByLocale[locale] = sourceTitle;
+          fixed++;
+        } else if (!hasUsableTitle(currentTitle)) {
+          job.titleByLocale[locale] = '';
+          fixed++;
+        }
       }
 
       const localizedTitle = String(job.titleByLocale?.[locale] || '').trim()
