@@ -1,16 +1,16 @@
 {
   "key": "relewant",
   "label": "ReleWant",
-  "generatedAt": "2026-09-10T21:57:07.038Z",
+  "generatedAt": "2026-09-10T22:12:02.041Z",
   "total": 19,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 19,
   "unchangedCount": 0,
-  "durationMs": 2224,
-  "avgDurationMs": 2224,
+  "durationMs": 1911,
+  "avgDurationMs": 1911,
   "durationHistory": [
-    2224
+    1911
   ],
   "newJobs": [
     {
@@ -223,6 +223,7 @@
       "postalCode": "6928",
       "firstSeenAt": "2026-04-13T22:18:42.772Z",
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -741,6 +742,7 @@
       "postalCode": "6928",
       "firstSeenAt": "2026-04-13T22:18:42.772Z",
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -1,21 +1,22 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-09-10T21:57:22.656Z",
+  "generatedAt": "2026-09-10T22:12:17.575Z",
   "total": 2,
   "discovered": 6,
   "parsed": 2,
   "written": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10884,
-  "avgDurationMs": 10884,
+  "durationMs": 10787,
+  "avgDurationMs": 10787,
   "durationHistory": [
-    10884
+    10787
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Quality Assurance Specialist & Safety Coordinator",
       "slug": "quality-assurance-specialist-safety-coordinator-baronie-caslano-lugano",
@@ -38,12 +39,19 @@
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
-      "_qualityScore": 73,
+      "id": "baronie-8ef56cb20528",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-10T21:57:18.763Z",
+      "needsRetranslation": true,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 10,
-        "completeness": 14
+        "translation": 21,
+        "completeness": 19
       }
     },
     {
@@ -68,16 +76,22 @@
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
-      "_qualityScore": 71,
+      "id": "baronie-b2a397ea654e",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-10T21:57:18.763Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
-        "completeness": 14
+        "translation": 16,
+        "completeness": 19
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
