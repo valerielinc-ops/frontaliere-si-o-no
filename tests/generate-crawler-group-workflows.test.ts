@@ -768,8 +768,14 @@ describe('#6380 — one atomic commit per crawler group', () => {
       expect(batchIndexes[0].index).toBe(waitIndex + 1);
       expect(batchIndexes[0].step.if).toBe('always()');
       expect(batchIndexes[0].step.run).toContain('git-commit-data.sh --group-batch');
+      const cleanupIndex = job.steps.findIndex((step) => step.name === 'Cleanup Codex auth broker');
+      if (cleanupIndex >= 0) expect(cleanupIndex).toBeGreaterThan(batchIndexes[0].index);
       const finalizerIndex = job.steps.findIndex((step) => step.name === 'Finalize crawler generation manifest (shadow)');
-      expect(finalizerIndex).toBe(batchIndexes[0].index + 1);
+      expect(finalizerIndex).toBeGreaterThan(Math.max(batchIndexes[0].index, cleanupIndex));
+      const ledgerIndex = job.steps.findIndex((step) => step.name === 'Persist crawler generation ledger');
+      const uploadIndex = job.steps.findIndex((step) => step.name === 'Upload crawler generation manifest (shadow)');
+      expect(ledgerIndex).toBeGreaterThan(finalizerIndex);
+      expect(uploadIndex).toBeGreaterThan(ledgerIndex);
     }
   });
 });
