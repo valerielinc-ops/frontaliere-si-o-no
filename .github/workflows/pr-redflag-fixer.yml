@@ -558,9 +558,12 @@ jobs:
           # Il documento non va letto dal modello con Read: oltre il limite del
           # tool diventerebbe un <persisted-output> e arriverebbe solo il preview.
           # Passarlo nell'input dell'action evita il percorso di troncamento.
+          # L'espansione multilinea di un env nel prompt non eredita il rientro
+          # del block scalar YAML: prefissare ogni riga mantiene il contratto
+          # visibilmente dentro il blocco delimitato anche a runtime.
           {
             echo 'REDFLAG_DOC_SECTIONS<<REDFLAG_DOC_SECTIONS_EOF'
-            cat "$OUT/redflag-doc-sections.md"
+            sed 's/^/            /' "$OUT/redflag-doc-sections.md"
             echo 'REDFLAG_DOC_SECTIONS_EOF'
           } >> "$GITHUB_ENV"
 
@@ -669,7 +672,9 @@ jobs:
 
             **Contratto documentale vincolante (prefetch zero-Claude):**
             Le sezioni vincolanti sono già dentro questa richiesta, non in un output del tool:
+            --- BEGIN REDFLAG_DOC_SECTIONS (indented runtime injection) ---
             ${{ env.REDFLAG_DOC_SECTIONS }}
+            --- END REDFLAG_DOC_SECTIONS ---
 
             **Bootstrap:**
             1. Usa il contratto documentale già incluso sopra: `REVIEW.md` (scopo + severity) e `AGENTS.md` (Non-Negotiables + Privacy). Se una sezione manca, considera il prefetch fallito e fermati: non procedere con un bundle incompleto.

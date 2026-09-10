@@ -21,6 +21,16 @@ export const AGENTS_REQUIRED_SECTIONS = Object.freeze([
   { file: 'AGENTS.md', heading: '## Privacy' },
 ]);
 
+// This exact marker is written by pr-redflag-fixer.yml to $GITHUB_ENV. A
+// literal line equal to it would terminate the heredoc early and turn the
+// remaining contract into unrelated environment-file records.
+export const REDFLAG_DOC_SECTIONS_EOF = 'REDFLAG_DOC_SECTIONS_EOF';
+
+// The value is interpolated into the action prompt after it leaves $GITHUB_ENV.
+// Keep a bounded, UTF-8 byte-sized budget so growth fails closed before the
+// runner or action silently truncates the contract.
+export const REDFLAG_DOC_SECTIONS_MAX_BYTES = 16_384;
+
 function normalizeMarkdownHeading(line) {
   return line.replace(/^[ \t]{0,3}/, '').replace(/[ \t]+$/, '');
 }
@@ -116,7 +126,36 @@ function buildDocumentSections(requiredSections, title, { read } = {}) {
 }
 
 export function buildRedflagDocumentSections({ read } = {}) {
-  return buildDocumentSections(REQUIRED_SECTIONS, '# Redflag-fix: sezioni documentali vincolanti', { read });
+  return validateRedflagDocumentSections(
+    buildDocumentSections(REQUIRED_SECTIONS, '# Redflag-fix: sezioni documentali vincolanti', { read }),
+  );
+}
+
+/**
+ * Validate the exact value that pr-redflag-fixer.yml writes to $GITHUB_ENV.
+ *
+ * @param {string} document
+ * @returns {string}
+ */
+export function validateRedflagDocumentSections(document) {
+  const value = String(document);
+  const hasDelimiterLine = value.split(/\r?\n/).some(
+    (line) => line === REDFLAG_DOC_SECTIONS_EOF,
+  );
+  if (hasDelimiterLine) {
+    throw new Error(
+      `Redflag document contains a line equal to the heredoc delimiter ${REDFLAG_DOC_SECTIONS_EOF}`,
+    );
+  }
+
+  const bytes = Buffer.byteLength(value, 'utf8');
+  if (bytes > REDFLAG_DOC_SECTIONS_MAX_BYTES) {
+    throw new Error(
+      `Redflag document too large for GITHUB_ENV: ${bytes} bytes > ${REDFLAG_DOC_SECTIONS_MAX_BYTES}-byte limit`,
+    );
+  }
+
+  return value;
 }
 
 export function buildIssueFixAgentContract({ read } = {}) {
