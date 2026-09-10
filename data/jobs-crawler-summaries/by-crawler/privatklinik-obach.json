@@ -1,21 +1,21 @@
 {
   "key": "privatklinik-obach",
   "label": "Privatklinik Obach",
-  "generatedAt": "2026-09-09T23:10:59.145Z",
+  "generatedAt": "2026-09-10T23:10:12.035Z",
   "total": 5,
   "discovered": null,
-  "parsed": 5,
+  "parsed": 4,
   "lastFetchOutcome": null,
   "written": 5,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 8361,
-  "avgDurationMs": 8361,
+  "unchangedCount": 1,
+  "durationMs": 5436,
+  "avgDurationMs": 5436,
   "durationHistory": [
-    8361
+    5436
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146478439-ausbildung-dipl-pflegefachperson-hf",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:10:48.094Z",
+      "crawledAt": "2026-09-10T23:10:03.938Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -71,7 +71,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:10:48.100Z",
+      "crawledAt": "2026-09-10T23:10:03.952Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -102,14 +102,14 @@
       "companyKey": "privatklinik-obach",
       "companyDomain": "swissmedical.net",
       "title": "Sportphysiotherapeut/-in",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131823739-sportphysiotherapeut-in",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131823739-sportphysiotherapeut-in",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:10:48.097Z",
+      "crawledAt": "2026-09-10T23:10:03.935Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -140,14 +140,14 @@
       "companyKey": "privatklinik-obach",
       "companyDomain": "swissmedical.net",
       "title": "Dipl. Physiotherapeut/-in",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131822324-dipl-physiotherapeut-in",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131822324-dipl-physiotherapeut-in",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:10:48.098Z",
+      "crawledAt": "2026-09-10T23:10:03.943Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -170,15 +170,17 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "privatklinik-obach-6eed3d30af76",
-      "slug": "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-privatklinik-obach",
+      "slug": "dipl-tecnico-di-sala-operatoria-pool-regione-mittelland-a-ore-swiss-medical-network-solothurn",
       "company": "Privatklinik Obach",
       "companyKey": "privatklinik-obach",
       "companyDomain": "swissmedical.net",
       "title": "Dipl. Fachperson Operationstechnik, POOL Region Mittelland im Stundenlohn",
-      "needsRetranslation": false,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000109539219-dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn",
@@ -201,15 +203,17 @@
       "postedDate": "2026-02-16",
       "datePosted": "2026-02-16",
       "firstSeenAt": "2026-07-10T12:01:40.457Z",
-      "_qualityScore": 83,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
