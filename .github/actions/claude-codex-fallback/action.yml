@@ -605,7 +605,11 @@ runs:
         printf 'source_realpath=%s\nsource_sha256=%s\nhost_realpath=%s\nhost_sha256=%s\nsandbox_realpath=%s\nsandbox_sha256=%s\n' \
           "$gh_source_realpath" "$gh_source_digest" "$gh_host_realpath" "$gh_host_digest" "$gh_sandbox_realpath" "$gh_sandbox_digest" >> "$gh_attestation"
         copy_attested_file "$git_binary_source" "$gh_host_tools/bin/git"
-        git_sandbox_binary="$bridge_dir/git-real"
+        # Git dispatches git-<name> argv[0] as a built-in subcommand.
+        # Preserve the basename while keeping the native binary off bridge PATH.
+        mkdir -p "$bridge_dir/native"
+        chmod 700 "$bridge_dir/native"
+        git_sandbox_binary="$bridge_dir/native/git"
         copy_attested_file "$git_binary_source" "$git_sandbox_binary"
         git_source_realpath="$(realpath "$git_binary_source")"
         git_source_digest="$(sha256_file "$git_source_realpath")"

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -47,6 +47,21 @@ describe('the actual sandbox preflight shell', () => {
     expect(probe).toContain('"$CODEX_NODE_REAL" "$CODEX_REALPATH" --version');
     expect(probe).not.toContain('"$CODEX_BIN" --version');
     expect(runProbe()).toBe(0);
+  });
+  it('keeps the native Git basename so Git does not dispatch a bogus subcommand', () => {
+    const suffix = action.match(/git_sandbox_binary="\$bridge_dir([^"\n]+)"/)?.[1];
+    expect(suffix).toBeTruthy();
+    const root = mkdtempSync(join(tmpdir(), 'native-git-probe-'));
+    try {
+      const executable = join(root, suffix!);
+      mkdirSync(join(executable, '..'), { recursive: true });
+      symlinkSync('/usr/bin/git', executable);
+      const result = spawnSync(executable, ['--version'], { encoding: 'utf8' });
+      expect(result.status, result.stderr).toBe(0);
+      expect(result.stdout).toMatch(/^git version /);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
   it('does not deny the TMPDIR alias that points at the allowed scratch root', () => {
     expect(action).not.toMatch(/":tmpdir"\s*=\s*"deny"/);
