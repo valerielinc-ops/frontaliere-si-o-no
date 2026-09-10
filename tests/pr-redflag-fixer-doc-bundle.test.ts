@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 import {
   REQUIRED_SECTIONS,
@@ -55,6 +56,7 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
     expect(run).toContain('REDFLAG_DOC_ROOT="$OUT/canonical-docs"');
     expect(run).toContain('node scripts/ci/redflag-doc-sections.mjs');
     expect(run).toMatch(/REDFLAG_DOC_SECTIONS<<[A-Z0-9_]+/);
+    expect(run).toContain("sed 's/^/            /' \"$OUT/redflag-doc-sections.md\"");
     const bundleAssembly = run.match(/(echo "# Redflag-fix bundle[\s\S]*?\n\s*\} > "\$OUT\/redflag-bundle\.md")/)?.[1];
     expect(bundleAssembly, 'the existing bundle assembly is missing').toEqual(expect.any(String));
     expect(bundleAssembly).not.toContain('cat "$OUT/redflag-doc-sections.md"');
@@ -99,12 +101,77 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
       injectedSections.slice(0, 2048),
       '</persisted-output>',
     ].join('\n');
-    const resolvedPrompt = prompt.replace('${{ env.REDFLAG_DOC_SECTIONS }}', injectedSections);
+    expect(prompt).toContain('--- BEGIN REDFLAG_DOC_SECTIONS (indented runtime injection) ---');
+    expect(prompt).toContain('--- END REDFLAG_DOC_SECTIONS ---');
+    const indentedSections = injectedSections
+      .split('\n')
+      .map((line) => `            ${line}`)
+      .join('\n');
+    const resolvedPrompt = prompt.replace('${{ env.REDFLAG_DOC_SECTIONS }}', indentedSections);
 
     expect(injectedSections.indexOf(sentinel)).toBeGreaterThan(2048);
     expect(persistedToolOutput).not.toContain(sentinel);
     expect(resolvedPrompt).toContain(sentinel);
+    const injectedStart = resolvedPrompt.indexOf('--- BEGIN REDFLAG_DOC_SECTIONS');
+    const injectedEnd = resolvedPrompt.indexOf('--- END REDFLAG_DOC_SECTIONS ---');
+    expect(injectedStart).toBeGreaterThanOrEqual(0);
+    expect(injectedEnd).toBeGreaterThan(injectedStart);
+    const renderedInjection = resolvedPrompt.slice(injectedStart, injectedEnd);
+    expect(renderedInjection).toContain('\n            ## REVIEW.md — Scopo progetto = filtro "important"');
+    expect(renderedInjection).not.toMatch(/\n## REVIEW\.md —/);
     expect(`${resolvedPrompt}\n${persistedToolOutput}`).toContain(sentinel);
+  });
+
+  it('fails closed on the heredoc delimiter and on oversized GITHUB_ENV content', () => {
+    const fixtureRoot = mkdtempSync(join(tmpdir(), 'redflag-doc-sections-'));
+    const review = [
+      '# Review',
+      '',
+      REQUIRED_SECTIONS[0].heading,
+      '',
+      'project scope',
+      '',
+      REQUIRED_SECTIONS[1].heading,
+      '',
+      'REDFLAG_DOC_SECTIONS_EOF',
+    ].join('\n');
+    const agents = [
+      '# Agents',
+      '',
+      REQUIRED_SECTIONS[2].heading,
+      '',
+      'non-negotiables',
+      '',
+      REQUIRED_SECTIONS[3].heading,
+      '',
+      'privacy',
+    ].join('\n');
+
+    try {
+      writeFileSync(join(fixtureRoot, 'REVIEW.md'), review);
+      writeFileSync(join(fixtureRoot, 'AGENTS.md'), agents);
+      const collision = spawnSync(process.execPath, [SCRIPT], {
+        cwd: ROOT,
+        encoding: 'utf8',
+        env: { ...process.env, REDFLAG_DOC_ROOT: fixtureRoot },
+      });
+      expect(collision.status, collision.stderr).not.toBe(0);
+      expect(collision.stderr).toMatch(/heredoc delimiter/i);
+
+      writeFileSync(
+        join(fixtureRoot, 'REVIEW.md'),
+        review.replace('REDFLAG_DOC_SECTIONS_EOF', 'x'.repeat(200_000)),
+      );
+      const oversized = spawnSync(process.execPath, [SCRIPT], {
+        cwd: ROOT,
+        encoding: 'utf8',
+        env: { ...process.env, REDFLAG_DOC_ROOT: fixtureRoot },
+      });
+      expect(oversized.status, oversized.stderr).not.toBe(0);
+      expect(oversized.stderr).toMatch(/too large|maximum|limit/i);
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
   });
 
   it('extracts by heading and fails when a required heading disappears', () => {
