@@ -46,6 +46,16 @@ const JOB_BLOCK_TICINO = `
 
 const LISTING_HTML_FIXTURE = JOB_BLOCK_SWISS + JOB_BLOCK_ITALY + JOB_BLOCK_TICINO;
 
+const CURRENT_SWISS_JOB_BLOCK = `
+<li class="job-item">
+  <div class="info">
+    <a data-turbo="false" class="title" href="/career/open-jobs/your-application/21"> Product Manager - Trading and Origination </a>
+    <p class="description">About the Role Role type: Permanent | Location: Olten | Model: Hybrid</p>
+    <div class="contract"><span>Olten, CH - 100%</span><span>Full time</span></div>
+  </div>
+</li>
+`;
+
 const DETAIL_HTML_FIXTURE = `
 <div class="job-detail">
   <h2>Head Market Risk Asset (all) 80-100%</h2>
@@ -72,6 +82,12 @@ describe('Alpiq crawler — location filtering', () => {
     expect(isTicinoLocation('Biasca')).toBe(true);
     expect(isTicinoLocation('Locarno')).toBe(true);
     expect(isTicinoLocation('Ritom')).toBe(true);
+  });
+
+  it('keeps current Alpiq listings whose contract row only exposes the CH country code', () => {
+    const job = parseAlpiqJobBlock(CURRENT_SWISS_JOB_BLOCK);
+    expect(job?.location).toBe('Olten');
+    expect(isSwissLocation(job?.location)).toBe(true);
   });
 
   it('rejects non-Ticino locations', () => {
