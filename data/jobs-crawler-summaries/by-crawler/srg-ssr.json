@@ -1,56 +1,98 @@
 {
   "key": "srg-ssr",
   "label": "SRG SSR",
-  "generatedAt": "2026-09-09T23:05:24.467Z",
-  "total": 25,
+  "generatedAt": "2026-09-10T23:07:30.472Z",
+  "total": 27,
   "discovered": null,
-  "parsed": 25,
+  "parsed": 23,
   "lastFetchOutcome": null,
-  "written": 25,
+  "written": 27,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 24,
+  "newCount": 2,
+  "updatedCount": 21,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 38775,
-  "avgDurationMs": 38775,
+  "unchangedCount": 4,
+  "durationMs": 21906,
+  "avgDurationMs": 21906,
   "durationHistory": [
-    38775
+    21906
   ],
   "newJobs": [
     {
-      "id": "srg-ssr-1db88825ec61",
-      "slug": "charge-e-s-de-projet-technique-srg-ssr-lausanne",
+      "id": "srg-ssr-28c170232c31",
+      "slug": "responsabile-rete-tre-srg-ssr-lugano",
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
       "companyDomain": "srgssr.ch",
-      "title": "Chargé∙e·s de projet technique",
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://jobs.srgssr.ch/rts/offene-stellen/chargees-de-projet-technique/3631e123-3639-47c1-aa9b-19dd52c04de5",
+      "title": "Responsabile Rete Tre",
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/responsabile-rete-tre/af6a6cbb-11f2-434e-906f-26f2a33ff12a",
       "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:04:42.334Z",
-      "addressLocality": "Lausanne",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-10T23:07:06.414Z",
+      "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1010",
-      "streetAddress": "Avenue du Temple 40",
+      "postalCode": "6903",
+      "streetAddress": "Casella postale",
       "category": "Produzione Media",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Media / Broadcasting",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
-      "applyUrl": "https://jobs.srgssr.ch/rts/offene-stellen/chargees-de-projet-technique/3631e123-3639-47c1-aa9b-19dd52c04de5",
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/responsabile-rete-tre/af6a6cbb-11f2-434e-906f-26f2a33ff12a",
       "_srgMeta": {
-        "uuid": "3631e123-3639-47c1-aa9b-19dd52c04de5",
-        "org": "rts",
-        "orgLabel": "RTS",
+        "uuid": "af6a6cbb-11f2-434e-906f-26f2a33ff12a",
+        "org": "rsi",
+        "orgLabel": "RSI",
         "pensumMin": 80,
         "pensumMax": 100
+      },
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 4,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "srg-ssr-c35abfd5a04b",
+      "slug": "praktikant-in-srf-kids-srg-ssr-zurich",
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Praktikant:in SRF Kids",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-srf-kids/e074e953-1135-4c64-b155-3ef4424df7bc",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-10T23:07:07.025Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8052",
+      "streetAddress": "Fernsehstrasse 1-4",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-10",
+      "applyUrl": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-srf-kids/e074e953-1135-4c64-b155-3ef4424df7bc",
+      "_srgMeta": {
+        "uuid": "e074e953-1135-4c64-b155-3ef4424df7bc",
+        "org": "srf",
+        "orgLabel": "SRF",
+        "pensumMin": 80,
+        "pensumMax": 80
       },
       "_qualityScore": 70,
       "_qualityBreakdown": {
@@ -74,7 +116,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/journaliste-data-actualite/c57274dd-5b5b-40c1-b089-be5ddd120c45",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:04:41.621Z",
+      "crawledAt": "2026-09-10T23:07:07.658Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -96,13 +138,55 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-09T13:45:01.576Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "srg-ssr-1db88825ec61",
+      "slug": "charge-e-s-de-projet-technique-srg-ssr-lausanne",
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Chargé∙e·s de projet technique",
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.srgssr.ch/rts/offene-stellen/chargees-de-projet-technique/3631e123-3639-47c1-aa9b-19dd52c04de5",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-10T23:07:08.290Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1010",
+      "streetAddress": "Avenue du Temple 40",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-09",
+      "applyUrl": "https://jobs.srgssr.ch/rts/offene-stellen/chargees-de-projet-technique/3631e123-3639-47c1-aa9b-19dd52c04de5",
+      "_srgMeta": {
+        "uuid": "3631e123-3639-47c1-aa9b-19dd52c04de5",
+        "org": "rts",
+        "orgLabel": "RTS",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "firstSeenAt": "2026-09-09T23:04:42.334Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -118,7 +202,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialista-sviluppo-aziendale/e5a4e260-bf26-4091-80eb-d00ff6e77726",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:04:43.034Z",
+      "crawledAt": "2026-09-10T23:07:08.933Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -140,7 +224,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-08T13:36:16.364Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -162,7 +245,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialiste-developpement-de-l-entreprise-f-h/68d88043-3525-4e16-9feb-b00befaafcd0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:04:43.755Z",
+      "crawledAt": "2026-09-10T23:07:09.613Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -184,7 +267,6 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:36:17.077Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -206,7 +288,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/unternehmensentwickler-in/3622b4b4-a2dc-463a-80e1-17e8580a49d9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:44.450Z",
+      "crawledAt": "2026-09-10T23:07:10.314Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -228,7 +310,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-08T13:36:17.762Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -250,7 +331,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-recherchiste/7e518bec-7354-4090-9626-3d8c4ea47d3d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:04:44.991Z",
+      "crawledAt": "2026-09-10T23:07:10.832Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -272,7 +353,6 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:28:01.047Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -294,7 +374,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-interactive-media-designer-rts-couleur-3/6814b6b0-96af-427f-a369-8f1d4275a816",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:04:46.009Z",
+      "crawledAt": "2026-09-10T23:07:11.440Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -316,7 +396,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-02T23:09:02.702Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -338,7 +417,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rsi-info-digitale/17338cec-b414-4787-bc8a-0718d1522e66",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:04:46.806Z",
+      "crawledAt": "2026-09-10T23:07:12.079Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -382,7 +461,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:04:47.538Z",
+      "crawledAt": "2026-09-10T23:07:12.685Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -404,7 +483,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-31T17:00:43.813Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -426,7 +504,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-di-genere-informazione-nazionale-offerta-operazioni/cfb04e9b-a468-42ae-a4d6-b8a57d4f6c50",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:04:48.261Z",
+      "crawledAt": "2026-09-10T23:07:13.305Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -448,7 +526,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-31T17:00:43.065Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -470,7 +547,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:48.949Z",
+      "crawledAt": "2026-09-10T23:07:13.916Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -492,7 +569,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-31T17:00:42.256Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -514,7 +590,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:04:49.663Z",
+      "crawledAt": "2026-09-10T23:07:14.538Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -536,7 +612,6 @@
         "pensumMin": 35,
         "pensumMax": 35
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-27T19:52:31.631Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -558,7 +633,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:50.410Z",
+      "crawledAt": "2026-09-10T23:07:15.087Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -602,7 +677,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:51.106Z",
+      "crawledAt": "2026-09-10T23:07:15.672Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -624,7 +699,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-25T09:48:14.107Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -646,7 +720,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:04:51.865Z",
+      "crawledAt": "2026-09-10T23:07:16.189Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -666,7 +740,6 @@
         "org": "rsi",
         "orgLabel": "RSI"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -688,7 +761,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:52.553Z",
+      "crawledAt": "2026-09-10T23:07:16.766Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -710,7 +783,6 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -732,7 +804,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:53.268Z",
+      "crawledAt": "2026-09-10T23:07:17.294Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -754,7 +826,6 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:28:34.182Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -776,7 +847,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:54.015Z",
+      "crawledAt": "2026-09-10T23:07:17.823Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -798,7 +869,6 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:28:35.078Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -820,7 +890,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:04:54.734Z",
+      "crawledAt": "2026-09-10T23:07:18.454Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -842,7 +912,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -864,7 +933,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:55.295Z",
+      "crawledAt": "2026-09-10T23:07:18.967Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -886,7 +955,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-13T21:48:15.082Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -908,7 +976,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:55.871Z",
+      "crawledAt": "2026-09-10T23:07:19.543Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -930,7 +998,6 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-17T21:37:03.185Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -939,10 +1006,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "srg-ssr-a8ae3325568d",
-      "slug": "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+      "slug": "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich",
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
       "companyDomain": "srgssr.ch",
@@ -974,14 +1044,18 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
-      "_qualityScore": 91,
+      "salaryMin": 77000,
+      "salaryMax": 136000,
+      "salarySource": "estimated",
+      "addressRegion": "ZH",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -1018,14 +1092,18 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
-      "_qualityScore": 91,
+      "salaryMin": 71500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -1062,14 +1140,17 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "_qualityScore": 88,
+      "salaryMin": 42640,
+      "salaryMax": 61000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -1105,15 +1186,17 @@
         "orgLabel": "RTR"
       },
       "firstSeenAt": "2026-06-29T11:35:51.857Z",
-      "_qualityScore": 84,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
