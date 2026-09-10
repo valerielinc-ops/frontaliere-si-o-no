@@ -1,0 +1,27 @@
+name: Setup Codex Linux sandbox
+description: Install distro Bubblewrap and its AppArmor profile before Codex receives credentials.
+runs:
+  using: composite
+  steps:
+    - name: Prepare Linux sandbox prerequisites
+      shell: bash
+      run: |
+        set -euo pipefail
+        # Ubuntu 24.04 restricts unprivileged namespaces. Use the distro bwrap
+        # and its AppArmor profile, as documented by Codex, before loading auth.
+        # Never disable AppArmor globally or retry the agent without a sandbox.
+        if [ -x /usr/bin/bwrap ] && /usr/bin/bwrap --unshare-user --unshare-net --ro-bind / / --proc /proc --dev /dev /bin/true 2>/dev/null; then
+          exit 0
+        fi
+        /usr/bin/sudo /usr/bin/apt-get update -qq
+        /usr/bin/sudo /usr/bin/apt-get install -y -qq bubblewrap apparmor-profiles apparmor-utils
+        if [ -f /usr/share/apparmor/extra-profiles/bwrap-userns-restrict ]; then
+          /usr/bin/sudo /usr/bin/install -m 0644 \
+            /usr/share/apparmor/extra-profiles/bwrap-userns-restrict \
+            /etc/apparmor.d/bwrap-userns-restrict
+        fi
+        if [ -f /etc/apparmor.d/bwrap-userns-restrict ]; then
+          /usr/bin/sudo /usr/sbin/apparmor_parser -r /etc/apparmor.d/bwrap-userns-restrict
+        fi
+        [ -x /usr/bin/bwrap ] || { echo '::error::System bubblewrap is unavailable.'; exit 1; }
+        /usr/bin/bwrap --unshare-user --unshare-net --ro-bind / / --proc /proc --dev /dev /bin/true

@@ -685,7 +685,7 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('bridge_dir="$scratch_dir/bin"');
     expect(action).toContain('[permissions.codex-fallback.filesystem."$bridge_dir_toml"]');
     expect(action).toContain('"TMPDIR=$scratch_dir"');
-    expect(action).toContain('PATH="$bridge_dir:$PATH"');
+    expect(action).toContain('PATH="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin"');
     expect(action).toContain('gh --version >/dev/null');
     expect(action).toContain('printf probe > "$probe"');
     expect(action).toContain('! dd if="$CODEX_HOME/auth.json" of=/dev/null bs=1 count=1 2>/dev/null');

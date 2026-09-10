@@ -1,154 +1,26 @@
 name: tests
+run-name: "Code checks and review · ${{ github.event.pull_request.number && format('PR #{0}', github.event.pull_request.number) || github.ref_name }} · ${{ github.event.action || github.event_name }}"
 
-# Runs the Vitest tests related to the PR diff on every PR as a BLOCKING
-# CI gate. Direct crawler pushes to main run the same blocking check, so the
-# post-merge tree cannot bypass the source gate.
-# Before this workflow existed, vitest tests were never run in CI —
-# regression gates like `tests/build-plugins/criticalCssRootHeight.test.ts`
-# (added in PR #294) landed already-failing without anyone noticing, and the
-# `#root{min-height:100vh}` bug hit production for 24h until manual report.
-#
-# Footprint: this used to fan out a 4-shard matrix + aggregator (5 runners per
-# PR). It now runs the suite in a SINGLE job. On the Free plan the whole
-# account shares a ~20 concurrent-job pool, and a per-PR fan-out of test shards
-# starved the PR pipeline (auto-merge, Claude review, pr-body-contract) behind
-# queued crawler runs — PRs sat un-dequeued. Collapsing to one runner frees 4
-# slots per PR.
-#
-# Historical baseline (CI run 28099661052, full ~847-file suite on one 4-vCPU
-# runner): Vitest took 366s before setup/assemble/lint overhead. The PR path no
-# longer pays that full-suite cost: `run-related-tests.mjs` selects the tests
-# reachable from changed source files and always includes changed test files.
-#
-# Deliberate policy: this required PR check is related-only. Full-suite coverage
-# is not part of the PR path; a diff with no existing source/test candidates
-# succeeds with zero Vitest tests instead of falling back to the full suite.
-#
-# Tests that read data/jobs.json (gitignored): the assemble step regenerates
-# it from the per-slice files committed under data/jobs-by-slice/.
-#
-# ── UN job pesante, quattro cancelli come step (era 4 job paralleli) ────────
-# `collision` (ex `pr-collision-detector.yml` job `detect`), `contract` (ex
-# `pr-body-contract.yml`), `typecheck` e `vitest` erano quattro JOB. Ora sono
-# quattro FAMIGLIE DI STEP dentro il job pesante, e la fase comune — checkout +
-# `actions/setup-node` + `npm ci` — si paga UNA volta invece di quattro. Il
-# companion body-only in fondo al file resta un check distinto per `edited`.
-#
-# Cosa cambiava prima e cosa cambia adesso: la PR #6534 aveva fattorizzato
-# setup-node+npm-ci in `.github/actions/ci-npm-setup`, ma una composite action
-# condivide la DEFINIZIONE, non l'ESECUZIONE — ogni job la rieseguiva da zero,
-# quindi nella UI Actions restavano quattro job che facevano quattro checkout e
-# quattro `npm ci`. Quello era esattamente ciò che #6534 intendeva consegnare;
-# questo file va oltre, su decisione esplicita del proprietario.
-#
-# ── Conseguenza #1: i quattro cancelli diventano BLOCCANTI ────────────────
-# Il ruleset su `main` richiede il check-run `vitest (unit + integration)`.
-# Poiché questo job comprende anche il controllo finale della Claude review,
-# la sua conclusione resta rossa quando la review contiene un `🔴 Important`;
-# il native auto-merge non può quindi bypassare quel gate. `contract`,
-# `typecheck` e `collision` giravano, si vedevano rossi, e non fermavano
-# niente: misura in `scripts/ci/lib/checkRunObservation.mjs` (issue #5552), PR
-# #5590 mergiata il 2026-08-11 con `contract` = `failure`. Fondendoli nel job
-# che PRODUCE quel check-run, un loro rosso fa rosso il check che governa
-# l'auto-merge. È un irrigidimento del cancello (AGENTS.md Non-Negotiable #1
-# ammette solo questa direzione), ed è un cambio di comportamento voluto.
-#
-# ── Conseguenza #2: un cancello rosso non ne spegne un altro ──────────────
-# Con quattro job paralleli un `contract` rosso non impediva a `vitest` di
-# girare. La proprietà è PRESERVATA qui da `if: ${{ !cancelled() }}` sul primo
-# step di ogni famiglia: tutte e quattro girano sempre, e il job fallisce se
-# una qualunque è fallita. Dentro una famiglia la catena resta fail-fast, come
-# era dentro il job che la ospitava.
-#
-# ── Conseguenza #3: il lock delle label — SCIOLTA il 2026-08-26 ──────────
-# STORIA, perché la lezione vale più della conclusione. Il job `collision`
-# aveva un `concurrency:` proprio, gruppo `pr-collision-detector`, CONDIVISO
-# con lo scan periodico di `pr-collision-detector.yml` (cron ogni 30 min), per
-# impedire due scritture concorrenti sulla label `collision-risk`. Le
-# concurrency di GitHub esistono solo a livello job/workflow, MAI di step,
-# quindi la fusione dovette issare quel gruppo sull'INTERO job. Costo
-# dichiarato accettabile: «più rerun nelle ore di traffico alto».
-#
-# Misurato sul campo non lo era. Con `cancel-in-progress: false` GitHub tiene
-# 1 running + 1 pending: ogni PR aperta si accodava dietro ogni altra PR E
-# dietro lo scan cron, portandosi dietro una suite da ~18 minuti, e la terza
-# veniva SFRATTATA a `cancelled` — nessun `success`, auto-merge fermo, rerun a
-# catena. Era il collo di bottiglia del throughput dell'intera flotta.
-#
-# Un tentativo intermedio scorporò il detector in un job proprio col lock.
-# Toglieva la serializzazione dalla suite (verificato: run 32946427177,
-# `collision` cancelled alle 08:10:47 e `vitest` in_progress alle 08:10:49),
-# ma lasciava sulla PR una ✗ da run sfrattato — un SEGNALE FALSO, e
-# `gh pr checks` legge `cancelled` come fail. Con un mutex globale su un
-# workflow PR-triggered quella ✗ è inevitabile: se i contendenti superano gli
-# slot, qualcuno DEVE essere cancellato.
-#
-# Decisione finale: il detector esce del tutto da `tests.yml`. È un SWEEPER
-# repo-wide — ricalcola le label di tutte le PR aperte da dati vivi — e uno
-# sweeper va su `schedule`, non su `pull_request`. Vive quindi solo in
-# `pr-collision-detector.yml` (cron ogni 30 min + dispatch), dove il suo lock
-# non tocca nessuna PR e nessuna ✗ compare. Le PR restano INDIPENDENTI: niente
-# mutua esclusione, solo informazione — label + commento che nomina le PR
-# coinvolte, così chi ci lavora sa cosa succede se una mergia prima dell'altra.
-# La regola generale: un lock va sull'unità di lavoro che compie la scrittura,
-# e uno sweeper repo-wide non va su un evento per-PR.
-#
-# ── Conseguenza #4: la #6526 torna ad avere il suo margine ────────────────
-# La PR #6526 (commit 1052ee9) aveva fatto leggere ad `auto-merge-on-lgtm.yml` /
-# `pr-review-loop.yml` il check-run `vitest (unit + integration)` ISOLATO invece
-# del rollup, perché un `collision` cancellato per contesa trascinava il rollup
-# a `cancelled` su ~1/3 delle PR anche con vitest già `success`. Ora su una PR
-# non esiste più alcun check-run `collision` da contendere: la causa di quel
-# difetto è rimossa alla radice, e la lettura isolata di #6526 resta come rete.
-#
-# ── Il checkout: uno solo, e perché QUESTO profilo ────────────────────────
-# I quattro job avevano tre profili diversi e INCOMPATIBILI fra loro:
-#   - `vitest`: albero applicativo quasi completo, storia profonda e sparse
-#     mirato — i grandi artefatti statici non servono a questo job;
-#   - `contract`: `fetch-depth: 0` + `filter: blob:none` — la storia PROFONDA
-#     serve a `check-sibling-patterns.mjs` / `check-below-floor-bridge.mjs`, che
-#     diffano a tre punti contro il merge-base;
-#   - `collision`/`typecheck`: sparse, `fetch-depth: 1`.
-# Un job solo può avere un profilo solo: manteniamo la storia profonda per i
-# source guard, ma materializziamo solo il codice e i corpus necessari a questo
-# job. I bucket esclusi sono artefatti statici (immagini, docs e snapshot) che
-# non vengono letti da tsc, assemble+migrate, guard o dal related runner. Il
-# profilo è volutamente scritto qui come allow/deny esplicito e va mantenuto
-# insieme al test `checkout-sparse-profiles.test.ts`.
-#
-# ── Il nome del check-run NON cambia, ed è deliberato ─────────────────────
-# Il job `vitest-required` pubblica ancora `vitest (unit + integration)`: è il
-# contesto required che leggono `auto-merge-eval`, `pr-autorebase` e i workflow
-# di rescue. Il job pesante ha ora il nome distinto `vitest execution`, così il
-# wrapper può osservare il suo risultato senza lasciare che GitHub interpreti
-# `skipped` come soddisfatto.
-#
-# L'evento `edited` resta un percorso body-only per il job pesante: il job di
-# esecuzione viene saltato e il companion `body-contract` esegue lo stesso
-# contratto con un check distinto. Il wrapper required gira comunque, ma per
-# `skipped`/`cancelled` interroga i check-run dello SHA e accetta solo l'ultimo
-# `vitest execution` completato con `success`; un rosso o l'assenza del run
-# precedente resta bloccante.
+# One required check owns checkout, source guards, typecheck, Vitest and review.
+# The PR body contract is a step of this code run. Metadata edits and labels do
+# not start code validation and never publish a second verdict on the same SHA.
+# Keep the job name aligned with the ruleset and scripts/ci/lib/constants.mjs.
+
 on:
   pull_request:
     branches: [main]
-    # Union of the three original workflows' pull_request `types` (default
-    # types are [opened, synchronize, reopened] when unset, which is what
-    # this workflow itself relied on before): pr-collision-detector.yml had
-    # [opened, synchronize, reopened, ready_for_review], pr-body-contract.yml
-    # had [opened, edited, synchronize, reopened]. `edited` is required so the
-    # body-contract companion re-validates a PR body edit; `ready_for_review` is
-    # required so `collision` still re-scans a draft coming out of draft. The
-    # `labeled` event is the non-recursive handoff from stale-pr-rescuer:
-    # that workflow uses the App identity because GITHUB_TOKEN labels do not
-    # start another workflow run.
-    types: [opened, edited, synchronize, reopened, ready_for_review, labeled]
+    types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
   # Required checks are evaluated on the merge queue ref, not on the PR event.
   merge_group:
   # Kept available for manual diagnostics and recovery runs.
   workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR to validate when recovering a missing code run'
+        type: string
+        required: false
 
 # Union of the three original workflows' `permissions:` (tests.yml itself had
 # none — it inherited the repo default — so this is now the explicit floor):
@@ -178,10 +50,7 @@ permissions:
 #   Direct pushes to main and merge queues ask the same question as a PR:
 #   does the tree pass the source gate before it becomes the next main head?
 concurrency:
-  # Body edits and labels have their own newest-wins lanes: either metadata
-  # event can cancel only an earlier metadata run on the same ref, never a
-  # run testing a new commit.
-  group: tests-${{ github.workflow }}-${{ github.ref }}-${{ github.event.action == 'edited' && 'body' || github.event.action == 'labeled' && 'label' || 'code' }}
+  group: tests-${{ github.workflow }}-${{ github.ref }}
   # PR and workflow_dispatch runs use newest-wins inside their lane. Direct
   # pushes to main and merge queues must not cancel one another: each emitted
   # head needs a completed source-gate verdict before it can become the next
@@ -189,17 +58,9 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' }}
 
 jobs:
-  # Job di esecuzione pesante: checkout + setup-node + npm ci una volta sola,
-  # poi le quattro famiglie di step (collision, contract, typecheck, vitest).
-  # Il wrapper required sotto osserva questo job e conserva il nome del
-  # check-run che il ruleset già richiede.
+  # Unconditional job: admitted code events must always produce a real verdict.
   vitest:
-    name: vitest execution
-    # `edited` usa il companion body-contract qui sotto: non pagare il job
-    # pesante per una modifica che non ha cambiato il codice. `labeled` è stato
-    # aggiunto solo per il rescue: non pagare l'intero job per label estranee
-    # (`agent:fix`, `needs-human`, recycle, redflag-fixer).
-    if: ${{ github.event.action != 'edited' && (github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review')) }}
+    name: vitest (unit + integration)
     runs-on: ubuntu-latest
     # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
     # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
@@ -221,203 +82,17 @@ jobs:
       # This is consumed by both the re-review guard and tier selection.
       NONCODE_RE: '^(data/|public/|reports/|_newsletter_variants/|docs/)|(^|/)(package-lock\\.json|pnpm-lock\\.yaml|yarn\\.lock)$|\\.(snap|png|jpe?g|webp|gif|svg|ico|woff2?)$'
     steps:
-      # `git checkout` scrive l'albero con un thread solo per default (issue
-      # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
-      # 37,4s (-27%) impostando `checkout.workers 0` (= usa tutti i core).
-      # `actions/checkout` esegue un `git checkout` normale e rispetta la config
-      # globale, quindi basta impostarla PRIMA del passo. Rischio zero: non
-      # cambia cosa viene scaricato o scritto, solo quanti thread lo scrivono.
-      - run: git config --global checkout.workers 0
-
-      # CHECKOUT UNICO per tutte e quattro le famiglie. Il perché di questo
-      # profilo esatto — albero pieno + storia profonda + `blob:none` — sta in
-      # «Il checkout: uno solo» nella testata. In breve: i source guard del
-      # contract diffano a tre punti e senza storia non hanno un merge-base
-      # (`resolve-merge-base.mjs` andrebbe in blocking-skip, issue #5195, cioè
-      # il guard direbbe «NON ESEGUITO» a ogni run); vitest vuole l'albero
-      # intero; `fetch-depth: 0` senza `filter:` sarebbe il clone da 15 GB.
-      #
-      # NB: con `fetch-depth: 0` `actions/checkout` scarica tutta la storia del
-      # ref che gli è stato chiesto, ma NON crea `refs/remotes/origin/<base>` —
-      # per questo gli step che ne hanno bisogno continuano a fare il fetch
-      # esplicito con il refspec di destinazione (issue #6058). Quel fetch ora è
-      # quasi gratis: i commit ci sono già, manca solo il NOME.
-      - uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-          filter: blob:none
-          # Allowlist non-cone: il job usa tsc e Vitest con riferimenti runtime
-          # che il profilo statico non può chiudere in modo affidabile.
-          sparse-checkout: |
-            /.github/
-            /.githooks/
-            /build-plugins/
-            /components/
-            /functions/
-            /hooks/
-            /infra/
-            /scripts/
-            /server/
-            /services/
-            /tests/
-            /packages/*/engine/
-            /packages/*/src/
-            /packages/*/tests/
-            # These are the two symlink targets needed by tsc and the related
-            # import graph. Keep them file-scoped: including the parent
-            # `packages/articles/content/` would materialize the full article
-            # corpus in this CI checkout.
-            /packages/articles/content/blog-articles-data.ts
-            /packages/articles/content/swiss-articles-data.ts
-            /packages/articles/content/blogArticleIds.ts
-            /packages/articles/content/routerBlogData.ts
-            /packages/articles/content/routerSwissData.ts
-            /packages/articles/content/blogImageCdnMirror.ts
-            /packages/articles/content/blog-meta-*.ts
-            /packages/articles/content/seo/seo-blog*.ts
-            # Runtime reads selected by the related-test graph when locale
-            # bundles change. The services/locales/blog-body symlink is in the
-            # checkout, but its corpus target is otherwise excluded.
-            /packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts
-            # Type-only dependency imported by the SEO modules above; keep it
-            # file-scoped so the article corpus remains excluded.
-            /packages/articles/content/seo/seoMetadataType.ts
-            /packages/articles/index.ts
-            /packages/articles/articleSections.ts
-            /data/
-            !/data/translation-cache/
-            !/data/orphan-enriched-data/
-            !/data/jobs-snapshots-history/
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/evidence-index.json
-            # related-search-candidates.json e slug-registry.json restano IN
-            # checkout: due test del suite blocking li leggono da filesystem
-            # con un path runtime (resolve(__dirname, ...)), invisibile
-            # all'analisi statica degli import di verify-checkout-profiles.mjs
-            # (lo stesso "punto cieco" gia' documentato per npm-run-chain in
-            # checkout-profile-analyzer.mjs:199-205, issue #6234). Escluderli
-            # qui fa fallire SEMPRE tests/seo/related-search-clusters-emitted.test.ts
-            # e tests/seo/cathedral-slug-registry-canton-backfill.test.ts non
-            # appena il selettore related li sceglie — indipendentemente dal
-            # contenuto del diff — bloccando PR che non c'entrano nulla con
-            # questi due file (osservato su PR #6661/#6662, 2026-08-29).
-            /public/
-            !/public/images/
-            # Stesso punto cieco di related-search-candidates.json/slug-registry.json
-            # sopra: send-job-alerts.mjs (usato dal test email di alert lavoro)
-            # fa fs.readdirSync('public/images/brands') a module-load per
-            # costruire la mappa slug->logo — un path runtime,
-            # invisibile a verify-checkout-profiles.mjs. Con la directory esclusa il
-            # readdirSync fallisce (try/catch silenzioso -> Map vuota) e OGNI test
-            # "brand logo" del file fallisce, indipendentemente dal diff (osservato
-            # su #6682 e #6686, 2026-08-30, nessuno dei due tocca questo codice).
-            # Piccolo: 483 file, ~1.2 MB — nulla a che vedere con le decine di GB
-            # di public/images/ escluse per il resto.
-            /public/images/brands/
-            /*.cjs
-            /*.js
-            /*.json
-            /*.md
-            /*.mjs
-            /*.ts
-            /*.tsx
-            /*.yaml
-            /*.yml
-            /*.config.*
-            # Stesso punto cieco di related-search-candidates.json sopra: due test
-            # leggono un doc sotto /docs/ (bucket escluso, 108 MB/706 file) con un
-            # path runtime — invisibile a verify-checkout-profiles.mjs. `/*.md`
-            # sopra copre i doc di root (ISSUES.md, REVIEW.md, ecc., osservato
-            # rosso su #6699 2026-08-30: readFileSync ISSUES.md ENOENT), ma
-            # docs/FIX-ISSUE-COMMAND.md resta sotto il bucket escluso senza
-            # questo carve-out puntuale.
-            /docs/FIX-ISSUE-COMMAND.md
-            /docs/preferred-sources-checklist.md
-            # Stesso punto cieco: tests/longform-docs-match-renderer.test.ts
-            # legge questi due doc con `readFileSync(join(process.cwd(), rel))`
-            # — un path runtime, invisibile all'analisi statica degli import.
-            # E' l'invariante doc<->renderer di #7359 (cap/gap/soglia H2 citati
-            # nella prosa devono coincidere con services/articleAdDensity.ts):
-            # senza il carve-out il file muore in import con ENOENT e il job
-            # esce rosso con «no tests» (osservato su #7555, 2026-09-05).
-            /docs/ads-placement-longform.md
-            /docs/editorial-longform-audit.md
-            # Runtime `fs.readFileSync(ROOT, 'index.html'/'index.css')` reads in
-            # tests/bfs-depth-hub-link-coverage.test.ts and tests/events-card-atoms.test.ts
-            # — invisible to verifyCheckoutProfiles' import-graph analysis (it only
-            # resolves static imports, not runtime path strings), so this gap
-            # shipped silently until the sparse profile actually excluded them.
-            /index.html
-            /index.css
-            # Several related tests read this root file at runtime rather than
-            # importing it, so the dependency is invisible to the graph.
-            /firestore.rules
-            /.gitignore
-            /.npmrc
-            /package-lock.json
-            /package.json
-            /tsconfig*.json
-            /vitest.config.ts
-            # The reviewer must be able to read the two repository contracts;
-            # keep them explicit so this job still excludes unrelated docs and
-            # the full article corpus.
-            /REVIEW.md
-            /AGENTS.md
-          sparse-checkout-cone-mode: false
-
-      # UNA sola invocazione (erano tre). Niente `--ignore-scripts`: lo usava il
-      # solo job `collision`, che non eseguiva codice del repo; qui la stessa
-      # install serve a `tsc` e a vitest, che le dipendenze complete le vogliono.
-      - name: Setup Node.js + npm ci (una volta per tutte e quattro le famiglie)
-        uses: ./.github/actions/ci-npm-setup
-
-      - name: Cache Vitest/Vite transform cache
-        id: vitest-cache
-        uses: actions/cache/restore@v5
-        with:
-          path: |
-            node_modules/.vite-independent
-            node_modules/.vite-dependent
-            node_modules/.cache/node-compile
-            .cache/vitest-related
-          key: vitest-transform-${{ runner.os }}-${{ hashFiles('package-lock.json', 'vitest.config.ts', '.github/workflows/tests.yml') }}
-          restore-keys: |
-            vitest-transform-${{ runner.os }}-
-
-      - name: Cache TypeScript incremental state
-        # `tsc --noEmit` mantiene il controllo completo, ma riusa il grafo e
-        # le diagnostiche dei file invariati tra run dello stesso ramo. Il
-        # compilatore verifica hash/opzioni prima del riuso; la cache è quindi
-        # una misura di performance, non una scorciatoia del gate.
-        id: tsc-cache
-        uses: actions/cache/restore@v5
-        with:
-          path: .cache/tsc
-          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
-          restore-keys: |
-            tsc-incremental-${{ runner.os }}-
-
-      # ══════════════════════════════════════════════════════════════════════
-      # FAMIGLIA 1/4 — contract (ex job `contract`, ex pr-body-contract.yml)
-      # `!cancelled()` sul primo step: un rosso di un'altra famiglia NON deve
-      # impedire a questa di girare — era la proprietà dei quattro job
-      # paralleli, e va conservata ora che sono step (vedi «Conseguenza #2»).
-      # Gira su ogni evento `pull_request` del job pesante; su `edited` il
-      # companion body-only in fondo al file esegue la stessa copia verificata
-      # dello step come check distinto. Il body viene quindi rivalidato due
-      # volte, senza sostituire il verdetto del percorso pesante.
-      # ══════════════════════════════════════════════════════════════════════
       - name: PR-body completeness + multi-issue Closes (no checkout, all events)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' }}
+        if: ${{ !cancelled() && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) }}
+        id: body_contract
         uses: actions/github-script@v8
         with:
           script: |
             const STICKY = '<!-- pr-body-contract -->';
-            const body = context.payload.pull_request.body || '';
+            const prNumber = Number(context.payload.pull_request?.number || context.payload.inputs?.pr_number);
+            if (!Number.isSafeInteger(prNumber) || prNumber <= 0) throw new Error('Invalid PR number');
+            const { data: currentPr } = await github.rest.pulls.get({ ...context.repo, pull_number: prNumber });
+            const body = currentPr.body || '';
 
             // --- 1) Required headers (REVIEW.md completeness contract) ---------------
             // Literal headers required by REVIEW.md. Tolerate trailing text on the
@@ -661,7 +336,7 @@ jobs:
             const closingNums = [...new Set([...bodyNoCode.matchAll(CLOSE_SINGLE)].map((m) => m[1]))];
 
             const { owner, repo } = context.repo;
-            const issue_number = context.payload.pull_request.number;
+            const issue_number = prNumber;
 
             // --- 1c) ADVISORY: funnel-critical files changed but never cited in the
             // body (#6301, reproduced on #6279: the diff touched
@@ -813,12 +488,192 @@ jobs:
             // Advisory, NON entra in `fails`/`setFailed` — vedi il commento sul blocco
             // che calcola `advisoryParts` più sopra.
             if (advisoryParts.length) parts.push(...advisoryParts);
-            parts.push(`Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — questo check ricalcola a ogni edit.`);
+            parts.push(`Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — il prossimo run sul codice rivalida la descrizione corrente.`);
 
             await upsert(parts.join('\n\n'));
             core.setFailed(`PR body contract: ${fails.join('; ')}`);
 
-      # --- Source-guard steps: niente checkout dedicato, skip su `edited` -----
+      # `git checkout` scrive l'albero con un thread solo per default (issue
+      # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
+      # 37,4s (-27%) impostando `checkout.workers 0` (= usa tutti i core).
+      # `actions/checkout` esegue un `git checkout` normale e rispetta la config
+      # globale, quindi basta impostarla PRIMA del passo. Rischio zero: non
+      # cambia cosa viene scaricato o scritto, solo quanti thread lo scrivono.
+      - run: git config --global checkout.workers 0
+
+      # CHECKOUT UNICO per tutte e quattro le famiglie. Il perché di questo
+      # profilo esatto — albero pieno + storia profonda + `blob:none` — sta in
+      # «Il checkout: uno solo» nella testata. In breve: i source guard del
+      # contract diffano a tre punti e senza storia non hanno un merge-base
+      # (`resolve-merge-base.mjs` andrebbe in blocking-skip, issue #5195, cioè
+      # il guard direbbe «NON ESEGUITO» a ogni run); vitest vuole l'albero
+      # intero; `fetch-depth: 0` senza `filter:` sarebbe il clone da 15 GB.
+      #
+      # NB: con `fetch-depth: 0` `actions/checkout` scarica tutta la storia del
+      # ref che gli è stato chiesto, ma NON crea `refs/remotes/origin/<base>` —
+      # per questo gli step che ne hanno bisogno continuano a fare il fetch
+      # esplicito con il refspec di destinazione (issue #6058). Quel fetch ora è
+      # quasi gratis: i commit ci sono già, manca solo il NOME.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          filter: blob:none
+          # Allowlist non-cone: il job usa tsc e Vitest con riferimenti runtime
+          # che il profilo statico non può chiudere in modo affidabile.
+          sparse-checkout: |
+            /.github/
+            /.githooks/
+            /build-plugins/
+            /components/
+            /functions/
+            /hooks/
+            /infra/
+            /scripts/
+            /server/
+            /services/
+            /tests/
+            /packages/*/engine/
+            /packages/*/src/
+            /packages/*/tests/
+            # These are the two symlink targets needed by tsc and the related
+            # import graph. Keep them file-scoped: including the parent
+            # `packages/articles/content/` would materialize the full article
+            # corpus in this CI checkout.
+            /packages/articles/content/blog-articles-data.ts
+            /packages/articles/content/swiss-articles-data.ts
+            /packages/articles/content/blogArticleIds.ts
+            /packages/articles/content/routerBlogData.ts
+            /packages/articles/content/routerSwissData.ts
+            /packages/articles/content/blogImageCdnMirror.ts
+            /packages/articles/content/blog-meta-*.ts
+            /packages/articles/content/seo/seo-blog*.ts
+            # Runtime reads selected by the related-test graph when locale
+            # bundles change. The services/locales/blog-body symlink is in the
+            # checkout, but its corpus target is otherwise excluded.
+            /packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts
+            # Type-only dependency imported by the SEO modules above; keep it
+            # file-scoped so the article corpus remains excluded.
+            /packages/articles/content/seo/seoMetadataType.ts
+            /packages/articles/index.ts
+            /packages/articles/articleSections.ts
+            /data/
+            !/data/translation-cache/
+            !/data/orphan-enriched-data/
+            !/data/jobs-snapshots-history/
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/evidence-index.json
+            # related-search-candidates.json e slug-registry.json restano IN
+            # checkout: due test del suite blocking li leggono da filesystem
+            # con un path runtime (resolve(__dirname, ...)), invisibile
+            # all'analisi statica degli import di verify-checkout-profiles.mjs
+            # (lo stesso "punto cieco" gia' documentato per npm-run-chain in
+            # checkout-profile-analyzer.mjs:199-205, issue #6234). Escluderli
+            # qui fa fallire SEMPRE tests/seo/related-search-clusters-emitted.test.ts
+            # e tests/seo/cathedral-slug-registry-canton-backfill.test.ts non
+            # appena il selettore related li sceglie — indipendentemente dal
+            # contenuto del diff — bloccando PR che non c'entrano nulla con
+            # questi due file (osservato su PR #6661/#6662, 2026-08-29).
+            /public/
+            !/public/images/
+            # Stesso punto cieco di related-search-candidates.json/slug-registry.json
+            # sopra: send-job-alerts.mjs (usato dal test email di alert lavoro)
+            # fa fs.readdirSync('public/images/brands') a module-load per
+            # costruire la mappa slug->logo — un path runtime,
+            # invisibile a verify-checkout-profiles.mjs. Con la directory esclusa il
+            # readdirSync fallisce (try/catch silenzioso -> Map vuota) e OGNI test
+            # "brand logo" del file fallisce, indipendentemente dal diff (osservato
+            # su #6682 e #6686, 2026-08-30, nessuno dei due tocca questo codice).
+            # Piccolo: 483 file, ~1.2 MB — nulla a che vedere con le decine di GB
+            # di public/images/ escluse per il resto.
+            /public/images/brands/
+            /*.cjs
+            /*.js
+            /*.json
+            /*.md
+            /*.mjs
+            /*.ts
+            /*.tsx
+            /*.yaml
+            /*.yml
+            /*.config.*
+            # Stesso punto cieco di related-search-candidates.json sopra: due test
+            # leggono un doc sotto /docs/ (bucket escluso, 108 MB/706 file) con un
+            # path runtime — invisibile a verify-checkout-profiles.mjs. `/*.md`
+            # sopra copre i doc di root (ISSUES.md, REVIEW.md, ecc., osservato
+            # rosso su #6699 2026-08-30: readFileSync ISSUES.md ENOENT), ma
+            # docs/FIX-ISSUE-COMMAND.md resta sotto il bucket escluso senza
+            # questo carve-out puntuale.
+            /docs/FIX-ISSUE-COMMAND.md
+            /docs/preferred-sources-checklist.md
+            # Stesso punto cieco: tests/longform-docs-match-renderer.test.ts
+            # legge questi due doc con `readFileSync(join(process.cwd(), rel))`
+            # — un path runtime, invisibile all'analisi statica degli import.
+            # E' l'invariante doc<->renderer di #7359 (cap/gap/soglia H2 citati
+            # nella prosa devono coincidere con services/articleAdDensity.ts):
+            # senza il carve-out il file muore in import con ENOENT e il job
+            # esce rosso con «no tests» (osservato su #7555, 2026-09-05).
+            /docs/ads-placement-longform.md
+            /docs/editorial-longform-audit.md
+            # Runtime `fs.readFileSync(ROOT, 'index.html'/'index.css')` reads in
+            # tests/bfs-depth-hub-link-coverage.test.ts and tests/events-card-atoms.test.ts
+            # — invisible to verifyCheckoutProfiles' import-graph analysis (it only
+            # resolves static imports, not runtime path strings), so this gap
+            # shipped silently until the sparse profile actually excluded them.
+            /index.html
+            /index.css
+            # Several related tests read this root file at runtime rather than
+            # importing it, so the dependency is invisible to the graph.
+            /firestore.rules
+            /.gitignore
+            /.npmrc
+            /package-lock.json
+            /package.json
+            /tsconfig*.json
+            /vitest.config.ts
+            # The reviewer must be able to read the two repository contracts;
+            # keep them explicit so this job still excludes unrelated docs and
+            # the full article corpus.
+            /REVIEW.md
+            /AGENTS.md
+          sparse-checkout-cone-mode: false
+
+      # UNA sola invocazione (erano tre). Niente `--ignore-scripts`: lo usava il
+      # solo job `collision`, che non eseguiva codice del repo; qui la stessa
+      # install serve a `tsc` e a vitest, che le dipendenze complete le vogliono.
+      - name: Setup Node.js + npm ci (una volta per tutte e quattro le famiglie)
+        uses: ./.github/actions/ci-npm-setup
+
+      - name: Cache Vitest/Vite transform cache
+        id: vitest-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            node_modules/.vite-independent
+            node_modules/.vite-dependent
+            node_modules/.cache/node-compile
+            .cache/vitest-related
+          key: vitest-transform-${{ runner.os }}-${{ hashFiles('package-lock.json', 'vitest.config.ts', '.github/workflows/tests.yml') }}
+          restore-keys: |
+            vitest-transform-${{ runner.os }}-
+
+      - name: Cache TypeScript incremental state
+        # `tsc --noEmit` mantiene il controllo completo, ma riusa il grafo e
+        # le diagnostiche dei file invariati tra run dello stesso ramo. Il
+        # compilatore verifica hash/opzioni prima del riuso; la cache è quindi
+        # una misura di performance, non una scorciatoia del gate.
+        id: tsc-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/tsc
+          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
+          restore-keys: |
+            tsc-incremental-${{ runner.os }}-
+
+      # --- Source guards share the code checkout ----------------------------
       # Qui stava un secondo `actions/checkout@v5` (`fetch-depth: 0`,
       # `filter: blob:none`, `ref: head.sha`) tutto per questi guard. È stato
       # RIMOSSO perché il checkout condiviso in testa al job porta già la storia
@@ -840,7 +695,7 @@ jobs:
       # (a) l'autore la vede PRIMA della review, (b) il reviewer non rifà la grep.
       - name: Surface sibling candidates
         id: sib
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
@@ -860,7 +715,7 @@ jobs:
             console.log('candidates=' + r.candidates.length);
           " >> "$GITHUB_OUTPUT"
       - name: Post sibling-check comment (advisory)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         # ADVISORY: posta un commento sticky, non decide nulla. Senza le due
         # righe qui sotto una 500 TRANSITORIA dell'API GitHub sulla
         # `listComments` faceva fallire lo step e con lui l'INTERO job
@@ -962,7 +817,7 @@ jobs:
       # touching searchConsoleCompat.ts).
       - name: Surface below-floor-bridge candidates
         id: bfb
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
@@ -982,7 +837,7 @@ jobs:
             console.log('gapFiles=' + r.gapsByFile.length);
           " >> "$GITHUB_OUTPUT"
       - name: Post below-floor-bridge comment (advisory)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         # Stessa classe dello step sibling-check qui sopra, stessa fix: e'
         # advisory, quindi non deve poter far cadere il gate `contract`.
         # Tenerne uno solo protetto lascerebbe la meta' del difetto in piedi.
@@ -1063,7 +918,7 @@ jobs:
       # comportamento verificato live su post-deploy-validate-live, probe run
       # 28352247167); il `wait-all` sotto li rijoina prima della fine del job.
       - name: Forbid hard-coded AdSense <ins> in build-plugins
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         background: true
         run: node scripts/ci/check-cls-ad-slots.mjs
 
@@ -1073,7 +928,7 @@ jobs:
       # ad impressions). build-plugins/ + scripts/ are build-time (Node) → exempt.
       # Comment-aware; zero-Claude. Also covered by tests/check-client-lookbehind.test.ts.
       - name: Forbid regex lookbehind in client-bundled source
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         background: true
         run: node scripts/ci/check-client-lookbehind.mjs
 
@@ -1085,7 +940,7 @@ jobs:
       # scripts/lib/int-from-env.mjs. Comment-aware; zero-Claude. Also covered
       # by tests/int-from-env.test.ts.
       - name: Forbid the NaN-producing env fallback inside Number()
-        if: ${{ !cancelled() && ((github.event_name == 'pull_request' && github.event.action != 'edited') || (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'merge_group') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && ((github.event_name == 'pull_request') || (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'merge_group')) }}
         background: true
         run: node scripts/ci/check-number-env-fallback.mjs
 
@@ -1161,7 +1016,7 @@ jobs:
       # min=…MB max=…MB`.
       # ══════════════════════════════════════════════════════════════════════
       - name: tsc --noEmit (baseline + ratchet)
-        if: ${{ !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
         background: true
         env:
           NODE_OPTIONS: --max-old-space-size=8192
@@ -1214,7 +1069,7 @@ jobs:
         # la catena resta fail-fast come quando era un job a sé (gli step si
         # passano artefatti — assemble → migrate → vitest dependent — e farli
         # girare su un input mancante produrrebbe un secondo rosso illeggibile).
-        if: ${{ !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
         # 0-tolerance gate: blocks any commit that contains unresolved
         # <<<<<<< / ======= / >>>>>>> markers. Added after the 2026-05-21
         # incident where 92 job slice files were committed with raw
@@ -1357,7 +1212,7 @@ jobs:
         # Deve restare attivo perché `run-related-tests.mjs` consuma sempre
         # `changed-paths.txt`, anche quando tutti i gate corpus-wide sono
         # delegati.
-        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -1487,7 +1342,7 @@ jobs:
         # Il related run unico viene eseguito dopo assemble+migrate. Questo
         # vecchio slot resta disattivato per non costruire due volte il grafo
         # Vitest; il comando non deve mai tornare a `npm test`/suite completa.
-        if: ${{ false }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (false) }}
         # VITEST_DATASET_GROUP=independent → vitest.config.ts esclude i file
         # classificati da scripts/ci/dataset-dependent-tests.mjs. La partizione
         # è calcolata dal sorgente a ogni run. La partizione conserva solo
@@ -1570,7 +1425,7 @@ jobs:
           fi
 
       - name: Cache assemble-jobs output
-        if: steps.assemble.outputs.required == 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
         # content-addressable cache under .cache/assemble-jobs (keyed on a
         # sha256 of every slice file + an internal output-version) that restores
@@ -1587,7 +1442,7 @@ jobs:
             assemble-jobs-${{ runner.os }}-
 
       - name: Assemble + migrate
-        if: steps.assemble.outputs.required == 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}
         # Condizionale, con esecuzione FOREGROUND quando serve. La misura
         # storica (~326s, run 32959864544) che giustificava la posizione
         # foreground presupponeva che "Obsolete pre-assemble test slot" fosse
@@ -1706,14 +1561,14 @@ jobs:
       # sua cache resterebbe vuota. Salviamo subito dopo il join, anche se il
       # verdetto complessivo del job è già destinato al rosso.
       - name: Save TypeScript incremental state
-        if: ${{ always() && steps.tsc-cache.outputs.cache-hit != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.tsc-cache.outputs.cache-hit != 'true') }}
         uses: actions/cache/save@v5
         with:
           path: .cache/tsc
           key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
 
       - name: Save Vitest related graph
-        if: ${{ always() && steps.vitest-cache.outputs.cache-hit != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.vitest-cache.outputs.cache-hit != 'true') }}
         uses: actions/cache/save@v5
         with:
           path: |
@@ -1726,7 +1581,7 @@ jobs:
       - name: Upload related test timing
         # always() so we still collect timings when the run is red (a slow test
         # that times out is exactly the data point we want for re-balancing).
-        if: ${{ always() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always()) }}
         uses: actions/upload-artifact@v7
         with:
           name: shard-timing-related
@@ -1737,7 +1592,7 @@ jobs:
       - name: Report Vitest failures on PR
         # The two Vitest steps can fail independently; this step must still
         # run after either group fails and must never mask the original gate.
-        if: ${{ always() && github.event_name == 'pull_request' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && github.event_name == 'pull_request') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -1749,14 +1604,19 @@ jobs:
 
       - name: Resolve PR from pull request
         id: resolve
-        if: github.event_name == 'pull_request'
+        if: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) }}
         env:
-          PRN: ${{ github.event.pull_request.number }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PRN: ${{ github.event.pull_request.number || inputs.pr_number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
           REPO: ${{ github.repository }}
         run: |
           set -uo pipefail
-          meta=$(gh pr view "$PRN" --repo "$REPO" --json isDraft,title 2>/dev/null || true)
+          [[ "$PRN" =~ ^[1-9][0-9]*$ ]] || exit 1
+          meta=$(gh pr view "$PRN" --repo "$REPO" --json isDraft,title,labels,headRefOid)
+          [ "$(echo "$meta" | jq -r '.headRefOid')" = "$HEAD_SHA" ] || { echo "::error::PR head changed; this run cannot review it."; exit 1; }
+          stale_review=$(echo "$meta" | jq -r 'any(.labels[]?; .name == "stale-review")')
+          echo "stale_review=$stale_review" >> "$GITHUB_OUTPUT"
           is_draft=$(echo "$meta" | jq -r '.isDraft // false')
           title=$(echo "$meta" | jq -r '.title // ""')
           if [ "$is_draft" = "true" ]; then
@@ -1778,7 +1638,7 @@ jobs:
 
       - name: Re-review guard (skip Claude when no code changed since last LGTM)
         id: guard
-        if: steps.resolve.outputs.should_review == 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -1820,7 +1680,7 @@ jobs:
 
       - name: Determine review tier
         id: tier
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2003,7 +1863,7 @@ jobs:
         wait-all: true
 
       - name: Setup Headroom compression proxy
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         uses: ./.github/actions/setup-headroom
         with:
           # L'install è già girato in background sopra: qui serve solo far
@@ -2021,7 +1881,7 @@ jobs:
         # ripiegare su `gh pr view --json files`. Il risparmio non era nelle tre
         # `gh` call (puro bash, zero Claude) ma nel `gh pr diff`, che su una PR
         # data-only puo' essere enorme: quello resta saltato, sotto.
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
@@ -2171,7 +2031,7 @@ jobs:
           ls -la "$CTX_DIR"
 
       - name: Mint GitHub App token for Claude review
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2181,7 +2041,7 @@ jobs:
 
       - name: Pre-flight — Claude quota beacon for Codex fallback
         id: quota
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -2198,7 +2058,7 @@ jobs:
         # `continue-on-error` sotto, lo scadere non tinge il job di rosso.
         timeout-minutes: 45
         id: claude_review
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Don't let a hard action failure abort the job before the guard below
         # can classify it — the guard decides whether to fail loudly.
         continue-on-error: true
@@ -2263,7 +2123,7 @@ jobs:
         # claude-code-action installs/resolves the CLI at runtime and adds its
         # bin directory to GITHUB_PATH. Invoke that exact binary in the next
         # step so an unsupported flag cannot silently downgrade the review.
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outcome == 'success' && steps.claude_review.outputs.fallback_used != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outcome == 'success' && steps.claude_review.outputs.fallback_used != 'true') }}
         shell: bash
         run: |
           set -o pipefail
@@ -2310,7 +2170,7 @@ jobs:
         #    has no `## LGTM` so it won't auto-merge, and it gets re-reviewed on
         #    the next push / by the rescuer once quota recovers. No false-green.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2369,7 +2229,7 @@ jobs:
         # 429/action crash). Skipping here left the required check green with
         # zero bot reviews on HEAD (PR #7635): no LGTM, nothing red, auto-merge
         # parked forever. Fail this step when HEAD has no valid LGTM.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2388,28 +2248,22 @@ jobs:
       # trattarlo come verde nel ruleset. Il gate sopra deve aver valutato la
       # review quando la guardia non ha attivato il carry-forward; se quel
       # percorso è stato saltato, trasformiamo l'assenza di verdetto in un
-      # rosso reale. Il wrapper required sotto copre invece il caso più ampio
-      # in cui l'intero job di esecuzione viene saltato.
+      # rosso reale. Il job non ha condizioni che possano saltarlo.
       - name: Fail when required review gate is skipped
-        if: >-
-          ${{ always() && github.event_name == 'pull_request' &&
-          github.event.pull_request.draft == false &&
-          steps.resolve.outputs.should_review == 'true' &&
-          steps.guard.outputs.skip != 'true' &&
-          steps.review_gate.outcome == 'skipped' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_gate.outcome == 'skipped') }}
         run: |
           echo "::error::Required review gate was skipped on a pull request; no approving review verdict was evaluated."
           exit 1
 
       # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
-      # job. Il ramo stale-review è una rescue one-shot: richiede l’evento
-      # `labeled`, il percorso di review completato e il solo review gate rosso.
+      # job. Il ramo stale-review usa la label corrente letta dalle API,
+      # il percorso di review completato e il solo review gate rosso.
       # Così un errore duro precedente non rebasea un workspace parziale e la
-      # label persistente non riattiva il ramo su eventi successivi.
+      # label viene rimossa dal consumer dopo un re-trigger riuscito.
       # Il token App è l’identità primaria; il fallback GITHUB_TOKEN mantiene il
       # job fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
       - name: Mint autorebase App token
-        if: (success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && github.event.action == 'labeled' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure' && contains(github.event.pull_request.labels.*.name, 'stale-review'))
+        if: ${{ steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2418,7 +2272,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Rebase near-merge PRs after review or stale rescue
-        if: (success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && github.event.action == 'labeled' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure' && contains(github.event.pull_request.labels.*.name, 'stale-review'))
+        if: ${{ steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -2426,13 +2280,13 @@ jobs:
         run: node scripts/ci/pr-autorebase.mjs
 
       - name: Cleanup autorebase credentials
-        if: always()
+        if: ${{ steps.body_contract.outcome != 'failure' && (always()) }}
         run: rm -f /tmp/firebase-sa.json
 
       - name: Claude usage metrics
         # Solo se la review Claude è effettivamente girata (guard non-skip): a
         # review skippata non c'è execution_file da riassumere.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outputs.fallback_used != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outputs.fallback_used != 'true') }}
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
@@ -2446,7 +2300,7 @@ jobs:
       # `continue-on-error: true` è il fail-soft: il segnalatore non può
       # aggiungere un rosso al job che sta descrivendo, nemmeno crashando.
       - name: Explain the job verdict in the run summary
-        if: ${{ always() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always()) }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -2459,474 +2313,3 @@ jobs:
           # fallire è stato solo uno step `continue-on-error`.
           JOB_STATUS: ${{ job.status }}
         run: node scripts/ci/explain-job-verdict.mjs
-
-  # Il ruleset richiede questo nome esatto. Il wrapper gira sempre e converte
-  # ogni risultato diverso da `success` in un fallimento reale. Sui percorsi
-  # body-only in cui `vitest` è deliberatamente saltato, accetta il run solo se
-  # i check-run dello stesso SHA dimostrano un `vitest execution` completato
-  # con `success`; un vecchio `failure`, `cancelled` o nessun run blocca.
-  # Non legge il rollup del workflow: usa il risultato diretto del job e la
-  # storia dei check-run che pubblicano il verdetto applicativo.
-  #
-  # `always()` è necessario per poter osservare anche failure/cancelled del job
-  # pesante; il fallback non promuove un vecchio verde se esiste un verdetto
-  # completato più recente diverso da `success`.
-  vitest-required:
-    name: vitest (unit + integration)
-    if: ${{ always() }}
-    needs: [vitest]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Require vitest execution job to complete
-        if: ${{ always() }}
-        env:
-          EXECUTION_RESULT: ${{ needs.vitest.result }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: |
-          set -euo pipefail
-          if [ "${EXECUTION_RESULT}" = "success" ]; then
-            echo "Required vitest check satisfied by a successful execution job."
-            exit 0
-          fi
-
-          if [ "${EXECUTION_RESULT}" = "skipped" ] || [ "${EXECUTION_RESULT}" = "cancelled" ]; then
-            check_runs="${CHECK_RUNS_JSON:-}"
-            if [ -z "${check_runs}" ]; then
-              check_runs="$(gh api --paginate --slurp "repos/${REPO}/commits/${HEAD_SHA}/check-runs?per_page=100")"
-            fi
-            latest_execution="$(printf '%s' "${check_runs}" | jq -r '
-              [.[].check_runs[]?
-                | select(.name == "vitest execution")
-                | select(.status == "completed" and .completed_at != null)
-                | select(.conclusion != "skipped")]
-              | sort_by(.completed_at)
-              | last
-              | .conclusion // ""
-            ')"
-            if [ "${latest_execution}" = "success" ]; then
-              echo "Required vitest check satisfied by the latest successful execution on ${HEAD_SHA}."
-              exit 0
-            fi
-          fi
-
-          echo "::error::Required vitest check cannot be satisfied: vitest execution result=${EXECUTION_RESULT}; no latest successful execution verdict exists for ${HEAD_SHA}."
-          exit 1
-
-  # `edited` rivalida il body in un check distinto senza sostituire la verifica
-  # del codice: il wrapper required conserva il verdetto precedente dello SHA
-  # solo quando i check-run lo dimostrano esplicitamente.
-  body-contract:
-    name: PR body contract
-    if: ${{ github.event_name == 'pull_request' && github.event.action == 'edited' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: PR-body completeness + multi-issue Closes (no checkout, all events)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' }}
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const STICKY = '<!-- pr-body-contract -->';
-            const body = context.payload.pull_request.body || '';
-
-            // --- 1) Required headers (REVIEW.md completeness contract) ---------------
-            // Literal headers required by REVIEW.md. Tolerate trailing text on the
-            // same line (e.g. "## Non implementato (ancora)"); require start-of-line.
-            const hasImpl = /^\s{0,3}#{2,3}\s+Implementato\b/im.test(body);
-            const hasNon  = /^\s{0,3}#{2,3}\s+Non implementato\b/im.test(body);
-            const missing = [];
-            if (!hasImpl) missing.push('`## Implementato`');
-            if (!hasNon)  missing.push('`## Non implementato (ancora)`');
-
-            // --- 1b) Section CONTENT quality (escalation #3250, bucket
-            // `reviewer-finding/pr-body-contract` 6x/14d) -------------------------
-            // Header PRESENCE alone isn't enough: the PR template leaves bare `- `
-            // placeholder bullets in both sections, and a fixer that submits
-            // without filling them passes this gate but still draws a reviewer
-            // 🔴 finding — wasting a review cycle. Mirrors
-            // scripts/lib/pr-body-sections-check.mjs (own unit tests); keep the
-            // two in sync on rule changes.
-            const extractSection = (text, headerRe) => {
-              const m = headerRe.exec(text);
-              if (!m) return null;
-              const rest = text.slice(m.index + m[0].length);
-              const nextHeading = /\n(?=#{1,6}[ \t])/.exec(rest);
-              return nextHeading ? rest.slice(0, nextHeading.index) : rest;
-            };
-            const stripNonContent = (t) => String(t ?? '')
-              .replace(/```[\s\S]*?```/g, ' ')
-              .replace(/<!--[\s\S]*?-->/g, ' ');
-            const isSubstantiveBullet = (line) => line.replace(/^[ \t]*[-*+][ \t]*/, '').trim().length > 0;
-            const hasMeaningfulContent = (raw) => stripNonContent(raw).split('\n').some((line) => {
-              const t = line.trim();
-              if (!t) return false;
-              if (/^#{1,6}[ \t]/.test(t)) return false;
-              if (/^[-*+](?:[ \t]|$)/.test(t)) return isSubstantiveBullet(t);
-              return true;
-            });
-            const hasOnlyBareBullets = (raw) => {
-              const lines = stripNonContent(raw).split('\n').filter((l) => l.trim().length > 0);
-              if (lines.length === 0) return false;
-              return lines.every((line) => {
-                const t = line.trim();
-                if (/^#{1,6}[ \t]/.test(t)) return true;
-                if (/^[-*+][ \t]?$/.test(t)) return true;
-                if (/^[-*+][ \t]/.test(t)) return false;
-                return true;
-              });
-            };
-            const hasNessuno = (raw) => /\bnessun[oa]?\b/i.test(stripNonContent(raw));
-
-            const sectionViolations = [];
-            if (hasImpl) {
-              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
-              if (!hasMeaningfulContent(c)) {
-                sectionViolations.push(hasOnlyBareBullets(c)
-                  ? '`## Implementato` contiene solo bullet placeholder vuoti (`- `) non compilati.'
-                  : '`## Implementato` è vuota.');
-              }
-            }
-            if (hasNon) {
-              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Non implementato[^\n]*/im) ?? '';
-              if (!hasNessuno(c) && !hasMeaningfulContent(c)) {
-                sectionViolations.push(hasOnlyBareBullets(c)
-                  ? '`## Non implementato (ancora)` contiene solo bullet placeholder vuoti (`- `) non compilati.'
-                  : '`## Non implementato (ancora)` è vuota.');
-              }
-            }
-
-            // --- 2) Multi-issue Closes on one line (GitHub closes only the first) ----
-            // Mirror of scripts/lib/pr-body-closes-check.mjs (see tests). A closing
-            // keyword governing the first ref, then ≥1 MORE refs chained by list
-            // separators only (space/comma/colon/semicolon/&/"and") → the extras are
-            // silently ignored by GitHub. A ref after a sentence boundary or real
-            // words (`Closes #12. See also #99`) is a cross-ref, not flagged.
-            const REF = '(?:[\\w.-]+\\/[\\w.-]+)?#\\d+';
-            const SEP = '(?:\\s*(?:,|:|;|&|\\band\\b)?\\s*)';
-            const CHAIN = new RegExp(
-              `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b\\s*(${REF})((?:${SEP}${REF})+)`,
-              'gi',
-            );
-            const closesViolations = [];
-            body.split(/\r?\n/).forEach((line, i) => {
-              CHAIN.lastIndex = 0;
-              const m = CHAIN.exec(line);
-              if (!m) return;
-              const nums = (m[0].match(new RegExp(REF, 'g')) || [])
-                .map((r) => r.match(/#(\d+)/)[1]);
-              if (nums.length >= 2) closesViolations.push({ line: i + 1, text: line.trim(), nums });
-            });
-
-            // --- 2b) Closure intent expressed with a keyword GitHub ignores ---------
-            // Mirror of scripts/lib/pr-body-closes-check.mjs `lineIntentRefs` /
-            // `effectiveRefs` (tests/pr-body-closes-check.test.ts is the source of
-            // truth for the rule). GitHub honors ONLY close/closes/closed,
-            // fix/fixes/fixed, resolve/resolves/resolved — an Italian verb ("Chiude
-            // #N", "Chiusa da #N", "Risolve #N") or an English gerund ("Closing #N")
-            // reads as closure to a human and closes NOTHING: the issue stays open
-            // forever with the fix already on `main`. The detection already existed
-            // in the lib (reused by the deterministic review/merge gates)
-            // but never reached a PR opened through the normal `## LGTM` review path
-            // — real recurrence (issue #5784): PR #5776 said `Chiude #5725` and #5725
-            // stayed open until closed by hand; same shape on #5724, near-miss on
-            // #5774. This block closes that gap for every PR, not just drift-fallback
-            // ones.
-            // Masks fenced/inline code + HTML comments FIRST, same reason as check 3
-            // below: GitHub does not act on a keyword inside code formatting, and a
-            // body that merely DOCUMENTS the bug (this one, or the PR template) would
-            // otherwise false-positive on itself. Newlines survive the mask (blanks
-            // replace non-newline chars) so line numbers still point at the real line.
-            const maskQuotedKeepLines = (t) => String(t || '').replace(
-              /```[\s\S]*?```|~~~[\s\S]*?~~~|<!--[\s\S]*?-->|`[^`\n]*`/g,
-              (m) => m.replace(/[^\n]/g, ' '),
-            );
-            const EFFECTIVE_RE = new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b[\\s:]*[*_\`[]*(${REF})`, 'gi');
-            // The Italian verbs (measured recurrence) plus the English near-misses
-            // that share the failure mode. Deliberately NOT here: `addresses`, `see`,
-            // `related to`, `refs`, `part of` — those mean "connected to", and
-            // flagging them would punish a body that legitimately just NAMES an
-            // issue without intending to close it.
-            const INTENT_KW =
-              '(?:chiud(?:e|ono|er[àa]|iamo)|chius[aoie]|risolv(?:e|ono|iamo)|risolt[aoie]|' +
-              'fixa(?:ta|to)?|corregg(?:e|ono)|corrett[aoie]|' +
-              'closing|fixing|resolving|solves|solved|completes|completed)';
-            // A PAST-TENSE report ("già chiusa da #66", "was fixed by #66") states
-            // something ELSE already closed the ref — not this PR's intent.
-            const PAST_REPORT_RE = /\b(?:gi[àa]'?|already|was|were|sono\s+stat[ei]|[èe]'?\s+stat[ao])\s*$/i;
-            // A NEGATED report ("non chiusi: #849 resta aperta") states the ref
-            // stays OPEN — the opposite of an intent. Without it this check tells
-            // the author to close an issue the same sentence declares open.
-            // `\p{L}` with `u`, not `\w`: `\w` is ASCII and `non è chiusa #849`
-            // broke the chain at the accent. The lookahead keeps `Non solo
-            // chiude #12` reportable — that phrasing concedes the closure.
-            const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?!\s+(?:solo|soltanto|only)\b)(?:\s+[\p{L}\p{N}_'’]+){0,2}\s*$/iu;
-            const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
-            const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}[\\s:]*[*_\`[]*(${REF})`, 'gi');
-
-            const maskedBodyForIntent = maskQuotedKeepLines(body);
-            const willCloseRefs = new Set();
-            for (const m of maskedBodyForIntent.matchAll(new RegExp(EFFECTIVE_RE.source, EFFECTIVE_RE.flags))) {
-              willCloseRefs.add(m[1].toLowerCase());
-            }
-            const rawBodyLinesForIntent = body.split(/\r?\n/);
-            const intentViolations = [];
-            const intentReported = new Set();
-            maskedBodyForIntent.split(/\r?\n/).forEach((mline, i) => {
-              for (const m of mline.matchAll(new RegExp(INTENT_RE.source, INTENT_RE.flags))) {
-                const ref = m[2];
-                const before = mline.slice(Math.max(0, m.index - 24), m.index);
-                if (PAST_REPORT_RE.test(before)) continue; // "già chiusa da #66" ≠ intent
-                if (NEG_REPORT_RE.test(before)) continue; // "non chiusi: #849" ≠ intent
-                if (willCloseRefs.has(ref.toLowerCase())) continue; // a real keyword already reaches it
-                if (intentReported.has(ref.toLowerCase())) continue; // one report per ref
-                intentReported.add(ref.toLowerCase());
-                intentViolations.push({ line: i + 1, text: (rawBodyLinesForIntent[i] ?? mline).trim(), ref, keyword: m[1] });
-              }
-            });
-
-            // --- 3) Closes #N targeting a multi-item follow-up aggregate ------------
-            // `Closes #N` is GitHub-native and fires on MERGE, BYPASSING the
-            // reconcile multi-item-auto-close veto (FOLLOWUP.md — that veto lives in
-            // the daily cron, not in the merge-close path). Closing a 5-item aggregate
-            // because ONE item was fixed (the fixer circuit-breaker does 1 item/run)
-            // marks residual work COMPLETED while items stay due (real recurrence:
-            // #3050 fixed item 5/5 yet `Closes #3036` closed the 5-item aggregate).
-            // FULL mirror of isAggregate() — single source scripts/ci/check-issue-already-resolved.mjs:
-            // an explicit "N item(s) deferred" count is authoritative once present
-            // (a single-item follow-up whose title merely contains the ordinary word
-            // "batch"/"sweep"/"bulk" — e.g. "1 item deferred ... batch backfill..." —
-            // must not be misclassified as an aggregate, #3378); the sweep/batch/bulk
-            // keyword fallback only applies when NO count is stated (aggregates that
-            // enumerate N targets WITHOUT the count, e.g. "Sweep: ~30 crawlers" #1826).
-            const isAggregateTitleBody = (t, b) => {
-              function stripFencedBlocks(text) {
-                const lines = String(text || '').split('\n');
-                const out = [];
-                let fence = null;
-                let fenceStart = -1;
-                for (let i = 0; i < lines.length; i++) {
-                  const line = lines[i];
-                  const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
-                  if (fence) {
-                    const closes = match
-                      && match[2][0] === fence.char
-                      && match[2].length >= fence.length
-                      && match[1].length >= fence.indent;
-                    if (closes) fence = null;
-                    continue;
-                  }
-                  if (match) {
-                    fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
-                    fenceStart = i;
-                    continue;
-                  }
-                  out.push(line);
-                }
-                return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
-              }
-              function isBoldTitleLead(rest, lines = [], start = 0) {
-                const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
-                let candidate = String(rest || '');
-                if (bold.test(candidate)) return true;
-                for (let i = start; i < lines.length; i++) {
-                  const line = lines[i];
-                  if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
-                  candidate += '\n' + line;
-                  if (bold.test(candidate)) return true;
-                }
-                return false;
-              }
-              function hasEnumeratedItems(body) {
-                const clean = stripFencedBlocks(body);
-                if ((clean.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length >= 2) return true;
-                const lines = clean.split('\n');
-                let ordered = 0;
-                let bullets = 0;
-                for (let i = 0; i < lines.length; i++) {
-                  const orderedMatch = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(lines[i]);
-                  if (orderedMatch && isBoldTitleLead(orderedMatch[1], lines, i + 1)) ordered++;
-                  const bulletMatch = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(lines[i]);
-                  if (bulletMatch && isBoldTitleLead(bulletMatch[1], lines, i + 1)) bullets++;
-                }
-                return ordered >= 2 || bullets >= 2;
-              }
-              const title = String(t || '');
-              const m = title.match(/\b(\d+)\s+items?\s+deferred\b/i);
-              if (m) return Number(m[1]) >= 2;
-              const bodyText = stripFencedBlocks(b);
-              if (/\b(?:sweep|batch|bulk)\b/i.test(title + '\n' + bodyText)) return true;
-              return hasEnumeratedItems(bodyText);
-            };
-            // Strip code-formatted text first: GitHub does NOT honour a closing
-            // keyword inside a fenced block or inline `code` span, so neither should
-            // we — otherwise a body that merely DISCUSSES `Closes #N` (docs, this very
-            // PR, a fix-instruction example) false-positives. Real fixer closes are
-            // plain text on their own line.
-            const bodyNoCode = body
-              .replace(/```[\s\S]*?```/g, ' ')
-              .replace(/`[^`\n]*`/g, ' ');
-            // In-repo closing refs only (bare `#N`; owner/repo#N never auto-closes here).
-            // `:?` tolerates the colon form `Closes: #N`, which GitHub also honours.
-            const CLOSE_SINGLE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b:?\s+#(\d+)\b/gi;
-            const closingNums = [...new Set([...bodyNoCode.matchAll(CLOSE_SINGLE)].map((m) => m[1]))];
-
-            const { owner, repo } = context.repo;
-            const issue_number = context.payload.pull_request.number;
-
-            // --- 1c) ADVISORY: funnel-critical files changed but never cited in the
-            // body (#6301, reproduced on #6279: the diff touched
-            // `.github/workflows/prospector-loop.yml` and the body never named it in
-            // any section — neither this gate nor scripts/lib/pr-body-sections-check.mjs
-            // compared the diff's file list against the body text, only checked that
-            // `## Implementato` had SOME content. Uses `pulls.listFiles` (no checkout
-            // needed — unlike the sibling-check/below-floor-bridge steps further down,
-            // which DO need the tree). Advisory only, same reasoning as the
-            // bullet-without-state warning in pr-body-sections-check.mjs: promoting
-            // straight to blocking risks repeating the 2026-08-12 13h stall documented
-            // there, before PR bodies reliably cite every touched file.
-            const FUNNEL_CRITICAL_PATH_RE = /^\.github\/workflows\//;
-            let uncitedFiles = [];
-            try {
-              const prFiles = await github.paginate(github.rest.pulls.listFiles, {
-                owner, repo, pull_number: issue_number, per_page: 100,
-              });
-              uncitedFiles = prFiles
-                .map((f) => f.filename)
-                .filter((p) => FUNNEL_CRITICAL_PATH_RE.test(p))
-                .filter((p) => !body.includes(p) && !body.includes(p.split('/').pop()));
-            } catch (e) {
-              core.info(`uncited-files check: skip (${e.status || e.message})`);
-            }
-            const advisoryParts = [];
-            if (uncitedFiles.length) {
-              advisoryParts.push(
-                `⚠️ **File funnel-critical non citati nel body** (issue #6301, advisory — non blocca) — ` +
-                `il diff modifica ${uncitedFiles.length} file sotto \`.github/workflows/**\` che il body non menziona ` +
-                `(né per path né per basename):\n\n` +
-                uncitedFiles.map((p) => `- \`${p}\``).join('\n') + '\n\n' +
-                `Aggiungi un bullet in \`## Implementato\` che li cita (recidiva reale: PR #6279, ` +
-                `\`.github/workflows/prospector-loop.yml\` modificato e mai menzionato, flaggato dal reviewer solo dopo il fatto).`,
-              );
-            }
-
-            // Fetch each closed issue; flag the multi-item follow-up aggregates.
-            // Proceed-safe: any API error → skip that ref (never block on infra).
-            const aggregateCloseViolations = [];
-            for (const num of closingNums) {
-              try {
-                const { data: iss } = await github.rest.issues.get({
-                  owner, repo, issue_number: Number(num),
-                });
-                if (iss.pull_request) continue; // a PR ref, not a tracking issue
-                const labels = (iss.labels || []).map((l) => (typeof l === 'string' ? l : l.name));
-                if (!labels.includes('follow-up')) continue;
-                if (isAggregateTitleBody(iss.title || '', iss.body || '')) {
-                  aggregateCloseViolations.push({ num, title: iss.title || '' });
-                }
-              } catch (e) {
-                core.info(`aggregate-close check: skip #${num} (${e.status || e.message})`);
-              }
-            }
-
-            // Find a prior sticky comment to update (avoid comment spam on edits).
-            const comments = await github.paginate(github.rest.issues.listComments, {
-              owner, repo, issue_number, per_page: 100,
-            });
-            const prior = comments.find(c => (c.body || '').includes(STICKY));
-
-            const upsert = async (b) => {
-              if (prior) {
-                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body: b });
-              } else {
-                await github.rest.issues.createComment({ owner, repo, issue_number, body: b });
-              }
-            };
-
-            // --- All-clear (violations) — advisories can still be present -----------
-            if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
-              const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
-                + (advisoryParts.length ? `\n\n${advisoryParts.join('\n\n')}` : '');
-              // Solo un prior da aggiornare, oppure un advisory reale da segnalare per
-              // la prima volta: un all-clear puro (nessun prior, nessun advisory) non
-              // vale un commento nuovo.
-              if (prior || advisoryParts.length) {
-                await upsert(okBody);
-              }
-              core.info(`PR body contract satisfied.${advisoryParts.length ? ' (advisory: uncited files)' : ''}`);
-              return;
-            }
-
-            // --- Build the verdict --------------------------------------------------
-            const parts = [STICKY];
-            const fails = [];
-            if (missing.length) {
-              parts.push(
-                `🔴 **PR-body contract** — mancano: ${missing.join(', ')}.\n\n` +
-                `Il completeness contract (REVIEW.md / AGENTS.md § Workflow) richiede i due header letterali ` +
-                `\`## Implementato\` e \`## Non implementato (ancora)\`. ` +
-                `Header alternativi (\`## Fix\`, \`## Verify\`, \`## Effetto\`) non contano.`,
-              );
-              fails.push(`missing section(s): ${missing.join(', ')}`);
-            }
-            if (sectionViolations.length) {
-              parts.push(
-                `🔴 **Sezione presente ma vuota** (escalation #3250, bucket \`reviewer-finding/pr-body-contract\`) — ` +
-                `header letterale trovato ma senza contenuto sostanziale (solo bullet placeholder \`- \` del template):\n\n` +
-                sectionViolations.map((m) => `- ${m}`).join('\n') + '\n\n' +
-                `Scrivi almeno un bullet concreto in \`## Implementato\`; in \`## Non implementato (ancora)\` scrivi ` +
-                `"Nessuno" (task completo, AGENTS.md #8) oppure elenca gli item residui con stato/next-step.`,
-              );
-              fails.push(`empty section(s): ${sectionViolations.length}`);
-            }
-            if (closesViolations.length) {
-              const lines = closesViolations
-                .map((v) => `- L${v.line}: \`${v.text}\` → chiude solo #${v.nums[0]}, ignora #${v.nums.slice(1).join(', #')}`)
-                .join('\n');
-              parts.push(
-                `🔴 **Closes multi-issue su una riga** — GitHub chiude SOLO la prima issue dopo una keyword ` +
-                `(\`Closes\`/\`Fixes\`/\`Resolves\`); le altre restano aperte e vanno chiuse a mano (cfr. PR #1320: 9 issue su una riga → 8 rimaste aperte).\n\n` +
-                `${lines}\n\n` +
-                `Fix: una keyword per issue, una per riga:\n\`\`\`\nCloses #${closesViolations[0].nums[0]}\nCloses #${closesViolations[0].nums[1]}\n\`\`\``,
-              );
-              fails.push(`multi-issue Closes line(s): ${closesViolations.map((v) => `L${v.line}`).join(', ')}`);
-            }
-            if (intentViolations.length) {
-              const lines = intentViolations
-                .map((v) => `- L${v.line}: \`${v.text}\` → \`${v.keyword} ${v.ref}\` non chiude niente`)
-                .join('\n');
-              parts.push(
-                `🔴 **Keyword di chiusura inefficace** (issue #5784) — GitHub riconosce SOLO ` +
-                `\`close/closes/closed\`, \`fix/fixes/fixed\`, \`resolve/resolves/resolved\`; un verbo italiano ` +
-                `(\`chiude\`/\`chiusa\`/\`risolve\`/\`fixa\`...) o l'inglese al gerundio (\`closing\`/\`fixing\`) è prosa ` +
-                `e non chiude nulla — l'issue resta aperta con la fix già su \`main\` (recidiva reale: PR #5776 → ` +
-                `#5725 rimasta aperta finché non è stata chiusa a mano; stesso difetto su #5724, quasi su #5774).\n\n` +
-                `${lines}\n\n` +
-                `Fix: usa la keyword inglese per ognuno, es. \`Closes ${intentViolations[0].ref}\`. Se non intendevi ` +
-                `chiudere quella issue (solo nominarla), usa \`Refs\`/\`Vedi\` invece di un verbo di chiusura.`,
-              );
-              fails.push(`ineffective closing keyword: ${intentViolations.map((v) => `L${v.line}`).join(', ')}`);
-            }
-            if (aggregateCloseViolations.length) {
-              const lines = aggregateCloseViolations
-                .map((v) => `- \`Closes #${v.num}\` → #${v.num} è una follow-up **aggregata multi-item** ("${v.title.slice(0, 80)}")`)
-                .join('\n');
-              parts.push(
-                `🔴 **Closes su follow-up aggregata multi-item** — \`Closes #N\` è GitHub-native e chiude #N al MERGE, ` +
-                `bypassando il veto multi-item-auto-close di \`FOLLOWUP.md\` (che vive nel cron \`reconcile\`, non nel path Closes-on-merge). ` +
-                `Il fixer lavora 1 item/run (circuit-breaker): un fix parziale NON deve chiudere l'aggregata, gli altri item restano dovuti ` +
-                `(recidiva #3050 → #3036: item 5/5 fixato ma l'issue 5-item chiusa COMPLETED).\n\n${lines}\n\n` +
-                `Fix: togli la keyword di chiusura e usa un **progress-ref** senza \`Closes/Fixes/Resolves\` ` +
-                `(es. \`Addresses item N di #${aggregateCloseViolations[0].num}\`). Chiudi l'aggregata SOLO quando TUTTI gli item sono fatti, elencandoli in \`## Implementato\`.`,
-              );
-              fails.push(`Closes on multi-item aggregate: #${aggregateCloseViolations.map((v) => v.num).join(', #')}`);
-            }
-            // Advisory, NON entra in `fails`/`setFailed` — vedi il commento sul blocco
-            // che calcola `advisoryParts` più sopra.
-            if (advisoryParts.length) parts.push(...advisoryParts);
-            parts.push(`Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — questo check ricalcola a ogni edit.`);
-
-            await upsert(parts.join('\n\n'));
-            core.setFailed(`PR body contract: ${fails.join('; ')}`);
-
-      # --- Source-guard steps: niente checkout dedicato, skip su `edited` -----

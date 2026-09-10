@@ -116,8 +116,8 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
 
     expect(checkout).toContain('fetch-depth: 0');
     expect(checkout).toContain('filter: blob:none');
-    expect(cache).toContain("if: steps.assemble.outputs.required == 'true'");
-    expect(assemble).toContain("if: steps.assemble.outputs.required == 'true'");
+    expect(cache).toContain("steps.assemble.outputs.required == 'true'");
+    expect(assemble).toContain("steps.assemble.outputs.required == 'true'");
     expect(TESTS_YML).toContain('node scripts/ci/run-related-tests.mjs --select-only');
   });
 
@@ -210,15 +210,15 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
 });
 
 describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
-  it('matcha byte-per-byte il name: del wrapper required in tests.yml', () => {
-    // Estrae il `name:` del wrapper `vitest-required:` (può essere quotato o no).
-    const m = TESTS_YML.match(/^[ \t]*vitest-required:\s*\n\s*name:\s*(.+?)\s*$/m);
-    expect(m, 'job `vitest-required:` con `name:` non trovato in tests.yml').toBeTruthy();
+  it('matcha byte-per-byte il name: del job required in tests.yml', () => {
+    // Estrae il `name:` del wrapper `vitest:` (può essere quotato o no).
+    const m = TESTS_YML.match(/^[ \t]*vitest:\s*\n\s*name:\s*(.+?)\s*$/m);
+    expect(m, 'job `vitest:` con `name:` non trovato in tests.yml').toBeTruthy();
     const jobName = (m![1] || '').replace(/^['"]|['"]$/g, '');
     expect(jobName).toBe(VITEST_CHECK_NAME);
   });
 
-  it('tiene distinto il nome del job che esegue il percorso pesante', () => {
+  it('il check required è il job che esegue il percorso pesante', () => {
     const m = TESTS_YML.match(/^\s*vitest:\s*\n\s*name:\s*(.+?)\s*$/m);
     expect(m, 'job `vitest:` con `name:` non trovato in tests.yml').toBeTruthy();
     const jobName = (m![1] || '').replace(/^['"]|['"]$/g, '');
@@ -275,8 +275,8 @@ describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
 
 /**
  * Contratto single-job post de-sharding (#2882): il percorso pesante di
- * tests.yml esegue UN solo job `vitest execution` più il wrapper required —
- * non esiste più un job `vitest-shard:` con matrice. Il companion body-only ha
+ * tests.yml esegue UN solo job required che contiene anche l’esecuzione —
+ * non esiste più un job `vitest-shard:` con matrice. Il vecchio companion body-only aveva
  * un check distinto e non contiene la suite. `VITEST_SHARD_NAME_RE` e
  * `vitestVerdictIsTransientCancellation` RESTANO in scripts/ci/lib (dormienti):
  * senza check-run shard l'heal ritorna `false`, che è il comportamento CORRETTO
@@ -304,7 +304,7 @@ describe('vitest single-job contract (#2882 de-sharding)', () => {
 
 /**
  * Contratto del JOB FUSO: quattro cancelli nel job pesante, un check-run
- * required e un lock. Il companion body-only è escluso dalle asserzioni del
+ * required e nessun companion body-only. Le asserzioni verificano il
  * percorso pesante.
  *
  * `collision`, `contract`, `typecheck` e `vitest` erano quattro job. Ora sono
@@ -345,7 +345,7 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   // lock copre solo i sei step di chiamate API che lo richiedono davvero.
   // `contract` e `typecheck` restano nel job che produce il check-run gating.
   // UN job pesante, di nuovo, ma per una ragione DIVERSA da quella di #6555;
-  // il companion body-only è escluso da questo percorso.
+  // nessun companion metadata produce un secondo check.
   // Il detector di collisioni e' uscito del tutto da questo workflow il
   // 2026-08-26: e' uno SWEEPER repo-wide (ricalcola le label di tutte le PR
   // aperte da dati vivi) e uno sweeper va su `schedule`, non su
@@ -353,8 +353,8 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   // min. Cosi' le PR restano INDIPENDENTI: nessun mutex globale che accodi la
   // suite di una PR dietro quella di tutte le altre, e nessuna ✗ da run
   // sfrattato. `contract` e `typecheck` restano qui e restano bloccanti.
-  it('tests.yml ha un job pesante, un wrapper required, un companion body-only e nessun lock di job', () => {
-    expect(jobKeys).toEqual(['vitest', 'vitest-required', 'body-contract']);
+  it('tests.yml ha un solo job required e nessun lock di job', () => {
+    expect(jobKeys).toEqual(['vitest']);
     expect(
       /^ {4}concurrency:/m.test(jobsBody),
       'un `concurrency:` di JOB e\' tornato in tests.yml: un gruppo globale ' +

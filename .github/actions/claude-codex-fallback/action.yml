@@ -396,6 +396,11 @@ runs:
         printf 'codex_launcher_dir=%s\n' "$codex_launcher_dir" >> "$GITHUB_OUTPUT"
         printf 'codex_runtime_root=%s\n' "$codex_runtime_root" >> "$GITHUB_OUTPUT"
 
+    - name: Prepare Linux sandbox prerequisites
+      id: sandbox_setup
+      if: steps.codex_cli.outcome == 'success'
+      uses: ./.github/actions/setup-codex-sandbox
+
     - name: Prepare ephemeral Codex subscription auth
       id: codex_auth
       if: steps.trusted_node.outcome == 'success' && (steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true')
@@ -908,7 +913,7 @@ runs:
         # request. It catches malformed/unsupported permission TOML early and
         # uses real file operations: the explicit gitdir/common overrides must
         # create/read/remove probes, while hooks/auth/runner files stay denied.
-        PATH="$bridge_dir:$PATH" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_NODE_REAL="$node_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
+        PATH="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_NODE_REAL="$node_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
           test -x "$CODEX_REALPATH"
           "$CODEX_BIN" --version >/dev/null
           git_dir="$(git rev-parse --git-dir)"
@@ -953,7 +958,7 @@ runs:
         )
         codex_env=(
           "CODEX_HOME=$CODEX_HOME"
-          "PATH=$bridge_dir:$PATH"
+          "PATH=$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin"
           "HOME=$scratch_home"
           "TMPDIR=$scratch_dir"
           "CODEX_NODE_REAL=$node_realpath"

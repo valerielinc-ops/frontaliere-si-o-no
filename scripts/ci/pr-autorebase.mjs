@@ -626,7 +626,7 @@ function hasCommentMarker(num, marker) {
 
 /** C'è una review Claude ANCORA in volo sull'head (Jobs API: lo step `Run Claude
  * review` è `queued`/`in_progress`)? Dal 2026-08-26 la review vive dentro il
- * job `vitest execution`: cercare un check-run chiamato `review`
+ * job `vitest (unit + integration)`: cercare un check-run chiamato `review`
  * è quindi un segnale morto. Il push del rebase si autentica via
  * App/PAT (x-access-token) e quindi RI-TRIGGERA `pull_request` → `pr-review-loop`
  * ha `cancel-in-progress: true` → il nostro push CANCELLA la review in corso e ne

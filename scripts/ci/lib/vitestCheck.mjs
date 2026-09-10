@@ -123,8 +123,8 @@ export function latestCompletedConclusionByName(checkRuns, name) {
  * presentarsi altrimenti. Dopo il de-sharding (#2882) può, e il nome mentiva:
  * un verdetto `cancelled` non è un `failure`. Vedi le due topologie sotto.
  *
- * ── Topologia CORRENTE: un job di esecuzione + wrapper required ─────────────
- * `tests.yml` ha un job di esecuzione singolo e un wrapper required, senza
+ * ── Topologia CORRENTE: un unico job required ─────────────
+ * `tests.yml` ha un unico job che esegue i controlli e pubblica il required, senza
  * matrice. Una cancellazione (concurrency `cancel-in-progress`, runner
  * shutdown) atterra quindi come `cancelled` sul check required, senza
  * collasso in `failure`. Quel verdetto non è un fallimento del codice: il run
@@ -335,7 +335,7 @@ export const REVIEW_DEATH_STEP_NAMES = new Set([
  * La review è in volo secondo la Jobs API?
  *
  * Il check-run non si chiama più `review`: dal 2026-08-26 la review è uno
- * step del job di esecuzione `vitest execution`. Il chiamante deve quindi
+ * step del job required `vitest (unit + integration)`. Il chiamante deve quindi
  * leggere `.steps` del job corrente e non cercare un check-run ormai morto.
  */
 export function reviewStepIsInFlight(steps) {
@@ -360,7 +360,7 @@ export function isNonGatingReviewStep(name) {
  * con vitest rosso la review NON partiva, quindi «vitest rosso» implicava
  * «nessuna review possibile» e riciclare la PR era inutile per costruzione.
  * Da `80a8c73f73a` («Unify tests and PR review workflow») la review è uno step
- * DENTRO il job `vitest execution`, e gira PRIMA dello step che fa
+ * DENTRO il job `vitest (unit + integration)`, e gira PRIMA dello step che fa
  * fallire il job. La premessa si è quindi invertita: un vitest rosso causato
  * dal review gate significa che la review È GIÀ PARTITA e ha emesso un
  * verdetto — e un re-trigger è esattamente ciò che ne produce uno nuovo.

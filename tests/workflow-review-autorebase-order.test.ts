@@ -28,15 +28,13 @@ describe('review → autorebase ordering', () => {
 
     expect(reviewGate).toBeGreaterThanOrEqual(0);
     expect(autorebase).toBeGreaterThan(reviewGate);
-    expect(pullRequestTypes).toContain('labeled');
-    expect(workflowJobs.vitest?.if).toBe(
-      "${{ github.event.action != 'edited' && (github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review')) }}",
-    );
+    expect(pullRequestTypes).not.toContain('labeled');
+    expect(workflowJobs.vitest?.if).toBeUndefined();
 
     const autorebaseBlock = workflow.slice(autorebase, workflow.indexOf('\n      - name:', autorebase + 1));
     const mint = workflow.indexOf('name: Mint autorebase App token');
     const mintBlock = workflow.slice(mint, workflow.indexOf('\n      - name:', mint + 1));
-    const expectedIf = "(success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && github.event.action == 'labeled' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure' && contains(github.event.pull_request.labels.*.name, 'stale-review'))";
+    const expectedIf = "(success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')";
     for (const block of [mintBlock, autorebaseBlock]) {
       const ifLine = block.split('\n').find((line) => /^\s+if:/.test(line));
       expect(ifLine).toBeTruthy();
@@ -52,7 +50,8 @@ describe('review → autorebase ordering', () => {
     expect(staleRescuer).toContain('APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}');
     expect(staleRescuer).toContain('functions/src/githubApiHeaders.js');
     expect(staleRescuer).toContain('GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}');
-    expect(staleRescuer).toContain('continue-on-error: true');
+    expect(staleRescuer).toContain('gh run rerun "$RESCUE_RUN"');
+    expect(staleRescuer).toContain('-f "pr_number=$N"');
     expect(staleRescuer).toContain('and .conclusion != "skipped"');
     expect(workflow).toContain('id: review_abort');
   });

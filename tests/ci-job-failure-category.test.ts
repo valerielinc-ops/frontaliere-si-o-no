@@ -146,7 +146,7 @@ describe('i nomi di step classificati esistono davvero in tests.yml', () => {
 
   it('lo slice isola davvero il job `vitest` e ne trova gli step', () => {
     expect(jobStart).toBeGreaterThan(-1);
-    expect(JOB_BODY).toContain('name: vitest execution');
+    expect(JOB_BODY).toContain('name: vitest (unit + integration)');
     expect(declaredStepNames.length).toBeGreaterThan(30);
   });
 
@@ -168,7 +168,7 @@ describe('i nomi di step classificati esistono davvero in tests.yml', () => {
     // fallisce non deve aggiungere un fallimento.
     expect(declaredStepNames[declaredStepNames.length - 1]).toBe(SUMMARY_STEP);
     const block = TESTS_YML.slice(TESTS_YML.indexOf(`- name: ${SUMMARY_STEP}`));
-    expect(block).toMatch(/if:\s*\$\{\{\s*always\(\)\s*\}\}/);
+    expect(block).toContain("steps.body_contract.outcome != 'failure' && (always())");
     expect(block).toMatch(/continue-on-error:\s*true/);
     expect(block).toContain('node scripts/ci/explain-job-verdict.mjs');
     // Senza `JOB_STATUS` lo script classificherebbe per sola `conclusion`

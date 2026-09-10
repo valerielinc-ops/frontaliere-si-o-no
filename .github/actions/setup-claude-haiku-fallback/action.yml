@@ -346,9 +346,15 @@ runs:
     # PATH. The broker receives this action-owned path plus its attestation;
     # consumer steps can only send a prompt over the socket and cannot replace
     # the binary with a pre-existing `codex` executable.
+    - name: Prepare Linux sandbox for indirect Codex fallback
+      id: setup_codex_sandbox
+      continue-on-error: true
+      if: env.HAIKU_FALLBACK_GATE != '0' && inputs.codex_auth_json != ''
+      uses: ./.github/actions/setup-codex-sandbox
+
     - name: Install pinned Codex CLI for the indirect fallback
       id: install_codex_cli
-      if: env.HAIKU_FALLBACK_GATE != '0' && inputs.codex_auth_json != ''
+      if: env.HAIKU_FALLBACK_GATE != '0' && inputs.codex_auth_json != '' && steps.setup_codex_sandbox.outcome == 'success'
       shell: bash
       env:
         TRUSTED_NODE: ${{ steps.trusted_toolchain.outputs.node_realpath }}
