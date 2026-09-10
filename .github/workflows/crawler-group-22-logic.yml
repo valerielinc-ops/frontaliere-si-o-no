@@ -52,6 +52,8 @@ on:
         required: false
       CLAUDE_CODE_OAUTH_TOKEN:
         required: false
+      CODEX_AUTH_JSON:
+        required: false
 permissions:
   contents: read
 env:
@@ -102,7 +104,10 @@ jobs:
           echo "GH_TOKEN=${GITHUB_PAT}" >> "$GITHUB_ENV"
           echo "GH_REPO=valerielinc-ops/frontaliere-si-o-no" >> "$GITHUB_ENV"
       - uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-omniroute@main
-      - uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
+      - id: setup_claude_haiku_fallback
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
       - name: Run rittmeyer
         id: crawler-rittmeyer
         background: true
@@ -116,6 +121,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: rittmeyer-ag
           JOBS_SLICE_FILE: data/jobs/by-crawler/rittmeyer-ag.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -174,6 +180,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: saint-gobain-weber-isover
           JOBS_SLICE_FILE: data/jobs/by-crawler/saint-gobain-weber-isover.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -232,6 +239,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: spital-davos
           JOBS_SLICE_FILE: data/jobs/by-crawler/spital-davos.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -290,6 +298,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: lindenhofgruppe
           JOBS_SLICE_FILE: data/jobs/by-crawler/lindenhofgruppe.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -348,6 +357,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: scandit
           JOBS_SLICE_FILE: data/jobs/by-crawler/scandit.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -406,6 +416,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: spital-thusis
           JOBS_SLICE_FILE: data/jobs/by-crawler/spital-thusis.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -464,6 +475,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: reha-bellikon
           JOBS_SLICE_FILE: data/jobs/by-crawler/reha-bellikon.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -522,6 +534,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: heineken-ch
           JOBS_SLICE_FILE: data/jobs/by-crawler/heineken-ch.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -580,6 +593,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: mks-pamp
           JOBS_SLICE_FILE: data/jobs/by-crawler/mks-pamp.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -638,6 +652,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: ferring
           JOBS_SLICE_FILE: data/jobs/by-crawler/ferring.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -696,6 +711,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: mistral-ai
           JOBS_SLICE_FILE: data/jobs/by-crawler/mistral-ai.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -754,6 +770,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: stadt-zuerich
           JOBS_SLICE_FILE: data/jobs/by-crawler/stadt-zuerich.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -813,6 +830,7 @@ jobs:
           SKIP_BOILERPLATE_GUARD: "1"
           JOBS_HOUSEKEEPING_SCOPE: klinik-seeschau
           JOBS_SLICE_FILE: data/jobs/by-crawler/klinik-seeschau.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -871,6 +889,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: huntsman
           JOBS_SLICE_FILE: data/jobs/by-crawler/huntsman.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -929,6 +948,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: med-ipersonal
           JOBS_SLICE_FILE: data/jobs/by-crawler/med-ipersonal.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -987,6 +1007,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: kudelski-nagra
           JOBS_SLICE_FILE: data/jobs/by-crawler/kudelski-nagra.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1045,6 +1066,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: tl-lausanne
           JOBS_SLICE_FILE: data/jobs/by-crawler/tl-lausanne.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1103,6 +1125,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '1' }}
           JOBS_HOUSEKEEPING_SCOPE: otis
           JOBS_SLICE_FILE: data/jobs/by-crawler/otis.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1161,6 +1184,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: oerlikon
           JOBS_SLICE_FILE: data/jobs/by-crawler/oerlikon.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1219,6 +1243,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: corner-banca
           JOBS_SLICE_FILE: data/jobs/by-crawler/corner-banca.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1277,6 +1302,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: eth-zurich
           JOBS_SLICE_FILE: data/jobs/by-crawler/eth-zurich.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1335,6 +1361,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: fust
           JOBS_SLICE_FILE: data/jobs/by-crawler/fust.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1393,6 +1420,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: giardino
           JOBS_SLICE_FILE: data/jobs/by-crawler/giardino.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1451,6 +1479,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: bossard
           JOBS_SLICE_FILE: data/jobs/by-crawler/bossard.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1509,6 +1538,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: clinica-holistica-engiadina
           JOBS_SLICE_FILE: data/jobs/by-crawler/clinica-holistica-engiadina.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1567,6 +1597,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: ariston-group
           JOBS_SLICE_FILE: data/jobs/by-crawler/ariston-group.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1625,6 +1656,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: bachtelen
           JOBS_SLICE_FILE: data/jobs/by-crawler/bachtelen.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1683,6 +1715,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: alcon
           JOBS_SLICE_FILE: data/jobs/by-crawler/alcon.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1742,6 +1775,14 @@ jobs:
             exit 0
           fi
           exit "$git_commit_exit"
+      - name: Cleanup Codex auth broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then exit 0; fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" || echo "::warning::Codex auth broker cleanup did not complete"
       - name: Finalize crawler generation manifest (shadow)
         id: crawler-generation-finalizer
         if: always()

@@ -17,6 +17,11 @@ function stepsOf(file: string): Array<Record<string, any>> {
   return Object.values(document.jobs ?? {}).flatMap((job: any) => job.steps ?? []);
 }
 
+function isClaudeStep(step: Record<string, any>): boolean {
+  return step.uses === 'anthropics/claude-code-action@v1'
+    || step.uses === './.github/actions/claude-codex-fallback';
+}
+
 describe('timeout-capped Claude workflows keep their downstream diagnostics alive (#7341)', () => {
   it('does not put a needs.result failure branch behind implicit success()', () => {
     const offenders: string[] = [];
@@ -53,7 +58,7 @@ describe('timeout-capped Claude workflows keep their downstream diagnostics aliv
   it('either guards or deliberately does not consume Claude outputs downstream', () => {
     for (const file of TIMEOUT_WORKFLOWS) {
       const steps = stepsOf(file);
-      const claudeIndex = steps.findIndex((step) => step.uses === 'anthropics/claude-code-action@v1');
+      const claudeIndex = steps.findIndex(isClaudeStep);
       expect(claudeIndex, `${file}: Claude step missing`).toBeGreaterThan(-1);
       const claude = steps[claudeIndex];
       expect(claude['timeout-minutes'], `${file}: Claude step lost its timeout`).toBeGreaterThan(0);
@@ -61,7 +66,9 @@ describe('timeout-capped Claude workflows keep their downstream diagnostics aliv
         typeof step.run === 'string' && step.run.includes('execution_file'),
       );
       for (const consumer of consumers) {
-        expect(consumer.if, `${file}: execution_file consumer must run after timeout`).toBe('always()');
+        expect(consumer.if, `${file}: execution_file consumer must run after timeout`).toMatch(
+          /^always\(\)(?:\s*&&|$)/,
+        );
         expect(consumer.run, `${file}: consumer must read the timed-out step's output`).toContain(
           'steps.',
         );

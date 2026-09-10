@@ -811,6 +811,17 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   for (const step of crawler.postSteps) {
     Object.assign(merged, step.env || {});
   }
+  // CODEX_AUTH_JSON is deliberately scoped to the setup action below. The
+  // crawler shell is backgrounded and may spawn arbitrary post-steps; putting
+  // the subscription secret here would expose it to every one of those
+  // processes. The setup action receives the raw secret only on its bootstrap
+  // step and exposes a private broker endpoint as an action output. Never put
+  // the raw credential in this background step's env map.
+  delete merged.CODEX_AUTH_JSON;
+  // Force the endpoint to the setup action output after merging manifest env
+  // maps, so a crawler cannot accidentally replace the capability reference
+  // with a job-wide variable or a user-controlled value.
+  merged.CODEX_AUTH_BROKER_SOCKET = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
   return merged;
 }
 
@@ -889,6 +900,27 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
       },
     },
   ];
+}
+
+/**
+ * The broker normally exits immediately after its one-shot request. Keep an
+ * explicit always-run cleanup at the end of the job as well: this covers runs
+ * that never reach Claude/Codex and persistent runners where the short broker
+ * TTL should remain only a backstop, not the normal lifecycle.
+ */
+function codexAuthBrokerCleanupStep() {
+  return {
+    name: 'Cleanup Codex auth broker',
+    if: 'always()',
+    'continue-on-error': true,
+    env: {
+      CODEX_AUTH_BROKER_SOCKET: '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}',
+    },
+    run: [
+      'if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then exit 0; fi',
+      'node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" || echo "::warning::Codex auth broker cleanup did not complete"',
+    ].join('\n'),
+  };
 }
 
 /** Gli script di package.json servono all'analizzatore per risolvere `npm run <x>`. */
@@ -995,7 +1027,14 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   // rationale + incident history. Must run before the per-crawler steps
   // below so ENABLE_HAIKU_ARTICLE_FALLBACK is forced into $GITHUB_ENV in
   // time for every background step to inherit it.
-  steps.push({ uses: './.github/actions/setup-claude-haiku-fallback' });
+  steps.push({
+    id: 'setup_claude_haiku_fallback',
+    uses: './.github/actions/setup-claude-haiku-fallback',
+    // Keep the Codex secret on the setup action's process only. That action
+    // keeps it in a one-shot broker and exposes only a socket output to the
+    // individual crawler AI steps; no raw secret enters any crawler step.
+    with: { codex_auth_json: '${{ secrets.CODEX_AUTH_JSON }}' },
+  });
 
   for (const crawler of group.members) {
     const stepId = `crawler-${crawler.slug}`;
@@ -1045,6 +1084,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       'exit "$git_commit_exit"',
     ].join('\n'),
   });
+  steps.push(codexAuthBrokerCleanupStep());
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
 
   return {
@@ -1269,6 +1309,7 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
       secrets: {
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
         CLAUDE_CODE_OAUTH_TOKEN: { required: false },
+        CODEX_AUTH_JSON: { required: false },
       },
     },
   };
@@ -1432,6 +1473,7 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
   const expectedSecrets = {
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
         CLAUDE_CODE_OAUTH_TOKEN: { required: false },
+        CODEX_AUTH_JSON: { required: false },
   };
   const expectedLogicInputs = structuredClone(generatedTrigger.workflow_dispatch.inputs);
   expectedLogicInputs.generation_token = {

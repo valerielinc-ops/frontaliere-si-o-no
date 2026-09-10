@@ -21,6 +21,12 @@ const OLD = 'b'.repeat(40);
 const AUTOREBASE_SOURCE = readFileSync(new URL('../scripts/ci/pr-autorebase.mjs', import.meta.url), 'utf8');
 
 describe('testsRunInFlightOnHead (#6037 autorebase↔tests livelock guard)', () => {
+  it('il lettore del verdetto completato verifica il tentativo corrente', () => {
+    const reader = AUTOREBASE_SOURCE.match(/function vitestJobSteps\(head\) \{[\s\S]*?^\}/m)?.[0];
+    expect(reader).toContain('jobs?filter=latest');
+    expect(reader).toContain('currentAttemptJobSteps({ checkRun: last, jobId: ref.jobId, jobs: out })');
+    expect(reader).not.toContain('actions/jobs/');
+  });
   it('review-in-flight usa lo step della Jobs API, non il check-run morto `review`', () => {
     expect(reviewStepIsInFlight([
       { name: 'Run Claude review', status: 'in_progress' },

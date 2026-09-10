@@ -57,10 +57,9 @@ export function latestCompletedVitestRun(checkRuns) {
 }
 
 /**
- * Il job che esegue davvero la suite e la review, distinto dal wrapper
- * `VITEST_CHECK_NAME` che pubblica il check required fail-closed. Chi deve
- * leggere gli step del job (non il verdetto required) deve usare questo
- * helper, altrimenti cerca il link Jobs API sul wrapper senza step applicativi.
+ * Il job che esegue la suite e la review pubblica anche il check required.
+ * Questo helper restituisce il suo link Jobs API ai consumer che leggono gli
+ * step; la selezione coincide con quella del verdetto required.
  *
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string, details_url?: string}|null}
@@ -123,8 +122,8 @@ export function latestCompletedConclusionByName(checkRuns, name) {
  * presentarsi altrimenti. Dopo il de-sharding (#2882) può, e il nome mentiva:
  * un verdetto `cancelled` non è un `failure`. Vedi le due topologie sotto.
  *
- * ── Topologia CORRENTE: un job di esecuzione + wrapper required ─────────────
- * `tests.yml` ha un job di esecuzione singolo e un wrapper required, senza
+ * ── Topologia CORRENTE: un unico job required ─────────────
+ * `tests.yml` ha un unico job che esegue i controlli e pubblica il required, senza
  * matrice. Una cancellazione (concurrency `cancel-in-progress`, runner
  * shutdown) atterra quindi come `cancelled` sul check required, senza
  * collasso in `failure`. Quel verdetto non è un fallimento del codice: il run
@@ -335,7 +334,7 @@ export const REVIEW_DEATH_STEP_NAMES = new Set([
  * La review è in volo secondo la Jobs API?
  *
  * Il check-run non si chiama più `review`: dal 2026-08-26 la review è uno
- * step del job di esecuzione `vitest execution`. Il chiamante deve quindi
+ * step del job required `vitest (unit + integration)`. Il chiamante deve quindi
  * leggere `.steps` del job corrente e non cercare un check-run ormai morto.
  */
 export function reviewStepIsInFlight(steps) {
@@ -360,7 +359,7 @@ export function isNonGatingReviewStep(name) {
  * con vitest rosso la review NON partiva, quindi «vitest rosso» implicava
  * «nessuna review possibile» e riciclare la PR era inutile per costruzione.
  * Da `80a8c73f73a` («Unify tests and PR review workflow») la review è uno step
- * DENTRO il job `vitest execution`, e gira PRIMA dello step che fa
+ * DENTRO il job `vitest (unit + integration)`, e gira PRIMA dello step che fa
  * fallire il job. La premessa si è quindi invertita: un vitest rosso causato
  * dal review gate significa che la review È GIÀ PARTITA e ha emesso un
  * verdetto — e un re-trigger è esattamente ciò che ne produce uno nuovo.
@@ -429,4 +428,71 @@ export function reviewAbortedWithoutVerdict(steps) {
   if (!gate || gate.conclusion !== 'failure') return false;
   const abort = steps.find((s) => s && s.name === REVIEW_ABORT_STEP_NAME);
   return Boolean(abort && abort.conclusion === 'failure');
+}
+
+/**
+ * Il riferimento al JOB di Actions contenuto nel `details_url` di un check-run
+ * (`https://github.com/<o>/<r>/actions/runs/<run_id>/job/<job_id>`), che è
+ * l'unico puntatore al job che la check-runs API espone.
+ *
+ * Estrae ANCHE il `run_id`, non solo il job id: senza il run non si può
+ * chiedere a GitHub quali job appartengono all'ATTEMPT corrente, e la
+ * verifica di freschezza sotto (`currentAttemptJobSteps`) diventa impossibile.
+ *
+ * @param {{details_url?: string}|null} checkRun
+ * @returns {{runId: string, jobId: string}|null} null se il link manca o non è
+ *   nella forma attesa (chiamante: fail-CLOSED).
+ */
+export function jobRefFromCheckRun(checkRun) {
+  const m = /\/actions\/runs\/(\d+)\/job\/(\d+)/.exec((checkRun && checkRun.details_url) || '');
+  return m ? { runId: m[1], jobId: m[2] } : null;
+}
+
+/**
+ * Gli step del job puntato da un check-run, MA solo se quel job è ancora
+ * quello dell'attempt CORRENTE del suo workflow-run.
+ *
+ * ── PERCHÉ NON BASTA `GET /actions/jobs/{job_id}` ──────────────────────────
+ * Quell'endpoint risponde per QUALUNQUE job, compresi quelli di un attempt
+ * superato: dopo un «Re-run failed jobs» (o su un run con `run_attempt > 1`)
+ * il job id preso dal `details_url` di un check-run completato può descrivere
+ * l'attempt PRECEDENTE. Gli step tornerebbero comunque — solo che sono la
+ * lista di un'altra esecuzione. `vitestFailureIsReviewGate` deciderebbe allora
+ * su dati stantii: concedere il one-shot del review gate quando il rosso
+ * corrente sono i test (riciclo inutile, ~18min di CI su una coda
+ * serializzata), o negarlo quando il rosso corrente è solo il gate (la PR
+ * resta ferma e il messaggio torna a dire «far passare i test» a una PR coi
+ * test verdi). È la stessa classe del bug #2394: prendere UN oggetto per un
+ * puntatore comodo invece che per la sua freschezza.
+ *
+ * ── IL DISCRIMINANTE ───────────────────────────────────────────────────────
+ * `GET /actions/runs/{run_id}/jobs` con `filter=latest` elenca i job del SOLO
+ * attempt corrente, con i loro `steps`. Se il job id del `details_url` non è
+ * in quella lista, per costruzione appartiene a un attempt superato → `[]`.
+ * Nessuna soglia e nessuna euristica temporale: o il job è nell'attempt
+ * corrente o non c'è.
+ *
+ * In più due controlli di IDENTITÀ, perché «attempt corrente» non implica
+ * «lo stesso verdetto su cui stiamo decidendo»: il job dev'essere `completed`
+ * (una lista di step parziale non dimostra niente) e la sua `conclusion` e il
+ * suo `head_sha` devono coincidere con quelli del check-run selezionato. Se
+ * divergono, i due oggetti descrivono esecuzioni diverse e vale il
+ * fail-CLOSED.
+ *
+ * Pura: nessuna I/O. Il chiamante fetcha la lista dei job.
+ *
+ * @param {{checkRun: {conclusion?: string, head_sha?: string}|null,
+ *          jobId: string|number,
+ *          jobs: Array<{id?: number, status?: string, conclusion?: string,
+ *                       head_sha?: string, steps?: Array<object>}>|null}} s
+ * @returns {Array<{name?: string, conclusion?: string}>} gli step, o `[]`.
+ */
+export function currentAttemptJobSteps({ checkRun, jobId, jobs }) {
+  if (!checkRun || !Array.isArray(jobs) || jobId === undefined || jobId === null) return [];
+  const job = jobs.find((j) => j && String(j.id) === String(jobId));
+  if (!job) return []; // attempt superato: il job non è più fra i correnti.
+  if (job.status !== 'completed') return [];
+  if (!checkRun.conclusion || job.conclusion !== checkRun.conclusion) return [];
+  if (checkRun.head_sha && job.head_sha && job.head_sha !== checkRun.head_sha) return [];
+  return Array.isArray(job.steps) ? job.steps : [];
 }

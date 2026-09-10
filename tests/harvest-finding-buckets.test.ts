@@ -44,6 +44,12 @@ const RICOGNIZIONI_NEGATE: Array<[string, string]> = [
 ];
 
 describe('bucketFinding — la ricognizione negata non fa punteggio', () => {
+  it('conserva lo sweep nella propria frase e rimuove la ricognizione negata successiva', () => {
+    const finding = 'Lo stesso anti-pattern in build-rss.mjs non è toccato. Nessun impatto su dist/api/, sulle sitemap o sui feed.';
+    const stripped = stripNegatedImpactClauses(finding);
+    expect(stripped).toContain('Lo stesso anti-pattern');
+    expect(stripped).not.toContain('sitemap');
+  });
   for (const [pr, line] of RICOGNIZIONI_NEGATE) {
     it(`ricognizione negata di ${pr}: la superficie NON toccata non fa punteggio su canonical-sitemap`, () => {
       expect(bucketFinding(line)).not.toBe('canonical-sitemap');

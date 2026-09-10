@@ -18,8 +18,8 @@ name: Stale PR rescuer (self-healing signal)
 # DETERMINISTICO (zero Claude → zero quota Max, coerente con la frugalità di
 # issue-triage). Azione = label `stale-review` + UN commento idempotente con la
 # rescue instruction. La label è applicata con il token App quando disponibile:
-# così emette l'evento `pull_request:labeled` che riattiva tests.yml; il
-# GITHUB_TOKEN resta fallback fail-soft ma non può avviare workflow downstream.
+# così può rieseguire il run PR esistente di tests.yml; il
+# GITHUB_TOKEN resta fallback per label e rerun via API.
 # NON fa auto-push (l'auto-merge-origin-main per la classe A richiede PAT con
 # scope `workflows`; è il follow-up dichiarato). Alert-only = safe da girare
 # live accanto agli agent locali attivi sui branch.
@@ -45,6 +45,7 @@ on:
 
 permissions:
   contents: read
+  actions: write # rerun the existing PR code-validation run
   checks: read # serve per commits/{sha}/check-runs (tests sull'head reale della PR)
   pull-requests: write
   issues: write
@@ -61,8 +62,7 @@ jobs:
       # `secrets.GITHUB_TOKEN` è deliberatamente un fallback soltanto: un evento
       # GitHub scritto da quell'identità non avvia un altro workflow. Il minter è
       # zero-dep e viene preso in sparse checkout per mantenere questo rescuer
-      # leggero; l'App token emette invece il `pull_request:labeled` che
-      # tests.yml consuma per arrivare a pr-autorebase.
+      # leggero; l'App token può rieseguire il run PR senza creare check metadata.
       - name: Checkout App-token minter
         uses: actions/checkout@v5
         with:
@@ -152,7 +152,7 @@ jobs:
             # per cui quel modulo condiviso esiste).
             TESTS_CONCL=$(echo "$checks" | jq -r '[.check_runs[] | select(.name=="vitest (unit + integration)" and .status=="completed" and .completed_at and .conclusion != "skipped")] | sort_by(.completed_at) | last | .conclusion // "none"')
             # Un run già in volo sull'head si risolverà da sé → non è uno stallo.
-            TESTS_PENDING=$(echo "$checks" | jq -r '[.check_runs[] | select(.name=="vitest (unit + integration)" and .status!="completed")] | length')
+            TESTS_PENDING=$(echo "$checks" | jq -r '[.check_runs[] | select((.name=="vitest (unit + integration)" or .name=="vitest execution") and .status!="completed")] | length')
 
             # Ultima review del bot reviewer (claude) + commit a cui si riferisce.
             reviews=$(gh api "repos/$REPO/pulls/$N/reviews" 2>/dev/null || echo '[]')
@@ -219,7 +219,7 @@ jobs:
               # d'età di 2h + l'idempotenza della label impediscono il rumore su
               # una PR con lavoro in corso.
               REASON="vitest \`$TESTS_CONCL\` sull'head da >2h, nessun run in volo e nessun segnale a valle (con i test rossi il job si ferma prima dello step di review Claude) — stallo silenzioso"
-              RESCUE="etichettata \`stale-review\` per riaprire il grafo: il token App emette \`pull_request:labeled\`, tests.yml riattiva il consumer e \`pr-autorebase\` ora la considera near-merge, la rebasa su main e ri-dispatcha i test. Se il rosso è REALE (del diff della PR) va fixato a mano sul branch \`$BRANCH\` — la label non lo nasconde, lo rende visibile. Vedi AGENTS.md → \"main rosso blocca a cascata\"."
+              RESCUE="etichettata \`stale-review\` per riaprire il grafo: il rescuer riesegue il run PR di tests.yml e riattiva il consumer e \`pr-autorebase\` ora la considera near-merge, la rebasa su main e ri-dispatcha i test. Se il rosso è REALE (del diff della PR) va fixato a mano sul branch \`$BRANCH\` — la label non lo nasconde, lo rende visibile. Vedi AGENTS.md → \"main rosso blocca a cascata\"."
             else
               echo "PR #$N nessuno stallo noto (tests=$TESTS_CONCL pending=$TESTS_PENDING) — skip"; continue
             fi
@@ -229,6 +229,20 @@ jobs:
 
             gh pr edit "$N" --repo "$REPO" --add-label "stale-review" 2>/dev/null || \
               echo "label stale-review assente nel repo — creala una volta: gh label create stale-review"
+            # Rerun the existing pull_request run: labels are metadata and do
+            # not start tests.yml. Keeping its event preserves PR review context.
+            # Prefer the legacy execution job over its wrapper on old heads;
+            # new heads expose only the required execution check itself.
+            RESCUE_RUN=$(echo "$checks" | jq -r '[.check_runs[] |
+              select((.name == "vitest execution" or .name == "vitest (unit + integration)") and .status == "completed" and .conclusion != "skipped")]
+              | sort_by([(.name == "vitest execution"), .completed_at]) | last | .details_url // ""
+              | capture("/actions/runs/(?<id>[0-9]+)")?.id // empty')
+            if [ -n "$RESCUE_RUN" ]; then
+              gh run rerun "$RESCUE_RUN" --repo "$REPO" || echo "::warning::Cannot rerun code checks for PR #$N."
+            else
+              gh workflow run tests.yml --repo "$REPO" --ref "$BRANCH" -f "pr_number=$N" || \
+                echo "::warning::Cannot dispatch missing code checks for PR #$N."
+            fi
             gh pr comment "$N" --repo "$REPO" --body "$(printf '🔧 **stale-review** (auto): PR ferma >2h.\n\nClasse: %s\n\nRescue: %s\n\n_Segnale deterministico da stale-pr-rescuer.yml (zero-Claude). Auto-rescue con push = follow-up (serve PAT scope workflows)._' "$REASON" "$RESCUE")" \
               2>/dev/null || echo "comment fallito PR #$N"
           done

@@ -1,3 +1,9 @@
+import fs from 'node:fs';
+import net from 'node:net';
+import os from 'node:os';
+import path from 'node:path';
+import { CODEX_FALLBACK_MODEL } from '../ci/claude-codex-fallback.mjs';
+
 /**
  * Centralized AI Model Service — v15 (free-only, 115+ models, 14 providers)
  *
@@ -769,6 +775,23 @@ function hasClaudeCodeOauthToken() {
   return !!(process.env.CLAUDE_CODE_OAUTH_TOKEN || '').trim();
 }
 const CLAUDE_CLI_BIN = (process.env.CLAUDE_CLI_BIN || 'claude').trim();
+const CODEX_CLI_MAX_TIMEOUT_MS = 600_000;
+const CODEX_CLI_MIN_TIMEOUT_MS = 15_000;
+const CODEX_FALLBACK_MARKER_PREFIX = 'claude-haiku-codex-fallback';
+// Indirect provider fallback is deliberately lighter than the workflow-agent
+// fallback (which uses effort=max): this path replaces a single content call,
+// preserves the caller's schema/output contract, and must leave wall-clock
+// budget for the normal model chain if Codex also fails.
+export const CODEX_INDIRECT_FALLBACK_EFFORT = 'medium';
+
+// The Codex subscription fallback is one-shot per GitHub run. The in-process
+// flag is only a fast path for callers outside Actions; workflow processes use
+// the atomic marker in RUNNER_TEMP below so parallel crawler workers cannot
+// multiply the paid/subscription fallback. A failed Codex attempt is not
+// retried and the original Claude error continues through callLLM's normal
+// fallback chain.
+let _codexCliFallbackAttempted = false;
+
 // Flipped true on the first `spawn claude ENOENT` (see the catch block in
 // callLLM's fallback loop). Process-local, never persisted — see that comment
 // for why this isn't routed through markModelExhausted.
@@ -4093,6 +4116,7 @@ export function resetState() {
   _competingTiersWarned = false;
   _preferredModelsWarned = false;
   _claudeCliCallsThisRun = 0;
+  _codexCliFallbackAttempted = false;
   _claudeCliMaxCallsWarned = false;
   _responseCache.clear();
   _claudeCliBinaryMissing = false;
@@ -5331,6 +5355,326 @@ function _callOmniRoute(model, messages, opts) {
 }
 
 /**
+ * Classify only a Claude CLI usage-limit/HTTP-429 terminal signal.
+ *
+ * A plain subprocess failure is deliberately not enough: 529 overloads,
+ * max-turns, ENOENT, timeouts and malformed output must continue through the
+ * existing Claude error path and then the normal callLLM chain. The stream
+ * trace is the strongest signal (the CLI's rejected rate_limit_event), while
+ * the result envelope covers the action's explicit api_error_status shape.
+ */
+function _isClaudeCliUsageLimit({ parsed = null, trace = null, text = '' } = {}) {
+  if (trace?.rateLimitRejected === true) return true;
+  if (parsed && typeof parsed === 'object') {
+    if (parsed.is_error === true && Number(parsed.api_error_status) === 429) return true;
+    if (parsed.error === 'rate_limit') return true;
+    if (parsed.error && typeof parsed.error === 'object') {
+      const error = parsed.error;
+      if (error.type === 'rate_limit' || error.code === 'rate_limit' || Number(error.status) === 429) return true;
+    }
+    if (parsed.terminal_reason === 'api_error' && Number(parsed.status) === 429) return true;
+  }
+
+  // Some CLI versions put the HTTP status only in `result`/stderr. Keep the
+  // textual matcher strict: a bare phrase such as "rate limit" is not proof
+  // of a provider response, while an explicit HTTP/status 429 is.
+  let body = String(text || '');
+  if (parsed && typeof parsed === 'object') {
+    try { body += ` ${JSON.stringify(parsed)}`; } catch { /* ignore */ }
+  }
+  return /\b(?:HTTP(?:\s+status)?|status|status[_ -]?code|api[_ -]?error[_ -]?status)\s*[:=]?\s*429\b/i.test(body)
+    || /\b429\s+(?:too\s+many\s+requests|rate[ -]?limit|usage[ -]?limit|quota)\b/i.test(body);
+}
+
+function _codexFallbackTimeoutMs(opts = {}) {
+  const raw = Number.parseInt((process.env.CODEX_CLI_TIMEOUT_MS || '').trim(), 10);
+  // Keep the client-side contract in lockstep with the broker's validation:
+  // a workflow override must never send a timeout larger than the Codex
+  // process ceiling, even before a caller deadline is applied.
+  const configured = Math.min(
+    Number.isFinite(raw) && raw > 0 ? raw : CODEX_CLI_MAX_TIMEOUT_MS,
+    CODEX_CLI_MAX_TIMEOUT_MS,
+  );
+  if (!opts.deadlineMs) return configured;
+  const remaining = opts.deadlineMs - Date.now();
+  if (remaining <= 0) throw new Error('Codex fallback skipped: caller deadline already expired');
+  // The minimum is a useful default, never a reason to run past the caller's
+  // absolute deadline. A near-expiry caller gets the short amount of time
+  // actually left; the normal cascade then remains responsible for deciding
+  // whether another model is still worth trying.
+  if (remaining < CODEX_CLI_MIN_TIMEOUT_MS) return remaining;
+  return Math.min(configured, remaining);
+}
+
+// Small seams for the security/deadline tests. They expose policy decisions,
+// never credentials or a way to invoke the CLI outside the normal call path.
+export function __codexFallbackTimeoutForTests(opts = {}) {
+  return _codexFallbackTimeoutMs(opts);
+}
+
+/**
+ * Resolve the shared one-shot marker. GitHub's run id and attempt are part of
+ * the key so separate workflow runs never consume one another's fallback. Do
+ * not use raw values as path components: a malformed/untrusted value must not
+ * escape RUNNER_TEMP.
+ */
+function _codexFallbackMarkerPath() {
+  const runId = String(process.env.GITHUB_RUN_ID || '').trim();
+  const runAttempt = String(process.env.GITHUB_RUN_ATTEMPT || '').trim();
+  if (!runId || !runAttempt) return null;
+  const tempRoot = String(process.env.RUNNER_TEMP || os.tmpdir()).trim() || os.tmpdir();
+  const safe = (value) => value.replace(/[^a-zA-Z0-9._-]/g, '_').slice(0, 160);
+  return path.join(tempRoot, `${CODEX_FALLBACK_MARKER_PREFIX}-${safe(runId)}-${safe(runAttempt)}.claimed`);
+}
+
+export function __codexFallbackMarkerPathForTests() {
+  return _codexFallbackMarkerPath();
+}
+
+/**
+ * Claim the cross-process one-shot slot with O_EXCL. RUNNER_TEMP is owned by
+ * the runner and is intentionally not cleaned up here: another worker may be
+ * racing to observe the marker, and the runner removes its temporary tree at
+ * the end of the job. The local flag avoids repeated syscalls in one process.
+ */
+function _claimCodexCliFallback() {
+  if (_codexCliFallbackAttempted) return false;
+  const markerPath = _codexFallbackMarkerPath();
+  if (!markerPath) {
+    _codexCliFallbackAttempted = true;
+    return true;
+  }
+
+  fs.mkdirSync(path.dirname(markerPath), { recursive: true, mode: 0o700 });
+  try {
+    const fd = fs.openSync(markerPath, 'wx', 0o600);
+    try {
+      fs.writeFileSync(fd, `${JSON.stringify({ claimedAt: Date.now(), pid: process.pid })}\n`);
+    } finally {
+      fs.closeSync(fd);
+    }
+    _codexCliFallbackAttempted = true;
+    return true;
+  } catch (err) {
+    if (err?.code === 'EEXIST') {
+      _codexCliFallbackAttempted = true;
+      return false;
+    }
+    throw err;
+  }
+}
+
+export function __claimCodexFallbackForTests() {
+  return _claimCodexCliFallback();
+}
+
+/**
+ * Ask the action-owned host broker to execute one Codex request. The broker is
+ * the only cross-step hand-off; it keeps the raw credential in memory and
+ * destroys its private Unix socket after one successful request. There is
+ * intentionally no CODEX_AUTH_JSON/CODEX_AUTH_FILE process-env fallback:
+ * those would expose the credential to every background crawler. Raw auth
+ * never crosses this socket; only Codex's result does.
+ */
+function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
+  const socketPath = String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
+  if (!socketPath) return Promise.reject(new Error('CODEX_AUTH_BROKER_SOCKET is not configured'));
+  const remaining = Number(deadlineMs) > 0 ? Number(deadlineMs) - Date.now() : Infinity;
+  if (remaining <= 0) return Promise.reject(new Error('Codex fallback skipped: caller deadline already expired'));
+  const requestTimeoutMs = Math.min(
+    Math.max(1, Number.isFinite(Number(timeoutMs)) ? Number(timeoutMs) : CODEX_CLI_MAX_TIMEOUT_MS),
+    CODEX_CLI_MAX_TIMEOUT_MS,
+  );
+
+  return new Promise((resolve, reject) => {
+    let response = '';
+    let settled = false;
+    let client;
+    try {
+      client = net.createConnection(socketPath);
+    } catch (error) {
+      reject(error);
+      return;
+    }
+    const finish = (error, value) => {
+      if (settled) return;
+      settled = true;
+      client.destroy();
+      if (error) reject(error);
+      else resolve(value);
+    };
+    client.setEncoding('utf8');
+    // A short caller deadline wins over the normal broker grace period. The
+    // fallback must not keep the process alive past opts.deadlineMs merely
+    // because the Unix socket is waiting for a timed-out Codex child.
+    const normalSocketTimeoutMs = Math.max(5000, requestTimeoutMs + 10_000);
+    const socketTimeoutMs = Number.isFinite(remaining)
+      ? Math.max(1, Math.min(normalSocketTimeoutMs, remaining))
+      : normalSocketTimeoutMs;
+    client.setTimeout(socketTimeoutMs, () => finish(new Error('Codex auth broker socket timed out')));
+    client.on('error', (error) => finish(error));
+    client.on('data', (chunk) => {
+      // The broker probes a normal request half-close with one NUL byte so it
+      // can distinguish it from a reset/disconnect while keeping the socket
+      // open for the eventual Codex response. Strip only that leading probe;
+      // a NUL anywhere in the JSON response remains invalid as intended.
+      let data = String(chunk);
+      if (response.length === 0 && data.startsWith('\0')) data = data.slice(1);
+      if (!data) return;
+      response += data;
+      if (Buffer.byteLength(response) > 256 * 1024) {
+        finish(new Error('Codex auth broker response exceeds its limit'));
+        return;
+      }
+      const newline = response.indexOf('\n');
+      if (newline < 0) return;
+      let parsed;
+      try { parsed = JSON.parse(response.slice(0, newline)); } catch {
+        finish(new Error('Codex auth broker returned invalid JSON'));
+        return;
+      }
+      if (!parsed?.ok || typeof parsed.result !== 'string') {
+        finish(new Error(`Codex auth broker rejected the request: ${String(parsed?.error || 'unknown error')}`));
+        return;
+      }
+      finish(null, parsed.result);
+    });
+    // The client half-closes its write side after sending the request. That is
+    // expected with the broker's allowHalfOpen server and must not settle the
+    // promise. A remote EOF, however, means the broker closed without a
+    // complete response; reject immediately instead of waiting for the socket
+    // timeout. The close listener is the final backstop for an abrupt broker
+    // disconnect (or a client-side reset).
+    client.on('end', () => {
+      if (!settled) finish(new Error('Codex auth broker closed without a response'));
+    });
+    client.on('close', (hadError) => {
+      if (!settled) finish(new Error(`Codex auth broker connection closed before a response${hadError ? ' with an error' : ''}`));
+    });
+    client.on('connect', () => {
+      let request;
+      try {
+        request = `${JSON.stringify({ op: 'exec', prompt, timeoutMs: requestTimeoutMs, schema: schema ?? null })}\n`;
+      } catch (error) {
+        finish(error);
+        return;
+      }
+      try {
+        client.end(request);
+      } catch (error) {
+        finish(error);
+      }
+    });
+  });
+}
+
+function _codexPrompt(messages, { jsonOnly = false } = {}) {
+  const system = messages.filter((m) => m.role === 'system').map((m) => m.content).join('\n\n');
+  const user = messages.filter((m) => m.role !== 'system').map((m) => m.content).join('\n\n');
+  const prompt = [
+    system ? `System instructions:\n${system}` : '',
+    user,
+  ].filter(Boolean).join('\n\n');
+  return jsonOnly
+    ? `${prompt}\n\nReturn exactly one valid JSON object and no Markdown fences or commentary.`
+    : prompt;
+}
+
+function _codexFallbackJsonRequest(opts = {}) {
+  const wantsJson = !!opts.jsonMode || !!opts.jsonSchema;
+  const schemaMode = getSchemaMode();
+  const requestedSchema = opts.jsonSchema?.schema || opts.jsonSchema;
+  const schemaApplied = wantsJson && schemaMode !== 'off';
+  return {
+    wantsJson,
+    schemaApplied,
+    // A schema-less jsonMode call still gets an object schema when the global
+    // switch is on. This keeps Codex's structured-output path and the local
+    // output contract aligned with the other providers.
+    schema: schemaApplied
+      ? (requestedSchema && typeof requestedSchema === 'object'
+        ? requestedSchema
+        : { type: 'object' })
+      : null,
+  };
+}
+
+function _validateCodexCliResult(result, { wantsJson, schemaApplied }) {
+  if (!wantsJson) return result;
+  let parsed;
+  try {
+    parsed = JSON.parse(result);
+  } catch {
+    throw new Error('Codex CLI returned invalid JSON for a JSON-mode request');
+  }
+  // When the kill-switch disables schema mode there is no provider-side shape
+  // guarantee, but jsonMode still promises a JSON object to its caller.
+  if (!schemaApplied && (!parsed || typeof parsed !== 'object' || Array.isArray(parsed))) {
+    throw new Error('Codex CLI returned JSON that is not an object');
+  }
+  return result;
+}
+
+/**
+ * One-shot Codex CLI subscription fallback. The action-owned broker
+ * materializes auth in a private temporary CODEX_HOME only for this invocation
+ * and removes it in its finally block, including timeout/output failures.
+ */
+async function _callCodexCli(messages, opts = {}) {
+  const jsonRequest = _codexFallbackJsonRequest(opts);
+  const result = await _requestCodexExecution({
+    prompt: _codexPrompt(messages, { jsonOnly: jsonRequest.wantsJson }),
+    timeoutMs: _codexFallbackTimeoutMs(opts),
+    schema: jsonRequest.schema,
+    deadlineMs: opts.deadlineMs,
+  });
+  if (opts.deadlineMs && Date.now() >= opts.deadlineMs) {
+    throw new Error('Codex fallback skipped: caller deadline expired during execution');
+  }
+  return _validateCodexCliResult(result, jsonRequest);
+}
+
+async function _tryCodexCliUsageLimitFallback(messages, opts, claudeError, claudeModel) {
+  if (!claudeError?.claudeCliUsageLimit) return null;
+  if (!String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim()) {
+    console.warn('⚠️ Claude CLI usage limit detected, but CODEX_AUTH_BROKER_SOCKET is not configured — continuing normal fallback chain');
+    return null;
+  }
+
+  // Reserve before the await so concurrent Claude calls cannot launch two
+  // Codex attempts. A failed attempt remains consumed by design (one-shot).
+  let claimed;
+  try {
+    claimed = _claimCodexCliFallback();
+  } catch (err) {
+    console.warn(`⚠️ Claude CLI usage limit → Codex fallback lock failed: ${String(err?.message || err).slice(0, 300)} — continuing normal fallback chain`);
+    return null;
+  }
+  if (!claimed) return null;
+  try {
+    const result = await _callCodexCli(messages, opts);
+    // The Claude request really did receive a 429. Keep its consecutive-429
+    // telemetry and failure score attached to Claude; the successful result is
+    // credited to Codex by callLLM through modelUsedRef below.
+    if (claudeModel) {
+      _consecutive429.set(claudeModel, (_consecutive429.get(claudeModel) || 0) + 1);
+      _recordLastResortOutcome(claudeModel, 'failed');
+      if (opts?.recordScore !== false) recordModelFailure(claudeModel);
+    }
+    if (opts?.modelUsedRef && typeof opts.modelUsedRef === 'object') {
+      opts.modelUsedRef.model = CODEX_FALLBACK_MODEL;
+      opts.modelUsedRef.provider = 'codex-cli';
+      opts.modelUsedRef.indirectFallback = true;
+    }
+    console.warn(`✅ Claude CLI usage limit → Codex fallback succeeded (${CODEX_FALLBACK_MODEL}, effort=${CODEX_INDIRECT_FALLBACK_EFFORT})`);
+    return result;
+  } catch (err) {
+    console.warn(`⚠️ Claude CLI usage limit → Codex fallback failed: ${String(err?.message || err).slice(0, 300)} — continuing normal fallback chain`);
+    return null;
+  }
+}
+
+/**
  * Call Claude Haiku via the `claude` CLI subprocess (RC-gated, absolute
  * last resort — reuses CLAUDE_CODE_OAUTH_TOKEN, same zero-cost Max-plan auth
  * already wired for pr-review-loop.yml/issue-fix.yml, never a raw
@@ -5446,6 +5790,12 @@ async function _callClaudeCli(model, messages, opts) {
   try {
     ({ code, stdout, stderr, trace } = await spawnCall());
   } catch (err) {
+    // A rejected rate-limit event is authoritative even when the CLI had
+    // already emitted a salvageable partial payload. Give the subscription
+    // replacement its promised first chance; if it is unavailable or fails,
+    // retain the pre-existing salvage path below.
+    const codex = await _tryCodexCliUsageLimitFallback(messages, opts, err, model);
+    if (codex !== null) return codex;
     // Il timeout ha ucciso il processo, ma il contenuto puo' essere gia'
     // arrivato: un `tool_use` di StructuredOutput e' emesso a blocco chiuso,
     // quindi o non c'e' o e' intero. Preferirlo all'errore e' cio' che
@@ -5467,18 +5817,26 @@ async function _callClaudeCli(model, messages, opts) {
     // Nessun evento `result`: qui la diagnosi del flusso serve quanto sul
     // timeout — un processo uscito 0 senza result non e' la stessa cosa di uno
     // che ha scritto spazzatura.
+    const error = new Error(`[${model}] claude CLI senza evento result (exit ${code})${trace.describe()}: ${(stdout || stderr).slice(0, 300)}`);
+    error.claudeCliUsageLimit = _isClaudeCliUsageLimit({ trace, text: stderr });
+    const codex = await _tryCodexCliUsageLimitFallback(messages, opts, error, model);
+    if (codex !== null) return codex;
     const recovered = _salvageClaudeCliPayload(model, trace.salvage(), `nessun evento result (exit ${code})`);
     if (recovered !== null) return recovered;
-    throw new Error(`[${model}] claude CLI senza evento result (exit ${code})${trace.describe()}: ${(stdout || stderr).slice(0, 300)}`);
+    throw error;
   }
   if (code !== 0 || parsed.is_error) {
     // `result/error_during_execution` e' l'esito OSSERVATO quando l'anello di
     // StructuredOutput non converge (riproduzione del 2026-08-18: num_turns=3,
     // 6.773 token di output, `result` vuoto). Anche qui il primo tentativo
     // rifiutato e' un articolo completo, e buttarlo costa quanto il timeout.
+    const error = new Error(`[${model}] claude CLI error: ${String(parsed.result || stderr || 'unknown').slice(0, 300)}`);
+    error.claudeCliUsageLimit = _isClaudeCliUsageLimit({ parsed, trace, text: stderr });
+    const codex = await _tryCodexCliUsageLimitFallback(messages, opts, error, model);
+    if (codex !== null) return codex;
     const recovered = _salvageClaudeCliPayload(model, trace.salvage(), `is_error (exit ${code})`);
     if (recovered !== null) return recovered;
-    throw new Error(`[${model}] claude CLI error: ${String(parsed.result || stderr || 'unknown').slice(0, 300)}`);
+    throw error;
   }
   // ── LA CHIAMATA E' RIUSCITA, E PROPRIO PER QUESTO VA RACCONTATA ──────────
   //
@@ -5606,6 +5964,7 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
     lastEventAtMs: null,
     lastEventLabel: null,
     rateLimit: null,
+    explicitRateLimitError: false,
     result: null,
     // ── IL PAYLOAD RECUPERABILE ────────────────────────────────────────────
     // Sotto `--json-schema` il CLI non fa uscire l'articolo come testo: espone
@@ -5644,11 +6003,22 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
     state.lastEventLabel = typeof evt.subtype === 'string' ? `${type}/${evt.subtype}` : type;
     if (type === 'rate_limit_event') {
       const info = evt.rate_limit_info && typeof evt.rate_limit_info === 'object' ? evt.rate_limit_info : {};
-      state.rateLimit = {
+      const rateLimit = {
         atMs,
         status: typeof info.status === 'string' ? info.status : 'sconosciuto',
         kind: typeof info.rateLimitType === 'string' ? info.rateLimitType : 'sconosciuto',
       };
+      // Keep a rejected beacon authoritative if a later informational event
+      // says `allowed`; one rejected request in this process is still a true
+      // usage-limit observation and must not be hidden by event ordering.
+      if (state.rateLimit?.status !== 'rejected' || rateLimit.status === 'rejected') {
+        state.rateLimit = rateLimit;
+      }
+    }
+    if (evt.error === 'rate_limit'
+        || (evt.error && typeof evt.error === 'object'
+          && (evt.error.type === 'rate_limit' || evt.error.code === 'rate_limit' || Number(evt.error.status) === 429))) {
+      state.explicitRateLimitError = true;
     }
     if (type === 'result') state.result = evt;
     if (type === 'assistant') absorbAssistantBlocks(evt);
@@ -5732,6 +6102,8 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
     get pendingBytes() { return buffer.length; },
     /** L'evento `type:"result"`, o null se non e' mai arrivato. */
     get result() { return state.result; },
+    /** True only for the CLI's explicit rejected usage-limit signal. */
+    get rateLimitRejected() { return state.rateLimit?.status === 'rejected' || state.explicitRateLimitError; },
     /**
      * Il contenuto gia' arrivato, nella forma che il chiamante si aspetta da
      * `result.result` — o null se non c'e' niente da salvare.
@@ -5844,9 +6216,18 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
  * dall'esterno senza spawnare un `claude` vero.
  */
 export function claudeCliChildEnv(base = process.env) {
-  if (CLAUDE_CLI_MAX_THINKING_TOKENS === null) return base;
-  if (base.MAX_THINKING_TOKENS !== undefined && String(base.MAX_THINKING_TOKENS).trim() !== '') return base;
-  return { ...base, MAX_THINKING_TOKENS: String(CLAUDE_CLI_MAX_THINKING_TOKENS) };
+  const hasCodexBroker = Object.prototype.hasOwnProperty.call(base, 'CODEX_AUTH_BROKER_SOCKET');
+  if (CLAUDE_CLI_MAX_THINKING_TOKENS === null
+      && !hasCodexBroker) return base;
+  const env = { ...base };
+  // Claude has no need for the Codex broker endpoint. Do not let it inherit a
+  // capability that is reserved for the parent fallback path.
+  delete env.CODEX_AUTH_BROKER_SOCKET;
+  if (CLAUDE_CLI_MAX_THINKING_TOKENS !== null
+      && (base.MAX_THINKING_TOKENS === undefined || String(base.MAX_THINKING_TOKENS).trim() === '')) {
+    env.MAX_THINKING_TOKENS = String(CLAUDE_CLI_MAX_THINKING_TOKENS);
+  }
+  return env;
 }
 
 async function _runClaudeCliProcess(args, timeoutMs) {
@@ -5903,6 +6284,7 @@ async function _runClaudeCliProcess(args, timeoutMs) {
       const streamExcerpt = trace.describe();
       const err = new Error(`claude CLI timed out after ${timeoutMs}ms${streamExcerpt}${stderrExcerpt}${stdoutExcerpt}`);
       err.name = 'TimeoutError';
+      err.claudeCliUsageLimit = trace.rateLimitRejected === true;
       // Cio' che era gia' arrivato quando abbiamo ucciso il processo. Va
       // sull'errore e non in un resolve() perche' la decisione se un payload
       // parziale valga una risposta e' del chiamante, non del trasporto.
@@ -6554,27 +6936,39 @@ export async function callLLM(messages, opts = {}) {
         console.warn(`🔄 Falling back to ${model} (score: ${_modelScores.get(model) || 0})...`);
       }
 
-      const result = await _callModel(model, messages, o);
+      // Keep the requested model separate from the model that actually
+      // answered. The Claude→Codex path is still entered through Claude's
+      // provider, but a successful replacement must credit Codex and expose
+      // that identity to downstream content validation.
+      const callModelRef = { model, provider };
+      const callOpts = { ...o, modelUsedRef: callModelRef };
+      const result = await _callModel(model, messages, callOpts);
+      const servedModel = callModelRef.model || model;
+      const servedViaCodex = callModelRef.indirectFallback === true
+        && servedModel === CODEX_FALLBACK_MODEL;
 
       // ✅ Success — boost this model's score so it stays near the top
       // (skipped for diagnostic-only callers, see DEFAULT_OPTS.recordScore)
-      if (o.recordScore !== false) recordModelSuccess(model);
-      _consecutive429.delete(model); // FRO-325: reset 429 counter on success
-      _clampedTimeouts.delete(model); // an answer clears the adaptive-ceiling doubt
-      _recordLastResortOutcome(model, 'served');
-      if (provider === PROVIDER.CLAUDE_CLI) _claudeCliConsecutiveTimeouts = 0;
-      if (provider === PROVIDER.OMNIROUTE) _omniRouteConsecutiveFailures = 0;
+      if (o.recordScore !== false) recordModelSuccess(servedModel);
+      if (!servedViaCodex) {
+        _consecutive429.delete(model); // FRO-325: reset 429 counter on success
+        _clampedTimeouts.delete(model); // an answer clears the adaptive-ceiling doubt
+        _recordLastResortOutcome(model, 'served');
+        if (provider === PROVIDER.CLAUDE_CLI) _claudeCliConsecutiveTimeouts = 0;
+        if (provider === PROVIDER.OMNIROUTE) _omniRouteConsecutiveFailures = 0;
+      }
 
       if (i > 0) {
-        console.warn(`✅ Fallback to ${model} succeeded (score → ${_modelScores.get(model) || 0})`);
+        console.warn(`✅ Fallback to ${servedModel} succeeded (score → ${_modelScores.get(servedModel) || 0})`);
       }
       // Surface the model used to the caller (out-param) so downstream
       // validation can penalize this specific model if the payload turns
       // out to be malformed despite the HTTP 200 response.
       if (o.modelUsedRef && typeof o.modelUsedRef === 'object') {
-        o.modelUsedRef.model = model;
+        Object.assign(o.modelUsedRef, callModelRef);
+        o.modelUsedRef.model = servedModel;
       }
-      if (_cacheOn && _cacheKey !== null && !_isLastResortProvider(model)) {
+      if (_cacheOn && _cacheKey !== null && !_isLastResortProvider(servedModel)) {
         if (_responseCache.size >= RESPONSE_CACHE_MAX) {
           const oldest = _responseCache.keys().next().value;
           if (oldest !== undefined) _responseCache.delete(oldest);
@@ -6586,9 +6980,9 @@ export async function callLLM(messages, opts = {}) {
         // model, not the served one, lets a lower-tier fallback's output get
         // silently replayed on a later call with the identical o.model/prompt
         // once the requested model is available again).
-        const storageKey = model === (o.model || null)
+        const storageKey = servedModel === (o.model || null)
           ? _cacheKey
-          : _responseCacheKey(messages, { ...o, model });
+          : _responseCacheKey(messages, { ...o, model: servedModel });
         _responseCache.set(storageKey, result);
       }
       return result;

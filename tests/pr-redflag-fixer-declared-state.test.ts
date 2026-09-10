@@ -51,13 +51,15 @@ const CLOSING_STATE_LITERALS = [
   'blocked: decisione del proprietario',
 ] as const;
 
-/** The `with.prompt` of every `anthropics/claude-code-action` step in a workflow. */
+/** The `with.prompt` of every Claude action step in a workflow. */
 function claudePrompts(file: string): string[] {
   const doc: any = YAML.parse(readFileSync(join(ROOT, '.github/workflows', file), 'utf8'));
   const out: string[] = [];
   for (const job of Object.values<any>(doc?.jobs ?? {})) {
     for (const step of job?.steps ?? []) {
-      if (typeof step?.uses === 'string' && step.uses.startsWith('anthropics/claude-code-action')) {
+      if (typeof step?.uses === 'string'
+          && (step.uses.startsWith('anthropics/claude-code-action')
+            || step.uses === './.github/actions/claude-codex-fallback')) {
         const p = step?.with?.prompt;
         if (typeof p === 'string') out.push(p);
       }

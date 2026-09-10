@@ -23,6 +23,8 @@ import {
   isBackoffActive,
   formatRateLimitComment,
   RATE_LIMITED_OUTCOME,
+  maxQuotaResetsAt,
+  isAuthorizedQuotaBeaconComment,
 } from '../scripts/ci/claude-rate-limit.mjs';
 import {
   formatDeliveredDespiteMaxTurnsComment,
@@ -197,6 +199,28 @@ describe('parseQuotaResetsAt / isBackoffActive', () => {
     expect(isBackoffActive(inHours(24 * 30))).toBe(false);
     // il limite più lungo dichiarato dall'API è `seven_day` → 7gg resta valido
     expect(isBackoffActive(inHours(24 * 7))).toBe(true);
+  });
+
+  it('accetta il beacon solo da un bot autorizzato con entrambi i marker', () => {
+    const body = formatRateLimitComment({ resetsAt: inHours(2) });
+    expect(isAuthorizedQuotaBeaconComment({ body, author: { login: 'github-actions' } })).toBe(true);
+    expect(maxQuotaResetsAt([{ body, author: { login: 'github-actions' } }])).toBe(parseQuotaResetsAt(body));
+  });
+
+  it('ignora il marker contraffatto da un utente umano', () => {
+    const body = formatRateLimitComment({ resetsAt: inHours(2) });
+    const forged = { body, author: { login: 'alice' } };
+    expect(isAuthorizedQuotaBeaconComment(forged)).toBe(false);
+    expect(maxQuotaResetsAt([forged])).toBeNull();
+  });
+
+  it('ignora un beacon parziale anche se arriva da un bot autorizzato', () => {
+    const partial = {
+      body: `<!-- QUOTA_RESETS_AT: ${inHours(2)} -->`,
+      author: { login: 'github-actions[bot]' },
+    };
+    expect(isAuthorizedQuotaBeaconComment(partial)).toBe(false);
+    expect(maxQuotaResetsAt([partial])).toBeNull();
   });
 });
 

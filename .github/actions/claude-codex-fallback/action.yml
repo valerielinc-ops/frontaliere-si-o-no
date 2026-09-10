@@ -1,0 +1,1194 @@
+name: "Claude review with Codex usage-limit fallback"
+description: >-
+  Runs the existing Claude Code action and, only for an explicit Claude usage
+  limit (preflight beacon or runtime HTTP 429), runs exactly one ephemeral Codex
+  CLI attempt with ChatGPT subscription auth. The fallback has no API-key mode.
+
+inputs:
+  preflight_blocked:
+    description: "Read-only quota beacon result from the caller's preflight."
+    required: false
+    default: "false"
+  execution_file:
+    description: "Claude execution file, when the caller already has one."
+    required: false
+    default: ""
+  claude_code_oauth_token:
+    description: "Existing Claude subscription OAuth token for the primary action."
+    required: true
+  codex_auth_json:
+    description: "ChatGPT-managed Codex auth.json supplied only to the fallback setup step."
+    required: false
+    default: ""
+  github_token:
+    description: "Token passed to the primary Claude action."
+    required: false
+    default: ""
+  codex_github_token:
+    description: "Explicit token passed only to the host-side Codex gh/git bridges."
+    required: false
+    default: ""
+  codex_corpus_github_token:
+    description: "Optional separate token for the exact frontaliere-articles corpus scope; host-side bridge only."
+    required: false
+    default: ""
+  allowed_bots:
+    description: "Bot allow-list passed to the primary Claude action."
+    required: false
+    default: ""
+  allowed_non_write_users:
+    description: "Non-write actor allow-list passed to the primary Claude action."
+    required: false
+    default: ""
+  show_full_output:
+    description: "show_full_output value for the primary Claude action."
+    required: false
+    default: "true"
+  claude_args:
+    description: "claude_args value for the primary Claude action."
+    required: false
+    default: ""
+  prompt:
+    description: "The unchanged task prompt used by the primary action."
+    required: true
+  review_marker:
+    description: "Optional marker required in a Codex review body before a review gate accepts it."
+    required: false
+    default: ""
+
+outputs:
+  execution_file:
+    description: "Claude execution file, if Claude ran."
+    value: ${{ steps.finalize.outputs.execution_file }}
+  fallback_used:
+    description: "true when the one-shot Codex fallback was attempted."
+    value: ${{ steps.finalize.outputs.fallback_used }}
+  fallback_success:
+    description: "true when the Codex CLI process exited successfully."
+    value: ${{ steps.finalize.outputs.fallback_success }}
+  fallback_trigger:
+    description: "preflight-quota or runtime-429, or empty."
+    value: ${{ steps.finalize.outputs.fallback_trigger }}
+  fallback_evidence_file:
+    description: "Ephemeral structured evidence file for review gates."
+    value: ${{ steps.finalize.outputs.fallback_evidence_file }}
+  codex_output_file:
+    description: "Ephemeral last-message file written by Codex, if attempted."
+    value: ${{ steps.finalize.outputs.codex_output_file }}
+  claude_outcome:
+    description: "Outcome of the primary Claude action."
+    value: ${{ steps.finalize.outputs.claude_outcome }}
+
+runs:
+  using: composite
+  steps:
+    - name: Resolve trusted Node runtime
+      id: trusted_node
+      shell: bash
+      env:
+        CODEX_ACTION_PATH: ${{ github.action_path }}
+      run: |
+        set -euo pipefail
+        workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
+        action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
+        runner_temp="${RUNNER_TEMP:-/tmp}"
+        node_version='v24.21.0'
+        node_archive="node-${node_version}-linux-x64.tar.xz"
+        node_url="https://nodejs.org/dist/${node_version}/${node_archive}"
+        node_archive_sha256='fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6'
+        case "$(/usr/bin/uname -s 2>/dev/null || true):$(/usr/bin/uname -m 2>/dev/null || true)" in
+          Linux:x86_64) ;;
+          *) echo '::error::Codex fallback requires Ubuntu Linux x64.'; exit 1 ;;
+        esac
+        for host_tool in /usr/bin/curl /usr/bin/sha256sum /usr/bin/cut /usr/bin/tar /usr/bin/xz /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod /usr/bin/dirname /usr/bin/realpath /usr/bin/stat /usr/bin/tr; do
+          [ -x "$host_tool" ] || { echo "::error::Required root-owned host tool is unavailable: $host_tool"; exit 1; }
+        done
+        realpath_cmd=/usr/bin/realpath
+        realpath() { "$realpath_cmd" "$@"; }
+        tr_cmd=/usr/bin/tr
+        workspace_root="$(realpath "$workspace_root")"
+        action_path="$(realpath "$action_path")"
+        runner_temp="$(realpath "$runner_temp")"
+        case "$runner_temp" in
+          "$workspace_root"|"$workspace_root"/*|"$action_path"|"$action_path"/*)
+            echo '::error::RUNNER_TEMP must be outside workspace and action directories.'
+            exit 1
+            ;;
+        esac
+        node_runtime_root="$(/usr/bin/mktemp -d "$runner_temp/codex-node-runtime.XXXXXX")"
+        /usr/bin/chmod 700 "$node_runtime_root"
+        printf 'node_runtime_root=%s\n' "$node_runtime_root" >> "$GITHUB_OUTPUT"
+        archive_path="$node_runtime_root/$node_archive"
+        /usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
+          --output "$archive_path" "$node_url"
+        archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | /usr/bin/cut -d ' ' -f 1)"
+        if [ "$archive_sha256" != "$node_archive_sha256" ]; then
+          echo '::error::Pinned Node archive checksum mismatch.'
+          exit 1
+        fi
+        node_root="$node_runtime_root/node"
+        /usr/bin/mkdir -p "$node_root"
+        /usr/bin/chmod 700 "$node_root"
+        /usr/bin/tar --extract --file "$archive_path" --directory "$node_root" \
+          --strip-components=1 --no-same-owner --use-compress-program=/usr/bin/xz
+        /usr/bin/chmod -R go-rwx "$node_root"
+        node_realpath="$(realpath "$node_root/bin/node")"
+        npm_realpath="$(realpath "$node_root/lib/node_modules/npm/bin/npm-cli.js")"
+        case "$node_realpath:$npm_realpath" in
+          "$node_root"/*:"$node_root"/*) ;;
+          *) echo '::error::Extracted Node/npm escaped the pinned runtime directory.'; exit 1 ;;
+        esac
+        [ -f "$node_realpath" ] && [ -x "$node_realpath" ] || {
+          echo '::error::Downloaded Node runtime is not an executable regular file.'
+          exit 1
+        }
+        [ -f "$npm_realpath" ] && [ -x "$npm_realpath" ] || {
+          echo '::error::Downloaded npm runtime is not an executable regular file.'
+          exit 1
+        }
+        node_version_actual="$("$node_realpath" --version 2>/dev/null || true)"
+        [ "$node_version_actual" = "$node_version" ] || {
+          echo '::error::Downloaded Node runtime version mismatch.'
+          exit 1
+        }
+        trusted_roots=()
+        for trusted_root in /usr/bin /usr/local/bin /bin; do
+          [ -d "$trusted_root" ] || continue
+          trusted_root="$(realpath "$trusted_root" 2>/dev/null || true)"
+          [ -n "$trusted_root" ] && trusted_roots+=("$trusted_root")
+        done
+        stat_mode() {
+          /usr/bin/stat -c '%a' "$1" 2>/dev/null || /usr/bin/stat -f '%Lp' "$1" 2>/dev/null || true
+        }
+        stat_owner() {
+          /usr/bin/stat -c '%u' "$1" 2>/dev/null || /usr/bin/stat -f '%u' "$1" 2>/dev/null || true
+        }
+        path_components_trusted() {
+          local current="$1" mode owner parent
+          while :; do
+            [ -e "$current" ] || return 1
+            mode="$(stat_mode "$current")"
+            owner="$(stat_owner "$current")"
+            [ -n "$mode" ] && [ -n "$owner" ] || return 1
+            mode="${mode: -3}"
+            case "$mode" in
+              [0-7][0-7][0-7]) ;;
+              *) return 1 ;;
+            esac
+            # `stat` prints an octal permission string (for example 0755).
+            # Interpret it as octal before masking group/other write bits;
+            # matching the literal digits would incorrectly reject 5 (r-x).
+            (( (8#$mode & 022) == 0 )) || return 1
+            # Only root-owned components are trusted. A runner-owned toolcache
+            # can be rewritten by setup actions and must fail closed; the
+            # fixed system roots below remain the fallback runtime locations.
+            [ "$owner" = '0' ] || return 1
+            [ "$current" = '/' ] && break
+            parent="$(/usr/bin/dirname "$current")"
+            [ "$parent" != "$current" ] || break
+            current="$parent"
+          done
+        }
+        trusted_prefix() {
+          local resolved="$1" trusted_root
+          for trusted_root in "${trusted_roots[@]}"; do
+            case "$resolved" in
+              "$trusted_root"/*) return 0 ;;
+            esac
+          done
+          return 1
+        }
+        trusted_path_entries() {
+          printf '%s\n' "${PATH:-}"
+          # Do not rely on PATH ordering for the root-owned system fallback.
+          printf '%s\n' /usr/local/bin /usr/bin /bin
+        }
+        find_trusted_tool() {
+          local binary="$1" path_entry candidate resolved
+          while IFS= read -r path_entry; do
+            [ -n "$path_entry" ] || continue
+            case "$path_entry" in /*) ;; *) continue ;; esac
+            candidate="$path_entry/$binary"
+            [ -f "$candidate" ] || continue
+            [ -x "$candidate" ] || continue
+            resolved="$(realpath "$candidate" 2>/dev/null || true)"
+            [ -n "$resolved" ] || continue
+            trusted_prefix "$resolved" || continue
+            path_components_trusted "$resolved" || continue
+            case "$resolved" in
+              *.mjs|*.js) continue ;;
+            esac
+            [ -f "$resolved" ] || continue
+            printf '%s' "$resolved"
+            return 0
+          done < <(trusted_path_entries | "$tr_cmd" ':' '\n')
+          return 1
+        }
+        sha256_file() {
+          /usr/bin/sha256sum -- "$1" | /usr/bin/cut -d ' ' -f 1
+        }
+        node_sha256="$(sha256_file "$node_realpath")"
+        [ -n "$node_sha256" ] || { echo '::error::Unable to attest trusted Node runtime.'; exit 1; }
+        npm_sha256="$(sha256_file "$npm_realpath")"
+        [ -n "$npm_sha256" ] || { echo '::error::Unable to attest downloaded npm runtime.'; exit 1; }
+        gh_realpath="$(find_trusted_tool gh || true)"
+        git_realpath="$(find_trusted_tool git || true)"
+        gh_sha256=''; git_sha256=''
+        [ -n "$gh_realpath" ] && gh_sha256="$(sha256_file "$gh_realpath")"
+        [ -n "$git_realpath" ] && git_sha256="$(sha256_file "$git_realpath")"
+        printf 'node_realpath=%s\nnode_version=%s\nnode_sha256=%s\nnpm_realpath=%s\nnpm_sha256=%s\ngh_realpath=%s\ngh_sha256=%s\ngit_realpath=%s\ngit_sha256=%s\n' \
+          "$node_realpath" "$node_version_actual" "$node_sha256" \
+          "$npm_realpath" "$npm_sha256" "$gh_realpath" "$gh_sha256" "$git_realpath" "$git_sha256" >> "$GITHUB_OUTPUT"
+
+    - name: Snapshot Codex fallback runtime before Claude
+      id: runtime_snapshot
+      if: steps.trusted_node.outcome == 'success'
+      shell: bash
+      env:
+        CODEX_ACTION_PATH: ${{ github.action_path }}
+      run: |
+        set -euo pipefail
+        action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
+        workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
+        runner_temp="${RUNNER_TEMP:-/tmp}"
+        snapshot_root="$(mktemp -d "$runner_temp/codex-fallback-runtime.XXXXXX")"
+        chmod 700 "$snapshot_root"
+        mkdir -p "$snapshot_root/action" "$snapshot_root/ci"
+        chmod 700 "$snapshot_root/action" "$snapshot_root/ci"
+        snapshot_file() {
+          local source="$1" target="$2"
+          [ -f "$source" ] || { echo "::error::Missing fallback runtime asset: $source"; exit 1; }
+          cp -- "$source" "$target"
+          chmod 600 "$target"
+        }
+        for name in \
+          gh-bridge.sh gh-bridge-client.mjs gh-bridge-server.mjs \
+          git-bridge.sh git-bridge-client.mjs git-bridge-server.mjs \
+          child-lifecycle.mjs bridge-transport.mjs sanitize-git-config.mjs; do
+          snapshot_file "$action_path/$name" "$snapshot_root/action/$name"
+        done
+        snapshot_file "$workspace_root/scripts/ci/claude-codex-fallback.mjs" "$snapshot_root/ci/claude-codex-fallback.mjs"
+        snapshot_file "$workspace_root/scripts/ci/claude-rate-limit.mjs" "$snapshot_root/ci/claude-rate-limit.mjs"
+        snapshot_file "$workspace_root/scripts/ci/claude-rate-limit-contract.mjs" "$snapshot_root/ci/claude-rate-limit-contract.mjs"
+        printf 'runtime_root=%s\n' "$snapshot_root" >> "$GITHUB_OUTPUT"
+
+    - name: Decide Claude usage-limit fallback (preflight)
+      id: preflight
+      if: steps.trusted_node.outcome == 'success'
+      shell: bash
+      env:
+        PREFLIGHT_BLOCKED: ${{ inputs.preflight_blocked }}
+        FALLBACK_ATTEMPTED: "false"
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+        RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
+      run: |
+        set -euo pipefail
+        "$TRUSTED_NODE" "$RUNTIME_ROOT/ci/claude-codex-fallback.mjs"
+
+    - name: Run Claude primary
+      id: claude
+      if: steps.trusted_node.outcome == 'success' && steps.preflight.outputs.fallback != 'true'
+      continue-on-error: true
+      uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
+      with:
+        claude_code_oauth_token: ${{ inputs.claude_code_oauth_token }}
+        github_token: ${{ inputs.github_token }}
+        allowed_bots: ${{ inputs.allowed_bots }}
+        allowed_non_write_users: ${{ inputs.allowed_non_write_users }}
+        show_full_output: ${{ inputs.show_full_output }}
+        claude_args: ${{ inputs.claude_args }}
+        prompt: ${{ inputs.prompt }}
+
+    - name: Decide Claude usage-limit fallback (runtime)
+      id: runtime
+      if: always() && steps.trusted_node.outcome == 'success'
+      shell: bash
+      env:
+        PREFLIGHT_BLOCKED: "false"
+        FALLBACK_ATTEMPTED: ${{ steps.preflight.outputs.fallback }}
+        EXEC_FILE: ${{ steps.claude.outputs.execution_file }}
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+        RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
+      run: |
+        set -euo pipefail
+        "$TRUSTED_NODE" "$RUNTIME_ROOT/ci/claude-codex-fallback.mjs"
+
+    - name: Install pinned Codex CLI (without fallback credentials)
+      id: codex_cli
+      if: steps.trusted_node.outcome == 'success' && (steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true')
+      shell: bash
+      env:
+        NPM_CONFIG_USERCONFIG: /dev/null
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+        TRUSTED_NODE_SHA256: ${{ steps.trusted_node.outputs.node_sha256 }}
+        TRUSTED_NPM: ${{ steps.trusted_node.outputs.npm_realpath }}
+        TRUSTED_NPM_SHA256: ${{ steps.trusted_node.outputs.npm_sha256 }}
+      run: |
+        set -euo pipefail
+        trusted_node="${TRUSTED_NODE:?Trusted Node runtime unavailable}"
+        trusted_node_sha256="${TRUSTED_NODE_SHA256:?Trusted Node digest unavailable}"
+        trusted_npm="${TRUSTED_NPM:?Trusted npm runtime unavailable}"
+        trusted_npm_sha256="${TRUSTED_NPM_SHA256:?Trusted npm digest unavailable}"
+        [ -x "$trusted_node" ] && [ -x "$trusted_npm" ] || {
+          echo '::error::Trusted Node/npm runtime is not executable.'
+          exit 1
+        }
+        sha256_file() {
+          if [ -x /usr/bin/sha256sum ]; then
+            /usr/bin/sha256sum -- "$1" | /usr/bin/cut -d ' ' -f 1
+          elif [ -x /usr/bin/shasum ]; then
+            /usr/bin/shasum -a 256 -- "$1" | /usr/bin/cut -d ' ' -f 1
+          else
+            return 1
+          fi
+        }
+        [ "$(sha256_file "$trusted_node")" = "$trusted_node_sha256" ] || {
+          echo '::error::Trusted Node runtime changed after preflight attestation.'
+          exit 1
+        }
+        [ "$(sha256_file "$trusted_npm")" = "$trusted_npm_sha256" ] || {
+          echo '::error::Trusted npm runtime changed after preflight attestation.'
+          exit 1
+        }
+        install_home="$(mktemp -d "${RUNNER_TEMP:-/tmp}/codex-cli-install.XXXXXX")"
+        chmod 700 "$install_home"
+        codex_prefix="$install_home/prefix"
+        mkdir -p "$codex_prefix"
+        chmod 700 "$codex_prefix"
+        # Publish the guarded root before npm runs so the always() cleanup also
+        # handles a failed or interrupted install. The CLI stays here for the
+        # later sandbox/exec step; it is never installed into a runner-global
+        # prefix or discovered through a mutable PATH lookup.
+        printf 'codex_install_root=%s\n' "$install_home" >> "$GITHUB_OUTPUT"
+        # This step intentionally has neither CODEX_HOME/auth.json nor any
+        # bridge token. Keep npm's cache/user config in the throw-away home.
+        env -i \
+          PATH="$(/usr/bin/dirname "$trusted_npm"):$(/usr/bin/dirname "$trusted_node"):/usr/bin:/bin" \
+          HOME="$install_home" \
+          CI="true" \
+          NPM_CONFIG_USERCONFIG=/dev/null \
+          npm_config_cache="$install_home/cache" \
+          npm_config_prefix="$codex_prefix" \
+          "$trusted_node" "$trusted_npm" install --global --no-fund --no-audit @openai/codex@0.153.4 >/dev/null
+        codex_path="$codex_prefix/bin/codex"
+        case "$codex_path" in
+          /*) ;;
+          *) echo '::error::Pinned Codex CLI path is not absolute.'; exit 1 ;;
+        esac
+        if [ ! -x "$codex_path" ]; then
+          echo '::error::Pinned Codex CLI was not installed at its dedicated prefix.'
+          exit 1
+        fi
+        codex_version="$("$codex_path" --version 2>/dev/null || true)"
+        if [ "$codex_version" != 'codex-cli 0.153.4' ]; then
+          echo "::error::Unexpected Codex CLI version: $codex_version"
+          exit 1
+        fi
+        codex_realpath="$(realpath "$codex_path")"
+        codex_launcher_dir="$(/usr/bin/dirname "$codex_realpath")"
+        codex_runtime_root="$(/usr/bin/dirname "$codex_realpath")"
+        codex_package_root="$codex_prefix/lib/node_modules/@openai/codex"
+        if [ -d "$codex_package_root" ]; then
+          codex_runtime_root="$(realpath "$codex_package_root")"
+        fi
+        printf 'codex_path=%s\n' "$codex_path" >> "$GITHUB_OUTPUT"
+        printf 'codex_realpath=%s\n' "$codex_realpath" >> "$GITHUB_OUTPUT"
+        printf 'codex_launcher_dir=%s\n' "$codex_launcher_dir" >> "$GITHUB_OUTPUT"
+        printf 'codex_runtime_root=%s\n' "$codex_runtime_root" >> "$GITHUB_OUTPUT"
+
+    - name: Prepare Linux sandbox prerequisites
+      id: sandbox_setup
+      if: steps.codex_cli.outcome == 'success'
+      uses: ./.github/actions/setup-codex-sandbox
+
+    - name: Prepare ephemeral Codex subscription auth
+      id: codex_auth
+      if: steps.trusted_node.outcome == 'success' && (steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true')
+      shell: bash
+      env:
+        CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
+      run: |
+        set -euo pipefail
+        umask 077
+        CODEX_HOME="$(mktemp -d "${RUNNER_TEMP:-/tmp}/codex-home.XXXXXX")"
+        chmod 700 "$CODEX_HOME"
+        # Publish the path before writing the secret so the always() cleanup
+        # still removes the directory if validation or the write fails.
+        printf 'codex_home=%s\n' "$CODEX_HOME" >> "$GITHUB_OUTPUT"
+        if [ -z "${CODEX_AUTH_JSON:-}" ]; then
+          echo "::error::CODEX_AUTH_JSON is required for a Claude usage-limit fallback."
+          exit 1
+        fi
+        printf '%s' "$CODEX_AUTH_JSON" > "$CODEX_HOME/auth.json"
+        chmod 600 "$CODEX_HOME/auth.json"
+        # Keep this home for the whole fallback: Codex may refresh auth.json in
+        # place during the run. Only the path crosses step boundaries; the
+        # secret itself never does. The runner is ephemeral, so a refresh is
+        # not expected to persist to the next run.
+
+    - name: Run one Codex subscription fallback
+      id: codex
+      if: steps.trusted_node.outcome == 'success' && (steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true') && steps.codex_auth.outcome == 'success'
+      continue-on-error: true
+      shell: bash
+      env:
+        CODEX_HOME: ${{ steps.codex_auth.outputs.codex_home }}
+        CODEX_BIN: ${{ steps.codex_cli.outputs.codex_path }}
+        CODEX_REALPATH: ${{ steps.codex_cli.outputs.codex_realpath }}
+        CODEX_LAUNCHER_DIR: ${{ steps.codex_cli.outputs.codex_launcher_dir }}
+        CODEX_RUNTIME_ROOT: ${{ steps.codex_cli.outputs.codex_runtime_root }}
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+        TRUSTED_NODE_VERSION: ${{ steps.trusted_node.outputs.node_version }}
+        TRUSTED_NODE_SHA256: ${{ steps.trusted_node.outputs.node_sha256 }}
+        TRUSTED_GH: ${{ steps.trusted_node.outputs.gh_realpath }}
+        TRUSTED_GH_SHA256: ${{ steps.trusted_node.outputs.gh_sha256 }}
+        TRUSTED_GIT: ${{ steps.trusted_node.outputs.git_realpath }}
+        TRUSTED_GIT_SHA256: ${{ steps.trusted_node.outputs.git_sha256 }}
+        CODEX_RUNTIME_SNAPSHOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
+        CODEX_GH_AUTH: ${{ inputs.codex_github_token }}
+        CODEX_CORPUS_GH_AUTH: ${{ inputs.codex_corpus_github_token }}
+        CODEX_ACTION_PATH: ${{ github.action_path }}
+        CODEX_PROMPT: ${{ inputs.prompt }}
+        CODEX_REVIEW_MARKER: ${{ inputs.review_marker }}
+        CODEX_OUTPUT: ${{ runner.temp }}/codex-fallback-${{ github.run_id }}-${{ github.run_attempt }}.txt
+      run: |
+        set -euo pipefail
+        realpath_cmd=/usr/bin/realpath
+        [ -x "$realpath_cmd" ] || realpath_cmd=/bin/realpath
+        [ -x "$realpath_cmd" ] || { echo '::error::Trusted realpath utility is unavailable.'; exit 1; }
+        realpath() { "$realpath_cmd" "$@"; }
+        # The pinned CLI was installed in a separate, credential-free step.
+        # Resolve and attest Node before touching any token-bearing local.
+        trusted_node="${TRUSTED_NODE:?Trusted Node runtime unavailable}"
+        trusted_node_version="${TRUSTED_NODE_VERSION:?Trusted Node version unavailable}"
+        trusted_node_sha256="${TRUSTED_NODE_SHA256:?Trusted Node digest unavailable}"
+        case "$trusted_node" in
+          /*) ;;
+          *) echo '::error::Trusted Node runtime path is not absolute.'; exit 1 ;;
+        esac
+        [ -f "$trusted_node" ] && [ -x "$trusted_node" ] || {
+          echo '::error::Trusted Node runtime is not an executable regular file.'
+          exit 1
+        }
+        node_version="$("$trusted_node" --version 2>/dev/null || true)"
+        [ "$node_version" = "$trusted_node_version" ] || {
+          echo '::error::Trusted Node runtime version changed after attestation.'
+          exit 1
+        }
+        sha256_file() {
+          if [ -x /usr/bin/sha256sum ]; then
+            /usr/bin/sha256sum -- "$1" | /usr/bin/cut -d ' ' -f 1
+          elif [ -x /usr/bin/shasum ]; then
+            /usr/bin/shasum -a 256 -- "$1" | /usr/bin/cut -d ' ' -f 1
+          else
+            return 1
+          fi
+        }
+        [ "$(sha256_file "$trusted_node")" = "$trusted_node_sha256" ] || {
+          echo '::error::Trusted Node runtime digest changed after attestation.'
+          exit 1
+        }
+        node_realpath="$trusted_node"
+        codex_bin="${CODEX_BIN:?Pinned Codex CLI path unavailable}"
+        codex_realpath="${CODEX_REALPATH:?Pinned Codex CLI realpath unavailable}"
+        codex_launcher_dir="${CODEX_LAUNCHER_DIR:?Codex launcher directory unavailable}"
+        codex_runtime_root="${CODEX_RUNTIME_ROOT:?Codex runtime directory unavailable}"
+        [ -x "$codex_realpath" ] || { echo '::error::Pinned Codex CLI realpath is not executable.'; exit 1; }
+        codex_version="$("$codex_bin" --version 2>/dev/null || true)"
+        [ "$codex_version" = 'codex-cli 0.153.4' ] || { echo "::error::Codex CLI version changed: $codex_version"; exit 1; }
+
+        # `shell_environment_policy.ignore_default_excludes=false` deliberately
+        # strips GH_TOKEN/GITHUB_TOKEN from model-generated subprocesses. Keep
+        # the caller's credential in a host-side Unix-socket bridge instead: the
+        # model can request the already-authorized `gh` operation, but its child
+        # environment never contains the credential. The reduced env below also
+        # contains no auth.json, Claude token, API key, or other inherited secret.
+        # Never print either bridge credential. Capture them into shell locals
+        # and immediately remove their environment bindings before executing or
+        # reading any action/workspace file.
+        codex_github_auth="${CODEX_GH_AUTH:-}"
+        codex_corpus_github_auth="${CODEX_CORPUS_GH_AUTH:-}"
+        unset CODEX_GH_AUTH CODEX_CORPUS_GH_AUTH
+        if [ -z "$codex_github_auth" ]; then
+          echo "::error::The Codex fallback requires the caller's explicit codex_github_token input."
+          exit 1
+        fi
+        codex_github_repository="${GITHUB_REPOSITORY:-}"
+        codex_github_host="${GITHUB_SERVER_URL:-}"
+        if [ -z "$codex_github_repository" ] || [ -z "$codex_github_host" ]; then
+          echo "::error::The Codex GitHub bridge requires the runner's current repository and server host."
+          exit 1
+        fi
+
+        # Keep all Codex-owned scratch/output files below the ephemeral home.
+        # The permission profile denies the runner's generic /tmp and reopens
+        # only this exact directory, so model-generated commands cannot browse
+        # unrelated runner files.
+        scratch_dir="$CODEX_HOME/scratch"
+        mkdir -p "$scratch_dir"
+        chmod 700 "$scratch_dir"
+        scratch_home="$scratch_dir/home"
+        mkdir -p "$scratch_home"
+        chmod 700 "$scratch_home"
+        runner_temp="${RUNNER_TEMP:-/tmp}"
+        codex_output_destination="${CODEX_OUTPUT:-$runner_temp/codex-fallback-${GITHUB_RUN_ID:-local}-${GITHUB_RUN_ATTEMPT:-1}.txt}"
+        CODEX_OUTPUT="$scratch_dir/codex-last-message.txt"
+
+        # The bridge itself lives in the explicitly reopened scratch tree. Its
+        # client contains no token; a host-side server reads the token only in
+        # its own process and launches the real gh with GH_TOKEN set there.
+        bridge_dir="$scratch_dir/bin"
+        mkdir -p "$bridge_dir"
+        chmod 700 "$bridge_dir"
+        action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
+        runtime_snapshot="${CODEX_RUNTIME_SNAPSHOT:?Codex fallback runtime snapshot unavailable}"
+        workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
+        gh_host_tools="$(mktemp -d "$runner_temp/codex-gh-host.XXXXXX")"
+        chmod 700 "$gh_host_tools"
+        mkdir -p "$gh_host_tools/bin"
+        chmod 700 "$gh_host_tools/bin"
+        gh_attestation="$gh_host_tools/attestation.txt"
+        : > "$gh_attestation"
+        chmod 600 "$gh_attestation"
+        sha256_file() {
+          "$node_realpath" -e 'const fs=require("node:fs"); const crypto=require("node:crypto"); process.stdout.write(crypto.createHash("sha256").update(fs.readFileSync(process.argv[1])).digest("hex"));' "$1"
+        }
+        verify_trusted_tool() {
+          local label="$1" expected="$2" expected_digest="$3" current
+          case "$expected" in
+            /*) ;;
+            *) echo "::error::Trusted $label path is not absolute."; exit 1 ;;
+          esac
+          [ -f "$expected" ] && [ -x "$expected" ] || {
+            echo "::error::Trusted $label path is not an executable regular file."
+            exit 1
+          }
+          current="$(realpath "$expected" 2>/dev/null || true)"
+          [ "$current" = "$expected" ] || {
+            echo "::error::Trusted $label path changed after preflight attestation."
+            exit 1
+          }
+          [ -n "$expected_digest" ] && [ "$(sha256_file "$current")" = "$expected_digest" ] || {
+            echo "::error::Trusted $label digest changed after preflight attestation."
+            exit 1
+          }
+        }
+        gh_binary_source="${TRUSTED_GH:?Trusted GitHub CLI path unavailable}"
+        git_binary_source="${TRUSTED_GIT:?Trusted Git path unavailable}"
+        verify_trusted_tool gh "$gh_binary_source" "${TRUSTED_GH_SHA256:-}"
+        verify_trusted_tool git "$git_binary_source" "${TRUSTED_GIT_SHA256:-}"
+        copy_attested_file() {
+          local source="$1" target="$2" source_real target_real source_digest target_digest
+          source_real="$(realpath "$source")"
+          cp -- "$source_real" "$target"
+          chmod 700 "$target"
+          target_real="$(realpath "$target")"
+          source_digest="$(sha256_file "$source_real")"
+          target_digest="$(sha256_file "$target_real")"
+          if [ -z "$source_digest" ] || [ "$source_digest" != "$target_digest" ]; then
+            echo '::error::Immutable GH tool digest verification failed.'
+            exit 1
+          fi
+          printf 'path=%s\nrealpath=%s\nsha256=%s\n' "$source" "$target_real" "$target_digest" >> "$gh_attestation"
+        }
+        copy_attested_file "$gh_binary_source" "$gh_host_tools/bin/gh"
+        gh_sandbox_binary="$bridge_dir/gh-real"
+        copy_attested_file "$gh_binary_source" "$gh_sandbox_binary"
+        gh_source_realpath="$(realpath "$gh_binary_source")"
+        gh_source_digest="$(sha256_file "$gh_source_realpath")"
+        gh_host_realpath="$(realpath "$gh_host_tools/bin/gh")"
+        gh_host_digest="$(sha256_file "$gh_host_realpath")"
+        [ "$gh_source_digest" = "$gh_host_digest" ] || { echo '::error::GH source/host digest mismatch.'; exit 1; }
+        gh_sandbox_realpath="$(realpath "$gh_sandbox_binary")"
+        gh_sandbox_digest="$(sha256_file "$gh_sandbox_realpath")"
+        [ "$gh_source_digest" = "$gh_sandbox_digest" ] || { echo '::error::GH source/sandbox digest mismatch.'; exit 1; }
+        printf 'source_realpath=%s\nsource_sha256=%s\nhost_realpath=%s\nhost_sha256=%s\nsandbox_realpath=%s\nsandbox_sha256=%s\n' \
+          "$gh_source_realpath" "$gh_source_digest" "$gh_host_realpath" "$gh_host_digest" "$gh_sandbox_realpath" "$gh_sandbox_digest" >> "$gh_attestation"
+        copy_attested_file "$git_binary_source" "$gh_host_tools/bin/git"
+        # Git dispatches git-<name> argv[0] as a built-in subcommand.
+        # Preserve the basename while keeping the native binary off bridge PATH.
+        mkdir -p "$bridge_dir/native"
+        chmod 700 "$bridge_dir/native"
+        git_sandbox_binary="$bridge_dir/native/git"
+        copy_attested_file "$git_binary_source" "$git_sandbox_binary"
+        git_source_realpath="$(realpath "$git_binary_source")"
+        git_source_digest="$(sha256_file "$git_source_realpath")"
+        git_host_realpath="$(realpath "$gh_host_tools/bin/git")"
+        git_host_digest="$(sha256_file "$git_host_realpath")"
+        git_sandbox_realpath="$(realpath "$git_sandbox_binary")"
+        git_sandbox_digest="$(sha256_file "$git_sandbox_realpath")"
+        [ "$git_source_digest" = "$git_host_digest" ] || { echo '::error::Git source/host digest mismatch.'; exit 1; }
+        [ "$git_source_digest" = "$git_sandbox_digest" ] || { echo '::error::Git source/sandbox digest mismatch.'; exit 1; }
+        printf 'git_source_realpath=%s\ngit_source_sha256=%s\ngit_host_realpath=%s\ngit_host_sha256=%s\ngit_sandbox_realpath=%s\ngit_sandbox_sha256=%s\n' \
+          "$git_source_realpath" "$git_source_digest" "$git_host_realpath" "$git_host_digest" "$git_sandbox_realpath" "$git_sandbox_digest" >> "$gh_attestation"
+        "$gh_host_tools/bin/gh" --version >/dev/null
+        "$gh_host_tools/bin/git" --version >/dev/null
+
+        # Keep the bridge implementation reviewable and testable. Copy only
+        # these immutable action-owned files into the exact scratch tree that
+        # the Codex profile reopens; the host-side servers are never loaded by
+        # model-generated commands with a token-bearing environment.
+        copy_bridge_file() {
+          local source="$1" target="$2"
+          if [ ! -f "$runtime_snapshot/action/$source" ]; then
+            echo "::error::Missing Codex bridge implementation: $source"
+            exit 1
+          fi
+          cp -- "$runtime_snapshot/action/$source" "$bridge_dir/$target"
+          chmod 700 "$bridge_dir/$target"
+        }
+        copy_bridge_file gh-bridge.sh gh
+        copy_bridge_file gh-bridge-client.mjs gh-client.mjs
+        copy_bridge_file gh-bridge-server.mjs gh-server.mjs
+        copy_bridge_file child-lifecycle.mjs child-lifecycle.mjs
+        copy_bridge_file bridge-transport.mjs bridge-transport.mjs
+        copy_bridge_file git-bridge.sh git
+        copy_bridge_file git-bridge-client.mjs git-client.mjs
+        copy_bridge_file git-bridge-server.mjs git-server.mjs
+        if [ ! -f "$runtime_snapshot/action/sanitize-git-config.mjs" ]; then
+          echo '::error::Missing Git config sanitizer implementation.'
+          exit 1
+        fi
+        CODEX_SANITIZER_GIT="$git_host_realpath" \
+          "$node_realpath" "$runtime_snapshot/action/sanitize-git-config.mjs"
+        # Derive the network target only from trusted runner context. Never
+        # resolve remote.origin.{url,pushurl} after the model can edit .git.
+        codex_git_remote="${codex_github_host%/}/${codex_github_repository}.git"
+        case "$codex_git_remote" in
+          ''|*$'\n'*|*$'\r'*|*'@'*)
+            echo '::error::The current GitHub repository cannot produce a safe Codex Git remote.'
+            exit 1
+            ;;
+        esac
+
+        # Copy only the deterministic inputs that callers intentionally staged
+        # under runner.temp. The prompt is rewritten to these copies before the
+        # child receives it; no broad runner-temp read is granted to Codex.
+        copy_temp_dir() {
+          local name="$1" source="$runner_temp/$1" target="$scratch_dir/$1"
+          if [ -d "$source" ]; then
+            mkdir -p "$target"
+            cp -R -- "$source/." "$target/"
+          fi
+        }
+        for name in review-ctx issue-fix-ctx followup-ctx redflag redcheck pr-body-gate-bin; do
+          copy_temp_dir "$name"
+        done
+        if [ -n "${GITHUB_EVENT_PATH:-}" ] && [ -f "$GITHUB_EVENT_PATH" ]; then
+          cp -- "$GITHUB_EVENT_PATH" "$scratch_dir/github-event.json"
+          chmod 600 "$scratch_dir/github-event.json"
+          GITHUB_EVENT_PATH="$scratch_dir/github-event.json"
+        fi
+        if [ -n "${BODY_FILE:-}" ] && [ -f "$BODY_FILE" ] && [ "$BODY_FILE" != "$scratch_dir/body-file.md" ]; then
+          cp -- "$BODY_FILE" "$scratch_dir/body-file.md"
+          chmod 600 "$scratch_dir/body-file.md"
+          BODY_FILE="$scratch_dir/body-file.md"
+        fi
+        for name in CTX_DIR PR_BODY_GATE_BIN; do
+          if [ -n "${!name+x}" ] && [ -n "${!name}" ]; then
+            value="${!name}"
+            if [[ "$runner_temp" == /tmp/* ]]; then
+              value="${value//\/tmp\//$scratch_dir/}"
+            else
+              value="${value//"$runner_temp"/"$scratch_dir"}"
+            fi
+            printf -v "$name" '%s' "$value"
+          fi
+        done
+
+        prompt="$CODEX_PROMPT"
+        if [[ "$runner_temp" == /tmp/* ]]; then
+          prompt="${prompt//\/tmp\//$scratch_dir/}"
+        else
+          prompt="${prompt//"$runner_temp"/"$scratch_dir"}"
+          prompt="${prompt//\/tmp\//$scratch_dir/}"
+        fi
+        prompt="$prompt"$'\n\nFallback accounting contract: the Claude usage limit is only the trigger for this one-shot replacement. Never mark this Codex run rate-limited or refunded; on success preserve the task\x27s normal output and marker contract.'
+        if [ -n "${CODEX_REVIEW_MARKER:-}" ]; then
+          prompt="$prompt"$'\n\nFallback review contract: include the exact marker '"$CODEX_REVIEW_MARKER"' in the review body you post.'
+        fi
+
+        # The built-in workspace profile intentionally protects .git. A linked
+        # worktree also resolves .git to a worktree gitdir plus a shared common
+        # dir, so grant only the Git metadata subtrees needed for commit/push.
+        # Keep hooks/config read-only; never use the global danger-full-access
+        # bypass. The auth file is denied to model-generated commands even though
+        # Codex itself reads it before running the task.
+        git_dir="$(git rev-parse --git-dir)"
+        common_git_dir="$(git rev-parse --git-common-dir)"
+        unset CDPATH
+        git_dir="$(cd -- "$git_dir" && pwd -P)"
+        common_git_dir="$(cd -- "$common_git_dir" && pwd -P)"
+        case "$git_dir$common_git_dir" in
+          *$'\n'*|*$'\r'*)
+            echo "::error::Unexpected newline in resolved Git metadata path."
+            exit 1
+            ;;
+        esac
+        auth_file="$CODEX_HOME/auth.json"
+        toml_quote_path() {
+          local value="$1"
+          value="${value//\\/\\\\}"
+          value="${value//\"/\\\"}"
+          printf '%s' "$value"
+        }
+        git_dir_toml="$(toml_quote_path "$git_dir")"
+        common_git_dir_toml="$(toml_quote_path "$common_git_dir")"
+        auth_file_toml="$(toml_quote_path "$auth_file")"
+        config_file="$CODEX_HOME/config.toml"
+        scratch_dir_toml="$(toml_quote_path "$scratch_dir")"
+        bridge_dir_toml="$(toml_quote_path "$bridge_dir")"
+        trusted_node_realpath_toml="$(toml_quote_path "$node_realpath")"
+        codex_realpath_toml="$(toml_quote_path "$codex_realpath")"
+        codex_launcher_dir_toml="$(toml_quote_path "$codex_launcher_dir")"
+        codex_runtime_root_toml="$(toml_quote_path "$codex_runtime_root")"
+        gh_socket="$scratch_dir/gh.sock"
+        git_socket="$scratch_dir/git.sock"
+        # This directory is host-only. The Codex profile never reopens it; the
+        # Git server uses it for a sanitized common-dir config shadow.
+        git_bridge_host_scratch="$(mktemp -d "$runner_temp/codex-git-bridge.XXXXXX")"
+        chmod 700 "$git_bridge_host_scratch"
+        cat > "$config_file" <<EOF
+        default_permissions = "codex-fallback"
+
+        [permissions.codex-fallback]
+        description = "Codex fallback with scoped Git metadata access"
+        extends = ":workspace"
+
+        [permissions.codex-fallback.network]
+        enabled = false
+
+        [permissions.codex-fallback.filesystem]
+        ":root" = "deny"
+        ":minimal" = "read"
+        ":slash_tmp" = "deny"
+        "$auth_file_toml" = "deny"
+        [permissions.codex-fallback.filesystem.":workspace_roots"]
+        "." = "write"
+        [permissions.codex-fallback.filesystem."$scratch_dir_toml"]
+        "." = "write"
+        [permissions.codex-fallback.filesystem."$bridge_dir_toml"]
+        "." = "read"
+        EOF
+        cat >> "$config_file" <<EOF
+        [permissions.codex-fallback.filesystem."$trusted_node_realpath_toml"]
+        "." = "read"
+        [permissions.codex-fallback.filesystem."$codex_realpath_toml"]
+        "." = "read"
+        [permissions.codex-fallback.filesystem."$codex_launcher_dir_toml"]
+        "." = "read"
+        EOF
+        if [ "$codex_runtime_root" != "$codex_launcher_dir" ]; then
+          cat >> "$config_file" <<EOF
+        [permissions.codex-fallback.filesystem."$codex_runtime_root_toml"]
+        "." = "read"
+        EOF
+        fi
+        if [ "$git_dir" = "$common_git_dir" ]; then
+          cat >> "$config_file" <<EOF
+        [permissions.codex-fallback.filesystem."$git_dir_toml"]
+        "." = "write"
+        "hooks" = "read"
+        "config" = "read"
+        EOF
+        else
+          cat >> "$config_file" <<EOF
+        [permissions.codex-fallback.filesystem."$git_dir_toml"]
+        "." = "write"
+        "hooks" = "read"
+        "config" = "read"
+
+        [permissions.codex-fallback.filesystem."$common_git_dir_toml"]
+        "." = "read"
+        "objects" = "write"
+        "refs" = "write"
+        "logs" = "write"
+        "packed-refs" = "write"
+        "hooks" = "read"
+        "config" = "read"
+        EOF
+        fi
+        chmod 600 "$config_file"
+
+        # 0.153.4 strict mode also validates the checked-out project config;
+        # this repository still carries legacy MCP keys that that CLI rejects.
+        # Keep the generated file as the profile source/smoke target, then pass
+        # the same policy as explicit CLI TOML while ignoring project config.
+        # `--ignore-user-config` does not disable CODEX_HOME/auth.json loading.
+        git_filesystem_rules='{"."="write","hooks"="read","config"="read"}'
+        common_filesystem_rules='{"."="read","objects"="write","refs"="write","logs"="write","packed-refs"="write","hooks"="read","config"="read"}'
+        # TMPDIR is the explicit scratch allowlist below. A :tmpdir deny would
+        # resolve to that same path and override its write grant. Root and /tmp
+        # remain denied outside the explicit workspace/runtime/scratch roots.
+        base_filesystem_rules='{":root"="deny",":minimal"="read",":slash_tmp"="deny",":workspace_roots"={"."="write"}'
+        codex_filesystem_rules="\"$trusted_node_realpath_toml\"={\".\"=\"read\"},\"$codex_realpath_toml\"={\".\"=\"read\"},\"$codex_launcher_dir_toml\"={\".\"=\"read\"}"
+        if [ "$codex_runtime_root" != "$codex_launcher_dir" ]; then
+          codex_filesystem_rules="$codex_filesystem_rules,\"$codex_runtime_root_toml\"={\".\"=\"read\"}"
+        fi
+        if [ "$git_dir" = "$common_git_dir" ]; then
+          codex_filesystem="${base_filesystem_rules},\"$auth_file_toml\"={\".\"=\"deny\"},\"$scratch_dir_toml\"={\".\"=\"write\"},\"$bridge_dir_toml\"={\".\"=\"read\"},$codex_filesystem_rules,\"$git_dir_toml\"=$git_filesystem_rules}"
+        else
+          codex_filesystem="${base_filesystem_rules},\"$auth_file_toml\"={\".\"=\"deny\"},\"$scratch_dir_toml\"={\".\"=\"write\"},\"$bridge_dir_toml\"={\".\"=\"read\"},$codex_filesystem_rules,\"$git_dir_toml\"=$git_filesystem_rules,\"$common_git_dir_toml\"=$common_filesystem_rules}"
+        fi
+
+        env -i \
+          CODEX_BRIDGE_TRANSPORT=files \
+          CODEX_GH_AUTH="$codex_github_auth" \
+          CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth" \
+          CODEX_GH_SOCKET="$gh_socket" \
+          CODEX_REAL_GH="$gh_host_realpath" \
+          CODEX_GH_CWD="${PWD:-$(pwd)}" \
+          CODEX_GH_WORKSPACE="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}" \
+          CODEX_GH_SCRATCH="$scratch_dir" \
+          CODEX_GH_REPOSITORY="$codex_github_repository" \
+          CODEX_GH_HOST="$codex_github_host" \
+          CODEX_GH_CORPUS_REPOSITORY="nanakokyobashi-rgb/frontaliere-articles" \
+          PATH="$gh_host_tools/bin:$PATH" \
+          HOME="$scratch_home" \
+          "$node_realpath" "$bridge_dir/gh-server.mjs" >/dev/null 2>&1 &
+        gh_server_pid=$!
+        stop_gh_bridge() {
+          kill "$gh_server_pid" 2>/dev/null || true
+          wait "$gh_server_pid" 2>/dev/null || true
+        }
+        trap stop_gh_bridge EXIT
+        for _ in $(seq 1 50); do
+          [ -d "$gh_socket" ] && break
+          kill -0 "$gh_server_pid" 2>/dev/null || break
+          sleep 0.1
+        done
+        if [ ! -d "$gh_socket" ]; then
+          echo "::error::The Codex GitHub bridge did not start."
+          exit 1
+        fi
+        env -i \
+          CODEX_BRIDGE_TRANSPORT=files \
+          CODEX_GIT_AUTH="$codex_github_auth" \
+          CODEX_GIT_SOCKET="$git_socket" \
+          CODEX_REAL_GIT="$git_host_realpath" \
+          CODEX_GIT_CWD="${PWD:-$(pwd)}" \
+          CODEX_GIT_DIR="$git_dir" \
+          CODEX_GIT_COMMON_DIR="$common_git_dir" \
+          CODEX_GIT_HOST_SCRATCH="$git_bridge_host_scratch" \
+          CODEX_GIT_HOST="$codex_github_host" \
+          CODEX_GIT_REPOSITORY="$codex_github_repository" \
+          CODEX_GIT_REMOTE="$codex_git_remote" \
+          PATH="$gh_host_tools/bin:$PATH" \
+          HOME="$scratch_home" \
+          "$node_realpath" "$bridge_dir/git-server.mjs" >/dev/null 2>&1 &
+        git_server_pid=$!
+        stop_bridge() {
+          kill "$gh_server_pid" "$git_server_pid" 2>/dev/null || true
+          wait "$gh_server_pid" "$git_server_pid" 2>/dev/null || true
+        }
+        outside_probe="$runner_temp/codex-fallback-outside-probe.$$"
+        printf probe > "$outside_probe"
+        cleanup_bridge() {
+          rm -f -- "$outside_probe"
+          stop_bridge
+          if [ -d "${gh_host_tools:-}" ]; then
+            case "$gh_host_tools" in
+              "${runner_temp}"/codex-gh-host.*)
+                "$node_realpath" -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$gh_host_tools"
+                ;;
+            esac
+          fi
+          if [ -d "${git_bridge_host_scratch:-}" ]; then
+            "$node_realpath" -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$git_bridge_host_scratch"
+          fi
+        }
+        trap cleanup_bridge EXIT
+        for _ in $(seq 1 50); do
+          [ -d "$gh_socket" ] && [ -d "$git_socket" ] && break
+          kill -0 "$gh_server_pid" 2>/dev/null || break
+          kill -0 "$git_server_pid" 2>/dev/null || break
+          sleep 0.1
+        done
+        if [ ! -d "$git_socket" ]; then
+          echo "::error::The Codex Git bridge did not start."
+          exit 1
+        fi
+        # Do not let the token remain in the environment inherited by Codex;
+        # only the host-side bridge process received it above.
+        RUNNER_TEMP="$scratch_dir"
+
+        # This no-op applies the generated profile before the authenticated
+        # request. It catches malformed/unsupported permission TOML early and
+        # uses real file operations: the explicit gitdir/common overrides must
+        # create/read/remove probes, while hooks/auth/runner files stay denied.
+        CODEX_BRIDGE_TRANSPORT=files PATH="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_NODE_REAL="$node_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
+          set -eu
+          test -x "$CODEX_REALPATH"
+          "$CODEX_NODE_REAL" "$CODEX_REALPATH" --version >/dev/null
+          git_dir="$(git rev-parse --git-dir)"
+          common_git_dir="$(git rev-parse --git-common-dir)"
+          probe="$git_dir/codex-fallback-probe.$$"
+          printf probe > "$probe"
+          test "$(dd if="$probe" bs=16 count=1 2>/dev/null)" = probe
+          rm -f "$probe"
+          common_probe="$common_git_dir/objects/codex-fallback-probe.$$"
+          printf probe > "$common_probe"
+          test "$(dd if="$common_probe" bs=16 count=1 2>/dev/null)" = probe
+          rm -f "$common_probe"
+          if touch "$common_git_dir/hooks/codex-fallback-probe.$$" 2>/dev/null; then exit 1; fi
+          if dd if="$CODEX_HOME/auth.json" of=/dev/null bs=1 count=1 2>/dev/null; then exit 1; fi
+          tmp_probe="$TMPDIR/codex-fallback-tmp-probe.$$"
+          printf probe > "$tmp_probe"
+          test "$(dd if="$tmp_probe" bs=16 count=1 2>/dev/null)" = probe
+          rm -f "$tmp_probe"
+          if dd if="$CODEX_OUTSIDE_PROBE" of=/dev/null bs=1 count=1 2>/dev/null; then exit 1; fi
+          gh --version >/dev/null
+          # A denied auth command alone cannot distinguish a working bridge
+          # from a sandbox that blocks every connection to its IPC endpoint.
+          gh api "repos/$GITHUB_REPOSITORY" >/dev/null
+          git ls-remote origin HEAD >/dev/null
+          auth_status=0
+          auth_output="$(gh auth token 2>/dev/null)" || auth_status=$?
+          test "$auth_status" -ne 0
+          test -z "$auth_output"
+          if git remote -v | grep -Eiq "x-access-token:|oauth2:|://[^/@[:space:]]+@"; then exit 1; fi
+          if git config --local --get-regexp "^http\\..*\\.extraheader$" >/dev/null 2>&1; then exit 1; fi
+          if git config --local --get http.extraheader >/dev/null 2>&1; then exit 1; fi
+        ' >/dev/null
+
+        # Pass only runtime metadata plus bridge paths to Codex. The credential
+        # itself stays in the host-side bridge processes. The include_only
+        # policy is repeated inside Codex so model-generated commands cannot
+        # recover anything that was present in the runner shell.
+        metadata_vars=(
+          GITHUB_REPOSITORY GITHUB_RUN_ID GITHUB_RUN_ATTEMPT GITHUB_WORKFLOW
+          GITHUB_EVENT_NAME GITHUB_SHA GITHUB_REF GITHUB_REF_NAME GITHUB_HEAD_REF
+          GITHUB_BASE_REF GITHUB_SERVER_URL GITHUB_API_URL GITHUB_GRAPHQL_URL
+          GITHUB_WORKSPACE GITHUB_ACTOR GITHUB_TRIGGERING_ACTOR GITHUB_EVENT_PATH
+          RUNNER_TEMP CTX_DIR PR_BODY_GATE_BIN REPO ISSUE_NUMBER ISSUE_TITLE ISSUE_GROUP ISSUE_GROUP_LABEL
+          ISSUE_GROUP_NUMBERS PR_NUMBER PR_TITLE HEAD_SHA REVIEW_TIER INCREMENTAL_BASE
+          FIX_TIER FIX_ROUND BATCH_PRS BATCH_COUNT TRIAGE_DAILY_KEY EVENT_NAME BODY_FILE
+        )
+        codex_env=(
+          "CODEX_BRIDGE_TRANSPORT=files"
+          "CODEX_HOME=$CODEX_HOME"
+          "PATH=$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin"
+          "HOME=$scratch_home"
+          "TMPDIR=$scratch_dir"
+          "CODEX_NODE_REAL=$node_realpath"
+          "CODEX_GH_SOCKET=$gh_socket"
+          "CODEX_GH_CLIENT=$bridge_dir/gh-client.mjs"
+          "CODEX_GH_REAL=$gh_sandbox_binary"
+          "CODEX_GIT_SOCKET=$git_socket"
+          "CODEX_GIT_CLIENT=$bridge_dir/git-client.mjs"
+          "CODEX_GIT_REAL=$git_sandbox_binary"
+          "PWD=${PWD:-$(pwd)}"
+          "SHELL=${SHELL:-/bin/bash}"
+          "USER=${USER:-runner}"
+          "LOGNAME=${LOGNAME:-runner}"
+          "LANG=${LANG:-C.UTF-8}"
+          "CI=${CI:-true}"
+        )
+        for name in "${metadata_vars[@]}"; do
+          if [ -n "${!name+x}" ]; then codex_env+=("$name=${!name}"); fi
+        done
+        codex_env_patterns='["CODEX_BRIDGE_TRANSPORT","PATH","HOME","TMPDIR","PWD","SHELL","USER","LOGNAME","LANG","LC_*","CI","GITHUB_REPOSITORY","GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_WORKFLOW","GITHUB_EVENT_NAME","GITHUB_SHA","GITHUB_REF","GITHUB_REF_NAME","GITHUB_HEAD_REF","GITHUB_BASE_REF","GITHUB_SERVER_URL","GITHUB_API_URL","GITHUB_GRAPHQL_URL","GITHUB_WORKSPACE","GITHUB_ACTOR","GITHUB_TRIGGERING_ACTOR","GITHUB_EVENT_PATH","RUNNER_TEMP","CTX_DIR","PR_BODY_GATE_BIN","REPO","ISSUE_NUMBER","ISSUE_TITLE","ISSUE_GROUP","ISSUE_GROUP_LABEL","ISSUE_GROUP_NUMBERS","PR_NUMBER","PR_TITLE","HEAD_SHA","REVIEW_TIER","INCREMENTAL_BASE","FIX_TIER","FIX_ROUND","BATCH_PRS","BATCH_COUNT","TRIAGE_DAILY_KEY","EVENT_NAME","BODY_FILE","CODEX_NODE_REAL","CODEX_GH_SOCKET","CODEX_GH_CLIENT","CODEX_GH_REAL","CODEX_GIT_SOCKET","CODEX_GIT_CLIENT","CODEX_GIT_REAL"]'
+
+        set +e
+        printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_bin" exec \
+          --ephemeral \
+          --strict-config \
+          --ignore-user-config \
+          --model gpt-5.6-luna \
+          -c 'default_permissions="codex-fallback"' \
+          -c 'permissions.codex-fallback.extends=":workspace"' \
+          -c 'permissions.codex-fallback.network.enabled=false' \
+          -c "permissions.codex-fallback.filesystem=$codex_filesystem" \
+          -c model_reasoning_effort=max \
+          -c shell_environment_policy.ignore_default_excludes=false \
+          -c "shell_environment_policy.include_only=$codex_env_patterns" \
+          --output-last-message "$CODEX_OUTPUT" \
+          -
+        codex_status=$?
+        if [ "$CODEX_OUTPUT" != "$codex_output_destination" ] && [ -f "$CODEX_OUTPUT" ]; then
+          cp -- "$CODEX_OUTPUT" "$codex_output_destination" || echo "::warning::Codex output could not be copied to the workflow artifact path."
+        fi
+        printf 'codex_output=%s\n' "$codex_output_destination" >> "$GITHUB_OUTPUT"
+        exit "$codex_status"
+
+    - name: Record structured Codex fallback evidence
+      id: finalize
+      if: always() && steps.trusted_node.outcome == 'success'
+      shell: bash
+      env:
+        PREFLIGHT_FALLBACK: ${{ steps.preflight.outputs.fallback }}
+        PREFLIGHT_TRIGGER: ${{ steps.preflight.outputs.trigger }}
+        RUNTIME_FALLBACK: ${{ steps.runtime.outputs.fallback }}
+        RUNTIME_TRIGGER: ${{ steps.runtime.outputs.trigger }}
+        CODEX_OUTCOME: ${{ steps.codex.outcome }}
+        CODEX_OUTPUT: ${{ steps.codex.outputs.codex_output }}
+        CLAUDE_OUTCOME: ${{ steps.claude.outcome }}
+        EXEC_FILE: ${{ steps.claude.outputs.execution_file }}
+        EVIDENCE_FILE: ${{ runner.temp }}/codex-fallback-evidence-${{ github.run_id }}-${{ github.run_attempt }}.md
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+        RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
+      run: |
+        set -euo pipefail
+        runtime_snapshot_outcome="${{ steps.runtime_snapshot.outcome }}"
+        preflight_outcome="${{ steps.preflight.outcome }}"
+        runtime_outcome="${{ steps.runtime.outcome }}"
+        if [ "$runtime_snapshot_outcome" != 'success' ]; then
+          echo "::error::Codex fallback decision step runtime_snapshot ended with outcome=$runtime_snapshot_outcome."
+          exit 1
+        fi
+        if [ "$preflight_outcome" != 'success' ]; then
+          echo "::error::Codex fallback decision step preflight ended with outcome=$preflight_outcome."
+          exit 1
+        fi
+        if [ "$runtime_outcome" != 'success' ]; then
+          echo "::error::Codex fallback decision step runtime ended with outcome=$runtime_outcome."
+          exit 1
+        fi
+        fallback=false
+        trigger=''
+        if [ "$PREFLIGHT_FALLBACK" = 'true' ]; then
+          fallback=true
+          trigger="$PREFLIGHT_TRIGGER"
+        elif [ "$RUNTIME_FALLBACK" = 'true' ]; then
+          fallback=true
+          trigger="$RUNTIME_TRIGGER"
+        fi
+        success=false
+        if [ "$fallback" = 'true' ] && [ "$CODEX_OUTCOME" = 'success' ]; then
+          success=true
+        fi
+        if [ "$fallback" = 'true' ]; then
+          status='failure'
+          [ "$success" = 'true' ] && status='success'
+          preflight_for_evidence=false
+          [ "$trigger" = 'preflight-quota' ] && preflight_for_evidence=true
+          FALLBACK_STATUS="$status" \
+          FALLBACK_DETAIL="codex-cli exit=$CODEX_OUTCOME" \
+          EVIDENCE_FILE="$EVIDENCE_FILE" \
+          GITHUB_OUTPUT=/dev/null \
+          PREFLIGHT_BLOCKED="$preflight_for_evidence" \
+          EXEC_FILE="$EXEC_FILE" \
+          FALLBACK_ATTEMPTED=false \
+          "$TRUSTED_NODE" "$RUNTIME_ROOT/ci/claude-codex-fallback.mjs" >/dev/null
+          if [ ! -s "$EVIDENCE_FILE" ]; then
+            echo "::error::Codex fallback evidence was not produced."
+            exit 1
+          fi
+          if [ -f "$EVIDENCE_FILE" ]; then
+            cat "$EVIDENCE_FILE" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            printf 'fallback_evidence_file=%s\n' "$EVIDENCE_FILE" >> "$GITHUB_OUTPUT"
+          fi
+        fi
+        printf 'fallback_used=%s\n' "$fallback" >> "$GITHUB_OUTPUT"
+        printf 'fallback_success=%s\n' "$success" >> "$GITHUB_OUTPUT"
+        printf 'fallback_trigger=%s\n' "$trigger" >> "$GITHUB_OUTPUT"
+        printf 'codex_output_file=%s\n' "${CODEX_OUTPUT:-}" >> "$GITHUB_OUTPUT"
+        printf 'execution_file=%s\n' "${EXEC_FILE:-}" >> "$GITHUB_OUTPUT"
+        printf 'claude_outcome=%s\n' "${CLAUDE_OUTCOME:-skipped}" >> "$GITHUB_OUTPUT"
+
+    - name: Cleanup ephemeral Codex subscription auth
+      if: always() && steps.codex_auth.outputs.codex_home != ''
+      shell: bash
+      env:
+        CODEX_HOME: ${{ steps.codex_auth.outputs.codex_home }}
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+      run: |
+        set +e
+        case "$CODEX_HOME" in
+          "${RUNNER_TEMP:-/tmp}"/codex-home.*)
+            # This is the exact mktemp directory created by the auth step;
+            # remove it recursively only after the guarded path check so no
+            # runner-wide path can ever be selected here.
+            if [ -x "$TRUSTED_NODE" ]; then
+              "$TRUSTED_NODE" -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$CODEX_HOME"
+            else
+              /usr/bin/rm -rf -- "$CODEX_HOME"
+            fi
+            ;;
+          *) echo "::warning::unexpected Codex home path; leaving it untouched" ;;
+        esac
+
+    - name: Cleanup ephemeral Codex CLI install
+      if: always() && steps.codex_cli.outputs.codex_install_root != ''
+      shell: bash
+      env:
+        CODEX_CLI_ROOT: ${{ steps.codex_cli.outputs.codex_install_root }}
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+      run: |
+        set +e
+        case "$CODEX_CLI_ROOT" in
+          "${RUNNER_TEMP:-/tmp}"/codex-cli-install.*)
+            if [ -x "$TRUSTED_NODE" ]; then
+              "$TRUSTED_NODE" -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$CODEX_CLI_ROOT"
+            else
+              /usr/bin/rm -rf -- "$CODEX_CLI_ROOT"
+            fi
+            ;;
+          *) echo "::warning::unexpected Codex CLI install path; leaving it untouched" ;;
+        esac
+
+    - name: Cleanup downloaded Node runtime
+      if: always() && steps.trusted_node.outputs.node_runtime_root != ''
+      shell: bash
+      env:
+        NODE_RUNTIME_ROOT: ${{ steps.trusted_node.outputs.node_runtime_root }}
+      run: |
+        set +e
+        case "$NODE_RUNTIME_ROOT" in
+          "${RUNNER_TEMP:-/tmp}"/codex-node-runtime.*)
+            /usr/bin/rm -rf -- "$NODE_RUNTIME_ROOT"
+            ;;
+          *) echo "::warning::unexpected downloaded Node runtime path; leaving it untouched" ;;
+        esac
+
+    - name: Cleanup fallback runtime snapshot
+      if: always() && steps.runtime_snapshot.outputs.runtime_root != ''
+      shell: bash
+      env:
+        RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
+      run: |
+        set +e
+        case "$RUNTIME_ROOT" in
+          "${RUNNER_TEMP:-/tmp}"/codex-fallback-runtime.*)
+            /usr/bin/rm -rf -- "$RUNTIME_ROOT"
+            ;;
+          *) echo "::warning::unexpected fallback runtime snapshot path; leaving it untouched" ;;
+        esac
+
+    - name: Preserve primary/fallback outcome
+      if: always()
+      shell: bash
+      run: |
+        set -uo pipefail
+        if [ "${{ steps.trusted_node.outcome }}" != 'success' ]; then
+          echo '::error::Trusted Node runtime resolution failed; fallback steps were not run.'
+          exit 1
+        fi
+        runtime_snapshot_outcome="${{ steps.runtime_snapshot.outcome }}"
+        preflight_outcome="${{ steps.preflight.outcome }}"
+        runtime_outcome="${{ steps.runtime.outcome }}"
+        finalize_outcome="${{ steps.finalize.outcome }}"
+        if [ "$runtime_snapshot_outcome" != 'success' ]; then
+          echo "::error::Codex fallback step runtime_snapshot ended with outcome=$runtime_snapshot_outcome."
+          exit 1
+        fi
+        if [ "$preflight_outcome" != 'success' ]; then
+          echo "::error::Codex fallback step preflight ended with outcome=$preflight_outcome."
+          exit 1
+        fi
+        if [ "$runtime_outcome" != 'success' ]; then
+          echo "::error::Codex fallback step runtime ended with outcome=$runtime_outcome."
+          exit 1
+        fi
+        if [ "$finalize_outcome" != 'success' ]; then
+          echo "::error::Codex fallback step finalize ended with outcome=$finalize_outcome."
+          exit 1
+        fi
+        if [ "${{ steps.finalize.outputs.fallback_used }}" = 'true' ]; then
+          if [ "${{ steps.finalize.outputs.fallback_success }}" = 'true' ]; then
+            exit 0
+          fi
+          exit 1
+        fi
+        if [ "${{ steps.claude.outcome }}" = 'failure' ]; then exit 1; fi
+        exit 0

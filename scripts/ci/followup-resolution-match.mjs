@@ -23,6 +23,120 @@
  * `git show origin/main:<path>`), so the same logic works on a worktree or a ref.
  */
 
+import { createHash } from 'node:crypto';
+
+export const FOLLOWUP_DAILY_TIME_ZONE = 'Europe/Zurich';
+export const FOLLOWUP_ITEM_ID_RE = /\bFU-(\d{4}-\d{2}-\d{2})-(\d{3})\b/g;
+export const FOLLOWUP_ITEM_ID_SINGLE_RE = /^FU-\d{4}-\d{2}-\d{2}-\d{3}$/;
+
+/**
+ * Return the calendar day used to identify a successful triage bucket.
+ * The input is deliberately the triage time, never a PR's `mergedAt`.
+ *
+ * @param {number|string|Date} [value]
+ * @param {string} [timeZone]
+ * @returns {string}
+ */
+export function dailyKeyZurich(value = Date.now(), timeZone = FOLLOWUP_DAILY_TIME_ZONE) {
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return dailyKeyZurich(Date.now(), timeZone);
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(date);
+  const byType = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${byType.year}-${byType.month}-${byType.day}`;
+}
+
+/** Stable title for one daily bucket. */
+export function dailyBucketTitle(dailyKey, targetRepository, itemCount = 1) {
+  const key = String(dailyKey || '').trim();
+  const repo = String(targetRepository || '').trim();
+  const count = Math.max(1, Math.floor(Number(itemCount) || 1));
+  return `follow-up(daily:${key}): ${count} item${count === 1 ? '' : 's'} — ${repo}`;
+}
+
+/** Stable item identifier; numbering is allocated only when an item is first added. */
+export function followupItemId(dailyKey, sequence) {
+  const key = String(dailyKey || '').trim();
+  const n = Math.max(1, Math.floor(Number(sequence) || 1));
+  return `FU-${key}-${String(n).padStart(3, '0')}`;
+}
+
+/** Parse the stable daily-bucket title, or return null for legacy per-PR titles. */
+export function dailyBucketInfo(title = '') {
+  const m = String(title || '').match(
+    /^follow-up\(daily:(\d{4}-\d{2}-\d{2})\):\s*(\d+)\s+items?\s*[—-]\s*(\S.*)$/i,
+  );
+  if (!m) return null;
+  return { dailyKey: m[1], itemCount: Number(m[2]), targetRepository: m[3].trim() };
+}
+
+export function isDailyBucketTitle(title = '') {
+  return !!dailyBucketInfo(title);
+}
+
+/**
+ * Normalize a fingerprint component without changing the acceptance oracle.
+ * Punctuation meaningful to code tokens is retained; whitespace/case drift is not.
+ */
+export function normalizeFingerprintPart(value) {
+  return String(value || '').trim().toLowerCase().replace(/[`*_]/g, '').replace(/\s+/g, ' ');
+}
+
+/**
+ * Fingerprint for bucket-level deduplication. It is scoped by target repository and
+ * target file, so site and corpus findings can never collapse into one issue.
+ */
+export function followupFingerprint({
+  targetRepository = '',
+  targetFile = '',
+  acceptanceToken = '',
+  suggestedAction = '',
+} = {}) {
+  const tokenOrAction = String(acceptanceToken || '').trim() || suggestedAction;
+  const material = [targetRepository, targetFile, tokenOrAction]
+    .map(normalizeFingerprintPart)
+    .join('|');
+  return createHash('sha256').update(material).digest('hex');
+}
+
+/**
+ * Return the identity shared by daily buckets.  The repository is part of the
+ * key deliberately: a site finding and a corpus finding can have the same
+ * day/file/token shape without belonging to the same issue.
+ */
+export function dailyBucketIdentity(title = '') {
+  const info = dailyBucketInfo(title);
+  if (!info) return null;
+  return `${info.dailyKey}|${normalizeFingerprintPart(info.targetRepository)}`;
+}
+
+/**
+ * Choose one deterministic owner for every daily bucket identity.  GitHub issue
+ * search/list results are not a uniqueness constraint, so callers must apply this
+ * map before creating, queueing, or sealing a bucket.  The oldest issue wins;
+ * ties are resolved by the numeric issue number.
+ */
+export function canonicalDailyBuckets(issues) {
+  const canonical = new Map();
+  for (const issue of Array.isArray(issues) ? issues : []) {
+    const identity = dailyBucketIdentity(issue?.title || '');
+    if (!identity) continue;
+    const number = Number(issue?.number);
+    const current = canonical.get(identity);
+    if (!current || (
+      Number.isInteger(number) && number > 0
+      && (!Number.isInteger(Number(current.number)) || number < Number(current.number))
+    )) {
+      canonical.set(identity, issue);
+    }
+  }
+  return canonical;
+}
+
 /**
  * A token qualifies only if it carries CODE PUNCTUATION (paren/brace/quote/backtick,
  * dot-member, `::`, `=>`, comparison/assignment operator, `:digit`). Bare prose words
@@ -81,11 +195,15 @@ export function mostSpecificToken(tokens) {
  */
 export function citedFiles(body, fileExists) {
   const out = new Set();
-  for (const m of body.matchAll(/`([\w./-]+\.[a-z]{2,5})(?::L?\d+)?`/gi)) {
+  const unprotected = markdownRecords(body)
+    .filter((record) => !record.protected)
+    .map((record) => record.line)
+    .join('\n');
+  for (const m of unprotected.matchAll(/`([\w./-]+\.[a-z]{2,5})(?::L?\d+)?`/gi)) {
     const p = m[1];
     if (p.includes('/') && fileExists(p)) out.add(p);
   }
-  for (const m of body.matchAll(/(?:^|\n)\s*(?:[-*]\s*)?Target file:\s*([\w./-]+\.[a-z]{2,5})(?::L?\d+)?\s*$/gim)) {
+  for (const m of unprotected.matchAll(/(?:^|\n)\s*(?:[-*]\s*)?Target file:\s*([\w./-]+\.[a-z]{2,5})(?::L?\d+)?\s*$/gim)) {
     const p = m[1];
     if (p.includes('/') && fileExists(p)) out.add(p);
   }
@@ -97,8 +215,8 @@ const ITEM_HEADING_START = /^#{2,3}\s/i;
 // for backwards compatibility with already-minted issues. Removing it would
 // absorb the legacy line into `Suggested action` and recreate the too-wide-region
 // false positive fixed by #7902.
-const ITEM_FIELD_START = /^-\s+(?:Source|Original text|Stato dichiarato nella PR|Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
-const POST_ORIGINAL_FIELD_START = /^-\s+(?:Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
+const ITEM_FIELD_START = /^-\s+(?:State|Sources?|Stato dichiarato nella PR|Target repository|Target file|Acceptance token|Original text|Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
+const POST_ORIGINAL_FIELD_START = /^-\s+(?:State|Sources?|Stato dichiarato nella PR|Target repository|Target file|Acceptance token|Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
 const DECORATED_SHEET_START = /^\s*\*{0,2}\d+\s*-\s*(?:METRICA|OSSERVATORE)(?:\s*[.:]\s*\*{0,2}|\s*\*{0,2}\s*[.:])/i;
 const METRIC_SHEET_START = /^(?:-\s+METRICA\s*:|\s*\*{0,2}\d+\s*-\s*METRICA(?:\s*[.:]\s*\*{0,2}|\s*\*{0,2}\s*[.:]))/i;
 
@@ -116,11 +234,15 @@ function isSuggestedActionSectionBreak(line) {
  * predicate, including the sheet branch that does not require `Suggested action`.
  */
 function acceptanceScopeText(body) {
-  const lines = String(body || '').split('\n');
+  const lines = markdownRecords(body);
   const scoped = [];
   let inOriginalText = false;
 
-  for (const line of lines) {
+  for (const { line, protected: protectedLine } of lines) {
+    // Fenced/quoted Markdown is evidence quoted by the item, never a live field
+    // boundary. Drop it from the acceptance scope so a nested `Suggested action`,
+    // `Target file`, or code token cannot become a close signal.
+    if (protectedLine) continue;
     if (/^-\s+Original text\s*:/i.test(line)) {
       inOriginalText = true;
       continue;
@@ -336,12 +458,433 @@ export function hasFalsifiableAcceptance(itemText) {
 }
 
 /**
- * Spezza il corpo di una follow-up nei suoi item (`### 1.`, `### 2.`, …).
- * Ritorna `[]` se il corpo non ha la struttura a item — che per i chiamanti
- * significa «non riclassificare», mai «zero item validi».
+ * Heading riconosciuti per gli item. Il primo ramo è il formato stabile dei bucket
+ * giornalieri; il secondo mantiene la compatibilità con le follow-up già pubblicate.
+ * La regex è intenzionalmente ancorata a `###` e a inizio riga: un heading citato dentro
+ * un blocco fenced resta materia per il controllo lossless del mint gate.
+ */
+const FOLLOWUP_ITEM_HEADING_LINE_RE = /^###\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—–-]\s*(.*?)|(\d+)\.\s*(.*))\s*$/i;
+
+/**
+ * Split Markdown into lines while marking fenced/quoted lines as protected.
+ * Metadata and item headings are meaningful only on unprotected lines: a PR body
+ * often embeds another Markdown document verbatim in `Original text`, and parsing
+ * its headings/fields as live bucket data silently changes the item set.
+ */
+function markdownRecords(text) {
+  const source = String(text || '');
+  const records = [];
+  let fence = null;
+  let offset = 0;
+  for (const line of source.split('\n')) {
+    const start = offset;
+    const end = start + line.length;
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+    const quoted = /^\s*>/.test(line);
+    const protectedLine = quoted || !!fence;
+    records.push({ line, start, end, protected: protectedLine });
+    if (fence) {
+      if (!quoted && marker && marker[1][0] === fence.char
+          && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
+        fence = null;
+      }
+    } else if (!quoted && marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
+    }
+    offset = end + 1;
+  }
+  Object.defineProperty(records, 'unterminatedFence', {
+    value: !!fence,
+    enumerable: false,
+  });
+  return records;
+}
+
+/** True when Markdown opens a fenced block and never closes it. */
+export function hasUnterminatedMarkdownFence(text) {
+  return markdownRecords(text).unterminatedFence === true;
+}
+
+/**
+ * Read State fields only from real Markdown lines.  A quoted/fenced example is
+ * evidence, not metadata; conversely two live State lines are ambiguous even
+ * when they happen to carry the same value.  The latter must not be reduced to
+ * "take the first one": a later writer could otherwise smuggle a conflicting
+ * state past the queue/close gates.
+ */
+function fieldValuesOutsideMarkdownProtection(text, field) {
+  const escaped = String(field).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`^\\s*-\\s+${escaped}\\s*:\\s*(.*?)\\s*$`, 'i');
+  const values = [];
+  for (const record of markdownRecords(text)) {
+    if (record.protected) continue;
+    const match = re.exec(record.line);
+    if (match) values.push(match[1].trim());
+  }
+  return values;
+}
+
+function stateFieldValuesOutsideMarkdownProtection(text) {
+  return fieldValuesOutsideMarkdownProtection(text, 'State').map((value) => value.toLowerCase());
+}
+
+function itemStateFromText(text) {
+  const values = stateFieldValuesOutsideMarkdownProtection(text);
+  if (values.length !== 1) return null;
+  return /^(open|in-progress|done|blocked)$/i.test(values[0]) ? values[0] : null;
+}
+
+function hasDuplicateItemState(text) {
+  return stateFieldValuesOutsideMarkdownProtection(text).length > 1;
+}
+
+function itemFieldFromText(text, field) {
+  return fieldValuesOutsideMarkdownProtection(text, field)[0] || '';
+}
+
+function replaceFirstUnprotectedField(text, field, value) {
+  const escaped = String(field).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`^(\\s*-\\s+${escaped}\\s*:\\s*)(.*?)\\s*$`, 'i');
+  const source = String(text || '');
+  for (const record of markdownRecords(source)) {
+    if (record.protected) continue;
+    const match = re.exec(record.line);
+    if (!match) continue;
+    const replacement = `${match[1]}${value}`;
+    return `${source.slice(0, record.start)}${replacement}${source.slice(record.end)}`;
+  }
+  return null;
+}
+
+/**
+ * Parse both legacy numbered items and stable `FU-YYYY-MM-DD-NNN` items.
+ * `text` intentionally preserves the old split semantics: it starts immediately after
+ * the heading, so existing acceptance/matcher callers and tests remain unchanged.
+ *
+ * @param {string} body
+ * @returns {Array<{id:string|null, number:number|null, title:string, heading:string,
+ *                  text:string, raw:string, state:string|null, targetRepository:string,
+ *                  targetFile:string, acceptanceToken:string, suggestedAction:string}>}
+ */
+export function parseFollowupItems(body) {
+  const source = String(body || '');
+  const unterminatedFence = hasUnterminatedMarkdownFence(source);
+  const matches = [];
+  for (const record of markdownRecords(source)) {
+    if (record.protected) continue;
+    const match = FOLLOWUP_ITEM_HEADING_LINE_RE.exec(record.line);
+    if (match) matches.push({ ...match, index: record.start });
+  }
+  const parsed = matches.map((match, index) => {
+    const heading = match[0];
+    const start = match.index ?? 0;
+    const end = matches[index + 1]?.index ?? source.length;
+    // Legacy callers historically received the suffix immediately after `### N.`
+    // (including its leading space). Stable headings own the short title, so their
+    // text starts after the complete heading line.
+    const contentStart = match[3]
+      ? start + heading.indexOf('.') + 1
+      : start + heading.length;
+    const text = source.slice(contentStart, end);
+    const id = match[1] || null;
+    const number = match[3] ? Number(match[3]) : null;
+    const title = (match[2] ?? match[4] ?? '').trim();
+    return {
+      id,
+      number,
+      title,
+      heading,
+      start,
+      end,
+      text,
+      raw: source.slice(start, end),
+      state: itemStateFromText(text),
+      targetRepository: itemFieldFromText(text, 'Target repository'),
+      targetFile: itemFieldFromText(text, 'Target file'),
+      acceptanceToken: itemFieldFromText(text, 'Acceptance token'),
+      suggestedAction: itemFieldFromText(text, 'Suggested action'),
+      stateConflict: hasDuplicateItemState(text),
+    };
+  });
+  // A duplicate/conflicting live State makes the whole parse unusable.  Returning
+  // no items is intentional: every caller already treats an empty parse as
+  // unparsed/unsafe and therefore leaves the issue untouched (no queue/close or
+  // destructive rewrite).  State examples inside quotes/fences are ignored by
+  // `hasDuplicateItemState` and cannot poison a valid item.
+  const result = parsed.some((item) => item.stateConflict) ? [] : parsed;
+  // Keep the signal non-enumerable so existing callers/tests that compare the
+  // parsed item records byte-for-byte retain the legacy shape. Lifecycle callers
+  // can fail closed without rescanning or guessing whether the tail was fenced.
+  Object.defineProperty(result, 'unterminatedFence', {
+    value: unterminatedFence,
+    enumerable: false,
+  });
+  return result;
+}
+
+/** Extract source PRs only from live `Sources` metadata of a daily bucket. */
+export function dailyBucketSourcePrNumbers(body) {
+  const numbers = [];
+  for (const item of parseFollowupItems(body)) {
+    for (const field of ['Sources', 'Source']) {
+      for (const value of fieldValuesOutsideMarkdownProtection(item.text, field)) {
+        for (const match of value.matchAll(/\bPR\s+#(\d+)\b/gi)) {
+          const number = Number(match[1]);
+          if (Number.isInteger(number) && number > 0) numbers.push(number);
+        }
+      }
+    }
+  }
+  return [...new Set(numbers)];
+}
+
+function sourceValuesFromText(text) {
+  const values = [];
+  let fence = null;
+  for (const line of String(text || '').split('\n')) {
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+    if (fence) {
+      if (marker && marker[1][0] === fence.char
+          && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
+        fence = null;
+      }
+      continue;
+    }
+    if (marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
+      continue;
+    }
+    if (/^\s*>/.test(line)) continue;
+    const match = /^\s*-\s+Sources?\s*:\s*(.*?)\s*$/i.exec(line);
+    if (!match) continue;
+    values.push(...match[1].split(/\s*;\s*/).map((value) => value.trim()).filter(Boolean));
+  }
+  return values;
+}
+
+function withMergedSources(text, sources) {
+  const source = String(text || '');
+  const merged = [...new Set((sources || []).map((value) => String(value).trim()).filter(Boolean))];
+  if (!merged.length) return source;
+  const lines = source.split('\n');
+  let fence = null;
+  let replaced = false;
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+    if (fence) {
+      if (marker && marker[1][0] === fence.char
+          && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
+        fence = null;
+      }
+      continue;
+    }
+    if (marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
+      continue;
+    }
+    if (/^\s*>/.test(line)) continue;
+    const match = /^(\s*-\s+Sources?\s*:\s*).*$/i.exec(line);
+    if (!match) continue;
+    lines[index] = `${match[1]}${merged.join('; ')}`;
+    replaced = true;
+    break;
+  }
+  if (!replaced) {
+    const trimmed = source.replace(/\s+$/, '');
+    return `${trimmed}${trimmed ? '\n' : ''}- Sources: ${merged.join('; ')}\n`;
+  }
+  return lines.join('\n');
+}
+
+/** Fingerprint one parsed item, or null when the item lacks a usable identity. */
+export function dailyItemFingerprint(item, bucketTargetRepository = '') {
+  const text = typeof item === 'string' ? item : item?.text || item?.raw || '';
+  const declaredRepositories = fieldValuesOutsideMarkdownProtection(text, 'Target repository');
+  if (declaredRepositories.length > 1) return null;
+  const declaredRepository = String(
+    declaredRepositories.length
+      ? declaredRepositories[0]
+      : (typeof item === 'object' && item?.targetRepository) || '',
+  ).trim();
+  const bucketRepository = String(bucketTargetRepository || '').trim();
+  if (bucketRepository && declaredRepository
+      && normalizeRepositoryPart(bucketRepository) !== normalizeRepositoryPart(declaredRepository)) return null;
+  // A bucket-level repository is authoritative. An item field may confirm it, but
+  // must never override it and move a fingerprint into another repository.
+  const targetRepository = bucketRepository || declaredRepository;
+  const targetFile = String(
+    (typeof item === 'object' && item?.targetFile) || itemFieldFromText(text, 'Target file'),
+  ).trim();
+  const acceptanceToken = String(
+    (typeof item === 'object' && item?.acceptanceToken) || itemFieldFromText(text, 'Acceptance token'),
+  ).trim();
+  const suggestedAction = String(
+    (typeof item === 'object' && item?.suggestedAction) || itemFieldFromText(text, 'Suggested action'),
+  ).trim();
+  if (!targetRepository || !targetFile || (!acceptanceToken && !suggestedAction)) return null;
+  return followupFingerprint({ targetRepository, targetFile, acceptanceToken, suggestedAction });
+}
+
+/** Merge source provenance when two item records share the same fingerprint. */
+export function mergeDailyItemSources(primary, duplicate) {
+  const first = primary || {};
+  const second = duplicate || {};
+  const sources = [...new Set([
+    ...sourceValuesFromText(first.text || first.raw || ''),
+    ...sourceValuesFromText(second.text || second.raw || ''),
+  ])];
+  if (!sources.length) return first;
+  return {
+    ...first,
+    text: withMergedSources(first.text || '', sources),
+    raw: withMergedSources(first.raw || first.text || '', sources),
+    sources: sources.join('; '),
+  };
+}
+
+/**
+ * Deduplicate parsed daily items in production.  Items with no complete
+ * fingerprint are retained: the caller must let the acceptance/state gates deal
+ * with them rather than silently dropping work on an incomplete record.
+ */
+export function dedupeDailyItems(items, bucketTargetRepository = '') {
+  const unique = [];
+  const duplicates = [];
+  const byFingerprint = new Map();
+  for (const item of Array.isArray(items) ? items : []) {
+    const fingerprint = dailyItemFingerprint(item, bucketTargetRepository);
+    if (!fingerprint || !byFingerprint.has(fingerprint)) {
+      if (fingerprint) byFingerprint.set(fingerprint, unique.length);
+      unique.push(item);
+      continue;
+    }
+    const index = byFingerprint.get(fingerprint);
+    unique[index] = mergeDailyItemSources(unique[index], item);
+    duplicates.push({ item, fingerprint, kept: unique[index] });
+  }
+  return { items: unique, duplicates };
+}
+
+/**
+ * Spezza il corpo di una follow-up nei suoi item (`### 1.`, `### 2.`, … oppure
+ * `### FU-YYYY-MM-DD-NNN — ...`). Ritorna `[]` se il corpo non ha struttura.
  */
 export function splitFollowupItems(body) {
-  return String(body || '').split(/^### \d+\./m).slice(1);
+  return parseFollowupItems(body).map((item) => item.text);
+}
+
+/** True when every parsed item has a unique stable FU identifier. */
+export function hasStableItemIds(body) {
+  const items = parseFollowupItems(body);
+  const ids = items.map((item) => item.id);
+  return ids.length > 0 && ids.every((id) => FOLLOWUP_ITEM_ID_SINGLE_RE.test(String(id)))
+    && new Set(ids).size === ids.length;
+}
+
+/** Return the daily key embedded in one stable item ID, or null when malformed. */
+export function followupItemDailyKey(itemId) {
+  const match = /^FU-(\d{4}-\d{2}-\d{2})-\d{3}$/i.exec(String(itemId || '').trim());
+  return match ? match[1] : null;
+}
+
+/** Return the bucket's declared daily key from its unprotected header metadata. */
+export function dailyKeyFromBucketBody(body) {
+  const source = String(body || '');
+  const firstItem = parseFollowupItems(source)[0];
+  const head = source.slice(0, firstItem?.start ?? source.length);
+  const values = fieldValuesOutsideMarkdownProtection(head, 'Daily key');
+  const keys = values
+    .map((value) => /^(\d{4}-\d{2}-\d{2})\b/.exec(value)?.[1] || null)
+    .filter(Boolean);
+  return keys.length === 1 && values.length === 1 ? keys[0] : null;
+}
+
+function normalizeRepositoryPart(value) {
+  return String(value || '').trim().toLowerCase();
+}
+
+/** Return the single live bucket-level Target repository field, or null. */
+export function dailyBucketTargetRepository(body) {
+  const source = String(body || '');
+  const firstItem = parseFollowupItems(source)[0];
+  const head = source.slice(0, firstItem?.start ?? source.length);
+  const values = fieldValuesOutsideMarkdownProtection(head, 'Target repository');
+  return values.length === 1 ? values[0].trim() : null;
+}
+
+/** Require title/header/item repository declarations to agree when present. */
+export function hasDailyBucketRepositoryConsistency(body, expectedRepository = '') {
+  const items = parseFollowupItems(body);
+  const headerRepository = dailyBucketTargetRepository(body);
+  const expected = String(expectedRepository || '').trim();
+  if (!items.length || !headerRepository
+      || (expected && normalizeRepositoryPart(headerRepository) !== normalizeRepositoryPart(expected))) {
+    return false;
+  }
+  return items.every((item) => {
+    const values = fieldValuesOutsideMarkdownProtection(item.text, 'Target repository');
+    return values.length <= 1 && (!values.length
+      || normalizeRepositoryPart(values[0]) === normalizeRepositoryPart(headerRepository));
+  });
+}
+
+/** Require unique stable IDs whose date is exactly the bucket's daily key. */
+export function hasStableItemIdsForDailyKey(bodyOrItems, dailyKey) {
+  const key = String(dailyKey || '').trim();
+  const items = Array.isArray(bodyOrItems) ? bodyOrItems : parseFollowupItems(bodyOrItems);
+  const ids = items.map((item) => typeof item === 'string' ? item : item?.id);
+  return /^\d{4}-\d{2}-\d{2}$/.test(key)
+    && ids.length > 0
+    && ids.every((id) => FOLLOWUP_ITEM_ID_SINGLE_RE.test(String(id || ''))
+      && followupItemDailyKey(id) === key)
+    && new Set(ids.map((id) => String(id).toUpperCase())).size === ids.length;
+}
+
+/** Return the bucket-level collecting/sealed state, or null for malformed bodies. */
+export function bucketState(body) {
+  const source = String(body || '');
+  const firstItem = parseFollowupItems(source)[0];
+  // The bucket state belongs to the Batch header. Do not mistake a quoted
+  // `- State: collecting` inside an item's Original text/code fence for it.
+  const head = source.slice(0, firstItem?.start ?? source.length);
+  const values = stateFieldValuesOutsideMarkdownProtection(head);
+  if (values.length !== 1 || !/^(collecting|sealed)$/i.test(values[0])) return null;
+  return values[0].toLowerCase();
+}
+
+/** The first stable item explicitly waiting for a fixer. */
+export function selectFirstOpenItem(body) {
+  return parseFollowupItems(body).find((item) => item.id && item.state === 'open') || null;
+}
+
+/** Replace one stable item's state without touching neighboring body text. */
+export function updateFollowupItemState(body, itemId, state) {
+  const wanted = String(itemId || '').toUpperCase();
+  if (!FOLLOWUP_ITEM_ID_SINGLE_RE.test(wanted) || !/^(open|in-progress|done|blocked)$/i.test(String(state || ''))) return null;
+  const source = String(body || '');
+  const item = parseFollowupItems(source).find((candidate) => candidate.id?.toUpperCase() === wanted);
+  if (!item || !item.state) return null;
+  const next = String(state).toLowerCase();
+  const updatedRaw = replaceFirstUnprotectedField(item.raw, 'State', next);
+  if (!updatedRaw) return null;
+  return `${source.slice(0, item.start)}${updatedRaw}${source.slice(item.end)}`;
+}
+
+/** Extract the item ID from a PR marker such as `Follow-up item: FU-...`. */
+export function followupItemMarkers(text) {
+  const out = [];
+  const seen = new Set();
+  const source = String(text || '');
+  const markerRe = /Follow-up\s+item\s*:\s*(FU-\d{4}-\d{2}-\d{2}-\d{3})\b/gi;
+  for (const match of source.matchAll(markerRe)) {
+    const id = match[1].toUpperCase();
+    if (!seen.has(id)) {
+      seen.add(id);
+      out.push(id);
+    }
+  }
+  return out;
 }
 
 /**

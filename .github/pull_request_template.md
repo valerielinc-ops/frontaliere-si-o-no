@@ -9,10 +9,12 @@
     Closes #34
   MAI `Closes #12 #34 #56` su una riga: GitHub chiude solo #12, il resto resta
   aperto (cfr. PR #1320). pr-body-contract.yml flagga la riga multi-issue.
-  MAI `Closes #N` se #N è una follow-up AGGREGATA multi-item: `Closes` scatta al
-  merge e chiuderebbe l'aggregata con item ancora dovuti — pr-body-contract.yml
-  la flagga e la PR nasce rossa (cfr. #5848, #5862). Scrivi `Addresses #N`
-  (l'aggregata la chiude reconcile-followups.mjs quando TUTTI gli item sono fatti).
+  MAI `Closes #N` se #N è una follow-up AGGREGATA (in particolare un bucket
+  `follow-up(daily:YYYY-MM-DD)`). `Closes` scatta al merge e chiuderebbe il bucket
+  con item ancora dovuti — pr-body-contract.yml la flagga e la PR nasce rossa
+  (cfr. #5848, #5862). Scrivi `Addresses #N` e, per una fix giornaliera, anche
+  `Follow-up item: FU-YYYY-MM-DD-NNN`; reconcile-followups.mjs chiude il bucket
+  soltanto quando TUTTI gli item validi sono fatti.
   Nel dubbio non tirare a indovinare, calcolala:
     gh issue view N --json number,title,body,labels \
       | node scripts/lib/pr-body-generator-contract.mjs --closing-ref
@@ -22,6 +24,9 @@
 
 <!-- Cosa fa la PR. Bullet concreti: file/comportamento cambiato. -->
 -
+
+<!-- Per una fix di un bucket daily: usa `Addresses #N` e indica un solo
+     `Follow-up item: FU-YYYY-MM-DD-NNN`; non lavorare più item nella stessa PR. -->
 
 ## Non implementato (ancora)
 

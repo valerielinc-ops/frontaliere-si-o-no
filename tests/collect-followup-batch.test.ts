@@ -10,10 +10,18 @@
 import { describe, it, expect } from 'vitest';
 import {
   computeWatermarkISO,
+  parseSuccessfulRunList,
+  parseMergedPRPages,
   parseMergedPRs,
   hasTriageComment,
+  latestTriageCommentBody,
+  persistedBucketIssueMatches,
+  triageMarkerPersistenceExpectation,
+  verifyTriageMarkerPersistence,
   canonicalLogin,
   maxTurnsFor,
+  shouldTriageAfterCandidateGate,
+  shouldTriageAfterFixGate,
 } from '../scripts/ci/collect-followup-batch.mjs';
 
 describe('canonicalLogin', () => {
@@ -55,6 +63,78 @@ describe('computeWatermarkISO', () => {
 
   it('respects a custom fallback window', () => {
     expect(computeWatermarkISO('[]', NOW, 3)).toBe(new Date(NOW - 3 * 3600_000).toISOString());
+  });
+});
+
+describe('collector fail-closed parsing', () => {
+  it('accepts all complete paginated search pages and preserves eligible authors', () => {
+    const pages = [
+      {
+        total_count: 2,
+        incomplete_results: false,
+        items: [{
+          number: 8101,
+          title: 'first',
+          user: { login: 'valerielinc-ops' },
+          pull_request: { merged_at: '2026-09-09T08:00:00Z' },
+          head: { ref: 'feature/first' },
+        }],
+      },
+      {
+        total_count: 2,
+        incomplete_results: false,
+        items: [{
+          number: 8102,
+          title: 'second',
+          user: { login: 'app/frontaliere-automation' },
+          pull_request: { merged_at: '2026-09-09T09:00:00Z' },
+          head: { ref: 'feature/second' },
+        }],
+      },
+    ];
+    const parsed = parseMergedPRPages(JSON.stringify(pages));
+    expect(parsed?.map((pr) => pr.number)).toEqual([8101, 8102]);
+    expect(parseMergedPRs(JSON.stringify(parsed)).map((pr) => pr.number)).toEqual([8101, 8102]);
+  });
+
+  it('rejects incomplete, truncated, duplicated, or malformed pages instead of returning an empty batch', () => {
+    const complete = {
+      total_count: 2,
+      incomplete_results: false,
+      items: [{
+        number: 8101,
+        user: { login: 'valerielinc-ops' },
+        pull_request: { merged_at: '2026-09-09T08:00:00Z' },
+      }],
+    };
+    expect(parseMergedPRPages(JSON.stringify([{ ...complete, incomplete_results: true }]))).toBeNull();
+    expect(parseMergedPRPages(JSON.stringify([complete]))).toBeNull();
+    expect(parseMergedPRPages(JSON.stringify([complete, complete]))).toBeNull();
+    expect(parseMergedPRPages(JSON.stringify([{
+      ...complete,
+      items: [{ ...complete.items[0], pull_request: { merged_at: 'not-a-date' } }],
+      total_count: 1,
+    }]))).toBeNull();
+  });
+
+  it('does not use the fallback watermark for a malformed successful-run response', () => {
+    expect(parseSuccessfulRunList('[]')).toEqual([]);
+    expect(parseSuccessfulRunList(JSON.stringify([{ event: 'schedule', startedAt: '2026-09-09T08:00:00Z' }]))).toHaveLength(1);
+    expect(parseSuccessfulRunList(JSON.stringify([{}]))).toBeNull();
+    expect(parseSuccessfulRunList('not-json')).toBeNull();
+  });
+
+  it('usa solo l\'ultima run success schedulata: un dispatch non avanza il watermark', () => {
+    const runs = parseSuccessfulRunList(JSON.stringify([
+      { event: 'workflow_dispatch', startedAt: '2026-09-09T12:00:00Z' },
+      { event: 'schedule', startedAt: '2026-09-09T09:00:00Z' },
+    ]));
+    expect(runs).toHaveLength(1);
+    expect(runs?.[0].event).toBe('schedule');
+    expect(computeWatermarkISO(JSON.stringify(runs))).toBe('2026-09-09T09:00:00.000Z');
+    expect(parseSuccessfulRunList(JSON.stringify([
+      { event: 'workflow_dispatch', startedAt: '2026-09-09T12:00:00Z' },
+    ]))).toEqual([]);
   });
 });
 
@@ -115,6 +195,31 @@ describe('hasTriageComment (idempotency)', () => {
   });
 });
 
+describe('marker idempotency requires durable bucket/item evidence', () => {
+  const marker = '## Post-merge follow-up triage\nCreated/updated: daily bucket #42 `follow-up(daily:2026-09-09)` con 1 item';
+  const persisted = {
+    number: 42,
+    title: 'follow-up(daily:2026-09-09): 1 item — owner/repo',
+    body: '### FU-2026-09-09-001 — item\n- Sources: PR #8101\n',
+  };
+
+  it('does not skip a marker whose bucket read failed or lacks the source item', () => {
+    expect(verifyTriageMarkerPersistence(marker, 8101, () => null)).toBeNull();
+    expect(verifyTriageMarkerPersistence(marker, 8101, () => ({ ...persisted, body: '### FU-2026-09-09-001 — item' }))).toBe(false);
+  });
+
+  it('accepts only a bucket/item persisted for the same PR and recognizes no-issue markers', () => {
+    expect(verifyTriageMarkerPersistence(marker, 8101, () => persisted)).toBe(true);
+    expect(verifyTriageMarkerPersistence(marker, 8102, () => persisted)).toBe(false);
+    expect(verifyTriageMarkerPersistence('## Post-merge follow-up triage: zero outstanding items.', 8101, () => {
+      throw new Error('must not read a bucket');
+    })).toBe(true);
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [42], requiresBucket: true });
+    expect(latestTriageCommentBody(JSON.stringify({ comments: [{ body: marker }] }))).toBe(marker);
+    expect(persistedBucketIssueMatches(persisted, 8101)).toBe(true);
+  });
+});
+
 describe('maxTurnsFor', () => {
   it('never drops below the original floor of 20 (AGENTS.md: mai abbassare)', () => {
     expect(maxTurnsFor(0)).toBeGreaterThanOrEqual(20);
@@ -125,5 +230,22 @@ describe('maxTurnsFor', () => {
   });
   it('caps at 80', () => {
     expect(maxTurnsFor(20)).toBe(80);
+  });
+});
+
+describe('grandchild gate exception', () => {
+  it('keeps ordinary fixes skipped but lets a marker-complete daily partial fix through', () => {
+    expect(shouldTriageAfterFixGate({ isFollowupFix: true, followupPartial: false })).toBe(false);
+    expect(shouldTriageAfterFixGate({ isFollowupFix: true, followupPartial: true })).toBe(true);
+  });
+
+  it('keeps an unreadable gate fail-open', () => {
+    expect(shouldTriageAfterFixGate({ isFollowupFix: null, followupPartial: null })).toBe(true);
+  });
+
+  it('keeps a marker-complete daily partial fix even when the ordinary no-op gate is false', () => {
+    expect(shouldTriageAfterCandidateGate({ hasCandidates: false, followupPartial: true })).toBe(true);
+    expect(shouldTriageAfterCandidateGate({ hasCandidates: false, followupPartial: false })).toBe(false);
+    expect(shouldTriageAfterCandidateGate({ hasCandidates: null, followupPartial: false })).toBe(true);
   });
 });

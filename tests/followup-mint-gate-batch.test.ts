@@ -30,7 +30,7 @@ beforeAll(() => {
   // fallisce — esattamente la lettura che prima abbatteva l'intero lotto.
   const fake = `#!/bin/sh
 case "$1 $2" in
-  "issue list")
+  "api "*)
     echo '[{"number":101,"title":"follow-up(#900): 1 item deferred - a","createdAt":"__NOW__"},{"number":102,"title":"follow-up(#900): 1 item deferred - b","createdAt":"__NOW__"},{"number":103,"title":"follow-up(#900): 1 item deferred - c","createdAt":"__NOW__"}]'
     ;;
   "issue view")
@@ -76,5 +76,131 @@ describe('gate sul conio — proceed-safe PER ISSUE, non per PR', () => {
     expect(out).toContain('#102: non leggibile');
     // ...e il lotto NON è stato abbandonato: è la riga che compariva col difetto.
     expect(out).not.toContain('gate saltato');
+  });
+
+  it('recupera e sigilla un bucket storico quando il batch corrente è vuoto', () => {
+    const issue = {
+      number: 501,
+      title: 'follow-up(daily:2026-09-09): 1 item — o/r',
+      body: [
+        '## Batch',
+        '- Daily key: 2026-09-09 (Europe/Zurich)',
+        '- State: collecting',
+        '- Target repository: o/r',
+        '',
+        '## Item',
+        '',
+        '### FU-2026-09-09-001 — proteggi il comportamento',
+        '- State: open',
+        '- Sources: PR #8101',
+        '- Target file: `scripts/example.mjs`',
+        '- Original text:',
+        '  > controllo non sempre applicato',
+        '- Suggested action: aggiungi `firstGuard()` e `secondGuard()`',
+        '- Acceptance token: `firstGuard()`',
+        '',
+      ].join('\n'),
+      createdAt: new Date().toISOString(),
+    };
+    const comments = { comments: [{ body: '## Post-merge follow-up triage: zero outstanding items.' }] };
+    const log = join(binDir, 'recovery-calls.log');
+    writeFileSync(log, '');
+    const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');
+const issue = ${JSON.stringify(issue)};
+const comments = ${JSON.stringify(comments)};
+if (args[0] === 'api') process.stdout.write(JSON.stringify([[{ number: issue.number, title: issue.title, created_at: issue.createdAt }]]));
+else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(issue));
+else if (args[0] === 'pr' && args[1] === 'view') process.stdout.write(JSON.stringify(comments));
+`;
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH}`,
+        BATCH_PRS: '',
+        TRIAGE_COMPLETE: 'false',
+        DRY_RUN: '0',
+        GH_REPO: 'o/r',
+        CALL_LOG: log,
+        COLLECTION_OK: 'true',
+      },
+    });
+    const calls = readFileSync(log, 'utf-8');
+    expect(out).toContain('marker storici verificati');
+    expect(out).toContain('→ seal');
+    expect(calls).toContain('"--body-file"');
+    expect(calls).toContain('"--add-label","agent:fix-queued"');
+  });
+
+  it('consolida un gruppo sealed+collecting senza lasciare il duplicate in starvation', () => {
+    const makeBody = (id: string, state: string, pr: number, token: string) => [
+      '## Batch',
+      '- Daily key: 2026-09-09 (Europe/Zurich)',
+      `- State: ${state}`,
+      '- Target repository: o/r',
+      '',
+      '## Item',
+      '',
+      `### ${id} — proteggi il comportamento`,
+      '- State: open',
+      `- Sources: PR #${pr}`,
+      '- Target file: `scripts/example.mjs`',
+      '- Original text:',
+      '  > il controllo non è sempre applicato',
+      `- Suggested action: aggiungi \`${token}\``,
+      `- Acceptance token: \`${token}\``,
+      '',
+    ].join('\n');
+    const issues = [
+      {
+        number: 501,
+        title: 'follow-up(daily:2026-09-09): 1 item — o/r',
+        body: makeBody('FU-2026-09-09-001', 'sealed', 8101, 'firstGuard()'),
+      },
+      {
+        number: 502,
+        title: 'follow-up(daily:2026-09-09): 1 item — o/r',
+        body: makeBody('FU-2026-09-09-002', 'collecting', 8102, 'thirdGuard()'),
+      },
+    ];
+    const log = join(binDir, 'mixed-calls.log');
+    writeFileSync(log, '');
+    const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+const issues = ${JSON.stringify(issues)};
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');
+if (args[0] === 'api') process.stdout.write(JSON.stringify([issues.map(({ number, title }) => ({ number, title }))]));
+else if (args[0] === 'issue' && args[1] === 'view') {
+  const issue = issues.find(({ number }) => String(number) === args[2]);
+  process.stdout.write(JSON.stringify(issue || null));
+} else if (args[0] === 'pr' && args[1] === 'view') {
+  process.stdout.write(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage: done' }] }));
+}
+`;
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH}`,
+        BATCH_PRS: '',
+        TRIAGE_COMPLETE: 'false',
+        COLLECTION_OK: 'true',
+        DRY_RUN: '0',
+        GH_REPO: 'o/r',
+        CALL_LOG: log,
+      },
+    });
+    const calls = readFileSync(log, 'utf-8');
+    expect(out).toContain('duplicati consolidati/chiusi');
+    expect(calls).toContain('"issue","close","502"');
+    expect(calls).toContain('follow-up(daily:2026-09-09): 2 items');
   });
 });

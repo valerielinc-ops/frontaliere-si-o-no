@@ -28,6 +28,19 @@ const steps = wf.jobs.fix.steps as Array<Record<string, unknown>>;
 const stepNamed = (re: RegExp) => steps.find((s) => re.test(String(s.name || '')));
 
 describe('issue-fix.yml — App token wiring', () => {
+  it('blocca il fixer daily senza un DAILY_ITEM_ID stabile', () => {
+    const guard = stepNamed(/Validate daily bucket item selection/);
+    expect(guard, 'la guardia daily deve esistere').toBeTruthy();
+    expect(String(guard!.if)).toContain("steps.tier.outputs.is_daily_bucket == 'true'");
+    expect(String(guard!.run)).toContain('DAILY_ITEM_ID');
+    expect(String(guard!.run)).toContain('exit 1');
+    expect(String(guard!.run)).toContain('nessuna PR verrà creata');
+    const guardIdx = steps.indexOf(guard!);
+    const claudeIdx = steps.indexOf(steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!);
+    expect(guardIdx).toBeGreaterThanOrEqual(0);
+    expect(guardIdx).toBeLessThan(claudeIdx);
+  });
+
   it('mints the App token before every gate that depends on it', () => {
     const mint = stepNamed(/Mint GitHub App token/);
     expect(mint, 'the mint step must exist').toBeTruthy();

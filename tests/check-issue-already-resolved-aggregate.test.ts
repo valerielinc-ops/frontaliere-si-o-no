@@ -16,6 +16,9 @@ describe('isAggregate — aggregate follow-ups bypass the already-resolved short
     expect(isAggregate('follow-up(#1674): 3 item deferiti — fix(seo)', '')).toBe(true);
     expect(isAggregate('follow-up(#1685): 1 item deferito — fix(seo)', '')).toBe(false);
   });
+  it('flags every daily bucket, including a one-item bucket', () => {
+    expect(isAggregate('follow-up(daily:2026-09-09): 1 item — owner/repo', '')).toBe(true);
+  });
   it('does not promote a body-only count to authoritative title evidence', () => {
     expect(isAggregate('follow-up(#10): cleanup', '4 items deferred for later.')).toBe(false);
   });

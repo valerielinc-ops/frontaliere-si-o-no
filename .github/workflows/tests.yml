@@ -1,154 +1,26 @@
 name: tests
+run-name: "Code checks and review · ${{ github.event.pull_request.number && format('PR #{0}', github.event.pull_request.number) || github.ref_name }} · ${{ github.event.action || github.event_name }}"
 
-# Runs the Vitest tests related to the PR diff on every PR as a BLOCKING
-# CI gate. Direct crawler pushes to main run the same blocking check, so the
-# post-merge tree cannot bypass the source gate.
-# Before this workflow existed, vitest tests were never run in CI —
-# regression gates like `tests/build-plugins/criticalCssRootHeight.test.ts`
-# (added in PR #294) landed already-failing without anyone noticing, and the
-# `#root{min-height:100vh}` bug hit production for 24h until manual report.
-#
-# Footprint: this used to fan out a 4-shard matrix + aggregator (5 runners per
-# PR). It now runs the suite in a SINGLE job. On the Free plan the whole
-# account shares a ~20 concurrent-job pool, and a per-PR fan-out of test shards
-# starved the PR pipeline (auto-merge, Claude review, pr-body-contract) behind
-# queued crawler runs — PRs sat un-dequeued. Collapsing to one runner frees 4
-# slots per PR.
-#
-# Historical baseline (CI run 28099661052, full ~847-file suite on one 4-vCPU
-# runner): Vitest took 366s before setup/assemble/lint overhead. The PR path no
-# longer pays that full-suite cost: `run-related-tests.mjs` selects the tests
-# reachable from changed source files and always includes changed test files.
-#
-# Deliberate policy: this required PR check is related-only. Full-suite coverage
-# is not part of the PR path; a diff with no existing source/test candidates
-# succeeds with zero Vitest tests instead of falling back to the full suite.
-#
-# Tests that read data/jobs.json (gitignored): the assemble step regenerates
-# it from the per-slice files committed under data/jobs-by-slice/.
-#
-# ── UN job pesante, quattro cancelli come step (era 4 job paralleli) ────────
-# `collision` (ex `pr-collision-detector.yml` job `detect`), `contract` (ex
-# `pr-body-contract.yml`), `typecheck` e `vitest` erano quattro JOB. Ora sono
-# quattro FAMIGLIE DI STEP dentro il job pesante, e la fase comune — checkout +
-# `actions/setup-node` + `npm ci` — si paga UNA volta invece di quattro. Il
-# companion body-only in fondo al file resta un check distinto per `edited`.
-#
-# Cosa cambiava prima e cosa cambia adesso: la PR #6534 aveva fattorizzato
-# setup-node+npm-ci in `.github/actions/ci-npm-setup`, ma una composite action
-# condivide la DEFINIZIONE, non l'ESECUZIONE — ogni job la rieseguiva da zero,
-# quindi nella UI Actions restavano quattro job che facevano quattro checkout e
-# quattro `npm ci`. Quello era esattamente ciò che #6534 intendeva consegnare;
-# questo file va oltre, su decisione esplicita del proprietario.
-#
-# ── Conseguenza #1: i quattro cancelli diventano BLOCCANTI ────────────────
-# Il ruleset su `main` richiede il check-run `vitest (unit + integration)`.
-# Poiché questo job comprende anche il controllo finale della Claude review,
-# la sua conclusione resta rossa quando la review contiene un `🔴 Important`;
-# il native auto-merge non può quindi bypassare quel gate. `contract`,
-# `typecheck` e `collision` giravano, si vedevano rossi, e non fermavano
-# niente: misura in `scripts/ci/lib/checkRunObservation.mjs` (issue #5552), PR
-# #5590 mergiata il 2026-08-11 con `contract` = `failure`. Fondendoli nel job
-# che PRODUCE quel check-run, un loro rosso fa rosso il check che governa
-# l'auto-merge. È un irrigidimento del cancello (AGENTS.md Non-Negotiable #1
-# ammette solo questa direzione), ed è un cambio di comportamento voluto.
-#
-# ── Conseguenza #2: un cancello rosso non ne spegne un altro ──────────────
-# Con quattro job paralleli un `contract` rosso non impediva a `vitest` di
-# girare. La proprietà è PRESERVATA qui da `if: ${{ !cancelled() }}` sul primo
-# step di ogni famiglia: tutte e quattro girano sempre, e il job fallisce se
-# una qualunque è fallita. Dentro una famiglia la catena resta fail-fast, come
-# era dentro il job che la ospitava.
-#
-# ── Conseguenza #3: il lock delle label — SCIOLTA il 2026-08-26 ──────────
-# STORIA, perché la lezione vale più della conclusione. Il job `collision`
-# aveva un `concurrency:` proprio, gruppo `pr-collision-detector`, CONDIVISO
-# con lo scan periodico di `pr-collision-detector.yml` (cron ogni 30 min), per
-# impedire due scritture concorrenti sulla label `collision-risk`. Le
-# concurrency di GitHub esistono solo a livello job/workflow, MAI di step,
-# quindi la fusione dovette issare quel gruppo sull'INTERO job. Costo
-# dichiarato accettabile: «più rerun nelle ore di traffico alto».
-#
-# Misurato sul campo non lo era. Con `cancel-in-progress: false` GitHub tiene
-# 1 running + 1 pending: ogni PR aperta si accodava dietro ogni altra PR E
-# dietro lo scan cron, portandosi dietro una suite da ~18 minuti, e la terza
-# veniva SFRATTATA a `cancelled` — nessun `success`, auto-merge fermo, rerun a
-# catena. Era il collo di bottiglia del throughput dell'intera flotta.
-#
-# Un tentativo intermedio scorporò il detector in un job proprio col lock.
-# Toglieva la serializzazione dalla suite (verificato: run 32946427177,
-# `collision` cancelled alle 08:10:47 e `vitest` in_progress alle 08:10:49),
-# ma lasciava sulla PR una ✗ da run sfrattato — un SEGNALE FALSO, e
-# `gh pr checks` legge `cancelled` come fail. Con un mutex globale su un
-# workflow PR-triggered quella ✗ è inevitabile: se i contendenti superano gli
-# slot, qualcuno DEVE essere cancellato.
-#
-# Decisione finale: il detector esce del tutto da `tests.yml`. È un SWEEPER
-# repo-wide — ricalcola le label di tutte le PR aperte da dati vivi — e uno
-# sweeper va su `schedule`, non su `pull_request`. Vive quindi solo in
-# `pr-collision-detector.yml` (cron ogni 30 min + dispatch), dove il suo lock
-# non tocca nessuna PR e nessuna ✗ compare. Le PR restano INDIPENDENTI: niente
-# mutua esclusione, solo informazione — label + commento che nomina le PR
-# coinvolte, così chi ci lavora sa cosa succede se una mergia prima dell'altra.
-# La regola generale: un lock va sull'unità di lavoro che compie la scrittura,
-# e uno sweeper repo-wide non va su un evento per-PR.
-#
-# ── Conseguenza #4: la #6526 torna ad avere il suo margine ────────────────
-# La PR #6526 (commit 1052ee9) aveva fatto leggere ad `auto-merge-on-lgtm.yml` /
-# `pr-review-loop.yml` il check-run `vitest (unit + integration)` ISOLATO invece
-# del rollup, perché un `collision` cancellato per contesa trascinava il rollup
-# a `cancelled` su ~1/3 delle PR anche con vitest già `success`. Ora su una PR
-# non esiste più alcun check-run `collision` da contendere: la causa di quel
-# difetto è rimossa alla radice, e la lettura isolata di #6526 resta come rete.
-#
-# ── Il checkout: uno solo, e perché QUESTO profilo ────────────────────────
-# I quattro job avevano tre profili diversi e INCOMPATIBILI fra loro:
-#   - `vitest`: albero applicativo quasi completo, storia profonda e sparse
-#     mirato — i grandi artefatti statici non servono a questo job;
-#   - `contract`: `fetch-depth: 0` + `filter: blob:none` — la storia PROFONDA
-#     serve a `check-sibling-patterns.mjs` / `check-below-floor-bridge.mjs`, che
-#     diffano a tre punti contro il merge-base;
-#   - `collision`/`typecheck`: sparse, `fetch-depth: 1`.
-# Un job solo può avere un profilo solo: manteniamo la storia profonda per i
-# source guard, ma materializziamo solo il codice e i corpus necessari a questo
-# job. I bucket esclusi sono artefatti statici (immagini, docs e snapshot) che
-# non vengono letti da tsc, assemble+migrate, guard o dal related runner. Il
-# profilo è volutamente scritto qui come allow/deny esplicito e va mantenuto
-# insieme al test `checkout-sparse-profiles.test.ts`.
-#
-# ── Il nome del check-run NON cambia, ed è deliberato ─────────────────────
-# Il job `vitest-required` pubblica ancora `vitest (unit + integration)`: è il
-# contesto required che leggono `auto-merge-eval`, `pr-autorebase` e i workflow
-# di rescue. Il job pesante ha ora il nome distinto `vitest execution`, così il
-# wrapper può osservare il suo risultato senza lasciare che GitHub interpreti
-# `skipped` come soddisfatto.
-#
-# L'evento `edited` resta un percorso body-only per il job pesante: il job di
-# esecuzione viene saltato e il companion `body-contract` esegue lo stesso
-# contratto con un check distinto. Il wrapper required gira comunque, ma per
-# `skipped`/`cancelled` interroga i check-run dello SHA e accetta solo l'ultimo
-# `vitest execution` completato con `success`; un rosso o l'assenza del run
-# precedente resta bloccante.
+# One required check owns checkout, source guards, typecheck, Vitest and review.
+# The PR body contract is a step of this code run. Metadata edits and labels do
+# not start code validation and never publish a second verdict on the same SHA.
+# Keep the job name aligned with the ruleset and scripts/ci/lib/constants.mjs.
+
 on:
   pull_request:
     branches: [main]
-    # Union of the three original workflows' pull_request `types` (default
-    # types are [opened, synchronize, reopened] when unset, which is what
-    # this workflow itself relied on before): pr-collision-detector.yml had
-    # [opened, synchronize, reopened, ready_for_review], pr-body-contract.yml
-    # had [opened, edited, synchronize, reopened]. `edited` is required so the
-    # body-contract companion re-validates a PR body edit; `ready_for_review` is
-    # required so `collision` still re-scans a draft coming out of draft. The
-    # `labeled` event is the non-recursive handoff from stale-pr-rescuer:
-    # that workflow uses the App identity because GITHUB_TOKEN labels do not
-    # start another workflow run.
-    types: [opened, edited, synchronize, reopened, ready_for_review, labeled]
+    types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
   # Required checks are evaluated on the merge queue ref, not on the PR event.
   merge_group:
   # Kept available for manual diagnostics and recovery runs.
   workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR to validate when recovering a missing code run'
+        type: string
+        required: false
 
 # Union of the three original workflows' `permissions:` (tests.yml itself had
 # none — it inherited the repo default — so this is now the explicit floor):
@@ -163,9 +35,8 @@ permissions:
   id-token: write
   # Sola lettura, per l'ultimo step del job di esecuzione: legge gli step del
   # job STESSO dalla jobs API per scrivere nello Step Summary quale famiglia ha
-  # fatto rosso. Il wrapper si chiama `vitest (unit + integration)` ma il
-  # dettaglio vive nel job di esecuzione; senza questa riga la pagina della run
-  # continua ad accogliere con 43 step da scorrere.
+  # fatto rosso. Lo stesso job `vitest (unit + integration)` pubblica il check
+  # required e contiene tutti gli step da diagnosticare.
   actions: read
 
 # Two different questions share this workflow, and they do NOT want the same
@@ -178,10 +49,7 @@ permissions:
 #   Direct pushes to main and merge queues ask the same question as a PR:
 #   does the tree pass the source gate before it becomes the next main head?
 concurrency:
-  # Body edits and labels have their own newest-wins lanes: either metadata
-  # event can cancel only an earlier metadata run on the same ref, never a
-  # run testing a new commit.
-  group: tests-${{ github.workflow }}-${{ github.ref }}-${{ github.event.action == 'edited' && 'body' || github.event.action == 'labeled' && 'label' || 'code' }}
+  group: tests-${{ github.workflow }}-${{ github.ref }}
   # PR and workflow_dispatch runs use newest-wins inside their lane. Direct
   # pushes to main and merge queues must not cancel one another: each emitted
   # head needs a completed source-gate verdict before it can become the next
@@ -189,17 +57,9 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' }}
 
 jobs:
-  # Job di esecuzione pesante: checkout + setup-node + npm ci una volta sola,
-  # poi le quattro famiglie di step (collision, contract, typecheck, vitest).
-  # Il wrapper required sotto osserva questo job e conserva il nome del
-  # check-run che il ruleset già richiede.
+  # Unconditional job: admitted code events must always produce a real verdict.
   vitest:
-    name: vitest execution
-    # `edited` usa il companion body-contract qui sotto: non pagare il job
-    # pesante per una modifica che non ha cambiato il codice. `labeled` è stato
-    # aggiunto solo per il rescue: non pagare l'intero job per label estranee
-    # (`agent:fix`, `needs-human`, recycle, redflag-fixer).
-    if: ${{ github.event.action != 'edited' && (github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review')) }}
+    name: vitest (unit + integration)
     runs-on: ubuntu-latest
     # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
     # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
@@ -221,6 +81,417 @@ jobs:
       # This is consumed by both the re-review guard and tier selection.
       NONCODE_RE: '^(data/|public/|reports/|_newsletter_variants/|docs/)|(^|/)(package-lock\\.json|pnpm-lock\\.yaml|yarn\\.lock)$|\\.(snap|png|jpe?g|webp|gif|svg|ico|woff2?)$'
     steps:
+      - name: PR-body completeness + multi-issue Closes (no checkout, all events)
+        if: ${{ !cancelled() && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) }}
+        id: body_contract
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const STICKY = '<!-- pr-body-contract -->';
+            const prNumber = Number(context.payload.pull_request?.number || context.payload.inputs?.pr_number);
+            if (!Number.isSafeInteger(prNumber) || prNumber <= 0) throw new Error('Invalid PR number');
+            const { data: currentPr } = await github.rest.pulls.get({ ...context.repo, pull_number: prNumber });
+            const body = currentPr.body || '';
+
+            // --- 1) Required headers (REVIEW.md completeness contract) ---------------
+            // Literal headers required by REVIEW.md. Tolerate trailing text on the
+            // same line (e.g. "## Non implementato (ancora)"); require start-of-line.
+            const hasImpl = /^\s{0,3}#{2,3}\s+Implementato\b/im.test(body);
+            const hasNon  = /^\s{0,3}#{2,3}\s+Non implementato\b/im.test(body);
+            const missing = [];
+            if (!hasImpl) missing.push('`## Implementato`');
+            if (!hasNon)  missing.push('`## Non implementato (ancora)`');
+
+            // --- 1b) Section CONTENT quality (escalation #3250, bucket
+            // `reviewer-finding/pr-body-contract` 6x/14d) -------------------------
+            // Header PRESENCE alone isn't enough: the PR template leaves bare `- `
+            // placeholder bullets in both sections, and a fixer that submits
+            // without filling them passes this gate but still draws a reviewer
+            // 🔴 finding — wasting a review cycle. Mirrors
+            // scripts/lib/pr-body-sections-check.mjs (own unit tests); keep the
+            // two in sync on rule changes.
+            const extractSection = (text, headerRe) => {
+              const m = headerRe.exec(text);
+              if (!m) return null;
+              const rest = text.slice(m.index + m[0].length);
+              const nextHeading = /\n(?=#{1,6}[ \t])/.exec(rest);
+              return nextHeading ? rest.slice(0, nextHeading.index) : rest;
+            };
+            const stripNonContent = (t) => String(t ?? '')
+              .replace(/```[\s\S]*?```/g, ' ')
+              .replace(/<!--[\s\S]*?-->/g, ' ');
+            const isSubstantiveBullet = (line) => line.replace(/^[ \t]*[-*+][ \t]*/, '').trim().length > 0;
+            const hasMeaningfulContent = (raw) => stripNonContent(raw).split('\n').some((line) => {
+              const t = line.trim();
+              if (!t) return false;
+              if (/^#{1,6}[ \t]/.test(t)) return false;
+              if (/^[-*+](?:[ \t]|$)/.test(t)) return isSubstantiveBullet(t);
+              return true;
+            });
+            const hasOnlyBareBullets = (raw) => {
+              const lines = stripNonContent(raw).split('\n').filter((l) => l.trim().length > 0);
+              if (lines.length === 0) return false;
+              return lines.every((line) => {
+                const t = line.trim();
+                if (/^#{1,6}[ \t]/.test(t)) return true;
+                if (/^[-*+][ \t]?$/.test(t)) return true;
+                if (/^[-*+][ \t]/.test(t)) return false;
+                return true;
+              });
+            };
+            const hasNessuno = (raw) => /\bnessun[oa]?\b/i.test(stripNonContent(raw));
+
+            const sectionViolations = [];
+            if (hasImpl) {
+              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
+              if (!hasMeaningfulContent(c)) {
+                sectionViolations.push(hasOnlyBareBullets(c)
+                  ? '`## Implementato` contiene solo bullet placeholder vuoti (`- `) non compilati.'
+                  : '`## Implementato` è vuota.');
+              }
+            }
+            if (hasNon) {
+              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Non implementato[^\n]*/im) ?? '';
+              if (!hasNessuno(c) && !hasMeaningfulContent(c)) {
+                sectionViolations.push(hasOnlyBareBullets(c)
+                  ? '`## Non implementato (ancora)` contiene solo bullet placeholder vuoti (`- `) non compilati.'
+                  : '`## Non implementato (ancora)` è vuota.');
+              }
+            }
+
+            // --- 2) Multi-issue Closes on one line (GitHub closes only the first) ----
+            // Mirror of scripts/lib/pr-body-closes-check.mjs (see tests). A closing
+            // keyword governing the first ref, then ≥1 MORE refs chained by list
+            // separators only (space/comma/colon/semicolon/&/"and") → the extras are
+            // silently ignored by GitHub. A ref after a sentence boundary or real
+            // words (`Closes #12. See also #99`) is a cross-ref, not flagged.
+            const REF = '(?:[\\w.-]+\\/[\\w.-]+)?#\\d+';
+            const SEP = '(?:\\s*(?:,|:|;|&|\\band\\b)?\\s*)';
+            const CHAIN = new RegExp(
+              `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b\\s*(${REF})((?:${SEP}${REF})+)`,
+              'gi',
+            );
+            const closesViolations = [];
+            body.split(/\r?\n/).forEach((line, i) => {
+              CHAIN.lastIndex = 0;
+              const m = CHAIN.exec(line);
+              if (!m) return;
+              const nums = (m[0].match(new RegExp(REF, 'g')) || [])
+                .map((r) => r.match(/#(\d+)/)[1]);
+              if (nums.length >= 2) closesViolations.push({ line: i + 1, text: line.trim(), nums });
+            });
+
+            // --- 2b) Closure intent expressed with a keyword GitHub ignores ---------
+            // Mirror of scripts/lib/pr-body-closes-check.mjs `lineIntentRefs` /
+            // `effectiveRefs` (tests/pr-body-closes-check.test.ts is the source of
+            // truth for the rule). GitHub honors ONLY close/closes/closed,
+            // fix/fixes/fixed, resolve/resolves/resolved — an Italian verb ("Chiude
+            // #N", "Chiusa da #N", "Risolve #N") or an English gerund ("Closing #N")
+            // reads as closure to a human and closes NOTHING: the issue stays open
+            // forever with the fix already on `main`. The detection already existed
+            // in the lib (reused by the deterministic review/merge gates)
+            // but never reached a PR opened through the normal `## LGTM` review path
+            // — real recurrence (issue #5784): PR #5776 said `Chiude #5725` and #5725
+            // stayed open until closed by hand; same shape on #5724, near-miss on
+            // #5774. This block closes that gap for every PR, not just drift-fallback
+            // ones.
+            // Masks fenced/inline code + HTML comments FIRST, same reason as check 3
+            // below: GitHub does not act on a keyword inside code formatting, and a
+            // body that merely DOCUMENTS the bug (this one, or the PR template) would
+            // otherwise false-positive on itself. Newlines survive the mask (blanks
+            // replace non-newline chars) so line numbers still point at the real line.
+            const maskQuotedKeepLines = (t) => String(t || '').replace(
+              /```[\s\S]*?```|~~~[\s\S]*?~~~|<!--[\s\S]*?-->|`[^`\n]*`/g,
+              (m) => m.replace(/[^\n]/g, ' '),
+            );
+            const EFFECTIVE_RE = new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b[\\s:]*[*_\`[]*(${REF})`, 'gi');
+            // The Italian verbs (measured recurrence) plus the English near-misses
+            // that share the failure mode. Deliberately NOT here: `addresses`, `see`,
+            // `related to`, `refs`, `part of` — those mean "connected to", and
+            // flagging them would punish a body that legitimately just NAMES an
+            // issue without intending to close it.
+            const INTENT_KW =
+              '(?:chiud(?:e|ono|er[àa]|iamo)|chius[aoie]|risolv(?:e|ono|iamo)|risolt[aoie]|' +
+              'fixa(?:ta|to)?|corregg(?:e|ono)|corrett[aoie]|' +
+              'closing|fixing|resolving|solves|solved|completes|completed)';
+            // A PAST-TENSE report ("già chiusa da #66", "was fixed by #66") states
+            // something ELSE already closed the ref — not this PR's intent.
+            const PAST_REPORT_RE = /\b(?:gi[àa]'?|already|was|were|sono\s+stat[ei]|[èe]'?\s+stat[ao])\s*$/i;
+            // A NEGATED report ("non chiusi: #849 resta aperta") states the ref
+            // stays OPEN — the opposite of an intent. Without it this check tells
+            // the author to close an issue the same sentence declares open.
+            // `\p{L}` with `u`, not `\w`: `\w` is ASCII and `non è chiusa #849`
+            // broke the chain at the accent. The lookahead keeps `Non solo
+            // chiude #12` reportable — that phrasing concedes the closure.
+            const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?!\s+(?:solo|soltanto|only)\b)(?:\s+[\p{L}\p{N}_'’]+){0,2}\s*$/iu;
+            const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
+            const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}[\\s:]*[*_\`[]*(${REF})`, 'gi');
+
+            const maskedBodyForIntent = maskQuotedKeepLines(body);
+            const willCloseRefs = new Set();
+            for (const m of maskedBodyForIntent.matchAll(new RegExp(EFFECTIVE_RE.source, EFFECTIVE_RE.flags))) {
+              willCloseRefs.add(m[1].toLowerCase());
+            }
+            const rawBodyLinesForIntent = body.split(/\r?\n/);
+            const intentViolations = [];
+            const intentReported = new Set();
+            maskedBodyForIntent.split(/\r?\n/).forEach((mline, i) => {
+              for (const m of mline.matchAll(new RegExp(INTENT_RE.source, INTENT_RE.flags))) {
+                const ref = m[2];
+                const before = mline.slice(Math.max(0, m.index - 24), m.index);
+                if (PAST_REPORT_RE.test(before)) continue; // "già chiusa da #66" ≠ intent
+                if (NEG_REPORT_RE.test(before)) continue; // "non chiusi: #849" ≠ intent
+                if (willCloseRefs.has(ref.toLowerCase())) continue; // a real keyword already reaches it
+                if (intentReported.has(ref.toLowerCase())) continue; // one report per ref
+                intentReported.add(ref.toLowerCase());
+                intentViolations.push({ line: i + 1, text: (rawBodyLinesForIntent[i] ?? mline).trim(), ref, keyword: m[1] });
+              }
+            });
+
+            // --- 3) Closes #N targeting a multi-item follow-up aggregate ------------
+            // `Closes #N` is GitHub-native and fires on MERGE, BYPASSING the
+            // reconcile multi-item-auto-close veto (FOLLOWUP.md — that veto lives in
+            // the daily cron, not in the merge-close path). Closing a 5-item aggregate
+            // because ONE item was fixed (the fixer circuit-breaker does 1 item/run)
+            // marks residual work COMPLETED while items stay due (real recurrence:
+            // #3050 fixed item 5/5 yet `Closes #3036` closed the 5-item aggregate).
+            // FULL mirror of isAggregate() — single source scripts/ci/check-issue-already-resolved.mjs:
+            // an explicit "N item(s) deferred" count is authoritative once present
+            // (a single-item follow-up whose title merely contains the ordinary word
+            // "batch"/"sweep"/"bulk" — e.g. "1 item deferred ... batch backfill..." —
+            // must not be misclassified as an aggregate, #3378); the sweep/batch/bulk
+            // keyword fallback only applies when NO count is stated (aggregates that
+            // enumerate N targets WITHOUT the count, e.g. "Sweep: ~30 crawlers" #1826).
+            const isAggregateTitleBody = (t, b) => {
+              function stripFencedBlocks(text) {
+                const lines = String(text || '').split('\n');
+                const out = [];
+                let fence = null;
+                let fenceStart = -1;
+                for (let i = 0; i < lines.length; i++) {
+                  const line = lines[i];
+                  const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
+                  if (fence) {
+                    const closes = match
+                      && match[2][0] === fence.char
+                      && match[2].length >= fence.length
+                      && match[1].length >= fence.indent;
+                    if (closes) fence = null;
+                    continue;
+                  }
+                  if (match) {
+                    fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
+                    fenceStart = i;
+                    continue;
+                  }
+                  out.push(line);
+                }
+                return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+              }
+              function isBoldTitleLead(rest, lines = [], start = 0) {
+                const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
+                let candidate = String(rest || '');
+                if (bold.test(candidate)) return true;
+                for (let i = start; i < lines.length; i++) {
+                  const line = lines[i];
+                  if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
+                  candidate += '\n' + line;
+                  if (bold.test(candidate)) return true;
+                }
+                return false;
+              }
+              function hasEnumeratedItems(body) {
+                const clean = stripFencedBlocks(body);
+                if ((clean.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length >= 2) return true;
+                const lines = clean.split('\n');
+                let ordered = 0;
+                let bullets = 0;
+                for (let i = 0; i < lines.length; i++) {
+                  const orderedMatch = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(lines[i]);
+                  if (orderedMatch && isBoldTitleLead(orderedMatch[1], lines, i + 1)) ordered++;
+                  const bulletMatch = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(lines[i]);
+                  if (bulletMatch && isBoldTitleLead(bulletMatch[1], lines, i + 1)) bullets++;
+                }
+                return ordered >= 2 || bullets >= 2;
+              }
+              const title = String(t || '');
+              const m = title.match(/\b(\d+)\s+items?\s+deferred\b/i);
+              if (m) return Number(m[1]) >= 2;
+              const bodyText = stripFencedBlocks(b);
+              if (/\b(?:sweep|batch|bulk)\b/i.test(title + '\n' + bodyText)) return true;
+              return hasEnumeratedItems(bodyText);
+            };
+            // Strip code-formatted text first: GitHub does NOT honour a closing
+            // keyword inside a fenced block or inline `code` span, so neither should
+            // we — otherwise a body that merely DISCUSSES `Closes #N` (docs, this very
+            // PR, a fix-instruction example) false-positives. Real fixer closes are
+            // plain text on their own line.
+            const bodyNoCode = body
+              .replace(/```[\s\S]*?```/g, ' ')
+              .replace(/`[^`\n]*`/g, ' ');
+            // In-repo closing refs only (bare `#N`; owner/repo#N never auto-closes here).
+            // `:?` tolerates the colon form `Closes: #N`, which GitHub also honours.
+            const CLOSE_SINGLE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b:?\s+#(\d+)\b/gi;
+            const closingNums = [...new Set([...bodyNoCode.matchAll(CLOSE_SINGLE)].map((m) => m[1]))];
+
+            const { owner, repo } = context.repo;
+            const issue_number = prNumber;
+
+            // --- 1c) ADVISORY: funnel-critical files changed but never cited in the
+            // body (#6301, reproduced on #6279: the diff touched
+            // `.github/workflows/prospector-loop.yml` and the body never named it in
+            // any section — neither this gate nor scripts/lib/pr-body-sections-check.mjs
+            // compared the diff's file list against the body text, only checked that
+            // `## Implementato` had SOME content. Uses `pulls.listFiles` (no checkout
+            // needed — unlike the sibling-check/below-floor-bridge steps further down,
+            // which DO need the tree). Advisory only, same reasoning as the
+            // bullet-without-state warning in pr-body-sections-check.mjs: promoting
+            // straight to blocking risks repeating the 2026-08-12 13h stall documented
+            // there, before PR bodies reliably cite every touched file.
+            const FUNNEL_CRITICAL_PATH_RE = /^\.github\/workflows\//;
+            let uncitedFiles = [];
+            try {
+              const prFiles = await github.paginate(github.rest.pulls.listFiles, {
+                owner, repo, pull_number: issue_number, per_page: 100,
+              });
+              uncitedFiles = prFiles
+                .map((f) => f.filename)
+                .filter((p) => FUNNEL_CRITICAL_PATH_RE.test(p))
+                .filter((p) => !body.includes(p) && !body.includes(p.split('/').pop()));
+            } catch (e) {
+              core.info(`uncited-files check: skip (${e.status || e.message})`);
+            }
+            const advisoryParts = [];
+            if (uncitedFiles.length) {
+              advisoryParts.push(
+                `⚠️ **File funnel-critical non citati nel body** (issue #6301, advisory — non blocca) — ` +
+                `il diff modifica ${uncitedFiles.length} file sotto \`.github/workflows/**\` che il body non menziona ` +
+                `(né per path né per basename):\n\n` +
+                uncitedFiles.map((p) => `- \`${p}\``).join('\n') + '\n\n' +
+                `Aggiungi un bullet in \`## Implementato\` che li cita (recidiva reale: PR #6279, ` +
+                `\`.github/workflows/prospector-loop.yml\` modificato e mai menzionato, flaggato dal reviewer solo dopo il fatto).`,
+              );
+            }
+
+            // Fetch each closed issue; flag the multi-item follow-up aggregates.
+            // Proceed-safe: any API error → skip that ref (never block on infra).
+            const aggregateCloseViolations = [];
+            for (const num of closingNums) {
+              try {
+                const { data: iss } = await github.rest.issues.get({
+                  owner, repo, issue_number: Number(num),
+                });
+                if (iss.pull_request) continue; // a PR ref, not a tracking issue
+                const labels = (iss.labels || []).map((l) => (typeof l === 'string' ? l : l.name));
+                if (!labels.includes('follow-up')) continue;
+                if (isAggregateTitleBody(iss.title || '', iss.body || '')) {
+                  aggregateCloseViolations.push({ num, title: iss.title || '' });
+                }
+              } catch (e) {
+                core.info(`aggregate-close check: skip #${num} (${e.status || e.message})`);
+              }
+            }
+
+            // Find a prior sticky comment to update (avoid comment spam on edits).
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100,
+            });
+            const prior = comments.find(c => (c.body || '').includes(STICKY));
+
+            const upsert = async (b) => {
+              if (prior) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body: b });
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body: b });
+              }
+            };
+
+            // --- All-clear (violations) — advisories can still be present -----------
+            if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
+              const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
+                + (advisoryParts.length ? `\n\n${advisoryParts.join('\n\n')}` : '');
+              // Solo un prior da aggiornare, oppure un advisory reale da segnalare per
+              // la prima volta: un all-clear puro (nessun prior, nessun advisory) non
+              // vale un commento nuovo.
+              if (prior || advisoryParts.length) {
+                await upsert(okBody);
+              }
+              core.info(`PR body contract satisfied.${advisoryParts.length ? ' (advisory: uncited files)' : ''}`);
+              return;
+            }
+
+            // --- Build the verdict --------------------------------------------------
+            const parts = [STICKY];
+            const fails = [];
+            if (missing.length) {
+              parts.push(
+                `🔴 **PR-body contract** — mancano: ${missing.join(', ')}.\n\n` +
+                `Il completeness contract (REVIEW.md / AGENTS.md § Workflow) richiede i due header letterali ` +
+                `\`## Implementato\` e \`## Non implementato (ancora)\`. ` +
+                `Header alternativi (\`## Fix\`, \`## Verify\`, \`## Effetto\`) non contano.`,
+              );
+              fails.push(`missing section(s): ${missing.join(', ')}`);
+            }
+            if (sectionViolations.length) {
+              parts.push(
+                `🔴 **Sezione presente ma vuota** (escalation #3250, bucket \`reviewer-finding/pr-body-contract\`) — ` +
+                `header letterale trovato ma senza contenuto sostanziale (solo bullet placeholder \`- \` del template):\n\n` +
+                sectionViolations.map((m) => `- ${m}`).join('\n') + '\n\n' +
+                `Scrivi almeno un bullet concreto in \`## Implementato\`; in \`## Non implementato (ancora)\` scrivi ` +
+                `"Nessuno" (task completo, AGENTS.md #8) oppure elenca gli item residui con stato/next-step.`,
+              );
+              fails.push(`empty section(s): ${sectionViolations.length}`);
+            }
+            if (closesViolations.length) {
+              const lines = closesViolations
+                .map((v) => `- L${v.line}: \`${v.text}\` → chiude solo #${v.nums[0]}, ignora #${v.nums.slice(1).join(', #')}`)
+                .join('\n');
+              parts.push(
+                `🔴 **Closes multi-issue su una riga** — GitHub chiude SOLO la prima issue dopo una keyword ` +
+                `(\`Closes\`/\`Fixes\`/\`Resolves\`); le altre restano aperte e vanno chiuse a mano (cfr. PR #1320: 9 issue su una riga → 8 rimaste aperte).\n\n` +
+                `${lines}\n\n` +
+                `Fix: una keyword per issue, una per riga:\n\`\`\`\nCloses #${closesViolations[0].nums[0]}\nCloses #${closesViolations[0].nums[1]}\n\`\`\``,
+              );
+              fails.push(`multi-issue Closes line(s): ${closesViolations.map((v) => `L${v.line}`).join(', ')}`);
+            }
+            if (intentViolations.length) {
+              const lines = intentViolations
+                .map((v) => `- L${v.line}: \`${v.text}\` → \`${v.keyword} ${v.ref}\` non chiude niente`)
+                .join('\n');
+              parts.push(
+                `🔴 **Keyword di chiusura inefficace** (issue #5784) — GitHub riconosce SOLO ` +
+                `\`close/closes/closed\`, \`fix/fixes/fixed\`, \`resolve/resolves/resolved\`; un verbo italiano ` +
+                `(\`chiude\`/\`chiusa\`/\`risolve\`/\`fixa\`...) o l'inglese al gerundio (\`closing\`/\`fixing\`) è prosa ` +
+                `e non chiude nulla — l'issue resta aperta con la fix già su \`main\` (recidiva reale: PR #5776 → ` +
+                `#5725 rimasta aperta finché non è stata chiusa a mano; stesso difetto su #5724, quasi su #5774).\n\n` +
+                `${lines}\n\n` +
+                `Fix: usa la keyword inglese per ognuno, es. \`Closes ${intentViolations[0].ref}\`. Se non intendevi ` +
+                `chiudere quella issue (solo nominarla), usa \`Refs\`/\`Vedi\` invece di un verbo di chiusura.`,
+              );
+              fails.push(`ineffective closing keyword: ${intentViolations.map((v) => `L${v.line}`).join(', ')}`);
+            }
+            if (aggregateCloseViolations.length) {
+              const lines = aggregateCloseViolations
+                .map((v) => `- \`Closes #${v.num}\` → #${v.num} è una follow-up **aggregata multi-item** ("${v.title.slice(0, 80)}")`)
+                .join('\n');
+              parts.push(
+                `🔴 **Closes su follow-up aggregata multi-item** — \`Closes #N\` è GitHub-native e chiude #N al MERGE, ` +
+                `bypassando il veto multi-item-auto-close di \`FOLLOWUP.md\` (che vive nel cron \`reconcile\`, non nel path Closes-on-merge). ` +
+                `Il fixer lavora 1 item/run (circuit-breaker): un fix parziale NON deve chiudere l'aggregata, gli altri item restano dovuti ` +
+                `(recidiva #3050 → #3036: item 5/5 fixato ma l'issue 5-item chiusa COMPLETED).\n\n${lines}\n\n` +
+                `Fix: togli la keyword di chiusura e usa un **progress-ref** senza \`Closes/Fixes/Resolves\` ` +
+                `(es. \`Addresses item N di #${aggregateCloseViolations[0].num}\`). Chiudi l'aggregata SOLO quando TUTTI gli item sono fatti, elencandoli in \`## Implementato\`.`,
+              );
+              fails.push(`Closes on multi-item aggregate: #${aggregateCloseViolations.map((v) => v.num).join(', #')}`);
+            }
+            // Advisory, NON entra in `fails`/`setFailed` — vedi il commento sul blocco
+            // che calcola `advisoryParts` più sopra.
+            if (advisoryParts.length) parts.push(...advisoryParts);
+            parts.push(`Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — il prossimo run sul codice rivalida la descrizione corrente.`);
+
+            await upsert(parts.join('\n\n'));
+            core.setFailed(`PR body contract: ${fails.join('; ')}`);
+
       # `git checkout` scrive l'albero con un thread solo per default (issue
       # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
       # 37,4s (-27%) impostando `checkout.workers 0` (= usa tutti i core).
@@ -401,424 +672,7 @@ jobs:
           restore-keys: |
             tsc-incremental-${{ runner.os }}-
 
-      # ══════════════════════════════════════════════════════════════════════
-      # FAMIGLIA 1/4 — contract (ex job `contract`, ex pr-body-contract.yml)
-      # `!cancelled()` sul primo step: un rosso di un'altra famiglia NON deve
-      # impedire a questa di girare — era la proprietà dei quattro job
-      # paralleli, e va conservata ora che sono step (vedi «Conseguenza #2»).
-      # Gira su ogni evento `pull_request` del job pesante; su `edited` il
-      # companion body-only in fondo al file esegue la stessa copia verificata
-      # dello step come check distinto. Il body viene quindi rivalidato due
-      # volte, senza sostituire il verdetto del percorso pesante.
-      # ══════════════════════════════════════════════════════════════════════
-      - name: PR-body completeness + multi-issue Closes (no checkout, all events)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' }}
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const STICKY = '<!-- pr-body-contract -->';
-            const body = context.payload.pull_request.body || '';
-
-            // --- 1) Required headers (REVIEW.md completeness contract) ---------------
-            // Literal headers required by REVIEW.md. Tolerate trailing text on the
-            // same line (e.g. "## Non implementato (ancora)"); require start-of-line.
-            const hasImpl = /^\s{0,3}#{2,3}\s+Implementato\b/im.test(body);
-            const hasNon  = /^\s{0,3}#{2,3}\s+Non implementato\b/im.test(body);
-            const missing = [];
-            if (!hasImpl) missing.push('`## Implementato`');
-            if (!hasNon)  missing.push('`## Non implementato (ancora)`');
-
-            // --- 1b) Section CONTENT quality (escalation #3250, bucket
-            // `reviewer-finding/pr-body-contract` 6x/14d) -------------------------
-            // Header PRESENCE alone isn't enough: the PR template leaves bare `- `
-            // placeholder bullets in both sections, and a fixer that submits
-            // without filling them passes this gate but still draws a reviewer
-            // 🔴 finding — wasting a review cycle. Mirrors
-            // scripts/lib/pr-body-sections-check.mjs (own unit tests); keep the
-            // two in sync on rule changes.
-            const extractSection = (text, headerRe) => {
-              const m = headerRe.exec(text);
-              if (!m) return null;
-              const rest = text.slice(m.index + m[0].length);
-              const nextHeading = /\n(?=#{1,6}[ \t])/.exec(rest);
-              return nextHeading ? rest.slice(0, nextHeading.index) : rest;
-            };
-            const stripNonContent = (t) => String(t ?? '')
-              .replace(/```[\s\S]*?```/g, ' ')
-              .replace(/<!--[\s\S]*?-->/g, ' ');
-            const isSubstantiveBullet = (line) => line.replace(/^[ \t]*[-*+][ \t]*/, '').trim().length > 0;
-            const hasMeaningfulContent = (raw) => stripNonContent(raw).split('\n').some((line) => {
-              const t = line.trim();
-              if (!t) return false;
-              if (/^#{1,6}[ \t]/.test(t)) return false;
-              if (/^[-*+](?:[ \t]|$)/.test(t)) return isSubstantiveBullet(t);
-              return true;
-            });
-            const hasOnlyBareBullets = (raw) => {
-              const lines = stripNonContent(raw).split('\n').filter((l) => l.trim().length > 0);
-              if (lines.length === 0) return false;
-              return lines.every((line) => {
-                const t = line.trim();
-                if (/^#{1,6}[ \t]/.test(t)) return true;
-                if (/^[-*+][ \t]?$/.test(t)) return true;
-                if (/^[-*+][ \t]/.test(t)) return false;
-                return true;
-              });
-            };
-            const hasNessuno = (raw) => /\bnessun[oa]?\b/i.test(stripNonContent(raw));
-
-            const sectionViolations = [];
-            if (hasImpl) {
-              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
-              if (!hasMeaningfulContent(c)) {
-                sectionViolations.push(hasOnlyBareBullets(c)
-                  ? '`## Implementato` contiene solo bullet placeholder vuoti (`- `) non compilati.'
-                  : '`## Implementato` è vuota.');
-              }
-            }
-            if (hasNon) {
-              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Non implementato[^\n]*/im) ?? '';
-              if (!hasNessuno(c) && !hasMeaningfulContent(c)) {
-                sectionViolations.push(hasOnlyBareBullets(c)
-                  ? '`## Non implementato (ancora)` contiene solo bullet placeholder vuoti (`- `) non compilati.'
-                  : '`## Non implementato (ancora)` è vuota.');
-              }
-            }
-
-            // --- 2) Multi-issue Closes on one line (GitHub closes only the first) ----
-            // Mirror of scripts/lib/pr-body-closes-check.mjs (see tests). A closing
-            // keyword governing the first ref, then ≥1 MORE refs chained by list
-            // separators only (space/comma/colon/semicolon/&/"and") → the extras are
-            // silently ignored by GitHub. A ref after a sentence boundary or real
-            // words (`Closes #12. See also #99`) is a cross-ref, not flagged.
-            const REF = '(?:[\\w.-]+\\/[\\w.-]+)?#\\d+';
-            const SEP = '(?:\\s*(?:,|:|;|&|\\band\\b)?\\s*)';
-            const CHAIN = new RegExp(
-              `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b\\s*(${REF})((?:${SEP}${REF})+)`,
-              'gi',
-            );
-            const closesViolations = [];
-            body.split(/\r?\n/).forEach((line, i) => {
-              CHAIN.lastIndex = 0;
-              const m = CHAIN.exec(line);
-              if (!m) return;
-              const nums = (m[0].match(new RegExp(REF, 'g')) || [])
-                .map((r) => r.match(/#(\d+)/)[1]);
-              if (nums.length >= 2) closesViolations.push({ line: i + 1, text: line.trim(), nums });
-            });
-
-            // --- 2b) Closure intent expressed with a keyword GitHub ignores ---------
-            // Mirror of scripts/lib/pr-body-closes-check.mjs `lineIntentRefs` /
-            // `effectiveRefs` (tests/pr-body-closes-check.test.ts is the source of
-            // truth for the rule). GitHub honors ONLY close/closes/closed,
-            // fix/fixes/fixed, resolve/resolves/resolved — an Italian verb ("Chiude
-            // #N", "Chiusa da #N", "Risolve #N") or an English gerund ("Closing #N")
-            // reads as closure to a human and closes NOTHING: the issue stays open
-            // forever with the fix already on `main`. The detection already existed
-            // in the lib (reused by the deterministic review/merge gates)
-            // but never reached a PR opened through the normal `## LGTM` review path
-            // — real recurrence (issue #5784): PR #5776 said `Chiude #5725` and #5725
-            // stayed open until closed by hand; same shape on #5724, near-miss on
-            // #5774. This block closes that gap for every PR, not just drift-fallback
-            // ones.
-            // Masks fenced/inline code + HTML comments FIRST, same reason as check 3
-            // below: GitHub does not act on a keyword inside code formatting, and a
-            // body that merely DOCUMENTS the bug (this one, or the PR template) would
-            // otherwise false-positive on itself. Newlines survive the mask (blanks
-            // replace non-newline chars) so line numbers still point at the real line.
-            const maskQuotedKeepLines = (t) => String(t || '').replace(
-              /```[\s\S]*?```|~~~[\s\S]*?~~~|<!--[\s\S]*?-->|`[^`\n]*`/g,
-              (m) => m.replace(/[^\n]/g, ' '),
-            );
-            const EFFECTIVE_RE = new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b[\\s:]*[*_\`[]*(${REF})`, 'gi');
-            // The Italian verbs (measured recurrence) plus the English near-misses
-            // that share the failure mode. Deliberately NOT here: `addresses`, `see`,
-            // `related to`, `refs`, `part of` — those mean "connected to", and
-            // flagging them would punish a body that legitimately just NAMES an
-            // issue without intending to close it.
-            const INTENT_KW =
-              '(?:chiud(?:e|ono|er[àa]|iamo)|chius[aoie]|risolv(?:e|ono|iamo)|risolt[aoie]|' +
-              'fixa(?:ta|to)?|corregg(?:e|ono)|corrett[aoie]|' +
-              'closing|fixing|resolving|solves|solved|completes|completed)';
-            // A PAST-TENSE report ("già chiusa da #66", "was fixed by #66") states
-            // something ELSE already closed the ref — not this PR's intent.
-            const PAST_REPORT_RE = /\b(?:gi[àa]'?|already|was|were|sono\s+stat[ei]|[èe]'?\s+stat[ao])\s*$/i;
-            // A NEGATED report ("non chiusi: #849 resta aperta") states the ref
-            // stays OPEN — the opposite of an intent. Without it this check tells
-            // the author to close an issue the same sentence declares open.
-            // `\p{L}` with `u`, not `\w`: `\w` is ASCII and `non è chiusa #849`
-            // broke the chain at the accent. The lookahead keeps `Non solo
-            // chiude #12` reportable — that phrasing concedes the closure.
-            const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?!\s+(?:solo|soltanto|only)\b)(?:\s+[\p{L}\p{N}_'’]+){0,2}\s*$/iu;
-            const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
-            const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}[\\s:]*[*_\`[]*(${REF})`, 'gi');
-
-            const maskedBodyForIntent = maskQuotedKeepLines(body);
-            const willCloseRefs = new Set();
-            for (const m of maskedBodyForIntent.matchAll(new RegExp(EFFECTIVE_RE.source, EFFECTIVE_RE.flags))) {
-              willCloseRefs.add(m[1].toLowerCase());
-            }
-            const rawBodyLinesForIntent = body.split(/\r?\n/);
-            const intentViolations = [];
-            const intentReported = new Set();
-            maskedBodyForIntent.split(/\r?\n/).forEach((mline, i) => {
-              for (const m of mline.matchAll(new RegExp(INTENT_RE.source, INTENT_RE.flags))) {
-                const ref = m[2];
-                const before = mline.slice(Math.max(0, m.index - 24), m.index);
-                if (PAST_REPORT_RE.test(before)) continue; // "già chiusa da #66" ≠ intent
-                if (NEG_REPORT_RE.test(before)) continue; // "non chiusi: #849" ≠ intent
-                if (willCloseRefs.has(ref.toLowerCase())) continue; // a real keyword already reaches it
-                if (intentReported.has(ref.toLowerCase())) continue; // one report per ref
-                intentReported.add(ref.toLowerCase());
-                intentViolations.push({ line: i + 1, text: (rawBodyLinesForIntent[i] ?? mline).trim(), ref, keyword: m[1] });
-              }
-            });
-
-            // --- 3) Closes #N targeting a multi-item follow-up aggregate ------------
-            // `Closes #N` is GitHub-native and fires on MERGE, BYPASSING the
-            // reconcile multi-item-auto-close veto (FOLLOWUP.md — that veto lives in
-            // the daily cron, not in the merge-close path). Closing a 5-item aggregate
-            // because ONE item was fixed (the fixer circuit-breaker does 1 item/run)
-            // marks residual work COMPLETED while items stay due (real recurrence:
-            // #3050 fixed item 5/5 yet `Closes #3036` closed the 5-item aggregate).
-            // FULL mirror of isAggregate() — single source scripts/ci/check-issue-already-resolved.mjs:
-            // an explicit "N item(s) deferred" count is authoritative once present
-            // (a single-item follow-up whose title merely contains the ordinary word
-            // "batch"/"sweep"/"bulk" — e.g. "1 item deferred ... batch backfill..." —
-            // must not be misclassified as an aggregate, #3378); the sweep/batch/bulk
-            // keyword fallback only applies when NO count is stated (aggregates that
-            // enumerate N targets WITHOUT the count, e.g. "Sweep: ~30 crawlers" #1826).
-            const isAggregateTitleBody = (t, b) => {
-              function stripFencedBlocks(text) {
-                const lines = String(text || '').split('\n');
-                const out = [];
-                let fence = null;
-                let fenceStart = -1;
-                for (let i = 0; i < lines.length; i++) {
-                  const line = lines[i];
-                  const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
-                  if (fence) {
-                    const closes = match
-                      && match[2][0] === fence.char
-                      && match[2].length >= fence.length
-                      && match[1].length >= fence.indent;
-                    if (closes) fence = null;
-                    continue;
-                  }
-                  if (match) {
-                    fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
-                    fenceStart = i;
-                    continue;
-                  }
-                  out.push(line);
-                }
-                return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
-              }
-              function isBoldTitleLead(rest, lines = [], start = 0) {
-                const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
-                let candidate = String(rest || '');
-                if (bold.test(candidate)) return true;
-                for (let i = start; i < lines.length; i++) {
-                  const line = lines[i];
-                  if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
-                  candidate += '\n' + line;
-                  if (bold.test(candidate)) return true;
-                }
-                return false;
-              }
-              function hasEnumeratedItems(body) {
-                const clean = stripFencedBlocks(body);
-                if ((clean.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length >= 2) return true;
-                const lines = clean.split('\n');
-                let ordered = 0;
-                let bullets = 0;
-                for (let i = 0; i < lines.length; i++) {
-                  const orderedMatch = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(lines[i]);
-                  if (orderedMatch && isBoldTitleLead(orderedMatch[1], lines, i + 1)) ordered++;
-                  const bulletMatch = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(lines[i]);
-                  if (bulletMatch && isBoldTitleLead(bulletMatch[1], lines, i + 1)) bullets++;
-                }
-                return ordered >= 2 || bullets >= 2;
-              }
-              const title = String(t || '');
-              const m = title.match(/\b(\d+)\s+items?\s+deferred\b/i);
-              if (m) return Number(m[1]) >= 2;
-              const bodyText = stripFencedBlocks(b);
-              if (/\b(?:sweep|batch|bulk)\b/i.test(title + '\n' + bodyText)) return true;
-              return hasEnumeratedItems(bodyText);
-            };
-            // Strip code-formatted text first: GitHub does NOT honour a closing
-            // keyword inside a fenced block or inline `code` span, so neither should
-            // we — otherwise a body that merely DISCUSSES `Closes #N` (docs, this very
-            // PR, a fix-instruction example) false-positives. Real fixer closes are
-            // plain text on their own line.
-            const bodyNoCode = body
-              .replace(/```[\s\S]*?```/g, ' ')
-              .replace(/`[^`\n]*`/g, ' ');
-            // In-repo closing refs only (bare `#N`; owner/repo#N never auto-closes here).
-            // `:?` tolerates the colon form `Closes: #N`, which GitHub also honours.
-            const CLOSE_SINGLE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b:?\s+#(\d+)\b/gi;
-            const closingNums = [...new Set([...bodyNoCode.matchAll(CLOSE_SINGLE)].map((m) => m[1]))];
-
-            const { owner, repo } = context.repo;
-            const issue_number = context.payload.pull_request.number;
-
-            // --- 1c) ADVISORY: funnel-critical files changed but never cited in the
-            // body (#6301, reproduced on #6279: the diff touched
-            // `.github/workflows/prospector-loop.yml` and the body never named it in
-            // any section — neither this gate nor scripts/lib/pr-body-sections-check.mjs
-            // compared the diff's file list against the body text, only checked that
-            // `## Implementato` had SOME content. Uses `pulls.listFiles` (no checkout
-            // needed — unlike the sibling-check/below-floor-bridge steps further down,
-            // which DO need the tree). Advisory only, same reasoning as the
-            // bullet-without-state warning in pr-body-sections-check.mjs: promoting
-            // straight to blocking risks repeating the 2026-08-12 13h stall documented
-            // there, before PR bodies reliably cite every touched file.
-            const FUNNEL_CRITICAL_PATH_RE = /^\.github\/workflows\//;
-            let uncitedFiles = [];
-            try {
-              const prFiles = await github.paginate(github.rest.pulls.listFiles, {
-                owner, repo, pull_number: issue_number, per_page: 100,
-              });
-              uncitedFiles = prFiles
-                .map((f) => f.filename)
-                .filter((p) => FUNNEL_CRITICAL_PATH_RE.test(p))
-                .filter((p) => !body.includes(p) && !body.includes(p.split('/').pop()));
-            } catch (e) {
-              core.info(`uncited-files check: skip (${e.status || e.message})`);
-            }
-            const advisoryParts = [];
-            if (uncitedFiles.length) {
-              advisoryParts.push(
-                `⚠️ **File funnel-critical non citati nel body** (issue #6301, advisory — non blocca) — ` +
-                `il diff modifica ${uncitedFiles.length} file sotto \`.github/workflows/**\` che il body non menziona ` +
-                `(né per path né per basename):\n\n` +
-                uncitedFiles.map((p) => `- \`${p}\``).join('\n') + '\n\n' +
-                `Aggiungi un bullet in \`## Implementato\` che li cita (recidiva reale: PR #6279, ` +
-                `\`.github/workflows/prospector-loop.yml\` modificato e mai menzionato, flaggato dal reviewer solo dopo il fatto).`,
-              );
-            }
-
-            // Fetch each closed issue; flag the multi-item follow-up aggregates.
-            // Proceed-safe: any API error → skip that ref (never block on infra).
-            const aggregateCloseViolations = [];
-            for (const num of closingNums) {
-              try {
-                const { data: iss } = await github.rest.issues.get({
-                  owner, repo, issue_number: Number(num),
-                });
-                if (iss.pull_request) continue; // a PR ref, not a tracking issue
-                const labels = (iss.labels || []).map((l) => (typeof l === 'string' ? l : l.name));
-                if (!labels.includes('follow-up')) continue;
-                if (isAggregateTitleBody(iss.title || '', iss.body || '')) {
-                  aggregateCloseViolations.push({ num, title: iss.title || '' });
-                }
-              } catch (e) {
-                core.info(`aggregate-close check: skip #${num} (${e.status || e.message})`);
-              }
-            }
-
-            // Find a prior sticky comment to update (avoid comment spam on edits).
-            const comments = await github.paginate(github.rest.issues.listComments, {
-              owner, repo, issue_number, per_page: 100,
-            });
-            const prior = comments.find(c => (c.body || '').includes(STICKY));
-
-            const upsert = async (b) => {
-              if (prior) {
-                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body: b });
-              } else {
-                await github.rest.issues.createComment({ owner, repo, issue_number, body: b });
-              }
-            };
-
-            // --- All-clear (violations) — advisories can still be present -----------
-            if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
-              const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
-                + (advisoryParts.length ? `\n\n${advisoryParts.join('\n\n')}` : '');
-              // Solo un prior da aggiornare, oppure un advisory reale da segnalare per
-              // la prima volta: un all-clear puro (nessun prior, nessun advisory) non
-              // vale un commento nuovo.
-              if (prior || advisoryParts.length) {
-                await upsert(okBody);
-              }
-              core.info(`PR body contract satisfied.${advisoryParts.length ? ' (advisory: uncited files)' : ''}`);
-              return;
-            }
-
-            // --- Build the verdict --------------------------------------------------
-            const parts = [STICKY];
-            const fails = [];
-            if (missing.length) {
-              parts.push(
-                `🔴 **PR-body contract** — mancano: ${missing.join(', ')}.\n\n` +
-                `Il completeness contract (REVIEW.md / AGENTS.md § Workflow) richiede i due header letterali ` +
-                `\`## Implementato\` e \`## Non implementato (ancora)\`. ` +
-                `Header alternativi (\`## Fix\`, \`## Verify\`, \`## Effetto\`) non contano.`,
-              );
-              fails.push(`missing section(s): ${missing.join(', ')}`);
-            }
-            if (sectionViolations.length) {
-              parts.push(
-                `🔴 **Sezione presente ma vuota** (escalation #3250, bucket \`reviewer-finding/pr-body-contract\`) — ` +
-                `header letterale trovato ma senza contenuto sostanziale (solo bullet placeholder \`- \` del template):\n\n` +
-                sectionViolations.map((m) => `- ${m}`).join('\n') + '\n\n' +
-                `Scrivi almeno un bullet concreto in \`## Implementato\`; in \`## Non implementato (ancora)\` scrivi ` +
-                `"Nessuno" (task completo, AGENTS.md #8) oppure elenca gli item residui con stato/next-step.`,
-              );
-              fails.push(`empty section(s): ${sectionViolations.length}`);
-            }
-            if (closesViolations.length) {
-              const lines = closesViolations
-                .map((v) => `- L${v.line}: \`${v.text}\` → chiude solo #${v.nums[0]}, ignora #${v.nums.slice(1).join(', #')}`)
-                .join('\n');
-              parts.push(
-                `🔴 **Closes multi-issue su una riga** — GitHub chiude SOLO la prima issue dopo una keyword ` +
-                `(\`Closes\`/\`Fixes\`/\`Resolves\`); le altre restano aperte e vanno chiuse a mano (cfr. PR #1320: 9 issue su una riga → 8 rimaste aperte).\n\n` +
-                `${lines}\n\n` +
-                `Fix: una keyword per issue, una per riga:\n\`\`\`\nCloses #${closesViolations[0].nums[0]}\nCloses #${closesViolations[0].nums[1]}\n\`\`\``,
-              );
-              fails.push(`multi-issue Closes line(s): ${closesViolations.map((v) => `L${v.line}`).join(', ')}`);
-            }
-            if (intentViolations.length) {
-              const lines = intentViolations
-                .map((v) => `- L${v.line}: \`${v.text}\` → \`${v.keyword} ${v.ref}\` non chiude niente`)
-                .join('\n');
-              parts.push(
-                `🔴 **Keyword di chiusura inefficace** (issue #5784) — GitHub riconosce SOLO ` +
-                `\`close/closes/closed\`, \`fix/fixes/fixed\`, \`resolve/resolves/resolved\`; un verbo italiano ` +
-                `(\`chiude\`/\`chiusa\`/\`risolve\`/\`fixa\`...) o l'inglese al gerundio (\`closing\`/\`fixing\`) è prosa ` +
-                `e non chiude nulla — l'issue resta aperta con la fix già su \`main\` (recidiva reale: PR #5776 → ` +
-                `#5725 rimasta aperta finché non è stata chiusa a mano; stesso difetto su #5724, quasi su #5774).\n\n` +
-                `${lines}\n\n` +
-                `Fix: usa la keyword inglese per ognuno, es. \`Closes ${intentViolations[0].ref}\`. Se non intendevi ` +
-                `chiudere quella issue (solo nominarla), usa \`Refs\`/\`Vedi\` invece di un verbo di chiusura.`,
-              );
-              fails.push(`ineffective closing keyword: ${intentViolations.map((v) => `L${v.line}`).join(', ')}`);
-            }
-            if (aggregateCloseViolations.length) {
-              const lines = aggregateCloseViolations
-                .map((v) => `- \`Closes #${v.num}\` → #${v.num} è una follow-up **aggregata multi-item** ("${v.title.slice(0, 80)}")`)
-                .join('\n');
-              parts.push(
-                `🔴 **Closes su follow-up aggregata multi-item** — \`Closes #N\` è GitHub-native e chiude #N al MERGE, ` +
-                `bypassando il veto multi-item-auto-close di \`FOLLOWUP.md\` (che vive nel cron \`reconcile\`, non nel path Closes-on-merge). ` +
-                `Il fixer lavora 1 item/run (circuit-breaker): un fix parziale NON deve chiudere l'aggregata, gli altri item restano dovuti ` +
-                `(recidiva #3050 → #3036: item 5/5 fixato ma l'issue 5-item chiusa COMPLETED).\n\n${lines}\n\n` +
-                `Fix: togli la keyword di chiusura e usa un **progress-ref** senza \`Closes/Fixes/Resolves\` ` +
-                `(es. \`Addresses item N di #${aggregateCloseViolations[0].num}\`). Chiudi l'aggregata SOLO quando TUTTI gli item sono fatti, elencandoli in \`## Implementato\`.`,
-              );
-              fails.push(`Closes on multi-item aggregate: #${aggregateCloseViolations.map((v) => v.num).join(', #')}`);
-            }
-            // Advisory, NON entra in `fails`/`setFailed` — vedi il commento sul blocco
-            // che calcola `advisoryParts` più sopra.
-            if (advisoryParts.length) parts.push(...advisoryParts);
-            parts.push(`Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — questo check ricalcola a ogni edit.`);
-
-            await upsert(parts.join('\n\n'));
-            core.setFailed(`PR body contract: ${fails.join('; ')}`);
-
-      # --- Source-guard steps: niente checkout dedicato, skip su `edited` -----
+      # --- Source guards share the code checkout ----------------------------
       # Qui stava un secondo `actions/checkout@v5` (`fetch-depth: 0`,
       # `filter: blob:none`, `ref: head.sha`) tutto per questi guard. È stato
       # RIMOSSO perché il checkout condiviso in testa al job porta già la storia
@@ -840,7 +694,7 @@ jobs:
       # (a) l'autore la vede PRIMA della review, (b) il reviewer non rifà la grep.
       - name: Surface sibling candidates
         id: sib
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
@@ -860,7 +714,7 @@ jobs:
             console.log('candidates=' + r.candidates.length);
           " >> "$GITHUB_OUTPUT"
       - name: Post sibling-check comment (advisory)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         # ADVISORY: posta un commento sticky, non decide nulla. Senza le due
         # righe qui sotto una 500 TRANSITORIA dell'API GitHub sulla
         # `listComments` faceva fallire lo step e con lui l'INTERO job
@@ -962,7 +816,7 @@ jobs:
       # touching searchConsoleCompat.ts).
       - name: Surface below-floor-bridge candidates
         id: bfb
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
@@ -982,7 +836,7 @@ jobs:
             console.log('gapFiles=' + r.gapsByFile.length);
           " >> "$GITHUB_OUTPUT"
       - name: Post below-floor-bridge comment (advisory)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         # Stessa classe dello step sibling-check qui sopra, stessa fix: e'
         # advisory, quindi non deve poter far cadere il gate `contract`.
         # Tenerne uno solo protetto lascerebbe la meta' del difetto in piedi.
@@ -1063,7 +917,7 @@ jobs:
       # comportamento verificato live su post-deploy-validate-live, probe run
       # 28352247167); il `wait-all` sotto li rijoina prima della fine del job.
       - name: Forbid hard-coded AdSense <ins> in build-plugins
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         background: true
         run: node scripts/ci/check-cls-ad-slots.mjs
 
@@ -1073,7 +927,7 @@ jobs:
       # ad impressions). build-plugins/ + scripts/ are build-time (Node) → exempt.
       # Comment-aware; zero-Claude. Also covered by tests/check-client-lookbehind.test.ts.
       - name: Forbid regex lookbehind in client-bundled source
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         background: true
         run: node scripts/ci/check-client-lookbehind.mjs
 
@@ -1085,7 +939,7 @@ jobs:
       # scripts/lib/int-from-env.mjs. Comment-aware; zero-Claude. Also covered
       # by tests/int-from-env.test.ts.
       - name: Forbid the NaN-producing env fallback inside Number()
-        if: ${{ !cancelled() && ((github.event_name == 'pull_request' && github.event.action != 'edited') || (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'merge_group') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && ((github.event_name == 'pull_request') || (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'merge_group')) }}
         background: true
         run: node scripts/ci/check-number-env-fallback.mjs
 
@@ -1161,7 +1015,7 @@ jobs:
       # min=…MB max=…MB`.
       # ══════════════════════════════════════════════════════════════════════
       - name: tsc --noEmit (baseline + ratchet)
-        if: ${{ !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
         background: true
         env:
           NODE_OPTIONS: --max-old-space-size=8192
@@ -1214,7 +1068,7 @@ jobs:
         # la catena resta fail-fast come quando era un job a sé (gli step si
         # passano artefatti — assemble → migrate → vitest dependent — e farli
         # girare su un input mancante produrrebbe un secondo rosso illeggibile).
-        if: ${{ !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
         # 0-tolerance gate: blocks any commit that contains unresolved
         # <<<<<<< / ======= / >>>>>>> markers. Added after the 2026-05-21
         # incident where 92 job slice files were committed with raw
@@ -1357,7 +1211,7 @@ jobs:
         # Deve restare attivo perché `run-related-tests.mjs` consuma sempre
         # `changed-paths.txt`, anche quando tutti i gate corpus-wide sono
         # delegati.
-        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -1487,7 +1341,7 @@ jobs:
         # Il related run unico viene eseguito dopo assemble+migrate. Questo
         # vecchio slot resta disattivato per non costruire due volte il grafo
         # Vitest; il comando non deve mai tornare a `npm test`/suite completa.
-        if: ${{ false }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (false) }}
         # VITEST_DATASET_GROUP=independent → vitest.config.ts esclude i file
         # classificati da scripts/ci/dataset-dependent-tests.mjs. La partizione
         # è calcolata dal sorgente a ogni run. La partizione conserva solo
@@ -1570,7 +1424,7 @@ jobs:
           fi
 
       - name: Cache assemble-jobs output
-        if: steps.assemble.outputs.required == 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
         # content-addressable cache under .cache/assemble-jobs (keyed on a
         # sha256 of every slice file + an internal output-version) that restores
@@ -1587,7 +1441,7 @@ jobs:
             assemble-jobs-${{ runner.os }}-
 
       - name: Assemble + migrate
-        if: steps.assemble.outputs.required == 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}
         # Condizionale, con esecuzione FOREGROUND quando serve. La misura
         # storica (~326s, run 32959864544) che giustificava la posizione
         # foreground presupponeva che "Obsolete pre-assemble test slot" fosse
@@ -1706,14 +1560,14 @@ jobs:
       # sua cache resterebbe vuota. Salviamo subito dopo il join, anche se il
       # verdetto complessivo del job è già destinato al rosso.
       - name: Save TypeScript incremental state
-        if: ${{ always() && steps.tsc-cache.outputs.cache-hit != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.tsc-cache.outputs.cache-hit != 'true') }}
         uses: actions/cache/save@v5
         with:
           path: .cache/tsc
           key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
 
       - name: Save Vitest related graph
-        if: ${{ always() && steps.vitest-cache.outputs.cache-hit != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.vitest-cache.outputs.cache-hit != 'true') }}
         uses: actions/cache/save@v5
         with:
           path: |
@@ -1726,7 +1580,7 @@ jobs:
       - name: Upload related test timing
         # always() so we still collect timings when the run is red (a slow test
         # that times out is exactly the data point we want for re-balancing).
-        if: ${{ always() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always()) }}
         uses: actions/upload-artifact@v7
         with:
           name: shard-timing-related
@@ -1737,7 +1591,7 @@ jobs:
       - name: Report Vitest failures on PR
         # The two Vitest steps can fail independently; this step must still
         # run after either group fails and must never mask the original gate.
-        if: ${{ always() && github.event_name == 'pull_request' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && github.event_name == 'pull_request') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -1749,14 +1603,19 @@ jobs:
 
       - name: Resolve PR from pull request
         id: resolve
-        if: github.event_name == 'pull_request'
+        if: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) }}
         env:
-          PRN: ${{ github.event.pull_request.number }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PRN: ${{ github.event.pull_request.number || inputs.pr_number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
           REPO: ${{ github.repository }}
         run: |
           set -uo pipefail
-          meta=$(gh pr view "$PRN" --repo "$REPO" --json isDraft,title 2>/dev/null || true)
+          [[ "$PRN" =~ ^[1-9][0-9]*$ ]] || exit 1
+          meta=$(gh pr view "$PRN" --repo "$REPO" --json isDraft,title,labels,headRefOid)
+          [ "$(echo "$meta" | jq -r '.headRefOid')" = "$HEAD_SHA" ] || { echo "::error::PR head changed; this run cannot review it."; exit 1; }
+          stale_review=$(echo "$meta" | jq -r 'any(.labels[]?; .name == "stale-review")')
+          echo "stale_review=$stale_review" >> "$GITHUB_OUTPUT"
           is_draft=$(echo "$meta" | jq -r '.isDraft // false')
           title=$(echo "$meta" | jq -r '.title // ""')
           if [ "$is_draft" = "true" ]; then
@@ -1778,7 +1637,7 @@ jobs:
 
       - name: Re-review guard (skip Claude when no code changed since last LGTM)
         id: guard
-        if: steps.resolve.outputs.should_review == 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -1791,14 +1650,14 @@ jobs:
           if [ -z "$last" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Nessuna review LGTM precedente → review piena."; exit 0
           fi
-          changed=$(gh api "repos/$REPO/compare/$last...$HEAD_SHA" --jq '.files[].filename' 2>/dev/null || true)
+          changed=$(gh api "repos/$REPO/compare/$last...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null || true)
           if [ -z "$changed" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Compare vuoto/errore → review piena (conservativo)."; exit 0
           fi
-          code=$(echo "$changed" | grep -vE "$NONCODE_RE" || true)
+          code=$(echo "$changed" | node scripts/ci/review-test-policy.mjs filter | grep -vE "$NONCODE_RE" || true)
           if [ -z "$code" ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "Delta dall'ultima LGTM = SOLO data/docs (nessun code) → skip Claude; LGTM carry-forward (fingerprint code-only), vitest già verde."
+            echo "Delta dall'ultima LGTM = SOLO data/docs/test (nessun code) → skip Claude; LGTM carry-forward (fingerprint code-only), vitest già verde."
             exit 0
           fi
           # Il compare 2-dot last...HEAD vede ANCHE il code che main ha portato in
@@ -1820,7 +1679,7 @@ jobs:
 
       - name: Determine review tier
         id: tier
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -1910,7 +1769,16 @@ jobs:
             exit 0
           fi
           # Strip DATA/static: il tier si decide solo sul CODE.
-          code_files=$(echo "$files" | grep -vE "$NONCODE_RE" || true)
+          if printf '%s' "$result" | node scripts/ci/review-test-policy.mjs only; then
+            if node scripts/ci/review-test-policy.mjs check; then
+              set_tier tests-only none 0
+            else
+              # Includes a rename from application code or an uncertain snapshot.
+              set_tier high claude-opus-5 60
+            fi
+            exit 0
+          fi
+          code_files=$(echo "$files" | node scripts/ci/review-test-policy.mjs filter | grep -vE "$NONCODE_RE" || true)
           if [ -z "$code_files" ]; then
             # Token-lever: una PR data/docs-only (zero code) non ha contributo
             # code-reviewable — l'unica cosa da verificare è il completeness
@@ -1957,7 +1825,7 @@ jobs:
           lastRev=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
             --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -n "$lastRev" ] && [ "$lastRev" != "$HEAD_SHA" ]; then
-            delta_code=$(gh api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[].filename' 2>/dev/null \
+            delta_code=$(gh api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null \
               | grep -Fxf <(echo "$code_files") || true)
             if [ -n "$delta_code" ]; then
               echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
@@ -2003,7 +1871,7 @@ jobs:
         wait-all: true
 
       - name: Setup Headroom compression proxy
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         uses: ./.github/actions/setup-headroom
         with:
           # L'install è già girato in background sopra: qui serve solo far
@@ -2021,7 +1889,7 @@ jobs:
         # ripiegare su `gh pr view --json files`. Il risparmio non era nelle tre
         # `gh` call (puro bash, zero Claude) ma nel `gh pr diff`, che su una PR
         # data-only puo' essere enorme: quello resta saltato, sotto.
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
@@ -2037,6 +1905,7 @@ jobs:
           REPO: ${{ github.repository }}
           CTX_DIR: ${{ runner.temp }}/review-ctx
           TIER: ${{ steps.tier.outputs.tier }}
+          REVIEW_DIFF_EXCLUSIONS: data,public,reports,_newsletter_variants,docs
         run: |
           set -uo pipefail
           mkdir -p "$CTX_DIR"
@@ -2084,29 +1953,10 @@ jobs:
           # realmente da rivalutare rispetto alla precedente review.
           if [ "${TIER:-}" = "minimal" ]; then
             : > "$CTX_DIR/diff.patch"
-          elif [ -n "${INCREMENTAL_BASE:-}" ]; then
-            echo "(incremental review: full PR diff omitted; see delta.patch)" > "$CTX_DIR/diff.patch"
           else
-            gh pr diff "$PR_NUMBER" --repo "$REPO" \
-              --exclude 'data/**' --exclude 'public/**' --exclude 'reports/**' \
-              --exclude '_newsletter_variants/**' --exclude 'docs/**' \
-              > "$CTX_DIR/diff.patch" \
-              || echo "(diff fetch failed — rieseguire gh pr diff manualmente)" > "$CTX_DIR/diff.patch"
-          fi
-          if [ -n "${INCREMENTAL_BASE:-}" ]; then
-            # Fetch compare once and derive both outputs locally. The old
-            # implementation made separate compare calls for the tier and the
-            # bundle, while Claude also received the complete PR file list.
-            if gh api "repos/$REPO/compare/$INCREMENTAL_BASE...$HEAD_SHA" \
-              > "$CTX_DIR/compare.json" 2>/dev/null; then
-              jq -r '.files[]? | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | .filename' \
-                "$CTX_DIR/compare.json" > "$CTX_DIR/delta-files.txt"
-              jq -r '.files[]? | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | "\(.filename)\n\(.patch // "(binary/large)")"' \
-                "$CTX_DIR/compare.json" > "$CTX_DIR/delta.patch"
-            else
-              echo "(delta fetch failed — compare unavailable)" > "$CTX_DIR/delta.patch"
-              : > "$CTX_DIR/delta-files.txt"
-            fi
+            # Resolve/hydrate the complete scoped patch on the host. A missing
+            # patch must fail here, not force the model to rebuild it via API.
+            node scripts/ci/prefetch-review-diff.mjs || exit 1
           fi
           gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '[.[] | select(.body // "" | contains("<!-- sibling-check -->"))] | last | .body // empty' \
@@ -2115,11 +1965,11 @@ jobs:
           # per la review servono il body, il diff code e i file code toccati.
           # Tenere fuori i path rigenerati riduce il contesto senza alterare la
           # decisione del tier, gia' calcolata sopra sul payload REST completo.
-          grep -vE "$NONCODE_RE" "$CTX_DIR/files.txt" > "$CTX_DIR/code-files.txt" || : > "$CTX_DIR/code-files.txt"
+          node scripts/ci/review-test-policy.mjs filter < "$CTX_DIR/files.txt" | grep -vE "$NONCODE_RE" > "$CTX_DIR/code-files.txt" || : > "$CTX_DIR/code-files.txt"
           if [ -n "${INCREMENTAL_BASE:-}" ]; then
             # Incremental Claude context is strictly delta-scoped. The full PR
             # list remains available only to the zero-Claude tier calculation.
-            grep -vE "$NONCODE_RE" "$CTX_DIR/delta-files.txt" > "$CTX_DIR/review-code-files.txt" || : > "$CTX_DIR/review-code-files.txt"
+            node scripts/ci/review-test-policy.mjs filter < "$CTX_DIR/delta-files.txt" | grep -vE "$NONCODE_RE" > "$CTX_DIR/review-code-files.txt" || : > "$CTX_DIR/review-code-files.txt"
           else
             cp "$CTX_DIR/code-files.txt" "$CTX_DIR/review-code-files.txt"
           fi
@@ -2171,13 +2021,33 @@ jobs:
           ls -la "$CTX_DIR"
 
       - name: Mint GitHub App token for Claude review
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
           APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
+
+      - name: Pre-flight — Claude quota beacon for Codex fallback
+        id: quota
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CODEX_FALLBACK_MODE: '1'
+        run: node scripts/ci/check-quota-backoff.mjs
+
+      - name: Publish automatic LGTM for a tests-only PR
+        id: test_only_review
+        if: ${{ steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'tests-only' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
+        run: node scripts/ci/review-test-policy.mjs post
 
       - name: Run Claude review
         # Tetto sullo step (classe #7310: nessun tetto sotto il cap del job →
@@ -2188,11 +2058,11 @@ jobs:
         # `continue-on-error` sotto, lo scadere non tinge il job di rosso.
         timeout-minutes: 45
         id: claude_review
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Don't let a hard action failure abort the job before the guard below
         # can classify it — the guard decides whether to fail loudly.
         continue-on-error: true
-        uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
+        uses: ./.github/actions/claude-codex-fallback
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2206,6 +2076,10 @@ jobs:
           # and therefore is not byte-identical to the version on main.
           # `mint-app-token.mjs` fails soft, so retain GITHUB_TOKEN as fallback.
           github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          review_marker: '<!-- CODEX_FALLBACK_REVIEW -->'
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Le PR fix-issue sono aperte da `claude[bot]`: senza whitelist
           # claude-code-action aborta ("non-human actor"). Whitelist esplicita
@@ -2230,6 +2104,8 @@ jobs:
           # issues:write, senza restrizione su Bash/Write/Edit.
           claude_args: "--effort medium --max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
+            Test files are excluded from review by owner policy: do not read, probe or raise findings on tests, including during cross-file analysis.
+            Report the exact workflow tier `${{ steps.tier.outputs.tier }}` in Scope; this classifies review scope, not model reasoning effort.
             PR review automation for #${{ steps.resolve.outputs.pr_number }} (HEAD ${{ steps.resolve.outputs.head_sha }}), tier ${{ steps.tier.outputs.tier }}.
 
             Read `REVIEW.md` first; it is the single source of truth for severity, scope, required checks, and output format. Do not read `AGENTS.md` unless REVIEW.md explicitly requires a specific rule.
@@ -2243,13 +2119,12 @@ jobs:
             **Closing states in `## Non implementato (ancora)`.** The five states of `CLOSING_STATES` (`scripts/ci/followup-has-candidates.mjs`) close a bullet, e su quello **non si emette 🔴**: `in questa PR` and `PR concatenata #N` (tracked work, not residual scope), then `per scelta` — «falso positivo» is an accepted synonym of the same `by-choice` state, unless negated — `by construction`, and `blocked: decisione del proprietario`. Those last three are a motivated no, so they close only when the motive is written **after** the state; a bare `per scelta`/`by construction` with no motive stays 🔴. `PR concatenata` without `#N` is not a closing state and is always an open violation. What does NOT close is `blocked: <causa tecnica>`, i.e. every other `blocked: <causa>`: `bulletState()` maps it to `blocked-technical`, which `CLOSING_STATES` deliberately omits — read the CAUSE, not the prefix. Getting either side wrong deadlocks the loop: re-raise the 🔴 on a closed bullet and the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with a motive **non è un finding**.
 
             Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
-
       - name: Verify Claude CLI supports the requested effort
         id: claude_effort
         # claude-code-action installs/resolves the CLI at runtime and adds its
         # bin directory to GITHUB_PATH. Invoke that exact binary in the next
         # step so an unsupported flag cannot silently downgrade the review.
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outcome == 'success'
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outcome == 'success' && steps.claude_review.outputs.fallback_used != 'true') }}
         shell: bash
         run: |
           set -o pipefail
@@ -2266,7 +2141,6 @@ jobs:
             echo "::error::Claude CLI reported that --effort medium is unknown"
             exit 1
           fi
-
       - name: Fail on transient API error (no review posted)
         id: review_abort
         # claude-code-action can exit 0 even when the model run ABORTED on a
@@ -2296,17 +2170,22 @@ jobs:
         #    has no `## LGTM` so it won't auto-merge, and it gets re-reviewed on
         #    the next push / by the rescuer once quota recovers. No false-green.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           REVIEW_OUTCOME: ${{ steps.claude_review.outcome }}
           EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
+          CODEX_FALLBACK_USED: ${{ steps.claude_review.outputs.fallback_used }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
           REVIEW_MAX_TURNS: ${{ steps.tier.outputs.max_turns }}
         run: |
           set -uo pipefail
+          if [ "${CODEX_FALLBACK_USED:-false}" = 'true' ]; then
+            echo "Codex fallback già eseguito: il runtime Claude 429 resta solo la causa del fallback e non viene marcato come esito della run Codex."
+            exit 0
+          fi
           # max_turns FIRST — see rationale above. Must win over the 429 regex.
           if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ] \
              && grep -qE '"terminal_reason"[[:space:]]*:[[:space:]]*"max_turns"' "${EXEC_FILE}"; then
@@ -2324,11 +2203,10 @@ jobs:
             echo "::error::Claude review hit max-turns (tier=${REVIEW_TIER:-?}, cap=${REVIEW_MAX_TURNS:-?}, turns=${NUM_TURNS:-?}) without posting a review — re-run this job, or split the PR if this recurs."
             exit 1
           fi
-          # 429 / rate-limit: even if outcome=failure, a 429 must NOT fail the
+          # 429 / rate-limit: use the central detector; even if outcome=failure, a 429 must NOT fail the
           # job (Tier-2 lever: avoids re-run amplification of the shared Max quota).
-          if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ] \
-             && grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
-             && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*429|"type"[[:space:]]*:[[:space:]]*"rate_limit_error"|rate[ _-]?limit|too many requests' "${EXEC_FILE}"; then
+          DECISION=$(GITHUB_OUTPUT=/dev/null EXEC_FILE="${EXEC_FILE:-}" PREFLIGHT_BLOCKED=false FALLBACK_ATTEMPTED=false node scripts/ci/claude-codex-fallback.mjs 2>/dev/null || true)
+          if printf '%s\n' "$DECISION" | grep -q '^rate_limited=true$'; then
             echo "::warning::Claude review aborted on a 429 (quota/rate-limit). NOT failing — avoids re-run amplification of the shared Max quota. PR has no ## LGTM (won't auto-merge); it will be re-reviewed on the next push or by the stale-PR rescuer once quota recovers."
             exit 0
           fi
@@ -2344,20 +2222,20 @@ jobs:
             fi
           fi
           echo "Review step completed without an unrecovered transient API error."
-
       - name: Require approving Claude review
         id: review_gate
         # Must still run when claude_review has outcome=failure (continue-on-error
         # 429/action crash). Skipping here left the required check green with
         # zero bot reviews on HEAD (PR #7635): no LGTM, nothing red, auto-merge
         # parked forever. Fail this step when HEAD has no valid LGTM.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          CODEX_FALLBACK_EVIDENCE_FILE: ${{ steps.claude_review.outputs.fallback_evidence_file }}
         run: |
           set -euo pipefail
           # Il gate autorevole resta questo step required; la decisione è
@@ -2369,28 +2247,22 @@ jobs:
       # trattarlo come verde nel ruleset. Il gate sopra deve aver valutato la
       # review quando la guardia non ha attivato il carry-forward; se quel
       # percorso è stato saltato, trasformiamo l'assenza di verdetto in un
-      # rosso reale. Il wrapper required sotto copre invece il caso più ampio
-      # in cui l'intero job di esecuzione viene saltato.
+      # rosso reale. Il job non ha condizioni che possano saltarlo.
       - name: Fail when required review gate is skipped
-        if: >-
-          ${{ always() && github.event_name == 'pull_request' &&
-          github.event.pull_request.draft == false &&
-          steps.resolve.outputs.should_review == 'true' &&
-          steps.guard.outputs.skip != 'true' &&
-          steps.review_gate.outcome == 'skipped' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_gate.outcome == 'skipped') }}
         run: |
           echo "::error::Required review gate was skipped on a pull request; no approving review verdict was evaluated."
           exit 1
 
       # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
-      # job. Il ramo stale-review è una rescue one-shot: richiede l’evento
-      # `labeled`, il percorso di review completato e il solo review gate rosso.
+      # job. Il ramo stale-review usa la label corrente letta dalle API,
+      # il percorso di review completato e il solo review gate rosso.
       # Così un errore duro precedente non rebasea un workspace parziale e la
-      # label persistente non riattiva il ramo su eventi successivi.
+      # label viene rimossa dal consumer dopo un re-trigger riuscito.
       # Il token App è l’identità primaria; il fallback GITHUB_TOKEN mantiene il
       # job fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
       - name: Mint autorebase App token
-        if: (success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && github.event.action == 'labeled' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure' && contains(github.event.pull_request.labels.*.name, 'stale-review'))
+        if: ${{ steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2399,7 +2271,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Rebase near-merge PRs after review or stale rescue
-        if: (success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && github.event.action == 'labeled' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure' && contains(github.event.pull_request.labels.*.name, 'stale-review'))
+        if: ${{ steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -2407,13 +2279,13 @@ jobs:
         run: node scripts/ci/pr-autorebase.mjs
 
       - name: Cleanup autorebase credentials
-        if: always()
+        if: ${{ steps.body_contract.outcome != 'failure' && (always()) }}
         run: rm -f /tmp/firebase-sa.json
 
       - name: Claude usage metrics
         # Solo se la review Claude è effettivamente girata (guard non-skip): a
         # review skippata non c'è execution_file da riassumere.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outputs.fallback_used != 'true') }}
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
@@ -2427,7 +2299,7 @@ jobs:
       # `continue-on-error: true` è il fail-soft: il segnalatore non può
       # aggiungere un rosso al job che sta descrivendo, nemmeno crashando.
       - name: Explain the job verdict in the run summary
-        if: ${{ always() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always()) }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -2440,474 +2312,3 @@ jobs:
           # fallire è stato solo uno step `continue-on-error`.
           JOB_STATUS: ${{ job.status }}
         run: node scripts/ci/explain-job-verdict.mjs
-
-  # Il ruleset richiede questo nome esatto. Il wrapper gira sempre e converte
-  # ogni risultato diverso da `success` in un fallimento reale. Sui percorsi
-  # body-only in cui `vitest` è deliberatamente saltato, accetta il run solo se
-  # i check-run dello stesso SHA dimostrano un `vitest execution` completato
-  # con `success`; un vecchio `failure`, `cancelled` o nessun run blocca.
-  # Non legge il rollup del workflow: usa il risultato diretto del job e la
-  # storia dei check-run che pubblicano il verdetto applicativo.
-  #
-  # `always()` è necessario per poter osservare anche failure/cancelled del job
-  # pesante; il fallback non promuove un vecchio verde se esiste un verdetto
-  # completato più recente diverso da `success`.
-  vitest-required:
-    name: vitest (unit + integration)
-    if: ${{ always() }}
-    needs: [vitest]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Require vitest execution job to complete
-        if: ${{ always() }}
-        env:
-          EXECUTION_RESULT: ${{ needs.vitest.result }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: |
-          set -euo pipefail
-          if [ "${EXECUTION_RESULT}" = "success" ]; then
-            echo "Required vitest check satisfied by a successful execution job."
-            exit 0
-          fi
-
-          if [ "${EXECUTION_RESULT}" = "skipped" ] || [ "${EXECUTION_RESULT}" = "cancelled" ]; then
-            check_runs="${CHECK_RUNS_JSON:-}"
-            if [ -z "${check_runs}" ]; then
-              check_runs="$(gh api --paginate --slurp "repos/${REPO}/commits/${HEAD_SHA}/check-runs?per_page=100")"
-            fi
-            latest_execution="$(printf '%s' "${check_runs}" | jq -r '
-              [.[].check_runs[]?
-                | select(.name == "vitest execution")
-                | select(.status == "completed" and .completed_at != null)
-                | select(.conclusion != "skipped")]
-              | sort_by(.completed_at)
-              | last
-              | .conclusion // ""
-            ')"
-            if [ "${latest_execution}" = "success" ]; then
-              echo "Required vitest check satisfied by the latest successful execution on ${HEAD_SHA}."
-              exit 0
-            fi
-          fi
-
-          echo "::error::Required vitest check cannot be satisfied: vitest execution result=${EXECUTION_RESULT}; no latest successful execution verdict exists for ${HEAD_SHA}."
-          exit 1
-
-  # `edited` rivalida il body in un check distinto senza sostituire la verifica
-  # del codice: il wrapper required conserva il verdetto precedente dello SHA
-  # solo quando i check-run lo dimostrano esplicitamente.
-  body-contract:
-    name: PR body contract
-    if: ${{ github.event_name == 'pull_request' && github.event.action == 'edited' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: PR-body completeness + multi-issue Closes (no checkout, all events)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' }}
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const STICKY = '<!-- pr-body-contract -->';
-            const body = context.payload.pull_request.body || '';
-
-            // --- 1) Required headers (REVIEW.md completeness contract) ---------------
-            // Literal headers required by REVIEW.md. Tolerate trailing text on the
-            // same line (e.g. "## Non implementato (ancora)"); require start-of-line.
-            const hasImpl = /^\s{0,3}#{2,3}\s+Implementato\b/im.test(body);
-            const hasNon  = /^\s{0,3}#{2,3}\s+Non implementato\b/im.test(body);
-            const missing = [];
-            if (!hasImpl) missing.push('`## Implementato`');
-            if (!hasNon)  missing.push('`## Non implementato (ancora)`');
-
-            // --- 1b) Section CONTENT quality (escalation #3250, bucket
-            // `reviewer-finding/pr-body-contract` 6x/14d) -------------------------
-            // Header PRESENCE alone isn't enough: the PR template leaves bare `- `
-            // placeholder bullets in both sections, and a fixer that submits
-            // without filling them passes this gate but still draws a reviewer
-            // 🔴 finding — wasting a review cycle. Mirrors
-            // scripts/lib/pr-body-sections-check.mjs (own unit tests); keep the
-            // two in sync on rule changes.
-            const extractSection = (text, headerRe) => {
-              const m = headerRe.exec(text);
-              if (!m) return null;
-              const rest = text.slice(m.index + m[0].length);
-              const nextHeading = /\n(?=#{1,6}[ \t])/.exec(rest);
-              return nextHeading ? rest.slice(0, nextHeading.index) : rest;
-            };
-            const stripNonContent = (t) => String(t ?? '')
-              .replace(/```[\s\S]*?```/g, ' ')
-              .replace(/<!--[\s\S]*?-->/g, ' ');
-            const isSubstantiveBullet = (line) => line.replace(/^[ \t]*[-*+][ \t]*/, '').trim().length > 0;
-            const hasMeaningfulContent = (raw) => stripNonContent(raw).split('\n').some((line) => {
-              const t = line.trim();
-              if (!t) return false;
-              if (/^#{1,6}[ \t]/.test(t)) return false;
-              if (/^[-*+](?:[ \t]|$)/.test(t)) return isSubstantiveBullet(t);
-              return true;
-            });
-            const hasOnlyBareBullets = (raw) => {
-              const lines = stripNonContent(raw).split('\n').filter((l) => l.trim().length > 0);
-              if (lines.length === 0) return false;
-              return lines.every((line) => {
-                const t = line.trim();
-                if (/^#{1,6}[ \t]/.test(t)) return true;
-                if (/^[-*+][ \t]?$/.test(t)) return true;
-                if (/^[-*+][ \t]/.test(t)) return false;
-                return true;
-              });
-            };
-            const hasNessuno = (raw) => /\bnessun[oa]?\b/i.test(stripNonContent(raw));
-
-            const sectionViolations = [];
-            if (hasImpl) {
-              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
-              if (!hasMeaningfulContent(c)) {
-                sectionViolations.push(hasOnlyBareBullets(c)
-                  ? '`## Implementato` contiene solo bullet placeholder vuoti (`- `) non compilati.'
-                  : '`## Implementato` è vuota.');
-              }
-            }
-            if (hasNon) {
-              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Non implementato[^\n]*/im) ?? '';
-              if (!hasNessuno(c) && !hasMeaningfulContent(c)) {
-                sectionViolations.push(hasOnlyBareBullets(c)
-                  ? '`## Non implementato (ancora)` contiene solo bullet placeholder vuoti (`- `) non compilati.'
-                  : '`## Non implementato (ancora)` è vuota.');
-              }
-            }
-
-            // --- 2) Multi-issue Closes on one line (GitHub closes only the first) ----
-            // Mirror of scripts/lib/pr-body-closes-check.mjs (see tests). A closing
-            // keyword governing the first ref, then ≥1 MORE refs chained by list
-            // separators only (space/comma/colon/semicolon/&/"and") → the extras are
-            // silently ignored by GitHub. A ref after a sentence boundary or real
-            // words (`Closes #12. See also #99`) is a cross-ref, not flagged.
-            const REF = '(?:[\\w.-]+\\/[\\w.-]+)?#\\d+';
-            const SEP = '(?:\\s*(?:,|:|;|&|\\band\\b)?\\s*)';
-            const CHAIN = new RegExp(
-              `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b\\s*(${REF})((?:${SEP}${REF})+)`,
-              'gi',
-            );
-            const closesViolations = [];
-            body.split(/\r?\n/).forEach((line, i) => {
-              CHAIN.lastIndex = 0;
-              const m = CHAIN.exec(line);
-              if (!m) return;
-              const nums = (m[0].match(new RegExp(REF, 'g')) || [])
-                .map((r) => r.match(/#(\d+)/)[1]);
-              if (nums.length >= 2) closesViolations.push({ line: i + 1, text: line.trim(), nums });
-            });
-
-            // --- 2b) Closure intent expressed with a keyword GitHub ignores ---------
-            // Mirror of scripts/lib/pr-body-closes-check.mjs `lineIntentRefs` /
-            // `effectiveRefs` (tests/pr-body-closes-check.test.ts is the source of
-            // truth for the rule). GitHub honors ONLY close/closes/closed,
-            // fix/fixes/fixed, resolve/resolves/resolved — an Italian verb ("Chiude
-            // #N", "Chiusa da #N", "Risolve #N") or an English gerund ("Closing #N")
-            // reads as closure to a human and closes NOTHING: the issue stays open
-            // forever with the fix already on `main`. The detection already existed
-            // in the lib (reused by the deterministic review/merge gates)
-            // but never reached a PR opened through the normal `## LGTM` review path
-            // — real recurrence (issue #5784): PR #5776 said `Chiude #5725` and #5725
-            // stayed open until closed by hand; same shape on #5724, near-miss on
-            // #5774. This block closes that gap for every PR, not just drift-fallback
-            // ones.
-            // Masks fenced/inline code + HTML comments FIRST, same reason as check 3
-            // below: GitHub does not act on a keyword inside code formatting, and a
-            // body that merely DOCUMENTS the bug (this one, or the PR template) would
-            // otherwise false-positive on itself. Newlines survive the mask (blanks
-            // replace non-newline chars) so line numbers still point at the real line.
-            const maskQuotedKeepLines = (t) => String(t || '').replace(
-              /```[\s\S]*?```|~~~[\s\S]*?~~~|<!--[\s\S]*?-->|`[^`\n]*`/g,
-              (m) => m.replace(/[^\n]/g, ' '),
-            );
-            const EFFECTIVE_RE = new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b[\\s:]*[*_\`[]*(${REF})`, 'gi');
-            // The Italian verbs (measured recurrence) plus the English near-misses
-            // that share the failure mode. Deliberately NOT here: `addresses`, `see`,
-            // `related to`, `refs`, `part of` — those mean "connected to", and
-            // flagging them would punish a body that legitimately just NAMES an
-            // issue without intending to close it.
-            const INTENT_KW =
-              '(?:chiud(?:e|ono|er[àa]|iamo)|chius[aoie]|risolv(?:e|ono|iamo)|risolt[aoie]|' +
-              'fixa(?:ta|to)?|corregg(?:e|ono)|corrett[aoie]|' +
-              'closing|fixing|resolving|solves|solved|completes|completed)';
-            // A PAST-TENSE report ("già chiusa da #66", "was fixed by #66") states
-            // something ELSE already closed the ref — not this PR's intent.
-            const PAST_REPORT_RE = /\b(?:gi[àa]'?|already|was|were|sono\s+stat[ei]|[èe]'?\s+stat[ao])\s*$/i;
-            // A NEGATED report ("non chiusi: #849 resta aperta") states the ref
-            // stays OPEN — the opposite of an intent. Without it this check tells
-            // the author to close an issue the same sentence declares open.
-            // `\p{L}` with `u`, not `\w`: `\w` is ASCII and `non è chiusa #849`
-            // broke the chain at the accent. The lookahead keeps `Non solo
-            // chiude #12` reportable — that phrasing concedes the closure.
-            const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?!\s+(?:solo|soltanto|only)\b)(?:\s+[\p{L}\p{N}_'’]+){0,2}\s*$/iu;
-            const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
-            const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}[\\s:]*[*_\`[]*(${REF})`, 'gi');
-
-            const maskedBodyForIntent = maskQuotedKeepLines(body);
-            const willCloseRefs = new Set();
-            for (const m of maskedBodyForIntent.matchAll(new RegExp(EFFECTIVE_RE.source, EFFECTIVE_RE.flags))) {
-              willCloseRefs.add(m[1].toLowerCase());
-            }
-            const rawBodyLinesForIntent = body.split(/\r?\n/);
-            const intentViolations = [];
-            const intentReported = new Set();
-            maskedBodyForIntent.split(/\r?\n/).forEach((mline, i) => {
-              for (const m of mline.matchAll(new RegExp(INTENT_RE.source, INTENT_RE.flags))) {
-                const ref = m[2];
-                const before = mline.slice(Math.max(0, m.index - 24), m.index);
-                if (PAST_REPORT_RE.test(before)) continue; // "già chiusa da #66" ≠ intent
-                if (NEG_REPORT_RE.test(before)) continue; // "non chiusi: #849" ≠ intent
-                if (willCloseRefs.has(ref.toLowerCase())) continue; // a real keyword already reaches it
-                if (intentReported.has(ref.toLowerCase())) continue; // one report per ref
-                intentReported.add(ref.toLowerCase());
-                intentViolations.push({ line: i + 1, text: (rawBodyLinesForIntent[i] ?? mline).trim(), ref, keyword: m[1] });
-              }
-            });
-
-            // --- 3) Closes #N targeting a multi-item follow-up aggregate ------------
-            // `Closes #N` is GitHub-native and fires on MERGE, BYPASSING the
-            // reconcile multi-item-auto-close veto (FOLLOWUP.md — that veto lives in
-            // the daily cron, not in the merge-close path). Closing a 5-item aggregate
-            // because ONE item was fixed (the fixer circuit-breaker does 1 item/run)
-            // marks residual work COMPLETED while items stay due (real recurrence:
-            // #3050 fixed item 5/5 yet `Closes #3036` closed the 5-item aggregate).
-            // FULL mirror of isAggregate() — single source scripts/ci/check-issue-already-resolved.mjs:
-            // an explicit "N item(s) deferred" count is authoritative once present
-            // (a single-item follow-up whose title merely contains the ordinary word
-            // "batch"/"sweep"/"bulk" — e.g. "1 item deferred ... batch backfill..." —
-            // must not be misclassified as an aggregate, #3378); the sweep/batch/bulk
-            // keyword fallback only applies when NO count is stated (aggregates that
-            // enumerate N targets WITHOUT the count, e.g. "Sweep: ~30 crawlers" #1826).
-            const isAggregateTitleBody = (t, b) => {
-              function stripFencedBlocks(text) {
-                const lines = String(text || '').split('\n');
-                const out = [];
-                let fence = null;
-                let fenceStart = -1;
-                for (let i = 0; i < lines.length; i++) {
-                  const line = lines[i];
-                  const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
-                  if (fence) {
-                    const closes = match
-                      && match[2][0] === fence.char
-                      && match[2].length >= fence.length
-                      && match[1].length >= fence.indent;
-                    if (closes) fence = null;
-                    continue;
-                  }
-                  if (match) {
-                    fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
-                    fenceStart = i;
-                    continue;
-                  }
-                  out.push(line);
-                }
-                return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
-              }
-              function isBoldTitleLead(rest, lines = [], start = 0) {
-                const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
-                let candidate = String(rest || '');
-                if (bold.test(candidate)) return true;
-                for (let i = start; i < lines.length; i++) {
-                  const line = lines[i];
-                  if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
-                  candidate += '\n' + line;
-                  if (bold.test(candidate)) return true;
-                }
-                return false;
-              }
-              function hasEnumeratedItems(body) {
-                const clean = stripFencedBlocks(body);
-                if ((clean.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length >= 2) return true;
-                const lines = clean.split('\n');
-                let ordered = 0;
-                let bullets = 0;
-                for (let i = 0; i < lines.length; i++) {
-                  const orderedMatch = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(lines[i]);
-                  if (orderedMatch && isBoldTitleLead(orderedMatch[1], lines, i + 1)) ordered++;
-                  const bulletMatch = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(lines[i]);
-                  if (bulletMatch && isBoldTitleLead(bulletMatch[1], lines, i + 1)) bullets++;
-                }
-                return ordered >= 2 || bullets >= 2;
-              }
-              const title = String(t || '');
-              const m = title.match(/\b(\d+)\s+items?\s+deferred\b/i);
-              if (m) return Number(m[1]) >= 2;
-              const bodyText = stripFencedBlocks(b);
-              if (/\b(?:sweep|batch|bulk)\b/i.test(title + '\n' + bodyText)) return true;
-              return hasEnumeratedItems(bodyText);
-            };
-            // Strip code-formatted text first: GitHub does NOT honour a closing
-            // keyword inside a fenced block or inline `code` span, so neither should
-            // we — otherwise a body that merely DISCUSSES `Closes #N` (docs, this very
-            // PR, a fix-instruction example) false-positives. Real fixer closes are
-            // plain text on their own line.
-            const bodyNoCode = body
-              .replace(/```[\s\S]*?```/g, ' ')
-              .replace(/`[^`\n]*`/g, ' ');
-            // In-repo closing refs only (bare `#N`; owner/repo#N never auto-closes here).
-            // `:?` tolerates the colon form `Closes: #N`, which GitHub also honours.
-            const CLOSE_SINGLE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b:?\s+#(\d+)\b/gi;
-            const closingNums = [...new Set([...bodyNoCode.matchAll(CLOSE_SINGLE)].map((m) => m[1]))];
-
-            const { owner, repo } = context.repo;
-            const issue_number = context.payload.pull_request.number;
-
-            // --- 1c) ADVISORY: funnel-critical files changed but never cited in the
-            // body (#6301, reproduced on #6279: the diff touched
-            // `.github/workflows/prospector-loop.yml` and the body never named it in
-            // any section — neither this gate nor scripts/lib/pr-body-sections-check.mjs
-            // compared the diff's file list against the body text, only checked that
-            // `## Implementato` had SOME content. Uses `pulls.listFiles` (no checkout
-            // needed — unlike the sibling-check/below-floor-bridge steps further down,
-            // which DO need the tree). Advisory only, same reasoning as the
-            // bullet-without-state warning in pr-body-sections-check.mjs: promoting
-            // straight to blocking risks repeating the 2026-08-12 13h stall documented
-            // there, before PR bodies reliably cite every touched file.
-            const FUNNEL_CRITICAL_PATH_RE = /^\.github\/workflows\//;
-            let uncitedFiles = [];
-            try {
-              const prFiles = await github.paginate(github.rest.pulls.listFiles, {
-                owner, repo, pull_number: issue_number, per_page: 100,
-              });
-              uncitedFiles = prFiles
-                .map((f) => f.filename)
-                .filter((p) => FUNNEL_CRITICAL_PATH_RE.test(p))
-                .filter((p) => !body.includes(p) && !body.includes(p.split('/').pop()));
-            } catch (e) {
-              core.info(`uncited-files check: skip (${e.status || e.message})`);
-            }
-            const advisoryParts = [];
-            if (uncitedFiles.length) {
-              advisoryParts.push(
-                `⚠️ **File funnel-critical non citati nel body** (issue #6301, advisory — non blocca) — ` +
-                `il diff modifica ${uncitedFiles.length} file sotto \`.github/workflows/**\` che il body non menziona ` +
-                `(né per path né per basename):\n\n` +
-                uncitedFiles.map((p) => `- \`${p}\``).join('\n') + '\n\n' +
-                `Aggiungi un bullet in \`## Implementato\` che li cita (recidiva reale: PR #6279, ` +
-                `\`.github/workflows/prospector-loop.yml\` modificato e mai menzionato, flaggato dal reviewer solo dopo il fatto).`,
-              );
-            }
-
-            // Fetch each closed issue; flag the multi-item follow-up aggregates.
-            // Proceed-safe: any API error → skip that ref (never block on infra).
-            const aggregateCloseViolations = [];
-            for (const num of closingNums) {
-              try {
-                const { data: iss } = await github.rest.issues.get({
-                  owner, repo, issue_number: Number(num),
-                });
-                if (iss.pull_request) continue; // a PR ref, not a tracking issue
-                const labels = (iss.labels || []).map((l) => (typeof l === 'string' ? l : l.name));
-                if (!labels.includes('follow-up')) continue;
-                if (isAggregateTitleBody(iss.title || '', iss.body || '')) {
-                  aggregateCloseViolations.push({ num, title: iss.title || '' });
-                }
-              } catch (e) {
-                core.info(`aggregate-close check: skip #${num} (${e.status || e.message})`);
-              }
-            }
-
-            // Find a prior sticky comment to update (avoid comment spam on edits).
-            const comments = await github.paginate(github.rest.issues.listComments, {
-              owner, repo, issue_number, per_page: 100,
-            });
-            const prior = comments.find(c => (c.body || '').includes(STICKY));
-
-            const upsert = async (b) => {
-              if (prior) {
-                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body: b });
-              } else {
-                await github.rest.issues.createComment({ owner, repo, issue_number, body: b });
-              }
-            };
-
-            // --- All-clear (violations) — advisories can still be present -----------
-            if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
-              const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
-                + (advisoryParts.length ? `\n\n${advisoryParts.join('\n\n')}` : '');
-              // Solo un prior da aggiornare, oppure un advisory reale da segnalare per
-              // la prima volta: un all-clear puro (nessun prior, nessun advisory) non
-              // vale un commento nuovo.
-              if (prior || advisoryParts.length) {
-                await upsert(okBody);
-              }
-              core.info(`PR body contract satisfied.${advisoryParts.length ? ' (advisory: uncited files)' : ''}`);
-              return;
-            }
-
-            // --- Build the verdict --------------------------------------------------
-            const parts = [STICKY];
-            const fails = [];
-            if (missing.length) {
-              parts.push(
-                `🔴 **PR-body contract** — mancano: ${missing.join(', ')}.\n\n` +
-                `Il completeness contract (REVIEW.md / AGENTS.md § Workflow) richiede i due header letterali ` +
-                `\`## Implementato\` e \`## Non implementato (ancora)\`. ` +
-                `Header alternativi (\`## Fix\`, \`## Verify\`, \`## Effetto\`) non contano.`,
-              );
-              fails.push(`missing section(s): ${missing.join(', ')}`);
-            }
-            if (sectionViolations.length) {
-              parts.push(
-                `🔴 **Sezione presente ma vuota** (escalation #3250, bucket \`reviewer-finding/pr-body-contract\`) — ` +
-                `header letterale trovato ma senza contenuto sostanziale (solo bullet placeholder \`- \` del template):\n\n` +
-                sectionViolations.map((m) => `- ${m}`).join('\n') + '\n\n' +
-                `Scrivi almeno un bullet concreto in \`## Implementato\`; in \`## Non implementato (ancora)\` scrivi ` +
-                `"Nessuno" (task completo, AGENTS.md #8) oppure elenca gli item residui con stato/next-step.`,
-              );
-              fails.push(`empty section(s): ${sectionViolations.length}`);
-            }
-            if (closesViolations.length) {
-              const lines = closesViolations
-                .map((v) => `- L${v.line}: \`${v.text}\` → chiude solo #${v.nums[0]}, ignora #${v.nums.slice(1).join(', #')}`)
-                .join('\n');
-              parts.push(
-                `🔴 **Closes multi-issue su una riga** — GitHub chiude SOLO la prima issue dopo una keyword ` +
-                `(\`Closes\`/\`Fixes\`/\`Resolves\`); le altre restano aperte e vanno chiuse a mano (cfr. PR #1320: 9 issue su una riga → 8 rimaste aperte).\n\n` +
-                `${lines}\n\n` +
-                `Fix: una keyword per issue, una per riga:\n\`\`\`\nCloses #${closesViolations[0].nums[0]}\nCloses #${closesViolations[0].nums[1]}\n\`\`\``,
-              );
-              fails.push(`multi-issue Closes line(s): ${closesViolations.map((v) => `L${v.line}`).join(', ')}`);
-            }
-            if (intentViolations.length) {
-              const lines = intentViolations
-                .map((v) => `- L${v.line}: \`${v.text}\` → \`${v.keyword} ${v.ref}\` non chiude niente`)
-                .join('\n');
-              parts.push(
-                `🔴 **Keyword di chiusura inefficace** (issue #5784) — GitHub riconosce SOLO ` +
-                `\`close/closes/closed\`, \`fix/fixes/fixed\`, \`resolve/resolves/resolved\`; un verbo italiano ` +
-                `(\`chiude\`/\`chiusa\`/\`risolve\`/\`fixa\`...) o l'inglese al gerundio (\`closing\`/\`fixing\`) è prosa ` +
-                `e non chiude nulla — l'issue resta aperta con la fix già su \`main\` (recidiva reale: PR #5776 → ` +
-                `#5725 rimasta aperta finché non è stata chiusa a mano; stesso difetto su #5724, quasi su #5774).\n\n` +
-                `${lines}\n\n` +
-                `Fix: usa la keyword inglese per ognuno, es. \`Closes ${intentViolations[0].ref}\`. Se non intendevi ` +
-                `chiudere quella issue (solo nominarla), usa \`Refs\`/\`Vedi\` invece di un verbo di chiusura.`,
-              );
-              fails.push(`ineffective closing keyword: ${intentViolations.map((v) => `L${v.line}`).join(', ')}`);
-            }
-            if (aggregateCloseViolations.length) {
-              const lines = aggregateCloseViolations
-                .map((v) => `- \`Closes #${v.num}\` → #${v.num} è una follow-up **aggregata multi-item** ("${v.title.slice(0, 80)}")`)
-                .join('\n');
-              parts.push(
-                `🔴 **Closes su follow-up aggregata multi-item** — \`Closes #N\` è GitHub-native e chiude #N al MERGE, ` +
-                `bypassando il veto multi-item-auto-close di \`FOLLOWUP.md\` (che vive nel cron \`reconcile\`, non nel path Closes-on-merge). ` +
-                `Il fixer lavora 1 item/run (circuit-breaker): un fix parziale NON deve chiudere l'aggregata, gli altri item restano dovuti ` +
-                `(recidiva #3050 → #3036: item 5/5 fixato ma l'issue 5-item chiusa COMPLETED).\n\n${lines}\n\n` +
-                `Fix: togli la keyword di chiusura e usa un **progress-ref** senza \`Closes/Fixes/Resolves\` ` +
-                `(es. \`Addresses item N di #${aggregateCloseViolations[0].num}\`). Chiudi l'aggregata SOLO quando TUTTI gli item sono fatti, elencandoli in \`## Implementato\`.`,
-              );
-              fails.push(`Closes on multi-item aggregate: #${aggregateCloseViolations.map((v) => v.num).join(', #')}`);
-            }
-            // Advisory, NON entra in `fails`/`setFailed` — vedi il commento sul blocco
-            // che calcola `advisoryParts` più sopra.
-            if (advisoryParts.length) parts.push(...advisoryParts);
-            parts.push(`Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — questo check ricalcola a ogni edit.`);
-
-            await upsert(parts.join('\n\n'));
-            core.setFailed(`PR body contract: ${fails.join('; ')}`);
-
-      # --- Source-guard steps: niente checkout dedicato, skip su `edited` -----

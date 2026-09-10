@@ -16,9 +16,10 @@ on:
     types: [completed]
   workflow_dispatch:
 
-# Una sola run drainer alla volta: evita race di doppia-promozione sullo slot.
+# Una sola run drainer alla volta, nello stesso mutex repo-scoped dei writer daily:
+# evita che queue promotion legga/segnali un bucket mentre gate o reconciler lo mutano.
 concurrency:
-  group: followup-drainer
+  group: followup-daily-${{ github.repository }}
   cancel-in-progress: false
 
 permissions:

@@ -768,8 +768,14 @@ describe('#6380 — one atomic commit per crawler group', () => {
       expect(batchIndexes[0].index).toBe(waitIndex + 1);
       expect(batchIndexes[0].step.if).toBe('always()');
       expect(batchIndexes[0].step.run).toContain('git-commit-data.sh --group-batch');
+      const cleanupIndex = job.steps.findIndex((step) => step.name === 'Cleanup Codex auth broker');
+      if (cleanupIndex >= 0) expect(cleanupIndex).toBeGreaterThan(batchIndexes[0].index);
       const finalizerIndex = job.steps.findIndex((step) => step.name === 'Finalize crawler generation manifest (shadow)');
-      expect(finalizerIndex).toBe(batchIndexes[0].index + 1);
+      expect(finalizerIndex).toBeGreaterThan(Math.max(batchIndexes[0].index, cleanupIndex));
+      const ledgerIndex = job.steps.findIndex((step) => step.name === 'Persist crawler generation ledger');
+      const uploadIndex = job.steps.findIndex((step) => step.name === 'Upload crawler generation manifest (shadow)');
+      expect(ledgerIndex).toBeGreaterThan(finalizerIndex);
+      expect(uploadIndex).toBeGreaterThan(ledgerIndex);
     }
   });
 });
@@ -1486,6 +1492,58 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(text).not.toMatch(/uses:\s+valerielinc-ops\/frontaliere-si-o-no\/.github\/actions\//);
       expect(text).toContain('uses: ./.github/actions/');
     }
+  });
+
+  it('confina il secret Codex all’action setup e lo rimuove dagli env dei processi', () => {
+    const { outDir } = generateArtifacts();
+    const generated = YAML.parse(fs.readFileSync(path.join(outDir, 'crawler-group-01.yml'), 'utf8'));
+    const logic = YAML.parse(fs.readFileSync(path.join(workflowsDir, 'crawler-group-01-logic.yml'), 'utf8'));
+    const generatedSteps = Object.values(generated.jobs)[0].steps;
+    const crawlerSteps = generatedSteps.filter((step: any) => step.background === true);
+    const setupStep = generatedSteps.find(
+      (step: any) => step.uses === './.github/actions/setup-claude-haiku-fallback',
+    );
+
+    expect(setupStep?.id).toBe('setup_claude_haiku_fallback');
+    expect(setupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
+    expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_JSON === undefined)).toBe(true);
+    expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
+      === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
+    const cleanupStep = generatedSteps.find((step: any) => step.name === 'Cleanup Codex auth broker');
+    expect(cleanupStep?.if).toBe('always()');
+    expect(cleanupStep?.env?.CODEX_AUTH_BROKER_SOCKET)
+      .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
+    expect(cleanupStep?.run).toContain('--cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"');
+    expect(logic.on.workflow_call.secrets.CODEX_AUTH_JSON).toEqual({ required: false });
+    const logicSetupStep = Object.values(logic.jobs)[0].steps.find(
+      (step: any) => step.uses?.endsWith('/.github/actions/setup-claude-haiku-fallback@main'),
+    );
+    expect(logicSetupStep?.id).toBe('setup_claude_haiku_fallback');
+    expect(logicSetupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
+    expect(Object.values(logic.jobs)[0].steps
+      .filter((step: any) => step.background === true)
+      .every((step: any) => step.env?.CODEX_AUTH_JSON === undefined
+        && step.env?.CODEX_AUTH_BROKER_SOCKET
+          === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
+
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const translationSetupStep = Object.values(translation.jobs)[0].steps.find(
+      (step: any) => step.uses === './.github/actions/setup-claude-haiku-fallback',
+    );
+    expect(translationSetupStep?.id).toBe('setup_claude_haiku_fallback');
+    expect(translationSetupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
+    const translationStep = Object.values(translation.jobs)[0].steps.find(
+      (step: any) => step.env?.JOBS_CRAWLER_USE_FIRESTORE_CONFIG === '1',
+    );
+    expect(translationStep.env.CODEX_AUTH_JSON).toBeUndefined();
+    expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET)
+      .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
+    const translationCleanupStep = Object.values(translation.jobs)[0].steps.find(
+      (step: any) => step.name === 'Cleanup Codex auth broker',
+    );
+    expect(translationCleanupStep?.if).toBe('always()');
+    expect(translationCleanupStep?.env?.CODEX_AUTH_BROKER_SOCKET)
+      .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
   });
 
   it('avvolge tutte le installazioni standalone nei retry site-owned', () => {

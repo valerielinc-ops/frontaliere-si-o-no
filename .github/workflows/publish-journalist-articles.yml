@@ -89,12 +89,16 @@ jobs:
       # here before this change; added as part of the OmniRoute rollout to
       # every ai-models.mjs consumer workflow.
       - uses: ./.github/actions/setup-omniroute
-      - uses: ./.github/actions/setup-claude-haiku-fallback
+      - id: setup_claude_haiku_fallback
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
       - name: Publish queued journalist articles
         id: publish
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: node scripts/publish-journalist-article.mjs
 
       - name: Check live internal links of published journalist articles
@@ -181,6 +185,19 @@ jobs:
               || { echo "::warning::fast-publish dispatch failed for '$article_id' — continuing"; fail=1; }
           done 9<<< "$ARTICLE_IDS"
           [ "$fail" -eq 0 ] || true
+
+      - name: Cleanup Codex auth broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then
+            exit 0
+          fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
+            --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
+            || echo "::warning::Codex auth broker cleanup did not complete"
 
       - name: Report failure to GitHub Issues
         if: failure()
