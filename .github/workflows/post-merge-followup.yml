@@ -516,9 +516,7 @@ jobs:
                       echo "triage incompleta: bucket #$bucket per PR #$pr non leggibile o senza item/Source persistito"
                       persistence_ok=false
                     fi
-                  done <<EOF
-$bucket_refs
-EOF
+                  done < <(printf '%s\n' "$bucket_refs")
                 fi
               fi
             done
