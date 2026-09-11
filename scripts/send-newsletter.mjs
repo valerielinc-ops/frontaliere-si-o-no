@@ -721,8 +721,10 @@ async function generateAISubject(ctx) {
 // weekly briefing's article/hub/tool/home links come out with attribution and
 // no credential, and only the footer preferences + ?action= links keep one.
 const shouldWrapNewsletterHref = isOwnRewritableHref;
+const NEWSLETTER_UTM_SOURCE = 'newsletter';
+const NEWSLETTER_UTM_MEDIUM = 'email';
 
-async function personalizeHtmlForRecipient(email, html) {
+async function personalizeHtmlForRecipient(email, html, campaignId = weeklyCampaignId()) {
   const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)];
   if (!hrefMatches.length) return html;
 
@@ -732,8 +734,15 @@ async function personalizeHtmlForRecipient(email, html) {
   const replacements = new Map();
   const uniqueHrefs = [...new Set(hrefMatches.map((m) => m[1]).filter(shouldWrapNewsletterHref))];
   for (const href of uniqueHrefs) {
-    const wrapped = makeAuthenticatedUrl(href, email, { autologinCode });
-    replacements.set(href, wrapped);
+    const decodedHref = href.replace(/&amp;/g, '&');
+    const wrapped = makeAuthenticatedUrl(decodedHref, email, {
+      autologinCode,
+      utmSource: NEWSLETTER_UTM_SOURCE,
+      utmMedium: NEWSLETTER_UTM_MEDIUM,
+      utmCampaign: campaignId,
+      preserveExistingUtmMedium: true,
+    });
+    replacements.set(href, wrapped.replace(/&/g, '&amp;'));
   }
 
   let personalized = html;
@@ -751,14 +760,16 @@ function personalizeHtmlWithToken(email, html, autologinCode, rankingContext = n
   const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)];
   if (!hrefMatches.length) return html;
 
+  const utmCampaign = rankingContext?.newsletterId || weeklyCampaignId();
   const replacements = new Map();
   const uniqueHrefs = [...new Set(hrefMatches.map((m) => m[1]).filter(shouldWrapNewsletterHref))];
   for (const href of uniqueHrefs) {
-    let trackedHref = href;
-    if (rankingContext && !href.includes('je=1')) {
+    const decodedHref = href.replace(/&amp;/g, '&');
+    let trackedHref = decodedHref;
+    if (rankingContext && !decodedHref.includes('je=1')) {
       let targetPath = '';
       try {
-        targetPath = new URL(href, BASE_URL).pathname.replace(/\/+$/, '');
+        targetPath = new URL(decodedHref, BASE_URL).pathname.replace(/\/+$/, '');
       } catch {
         targetPath = '';
       }
@@ -775,7 +786,7 @@ function personalizeHtmlWithToken(email, html, autologinCode, rankingContext = n
         : -1;
       if (matchedIndex >= 0) {
         const job = rankingContext.jobs[matchedIndex];
-        trackedHref = appendJobRankingParams(href, {
+        trackedHref = appendJobRankingParams(decodedHref, {
           jobId: stableJobId(job),
           surface: 'newsletter',
           surfaceId: rankingContext.surfaceId,
@@ -790,8 +801,14 @@ function personalizeHtmlWithToken(email, html, autologinCode, rankingContext = n
         });
       }
     }
-    const wrapped = makeAuthenticatedUrl(trackedHref, email, { autologinCode });
-    replacements.set(href, wrapped);
+    const wrapped = makeAuthenticatedUrl(trackedHref, email, {
+      autologinCode,
+      utmSource: NEWSLETTER_UTM_SOURCE,
+      utmMedium: NEWSLETTER_UTM_MEDIUM,
+      utmCampaign,
+      preserveExistingUtmMedium: true,
+    });
+    replacements.set(href, wrapped.replace(/&/g, '&amp;'));
   }
 
   let personalized = html;

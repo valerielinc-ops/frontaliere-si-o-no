@@ -353,7 +353,10 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
   }
   const html = wrapAuthenticatedHrefs(built.html, normalizedEmail, {
     secret: newsletterSecret,
+    utmSource: 'newsletter',
+    utmMedium: 'email',
     utmCampaign: `welcome_${ctx.segment}`,
+    preserveExistingUtmMedium: true,
     scheme: mintScheme,
   });
 
