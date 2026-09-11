@@ -1,18 +1,19 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-09-11T13:38:29.360Z",
+  "generatedAt": "2026-09-11T23:14:35.854Z",
   "total": 34,
-  "newCount": 2,
-  "updatedCount": 27,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 29,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 59865,
-  "avgDurationMs": 59865,
+  "durationMs": 54101,
+  "avgDurationMs": 54101,
   "durationHistory": [
-    59865
+    54101
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Service Coordinator and Technical Support Engineer 100%",
       "slug": "service-coordinator-and-technical-support-engineer-100-agie-charmilles-langnau-i-e",
@@ -36,47 +37,21 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 79,
+      "id": "agie-charmilles-b294ce5ad68f",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:38:27.799Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
-        "completeness": 14
+        "translation": 21,
+        "completeness": 19
       }
     },
-    {
-      "title": "Field Service Engineer 100%",
-      "slug": "field-service-engineer-100-agie-charmilles-langnau-i-e",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-field-service-engineer-100/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/9fa7973055a668d5261035c4cd248de56c998789fdf3fde693ce32b819fae1e8e33976afa7bc74fdc5db8b3cc6b4455740fa3842134d2dd4a66fb906d9b3e1",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Langnau i. E.",
-      "addressLocality": "Langnau i. E.",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-11",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "title": "Montagemechaniker (m/w)",
       "slug": "montagemechaniker-m-w-agie-charmilles-biel-bienne",
@@ -676,6 +651,43 @@
       }
     },
     {
+      "title": "Field Service Engineer 100%",
+      "slug": "field-service-engineer-100-agie-charmilles-langnau-i-e",
+      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-field-service-engineer-100/",
+      "applyUrl": "https://tracking.jobchannel.ch/redirect/9fa7973055a668d5261035c4cd248de56c998789fdf3fde693ce32b819fae1e8e33976afa7bc74fdc5db8b3cc6b4455740fa3842134d2dd4a66fb906d9b3e1",
+      "company": "AGIE Charmilles SA",
+      "companyKey": "agie-charmilles",
+      "companyDomain": "gfms.com",
+      "location": "Langnau i. E.",
+      "addressLocality": "Langnau i. E.",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Macchine utensili",
+      "source": "agie-charmilles-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-11",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "workload": "100%",
+      "id": "agie-charmilles-ca580854e9c7",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-11T13:38:27.799Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 19
+      }
+    },
+    {
       "title": "Payroll Expert SAP",
       "slug": "payroll-expert-sap-agie-charmilles-biel-bienne",
       "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-payroll-expert-sap/",
@@ -970,6 +982,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:42:35.531Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1092,46 +1105,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "HR Specialist",
-      "slug": "risorse-umane-specialista-agie-charmilles-sa-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-hr-specialist/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/899ed19b9343ec94b0680f0164d967fc1d31e167f3ccbac55539ed8a50aedc34851fcef847a48199a088c1444bb1bb38ab53f24ca02e25b759256d08f4ce79",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hr",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-28",
-      "employmentType": "temporary",
-      "contractType": "temporary",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-92a76ed87c1b",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Goldau 7",
-      "postalCode": "6616",
-      "firstSeenAt": "2026-07-28T12:04:39.538Z",
-      "salarySource": "estimated",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
