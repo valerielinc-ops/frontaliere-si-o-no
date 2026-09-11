@@ -67,6 +67,11 @@ jobs:
       #    bypass gate: il prompt Claude ri-verifica eligibility).
       # PROCEED-SAFE: un gate per-PR inconcludente → PR inclusa nel batch (mai persa);
       # errori delle sorgenti di raccolta → collection_ok=false e run rossa.
+      # Se il batch supera il limite della sessione provider, il collector emette
+      # solo il prefisso e imposta anch'esso collection_ok=false: il prefisso viene
+      # triagiato, poi il verifier finale rende la run rossa così il watermark di
+      # successo non avanza. La run successiva ricopre la stessa finestra e
+      # l'idempotenza salta il prefisso già persistito, lasciando il residuo.
       # Emette collection_ok, batch_prs (csv), batch_count, max_turns e daily_key
       # (Europe/Zurich). collection_ok è distinto dal batch vuoto: un errore di
       # raccolta non può essere interpretato come "nessuna PR".
@@ -320,7 +325,7 @@ jobs:
             - Cerca prima un issue aperto con quella chiave e quel repository. Se esiste, rileggi il body immediatamente prima dell'append; confronta la baseline (o una hash), ricostruisci l'append dalla lettura nuova su divergenza e non sovrascrivere contenuto concorrente. Se trovi un bucket `collecting` storico che contiene una PR della finestra, riusa quella chiave/titolo anche se il retry è entrato nel giorno successivo: mai sdoppiare la finestra. Se non esiste, crea UNA sola issue per gruppo con `State: collecting`; non aggiungere `agent:fix` né `agent:fix-queued` durante la raccolta.
             - Ogni item deve avere un ID stabile `FU-YYYY-MM-DD-NNN`, assegnato una sola volta, e i campi `Target repository`, `Target file`, `Original text`, `Suggested action`, `Acceptance token`, `Sources`. Deduplica col fingerprint `target repository + target file + token/azione normalizzata`; su match aggiungi la PR alla riga `Sources`, non un secondo item.
             - Il body resta `State: collecting` finché tutti i chunk seriali del batch sono conclusi. Non troncare mai il set per un cap “max 10”: il cap vale solo per chunk/sessione. Un errore lascia il bucket collecting e la finestra senza avanzare; il retry riusa la stessa chiave e le PR già commentate restano idempotenti.
-            - Se `batch_count` supera il budget della sessione, lavora in chunk seriali: dopo ogni chunk salva gli item nel bucket esistente, poi continua dal primo PR non commentato. Non aprire un secondo bucket per lo stesso `(daily_key, target repository)`.
+            - Se la finestra supera il budget della sessione, il collector fornisce al massimo quattro PR e imposta `collection_ok=false`. Processa tutte le PR emesse; il verifier finale rende intenzionalmente rossa la run schedulata, quindi il watermark di successo non avanza. La run successiva riusa la stessa finestra, salta per idempotenza le PR già commentate e processa il residuo dal primo PR non commentato. Non aprire un secondo bucket per lo stesso `(daily_key, target repository)`.
             - Solo il gate zero-Claude successivo demota gli item privi di acceptance falsificabile, porta il bucket a `State: sealed` e aggiunge `agent:fix-queued`. Un bucket collecting non è lavorabile dal drainer.
             - Una PR di fix daily con `Addresses #<bucket>` e `Follow-up item: FU-...` passa il gate anti-nipote solo per cercare finding nuovi: non creare issue figlie. Leggi il bucket padre nello stesso repository target; i finding già coperti dal padre aggiornano `Sources`/si deduplicano, quelli genuinamente nuovi si appendono al padre (se sealed, riportalo a collecting per il gate successivo). Se il padre è illeggibile, posta il blocco sulla PR e non creare un contenitore alternativo.
 
@@ -486,11 +491,11 @@ jobs:
                 marker_ok=false
               else
                 marker_body=$(printf '%s' "$comments" | jq -r '[.comments[]?.body // "" | select(contains("## Post-merge follow-up triage"))] | last // ""' 2>/dev/null || true)
-                bucket_refs=$(printf '%s' "$marker_body" | grep -Eo 'bucket #[0-9]+' | sed -E 's/.*#//' | sort -un || true)
+                bucket_refs=$(printf '%s\n' "$marker_body" | sed -n -E '/^[[:space:]]*Created(\/updated)?:/p' | grep -Eo 'bucket #[0-9]+' | sed -E 's/.*#//' | sort -un || true)
                 # A zero-candidate summary may name the unchanged daily bucket for
                 # audit context. That is not a claim that this PR was persisted in
                 # the bucket, so it must use the empty-result path below.
-                if printf '%s' "$marker_body" | grep -Eiq 'zero outstanding items|backfill skipped|Created:[[:space:]]*0 issue[[:space:]]*\(solo live-verification batchata\)|Created/updated:[[:space:]]*0 issue[[:space:]]*[—-][[:space:]]*nessun item nuovo aggiunto'; then
+                if printf '%s' "$marker_body" | grep -Eiq 'zero outstanding items|backfill skipped|Created:[[:space:]]*0 issue[[:space:]]*\(solo live-verification batchata\)|Created/updated:[[:space:]]*(0 issue[[:space:]]*[—-][[:space:]]*nessun item nuovo aggiunto|nessun nuovo item nel bucket)'; then
                   # The explicit zero-item marker is an empty-result claim. A
                   # bucket named only as unchanged audit context is not a
                   # persistence claim and must not fail this branch.

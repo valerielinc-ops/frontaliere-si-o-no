@@ -445,6 +445,13 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain('hard repository-tool budget');
   });
 
+  it('materializza gli artifact del diff anche nel workflow_dispatch manuale', () => {
+    const collector = TESTS_YML.match(/- name: Collect changed paths[\s\S]*?(?=\n      - name:)/)?.[0] || '';
+    expect(collector).toContain("github.event_name == 'workflow_dispatch'");
+    expect(collector).toContain(': > changed-paths.txt');
+    expect(collector).toContain('changed-paths-status.txt');
+  });
+
   it('usa un bundle deterministico e non scarica il diff completo nelle review incrementali', () => {
     expect(TESTS_YML).toContain('review-bundle.md');
     const prefetch = YAML.parse(TESTS_YML).jobs.vitest.steps.find((step: any) => step.id === 'prefetch');
