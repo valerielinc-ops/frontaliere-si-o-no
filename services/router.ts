@@ -3934,7 +3934,7 @@ export function staticCompanyPathForLocale(pathname: string, newLocale: Locale):
   const profileMatch = pathname.match(/^\/(?:en\/|de\/|fr\/)?aziende\/([a-z0-9][a-z0-9-]*)\/?$/i);
   if (profileMatch) {
     const localePrefix = newLocale === 'it' ? '' : `/${newLocale}`;
-    return `${localePrefix}/aziende/${profileMatch[1]}/`;
+    return `${localePrefix}/aziende/${profileMatch[1].toLowerCase()}/`;
   }
 
   const companyCity = parseCompanyCityPath(pathname);
