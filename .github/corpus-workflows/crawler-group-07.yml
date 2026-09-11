@@ -649,7 +649,7 @@ jobs:
           fi
           exit 0
       - name: Run vf
-        id: crawler-vf
+        id: crawler-vf-international-the-north-face-timberland
         background: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-vf.txt
@@ -1005,7 +1005,7 @@ jobs:
           fi
           exit 0
       - name: Run guess
-        id: crawler-guess
+        id: crawler-guess-europe
         background: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-guess.txt
