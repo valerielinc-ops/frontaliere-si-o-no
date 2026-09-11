@@ -449,13 +449,13 @@ describe('runFactualityGates — memory plumbing', () => {
     });
     expect(r.passed).toBe(true);
     expect(codes(r.issues)).toEqual(['unknown-institution']);
-    expect(r.observations[0].support).toBe('unknown');
+    expect(r.observations).toEqual([]);
   });
 
   it('is unchanged when called without a memory (corpus retro-audit path)', () => {
     const r = runFactualityGates({ sections: { body1: 'Lo dice l\'Ufficio cantonale del lavoro (UCLV).' } });
     expect(r.passed).toBe(true);
     expect(codes(r.issues)).toEqual(['unknown-institution']);
-    expect(r.observations[0].support).toBe('unknown');
+    expect(r.observations).toEqual([]);
   });
 });
