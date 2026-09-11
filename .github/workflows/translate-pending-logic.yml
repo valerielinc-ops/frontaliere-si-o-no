@@ -387,19 +387,23 @@ jobs:
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
-      # ── Phase 2d: Fix source-copy titles (daily 07:00 only) ──────────────
+      # ── Phase 2d: Fix source-copy titles (scheduled non-housekeeping runs)
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
-        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        # The original cron expression survives the cross-repo workflow_call:
+        # run this lane on every scheduled non-07:00 run, never on manual
+        # dispatches and never alongside the long daily housekeeping pass.
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         env:
-          # 300min from the shared marker leaves 50min before the 350min hard
+          # 240min from the shared marker leaves 110min before the 350min hard
           # cap for title commit, final assemble, publication-tree stats,
-          # observability, and uploads.
-          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '18000000' # 300 * 60 * 1000; 50min remain.
+          # observability, and uploads. Healthy runs currently close in
+          # ~125-155min, so this lane gets ~85-115min before it stops.
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '14400000' # 240 * 60 * 1000; 110min remain.
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes
         id: commit_title_fixes
-        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         run: |
           before="$(git rev-parse HEAD)"
           bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
