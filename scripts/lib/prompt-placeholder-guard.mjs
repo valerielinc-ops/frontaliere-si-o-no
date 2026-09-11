@@ -241,10 +241,11 @@ const FAQ_BOLD_PREFIX_RX = String.raw`(?:\*{1,2}[ \t]*)?`;
 const FAQ_BOLD_MARKER_CAPTURE_SOURCE = String.raw`(\*{1,2})?`;
 const FAQ_HEADING_PREFIX_RX = String.raw`(?:\d+[.)][ \t]*|[#>\-–—]+[ \t]*|\*{1,2}[ \t]*)`;
 const FAQ_TRANSLATED_HEADING_RX = String.raw`(?:frequently[ \t]+asked[ \t]+questions|foire[ \t]+aux[ \t]+questions|h[aä]ufig[ \t]+gestellte[ \t]+fragen)`;
+const FAQ_BOLD_CLOSE_PUNCTUATION_SOURCE = String.raw`(?:${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*[:.?\-–—](?![ \t]*\*{1,2})|[:.?\-–—][ \t]*${FAQ_BOLD_MARKER_CAPTURE_SOURCE})`;
 const FAQ_NUMBERED_LABEL_SOURCE = String.raw`(?:(?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX}\**[ \t]*${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—]|${FAQ_BOLD_PREFIX_RX}${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—])`;
-const FAQ_NUMBERED_LINE_LABEL_SOURCE = String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*${FAQ_LABEL_RX}[ \t]*\d+${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*[:.?\-–—][ \t]*(?=\S)`;
-const FAQ_NUMBERED_MIDLINE_LABEL_SOURCE = String.raw`${FAQ_BOLD_MARKER_CAPTURE_SOURCE}${FAQ_LABEL_RX}[ \t]*\d+${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*[:.?\-–—][ \t]*(?=\S)`;
-const FAQ_UNNUMBERED_LINE_LABEL_SOURCE = String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*${FAQ_LABEL_RX}${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*[:.?\-–—][ \t]*(?=\S)`;
+const FAQ_NUMBERED_LINE_LABEL_SOURCE = String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*${FAQ_LABEL_RX}[ \t]*\d+${FAQ_BOLD_CLOSE_PUNCTUATION_SOURCE}[ \t]*(?=\S)`;
+const FAQ_NUMBERED_MIDLINE_LABEL_SOURCE = String.raw`${FAQ_BOLD_MARKER_CAPTURE_SOURCE}${FAQ_LABEL_RX}[ \t]*\d+${FAQ_BOLD_CLOSE_PUNCTUATION_SOURCE}[ \t]*(?=\S)`;
+const FAQ_UNNUMBERED_LINE_LABEL_SOURCE = String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*${FAQ_LABEL_RX}${FAQ_BOLD_CLOSE_PUNCTUATION_SOURCE}[ \t]*(?=\S)`;
 
 /**
  * ── LE REGOLE ─────────────────────────────────────────────────────────────
@@ -517,9 +518,11 @@ export function stripFaqNumberedLabels(value) {
     out = out.replace(rx, (match, ...args) => {
       const pre = linePrefix ? args[0] : '';
       const boldOpen = linePrefix ? args[1] : args[0];
-      const boldClose = linePrefix ? args[2] : args[1];
-      const offset = linePrefix ? args[3] : args[2];
-      const whole = linePrefix ? args[4] : args[3];
+      const boldCloseBeforePunctuation = linePrefix ? args[2] : args[1];
+      const boldCloseAfterPunctuation = linePrefix ? args[3] : args[2];
+      const boldClose = boldCloseBeforePunctuation || boldCloseAfterPunctuation;
+      const offset = linePrefix ? args[4] : args[3];
+      const whole = linePrefix ? args[5] : args[4];
       if (isTranslatedFaqSectionHeading(whole, offset)) return match;
       // Solo se dopo l'etichetta resta contenuto vero sulla stessa riga.
       const rest = whole.slice(offset + match.length);
