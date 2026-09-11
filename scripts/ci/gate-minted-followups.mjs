@@ -55,6 +55,8 @@
  *   GATE_PR_REPO    repo delle PR da commentare quando differisce da GH_REPO
  *                   (default: GH_REPO).
  *   GH_TOKEN        richiesto per le scritture.
+ *   GATE_PR_TOKEN   token per leggere/commentare le PR in GATE_PR_REPO quando
+ *                   differisce da GH_REPO (default: GH_TOKEN).
  *   DRY_RUN         "1" → stampa il verdetto, nessuna scrittura.
  *   GATE_MAX_AGE_MIN  età massima (minuti) della issue su cui agire (default 240). Un
  *                   backfill via workflow_dispatch su una PR vecchia non deve poter
@@ -583,9 +585,10 @@ export function itemHeadline(itemText) {
 // Ritorna `null` quando la chiamata fallisce (con allowFail), non la stringa vuota: il
 // chiamante DEVE poter distinguere «riuscito, output vuoto» da «non riuscito», perche' le
 // scritture qui sono in sequenza e la seconda non ha senso se la prima non e' passata.
-function gh(args, { allowFail = false } = {}) {
+function gh(args, { allowFail = false, token = process.env.GH_TOKEN } = {}) {
   try {
-    return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 1 << 26 });
+    const env = token ? { ...process.env, GH_TOKEN: token } : process.env;
+    return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 1 << 26, env });
   } catch (e) {
     if (allowFail) {
       console.log(`gh ${args.slice(0, 3).join(' ')} → fallito: ${e?.message?.split('\n')[0]}`);
@@ -593,6 +596,13 @@ function gh(args, { allowFail = false } = {}) {
     }
     throw e;
   }
+}
+
+function ghPr(args, options = {}) {
+  return gh(args, {
+    ...options,
+    token: process.env.GATE_PR_TOKEN || process.env.GH_TOKEN,
+  });
 }
 
 /** Read every open follow-up issue through REST pagination, fail-closed. */
@@ -692,7 +702,7 @@ function recoverableDailyIdentities(open, repoArgs, prRepoArgs) {
     const triagedPrs = [];
     let scanOk = true;
     for (const number of positivePrNumbers(sourcePrs)) {
-      const comments = gh(['pr', 'view', String(number), ...prRepoArgs, '--json', 'comments'], { allowFail: true });
+      const comments = ghPr(['pr', 'view', String(number), ...prRepoArgs, '--json', 'comments'], { allowFail: true });
       if (comments === null) {
         scanOk = false;
         continue;
@@ -1030,7 +1040,7 @@ function main() {
         // ['pr', 'comment', String(pr), ...prRepoArgs
         const commentResults = d.action === 'dedupe'
           ? []
-          : commentTargets.map((targetPr) => gh(['pr', 'comment', String(targetPr), ...prRepoArgs, '--body', commentBody], { allowFail: true }));
+          : commentTargets.map((targetPr) => ghPr(['pr', 'comment', String(targetPr), ...prRepoArgs, '--body', commentBody], { allowFail: true }));
         const posted = d.action === 'dedupe' || commentResults.every((result) => result !== null) ? 'posted' : null;
         if (d.action === 'demote' && posted === null) {
           console.log(`⚠️ #${iss.number}: commento sulla PR #${pr} non riuscito → NON riscrivo il corpo. Gli item demoti restano dove sono; il prossimo giro riprova.`);
