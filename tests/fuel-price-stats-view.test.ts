@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildFuelViewSearch, datasetFreshness, fuelRowView, parseFuelViewState, type FuelRowViewFactory, type FuelType, type FuelViewState } from '../components/pages/FuelPriceStats';
+import { buildFuelViewSearch, datasetFreshness, fuelRowView, pageForSelectedRow, parseFuelViewState, type FuelRowViewFactory, type FuelType, type FuelViewState } from '../components/pages/FuelPriceStats';
 import type { FuelPricesDataset, FuelStationItaly, FuelStationSwitzerland, MunicipalityFuelRow } from '../services/fuelPricesService';
 
 type IsAny<T> = 0 extends (1 & T) ? true : false;
@@ -55,6 +55,14 @@ describe('fuel comparison view model', () => {
     const state: FuelViewState = { fuelType: 'diesel', search: 'Como centro', province: 'CO', sortKey: 'swiss', selectedKey: 'Como|CO', homeMunicipalityKey: 'Como|CO', tankLiters: 65, costPerKmEur: 0.23, page: 3 };
     expect(parseFuelViewState(`?${buildFuelViewSearch(state)}`)).toEqual(state);
     expect(buildFuelViewSearch({ ...state, fuelType: 'benzina', search: '', province: 'ALL', sortKey: 'saving', selectedKey: null, homeMunicipalityKey: '', tankLiters: 50, costPerKmEur: 0.18, page: 1 })).toBe('');
+  });
+
+  it('moves a selected municipality onto the visible page when a shared URL is stale', () => {
+    const rows = Array.from({ length: 49 }, (_, index) => row({ municipality: `Comune ${index}`, province: 'TI' }));
+    expect(pageForSelectedRow(rows, rows[24], 24)).toBe(2);
+    expect(pageForSelectedRow(rows, rows[48], 24)).toBe(3);
+    expect(pageForSelectedRow(rows, row({ municipality: 'Missing', province: 'TI' }), 24)).toBeNull();
+    expect(pageForSelectedRow(rows, rows[24], 0)).toBeNull();
   });
 
   it('does not use benzina prices when diesel aggregates are unavailable', () => {
