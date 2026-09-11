@@ -46,6 +46,8 @@ const CLAUDE_WORKFLOWS = [
 // Failure-rate sopra questa soglia (sui run reali, esclusi skipped/cancelled)
 // = regressione da investigare (baseline post-#1919: redflag-fixer era al 56%).
 const FAIL_RATE_WARN = 0.2;
+export const MERGED_PR_LIST_LIMIT = 1000;
+const CLAUDE_REVIEW_LOGIN = /^(?:claude|frontaliere-automation)(?:\[bot\])?$/i;
 
 function gh(args, { json = true } = {}) {
   const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
@@ -81,21 +83,32 @@ function runStats(workflow, since) {
   return { total, real, fail, ok: by.success || 0, cancelled: by.cancelled || 0, skipped: by.skipped || 0, rate: real ? fail / real : 0 };
 }
 
-function mergedPrStats(since) {
+export function claudeReviewCount(pr) {
+  return (pr.reviews || []).filter((r) => CLAUDE_REVIEW_LOGIN.test(r.author?.login || '')).length;
+}
+
+export function mergedPrStats(since, runGh = gh) {
   let prs = [];
   try {
-    prs = gh(['pr', 'list', '--repo', REPO, '--state', 'merged',
-      '--search', `merged:>${since}`, '--limit', '300', '--json', 'number,reviews']);
+    prs = runGh(['pr', 'list', '--repo', REPO, '--state', 'merged',
+      '--search', `merged:>${since}`, '--limit', String(MERGED_PR_LIST_LIMIT), '--json', 'number,reviews']);
   } catch { /* noop */ }
-  const claudeReviews = (pr) => (pr.reviews || []).filter((r) => /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/i.test(r.author?.login || '')).length;
+  if (!Array.isArray(prs)) prs = [];
   const merged = prs.length;
   // === 1 (non <=1): una PR mergiata con ZERO review claude (merge manuale,
   // o reopen-path prima che la review atterri) non e' un "first-shot LGTM" —
   // contarla gonfierebbe la metrica (adversarial check review #1930).
-  const firstShot = prs.filter((p) => claudeReviews(p) === 1).length;
-  const zeroReview = prs.filter((p) => claudeReviews(p) === 0).length;
-  const totalReviews = prs.reduce((a, p) => a + claudeReviews(p), 0);
-  return { merged, firstShot, zeroReview, totalReviews };
+  const firstShot = prs.filter((p) => claudeReviewCount(p) === 1).length;
+  const zeroReview = prs.filter((p) => claudeReviewCount(p) === 0).length;
+  const totalReviews = prs.reduce((a, p) => a + claudeReviewCount(p), 0);
+  return {
+    merged,
+    firstShot,
+    zeroReview,
+    totalReviews,
+    limit: MERGED_PR_LIST_LIMIT,
+    truncated: merged === MERGED_PR_LIST_LIMIT,
+  };
 }
 
 /** Zombie: issue follow-up con agent:fix, ferma da >24h, senza PR fix APERTA
@@ -253,6 +266,7 @@ function main() {
   const pr = mergedPrStats(since);
   const fsRate = pr.merged ? pr.firstShot / pr.merged : 0;
   if (pr.merged >= 10 && fsRate < 0.5) warns.push(`first-shot LGTM rate ${(fsRate * 100).toFixed(0)}% (<50%)`);
+  if (pr.truncated) warns.push(`merged PR list truncated at ${pr.limit}; first-shot and review totals are incomplete`);
   lines.push('');
   lines.push(`**PR merged:** ${pr.merged} (${(pr.merged / DAYS).toFixed(1)}/g) · first-shot LGTM ${pr.firstShot}/${pr.merged} (${(fsRate * 100).toFixed(0)}%, zero-review ${pr.zeroReview}) · review Claude totali ${pr.totalReviews} (overhead ${pr.merged ? ((pr.totalReviews / Math.max(pr.merged, 1) - 1) * 100).toFixed(0) : 0}%).`);
 

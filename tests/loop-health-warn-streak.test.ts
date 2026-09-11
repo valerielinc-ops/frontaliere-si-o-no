@@ -15,7 +15,13 @@
  */
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — plain .mjs CI script, no type declarations
-import { warnKey, warnStreaks } from '../scripts/ci/loop-health-report.mjs';
+import {
+  claudeReviewCount,
+  MERGED_PR_LIST_LIMIT,
+  mergedPrStats,
+  warnKey,
+  warnStreaks,
+} from '../scripts/ci/loop-health-report.mjs';
 
 /** Reports are dated relative to now — never a calendar literal in a fixture. */
 const daysAgoIso = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString().slice(0, 10);
@@ -123,5 +129,43 @@ describe('warnStreaks — counts CONSECUTIVE prior reports', () => {
 
   it('degrades to no streak when the tracker cannot be read', () => {
     expect(warnStreaks(1951, () => []).size).toBe(0);
+  });
+});
+
+describe('mergedPrStats — review identity and list completeness', () => {
+  it('counts both human-style and bot-suffixed automation logins', () => {
+    const reviews = [
+      { author: { login: 'claude' } },
+      { author: { login: 'claude[bot]' } },
+      { author: { login: 'frontaliere-automation' } },
+      { author: { login: 'frontaliere-automation[bot]' } },
+      { author: { login: 'someone-else' } },
+    ];
+
+    expect(claudeReviewCount({ reviews })).toBe(4);
+  });
+
+  it('raises an observable truncation flag when the GitHub list reaches its limit', () => {
+    const calls: string[][] = [];
+    const runGh = (args: string[]) => {
+      calls.push(args);
+      return Array.from({ length: MERGED_PR_LIST_LIMIT }, (_, number) => ({
+        number,
+        reviews: [],
+      }));
+    };
+
+    const stats = mergedPrStats(
+      new Date(Date.now() - 7 * 86_400_000).toISOString().slice(0, 10),
+      runGh,
+    );
+
+    expect(calls[0]).toContain('--limit');
+    expect(calls[0]).toContain(String(MERGED_PR_LIST_LIMIT));
+    expect(stats).toMatchObject({
+      merged: MERGED_PR_LIST_LIMIT,
+      limit: MERGED_PR_LIST_LIMIT,
+      truncated: true,
+    });
   });
 });
