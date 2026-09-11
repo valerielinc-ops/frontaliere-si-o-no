@@ -89344,6 +89344,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tilo-s10-bus-chiasso-melide': {
+    title: 'Modifiche TILO: bus al posto della S10 Chiasso-Melide',
+    description: 'Dal 13 settembre 2026 la corsa TILO delle 4:11 da Mendrisio verso Chiasso sarà sostituita da un autobus, con partenza anticipata, fino al 19 ottobre 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, modifiche, tilo, posto, chiasso-melide',
+    ogTitle: 'Modifiche TILO: bus al posto della S10 Chiasso-Melide',
+    ogDescription: 'A partire dal 13 settembre 2026, la corsa mattutina delle 4:11 da Mendrisio verso Chiasso sulla linea S10 sarà temporaneamente sostituita da un servizio di autobus. La modifica, attiva fino al 19 ottobre 2026, riguarda i lavoratori turnisti',
+    canonicalPath: '/articoli-frontaliere/tilo-s10-bus-chiasso-melide',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Modifiche TILO: bus al posto della S10 Chiasso-Melide",
+      "description": "Dal 13 settembre 2026 la corsa TILO delle 4:11 da Mendrisio verso Chiasso sarà sostituita da un autobus, con partenza anticipata, fino al 19 ottobre 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tilo-s10-bus-chiasso-melide.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autobus TILO alla stazione di Mendrisio all'alba, sostituto del treno S10 per frontalieri"
+      },
+      "datePublished": "2026-09-11T18:59:52+00:00",
+      "dateModified": "2026-09-11T18:59:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-s10-bus-chiasso-melide/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
