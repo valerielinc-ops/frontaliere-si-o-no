@@ -134,6 +134,15 @@ const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 const CROSS_REPO_BACKOFF_SECONDS = 30;
 const SHA1_COMMIT_RE = /^[a-f0-9]{40}$/u;
 
+// Group 07 has two legacy source slugs whose data-slice identities are the
+// canonical names consumed by the generation observer. Keep this translation
+// explicit and closed: every other crawler keeps its source slug as its step
+// id, and a mapped scope must still match the declared housekeeping scope.
+const CRAWLER_STEP_ID_OVERRIDES = Object.freeze({
+  guess: 'guess-europe',
+  vf: 'vf-international-the-north-face-timberland',
+});
+
 // Solo bucket misurati e confermati estranei al ciclo crawler. L'allowlist e'
 // deliberatamente sulle ESCLUSIONI: un nuovo bucket di checkout-buckets.json
 // resta incluso by default, quindi non puo' sparire in silenzio dal runner.
@@ -1818,6 +1827,33 @@ function translateTrigger(logic) {
   };
 }
 
+function canonicalizePortableCrawlerIdentities(content, logic, sourceMembers) {
+  const logicJob = Object.values(logic.jobs ?? {})[0];
+  const logicSteps = logicJob?.steps ?? [];
+  let canonicalContent = content;
+  const canonicalMembers = sourceMembers.map((sourceSlug) => {
+    const canonicalSlug = CRAWLER_STEP_ID_OVERRIDES[sourceSlug] ?? sourceSlug;
+    const sourceStep = logicSteps.find((step) => step?.id === `crawler-${sourceSlug}` && step.background === true);
+    if (canonicalSlug !== sourceSlug && sourceStep?.env?.JOBS_HOUSEKEEPING_SCOPE !== canonicalSlug) {
+      throw new Error(
+        `portable crawler identity ${canonicalSlug} for ${sourceSlug} does not match JOBS_HOUSEKEEPING_SCOPE ${JSON.stringify(sourceStep?.env?.JOBS_HOUSEKEEPING_SCOPE)}`,
+      );
+    }
+    if (canonicalSlug === sourceSlug) return sourceSlug;
+
+    const idPattern = new RegExp(`^(\\s*)id: crawler-${sourceSlug}$`, 'gmu');
+    const matches = [...canonicalContent.matchAll(idPattern)];
+    if (matches.length !== 1) {
+      throw new Error(
+        `portable workflow must contain exactly one background id for ${sourceSlug}; found ${matches.length}`,
+      );
+    }
+    canonicalContent = canonicalContent.replace(idPattern, `$1id: crawler-${canonicalSlug}`);
+    return canonicalSlug;
+  });
+  return { content: canonicalContent, members: canonicalMembers };
+}
+
 /** Genera i 23 workflow crawler + translate-pending e il loro contratto hash. */
 /**
  * @param {{
@@ -1861,7 +1897,7 @@ export function generateCrossRepoExecutionArtifacts({
     const logicText = fs.readFileSync(logicPath, 'utf8');
     const members = assertCrawlerLogicParity(result.content, logicText, path.basename(logicPath));
     const logic = YAML.parse(logicText);
-    const content = buildStandaloneCrossRepoWorkflow({
+    const rawContent = buildStandaloneCrossRepoWorkflow({
       logicText,
       name: `Crawler Group ${nn} (sparse cross-repo execution)`,
       runName: `crawler-generation-${CRAWLER_GENERATION_TOKEN_EXPR}-group-${nn}`,
@@ -1871,6 +1907,8 @@ export function generateCrossRepoExecutionArtifacts({
       runtimePaths: CRAWLER_GENERATION_RUNTIME_PATHS,
       checkoutRef: "${{ inputs.site_code_commit || 'main' }}",
     });
+    const portable = canonicalizePortableCrawlerIdentities(rawContent, logic, members);
+    const content = portable.content;
     YAML.parse(content);
     workflowPayloads.set(fileName, content);
     artifactContents.push(content);
@@ -1880,7 +1918,7 @@ export function generateCrossRepoExecutionArtifacts({
       sourceSha256: sha256(logicText),
       artifactSha256: sha256(content),
       generatorSha256,
-      members,
+      members: portable.members,
     });
   }
 
