@@ -102,18 +102,12 @@ jobs:
       # Qui il RECUPERO era già corretto e NON va toccato: il watermark avanza
       # solo sulle run di SUCCESSO, quindi una run fallita lascia la finestra
       # indietro e la successiva (≤3h) la ri-copre — nessun contatore di
-      # tentativi, nessun park, nessuna chiusura automatica, cioè nessuno stato
-      # assorbente come quello che issue-fix aveva. Quello che restava da
-      # eliminare è solo lo SPRECO: durante una finestra di quota aperta ogni run
-      # schedulata spende comunque una chiamata Claude condannata in partenza.
-      # Questo gate la salta e fallisce subito con un messaggio veritiero: il
-      # watermark resta indietro (comportamento identico a prima), la finestra
-      # viene ri-coperta, ma la quota non viene toccata.
-      - name: Pre-flight — quota backoff gate (zero-Claude)
+      # Il beacon viene conservato per telemetria e diagnosi della quota Claude;
+      # non e' piu' un gate di esecuzione, perche' Codex e' il provider primario.
+      - name: Pre-flight — quota telemetry (Codex primary)
         id: quota
-        # PROCEED-SAFE come i gate gemelli di issue-fix.yml: lo script è totale
-        # (throw → quota_blocked=false) e continue-on-error impedisce che un
-        # guasto infra sopprima il triage.
+        # Il controllo è best-effort: un guasto infra non deve sopprimere il
+        # triage, che resta affidato al provider primario e al suo fallback.
         continue-on-error: true
         if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         env:
@@ -126,19 +120,11 @@ jobs:
         run: node scripts/ci/check-quota-backoff.mjs
 
       - name: Setup Headroom compression proxy
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         uses: ./.github/actions/setup-headroom
 
-      - name: Skip on exhausted quota (no false green — watermark must hold)
-        # RED deliberato, non un warning: il watermark avanza sulle sole run di
-        # SUCCESSO, quindi uscire verdi qui farebbe avanzare la finestra e
-        # perderebbe per sempre il batch di PR non triagiate. Fallire è il
-        # comportamento CORRETTO e identico a quello odierno (la run moriva
-        # comunque sul 429); l'unica differenza è che non spendiamo la chiamata.
-        if: steps.quota.outputs.quota_blocked == 'true' && steps.quota.outputs.codex_fallback != 'true'
-        run: |
-          echo "::error::post-merge-followup: quota Claude esaurita (reset epoch ${{ steps.quota.outputs.resets_at }}) — salto la chiamata Claude, che morirebbe su HTTP 429 a turno 1. Il watermark NON avanza: la prossima run schedulata (≤3h) ri-copre l'intera finestra, nessuna PR persa."
-          exit 1
+      # Il beacon della quota Claude resta telemetria: Codex e' il provider primario,
+      # quindi una quota Claude aperta non puo' saltare il batch.
 
       # Il follow-up puo' trovare un file che appartiene al producer del corpus,
       # anche quando la PR sorgente e' nel sito. In quel caso l'issue deve nascere
@@ -147,7 +133,7 @@ jobs:
       # una finestra vuota non paga ne' Firebase ne' il caricamento RC.
 
       - name: Prepare Firebase credentials for follow-up routing
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -159,7 +145,7 @@ jobs:
           fi
 
       - name: Load cross-repo follow-up credentials
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
@@ -168,12 +154,12 @@ jobs:
       # .../reviews`, e il check "In-flight PR overlap" rifà `gh pr list --state open` +
       # `gh pr diff <n> --name-only` per ciascuna PR aperta. Con `batch_count` PR per run
       # è il moltiplicatore più alto del repo: ogni PR extra nel batch è un turno in più
-      # di puro setup, che qui è già zero-Claude perché `batch_prs` è noto PRIMA che
-      # Claude parta. Fail-open: un fetch fallito lascia la sezione vuota/`{}` e il
+      # di puro setup, che qui è già zero-provider perché `batch_prs` è noto PRIMA che
+      # l'agente parta. Fail-open: un fetch fallito lascia la sezione vuota/`{}` e il
       # prompt sa rifare la chiamata diretta se il bundle risulta incompleto.
       - name: Prefetch follow-up batch context (zero-Claude)
         id: batchctx
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -230,20 +216,17 @@ jobs:
         # (40min) e la run ci moriva `cancelled` — che NON fa scattare
         # nessun `if: failure()` e si vede solo dallo scan periodico
         # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
-        # 32min = cap del job meno il setup pre-Claude misurato (~98s
+        # 32min = cap del job meno il setup pre-provider misurato (~98s
         # sulle ultime run) e una coda per gli step `if: always()`.
         timeout-minutes: 32
         id: followup
         # Gira SOLO se il batch ha almeno una PR. Per le altre run (finestra vuota /
-        # tutte già-triagiate / tutte scartate dai gate) la sessione Claude è
-        # interamente saltata → quota Max risparmiata. La condizione sulla quota è
-        # ridondante (lo step di skip sopra esce 1 e GitHub salta già il resto) ma
-        # esplicita: il gate non deve dipendere dall'ordine degli step per reggere.
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        # tutte già-triagiate / tutte scartate dai gate) la sessione del provider è
+        # interamente saltata.
+        if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         uses: ./.github/actions/claude-codex-fallback
-        # The shared action invokes `uses: anthropics/claude-code-action@v1` for
-        # Claude and switches to the one-shot Codex subscription fallback only on
-        # a detected usage-limit/quota response.
+        # The shared action runs one Codex subscription attempt first and invokes
+        # Claude only when the Codex primary does not complete successfully.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
@@ -253,7 +236,6 @@ jobs:
           GITHUB_PAT: ${{ env.GITHUB_PAT }}
           EVENT_NAME: ${{ github.event_name }}
         with:
-          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # `allowed_non_write_users` (sotto) funziona SOLO con `github_token` esplicito,
@@ -404,7 +386,7 @@ jobs:
       # `## Post-merge follow-up triage`) salta le PR già processate e riprende le altre.
       # Retry at-least-once by-construction, senza ricorsione né `actions: write`.
 
-      # Do not infer completion from an action exit code: Claude/Codex can stop
+      # Do not infer completion from an action exit code: Codex/Claude can stop
       # after one chunk while the batch still contains other PRs.  The gate may
       # seal a collecting bucket only when every PR in the positive batch carries
       # the required idempotency marker and the action/fallback itself succeeded.
@@ -421,7 +403,7 @@ jobs:
           BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}
           COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}
           CLAUDE_OUTCOME: ${{ steps.followup.outputs.claude_outcome }}
-          FALLBACK_SUCCESS: ${{ steps.followup.outputs.fallback_success }}
+          ACTION_SUCCESS: ${{ steps.followup.outputs.action_success }}
           CORPUS_REPO: nanakokyobashi-rgb/frontaliere-articles
           GITHUB_PAT_NANAKO: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           GITHUB_PAT: ${{ env.GITHUB_PAT }}
@@ -533,10 +515,10 @@ jobs:
             fi
           fi
           if [ "$count" -gt 0 ] 2>/dev/null; then
-            if [ "${CLAUDE_OUTCOME:-}" = success ] || [ "${FALLBACK_SUCCESS:-}" = true ]; then
+            if [ "${CLAUDE_OUTCOME:-}" = success ] || [ "${ACTION_SUCCESS:-}" = true ]; then
               action_ok=true
             else
-              echo "triage incompleta: batch positivo senza esito Claude/Codex riuscito"
+              echo "triage incompleta: batch positivo senza esito Codex/Claude riuscito"
             fi
           fi
           if [ "$marker_ok" = true ] && [ "$persistence_ok" = true ] && [ "$action_ok" = true ]; then
@@ -596,7 +578,7 @@ jobs:
           node scripts/ci/gate-minted-followups.mjs
 
       - name: Claude usage metrics
-        if: always() && steps.followup.outputs.fallback_used != 'true'
+        if: always() && steps.followup.outputs.claude_used == 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to the run
         # Step Summary + a grep-able CLAUDE_USAGE line to the log. Best-effort: never fails.
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.followup.outputs.execution_file }}" "post-merge-followup"
