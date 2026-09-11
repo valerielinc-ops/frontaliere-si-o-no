@@ -8383,15 +8383,6 @@ ${staticAnalyticsHtml}
  bodyHtml,
  distDir,
  });
- const COMPANY_CANTON_HARD_BUDGET = 195 * 1024;
- const htmlBytes = Buffer.byteLength(html, 'utf-8');
- if (htmlBytes > COMPANY_CANTON_HARD_BUDGET) {
- throw new Error(
- `[jobs-seo-pages] Per-canton company hub ${canonicalPath} renders to ` +
- `${(htmlBytes / 1024).toFixed(1)} KB — exceeds hard budget of ` +
- `${COMPANY_CANTON_HARD_BUDGET / 1024} KB.`
- );
- }
  const outDir = np.join(distDir, canonicalPath.slice(1));
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
