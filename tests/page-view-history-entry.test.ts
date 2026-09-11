@@ -150,12 +150,8 @@ describe('page-view emission identity', () => {
     expect(routerSource.split('\n')[3990]).toContain(
       "history.replaceState({ route: nextRoute }, '', newPath + search);",
     );
-    expect(authServiceSource.split('\n')[1028]).toContain(
-      "window.history.replaceState(null, '', savedPath);",
-    );
-    expect(authServiceSource.split('\n')[1416]).toContain(
-      "window.history.replaceState(null, '', savedPath);",
-    );
+    expect(authServiceSource).toContain("window.history.replaceState(null, '', savedPath);");
+    expect(authServiceSource.match(/window\.history\.replaceState\(null, '', savedPath\);/g)).toHaveLength(2);
 
     const { Analytics } = await loadAnalytics();
     const localeBefore = Analytics.trackPageView('/it/statistiche/', 'Statistiche');

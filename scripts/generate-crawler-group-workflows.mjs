@@ -68,6 +68,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
@@ -95,12 +96,13 @@ const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
 const ASSIGNMENTS_PATH = path.join(REPO_ROOT, 'data/crawler-group-assignments.json');
 const CHECKOUT_BUCKETS_PATH = path.join(REPO_ROOT, 'scripts/ci/checkout-buckets.json');
 const TRANSLATE_LOGIC_PATH = path.join(WORKFLOWS_DIR, 'translate-pending-logic.yml');
-// Every supported group trigger must bind the caller to an explicit token.
-// The fallback is retained only as a defensive renderer guard for future
-// inputs; the workflow input is required and the central barrier rejects an
-// unbound run.
+// Both workflow forms use the same token expression as the canonical helper:
+// an explicit input wins, while an empty dispatch input derives the run
+// coordinates. Keeping the expression identical in run-name and env prevents
+// an empty portable input from splitting observer identity from runtime state.
 export const CRAWLER_GENERATION_TOKEN_EXPR =
   "${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}";
+export const CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR = CRAWLER_GENERATION_TOKEN_EXPR;
 const PORTABLE_CORPUS_DIR = path.join(REPO_ROOT, '.github/corpus-workflows');
 const PORTABLE_CONTRACT_PATH = path.join(PORTABLE_CORPUS_DIR, 'contract.json');
 const CORPUS_OBSERVER_SITE_SOURCES = new Map([
@@ -130,6 +132,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
 
 const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 const CROSS_REPO_BACKOFF_SECONDS = 30;
+const SHA1_COMMIT_RE = /^[a-f0-9]{40}$/u;
 
 // Solo bucket misurati e confermati estranei al ciclo crawler. L'allowlist e'
 // deliberatamente sulle ESCLUSIONI: un nuovo bucket di checkout-buckets.json
@@ -161,6 +164,28 @@ export const SAFETY_CEILING_MS = JOB_TIMEOUT_MINUTES * 60 * 1000;
 
 function loadJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
+}
+
+/** Resolve the exact site revision whose generated artifacts are observed. */
+export function resolveCrawlerContractSource({ sourceCommit, sourceRef } = {}) {
+  let commit = sourceCommit || process.env.CRAWLER_SOURCE_COMMIT || process.env.GITHUB_SHA;
+  if (!commit) {
+    try {
+      commit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8' }).trim();
+    } catch (error) {
+      throw new Error(`cannot resolve crawler contract source commit: ${error.message}`);
+    }
+  }
+  if (!SHA1_COMMIT_RE.test(String(commit))) {
+    throw new Error(`crawler contract sourceCommit must be a 40-character source commit SHA, got ${JSON.stringify(commit)}`);
+  }
+
+  const githubRef = String(process.env.GITHUB_REF || '').replace(/^refs\/heads\//u, '');
+  const ref = sourceRef || process.env.CRAWLER_SOURCE_REF || process.env.GITHUB_REF_NAME || githubRef || 'main';
+  if (!ref || /\s/u.test(String(ref))) {
+    throw new Error(`crawler contract sourceRef must be a non-empty ref without whitespace, got ${JSON.stringify(ref)}`);
+  }
+  return { sourceCommit: String(commit), sourceRef: String(ref) };
 }
 
 /**
@@ -853,6 +878,36 @@ function crawlerGenerationRosterFromGroups(groups) {
   return createCrawlerGenerationRoster(rosterGroups, primarySlices);
 }
 
+export function crawlerGenerationLedgerPersistenceRun() {
+  return [
+    'set +e',
+    'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
+    'git_commit_exit=$?',
+    'if [ "$git_commit_exit" -eq 42 ]; then',
+    '  echo "::warning::crawler generation ledger: push lost the ref race after all retries (contention); this cycle ledger entry was not committed and the next scheduled cycle records its own ledger state."',
+    '  echo "⚠️ crawler generation ledger: push contention loss (exit 42) — this cycle ledger entry was not committed; next scheduled cycle records its own state" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
+    '  exit 0',
+    'fi',
+    'if [ "$git_commit_exit" -ne 0 ]; then',
+    `  if [ "$git_commit_exit" -eq ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`,
+    `    echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT})"`,
+    `    echo "❌ crawler generation ledger: shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT})" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
+    '  else',
+    '    echo "::error::crawler generation ledger persistence failed (exit $git_commit_exit)"',
+    '    echo "❌ crawler generation ledger persistence failed (exit $git_commit_exit)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
+    '  fi',
+    'fi',
+    'exit "$git_commit_exit"',
+  ].join('\n');
+}
+
+function crawlerGenerationFinalizerFailureRun() {
+  return [
+    'echo "::error::crawler generation finalizer failed; ledger persistence skipped so a missing/partial manifest cannot be recorded as success"',
+    'echo "❌ crawler generation finalizer failed; ledger persistence skipped (no false-success ledger entry)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
+  ].join('\n');
+}
+
 function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
   const nn = String(groupIndex).padStart(2, '0');
   const output = `\${{ runner.temp }}/crawler-generation/crawler-group-${nn}-terminal.json`;
@@ -880,11 +935,17 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
       run: 'node scripts/crawler-group-generation-finalizer.mjs',
     },
     {
+      name: 'Report crawler generation finalizer failure',
+      if: "always() && steps.crawler-generation-finalizer.outcome == 'failure'",
+      'continue-on-error': true,
+      run: crawlerGenerationFinalizerFailureRun(),
+    },
+    {
       name: 'Persist crawler generation ledger',
-      if: 'always()',
+      if: "always() && steps.crawler-generation-finalizer.outcome == 'success'",
       'continue-on-error': true,
       env: { CRAWLER_GENERATION_RECEIPT_DIR: '', SKIP_AI_TRANSLATION: '1' },
-      run: 'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
+      run: crawlerGenerationLedgerPersistenceRun(),
     },
     {
       name: 'Upload crawler generation manifest (shadow)',
@@ -1389,7 +1450,7 @@ function normalizedContractStep(step, side, fileName, members) {
 
   if (typeof copy?.uses === 'string' && copy.uses.startsWith('actions/checkout@')) {
     const allowedWith = side === 'generated'
-      ? new Set(['fetch-depth'])
+      ? new Set(['repository', 'fetch-depth', 'ref', 'clean', 'sparse-checkout', 'sparse-checkout-cone-mode'])
       : new Set(['repository', 'fetch-depth']);
     const unexpected = Object.keys(copy.with ?? {}).filter((key) => !allowedWith.has(key));
     if (unexpected.length > 0) {
@@ -1399,10 +1460,16 @@ function normalizedContractStep(step, side, fileName, members) {
       throw new Error(`${fileName}: logic checkout does not target ${SITE_REPOSITORY}`);
     }
     // Conserva ogni campo step-level presente o futuro (`if`, `timeout-*`,
-    // shell, continue-on-error...). Le sole differenze dichiarate sono il nome
-    // descrittivo e `with.repository` nel reusable cross-repo.
+    // shell, continue-on-error...). Le sole differenze dichiarate sono il nome,
+    // il repository/ref del checkout cross-repo e il suo profilo sparse.
     copy.name = 'Checkout';
     delete copy.with.repository;
+    if (side === 'generated') {
+      delete copy.with.ref;
+      delete copy.with.clean;
+      delete copy.with['sparse-checkout'];
+      delete copy.with['sparse-checkout-cone-mode'];
+    }
     return copy;
   }
 
@@ -1532,6 +1599,22 @@ export function buildStandaloneCrossRepoWorkflow({
   const workflow = YAML.parse(logicText);
   const job = Object.values(workflow.jobs ?? {})[0];
   if (!job?.steps) throw new Error(`${name}: reusable logic has no runnable job steps`);
+
+  // Keep the portable workflow's run-name/job/step env aligned with the
+  // canonical helper. `required: true` documents the supported caller, but an
+  // empty dispatch value must still resolve identically in the observer name
+  // and in every runtime consumer.
+  if (/^crawler-group-\d{2}\.yml$/u.test(workflowFile)) {
+    job.env = {
+      ...(job.env ?? {}),
+      CRAWLER_GENERATION_TOKEN: CRAWLER_GENERATION_TOKEN_EXPR,
+    };
+    for (const step of job.steps) {
+      if (step?.env?.CRAWLER_GENERATION_TOKEN === CRAWLER_GENERATION_TOKEN_EXPR) {
+        step.env.CRAWLER_GENERATION_TOKEN = CRAWLER_GENERATION_TOKEN_EXPR;
+      }
+    }
+  }
 
   const checkoutIndex = job.steps.findIndex((step) =>
     typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'));
@@ -1686,8 +1769,10 @@ export function buildStandaloneCrossRepoWorkflow({
 
 function groupTrigger(logic) {
   const inputs = structuredClone(logic.on.workflow_call.inputs);
-  // Standalone corpus callers are generated from the token-aware dispatch
-  // contract and must not inherit the reusable workflow's rollout shim.
+  // Standalone corpus callers have exactly one supported caller: the site
+  // orchestrator, which always passes the correlation token. Keep this input
+  // required and without a default; the reusable site workflow remains
+  // optional because its direct/manual path intentionally owns the fallback.
   inputs.generation_token = {
     ...inputs.generation_token,
     required: true,
@@ -1741,6 +1826,8 @@ function translateTrigger(logic) {
  *   contractPath?: string,
  *   workflowsDir?: string,
  *   translateLogicPath?: string,
+ *   sourceCommit?: string,
+ *   sourceRef?: string,
  *   write?: boolean,
  * }} [options]
  */
@@ -1750,6 +1837,8 @@ export function generateCrossRepoExecutionArtifacts({
   contractPath,
   workflowsDir = WORKFLOWS_DIR,
   translateLogicPath = TRANSLATE_LOGIC_PATH,
+  sourceCommit,
+  sourceRef,
   write = true,
 } = {}) {
   if (!outDir || !contractPath) throw new Error('cross-repo generation requires outDir and contractPath');
@@ -1759,6 +1848,8 @@ export function generateCrossRepoExecutionArtifacts({
   if (!validateCrawlerGenerationRoster(groupResults.generationRoster).valid) {
     throw new Error('cross-repo generation requires a valid crawler generation roster');
   }
+  const source = resolveCrawlerContractSource({ sourceCommit, sourceRef });
+  const generatorSha256 = sha256(fs.readFileSync(fileURLToPath(import.meta.url), 'utf8'));
 
   const artifacts = [];
   const artifactContents = [];
@@ -1788,6 +1879,7 @@ export function generateCrossRepoExecutionArtifacts({
       sourceLogic: path.basename(logicPath),
       sourceSha256: sha256(logicText),
       artifactSha256: sha256(content),
+      generatorSha256,
       members,
     });
   }
@@ -1809,6 +1901,7 @@ export function generateCrossRepoExecutionArtifacts({
     sourceLogic: path.basename(translateLogicPath),
     sourceSha256: sha256(translateLogicText),
     artifactSha256: sha256(translateContent),
+    generatorSha256,
     members: [],
   });
 
@@ -1834,8 +1927,15 @@ export function generateCrossRepoExecutionArtifacts({
   const contract = {
     schemaVersion: 1,
     generatedBy: 'frontaliere-si-o-no/scripts/generate-crawler-group-workflows.mjs',
-    generatorSha256: sha256(fs.readFileSync(fileURLToPath(import.meta.url), 'utf8')),
+    generatorSha256,
     sourceRepository: SITE_REPOSITORY,
+    sourceRef: source.sourceRef,
+    sourceCommit: source.sourceCommit,
+    artifactObservation: {
+      generatorSha256,
+      sourceRef: source.sourceRef,
+      sourceCommit: source.sourceCommit,
+    },
     groupCount: GROUP_COUNT,
     artifactCount: artifacts.length,
     observerCount: observers.length,
@@ -1886,10 +1986,13 @@ export function generateCrossRepoExecutionArtifacts({
 export function checkGeneratedArtifacts({ profileRenderer = computeProfiledText } = {}) {
   const groupResults = generate({ profileRenderer, write: false });
   const logicArtifacts = generateCrawlerLogicArtifacts({ groupResults, write: false });
+  const committedContract = loadJson(PORTABLE_CONTRACT_PATH);
   const cross = generateCrossRepoExecutionArtifacts({
     groupResults,
     outDir: PORTABLE_CORPUS_DIR,
     contractPath: PORTABLE_CONTRACT_PATH,
+    sourceCommit: committedContract.sourceCommit,
+    sourceRef: committedContract.sourceRef,
     write: false,
   });
   const changed = [];
@@ -2114,6 +2217,7 @@ if (isMain) {
     });
     console.log(`Generated ${cross.artifacts.length} standalone corpus workflows -> ${outDir}`);
     console.log(`Cross-repo contract -> ${contractPath}`);
+    console.log(`Cross-repo source -> ${cross.contract.sourceRef}@${cross.contract.sourceCommit}`);
   } else {
     const cross = generateCrossRepoExecutionArtifacts({
       groupResults: results,
@@ -2121,6 +2225,7 @@ if (isMain) {
       contractPath: PORTABLE_CONTRACT_PATH,
     });
     console.log(`Generated ${cross.artifacts.length} portable corpus workflows -> ${PORTABLE_CORPUS_DIR}`);
+    console.log(`Cross-repo source -> ${cross.contract.sourceRef}@${cross.contract.sourceCommit}`);
   }
   if (rebalance) {
     console.log('⚠️  --rebalance: membership re-derived from scratch — expect all 23 files to change.');

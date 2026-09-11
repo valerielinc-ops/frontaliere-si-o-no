@@ -77,8 +77,9 @@ const DEFAULT_MAX_PAGES = 100000; // uncapped — loop breaks on yielded>=total 
 const DEFAULT_MIN_DELAY_MS = 2000;
 const DEFAULT_TIMEOUT_MS = 20000;
 // `ST` is both an ISO country code and the common compact prefix in
-// `ST-MAURICE`; only the explicitly spaced form is unambiguous there.
-const AMBIGUOUS_COMPACT_LOCATION_CODES = new Set(['ST']);
+// `ST-MAURICE`; `LUXEMBOURG` is both a country label and a city component in
+// `Luxembourg-Ville`. Only the explicitly spaced form is unambiguous there.
+const AMBIGUOUS_COMPACT_LOCATION_MARKERS = new Set(['st', 'luxembourg']);
 
 /* ── URL building ──────────────────────────────────────────────────────── */
 
@@ -513,6 +514,8 @@ function normalizeWorkdayLocationField(value) {
  * Convert the string/object shapes used by Workday location fields to text.
  * Detail payloads commonly put the country in a nested object and use
  * `descriptor` for the human-readable location; String(object) loses both.
+ * The flattened contract is explicit: descriptor, location, city, cityName,
+ * region, country descriptor/name, country.alpha2Code, and country.code.
  */
 export function normalizeWorkdayLocationCandidate(candidate) {
   if (typeof candidate === 'string' || typeof candidate === 'number') {
@@ -542,12 +545,17 @@ export function normalizeWorkdayLocationCandidate(candidate) {
  * requisition location, then listing summary.
  */
 export function getWorkdayLocationCandidates(info = {}, listingLocation = '') {
-  return [
+  // Keep the source order explicit: primary detail, extra detail locations,
+  // requisition location, then the listing summary. Every object in this
+  // list is flattened by normalizeWorkdayLocationCandidate above, including
+  // country.alpha2Code and country.code when Workday supplies them.
+  const rawCandidates = [
     info?.location,
     ...(Array.isArray(info?.additionalLocations) ? info.additionalLocations : []),
     info?.jobRequisitionLocation,
     listingLocation,
-  ].map(normalizeWorkdayLocationCandidate).filter(Boolean);
+  ];
+  return rawCandidates.map(normalizeWorkdayLocationCandidate).filter(Boolean);
 }
 
 /**
@@ -676,16 +684,19 @@ export function firstLocationSegment(locText = '') {
   if (/\d+\s+location/i.test(cleaned)) return '';
 
   // Workday emits both spaced (`CH - Visp`) and compact (`CH-Visp`) country
-  // prefixes. Keep the compact `ST-MAURICE` city boundary: `ST` is also an
-  // ISO country code, so that particular unspaced form is ambiguous.
-  const codePrefixMatch = cleaned.match(/^([A-Z]{2,3})(\s*[-–—]\s*)(.+)$/);
-  const codePrefix = codePrefixMatch?.[1] || '';
-  const codeSeparator = codePrefixMatch?.[2] || '';
-  const codeIsExplicitlySpaced = /^\s+[-–—]\s+$/.test(codeSeparator);
-  const compactCodeIsUnambiguous = !AMBIGUOUS_COMPACT_LOCATION_CODES.has(codePrefix)
-    || codeIsExplicitlySpaced;
-  const prefixMatch = codePrefixMatch && compactCodeIsUnambiguous
-    ? [codePrefixMatch[0], codePrefix, codePrefixMatch[3]]
+  // prefixes. Country-name prefixes occur in the same compact form
+  // (`Switzerland-Visp`), so accept any recognized administrative marker while
+  // keeping compact markers that are also city components (`ST-MAURICE` and
+  // `Luxembourg-Ville`) intact.
+  const administrativePrefixMatch = cleaned.match(/^(.+?)(\s*[-–—]\s*)(.+)$/);
+  const administrativePrefix = administrativePrefixMatch?.[1]?.trim() || '';
+  const administrativeSeparator = administrativePrefixMatch?.[2] || '';
+  const prefixIsExplicitlySpaced = /^\s+[-–—]\s+$/.test(administrativeSeparator);
+  const compactPrefixIsUnambiguous = isAdministrativeLocationMarker(administrativePrefix)
+    && (!AMBIGUOUS_COMPACT_LOCATION_MARKERS.has(normalizeLocationMarker(administrativePrefix))
+      || prefixIsExplicitlySpaced);
+  const prefixMatch = administrativePrefixMatch && compactPrefixIsUnambiguous
+    ? [administrativePrefixMatch[0], administrativePrefix, administrativePrefixMatch[3]]
     : cleaned.match(/^(.+?)\s+[-–—]\s+(.+)$/);
   const countryPrefix = prefixMatch && isAdministrativeLocationMarker(prefixMatch[1])
     ? prefixMatch

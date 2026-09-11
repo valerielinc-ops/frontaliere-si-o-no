@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-09-09T23:06:31.333Z",
+  "assembledAt": "2026-09-11T13:39:42.980Z",
   "jobs": [
     {
       "id": "fusalp-375e9ddc749d",
@@ -33,7 +33,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-26-80_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:16.733Z",
+      "crawledAt": "2026-09-11T13:39:29.175Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -66,6 +66,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:23:06.096Z",
+      "needsRetranslation": true,
       "salaryMin": 57600,
       "salaryMax": 88800,
       "salarySource": "estimated",
@@ -112,7 +113,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-100_val-de-bagnes",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:15.697Z",
+      "crawledAt": "2026-09-11T13:39:28.225Z",
       "addressLocality": "Val De Bagnes",
       "addressCountry": "CH",
       "country": "CH",
@@ -145,6 +146,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:23:04.982Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -191,7 +193,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/ales-associate-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:14.733Z",
+      "crawledAt": "2026-09-11T13:39:27.033Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -208,6 +210,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-28T05:23:03.917Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -240,7 +243,7 @@
         "it": "ASSISTANT STORE MANAGER M/F - Dal 26 al 27 aprile al 100%",
         "en": "ASSISTANT STORE MANAGER M/W - Déc 26 to April 27 - 100%",
         "de": "Assistent STORE MANAGER M/W - Déc 26 to April 27 - 100%",
-        "fr": "MANAGER ASSISTANT H/F - Déc 26 au 27 avril - 100%"
+        "fr": "ASSISTANT STORE MANAGER M/W - Déc 26 to April 27 - 100%"
       },
       "description": "Lead by example on the sales floor and deliver an exceptional client experience. Drive sales, clienteling and boutique KPIs, turning performance indicators into concrete actions. Coach and support Sales Associates through daily feedback and hands-on guidance. Support the Store Manager in organising daily activity and maintaining strong operational standards. Take ownership of the boutique when required, including opening and closing procedures. Ensure Fusalp's visual merchandising and presentation standards are consistently maintained. Work alongside the team on stock, deliveries, replenishment, inventories and daily operations What will help you succeed Here, experience matters. We are looking for someone who can bring proven premium retail expertise and support the team from day one. This is a hands-on leadership role. You will lead from the floor, stay close to clients and the team, and step into operations whenever needed. During peak periods, the boutique requires calm, decisive and reliable leadership. Must-have Solid experience in premium or luxury retail. Previous responsibility for a team, sales floor or boutique operations. Strong understanding of clienteling, sales targets and retail KPIs. The ability to coach others and raise team performance. Confidence to make decisions and take ownership when the Store Manager is absent. English is required. Availability to work a flexible rota, including weekends, public holidays and peak trading periods. Nice-to-have German, French or any additional language. Experience in luxury fashion, ski, outdoor or performance apparel. Previous Assistant Store Manager or Supervisor experience. What you’ll love working here Seasonal 100% contract from December 2026 to 15 April 2027. CHF 5,000 per month + bonus. The salary is flexible and may be adjusted based on the candidate’s profile, qualifications, and experience. Leadership, product and client-experience development. The opportunity to take a key role in one of Fusalp’s strategic Alpine boutiques.",
       "descriptionByLocale": {
@@ -254,7 +257,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:13.437Z",
+      "crawledAt": "2026-09-11T13:39:25.988Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -281,6 +284,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:09:40.027Z",
+      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -327,7 +331,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:06:11.672Z",
+      "crawledAt": "2026-09-11T13:39:24.410Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -360,6 +364,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T14:16:04.933Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -374,6 +379,138 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "fusalp-3744771338a4",
+      "slug": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
+      "slugByLocale": {
+        "en": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
+        "it": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
+        "de": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
+        "fr": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
+      },
+      "company": "Fusalp",
+      "companyKey": "fusalp",
+      "companyDomain": "fusalp.com",
+      "title": "STORE MANAGER (M/W)– Permanent contract - 100% - 1 November 2026",
+      "titleByLocale": {
+        "en": "STORE MANAGER (M/W)– Permanent contract - 100% - 1 November 2026",
+        "it": "STORE MANAGER (M/W)– Permanent contract - 100% - 1 November 2026",
+        "de": "STORE MANAGER (M/W)– Permanent contract - 100% - 1 November 2026",
+        "fr": "STORE MANAGER (M/W)– Permanent contract - 100% - 1 November 2026"
+      },
+      "description": "Lead the boutique with full ownership of commercial performance, client experience, team management and daily operations. Drive sales, clienteling and boutique KPIs, turning performance indicators into clear priorities and concrete actions. Lead from the floor: remain close to clients, coach the team in real time and set the standard through your own behaviour. Recruit, onboard, develop and retain a high-performing team, creating clarity, accountability and a strong team culture. Build long-term relationships with local and international clients and actively develop the boutique’s client portfolio. Ensure impeccable visual merchandising, stock management, cash handling, opening/closing procedures and operational standards. Maintain strong communication with the Country Manager and support teams, anticipating issues and following through on agreed actions. Take responsibility for the boutique during peak periods and ensure the team remains organised, engaged and commercially focused. At Fusalp, everyone contributes to the success of the boutique, whatever the task. What will help you succeed Here, experience matters. We are looking for someone who has already proven that they can lead a premium retail environment, drive results and create a team that clients and colleagues can rely on. Gstaad is a high-expectation retail environment with strong seasonal peaks. This is not a back-office management role: you will be visible on the floor, close to clients and the team, while keeping full control of commercial and operational priorities. The boutique team is international, and the Store Manager is expected to bring structure, consistency and leadership every day. Must-have At least 5 years of solid retail experience, ideally including several years in a Store Manager, Assistant Store Manager or comparable leadership role. Proven experience in premium or luxury retail, with strong understanding of clienteling, sales targets, conversion, average basket, UPT and other retail KPIs. German is required, as the boutique is located in the Canton of Bern and serves a German-speaking market. English is required for our international clientele and internal communication. Demonstrated experience leading, coaching and developing a team, with the confidence to address performance issues when needed. Strong operational discipline: able to plan, prioritise, follow up and ensure that actions are completed. A hands-on leadership style and the ability to stay composed and decisive in a demanding seasonal environment. Availability to work a flexible retail rota, including weekends, public holidays and peak trading periods. Nice-to-have French is highly appreciated. Experience in luxury fashion, ski, outdoor or technical apparel. Knowledge of the Gstaad / Bernese Oberland retail environment or an established local network. Any additional language relevant to an international clientele. What you’ll love working here A permanent 100% contract starting on 1 November 2026. CHF 5,500 per month + bonus. The opportunity to lead one of Fusalp’s key Alpine boutiques. Continuous development in leadership, product expertise, client experience and commercial performance. The opportunity to grow within an international House with strong retail ambitions.",
+      "descriptionByLocale": {
+        "en": "Lead the boutique with full ownership of commercial performance, client experience, team management and daily operations. Drive sales, clienteling and boutique KPIs, turning performance indicators into clear priorities and concrete actions. Lead from the floor: remain close to clients, coach the team in real time and set the standard through your own behaviour. Recruit, onboard, develop and retain a high-performing team, creating clarity, accountability and a strong team culture. Build long-term relationships with local and international clients and actively develop the boutique’s client portfolio. Ensure impeccable visual merchandising, stock management, cash handling, opening/closing procedures and operational standards. Maintain strong communication with the Country Manager and support teams, anticipating issues and following through on agreed actions. Take responsibility for the boutique during peak periods and ensure the team remains organised, engaged and commercially focused. At Fusalp, everyone contributes to the success of the boutique, whatever the task. What will help you succeed Here, experience matters. We are looking for someone who has already proven that they can lead a premium retail environment, drive results and create a team that clients and colleagues can rely on. Gstaad is a high-expectation retail environment with strong seasonal peaks. This is not a back-office management role: you will be visible on the floor, close to clients and the team, while keeping full control of commercial and operational priorities. The boutique team is international, and the Store Manager is expected to bring structure, consistency and leadership every day. Must-have At least 5 years of solid retail experience, ideally including several years in a Store Manager, Assistant Store Manager or comparable leadership role. Proven experience in premium or luxury retail, with strong understanding of clienteling, sales targets, conversion, average basket, UPT and other retail KPIs. German is required, as the boutique is located in the Canton of Bern and serves a German-speaking market. English is required for our international clientele and internal communication. Demonstrated experience leading, coaching and developing a team, with the confidence to address performance issues when needed. Strong operational discipline: able to plan, prioritise, follow up and ensure that actions are completed. A hands-on leadership style and the ability to stay composed and decisive in a demanding seasonal environment. Availability to work a flexible retail rota, including weekends, public holidays and peak trading periods. Nice-to-have French is highly appreciated. Experience in luxury fashion, ski, outdoor or technical apparel. Knowledge of the Gstaad / Bernese Oberland retail environment or an established local network. Any additional language relevant to an international clientele. What you’ll love working here A permanent 100% contract starting on 1 November 2026. CHF 5,500 per month + bonus. The opportunity to lead one of Fusalp’s key Alpine boutiques. Continuous development in leadership, product expertise, client experience and commercial performance. The opportunity to grow within an international House with strong retail ambitions.",
+        "it": "Lead the boutique with full ownership of commercial performance, client experience, team management and daily operations. Drive sales, clienteling and boutique KPIs, turning performance indicators into clear priorities and concrete actions. Lead from the floor: remain close to clients, coach the team in real time and set the standard through your own behaviour. Recruit, onboard, develop and retain a high-performing team, creating clarity, accountability and a strong team culture. Build long-term relationships with local and international clients and actively develop the boutique’s client portfolio. Ensure impeccable visual merchandising, stock management, cash handling, opening/closing procedures and operational standards. Maintain strong communication with the Country Manager and support teams, anticipating issues and following through on agreed actions. Take responsibility for the boutique during peak periods and ensure the team remains organised, engaged and commercially focused. At Fusalp, everyone contributes to the success of the boutique, whatever the task. What will help you succeed Here, experience matters. We are looking for someone who has already proven that they can lead a premium retail environment, drive results and create a team that clients and colleagues can rely on. Gstaad is a high-expectation retail environment with strong seasonal peaks. This is not a back-office management role: you will be visible on the floor, close to clients and the team, while keeping full control of commercial and operational priorities. The boutique team is international, and the Store Manager is expected to bring structure, consistency and leadership every day. Must-have At least 5 years of solid retail experience, ideally including several years in a Store Manager, Assistant Store Manager or comparable leadership role. Proven experience in premium or luxury retail, with strong understanding of clienteling, sales targets, conversion, average basket, UPT and other retail KPIs. German is required, as the boutique is located in the Canton of Bern and serves a German-speaking market. English is required for our international clientele and internal communication. Demonstrated experience leading, coaching and developing a team, with the confidence to address performance issues when needed. Strong operational discipline: able to plan, prioritise, follow up and ensure that actions are completed. A hands-on leadership style and the ability to stay composed and decisive in a demanding seasonal environment. Availability to work a flexible retail rota, including weekends, public holidays and peak trading periods. Nice-to-have French is highly appreciated. Experience in luxury fashion, ski, outdoor or technical apparel. Knowledge of the Gstaad / Bernese Oberland retail environment or an established local network. Any additional language relevant to an international clientele. What you’ll love working here A permanent 100% contract starting on 1 November 2026. CHF 5,500 per month + bonus. The opportunity to lead one of Fusalp’s key Alpine boutiques. Continuous development in leadership, product expertise, client experience and commercial performance. The opportunity to grow within an international House with strong retail ambitions.",
+        "de": "Lead the boutique with full ownership of commercial performance, client experience, team management and daily operations. Drive sales, clienteling and boutique KPIs, turning performance indicators into clear priorities and concrete actions. Lead from the floor: remain close to clients, coach the team in real time and set the standard through your own behaviour. Recruit, onboard, develop and retain a high-performing team, creating clarity, accountability and a strong team culture. Build long-term relationships with local and international clients and actively develop the boutique’s client portfolio. Ensure impeccable visual merchandising, stock management, cash handling, opening/closing procedures and operational standards. Maintain strong communication with the Country Manager and support teams, anticipating issues and following through on agreed actions. Take responsibility for the boutique during peak periods and ensure the team remains organised, engaged and commercially focused. At Fusalp, everyone contributes to the success of the boutique, whatever the task. What will help you succeed Here, experience matters. We are looking for someone who has already proven that they can lead a premium retail environment, drive results and create a team that clients and colleagues can rely on. Gstaad is a high-expectation retail environment with strong seasonal peaks. This is not a back-office management role: you will be visible on the floor, close to clients and the team, while keeping full control of commercial and operational priorities. The boutique team is international, and the Store Manager is expected to bring structure, consistency and leadership every day. Must-have At least 5 years of solid retail experience, ideally including several years in a Store Manager, Assistant Store Manager or comparable leadership role. Proven experience in premium or luxury retail, with strong understanding of clienteling, sales targets, conversion, average basket, UPT and other retail KPIs. German is required, as the boutique is located in the Canton of Bern and serves a German-speaking market. English is required for our international clientele and internal communication. Demonstrated experience leading, coaching and developing a team, with the confidence to address performance issues when needed. Strong operational discipline: able to plan, prioritise, follow up and ensure that actions are completed. A hands-on leadership style and the ability to stay composed and decisive in a demanding seasonal environment. Availability to work a flexible retail rota, including weekends, public holidays and peak trading periods. Nice-to-have French is highly appreciated. Experience in luxury fashion, ski, outdoor or technical apparel. Knowledge of the Gstaad / Bernese Oberland retail environment or an established local network. Any additional language relevant to an international clientele. What you’ll love working here A permanent 100% contract starting on 1 November 2026. CHF 5,500 per month + bonus. The opportunity to lead one of Fusalp’s key Alpine boutiques. Continuous development in leadership, product expertise, client experience and commercial performance. The opportunity to grow within an international House with strong retail ambitions.",
+        "fr": "Lead the boutique with full ownership of commercial performance, client experience, team management and daily operations. Drive sales, clienteling and boutique KPIs, turning performance indicators into clear priorities and concrete actions. Lead from the floor: remain close to clients, coach the team in real time and set the standard through your own behaviour. Recruit, onboard, develop and retain a high-performing team, creating clarity, accountability and a strong team culture. Build long-term relationships with local and international clients and actively develop the boutique’s client portfolio. Ensure impeccable visual merchandising, stock management, cash handling, opening/closing procedures and operational standards. Maintain strong communication with the Country Manager and support teams, anticipating issues and following through on agreed actions. Take responsibility for the boutique during peak periods and ensure the team remains organised, engaged and commercially focused. At Fusalp, everyone contributes to the success of the boutique, whatever the task. What will help you succeed Here, experience matters. We are looking for someone who has already proven that they can lead a premium retail environment, drive results and create a team that clients and colleagues can rely on. Gstaad is a high-expectation retail environment with strong seasonal peaks. This is not a back-office management role: you will be visible on the floor, close to clients and the team, while keeping full control of commercial and operational priorities. The boutique team is international, and the Store Manager is expected to bring structure, consistency and leadership every day. Must-have At least 5 years of solid retail experience, ideally including several years in a Store Manager, Assistant Store Manager or comparable leadership role. Proven experience in premium or luxury retail, with strong understanding of clienteling, sales targets, conversion, average basket, UPT and other retail KPIs. German is required, as the boutique is located in the Canton of Bern and serves a German-speaking market. English is required for our international clientele and internal communication. Demonstrated experience leading, coaching and developing a team, with the confidence to address performance issues when needed. Strong operational discipline: able to plan, prioritise, follow up and ensure that actions are completed. A hands-on leadership style and the ability to stay composed and decisive in a demanding seasonal environment. Availability to work a flexible retail rota, including weekends, public holidays and peak trading periods. Nice-to-have French is highly appreciated. Experience in luxury fashion, ski, outdoor or technical apparel. Knowledge of the Gstaad / Bernese Oberland retail environment or an established local network. Any additional language relevant to an international clientele. What you’ll love working here A permanent 100% contract starting on 1 November 2026. CHF 5,500 per month + bonus. The opportunity to lead one of Fusalp’s key Alpine boutiques. Continuous development in leadership, product expertise, client experience and commercial performance. The opportunity to grow within an international House with strong retail ambitions."
+      },
+      "location": "Saanen",
+      "canton": "BE",
+      "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
+      "source": "Fusalp Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-11T13:39:22.216Z",
+      "addressLocality": "Saanen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3780",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Moda / Abbigliamento sportivo",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 109000,
+      "salaryMax": 167000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 109000,
+          "maxValue": 167000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-09-11T13:39:22.216Z"
+    },
+    {
+      "id": "fusalp-5577407b4e47",
+      "slug": "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana",
+      "slugByLocale": {
+        "en": "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana",
+        "it": "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana",
+        "de": "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana",
+        "fr": "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana"
+      },
+      "company": "Fusalp",
+      "companyKey": "fusalp",
+      "companyDomain": "fusalp.com",
+      "title": "SALES ASSOCIATE (M/W) – 4 month 100% Fixed-term contract",
+      "titleByLocale": {
+        "en": "SALES ASSOCIATE (M/W) – 4 month 100% Fixed-term contract",
+        "it": "SALES ASSOCIATE (M/W) – 4 month 100% Fixed-term contract",
+        "de": "SALES ASSOCIATE (M/W) – 4 month 100% Fixed-term contract",
+        "fr": "SALES ASSOCIATE (M/W) – 4 month 100% Fixed-term contract"
+      },
+      "description": "Welcome and engage local and international clients with warmth, confidence and positive energy. Understand client needs and turn each interaction into a personalised, commercial and memorable experience. Actively contribute to sales targets, KPIs, clienteling and repeat business. Develop strong product knowledge and share Fusalp's heritage, craftsmanship and technical expertise with enthusiasm. Be proactive on the sales floor: approach clients, create opportunities and contribute to the rhythm of the boutique. Take part in all daily operations, including visual merchandising, stock, deliveries, replenishment, inventories and boutique standards. What will help you succeed We are looking for someone who enjoys the energy of retail and genuinely likes to sell. You are naturally proactive, comfortable approaching clients and motivated by both individual and team performance. Crans-Montana is a seasonal and client-driven environment. You will spend most of your time on the sales floor, creating relationships and commercial opportunities. In our boutique, everyone contributes: selling, clienteling, stock, deliveries and presentation standards are a shared responsibility. Must-have A first successful customer-facing experience, ideally in retail, fashion, premium hospitality or another environment where sales and service are central. A genuine sales mindset: you enjoy approaching clients, understanding their needs and working towards commercial targets. Energy, initiative and the ability to create positive momentum on the sales floor. Reliability, team spirit and a hands-on attitude. English is required. Availability to commit to the full winter season, including weekends, public holidays and peak trading periods. Nice-to-have Previous experience in premium or luxury retail. French, German or any additional language. Experience with clienteling, CRM or retail KPIs. An interest in fashion, ski, mountain lifestyle or technical apparel. What you’ll love working here Seasonal 100% contract from December 2026 to 15 April 2027 CHF 4,500 per month + bonus. Continuous training in products, client experience and retail excellence. The opportunity to gain strong experience in one of Fusalp's boutique",
+      "descriptionByLocale": {
+        "en": "Welcome and engage local and international clients with warmth, confidence and positive energy. Understand client needs and turn each interaction into a personalised, commercial and memorable experience. Actively contribute to sales targets, KPIs, clienteling and repeat business. Develop strong product knowledge and share Fusalp's heritage, craftsmanship and technical expertise with enthusiasm. Be proactive on the sales floor: approach clients, create opportunities and contribute to the rhythm of the boutique. Take part in all daily operations, including visual merchandising, stock, deliveries, replenishment, inventories and boutique standards. What will help you succeed We are looking for someone who enjoys the energy of retail and genuinely likes to sell. You are naturally proactive, comfortable approaching clients and motivated by both individual and team performance. Crans-Montana is a seasonal and client-driven environment. You will spend most of your time on the sales floor, creating relationships and commercial opportunities. In our boutique, everyone contributes: selling, clienteling, stock, deliveries and presentation standards are a shared responsibility. Must-have A first successful customer-facing experience, ideally in retail, fashion, premium hospitality or another environment where sales and service are central. A genuine sales mindset: you enjoy approaching clients, understanding their needs and working towards commercial targets. Energy, initiative and the ability to create positive momentum on the sales floor. Reliability, team spirit and a hands-on attitude. English is required. Availability to commit to the full winter season, including weekends, public holidays and peak trading periods. Nice-to-have Previous experience in premium or luxury retail. French, German or any additional language. Experience with clienteling, CRM or retail KPIs. An interest in fashion, ski, mountain lifestyle or technical apparel. What you’ll love working here Seasonal 100% contract from December 2026 to 15 April 2027 CHF 4,500 per month + bonus. Continuous training in products, client experience and retail excellence. The opportunity to gain strong experience in one of Fusalp's boutique",
+        "it": "Welcome and engage local and international clients with warmth, confidence and positive energy. Understand client needs and turn each interaction into a personalised, commercial and memorable experience. Actively contribute to sales targets, KPIs, clienteling and repeat business. Develop strong product knowledge and share Fusalp's heritage, craftsmanship and technical expertise with enthusiasm. Be proactive on the sales floor: approach clients, create opportunities and contribute to the rhythm of the boutique. Take part in all daily operations, including visual merchandising, stock, deliveries, replenishment, inventories and boutique standards. What will help you succeed We are looking for someone who enjoys the energy of retail and genuinely likes to sell. You are naturally proactive, comfortable approaching clients and motivated by both individual and team performance. Crans-Montana is a seasonal and client-driven environment. You will spend most of your time on the sales floor, creating relationships and commercial opportunities. In our boutique, everyone contributes: selling, clienteling, stock, deliveries and presentation standards are a shared responsibility. Must-have A first successful customer-facing experience, ideally in retail, fashion, premium hospitality or another environment where sales and service are central. A genuine sales mindset: you enjoy approaching clients, understanding their needs and working towards commercial targets. Energy, initiative and the ability to create positive momentum on the sales floor. Reliability, team spirit and a hands-on attitude. English is required. Availability to commit to the full winter season, including weekends, public holidays and peak trading periods. Nice-to-have Previous experience in premium or luxury retail. French, German or any additional language. Experience with clienteling, CRM or retail KPIs. An interest in fashion, ski, mountain lifestyle or technical apparel. What you’ll love working here Seasonal 100% contract from December 2026 to 15 April 2027 CHF 4,500 per month + bonus. Continuous training in products, client experience and retail excellence. The opportunity to gain strong experience in one of Fusalp's boutique",
+        "de": "Welcome and engage local and international clients with warmth, confidence and positive energy. Understand client needs and turn each interaction into a personalised, commercial and memorable experience. Actively contribute to sales targets, KPIs, clienteling and repeat business. Develop strong product knowledge and share Fusalp's heritage, craftsmanship and technical expertise with enthusiasm. Be proactive on the sales floor: approach clients, create opportunities and contribute to the rhythm of the boutique. Take part in all daily operations, including visual merchandising, stock, deliveries, replenishment, inventories and boutique standards. What will help you succeed We are looking for someone who enjoys the energy of retail and genuinely likes to sell. You are naturally proactive, comfortable approaching clients and motivated by both individual and team performance. Crans-Montana is a seasonal and client-driven environment. You will spend most of your time on the sales floor, creating relationships and commercial opportunities. In our boutique, everyone contributes: selling, clienteling, stock, deliveries and presentation standards are a shared responsibility. Must-have A first successful customer-facing experience, ideally in retail, fashion, premium hospitality or another environment where sales and service are central. A genuine sales mindset: you enjoy approaching clients, understanding their needs and working towards commercial targets. Energy, initiative and the ability to create positive momentum on the sales floor. Reliability, team spirit and a hands-on attitude. English is required. Availability to commit to the full winter season, including weekends, public holidays and peak trading periods. Nice-to-have Previous experience in premium or luxury retail. French, German or any additional language. Experience with clienteling, CRM or retail KPIs. An interest in fashion, ski, mountain lifestyle or technical apparel. What you’ll love working here Seasonal 100% contract from December 2026 to 15 April 2027 CHF 4,500 per month + bonus. Continuous training in products, client experience and retail excellence. The opportunity to gain strong experience in one of Fusalp's boutique",
+        "fr": "Welcome and engage local and international clients with warmth, confidence and positive energy. Understand client needs and turn each interaction into a personalised, commercial and memorable experience. Actively contribute to sales targets, KPIs, clienteling and repeat business. Develop strong product knowledge and share Fusalp's heritage, craftsmanship and technical expertise with enthusiasm. Be proactive on the sales floor: approach clients, create opportunities and contribute to the rhythm of the boutique. Take part in all daily operations, including visual merchandising, stock, deliveries, replenishment, inventories and boutique standards. What will help you succeed We are looking for someone who enjoys the energy of retail and genuinely likes to sell. You are naturally proactive, comfortable approaching clients and motivated by both individual and team performance. Crans-Montana is a seasonal and client-driven environment. You will spend most of your time on the sales floor, creating relationships and commercial opportunities. In our boutique, everyone contributes: selling, clienteling, stock, deliveries and presentation standards are a shared responsibility. Must-have A first successful customer-facing experience, ideally in retail, fashion, premium hospitality or another environment where sales and service are central. A genuine sales mindset: you enjoy approaching clients, understanding their needs and working towards commercial targets. Energy, initiative and the ability to create positive momentum on the sales floor. Reliability, team spirit and a hands-on attitude. English is required. Availability to commit to the full winter season, including weekends, public holidays and peak trading periods. Nice-to-have Previous experience in premium or luxury retail. French, German or any additional language. Experience with clienteling, CRM or retail KPIs. An interest in fashion, ski, mountain lifestyle or technical apparel. What you’ll love working here Seasonal 100% contract from December 2026 to 15 April 2027 CHF 4,500 per month + bonus. Continuous training in products, client experience and retail excellence. The opportunity to gain strong experience in one of Fusalp's boutique"
+      },
+      "location": "Crans-Montana",
+      "canton": "VS",
+      "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-4-month-100-fixed-term-contract_annecy",
+      "source": "Fusalp Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-11T13:39:21.213Z",
+      "addressLocality": "Crans-Montana",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3963",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Moda / Abbigliamento sportivo",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-4-month-100-fixed-term-contract_annecy",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-09-11T13:39:21.213Z"
     }
   ]
 }

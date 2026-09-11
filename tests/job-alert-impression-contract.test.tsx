@@ -165,7 +165,7 @@ describe('#5040 — the apply hand-off leaves a visible trace on the page', () =
     // PostHog calls a click dead when nothing mutates within 2.5s. A bare
     // window.open mutates nothing, so every apply — our highest-intent action —
     // was logged as a $dead_click AND left the returning user with no feedback.
-    expect(src()).toMatch(/window\.open\(buildReferralUrl\(job\.url, job\), '_blank', 'noopener,noreferrer'\);[\s\S]{0,400}setAppliedJobId\(job\.id\);/);
+    expect(src()).toMatch(/window\.open\(applyDestination, '_blank', 'noopener,noreferrer'\);[\s\S]{0,400}setAppliedJobId\(job\.id\);/);
   });
 
   it('the receipt is rendered on both the mobile and the desktop apply blocks', () => {

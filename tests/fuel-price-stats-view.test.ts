@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { buildFuelViewSearch, datasetFreshness, fuelRowView, parseFuelViewState, type FuelViewState } from '../components/pages/FuelPriceStats';
+import { buildFuelViewSearch, datasetFreshness, fuelRowView, pageForSelectedRow, parseFuelViewState, type FuelRowViewFactory, type FuelType, type FuelViewState } from '../components/pages/FuelPriceStats';
 import type { FuelPricesDataset, FuelStationItaly, FuelStationSwitzerland, MunicipalityFuelRow } from '../services/fuelPricesService';
+
+type IsAny<T> = 0 extends (1 & T) ? true : false;
+type Assert<T extends true> = T;
+type FuelTypeIsConcrete = Assert<IsAny<FuelType> extends false ? true : false>;
+type FuelRowViewIsConcrete = Assert<IsAny<ReturnType<typeof fuelRowView>> extends false ? true : false>;
+type FuelRowViewFactoryIsConcrete = Assert<IsAny<FuelRowViewFactory> extends false ? true : false>;
 
 const IT: FuelStationItaly = {
   id: 'it-1', stationName: 'Stazione Italia', brand: 'Test', address: 'Via Roma 1, Como', lat: 45.8, lng: 9.1,
@@ -38,10 +44,25 @@ function dataset(overrides: Partial<FuelPricesDataset> = {}): FuelPricesDataset 
 }
 
 describe('fuel comparison view model', () => {
+  it('keeps the diesel projection behind the typed row-view contract', () => {
+    const project: FuelRowViewFactory = fuelRowView;
+    const view = project(row(), 'diesel');
+    expect(view.italy.stationCount).toBe(1);
+    expect(view.swiss.optionCount).toBe(1);
+  });
+
   it('round-trips shareable controls without creating an indexed route', () => {
     const state: FuelViewState = { fuelType: 'diesel', search: 'Como centro', province: 'CO', sortKey: 'swiss', selectedKey: 'Como|CO', homeMunicipalityKey: 'Como|CO', tankLiters: 65, costPerKmEur: 0.23, page: 3 };
     expect(parseFuelViewState(`?${buildFuelViewSearch(state)}`)).toEqual(state);
     expect(buildFuelViewSearch({ ...state, fuelType: 'benzina', search: '', province: 'ALL', sortKey: 'saving', selectedKey: null, homeMunicipalityKey: '', tankLiters: 50, costPerKmEur: 0.18, page: 1 })).toBe('');
+  });
+
+  it('moves a selected municipality onto the visible page when a shared URL is stale', () => {
+    const rows = Array.from({ length: 49 }, (_, index) => row({ municipality: `Comune ${index}`, province: 'TI' }));
+    expect(pageForSelectedRow(rows, rows[24], 24)).toBe(2);
+    expect(pageForSelectedRow(rows, rows[48], 24)).toBe(3);
+    expect(pageForSelectedRow(rows, row({ municipality: 'Missing', province: 'TI' }), 24)).toBeNull();
+    expect(pageForSelectedRow(rows, rows[24], 0)).toBeNull();
   });
 
   it('does not use benzina prices when diesel aggregates are unavailable', () => {
@@ -80,6 +101,14 @@ describe('fuel data freshness', () => {
     const sources = dataset().sources;
     expect(datasetFreshness(dataset({ generatedAt: '2026-09-08T00:00:00.000Z', sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: '2026-09-08T00:00:00.000Z' } } }), now)).toBe('current');
     expect(datasetFreshness(dataset({ generatedAt: '2026-09-07T23:00:00.000Z', sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: '2026-09-07T23:00:00.000Z' } } }), now)).toBe('stale');
+  });
+
+  it('tolerates a small producer clock skew but rejects a future timestamp beyond it', () => {
+    const sources = dataset().sources;
+    const slightlyAhead = new Date(now + 2 * 60 * 1000).toISOString();
+    const tooFarAhead = new Date(now + 6 * 60 * 1000).toISOString();
+    expect(datasetFreshness(dataset({ sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: slightlyAhead } } }), now)).toBe('current');
+    expect(datasetFreshness(dataset({ sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: tooFarAhead } } }), now)).toBe('stale');
   });
 
   it('returns unknown only when no usable timestamp exists', () => {

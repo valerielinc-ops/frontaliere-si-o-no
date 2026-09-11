@@ -98,11 +98,18 @@ describe('GA4 page_view employer attribution', () => {
     expect(jobBoardSource).toMatch(
       /companyRouteSlugCandidates\(job\.company, job\.companyKey\)/,
     );
-    expect(jobBoardSource).toContain(
-      "const pageViewPath = typeof window === 'undefined' ? '' : `${window.location.pathname}${window.location.search}${window.location.hash}`;",
-    );
-    expect(jobBoardSource).toContain('}, [pageViewIdentity, pageViewPath]);');
-    expect(jobBoardSource).toContain('if (!pageViewPath) {');
+    expect(jobBoardSource).toContain('function readCurrentPageViewPath(): string');
+    expect(jobBoardSource).toContain('const path = readCurrentPageViewPath();');
+    expect(jobBoardSource).toContain('const [pageViewNavigationVersion, setPageViewNavigationVersion] = useState(0);');
+    expect(jobBoardSource).toContain("window.addEventListener('popstate', onHistoryNavigation)");
+    expect(jobBoardSource).toContain('window.history.pushState = wrappedPushState;');
+    expect(jobBoardSource).toContain('const wrappedPushState = historyPushStateRef.current?.wrappedPushState;');
+    expect(jobBoardSource).toContain('window.history.pushState !== wrappedPushState');
+    expect(jobBoardSource).toContain('installHistoryPushStateWrapper();');
+    expect(jobBoardSource).toContain('pageViewTrackedKey.current = null;');
+    expect(jobBoardSource).toContain('pageViewEmission.current = null;');
+    expect(jobBoardSource).toContain('const originalId = pageViewEmission.current?.path === path ? pageViewEmission.current.id : undefined;');
+    expect(jobBoardSource).not.toContain('const pageViewPath = typeof window');
     expect(jobBoardSource).toContain("pageTemplate !== 'job_detail'");
     expect(jobBoardSource).not.toContain('if (!pageViewIdentity || !pageViewPath) return;');
     expect(uiStateSource).toMatch(

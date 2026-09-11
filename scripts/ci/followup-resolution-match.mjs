@@ -156,6 +156,11 @@ export function canonicalDailyBuckets(issues) {
  */
 export function isDistinctiveToken(s) {
   if (s.length < 6 || s.length > 80) return false;
+  // Markdown source locations such as `scripts/ci/review-gate.mjs:L410` are
+  // citation metadata, not prescribed code.  The file is already extracted by
+  // `citedFiles()`; counting its `:Lnnn` suffix as a second token makes a
+  // resolved item look unresolved whenever the issue includes a line anchor.
+  if (/^[\w./-]+\.[a-z0-9]{2,5}:L?\d+$/i.test(s) && s.includes('/')) return false;
   if (/^[\w./-]+$/.test(s) && /\.[a-z]{2,4}$/i.test(s)) return false; // bare file path
   if (/\s/.test(s.trim()) && !/[(){}'"`:=<>]|\.\w/.test(s)) return false; // prose phrase
   // ONLY code punctuation qualifies. A bare identifier (even a familiar field/helper name
@@ -285,6 +290,33 @@ export function citedTokens(body) {
     if (isDistinctiveToken(t)) out.add(t);
   }
   return [...out].slice(0, 8);
+}
+
+/** Normalize the explicit acceptance token carried by a stable daily item. */
+export function normalizeAcceptanceToken(value) {
+  return String(value || '').trim().replace(/^`+|`+$/g, '').trim();
+}
+
+function escapedRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Match a prescribed zero-argument call token against a real invocation with
+ * arguments. The acceptance field names the callable (`foo()`), while the
+ * implementation may necessarily pass data (`foo(value)`). A declaration is
+ * not an invocation and must not satisfy this normalization.
+ */
+function codeTokenMatches(content, token) {
+  const emptyCall = /^([A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)*)\(\)$/u.exec(token);
+  if (!emptyCall) return content.includes(token);
+  const callRe = new RegExp(`(^|[^A-Za-z0-9_$])${escapedRegExp(emptyCall[1])}\\s*\\(`, 'gu');
+  for (const match of content.matchAll(callRe)) {
+    const callStart = (match.index ?? 0) + match[1].length;
+    if (/\bfunction\s*$/.test(content.slice(0, callStart))) continue;
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -987,8 +1019,9 @@ export function closingMergedPr(issueNumber, mergedPrs) {
  * worse than a wasted run):
  *   1. There is at least one distinctive cited token (code-punctuation-carrying — a bare
  *      field name like `previousSlugs` no longer qualifies); AND
- *   2. EVERY distinctive token from the prescribed `Suggested action` is present verbatim
- *      in a cited file. Requiring ALL of them — not merely *some* token, and not just the
+ *   2. EVERY token in the selected prescribed set is present in a cited file. Stable daily
+ *      items use their explicit `Acceptance token`; legacy bodies use every distinctive
+ *      token from `Suggested action`. Requiring ALL of them — not merely *some* token, and not just the
  *      heuristic "most-specific" one — means a single coincidental field-name hit can
  *      never alone flip `resolved` to true; the whole prescribed shape must be on main.
  *      (This is a strict superset of "most-specific token present", and unlike that test
@@ -1005,10 +1038,12 @@ export function closingMergedPr(issueNumber, mergedPrs) {
  * @param {object} io
  * @param {(path: string) => boolean} io.fileExists  true if the path resolves
  * @param {(path: string) => (string|null)} io.readFile  current file content, or null
+ * @param {{acceptanceToken?: string}} [options] explicit stable-item acceptance token;
+ *        when present it replaces the legacy Suggested-action token set
  * @returns {{ resolved: boolean, evidence: Array<{file:string, tok:string}>,
  *             files: string[], tokens: string[] }}
  */
-export function detectAlreadyResolved(body, io) {
+export function detectAlreadyResolved(body, io, options = {}) {
   const empty = { resolved: false, evidence: [], files: [], tokens: [] };
   try {
     const fileExists = io && typeof io.fileExists === 'function' ? io.fileExists : () => false;
@@ -1019,7 +1054,10 @@ export function detectAlreadyResolved(body, io) {
     // prescribed token. Keep it out of the token-resolution path entirely, while
     // preserving the free-form issue fallback for bodies with no sheet at all.
     const sheetOnly = COMMAND_CONDITION.holds(bodyText) && !ACCEPTANCE_CONDITION.holds(bodyText);
-    const tokens = sheetOnly ? [] : citedTokens(bodyText);
+    const acceptanceToken = normalizeAcceptanceToken(options?.acceptanceToken);
+    const tokens = acceptanceToken
+      ? (isDistinctiveToken(acceptanceToken) ? [acceptanceToken] : [])
+      : (sheetOnly ? [] : citedTokens(bodyText));
     const evidence = [];
     if (files.length && tokens.length) {
       const cache = new Map();
@@ -1028,7 +1066,10 @@ export function detectAlreadyResolved(body, io) {
         const content = cache.get(file);
         if (typeof content !== 'string') continue;
         for (const tok of tokens) {
-          if (content.includes(tok)) evidence.push({ file, tok });
+          const matched = acceptanceToken
+            ? codeTokenMatches(content, tok)
+            : content.includes(tok);
+          if (matched) evidence.push({ file, tok });
         }
       }
     }

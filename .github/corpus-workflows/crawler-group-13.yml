@@ -1796,13 +1796,37 @@ jobs:
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-13-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs
+      - name: Report crawler generation finalizer failure
+        if: always() && steps.crawler-generation-finalizer.outcome == 'failure'
+        continue-on-error: true
+        run: |-
+          echo "::error::crawler generation finalizer failed; ledger persistence skipped so a missing/partial manifest cannot be recorded as success"
+          echo "❌ crawler generation finalizer failed; ledger persistence skipped (no false-success ledger entry)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
       - name: Persist crawler generation ledger
-        if: always()
+        if: always() && steps.crawler-generation-finalizer.outcome == 'success'
         continue-on-error: true
         env:
           CRAWLER_GENERATION_RECEIPT_DIR: ""
           SKIP_AI_TRANSLATION: "1"
-        run: bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
+        run: |-
+          set +e
+          bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
+          git_commit_exit=$?
+          if [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::crawler generation ledger: push lost the ref race after all retries (contention); this cycle ledger entry was not committed and the next scheduled cycle records its own ledger state."
+            echo "⚠️ crawler generation ledger: push contention loss (exit 42) — this cycle ledger entry was not committed; next scheduled cycle records its own state" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 0
+          fi
+          if [ "$git_commit_exit" -ne 0 ]; then
+            if [ "$git_commit_exit" -eq 43 ]; then
+              echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit 43)"
+              echo "❌ crawler generation ledger: shared deferred-commit precondition failed (exit 43)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            else
+              echo "::error::crawler generation ledger persistence failed (exit $git_commit_exit)"
+              echo "❌ crawler generation ledger persistence failed (exit $git_commit_exit)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            fi
+          fi
+          exit "$git_commit_exit"
       - name: Upload crawler generation manifest (shadow)
         if: always()
         continue-on-error: true

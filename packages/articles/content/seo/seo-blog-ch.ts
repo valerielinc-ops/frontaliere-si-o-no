@@ -81218,6 +81218,240 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-cantonali-giura-aliquote-deduzioni': {
+    title: 'Imposte cantonali Giura: aliquote, scaglioni e deduzioni 2024',
+    description: 'Guida completa alle imposte cantonali e comunali nel Giura: tariffe progressive, moltiplicatori per comune, deduzioni ammesse, scadenze e portale e-tax',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, cantonali, giura, aliquote',
+    ogTitle: 'Imposte cantonali Giura: aliquote, scaglioni e deduzioni',
+    ogDescription: 'Tutto su imposte cantonali e comunali nel Giura: come funzionano le tariffe progressive, i moltiplicatori comunali, le deduzioni ammesse e come presentare la dichiarazione online sul portale ufficiale.',
+    canonicalPath: '/articoli-svizzera/imposte-cantonali-giura-aliquote-deduzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte cantonali Giura: aliquote, scaglioni e deduzioni 2024",
+      "description": "Guida completa alle imposte cantonali e comunali nel Giura: tariffe progressive, moltiplicatori per comune, deduzioni ammesse, scadenze e portale e-tax",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-cantonali-giura-aliquote-deduzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio dell'amministrazione fiscale cantonale svizzera con sportelli per contribuenti"
+      },
+      "datePublished": "2026-09-10T22:13:44+00:00",
+      "dateModified": "2026-09-10T22:13:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-cantonali-giura-aliquote-deduzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-investimento-svizzero-usa-lonza': {
+    title: 'Lonza investe negli USA: nuovo impianto farmaceutico in Oregon',
+    description: 'Il gruppo farmaceutico svizzero Lonza investe negli USA con un nuovo impianto a Bend, Oregon, completamento previsto nel 2029. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lonza, investe, negli, nuovo',
+    ogTitle: 'Lonza investe negli Stati Uniti: nuovo stabilimento in Oregon entro il 2029',
+    ogDescription: 'Il colosso farmaceutico svizzero Lonza ha annunciato la costruzione di un nuovo impianto di produzione a Bend, nell\'Oregon, con oltre 80 nuovi posti di lavoro.',
+    canonicalPath: '/articoli-svizzera/investimento-svizzero-usa-lonza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lonza investe negli USA: nuovo impianto farmaceutico in Oregon",
+      "description": "Il gruppo farmaceutico svizzero Lonza investe negli USA con un nuovo impianto a Bend, Oregon, completamento previsto nel 2029. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/investimento-svizzero-usa-lonza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto farmaceutico Lonza negli Stati Uniti"
+      },
+      "datePublished": "2026-09-11T00:33:25+00:00",
+      "dateModified": "2026-09-11T00:33:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/investimento-svizzero-usa-lonza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-cassa-malati-canton-giura-riduzioni': {
+    title: 'Premi cassa malati nel canton Giura: riduzioni e fasce 2024',
+    description: 'Guida completa ai premi LAMal nel Canton Giura: fasce di franchigia, modelli alternativi e come ottenere la riduzione cantonale. Requisiti, scadenze e strumenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, canton',
+    ogTitle: 'Premi Cassa Malati Canton Giura: Come Ottenere le Riduzioni',
+    ogDescription: 'Tutto sui premi dell\'assicurazione obbligatoria nel Canton Giura: fasce, riduzioni basate su reddito, modelli Telmed/HMO e procedure per i sussidi cantonali. Guida pratica 2024.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-canton-giura-riduzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati nel canton Giura: riduzioni e fasce 2024",
+      "description": "Guida completa ai premi LAMal nel Canton Giura: fasce di franchigia, modelli alternativi e come ottenere la riduzione cantonale. Requisiti, scadenze e strumenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-canton-giura-riduzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Carta assicurazione malattia LAMal con simboli cantonali del Giura e documenti per riduzione premi"
+      },
+      "datePublished": "2026-09-11T00:48:35+00:00",
+      "dateModified": "2026-09-11T00:48:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-canton-giura-riduzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-b-jura-requisiti-rinnovo': {
+    title: 'Permesso di dimora B in Giura: requisiti, rinnovo e ufficio competente',
+    description: 'Scopri come funziona il permesso B nel Cantone di Giura, dalla documentazione alla procedura di rinnovo, con focus su tassazione e assicurazione obbligatoria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, giura, requisiti',
+    ogTitle: 'Permesso di dimora B in Giura: requisiti, rinnovo',
+    ogDescription: 'Scopri come funziona il permesso B nel Cantone di Giura, dalla documentazione alla procedura di rinnovo, con focus su tassazione e assicurazione obbligatoria.',
+    canonicalPath: '/articoli-svizzera/permesso-b-jura-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B in Giura: requisiti, rinnovo e ufficio competente",
+      "description": "Scopri come funziona il permesso B nel Cantone di Giura, dalla documentazione alla procedura di rinnovo, con focus su tassazione e assicurazione obbligatoria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-jura-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale della migrazione nel Cantone di Giura, vista panoramica"
+      },
+      "datePublished": "2026-09-11T03:38:57+00:00",
+      "dateModified": "2026-09-11T03:38:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-jura-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-commissione-ue-approva-accordi-svizzera': {
+    title: 'Commissione Ue approva accordi Svizzera-Ue: passo avanti',
+    description: 'La commissione esteri dell\'Eurocamera approva a larga maggioranza il pacchetto di accordi bilaterali con la Svizzera. Voto in plenaria non ancora fissato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, commissione, approva, accordi, svizzera-ue',
+    ogTitle: 'Commissione Ue approva accordi Svizzera-Ue',
+    ogDescription: 'La commissione per gli affari esteri del Parlamento europeo ha approvato a larga maggioranza il pacchetto di accordi tra Svizzera e Unione europea. Approvata anche una risoluzione di accompagnamento. La votazione in plenaria non è ancora stata',
+    canonicalPath: '/articoli-svizzera/commissione-ue-approva-accordi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commissione Ue approva accordi Svizzera-Ue: passo avanti",
+      "description": "La commissione esteri dell'Eurocamera approva a larga maggioranza il pacchetto di accordi bilaterali con la Svizzera. Voto in plenaria non ancora fissato.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/commissione-ue-approva-accordi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna con bandiere svizzere ed europee affiancate"
+      },
+      "datePublished": "2026-09-11T04:18:19+00:00",
+      "dateModified": "2026-09-11T04:18:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/commissione-ue-approva-accordi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-dimora-b-canton-giura': {
+    title: 'Permesso di dimora B in Giura: requisiti, documenti e rinnovo',
+    description: 'Scopri i requisiti, i documenti da produrre e la procedura di rinnovo del permesso B nel Cantone Giura, con indicazioni pratiche per chi vive in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, giura, requisiti',
+    ogTitle: 'Permesso di dimora B in Giura: requisiti, documenti',
+    ogDescription: 'Scopri i requisiti, i documenti da produrre e la procedura di rinnovo del permesso B nel Cantone Giura, con indicazioni pratiche per chi vive in Svizzera.',
+    canonicalPath: '/articoli-svizzera/permesso-dimora-b-canton-giura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B in Giura: requisiti, documenti e rinnovo",
+      "description": "Scopri i requisiti, i documenti da produrre e la procedura di rinnovo del permesso B nel Cantone Giura, con indicazioni pratiche per chi vive in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-dimora-b-canton-giura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale della migrazione in Giura, edificio tipico svizzero con insegne ufficiali."
+      },
+      "datePublished": "2026-09-11T04:55:10+00:00",
+      "dateModified": "2026-09-11T04:55:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-dimora-b-canton-giura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

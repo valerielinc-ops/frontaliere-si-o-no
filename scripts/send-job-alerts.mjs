@@ -57,7 +57,6 @@ import {
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import {
-  appendJobRankingParams,
   assignJobRankingVariant,
   buildEmbeddedRankingUpdate,
   buildJobEmailDeliveryId,
@@ -65,6 +64,7 @@ import {
   readJobEmailRankingConfig,
   stableJobId,
 } from '../functions/src/lib/jobEmailRanking.js';
+import { appendJobRankingParams } from '../functions/src/lib/jobEmailRankingLinks.js';
 import { recordJobEmailImpressions } from '../functions/src/lib/jobEmailRankingStore.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
@@ -479,19 +479,28 @@ function getStrings(locale) {
 
 // makeAuthenticatedUrl is the shared builder in services/newsletterUrls.mjs
 // (canonical under functions/src/lib/) — same autologin scheme as the weekly
-// newsletter and the welcome email. Job alerts keep their own defaults:
-// utm_medium 'email' (analytics convention is medium=channel,
-// source=identifier) and preserve a utm_medium already set by utmBase.
+// newsletter and the welcome email. Job alerts keep their own deterministic
+// taxonomy: utm_source=job_alert, utm_medium=email, utm_campaign=alert_<id>.
+// The explicit options also cover the defensive fallback URL used when a job
+// has no resolvable slug; normal links keep the identical UTM values already
+// present in utmBase.
 //
 // `sessionGated` (#5725) is threaded through because the shared builder is now
 // fail-closed: it attaches `ne`/`ac` only to a destination on its allowlist, or
 // to a call site that states in one string why that destination needs a session.
 // Omitting it here would silently strip the credential from the job cards, which
 // is the one place in this email where it is load-bearing.
-const makeAuthenticatedUrl = (targetUrl, email, autologinCode, { utmMedium = 'email', sessionGated } = {}) =>
+const makeAuthenticatedUrl = (targetUrl, email, autologinCode, {
+  utmSource = null,
+  utmMedium = 'email',
+  utmCampaign = null,
+  sessionGated,
+} = {}) =>
   makeAuthenticatedUrlShared(targetUrl, email, {
     autologinCode,
+    utmSource,
     utmMedium,
+    utmCampaign,
     preserveExistingUtmMedium: true,
     sessionGated,
   });
@@ -869,7 +878,12 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
   // contrast that fails the same test.
   const MUTED_ON_DARK = '#94a3b8';
 
-  const utmBase = `utm_source=job_alert&utm_medium=email&utm_campaign=alert_${alert.id}`;
+  const alertUtm = {
+    utmSource: 'job_alert',
+    utmMedium: 'email',
+    utmCampaign: `alert_${alert.id}`,
+  };
+  const utmBase = `utm_source=job_alert&utm_medium=email&utm_campaign=${alertUtm.utmCampaign}`;
   const unsubscribeUrl = makeAlertUnsubscribeUrl(alert.id, alert.email);
   const unsubAllUrl = makeAllAlertsUnsubscribeUrl(alert.email);
 
@@ -888,8 +902,9 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
   // reader arriving from one of these very links. Strip the credential here and
   // every recipient meets a login wall on the job the email exists to show them.
   // So the ten cards keep it, deliberately and in writing.
-  const wrapPublicUrl = (rawUrl) => makeAuthenticatedUrl(rawUrl, alert.email, autologinCode);
+  const wrapPublicUrl = (rawUrl) => makeAuthenticatedUrl(rawUrl, alert.email, autologinCode, alertUtm);
   const wrapJobUrl = (rawUrl) => makeAuthenticatedUrl(rawUrl, alert.email, autologinCode, {
+    ...alertUtm,
     sessionGated:
       'job detail page — components/community/JobBoard.tsx renders the sign-in gate '
       + 'instead of the listing when hasAccess is false',

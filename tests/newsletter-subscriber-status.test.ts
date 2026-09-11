@@ -1,7 +1,28 @@
 import { describe, expect, it } from 'vitest';
-import { inferNewsletterSubscriptionState } from '@/services/newsletterSubscribers';
+import {
+  inferNewsletterSubscriptionState,
+  isAccountDeletedSubscriber,
+  NEWSLETTER_STATUS_KIND,
+  type NewsletterSubscriberStatus,
+} from '@/services/newsletterSubscribers';
 
 describe('inferNewsletterSubscriptionState', () => {
+  it('keeps the status-kind map total for every persisted status', () => {
+    const statuses: NewsletterSubscriberStatus[] = [
+      'pending',
+      'confirmed',
+      'subscribed',
+      'unsubscribed',
+      'bounced',
+      'complained',
+      'suppressed',
+      'expired',
+    ];
+
+    expect(Object.keys(NEWSLETTER_STATUS_KIND).sort()).toEqual([...statuses].sort());
+    expect(NEWSLETTER_STATUS_KIND.subscribed).toBe('subscription');
+  });
+
   it('defaults manual email sources to pending/inactive', () => {
     expect(
       inferNewsletterSubscriptionState({
@@ -60,5 +81,45 @@ describe('inferNewsletterSubscriptionState', () => {
       status: 'confirmed',
       isActive: true,
     });
+  });
+
+ it('gives an account-deletion tombstone precedence over stale subscription fields', () => {
+  const tombstone = {
+   status: 'subscribed',
+   isActive: true,
+   active: true,
+   account_deleted_at: '2026-09-01T12:00:00.000Z',
+  };
+
+  expect(inferNewsletterSubscriptionState({
+   email: 'user@example.com',
+   source: 'popup',
+  }, tombstone)).toEqual({
+   status: 'pending',
+   isActive: false,
+  });
+  expect(inferNewsletterSubscriptionState({
+   email: 'user@example.com',
+   source: 'signup',
+  }, tombstone)).toEqual({
+   status: 'confirmed',
+   isActive: true,
+  });
+ });
+
+  it('uses one canonical tombstone predicate for both persisted marker spellings', () => {
+    expect(isAccountDeletedSubscriber({
+      status: 'subscribed',
+      isActive: true,
+      account_deleted_at: '2026-09-01T12:00:00.000Z',
+    })).toBe(true);
+    expect(isAccountDeletedSubscriber({
+      status: 'account_deleted',
+      isActive: true,
+    })).toBe(true);
+    expect(isAccountDeletedSubscriber({
+      status: 'subscribed',
+      isActive: true,
+    })).toBe(false);
   });
 });

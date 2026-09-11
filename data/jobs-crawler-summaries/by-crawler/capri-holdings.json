@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-09T23:20:48.515Z",
-  "total": 5,
+  "generatedAt": "2026-09-11T13:53:03.074Z",
+  "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 18085,
-  "avgDurationMs": 18085,
+  "durationMs": 20123,
+  "avgDurationMs": 20123,
   "durationHistory": [
-    18085
+    20123
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,9 +42,9 @@
         "location": "Manno"
       },
       "id": "capri-holdings-c2a82205abea",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T22:07:37.799Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -128,7 +128,10 @@
         "translation": 25,
         "completeness": 15
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Versace/job/Geneva/Sales-Associate_R_785257",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Versace/job/Geneva/Sales-Associate_R_785257",
@@ -157,60 +160,18 @@
         "location": "Geneva"
       },
       "id": "capri-holdings-7593aa4af27d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-30T11:04:35.842Z",
       "crawledAt": "",
-      "_qualityScore": 83,
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 15
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/General-Services-Coordinator_R_786390",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/General-Services-Coordinator_R_786390",
-      "title": "General Services Coordinator",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "general-services-coordinatore-capri-holdings-michael-kors-versace-manno",
-      "category": "general",
-      "datePosted": "2026-09-07",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Manno"
-      },
-      "id": "capri-holdings-5e4718030019",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-07T15:21:58.179Z",
-      "crawledAt": "",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 20
       }

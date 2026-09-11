@@ -11637,6 +11637,17 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.uss-stipendi-minimo-2027.title': 'Switzerland, request for a minimum salary of 5,000 francs',
     'blog.article.uss-stipendi-minimo-2027.excerpt': 'The Swiss Trade Union (USS) is proposing an increase of 2.5% and a minimum wage of 5,000 francs for graduates by 2027.',
     'blog.article.uss-stipendi-minimo-2027.imageAlt': 'Professional scene in Ticino-Italy border region, workplace context, daylight, high quality',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.title': 'Trenord boosts the Como-Milan line: 4 more morning rides from 14 September',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.excerpt': 'Four new weekday trains on the Milan Cadorna-Como Lago route to improve cross-border commuting. Here are the full hours.',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.imageAlt': 'Trenord train arriving at Como Lago station at dawn, with lake and mountain view',
+    'blog.article.fino-mornasco-frontaliere-ticino.title': 'Living in Fino Mornasco and working in Ticino',
+    'blog.article.fino-mornasco-frontaliere-ticino.excerpt': 'Practical guide for border workers in Fino Mornasco: links to Brogeda, taxes, social security deductions and daily budget management.',
+    'blog.article.fino-mornasco-frontaliere-ticino.imageAlt': 'Commuter route towards the Swiss border from Fino Mornasco to Canton Ticino',
+    'blog.article.bollettino-frontaliere-2026-09-11.title': 'Cross-border daily brief – September 11, 2026: 35-minute queue at Au-Lustenau',
+    'blog.article.bollettino-frontaliere-2026-09-11.excerpt': 'Today\'s numbers, September 11, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-11.imageAlt': 'The day\'s numbers for cross-border commuters – September 11, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-11.seoDescription': 'Cross-border brief, September 11, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-11.ogDescription': 'The numbers for September 11, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;

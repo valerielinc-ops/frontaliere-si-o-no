@@ -11,6 +11,7 @@ import {
   hasPromptPlaceholder,
   cleanFaqPairs,
   orphanFaqLocales,
+  stripFaqNumberedLabels,
   sanitizePromptPlaceholders,
 } from '../../scripts/lib/prompt-placeholder-guard.mjs';
 import { unescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../../scripts/lib/unescape-ts-string.mjs';
@@ -98,6 +99,154 @@ describe('la famiglia di segnaposto nota, coperta campo per campo', () => {
     expect(hasPromptPlaceholder('Domanda frequente 1')).toBe(true);
     expect(hasPromptPlaceholder("Domanda frequente 1 basata sui fatti dell'articolo?")).toBe(true);
     expect(hasPromptPlaceholder('Domanda frequente 4:')).toBe(true); // lo schema si ferma a 3 — la regola conta qualunque cifra
+  });
+
+  it('FAQ non numerate: lingue tradotte e prefissi di riga', () => {
+    const casi: Array<[string, string]> = [
+      ['it', 'Domanda frequente: Quali sono i servizi inclusi?'],
+      ['en', 'Frequently Asked Question: Which services are included?'],
+      ['fr', 'Foire aux questions — Quels services sont inclus?'],
+      ['de', 'Häufig gestellte Fragen: Welche Leistungen sind enthalten?'],
+      ['heading numerata', '## Domanda frequente: Quali sono i servizi inclusi?'],
+      ['lista numerata', '1. Domanda frequente: Quali sono i servizi inclusi?'],
+    ];
+    for (const [label, testo] of casi) {
+      expect(
+        findPromptPlaceholders(testo).some((hit) => hit.rule === 'faq-unnumbered-label'),
+        `${label} non visto: ${testo}`,
+      ).toBe(true);
+    }
+  });
+
+  it('una heading FAQ tradotta esclusa non nasconde un hit reale successivo', () => {
+    const testo = '## Frequently Asked Questions — Net salary\n\nDomanda frequente: quanto costa il permesso G?';
+    const hits = findPromptPlaceholders(testo).filter((hit) => hit.rule === 'faq-unnumbered-label');
+    expect(hits).toHaveLength(1);
+    expect(hits[0].found).toContain('Domanda frequente');
+  });
+
+  it('non lascia asterischi orfani dopo un etichetta FAQ in grassetto', () => {
+    const repaired = stripFaqNumberedLabels('**Domanda frequente 1**: Quali sono i servizi inclusi?');
+    expect(repaired.value).toBe('Quali sono i servizi inclusi?');
+    expect(repaired.stripped).toBe(1);
+  });
+
+  it('conserva il grassetto che avvolge tutta la domanda in ogni ancora', () => {
+    const cases = [
+      [
+        '**Domanda frequente 1: Quali sono i servizi inclusi?**',
+        '**Quali sono i servizi inclusi?**',
+      ],
+      [
+        '**Domanda frequente: Quali sono i servizi inclusi?**',
+        '**Quali sono i servizi inclusi?**',
+      ],
+      [
+        '**Domanda frequente 1:** Quali sono i servizi inclusi?',
+        'Quali sono i servizi inclusi?',
+      ],
+      [
+        '**Domanda frequente 1**: **Quali sono i servizi inclusi?**',
+        '**Quali sono i servizi inclusi?**',
+      ],
+      [
+        '**Domanda frequente**: **Quali sono i servizi inclusi?**',
+        '**Quali sono i servizi inclusi?**',
+      ],
+      [
+        '- **Domanda frequente 3**: **Come si calcola l’imposta alla fonte?**',
+        '- **Come si calcola l’imposta alla fonte?**',
+      ],
+      [
+        'Domanda frequente 1: **Quali sono i servizi inclusi?**',
+        '**Quali sono i servizi inclusi?**',
+      ],
+      [
+        '- Domanda frequente 3: **Come si calcola l’imposta alla fonte?**',
+        '- **Come si calcola l’imposta alla fonte?**',
+      ],
+      [
+        'Contesto editoriale: **Domanda frequente 1: Quali sono i servizi inclusi?**',
+        'Contesto editoriale: **Quali sono i servizi inclusi?**',
+      ],
+    ] as const;
+    for (const [input, expected] of cases) {
+      expect(stripFaqNumberedLabels(input).value, input).toBe(expected);
+      expect(stripFaqNumberedLabels(input).stripped, input).toBe(1);
+    }
+  });
+
+  it('esclude heading FAQ tradotte anche se indentate, bold, bullet o numerate', () => {
+    const headings = [
+      '  ## Frequently Asked Questions — Net salary',
+      '**Frequently Asked Questions**: Net salary',
+      '- Foire aux questions — Salaire net',
+      '1. Questions Fréquemment Posées: Net salary',
+      '> Häufig gestellte Fragen: Nettolohn',
+    ];
+    for (const heading of headings) {
+      expect(
+        findPromptPlaceholders(heading).filter((hit) => hit.rule === 'faq-unnumbered-label'),
+        heading,
+      ).toHaveLength(0);
+      expect(stripFaqNumberedLabels(heading).value, heading).toBe(heading);
+    }
+  });
+
+  it('ripara le label FAQ tradotto singolare senza trattarlo come heading', () => {
+    const labels = [
+      '**Frequently Asked Question**: What services are included?',
+      '- Question Fréquemment Posée: Quels services sont inclus?',
+      '1. Häufig gestellte Frage: Welche Dienste sind enthalten?',
+    ];
+    for (const label of labels) {
+      expect(findPromptPlaceholders(label).some((hit) => hit.rule === 'faq-unnumbered-label'), label).toBe(true);
+      expect(stripFaqNumberedLabels(label).stripped, label).toBe(1);
+    }
+  });
+
+  it('mantiene la compatibilità con etichette FAQ numerate a metà riga', () => {
+    const testo = 'Contesto editoriale: Domanda frequente 1: Quali sono i servizi inclusi?';
+    expect(findPromptPlaceholders(testo).some((hit) => hit.rule === 'faq-numbered-label')).toBe(true);
+    expect(stripFaqNumberedLabels(testo).value).toBe(
+      'Contesto editoriale: Quali sono i servizi inclusi?',
+    );
+  });
+
+  it('ripara FAQ numerate dentro heading tradotte senza escluderle', () => {
+    const casi = [
+      [
+        '## Frequently Asked Questions: Domanda frequente 2: quali sono i limiti di reddito?',
+        '## Frequently Asked Questions: quali sono i limiti di reddito?',
+      ],
+      [
+        '**Häufig gestellte Fragen: Domanda frequente 1: quali sono i limiti di reddito?**',
+        '**Häufig gestellte Fragen: quali sono i limiti di reddito?**',
+      ],
+    ] as const;
+    for (const [input, expected] of casi) {
+      expect(findPromptPlaceholders(input).some((hit) => hit.rule === 'faq-numbered-label'), input).toBe(true);
+      expect(stripFaqNumberedLabels(input), input).toEqual({ value: expected, stripped: 1 });
+    }
+  });
+
+  it('stripFaqNumberedLabels ripara FAQ non numerate e conserva la soglia di 8 caratteri', () => {
+    const { pairs, repaired } = cleanFaqPairs([
+      {
+        q: '1. Domanda frequente: Quali sono i servizi inclusi?',
+        a: 'La risposta spiega i servizi inclusi nel permesso e le condizioni applicabili.',
+      },
+      {
+        q: 'Frequently Asked Question: Which services are included?',
+        a: 'The answer explains the included services and the applicable conditions.',
+      },
+    ], { minPairs: 1 });
+    expect(repaired).toBe(2);
+    expect(pairs?.map((pair) => pair.q)).toEqual([
+      '1. Quali sono i servizi inclusi?',
+      'Which services are included?',
+    ]);
+    expect(findPromptPlaceholders('Domanda frequente: Perché?')).toHaveLength(1);
   });
 
   it('l\'excerpt TRADOTTO in quattro lingue: solo la regola di FORMA lo vede, nessun letterale', () => {
@@ -576,21 +725,26 @@ describe('GATE — 0 offender sul pubblicato, ratchet contro il buco fra scrittu
     return { totalFields, offenders };
   }
 
-  // scanContent() rilegge e regex-scansiona ogni file blog-meta*.ts del
-  // corpus (~117k campi). Il budget default di 15s vitest basta in
+  // scanContent() rilegge e regex-scansiona ogni file di contenuto presente
+  // nel checkout. Nel checkout completo di origin/main la stessa regex conta
+  // 166.602 campi (71.599 nei blog-meta + 95.003 nei blog-body); il profilo
+  // sparse di tests.yml esclude intenzionalmente blog-body/ e lascia i
+  // blog-meta*.ts, perciò il run CI #34561074308 ha misurato 71.635 campi.
+  // Il budget default di 15s vitest basta in
   // isolamento (~6.3s misurato) ma sfora sotto la sovrapposizione
   // deliberata independent↔dependent di tests.yml sulle 4 vCPU (run
   // 32968718774: scaduto a 15000ms, mai arrivato all'assert). Stesso margine
   // gia' dato ad altre scansioni full-corpus sotto la stessa contesa
   // (tests/all-known-job-slugs-store.test.ts, tests/orphan-enriched-store.test.ts) —
-  // nessuna soglia toccata.
-  it('scansiona almeno ~100k campi — la soglia che distingue "zero offender" da "zero file letti"', { timeout: 180_000 }, () => {
+  // nessun altro ratchet toccato.
+  it('scansiona almeno ~70k campi — la soglia che distingue "zero offender" da "zero file letti"', { timeout: 180_000 }, () => {
     // Difende contro un gate che passa a vuoto: un path rinominato, una
-    // cartella spostata, un worktree sparse configurato male. La misura reale
-    // e' ~117k; 100k lascia margine al normale via-vai editoriale senza
-    // indebolire il segnale se lo scan smette di leggere quasi tutto.
+    // cartella spostata, un worktree sparse configurato male. 70k è sotto la
+    // misura CI osservata di 71.635 (profilo sparse + assemble) e resta ben
+    // sotto i 166.602 campi del checkout completo, senza mascherare la
+    // perdita dell'intero insieme blog-meta.
     const { totalFields } = scanContent();
-    expect(totalFields).toBeGreaterThanOrEqual(100_000);
+    expect(totalFields).toBeGreaterThanOrEqual(70_000);
   });
 
   it('0 offender: nessun campo pubblicato porta un segnaposto del prompt', { timeout: 180_000 }, () => {
@@ -727,8 +881,12 @@ describe('#5847 item 2 — budget-parenthetical tollera il drift del modello', (
     // L'unica lettura diretta ammessa e' il fallback DENTRO `matchRule`: e' il
     // punto in cui una regola a sola `rx` viene applicata. Qualunque altra e' un
     // consumatore che salterebbe le regole strutturali.
-    const letture = src.match(/\b(?:rule|r)\.rx\b/g) || [];
-    expect(letture, 'una regola strutturale sarebbe invisibile a un consumatore').toHaveLength(1);
+    // Le regex native possono essere percorse direttamente per tutte le
+    // occorrenze; il matcher strutturale resta invece instradato attraverso
+    // `matchRule` nel ramo non-RegExp.
+    expect(src).toContain('if (!(rule.rx instanceof RegExp))');
+    expect(src).toContain('const m = matchRule(rule, value);');
+    expect(src).toContain('const matcher = rule.rx.global');
     const matchRuleSrc = src.slice(src.indexOf('export function matchRule'));
     expect(matchRuleSrc.slice(0, 300)).toContain('rule.rx.exec');
     const budget = PLACEHOLDER_RULES.find((r) => r.id === 'budget-parenthetical');

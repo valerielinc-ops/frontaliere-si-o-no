@@ -2111,6 +2111,12 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salari-mercato-lavoro-turgovia-settori-livelli': { it: 'salari-mercato-lavoro-turgovia-settori-livelli', en: 'salaries-labour-market-turgovia-sectors-levels', de: 'gehaelter-arbeitsmarkt-turgovia-sektoren-niveaus', fr: 'salaires-marche-travail-turgovia-secteurs-niveaux' },
  'f-35-amherd-prescrizione-responsabilita': { it: 'f-35-amherd-prescrizione-responsabilita', en: 'f-35-amherd-statute-limitations-liability', de: 'f-35-amherd-verjaehrung-verantwortung', fr: 'f-35-amherd-prescription-responsabilite' },
  'stefan-leist-vicedirettore-aff-2026': { it: 'stefan-leist-vicedirettore-aff-2026', en: 'stefan-leist-deputy-director-ffa-2026', de: 'stefan-leist-vizedirektor-efv-2026', fr: 'stefan-leist-directeur-adjoint-aff-2026' },
+ 'imposte-cantonali-giura-aliquote-deduzioni': { it: 'imposte-cantonali-giura-aliquote-deduzioni', en: 'jura-cantonal-tax-rates-deductions', de: 'jura-kantonssteuer-saetze-abzuege', fr: 'impots-cantonaux-jura-taux-deductions' },
+ 'investimento-svizzero-usa-lonza': { it: 'investimento-svizzero-usa-lonza', en: 'swiss-investment-usa-lonza', de: 'schweizer-investition-usa-lonza', fr: 'investissement-suisse-usa-lonza' },
+ 'premi-cassa-malati-canton-giura-riduzioni': { it: 'premi-cassa-malati-canton-giura-riduzioni', en: 'health-insurance-premiums-jura-canton-reductions', de: 'krankenkassenpraemien-kanton-jura-verbilligungen', fr: 'primes-assurance-maladie-canton-jura-reductions' },
+ 'permesso-b-jura-requisiti-rinnovo': { it: 'permesso-b-jura-requisiti-rinnovo', en: 'permit-b-jura-requirements-renewal', de: 'aufenthaltsbewilligung-b-jura-anforderungen-verlaengerung', fr: 'permis-b-jura-exigences-renouvellement' },
+ 'commissione-ue-approva-accordi-svizzera': { it: 'commissione-ue-approva-accordi-svizzera', en: 'eu-committee-approves-swiss-agreements', de: 'eu-kommission-genehmigt-schweiz-abkommen', fr: 'commission-ue-approuve-accords-suisse' },
+ 'permesso-dimora-b-canton-giura': { it: 'permesso-dimora-b-canton-giura', en: 'residence-permit-b-jura', de: 'aufenthaltsbewilligung-b-jura', fr: 'permis-dimora-b-jura' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

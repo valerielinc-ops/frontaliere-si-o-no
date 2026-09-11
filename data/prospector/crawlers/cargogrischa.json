@@ -1,0 +1,21 @@
+{
+  "companyKey": "cargogrischa",
+  "companyName": "Cargo Grischa",
+  "companyHost": "cargogrischa.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://cargogrischa.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Mehr",
+    "Mehr"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-11T09:06:58.680Z"
+}

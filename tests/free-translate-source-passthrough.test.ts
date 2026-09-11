@@ -5,6 +5,7 @@ import {
   getCascadeStats,
   logCascadeSummary,
   isSourcePassthrough,
+  mergeTranslationOutcome,
 } from '@/scripts/lib/free-translate.mjs';
 import { translateWithMyMemory } from '@/scripts/lib/mymemory-translate.mjs';
 
@@ -211,6 +212,89 @@ function runExhaustedTierSkipScenario(
   });
 }
 
+function runRetryOutcomeResetScenario() {
+  const modulePath = new URL('../scripts/lib/free-translate.mjs', import.meta.url).pathname;
+  const signature = "export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 'title', _outcome = null }) {";
+  const childScript = `
+    const { readFileSync } = await import('node:fs');
+    const source = readFileSync(${JSON.stringify(modulePath)}, 'utf8');
+    const signature = ${JSON.stringify(signature)};
+    const injected = source.replace(
+      signature,
+      "let retryProbeCalls = 0;\\n" + signature + "\\n" +
+        "    retryProbeCalls += 1;\\n" +
+        "    _outcome.passthroughs += 1;\\n" +
+        "    if (retryProbeCalls === 1) _outcome.tierUnavailable = true;\\n" +
+        "    return '';",
+    );
+    if (injected === source) throw new Error('freeTranslate signature not found');
+    const standalone = injected
+      .replace(
+        "import { translateWithMyMemory } from './mymemory-translate.mjs';",
+        "const translateWithMyMemory = async () => '';",
+      )
+      .replace(
+        "import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';",
+        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] });",
+      )
+      .replace(
+        "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",
+        "const translateWithLocalOpusMt = async () => ''; const localOpusMtEnabled = () => false;",
+      );
+    globalThis.console.log = () => {};
+    globalThis.console.warn = () => {};
+    const moduleUrl = 'data:text/javascript;base64,' + Buffer.from(standalone).toString('base64');
+    const { freeTranslateWithRetryDetailed } = await import(moduleUrl);
+    const result = await freeTranslateWithRetryDetailed({
+      text: 'Titolo di prova',
+      sourceLang: 'it',
+      targetLang: 'en',
+      maxRetries: 1,
+    });
+    process.stdout.write(JSON.stringify(result));
+  `;
+
+  return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
+    encoding: 'utf8',
+    env: { ...process.env, VITEST: '1' },
+  });
+}
+
+function runUnconfiguredTierScenario(service: 'googleCloud' | 'huggingFace') {
+  const moduleUrl = new URL('../scripts/lib/free-translate.mjs', import.meta.url).href;
+  const childScript = `
+    const { translateWithGoogleCloud, translateWithHuggingFace } = await import(${JSON.stringify(moduleUrl)});
+    const translate = ${service === 'googleCloud' ? 'translateWithGoogleCloud' : 'translateWithHuggingFace'};
+    const invoke = async (text, targetLang) => {
+      const outcome = { passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: false };
+      await translate(text, 'it', targetLang, outcome);
+      return outcome;
+    };
+    process.stdout.write(JSON.stringify({
+      empty: await invoke('', 'en'),
+      sameLanguage: await invoke('Titolo di prova', 'it'),
+      unavailable: await invoke('Titolo di prova', 'en'),
+    }));
+  `;
+
+  return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      AZURE_TRANSLATOR_KEY: '',
+      AZURE_TRANSLATOR_KEY_2: '',
+      DEEPL_API_KEY: '',
+      DEEPL_API_KEY_2: '',
+      GSC_CLIENT_ID: '',
+      GSC_CLIENT_SECRET: '',
+      GSC_REFRESH_TOKEN: '',
+      HF_TOKEN: '',
+      HUGGINGFACE_API_KEY: '',
+      VITEST: '1',
+    },
+  });
+}
+
 const EN = [
   '## In brief',
   '- Cross-border workers living within twenty kilometres of the border stay in the old tax regime',
@@ -299,6 +383,26 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     expect(after.hits - before.hits).toBe(0);
   });
 
+  it('rifiuta un body misto quando solo uno dei chunk torna verbatim', async () => {
+    const frase = 'I frontalieri residenti entro venti chilometri dal confine restano nel vecchio regime fiscale e la soglia dei quarantacinque giorni di telelavoro vale dal primo gennaio. ';
+    const lungo = frase.repeat(40).trim();
+    expect(lungo.length).toBeGreaterThan(5000);
+    let calls = 0;
+    vi.mocked(translateWithMyMemory).mockImplementation(async (chunk: string) => {
+      calls += 1;
+      return calls === 1 ? 'Translated first chunk' : chunk;
+    });
+    const before = statsSnapshot();
+
+    const out = await freeTranslate({ text: lungo, sourceLang: 'it', targetLang: 'en', fieldType: 'description' });
+    const after = statsSnapshot();
+
+    expect(calls).toBeGreaterThan(1);
+    expect(out).toBe('');
+    expect(after.passthroughs - before.passthroughs).toBe(1);
+    expect(after.hits - before.hits).toBe(0);
+  });
+
   it('nomina il passthrough nel sommario della cascata', async () => {
     vi.mocked(translateWithMyMemory).mockResolvedValue(IT);
     await freeTranslate({ text: IT, sourceLang: 'it', targetLang: 'fr', fieldType: 'description' });
@@ -357,11 +461,11 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     expect(after.hits - before.hits).toBe(0);
   });
 
-  it('riporta passthrough true dalla cascata reale quando riconosce un echo', () => {
+  it('non memoizza un echo quando i tier premium non sono configurati', () => {
     const child = runRealCascadeWithSelfHostedBody({ translatedText: IT });
 
     expect(child.status).toBe(0);
-    expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: true });
+    expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: false });
   });
 
   it('non riporta passthrough quando la cascata reale incontra una risposta 200 vuota', () => {
@@ -376,8 +480,7 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
 
     expect(child.status).toBe(0);
     const second = JSON.parse(child.stdout).second;
-    expect(second).toMatchObject({ passthroughs: 0, errors: 0, incomplete: false });
-    if (service === 'deepl') expect(second.tierUnavailable).toBe(true);
+    expect(second).toMatchObject({ passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: true });
   });
 
   it('non memoizza un passthrough quando DeepL ha tutte le chiavi gia esauste', () => {
@@ -402,6 +505,32 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     const result = JSON.parse(child.stdout);
     expect(result.first).toEqual({ text: '', passthrough: false });
     expect(result.second).toEqual({ text: '', passthrough: false });
+  });
+
+  it('propaga tierUnavailable nel merge senza perdere un flag gia presente', () => {
+    const target = { passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: false };
+
+    mergeTranslationOutcome(target, { passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: true });
+    mergeTranslationOutcome(target, { passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: false });
+
+    expect(target.tierUnavailable).toBe(true);
+  });
+
+  it('resetta tierUnavailable tra i retry per accettare un passthrough genuino successivo', () => {
+    const child = runRetryOutcomeResetScenario();
+
+    expect(child.status).toBe(0);
+    expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: true });
+  });
+
+  it.each(['googleCloud', 'huggingFace'] as const)('marca %s non configurato senza toccare i guard input', (service) => {
+    const child = runUnconfiguredTierScenario(service);
+
+    expect(child.status).toBe(0);
+    const result = JSON.parse(child.stdout);
+    expect(result.empty.tierUnavailable).toBe(false);
+    expect(result.sameLanguage.tierUnavailable).toBe(false);
+    expect(result.unavailable.tierUnavailable).toBe(true);
   });
 });
 

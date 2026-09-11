@@ -223,6 +223,7 @@ import {
 } from '@/services/authService';
 import type { AuthJobContext } from '@/services/authService';
 import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
+import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
 import { subscribeReaderEntitlement } from '@/services/readerEntitlement';
 import { subscribeSavedJobsFirestore } from '@/services/savedJobsService';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
@@ -1452,19 +1453,19 @@ const App: React.FC = () => {
  // 2. In real usage, loads 2s after first interaction → invisible to users
  useEffect(() => {
  if (authUser) {
- sessionStorage.removeItem('onetap_pending');
+ window.sessionStorage.removeItem(ONETAP_PENDING_KEY);
  cancelOneTap();
  return; // Already signed in
  }
  // Don't even arm the prompt while a newsletter autologin is exchanging — the
  // user is about to be signed in. Effect re-runs when the signal settles.
  if (newsletterAutologinInFlight) return;
- if (sessionStorage.getItem('onetap_prompted')) return;
+ if (window.sessionStorage.getItem(ONETAP_PROMPTED_KEY)) return;
 
  let queued = false;
  let promptTimeout: ReturnType<typeof setTimeout> | null = null;
  const trigger = () => {
- if (queued || sessionStorage.getItem('onetap_prompted')) return;
+ if (queued || window.sessionStorage.getItem(ONETAP_PROMPTED_KEY)) return;
  queued = true;
  for (const e of ['pointerdown', 'keydown', 'touchstart'] as const)
  window.removeEventListener(e, trigger, { capture: true });
@@ -1472,13 +1473,12 @@ const App: React.FC = () => {
  promptTimeout = setTimeout(() => {
  if (authUser) return;
  if (authLoading) {
- sessionStorage.setItem('onetap_pending', '1');
+ window.sessionStorage.setItem(ONETAP_PENDING_KEY, '1');
  return;
  }
  // FRO-329: defer to idle callback to avoid blocking main thread
  const run = () => {
- sessionStorage.setItem('onetap_prompted', '1');
- sessionStorage.removeItem('onetap_pending');
+ if (authUser || !claimOneTapPrompt(window.sessionStorage)) return;
  promptOneTap().catch(() => {});
  };
  if ('requestIdleCallback' in window) {
@@ -1505,11 +1505,10 @@ const App: React.FC = () => {
  useEffect(() => {
  if (authLoading || authUser) return;
  if (newsletterAutologinInFlight) return;
- if (sessionStorage.getItem('onetap_prompted')) return;
- if (sessionStorage.getItem('onetap_pending') !== '1') return;
+ if (window.sessionStorage.getItem(ONETAP_PROMPTED_KEY)) return;
+ if (window.sessionStorage.getItem(ONETAP_PENDING_KEY) !== '1') return;
 
- sessionStorage.setItem('onetap_prompted', '1');
- sessionStorage.removeItem('onetap_pending');
+ if (!claimOneTapPrompt(window.sessionStorage)) return;
  promptOneTap().catch(() => {});
  }, [authLoading, authUser, newsletterAutologinInFlight]);
 

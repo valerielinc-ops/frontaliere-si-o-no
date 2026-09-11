@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { appendJobRankingParams, rankingStatsKey } from '../functions/src/lib/jobEmailRanking.js';
+import { rankingStatsKey } from '../functions/src/lib/jobEmailRanking.js';
+import { appendJobRankingParams } from '../functions/src/lib/jobEmailRankingLinks.js';
 import {
   loadNewsletterRankingStats,
   recordJobEmailImpressions,

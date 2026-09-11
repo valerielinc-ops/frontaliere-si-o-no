@@ -34743,6 +34743,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trenord-como-milano-corse-aggiuntive-2025',
+ category: 'pratico',
+ date: '2026-09-11T00:39:11.638Z',
+ image: '/images/blog/trenord-como-milano-corse-aggiuntive-2025.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'fino-mornasco-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-09-11T02:59:51.890Z',
+ image: '/images/blog/fino-mornasco-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-09-11',
+ category: 'novita',
+ date: '2026-09-11T09:26:36.476Z',
+ image: '/images/blog/bollettino-frontaliere-2026-09-11.webp',
+ hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

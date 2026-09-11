@@ -1,7 +1,7 @@
 {
   "key": "guggerbach",
   "label": "Bistro Guggerzyt",
-  "generatedAt": "2026-09-09T23:05:37.225Z",
+  "generatedAt": "2026-09-11T13:34:11.215Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,10 +12,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9461,
-  "avgDurationMs": 9461,
+  "durationMs": 10946,
+  "avgDurationMs": 10946,
   "durationHistory": [
-    9461
+    10946
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/selbstaendige-coiffeuse-coiffeur",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:32.113Z",
+      "crawledAt": "2026-09-11T13:34:06.573Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -47,13 +47,12 @@
       "featured": false,
       "postedDate": "2026-09-09",
       "applyUrl": "https://www.guggerbach.ch/guggerbach/jobs-karriere/selbstaendige-coiffeuse-coiffeur",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:45:47.908Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -69,7 +68,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:32.116Z",
+      "crawledAt": "2026-09-11T13:34:06.575Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -85,13 +84,12 @@
       "featured": false,
       "postedDate": "2026-09-09",
       "applyUrl": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:45:47.911Z",
-      "_qualityScore": 82,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -107,7 +105,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:32.118Z",
+      "crawledAt": "2026-09-11T13:34:06.577Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -123,13 +121,12 @@
       "featured": false,
       "postedDate": "2026-09-09",
       "applyUrl": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:45:47.912Z",
-      "_qualityScore": 82,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -145,7 +142,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:32.119Z",
+      "crawledAt": "2026-09-11T13:34:06.579Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -161,13 +158,12 @@
       "featured": false,
       "postedDate": "2026-09-09",
       "applyUrl": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:45:47.914Z",
-      "_qualityScore": 82,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 20
       }
     }

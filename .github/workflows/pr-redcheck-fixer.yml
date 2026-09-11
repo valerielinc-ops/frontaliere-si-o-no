@@ -504,7 +504,7 @@ jobs:
           echo "$gate_dir" >> "$GITHUB_PATH"
           echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
 
-      - name: Pre-flight — Claude quota beacon for Codex fallback
+      - name: Pre-flight — Claude quota telemetry (Codex primary)
         id: quota
         if: steps.guard.outputs.proceed == 'true'
         continue-on-error: true
@@ -545,7 +545,6 @@ jobs:
           FIX_TIER: ${{ steps.guard.outputs.tier }}
           FIX_ROUND: ${{ steps.guard.outputs.round }}
         with:
-          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -615,8 +614,23 @@ jobs:
             - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
             - Una sola passata: diagnostica, fixa, valida, committa, pusha, aggiorna il body, STOP.
       - name: Claude usage metrics
-        if: always() && steps.guard.outputs.proceed == 'true' && steps.claude_review.outputs.fallback_used != 'true'
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claude_review.outputs.claude_used == 'true'
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "pr-redcheck-fixer"
+
+      # Un 429 prima del primo turno non deve consumare il round anti-loop.
+      - name: Refund round on Claude quota 429 (zero-Claude)
+        if: always() && steps.guard.outputs.proceed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR: ${{ needs.preflight.outputs.pr_number }}
+          MARKER: REDCHECK_FIX_ROUND
+          ROUND: ${{ steps.guard.outputs.round }}
+          EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
+          WORKFLOW: pr-redcheck-fixer
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/ci/refund-fix-round.mjs
 
       - name: Cleanup Firebase credentials
         if: always()

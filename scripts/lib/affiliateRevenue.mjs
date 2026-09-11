@@ -55,6 +55,11 @@ function normaliseAmountFormat(raw) {
   return value === 'decimal' || value === 'grouped' ? value : undefined;
 }
 
+/**
+ * Parse one export amount. `asMoney()` may infer only unambiguous values;
+ * callers must declare `amountFormat` for a non-zero grouped three-digit
+ * value such as `12.500`, so the reconciliation never guesses a 1,000x shift.
+ */
 function asMoney(raw, amountFormat = null) {
   if (typeof raw === 'number') return Number.isFinite(raw) ? raw : null;
   const compact = String(raw ?? '').replace(/[^0-9,.-]/g, '');

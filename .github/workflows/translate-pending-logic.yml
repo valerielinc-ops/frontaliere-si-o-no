@@ -258,27 +258,13 @@ jobs:
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
-      # `--no-summaries` here and NOWHERE else in this job. This assemble exists
-      # to give the cascade a data/jobs.json that already carries the Argos bulk
-      # translations; its cost is paid inside the cascade's fixed setup, which is
-      # 8,31 min of a 17,8 min median window (workspace issue 34). Rebuilding
-      # data/jobs-crawler-summaries.json costs 131-209 s of that (median 169,1 s)
-      # because assembleSummaries() re-reads every job slice a second time to
-      # recompute the per-crawler quality aggregate — and no step between here and
-      # the commit reads that file (grepped: mark-*, log-translation-stats,
-      # collect-translation-observability, relocalize-pending-jobs, local-mt-mopup
-      # never mention it). Nor is it committed: `git-commit-data.sh --slice-only`
-      # commits data/jobs-crawler-summaries/BY-CRAWLER/, not the monolithic file.
-      # The two later re-assembles in this job (post-mop-up, true-final) both run
-      # WITHOUT the flag, so it is rebuilt from the final slices before the job
-      # ends, exactly as before.
-      #
-      # Keep this comment free of the literal step names used further down:
-      # tests/translation-observability-workflow.test.ts locates those steps with
-      # indexOf(), so repeating one here makes it match this comment instead.
+      # Keep this re-assemble on the default full form. The baseline and Phase
+      # 2b cascade consume the dataset produced here, so skipping summaries
+      # would compare different populations at the start and true-final ends
+      # and would hide pending summary work until a later run.
       - name: Re-assemble dataset after Argos bulk
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
-        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
+        run: node scripts/assemble-jobs-dataset.mjs
 
       - name: "Phase 2 pre: Flag locale-mismatched job descriptions"
         if: inputs.skip_translate != true
@@ -368,10 +354,6 @@ jobs:
             --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" 2>/dev/null || true)
           exit "$legacy_status"
 
-      - name: Log translation stats (after)
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
-        run: node scripts/log-translation-stats.mjs after
-
       - name: Scatter changes back to per-crawler slices
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/scatter-jobs-to-slices.mjs
@@ -405,29 +387,69 @@ jobs:
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
-      # ── Phase 2d: Fix source-copy titles (daily 07:00 only) ──────────────
+      # ── Phase 2d: Fix source-copy titles (scheduled non-housekeeping runs)
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
-        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        # The original cron expression survives the cross-repo workflow_call:
+        # run this lane on every scheduled non-07:00 run, never on manual
+        # dispatches and never alongside the long daily housekeeping pass.
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         env:
-          # 300min from the shared marker leaves 50min before the 350min hard
-          # cap for title commit, final assemble, observability, and uploads.
-          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '18000000' # 300 * 60 * 1000; 50min remain.
+          # 240min from the shared marker leaves 110min before the 350min hard
+          # cap for title commit, final assemble, publication-tree stats,
+          # observability, and uploads. Healthy runs currently close in
+          # ~125-155min, so this lane gets ~85-115min before it stops.
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '14400000' # 240 * 60 * 1000; 110min remain.
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes
         id: commit_title_fixes
-        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         run: |
           before="$(git rev-parse HEAD)"
           bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
-      # Phase 2d also writes slices. This is the final translation-bearing
+      # ── Phase 2e: Fix source-copy descriptions (same scheduled lane) ──────
+      # Run immediately after Phase 2d on the same non-housekeeping schedules.
+      # This deadline is measured from the shared run marker, so it shares the
+      # 240min repair envelope with title fixes instead of adding 240min.
+      - name: "Phase 2e: Fix untranslated descriptions (free cascade)"
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          # Same 240min run-wide envelope as Phase 2d; 110min remain before
+          # the 350min hard cap for commits, final assemble, and publication.
+          UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '14400000' # shared with title fixes; not additive.
+        run: node scripts/fix-untranslated-descriptions.mjs
+
+      - name: Commit description fixes
+        id: commit_description_fixes
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        run: |
+          before="$(git rev-parse HEAD)"
+          bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)"
+          after="$(git rev-parse HEAD)"
+          if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
+
+      # Phases 2d/2e write slices. This is the final translation-bearing
       # persistence barrier; Phase 3 below changes only slugs.
       - name: Re-assemble true-final translation dataset
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/assemble-jobs-dataset.mjs
+
+      # The commit helper refreshes origin/main, performs its private-index
+      # 3-way merge, measures that candidate tree, and stages the history blob
+      # before commit-tree. The checkout ref remains deliberately untouched.
+      # Keep always(): a failed preceding phase must still leave an observable
+      # point for the tree that was (or can be) published.
+      - name: Log translation stats (after)
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            node scripts/log-translation-stats.mjs after
+          else
+            TRANSLATION_STATS_AFTER_TREE=1 bash scripts/lib/git-commit-data.sh --slice-only "📊 Translation stats (after)" data/translation-stats-history.json
+          fi
 
       - name: Capture final translation observability (shadow)
         if: always() && steps.translation_observability_before.outputs.ready == 'true'
@@ -453,7 +475,7 @@ jobs:
           node scripts/collect-translation-observability.mjs \
             --mode finalize --report "$RUNNER_TEMP/translation-observability.json" \
             --output "$RUNNER_TEMP/translation-observability.json" \
-            --final-commit "${{ steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}"
+            --final-commit "${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}"
 
       - name: Finalize translation shadow preflight v2 observation
         id: translation_shadow_preflight_v2_finalize
@@ -470,7 +492,7 @@ jobs:
           SHADOW_EVENT_NAME: ${{ github.event_name }}
           SHADOW_EXPECTED_CONTRACT_DIGEST: ${{ steps.translation_shadow_preflight_v2_decision.outputs.expected_contract_digest }}
           SHADOW_EXPECTED_DECISION_DIGEST: ${{ steps.translation_shadow_preflight_v2_decision.outputs.expected_decision_digest }}
-          SHADOW_FINAL_TRANSLATION_COMMIT: ${{ steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}
+          SHADOW_FINAL_TRANSLATION_COMMIT: ${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}
           SHADOW_OBSERVED_JOB_STATUS: ${{ job.status }}
           SHADOW_RUN_ATTEMPT: ${{ github.run_attempt }}
           SHADOW_RUN_ID: ${{ github.run_id }}

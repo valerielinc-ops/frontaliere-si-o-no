@@ -1,87 +1,7 @@
 {
   "crawlerKey": "gmo",
-  "assembledAt": "2026-09-09T23:05:26.751Z",
+  "assembledAt": "2026-09-11T13:36:01.025Z",
   "jobs": [
-    {
-      "id": "gmo-69ead8a8b120",
-      "slug": "farmaceutici-gmo-lugano",
-      "slugByLocale": {
-        "it": "farmaceutici-gmo-lugano",
-        "en": "pharmaceuticals-gmo-lugano",
-        "de": "pharmazeutika-gmo-lugano",
-        "fr": "pharmacien-ne-gmo-ch"
-      },
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Pharmacien·ne",
-      "titleByLocale": {
-        "it": "Farmaceutici",
-        "en": "Pharmaceuticals",
-        "de": "Pharmazeutika",
-        "fr": "Pharmacien·ne"
-      },
-      "description": "Pour notre pharmacie Eaux-Vives gare dans le canton de Genève, nous recherchons activement un-e pharmacien-ne à 60-80% Nos pharmacies sont reconnues depuis plus de 10 ans. Elles ont pour but d’être des pharmacies de quartier, intégrées au sein de structures médicales offrant à la population un parcours de soins optimal et de qualité. Vos conditions Contrat à durée indéterminée Entrée en fonction : septembre 2026 Taux d’activité : entre un 60% et 80% Droit aux vacances : 5 semaines par an \n• Votre mission Dans le cadre de votre poste, vous devrez assurer un service à la clientèle de qualité, contrôler et valider les ordonnances, ainsi qu’accomplir diverses tâches déléguées selon votre cahier des charges. Vous participerez activement au conseil et à l’accompagnement thérapeutique des patients, notamment dans les domaines de la médecine naturelle et complémentaire, en apportant une prise en charge personnalisée et de proximité. Vous serez également impliqué-e dans les activités de préparations magistrales, d’assistance pharmaceutique et de gestion d'approvisionnement d’EMS, dans un souci constant de qualité, de rigueur et de sécurité pour les patients. \n• Vos compétences Vous disposez des qualifications et autorisations nécessaires pour exercer votre profession de pharmacien-ne, Vous avez deux ans d’expérience sur Suisse, Vous appréciez les contacts humains, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé-e, Vous maîtrisez les outils informatiques usuels, la connaissance de Tactil serait un atout.",
-      "descriptionByLocale": {
-        "it": "Per la nostra farmacia Eaux-Vives stazione nel cantone di Ginevra, stiamo attivamente cercando un farmacista-ne al 60-80% Le nostre farmacie sono state riconosciute da più di 10 anni. Sono destinati ad essere... Maggiori informazioni",
-        "en": "For our pharmacy Eaux-Vives station in the canton of Geneva, we are actively looking for a pharmacist-ne at 60-80% Our pharmacies have been recognized for more than 10 years. They're meant to be... More information",
-        "de": "Für unsere Apotheke Eaux-Vives Station im Kanton Genf suchen wir aktiv einen Apotheker-ne bei 60-80% Unsere Apotheken sind seit mehr als 10 Jahren anerkannt. Sie sollen... Weitere Informationen",
-        "fr": "Pour notre pharmacie Eaux-Vives gare dans le canton de Genève, nous recherchons activement un-e pharmacien-ne à 60-80% Nos pharmacies sont reconnues depuis plus de 10 ans. Elles ont pour but d’être des pharmacies de quartier, intégrées au sein de structures médicales offrant à la population un parcours de soins optimal et de qualité. Vos conditions Contrat à durée indéterminée Entrée en fonction : septembre 2026 Taux d’activité : entre un 60% et 80% Droit aux vacances : 5 semaines par an \n• Votre mission Dans le cadre de votre poste, vous devrez assurer un service à la clientèle de qualité, contrôler et valider les ordonnances, ainsi qu’accomplir diverses tâches déléguées selon votre cahier des charges. Vous participerez activement au conseil et à l’accompagnement thérapeutique des patients, notamment dans les domaines de la médecine naturelle et complémentaire, en apportant une prise en charge personnalisée et de proximité. Vous serez également impliqué-e dans les activités de préparations magistrales, d’assistance pharmaceutique et de gestion d'approvisionnement d’EMS, dans un souci constant de qualité, de rigueur et de sécurité pour les patients. \n• Vos compétences Vous disposez des qualifications et autorisations nécessaires pour exercer votre profession de pharmacien-ne, Vous avez deux ans d’expérience sur Suisse, Vous appréciez les contacts humains, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé-e, Vous maîtrisez les outils informatiques usuels, la connaissance de Tactil serait un atout."
-      },
-      "location": "1213 Onex",
-      "canton": "GE",
-      "url": "https://www.arsante.ch/emploi/pharmacien-ne-92",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:05:15.862Z",
-      "addressLocality": "Onex",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1213",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.arsante.ch/emploi/pharmacien-ne-92",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "pharmacien-ne-gmo-ch",
-        "farmaceutici-gmo-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pharmacien-ne-gmo-ch",
-          "farmaceutici-gmo-lugano"
-        ],
-        "en": [
-          "pharmacien-ne-gmo-ch"
-        ],
-        "de": [
-          "pharmacien-ne-gmo-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-28T05:19:25.649Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "gmo-4b5a5ae3e4b8",
       "slug": "esperti-medici-gmo-lugano",
@@ -113,7 +33,7 @@
       "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:05:15.859Z",
+      "crawledAt": "2026-09-11T13:35:53.909Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -193,7 +113,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:05:15.858Z",
+      "crawledAt": "2026-09-11T13:35:53.908Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -273,7 +193,7 @@
       "url": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:05:15.856Z",
+      "crawledAt": "2026-09-11T13:35:53.907Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -353,7 +273,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:05:15.848Z",
+      "crawledAt": "2026-09-11T13:35:53.903Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -427,7 +347,7 @@
       "url": "https://www.arsante.ch/emploi/coordinateur-rice-99",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:05:15.847Z",
+      "crawledAt": "2026-09-11T13:35:53.901Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -507,7 +427,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-100",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:05:15.841Z",
+      "crawledAt": "2026-09-11T13:35:53.898Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -540,6 +460,7 @@
         ]
       },
       "firstSeenAt": "2026-09-05T22:49:34.246Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -585,7 +506,7 @@
       "url": "https://www.arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:05:15.835Z",
+      "crawledAt": "2026-09-11T13:35:53.891Z",
       "addressLocality": "Grand-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -632,6 +553,161 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "gmo-ebda8fb668fb",
+      "slug": "assistant-e-medical-e-gmo-ch-3",
+      "slugByLocale": {
+        "fr": "assistant-e-medical-e-gmo-ch",
+        "it": "assistant-e-medical-e-gmo-ch-3",
+        "en": "assistant-e-medical-e-gmo-ch-3",
+        "de": "assistant-e-medical-e-gmo-ch-3"
+      },
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Assistant·e médical·e",
+      "titleByLocale": {
+        "fr": "Assistant·e médical·e",
+        "it": "Assistant·e médical·e",
+        "en": "Assistant·e médical·e",
+        "de": "Assistent·e médical·e"
+      },
+      "description": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical. \n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin. \n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout",
+      "descriptionByLocale": {
+        "fr": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical. \n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin. \n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout",
+        "it": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical. \n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin. \n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout",
+        "en": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical. \n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin. \n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout",
+        "de": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical. \n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin. \n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout"
+      },
+      "location": "1023 Crissier",
+      "canton": "VD",
+      "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-102",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-11T13:35:53.884Z",
+      "addressLocality": "Crissier",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1023",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://www.arsante.ch/emploi/assistant-e-medical-e-102",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-11T13:35:53.884Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-gmo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-gmo-ch"
+      ]
+    },
+    {
+      "id": "gmo-69ead8a8b120",
+      "slug": "farmaceutici-gmo-lugano",
+      "slugByLocale": {
+        "it": "farmaceutici-gmo-lugano",
+        "en": "pharmaceuticals-gmo-lugano",
+        "de": "pharmazeutika-gmo-lugano",
+        "fr": "pharmacien-ne-gmo-ch"
+      },
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Pharmacien·ne",
+      "titleByLocale": {
+        "it": "Farmaceutici",
+        "en": "Pharmaceuticals",
+        "de": "Pharmazeutika",
+        "fr": "Pharmacien·ne"
+      },
+      "description": "Pour notre pharmacie Eaux-Vives gare dans le canton de Genève, nous recherchons activement un-e pharmacien-ne à 60-80% Nos pharmacies sont reconnues depuis plus de 10 ans. Elles ont pour but d’être des pharmacies de quartier, intégrées au sein de structures médicales offrant à la population un parcours de soins optimal et de qualité. Vos conditions Contrat à durée indéterminée Entrée en fonction : septembre 2026 Taux d’activité : entre un 60% et 80% Droit aux vacances : 5 semaines par an\n• Votre mission Dans le cadre de votre poste, vous devrez assurer un service à la clientèle de qualité, contrôler et valider les ordonnances, ainsi qu’accomplir diverses tâches déléguées selon votre cahier des charges. Vous participerez activement au conseil et à l’accompagnement thérapeutique des patients, notamment dans les domaines de la médecine naturelle et complémentaire, en apportant une prise en charge personnalisée et de proximité. Vous serez également impliqué-e dans les activités de préparations magistrales, d’assistance pharmaceutique et de gestion d'approvisionnement d’EMS, dans un souci constant de qualité, de rigueur et de sécurité pour les patients.\n• Vos compétences Vous disposez des qualifications et autorisations nécessaires pour exercer votre profession de pharmacien-ne, Vous avez deux ans d’expérience sur Suisse, Vous appréciez les contacts humains, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé-e, Vous maîtrisez les outils informatiques usuels, la connaissance de Tactil serait un atout.",
+      "descriptionByLocale": {
+        "it": "Per la nostra farmacia Eaux-Vives stazione nel cantone di Ginevra, stiamo attivamente cercando un farmacista-ne al 60-80% Le nostre farmacie sono state riconosciute da più di 10 anni. Sono destinati ad essere... Maggiori informazioni",
+        "en": "For our pharmacy Eaux-Vives station in the canton of Geneva, we are actively looking for a pharmacist-ne at 60-80% Our pharmacies have been recognized for more than 10 years. They're meant to be... More information",
+        "de": "Für unsere Apotheke Eaux-Vives Station im Kanton Genf suchen wir aktiv einen Apotheker-ne bei 60-80% Unsere Apotheken sind seit mehr als 10 Jahren anerkannt. Sie sollen... Weitere Informationen",
+        "fr": "Pour notre pharmacie Eaux-Vives gare dans le canton de Genève, nous recherchons activement un-e pharmacien-ne à 60-80% Nos pharmacies sont reconnues depuis plus de 10 ans. Elles ont pour but d’être des pharmacies de quartier, intégrées au sein de structures médicales offrant à la population un parcours de soins optimal et de qualité. Vos conditions Contrat à durée indéterminée Entrée en fonction : septembre 2026 Taux d’activité : entre un 60% et 80% Droit aux vacances : 5 semaines par an\n• Votre mission Dans le cadre de votre poste, vous devrez assurer un service à la clientèle de qualité, contrôler et valider les ordonnances, ainsi qu’accomplir diverses tâches déléguées selon votre cahier des charges. Vous participerez activement au conseil et à l’accompagnement thérapeutique des patients, notamment dans les domaines de la médecine naturelle et complémentaire, en apportant une prise en charge personnalisée et de proximité. Vous serez également impliqué-e dans les activités de préparations magistrales, d’assistance pharmaceutique et de gestion d'approvisionnement d’EMS, dans un souci constant de qualité, de rigueur et de sécurité pour les patients.\n• Vos compétences Vous disposez des qualifications et autorisations nécessaires pour exercer votre profession de pharmacien-ne, Vous avez deux ans d’expérience sur Suisse, Vous appréciez les contacts humains, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé-e, Vous maîtrisez les outils informatiques usuels, la connaissance de Tactil serait un atout."
+      },
+      "location": "1213 Onex",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/pharmacien-ne-92",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-10T23:07:38.749Z",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://www.arsante.ch/emploi/pharmacien-ne-92",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pharmacien-ne-gmo-ch",
+        "farmaceutici-gmo-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pharmacien-ne-gmo-ch",
+          "farmaceutici-gmo-lugano"
+        ],
+        "en": [
+          "pharmacien-ne-gmo-ch"
+        ],
+        "de": [
+          "pharmacien-ne-gmo-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-28T05:19:25.649Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

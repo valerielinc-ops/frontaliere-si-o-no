@@ -119,8 +119,9 @@ jobs:
       # cadeva dentro una finestra GIÀ nota. Qui la coppia di label è quella
       # dello stadio decompose: su blocco, la issue torna in coda senza
       # consumare il ri-arma del rescue.
-      - name: Pre-flight — quota backoff gate (zero-Claude)
+      - name: Pre-flight — quota telemetry (Codex primary)
         id: quota
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -131,7 +132,7 @@ jobs:
         run: node scripts/ci/check-quota-backoff.mjs
 
       - name: Setup Headroom compression proxy
-        if: steps.quota.outputs.quota_blocked != 'true'
+        if: always()
         uses: ./.github/actions/setup-headroom
 
       - name: Run Claude decompose
@@ -143,7 +144,7 @@ jobs:
         # sulle ultime run) e una coda per gli step `if: always()`.
         timeout-minutes: 80
         id: claude_decompose
-        if: steps.quota.outputs.quota_blocked != 'true'
+        if: always()
         # Come issue-fix: il colore del job lo decide `Classify outcome` sotto,
         # in base al LAVORO reale (marker sulla issue), non all'exit della CLI.
         continue-on-error: true
@@ -153,7 +154,6 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           REPO: ${{ github.repository }}
         with:
-          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ env.APP_TOKEN }}
@@ -206,7 +206,7 @@ jobs:
             - L'ULTIMO commento che posti sul padre deve SEMPRE contenere un marker `<!-- DECOMPOSE_OUTCOME: <code> -->` con `<code>` ∈ `decomposed-K` · `atomic-requeue` · `needs-human-decision` · `already-resolved`.
 
       - name: Claude usage metrics
-        if: always() && steps.claude_decompose.outputs.fallback_used != 'true' && steps.quota.outputs.quota_blocked != 'true'
+        if: always() && steps.claude_decompose.outputs.claude_used == 'true'
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_decompose.outputs.execution_file }}" "issue-decompose"
 
       # Stesso rilevatore granulare di issue-fix: una run morta su 429 lascia il
@@ -215,7 +215,7 @@ jobs:
       # lascia il marker FIX_OUTCOME: max-turns — innocuo qui (i pass di rescue
       # fix non guardano le issue di questo stadio) ma utile come telemetria.
       - name: Mark Claude terminal outcome (granular telemetry)
-        if: always() && steps.claude_decompose.outputs.fallback_used != 'true' && steps.quota.outputs.quota_blocked != 'true' && steps.claude_decompose.outcome == 'failure'
+        if: always() && steps.claude_decompose.outputs.claude_used == 'true' && steps.claude_decompose.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -230,7 +230,7 @@ jobs:
       # postare il proprio. Il drainer NON legge questo marker per decidere
       # (il rescue decompose ragiona su età+label), ma la telemetria sì.
       - name: Emit DECOMPOSE_OUTCOME telemetry (deterministic backstop)
-        if: always() && steps.quota.outputs.quota_blocked != 'true'
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
@@ -248,7 +248,7 @@ jobs:
       # morta senza produrre nulla (segnale per loop-health; il recupero è del
       # rescue decompose nel drainer).
       - name: Classify outcome (work-done, not CLI exit)
-        if: always() && steps.quota.outputs.quota_blocked != 'true'
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}

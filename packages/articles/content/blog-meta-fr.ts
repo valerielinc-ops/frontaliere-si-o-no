@@ -11639,6 +11639,17 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.uss-stipendi-minimo-2027.title': 'Suisse, demande de salaire minimum de 5 000 francs',
     'blog.article.uss-stipendi-minimo-2027.excerpt': 'L\'Union syndicale suisse (USS) propose une augmentation de 2,5% et un salaire minimum de 5.000 francs pour les diplômés pour 2027.',
     'blog.article.uss-stipendi-minimo-2027.imageAlt': 'Scène professionnelle dans la région frontalière Tessin-Italie, contexte de travail, lumière du jour, haute qualité',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.title': 'Trainord renforce Como-Milan : +4 matinaux dès le 14/09',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.excerpt': 'Quatre nouveaux trains de semaine sur la ligne Milano Cadorna-Como Lago pour améliorer les déplacements transfrontaliers. Voici les horaires complets.',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.imageAlt': 'Train Trenord arrivant à la gare de Como Lago à l\'aube, avec vue sur le lac et les montagnes',
+    'blog.article.fino-mornasco-frontaliere-ticino.title': 'Vivre à Fino Mornasco et travailler au Tessin',
+    'blog.article.fino-mornasco-frontaliere-ticino.excerpt': 'Guide pratique pour les frontaliers à Fino Mornasco : liaisons vers Brogeda, taxes, déductions de sécurité sociale et gestion du budget quotidien.',
+    'blog.article.fino-mornasco-frontaliere-ticino.imageAlt': 'Trajet de banlieue vers la frontière suisse depuis Fino Mornasco vers le Tessin',
+    'blog.article.bollettino-frontaliere-2026-09-11.title': 'Bulletin du frontalier – 11 septembre 2026 : 35 minutes d\'attente à Au-Lustenau',
+    'blog.article.bollettino-frontaliere-2026-09-11.excerpt': 'Les chiffres du jour, 11 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-11.imageAlt': 'Les chiffres du jour pour les frontaliers – 11 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-11.seoDescription': 'Bulletin du frontalier du 11 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-11.ogDescription': 'Les chiffres du 11 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;

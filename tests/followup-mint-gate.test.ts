@@ -374,10 +374,14 @@ describe('gate sul conio — pin sul sorgente', () => {
     // Direzione 2: lo step viene tolto o spostato prima del conio. Nessun test
     // comportamentale se ne accorge — il gate semplicemente non gira piu'.
     const gate = wf.indexOf('node scripts/ci/gate-minted-followups.mjs');
-    const conio = wf.indexOf('uses: anthropics/claude-code-action');
+    const conio = wf.indexOf('uses: ./.github/actions/claude-codex-fallback');
+    const stepStart = wf.lastIndexOf('- name: Run Claude follow-up triage', conio);
     expect(gate).toBeGreaterThan(-1);
     expect(conio).toBeGreaterThan(-1);
+    expect(stepStart).toBeGreaterThan(-1);
+    expect(stepStart).toBeLessThan(conio);
     expect(gate).toBeGreaterThan(conio);
+    expect(wf.slice(stepStart, gate)).toContain('Run Claude follow-up triage');
     // Deve girare anche se il conio e' morto in timeout DOPO aver creato la issue,
     // e non deve poter far fallire il triage.
     const step = wf.slice(wf.lastIndexOf('- name:', gate), gate);

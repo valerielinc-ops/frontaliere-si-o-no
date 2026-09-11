@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronDown, ChevronRight, ChevronUp, ExternalLink, Fuel, Loader2, MapPin, Route, Search, TrendingDown, TrendingUp } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -11,7 +11,7 @@ import { brandLogoSlug } from '@/build-plugins/shared/brandSlug';
 
 type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
 
-type FuelType = 'benzina' | 'diesel';
+export type FuelType = 'benzina' | 'diesel';
 
 export interface FuelViewState { fuelType: FuelType; search: string; province: string; sortKey: SortKey; selectedKey: string | null; homeMunicipalityKey: string; tankLiters: number; costPerKmEur: number; page: number; }
 export interface FuelRowView {
@@ -19,6 +19,7 @@ export interface FuelRowView {
  swiss: { optionCount: number; minPriceChf: number | null; minPriceEur: number | null; cheapestStation: FuelStationSwitzerland | null; nearbyStations: FuelStationSwitzerland[]; };
  comparison: { cheaperCountry: FuelComparisonCountry; priceDeltaEur: number | null; saving50LEur: number | null; };
 }
+export type FuelRowViewFactory = (row: MunicipalityFuelRow, fuelType: FuelType) => FuelRowView;
 const DEFAULT_FUEL_VIEW: FuelViewState = { fuelType: 'benzina', search: '', province: 'ALL', sortKey: 'saving', selectedKey: null, homeMunicipalityKey: '', tankLiters: 50, costPerKmEur: 0.18, page: 1 };
 function parseNumberParam(value: string | null, fallback: number, min: number, max: number) { const parsed = Number(value); return Number.isFinite(parsed) ? Math.min(max, Math.max(min, parsed)) : fallback; }
 function isSortKey(value: string | null): value is SortKey { return value === 'saving' || value === 'delta' || value === 'italy' || value === 'swiss' || value === 'name'; }
@@ -50,6 +51,10 @@ function minPrice<T>(items: T[], getPrice: (item: T) => number | null): number |
  const prices = items.map(getPrice).filter((value): value is number => value != null);
  return prices.length ? Math.min(...prices) : null;
 }
+/**
+ * Typed projection boundary: every `fuelRowView()` call stays within the
+ * MunicipalityFuelRow → FuelRowView contract, including the diesel path.
+ */
 export function fuelRowView(row: MunicipalityFuelRow, fuelType: FuelType): FuelRowView {
  const italyStations = row.italy.stations.filter((station) => italyStationPrice(station, fuelType) != null);
  const swissStations = row.swiss.nearbyStations.filter((station) => swissStationPrice(station, fuelType, 'CHF') != null);
@@ -72,11 +77,18 @@ export function fuelRowView(row: MunicipalityFuelRow, fuelType: FuelType): FuelR
 }
 export type FuelDataFreshness = 'current' | 'stale' | 'unknown';
 const DATASET_MAX_AGE_MS = 36 * 60 * 60 * 1000;
+const FUTURE_SKEW_TOLERANCE_MS = 5 * 60 * 1000;
 // `priceSnapshotDate` e' una data pura (mezzanotte UTC) e il feed MIMIT e' sistematicamente
 // indietro di un giorno: con la soglia dei timestamp pieni un dataset appena rigenerato
 // diventerebbe `stale` a meta' giornata. La data pura ha una tolleranza propria.
 const DATE_ONLY_MAX_AGE_MS = 48 * 60 * 60 * 1000;
 const DATE_ONLY_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * Classifies the dataset while allowing a small producer/client clock skew:
+ * `datasetFreshness()` clamps an accepted negative age to zero, but still
+ * rejects timestamps that are too far in the future to be a clock skew.
+ */
 export function datasetFreshness(data: FuelPricesDataset, now = Date.now()): FuelDataFreshness {
  const entries = [data.generatedAt, data.sources.italy.priceSnapshotDate, data.sources.switzerland.latestObservedUpdate]
   .map((value) => ({
@@ -85,7 +97,11 @@ export function datasetFreshness(data: FuelPricesDataset, now = Date.now()): Fue
   }))
   .filter((entry) => Number.isFinite(entry.timestamp));
  if (!entries.length) return 'unknown';
- return entries.every(({ timestamp, maxAgeMs }) => now - timestamp >= 0 && now - timestamp <= maxAgeMs) ? 'current' : 'stale';
+ return entries.every(({ timestamp, maxAgeMs }) => {
+  const rawAgeMs = now - timestamp;
+  const ageMs = Math.max(0, rawAgeMs);
+  return rawAgeMs >= -FUTURE_SKEW_TOLERANCE_MS && ageMs <= maxAgeMs;
+ }) ? 'current' : 'stale';
 }
 function recommendationToneForCode(code: string) { if (code === 'IT') return 'text-success bg-success-subtle border-success-border'; if (code === 'CH') return 'text-accent bg-accent-subtle border-accent-border'; if (code === 'SAME') return 'text-warning bg-warning-subtle border-warning-border'; return 'text-subtle bg-surface-alt/50 border-edge'; }
 
@@ -230,6 +246,17 @@ function StationBrandLogo({ brand }: { brand: string }) {
 
 function municipalityKey(row: MunicipalityFuelRow) {
  return `${row.municipality}|${row.province}`;
+}
+
+/**
+ * Finds the page containing a selected municipality before `buildFuelViewSearch()`
+ * serializes a stale shared page number.
+ */
+export function pageForSelectedRow(rows: readonly MunicipalityFuelRow[], selectedRow: MunicipalityFuelRow | null, pageSize: number): number | null {
+ if (!selectedRow || pageSize <= 0) return null;
+ const key = municipalityKey(selectedRow);
+ const index = rows.findIndex((row) => municipalityKey(row) === key);
+ return index >= 0 ? Math.floor(index / pageSize) + 1 : null;
 }
 
 function municipalityLabel(row: MunicipalityFuelRow) {
@@ -484,6 +511,7 @@ export default function FuelPriceStats() {
  const [homeMunicipalityKey, setHomeMunicipalityKey] = useState(DEFAULT_FUEL_VIEW.homeMunicipalityKey); const [tankLiters, setTankLiters] = useState(DEFAULT_FUEL_VIEW.tankLiters); const [costPerKmEur, setCostPerKmEur] = useState(DEFAULT_FUEL_VIEW.costPerKmEur);
  const [page, setPage] = useState(DEFAULT_FUEL_VIEW.page); const [shareState, setShareState] = useState<'idle' | 'copied' | 'error'>('idle');
  const [urlReady, setUrlReady] = useState(false);
+ const appliedSelection = useRef<string | null>(null);
  // Authoritative set of emitted Italian station pages ("{citySlug}/{stationSlug}").
  // Built by the fuel build-plugin; the SPA links a station only when it appears
  // here, so a station card never points at a page the build skipped (word-gate)
@@ -566,6 +594,7 @@ export default function FuelPriceStats() {
  const homeMunicipality = useMemo(() => { return (data?.municipalities || []).find((row) => municipalityKey(row) === homeMunicipalityKey) || null; }, [data, homeMunicipalityKey]);
  const personalizedRecommendation = useMemo(() => { if (!homeMunicipality) return null; return buildPersonalizedOption(homeMunicipality, tankLiters, costPerKmEur, fuelType); }, [costPerKmEur, fuelType, homeMunicipality, tankLiters]);
  const pageSize = 24; const pageCount = Math.max(1, Math.ceil(rows.length / pageSize)); const visibleRows = rows.slice((page - 1) * pageSize, page * pageSize); const freshness = data ? datasetFreshness(data) : 'unknown';
+ const selectedPage = pageForSelectedRow(rows, selected, pageSize);
  const dataStatus = data?.fetchStatus?.source === 'memory-cache' && data.fetchStatus.lastError ? 'error' : freshness;
  const fuelLabel = fuelType === 'diesel' ? tt('fuelPrices.diesel', 'Diesel') : tt('fuelPrices.benzina', 'Benzina');
  const sourceLabel = data?.fetchStatus?.source === 'memory-cache'
@@ -582,6 +611,15 @@ export default function FuelPriceStats() {
       : tt('fuelPrices.statusUnknown', 'Stato dati non verificabile');
  const dataStatusClass = dataStatus === 'error' ? 'text-danger' : dataStatus === 'stale' ? 'text-warning' : 'text-muted';
  useEffect(() => { if (page > pageCount) setPage(pageCount); }, [page, pageCount]);
+ useEffect(() => {
+  if (!selectedKey) {
+   appliedSelection.current = null;
+   return;
+  }
+  if (!urlReady || selectedPage == null || appliedSelection.current === selectedKey) return;
+  appliedSelection.current = selectedKey;
+  if (selectedPage !== page) setPage(selectedPage);
+ }, [page, selectedKey, selectedPage, urlReady]);
  if (loading) { return ( <div className="rounded-3xl border border-edge bg-surface/80 p-8 flex items-center justify-center gap-3 text-subtle"> <Loader2 className="animate-spin" size={20} /> <span>{tt('fuelPrices.loading', 'Caricamento prezzi carburanti...')}</span> </div> ); } if (error || !data) { return ( <div className="rounded-3xl border border-danger-border bg-danger-subtle p-6 text-danger"> <h2 className="font-bold font-display text-lg">{tt('fuelPrices.errorTitle', 'Impossibile caricare i dati carburanti')}</h2> <p className="text-sm mt-2">{error || tt('fuelPrices.errorBody', 'Il dataset non è disponibile al momento.')}</p> </div> ); } return ( <div className="space-y-6"> <section className="rounded-[2rem] border border-warning-border bg-gradient-to-br from-warning-subtle via-surface to-accent-subtle p-5 sm:p-8"> <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between"> <div className="max-w-3xl"> <div className="inline-flex items-center gap-2 rounded-full bg-surface/80 px-3 py-1 text-xs font-semibold font-display text-warning ring-1 ring-warning-border"> <Fuel size={14} /> {tt('fuelPrices.badge', 'Osservatorio carburanti')} </div> <h1 className="mt-3 text-3xl font-bold font-display tracking-tight text-heading sm:text-4xl"> {tt('fuelPrices.title', 'Prezzi carburanti Italia-Svizzera')} · {fuelLabel} </h1> <p className="mt-3 max-w-2xl text-sm leading-6 text-subtle sm:text-base"> {fuelType === 'diesel' ? tt('fuelPrices.dieselSubtitle', 'Confronta i prezzi del diesel nei comuni di confine italiani con le stazioni svizzere vicine e scopri dove conviene fare rifornimento oggi.') : tt('fuelPrices.subtitle', 'Confronta i prezzi della benzina nei comuni di confine italiani con le stazioni svizzere vicine e scopri dove conviene fare rifornimento oggi.')} </p> </div> <div className="grid grid-cols-1 gap-3 sm:grid-cols-2"> <div className="rounded-2xl border border-white bg-surface/85 px-4 py-3"> <div className="text-xs font-semibold font-display uppercase tracking-wide text-muted">{tt('fuelPrices.italySnapshot', 'Snapshot Italia')}</div> <div className="mt-1 font-bold font-display text-heading">{formatDate(data.sources.italy.priceSnapshotDate, locale)}</div> </div> <div className="rounded-2xl border border-edge bg-surface/85 px-4 py-3"> <div className="text-xs font-semibold font-display uppercase tracking-wide text-muted">{tt('fuelPrices.exchangeRate', 'Cambio CHF/EUR')}</div> <div className="mt-1 font-bold font-display text-heading">1 CHF = {formatMoney(data.sources.exchangeRate.eurPerChf, 'EUR', locale, 4)}</div> </div> </div> </div> </section> <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle"> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold font-display text-success">{fuelSummary.cheaperItalyCount}</span> {tt('fuelPrices.cheaperItalyCount', 'Comuni dove conviene IT')}</span> <span className="hidden sm:inline text-edge" aria-hidden="true">·</span> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold font-display text-link">{fuelSummary.cheaperSwissCount}</span> {tt('fuelPrices.cheaperSwissCount', 'Comuni dove conviene CH')}</span> <span className="hidden sm:inline text-edge" aria-hidden="true">·</span> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold font-display text-heading">{fuelSummary.cheapestItaly ? `${fuelSummary.cheapestItaly.row.municipality}` : '—'}</span> {tt('fuelPrices.bestItalyToday', 'Miglior prezzo Italia')} {fuelSummary.cheapestItaly ? formatMoney(fuelSummary.cheapestItaly.view.italy.minPriceEur, 'EUR', locale) : ''}</span>
  <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
  <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{fuelSummary.cheapestSwiss?.view.swiss.cheapestStation ? fuelSummary.cheapestSwiss.view.swiss.cheapestStation.name : '—'}</span> {tt('fuelPrices.bestSwissToday', 'Miglior prezzo Svizzera')} {fuelSummary.cheapestSwiss?.view.swiss.cheapestStation ? `${formatMoney(fuelSummary.cheapestSwiss.view.swiss.minPriceChf, 'CHF', locale)}` : ''}</span>

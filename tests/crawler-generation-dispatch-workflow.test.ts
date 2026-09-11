@@ -6,7 +6,9 @@ import { createHash } from 'node:crypto';
 import YAML from 'yaml';
 import { describe, expect, it } from 'vitest';
 import { GROUP_IDS, createCrawlerGenerationSentinel } from '../scripts/lib/crawler-generation-contract.mjs';
-import { CRAWLER_GENERATION_TOKEN_EXPR as GENERATION_TOKEN_EXPR } from '../scripts/generate-crawler-group-workflows.mjs';
+import {
+  CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR as PORTABLE_GENERATION_TOKEN_EXPR,
+} from '../scripts/generate-crawler-group-workflows.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
 const root = path.resolve(import.meta.dirname, '..');
@@ -24,7 +26,7 @@ const shadowCascadeEnv = {
 };
 const expectedShadowHashes = {
   cascadeRun: 'd111ba88beb2ff9af1eb4246f81fdf7d9e87c866e7e0061b055430dc59e176af',
-  finalize: '74dee29ad0d005a9a350bfce73c68348ac31e3d50fe1b5c5c8df4803b9a7e857',
+  finalize: '557e7f3cdcb4fcedd01b4566776286bd45b61cd7e1a7c0a1484caa4b80ee5faa',
   upload: '0c184849503095b03f5d268617fed8cfac7aa8fd4e112a99ed3aa7a782dc9568',
 };
 
@@ -177,11 +179,11 @@ describe('crawler generation PR B workflow wiring', () => {
         group: `jobs-crawler-group-${group}`,
         'cancel-in-progress': false,
       });
-      expect(crawler['run-name']).toBe(`crawler-generation-${GENERATION_TOKEN_EXPR}-group-${group}`);
+      expect(crawler['run-name']).toBe(`crawler-generation-${PORTABLE_GENERATION_TOKEN_EXPR}-group-${group}`);
       expect(crawler.on.workflow_dispatch.inputs.generation_token)
         .toMatchObject({ required: true, type: 'string' });
       const job = Object.values(crawler.jobs)[0] as any;
-      expect(job.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
+      expect(job.env.CRAWLER_GENERATION_TOKEN).toBe(PORTABLE_GENERATION_TOKEN_EXPR);
       const siteCheckouts = job.steps.filter((step: any) => step.with?.repository === 'valerielinc-ops/frontaliere-si-o-no');
       expect(siteCheckouts).toHaveLength(2);
       expect(siteCheckouts.every((step: any) => step.with.ref === "${{ inputs.site_code_commit || 'main' }}"))

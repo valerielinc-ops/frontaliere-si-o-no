@@ -25,13 +25,7 @@ const DEFAULT_PRIOR_CTR = 0.05;
 import {
   MAX_SAFE_SCORE,
   stableJobId as stableJobIdPure,
-  appendJobRankingParams,
-  parseJobRankingClick,
 } from './jobEmailRankingLinks.js';
-
-// Ri-esportati perche' i consumatori storici li importano da qui; la
-// definizione vive nel modulo privo di dipendenze Node (vedi il suo docblock).
-export { MAX_SAFE_SCORE, appendJobRankingParams, parseJobRankingClick };
 
 function parseBoolean(value, fallback) {
   if (value === undefined || value === null || value === '') return fallback;

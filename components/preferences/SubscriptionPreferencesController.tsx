@@ -26,6 +26,7 @@ import {
  setDailyBriefFrequency,
  setAdvertisingEnabled,
  isNewsletterOptOutBinding,
+ isAccountDeletedSubscriber,
  DAILY_BRIEF_FREQUENCIES,
  type DailyBriefFrequency,
  type SubscriptionAlertSummary,
@@ -537,13 +538,15 @@ async function authLoadFullStatus(email: string): Promise<{
  if (subSnap.exists()) {
  const data = subSnap.data() || {};
  const status = data.status;
+ const accountDeleted = isAccountDeletedSubscriber(data);
  // Both spellings — see functions/src/newsletterSubscriptionManagement.js's
- // get_full_status, which this mirrors token-for-token (#5673).
+ // get_full_status, whose consent rule this mirrors. Auth-mode also treats an
+ // account-deletion tombstone as unsubscribed so the toggle can re-register it.
  const optOutBinding = isNewsletterOptOutBinding(data);
  const isActive = data.isActive === true || data.active === true;
  newsletter = {
  subscribed:
- !optOutBinding &&
+ !accountDeleted && !optOutBinding &&
  (isActive || status === 'confirmed' || status === 'pending'),
  autologinEnabled: data.autologin_enabled !== false,
  dailyBriefFrequency: DAILY_BRIEF_FREQUENCIES.includes(data.daily_brief_frequency_override)

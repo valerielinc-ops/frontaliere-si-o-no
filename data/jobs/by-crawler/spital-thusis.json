@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-thusis",
-  "assembledAt": "2026-09-09T23:25:07.732Z",
+  "assembledAt": "2026-09-11T13:52:26.902Z",
   "jobs": [
     {
       "id": "spital-thusis-f0cec9bc194e",
@@ -33,7 +33,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Radiologiefachperson-Pensum-flexibel-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:55.203Z",
+      "crawledAt": "2026-09-11T13:52:12.545Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -82,6 +82,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:34.057Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -128,7 +129,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Innere-Medizin-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:54.439Z",
+      "crawledAt": "2026-09-11T13:52:11.797Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -190,6 +191,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:34:18.081Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -236,7 +238,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachperson-Gesundheit-SPITEX-50-70-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:53.657Z",
+      "crawledAt": "2026-09-11T13:52:11.039Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -287,6 +289,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:31.549Z",
+      "needsRetranslation": true,
       "salaryMin": 57100,
       "salaryMax": 79800,
       "salarySource": "estimated",
@@ -333,7 +336,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Ausbildungsplatz-als-Pflegefachperson-HF-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:52.969Z",
+      "crawledAt": "2026-09-11T13:52:10.354Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -378,6 +381,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:30.244Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -424,7 +428,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachperson-Gesundheit-80-90-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:52.267Z",
+      "crawledAt": "2026-09-11T13:52:09.704Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -471,6 +475,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:29.583Z",
+      "needsRetranslation": true,
       "salaryMin": 73400,
       "salaryMax": 102600,
       "salarySource": "estimated",
@@ -514,7 +519,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:51.602Z",
+      "crawledAt": "2026-09-11T13:52:09.044Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -592,7 +597,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spitex-Viamala/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:50.940Z",
+      "crawledAt": "2026-09-11T13:52:08.363Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -634,21 +639,35 @@
       },
       "previousSlugs": [
         "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch",
+        "apprendistato-fachperson-gesundheit-cfc-spital-thusis",
+        "apprenticeship-professional-health-efz-spital-thusis-spital-thusis-thusis",
+        "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
+        "apprentissage-sante-professionnelle-efz-spital-thisis-spital-thusis-thusis",
         "apprendistato-fachperson-gesundheit-cfc-spitex-viamala-spital-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch",
+          "apprendistato-fachperson-gesundheit-cfc-spital-thusis",
+          "apprenticeship-professional-health-efz-spital-thusis-spital-thusis-thusis",
+          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
+          "apprentissage-sante-professionnelle-efz-spital-thisis-spital-thusis-thusis",
           "apprendistato-fachperson-gesundheit-cfc-spitex-viamala-spital-thusis"
         ],
         "en": [
-          "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch"
+          "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch",
+          "apprenticeship-professional-health-efz-spital-thusis-spital-thusis-thusis"
+        ],
+        "de": [
+          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch"
         ],
         "fr": [
-          "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch"
+          "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch",
+          "apprentissage-sante-professionnelle-efz-spital-thisis-spital-thusis-thusis"
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:27.047Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -695,7 +714,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:50.264Z",
+      "crawledAt": "2026-09-11T13:52:07.702Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -745,109 +764,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:28.312Z",
-      "salaryMin": 41600,
-      "salaryMax": 76000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 76000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "spital-thusis-3229720ec397",
-      "slug": "apprendistato-fachperson-gesundheit-cfc-spital-thusis",
-      "slugByLocale": {
-        "it": "apprendistato-fachperson-gesundheit-cfc-spital-thusis",
-        "en": "apprenticeship-professional-health-efz-spital-thusis-spital-thusis-thusis",
-        "de": "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
-        "fr": "apprentissage-sante-professionnelle-efz-spital-thisis-spital-thusis-thusis"
-      },
-      "company": "Spital Thusis",
-      "companyKey": "spital-thusis",
-      "companyDomain": "spitalthusis.ch",
-      "title": "Lehrstelle Fachperson Gesundheit EFZ – Spital Thusis",
-      "titleByLocale": {
-        "it": "Apprendistato Professional Health EFZ – Spital Sois",
-        "en": "Apprenticeship Professional Health EFZ – Spital Thusis",
-        "de": "Lehrstelle Fachperson Gesundheit EFZ – Spital Thusis",
-        "fr": "Apprentissage Santé Professionnelle EFZ – Spital Thisis"
-      },
-      "description": "Anforderungen:\n• Du verfügst über einen Sekundar- oder Realschulabschluss.\n\n• Der Umgang mit Menschen sowie die Arbeit in der Pflege, der Betreuung, der Hauswirtschaft und in der Administration machen dir Freude.\n\n• Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.\n\n• Du bist bereit, unregelmässig zu arbeiten.\n\n• Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.\n\n• Du bist kontaktfreudig und arbeitest gerne im Team.\n\nWir bieten dir...\n\n• eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.\n\n• selbständiges und eigenverantwortliches Arbeiten.\n\n• eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam.\n\n• eine interessante Arbeit, wo Patienten während des Spitalaufenthaltes oder Klienten zu Hause begleitet werden.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programmes.\n\nFühlst du dich angesprochen, und möchtest Teil unseres Teams werden?\nDann bewirb dich bei uns!\n\nWeitere | Wir bieten: dir...\n\nWeitere",
-      "descriptionByLocale": {
-        "it": "Requisiti\n• Hai una laurea secondaria o secondaria.\n\n• Trattare con le persone e lavorare in cura, cura, pulizia e amministrazione ti rendono felice.\n\n• Hai una buona conoscenza orale e scritta della lingua tedesca.\n\n• Sei disposto a lavorare in modo irregolare.\n\n• Un modo esatto e affidabile di lavorare e un grande senso di responsabilità sono i vostri punti di forza.\n\n• Sei socievole e divertiti a lavorare in una squadra.\n\nVi offriamo...\n\n• una formazione emozionante e variegata nella rete di formazione dell'ospedale Sois e Spitex Viamala.\n\n• lavoro indipendente e auto-responsabile.\n\n• supporto professionale e supporto dal nostro team di formazione esperto.\n\n• un lavoro interessante, dove i pazienti sono accompagnati durante il soggiorno ospedaliero o clienti a casa.\n\n• un ambiente di lavoro familiare e una variegata offerta di sport e eventi come parte del nostro programma attivo SGM.\n\nTi senti impegnato e vuoi far parte della nostra squadra?\nAllora applicaci!\n\nAltri | Offriamo: voi...\n\nAltri",
-        "en": "Requirements\n• You have a secondary or secondary school degree.\n\n• Dealing with people as well as working in care, care, housekeeping and administration make you happy.\n\n• You have good oral and written knowledge of the German language.\n\n• You are willing to work irregularly.\n\n• An exact and reliable way of working and a great sense of responsibility are your strengths.\n\n• You are sociable and enjoy working in a team.\n\nWe offer you...\n\n• an exciting and varied education in the training network of the hospital Thusis and the Spitex Viamala.\n\n• independent and self-responsible work.\n\n• professional support and support from our experienced training team.\n\n• an interesting work, where patients are accompanied during the hospital stay or clients at home.\n\n• a family working atmosphere as well as a varied sports and event offer as part of our SGM active program.\n\nDo you feel engaged and want to be part of our team?\nThen apply to us!\n\nOther | We offer: you...\n\nOther",
-        "de": "Anforderungen:\n• Du verfügst über einen Sekundar- oder Realschulabschluss.\n\n• Der Umgang mit Menschen sowie die Arbeit in der Pflege, der Betreuung, der Hauswirtschaft und in der Administration machen dir Freude.\n\n• Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.\n\n• Du bist bereit, unregelmässig zu arbeiten.\n\n• Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.\n\n• Du bist kontaktfreudig und arbeitest gerne im Team.\n\nWir bieten dir...\n\n• eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.\n\n• selbständiges und eigenverantwortliches Arbeiten.\n\n• eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam.\n\n• eine interessante Arbeit, wo Patienten während des Spitalaufenthaltes oder Klienten zu Hause begleitet werden.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programmes.\n\nFühlst du dich angesprochen, und möchtest Teil unseres Teams werden?\nDann bewirb dich bei uns!\n\nWeitere | Wir bieten: dir...\n\nWeitere",
-        "fr": "Exigences\n• Vous avez un diplôme d'études secondaires ou secondaires.\n\n• Faire affaire avec les gens et travailler dans les soins, les soins, le ménage et l'administration vous rendent heureux.\n\n• Vous avez une bonne connaissance orale et écrite de la langue allemande.\n\n• Vous êtes prêt à travailler irrégulièrement.\n\n• Une façon exacte et fiable de travailler et un grand sens des responsabilités sont vos forces.\n\n• Vous êtes sociable et aimez travailler en équipe.\n\nNous vous offrons...\n\n• une formation passionnante et variée dans le réseau de formation de l'hôpital Thisis et le Spitex Viamala.\n\n• travail indépendant et responsable.\n\n• soutien et soutien professionnels de notre équipe de formation expérimentée.\n\n• un travail intéressant, où les patients sont accompagnés pendant le séjour à l'hôpital ou les clients à la maison.\n\n• une ambiance de travail familiale ainsi qu'une offre variée de sports et d'événements dans le cadre de notre programme actif SGM.\n\nTu te sens fiancé et tu veux faire partie de notre équipe ?\nAlors appliquez-nous !\n\nAutres Nous offrons: vous...\n\nAutres"
-      },
-      "location": "Thusis",
-      "canton": "GR",
-      "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spital-Thusis/",
-      "source": "Spital Thusis Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:49.581Z",
-      "addressLocality": "Thusis",
-      "postalCode": "7430",
-      "streetAddress": "Alte Strasse 31",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spital-Thusis/",
-      "requirements": [
-        "Du verfügst über einen Sekundar- oder Realschulabschluss.",
-        "Der Umgang mit Menschen sowie die Arbeit in der Pflege, der Betreuung, der Hauswirtschaft und in der Administration machen dir Freude.",
-        "Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.",
-        "Du bist bereit, unregelmässig zu arbeiten.",
-        "Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.",
-        "Du bist kontaktfreudig und arbeitest gerne im Team.",
-        "eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.",
-        "selbständiges und eigenverantwortliches Arbeiten.",
-        "eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam.",
-        "eine interessante Arbeit, wo Patienten während des Spitalaufenthaltes oder Klienten zu Hause begleitet werden.",
-        "ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programmes."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Du verfügst über einen Sekundar- oder Realschulabschluss.",
-          "Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.",
-          "Du bist bereit, unregelmässig zu arbeiten.",
-          "Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.",
-          "Du bist kontaktfreudig und arbeitest gerne im Team.",
-          "eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.",
-          "selbständiges und eigenverantwortliches Arbeiten.",
-          "eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam."
-        ]
-      },
-      "previousSlugs": [
-        "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
-        "apprendistato-fachperson-gesundheit-cfc-spital-thusis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
-          "apprendistato-fachperson-gesundheit-cfc-spital-thusis"
-        ],
-        "en": [
-          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch"
-        ],
-        "fr": [
-          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:24:26.401Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -894,7 +811,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-mit-Weiterbildung-in-onkologischer-Pflege-20-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:48.901Z",
+      "crawledAt": "2026-09-11T13:52:07.054Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -971,7 +888,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-SPITEX-40-80-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:48.110Z",
+      "crawledAt": "2026-09-11T13:52:06.288Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1048,7 +965,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Fachperson-Operationstechnik-HF-40-60-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:47.451Z",
+      "crawledAt": "2026-09-11T13:52:05.635Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1095,6 +1012,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:23.012Z",
+      "needsRetranslation": true,
       "salaryMin": 48900,
       "salaryMax": 68400,
       "salarySource": "estimated",
@@ -1141,7 +1059,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-50-100-Notfall-Tagesklinik/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:46.780Z",
+      "crawledAt": "2026-09-11T13:52:04.968Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1226,7 +1144,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-mit-Zusatzaufgabe-Berufsbildner-in-SPITEX-60-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:46.004Z",
+      "crawledAt": "2026-09-11T13:52:04.287Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1306,7 +1224,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Biomedizinische-n-Analytiker-in-20-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:45.331Z",
+      "crawledAt": "2026-09-11T13:52:03.645Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1351,6 +1269,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:46:09.962Z",
+      "needsRetranslation": true,
       "salaryMin": 16300,
       "salaryMax": 22800,
       "salarySource": "estimated",
@@ -1397,7 +1316,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitender-Arzt-Oberarzt-m-w-Innere-Medizin-60-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:44.657Z",
+      "crawledAt": "2026-09-11T13:52:02.981Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1480,7 +1399,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitung-Notfallstation-und-Tagesklinik-90-100-mit-NDS-HF-Notfallpflege/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:43.972Z",
+      "crawledAt": "2026-09-11T13:52:02.307Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1565,7 +1484,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitung-Hauswirtschaft-mit-Nebenfunktion-Stellvertretende-Leitung-Hospitality-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:43.167Z",
+      "crawledAt": "2026-09-11T13:52:01.542Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1613,6 +1532,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:19:21.099Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -1659,7 +1579,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachverantwortung-Finanz-und-Betriebsbuchhaltung-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:42.370Z",
+      "crawledAt": "2026-09-11T13:52:00.755Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1712,6 +1632,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T10:08:43.620Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",

@@ -4,8 +4,10 @@ import {
   aggregateApplicationEvidence,
   buildIdentityCatalog,
   buildDryRunPayload,
+  buildGa4EventQueryBody,
   buildInsightsDocuments,
   collapseTechnicalDuplicates,
+  queryGa4EventRows,
   queryEventRows,
 } from '../scripts/build-employer-insights.mjs';
 import { validateEmployerInsightsPayload } from '../scripts/ci/validate-employer-insights-payload.mjs';
@@ -185,6 +187,42 @@ describe('employer insights event coverage', () => {
       },
     });
     expect(payload.documents).toEqual([doc]);
+  });
+
+  it('normalizes query coverage aliases before validating the dry-run envelope', () => {
+    const [doc] = build([event({ eventKey: 'normalized-dry-run-event' })]);
+    const payload = buildDryRunPayload({
+      documents: [doc],
+      generatedAt: WINDOW.to,
+      source: 'posthog',
+      window: WINDOW,
+      queryCoverage: {
+        pageSize: 10_000,
+        sourceObserved: 1,
+        totalBeforeCut: 1,
+        groupRowsBeforeCut: 1,
+        rowsReturned: 1,
+        returned: 1,
+        pages: 1,
+        truncated: false,
+        queryHash: 'query-hash',
+        snapshotId: 'snapshot-id',
+      },
+    });
+
+    expect(payload.coverage).toMatchObject({
+      sourceObserved: 1,
+      totalRows: 1,
+      returnedRows: 1,
+      returned: 1,
+      pages: 1,
+      queryHash: 'query-hash',
+      snapshotId: 'snapshot-id',
+    });
+    expect(validateEmployerInsightsPayload(payload, {
+      currentDocumentCount: 1,
+      expectedSource: 'posthog',
+    })).toMatchObject({ ok: true });
   });
 
   it('serializes a zero-observed company instead of dropping the source state', () => {
@@ -533,6 +571,121 @@ describe('employer insights technical deduplication', () => {
     expect(pageQueries.every((query) => !query.includes('OFFSET'))).toBe(true);
     expect(pageQueries[1]).toContain('timestamp >');
     expect(pageQueries[1]).toContain("2026-09-01 12:00:01.000000");
+  });
+
+  it('reads paginated GA4 pageview/apply rows with explicit employer identity', async () => {
+    const ga4Window = {
+      from: '2026-09-01T00:00:00.000Z',
+      to: '2026-09-04T00:00:00.000Z',
+      kind: 'ga4-test',
+      timezone: 'UTC',
+    };
+    const ga4Row = (
+      date: string,
+      eventName: string,
+      employerKey: string,
+      jobSlug: string,
+      path: string,
+      eventCount: number,
+      users: number,
+      sessions: number,
+    ) => ({
+      dimensionValues: [date, eventName, employerKey || '(not set)', jobSlug || '(not set)', path],
+      metricValues: [String(eventCount), String(users), String(sessions)].map((value) => ({ value })),
+    });
+    const rows = [
+      ga4Row('20260901', 'page_view', 'acme', 'role-it', '/cerca-lavoro-ticino/role-it/', 7, 2, 3),
+      ga4Row('20260902', 'page_view', '', '', '/cerca-lavoro-ticino/azienda-acme/', 2, 1, 1),
+      ga4Row('20260903', 'job_apply', 'acme', 'role-it', '/cerca-lavoro-ticino/role-it/', 1, 1, 1),
+    ];
+    const calls: Array<{ body: Record<string, unknown> }> = [];
+    const report = async ({ body }: { body: Record<string, unknown> }) => {
+      calls.push({ body });
+      const offset = Number(body.offset);
+      return { rowCount: rows.length, rows: offset === 0 ? rows.slice(0, 2) : rows.slice(2) };
+    };
+
+    const result = await queryGa4EventRows(ga4Window, {
+      token: 'test-token',
+      propertyId: 'properties/test',
+      report,
+      pageSize: 2,
+    });
+
+    expect(calls.map(({ body }) => body.offset)).toEqual([0, 2]);
+    expect(calls[0].body.dimensions).toEqual([
+      { name: 'date' },
+      { name: 'eventName' },
+      { name: 'customEvent:employer_key' },
+      { name: 'customEvent:job_slug' },
+      { name: 'pagePath' },
+    ]);
+    expect(buildGa4EventQueryBody(ga4Window).dimensionFilter).toMatchObject({ orGroup: { expressions: expect.any(Array) } });
+    expect(result).toMatchObject({
+      coverage: {
+        totalRows: 3,
+        rowsReturned: 3,
+        returned: 10,
+        pages: 2,
+        truncated: false,
+        identityRows: 2,
+        identityObserved: 8,
+      },
+    });
+    expect(result.rows[0]).toMatchObject({
+      event: 'page_view',
+      timestamp: '2026-09-01T00:00:00.000Z',
+      employerKey: 'acme',
+      jobSlug: 'role-it',
+      views: 7,
+      persons: 2,
+      sessions: 3,
+    });
+
+    const [doc] = buildInsightsDocuments({
+      eventRows: result.rows,
+      catalog: buildIdentityCatalog([job()]),
+      window: ga4Window,
+      generatedAt: ga4Window.to,
+      source: 'ga4',
+      queryCoverage: result.coverage,
+    });
+    expect(doc).toMatchObject({
+      companyKey: 'acme',
+      totals: { views: 7, applyClicks: 1, profileViews: 2 },
+      source: 'ga4',
+    });
+    expect(doc.ads[0]).toMatchObject({ views: 7, applyClicks: 1 });
+  });
+
+  it('marks a short or data-loss GA4 page as truncated instead of declaring full coverage', async () => {
+    const ga4Window = {
+      from: '2026-09-01T00:00:00.000Z',
+      to: '2026-09-03T00:00:00.000Z',
+      kind: 'ga4-test',
+      timezone: 'UTC',
+    };
+    const report = async ({ body }: { body: Record<string, unknown> }) => ({
+      rowCount: 3,
+      rows: Number(body.offset) === 0 ? [{
+        dimensionValues: ['20260901', 'page_view', 'acme', 'role-it', '/cerca-lavoro-ticino/role-it/'],
+        metricValues: [{ value: '1' }, { value: '1' }, { value: '1' }],
+      }] : [],
+      metadata: { dataLossFromOtherRow: Number(body.offset) === 0 },
+    });
+
+    const result = await queryGa4EventRows(ga4Window, {
+      token: 'test-token',
+      report,
+      pageSize: 2,
+    });
+
+    expect(result.coverage).toMatchObject({
+      totalRows: 3,
+      rowsReturned: 1,
+      truncated: true,
+      dataLossFromOtherRow: true,
+    });
   });
 });
 

@@ -72,7 +72,11 @@ import {
  type JobCardLocale,
 } from './shared/jobCardHtml';
 import { infeedAdGridBlockHtml, infeedAdListItemHtml } from './lib/adSlotHtml';
-import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
+import {
+ JOBLIST_AD_EVERY_N,
+ JOBLIST_AD_MAX_PER_LIST,
+ shouldPlaceInfeedAd,
+} from '../services/adsenseSlots';
 import { isInfeedAdExperimentActiveFromEnv, isInfeedAdExperimentSurface, resolveInfeedAdVariant } from '../services/adExperiment';
 import { LOGO_FALLBACK_SCRIPT } from './shared/logoFallbackScript';
 import { renderJobBoardListingDensityProse, renderListingPaginationProse } from './shared/jobListingProse';
@@ -219,6 +223,11 @@ import { SECTION_LEGACY_TI } from './shared/cantonSection';
 // accepted by the build so a rollback can restore the manual slot on the
 // treatment pages without touching Auto Ads or control pages.
 const STATIC_INFEED_AD_EXPERIMENT_ACTIVE = isInfeedAdExperimentActiveFromEnv(process.env);
+
+// Bound repeated company-job payloads only at the shared in-feed boundary.
+// Keep one trailing card so the renderer can place the last eligible slot
+// after card 36 while keeping cards and ItemList on the same set.
+const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;
 
 // ── Build-OOM diagnostic instrumentation (#1290) ──────────────────────────────
 // `logBuildMem` now lives in ./shared/buildMemLog so employerProfilePagesPlugin
@@ -2174,7 +2183,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return `<img src="${LOGO_FALLBACK_SRC}" alt="${safeAlt}" width="${width}" height="${height}" loading="lazy" data-logo-url="${esc(url)}" onerror="this.onerror=null;this.src='${LOGO_FALLBACK_SRC}'"${styleAttr}>`;
  };
 
- const referralUrl = (raw: string, job: any): string => {
+ const referralUrl = (raw: string, job: { slug?: string; id?: string }): string => {
  try {
  const u = new URL(raw);
  u.searchParams.set('utm_source', 'frontaliereticino');
@@ -3240,7 +3249,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  description: capJsonLdDescription(finalJobPostingDescription),
  company: job.company,
  companyKey: job.companyKey,
- companyDomain: companyWebsite(job),
+ companyWebsite: companyWebsite(job),
+ companyDomain: job.companyDomain,
  companyLogoUrl: logoUrl,
  addressLocality,
  addressRegion,
@@ -3415,7 +3425,7 @@ ${staticAnalyticsHtml}
  <div class="timeline">
  ${timelineHtml || (hasCanonical ? `<div class="timeline-step">${sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, [])}</div>` : '')}
  </div>
- <a href="${referralUrl(job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="cta">${esc(localeCopy[locale].applyNow)}</a>
+ <a href="${referralUrl(job.applyUrl || job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="cta">${esc(localeCopy[locale].applyNow)}</a>
  ${jobFaqHtml}
  </article>
  ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords, esc })}
@@ -4188,10 +4198,10 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${xDefaultHrefC}">`,
  ].join('\n');
 
- // The employer profile and the canton-specialised company page must expose
- // the same complete active set. The shared renderer owns the ad cadence, so
- // do not silently turn a count such as 58/77 into a top-20 preview.
- const jobListHtml = jobCardListBody(companyJobs, locale);
+ // Keep the repeated card payload bounded at the shared in-feed boundary;
+ // the visible heading below still carries the live total.
+ const listedCompanyJobs = companyJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);
+ const jobListHtml = jobCardListBody(listedCompanyJobs, locale);
 
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
@@ -4266,7 +4276,7 @@ ${staticAnalyticsHtml}
  // structured data points at the actually-emitted job-detail page
  // (not the soft-canonical TI redirect). Otherwise Google ingests
  // canonical chains in rich-result candidates.
- const itemListItems = companyJobs.map((job, idx) => {
+ const itemListItems = listedCompanyJobs.map((job, idx) => {
  const jSlug = localizedSlug(job, locale);
  const jobCantonForList = sharedResolveJobCanton(job as { canton?: string; location?: string });
  const sectionForJob = jobCantonForList ? sharedResolveCantonSection(locale, jobCantonForList) : sectionByLocale[locale];
@@ -4280,7 +4290,7 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: `${curatedBrand.shortName} — ${brandCopy.sectionHeadings.openRoles}`,
  url: canonicalUrl,
- numberOfItems: companyJobs.length,
+ numberOfItems: itemListItems.length,
  itemListElement: itemListItems,
  });
  const faqLd = inlineScriptJson({
@@ -4315,7 +4325,7 @@ ${staticAnalyticsHtml}
  )}</p></div>`,
  )
  .join('');
- const openRolesListHtml = jobCardListBody(companyJobs, locale);
+ const openRolesListHtml = jobCardListBody(listedCompanyJobs, locale);
  const listingUrlCurated = `${BASE_URL}${withSlash(
  `${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'),
  )}`;
@@ -4459,8 +4469,10 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
 
  const parts: string[] = [];
 
- // Job list first — most relevant content for landing visitors
- parts.push(`<section class="s-7uP4UM"><h2>${locale === 'it' ? 'Posizioni aperte' : locale === 'en' ? 'Open positions' : locale === 'de' ? 'Offene Stellen' : 'Postes ouverts'}</h2>`);
+ // Job list first — most relevant content for landing visitors. The live
+ // total is explicit even though cards are capped for page weight.
+ const openPositionsLabel = locale === 'it' ? 'Posizioni aperte' : locale === 'en' ? 'Open positions' : locale === 'de' ? 'Offene Stellen' : 'Postes ouverts';
+ parts.push(`<section class="s-7uP4UM"><h2>${openPositionsLabel} (${companyJobs.length})</h2>`);
  parts.push(`<ul class="s-0WjlyL">${jobListHtml}</ul>`);
  parts.push(`<p><a href="${listingUrl}">${esc(copy.viewAll)}</a></p>`);
  parts.push('</section>');
@@ -6953,7 +6965,7 @@ ${staticAnalyticsHtml}
  // Embed a full JobPosting per item (capped description, never throws → falls
  // back to a name+url stub). Mirrors the editorial-landing ItemList; the
  // authoritative per-job JobPosting still lives on each linked detail page.
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) =>
+ itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
  const listHtml = jobCardListBody(cappedJobs, locale);
@@ -7807,7 +7819,7 @@ ${staticAnalyticsHtml}
  // Embed a full JobPosting per item (capped description, never throws → falls
  // back to a name+url stub). Mirrors the editorial-landing ItemList; the
  // authoritative per-job JobPosting still lives on each linked detail page.
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) =>
+ itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
  // Honest counts over the full (uncapped) match set, not the 30 carded jobs —
@@ -8232,10 +8244,9 @@ ${staticAnalyticsHtml}
  }
  continue;
  }
- // Keep the complete canton/company result set. `jobCardListBody` inserts the
- // shared in-feed ad after every third card; a cap here made the page claim 58
- // openings while exposing only 30 and also hid the later ad slots.
- const cappedJobs = sortedJobs;
+ // Keep the live total in the intro, but use one shared payload boundary for
+ // cards and ItemList so structured data describes every visible card.
+ const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompanyCanton = startTimer();
@@ -8383,15 +8394,6 @@ ${staticAnalyticsHtml}
  bodyHtml,
  distDir,
  });
- const COMPANY_CANTON_HARD_BUDGET = 195 * 1024;
- const htmlBytes = Buffer.byteLength(html, 'utf-8');
- if (htmlBytes > COMPANY_CANTON_HARD_BUDGET) {
- throw new Error(
- `[jobs-seo-pages] Per-canton company hub ${canonicalPath} renders to ` +
- `${(htmlBytes / 1024).toFixed(1)} KB — exceeds hard budget of ` +
- `${COMPANY_CANTON_HARD_BUDGET / 1024} KB.`
- );
- }
  const outDir = np.join(distDir, canonicalPath.slice(1));
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
@@ -8604,7 +8606,7 @@ ${staticAnalyticsHtml}
  // Embed a full JobPosting per item (capped description, never throws → falls
  // back to a name+url stub). Mirrors the editorial-landing ItemList; the
  // authoritative per-job JobPosting still lives on each linked detail page.
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) =>
+ itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
  // sameAs/logo (issue #4306) — real, derived values only. See

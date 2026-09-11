@@ -74,6 +74,13 @@ const doubles = vi.hoisted(() => {
       company_follow_only: true,
       sourceChannel: 'company_follow_button',
       consentText: 'synthetic company follow confirmation',
+      metadata: {
+        signup: {
+          channel: 'company-follow',
+          version: 1,
+        },
+      },
+      account_deleted_at: 'stale-account-marker',
     };
     // The real upsert owns this first confirmation-email side effect.  The
     // fake records it without rendering or sending a message.
@@ -175,7 +182,7 @@ const adminDouble = vi.hoisted(() => {
   const firestoreFactory: any = vi.fn();
   firestoreFactory.FieldValue = {
     serverTimestamp: vi.fn(() => new Date()),
-    delete: vi.fn(() => null),
+    delete: vi.fn(() => ({ __fakeFieldValue: 'delete' })),
     increment: vi.fn((value: number) => value),
   };
   firestoreFactory.Timestamp = {
@@ -252,15 +259,6 @@ vi.mock('../functions/src/newsletterWelcomeEmail.js', () => ({
   sendNewsletterWelcomeEmail: vi.fn(async () => ({ success: true })),
 }));
 
-import CompanyFollowMount from '@/components/community/CompanyFollowMount';
-import { companyAlertKey, deleteAlert, subscribeCompanyAlert } from '@/services/jobAlertService';
-import {
-  clearPendingCompanyFollows,
-  flushPendingCompanyFollows,
-  readPendingCompanyFollows,
-} from '@/services/companyFollowIntent';
-import { getActiveSlotId } from '@/services/popupQueue';
-import { getLocale, setLocale } from '@/services/i18n';
 import { companyFollowMountPlaceholder } from '../build-plugins/shared/companyFollowMountPlaceholder';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import {
@@ -276,7 +274,72 @@ const COMPANY = 'Acme';
 const COMPANY_KEY = 'acme';
 const NOVELTY_WINDOW_MS = 6 * 60 * 60 * 1000;
 
+async function loadChainModules() {
+  // These modules own mutable process-level state. Importing them after a
+  // reset gives every runChain round a fresh queue, pending-intent store,
+  // locale state, and service cache instead of merely resetting the doubles.
+  vi.resetModules();
+  const [companyFollowMount, jobAlertService, companyFollowIntent, popupQueue, i18n] = await Promise.all([
+    import('@/components/community/CompanyFollowMount'),
+    import('@/services/jobAlertService'),
+    import('@/services/companyFollowIntent'),
+    import('@/services/popupQueue'),
+    import('@/services/i18n'),
+  ]);
+  return {
+    CompanyFollowMount: companyFollowMount.default,
+    companyAlertKey: jobAlertService.companyAlertKey,
+    deleteAlert: jobAlertService.deleteAlert,
+    subscribeCompanyAlert: jobAlertService.subscribeCompanyAlert,
+    clearPendingCompanyFollows: companyFollowIntent.clearPendingCompanyFollows,
+    flushPendingCompanyFollows: companyFollowIntent.flushPendingCompanyFollows,
+    readPendingCompanyFollows: companyFollowIntent.readPendingCompanyFollows,
+    getActiveSlotId: popupQueue.getActiveSlotId,
+    hasActiveSlot: popupQueue.hasActiveSlot,
+    setLocale: i18n.setLocale,
+  };
+}
+
 function createManagementDb(email: string, initial: Record<string, any>) {
+  const isFirestoreMap = (value: unknown): value is Record<string, any> => Boolean(
+    value
+      && typeof value === 'object'
+      && !Array.isArray(value)
+      && !(value instanceof Date),
+  );
+  const isDeleteFieldValue = (value: unknown): boolean => (
+    isFirestoreMap(value) && value.__fakeFieldValue === 'delete'
+  );
+  const cloneFirestoreValue = (value: any): any => {
+    if (Array.isArray(value)) return value.map(cloneFirestoreValue);
+    if (!isFirestoreMap(value)) return value;
+    return Object.fromEntries(
+      Object.entries(value).map(([key, nested]) => [key, cloneFirestoreValue(nested)]),
+    );
+  };
+  const applySet = (
+    existing: Record<string, any> | undefined,
+    patch: Record<string, any>,
+    options?: { merge?: boolean },
+  ): Record<string, any> => {
+    const mergeMap = (base: Record<string, any>, values: Record<string, any>) => {
+      const next = cloneFirestoreValue(base) as Record<string, any>;
+      for (const [key, value] of Object.entries(values)) {
+        if (isDeleteFieldValue(value)) {
+          delete next[key];
+        } else if (isFirestoreMap(value) && isFirestoreMap(next[key])) {
+          next[key] = mergeMap(next[key], value);
+        } else {
+          next[key] = cloneFirestoreValue(value);
+        }
+      }
+      return next;
+    };
+
+    // Admin Firestore replaces a document unless { merge: true } is passed;
+    // merge mode recursively preserves maps and applies FieldValue.delete().
+    return mergeMap(options?.merge === true ? (existing || {}) : {}, patch);
+  };
   const docs: Record<string, Record<string, any>> = {
     [`newsletter_subscribers/${email}`]: { ...initial },
   };
@@ -292,8 +355,8 @@ function createManagementDb(email: string, initial: Record<string, any>) {
               exists: Boolean(docs[`${name}/${id}`]),
               data: () => docs[`${name}/${id}`],
             }),
-            set: async (data: Record<string, any>) => {
-              docs[`${name}/${id}`] = { ...(docs[`${name}/${id}`] || {}), ...data };
+            set: async (data: Record<string, any>, options?: { merge?: boolean }) => {
+              docs[`${name}/${id}`] = applySet(docs[`${name}/${id}`], data, options);
             },
             collection: (subName: string) => ({
               add: async (data: Record<string, any>) => {
@@ -357,11 +420,29 @@ async function runChain(locale: 'it' | 'en', round: number) {
   const now = Date.now();
 
   cleanup();
-  clearPendingCompanyFollows();
   localStorage.clear();
   doubles.reset();
+  const {
+    CompanyFollowMount,
+    companyAlertKey,
+    deleteAlert,
+    subscribeCompanyAlert,
+    clearPendingCompanyFollows,
+    flushPendingCompanyFollows,
+    readPendingCompanyFollows,
+    getActiveSlotId,
+    hasActiveSlot,
+    setLocale,
+  } = await loadChainModules();
+  clearPendingCompanyFollows();
   setLocale(locale);
   window.history.replaceState({}, '', expectedPath);
+
+  // Ring 1 — popup arbitration precondition. This chain verifies the
+  // positive visibility path only when no other prompt owns the shared slot;
+  // Ring 2 must not imply that the company prompt wins an unrelated contest.
+  expect(hasActiveSlot(), 'ring 1: shared popup slot is free before mount').toBe(false);
+  expect(getActiveSlotId(), 'ring 1: popup queue has no owner before mount').toBeNull();
 
   // Ring 1 — public single-company profile and the real SSG island contract.
   document.body.innerHTML = `<main data-public-company-profile><h1>${COMPANY}</h1>${companyFollowMountPlaceholder({
@@ -387,7 +468,10 @@ async function runChain(locale: 'it' | 'en', round: number) {
     expect(dialog, 'ring 2: popup dialog is visibly rendered').toBeVisible();
     expect(doubles.state.impressions, 'ring 2: onShown fires for visible popup').toHaveLength(1);
   }, { timeout: 2500 });
-  expect(getActiveSlotId(), 'ring 2: company popup owns the shared visible slot').toBe('company-follow-prompt:acme');
+  expect(
+    getActiveSlotId() === 'company-follow-prompt:acme',
+    'ring 2: company popup owns the shared visible slot',
+  ).toBe(true);
   expect(doubles.state.alerts, 'ring 2: opening popup creates no CompanyAlert').toHaveLength(0);
   expect(doubles.state.subscriber, 'ring 2: opening popup creates no newsletter subscriber').toBeNull();
 
@@ -419,9 +503,19 @@ async function runChain(locale: 'it' | 'en', round: number) {
   expect(readPendingCompanyFollows(), 'ring 4: pending follow intent exists before confirmation').toHaveLength(1);
   expect(doubles.state.alerts, 'ring 4: pending confirmation creates no CompanyAlert').toHaveLength(0);
   await confirmSyntheticAddress(email);
-  expect(doubles.state.subscriber?.status, 'ring 4: confirmed company-follow address stays newsletter-suppressed').toBe('suppressed');
+  expect(
+    doubles.state.subscriber?.status === 'suppressed',
+    'ring 4: confirmed company-follow address stays newsletter-suppressed',
+  ).toBe(true);
   expect(doubles.state.subscriber?.company_follow_confirmed_at, 'ring 4: confirmation proof is recorded').toBeTruthy();
   expect(doubles.state.subscriber?.company_follow_followup_pending, 'ring 4: confirmed follow is queued for alert flush').toBe(true);
+  expect(doubles.state.subscriber?.metadata, 'ring 4: merge keeps nested subscriber metadata').toEqual({
+    signup: {
+      channel: 'company-follow',
+      version: 1,
+    },
+  });
+  expect(doubles.state.subscriber?.account_deleted_at, 'ring 4: FieldValue.delete removes stale account marker').toBeUndefined();
   expect(doubles.state.alerts, 'ring 4: confirmation step itself still has no alert write').toHaveLength(0);
 
   // Ring 5 — the post-confirmation flush uses the real CompanyAlert writer.
@@ -562,8 +656,6 @@ describe('Company Alerts — complete positive chain in isolation', () => {
     document.body.innerHTML = '';
     localStorage.clear();
     doubles.reset();
-    clearPendingCompanyFollows();
-    setLocale('it');
   });
 
   it('runs all eight rings twice in Italian and English, fail-fast, in one process', async () => {
@@ -580,6 +672,7 @@ describe('Company Alerts — complete positive chain in isolation', () => {
       expect(sameLocale[1], `chain repetitions: ${locale} second run equals first run`).toEqual(sameLocale[0]);
     }
     expect(results.every((result) => result.deliveryOutcome === 'accepted'), 'chain result: every explicit fake-provider ack accepted').toBe(true);
+    const { getLocale } = await import('@/services/i18n');
     expect(getLocale(), 'chain result: final locale is the last exercised real locale').toBe('en');
   });
 });

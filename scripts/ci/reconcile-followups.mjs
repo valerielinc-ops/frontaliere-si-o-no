@@ -55,6 +55,7 @@ import {
   hasStableItemIdsForDailyKey,
   hasUnterminatedMarkdownFence,
   isDailyBucketTitle,
+  normalizeAcceptanceToken,
   parseFollowupItems,
   updateFollowupItemState,
   splitFollowupItems,
@@ -65,6 +66,7 @@ const DRY_RUN = process.env.DRY_RUN === '1';
 const NO_AUTOCLOSE = process.env.NO_AUTOCLOSE === '1';
 const MAX_ISSUES = intFromEnv('MAX_ISSUES', 100);
 const MARKER = '<!-- reconcile-bot -->';
+const FLAG_MARKER = '<!-- reconcile-bot:flag -->';
 const CLOSE_MARKER = '<!-- reconcile-bot:autoclose -->';
 const LABEL = 'maybe-resolved';
 const CLOSED_LABEL = 'fu-resolved-auto';
@@ -291,13 +293,18 @@ export function isCurrentUnclassifiable(issue, comments, {
  * Evidence strong enough to AUTO-CLOSE (vs merely flag). A single common dot-member like
  * `meta.model` matches in countless unrelated files → too coincidental to close on. Require
  * MULTIPLE distinct prescribed tokens all present. A single token, even if it looks like a
- * rich expression, can be the status quo that the follow-up asks to change. Weak-but-resolved
- * stays flagged for a human (never silently closed).
+ * rich expression, can be the status quo that the follow-up asks to change. The one-token
+ * exception is an explicit stable-item Acceptance token, whose contract is already scoped
+ * to the item and is checked by the matcher. Weak-but-resolved legacy evidence stays flagged
+ * for a human (never silently closed).
  * @param {string[]} matchedTokens tokens that were found verbatim in a cited file
+ * @param {{acceptanceToken?: string}} [options] explicit stable-item acceptance token
  * @returns {boolean}
  */
-export function isStrongAutoCloseEvidence(matchedTokens) {
+export function isStrongAutoCloseEvidence(matchedTokens, { acceptanceToken = '' } = {}) {
   const uniq = [...new Set((matchedTokens || []).map((t) => String(t)))];
+  const explicit = normalizeAcceptanceToken(acceptanceToken);
+  if (explicit && uniq.includes(explicit)) return true;
   return uniq.length >= 2;
 }
 
@@ -345,10 +352,13 @@ export function dailyBucketCloseGate(
   const unresolvedItems = [];
   const weakItems = [];
   for (const item of items) {
-    const result = detectAlreadyResolved(item.text, io);
+    const result = detectAlreadyResolved(item.text, io, { acceptanceToken: item.acceptanceToken });
     evidenceById.set(item.id, result.evidence || []);
     if (item.state !== 'done' || !result.resolved) unresolvedItems.push(item);
-    if (!isStrongAutoCloseEvidence((result.evidence || []).map((entry) => entry.tok))) weakItems.push(item);
+    if (!isStrongAutoCloseEvidence(
+      (result.evidence || []).map((entry) => entry.tok),
+      { acceptanceToken: item.acceptanceToken },
+    )) weakItems.push(item);
   }
   if (unresolvedItems.length) {
     return { blocks: true, reason: 'valid-item-unconfirmed', validItems: items, unresolvedItems, evidenceById };
@@ -402,7 +412,7 @@ export function reconcileDailyItems(
   const evidenceById = new Map();
   for (const item of items) {
     const result = hasFalsifiableAcceptance(item.text)
-      ? detectAlreadyResolved(item.text, io)
+      ? detectAlreadyResolved(item.text, io, { acceptanceToken: item.acceptanceToken })
       : { resolved: false, evidence: [] };
     evidenceById.set(item.id, result.evidence || []);
     if (result.resolved && (item.state === 'open' || item.state === 'in-progress')) {
@@ -537,10 +547,21 @@ function readIssueComments(number) {
   }
 }
 
+/**
+ * Item-done comments share the historical `MARKER`; only an aggregate reconcile
+ * flag counts as the prior grace-window confirmation. Keep accepting old flag
+ * comments while giving new flags a marker that cannot collide with item state.
+ */
+export function isReconcileFlagComment(body) {
+  const text = String(body || '');
+  return text.includes(FLAG_MARKER)
+    || (text.includes(MARKER) && text.includes('🤖 **Reconcile (auto)**'));
+}
+
 function alreadyCommented(number, comments = undefined) {
   const resolvedComments = comments === undefined ? readIssueComments(number) : comments;
   if (!Array.isArray(resolvedComments)) return null;
-  return resolvedComments.some((c) => (c.body || '').includes(MARKER));
+  return resolvedComments.some((c) => isReconcileFlagComment(c.body));
 }
 
 function evidenceLines(evidence) {
@@ -749,7 +770,8 @@ ${c.marker}`;
       : f.reason === 'weak-evidence'
       ? '\n\nℹ️ Evidenza debole (singolo token poco specifico): **non** verrà auto-chiusa — verifica e chiudi a mano se lo scope è coperto.'
       : '\n\nSe al prossimo run risulterà ancora risolta, verrà **auto-chiusa** (finestra di grazia: obietta rimuovendo `maybe-resolved` o aggiungendo `keep-open`).';
-    const comment = `${MARKER}
+    const comment = `${FLAG_MARKER}
+${MARKER}
 🤖 **Reconcile (auto)**: i token citati da questa issue risultano già presenti nei file citati — probabile **done-but-open** (coperto da una PR successiva senza \`Closes #${f.number}\`).
 
 ${evidenceLines(f.evidence)}${note}`;

@@ -97,6 +97,11 @@ export const BASELINE = {
   },
 };
 
+// A GA4 fallback baseline is useful only while it still describes the same
+// measurement regime. Once the fallback has been unused for longer than this,
+// comparing against it would manufacture a CLS verdict from stale data.
+export const MAX_BASELINE_AGE_DAYS = 30;
+
 // URL buckets for GSC CTR tracking. Matched as URL-contains on the page dimension.
 export const GSC_BUCKETS = [
   '/job-board/',
@@ -447,7 +452,7 @@ export async function fetchGa4ClsFallback({
  * @param opts.failThresholdFrac fraction that triggers 🔴 (default 0.20)
  */
 export function compare(current, baseline, { higherIsBetter = true, warnThresholdFrac = 0.10, failThresholdFrac = 0.20 } = {}) {
-  if (current === null || current === undefined || baseline === null || baseline === undefined) {
+  if (!Number.isFinite(current) || !Number.isFinite(baseline)) {
     return { delta: null, deltaPct: null, verdict: '⚪ n/a' };
   }
   const delta = Number((current - baseline).toFixed(3));
@@ -467,7 +472,7 @@ export function compare(current, baseline, { higherIsBetter = true, warnThreshol
 }
 
 function compareWithSource(current, baseline, options) {
-  if (!baseline) {
+  if (!baseline || !Number.isFinite(baseline.value)) {
     return { delta: null, deltaPct: null, verdict: '⚪ source baseline unavailable' };
   }
   if ((current.source ?? null) !== (baseline.source ?? null)) {
@@ -537,8 +542,9 @@ export function buildComparisonRows(current, baseline = BASELINE) {
   if (posthog) {
     // Lower is better for CLS.
     const posthogBaseline = selectPosthogBaseline(posthog, b);
-    rows.push({ metric: 'CLS p75 mobile', baseline: posthogBaseline?.clsP75Mobile ?? null, current: posthog.clsP75Mobile, ...compareWithSource({ value: posthog.clsP75Mobile, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Mobile, source: posthogBaseline.source }, { higherIsBetter: false }) });
-    rows.push({ metric: 'CLS p75 desktop', baseline: posthogBaseline?.clsP75Desktop ?? null, current: posthog.clsP75Desktop, ...compareWithSource({ value: posthog.clsP75Desktop, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Desktop, source: posthogBaseline.source }, { higherIsBetter: false }) });
+    const baselineDate = posthogBaseline?.baselineDate ?? null;
+    rows.push({ metric: 'CLS p75 mobile', baseline: posthogBaseline?.clsP75Mobile ?? null, baselineDate, current: posthog.clsP75Mobile, ...compareWithSource({ value: posthog.clsP75Mobile, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Mobile, source: posthogBaseline.source }, { higherIsBetter: false }) });
+    rows.push({ metric: 'CLS p75 desktop', baseline: posthogBaseline?.clsP75Desktop ?? null, baselineDate, current: posthog.clsP75Desktop, ...compareWithSource({ value: posthog.clsP75Desktop, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Desktop, source: posthogBaseline.source }, { higherIsBetter: false }) });
   } else {
     rows.push({ metric: 'PostHog CLS', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
   }
@@ -618,7 +624,7 @@ export function computePublisherMetrics(slice, now = new Date()) {
 function renderTable(rows) {
   const data = rows.map((r) => ({
     metric: r.metric,
-    baseline: r.baseline ?? '—',
+    baseline: r.baselineDate ? `${r.baseline ?? '—'} (${r.baselineDate})` : r.baseline ?? '—',
     current: r.current ?? '—',
     'Δ': r.delta ?? '—',
     'Δ%': r.deltaPct !== null && r.deltaPct !== undefined ? `${r.deltaPct}%` : '—',
@@ -640,13 +646,17 @@ export function renderMarkdown(rows, current, baseline = BASELINE) {
   for (const r of rows) {
     const d = r.delta !== null && r.delta !== undefined ? r.delta : '—';
     const p = r.deltaPct !== null && r.deltaPct !== undefined ? `${r.deltaPct}%` : '—';
-    lines.push(`| ${r.metric} | ${r.baseline ?? '—'} | ${r.current ?? '—'} | ${d} | ${p} | ${r.verdict} |`);
+    const baseline = r.baselineDate ? `${r.baseline ?? '—'} (${r.baselineDate})` : r.baseline ?? '—';
+    lines.push(`| ${r.metric} | ${baseline} | ${r.current ?? '—'} | ${d} | ${p} | ${r.verdict} |`);
   }
   lines.push('');
   const regressions = rows.filter((r) => r.verdict.startsWith('🔴') || r.verdict.startsWith('⚠️'));
   if (regressions.length) {
     lines.push('## Regressions');
-    for (const r of regressions) lines.push(`- ${r.verdict} **${r.metric}** — ${r.current} vs baseline ${r.baseline} (${r.deltaPct}%)`);
+    for (const r of regressions) {
+      const baseline = r.baselineDate ? `${r.baseline} (${r.baselineDate})` : r.baseline;
+      lines.push(`- ${r.verdict} **${r.metric}** — ${r.current} vs baseline ${baseline} (${r.deltaPct}%)`);
+    }
   } else {
     lines.push('## All metrics healthy — no regressions flagged.');
   }
@@ -736,19 +746,42 @@ export function buildHistoryEntry(current, rows, dateStr) {
   };
 }
 
-function loadLatestPosthogBaseline(file, source) {
+function parseHistoryDate(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+  const time = Date.parse(`${value}T00:00:00Z`);
+  if (!Number.isFinite(time)) return null;
+  const date = new Date(time);
+  return date.toISOString().slice(0, 10) === value ? { value, time } : null;
+}
+
+export function loadLatestPosthogBaseline(
+  file,
+  source,
+  { now = new Date(), maxAgeDays = MAX_BASELINE_AGE_DAYS } = {},
+) {
   if (!existsSync(file)) return null;
-  let latest = null;
+  const nowDate = parseHistoryDate(new Date(now).toISOString().slice(0, 10));
+  const ageLimit = Number(maxAgeDays);
+  if (!nowDate || !Number.isFinite(ageLimit) || ageLimit < 0) return null;
+  let firstRecent = null;
   for (const line of readFileSync(file, 'utf8').split('\n')) {
     if (!line.trim()) continue;
     try {
       const entry = JSON.parse(line);
-      if (entry.posthog?.source === source) latest = entry.posthog;
+      const entryDate = parseHistoryDate(entry.date);
+      const posthog = entry.posthog;
+      if (!entryDate || posthog?.source !== source) continue;
+      const ageDays = (nowDate.time - entryDate.time) / 86_400_000;
+      if (ageDays < 0 || ageDays > ageLimit) continue;
+      if (!Number.isFinite(posthog.clsP75Mobile) && !Number.isFinite(posthog.clsP75Desktop)) continue;
+      if (!firstRecent || entryDate.time < firstRecent.time) {
+        firstRecent = { time: entryDate.time, posthog: { ...posthog, baselineDate: entryDate.value } };
+      }
     } catch {
       // A malformed historical line must not prevent the monitor from running.
     }
   }
-  return latest;
+  return firstRecent?.posthog ?? null;
 }
 
 // ── Main ────────────────────────────────────────────────────

@@ -10,7 +10,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, it, expect } from 'vitest';
-import { isAggregateTitle, decideReconcileAction, isStrongAutoCloseEvidence } from '../scripts/ci/reconcile-followups.mjs';
+import {
+  dailyBucketCloseGate,
+  isAggregateTitle,
+  decideReconcileAction,
+  isReconcileFlagComment,
+  isStrongAutoCloseEvidence,
+  reconcileDailyItems,
+} from '../scripts/ci/reconcile-followups.mjs';
 
 describe('isAggregateTitle — multi-item follow-ups never auto-close', () => {
   it('flags N≥2 "item(s)" titles as aggregate', () => {
@@ -56,6 +63,76 @@ describe('isStrongAutoCloseEvidence — weak single tokens never auto-close', ()
   it('empty → not strong', () => {
     expect(isStrongAutoCloseEvidence([])).toBe(false);
     expect(isStrongAutoCloseEvidence(undefined)).toBe(false);
+  });
+  it('an explicit stable-item Acceptance token is strong when its single token is matched', () => {
+    expect(isStrongAutoCloseEvidence(
+      ['stripSiteTitleSuffix()'],
+      { acceptanceToken: '`stripSiteTitleSuffix()`' },
+    )).toBe(true);
+    expect(isStrongAutoCloseEvidence(['stripSiteTitleSuffix()'])).toBe(false);
+  });
+});
+
+describe('daily bucket reconcile — explicit Acceptance token', () => {
+  const body = [
+    '## Batch',
+    '',
+    '- Daily key: 2026-09-11 (Europe/Zurich)',
+    '- State: sealed',
+    '- Target repository: valerielinc-ops/frontaliere-si-o-no',
+    '',
+    '## Item',
+    '',
+    '### FU-2026-09-11-001 — normalize Manor title',
+    '- State: open',
+    '- Sources: PR #8245',
+    '- Target repository: valerielinc-ops/frontaliere-si-o-no',
+    '- Target file: `scripts/update-manor-jobs.mjs`',
+    '- Suggested action: apply `stripSiteTitleSuffix()` to the parsed title',
+    '- Acceptance token: `stripSiteTitleSuffix()`',
+  ].join('\n');
+  const io = {
+    fileExists: (p: string) => p === 'scripts/update-manor-jobs.mjs',
+    readFile: () => 'const title = stripSiteTitleSuffix(rawTitle);',
+  };
+
+  it('marks the item done and clears the official bucket gate', () => {
+    const reconciled = reconcileDailyItems(
+      body,
+      io,
+      '2026-09-11',
+      'valerielinc-ops/frontaliere-si-o-no',
+      1,
+    );
+    expect(reconciled.changed).toBe(true);
+    expect(reconciled.changes).toHaveLength(1);
+    expect(reconciled.body).toContain('- State: done');
+
+    const gate = dailyBucketCloseGate(
+      reconciled.body,
+      io,
+      '2026-09-11',
+      'valerielinc-ops/frontaliere-si-o-no',
+      1,
+    );
+    expect(gate.blocks).toBe(false);
+  });
+});
+
+describe('reconcile flag history — item markers do not consume the grace window', () => {
+  it('does not treat an item-done marker as an aggregate flag', () => {
+    expect(isReconcileFlagComment(
+      '<!-- reconcile-bot -->\n✅ Item `FU-2026-09-11-004` marcato `done`.',
+    )).toBe(false);
+  });
+
+  it('recognizes the dedicated current marker and legacy aggregate flag comments', () => {
+    expect(isReconcileFlagComment(
+      '<!-- reconcile-bot:flag -->\n<!-- reconcile-bot -->\n🤖 **Reconcile (auto)**: done-but-open',
+    )).toBe(true);
+    expect(isReconcileFlagComment(
+      '<!-- reconcile-bot -->\n🤖 **Reconcile (auto)**: done-but-open',
+    )).toBe(true);
   });
 });
 

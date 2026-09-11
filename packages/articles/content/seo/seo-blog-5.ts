@@ -89227,6 +89227,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trenord-como-milano-corse-aggiuntive-2025': {
+    title: 'Trenord potenzia la linea Como-Milano: 4 corse mattutine in più dal 14 settembre',
+    description: 'Dal 14 settembre 2025 quattro nuove corse feriali sulla linea Milano Cadorna-Como Lago. Orari completi e analisi per i frontalieri ticinesi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, trenord, potenzia, linea, como-milano',
+    ogTitle: 'Trenord potenzia Como-Milano: 4 treni in più per i frontalieri',
+    ogDescription: 'Nuove corse mattutine sulla linea Milano-Como dal 14 settembre. Scopri gli orari e come migliorano i collegamenti con il Ticino.',
+    canonicalPath: '/articoli-frontaliere/trenord-como-milano-corse-aggiuntive-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trenord potenzia la linea Como-Milano: 4 corse mattutine in più dal 14 settembre",
+      "description": "Dal 14 settembre 2025 quattro nuove corse feriali sulla linea Milano Cadorna-Como Lago. Orari completi e analisi per i frontalieri ticinesi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trenord-como-milano-corse-aggiuntive-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno Trenord in arrivo a Como Lago all'alba, con vista sul lago e sulle montagne"
+      },
+      "datePublished": "2026-09-11T00:39:11+00:00",
+      "dateModified": "2026-09-11T00:39:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trenord-como-milano-corse-aggiuntive-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fino-mornasco-frontaliere-ticino': {
+    title: 'Vivere a Fino Mornasco e lavorare in Ticino | Frontaliere Ticino',
+    description: 'Guida per frontalieri a Fino Mornasco: collegamenti per il Ticino, dogana di Brogeda, tassazione, franchigia IRPEF e contributi svizzeri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, fino, mornasco, lavorare',
+    ogTitle: 'Vivere a Fino Mornasco e lavorare in Ticino',
+    ogDescription: 'Tutte le informazioni pratiche e fiscali per chi risiede a Fino Mornasco e lavora in Ticino: tempi di percorrenza verso Brogeda, imposte, franchigia e previdenza.',
+    canonicalPath: '/articoli-frontaliere/fino-mornasco-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Fino Mornasco e lavorare in Ticino",
+      "description": "Guida per frontalieri a Fino Mornasco: collegamenti per il Ticino, dogana di Brogeda, tassazione, franchigia IRPEF e contributi svizzeri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fino-mornasco-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tragitto verso il confine svizzero da Fino Mornasco per frontalieri in Canton Ticino"
+      },
+      "datePublished": "2026-09-11T02:59:51+00:00",
+      "dateModified": "2026-09-11T02:59:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fino-mornasco-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-09-11': {
+    title: 'Bollettino del frontaliere – 11 settembre 2026: a Au-Lustenau 35 minuti di coda',
+    description: 'Bollettino frontalieri del 11 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 11 settembre 2026: a Au-Lustenau 35 minuti di coda',
+    ogDescription: 'I numeri del 11 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-09-11',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 11 settembre 2026: a Au-Lustenau 35 minuti di coda",
+      "description": "Bollettino frontalieri del 11 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-09-11.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 11 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-09-11T09:26:36+00:00",
+      "dateModified": "2026-09-11T09:26:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-09-11/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

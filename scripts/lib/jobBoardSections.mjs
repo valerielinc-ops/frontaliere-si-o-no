@@ -70,6 +70,37 @@ export const JOB_BOARD_SECTION_RX =
   new RegExp(`(?:^|/)(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/`);
 
 /**
+ * Matches the company-hub segment immediately below a job-board section,
+ * including both the directory index and the flat `.html` emitter output.
+ * Keeping the section prefix in this shared matcher prevents page-weight
+ * exceptions from accidentally covering a job-detail slug that happens to
+ * start with `azienda-`/`company-`.
+ */
+export const JOB_BOARD_COMPANY_HUB_PATH_RX = new RegExp(
+  `^(?:/(?:en|de|fr))?/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/` +
+  '(?:azienda|company|unternehmen|entreprise)-[a-z0-9][a-z0-9-]*(?:/|\\.html$|$)',
+);
+
+/**
+ * Matches an evergreen employer profile path, including the directory index
+ * and flat `.html` emitter output for every locale. Capture group 1 is the
+ * profile slug for consumers that also need to validate corpus membership.
+ *
+ * The end anchor is intentional: `/aziende/<slug>/` is the profile page, not
+ * an arbitrary nested route below the employer namespace.
+ */
+export const EMPLOYER_PROFILE_PATH_RX =
+  /^(?:\/(?:en|de|fr))?\/aziende\/([a-z0-9][a-z0-9-]*)(?:\/|\.html)?$/;
+
+/**
+ * Removes the flat `.html` suffix emitted alongside directory index pages.
+ * Route consumers can then apply the canonical trailing-slash policy once.
+ */
+export function stripFlatHtmlSuffix(path) {
+  return String(path).replace(/\.html$/, '');
+}
+
+/**
  * Matches a single URL path SEGMENT (no slashes) against the job-board
  * section shape — for callers that already split a path into parts (e.g.
  * `pathname.split('/')`) and need to test one segment at a time rather than

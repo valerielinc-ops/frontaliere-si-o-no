@@ -10,6 +10,7 @@ import {
   classifyProviderOutcomes,
   classifyRecipientConsent,
   companyAlertJobQuarantines,
+  coalesceDeliveryWrites,
   deliveryOutcomeForEmail,
   finalizeRecipientDelivery,
   hasDeferredCompanyAlertWork,
@@ -19,6 +20,7 @@ import {
   PER_RUN_CAP,
   planDeferredDeliveryWrites,
   planDeliveryWriteback,
+  persistDeferredDeliveryWrites,
   selectNewlyPublishedJobs,
   sortCompanyAlertRecipients,
 } from '../scripts/send-company-alerts.mjs';
@@ -440,6 +442,109 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
     expect(recovered[0].alert.deliveryLedger['b6-job-300']).toMatchObject({
       state: DELIVERY_STATES.DEFERRED,
       reason: 'per-run-cap',
+    });
+  });
+
+  it('prioritises an alert-level defer even when its ledger has no job key', () => {
+    const alertLevelDeferred = alert('b6-alert-level-sort', 'Acme', {
+      deliveryDeferredAttempts: 1,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED,
+      deliveryLedger: {},
+      email: 'b6-deferred@example.invalid',
+    });
+    const fresh = alert('b6-fresh-sort', 'Acme', {
+      email: 'b6-fresh@example.invalid',
+    });
+    const byRecipient = new Map([
+      [fresh.email, [fresh]],
+      [alertLevelDeferred.email, [alertLevelDeferred]],
+    ]);
+
+    expect(hasDeferredCompanyAlertWork([alertLevelDeferred])).toBe(true);
+    expect(sortCompanyAlertRecipients(byRecipient)[0]).toBe(alertLevelDeferred.email);
+  });
+
+  it('keeps the alert-level reason and the highest per-job attempts when writes race', async () => {
+    const sourceAlert = alert('b6-racing-writes', 'Acme');
+    const sourceJob = job('b6-racing-job', 'Acme', 'acme');
+    const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
+    const [alertLevelWrite] = planDeferredDeliveryWrites(
+      [{ alert: sourceAlert, jobs: [] }],
+      NOW,
+      'consent-lookup-failed',
+    );
+    const [throughputWrite] = planDeferredDeliveryWrites(
+      [section],
+      NOW + 1,
+      'per-run-cap',
+    );
+    expect(throughputWrite.deliveryLedger['b6-racing-job'].attempts).toBe(1);
+
+    const db = serializedDb({
+      [sourceAlert.ref.path]: {
+        ...sourceAlert,
+        ref: undefined,
+        deliveryLedger: {
+          'b6-racing-job': {
+            state: DELIVERY_STATES.DEFERRED,
+            at: NOW,
+            attempts: 2,
+            reason: 'per-run-cap',
+          },
+        },
+      },
+    });
+    await persistDeferredDeliveryWrites(db, [alertLevelWrite, throughputWrite], false);
+
+    expect(db.docs.get(sourceAlert.ref.path)).toMatchObject({
+      deliveryLastDeferredReason: 'consent-lookup-failed',
+      deliveryLedger: {
+        'b6-racing-job': {
+          state: DELIVERY_STATES.DEFERRED,
+          attempts: 2,
+        },
+      },
+    });
+  });
+
+  it('keeps a terminal per-job defer when alert-level and throughput writes coalesce', async () => {
+    const sourceAlert = alert('b6-terminal-coalescing', 'Acme', {
+      deliveryDeferredAttempts: DEFERRED_MAX_ATTEMPTS - 1,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED,
+    });
+    const sourceJob = job('b6-terminal-coalescing-job', 'Acme', 'acme');
+    const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
+    const [alertLevelWrite] = planDeferredDeliveryWrites(
+      [{ alert: sourceAlert, jobs: [sourceJob] }],
+      NOW,
+      'consent-lookup-failed',
+    );
+    const [throughputWrite] = planDeferredDeliveryWrites(
+      [section],
+      NOW + 1,
+      'per-run-cap',
+    );
+
+    const db = serializedDb({
+      [sourceAlert.ref.path]: {
+        ...sourceAlert,
+        ref: undefined,
+        deliveryLedger: {},
+      },
+    });
+    await persistDeferredDeliveryWrites(db, [alertLevelWrite, throughputWrite], false);
+
+    expect(db.docs.get(sourceAlert.ref.path)).toMatchObject({
+      deliveryLastDeferredReason: 'consent-lookup-failed',
+      deliveryDeferredAttempts: DEFERRED_MAX_ATTEMPTS,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+      deliveryLedger: {
+        [sourceJob.id]: {
+          state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+          attempts: DEFERRED_MAX_ATTEMPTS,
+          reason: 'consent-lookup-failed',
+        },
+      },
     });
   });
 

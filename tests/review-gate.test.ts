@@ -1,12 +1,15 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   classifyReview,
+  citationConfirmed,
   auditHistoricalCitations,
   followupIssueBody,
   followupItemsFromBody,
+  findingKey,
   extractFileCitations,
   historicalImportantFindings,
   importantFindings,
+  logClassification,
   CODEX_REVIEW_MARKER,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
@@ -115,6 +118,39 @@ describe('review gate: scope classification is fail-closed', () => {
   it('recognizes a bare zero only as the complete count form', () => {
     expect(importantFindings('🔴 Important: 0')).toHaveLength(0);
     expect(importantFindings(reviewFor('src/changed.mjs', '0 — the parser still drops jobs'))).toHaveLength(1);
+  });
+
+  it('ignores a negative Important summary inside the LGTM section', () => {
+    const body = [
+      '## Findings (Important: 0, Nit: 2)',
+      '',
+      '## LGTM',
+      'Nessun 🔴 Important: le modifiche sono coerenti e i nit non sono funnel-critical.',
+    ].join('\n');
+
+    expect(importantFindings(body)).toHaveLength(0);
+    expect(classifyReview(body, {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+    }).blocking).toBe(false);
+  });
+
+  it('does not ignore a real Important marker whose prose starts with No', () => {
+    const body = [
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`src/changed.mjs:L12`: 🔴 Important: No safe branch is present.',
+      '',
+      '## LGTM',
+    ].join('\n');
+
+    expect(importantFindings(body)).toHaveLength(1);
+    expect(classifyReview(body, {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+    }).inScope).toHaveLength(1);
   });
 
   it('does not let the last finding absorb a later H2 summary path', () => {
@@ -351,6 +387,19 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.unresolved).toHaveLength(1);
   });
 
+  it('emits the exact normalized key for an unresolved unanchored Important', async () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      logClassification(await classifyCurrentDiff(unanchoredImportantReview.body));
+
+      expect(log).toHaveBeenCalledWith(
+        'review-gate: BLOCKING finding=1 reason=nessun file citato expectedKey="🔴 Important: process contract remains unresolved"',
+      );
+    } finally {
+      log.mockRestore();
+    }
+  });
+
   it('allows an unanchored Important after its normalized text has an explicit confirmation', async () => {
     const fixedReview = {
       ...alignmentLgtmReview,
@@ -569,6 +618,155 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     });
   });
 
+  it('carries a prior LGTM across a fallback that repeats unchanged confirmed findings', async () => {
+    const fixedReview = {
+      ...approvingBotReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `src/changed.mjs:L12`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'),
+    };
+    const staleReview = {
+      ...historicalImportantReview,
+      body: `${CODEX_REVIEW_MARKER}\n${historicalImportantReview.body.replace(/\n## LGTM$/u, '')}`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, fixedReview, staleReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      changedPathsFn: () => [],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.reason).toMatch(/stale fallback/i);
+  });
+
+  it('keeps a repeated fallback blocking when one cited file changed afterwards', async () => {
+    const fixedReview = {
+      ...approvingBotReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `src/changed.mjs:L12`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'),
+    };
+    const staleReview = {
+      ...historicalImportantReview,
+      body: `${CODEX_REVIEW_MARKER}\n${historicalImportantReview.body.replace(/\n## LGTM$/u, '')}`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, fixedReview, staleReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      changedPathsFn: () => ['src/changed.mjs'],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
+    expect(result.classification.inScope).toHaveLength(1);
+  });
+
+  it('does not hide an Important introduced between the prior LGTM and fallback', async () => {
+    const fixedReview = {
+      ...approvingBotReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `src/changed.mjs:L12`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'),
+    };
+    const intermediateReview = {
+      ...historicalImportantReview,
+      body: [
+        '## Findings (Important: 1, Nit: 0)',
+        '',
+        '`scripts/ci/review-gate.mjs:L881`: 🔴 Important: a new gate flaw remains.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const staleReview = {
+      ...historicalImportantReview,
+      body: `${CODEX_REVIEW_MARKER}\n${historicalImportantReview.body.replace(/\n## LGTM$/u, '')}`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, fixedReview, intermediateReview, staleReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      changedPathsFn: () => [],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
+    expect(result.classification.blocking).toBe(true);
+  });
+
+  it('accepts a post-LGTM finding explicitly closed before the stale fallback', async () => {
+    const fixedReview = {
+      ...approvingBotReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `src/changed.mjs:L12`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'),
+    };
+    const intermediateReview = {
+      ...historicalImportantReview,
+      body: [
+        '## Findings (Important: 1, Nit: 0)',
+        '',
+        '`scripts/ci/review-gate.mjs:L881`: 🔴 Important: a new gate flaw remains.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const closingReview = {
+      ...historicalImportantReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `scripts/ci/review-gate.mjs:L881`: ok.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const staleReview = {
+      ...historicalImportantReview,
+      body: `${CODEX_REVIEW_MARKER}\n${historicalImportantReview.body.replace(/\n## LGTM$/u, '')}`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, fixedReview, intermediateReview, closingReview, staleReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      changedPathsFn: () => [],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.reason).toMatch(/stale fallback/i);
+  });
+
   it('accepts a Codex review only with strict evidence, marker and exact HEAD', async () => {
     const codexReview = {
       user: { type: 'Bot', login: 'github-actions[bot]' },
@@ -631,6 +829,28 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 describe('review gate: citazioni e conferme', () => {
   const bot = (body: string) => ({ user: { type: 'Bot', login: 'claude[bot]' }, body, commit_id: 'c'.repeat(40) });
 
+  it('keeps findingKey() and citationConfirmed() as direct moved-anchor contracts', () => {
+    const citation = { path: 'scripts/ci/review-gate.mjs', line: 431 };
+    const finding = { citations: [citation], text: 'moved review anchor' };
+    const confirmation = {
+      citations: [{ path: citation.path, line: 488 }],
+      key: '',
+      bodyAnchor: null,
+    };
+
+    expect(findingKey({ citations: [citation], text: 'ignored when anchored' }))
+      .toBe('scripts/ci/review-gate.mjs:431');
+    expect(citationConfirmed(citation, [confirmation], finding, [finding])).toBe(true);
+
+    const concurrentFinding = { citations: [citation], text: 'another moved anchor' };
+    expect(citationConfirmed(
+      citation,
+      [confirmation],
+      finding,
+      [finding, concurrentFinding],
+    )).toBe(false);
+  });
+
 
   it('recognizes a Markdown-escaped primary anchor without treating a mentioned helper as another finding', () => {
     const opened = bot('## Findings (Important: 1, Nit: 0)\n\n🔴 Important: `\\.github/actions/claude-codex-fallback/action.yml:L1065-L1079` — calls `claude-codex-fallback.mjs` without checking its exit.');
@@ -641,12 +861,83 @@ describe('review gate: citazioni e conferme', () => {
     expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
   });
 
+  it('conserva la riga quando il reviewer chiude il code span prima di :L', () => {
+    const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/update-manor-jobs.mjs`:L275: 🔴 Important: il suffisso pipe non è ancorato al brand.');
+    expect(importantFindings(opened.body)[0].citations).toEqual([
+      { path: 'scripts/update-manor-jobs.mjs', line: 275 },
+    ]);
+    const confirmed = bot('## Findings (Important: 0, Nit: 0)\nFix di `scripts/update-manor-jobs.mjs:L275`: ok.\n## LGTM');
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
   it('retains every precise anchor and explicit companion path until each is confirmed', () => {
     const opened = bot('## Findings\n🔴 Important: `src/a.ts:L3` and `src/b.ts:L4` are broken; also fix `src/helper.ts`.');
     const partial = bot('## Findings\nFix di `src/a.ts:L3`: ok.\n## LGTM');
     const remaining = historicalImportantFindings([opened, partial], { includeLatest: true });
     expect(remaining).toHaveLength(1);
     expect(remaining[0].citations).toHaveLength(3);
+  });
+
+  it('closes a unique bare companion path when the follow-up confirms its fix line', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`functions/index.js:L344`: 🔴 Important: the consumer is in `build-plugins/borderWaitHydrationScript.ts`.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `functions/index.js:L344`: ok.',
+      'Fix di `build-plugins/borderWaitHydrationScript.ts:L79`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
+  it('closes a shared bare companion only after each finding anchor is confirmed', () => {
+    const openedA = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`src/a.mjs:L10`: 🔴 Important: the first consumer also needs `src/shared.mjs`.',
+    ].join('\n'));
+    const openedB = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`src/b.mjs:L11`: 🔴 Important: the second consumer also needs `src/shared.mjs`.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `src/a.mjs:L10`: ok.',
+      'Fix di `src/b.mjs:L11`: ok.',
+      'Fix di `src/shared.mjs:L7`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([openedA, openedB, confirmed], { includeLatest: true }))
+      .toHaveLength(0);
+  });
+
+  it('treats a bare repeat of a precise path as context, not a second anchor', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`scripts/ci/refund-fix-round.mjs:L10`: 🔴 Important: il modulo non linka; controlla anche `scripts/ci/refund-fix-round.mjs`.',
+    ].join('\n'));
+    expect(importantFindings(opened.body)[0].citations).toEqual([
+      { path: 'scripts/ci/refund-fix-round.mjs', line: 10 },
+    ]);
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `scripts/ci/refund-fix-round.mjs:L10`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
   });
 
   it('non tronca le estensioni piu lunghe di un prefisso valido', () => {
@@ -687,12 +978,17 @@ describe('review gate: citazioni e conferme', () => {
     expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
   });
 
-  it('NON chiude un finding diverso sullo stesso file a un altra riga', () => {
-    // Il caso negativo: la riga resta un uguaglianza esatta, altrimenti una
-    // conferma su un difetto chiuderebbe anche il difetto accanto.
+  it('chiude un anchor spostato sulla riga nuova quando il path è univoco', () => {
     const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L7`: 🔴 Important: rotto.\n');
-    const other = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/lib/helper.mjs:L99`: ok.\n\n## LGTM');
-    expect(historicalImportantFindings([opened, other], { includeLatest: true })).toHaveLength(1);
+    const moved = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/lib/helper.mjs:L99`: ok.\n\n## LGTM');
+    expect(historicalImportantFindings([opened, moved], { includeLatest: true })).toHaveLength(0);
+  });
+
+  it('mantiene aperti finding distinti sullo stesso file quando la conferma cambia riga', () => {
+    const first = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L7`: 🔴 Important: primo difetto.\n');
+    const second = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L12`: 🔴 Important: secondo difetto.\n');
+    const ambiguous = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/lib/helper.mjs:L99`: ok.\n\n## LGTM');
+    expect(historicalImportantFindings([first, second, ambiguous], { includeLatest: true })).toHaveLength(2);
   });
 
   it('chiude un finding a riga con una conferma senza riga solo quando il path è univoco', () => {

@@ -412,7 +412,8 @@ export function hasDeferredCompanyAlertWork(alerts) {
   return (alerts || []).some((alert) => {
     const ledger = normalizeDeliveryLedger(alert?.deliveryLedger);
     if (isDeferredExhausted(alert)) return false;
-    return Object.values(ledger).some((entry) => entry.state === DELIVERY_STATES.DEFERRED);
+    return deferredStateForAlert(alert) === DELIVERY_STATES.DEFERRED
+      || Object.values(ledger).some((entry) => entry.state === DELIVERY_STATES.DEFERRED);
   });
 }
 
@@ -421,8 +422,51 @@ function deferredStateForAlert(alert) {
 }
 
 function deferredAttemptsForAlert(alert) {
-  const storedAttempts = Number(alert?.deliveryDeferredAttempts);
-  return Number.isInteger(storedAttempts) && storedAttempts > 0 ? storedAttempts : 0;
+  return positiveAttempts(alert?.deliveryDeferredAttempts);
+}
+
+function positiveAttempts(value) {
+  const attempts = Number(value);
+  return Number.isInteger(attempts) && attempts > 0 ? attempts : 0;
+}
+
+function mergeCoalescedDeliveryLedger(priorLedger, writeLedger) {
+  // One run can coalesce an alert-level terminal write with a throughput write
+  // for the same job. The latter is derived from the pre-write snapshot and
+  // must never downgrade the terminal evidence or its attempt count.
+  const merged = { ...priorLedger };
+  for (const [key, candidate] of Object.entries(writeLedger || {})) {
+    const previous = merged[key];
+    if (!previous) {
+      merged[key] = candidate;
+      continue;
+    }
+
+    const attempts = Math.max(
+      positiveAttempts(previous.attempts),
+      positiveAttempts(candidate.attempts),
+    );
+    const previousExhausted = previous.state === DELIVERY_STATES.DEFERRED_EXHAUSTED;
+    const candidateExhausted = candidate.state === DELIVERY_STATES.DEFERRED_EXHAUSTED;
+    if (previousExhausted || candidateExhausted) {
+      const terminalEntry = previousExhausted ? previous : candidate;
+      merged[key] = {
+        ...previous,
+        ...candidate,
+        state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+        ...(attempts > 0 ? { attempts } : {}),
+        ...(terminalEntry.reason ? { reason: terminalEntry.reason } : {}),
+      };
+      continue;
+    }
+
+    merged[key] = {
+      ...previous,
+      ...candidate,
+      ...(attempts > 0 ? { attempts } : {}),
+    };
+  }
+  return merged;
 }
 
 function isDeferredExhausted(alert) {
@@ -643,7 +687,7 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
     });
 }
 
-function coalesceDeliveryWrites(writes) {
+export function coalesceDeliveryWrites(writes) {
   const byRef = new Map();
   for (const write of writes || []) {
     if (!write?.ref) continue;
@@ -656,8 +700,12 @@ function coalesceDeliveryWrites(writes) {
       });
       continue;
     }
-    prior.deliveryLedger = { ...prior.deliveryLedger, ...write.deliveryLedger };
+    const priorHasAlertLevelAttempt = deferredAttemptsForAlert(prior) > 0;
     const writeAttempts = deferredAttemptsForAlert(write);
+    prior.deliveryLedger = mergeCoalescedDeliveryLedger(
+      prior.deliveryLedger,
+      write.deliveryLedger,
+    );
     if (writeAttempts > 0) {
       prior.deliveryDeferredAttempts = Math.max(
         deferredAttemptsForAlert(prior),
@@ -670,7 +718,11 @@ function coalesceDeliveryWrites(writes) {
         ? DELIVERY_STATES.DEFERRED_EXHAUSTED
         : (writeState || priorState);
     }
-    prior.reason = write.reason || prior.reason;
+    // Throughput deferrals are per-job and must not replace the reason attached
+    // to the alert-level attempt counter when both writes target one alert.
+    if (write.reason && (writeAttempts > 0 || !priorHasAlertLevelAttempt)) {
+      prior.reason = write.reason;
+    }
     prior.at = Math.max(prior.at || 0, write.at || 0);
   }
   return [...byRef.values()];
@@ -688,7 +740,7 @@ function coalesceDeliveryWrites(writes) {
  * @param {boolean} dryRun
  * @returns {Promise<number>}
  */
-async function persistDeferredDeliveryWrites(db, writes, dryRun) {
+export async function persistDeferredDeliveryWrites(db, writes, dryRun) {
   const coalesced = coalesceDeliveryWrites(writes);
   if (coalesced.length === 0) return 0;
   if (dryRun) {
@@ -719,7 +771,16 @@ async function persistDeferredDeliveryWrites(db, writes, dryRun) {
           // this plan was built. Never let a stale deferred write downgrade a
           // retry-blocking state and reopen a duplicate-send race.
           if (deliveryEntryBlocksRetry(current[key], write.at)) continue;
-          next[key] = entry;
+          const attempts = Math.max(
+            positiveAttempts(current[key]?.attempts),
+            positiveAttempts(entry.attempts),
+          );
+          const nextEntry = attempts > 0 ? { ...entry, attempts } : entry;
+          if (nextEntry.state === DELIVERY_STATES.DEFERRED
+            && attempts >= DEFERRED_MAX_ATTEMPTS) {
+            nextEntry.state = DELIVERY_STATES.DEFERRED_EXHAUSTED;
+          }
+          next[key] = nextEntry;
         }
         const update = {
           deliveryLedger: next,
@@ -1433,6 +1494,11 @@ async function main() {
     // job triggered the send.
     const locale = headline.locale;
     const autologinCode = generateAutologinCode(recipient);
+    const companyAlertUtm = {
+      utmSource: COMPANY_ALERT_TEMPLATE_ID,
+      utmMedium: 'email',
+      utmCampaign: `alert_${headline.alert.id}`,
+    };
     // Two decorators, one perimeter (#5725). Both add the campaign parameters;
     // only `wrapJobUrl` can add the `ne`/`ac` autologin pair, and only because
     // it says why. The shared builder is fail-closed: anything it does not
@@ -1441,7 +1507,7 @@ async function main() {
     // default, which is the change.
     const wrapUrl = (raw) => makeAuthenticatedUrl(raw, recipient, {
       autologinCode,
-      utmMedium: 'email',
+      ...companyAlertUtm,
       preserveExistingUtmMedium: true,
     });
     // A job DETAIL page is not public: components/community/JobBoard.tsx swaps
@@ -1449,7 +1515,7 @@ async function main() {
     // HUB above is, and loses the credential.
     const wrapJobUrl = (raw) => makeAuthenticatedUrl(raw, recipient, {
       autologinCode,
-      utmMedium: 'email',
+      ...companyAlertUtm,
       preserveExistingUtmMedium: true,
       sessionGated:
         'job detail page — components/community/JobBoard.tsx renders the sign-in gate '

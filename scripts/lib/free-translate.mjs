@@ -521,10 +521,13 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
 }
 
 async function translateWithDeepL(text, sourceLang, targetLang, outcome = null) {
-  if (DEEPL_API_KEYS.length === 0) return '';
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
   const outcomeBefore = snapshotTranslationOutcome(outcome);
+  if (DEEPL_API_KEYS.length === 0) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
 
   const srcCode = DEEPL_LANG_MAP[sourceLang] || sourceLang?.toUpperCase() || '';
   const tgtCode = DEEPL_LANG_MAP[targetLang] || targetLang?.toUpperCase() || '';
@@ -860,10 +863,13 @@ async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = '
 
 // ── Azure Translator (F0 Free — 2M chars/month, near-DeepL quality) ────────
 async function translateWithAzure(text, sourceLang, targetLang, outcome = null) {
-  if (AZURE_TRANSLATOR_KEYS.length === 0) return '';
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
   const outcomeBefore = snapshotTranslationOutcome(outcome);
+  if (AZURE_TRANSLATOR_KEYS.length === 0) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
 
   // Azure supports up to 50K chars per request, but we chunk at 5K for safety
   const MAX_CHUNK = 5000;
@@ -992,10 +998,13 @@ async function _getGoogleCloudAccessToken() {
   return _gcOAuth.accessToken;
 }
 
-async function translateWithGoogleCloud(text, sourceLang, targetLang, outcome = null) {
-  if (!_gcOAuthAvailable) return '';
+export async function translateWithGoogleCloud(text, sourceLang, targetLang, outcome = null) {
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
+  if (!_gcOAuthAvailable) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
   if (_googleCloudDailyChars + clean.length > GOOGLE_CLOUD_DAILY_LIMIT) {
     noteTranslationOutcome(outcome, 'incomplete');
     return '';
@@ -1045,10 +1054,13 @@ async function translateWithGoogleCloud(text, sourceLang, targetLang, outcome = 
 }
 
 // ── Hugging Face OPUS-MT (Helsinki-NLP open-source models) ─────────────────
-async function translateWithHuggingFace(text, sourceLang, targetLang, outcome = null) {
-  if (!HF_TOKEN) return '';
+export async function translateWithHuggingFace(text, sourceLang, targetLang, outcome = null) {
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
+  if (!HF_TOKEN) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
 
   const modelKey = `${sourceLang}-${targetLang}`;
   const model = HF_OPUS_MT_MODELS[modelKey];
@@ -1256,11 +1268,12 @@ async function translateWithLocalOpusMtWithOutcome(text, sourceLang, targetLang,
   return translated;
 }
 
-function mergeTranslationOutcome(target, source) {
+export function mergeTranslationOutcome(target, source) {
   if (!target || !source) return;
   target.passthroughs += source.passthroughs || 0;
   target.errors += source.errors || 0;
   target.incomplete = target.incomplete || source.incomplete === true;
+  target.tierUnavailable = target.tierUnavailable || source.tierUnavailable === true;
 }
 
 export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 'title', _outcome = null }) {
@@ -1409,7 +1422,12 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
         noteTranslationOutcome(_outcome, 'incomplete');
         return ''; // quota hit mid-chunk, abort
       }
-      parts.push(mm);
+      // One verbatim chunk is enough to invalidate the whole field. Comparing
+      // only the joined output lets a translated chunk mask an echoed one and
+      // publishes a mixed-language body as a successful translation.
+      const normalized = normalizeBlock(mm);
+      if (rejectedAsPassthrough('myMemory', chunk, normalized, _outcome)) return '';
+      parts.push(normalized);
     }
     // `return joined` e non un confronto locale: questo e' il ramo dei testi
     // lunghi, cioe' dei body, cioe' esattamente dei 27 passthrough misurati.
@@ -1525,14 +1543,18 @@ export async function freeTranslateWithRetryDetailed({ text, sourceLang, targetL
   if (out) return { text: out, passthrough: false };
 
   for (let i = 1; i <= maxRetries; i++) {
+    // This flag describes the current attempt. A later source echo may be a
+    // genuine passthrough even when an earlier attempt had no premium tier.
+    outcome.tierUnavailable = false;
     await delay(i * 1000);
     out = await freeTranslate({ text, sourceLang, targetLang, fieldType, _outcome: outcome });
     if (out) return { text: out, passthrough: false };
   }
 
-  // Aggregate all attempts: an error/incomplete result, or a tier unavailable
-  // for this text, must not be hidden by a later source echo and turned into a
-  // durable passthrough memo.
+  // passthroughs/errors/incomplete are aggregated across attempts. The
+  // tierUnavailable flag is deliberately per-attempt and was reset above, so
+  // a later attempt can prove a clean passthrough without inheriting a missing
+  // tier from an earlier attempt.
   const passthrough = outcome.passthroughs > 0
     && outcome.errors === 0
     && !outcome.incomplete

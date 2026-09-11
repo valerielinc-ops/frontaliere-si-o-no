@@ -1,12 +1,9 @@
 name: Refresh Employer Insights
 
 # GA4 is the source of truth for employer metrics.
-# The periodic trigger is intentionally disabled until the builder has a
-# complete GA4 employer-identity feed; manual dispatch remains available for
-# controlled source-specific runs.
 on:
-  # Disabled periodic trigger; restore the `schedule` key under `on` when the
-  # builder source is GA4: `15 5 * * *`.
+  schedule:
+    - cron: '15 5 * * *'
   workflow_dispatch:
     inputs:
       source:
@@ -44,7 +41,6 @@ jobs:
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
-            !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
@@ -53,7 +49,6 @@ jobs:
             !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
             !/data/evidence-index.json
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
@@ -64,10 +59,7 @@ jobs:
           set -euo pipefail
           case "$INSIGHTS_SOURCE" in
             posthog) ;;
-            ga4)
-              echo "::error::source=ga4 is selected, but the employer builder has no complete GA4 identity feed yet; refusing to query PostHog under a GA4 label"
-              exit 1
-              ;;
+            ga4) ;;
             *)
               echo "::error::source must be posthog or ga4"
               exit 1
@@ -186,7 +178,17 @@ jobs:
             for (const doc of afterSnapshot.docs) {
               if (!before.has(doc.id)) restore.push({ id: doc.id, operation: 'delete' });
             }
-            await applyItems(restore);
+            let committed = 0;
+            try {
+              committed = await applyItems(restore);
+            } catch (error) {
+              committed = Number.isInteger(error?.committedItems) ? error.committedItems : committed;
+              throw new Error(`rollback incomplete: committed ${committed}/${restore.length} documents; ${error.message}`, { cause: error });
+            }
+            if (committed !== restore.length) {
+              throw new Error(`rollback incomplete: committed ${committed}/${restore.length} documents`);
+            }
+            return { attempted: restore.length, committed };
           }
 
           try {
@@ -212,10 +214,10 @@ jobs:
             console.log(`Committed and verified ${written} employer_insights documents; existing collection count is ${afterSnapshot.size}.`);
           } catch (error) {
             try {
-              await rollback();
-              console.error('Write failed; previous employer_insights snapshot restored.');
+              const rollbackResult = await rollback();
+              console.error(`Write failed; previous employer_insights snapshot restored (${rollbackResult.committed}/${rollbackResult.attempted} documents).`);
             } catch (rollbackError) {
-              throw new Error(`write failed and rollback failed: ${error.message}; rollback: ${rollbackError.message}`);
+              throw new Error(`write failed; rollback status: ${rollbackError.message}; original write: ${error.message}`, { cause: rollbackError });
             }
             throw error;
           }

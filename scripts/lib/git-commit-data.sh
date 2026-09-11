@@ -19,6 +19,12 @@
 # GitHub Actions outputs (via $GITHUB_OUTPUT):
 #   has_changes=true|false   — whether any data files were modified
 #
+# Optional translation-pipeline mode:
+#   TRANSLATION_STATS_AFTER_TREE=1 — materialise the private-index candidate
+#   tree, run `log-translation-stats.mjs after` against those slices, and stage
+#   the resulting history blob before commit-tree. This deliberately does not
+#   advance the checkout ref or worktree.
+#
 # Exit codes:
 #   0  — success (committed+pushed, or nothing to commit)
 #   1  — push still failing after retries for a NON-contention reason
@@ -1474,6 +1480,49 @@ fs.writeFileSync(outputPath, lines.length > 0 ? `${lines.join('\n')}\n` : '', 'u
 NODE
 }
 
+append_translation_stats_to_index() {
+  local tmp_index="$1"
+  local tree_sha="$2"
+  local stats_root stats_file stats_blob
+
+  stats_root="$(mktemp -d /tmp/translation-stats-tree.XXXXXX)"
+  stats_file="$stats_root/data/translation-stats-history.json"
+  mkdir -p "$stats_root/data/jobs/by-crawler"
+
+  if git cat-file -e "$tree_sha:data/jobs/by-crawler" 2>/dev/null; then
+    if ! git archive --format=tar "$tree_sha" data/jobs/by-crawler | tar -xf - -C "$stats_root"; then
+      echo "❌ translation stats: could not materialise candidate crawler slices"
+      rm -rf "$stats_root"
+      return 1
+    fi
+  fi
+
+  if git cat-file -e "$tree_sha:data/translation-stats-history.json" 2>/dev/null; then
+    if ! git cat-file blob "$tree_sha:data/translation-stats-history.json" > "$stats_file"; then
+      echo "❌ translation stats: could not read the candidate history blob"
+      rm -rf "$stats_root"
+      return 1
+    fi
+  else
+    printf '[]\n' > "$stats_file"
+  fi
+
+  if ! TRANSLATION_STATS_ROOT="$stats_root" node scripts/log-translation-stats.mjs after; then
+    echo "❌ translation stats: after snapshot failed on the candidate tree"
+    rm -rf "$stats_root"
+    return 1
+  fi
+
+  if [ ! -f "$stats_file" ]; then
+    echo "❌ translation stats: after snapshot did not write $stats_file"
+    rm -rf "$stats_root"
+    return 1
+  fi
+  stats_blob="$(git hash-object -w -- "$stats_file")"
+  GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "100644,${stats_blob},data/translation-stats-history.json"
+  rm -rf "$stats_root"
+}
+
 commit_isolated_from_worktree() {
   local base_sha remote_sha remote_tree new_tree new_commit
   local tmp_index merge_dir
@@ -1698,6 +1747,13 @@ commit_isolated_from_worktree() {
     done
 
     new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
+    if [ "${TRANSLATION_STATS_AFTER_TREE:-0}" = "1" ]; then
+      # The snapshot must happen after the remote refresh and every 3-way merge,
+      # but before this exact index becomes the pushed commit. On a retry the
+      # candidate is rebuilt and measured again against the newer remote tree.
+      append_translation_stats_to_index "$tmp_index" "$new_tree" || return 1
+      new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
+    fi
     if [ "$new_tree" = "$remote_tree" ]; then
       emit_crawler_generation_receipt "noop" "$remote_sha" "$remote_sha"
       echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"

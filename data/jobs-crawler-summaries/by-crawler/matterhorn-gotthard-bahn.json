@@ -1,23 +1,66 @@
 {
   "key": "matterhorn-gotthard-bahn",
   "label": "Matterhorn Gotthard Bahn",
-  "generatedAt": "2026-09-09T23:25:04.948Z",
-  "total": 8,
+  "generatedAt": "2026-09-11T13:54:34.014Z",
+  "total": 7,
   "discovered": null,
-  "parsed": 8,
+  "parsed": 7,
   "lastFetchOutcome": null,
-  "written": 8,
+  "written": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 1,
-  "updatedCount": 7,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13176,
-  "avgDurationMs": 13176,
+  "durationMs": 10981,
+  "avgDurationMs": 10981,
   "durationHistory": [
-    13176
+    10981
   ],
   "newJobs": [
+    {
+      "id": "matterhorn-gotthard-bahn-0faaff93f37f",
+      "slug": "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
+      "company": "Matterhorn Gotthard Bahn",
+      "companyKey": "matterhorn-gotthard-bahn",
+      "companyDomain": "bvzholding.ch",
+      "title": "Leiter Mattertal Tunnel (m/w/d), 80-100%",
+      "location": "Glis (Glisergrund), Zermatt",
+      "canton": "VS",
+      "url": "https://jobs.bvzholding.ch/Leiter-Mattertal-Tunnel-mwd-80-100-de-j726.html",
+      "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-11T13:54:26.069Z",
+      "addressLocality": "Glis (Glisergrund), Zermatt",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3902",
+      "streetAddress": "Dammweg 80",
+      "category": "Tecnica",
+      "sector": "Trasporti / Ferrovia",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "validThrough": "2026-10-02",
+      "applyUrl": "https://jobs.bvzholding.ch/Leiter-Mattertal-Tunnel-mwd-80-100-de-f726.html",
+      "_mgbMeta": {
+        "rexxId": "726",
+        "identifier": "PERS-761",
+        "hiringOrganization": "Matterhorn Gotthard Bahn"
+      },
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 21,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "matterhorn-gotthard-bahn-955195a86d5e",
       "slug": "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch",
@@ -30,7 +73,7 @@
       "url": "https://jobs.bvzholding.ch/Lokfuehrerin-MGBahn-mwd-de-j725.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:55.229Z",
+      "crawledAt": "2026-09-11T13:54:26.955Z",
       "addressLocality": "Brig, Zermatt, Oberwald, Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -51,16 +94,15 @@
         "identifier": "PERS-765",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-09-09T23:24:55.229Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
       "slug": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
@@ -73,7 +115,7 @@
       "url": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-j689.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:52.184Z",
+      "crawledAt": "2026-09-11T13:54:22.938Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,7 +136,6 @@
         "identifier": "PERS-661",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-07T15:24:41.109Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -116,7 +157,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Instandhaltung-MGB-mwd-de-j705.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:57.357Z",
+      "crawledAt": "2026-09-11T13:54:27.988Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -137,7 +178,6 @@
         "identifier": "PERS - 719",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-07T15:24:45.039Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -159,7 +199,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Logistiker-EFZ-Lager-mwd-de-j710.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:53.191Z",
+      "crawledAt": "2026-09-11T13:54:23.993Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -180,7 +220,6 @@
         "identifier": "",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:48:34.523Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -202,7 +241,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Polymechaniker-mwd-in-Andermatt-de-j719.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:54.326Z",
+      "crawledAt": "2026-09-11T13:54:25.028Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -223,7 +262,6 @@
         "identifier": "",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:48:35.668Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -245,7 +283,7 @@
       "url": "https://jobs.bvzholding.ch/Career-Starter-Oberwallis-Dein-Sprungbrett-in-die-Zukunft-de-j723.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:50.029Z",
+      "crawledAt": "2026-09-11T13:54:21.893Z",
       "addressLocality": "Brig, Visp, Naters",
       "addressCountry": "CH",
       "country": "CH",
@@ -273,92 +311,6 @@
         "cleanliness": 20,
         "richness": 21,
         "translation": 23,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "matterhorn-gotthard-bahn-e957ff653084",
-      "slug": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-      "company": "Matterhorn Gotthard Bahn",
-      "companyKey": "matterhorn-gotthard-bahn",
-      "companyDomain": "bvzholding.ch",
-      "title": "Fachspezialist Fahrbahn (m/w/d)",
-      "location": "Ulrichen, Fiesch",
-      "canton": "VS",
-      "url": "https://jobs.bvzholding.ch/Fachspezialist-Fahrbahn-mwd-de-j623.html",
-      "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:51.133Z",
-      "addressLocality": "Ulrichen, Fiesch",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3988",
-      "streetAddress": "N.A.",
-      "category": "Tecnica",
-      "sector": "Trasporti / Ferrovia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "validThrough": "2026-09-10",
-      "applyUrl": "https://jobs.bvzholding.ch/Fachspezialist-Fahrbahn-mwd-de-f623.html",
-      "_mgbMeta": {
-        "rexxId": "623",
-        "identifier": "PERS-469 / 473",
-        "hiringOrganization": "Matterhorn Gotthard Bahn"
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-08-10T10:43:18.134Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "matterhorn-gotthard-bahn-1457cacc11d2",
-      "slug": "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-      "company": "Matterhorn Gotthard Bahn",
-      "companyKey": "matterhorn-gotthard-bahn",
-      "companyDomain": "bvzholding.ch",
-      "title": "Mitarbeiter Gleisbau & Instandhaltung (m/w/d)",
-      "location": "Herbriggen",
-      "canton": "VS",
-      "url": "https://jobs.bvzholding.ch/Mitarbeiter-Gleisbau-Instandhaltung-mwd-de-j664.html",
-      "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:24:56.307Z",
-      "addressLocality": "Herbriggen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3927",
-      "streetAddress": "N.A.",
-      "category": "Trasporti",
-      "sector": "Trasporti / Ferrovia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "validThrough": "2026-09-10",
-      "applyUrl": "https://jobs.bvzholding.ch/Mitarbeiter-Gleisbau-Instandhaltung-mwd-de-f664.html",
-      "_mgbMeta": {
-        "rexxId": "664",
-        "identifier": "PERS-589/687",
-        "hiringOrganization": "Matterhorn Gotthard Bahn"
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-08-10T10:43:23.513Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
         "completeness": 20
       }
     }

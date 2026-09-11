@@ -152,10 +152,11 @@ import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
-import { buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
+import { buildJobPostingSchema, isEmployerOwnedApplyUrl, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
 import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/jobCardHtml';
+import { callNativeHistory } from '@/services/nativeHistoryCall';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import Callout from '@/components/shared/Callout';
@@ -705,8 +706,9 @@ const CONTRACT_TO_EMPLOYMENT_TYPE: Record<ContractType, string> = {
  contract: 'CONTRACTOR',
 };
 
-/** Append UTM referral parameters to an external job URL. */
-function buildReferralUrl(raw: string, job: JobListing): string {
+/** Append UTM referral parameters to the effective application destination. */
+function buildReferralUrl(job: JobListing): string {
+ const raw = job.applyUrl || job.url || '';
  try {
  const u = new URL(raw);
  u.searchParams.set('utm_source', 'frontaliereticino');
@@ -751,12 +753,7 @@ function normalizeIncomingJob(raw: any): JobListing {
  const description = String(raw?.description || '').trim();
  const company = String(raw?.company || '').trim() || 'Azienda';
  const companyKey = String(raw?.companyKey || '').trim() || undefined;
- const canonicalHost = resolveCompanyWebsiteHost({
- company,
- companyKey,
- companyDomain: String(raw?.companyDomain || '').trim(),
- url: String(raw?.url || '').trim(),
- });
+ const rawCompanyDomain = String(raw?.companyDomain || '').trim();
 
  return {
  ...raw,
@@ -775,7 +772,9 @@ function normalizeIncomingJob(raw: any): JobListing {
  : [],
  featured: Boolean(raw?.featured),
  postedDate: String(raw?.postedDate || '').trim() || new Date().toISOString().slice(0, 10),
- companyDomain: canonicalHost || String(raw?.companyDomain || '').trim() || undefined,
+ // Do not promote job.url (which may be an ATS host) into ownership proof.
+ // Static SEO and runtime JSON-LD must both use the crawler's raw domain.
+ companyDomain: rawCompanyDomain || undefined,
  sector: String(raw?.sector || '').trim() || undefined,
  };
 }
@@ -1849,6 +1848,21 @@ function readSalaryRangeFromUrl(): { min: number | null; max: number | null } {
 /** Update URL query params, optionally creating a navigable search entry. */
 type QueryHistoryMode = 'replace' | 'push';
 
+/**
+ * A URL restore has two possible owners for the in-feed refresh:
+ * the deferred-query filter effect owns query changes, while this listener
+ * owns page-only changes. Keeping the ownership exclusive prevents a query
+ * restore from remounting the same placeholder twice in one pageview.
+ */
+export function shouldRefreshInfeedAdsOnUrlRestore(
+ currentQuery: string,
+ nextQuery: string,
+ currentPage: number,
+ nextPage: number,
+): boolean {
+ return currentQuery === nextQuery && currentPage !== nextPage;
+}
+
 function syncQueryParamsToUrl(
  updates: Record<string, string | null>,
  mode: QueryHistoryMode = 'replace',
@@ -2134,6 +2148,11 @@ const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactN
  );
 };
 JobBoardRailShell.displayName = 'JobBoardRailShell';
+
+function readCurrentPageViewPath(): string {
+ if (typeof window === 'undefined') return '';
+ return `${window.location.pathname}${window.location.search}${window.location.hash}`;
+}
 
 const JobBoard: React.FC<JobBoardProps> = ({
  onPostJob,
@@ -2852,13 +2871,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // parseSearchSlugFilter): on a job bridge page the URL segment is a job's old
  // slug, not a search keyword, so it must not become the search query.
  const next = (isBridgePage ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl();
+ const nextPage = readPageFromUrl();
  applySearchQuery((prev) => (prev === next ? prev : next));
- setPage(readPageFromUrl());
- setAdRefreshKey((k) => k + 1);
+ setPage(nextPage);
+ // Query changes are refreshed exactly once by the deferred-filter effect
+ // below. Only a page-only history restore needs the direct bump here; this
+ // keeps `syncQueryParamsToUrl`/popstate restores idempotent for in-feed
+ // placeholder reservation.
+ if (shouldRefreshInfeedAdsOnUrlRestore(searchQuery, next, page, nextPage)) {
+   setAdRefreshKey((k) => k + 1);
+ }
  };
  window.addEventListener('popstate', syncFromUrl);
  return () => window.removeEventListener('popstate', syncFromUrl);
- }, [initialJobSlug, isBridgePage]);
+ }, [initialJobSlug, isBridgePage, page, searchQuery]);
 
  useEffect(() => {
  const next = searchSlugFilter || readSearchQueryFromUrl();
@@ -4657,28 +4683,69 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (companyHubEmployerKey) return { employerKey: companyHubEmployerKey };
   return null;
  }, [selectedJob, companyHubEmployerKey]);
- const pageViewPath = typeof window === 'undefined' ? '' : `${window.location.pathname}${window.location.search}${window.location.hash}`;
+ const [pageViewNavigationVersion, setPageViewNavigationVersion] = useState(0);
+ const historyPushStateRef = useRef<{
+  originalPushState: History['pushState'];
+  wrappedPushState: History['pushState'];
+ } | null>(null);
+ const onHistoryNavigationRef = useRef<(() => void) | null>(null);
+ const installHistoryPushStateWrapper = useCallback(() => {
+  if (typeof window === 'undefined') return;
+  const originalPushState = window.history.pushState;
+  const wrappedPushState = function(this: History, ...args: Parameters<History['pushState']>) {
+   const result = callNativeHistory('pushState', originalPushState, this || window.history, args);
+   onHistoryNavigationRef.current?.();
+   return result as void;
+  } as History['pushState'];
+  historyPushStateRef.current = { originalPushState, wrappedPushState };
+  window.history.pushState = wrappedPushState;
+ }, []);
+ useEffect(() => {
+  if (typeof window === 'undefined') return;
+  const onHistoryNavigation = () => setPageViewNavigationVersion((version) => version + 1);
+  onHistoryNavigationRef.current = onHistoryNavigation;
+  installHistoryPushStateWrapper();
+  window.addEventListener('popstate', onHistoryNavigation);
+  window.addEventListener('hashchange', onHistoryNavigation);
+  return () => {
+   const wrapper = historyPushStateRef.current;
+   if (wrapper && window.history.pushState === wrapper.wrappedPushState) {
+    window.history.pushState = wrapper.originalPushState;
+   }
+   historyPushStateRef.current = null;
+   onHistoryNavigationRef.current = null;
+   window.removeEventListener('popstate', onHistoryNavigation);
+   window.removeEventListener('hashchange', onHistoryNavigation);
+  };
+ }, [installHistoryPushStateWrapper]);
  const pageViewTrackedKey = useRef<string | null>(null);
  const pageViewEmission = useRef<{ path: string; id: string | null } | null>(null);
 
  // The central route tracker deliberately defers job-detail/company-hub
- // page_views to this point. The event is still emitted when identity is
- // unavailable; buildPageViewAttributionParams then leaves attribution empty.
+ // page_views to this point. Read the URL inside the effect: a pushState can
+ // happen before React paints the render that caused it, so a render-captured
+ // pathname can describe the previous page. The event is still emitted when
+ // identity is unavailable; buildPageViewAttributionParams then leaves
+ // attribution empty.
  useEffect(() => {
-  if (!pageViewPath) {
+  const wrappedPushState = historyPushStateRef.current?.wrappedPushState;
+  if (wrappedPushState && window.history.pushState !== wrappedPushState) {
+   installHistoryPushStateWrapper();
+  }
+  const path = readCurrentPageViewPath();
+  if (!path) {
    pageViewTrackedKey.current = null;
    pageViewEmission.current = null;
    return;
   }
-  const { pageTemplate } = deriveAnalyticsPageContext(pageViewPath);
+  const { pageTemplate } = deriveAnalyticsPageContext(path);
   if (pageTemplate !== 'job_detail' && pageTemplate !== 'jobs_company') {
-   // The same path can be visited again after list -> back/forward. Do not
-   // let the retry id from the previous detail visit cross that boundary.
+   // The central tracker owns every other template. Clear the last deferred
+   // key so a later visit to the same job URL is a new page view.
    pageViewTrackedKey.current = null;
    pageViewEmission.current = null;
    return;
   }
-  const path = pageViewPath;
   const key = `${path}|${pageViewIdentity?.jobSlug || ''}|${pageViewIdentity?.employerKey || ''}`;
   // React.StrictMode re-runs effect setup on the same mount. Mark before the
   // call so that rerun is a technical duplicate, not a second act.
@@ -4689,7 +4756,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const originalId = pageViewEmission.current?.path === path ? pageViewEmission.current.id : undefined;
   const id = Analytics.trackPageView(path, undefined, pageViewIdentity, originalId);
   pageViewEmission.current = { path, id };
- }, [pageViewIdentity, pageViewPath]);
+ }, [pageViewIdentity, pageViewNavigationVersion, initialJobSlug, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor, locale, installHistoryPushStateWrapper]);
 
  // A search/company view momentarily shows a non-authoritative `filteredJobs`:
  // either empty while the lazy broaden / cross-locale pools are still being
@@ -5109,11 +5176,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialSectorRegionLanding, editorialNursesHubLanding, editorialPartTimeLanding, editorialCareVariantLanding, jobs]);
 
  useEffect(() => {
+ setAdRefreshKey((k) => k + 1);
  if (skipPageReset.current) { skipPageReset.current = false; return; }
  setPage(1);
  setMobileJobLimit(10);
  syncQueryParamsToUrl({ page: null });
- setAdRefreshKey((k) => k + 1);
  }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, showSavedOnly]);
 
  // Sync search query to URL (?q=) and track in GA4
@@ -5362,7 +5429,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  streetAddress: streetAddress || addressLocality || DEFAULT_CANTON_DISPLAY,
  },
  },
- directApply: Boolean(job.applyUrl || job.url),
+ directApply: isEmployerOwnedApplyUrl(job),
  url: canonicalUrl,
  };
  if (isRemote) {
@@ -6351,6 +6418,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const trackPublisherApplySignals = (job: JobListing, contentType: string): string => {
  const eventId = createPublisherApplyEventId();
+ const referralUrl = buildReferralUrl(job);
  Analytics.trackEvent('select_content', {
  content_type: contentType,
  item_id: `${job.company}_${job.title}`,
@@ -6361,6 +6429,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  is_sponsored: job.featured ? 'sponsored' : 'free',
  emission_id: eventId,
  });
+ const mode = (job as { applyMode?: string }).applyMode;
+ if (mode !== 'in_house' && mode !== 'forward_email') {
+  Analytics.trackJobApplyHandoff(job, referralUrl, {
+   surface: contentType,
+   emissionId: eventId,
+  });
+ }
  return eventId;
  };
 
@@ -6380,9 +6455,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // External publisher ads: count the apply click too (session-debounced, so it
  // never double-counts with the header logo/title links). No-op for crawled jobs.
  trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
- const applyDestination = job.applyUrl || job.url;
+ const applyDestination = buildReferralUrl(job);
  if (applyDestination) {
- window.open(buildReferralUrl(applyDestination, job), '_blank', 'noopener,noreferrer');
+ window.open(applyDestination, '_blank', 'noopener,noreferrer');
  // Mutate the page in the same tick as the hand-off — the confirmation is the
  // user-visible receipt AND the DOM change that makes this click non-dead.
  setAppliedJobId(job.id);
@@ -8562,7 +8637,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ...canonicalResidualSections,
  ];
  const hybridLayoutEnabled = false;
- const applyUrl = buildReferralUrl(selectedJob.applyUrl || selectedJob.url || '', selectedJob);
+ const applyUrl = buildReferralUrl(selectedJob);
  const applyMode = (selectedJob as { applyMode?: string }).applyMode;
  const isInHouseApply = applyMode === 'in_house' || applyMode === 'forward_email';
  // Publisher / sponsored ad: a paid submission carries a `publisherJobId`. Used

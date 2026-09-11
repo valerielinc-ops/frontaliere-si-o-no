@@ -204,7 +204,8 @@ jobs:
               /```[\s\S]*?```|~~~[\s\S]*?~~~|<!--[\s\S]*?-->|`[^`\n]*`/g,
               (m) => m.replace(/[^\n]/g, ' '),
             );
-            const EFFECTIVE_RE = new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b[\\s:]*[*_\`[]*(${REF})`, 'gi');
+            const MD_GAP = '(?:[^\\S\\n]|[:*_`\\[])*';
+            const EFFECTIVE_RE = new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b${MD_GAP}(${REF})`, 'gi');
             // The Italian verbs (measured recurrence) plus the English near-misses
             // that share the failure mode. Deliberately NOT here: `addresses`, `see`,
             // `related to`, `refs`, `part of` — those mean "connected to", and
@@ -225,7 +226,7 @@ jobs:
             // chiude #12` reportable — that phrasing concedes the closure.
             const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?!\s+(?:solo|soltanto|only)\b)(?:\s+[\p{L}\p{N}_'’]+){0,2}\s*$/iu;
             const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
-            const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}[\\s:]*[*_\`[]*(${REF})`, 'gi');
+            const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}${MD_GAP}(${REF})`, 'gi');
 
             const maskedBodyForIntent = maskQuotedKeepLines(body);
             const willCloseRefs = new Set();
@@ -902,6 +903,22 @@ jobs:
             } else {
               await github.rest.issues.createComment({ owner, repo, issue_number, body });
             }
+
+      # Blocking source gate (#8304): keep the stable browser-graph entry point
+      # exercised in the same required job as its Vitest coverage. The wrapper
+      # reads only the source tree and fails if a Node builtin reaches the SPA.
+      - name: Assert browser graph has no Node leaves
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
+        background: true
+        run: node scripts/ci/assert-browser-graph-node-free.mjs
+
+      # Blocking source gate (#8304): every newsletter webhook must cross the
+      # store boundary, so browser-only ranking helpers never enter the
+      # Node-backed ranking module through an adapter.
+      - name: Assert webhook ranking imports stay at the store boundary
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
+        background: true
+        run: node scripts/ci/assert-webhook-ranking-imports.mjs
 
       # Blocking gate (escalation #1954, bucket reviewer-finding/cls-layout 6×/14d):
       # forbid hard-coded AdSense <ins> in build-plugins. Only adSlotHtml() may emit
@@ -2029,7 +2046,7 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
-      - name: Pre-flight — Claude quota beacon for Codex fallback
+      - name: Pre-flight — Claude quota telemetry (Codex primary)
         id: quota
         if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         continue-on-error: true
@@ -2077,7 +2094,6 @@ jobs:
           # `mint-app-token.mjs` fails soft, so retain GITHUB_TOKEN as fallback.
           github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           review_marker: '<!-- CODEX_FALLBACK_REVIEW -->'
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -2124,7 +2140,7 @@ jobs:
         # claude-code-action installs/resolves the CLI at runtime and adds its
         # bin directory to GITHUB_PATH. Invoke that exact binary in the next
         # step so an unsupported flag cannot silently downgrade the review.
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outcome == 'success' && steps.claude_review.outputs.fallback_used != 'true') }}
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outcome == 'success' && steps.claude_review.outputs.claude_used == 'true' && steps.claude_review.outputs.claude_outcome == 'success') }}
         shell: bash
         run: |
           set -o pipefail
@@ -2176,14 +2192,14 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           REVIEW_OUTCOME: ${{ steps.claude_review.outcome }}
           EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
-          CODEX_FALLBACK_USED: ${{ steps.claude_review.outputs.fallback_used }}
+          CODEX_PRIMARY_SUCCESS: ${{ steps.claude_review.outputs.primary_success }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
           REVIEW_MAX_TURNS: ${{ steps.tier.outputs.max_turns }}
         run: |
           set -uo pipefail
-          if [ "${CODEX_FALLBACK_USED:-false}" = 'true' ]; then
-            echo "Codex fallback già eseguito: il runtime Claude 429 resta solo la causa del fallback e non viene marcato come esito della run Codex."
+          if [ "${CODEX_PRIMARY_SUCCESS:-false}" = 'true' ]; then
+            echo "Codex primary riuscito: il controllo dell'execution file Claude non si applica perché il fallback non è stato eseguito."
             exit 0
           fi
           # max_turns FIRST — see rationale above. Must win over the 429 regex.
@@ -2283,9 +2299,9 @@ jobs:
         run: rm -f /tmp/firebase-sa.json
 
       - name: Claude usage metrics
-        # Solo se la review Claude è effettivamente girata (guard non-skip): a
-        # review skippata non c'è execution_file da riassumere.
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outputs.fallback_used != 'true') }}
+        # Solo se il fallback Claude è effettivamente girato: quando Codex
+        # conclude il lavoro non c'è execution_file Claude da riassumere.
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outputs.claude_used == 'true') }}
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.

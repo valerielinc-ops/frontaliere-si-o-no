@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Build the employer-insights snapshot from the complete, documentable
- * PostHog period.
+ * Build the employer-insights snapshot from a complete, documentable
+ * analytics period.
  *
  * The calculation deliberately starts from the union of events. A pageview
  * is one signal among many, not the admission criterion for an ad. Identity
@@ -10,6 +10,7 @@
  *
  * Usage:
  *   node scripts/build-employer-insights.mjs --source posthog --days 30
+ *   node scripts/build-employer-insights.mjs --source ga4
  *   node scripts/build-employer-insights.mjs --source posthog --company <companyKey>
  *   node scripts/build-employer-insights.mjs --source posthog --apply
  */
@@ -21,6 +22,15 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { assertEmployerInsightsSource } from './lib/employer-insights-contract.mjs';
+import {
+  GA4_READONLY_SCOPE,
+  getServiceAccountToken,
+  runGa4Report,
+} from './lib/ga4-service-account.mjs';
+import {
+  ANALYTICS_PROCESSING_LAG_DAYS,
+  settledEndDate,
+} from './lib/analytics-settled-window.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
 import {
@@ -32,6 +42,8 @@ import {
 export const INSIGHTS_SCHEMA_VERSION = 2;
 export const DELIVERY_UNAVAILABLE = 'non disponibile';
 export const EVENT_QUERY_PAGE_SIZE = 10_000;
+export const GA4_EVENT_QUERY_PAGE_SIZE = 100_000;
+const DAY_MS = 86_400_000;
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 function resolveBuildSha() {
@@ -550,7 +562,7 @@ export function resolveEventIdentity(sourceRow, catalog) {
 }
 
 function isPageview(row) {
-  return row.event === '$pageview' || row.event === 'pageview';
+  return row.event === '$pageview' || row.event === 'pageview' || row.event === 'page_view';
 }
 
 function isApplyClick(row) {
@@ -801,6 +813,7 @@ export function buildDryRunPayload({
   if (!Array.isArray(documents)) throw new Error('dry-run documents must be an array');
   if (!window?.from || !window?.to || !window?.timezone) throw new Error('dry-run window must include from, to and timezone');
   assertEmployerInsightsSource(source);
+  const normalizedCoverage = queryCoverageOrDefault(queryCoverage, { rawObserved: null }, window);
   return {
     schemaVersion: INSIGHTS_SCHEMA_VERSION,
     generatedAt,
@@ -808,15 +821,15 @@ export function buildDryRunPayload({
     window,
     coverage: {
       source,
-      sourceObserved: queryCoverage.sourceObserved ?? null,
-      totalRows: queryCoverage.totalRows ?? null,
-      returnedRows: queryCoverage.returnedRows ?? null,
-      returned: queryCoverage.returned ?? null,
-      pages: queryCoverage.pages ?? null,
-      pageSize: queryCoverage.pageSize ?? EVENT_QUERY_PAGE_SIZE,
-      truncated: Boolean(queryCoverage.truncated),
-      queryHash: queryCoverage.queryHash || null,
-      snapshotId: queryCoverage.snapshotId || null,
+      sourceObserved: normalizedCoverage.sourceObserved,
+      totalRows: normalizedCoverage.groupRowsBeforeCut,
+      returnedRows: normalizedCoverage.returnedRows,
+      returned: normalizedCoverage.returned,
+      pages: normalizedCoverage.pages,
+      pageSize: normalizedCoverage.pageSize,
+      truncated: normalizedCoverage.truncated,
+      queryHash: normalizedCoverage.queryHash,
+      snapshotId: normalizedCoverage.snapshotId,
     },
     documents,
   };
@@ -1182,6 +1195,192 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
   };
 }
 
+const GA4_INSIGHTS_EVENTS = ['page_view', 'job_apply'];
+
+function ga4DateForValue(value, label) {
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) throw new Error(`GA4 ${label} is not a valid date`);
+  return parsed.toISOString().slice(0, 10);
+}
+
+function ga4DateForWindowEnd(window) {
+  const end = Date.parse(window.to) - DAY_MS;
+  if (!Number.isFinite(end)) throw new Error('GA4 window.to is not a valid date');
+  return ga4DateForValue(new Date(end), 'window.to');
+}
+
+function ga4DimensionValue(row, index) {
+  const cell = row?.dimensionValues?.[index];
+  const value = cell && typeof cell === 'object' ? cell.value : cell;
+  return value === '(not set)' || value === '(other)' ? '' : normalizeText(value);
+}
+
+function ga4MetricValue(row, index) {
+  const cell = row?.metricValues?.[index];
+  const value = cell && typeof cell === 'object' ? cell.value : cell;
+  return Math.max(0, numberOr(value, 0));
+}
+
+function ga4DayTimestamp(value) {
+  const compact = String(value || '').replaceAll('-', '');
+  if (!/^\d{8}$/.test(compact)) throw new Error(`GA4 row has invalid date: ${value || '<missing>'}`);
+  return `${compact.slice(0, 4)}-${compact.slice(4, 6)}-${compact.slice(6, 8)}T00:00:00.000Z`;
+}
+
+function exactGa4EventExpression(eventName) {
+  return {
+    filter: {
+      fieldName: 'eventName',
+      stringFilter: { value: eventName, matchType: 'EXACT' },
+    },
+  };
+}
+
+/**
+ * Keep the GA4 report contract in one place. `pagePath` is intentional: the
+ * static gtag pageview has no custom employer parameters, so the existing
+ * explicit route aliases can still attribute that signal without guessing.
+ */
+export function buildGa4EventQueryBody(window, { limit = GA4_EVENT_QUERY_PAGE_SIZE, offset = 0 } = {}) {
+  const startDate = ga4DateForValue(window?.from, 'window.from');
+  const endDate = ga4DateForWindowEnd(window);
+  if (Date.parse(`${startDate}T00:00:00.000Z`) >= Date.parse(`${endDate}T00:00:00.000Z`) + DAY_MS) {
+    throw new Error('GA4 window has no complete date');
+  }
+  return {
+    dateRanges: [{ startDate, endDate }],
+    dimensions: [
+      { name: 'date' },
+      { name: 'eventName' },
+      { name: 'customEvent:employer_key' },
+      { name: 'customEvent:job_slug' },
+      { name: 'pagePath' },
+    ],
+    metrics: [
+      { name: 'eventCount' },
+      { name: 'totalUsers' },
+      { name: 'sessions' },
+    ],
+    dimensionFilter: {
+      orGroup: { expressions: GA4_INSIGHTS_EVENTS.map(exactGa4EventExpression) },
+    },
+    orderBys: [
+      { dimension: { dimensionName: 'date' } },
+      { dimension: { dimensionName: 'eventName' } },
+      { dimension: { dimensionName: 'customEvent:employer_key' } },
+      { dimension: { dimensionName: 'customEvent:job_slug' } },
+      { dimension: { dimensionName: 'pagePath' } },
+    ],
+    limit,
+    offset,
+  };
+}
+
+/** Convert one GA4 row into the event shape consumed by the shared aggregator. */
+export function normalizeGa4EventRows(rows = []) {
+  return rows.map((row) => {
+    const event = ga4DimensionValue(row, 1);
+    if (!GA4_INSIGHTS_EVENTS.includes(event)) throw new Error(`GA4 row has unsupported event: ${event || '<missing>'}`);
+    const timestamp = ga4DayTimestamp(ga4DimensionValue(row, 0));
+    const observed = ga4MetricValue(row, 0);
+    return {
+      event,
+      timestamp,
+      week: weekStart(timestamp),
+      path: ga4DimensionValue(row, 4),
+      jobSlug: ga4DimensionValue(row, 3),
+      jobId: '',
+      providerId: '',
+      employerKey: ga4DimensionValue(row, 2),
+      itemId: '',
+      contentType: '',
+      views: event === 'page_view' ? observed : 0,
+      clicks: event === 'job_apply' ? observed : 0,
+      observed,
+      persons: ga4MetricValue(row, 1),
+      sessions: ga4MetricValue(row, 2),
+      emissionId: '',
+    };
+  });
+}
+
+/**
+ * Read the complete selected GA4 event set. GA4 paginates with offset rather
+ * than the PostHog keyset used above; rowCount and the data-loss marker are
+ * retained so a high-cardinality `(other)`/short page fails closed.
+ */
+export async function queryGa4EventRows(
+  window,
+  {
+    token,
+    propertyId,
+    report = runGa4Report,
+    pageSize = GA4_EVENT_QUERY_PAGE_SIZE,
+  } = {},
+) {
+  if (!token) throw new Error('GA4 service-account token is required');
+  if (!Number.isInteger(pageSize) || pageSize <= 0 || pageSize > GA4_EVENT_QUERY_PAGE_SIZE) {
+    throw new Error(`GA4 pageSize must be an integer between 1 and ${GA4_EVENT_QUERY_PAGE_SIZE}`);
+  }
+  const firstBody = buildGa4EventQueryBody(window, { limit: pageSize, offset: 0 });
+  const queryHash = sha256(stableJson({ ...firstBody, offset: 0 }));
+  const rawRows = [];
+  let totalRows = null;
+  let offset = 0;
+  let pages = 0;
+  let dataLossFromOtherRow = false;
+
+  while (true) {
+    const data = await report({
+      token,
+      propertyId,
+      body: { ...firstBody, offset },
+    });
+    const reportedRows = Number(data?.rowCount);
+    if (Number.isFinite(reportedRows) && reportedRows >= 0) {
+      if (totalRows !== null && totalRows !== reportedRows) {
+        throw new Error(`GA4 rowCount changed during pagination: ${totalRows} → ${reportedRows}`);
+      }
+      totalRows = Math.trunc(reportedRows);
+    }
+    dataLossFromOtherRow ||= data?.metadata?.dataLossFromOtherRow === true;
+    const pageRows = Array.isArray(data?.rows) ? data.rows : [];
+    rawRows.push(...pageRows);
+    pages += 1;
+    offset += pageRows.length;
+
+    if (!pageRows.length) break;
+    if (totalRows !== null && offset >= totalRows) break;
+    if (totalRows === null && pageRows.length < pageSize) break;
+  }
+
+  totalRows ??= rawRows.length;
+  const rows = normalizeGa4EventRows(rawRows);
+  const returned = rows.reduce((sum, row) => sum + row.observed, 0);
+  const identityRows = rows.filter((row) => row.employerKey);
+  const identityObserved = identityRows.reduce((sum, row) => sum + row.observed, 0);
+  return {
+    rows,
+    coverage: {
+      pageSize,
+      totalRows,
+      groupRowsBeforeCut: totalRows,
+      totalBeforeCut: returned,
+      rowsReturned: rows.length,
+      returned,
+      returnedRows: rows.length,
+      pages,
+      truncated: dataLossFromOtherRow || rows.length < totalRows,
+      dataLossFromOtherRow,
+      identityRows: identityRows.length,
+      identityObserved,
+      queryHash,
+      snapshotId: sha256(`${queryHash}:${window.from}:${window.to}`),
+      sourceObserved: returned,
+    },
+  };
+}
+
 async function findSourceBounds() {
   const rows = await hogql('SELECT min(timestamp) AS source_from, max(timestamp) AS source_to FROM events');
   const row = rows?.[0] || [];
@@ -1193,6 +1392,12 @@ function makeWindow(from, to, kind) {
   const toIsoValue = toIso(to);
   if (!fromIso || !toIsoValue || Date.parse(fromIso) >= Date.parse(toIsoValue)) throw new Error(`invalid window ${kind}`);
   return { from: fromIso, to: toIsoValue, kind, timezone: 'UTC' };
+}
+
+function ga4SettledExclusiveEnd(now = new Date()) {
+  const settled = settledEndDate(now, ANALYTICS_PROCESSING_LAG_DAYS);
+  const end = Date.UTC(settled.getUTCFullYear(), settled.getUTCMonth(), settled.getUTCDate()) + DAY_MS;
+  return new Date(end).toISOString();
 }
 
 async function loadApplicationRecords() {
@@ -1230,23 +1435,42 @@ async function main() {
   const source = arg('--source', null);
   if (!source) throw new Error('--source is required (posthog or ga4)');
   assertEmployerInsightsSource(source);
-  if (source !== 'posthog') {
-    throw new Error('source=ga4 is not yet supported by this builder; refusing to query PostHog under a GA4 label');
-  }
   const now = new Date().toISOString();
-  const explicitTo = arg('--to', now);
+  const requestedTo = arg('--to', null);
+  const requestedFrom = arg('--from', null);
   const requestedDays = arg('--days', null);
+  const explicitTo = requestedTo || (source === 'ga4' ? ga4SettledExclusiveEnd() : now);
   let primaryWindow;
   if (requestedDays != null) {
     const days = positiveNumberOr(requestedDays, null);
     if (!days) throw new Error('--days must be a positive number');
     primaryWindow = makeWindow(new Date(Date.parse(explicitTo) - days * 86_400_000), explicitTo, `days:${days}`);
+  } else if (source === 'ga4') {
+    // GA4's Data API is eventually consistent; never include the two newest
+    // calendar days in the scheduled snapshot. The feed begins at the
+    // instrumentation window instead of pretending old, unattributed rows
+    // prove employer coverage.
+    const days = 30;
+    primaryWindow = makeWindow(
+      new Date(Date.parse(explicitTo) - days * DAY_MS),
+      explicitTo,
+      `ga4-settled-days:${days}`,
+    );
   } else {
     const bounds = await findSourceBounds();
-    primaryWindow = makeWindow(arg('--from', bounds.from || '1970-01-01T00:00:00.000Z'), explicitTo, 'cumulative');
+    primaryWindow = makeWindow(requestedFrom || bounds.from || '1970-01-01T00:00:00.000Z', explicitTo, 'cumulative');
   }
-  const requestedFrom = arg('--from', null);
   if (requestedFrom) primaryWindow = makeWindow(requestedFrom, explicitTo, requestedDays ? `days:${requestedDays}` : 'explicit');
+
+  const ga4Options = source === 'ga4'
+    ? {
+      token: await getServiceAccountToken([GA4_READONLY_SCOPE]),
+      propertyId: process.env.GA4_PROPERTY_ID,
+    }
+    : null;
+  if (source === 'ga4' && !ga4Options.token) {
+    throw new Error('GA4 source requires a readable service-account token');
+  }
 
   const additional = new Map();
   for (const days of [30, 90]) {
@@ -1261,7 +1485,12 @@ async function main() {
   const windows = [['primary', primaryWindow], ...[...additional.entries()]];
   const builds = [];
   for (const [label, window] of windows) {
-    const queried = await queryEventRows(window);
+    const queried = source === 'ga4'
+      ? await queryGa4EventRows(window, ga4Options)
+      : await queryEventRows(window);
+    if (source === 'ga4' && queried.coverage.identityObserved <= 0) {
+      throw new Error(`GA4 employer identity feed unavailable for ${window.from} → ${window.to}`);
+    }
     const evidence = hasFlag('--apply')
       ? aggregateApplicationEvidence(applicationRecords, { window, catalog })
       : emptyApplicationEvidence();

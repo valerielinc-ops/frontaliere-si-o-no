@@ -1,5 +1,5 @@
 {
-  "run": 21,
+  "run": 25,
   "companies": {
     "postfinance": {
       "sterile": 1,
@@ -37,15 +37,6 @@
       "sterile": 1,
       "signature": "f27cebbc78000cc9"
     },
-    "manor": {
-      "sterile": 1,
-      "signature": "ced15d04377d89d2"
-    },
-    "burkhalter-group": {
-      "sterile": 0,
-      "signature": "272883b964e59ed3",
-      "skipUntilRun": 24
-    },
     "migros-ticino": {
       "sterile": 0,
       "signature": "90e473f33488da21",
@@ -62,6 +53,10 @@
     "c-and-a-schweiz": {
       "sterile": 1,
       "signature": "c4dd21cb0b542968"
+    },
+    "banca-cler": {
+      "sterile": 1,
+      "signature": "d70bcc7e9b0b25ed"
     }
   }
 }

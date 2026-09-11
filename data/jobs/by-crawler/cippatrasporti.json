@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cippatrasporti",
-  "assembledAt": "2026-09-09T23:11:11.503Z",
+  "assembledAt": "2026-09-11T13:36:57.281Z",
   "jobs": [
     {
       "id": "cippatrasporti-5dd16ddc181a",
@@ -17,7 +17,7 @@
       "title": "Ocean Freight Operations Specialist – FCL & Project Cargo",
       "titleByLocale": {
         "it": "Ocean Freight Operations Specialista – FCL & Project Cargo",
-        "en": "Ocean Freight Operations Specialist – FCL & Project Cargo",
+        "en": "Ocean Freight Operations Specialist-FCL & Pro Cargo",
         "de": "Ocean Freight Operations Spezialist – FCL & Project Cargo",
         "fr": "Ocean Freight Operations Spécialiste – FCL & Project Cargo"
       },
@@ -33,7 +33,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:11:04.461Z",
+      "crawledAt": "2026-09-11T13:36:53.867Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -70,7 +70,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cippatrasporti-c38396f76831",
@@ -103,7 +104,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:11:04.037Z",
+      "crawledAt": "2026-09-11T13:36:53.564Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -119,6 +120,7 @@
       "applyUrl": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
         "customer-service-transport-specialist-cippatrasporti-ch"

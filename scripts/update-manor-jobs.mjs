@@ -47,10 +47,16 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { isTargetSwissLocation, isKnownSwissCity, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import {
+  isTargetSwissLocation,
+  isKnownSwissCity,
+  inferAnyCanton,
+  normalizeCantonCode,
+  normalizeSwissTargetLocationText,
+} from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError, fetchHtml, normalizeDescriptionBullets } from './lib/crawler-template.mjs';
-import { htmlToText } from './lib/hospital-custom-html-helpers.mjs';
+import { decodeEntities, htmlToText } from './lib/hospital-custom-html-helpers.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -184,6 +190,20 @@ function parseSitemapUrls(xml) {
  */
 const MANOR_CITY_MAX_SEGMENTS = 4;
 
+// `Rickenbach b. Wil` is a real Swiss locality used by Manor's URL feed but
+// is not present in the current BFS municipality snapshot. Keep this exact
+// feed spelling as a narrowly scoped URL alias; do not restore fuzzy free-text
+// matching here, because that is what swallowed the following job-title words.
+const MANOR_URL_CITY_ALIASES = new Set(['rickenbach b wil']);
+
+function isManorUrlCityCandidate(value) {
+  return Boolean(
+    isKnownSwissCity(value) ||
+    normalizeCantonCode(value) ||
+    MANOR_URL_CITY_ALIASES.has(normalizeSwissTargetLocationText(value)),
+  );
+}
+
 /**
  * Extract the store city from a Manor job URL — CH-wide.
  * Format: /job/{City}-{Title}/{ID}/ where {City} may itself contain dashes.
@@ -198,7 +218,7 @@ const MANOR_CITY_MAX_SEGMENTS = 4;
 // consumed from the slug. Callers need `segments` (not the rendered city's word
 // count) to strip the city prefix from the title — a district-stripped city
 // ("Genève-1" → "Genève") consumes 2 dash-parts but renders as 1 word.
-function extractCityFromUrl(url) {
+export function extractCityFromUrl(url) {
   const match = url.match(/\/job\/([^/]+)\//);
   if (!match) return { city: null, segments: 0 };
   let slug;
@@ -212,7 +232,12 @@ function extractCityFromUrl(url) {
     const candidateNoDistrict = candidate.replace(/\s+\d+$/, '').trim();
     for (const c of [candidate, candidateNoDistrict]) {
       if (!c) continue;
-      if (isKnownSwissCity(c) || isTargetSwissLocation(c)) return { city: c, segments: n };
+      // `isTargetSwissLocation` is intentionally fuzzy for free-text fields
+      // (it recognizes a city/canton mentioned anywhere in a description).
+      // A URL prefix must be exact: otherwise `Biel-Mitarbeiterin-Visual-...`
+      // is accepted as one giant city and the fallback title collapses to
+      // `80`, which then blocks the deploy completeness gate.
+      if (isManorUrlCityCandidate(c)) return { city: c, segments: n };
     }
   }
   return { city: null, segments: 0 };
@@ -228,10 +253,37 @@ function extractJobId(url) {
 }
 
 /* ── Job detail page parser ────────────────────────────────── */
-function parseJobPage(html, url) {
-  // Extract title from itemprop="title"
-  const titleMatch = html.match(/itemprop="title"[^>]*>([^<]+)/);
-  const title = titleMatch ? titleMatch[1].trim() : null;
+function readHtmlAttribute(tag, attribute) {
+  const escaped = attribute.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = String(tag || '').match(new RegExp(`\\b${escaped}\\s*=\\s*["']([^"']*)["']`, 'i'));
+  return match ? decodeEntities(match[1]).trim() : '';
+}
+
+function readMetaContent(html, key) {
+  for (const match of String(html || '').matchAll(/<meta\b[^>]*>/gi)) {
+    const tag = match[0];
+    const property = readHtmlAttribute(tag, 'property').toLowerCase();
+    const name = readHtmlAttribute(tag, 'name').toLowerCase();
+    if (property === key || name === key) return readHtmlAttribute(tag, 'content');
+  }
+  return '';
+}
+
+export function stripSiteTitleSuffix(rawTitle) {
+  const title = decodeEntities(String(rawTitle || '')).trim();
+  return title
+    .replace(/\s+\|\s+Manor(?:\s+AG)?$/iu, '')
+    .replace(/\s+-\s+Manor(?:\s+AG)?$/iu, '')
+    .trim();
+}
+
+export function parseJobPage(html, url) {
+  // Manor's current SuccessFactors markup exposes the canonical role in
+  // og:title, while older templates used itemprop="title". Prefer the
+  // structured metadata before falling back to the URL slug.
+  const metaTitle = stripSiteTitleSuffix(readMetaContent(html, 'og:title'));
+  const titleMatch = html.match(/itemprop="title"[^>]*>([^<]+)/i);
+  const title = metaTitle || (titleMatch ? decodeEntities(titleMatch[1]).trim() : null);
 
   // Extract description from <span class="jobdescription">
   const descMatch = html.match(/<span class="jobdescription">([\s\S]*?)<\/span>/);
@@ -384,7 +436,7 @@ async function fetchManorJobs() {
  * e.g. /job/Lugano-Collaboratoretrice-logistica-60/1344050855/
  *   → "Collaboratoretrice logistica 60"
  */
-function extractTitleFromUrl(url) {
+export function extractTitleFromUrl(url) {
   const match = url.match(/\/job\/([^/]+)\//);
   if (!match) return '';
   let slug;
@@ -625,4 +677,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Manor'));
+const isDirectRun = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) {
+  main().catch((err) => exitCrawlerOnError(err, 'Manor'));
+}
