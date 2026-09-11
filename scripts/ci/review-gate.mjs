@@ -30,6 +30,7 @@ import {
 export const FOLLOWUP_MARKER = 'OUT_OF_SCOPE_REVIEW_FOLLOWUP';
 const MAX_FOLLOWUP_BODY_LEN = 60_000;
 const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
+const NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE = /^\s*(?:[-*+>]\s*)?(?:nessun[oa]?|no)\s+$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*/u;
 const FINDING_MARKER_RE = /🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
 const QUESTION_MARKER_RE = /❓\s*q\s*:/iu;
@@ -136,7 +137,7 @@ function isFindingStart(line, marker, extractCitations = extractFileCitations) {
     || /`[^`\n]+`\s*:\s*$/u.test(structuralPrefix);
 }
 
-function importantFindingLine(line) {
+function importantFindingLine(line, { inLgtm = false } = {}) {
   REDFLAG_IMPORTANT_RE.lastIndex = 0;
   if (!REDFLAG_IMPORTANT_RE.test(String(line || ''))) return false;
   const candidates = [...String(line || '').matchAll(
@@ -147,6 +148,13 @@ function importantFindingLine(line) {
   // deliberately the first gate, but this positional check also covers a
   // quoted marker preceded by ordinary text inside the span.
   if (!marker) return false;
+  // A reviewer may summarize an approving review as `Nessun 🔴 Important: ...`
+  // in the LGTM section. The negative prefix is a verdict about the count, not
+  // a finding; keep this exception scoped to that summary section and to a
+  // line whose marker is not preceded by a file/location citation.
+  if (inLgtm && NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE.test(
+    String(line).slice(0, marker.index),
+  )) return false;
   // `🔴 Important: 0`/`none`/`nessuno` is a count row only when the whole
   // remainder is that value. `🔴 Important: none of the branches...` remains a
   // real finding, even when its prose begins with a count word.
@@ -166,9 +174,12 @@ function parseImportantFindings(body, extractCitations) {
   const starts = markerLines
     .filter(({ line, marker }) => isFindingStart(line, marker, extractCitations))
     .map(({ index }) => index);
-  const markers = lines
-    .map((line, index) => ({ line, index }))
-    .filter(({ line }) => importantFindingLine(line));
+  let inLgtm = false;
+  const markers = [];
+  for (const [index, line] of lines.entries()) {
+    if (/^##\s/u.test(line)) inLgtm = /^##\s+LGTM\b/iu.test(line);
+    if (importantFindingLine(line, { inLgtm })) markers.push({ line, index });
+  }
 
   return markers.map(({ line, index }, markerIndex) => {
     const nextFinding = starts.find((start) => start > index) ?? lines.length;

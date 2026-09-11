@@ -118,6 +118,39 @@ describe('review gate: scope classification is fail-closed', () => {
     expect(importantFindings(reviewFor('src/changed.mjs', '0 — the parser still drops jobs'))).toHaveLength(1);
   });
 
+  it('ignores a negative Important summary inside the LGTM section', () => {
+    const body = [
+      '## Findings (Important: 0, Nit: 2)',
+      '',
+      '## LGTM',
+      'Nessun 🔴 Important: le modifiche sono coerenti e i nit non sono funnel-critical.',
+    ].join('\n');
+
+    expect(importantFindings(body)).toHaveLength(0);
+    expect(classifyReview(body, {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+    }).blocking).toBe(false);
+  });
+
+  it('does not ignore a real Important marker whose prose starts with No', () => {
+    const body = [
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`src/changed.mjs:L12`: 🔴 Important: No safe branch is present.',
+      '',
+      '## LGTM',
+    ].join('\n');
+
+    expect(importantFindings(body)).toHaveLength(1);
+    expect(classifyReview(body, {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+    }).inScope).toHaveLength(1);
+  });
+
   it('does not let the last finding absorb a later H2 summary path', () => {
     const body = [
       '## Findings (Important: 1, Nit: 0)',
