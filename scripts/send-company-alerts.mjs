@@ -412,7 +412,8 @@ export function hasDeferredCompanyAlertWork(alerts) {
   return (alerts || []).some((alert) => {
     const ledger = normalizeDeliveryLedger(alert?.deliveryLedger);
     if (isDeferredExhausted(alert)) return false;
-    return Object.values(ledger).some((entry) => entry.state === DELIVERY_STATES.DEFERRED);
+    return deferredStateForAlert(alert) === DELIVERY_STATES.DEFERRED
+      || Object.values(ledger).some((entry) => entry.state === DELIVERY_STATES.DEFERRED);
   });
 }
 
@@ -643,7 +644,7 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
     });
 }
 
-function coalesceDeliveryWrites(writes) {
+export function coalesceDeliveryWrites(writes) {
   const byRef = new Map();
   for (const write of writes || []) {
     if (!write?.ref) continue;
@@ -656,8 +657,9 @@ function coalesceDeliveryWrites(writes) {
       });
       continue;
     }
-    prior.deliveryLedger = { ...prior.deliveryLedger, ...write.deliveryLedger };
+    const priorHasAlertLevelAttempt = deferredAttemptsForAlert(prior) > 0;
     const writeAttempts = deferredAttemptsForAlert(write);
+    prior.deliveryLedger = { ...prior.deliveryLedger, ...write.deliveryLedger };
     if (writeAttempts > 0) {
       prior.deliveryDeferredAttempts = Math.max(
         deferredAttemptsForAlert(prior),
@@ -670,7 +672,11 @@ function coalesceDeliveryWrites(writes) {
         ? DELIVERY_STATES.DEFERRED_EXHAUSTED
         : (writeState || priorState);
     }
-    prior.reason = write.reason || prior.reason;
+    // Throughput deferrals are per-job and must not replace the reason attached
+    // to the alert-level attempt counter when both writes target one alert.
+    if (write.reason && (writeAttempts > 0 || !priorHasAlertLevelAttempt)) {
+      prior.reason = write.reason;
+    }
     prior.at = Math.max(prior.at || 0, write.at || 0);
   }
   return [...byRef.values()];
@@ -688,7 +694,7 @@ function coalesceDeliveryWrites(writes) {
  * @param {boolean} dryRun
  * @returns {Promise<number>}
  */
-async function persistDeferredDeliveryWrites(db, writes, dryRun) {
+export async function persistDeferredDeliveryWrites(db, writes, dryRun) {
   const coalesced = coalesceDeliveryWrites(writes);
   if (coalesced.length === 0) return 0;
   if (dryRun) {
@@ -719,7 +725,18 @@ async function persistDeferredDeliveryWrites(db, writes, dryRun) {
           // this plan was built. Never let a stale deferred write downgrade a
           // retry-blocking state and reopen a duplicate-send race.
           if (deliveryEntryBlocksRetry(current[key], write.at)) continue;
-          next[key] = entry;
+          const currentAttempts = Number(current[key]?.attempts);
+          const plannedAttempts = Number(entry.attempts);
+          const attempts = Math.max(
+            Number.isInteger(currentAttempts) && currentAttempts > 0 ? currentAttempts : 0,
+            Number.isInteger(plannedAttempts) && plannedAttempts > 0 ? plannedAttempts : 0,
+          );
+          const nextEntry = attempts > 0 ? { ...entry, attempts } : entry;
+          if (nextEntry.state === DELIVERY_STATES.DEFERRED
+            && attempts >= DEFERRED_MAX_ATTEMPTS) {
+            nextEntry.state = DELIVERY_STATES.DEFERRED_EXHAUSTED;
+          }
+          next[key] = nextEntry;
         }
         const update = {
           deliveryLedger: next,
