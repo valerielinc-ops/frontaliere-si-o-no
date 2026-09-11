@@ -1,5 +1,10 @@
 import { getSiteShell } from './siteShell';
-import { normalizeArticleMarkdown } from './shared/normalizeArticleMarkdown';
+import {
+ markdownFenceCloses,
+ markdownFenceFor,
+ normalizeArticleMarkdown,
+ type MarkdownFence,
+} from './shared/normalizeArticleMarkdown';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -113,6 +118,7 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  const lines = normalizeArticleMarkdown(text).split('\n');
  const out: string[] = [];
  let paragraphBuf: string[] = [];
+ let fence: MarkdownFence | null = null;
 
  const flushParagraph = () => {
  if (paragraphBuf.length) {
@@ -124,6 +130,21 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  let i = 0;
  while (i < lines.length) {
  const trimmed = lines[i].trim();
+
+ if (fence) {
+  paragraphBuf.push(trimmed);
+  if (markdownFenceCloses(trimmed, fence)) fence = null;
+  i++;
+  continue;
+ }
+
+ const openingFence = markdownFenceFor(trimmed);
+ if (openingFence) {
+  paragraphBuf.push(trimmed);
+  fence = openingFence;
+  i++;
+  continue;
+ }
 
  if (!trimmed) {
  flushParagraph();
