@@ -93,6 +93,14 @@ export const EMPLOYER_PROFILE_PATH_RX =
   /^(?:\/(?:en|de|fr))?\/aziende\/([a-z0-9][a-z0-9-]*)(?:\/|\.html)?$/;
 
 /**
+ * Removes the flat `.html` suffix emitted alongside directory index pages.
+ * Route consumers can then apply the canonical trailing-slash policy once.
+ */
+export function stripFlatHtmlSuffix(path) {
+  return String(path).replace(/\.html$/, '');
+}
+
+/**
  * Matches a single URL path SEGMENT (no slashes) against the job-board
  * section shape — for callers that already split a path into parts (e.g.
  * `pathname.split('/')`) and need to test one segment at a time rather than

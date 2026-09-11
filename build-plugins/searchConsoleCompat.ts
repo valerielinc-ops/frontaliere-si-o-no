@@ -27,7 +27,10 @@ import {
  type JobCareClusterKey,
 } from './jobEditorialLanding';
 import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
-import { EMPLOYER_PROFILE_PATH_RX } from '../scripts/lib/jobBoardSections.mjs';
+import {
+ EMPLOYER_PROFILE_PATH_RX,
+ stripFlatHtmlSuffix,
+} from '../scripts/lib/jobBoardSections.mjs';
 import { isExchangeSsgPath } from './exchangeRateSsgData';
 import { isFiscalMunicipalityPath } from './fiscalMunicipalityData';
 import { isTopicIndexPath, resolveTopicClusterHubCanonical } from './topicClusterHubsData';
@@ -138,8 +141,7 @@ const EMPLOYER_PROFILE_SLUGS: ReadonlySet<string> = (() => {
 // also accepts the SSG's flat `.html` twin; the resolver canonicalizes that
 // twin back to the directory URL before returning it.
 function isEmployerProfilePath(path: string): boolean {
- const profilePath = path.replace(/\.html$/, '');
- const m = EMPLOYER_PROFILE_PATH_RX.exec(profilePath);
+ const m = EMPLOYER_PROFILE_PATH_RX.exec(stripFlatHtmlSuffix(path));
  return !!m && EMPLOYER_PROFILE_SLUGS.has(m[1]);
 }
 
@@ -595,7 +597,7 @@ export function resolveSearchConsoleCompatTarget(
  // emitted at this exact path, so a GSC 404 snapshot for a now-live URL
  // resolves to itself. Unknown slugs fall through (no live page).
  if (isEmployerProfilePath(path)) {
- const profilePath = path.replace(/\.html$/, '');
+ const profilePath = stripFlatHtmlSuffix(path);
  return {
  canonicalPath: ensureTrailingSlash(profilePath),
  kind: 'legacy',
