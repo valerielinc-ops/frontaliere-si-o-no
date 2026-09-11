@@ -524,6 +524,11 @@ describe('generateFuelStationPages() — Ticino only', () => {
     const finalStationPages = Object.keys(pages).filter((path) => path.includes('/cap-station-255/'));
     expect(Object.keys(pages)).toHaveLength(2048);
     expect(finalStationPages).toHaveLength(8);
+
+    const grownContexts = [...contexts, { ...contexts[0], slug: 'cap-station-256' }];
+    const grownPages = generateFuelStationPages({ dataset: DATASET, today, contexts: grownContexts as never });
+    expect(Object.keys(grownPages)).toHaveLength(2056);
+    expect(Object.keys(grownPages).filter((path) => path.includes('/cap-station-256/'))).toHaveLength(8);
   });
 });
 
