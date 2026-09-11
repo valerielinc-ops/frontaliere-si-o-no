@@ -1,21 +1,21 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-09-10T23:17:23.268Z",
-  "total": 3,
+  "generatedAt": "2026-09-11T13:41:48.354Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
-  "written": 3,
+  "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6826,
-  "avgDurationMs": 6826,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7533,
+  "avgDurationMs": 7533,
   "durationHistory": [
-    6826
+    7533
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.apgsga.ch/publication/lernende-kaufmann-frau-efz-zuerich/xkgzq2jrdlmqx2722bonikgyocy76s5eicpvnct0j0w7bqclfmapniklq34qxcsh",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:17:16.752Z",
+      "crawledAt": "2026-09-11T13:41:41.103Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -68,7 +68,7 @@
       "url": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:17:17.496Z",
+      "crawledAt": "2026-09-11T13:41:41.975Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -93,8 +93,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "apg-sga-e2d7f5f4d041",
       "slug": "afficheur-in-60-san-gallo-apg-sga-st-gallen",
@@ -136,5 +135,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
