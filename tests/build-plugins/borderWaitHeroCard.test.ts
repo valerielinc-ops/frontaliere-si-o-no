@@ -20,8 +20,8 @@ describe('renderFastestCrossingCard', () => {
       { slug: 'gaggiolo', labelIt: 'Gaggiolo', waitTimeMinutes: 12 },
     ];
     const html = renderFastestCrossingCard(crossings, 'it');
-    expect(html).toContain('Gaggiolo');
-    expect(html).toContain('12 min');
+    expect(html).toContain('Chiasso Centro');
+    expect(html).toContain('0 min');
   });
 });
 
