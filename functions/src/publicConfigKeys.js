@@ -13,6 +13,9 @@ export const PUBLIC_CONFIG_KEYS = [
   'ENABLE_CALCULATOR_PAYWALL',
   'ENABLE_JOB_ALERTS',
   'ENABLE_JOB_PERSONALIZATION',
+  // Firebase Web API key: public client configuration, never a server secret.
+  // It is delivered at runtime so it is not embedded in source or static HTML.
+  'FIREBASE_API_KEY',
   'GITHUB_REPO_NAME',
   'GITHUB_REPO_OWNER',
   'GOOGLE_OAUTH_CLIENT_ID',
