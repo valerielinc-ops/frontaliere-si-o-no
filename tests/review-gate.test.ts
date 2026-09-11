@@ -729,6 +729,25 @@ describe('review gate: citazioni e conferme', () => {
     expect(remaining[0].citations).toHaveLength(3);
   });
 
+  it('treats a bare repeat of a precise path as context, not a second anchor', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`scripts/ci/refund-fix-round.mjs:L10`: 🔴 Important: il modulo non linka; controlla anche `scripts/ci/refund-fix-round.mjs`.',
+    ].join('\n'));
+    expect(importantFindings(opened.body)[0].citations).toEqual([
+      { path: 'scripts/ci/refund-fix-round.mjs', line: 10 },
+    ]);
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `scripts/ci/refund-fix-round.mjs:L10`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
   it('non tronca le estensioni piu lunghe di un prefisso valido', () => {
     // `ts` viene prima di `tsx` nell'alternanza: senza il lookahead il path
     // citato diventava un file che non esiste, e un path non risolvibile e'

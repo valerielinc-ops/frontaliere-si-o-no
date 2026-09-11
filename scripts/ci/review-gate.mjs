@@ -192,17 +192,24 @@ function parseImportantFindings(body, extractCitations) {
       && markerIndex < end
       && !isFindingStart(markerLine, marker, extractCitations));
     const citations = extractCitations(text);
+    const precisePaths = new Set(
+      citations.filter(citation => citation.line !== null).map(citation => citation.path),
+    );
+    const citationsWithoutRepeatedBarePaths = citations.filter((citation) =>
+      citation.line !== null || !precisePaths.has(citation.path),
+    );
     // When precise locations exist, bare filenames in the explanation are
     // context, not additional anchors. Preserve every explicit path/line.
-    const hasPreciseAnchor = citations.some(citation => citation.line !== null);
+    const hasPreciseAnchor = citationsWithoutRepeatedBarePaths.some(citation => citation.line !== null);
     return {
       line,
       text,
       lineNumber: index + 1,
       findingNumber: markerIndex + 1,
       citations: hasPreciseAnchor
-        ? citations.filter(citation => citation.line !== null || citation.path.includes('/'))
-        : citations,
+        ? citationsWithoutRepeatedBarePaths.filter(citation =>
+          citation.line !== null || citation.path.includes('/'))
+        : citationsWithoutRepeatedBarePaths,
       parserUncertain,
     };
   }).filter(finding => finding.parserUncertain || !finding.citations.length
