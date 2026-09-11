@@ -521,10 +521,13 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
 }
 
 async function translateWithDeepL(text, sourceLang, targetLang, outcome = null) {
-  if (DEEPL_API_KEYS.length === 0) return '';
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
   const outcomeBefore = snapshotTranslationOutcome(outcome);
+  if (DEEPL_API_KEYS.length === 0) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
 
   const srcCode = DEEPL_LANG_MAP[sourceLang] || sourceLang?.toUpperCase() || '';
   const tgtCode = DEEPL_LANG_MAP[targetLang] || targetLang?.toUpperCase() || '';
@@ -860,10 +863,13 @@ async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = '
 
 // ── Azure Translator (F0 Free — 2M chars/month, near-DeepL quality) ────────
 async function translateWithAzure(text, sourceLang, targetLang, outcome = null) {
-  if (AZURE_TRANSLATOR_KEYS.length === 0) return '';
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
   const outcomeBefore = snapshotTranslationOutcome(outcome);
+  if (AZURE_TRANSLATOR_KEYS.length === 0) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
 
   // Azure supports up to 50K chars per request, but we chunk at 5K for safety
   const MAX_CHUNK = 5000;
@@ -1256,11 +1262,12 @@ async function translateWithLocalOpusMtWithOutcome(text, sourceLang, targetLang,
   return translated;
 }
 
-function mergeTranslationOutcome(target, source) {
+export function mergeTranslationOutcome(target, source) {
   if (!target || !source) return;
   target.passthroughs += source.passthroughs || 0;
   target.errors += source.errors || 0;
   target.incomplete = target.incomplete || source.incomplete === true;
+  target.tierUnavailable = target.tierUnavailable || source.tierUnavailable === true;
 }
 
 export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 'title', _outcome = null }) {
@@ -1525,6 +1532,9 @@ export async function freeTranslateWithRetryDetailed({ text, sourceLang, targetL
   if (out) return { text: out, passthrough: false };
 
   for (let i = 1; i <= maxRetries; i++) {
+    // This flag describes the current attempt. A later source echo may be a
+    // genuine passthrough even when an earlier attempt had no premium tier.
+    outcome.tierUnavailable = false;
     await delay(i * 1000);
     out = await freeTranslate({ text, sourceLang, targetLang, fieldType, _outcome: outcome });
     if (out) return { text: out, passthrough: false };
