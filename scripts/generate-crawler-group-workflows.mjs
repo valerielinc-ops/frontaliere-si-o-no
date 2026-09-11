@@ -95,14 +95,13 @@ const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
 const ASSIGNMENTS_PATH = path.join(REPO_ROOT, 'data/crawler-group-assignments.json');
 const CHECKOUT_BUCKETS_PATH = path.join(REPO_ROOT, 'scripts/ci/checkout-buckets.json');
 const TRANSLATE_LOGIC_PATH = path.join(WORKFLOWS_DIR, 'translate-pending-logic.yml');
-// The reusable site workflow keeps an optional input for direct/manual calls;
-// its helper derives a token from the run coordinates when that input is
-// absent. The standalone corpus trigger is different: the site orchestrator
-// is its only supported caller and must bind an explicit token (see the
-// portable expression below), so the fallback is not silently reused there.
+// Both workflow forms use the same token expression as the canonical helper:
+// an explicit input wins, while an empty dispatch input derives the run
+// coordinates. Keeping the expression identical in run-name and env prevents
+// an empty portable input from splitting observer identity from runtime state.
 export const CRAWLER_GENERATION_TOKEN_EXPR =
   "${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}";
-export const CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR = '${{ inputs.generation_token }}';
+export const CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR = CRAWLER_GENERATION_TOKEN_EXPR;
 const PORTABLE_CORPUS_DIR = path.join(REPO_ROOT, '.github/corpus-workflows');
 const PORTABLE_CONTRACT_PATH = path.join(PORTABLE_CORPUS_DIR, 'contract.json');
 const CORPUS_OBSERVER_SITE_SOURCES = new Map([
@@ -861,8 +860,8 @@ export function crawlerGenerationLedgerPersistenceRun() {
     'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
     'git_commit_exit=$?',
     'if [ "$git_commit_exit" -eq 42 ]; then',
-    '  echo "::warning::crawler generation ledger: push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — ledger commit retried next cycle."',
-    '  echo "⚠️ crawler generation ledger: push contention loss (exit 42) — ledger commit will be retried next cycle" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
+    '  echo "::warning::crawler generation ledger: push lost the ref race after all retries (contention); this cycle ledger entry was not committed and the next scheduled cycle records its own ledger state."',
+    '  echo "⚠️ crawler generation ledger: push contention loss (exit 42) — this cycle ledger entry was not committed; next scheduled cycle records its own state" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
     '  exit 0',
     'fi',
     'if [ "$git_commit_exit" -ne 0 ]; then',
@@ -913,7 +912,7 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
     },
     {
       name: 'Report crawler generation finalizer failure',
-      if: "always() && steps.crawler-generation-finalizer.outcome != 'success'",
+      if: "always() && steps.crawler-generation-finalizer.outcome == 'failure'",
       'continue-on-error': true,
       run: crawlerGenerationFinalizerFailureRun(),
     },
@@ -1571,18 +1570,18 @@ export function buildStandaloneCrossRepoWorkflow({
   const job = Object.values(workflow.jobs ?? {})[0];
   if (!job?.steps) throw new Error(`${name}: reusable logic has no runnable job steps`);
 
-  // The portable workflow is dispatched by the site orchestrator with an
-  // explicit token. Keep the reusable site workflow's coordinate fallback
-  // intact, but make the transported caller consume only its required input;
-  // this removes the misleading dead fallback from the cross-repo half.
+  // Keep the portable workflow's run-name/job/step env aligned with the
+  // canonical helper. `required: true` documents the supported caller, but an
+  // empty dispatch value must still resolve identically in the observer name
+  // and in every runtime consumer.
   if (/^crawler-group-\d{2}\.yml$/u.test(workflowFile)) {
     job.env = {
       ...(job.env ?? {}),
-      CRAWLER_GENERATION_TOKEN: CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR,
+      CRAWLER_GENERATION_TOKEN: CRAWLER_GENERATION_TOKEN_EXPR,
     };
     for (const step of job.steps) {
       if (step?.env?.CRAWLER_GENERATION_TOKEN === CRAWLER_GENERATION_TOKEN_EXPR) {
-        step.env.CRAWLER_GENERATION_TOKEN = CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR;
+        step.env.CRAWLER_GENERATION_TOKEN = CRAWLER_GENERATION_TOKEN_EXPR;
       }
     }
   }
@@ -1829,7 +1828,7 @@ export function generateCrossRepoExecutionArtifacts({
     const content = buildStandaloneCrossRepoWorkflow({
       logicText,
       name: `Crawler Group ${nn} (sparse cross-repo execution)`,
-      runName: `crawler-generation-${CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR}-group-${nn}`,
+      runName: `crawler-generation-${CRAWLER_GENERATION_TOKEN_EXPR}-group-${nn}`,
       workflowFile: fileName,
       trigger: groupTrigger(logic),
       concurrency: { group: `jobs-crawler-group-${nn}`, 'cancel-in-progress': false },
