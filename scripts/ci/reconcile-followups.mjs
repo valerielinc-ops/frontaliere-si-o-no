@@ -66,6 +66,7 @@ const DRY_RUN = process.env.DRY_RUN === '1';
 const NO_AUTOCLOSE = process.env.NO_AUTOCLOSE === '1';
 const MAX_ISSUES = intFromEnv('MAX_ISSUES', 100);
 const MARKER = '<!-- reconcile-bot -->';
+const FLAG_MARKER = '<!-- reconcile-bot:flag -->';
 const CLOSE_MARKER = '<!-- reconcile-bot:autoclose -->';
 const LABEL = 'maybe-resolved';
 const CLOSED_LABEL = 'fu-resolved-auto';
@@ -546,10 +547,21 @@ function readIssueComments(number) {
   }
 }
 
+/**
+ * Item-done comments share the historical `MARKER`; only an aggregate reconcile
+ * flag counts as the prior grace-window confirmation. Keep accepting old flag
+ * comments while giving new flags a marker that cannot collide with item state.
+ */
+export function isReconcileFlagComment(body) {
+  const text = String(body || '');
+  return text.includes(FLAG_MARKER)
+    || (text.includes(MARKER) && text.includes('🤖 **Reconcile (auto)**'));
+}
+
 function alreadyCommented(number, comments = undefined) {
   const resolvedComments = comments === undefined ? readIssueComments(number) : comments;
   if (!Array.isArray(resolvedComments)) return null;
-  return resolvedComments.some((c) => (c.body || '').includes(MARKER));
+  return resolvedComments.some((c) => isReconcileFlagComment(c.body));
 }
 
 function evidenceLines(evidence) {
@@ -758,7 +770,8 @@ ${c.marker}`;
       : f.reason === 'weak-evidence'
       ? '\n\nℹ️ Evidenza debole (singolo token poco specifico): **non** verrà auto-chiusa — verifica e chiudi a mano se lo scope è coperto.'
       : '\n\nSe al prossimo run risulterà ancora risolta, verrà **auto-chiusa** (finestra di grazia: obietta rimuovendo `maybe-resolved` o aggiungendo `keep-open`).';
-    const comment = `${MARKER}
+    const comment = `${FLAG_MARKER}
+${MARKER}
 🤖 **Reconcile (auto)**: i token citati da questa issue risultano già presenti nei file citati — probabile **done-but-open** (coperto da una PR successiva senza \`Closes #${f.number}\`).
 
 ${evidenceLines(f.evidence)}${note}`;
