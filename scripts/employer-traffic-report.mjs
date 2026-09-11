@@ -463,7 +463,7 @@ async function fromGa4(window) {
   };
 }
 
-function reportPayload({ source, window, data, rows, min, days }) {
+export function reportPayload({ source, window, data, rows, min, days }) {
   const filtered = rows
     .filter((entry) => numberOr(entry.applyClickProxy) >= min)
     .sort((a, b) => b.applyClickProxy - a.applyClickProxy || comparePostHogCompany(a.key, b.key));

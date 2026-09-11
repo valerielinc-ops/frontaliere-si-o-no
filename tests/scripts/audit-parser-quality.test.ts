@@ -300,6 +300,7 @@ describe('source-detail fidelity checks', () => {
     // …and stays a trailing region when one did.
     expect(sourceLocationMatches('Genève', 'Carouge, Genève')).toBe(false);
     expect(sourceLocationMatches('Zürich', 'Uster, Zürich')).toBe(false);
+    expect(sourceLocationMatches('Carouge', 'Carouge La Praille')).toBe(true);
     // Neither side resolves: no municipality, no match.
     expect(sourceLocationMatches('Madrid', 'Madrid Shared Services')).toBe(false);
     expect(sourceLocationMatches('Campus', 'Zürich, Region Zürich')).toBe(false);
@@ -428,6 +429,22 @@ describe('source-detail fidelity checks', () => {
         evidence: 'jsonld',
       });
     }
+  });
+
+  it('prefers a later Swiss location when JSON-LD lists a foreign primary office first', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Global role',
+      jobLocation: [
+        { address: { addressLocality: 'Germany, Berlin', addressCountry: 'DE' } },
+        { address: { addressLocality: 'Zürich', addressCountry: 'CH' } },
+      ],
+    })}</script>`;
+
+    expect(extractSourceLocationObservation(html)).toEqual({
+      location: 'Zürich',
+      evidence: 'jsonld',
+    });
   });
 
   it('does not mistake Swiss canton codes for foreign country evidence', () => {
