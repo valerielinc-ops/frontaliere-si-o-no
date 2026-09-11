@@ -421,6 +421,10 @@ function countWordsIn(text: string): number {
  return t.split(/\s+/).filter(Boolean).length;
 }
 
+const isToolsHeading = (value: string): boolean => {
+ return /^(tool utili|tool consigliati|recommended tools|useful tools|empfohlene tools|nützliche tools|outils recommandés|outils utiles)\b/i.test(value.trim());
+};
+
 /**
  * What happened to the ad slot a `## ` block opens: the ad was emitted there,
  * deferred past a block it must not straddle, or refused by the gap/cap check.
@@ -521,9 +525,6 @@ export function renderFormattedContent(
  }
 
  const blocks = processed.split('\n\n').filter(b => b.trim());
- const isToolsHeading = (value: string): boolean => {
- return /^(tool utili|tool consigliati|recommended tools|useful tools|empfohlene tools|nützliche tools|outils recommandés|outils utiles)\b/i.test(value.trim());
- };
  const looksLikeToolBody = (value: string): boolean => {
  const v = value.trim();
  if (!v) return false;
@@ -841,7 +842,11 @@ export function extractHeadings(bodySegments: string[]): TocHeading[] {
  let level: 2 | 3 | null = null;
  let raw = '';
  if (trimmed.startsWith('#### ')) {
- // H4 sub-sub-headings: skip from TOC (too granular)
+ // H4 sub-sub-headings are not shown in the TOC, but the renderer still
+ // assigns them an id. Reserve the same id so later H2/H3 anchors match.
+ raw = trimmed.split('\n')[0].replace(/^####\s+/, '').trim();
+ takeUniqueHeadingId(raw, usedIds);
+ continue;
  } else if (trimmed.startsWith('### ')) {
  level = 3;
  raw = trimmed.split('\n')[0].replace(/^###\s+/, '').trim();
@@ -850,6 +855,9 @@ export function extractHeadings(bodySegments: string[]): TocHeading[] {
  raw = trimmed.split('\n')[0].replace(/^##\s+/, '').trim();
  }
  if (level && raw) {
+ // The renderer presents tool headings as a callout without an anchor, so
+ // neither side may consume an id for this block.
+ if (level === 2 && isToolsHeading(raw)) continue;
  // Strip markdown formatting for display text
  const text = raw.replace(/\*\*/g, '').replace(/\*/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
  const id = takeUniqueHeadingId(raw, usedIds);

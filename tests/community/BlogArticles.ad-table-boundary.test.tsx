@@ -135,6 +135,27 @@ describe('flattened article headings', () => {
     expect(renderedIds).toEqual(['sezione-ripetuta', 'sezione-ripetuta-2']);
   });
 
+  it('keeps H4 reservations and tool callouts aligned between renderer and TOC', () => {
+    const segments = [
+      '#### Requisiti\n\nDettagli del primo requisito.',
+      '## Tool utili per il frontaliere\n\nConfronta il cambio EUR/CHF prima del bonifico.',
+      '## Requisiti\n\nDettagli del secondo requisito.',
+    ];
+    const usedHeadingIds = new Set<string>();
+    const html = segments
+      .map((segment) => renderToStaticMarkup(
+        renderFormattedContent(segment, undefined, undefined, undefined, undefined, usedHeadingIds),
+      ))
+      .join('');
+    const renderedIds = [...html.matchAll(/<h[2-4][^>]* id="([^"]+)"/g)].map((match) => match[1]);
+    const renderedTocIds = [...html.matchAll(/<h[2-3][^>]* id="([^"]+)"/g)].map((match) => match[1]);
+
+    expect(renderedIds).toEqual(['requisiti', 'requisiti-2']);
+    expect(renderedTocIds).toEqual(extractHeadings(segments).map((heading) => heading.id));
+    expect(html).toContain('Tool utili per il frontaliere');
+    expect(html).not.toMatch(/<[^>]+id="tool-utili-per-il-frontaliere"/);
+  });
+
   it('does not split tables or fenced code, and stays stable on a second pass', () => {
     const fence = String.fromCharCode(96).repeat(3);
     const source = [
