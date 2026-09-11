@@ -468,7 +468,10 @@ async function runChain(locale: 'it' | 'en', round: number) {
     expect(dialog, 'ring 2: popup dialog is visibly rendered').toBeVisible();
     expect(doubles.state.impressions, 'ring 2: onShown fires for visible popup').toHaveLength(1);
   }, { timeout: 2500 });
-  expect(getActiveSlotId(), 'ring 2: company popup owns the shared visible slot').toBe('company-follow-prompt:acme');
+  expect(
+    getActiveSlotId() === 'company-follow-prompt:acme',
+    'ring 2: company popup owns the shared visible slot',
+  ).toBe(true);
   expect(doubles.state.alerts, 'ring 2: opening popup creates no CompanyAlert').toHaveLength(0);
   expect(doubles.state.subscriber, 'ring 2: opening popup creates no newsletter subscriber').toBeNull();
 
@@ -500,7 +503,10 @@ async function runChain(locale: 'it' | 'en', round: number) {
   expect(readPendingCompanyFollows(), 'ring 4: pending follow intent exists before confirmation').toHaveLength(1);
   expect(doubles.state.alerts, 'ring 4: pending confirmation creates no CompanyAlert').toHaveLength(0);
   await confirmSyntheticAddress(email);
-  expect(doubles.state.subscriber?.status, 'ring 4: confirmed company-follow address stays newsletter-suppressed').toBe('suppressed');
+  expect(
+    doubles.state.subscriber?.status === 'suppressed',
+    'ring 4: confirmed company-follow address stays newsletter-suppressed',
+  ).toBe(true);
   expect(doubles.state.subscriber?.company_follow_confirmed_at, 'ring 4: confirmation proof is recorded').toBeTruthy();
   expect(doubles.state.subscriber?.company_follow_followup_pending, 'ring 4: confirmed follow is queued for alert flush').toBe(true);
   expect(doubles.state.subscriber?.metadata, 'ring 4: merge keeps nested subscriber metadata').toEqual({
