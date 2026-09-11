@@ -6262,6 +6262,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.investimento-svizzero-usa-lonza.title': 'Lonza investiert in den USA: neue pharmazeutische Anlage in Oregon',
     'blog.article.investimento-svizzero-usa-lonza.excerpt': 'Der Schweizer Pharmariese Lonza wird in Bend, Oregon, eine neue Produktionsstätte errichten, deren Fertigstellung bis 2029 geplant ist.',
     'blog.article.investimento-svizzero-usa-lonza.imageAlt': 'Lonza Pharma-Anlage in den Vereinigten Staaten',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.title': 'Krankenkassenprämien im Kanton Jura: Kürzungen und Bandbreiten 2024',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.excerpt': 'Praktischer Leitfaden zu den KVG-Prämien im Kanton Jura: Franchise-Bänder, alternative Modelle und Voraussetzungen für die kantonale Prämienverbilligung.',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.imageAlt': 'Krankenversicherungskarte LAMal mit Symbolen des Kantons Jura und Unterlagen zur Prämienverbilligung',
 };
 
 export default blogMetaChDe;

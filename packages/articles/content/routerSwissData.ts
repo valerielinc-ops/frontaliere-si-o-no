@@ -2113,6 +2113,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'stefan-leist-vicedirettore-aff-2026': { it: 'stefan-leist-vicedirettore-aff-2026', en: 'stefan-leist-deputy-director-ffa-2026', de: 'stefan-leist-vizedirektor-efv-2026', fr: 'stefan-leist-directeur-adjoint-aff-2026' },
  'imposte-cantonali-giura-aliquote-deduzioni': { it: 'imposte-cantonali-giura-aliquote-deduzioni', en: 'jura-cantonal-tax-rates-deductions', de: 'jura-kantonssteuer-saetze-abzuege', fr: 'impots-cantonaux-jura-taux-deductions' },
  'investimento-svizzero-usa-lonza': { it: 'investimento-svizzero-usa-lonza', en: 'swiss-investment-usa-lonza', de: 'schweizer-investition-usa-lonza', fr: 'investissement-suisse-usa-lonza' },
+ 'premi-cassa-malati-canton-giura-riduzioni': { it: 'premi-cassa-malati-canton-giura-riduzioni', en: 'health-insurance-premiums-jura-canton-reductions', de: 'krankenkassenpraemien-kanton-jura-verbilligungen', fr: 'primes-assurance-maladie-canton-jura-reductions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
