@@ -1,21 +1,21 @@
 {
   "key": "swisslog",
   "label": "Swisslog",
-  "generatedAt": "2026-09-11T13:33:22.502Z",
-  "total": 6,
+  "generatedAt": "2026-09-11T23:10:03.603Z",
+  "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
-  "written": 6,
+  "written": 5,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6412,
-  "avgDurationMs": 6412,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7005,
+  "avgDurationMs": 7005,
   "durationHistory": [
-    6412
+    7005
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:10.379Z",
+      "crawledAt": "2026-09-11T23:09:56.185Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -48,6 +48,7 @@
       "postedDate": "2026-08-06",
       "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "jobReqId": "4385",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-06T11:32:14.801Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -69,7 +70,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:10.377Z",
+      "crawledAt": "2026-09-11T23:09:56.186Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -86,6 +87,7 @@
       "postedDate": "2026-08-05",
       "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "jobReqId": "4458",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-05T22:29:21.809Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -107,7 +109,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:10.379Z",
+      "crawledAt": "2026-09-11T23:09:56.188Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -145,7 +147,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:10.380Z",
+      "crawledAt": "2026-09-11T23:09:56.188Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -184,7 +186,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:10.381Z",
+      "crawledAt": "2026-09-11T23:09:56.189Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -201,6 +203,7 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "jobReqId": "4097",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:41:26.496Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -211,8 +214,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "swisslog-207ff043bb4e",
       "slug": "qualita-degli-studenti-di-lavoro-60-m-f-d-swisslog-buchs-switzerland",
@@ -247,6 +249,7 @@
       "salaryMax": 56400,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -255,5 +258,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
