@@ -3,7 +3,8 @@
     "morning": "1-2 min"
   },
   "chiasso-brogeda": {
-    "morning": "0-4 min"
+    "morning": "0-4 min",
+    "evening": "0-2 min"
   },
   "chiasso-centro": {
     "morning": "0-2 min"
@@ -11,9 +12,6 @@
   "chiasso-strada": {
     "morning": "0-8 min",
     "evening": "0-3 min"
-  },
-  "ferney-voltaire-grand-saconnex": {
-    "evening": "0-2 min"
   },
   "gaggiolo": {
     "morning": "0-8 min",
@@ -39,7 +37,7 @@
   },
   "moillesulaz": {
     "morning": "2-3 min",
-    "evening": "0-3 min"
+    "evening": "0-2 min"
   },
   "passo-dello-spluga": {
     "morning": "0-2 min"
