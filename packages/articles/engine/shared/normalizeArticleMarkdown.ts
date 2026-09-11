@@ -15,6 +15,10 @@ const RECOVERED_HEADING_MAX_CHARS = 120;
 const RECOVERED_HEADING_TITLE_MAX_CHARS = 96;
 
 const INLINE_HEADING_RE = /(^|\s)(#{2,6})(?=\s+)/g;
+const TABLE_ROW_RE = /^\s*\|/;
+const FENCE_RE = /^\s{0,3}((?:\x60{3,})|(?:~{3,}))/;
+const FENCE_CLOSE_RE = /^\s{0,3}((?:\x60{3,})|(?:~{3,}))\s*$/;
+const NON_HEADING_BLOCK_RE = /^\s{0,3}(?:[-*+]\s+|\d+[.)]\s+|>\s?)/;
 // These are sentence/discourse leads seen after a flattened title in the
 // translated corpus. Restricting the match to them avoids treating a proper
 // name or a German capitalized noun in an otherwise valid long heading as the
@@ -101,11 +105,67 @@ function normalizeLine(line: string): string {
  return blocks.join('\n\n');
 }
 
+export type MarkdownFence = { char: string; length: number };
+
+export function markdownFenceFor(line: string): MarkdownFence | null {
+ const match = line.match(FENCE_RE);
+ if (!match) return null;
+ return { char: match[1][0], length: match[1].length };
+}
+
+export function markdownFenceCloses(line: string, fence: MarkdownFence): boolean {
+  const match = line.match(FENCE_CLOSE_RE);
+  return Boolean(
+  match
+  && match[1][0] === fence.char
+  && match[1].length >= fence.length,
+  );
+}
+
+export function advanceMarkdownFence(
+  lines: readonly string[],
+  initial: MarkdownFence | null = null,
+): MarkdownFence | null {
+  let fence = initial;
+  for (const line of lines) {
+    if (fence) {
+      if (markdownFenceCloses(line, fence)) fence = null;
+      continue;
+    }
+    const openingFence = markdownFenceFor(line);
+    if (openingFence) fence = openingFence;
+  }
+  return fence;
+}
+
+function isProtectedBlockLine(line: string): boolean {
+ return TABLE_ROW_RE.test(line) || NON_HEADING_BLOCK_RE.test(line);
+}
+
 /** Normalize markdown bodies before either renderer or TOC extraction sees them. */
 export function normalizeArticleMarkdown(text: string): string {
- return text
+ const lines = text
   .replace(/\r\n?/g, '\n')
-  .split('\n')
-  .map(normalizeLine)
-  .join('\n');
+  .split('\n');
+ const normalized: string[] = [];
+ let fence: MarkdownFence | null = null;
+
+ for (const line of lines) {
+  if (fence) {
+   normalized.push(line);
+   if (markdownFenceCloses(line, fence)) fence = null;
+   continue;
+  }
+
+  const openingFence = markdownFenceFor(line);
+  if (openingFence) {
+   normalized.push(line);
+   fence = openingFence;
+   continue;
+  }
+
+  normalized.push(isProtectedBlockLine(line) ? line : normalizeLine(line));
+ }
+
+ return normalized.join('\n');
 }

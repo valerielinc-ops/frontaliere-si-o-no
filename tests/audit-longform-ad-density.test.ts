@@ -28,11 +28,35 @@ describe('audit-longform-ad-density.mjs', () => {
     writeFileSync(path.join(bodyDir, 'fixture-longform.ts'), source);
 
     try {
-      const output = execFileSync('node', [SCRIPT, '--body-dir', bodyDir], { cwd: ROOT, encoding: 'utf8' });
+      const output = execFileSync('node', ['--import', 'tsx', SCRIPT, '--body-dir', bodyDir], { cwd: ROOT, encoding: 'utf8' });
       expect(output).toContain('longform articles: 1');
       expect(output).toContain('ads per longform: 0=0, 1=0, 2=0, 3+=1');
       expect(output).toMatch(/distinct inline slots observed: [1-3]\/5/);
       expect(output).toMatch(/## boundaries emitted=\d+, deferred=\d+, neither=\d+/);
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('non promuove a longform gli heading presenti solo in un fence', () => {
+    const fixtureRoot = mkdtempSync(path.join(os.tmpdir(), 'longform-ad-density-fence-'));
+    const bodyDir = path.join(fixtureRoot, 'it');
+    mkdirSync(bodyDir);
+    const fence = String.fromCharCode(96).repeat(3);
+    const body = [
+      segment(1, 6),
+      [fence + 'md', '## Sezione nel fence', '## Un altra sezione nel fence', fence].join('\n'),
+    ].join('\n\n');
+    const source = [
+      'export default {',
+      `  'blog.article.fixture-fenced.body1': '${escapeTsString(body)}',`,
+      '};',
+    ].join('\n');
+    writeFileSync(path.join(bodyDir, 'fixture-fenced.ts'), source);
+
+    try {
+      const output = execFileSync('node', ['--import', 'tsx', SCRIPT, '--body-dir', bodyDir], { cwd: ROOT, encoding: 'utf8' });
+      expect(output).toContain('longform articles: 0');
     } finally {
       rmSync(fixtureRoot, { recursive: true, force: true });
     }

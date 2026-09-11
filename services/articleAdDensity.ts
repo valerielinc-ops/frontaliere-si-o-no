@@ -15,6 +15,11 @@
  */
 
 import { fnv1a32Mod } from '../scripts/lib/fnv1a.mjs';
+import {
+  advanceMarkdownFence,
+  markdownFenceFor,
+  type MarkdownFence,
+} from '../packages/articles/engine/shared/normalizeArticleMarkdown';
 
 /** Number of `## ` sections from which an article is treated as longform. */
 export const LONGFORM_MIN_H2_SECTIONS = 7;
@@ -138,7 +143,13 @@ export function countH2Sections(segments: readonly string[]): number {
   let count = 0;
   for (const segment of segments) {
     if (!segment || segment.startsWith('blog.article.')) continue;
+    let fence: MarkdownFence | null = null;
     for (const block of segment.split('\n\n')) {
+      const lines = block.split('\n');
+      const wasInsideFence = fence !== null;
+      const opensFence = !wasInsideFence && markdownFenceFor(lines[0]) !== null;
+      fence = advanceMarkdownFence(lines, fence);
+      if (wasInsideFence || opensFence) continue;
       if (block.trim().startsWith('## ')) count += 1;
     }
   }
