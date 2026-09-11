@@ -719,6 +719,54 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.blocking).toBe(true);
   });
 
+  it('accepts a post-LGTM finding explicitly closed before the stale fallback', async () => {
+    const fixedReview = {
+      ...approvingBotReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `src/changed.mjs:L12`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'),
+    };
+    const intermediateReview = {
+      ...historicalImportantReview,
+      body: [
+        '## Findings (Important: 1, Nit: 0)',
+        '',
+        '`scripts/ci/review-gate.mjs:L881`: 🔴 Important: a new gate flaw remains.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const closingReview = {
+      ...historicalImportantReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `scripts/ci/review-gate.mjs:L881`: ok.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const staleReview = {
+      ...historicalImportantReview,
+      body: `${CODEX_REVIEW_MARKER}\n${historicalImportantReview.body.replace(/\n## LGTM$/u, '')}`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, fixedReview, intermediateReview, closingReview, staleReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      changedPathsFn: () => [],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.reason).toMatch(/stale fallback/i);
+  });
+
   it('accepts a Codex review only with strict evidence, marker and exact HEAD', async () => {
     const codexReview = {
       user: { type: 'Bot', login: 'github-actions[bot]' },

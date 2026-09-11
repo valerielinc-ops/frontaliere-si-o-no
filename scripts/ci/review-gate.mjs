@@ -880,19 +880,34 @@ function staleFallbackCarryForward({
 
   const priorFindings = bots.slice(0, priorLgtmIndex)
     .flatMap((review) => importantFindings(review?.body));
-  const confirmations = bots.slice(0, priorLgtmIndex + 1)
+  const priorConfirmations = bots.slice(0, priorLgtmIndex + 1)
     .flatMap((review) => fixConfirmations(review?.body));
+  const confirmedPriorKeys = new Set(priorFindings
+    .filter((finding) => findingConfirmed(finding, priorConfirmations, priorFindings))
+    .map(findingKey));
+
   // Do not inspect only the latest body: a review between the clean LGTM and
   // this fallback may have introduced an Important that the fallback omitted.
-  // Every post-LGTM finding must therefore be an already-known, explicitly
-  // confirmed finding. A new or unconfirmed one sends execution back to the
-  // normal blocking path instead of being hidden by the early return below.
-  const postLgtmFindings = bots.slice(priorLgtmIndex + 1, latestIndex + 1)
-    .flatMap((review) => importantFindings(review?.body));
-  if (!postLgtmFindings.every((finding) =>
-    priorFindings.some((prior) => findingKey(prior) === findingKey(finding))
-      && findingConfirmed(finding, confirmations, postLgtmFindings),
-  )) return null;
+  // Replay the whole post-LGTM sequence. Known findings stay ignored only when
+  // they were explicitly closed before the clean LGTM; newly introduced ones
+  // must be closed by a later review (including the current fallback review),
+  // and a finding introduced in the current body is never self-closed.
+  const postOpen = new Map();
+  for (let index = priorLgtmIndex + 1; index <= latestIndex; index += 1) {
+    const review = bots[index];
+    const confirmations = fixConfirmations(review?.body);
+    const openFindings = [...postOpen.values()].map(({ finding }) => finding);
+    for (const [key, entry] of postOpen.entries()) {
+      if (findingConfirmed(entry.finding, confirmations, openFindings)) postOpen.delete(key);
+    }
+    for (const finding of importantFindings(review?.body)) {
+      if (confirmedPriorKeys.has(findingKey(finding))) continue;
+      postOpen.set(findingKey(finding), { finding, reviewIndex: index });
+    }
+  }
+  if (postOpen.size > 0) return null;
+
+  if (!findings.every((finding) => confirmedPriorKeys.has(findingKey(finding)))) return null;
 
   const priorCommit = String(bots[priorLgtmIndex]?.commit_id || '');
   if (!/^[0-9a-f]{40}$/iu.test(priorCommit)) return null;
