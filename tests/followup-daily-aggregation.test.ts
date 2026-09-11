@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
@@ -59,6 +60,25 @@ describe('daily writer concurrency contract', () => {
       DAILY_MUTEX_GROUP,
     ]);
     expect(workflows.every((workflow) => workflow.concurrency?.['cancel-in-progress'] === false)).toBe(true);
+  });
+});
+
+describe('post-merge triage marker contract', () => {
+  it('treats an explicit zero-candidate marker naming an unchanged bucket as empty', () => {
+    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+    const verifierLine = workflow.split('\n').find((line) => line.includes("grep -Eiq '") && line.includes('zero outstanding items'));
+    const pattern = verifierLine?.match(/grep -Eiq '([^']+)'/)?.[1];
+    expect(pattern).toBeTruthy();
+
+    const marker = '## Post-merge follow-up triage\n\nCreated/updated: 0 issue — nessun item nuovo aggiunto al daily bucket #8248.';
+    expect(() => execFileSync('grep', ['-Eiq', pattern!], { input: marker })).not.toThrow();
+
+    const zeroResultBranch = workflow
+      .split("elif [ -z \"$bucket_refs\" ]")[0]
+      .split("if printf '%s' \"$marker_body\" | grep -Eiq '")
+      .at(-1);
+    expect(zeroResultBranch).toBeTruthy();
+    expect(zeroResultBranch).not.toContain('persistence_ok=false');
   });
 });
 

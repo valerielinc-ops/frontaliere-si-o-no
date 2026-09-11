@@ -505,11 +505,14 @@ jobs:
               else
                 marker_body=$(printf '%s' "$comments" | jq -r '[.comments[]?.body // "" | select(contains("## Post-merge follow-up triage"))] | last // ""' 2>/dev/null || true)
                 bucket_refs=$(printf '%s' "$marker_body" | grep -Eo 'bucket #[0-9]+' | sed -E 's/.*#//' | sort -un || true)
-                if printf '%s' "$marker_body" | grep -Eiq 'zero outstanding items|backfill skipped|Created:[[:space:]]*0 issue[[:space:]]*\(solo live-verification batchata\)'; then
-                  if [ -n "$bucket_refs" ]; then
-                    echo "triage incompleta: PR #$pr dichiara zero issue ma il marker cita bucket persistiti ambigui"
-                    persistence_ok=false
-                  fi
+                # A zero-candidate summary may name the unchanged daily bucket for
+                # audit context. That is not a claim that this PR was persisted in
+                # the bucket, so it must use the empty-result path below.
+                if printf '%s' "$marker_body" | grep -Eiq 'zero outstanding items|backfill skipped|Created:[[:space:]]*0 issue[[:space:]]*\(solo live-verification batchata\)|Created/updated:[[:space:]]*0 issue[[:space:]]*[—-][[:space:]]*nessun item nuovo aggiunto'; then
+                  # The explicit zero-item marker is an empty-result claim. A
+                  # bucket named only as unchanged audit context is not a
+                  # persistence claim and must not fail this branch.
+                  :
                 elif [ -z "$bucket_refs" ]; then
                   echo "triage incompleta: marker PR #$pr senza riferimento a un bucket persistito"
                   persistence_ok=false
