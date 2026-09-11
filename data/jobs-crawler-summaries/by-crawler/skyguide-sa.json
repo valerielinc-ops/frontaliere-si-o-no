@@ -1,18 +1,49 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-09-11T13:33:21.789Z",
-  "total": 12,
-  "newCount": 0,
+  "generatedAt": "2026-09-11T23:10:57.427Z",
+  "total": 13,
+  "newCount": 1,
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9913,
-  "avgDurationMs": 9913,
+  "durationMs": 13188,
+  "avgDurationMs": 13188,
   "durationHistory": [
-    9913
+    13188
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Head of Military Operations and Regional Aerodromes (80-100%)",
+      "slug": "head-of-military-operations-and-regional-aerodromes-80-100-skyguide-wangen-b-dub-or-geneva",
+      "url": "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCb_-&or-Geneva-Head-of-Military-Operations-and-Regional-Aerodromes-%2880-100%29/1436298433/",
+      "applyUrl": "https://jobs.skyguide.ch/talentcommunity/apply/1436298433/?locale=en_US",
+      "company": "Skyguide",
+      "companyKey": "skyguide-sa",
+      "companyDomain": "skyguide.ch",
+      "location": "Wangen b. Düb. &/or Geneva",
+      "addressLocality": "Wangen b. Düb. &/or Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "canton": "GE",
+      "country": "CH",
+      "category": "other",
+      "sector": "Logistica",
+      "source": "skyguide-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-11",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Chief of Staff to the CTO (80-100%)",
