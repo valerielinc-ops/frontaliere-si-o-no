@@ -75,4 +75,31 @@ describe('C3b — popup queue promotion timer', () => {
     expect(getActiveSlotId()).toBe(COMPANY_SLOT);
     expect([GUIDE_SLOT, COMPANY_SLOT, LATER_GUIDE_SLOT].filter(isActive)).toEqual([COMPANY_SLOT]);
   });
+
+  it('keeps equal-priority FIFO after cancelling an empty promotion timer', () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-09-11T10:01:00.000Z'));
+
+    expect(requestSlot(ACTIVE_SLOT, 100)).toBe(true);
+    expect(requestSlot(GUIDE_SLOT, POPUP_PRIORITY.GUIDE_BANNER)).toBe(false);
+    expect(requestSlot(COMPANY_SLOT, POPUP_PRIORITY.COMPANY_FOLLOW_PROMPT)).toBe(false);
+
+    // Emptying the queue while the release timer is pending calls
+    // cancelPromotionTimer(); a later equal-priority pair must start a fresh
+    // FIFO window instead of inheriting stale promotion state.
+    releaseSlot(ACTIVE_SLOT);
+    releaseSlot(GUIDE_SLOT);
+    releaseSlot(COMPANY_SLOT);
+    expect(getActiveSlotId()).toBe(null);
+
+    vi.setSystemTime(new Date('2026-09-11T10:01:00.001Z'));
+    expect(requestSlot(GUIDE_SLOT, POPUP_PRIORITY.GUIDE_BANNER)).toBe(true);
+    vi.setSystemTime(new Date('2026-09-11T10:01:00.002Z'));
+    expect(requestSlot(COMPANY_SLOT, POPUP_PRIORITY.COMPANY_FOLLOW_PROMPT)).toBe(false);
+
+    releaseSlot(GUIDE_SLOT);
+    vi.advanceTimersByTime(500);
+
+    expect(getActiveSlotId()).toBe(COMPANY_SLOT);
+  });
 });

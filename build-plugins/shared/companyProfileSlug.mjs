@@ -27,6 +27,10 @@
  */
 import { resolveBrandCanonical } from './brandCanonicalMap.mjs';
 
+const LEGAL_FORM_SUFFIXES = new Set([
+  'ag', 'bv', 'gmbh', 'inc', 'ltd', 'nv', 'plc', 'sa', 'sagl', 'sarl', 'spa', 'srl',
+]);
+
 /**
  * SINGLE SOURCE OF TRUTH for company-name → URL-safe slug (issue #5012).
  *
@@ -87,6 +91,48 @@ export function canonicalCompanyProfileSlug(company, companyKey) {
   // Fold declared brand aliases into their canonical primary (single source of
   // truth: brandCanonicalMap). Unmanaged slugs pass through unchanged.
   return resolveBrandCanonical(base) ?? base;
+}
+
+function withoutLegalForm(slug) {
+  const parts = slug.split('-');
+  while (parts.length > 1 && LEGAL_FORM_SUFFIXES.has(parts.at(-1))) {
+    parts.pop();
+  }
+  return parts.join('-');
+}
+
+/**
+ * Resolve the canonical identities represented by a company display name.
+ *
+ * The primary identity is the same brand-folded slug emitted for the employer
+ * profile. A trailing legal-form suffix is an explicit, safe display-name
+ * variant (e.g. `Board International` ↔ `Board International SA`); removing
+ * it is deliberately the only non-exact variant accepted here. The stripped
+ * variant is folded through the brand map too, so `Migros Ticino SA` resolves
+ * to the declared `migros` alias. No crawler key participates in this set.
+ *
+ * @param {string} company Display name (`job.company` or subscriber display name).
+ * @returns {string[]} Canonical display-identity slugs.
+ */
+export function companyDisplayIdentityKeys(company) {
+  const canonical = canonicalCompanyProfileSlug(company, company);
+  if (!canonical) return [];
+
+  const stripped = withoutLegalForm(canonical);
+  const aliases = [canonical, stripped];
+  if (stripped && stripped !== canonical) aliases.push(resolveBrandCanonical(stripped) ?? stripped);
+  return [...new Set(aliases.filter(Boolean))];
+}
+
+/**
+ * Compare two employer display names by exact canonical identity.
+ *
+ * This resolver intentionally has no crawler-key or substring fallback: a
+ * shared ATS key may publish several unrelated employer display labels.
+ */
+export function sameCompanyDisplayIdentity(left, right) {
+  const rightKeys = new Set(companyDisplayIdentityKeys(right));
+  return companyDisplayIdentityKeys(left).some((key) => rightKeys.has(key));
 }
 
 /**

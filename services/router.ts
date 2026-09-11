@@ -3931,7 +3931,8 @@ export function replaceRoute(route: AppRoute): void {
  * every other SEO family and for company-city archives.
  */
 export function staticCompanyPathForLocale(pathname: string, newLocale: Locale): string | null {
-  const profileMatch = pathname.match(/^\/(?:en\/|de\/|fr\/)?aziende\/([a-z0-9][a-z0-9-]*)\/?$/i);
+  const normalizedPathname = pathname.toLowerCase();
+  const profileMatch = normalizedPathname.match(/^\/(?:en\/|de\/|fr\/)?aziende\/([a-z0-9][a-z0-9-]*)\/?$/);
   if (profileMatch) {
     const localePrefix = newLocale === 'it' ? '' : `/${newLocale}`;
     return `${localePrefix}/aziende/${profileMatch[1].toLowerCase()}/`;
