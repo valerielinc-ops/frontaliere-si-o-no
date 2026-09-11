@@ -55,6 +55,7 @@ import { handleOutreachReplyTrack } from './src/outreachReplyTrack.js';
 import { handleEmployerInsights } from './src/employerInsights.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
+import { getPublicTrafficCurrent } from './src/publicTrafficCurrent.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
@@ -319,6 +320,28 @@ export const getPublicConfig = onRequest(
  console.error('[getPublicConfig]', error instanceof Error ? error.message : String(error));
  // Fail open: empty object → client uses its built-in defaults.
  res.status(200).json({});
+ }
+ },
+);
+
+// Public border traffic snapshot. Reads through Admin SDK so the static
+// hydration asset never needs a Firestore REST URL with an embedded API key.
+export const getTrafficCurrent = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (_req, res) => {
+ try {
+ const snapshot = await getPublicTrafficCurrent();
+ res.set('Cache-Control', 'public, max-age=60, s-maxage=60');
+ res.status(200).json(snapshot);
+ } catch (error) {
+ console.error('[getTrafficCurrent]', error instanceof Error ? error.message : String(error));
+ // Hydration is an enhancement; the pre-rendered values remain usable.
+ res.status(200).json({ documents: [] });
  }
  },
 );

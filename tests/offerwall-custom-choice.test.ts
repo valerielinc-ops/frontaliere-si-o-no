@@ -54,16 +54,14 @@ describe('Offerwall custom-choice registry — index.html', () => {
     expect(REGISTRY_BLOCK).toMatch(/ACCESS_NOT_GRANTED/);
   });
 
-  it('initialize() also grants access to signed-in users with the active Firebase key', () => {
-    // A logged-in visitor must NOT see the Offerwall — the registry detects the
-    // active Firebase Auth session synchronously and ignores stale project keys.
+  it('initialize() detects signed-in users without embedding a Firebase key', () => {
+    // The key is runtime public configuration and must not be copied into the
+    // static shell. The namespace probe keeps the parse-time check synchronous;
+    // the hydrated app narrows it to the active project's exact key.
     expect(REGISTRY_BLOCK).toMatch(
-      /firebaseAuthPersistenceKey\s*=\s*['"]firebase:authUser:['"]\s*\+\s*firebaseApiKey\s*\+\s*['"]:\[DEFAULT\]['"]/
-    );
-    expect(REGISTRY_BLOCK).toMatch(/localStorage\.getItem\(firebaseAuthPersistenceKey\)\s*!==\s*null/);
-    expect(REGISTRY_BLOCK).not.toMatch(
       /localStorage\.length[\s\S]*indexOf\(['"]firebase:authUser:/,
     );
+    expect(REGISTRY_BLOCK).not.toMatch(/firebaseApiKey|firebaseAuthPersistenceKey/);
   });
 
   it('show() delegates to the React hook and is defensive when it is absent', () => {

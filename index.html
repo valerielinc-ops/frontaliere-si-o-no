@@ -524,22 +524,18 @@
         var cc = ow.customchoice = ow.customchoice || {};
         if (cc.registry) return; // don't overwrite a registry set elsewhere
         // Grant access (suppress the Offerwall) for existing newsletter
-        // subscribers OR signed-in users. Firebase Auth persists the session in
-        // `firebase:authUser:<apiKey>:[DEFAULT]`; use the active key so a stale
-        // key from another Firebase project cannot suppress the Offerwall.
-        // The key is replaced by Vite when configured and falls back to the same
-        // public default used by services/firebaseAuthPersistence.ts.
-        var firebaseApiKey = '%VITE_FIREBASE_API_KEY%';
-        if (!firebaseApiKey || firebaseApiKey === '%VITE_FIREBASE_API_KEY%' || firebaseApiKey === 'your-firebase-api-key') {
-          firebaseApiKey = 'AIzaSyCxbA2_3BiBOjZryR5LOXCf_c2-Sgg7YSc';
-        }
-        var firebaseAuthPersistenceKey = 'firebase:authUser:' + firebaseApiKey + ':[DEFAULT]';
+        // subscribers OR signed-in users. The Firebase key arrives through
+        // runtime public config, so static HTML cannot carry it. Before React
+        // hydrates, scan the stable Auth storage namespace instead.
         // No async auth hydration wait (initialize must resolve in < 1s). Only
         // anonymous, non-subscribed readers (the funnel target) see the Offerwall.
         function hasAccess(){
           try {
             if (window.localStorage.getItem('newsletter_subscribed') === 'true') return true;
-            if (window.localStorage.getItem(firebaseAuthPersistenceKey) !== null) return true;
+            for (var i = 0; i < window.localStorage.length; i++) {
+              var key = window.localStorage.key(i);
+              if (key && key.indexOf('firebase:authUser:') === 0) return true;
+            }
           } catch (e) { /* localStorage unavailable */ }
           return false;
         }

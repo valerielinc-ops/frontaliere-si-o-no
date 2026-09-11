@@ -14,7 +14,7 @@ import { hasActiveSlot } from '@/services/popupQueue';
 import { reportCaughtError } from '@/services/errorReporter';
 import { isNewsletterAutologinInFlight, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 import { resilientImport } from '@/services/resilientImport';
-import { getFirebaseAuthPersistenceKey } from '@/services/firebaseAuthPersistence';
+import { hasFirebaseAuthPersistence } from '@/services/firebaseAuthPersistence';
 // Static, unlike the Firestore/newsletter modules below: consentTexts.ts is a
 // frozen constant table with no dependencies, so there is nothing to defer —
 // and a consent proof that failed to load would silently un-fix #5678.
@@ -45,11 +45,7 @@ function logAuthDebug(event: string, details?: Record<string, unknown>): void {
 /** Lightweight synchronous check for an existing Firebase Auth session in localStorage. */
 export function hasPersistedAuthSession(): boolean {
  if (typeof window === 'undefined') return false;
- try {
- const activeKey = getFirebaseAuthPersistenceKey();
- return window.localStorage.getItem(activeKey) !== null;
- } catch { /* localStorage unavailable */ }
- return false;
+ return hasFirebaseAuthPersistence(window.localStorage);
 }
 
 function shouldStartAuthImmediately(): boolean {

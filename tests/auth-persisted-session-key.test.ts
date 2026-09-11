@@ -4,13 +4,15 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.unmock('@/services/authService');
 
-const { getFirebaseAuthPersistenceKey } = await import('@/services/firebaseAuthPersistence');
+const { getFirebaseAuthPersistenceKey, setFirebaseApiKey } = await import('@/services/firebaseAuthPersistence');
 const { hasPersistedAuthSession } = await import('@/services/authService');
+setFirebaseApiKey('runtime-api-key');
 const ACTIVE_PERSISTENCE_KEY = getFirebaseAuthPersistenceKey();
 
 describe('persisted Firebase auth session detection', () => {
  beforeEach(() => {
- window.localStorage.clear();
+  setFirebaseApiKey('runtime-api-key');
+  window.localStorage.clear();
  });
 
  it('checks only the active Firebase persistence key', () => {
@@ -19,6 +21,12 @@ describe('persisted Firebase auth session detection', () => {
 
  window.localStorage.setItem(ACTIVE_PERSISTENCE_KEY, '{}');
  expect(hasPersistedAuthSession()).toBe(true);
+ });
+
+ it('scans the Firebase namespace until runtime configuration is available', () => {
+  setFirebaseApiKey('');
+  window.localStorage.setItem('firebase:authUser:runtime-project:[DEFAULT]', '{}');
+  expect(hasPersistedAuthSession()).toBe(true);
  });
 
  it('returns before reading localStorage during SSR', () => {

@@ -47,9 +47,11 @@ const FIXTURE_CURRENT: BorderWaitCurrent = {
 };
 
 describe('border-wait hydration IIFE — payload integrity', () => {
-  it('targets the Firestore REST endpoint for `trafficCurrent`', () => {
-    expect(BORDER_WAIT_HYDRATION_JS).toContain('firestore.googleapis.com');
+  it('targets the read-only public traffic function for `trafficCurrent`', () => {
+    expect(BORDER_WAIT_HYDRATION_JS).toContain('getTrafficCurrent');
     expect(BORDER_WAIT_HYDRATION_JS).toContain('trafficCurrent');
+    expect(BORDER_WAIT_HYDRATION_JS).not.toContain('firestore.googleapis.com');
+    expect(BORDER_WAIT_HYDRATION_JS).not.toContain('?key=');
   });
 
   it('uses the public frontaliere-ticino project', () => {
@@ -71,7 +73,7 @@ describe('border-wait hydration IIFE — payload integrity', () => {
     expect(BORDER_WAIT_HYDRATION_JS).toContain('data-bw-field');
     expect(BORDER_WAIT_HYDRATION_JS).toContain('data-bw-hydrated');
     expect(BORDER_WAIT_HYDRATION_JS).toContain('data-bw-live-badge');
-    expect(BORDER_WAIT_HYDRATION_JS).toContain('pageToken');
+    expect(BORDER_WAIT_HYDRATION_JS).not.toContain('pageToken');
     expect(BORDER_WAIT_HYDRATION_JS).not.toContain('direction');
     expect(BORDER_WAIT_HYDRATION_JS).toContain('visibilitychange');
   });
@@ -105,9 +107,9 @@ describe('border-wait pages — hydration injection', () => {
     // ratio gate stays green. The IIFE itself is asserted separately above.
     expect(html).toContain('<script src="/border-wait-hydrate.js"');
     expect(html).toContain('defer');
-    // Inline Firestore endpoint MUST NOT appear in the HTML — it lives in
-    // the external asset file emitted by the plugin's writeBundle.
-    expect(html).not.toContain('firestore.googleapis.com');
+    // The endpoint MUST NOT appear in the HTML — it lives in the external
+    // asset file emitted by the plugin's writeBundle.
+    expect(html).not.toContain('getTrafficCurrent');
   });
 
   it('marks the leaf page status card with `data-bw-crossing` for the slug', () => {
