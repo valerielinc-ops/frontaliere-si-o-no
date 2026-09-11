@@ -525,6 +525,13 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
  expect(src).toMatch(/authCreateAlert\(userId, email, values\)/);
  });
 
+ it('keeps a tombstoned auth subscriber unsubscribed so the newsletter toggle can re-opt in', () => {
+  expect(src).toMatch(/const accountDeleted = Boolean\(/);
+  expect(src).toMatch(/data\.account_deleted_at/);
+  expect(src).toMatch(/!accountDeleted && !optOutBinding/);
+  expect(src).toMatch(/authToggleNewsletter\(email, next\)/);
+ });
+
  it('source contains the pause/resume toggle wired to both auth and token modes (issue #4298 follow-up fix)', () => {
  expect(src).toMatch(/handleTogglePause/);
  expect(src).toMatch(/onTogglePause/);
