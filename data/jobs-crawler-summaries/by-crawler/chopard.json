@@ -1,21 +1,21 @@
 {
   "key": "chopard",
   "label": "Chopard",
-  "generatedAt": "2026-09-11T13:33:34.132Z",
-  "total": 7,
+  "generatedAt": "2026-09-11T23:11:15.534Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 7,
+  "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4385,
-  "avgDurationMs": 4385,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4891,
+  "avgDurationMs": 4891,
   "durationHistory": [
-    4385
+    4891
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:33:28.733Z",
+      "crawledAt": "2026-09-11T23:11:08.956Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -69,7 +69,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:33:28.743Z",
+      "crawledAt": "2026-09-11T23:11:08.980Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -108,7 +108,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:28.744Z",
+      "crawledAt": "2026-09-11T23:11:08.983Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -146,7 +146,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:33:28.747Z",
+      "crawledAt": "2026-09-11T23:11:08.990Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -184,7 +184,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:33:28.750Z",
+      "crawledAt": "2026-09-11T23:11:08.997Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -222,7 +222,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:33:28.754Z",
+      "crawledAt": "2026-09-11T23:11:09.006Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -239,6 +239,7 @@
       "postedDate": "2026-07-10",
       "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "jobReqId": "2555",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-10T22:09:12.285Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -249,8 +250,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "chopard-536808028c26",
       "slug": "agent-methodes-industrialisation-h-f-d-chopard-fleurier",
@@ -293,5 +293,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

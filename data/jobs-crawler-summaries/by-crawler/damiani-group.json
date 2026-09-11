@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-09-11T13:33:44.304Z",
+  "generatedAt": "2026-09-11T23:11:30.448Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5968,
-  "avgDurationMs": 5968,
+  "durationMs": 6825,
+  "avgDurationMs": 6825,
   "durationHistory": [
-    5968
+    6825
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,6 +44,7 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-09-10T23:06:36.779Z",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -425,6 +426,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-08T23:23:15.400Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
