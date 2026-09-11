@@ -46,7 +46,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { dirname, join, basename, resolve } from 'node:path';
+import { basename, resolve } from 'node:path';
 import { extractPrBody, describePrBodySource } from './pr-body-check-gate.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import {
@@ -54,18 +54,26 @@ import {
   unresolvedBaseOverrideActive,
 } from './lib/resolve-merge-base.mjs';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
-import { resolveHookTargetCwd, resolveGatedHeadRef } from './lib/hook-target-cwd.mjs';
+import {
+  resolveHookRepository,
+  resolveHookTargetCwd,
+  resolveGatedHeadRef,
+} from './lib/hook-target-cwd.mjs';
 import {
   findIssueFixReadBudgetViolation,
   formatReadBudgetViolation,
 } from './issue-fix-read-budget.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const checkScript = join(__dirname, 'check-sibling-patterns.mjs');
-// Il repo a cui questo gate appartiene, ricavato dal proprio path: e' l'unica
-// directory sempre giusta, anche quando `payload.cwd` e' inchiodato altrove
-// (thread di sub-agente — vedi lib/hook-target-cwd.mjs).
-const gateRepo = resolve(__dirname, '..', '..');
+/**
+ * Resolve the local checker for the repository that the PR command targets.
+ * A repository without a local checker is deliberately ignored: running the
+ * site's checker against a corpus branch is worse than an explicit no-op,
+ * because it produces a verdict about a different repository. The corpus can
+ * opt in later by adding its own checker at the conventional path.
+ */
+export function resolveSiblingGateTarget(command) {
+  return resolveHookRepository(command);
+}
 
 /**
  * Extract the text under `## Non implementato` from a PR body (up to the next
@@ -186,15 +194,23 @@ async function main() {
     process.exit(0);
   }
 
+  const gateTarget = resolveSiblingGateTarget(command);
+  if (!gateTarget) {
+    // The root hook is shared by repositories with different code layouts.
+    // No local sibling checker for the explicit target means there is no
+    // repository-correct analysis to run; do not inspect the site's branch.
+    process.exit(0);
+  }
+
   // Run check-sibling-patterns.mjs --json to get the structured candidate list.
   // `--head <ref>` pins the analysis to the BRANCH being proposed (see the
   // module docstring): a commit-to-commit diff, identical from any directory of
   // the repo, blind to other sessions' uncommitted files. `cwd: targetCwd` now
   // only picks WHICH REPO to run git in.
-  const head = resolveGatedHeadRef(command, targetCwd, gateRepo);
+  const head = resolveGatedHeadRef(command, targetCwd, gateTarget.repo);
   let jsonOutput;
   try {
-    jsonOutput = execFileSync('node', [checkScript, '--json', '--head', head.ref], {
+    jsonOutput = execFileSync('node', [gateTarget.checkScript, '--json', '--head', head.ref], {
       encoding: 'utf8',
       maxBuffer: 8 * 1024 * 1024,
       // Capture stdout (parsed as JSON); let stderr propagate for progress messages.
