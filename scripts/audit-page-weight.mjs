@@ -21,6 +21,7 @@ import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import {
   JOB_BOARD_COMPANY_HUB_PATH_RX,
   JOB_BOARD_SECTION_RX,
+  EMPLOYER_PROFILE_PATH_RX,
 } from './lib/jobBoardSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
@@ -78,15 +79,15 @@ export const MAX_HTML_BYTES = 260 * 1024;
 const ITALIAN_STATIONS_INDEX_BUDGET = 900 * 1024;
 const ITALIAN_STATIONS_INDEX_RE =
   /(?:^|\/)(?:stazioni-italia|italienische-tankstellen|italian-stations|stations-italiennes)\//;
-// Explicit owner override (2026-09-11): company hubs intentionally expose
-// the complete active result set, including the long tail of employer
-// listings. Their size is therefore not a page-weight rejection criterion;
-// image dimension/loading checks remain active for these pages. The build
-// emitter's separate company×city budget is unchanged.
+// Explicit owner override (2026-09-11): company hubs and evergreen employer
+// profiles intentionally expose the complete active result set, including the
+// long tail of employer listings. Their size is therefore not a page-weight
+// rejection criterion; image dimension/loading checks remain active for these
+// pages. The build emitter's separate company×city budget is unchanged.
 
 function budgetForPath(relPath) {
   const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  if (JOB_BOARD_SECTION_RX.test(p) && JOB_BOARD_COMPANY_HUB_PATH_RX.test(p)) {
+  if (JOB_BOARD_COMPANY_HUB_PATH_RX.test(p) || EMPLOYER_PROFILE_PATH_RX.test(p)) {
     return Number.POSITIVE_INFINITY;
   }
   return ITALIAN_STATIONS_INDEX_RE.test(p) ? ITALIAN_STATIONS_INDEX_BUDGET : MAX_HTML_BYTES;
