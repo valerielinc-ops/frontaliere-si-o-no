@@ -55,7 +55,7 @@ import {
   TRAFFIC_SOURCE_PATH,
 } from './lib/job-traffic-priority.mjs';
 import { logCascadeSummary } from './lib/free-translate.mjs';
-import { markRunStart, readRunStartMs, recordRunPhase } from './lib/translate-run-clock.mjs';
+import { markRunStart, recordRunPhase, resolveRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
 import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
@@ -249,9 +249,9 @@ const TIME_BUDGET_MS = 320 * 60 * 1000;
 // under the Argos-first ordering the local-MT BULK pass (Phase 2a) runs before
 // this cascade and seeds the marker, so the cascade's 250min deadline correctly
 // counts the time Phase 2a already spent — keeping Phase 2a + cascade + mop-up
-// inside the 350min timeout. Falls back to now() when no marker exists
-// (cascade-first / standalone), identical to the prior behaviour.
-const RUN_START_MS = readRunStartMs() ?? Date.now();
+// inside the 350min timeout. Standalone invocations keep a local fallback;
+// the workflow fails closed when its marker is missing.
+const RUN_START_MS = resolveRunStartMs();
 // Run-wide deadline for the slow HTTP/ONNX cascade. Default 250min (cascade-first
 // era: the cascade IS the primary translator). Under Argos-first the fast
 // CTranslate2 bulk (Phase 2a) + the Argos mop-up (Phase 2c) already cover the

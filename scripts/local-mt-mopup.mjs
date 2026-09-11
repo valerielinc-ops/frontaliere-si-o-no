@@ -34,9 +34,8 @@
  * (scripts/lib/translate-run-clock.mjs). Mirroring the cascade's own elapsed-aware
  * budget, this prevents a cascade that overflowed its 250min gate + a fresh full
  * mop-up + commit/scatter/slug/deploy from approaching the 350min job timeout and
- * losing uncommitted incremental writes. When no run-start marker exists (local
- * run / cascade skipped) the reference falls back to this process's own start, so
- * standalone behaviour is unchanged (bounded purely by LOCAL_MT_TIME_BUDGET_MS).
+ * losing uncommitted incremental writes. Standalone runs without a marker use
+ * this process's own start; the workflow requires the marker before any phase.
  *
  * Usage:
  *   node scripts/local-mt-mopup.mjs [--max-jobs N] [--dry-run]
@@ -56,7 +55,7 @@ import { fileURLToPath } from 'node:url';
 
 import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-jobs.mjs';
 import { titleLooksUntranslated } from './lib/job-locale-utils.mjs';
-import { readRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
+import { resolveRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens } from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
@@ -91,10 +90,9 @@ const STATIC_TIME_BUDGET_MS = Number(process.env.LOCAL_MT_TIME_BUDGET_MS) || 280
 // 350min job timeout for commit/scatter/slug/deploy.
 const MOPUP_DEADLINE_MS = Number(process.env.LOCAL_MT_MOPUP_DEADLINE_MS) || 320 * 60 * 1000;
 // Effective budget is ELAPSED-AWARE (#2212): the smaller of the per-step ceiling
-// and the time LEFT until the run-wide deadline. Falls back to this process's own
-// start when no run-start marker exists (local run / cascade skipped), so the
-// standalone budget stays exactly LOCAL_MT_TIME_BUDGET_MS.
-const RUN_START_MS = readRunStartMs() ?? Date.now();
+// and the time LEFT until the run-wide deadline. Standalone invocations keep a
+// local fallback; the workflow fails closed when its marker is missing.
+const RUN_START_MS = resolveRunStartMs();
 // When this pass IS the first translation step of the run, RUN_START_MS is its own
 // start and the recorded phase begins at 0 — which is the truth we want to see.
 const PHASE_START_MS = Date.now();
@@ -529,7 +527,7 @@ async function main() {
   // their elapsed-aware deadlines to the TRUE whole-job start, keeping the total
   // under the 350min timeout. No-op when a marker already exists (cascade-first, or
   // this being the Phase 2c pass after the cascade seeded it). Uses this process's
-  // start (RUN_START_MS falls back to now() when no marker exists yet).
+  // start (RUN_START_MS falls back locally when no marker exists yet).
   markRunStart(RUN_START_MS);
 
   // Elapsed-aware early-out (#2212): if the cascade already consumed the run-wide

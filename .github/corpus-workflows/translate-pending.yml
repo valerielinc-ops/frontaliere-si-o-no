@@ -46,6 +46,7 @@ permissions:
   issues: write
 env:
   NODE_OPTIONS: --disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288
+  TRANSLATE_RUN_CLOCK_REQUIRED: "1"
 jobs:
   translate:
     runs-on: ubuntu-latest
@@ -200,6 +201,20 @@ jobs:
       - name: Assemble dataset
         if: inputs.skip_translate != true
         run: node scripts/assemble-jobs-dataset.mjs
+      - name: Initialize translation run clock
+        if: inputs.skip_translate != true
+        run: |
+          node --input-type=module <<'NODE'
+          import { markRunStart, readRunStartMs } from './scripts/lib/translate-run-clock.mjs';
+
+          markRunStart(Date.now());
+          const startMs = readRunStartMs();
+          if (startMs === null) {
+            console.error('::error::translate-pending run-start marker could not be initialized');
+            process.exit(1);
+          }
+          console.log(`Translation run clock initialized at ${startMs}.`);
+          NODE
       - name: Record translation rollout context
         env:
           ROLLOUT_REPOSITORY: ${{ github.repository }}

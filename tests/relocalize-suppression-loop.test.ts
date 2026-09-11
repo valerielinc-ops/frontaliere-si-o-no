@@ -9,6 +9,7 @@ import {
   changedSlugsSince,
 } from '../scripts/relocalize-pending-jobs.mjs';
 import { translateMissingJobLocales } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { sourceChangedSinceSuppression } from '../scripts/lib/source-changed-since-suppression.mjs';
 
 /**
  * Regression gate for the needsRetranslation give-up loop.
@@ -124,6 +125,20 @@ describe('reconcileRetranslationState — give-up convergence', () => {
     expect(job.needsRetranslation).toBeUndefined();
     expect(job.retranslationAttempts).toBeUndefined();
     expect(job.localeMismatchSuppressed).toBeUndefined();
+  });
+});
+
+describe('sourceChangedSinceSuppression — authoritative source', () => {
+  it('uses the source description supplied by the caller', () => {
+    const snapshot = 'Descrizione breve invariata per un annuncio di lavoro locale.';
+    const job = {
+      description: snapshot,
+      localeMismatchSuppressedLen: snapshot.length,
+    };
+    const baseDesc = `${snapshot} Il contenuto aggiornato aggiunge dettagli operativi e responsabilità. `.repeat(2);
+
+    expect(sourceChangedSinceSuppression(job)).toBe(false);
+    expect(sourceChangedSinceSuppression(job, baseDesc)).toBe(true);
   });
 });
 
