@@ -2800,6 +2800,10 @@ Rules:
  'consultingCta.article.body': '30 minutes with a cross-border tax expert to clarify your specific case — €49, limited slots.',
  'consultingCta.article.button': 'Book a consultation',
 
+ 'whatsNew.v3963.title': 'Clearer employer insights',
+ 'whatsNew.v3963.employerInsights.title': 'Application clicks and verifiable data',
+ 'whatsNew.v3963.employerInsights.desc': 'Private employer reports now distinguish views, apply clicks, associated users and recorded applications, while always showing the data window and source.',
+
  // v3.71.0 — calculator boost
  'whatsNew.v3962.title': 'A clearer fuel comparison',
  'whatsNew.v3962.fuelCompare.title': 'Petrol and diesel, municipality by municipality',

@@ -21,6 +21,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { writeEmployerInsightsDocuments } from './lib/employer-insights-firestore.mjs';
 import { assertEmployerInsightsSource } from './lib/employer-insights-contract.mjs';
 import {
   GA4_READONLY_SCOPE,
@@ -578,6 +579,7 @@ function ensureCompanyState(states, catalog, companyKey) {
       profileViews: 0,
       profileVisitors: 0,
       applyClicks: 0,
+      applyClickUsers: 0,
       eventsObserved: 0,
       eventTypes: new Map(),
       trend: new Map(),
@@ -609,6 +611,7 @@ function ensureAd(state, job) {
       views: 0,
       visitors: 0,
       applyClicks: 0,
+      applyClickUsers: 0,
       eventsObserved: 0,
       eventTypes: new Map(),
       trend: new Map(),
@@ -667,7 +670,12 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
     const views = pageview ? (sourceRow.views == null ? count : numberOr(sourceRow.views, count)) : 0;
     const visitors = pageview ? numberOr(sourceRow.visitors || sourceRow.persons, 0) : 0;
     const clicks = applyClick ? (sourceRow.clicks == null ? count : numberOr(sourceRow.clicks, count)) : 0;
+    // GA4/PostHog expose users per grouped row, not a cross-window user union.
+    // Keep the observed units for context, but never present them as named or
+    // globally unique people.
+    const applyClickUsers = applyClick ? numberOr(sourceRow.persons, 0) : 0;
     state.applyClicks += clicks;
+    state.applyClickUsers += applyClickUsers;
     if (job) {
       state.views += views;
       state.visitors += visitors;
@@ -677,6 +685,7 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
       ad.views += views;
       ad.visitors += visitors;
       ad.applyClicks += clicks;
+      ad.applyClickUsers += applyClickUsers;
       const week = sourceRow.week || (pageview ? weekStart(sourceRow.timestamp) : null);
       if (pageview && week) addMetric(ad.trend, week, views);
     } else if (pageview) {
@@ -928,6 +937,7 @@ export function buildInsightsDocuments({
         views: ad.views,
         visitors: ad.visitors,
         applyClicks: ad.applyClicks,
+        applyClickUsers: ad.applyClickUsers,
         eventsObserved: ad.eventsObserved,
         eventTypes: serializeEventTypes(ad.eventTypes),
         applications: app ? app.applications : unavailable.applications,
@@ -959,6 +969,7 @@ export function buildInsightsDocuments({
         profileViews: state.profileViews,
         profileVisitors: state.profileVisitors,
         applyClicks: state.applyClicks,
+        applyClickUsers: state.applyClickUsers,
         adsCount: ads.length,
         applications: totalsApplications,
         applicationsStatus: evidence.status === 'source_unavailable'
@@ -983,6 +994,12 @@ export function buildInsightsDocuments({
             identifier: 'person_id',
             aggregation: 'sum_distinct_per_event_group',
             globalUnique: false,
+          },
+          applyClickUsers: {
+            identifier: 'person_id',
+            aggregation: 'sum_per_apply_event_group',
+            globalUnique: false,
+            pii: false,
           },
         },
       },
@@ -1475,21 +1492,9 @@ async function loadApplicationRecords() {
 }
 
 async function writeDocuments(docs) {
-  const { FieldValue } = await import('firebase-admin/firestore');
   const db = await getFirestoreDb();
-  let written = 0;
-  for (let i = 0; i < docs.length; i += 400) {
-    const batch = db.batch();
-    for (const document of docs.slice(i, i + 400)) {
-      batch.set(db.collection('employer_insights').doc(document.companyKey), {
-        ...document,
-        updatedAt: FieldValue.serverTimestamp(),
-      });
-      written += 1;
-    }
-    await batch.commit();
-  }
-  return written;
+  const result = await writeEmployerInsightsDocuments(db, docs);
+  return result.documentsWritten;
 }
 
 async function main() {
