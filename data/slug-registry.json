@@ -696069,7 +696069,10 @@
   "url|https://careers.richemont.com/en/jobs/jr133524/mergers-acquisitions-intern": {
     "canonicalSlug": "mergers-acquisitions-intern-richemont-bellevue",
     "slugByLocale": {
-      "en": "mergers-acquisitions-intern-richemont-bellevue"
+      "en": "mergers-acquisitions-intern-richemont-bellevue",
+      "it": "mergers-acquisitions-tirocinante-richemont-bellevue",
+      "de": "mergers-acquisitions-praktikant-richemont-bellevue",
+      "fr": "mergers-acquisitions-stagiaire-richemont-bellevue"
     },
     "createdAt": "2026-09-10",
     "canton": "GE"
@@ -700467,5 +700470,42 @@
     },
     "createdAt": "2026-09-10",
     "canton": "BS"
+  },
+  "url|https://careers.richemont.com/en/jobs/jr133118/constructeur": {
+    "canonicalSlug": "produttore-cartier-manufacture-le-cret-du-locle",
+    "slugByLocale": {
+      "fr": "constructeur-richemont-le-cret-du-locle",
+      "it": "produttore-cartier-manufacture-le-cret-du-locle",
+      "en": "manufacturer-cartier-manufacture-le-cret-du-locle",
+      "de": "hersteller-cartier-manufacture-le-cret-du-locle"
+    },
+    "createdAt": "2026-09-11",
+    "canton": "NE"
+  },
+  "url|https://careers.richemont.com/en/jobs/jr133618/apprenti-automaticien-cfc-hf": {
+    "canonicalSlug": "apprenti-automaticien-cfc-h-f-richemont-villars-sur-glane",
+    "slugByLocale": {
+      "fr": "apprenti-automaticien-cfc-h-f-richemont-villars-sur-glane",
+      "de": "auszubildende-automaticis-cfc-m-w-richemont-villars-sur-glane"
+    },
+    "createdAt": "2026-09-11",
+    "canton": "FR"
+  },
+  "url|https://careers.richemont.com/en/jobs/jr133614/apprenti-operateur-en-horlogerie-afp": {
+    "canonicalSlug": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
+    "slugByLocale": {
+      "en": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+    },
+    "createdAt": "2026-09-11",
+    "canton": "FR"
+  },
+  "url|https://careers.richemont.com/en/jobs/jr133617/apprenti-polymecanicien-cfc": {
+    "canonicalSlug": "apprenti-polymecanicien-cfc-richemont-villars-sur-glane",
+    "slugByLocale": {
+      "en": "apprenti-polymecanicien-cfc-richemont-villars-sur-glane",
+      "fr": "apprenti-polymecanicien-cfc-cartier-manufacture-villars-sur-glane"
+    },
+    "createdAt": "2026-09-11",
+    "canton": "FR"
   }
 }
