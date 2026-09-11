@@ -300,7 +300,9 @@
         "it": [
           "production-manager-abb-svizzera-sede-ticino-quartino-ticino",
           "quality-manager-per-il-cliente-80-100-abb-svizzera-sede-ticino-quartino",
-          "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6"
+          "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6",
+          "responsabile-contratti-abb-svizzera-sede-ticino-quartino-ticino",
+          "responsabile-qualita-clienti-80-100-abb-svizzera-sede-ticino-quartino"
         ],
         "de": [
           "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6"
@@ -312,7 +314,9 @@
       "previousSlugs": [
         "production-manager-abb-svizzera-sede-ticino-quartino-ticino",
         "quality-manager-per-il-cliente-80-100-abb-svizzera-sede-ticino-quartino",
-        "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6"
+        "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6",
+        "responsabile-contratti-abb-svizzera-sede-ticino-quartino-ticino",
+        "responsabile-qualita-clienti-80-100-abb-svizzera-sede-ticino-quartino"
       ],
       "salaryMin": 142000,
       "salaryMax": 249500,
@@ -471,12 +475,28 @@
       "previousSlugsByLocale": {
         "it": [
           "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen",
-          "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-5rabx9"
+          "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-5rabx9",
+          "ingegneria-della-produzione-tecnico-f-m-d-80-100-abb-svizzera-sede-ticino-schaffhausen",
+          "production-engineering-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen"
+        ],
+        "en": [
+          "production-engineering-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-uek87w"
+        ],
+        "de": [
+          "production-engineering-techniker-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-uek87w"
+        ],
+        "fr": [
+          "production-engineering-technicien-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-uek87w"
         ]
       },
       "previousSlugs": [
         "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen",
-        "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-5rabx9"
+        "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-5rabx9",
+        "ingegneria-della-produzione-tecnico-f-m-d-80-100-abb-svizzera-sede-ticino-schaffhausen",
+        "production-engineering-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen",
+        "production-engineering-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-uek87w",
+        "production-engineering-techniker-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-uek87w",
+        "production-engineering-technicien-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-uek87w"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

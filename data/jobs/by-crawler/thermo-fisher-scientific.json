@@ -197,7 +197,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:29:30.500Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -353,7 +352,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:37.670Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -661,7 +659,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:12.435Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -753,8 +750,7 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "thermo-fisher-scientific-cdee167510fa",
@@ -806,18 +802,40 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maschinenbediener-in-druck-thermo-fisher-scientific-ch",
-        "operatore-macchina-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
+        "operatore-macchina-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "operatore-secondario-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "operator-secondary-thermo-fisher-scientific-ch",
+        "operateur-secondary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "primario-dell-operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "operator-primary-thermo-fisher-scientific-ch",
+        "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "operator-primary-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "operator-secondary-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maschinenbediener-in-druck-thermo-fisher-scientific-ch",
-          "operatore-macchina-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
+          "operatore-macchina-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+          "operatore-secondario-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+          "operator-secondary-thermo-fisher-scientific-ch",
+          "operateur-secondary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+          "primario-dell-operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+          "operator-primary-thermo-fisher-scientific-ch",
+          "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+          "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil",
+          "operator-primary-thermo-fisher-scientific-schweiz-ag-allschwil",
+          "operator-secondary-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "en": [
           "maschinenbediener-in-druck-thermo-fisher-scientific-ch"
         ],
         "fr": [
-          "maschinenbediener-in-druck-thermo-fisher-scientific-ch"
+          "maschinenbediener-in-druck-thermo-fisher-scientific-ch",
+          "operateur-secondary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
+        ],
+        "de": [
+          "operator-secondary-thermo-fisher-scientific-ch"
         ]
       },
       "firstSeenAt": "2026-09-09T13:54:43.258Z",
@@ -920,8 +938,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

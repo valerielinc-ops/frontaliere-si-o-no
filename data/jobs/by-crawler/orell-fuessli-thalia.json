@@ -972,7 +972,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:54:30.573Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1224,13 +1223,20 @@
         "abteilungsleitung-100-a-orell-fuessli-thalia-zurich-7feknu",
         "libreria-in-60-a-orell-fussli-thalia-zurich",
         "librairie-en-60-a-orell-fussli-thalia-zurich",
-        "libreria-100-a-orell-fussli-thalia-zurich"
+        "libreria-100-a-orell-fussli-thalia-zurich",
+        "bookseller-80-a-orell-fussli-thalia-zurich",
+        "libreria-in-40-a-orell-fussli-thalia-zurich",
+        "buchhandler-in-40-a-orell-fussli-thalia-zurich",
+        "buchhandler-in-40-a-orell-fuessli-thalia-zurich",
+        "librairie-en-40-a-orell-fussli-thalia-zurich",
+        "bookseller-in-40-a-orell-fussli-thalia-zurich",
+        "libreria-80-a-orell-fussli-thalia-zurich",
+        "buchhandler-in-80-a-orell-fussli-thalia-zurich",
+        "buchhandler-in-80-a-orell-fuessli-thalia-zurich",
+        "librairie-80-a-orell-fussli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-100-a-orell-fuessli-thalia-zurich",
-          "buchhandler-in-60-a-orell-fussli-thalia-zurich",
-          "bookseller-in-60-a-orell-fussli-thalia-zurich",
           "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
           "bookseller-60-a-orell-fussli-thalia-zurich",
           "capo-dipartimento-100-a-orell-fussli-thalia-zurich",
@@ -1243,18 +1249,28 @@
           "abteilungsleitung-100-a-orell-fuessli-thalia-zurich-7feknu",
           "libreria-in-60-a-orell-fussli-thalia-zurich",
           "librairie-en-60-a-orell-fussli-thalia-zurich",
-          "libreria-100-a-orell-fussli-thalia-zurich"
+          "libreria-100-a-orell-fussli-thalia-zurich",
+          "bookseller-80-a-orell-fussli-thalia-zurich",
+          "libreria-in-40-a-orell-fussli-thalia-zurich",
+          "buchhandler-in-40-a-orell-fussli-thalia-zurich",
+          "buchhandler-in-40-a-orell-fuessli-thalia-zurich",
+          "librairie-en-40-a-orell-fussli-thalia-zurich",
+          "bookseller-in-40-a-orell-fussli-thalia-zurich",
+          "libreria-80-a-orell-fussli-thalia-zurich"
         ],
         "en": [
           "buchhandler-in-100-a-orell-fuessli-thalia-zurich",
-          "bookseller-in-60-a-orell-fussli-thalia-zurich"
+          "bookseller-in-60-a-orell-fussli-thalia-zurich",
+          "buchhandler-in-80-a-orell-fussli-thalia-zurich"
         ],
         "de": [
-          "buchhandler-in-60-a-orell-fuessli-thalia-zurich"
+          "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
+          "buchhandler-in-80-a-orell-fuessli-thalia-zurich"
         ],
         "fr": [
           "buchhandler-in-100-a-orell-fuessli-thalia-zurich",
-          "buchhandler-in-60-a-orell-fussli-thalia-zurich"
+          "buchhandler-in-60-a-orell-fussli-thalia-zurich",
+          "librairie-80-a-orell-fussli-thalia-zurich"
         ]
       },
       "firstSeenAt": "2026-08-13T22:19:24.068Z",
@@ -1506,7 +1522,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:19:30.111Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1588,7 +1603,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:19:30.108Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2004,7 +2018,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:15.701Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",

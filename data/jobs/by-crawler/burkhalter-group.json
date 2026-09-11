@@ -5640,7 +5640,8 @@
         ]
       },
       "retranslationAttempts": 1,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Sanitärinstallateur/in (80 - 100%)",
@@ -12542,7 +12543,8 @@
       "previousSlugs": [
         "installatore-trice-di-sanitari-100-sada-ag-glattpark-opfikon"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in Planung Sanitär (80 - 100%)",
@@ -13583,7 +13585,8 @@
         ]
       },
       "retranslationAttempts": 1,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Sanitärinstallateur/in (100%)",
@@ -13656,7 +13659,8 @@
       "previousSlugs": [
         "installatore-trice-di-sanitari-100-demuth-ag-baden-dattwil"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Sanitärinstallateur/in (100%)",
@@ -17544,7 +17548,7 @@
       "titleByLocale": {
         "it": "Installatore/trice elettrico/a EFZ o Elettricista di montaggio EFZ (100 %)",
         "en": "Electrician EFZ or Assembly Electrician EFZ (100%)",
-        "de": "Elektroinstallateur/in EFZ oder Montage-Elektriker/in EFZ (100%)",
+        "de": "Elektroinstallateur/in EFZ oder Montage-Elektriker/in EFZ (100 %)",
         "fr": "Monteur électrique/en EDC ou électricien/en EDC (100 %)"
       },
       "descriptionByLocale": {

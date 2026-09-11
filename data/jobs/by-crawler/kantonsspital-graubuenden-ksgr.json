@@ -25,13 +25,22 @@
       "crawledAt": "2026-09-10T23:17:27.440Z",
       "slug": "radiologiefachfrau-radiologiefachmann-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "radiologiefachfrau-radiologiefachmann-kantonsspital-graubunden-chur"
+        "de": "radiologiefachfrau-radiologiefachmann-kantonsspital-graubunden-chur",
+        "it": "radiologiefachfrau-radiologiefachmann-kantonsspital-graubunden-chur",
+        "en": "radiologiefachfrau-radiologiefachmann-kantonsspital-graubunden-chur",
+        "fr": "radiologiefachfrau-radiologiefachmann-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Radiologiefachfrau / Radiologiefachmann"
+        "de": "Radiologiefachfrau / Radiologiefachmann",
+        "it": "Specialista di radiologia / Specialista di radiologia",
+        "en": "Radiology specialist / Radiology specialist",
+        "fr": "Spécialiste en radiologie / Spécialiste en radiologie"
       },
       "descriptionByLocale": {
-        "de": "Starte nach Vereinbarung als\n\nAufgaben:\n• Du koordinierst und führst Bestrahlungen am Linearbeschleuniger und am Orthovolt-Gerät durch\n\n• Du überwachst Stereotaxie-Bestrahlungen mit modernsten oberflächen- und bildgestützten Systemen\n\n• Du erstellst Planungs-Computertomographien mittels individueller Lagerungshilfen und atemgesteuerten Techniken\n\n• Du bringst dich in Projekte ein, arbeitest mit externen Firmen zusammen und unterstützt Forschungsarbeiten\n\nAnforderungen:\n• Eine Ausbildung zur dipl. Radiologiefachperson HF/FH oder ein äquivalentes SRK anerkanntes, ausländisches Diplom\n\n• Gute Deutschkenntnisse sowie eine ausgeprägte Kommunikationsfähigkeit\n\n• Die Fähigkeit, vernetzt zu denken und vorausschauend zu handeln\n\n• Eine offene, zuverlässige Art und Freude an der aktiven interdisziplinären Zusammenarbeit\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte nach Vereinbarung als\n\nAufgaben:\n• Du koordinierst und führst Bestrahlungen am Linearbeschleuniger und am Orthovolt-Gerät durch\n\n• Du überwachst Stereotaxie-Bestrahlungen mit modernsten oberflächen- und bildgestützten Systemen\n\n• Du erstellst Planungs-Computertomographien mittels individueller Lagerungshilfen und atemgesteuerten Techniken\n\n• Du bringst dich in Projekte ein, arbeitest mit externen Firmen zusammen und unterstützt Forschungsarbeiten\n\nAnforderungen:\n• Eine Ausbildung zur dipl. Radiologiefachperson HF/FH oder ein äquivalentes SRK anerkanntes, ausländisches Diplom\n\n• Gute Deutschkenntnisse sowie eine ausgeprägte Kommunikationsfähigkeit\n\n• Die Fähigkeit, vernetzt zu denken und vorausschauend zu handeln\n\n• Eine offene, zuverlässige Art und Freude an der aktiven interdisziplinären Zusammenarbeit\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Avvio di accordo\n\nCompiti:\n• Coordinare e condurre l'irradiazione sull'acceleratore lineare e sul dispositivo di ortovoltage\n\n• Monitora l'irradiazione stereotattica con sistemi basati su superfici e immagini all'avanguardia\n\n• Si crea pianificazione tomografia computer utilizzando singoli strumenti di archiviazione e tecniche controllate dal respiro\n\n• Sei coinvolto in progetti, lavorare con aziende esterne e sostenere la ricerca\n\nRequisiti\n• Una formazione per il dipl. Specialista di radiologia HF/FH o un equivalente SRC riconosciuto diploma straniero\n\n• Buona conoscenza del tedesco e una forte capacità di comunicazione\n\n• La capacità di pensare in modo in rete e agire con la previsione\n\n• Un modo aperto, affidabile e la gioia della cooperazione interdisciplinare attiva\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start by agreement as\n\nTasks:\n• You coordinate and conduct irradiation on the linear accelerator and on the orthovoltage device\n\n• You monitor stereotactic irradiation with state-of-the-art surface- and image-based systems\n\n• You create planning computer tomography using individual storage aids and breath-controlled techniques\n\n• You get involved in projects, work with external companies and support research\n\nRequirements\n• A training for dipl. Radiology specialist HF/FH or an equivalent SRC recognised foreign diploma\n\n• Good knowledge of German and a strong communication ability\n\n• The ability to think in a networked way and act with foresight\n\n• An open, reliable way and joy of active interdisciplinary cooperation\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencer par un accord\n\nTâches :\n• Vous coordonnez et dirigez l'irradiation sur l'accélérateur linéaire et sur l'appareil d'orthotension\n\n• Vous surveillez l'irradiation stéréotaxique avec des systèmes de surface et d'image ultramodernes\n\n• Vous créez une tomographie informatique de planification à l'aide d'aides de stockage individuelles et de techniques de contrôle respiratoire\n\n• Vous participez à des projets, travaillez avec des entreprises externes et soutenez la recherche\n\nExigences\n• Une formation pour le dipl. Spécialiste de radiologie HF/FH ou un diplôme équivalent de SRC reconnu étranger\n\n• Bonne connaissance de l'allemand et forte capacité de communication\n\n• La capacité de penser en réseau et d'agir avec prévoyance\n\n• Une manière ouverte, fiable et la joie d'une coopération interdisciplinaire active\n\nPouvez-vous faire quelque chose que les autres peuvent faire?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44,7 +53,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 114000,
