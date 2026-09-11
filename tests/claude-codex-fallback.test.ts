@@ -655,6 +655,10 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain("steps.codex.outcome == 'failure'");
     expect(action).toContain("steps.codex.outputs.side_effect_detected == 'false'");
     expect(action).toContain('restore_sanitized_git_config');
+    const stopGhStart = action.indexOf('        stop_gh_bridge() {');
+    const stopGhEnd = action.indexOf('        trap stop_gh_bridge EXIT', stopGhStart);
+    expect(stopGhStart).toBeGreaterThan(-1);
+    expect(action.slice(stopGhStart, stopGhEnd)).toContain('restore_sanitized_git_config || true');
     expect(action).toContain('snapshot_git_delivery_state');
     expect(action).not.toContain('steps.preflight');
     expect(action).not.toContain('steps.runtime.outputs');

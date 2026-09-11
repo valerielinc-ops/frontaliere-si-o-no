@@ -909,6 +909,9 @@ runs:
           "$node_realpath" "$bridge_dir/gh-server.mjs" >/dev/null 2>&1 &
         gh_server_pid=$!
         stop_gh_bridge() {
+          # This temporary EXIT trap replaces the sanitizer trap until the
+          # combined cleanup handler is installed below.
+          restore_sanitized_git_config || true
           kill "$gh_server_pid" 2>/dev/null || true
           wait "$gh_server_pid" 2>/dev/null || true
         }
