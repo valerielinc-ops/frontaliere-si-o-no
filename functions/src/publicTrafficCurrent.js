@@ -19,6 +19,13 @@ export const PUBLIC_TRAFFIC_FIELDS = Object.freeze([
   'dayOfWeek',
 ]);
 
+// Keep the response bounded while still covering the whole current snapshot.
+// A larger collection is an integrity failure, not a reason to return a
+// partial snapshot: the caller will turn the error into a 503 and preserve
+// the pre-rendered values.
+export const PUBLIC_TRAFFIC_PAGE_SIZE = 200;
+export const PUBLIC_TRAFFIC_MAX_DOCUMENTS = 2000;
+
 /** Convert one allowlisted Firestore value to the REST response shape. */
 export function encodeFirestoreValue(value) {
   if (value === null) return { nullValue: null };
@@ -61,15 +68,45 @@ export function buildPublicTrafficDocument(document) {
   };
 }
 
+/**
+ * Read every current traffic document in stable, bounded pages.
+ *
+ * Firestore's document-id ordering makes `startAfter(lastDoc)` deterministic
+ * across pages. If the defensive cap is exceeded, throw instead of returning
+ * an incomplete snapshot that the hydration client could treat as current.
+ */
+export async function readPublicTrafficDocuments(collectionRef) {
+  const documents = [];
+  let query = collectionRef.orderBy('__name__').limit(PUBLIC_TRAFFIC_PAGE_SIZE);
+
+  while (true) {
+    const snapshot = await query.get();
+    const pageDocuments = Array.isArray(snapshot?.docs) ? snapshot.docs : [];
+    if (pageDocuments.length === 0) break;
+
+    if (documents.length + pageDocuments.length > PUBLIC_TRAFFIC_MAX_DOCUMENTS) {
+      throw new Error('trafficCurrent pagination limit');
+    }
+
+    documents.push(...pageDocuments);
+    if (pageDocuments.length < PUBLIC_TRAFFIC_PAGE_SIZE) break;
+
+    const lastDocument = pageDocuments[pageDocuments.length - 1];
+    query = collectionRef
+      .orderBy('__name__')
+      .startAfter(lastDocument)
+      .limit(PUBLIC_TRAFFIC_PAGE_SIZE);
+  }
+
+  return documents;
+}
+
 /** Read the latest public snapshot with Admin SDK and no client credential. */
 export async function getPublicTrafficCurrent() {
   const { getAdminDb } = await import('./newsletterResendWebhookCore.js');
-  const snapshot = await getAdminDb()
-    .collection('trafficCurrent')
-    .limit(200)
-    .get();
+  const documents = await readPublicTrafficDocuments(getAdminDb().collection('trafficCurrent'));
 
   return {
-    documents: snapshot.docs.map(buildPublicTrafficDocument),
+    documents: documents.map(buildPublicTrafficDocument),
   };
 }
