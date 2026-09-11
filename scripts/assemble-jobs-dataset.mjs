@@ -3411,12 +3411,10 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // that assembleSummaries() performs to enrich each entry with
   // computeCrawlerQualityAggregate(). Measured 131-209 s (median 169,1) inside
   // the `Re-assemble dataset after Argos bulk` step of
-  // .github/workflows/translate-pending-logic.yml — 34 % of the cascade's fixed
-  // setup cost, paid for a file that step's consumer never reads and that the
-  // later assembles in the same job (Phase 2c mop-up, true-final) regenerate
-  // before anything is committed. Opt-in on purpose: every other caller (npm
-  // scripts, the crawler update-*.mjs modules, the other workflow steps) omits
-  // the flag and keeps assembling summaries exactly as before.
+  // .github/workflows/translate-pending-logic.yml. The translation pipeline
+  // keeps the default full assembly because its baseline and cascade consume
+  // the post-Argos dataset before the later final re-assembles. The option stays
+  // opt-in for callers that explicitly accept a stale summary aggregate.
   if (withSummaries) {
     const summaryStore = assembleSummaries();
     if (summaryStore !== null) {

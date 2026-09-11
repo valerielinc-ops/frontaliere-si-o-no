@@ -19,10 +19,11 @@ import { parseAssembleCliArgs } from '../scripts/assemble-jobs-dataset.mjs';
  *     would silently stop regenerating data/jobs-crawler-summaries.json for all
  *     of them, and the file feeds the job-board quality surface.
  *
- *  2. Exactly ONE step passes it. The re-assemble after the Argos bulk is the
- *     only one whose output nothing downstream reads before the commit; the
- *     Phase 2c mop-up re-assemble and the true-final re-assemble MUST keep
- *     rebuilding summaries, or the file ships stale.
+ *  2. The translation pipeline does not pass it. Its post-Argos re-assemble is
+ *     consumed by both the observability baseline and the Phase 2b cascade, so
+ *     skipping summaries there would compare different populations and hide
+ *     pending summary work until a later run. The flag remains available to
+ *     other callers that explicitly accept a stale summary aggregate.
  *
  * The assembly itself is not exercised here on purpose: running it writes into
  * tracked data/ files, which a test must never do.
@@ -83,18 +84,19 @@ describe('assemble-jobs-dataset --no-summaries is opt-in', () => {
   });
 });
 
-describe('translate-pending: only the post-Argos re-assemble skips summaries', () => {
-  it('passes --no-summaries exactly once in the source workflow', () => {
+describe('translate-pending: every re-assemble keeps the full summary population', () => {
+  it('does not pass --no-summaries in the source workflow', () => {
     const runs = assembleRunLines(LOGIC_WORKFLOW);
     expect(runs.length).toBeGreaterThanOrEqual(4);
-    expect(runs.filter((flags) => flags.includes('--no-summaries'))).toHaveLength(1);
+    expect(runs.filter((flags) => flags.includes('--no-summaries'))).toHaveLength(0);
   });
 
-  it('attaches it to the step whose output nothing downstream reads', () => {
+  it('keeps summaries on the dataset consumed before the cascade', () => {
     const yaml = fs.readFileSync(LOGIC_WORKFLOW, 'utf8');
     const step = yaml.slice(yaml.indexOf('- name: Re-assemble dataset after Argos bulk'));
     const runLine = step.slice(0, step.indexOf('- name:', 1));
-    expect(runLine).toContain('run: node scripts/assemble-jobs-dataset.mjs --no-summaries');
+    expect(runLine).toContain('run: node scripts/assemble-jobs-dataset.mjs');
+    expect(runLine).not.toContain('--no-summaries');
   });
 
   it('leaves the Phase 2c and true-final re-assembles rebuilding summaries', () => {
@@ -110,11 +112,11 @@ describe('translate-pending: only the post-Argos re-assemble skips summaries', (
     }
   });
 
-  it('carries the flag into the generated corpus artifact', () => {
+  it('carries the full summary assembly into the generated corpus artifact', () => {
     // The corpus runs the ARTIFACT, not the logic file. Editing the logic
     // without re-running generate-crawler-group-workflows.mjs would ship a
-    // saving that never reaches the pool.
+    // fix that never reaches the pool.
     expect(assembleRunLines(CORPUS_ARTIFACT).filter((f) => f.includes('--no-summaries')))
-      .toHaveLength(1);
+      .toHaveLength(0);
   });
 });
