@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfaden für Grenzgänger im Tessin</description>
     <language>de</language>
-    <lastBuildDate>Fri, 11 Sep 2026 02:59:51 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2026 09:26:36 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Deutsch</title>
@@ -17,6 +17,60 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Grenzgänger-Tagesbulletin – 11. September 2026: 35 Minuten Wartezeit in Au-Lustenau</title>
+      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-tagesbulletin-2026-09-11/</link>
+      <description><![CDATA[Die Zahlen von heute, 11. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.]]></description>
+      <content:encoded><![CDATA[Guten Morgen — heute ist Freitag, der 11. September 2026. Das ist das tägliche Bulletin für alle, die auf der einen Seite der Grenze wohnen und auf der anderen arbeiten: vier heute gemessene Zahlen — Staus an den Übergängen, Benzin, Wechselkurs und Arbeitsmarkt — jeweils mit Link zur Live-Seite.
+
+## Wartezeiten an der Grenze heute Morgen
+
+Die jüngste Messung (141 überwachte Übergänge) zeigt die längste Wartezeit in **Au-Lustenau: 35 Minuten**. 104 Übergänge melden keine Warteschlange.
+
+| Übergang | Wartezeit | Status |
+|---|---|---|
+| Au-Lustenau | 35 Min. | Stau |
+| Campione d'Italia-Bissone | 8 Min. | stockend |
+| Chiasso-Brogeda | 8 Min. | stockend |
+| Porto Ceresio-Brusino | 3 Min. | flüssig |
+| St. Margrethen-Höchst | 3 Min. | flüssig |
+
+Der Verkehr ändert sich stündlich — der Live-Status jedes Übergangs steht auf der [Seite zur Wartezeit an der Grenze](/de/wartezeit-grenze/).
+## Benzin: Wo es heute am wenigsten kostet
+
+In 518 überwachten Grenzgemeinden lohnt sich das Tanken heute in 102 Fällen in der Schweiz und in 37 in Italien.
+
+| Gemeinde (IT) | Bleifrei, Tiefstpreis |
+|---|---|
+| Livigno (SO) | 1.548 €/L |
+| Veduggio con Colzano (MB) | 1.849 €/L |
+| Arcisate (VA) | 1.854 €/L |
+| Aprica (SO) | 1.919 €/L |
+| Castione Andevenno (SO) | 1.979 €/L |
+
+📊 **Die richtige Seite für eine volle Tankfüllung.** In **Livigno** (SO) ist die Differenz heute **28.10 € pro 50-Liter-Tank** wert (1.548 €/L in Italien gegenüber 2.110 €/L an der nächsten Schweizer Tankstelle).
+
+Die günstigste Schweizer Tankstelle ist heute **Alpina Tankstelle** (1.45 CHF/L, ≈ 1.537 €/L), bei Curon Venosta (BZ).
+
+Preise Gemeinde für Gemeinde, täglich aktualisiert: [Benzinpreise an der Grenze, heute](/de/benzinpreis-schweiz/heute/).
+## Wechselkurs Franken–Euro
+
+Ein Franken ist **1.0624 €** wert (Schluss 2026-09-10). Gegenüber dem Vortag verliert er 0.0002 €; über sieben Tage beträgt die Veränderung -0.0012 €.
+
+💡 Wer in Franken verdient und in Euro ausgibt, für den IST der Kurs ein Teil des Lohns: Bei 4.000 CHF ist ein Rappen Bewegung 40 € im Monat wert. Der [Nettolohn-Rechner](/de/gehalt-berechnen/) und der [Vergleich der Wechseldienste](/de/service-vergleich/chf-eur-wechselkurs/) rechnen Ihren Fall durch.
+## Arbeitsmarkt: die Zahlen von gestern
+
+⚠️ Die Job-Board-Statistik ist nicht aktuell; der Abschnitt kehrt in der nächsten Ausgabe zurück. Die Angebote bleiben unter [Jobs im Tessin](/de/jobs-im-tessin/).
+
+## Wie dieses Bulletin entsteht
+
+Keine der Zahlen oben stammt aus einem Agentur-Feed — es ist unsere eigene Messung: mehrmals pro Stunde erfasste Warteschlangen an jedem Schweizer Grenzübergang, Kraftstoffpreise in den italienischen Grenzgemeinden und an nahen Schweizer Tankstellen, die offizielle tägliche CHF/EUR-Reihe und die Crawler unseres Job-Boards. Das Bulletin erscheint früh am Morgen, vor dem Pendlerverkehr; die Zahlen sind eine Momentaufnahme zum Zeitpunkt der Veröffentlichung, die verlinkten Seiten bleiben den ganzen Tag live.]]></content:encoded>
+      <pubDate>Fri, 11 Sep 2026 09:26:36 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/bollettino-frontaliere-2026-09-11</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-09-11.webp" medium="image"/>
+    </item>
     <item>
       <title>Leben in Fino Mornasco und Arbeiten im Tessin</title>
       <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/fino-mornasco-grenzgaenger-tessin/</link>
@@ -3248,122 +3302,6 @@ Für detaillierte Informationen zu den Fahrzeiten an den Grenzübergängen, den 
       <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/frontaliere-poggiridenti-grigioni</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/frontaliere-poggiridenti-grigioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Leben in Ponte in Valtellina, Arbeiten in Graubünden</title>
-      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/in-ponte-wohnen-graubuenden-arbeiten/</link>
-      <description><![CDATA[Vollständiger Leitfaden für Grenzgänger: Quellensteuer, G-Bewilligung, € 10k-Franchise, AHV/KVG, Lebenshaltungskosten. Ab 2024.]]></description>
-      <content:encoded><![CDATA[## Kurz zusammengefasst
-- Neues Grenzgängerabkommen ab dem 1. Januar 2024
-- Freibetrag von €10.000 für neue Grenzgänger
-- Quellensteuer wird nur in der Schweiz einbehalten
-- Ponte in Valtellina: Ideale Zone für Grenzgänger in den Graubünden
-
-## Wichtige Fakten
-- **Was**: Neues Grenzgängerabkommen zwischen der Schweiz und Italien
-- Wann: Ab dem 1. Januar 2024
-- Wo: Grenzgänger Italien-Schweiz in Grenzgebieten (z.B. Ponte in Valtellina → Graubünden)
-- Wer: SECO, Finanzamt, kantonale Verwaltungen
-- Freibetrag: €10.000 für neue Grenzgänger, €7.500 für Veteranen (Übergangsregime 2024-2033)
-
-Ab dem 1. Januar 2024 hat das neue Grenzgängerabkommen zwischen der Schweiz und Italien die Regeln für diejenigen erneuert, die in Ponte in Valtellina leben und in den Graubünden arbeiten mit [Permesso G](nav:permits). Diese Kombination — italienischer Wohnsitz in einer Bergregion mit niedrigen Lebenshaltungskosten, Schweizer Arbeitsplatz in Franken, die umgerechnet werden können — stellt eine immer attraktivere Gelegenheit dar. Allerdings bringt die Steuerreform Änderungen mit sich, die jeder Grenzgänger verstehen muss: von der Quellensteuer bis zum jährlichen Freibetrag, von den AVS/LPP-Beiträgen bis zu den italienischen Steuererklärungen.
-
-Der zentrale Punkt ist die Quellensteuer. Hier ein häufiger Irrtum: Sie wird nicht in beiden Ländern einbehalten, wie manchmal geglaubt wird. Die Quellensteuer wird ausschließlich in der Schweiz einbehalten. Italien vermeidet die doppelte Besteuerung durch Steuergutschrift, die im Feld CE des Modells 730 angegeben wird. Für den Grenzgänger bedeutet dies eine vereinfachte Steuerverwaltung: eine einzige Abzugssteuer, keine parallele italienische Einbehaltung, Ausgleich durch jährliche Steuererklärung.
-
-Der Freibetrag ist das zweite wichtige Element. Mit dem neuen Abkommen profitieren neue Grenzgänger von €10.000 jährlichem steuerfreiem Einkommen, während diejenigen, die bereits vor dem 17. Juli 2023 Grenzgänger waren, über €7.500 mit Übergangsschutz bis 2033 verfügen. Diese steuerfreie Einkommensstufe beeinflusst direkt die Berechnung der Schweizer Quellensteuer und damit die gesamte wirtschaftliche Vorteilhaftigkeit.
-
-Ponte in Valtellina, eine bergige Gemeinde in der Nähe von Sondrio, stellt für viele die ideale Brücke dar: nur wenige Kilometer von den Graubünden entfernt, ermöglicht sie den Zugang zum Arbeitsmarkt der Graubünden, während sie eine Wohnbasis in Italien mit deutlich günstigeren Mieten und Dienstleistungen im Vergleich zum Tessin oder den Schweizer Städten bietet. Der [Permesso G](nav:permits) erleichtert dieses Modell, indem er den regelmäßigen Pendelverkehr ohne die Notwendigkeit eines dauerhaften Wohnsitzwechsels in die Schweiz ermöglicht.
-
-### Schweizer Sozialbeiträge: Die tatsächliche Belastung
-
-Durch die Arbeit in den Graubünden zahlt der Grenzgänger ausschließlich in das Schweizer System ein: AVS/AI/IPG mit 5,3 % des Bruttogehalts (Arbeitnehmeranteil), AD/AC mit 1,1 %, LAINF zwischen 0,7 % und 1,5 % und LPP (betriebliche Vorsorge) zwischen 7 % und 18 % je nach Alter und Berufszweig. Diese Belastungen werden vom Schweizer Gehaltsscheck abgezogen, nicht vom italienischen. Das INPS in Italien erhält nur symbolische Zahlungen; der größte Teil der Leistungen stammt aus der AVS, die die zukünftige Rente aus der Schweizer Quelle garantiert.
-### Leben in Grenzgebiet: der wirtschaftliche Unterschied
-
-In einer Grenzregion wie der zwischen Ponte in Valtellina und den Graubünden zu wohnen, ermöglicht den Zugang zu deutlich niedrigeren Wohnkosten im Vergleich zu den Hauptstädten der Schweiz. Mieten, Nebenkosten und grundlegende Dienstleistungen spiegeln den italienischen Berg- und Vorstadtmarkt wider. Ein Grenzgänger kann die Wohnkosten um 40-50% im Vergleich zu einem dauerhaften Wohnsitz in der Schweiz senken, bei gleicher Wohnqualität. Multipliziert mit der Dauer einer Karriere wird dieser Unterschied wirtschaftlich relevant.
-
-Gegenüberzustellen ist der Faktor Pendeln: Die Entfernung zu den Hauptarbeitszentren der Schweiz erfordert eine Fahrzeit, die je nach Zielort und Straßenbedingungen variiert. Die Kosten für Kraftstoff, Autowartung und öffentliche Verkehrsmittel kommen hinzu. Dennoch bleibt die jährliche wirtschaftliche Bilanz auch unter Berücksichtigung dieser zusätzlichen Kosten günstiger als ein dauerhafter Umzug in die Schweiz.
-
-### LAMal und Krankenversicherung: Wahlmöglichkeiten
-
-Die LAMal (obligatorische Krankenversicherung der Schweiz) ist für Grenzgänger G garantiert, bietet aber Wahlmöglichkeiten. Die Selbstbehalte für Erwachsene liegen zwischen CHF 300 und CHF 2.500, je nach Police. Die Schweizer Prämien sind vom Bruttolohn abzugsfähig. Wer sich für die italienische Krankenversicherung entscheidet, behält das Recht auf die LAMal als Backup, was eine faktische doppelte Absicherung schafft.
-
-Die Anmeldung zur LAMal erfordert: Arbeitsvertrag, Permit G, Ausweisdokument. Die Anmeldung erfolgt innerhalb von 3 Monaten nach Beginn; Verspätungen führen zu rückwirkenden Sanktionen.
-
-### Jahreserklärungen und Rückerstattungen: der Steuerzyklus
-
-Der in Italien wohnhafte Grenzgänger zahlt die Quellensteuer in der Schweiz (automatisch auf dem Lohnzettel), dann erklärt er das Einkommen über das [italienische Modell 730](nav:tax-return). Im Rahmen CE (Einkommen aus abhängiger Arbeit im Ausland) werden angegeben:
-- Bruttojahreseinkommen in der Schweiz
-- Gezahlte Quellensteuer in der Schweiz
-- Steuergutschrift (Mechanismus gegen Doppelbesteuerung)
-
-Die italienische Verwaltung vergleicht die Schweizer Quellensteuer mit dem italienischen IRPEF-Satz (23% bis €28.000, 35% bis €50.000, 43% darüber). Wenn die Schweizer Abzüge den geschuldeten IRPEF übersteigen, steht eine Rückerstattung zu. Zeiten: Erklärung ab Februar, Rückerstattungen ab Mai-Juni.
-
-### Vergleichsszenario: Vorteile des Grenzgänger-Modells aus dem Grenzgebiet
-
-Ein hypothetisches Szenario veranschaulicht den Gesamtvorteil. Ein Grenzgänger, der in Schweizer Franken verdient und in der italienischen Grenzregion wohnt, profitiert von:
-- Quellensteuer in der Schweiz (keine Doppelbesteuerung)
-- Freibetrag von €10.000 auf das zu versteuernde Einkommen in Italien (neue Grenzgänger ab 2024), was den IRPEF erheblich reduziert
-- Wohnkosten, die 40-50% niedriger sind als bei einem dauerhaften Wohnsitz in der Schweiz
-- Vollständige Beiträge zur AHV/LPP in der Schweiz, die eine Schweizer Rente garantieren
-- Potenzielle Steuerrückerstattung über das 730, wenn die Schweizer Abzüge den geschuldeten IRPEF übersteigen
-
-Diese Faktoren zusammen schaffen einen wirtschaftlichen Gesamtvorteil von 15-20% auf das Nettoeinkommen im Vergleich zu einem gleichwertigen italienischen Gehalt, bei gleichzeitiger Beibehaltung des Wohnsitzes in Italien.
-### Schritt-für-Schritt-Anleitung für die Genehmigung G in Graubünden
-
-1. **Suche und Unterzeichnung des Vertrags**: Identifiziere einen Arbeitgeber in Graubünden. Unterzeichne den Arbeitsvertrag.
-
-2. Antrag auf Arbeitsbewilligung: Der Arbeitgeber stellt den Antrag beim SEM (Staatssekretariat für Migration) des Kantons Graubünden. Dauer: 2-3 Wochen.
-
-3. Registrierung bei der italienischen Gemeinde (Ponte): Fordere bei deiner Gemeinde in Ponte in Valtellina das Formular für die Genehmigung G an. Reiche Vertrag + Heiratsdokumente (falls verheiratet) + Wohnsitzbescheinigung ein. Dauer: 1-2 Wochen.
-
-4. Italienische Steuerregistrierung: Beim Finanzamt der Provinz Sondrio registriere dich als Grenzgänger. Gib die ISTAT-Kommunikationsnummer von der Gemeinde an. Dauer: wenige Tage.
-
-5. Anmeldung bei der LAMal: Fordere das Formular beim Arbeitgeber oder direkt bei einer Schweizer Krankenkasse an. Unterschreibe und sende es innerhalb von 3 Monaten ab Beginn. Dauer: sofortige Zustellung, Bearbeitung 5-10 Tage.
-
-6. Erste Zahlung der AVS-Beiträge: Mit dem ersten Gehaltsscheck beginnen die Abzüge. Bewahre die Lohnabrechnungen und Dokumente auf.
-
-7. Italienische Steuererklärung 730: Ab Februar des folgenden Jahres fülle das 730 bei einem CAF oder einem auf Grenzgänger spezialisierten Steuerberater aus. Trage das Schweizer Einkommen im Feld CE ein.
-
-Gesamtzeit: Von der Vertragsunterzeichnung bis zum ersten Arbeitstag mit gültiger Genehmigung G: 6-8 Wochen. Variablen: Geschwindigkeit des SEM Graubünden, Effizienz der italienischen Gemeinde, verspätete E-Mails und Mitteilungen.
-
-### Wichtige Dokumente zur Vorbereitung
-
-- Reisepass/Personalausweis (gültig für mindestens 5 Jahre)
-- Italienische Wohnsitzbescheinigung (aktuell, nicht älter als 3 Monate)
-- Arbeitsvertrag (vom Arbeitgeber und Arbeitnehmer unterschrieben)
-- Gesundheitszeugnis (in einigen Bereichen)
-- Heiratsdokumente (Kopie der Heiratsurkunde, falls verheiratet)
-- Italienisches Bankkonto (Nachweis der finanziellen Stabilität, nicht immer erforderlich, aber nützlich)
-- Genauer Wohnsitz in Ponte in Valtellina
-
-### Nützliche Tools und Kontakte
-
-Agenzia Entrate (IT): Offizielle Website, Abschnitt Grenzgänger für Anleitung zum 730 und Feld CE. Kostenloser Download von Anleitungen und Arbeitsblättern.
-
-SEM Graubünden (CH): Zuständige Stelle für Arbeitsbewilligungen und Genehmigung G. E-Mail: Online-Kontaktformular, Antwortzeit 3-5 Tage.
-
-CAF spezialisiert auf Grenzgänger: In der Provinz Sondrio gibt es Steuerberatungsbüros, die sich ausschließlich mit Grenzgängererklärungen beschäftigen. Durchschnittliche Kosten: €400-800 für die Erstinstallation, dann €150-300 jährlich für die Erklärung.
-
-[Grenzgänger-Gehaltrechner](nav:calculator): Simuliere dein Nettogehalt in Graubünden basierend auf Brutto, Kanton, Alter und familiärer Situation.
-
-[Stellenangebote](nav:jobs): Suche nach Arbeitsmöglichkeiten in Graubünden und Grenzgebieten, filterbar nach Bereich und Ziel.
-
-### Wichtige Fristen für das erste Jahr
-
-- Tag 1 (Arbeitsbeginn): Genehmigung G aktiv
-- Innerhalb von 3 Monaten: Anmeldung bei der LAMal (andernfalls Rückwirkungsstrafe)
-- Bis Ende Februar Jahr N+1: Einreichen des 730 (bis November mit Toleranz zulässig)
-- Mai-Juni N+1: Mögliche Rückerstattung (Steuergutschrift gewährt)
-- April Jahr N+1: Fälligkeit der INPS-Beiträge für das erste Jahr (symbolischer Mindestbetrag für Grenzgänger)
-
-Die Entscheidung, in Ponte in Valtellina zu leben und in Graubünden zu arbeiten, ist wirtschaftlich vorteilhaft, insbesondere mit den neuen steuerlichen Vorteilen ab 2024. Der administrative Erfolg hängt jedoch von der Genauigkeit in den ersten Schritten ab. Ein Fehler bei der Registrierung der Genehmigung G oder im Feld CE der Steuererklärung kann die Vorteile um Monate verzögern. Konsultiere einen auf Grenzgänger spezialisierten Steuerberater, bevor du den Vertrag unterzeichnest, und fordere eine schriftliche Bestätigung an, dass der Arbeitgeber im Register der geeigneten Schweizer Arbeitgeber für Grenzgänger G eingetragen ist.
-
-Fange sofort an: Simuliere dein Nettogehalt in Graubünden hier und überprüfe, ob das Grenzgängermodell für deine spezifische Situation vorteilhaft ist.]]></content:encoded>
-      <pubDate>Sun, 06 Sep 2026 23:13:28 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/ponte-valtellina-grigioni-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/ponte-valtellina-grigioni-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

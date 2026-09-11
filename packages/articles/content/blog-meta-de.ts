@@ -11642,6 +11642,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fino-mornasco-frontaliere-ticino.title': 'Leben in Fino Mornasco und Arbeiten im Tessin',
     'blog.article.fino-mornasco-frontaliere-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger in Fino Mornasco: Verbindungen nach Brogeda, Steuern, Sozialversicherungsabzüge und Verwaltung des täglichen Budgets.',
     'blog.article.fino-mornasco-frontaliere-ticino.imageAlt': 'Pendlerstrecke zur Schweizer Grenze von Fino Mornasco ins Tessin',
+    'blog.article.bollettino-frontaliere-2026-09-11.title': 'Grenzgänger-Tagesbulletin – 11. September 2026: 35 Minuten Wartezeit in Au-Lustenau',
+    'blog.article.bollettino-frontaliere-2026-09-11.excerpt': 'Die Zahlen von heute, 11. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-11.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 11. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-11.seoDescription': 'Grenzgänger-Bulletin vom 11. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-11.ogDescription': 'Die Zahlen vom 11. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
