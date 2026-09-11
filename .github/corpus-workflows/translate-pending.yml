@@ -319,13 +319,13 @@ jobs:
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
-        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         env:
-          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "18000000"
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "14400000"
         run: node scripts/fix-untranslated-titles.mjs
       - name: Commit title fixes
         id: commit_title_fixes
-        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         run: |
           before="$(git rev-parse HEAD)"
           bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"

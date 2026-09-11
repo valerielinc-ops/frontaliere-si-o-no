@@ -117,18 +117,23 @@ describe('translation observability workflow', () => {
     const timeoutMs = source.jobs.translate['timeout-minutes'] * 60 * 1000;
     expect(timeoutMs - 16_800_000, 'translation deadline must leave 70min for the queue')
       .toBe(70 * 60 * 1000);
-    expect(timeoutMs - 18_000_000, 'title-fix deadline must leave 50min for the final queue')
-      .toBe(50 * 60 * 1000);
+    expect(timeoutMs - 14_400_000, 'title-fix deadline must leave 110min for the final queue')
+      .toBe(110 * 60 * 1000);
 
     for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
       const steps = parseTranslationSteps(document);
       const mopup = steps.find((step) => step.name === 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
       const titleFix = steps.find((step) => step.name === 'Phase 2d: Fix untranslated titles (free cascade)');
+      const titleCommit = steps.find((step) => step.name === 'Commit title fixes');
       expect(mopup, `${label}: Phase 2c missing`).toMatchObject({
         env: { LOCAL_MT_MOPUP_DEADLINE_MS: '16800000' },
       });
       expect(titleFix, `${label}: Phase 2d missing`).toMatchObject({
-        env: { UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '18000000' },
+        if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
+        env: { UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '14400000' },
+      });
+      expect(titleCommit, `${label}: title commit missing`).toMatchObject({
+        if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
       });
     }
 
