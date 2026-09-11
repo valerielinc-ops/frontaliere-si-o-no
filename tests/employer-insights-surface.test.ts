@@ -2,7 +2,11 @@ import { readFileSync } from 'node:fs';
 
 import { describe, expect, it } from 'vitest';
 
-import { classifyCrawledTrafficState } from '../components/pages/PublisherDashboardPage';
+import {
+  classifyCrawledTrafficState,
+  normalizePublisherApplyClickDeduplication,
+  summarizePublisherDashboardMetrics,
+} from '../components/pages/PublisherDashboardPage';
 
 const employerPage = readFileSync(
   new URL('../components/pages/EmployerInsightsPage.tsx', import.meta.url),
@@ -152,5 +156,41 @@ describe('publisher crawled traffic states', () => {
       source: 'available',
       snapshots: [presentSnapshot('unscoped', { applyClicks: 6 })],
     })).toEqual({ status: 'data-missing' });
+  });
+});
+
+describe('publisher apply-click deduplication state', () => {
+  it('does not present an overflow counter or rate as precise', () => {
+    const deduplication = normalizePublisherApplyClickDeduplication({
+      applyClicks: 64,
+      applyClicksDeduplication: {
+        strategy: 'emission_id_only',
+        key: 'emission_id',
+        status: 'dedup non disponibile',
+        unavailableCount: 1,
+      },
+      applyClicksDedupUnavailable: 1,
+    });
+    const summary = summarizePublisherDashboardMetrics([
+      {
+        views: 100,
+        applyClicks: 64,
+        applyClicksDeduplication: deduplication,
+      },
+    ], 3);
+
+    expect(summary).toEqual({
+      views: 100,
+      clicks: null,
+      applications: 3,
+      intentRate: null,
+      applyClicksDeduplication: {
+        status: 'dedup non disponibile',
+        unavailableCount: 1,
+      },
+    });
+    expect(publisherPage).toContain('applyClicksDeduplication');
+    expect(publisherPage).toContain("status === 'dedup non disponibile'");
+    expect(publisherPage).toContain("publisherDashboard.analytics.dedupUnavailable");
   });
 });

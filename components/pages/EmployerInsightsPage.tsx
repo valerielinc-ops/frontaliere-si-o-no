@@ -79,13 +79,42 @@ function RevealSection({
 }
 
 type MetricValue = number | null | undefined;
+/**
+ * `observed-not-deduplicated` is a measured number whose units are not proven
+ * distinct: the builder keeps the full observed count for event rows that
+ * carry no emission id (`coverage.deduplication.status`). Dropping those rows
+ * would delete real traffic; presenting them as a proven count would overstate
+ * it. So the number stays and says what it is.
+ */
 type MetricState =
   | 'observed'
+  | 'observed-not-deduplicated'
   | 'zero-observed'
   | 'data-missing'
   | 'source-unavailable'
   | 'coverage-partial';
 type MetricCoverageStatus = string | null | undefined;
+
+/** The `coverage.deduplication` block the builder writes onto every document. */
+export interface EmployerDeduplicationCoverage {
+  key?: string;
+  status?: string;
+  unavailableCount?: number;
+}
+
+/**
+ * Absence of proof is not proof: a payload with no deduplication record — one
+ * written before the ledger existed, or one whose status we do not recognise —
+ * cannot claim its counts are deduplicated.
+ */
+function deduplicationIsProven(coverage: EmployerDeduplicationCoverage | null | undefined): boolean {
+  return coverage?.status === 'available';
+}
+
+function deduplicationUnavailableCount(coverage: EmployerDeduplicationCoverage | null | undefined): number {
+  const count = coverage?.unavailableCount;
+  return typeof count === 'number' && Number.isFinite(count) && count >= 0 ? count : 0;
+}
 
 function windowLabel(window: EmployerInsightsWindow | null | undefined): string {
   if (!window?.from || !window.to) return 'finestra non disponibile';
@@ -94,15 +123,51 @@ function windowLabel(window: EmployerInsightsWindow | null | undefined): string 
   return `${window.from} → ${window.to} · ${timezone}${inclusive}`;
 }
 
+export function employerMetricState(
+  value: MetricValue,
+  source: string | null | undefined,
+  window: EmployerInsightsWindow | null | undefined,
+  deduplication?: EmployerDeduplicationCoverage | null,
+): {
+  display: string;
+  state: MetricState;
+  source: string;
+  deduplicationUnavailableCount: number;
+} {
+  const unavailableCount = deduplicationUnavailableCount(deduplication);
+  const hasSource = typeof source === 'string' && source.trim().length > 0;
+  const sourceLabel = hasSource ? source.trim() : 'sorgente non disponibile';
+  const base = { source: sourceLabel, deduplicationUnavailableCount: unavailableCount };
+  if (!hasSource) {
+    return { ...base, display: 'non disponibile', state: 'source-unavailable' };
+  }
+  if (!window?.from || !window.to || typeof value !== 'number' || !Number.isFinite(value) || !(value >= 0)) {
+    return { ...base, display: 'non disponibile', state: 'data-missing' };
+  }
+  if (value === 0) return { ...base, display: '0', state: 'zero-observed' };
+  return {
+    ...base,
+    display: nf.format(value),
+    // The count is kept either way; only the claim about it changes.
+    state: deduplicationIsProven(deduplication) ? 'observed' : 'observed-not-deduplicated',
+  };
+}
+
 /** `metricState()` treats only finite non-negative values as observed. */
 function metricState(
   value: MetricValue,
   source: string | null | undefined,
   window: EmployerInsightsWindow | null | undefined,
   coverageStatuses: readonly MetricCoverageStatus[] = [],
-): { display: string; state: MetricState; source: string } {
+): {
+  display: string;
+  state: MetricState;
+  source: string;
+  deduplicationUnavailableCount: number;
+} {
   const hasSource = typeof source === 'string' && source.trim().length > 0;
   const sourceLabel = hasSource ? source.trim() : 'sorgente non disponibile';
+  const base = { source: sourceLabel, deduplicationUnavailableCount: 0 };
   const coverageState = coverageStatuses.reduce<MetricState | null>((state, status) => {
     if (state === 'source-unavailable') return state;
     if (typeof status !== 'string') return state;
@@ -112,25 +177,26 @@ function metricState(
     return state;
   }, null);
   if (coverageState === 'source-unavailable') {
-    return { display: 'non disponibile', state: coverageState, source: sourceLabel };
+    return { ...base, display: 'non disponibile', state: coverageState };
   }
   if (!hasSource) {
-    return { display: 'non disponibile', state: 'source-unavailable', source: sourceLabel };
+    return { ...base, display: 'non disponibile', state: 'source-unavailable' };
   }
   if (!window?.from || !window.to || typeof value !== 'number' || !Number.isFinite(value) || !(value >= 0)) {
-    return { display: 'non disponibile', state: 'data-missing', source: sourceLabel };
+    return { ...base, display: 'non disponibile', state: 'data-missing' };
   }
   if (coverageState === 'coverage-partial') {
-    return { display: nf.format(value), state: coverageState, source: sourceLabel };
+    return { ...base, display: nf.format(value), state: coverageState };
   }
-  if (value === 0) return { display: '0', state: 'zero-observed', source: sourceLabel };
-  return { display: nf.format(value), state: 'observed', source: sourceLabel };
+  if (value === 0) return { ...base, display: '0', state: 'zero-observed' };
+  return { ...base, display: nf.format(value), state: 'observed' };
 }
 
-function metricStateLabel(state: MetricState): string {
+export function employerMetricStateLabel(state: MetricState): string {
   if (state === 'zero-observed') return 'zero osservato';
   if (state === 'data-missing') return 'dato assente';
   if (state === 'source-unavailable') return 'sorgente non disponibile';
+  if (state === 'observed-not-deduplicated') return 'conteggio osservato, unicità non provata';
   if (state === 'coverage-partial') return 'copertura parziale';
   return 'dato osservato';
 }
@@ -142,6 +208,7 @@ function MetricCard({
   value,
   source,
   window,
+  deduplication,
   coverageStatuses,
   compact = false,
 }: {
@@ -151,10 +218,13 @@ function MetricCard({
   value: MetricValue;
   source: string | null | undefined;
   window: EmployerInsightsWindow | null | undefined;
+  deduplication?: EmployerDeduplicationCoverage | null;
   coverageStatuses?: readonly MetricCoverageStatus[];
   compact?: boolean;
 }): React.ReactElement {
-  const metric = metricState(value, source, window, coverageStatuses);
+  const metric = coverageStatuses
+    ? metricState(value, source, window, coverageStatuses)
+    : employerMetricState(value, source, window, deduplication);
   const displayWindow = windowLabel(window);
   return (
     <div
@@ -168,7 +238,7 @@ function MetricCard({
         {metric.display}
       </p>
       <p className="text-xs sm:text-sm text-subtle mt-1">{label}</p>
-      <p className="text-xs text-muted mt-2">{metricStateLabel(metric.state)}</p>
+      <p className="text-xs text-muted mt-2">{employerMetricStateLabel(metric.state)}</p>
       <dl className="mt-3 space-y-1 text-[0.7rem] leading-snug text-muted">
         <div>
           <dt className="inline font-semibold">Finestra: </dt>
@@ -178,6 +248,12 @@ function MetricCard({
           <dt className="inline font-semibold">Sorgente: </dt>
           <dd className="inline">{metric.source}</dd>
         </div>
+        {metric.state === 'observed-not-deduplicated' && metric.deduplicationUnavailableCount > 0 && (
+          <div>
+            <dt className="inline font-semibold">Unità senza prova di unicità: </dt>
+            <dd className="inline">{nf.format(metric.deduplicationUnavailableCount)}</dd>
+          </div>
+        )}
       </dl>
       <p className="text-xs text-body mt-3">{description}</p>
     </div>
@@ -201,6 +277,9 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
   const { totals, trend, ads } = data;
   const eventSource = data.source;
   const applicationSource = data.applicationsCoverage?.source;
+  // Event counts share one deduplication proof; applications do not — they are
+  // deduplicated by application id in their own source, not by emission id.
+  const eventDeduplication = data.coverage?.deduplication;
   const applicationCoverageStatus = data.applicationsCoverage
     ? data.applicationsCoverage.status
     : undefined;
@@ -231,6 +310,7 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
             label="Click per candidarsi"
             description="Segnale di intento; non è un invio di candidatura."
             source={eventSource}
+            deduplication={eventDeduplication}
             window={data.window}
           />
           <MetricCard
@@ -248,6 +328,7 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
             label="Visualizzazioni profilo azienda"
             description="Visite al profilo azienda, separate dalle visualizzazioni annuncio."
             source={eventSource}
+            deduplication={eventDeduplication}
             window={data.window}
           />
           <MetricCard
@@ -256,6 +337,7 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
             label="Visualizzazioni annuncio"
             description="Eventi di visualizzazione dell'annuncio."
             source={eventSource}
+            deduplication={eventDeduplication}
             window={data.window}
           />
         </div>
@@ -327,6 +409,7 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
                     label="Click per candidarsi"
                     description="Intento"
                     source={eventSource}
+                    deduplication={eventDeduplication}
                     window={summary.window}
                   />
                   <MetricCard
@@ -346,6 +429,7 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
                     label="Visualizzazioni profilo azienda"
                     description="Profilo"
                     source={eventSource}
+                    deduplication={eventDeduplication}
                     window={summary.window}
                   />
                   <MetricCard
@@ -355,6 +439,7 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
                     label="Visualizzazioni annuncio"
                     description="Annuncio"
                     source={eventSource}
+                    deduplication={eventDeduplication}
                     window={summary.window}
                   />
                 </div>

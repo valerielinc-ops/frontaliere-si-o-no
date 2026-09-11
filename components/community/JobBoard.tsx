@@ -4719,6 +4719,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   };
  }, [installHistoryPushStateWrapper]);
  const pageViewTrackedKey = useRef<string | null>(null);
+ const pageViewEmission = useRef<{ path: string; id: string | null } | null>(null);
 
  // The central route tracker deliberately defers job-detail/company-hub
  // page_views to this point. Read the URL inside the effect: a pushState can
@@ -4732,18 +4733,29 @@ const JobBoard: React.FC<JobBoardProps> = ({
    installHistoryPushStateWrapper();
   }
   const path = readCurrentPageViewPath();
-  if (!path) return;
+  if (!path) {
+   pageViewTrackedKey.current = null;
+   pageViewEmission.current = null;
+   return;
+  }
   const { pageTemplate } = deriveAnalyticsPageContext(path);
   if (pageTemplate !== 'job_detail' && pageTemplate !== 'jobs_company') {
    // The central tracker owns every other template. Clear the last deferred
    // key so a later visit to the same job URL is a new page view.
    pageViewTrackedKey.current = null;
+   pageViewEmission.current = null;
    return;
   }
   const key = `${path}|${pageViewIdentity?.jobSlug || ''}|${pageViewIdentity?.employerKey || ''}`;
+  // React.StrictMode re-runs effect setup on the same mount. Mark before the
+  // call so that rerun is a technical duplicate, not a second act.
   if (pageViewTrackedKey.current === key) return;
   pageViewTrackedKey.current = key;
-  Analytics.trackPageView(path, undefined, pageViewIdentity);
+  // `undefined` opens a new act; a later identity resolution on the same path
+  // passes the stored id explicitly so the retry remains that same act.
+  const originalId = pageViewEmission.current?.path === path ? pageViewEmission.current.id : undefined;
+  const id = Analytics.trackPageView(path, undefined, pageViewIdentity, originalId);
+  pageViewEmission.current = { path, id };
  }, [pageViewIdentity, pageViewNavigationVersion, initialJobSlug, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor, locale, installHistoryPushStateWrapper]);
 
  // A search/company view momentarily shows a non-authoritative `filteredJobs`:
