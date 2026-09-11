@@ -11637,6 +11637,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.uss-stipendi-minimo-2027.title': 'Switzerland, request for a minimum salary of 5,000 francs',
     'blog.article.uss-stipendi-minimo-2027.excerpt': 'The Swiss Trade Union (USS) is proposing an increase of 2.5% and a minimum wage of 5,000 francs for graduates by 2027.',
     'blog.article.uss-stipendi-minimo-2027.imageAlt': 'Professional scene in Ticino-Italy border region, workplace context, daylight, high quality',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.title': 'Trenord boosts the Como-Milan line: 4 more morning rides from 14 September',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.excerpt': 'Four new weekday trains on the Milan Cadorna-Como Lago route to improve cross-border commuting. Here are the full hours.',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.imageAlt': 'Trenord train arriving at Como Lago station at dawn, with lake and mountain view',
 };
 
 export default blogMetaEn;

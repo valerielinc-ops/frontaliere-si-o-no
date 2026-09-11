@@ -34743,6 +34743,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trenord-como-milano-corse-aggiuntive-2025',
+ category: 'pratico',
+ date: '2026-09-11T00:39:11.638Z',
+ image: '/images/blog/trenord-como-milano-corse-aggiuntive-2025.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
