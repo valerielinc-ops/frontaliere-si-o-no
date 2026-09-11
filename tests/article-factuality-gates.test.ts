@@ -1196,6 +1196,30 @@ describe('runFactualityGates', () => {
     expect(result.blocking).toEqual([]);
     expect(result.passed).toBe(true);
   });
+
+  it('does not let learned institution memory block or learn without a usable source', () => {
+    const sections = {
+      body1: 'Il Dipartimento federale delle cose (XYZ) ha pubblicato una comunicazione.',
+    };
+    const memory = {
+      denylist: new Set(['XYZ']),
+      suspects: new Set(['XYZ']),
+      degraded: null,
+    };
+    const withoutSource = runFactualityGates({ sections, memory, sourceText: '' });
+    expect(codes(withoutSource.issues)).not.toContain('fabricated-institution');
+    expect(codes(withoutSource.issues)).not.toContain('suspected-institution');
+    expect(withoutSource.observations).toEqual([]);
+
+    const withSource = runFactualityGates({
+      sections,
+      memory,
+      sourceText: 'Fonte editoriale verificabile. '.repeat(20),
+    });
+    expect(codes(withSource.issues)).toContain('fabricated-institution');
+    expect(withSource.observations).toHaveLength(1);
+    expect(withSource.observations[0].acronym).toBe('XYZ');
+  });
 });
 
 describe('time-base guard', () => {
