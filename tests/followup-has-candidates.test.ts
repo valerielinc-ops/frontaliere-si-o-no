@@ -87,12 +87,12 @@ describe('selectReviewerBody', () => {
     expect(selectReviewerBody(reviews)).toBe('## LGTM\n🟡 nit');
   });
 
-  it('returns the LATEST claude review when there are several', () => {
+  it('aggregates every claude review when there are several', () => {
     const reviews = [
       { user: { login: 'claude[bot]', type: 'Bot' }, body: 'round 1: 🔴 Important' },
       { user: { login: 'claude[bot]', type: 'Bot' }, body: 'round 2: ## LGTM' },
     ];
-    expect(selectReviewerBody(reviews)).toBe('round 2: ## LGTM');
+    expect(selectReviewerBody(reviews)).toBe('round 1: 🔴 Important\n\nround 2: ## LGTM');
   });
 
   it('ignores human reviews and returns "" when no bot review exists', () => {
@@ -145,5 +145,6 @@ describe('hasCandidates', () => {
   it('true (proceed-safe) on empty/garbled input', () => {
     expect(hasCandidates({ body: '', reviewBody: '' })).toBe(false); // genuinely nothing
     expect(hasCandidates({ body: '## Non implementato (ancora)\n- random scope work\n', reviewBody: '' })).toBe(true);
+    expect(hasCandidates({ body: '', reviewBody: null })).toBe(true); // gh review lookup failed
   });
 });

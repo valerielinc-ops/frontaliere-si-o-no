@@ -16,7 +16,7 @@
  *
  * Emette `has_candidates=false` (→ skip Claude) SOLO quando, con certezza:
  *   - `## Non implementato` è assente / vuoto / «Nessuno» / TBD / N/A, E
- *   - l'ultima review del reviewer bot non ha righe 🟡/❓, E
+ *   - nessuna review leggibile del reviewer bot ha righe 🟡/❓, E
  *   - (se ci sono item) OGNI item matcha un hard-exclude noto (churn / missing-test
  *     / live-verify, come in FOLLOWUP.md + prompt del workflow).
  * In tutti gli altri casi → `has_candidates=true`.
@@ -49,7 +49,7 @@ function gh(args) {
   try {
     return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
   } catch {
-    return ''; // proceed-safe: any gh fault → "can't confirm" → run Claude.
+    return null; // proceed-safe: any gh fault → "can't confirm" → run Claude.
   }
 }
 
@@ -171,7 +171,7 @@ export function reviewerMarkerLines(reviewBody) {
 }
 
 /**
- * Pick the body of the LATEST review left by the Claude reviewer bot.
+ * Aggregate the bodies of ALL readable reviews left by the Claude reviewer bot.
  *
  * Matches via `isReviewerBot` (`claude*` or `frontaliere-automation[bot]`) —
  * the SAME oracle as `tests.yml` / `auto-merge-eval.mjs` / `pr-autorebase.mjs`.
@@ -184,9 +184,9 @@ export function reviewerMarkerLines(reviewBody) {
 export function selectReviewerBody(reviews) {
   if (!Array.isArray(reviews)) return '';
   const mine = reviews.filter(
-    (r) => isReviewerBot(r?.user) && r?.body,
+    (r) => isReviewerBot(r?.user) && typeof r?.body === 'string' && r.body.length > 0,
   );
-  return mine.length ? String(mine[mine.length - 1].body) : '';
+  return mine.map((r) => r.body).join('\n\n');
 }
 
 /**
@@ -197,6 +197,7 @@ export function selectReviewerBody(reviews) {
 export function hasCandidates({ body, reviewBody }) {
   const items = extractNonImplementedItems(body).filter(isCandidateItem);
   if (items.length > 0) return true;
+  if (reviewBody === null) return true;
   if (reviewerMarkerLines(reviewBody).length > 0) return true;
   return false;
 }
@@ -205,13 +206,17 @@ export function hasCandidates({ body, reviewBody }) {
 
 function latestReviewerBody() {
   const repo = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
-  if (!repo) return '';
-  const raw = gh(['api', `repos/${repo}/pulls/${PR}/reviews`, '--paginate']);
-  if (!raw) return '';
+  if (!repo) return null;
+  const raw = gh(['api', `repos/${repo}/pulls/${PR}/reviews`, '--paginate', '--slurp']);
+  if (raw === null) return null;
   try {
-    return selectReviewerBody(JSON.parse(raw));
+    const payload = JSON.parse(raw);
+    const reviews = Array.isArray(payload) && payload.every(Array.isArray)
+      ? payload.flat()
+      : payload;
+    return selectReviewerBody(reviews);
   } catch {
-    return ''; // proceed-safe upstream: empty review body → decision falls to NI items.
+    return null;
   }
 }
 
@@ -236,6 +241,9 @@ export function main() {
   }
 
   const reviewBody = latestReviewerBody();
+  if (reviewBody === null) {
+    console.log(`PR #${PR}: reviewer reviews unreadable — proceed-safe (run Claude triage).`);
+  }
   const candidates = hasCandidates({ body, reviewBody });
 
   if (candidates) {
