@@ -880,12 +880,19 @@ function staleFallbackCarryForward({
 
   const priorFindings = bots.slice(0, priorLgtmIndex)
     .flatMap((review) => importantFindings(review?.body));
-  if (!findings.every((finding) => priorFindings.some((prior) =>
-    findingKey(prior) === findingKey(finding)))) return null;
-
   const confirmations = bots.slice(0, priorLgtmIndex + 1)
     .flatMap((review) => fixConfirmations(review?.body));
-  if (!findings.every((finding) => findingConfirmed(finding, confirmations, findings))) return null;
+  // Do not inspect only the latest body: a review between the clean LGTM and
+  // this fallback may have introduced an Important that the fallback omitted.
+  // Every post-LGTM finding must therefore be an already-known, explicitly
+  // confirmed finding. A new or unconfirmed one sends execution back to the
+  // normal blocking path instead of being hidden by the early return below.
+  const postLgtmFindings = bots.slice(priorLgtmIndex + 1, latestIndex + 1)
+    .flatMap((review) => importantFindings(review?.body));
+  if (!postLgtmFindings.every((finding) =>
+    priorFindings.some((prior) => findingKey(prior) === findingKey(finding))
+      && findingConfirmed(finding, confirmations, postLgtmFindings),
+  )) return null;
 
   const priorCommit = String(bots[priorLgtmIndex]?.commit_id || '');
   if (!/^[0-9a-f]{40}$/iu.test(priorCommit)) return null;
