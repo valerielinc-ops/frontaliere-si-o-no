@@ -198,6 +198,18 @@ const SCAN_DIRS = [
   'services/',
 ];
 
+export function formatGitFallbackError(error: unknown, operation: string): string | null {
+  const detail = [
+    (error as { stderr?: unknown } | null)?.stderr,
+    (error as { message?: unknown } | null)?.message,
+  ]
+    .map((part) => (part == null ? '' : String(part).trim()))
+    .filter(Boolean)
+    .join(' ');
+  if (!/(?:safe\.directory|not a git repository)/i.test(detail)) return null;
+  return `cathedral git fallback unavailable during ${operation}: ${detail}`;
+}
+
 function scanSource(pattern: string | string[], fixed = false): string {
   const patterns = Array.isArray(pattern) ? pattern : [pattern];
   const rgArgs = [
@@ -223,6 +235,8 @@ function scanSource(pattern: string | string[], fixed = false): string {
     } catch (error) {
       // A missing path is an empty successful result; a git/repository error
       // must remain loud, or the ratchet would pass on an empty scan.
+      const message = formatGitFallbackError(error, 'git ls-files');
+      if (message) throw new Error(message);
       throw error;
     }
   }
@@ -233,6 +247,8 @@ function scanSource(pattern: string | string[], fixed = false): string {
     ], { encoding: 'utf8' });
   } catch (error: any) {
     if (error?.status === 1) return '';
+    const message = formatGitFallbackError(error, 'git grep');
+    if (message) throw new Error(message);
     throw error;
   }
 }
@@ -308,6 +324,33 @@ describe('cathedral — no TI URL hardcodes outside allowlist (P1-E boundary-saf
       expect(offenders, `Unallowlisted hardcodes for ${literal}:\n${offenders.join('\n')}\n\nTo allowlist a NEW hardcode, append \` // cathedral-allow: <reason>\` to the offending line — do not add new line-pinned entries to ALLOWLIST.`).toEqual([]);
     }, 30000);
   }
+});
+
+describe('formatGitFallbackError — errori ambientali del fallback git', () => {
+  it('restituisce un messaggio dedicato per safe.directory', () => {
+    const message = formatGitFallbackError(
+      { stderr: 'fatal: detected dubious ownership; add this repository to safe.directory' },
+      'git ls-files',
+    );
+
+    expect(message).toContain('cathedral git fallback unavailable');
+    expect(message).toContain('git ls-files');
+    expect(message).toContain('safe.directory');
+  });
+
+  it('restituisce un messaggio dedicato per un repository non git', () => {
+    expect(formatGitFallbackError(
+      { stderr: 'fatal: not a git repository (or any of the parent directories)' },
+      'git grep',
+    )).toContain('not a git repository');
+  });
+
+  it('non riclassifica errori diversi dal contesto ambientale', () => {
+    expect(formatGitFallbackError(
+      { stderr: 'fatal: pathspec did not match any files' },
+      'git ls-files',
+    )).toBeNull();
+  });
 });
 
 // Issue #7675 — semantica delle voci di ALLOWLIST. Una voce-FILE vale per il
