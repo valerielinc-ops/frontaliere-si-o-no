@@ -185,7 +185,18 @@ describe('issue-fix read budget preserves targeted context', () => {
   });
 
   it('attaches the read guard to both Bash and Read hooks', () => {
-    const settings: any = JSON.parse(readFileSync(join(ROOT, '.claude/settings.json'), 'utf8'));
+    let settingsSource: string;
+    try {
+      settingsSource = readFileSync(join(ROOT, '.claude/settings.json'), 'utf8');
+    } catch {
+      const fromGit = spawnSync('git', ['show', 'HEAD:.claude/settings.json'], {
+        cwd: ROOT,
+        encoding: 'utf8',
+      });
+      expect(fromGit.status, fromGit.stderr).toBe(0);
+      settingsSource = fromGit.stdout;
+    }
+    const settings: any = JSON.parse(settingsSource);
     const siblingMatchers = settings.hooks.PreToolUse
       .filter((entry: any) => entry.hooks?.some((hook: any) => hook.command?.includes('sibling-check-gate')))
       .map((entry: any) => entry.matcher);
