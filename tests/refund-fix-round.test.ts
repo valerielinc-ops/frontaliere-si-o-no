@@ -58,6 +58,9 @@ describe('refund-fix-round', () => {
     expect(shouldRefundRateLimitedRound(JSON.stringify({
       type: 'result', is_error: true, api_error_status: 429, num_turns: 3, total_cost_usd: 0.42,
     }))).toBe(false);
+    expect(shouldRefundRateLimitedRound(JSON.stringify({
+      type: 'result', is_error: true, api_error_status: 429, num_turns: null, total_cost_usd: null,
+    }))).toBe(false);
     expect(shouldRefundRateLimitedRound('HTTP 429 Too Many Requests')).toBe(false);
   });
 

@@ -30,18 +30,21 @@ export function shouldRefundRateLimitedRound(raw) {
   const results = messages.filter((message) => message && message.type === 'result');
   if (!results.length) return false;
 
-  const hasTurns = results.some((message) => Number.isFinite(Number(message.num_turns)));
-  const hasCost = results.some((message) => Number.isFinite(Number(message.total_cost_usd)));
+  const numericMetric = (value) => typeof value === 'number' && Number.isFinite(value)
+    ? value
+    : null;
+  const hasTurns = results.some((message) => numericMetric(message.num_turns) !== null);
+  const hasCost = results.some((message) => numericMetric(message.total_cost_usd) !== null);
   if (!hasTurns && !hasCost && messages.some((message) => message && message.type === 'assistant')) {
     return false;
   }
   const turns = results.reduce((max, message) => {
-    const value = Number(message.num_turns);
-    return Number.isFinite(value) ? Math.max(max, value) : max;
+    const value = numericMetric(message.num_turns);
+    return value === null ? max : Math.max(max, value);
   }, 0);
   const cost = results.reduce((max, message) => {
-    const value = Number(message.total_cost_usd);
-    return Number.isFinite(value) ? Math.max(max, value) : max;
+    const value = numericMetric(message.total_cost_usd);
+    return value === null ? max : Math.max(max, value);
   }, 0);
   return (hasTurns || hasCost) && turns <= 1 && cost <= 0;
 }
@@ -103,7 +106,7 @@ export function formatRefundComment({ round, workflow, resetsAt, rateLimitType, 
     marker ? `<!-- ${refundMarkerName(marker)}: ${round} -->` : null,
     resetBeacon(resetsAt),
     `⏳ **Quota Claude esaurita${rateLimitType ? ` (\`${rateLimitType}\`)` : ''}** — \`${workflow}\` è uscito su HTTP 429:`,
-    'Claude **non ha letto questa PR** e non ha speso token (0 turni, $0).',
+    'Claude **non ha letto questa PR** e non ha speso token (al massimo 1 turno di bootstrap, $0).',
     '',
     `Il round **${round}** è stato **rimborsato** (marker rimosso): non è stato consumato da questa run,`,
     'quindi il cap anti-loop non avvicina la PR a `needs-human` per un muro di quota.',
