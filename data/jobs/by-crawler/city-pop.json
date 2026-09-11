@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "city-pop-6c976dbd152e",
-      "slug": "housekeeping-executive-100-city-pop-zurich",
+      "slug": "esecutivo-delle-pulizie-100-city-pop-zurich",
       "slugByLocale": {
-        "it": "housekeeping-executive-100-city-pop-zurich",
+        "it": "esecutivo-delle-pulizie-100-city-pop-zurich",
         "en": "housekeeping-executive-100-city-pop-zurich",
-        "de": "housekeeping-executive-100-city-pop-zurich",
+        "de": "haushaltungsleiter-100-city-pop-zurich",
         "fr": "logement-executif-100-city-pop-zurich"
       },
       "company": "City Pop",
@@ -66,7 +66,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-executive-100-city-pop-zurich"
+        ],
+        "de": [
+          "housekeeping-executive-100-city-pop-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeping-executive-100-city-pop-zurich"
+      ]
     }
   ]
 }

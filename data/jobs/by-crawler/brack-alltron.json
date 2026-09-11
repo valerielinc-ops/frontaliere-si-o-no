@@ -2441,10 +2441,10 @@
     },
     {
       "id": "brack-alltron-58e571f7f02d",
-      "slug": "teamlead-goods-controlling-amp-intake-brack-alltron-willisau",
+      "slug": "controllo-e-accoglienza-merci-teamlead-brack-alltron-ag-willisau",
       "slugByLocale": {
-        "it": "teamlead-goods-controlling-amp-intake-brack-alltron-willisau",
-        "en": "teamlead-goods-controlling-amp-intake-brack-alltron-willisau",
+        "it": "controllo-e-accoglienza-merci-teamlead-brack-alltron-ag-willisau",
+        "en": "team-lead-goods-controlling-intake-brack-alltron-ag-willisau",
         "de": "teamlead-goods-controlling-amp-intake-brack-alltron-willisau",
         "fr": "controle-et-saisie-des-marchandises-par-teamleader-brack-alltron-ag-willisau"
       },
@@ -2502,7 +2502,18 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamlead-goods-controlling-amp-intake-brack-alltron-willisau"
+        ],
+        "en": [
+          "teamlead-goods-controlling-amp-intake-brack-alltron-willisau"
+        ]
+      },
+      "previousSlugs": [
+        "teamlead-goods-controlling-amp-intake-brack-alltron-willisau"
+      ]
     },
     {
       "id": "brack-alltron-b78a340cc261",
