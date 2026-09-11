@@ -1,6 +1,6 @@
 {
   "crawlerKey": "anybotics",
-  "assembledAt": "2026-09-11T13:33:28.410Z",
+  "assembledAt": "2026-09-11T23:07:02.987Z",
   "jobs": [
     {
       "id": "anybotics-faf88312b698",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/anybotics/8ba5fd36-edfb-4040-8369-fb16996d3c3e",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:23.381Z",
+      "crawledAt": "2026-09-11T23:06:57.892Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -69,8 +69,8 @@
       "id": "anybotics-472a1d92eda0",
       "slug": "solution-architetto-power-utilities-anybotics-zurich",
       "slugByLocale": {
-        "en": "solution-architect-power-utilities-anybotics-ch",
         "it": "solution-architetto-power-utilities-anybotics-zurich",
+        "en": "solution-architect-power-utilities-anybotics-ch",
         "de": "losungsarchitekt-strom-versorgungsunternehmen-anybotics-zurich",
         "fr": "solution-architecte-power-utilities-anybotics-zurich"
       },
@@ -79,8 +79,8 @@
       "companyDomain": "anybotics.com",
       "title": "Solution Architect - Power & Utilities",
       "titleByLocale": {
-        "en": "Solution Architect - Power & Utilities",
         "it": "Solution Architetto - Power & Utilities",
+        "en": "Solution Architect - Power & Utilities",
         "de": "Lösungsarchitekt – Strom & Versorgungsunternehmen",
         "fr": "Solution Architecte - Power & Utilities"
       },
@@ -96,7 +96,7 @@
       "url": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:23.078Z",
+      "crawledAt": "2026-09-11T23:06:57.591Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -111,7 +111,21 @@
       "applyUrl": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "solution-architect-power-utilities-anybotics-ch",
+        "solution-architetto-power-utilities-anybotics-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-architect-power-utilities-anybotics-ch",
+          "solution-architetto-power-utilities-anybotics-zurich"
+        ],
+        "fr": [
+          "solution-architect-power-utilities-anybotics-ch"
+        ]
+      },
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-10T23:05:23.420Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -125,19 +139,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-10T23:05:23.420Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "solution-architect-power-utilities-anybotics-ch"
-        ],
-        "fr": [
-          "solution-architect-power-utilities-anybotics-ch"
-        ]
-      },
-      "previousSlugs": [
-        "solution-architect-power-utilities-anybotics-ch"
-      ]
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-c480824429fa",
@@ -170,7 +172,7 @@
       "url": "https://jobs.lever.co/anybotics/7e305a48-4628-4a6a-b054-0367b6f6e586",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:22.776Z",
+      "crawledAt": "2026-09-11T23:06:57.289Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -191,13 +193,15 @@
         "elektrotechnik-praktikum-anybotics-zurich",
         "genie-electrique-stage-anybotics-zurich",
         "software-engineering-internship-anybotics-ch",
-        "software-engineering-internship-ai-platform-anybotics-ch"
+        "software-engineering-internship-ai-platform-anybotics-ch",
+        "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegneria-elettrica-stage-anybotics-zurich",
           "software-engineering-internship-anybotics-ch",
-          "software-engineering-internship-ai-platform-anybotics-ch"
+          "software-engineering-internship-ai-platform-anybotics-ch",
+          "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
         ],
         "en": [
           "electrical-engineering-internship-anybotics-ch"
@@ -211,6 +215,7 @@
           "software-engineering-internship-anybotics-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T11:50:16.522Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -225,8 +230,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-c31b9bb9e207",
@@ -259,7 +263,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:22.474Z",
+      "crawledAt": "2026-09-11T23:06:56.987Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -275,11 +279,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-reinforcement-learning-engineer-anybotics-ch"
+        "senior-reinforcement-learning-engineer-anybotics-ch",
+        "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-reinforcement-learning-engineer-anybotics-ch"
+          "senior-reinforcement-learning-engineer-anybotics-ch",
+          "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-reinforcement-learning-engineer-anybotics-ch"
@@ -335,7 +341,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:22.172Z",
+      "crawledAt": "2026-09-11T23:06:56.685Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -351,13 +357,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-quality-engineer-anybotics-ch"
+        "senior-product-quality-engineer-anybotics-ch",
+        "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-quality-engineer-anybotics-ch"
+          "senior-product-quality-engineer-anybotics-ch",
+          "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T12:59:44.319Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -372,8 +381,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-0d831f9b484a",
@@ -406,7 +414,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:21.870Z",
+      "crawledAt": "2026-09-11T23:06:56.383Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -422,11 +430,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+        "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+        "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+          "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+          "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
@@ -435,6 +445,7 @@
           "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:18:39.094Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -449,8 +460,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-c106fed9522b",
@@ -483,7 +493,7 @@
       "url": "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:21.568Z",
+      "crawledAt": "2026-09-11T23:06:56.082Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -500,12 +510,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-electronics-engineer-anybotics-ch",
-        "senior-electrical-engineer-anybotics-ch"
+        "senior-electrical-engineer-anybotics-ch",
+        "senior-electronics-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-electronics-engineer-anybotics-ch",
-          "senior-electrical-engineer-anybotics-ch"
+          "senior-electrical-engineer-anybotics-ch",
+          "senior-electronics-ingegnere-anybotics-zurich-switzerland"
         ],
         "en": [
           "senior-electronics-engineer-anybotics-ch"
@@ -564,7 +576,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:21.267Z",
+      "crawledAt": "2026-09-11T23:06:55.780Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -580,11 +592,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "production-technician-ii-robotics-anybotics-ch"
+        "production-technician-ii-robotics-anybotics-ch",
+        "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-technician-ii-robotics-anybotics-ch"
+          "production-technician-ii-robotics-anybotics-ch",
+          "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
         ],
         "de": [
           "production-technician-ii-robotics-anybotics-ch"
@@ -640,7 +654,7 @@
       "url": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:20.965Z",
+      "crawledAt": "2026-09-11T23:06:55.478Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -656,11 +670,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pcb-layout-designer-ecad-engineer-anybotics-ch"
+        "pcb-layout-designer-ecad-engineer-anybotics-ch",
+        "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pcb-layout-designer-ecad-engineer-anybotics-ch"
+          "pcb-layout-designer-ecad-engineer-anybotics-ch",
+          "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "pcb-layout-designer-ecad-engineer-anybotics-ch"
@@ -716,7 +732,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:20.663Z",
+      "crawledAt": "2026-09-11T23:06:55.175Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -733,11 +749,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manufacturing-engineer-anybotics-ch",
-        "manufacturing-engineer-anybotics-zurich-switzerland"
+        "manufacturing-engineer-anybotics-zurich-switzerland",
+        "manufacturing-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-engineer-anybotics-ch"
+          "manufacturing-engineer-anybotics-ch",
+          "manufacturing-ingegnere-anybotics-zurich-switzerland"
         ],
         "en": [
           "manufacturing-engineer-anybotics-zurich-switzerland"
@@ -767,9 +785,9 @@
     },
     {
       "id": "anybotics-04000cf4bb65",
-      "slug": "key-account-manager-oil-gas-anybotics-ch",
+      "slug": "key-account-manager-petrolio-e-gas-anybotics-zurich",
       "slugByLocale": {
-        "it": "key-account-manager-oil-gas-anybotics-ch",
+        "it": "key-account-manager-petrolio-e-gas-anybotics-zurich",
         "en": "key-account-manager-oil-gas-anybotics-ch",
         "de": "key-account-manager-ol-gas-anybotics-zurich",
         "fr": "directeur-de-compte-cle-petrole-et-gaz-anybotics-zurich"
@@ -796,7 +814,7 @@
       "url": "https://jobs.lever.co/anybotics/f687dc6d-d6d4-4111-a564-ae3369cca6b4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:20.360Z",
+      "crawledAt": "2026-09-11T23:06:54.873Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -813,6 +831,14 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:32:26.383Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-oil-gas-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-oil-gas-anybotics-ch"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -859,7 +885,7 @@
       "url": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:20.056Z",
+      "crawledAt": "2026-09-11T23:06:54.571Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -875,11 +901,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "industrialization-electronics-test-engineer-anybotics-ch"
+        "industrialization-electronics-test-engineer-anybotics-ch",
+        "industrialization-electronics-test-ingegnere-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "industrialization-electronics-test-engineer-anybotics-ch"
+          "industrialization-electronics-test-engineer-anybotics-ch",
+          "industrialization-electronics-test-ingegnere-anybotics-zurich"
         ],
         "de": [
           "industrialization-electronics-test-engineer-anybotics-ch"
@@ -935,7 +963,7 @@
       "url": "https://jobs.lever.co/anybotics/ea8d77e2-423f-4e79-9836-10da898d60d4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:19.749Z",
+      "crawledAt": "2026-09-11T23:06:54.266Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -951,11 +979,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-field-engineer-industrial-robotics-anybotics-ch"
+        "senior-field-engineer-industrial-robotics-anybotics-ch",
+        "senior-field-ingegnere-industrial-robotics-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-field-engineer-industrial-robotics-anybotics-ch"
+          "senior-field-engineer-industrial-robotics-anybotics-ch",
+          "senior-field-ingegnere-industrial-robotics-anybotics-zurich"
         ],
         "de": [
           "senior-field-engineer-industrial-robotics-anybotics-ch"
@@ -964,6 +994,7 @@
           "senior-field-engineer-industrial-robotics-anybotics-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:36:58.675Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -978,8 +1009,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     }
   ]
 }

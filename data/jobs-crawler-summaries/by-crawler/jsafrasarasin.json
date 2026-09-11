@@ -1,21 +1,21 @@
 {
   "key": "jsafrasarasin",
   "label": "J. Safra Sarasin",
-  "generatedAt": "2026-09-11T13:32:44.377Z",
-  "total": 7,
+  "generatedAt": "2026-09-11T23:06:18.252Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 7,
+  "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 12750,
-  "avgDurationMs": 12750,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 13165,
+  "avgDurationMs": 13165,
   "durationHistory": [
-    12750
+    13165
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/511/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:32:37.559Z",
+      "crawledAt": "2026-09-11T23:06:11.105Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:32:37.862Z",
+      "crawledAt": "2026-09-11T23:06:11.407Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -83,11 +83,11 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-02T13:34:11.477Z",
-      "_qualityScore": 82,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 20,
         "completeness": 14
       }
     },
@@ -103,7 +103,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/508/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:32:38.169Z",
+      "crawledAt": "2026-09-11T23:06:11.709Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:32:38.471Z",
+      "crawledAt": "2026-09-11T23:06:12.011Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:32:38.773Z",
+      "crawledAt": "2026-09-11T23:06:12.313Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -187,6 +187,7 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-23T09:42:51.665Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -208,7 +209,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:32:39.075Z",
+      "crawledAt": "2026-09-11T23:06:12.615Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -233,8 +234,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "jsafrasarasin-d253d8e83f4e",
       "slug": "stewardship-specialista-j-safra-sarasin-lugano",
@@ -274,5 +274,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
