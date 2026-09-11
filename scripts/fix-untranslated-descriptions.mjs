@@ -2,7 +2,7 @@
 /**
  * fix-untranslated-descriptions.mjs — Batch fix for jobs with source-copy descriptions.
  *
- * Finds jobs where descriptionByLocale[locale] is an exact copy of the source description
+ * Finds jobs where descriptionByLocale[locale] is an exact or normalized copy of the source description
  * and translates them using the free-translate cascade (DeepL → SimplyTranslate → etc).
  *
  * Does NOT use AI/LLM — only the free cascade.
@@ -24,6 +24,7 @@ import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
 import { isAcceptableTranslation, MIN_TRANSLATION_CHARS } from './lib/translation-quality.mjs';
 import { readRunStartMs } from './lib/translate-run-clock.mjs';
@@ -104,6 +105,7 @@ async function main() {
       const sl = job.sourceLang || 'it';
       const sourceDesc = (job.description || '').trim();
       if (!sourceDesc || sourceDesc.length < 120) continue;
+      const normalizedSourceDesc = normalizeForLengthComparison(sourceDesc).toLowerCase();
 
       const dbl = job.descriptionByLocale || {};
 
@@ -117,8 +119,8 @@ async function main() {
 
         const existing = (dbl[locale] || '').trim();
         if (!existing) continue;
-        // Only fix exact source copies
-        if (existing.toLowerCase() !== sourceDesc.toLowerCase()) continue;
+        // Fix exact source copies and copies that differ only by whitespace/entities.
+        if (normalizeForLengthComparison(existing).toLowerCase() !== normalizedSourceDesc) continue;
 
         // Translate using free cascade
         const translated = await freeTranslateWithRetry({
