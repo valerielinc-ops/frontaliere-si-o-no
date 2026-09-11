@@ -28,7 +28,11 @@ const allowedSubcommands = new Map([
   ['search', new Set(['issues'])],
 ]);
 export const CORPUS_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
-const corpusAllowedCommands = new Set(['issue']);
+// The corpus triage prompt may need read-only repository API endpoints for
+// metadata that is not present in the prefetched bundle. Keep `api` available
+// for GETs only; validateOperation/apiMethodError and validateApiEndpoint
+// still reject every mutation and every endpoint outside this exact repo.
+const corpusAllowedCommands = new Set(['api', 'issue']);
 const corpusAllowedSubcommands = new Map([
   ['issue', new Set(['view', 'list', 'create', 'comment', 'edit'])],
 ]);

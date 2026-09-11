@@ -342,12 +342,18 @@ describe('validator dei bridge host-side', () => {
         siteToken: 'site-secret',
         corpusToken: 'corpus-secret',
       })).toMatchObject({ kind: 'corpus' });
-      expect(validateGhArgs(['api', 'repos/' + CORPUS_REPOSITORY + '/issues', '--repo', CORPUS_REPOSITORY], {
+      expect(validateGhArgs(['api', 'repos/' + CORPUS_REPOSITORY + '/issues', '--repo', CORPUS_REPOSITORY, '--method', 'GET'], {
         ...context,
         repository: corpus.repository,
         allowedCommandSet: corpus.allowedCommandSet,
         allowedSubcommandMap: corpus.allowedSubcommandMap,
-      })).toMatch(/not permitted/);
+      })).toBe('');
+      expect(validateGhArgs(['api', 'repos/' + CORPUS_REPOSITORY + '/issues', '--repo', CORPUS_REPOSITORY, '--method', 'POST'], {
+        ...context,
+        repository: corpus.repository,
+        allowedCommandSet: corpus.allowedCommandSet,
+        allowedSubcommandMap: corpus.allowedSubcommandMap,
+      })).toMatch(/mutations/);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
