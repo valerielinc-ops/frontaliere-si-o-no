@@ -4659,19 +4659,36 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [selectedJob, companyHubEmployerKey]);
  const pageViewPath = typeof window === 'undefined' ? '' : `${window.location.pathname}${window.location.search}${window.location.hash}`;
  const pageViewTrackedKey = useRef<string | null>(null);
+ const pageViewEmission = useRef<{ path: string; id: string | null } | null>(null);
 
  // The central route tracker deliberately defers job-detail/company-hub
  // page_views to this point. The event is still emitted when identity is
  // unavailable; buildPageViewAttributionParams then leaves attribution empty.
  useEffect(() => {
-  if (!pageViewPath) return;
+  if (!pageViewPath) {
+   pageViewTrackedKey.current = null;
+   pageViewEmission.current = null;
+   return;
+  }
   const { pageTemplate } = deriveAnalyticsPageContext(pageViewPath);
-  if (pageTemplate !== 'job_detail' && pageTemplate !== 'jobs_company') return;
+  if (pageTemplate !== 'job_detail' && pageTemplate !== 'jobs_company') {
+   // The same path can be visited again after list -> back/forward. Do not
+   // let the retry id from the previous detail visit cross that boundary.
+   pageViewTrackedKey.current = null;
+   pageViewEmission.current = null;
+   return;
+  }
   const path = pageViewPath;
   const key = `${path}|${pageViewIdentity?.jobSlug || ''}|${pageViewIdentity?.employerKey || ''}`;
+  // React.StrictMode re-runs effect setup on the same mount. Mark before the
+  // call so that rerun is a technical duplicate, not a second act.
   if (pageViewTrackedKey.current === key) return;
   pageViewTrackedKey.current = key;
-  Analytics.trackPageView(path, undefined, pageViewIdentity);
+  // `undefined` opens a new act; a later identity resolution on the same path
+  // passes the stored id explicitly so the retry remains that same act.
+  const originalId = pageViewEmission.current?.path === path ? pageViewEmission.current.id : undefined;
+  const id = Analytics.trackPageView(path, undefined, pageViewIdentity, originalId);
+  pageViewEmission.current = { path, id };
  }, [pageViewIdentity, pageViewPath]);
 
  // A search/company view momentarily shows a non-authoritative `filteredJobs`:

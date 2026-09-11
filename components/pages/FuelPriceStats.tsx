@@ -507,6 +507,9 @@ export default function FuelPriceStats() {
  .then((result) => {
  if (cancelled) return;
  setData(result);
+ // Dataset completion is not an employer-identity retry. This component's
+ // page-view call is intentionally a new act; the central route tracker may
+ // already have emitted the navigation act, so the two remain observable.
  Analytics.trackPageView('/statistiche/prezzi-benzina-confine/', 'Prezzi carburanti confine');
  Analytics.trackUIInteraction('statistiche', 'carburanti', 'view_dataset', 'view');
  })

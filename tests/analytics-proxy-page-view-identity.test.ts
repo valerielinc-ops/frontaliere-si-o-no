@@ -2,18 +2,6 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-/**
- * V8 D2 — the lazy proxy is a synchronous capture point for callers that use
- * it. Direct `Analytics` imports remain valid; eager per-entry coning in the
- * leaf is what makes the invariant hold for both paths. The proxy captures the
- * history entry at call time and forwards it as a value; nothing downstream
- * re-derives it from ambient `window.history.state`.
- *
- * Distinctness and collapse are proven in tests/page-view-history-entry.test.ts
- * against the capture itself, which is deterministic. Here we prove the proxy
- * forwards what it captured, and that it captures *before* the dynamic import.
- */
-
 const trackPageView = vi.fn();
 
 vi.mock('@/services/analytics', () => ({
@@ -24,139 +12,63 @@ vi.mock('@/services/analytics', () => ({
 }));
 
 const proxySource = readFileSync(resolve(__dirname, '../services/analyticsProxy.ts'), 'utf8');
-const analyticsSource = readFileSync(resolve(__dirname, '../services/analytics.ts'), 'utf8');
-const historyEntrySource = readFileSync(resolve(__dirname, '../services/pageViewHistoryEntry.ts'), 'utf8');
 
-function stubWindow(history: unknown, path: string) {
-  vi.stubGlobal('window', {
-    location: { origin: 'https://example.test', pathname: path, search: '', hash: '' },
-    history,
-    addEventListener: vi.fn(),
-    removeEventListener: vi.fn(),
-  });
-  vi.stubGlobal('document', { title: path });
+async function loadProxy() {
+  vi.resetModules();
+  return vi.importActual<typeof import('@/services/analyticsProxy')>('@/services/analyticsProxy');
 }
 
 async function flushForwardedCalls(expected: number): Promise<void> {
-  await vi.waitFor(() => {
-    expect(trackPageView).toHaveBeenCalledTimes(expected);
+  await vi.waitFor(() => expect(trackPageView).toHaveBeenCalledTimes(expected));
+}
+
+function stubWindow(): void {
+  vi.stubGlobal('window', {
+    location: { origin: 'https://example.test', pathname: '/' },
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
   });
 }
 
-describe('the lazy analytics proxy binds the page-view identity synchronously', () => {
+describe('the lazy analytics proxy forwards page-view acts unchanged', () => {
   beforeEach(() => {
     trackPageView.mockClear();
+    stubWindow();
   });
 
-  it('documents the proxy as optional, while retaining synchronous capture', () => {
-    // The defect was ordering, so the ordering is the assertion: the capture
-    // must be evaluated in the synchronous body of the forwarding function.
-    // A capture moved inside `.then()` reads whichever entry is current by
-    // then, which is exactly the collapse V6 measured.
-    // Measure inside the Proxy body: the module docblock also names
-    // `import('@/services/analytics')`, and matching that comment would compare
-    // the wrong two positions.
-    const trapIndex = proxySource.indexOf('get: (_t, method: string) =>');
-    expect(trapIndex).toBeGreaterThan(-1);
-    const trapBody = proxySource.slice(trapIndex);
-    const bindIndex = trapBody.indexOf('ensureCurrentPageViewHistoryEntryId()');
-    const importIndex = trapBody.indexOf("import('@/services/analytics')");
-    expect(bindIndex).toBeGreaterThan(-1);
-    expect(importIndex).toBeGreaterThan(-1);
-    expect(bindIndex).toBeLessThan(importIndex);
-    expect(proxySource).toContain("from './pageViewHistoryEntry'");
-    expect(proxySource.includes('one synchronous choke point every caller crosses')).toBe(false);
-    expect(proxySource.includes('a new caller cannot forget')).toBe(false);
+  it('does not import or capture an identity from the old History leaf', () => {
+    expect(proxySource).not.toContain('pageViewHistoryEntry');
+    expect(proxySource).not.toContain('ensureCurrentPageViewHistoryEntryId');
+    expect(proxySource).toContain('fn(...args)');
   });
 
-  it('documents the per-entry coning that makes direct late callers safe for dedup', () => {
-    expect(analyticsSource.includes('the only correct fallback for a direct, non-proxied call that is already')).toBe(false);
-    expect(analyticsSource.includes('eager per-entry')).toBe(true);
-    expect(historyEntrySource.includes('EAGER')).toBe(true);
+  it('forwards an explicit retry id as the fourth argument', async () => {
+    const { Analytics } = await loadProxy();
+    const identity = { employerKey: 'example-employer' };
+    Analytics.trackPageView('/retry/', 'Retry', identity, 'original-act-id');
+    await flushForwardedCalls(1);
+
+    expect(trackPageView.mock.calls[0]).toEqual([
+      '/retry/',
+      'Retry',
+      identity,
+      'original-act-id',
+    ]);
   });
 
-  it('forwards the captured entry id as the page-view identity', async () => {
-    const path = '/offerte-di-lavoro-ticino/proxy-forwards-entry/';
-    let state: unknown = { route: { activeTab: 'job-board' } };
-    stubWindow(
-      {
-        length: 1,
-        get state() { return state; },
-        replaceState: (next: unknown) => { state = next; },
-        pushState: vi.fn(),
-      },
-      path,
-    );
+  it('does not invent a fourth argument when the caller omitted it', async () => {
+    const { Analytics } = await loadProxy();
+    Analytics.trackPageView('/new-act/', 'New act');
+    await flushForwardedCalls(1);
 
-    try {
-      const { Analytics } = await import('@/services/analyticsProxy');
-      Analytics.trackPageView(path);
-      await flushForwardedCalls(1);
-
-      const [, , , entryId] = trackPageView.mock.calls[0];
-      expect(entryId).toEqual(expect.any(String));
-      // The id it forwarded is the one it wrote onto the entry, not a fresh one.
-      expect(JSON.stringify(state)).toContain(entryId as string);
-    } finally {
-      vi.unstubAllGlobals();
-    }
+    expect(trackPageView.mock.calls[0]).toEqual(['/new-act/', 'New act']);
   });
 
-  it('forwards null when the entry id cannot be determined', async () => {
-    const path = '/offerte-di-lavoro-ticino/proxy-unidentifiable/';
-    // A host that owns history.state as a primitive and exposes no
-    // replaceState: not determinable, so "dedup non disponibile" — not a guess.
-    stubWindow({ length: 2, state: 'owned-by-another-navigation', pushState: vi.fn() }, path);
+  it('forwards null unchanged as dedup unavailable', async () => {
+    const { Analytics } = await loadProxy();
+    Analytics.trackPageView('/unknown/', undefined, null, null);
+    await flushForwardedCalls(1);
 
-    try {
-      const { Analytics } = await import('@/services/analyticsProxy');
-      Analytics.trackPageView(path);
-      await flushForwardedCalls(1);
-
-      expect(trackPageView.mock.calls[0][3]).toBeNull();
-    } finally {
-      vi.unstubAllGlobals();
-    }
-  });
-
-  it('forwards null when there is no window', async () => {
-    vi.stubGlobal('window', undefined);
-    try {
-      const { Analytics } = await import('@/services/analyticsProxy');
-      Analytics.trackPageView('/offerte-di-lavoro-ticino/no-window/');
-      await flushForwardedCalls(1);
-
-      expect(trackPageView.mock.calls[0][3]).toBeNull();
-    } finally {
-      vi.unstubAllGlobals();
-    }
-  });
-
-  it('leaves the caller arguments untouched', async () => {
-    const path = '/offerte-di-lavoro-ticino/proxy-arguments/';
-    let state: unknown = { route: { activeTab: 'job-board' } };
-    stubWindow(
-      {
-        length: 1,
-        get state() { return state; },
-        replaceState: (next: unknown) => { state = next; },
-        pushState: vi.fn(),
-      },
-      path,
-    );
-
-    try {
-      const { Analytics } = await import('@/services/analyticsProxy');
-      Analytics.trackPageView(path, 'Un titolo', { employerKey: 'example-employer' });
-      await flushForwardedCalls(1);
-
-      expect(trackPageView.mock.calls[0].slice(0, 3)).toEqual([
-        path,
-        'Un titolo',
-        { employerKey: 'example-employer' },
-      ]);
-    } finally {
-      vi.unstubAllGlobals();
-    }
+    expect(trackPageView.mock.calls[0]).toEqual(['/unknown/', undefined, null, null]);
   });
 });

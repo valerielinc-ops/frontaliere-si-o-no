@@ -98,10 +98,7 @@ import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
-import {
- createAnalyticsEmissionId,
- ensureCurrentPageViewHistoryEntryId,
-} from './pageViewHistoryEntry';
+import { createAnalyticsEmissionId } from './analyticsEmissionId';
 import {
  isBenignErrorMessage,
  isOriginRedactedThirdPartyStack,
@@ -190,43 +187,9 @@ export function buildPageViewAttributionParams(
  return {};
 }
 
-// The page-view identity lives in its own leaf module, whose eager per-entry
-// coning happens before navigation can happen. The lazy analytics proxy
-// captures that id synchronously for the callers that use it; direct Analytics
-// callers remain valid because the id is already attached to their entry.
-// Keeping one definition means the producer and the emitter cannot drift apart.
-// Re-exported here because these names are part of this module's public
-// surface and existing callers and tests import them from it.
-export {
- PAGE_VIEW_HISTORY_STATE_KEY,
- createAnalyticsEmissionId,
- ensureCurrentPageViewHistoryEntryId,
-} from './pageViewHistoryEntry';
-
-export interface AnalyticsPageViewEmission {
- path: string;
- emissionId: string;
- historyEntry: string | null;
-}
-
-/**
- * Reuse the emission id only while the same page-view lifecycle is open.
- * `historyEntry` changes on a new pushState entry; popstate/pagehide close the
- * lifecycle explicitly, so elapsed time never decides whether a visit is new.
- */
-export function getPageViewEmissionId(
- path: string,
- current: AnalyticsPageViewEmission | null,
- historyEntry: string | null,
-): string {
- if (!historyEntry) return '';
- if (
-  current?.path === path
-  && current.emissionId
-  && current.historyEntry === historyEntry
- ) return current.emissionId;
- return createAnalyticsEmissionId();
-}
+// Re-exported here because this name is part of the analytics module's public
+// surface and existing callers use it for non-page-view emission ids.
+export { createAnalyticsEmissionId } from './analyticsEmissionId';
 
 // ─── Clarity Bridge ────────────────────────────────────────────
 // Tag Clarity sessions with custom events for cross-tool analysis.
@@ -378,7 +341,7 @@ const log = (eventName: string, params?: Record<string, any>) => {
  posthogCapture('$pageview', {
   $current_url: params?.page_location || window.location.origin + pagePath,
   title: params?.page_title || document.title,
-  ...(params?.emission_id ? { emission_id: params.emission_id } : {}),
+  emission_id: params?.emission_id ?? null,
  });
  } else {
  posthogCapture(eventName, params);
@@ -424,34 +387,9 @@ let sessionStartTime = Date.now();
 let currentScreen = '/';
 let previousScreen = '';
 let lastTrackedPageAt = 0;
-let currentPageViewEmission: AnalyticsPageViewEmission | null = null;
-let pageViewLifecycleWindow: Window | null = null;
 let _maxScrollDepth = 0;
 const ATTRIBUTION_KEY = 'ft_attribution_v1';
 const ATTRIBUTION_LOGGED_KEY = 'ft_attribution_logged_v1';
-
-function closePageViewLifecycle(): void {
- currentPageViewEmission = null;
-}
-
-function ensurePageViewLifecycle(): void {
- if (typeof window === 'undefined') return;
- if (pageViewLifecycleWindow === window) return;
-
- if (pageViewLifecycleWindow) {
-  if (typeof pageViewLifecycleWindow.removeEventListener === 'function') {
-   pageViewLifecycleWindow.removeEventListener('popstate', closePageViewLifecycle, true);
-   pageViewLifecycleWindow.removeEventListener('pagehide', closePageViewLifecycle, true);
-  }
- }
-
- pageViewLifecycleWindow = window;
- closePageViewLifecycle();
- if (typeof window.addEventListener === 'function') {
-  window.addEventListener('popstate', closePageViewLifecycle, true);
-  window.addEventListener('pagehide', closePageViewLifecycle, true);
- }
-}
 
 const getEngagementTime = () => Math.round((Date.now() - sessionStartTime) / 1000);
 
@@ -1013,30 +951,14 @@ export const Analytics = {
  path: string,
  title?: string,
  identity?: AnalyticsPageViewIdentity | null,
- // The history entry captured by the caller at the instant the navigation
- // happened. `string` = that entry; `null` = captured and not determinable,
- // which must stay "dedup non disponibile" and never become a guess. Omitted
- // (`undefined`) means a direct caller did not pass a value. The eager leaf
- // wrapper has already coined the id on the current entry, so this fallback
- // reads that per-entry id even when the direct caller runs after async work.
- // That includes direct callers such as FuelPriceStats after its fetch `.then()`
- // and JobBoard from an async-resolution `useEffect`: late timing is no longer
- // a deduplication hole, although it can still affect attribution.
- // It is safe for deduplication; it does not claim that the caller's
- // attribution was captured at navigation time.
- historyEntryId?: string | null,
+ // Omitted (`undefined`) means this call is a new act and must coin its own
+ // id. `string` is an explicit id for a retry of the same act. `null` means
+ // the caller could not determine an id and must remain "dedup non
+ // disponibile" — never a guessed value.
+ emissionId?: string | null,
  ) => {
- ensurePageViewLifecycle();
+ const pageViewEmissionId = emissionId === undefined ? createAnalyticsEmissionId() : emissionId;
  const now = Date.now();
- // Use what the observer captured. Re-reading `window.history.state` here
- // would sample whichever entry is current NOW, which for a call that arrived
- // through the lazy proxy is a later tick than the navigation it describes.
- const historyEntry = historyEntryId === undefined
- ? ensureCurrentPageViewHistoryEntryId()
- : historyEntryId;
- // Do not use elapsed time to decide whether to emit. Re-emissions for the
- // same history entry carry the same emission id and are collapsed downstream;
- // a new entry gets a different id even when it has the same path.
  // NOTE: We intentionally do NOT skip Firebase page_view even when
  // window.__GTAG_PAGE_VIEW_SENT__ is set by static HTML pages.
  //
@@ -1063,8 +985,6 @@ export const Analytics = {
  currentScreen = path;
  _maxScrollDepth = 0; // Reset scroll tracking for new page
  const pageContext = deriveAnalyticsPageContext(path);
- const emissionId = getPageViewEmissionId(path, currentPageViewEmission, historyEntry);
- currentPageViewEmission = { path, emissionId, historyEntry };
  log('page_view', {
  page_path: path,
  page_title: title || path,
@@ -1076,7 +996,7 @@ export const Analytics = {
  content_locale: pageContext.contentLocale,
  route_family: pageContext.routeFamily,
  engagement_time_msec: timeOnPrevPage > 0 ? Math.min(timeOnPrevPage, 3600000) : undefined,
- emission_id: emissionId,
+ emission_id: pageViewEmissionId,
  ...buildPageViewAttributionParams(path, identity),
  });
  // Bridge: tag Clarity session with page template for filtering
@@ -1084,6 +1004,7 @@ export const Analytics = {
  tagClarity('content_group', pageContext.contentGroup);
  // Reset dead-click counter for new page
  _deadClickCount = 0;
+ return pageViewEmissionId;
  },
 
  /**
