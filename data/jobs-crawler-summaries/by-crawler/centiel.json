@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-09-11T13:42:01.715Z",
+  "generatedAt": "2026-09-11T23:13:29.018Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5246,
-  "avgDurationMs": 5246,
+  "durationMs": 6039,
+  "avgDurationMs": 6039,
   "durationHistory": [
-    5246
+    6039
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -272,6 +272,7 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-05T10:19:57.725Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
