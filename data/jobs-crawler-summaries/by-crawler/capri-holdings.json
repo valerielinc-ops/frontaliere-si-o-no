@@ -1,18 +1,56 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-11T13:53:03.074Z",
-  "total": 4,
-  "newCount": 0,
+  "generatedAt": "2026-09-11T23:21:25.351Z",
+  "total": 5,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 20123,
-  "avgDurationMs": 20123,
+  "durationMs": 17740,
+  "avgDurationMs": 17740,
   "durationHistory": [
-    20123
+    17740
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
+      "title": "Store Manager, Landquart",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Graubünden",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "store-manager-landquart-capri-holdings",
+      "category": "retail",
+      "datePosted": "2026-09-11",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Graubünden"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 8,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
@@ -42,9 +80,9 @@
         "location": "Manno"
       },
       "id": "capri-holdings-c2a82205abea",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T22:07:37.799Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -166,7 +204,7 @@
       "salaryMax": 111000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {

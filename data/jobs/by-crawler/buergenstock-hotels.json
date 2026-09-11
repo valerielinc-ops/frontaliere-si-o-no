@@ -1,6 +1,6 @@
 {
   "crawlerKey": "buergenstock-hotels",
-  "assembledAt": "2026-09-11T13:53:06.133Z",
+  "assembledAt": "2026-09-11T23:21:25.740Z",
   "jobs": [
     {
       "id": "buergenstock-hotels-d9671f408386",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/373/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:00.955Z",
+      "crawledAt": "2026-09-11T23:21:20.590Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -128,7 +128,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1437/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:00.380Z",
+      "crawledAt": "2026-09-11T23:21:19.576Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -227,7 +227,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1435/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:59.811Z",
+      "crawledAt": "2026-09-11T23:21:18.589Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -304,7 +304,7 @@
       "companyDomain": "buergenstock.ch",
       "title": "Floor Supervisor 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Supervisore di reparto al 100% (f/m/i)",
+        "it": "Floor Supervisor 100% (w/m/i)",
         "en": "Floor Supervisor 100% (f/m/i)",
         "de": "Floor Vorgesetzter 100% (w/m/i)",
         "fr": "Floor Superviseur 100% (w/m/i)"
@@ -316,12 +316,13 @@
         "de": "Floor Supervisor 100% (w/m/i) bei Bürgenstock Hotels AG in Obbürgen (6363, NW), Schweiz.\n\n• Standort: Obbürgen (NW)\n• Bewerbung über das Umantis-Karriereportal von Bürgenstock Hotels AG",
         "fr": "Superviseur à 100 % (f/m/i) chez Bürgenstock Hotels AG à Obbürgen (6363, NW), Suisse.\n\n• Lieu: Obbürgen (NW)\n• Application via le portail de carrière Umantis de Bürgenstock Hotels AG"
       },
+      "needsRetranslation": true,
       "location": "Obbürgen",
       "canton": "NW",
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1444/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:59.007Z",
+      "crawledAt": "2026-09-11T23:21:17.651Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -368,8 +369,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "buergenstock-hotels-e8d5bf59d437",
@@ -403,7 +403,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/224/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:58.203Z",
+      "crawledAt": "2026-09-11T23:21:17.097Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -480,7 +480,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/372/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:57.404Z",
+      "crawledAt": "2026-09-11T23:21:16.540Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -572,7 +572,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1542/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:56.770Z",
+      "crawledAt": "2026-09-11T23:21:16.123Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -636,7 +636,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1546/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:55.960Z",
+      "crawledAt": "2026-09-11T23:21:15.569Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -695,7 +695,7 @@
       "companyDomain": "buergenstock.ch",
       "title": "Storage and Logistics Assistant 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Assistente Stoccaggio e Logistica al 100% (f/m/i)",
+        "it": "Storage and Logistics Assistant 100% (w/m/i)",
         "en": "Storage and Logistics Assistant 100% (f/m/i)",
         "de": "Storage and Logistik Assistent 100% (w/m/i)",
         "fr": "Storage and Logistique Assistant 100% (w/m/i)"
@@ -707,12 +707,13 @@
         "de": "Storage and Logistics Assistant 100% (w/m/i) - Bürgenstock Resort --> Eine Ikone der Schweizer Hotellerie und eine Legende seit der sensationellen Eröffnung im Jahr 1873. Gelegen auf dem Bürgenberg, einem 500 Meter hohen Felsvorsprung in der Zentralschweiz, zeichnet sich das Bürgenstock Resort Lake Lucerne durch gewagtes Design, bahnbrechende Nachhaltigkeit, atemberaubende Landschaften und modernste Freizeitangebote aus. Rund 700 Mitarbeitende aus 54 Nationen sorgen für exzellente Gastfreundschaft und bieten den perfekten Rahmen für Momente jenseits der Vorstellungskraft. Drei exklusive Hotels, das Bürgenstock Hotel & Alpine Spa (5* Superior) mit den beiden Übernachtungsmöglichkeiten The Contemporary und The Heritage, das Waldhotel by Bürgenstock (5* Superior) und die Taverne 1879 (3*) stehen den Gästen zur Verfügung. Jedes dieser Häuser versteht es, eine einzigartige Atmosphäre zu kreieren. Zwölf Restaurants, Lounges und Bars sind das Schaufenster für kulinarische Exzellenz; im preisgekrönten Bürgenstock Alpine Spa und Waldhotel Spa finden Gäste die ultimative Entspannung. Das Resort ist nicht nur eine Traumdestination für Reisende aus aller Welt, sondern auch ein Arbeitsplatz mit hervorragender Unternehmenskultur. Das Bürgenstock Resort erhielt das dritte Jahr in Folge die offizielle Zertifizierung als \"Great Place to Work\" der Schweiz – eine Auszeichnung, die das gesamte Team mit Stolz erfüllt. Zur Verstärkung unseres Teams suchen wir ab sofort oder nach Vereinbarung eine/n: Storage and Logistics Assistant 100% (w/m/i) Zu Ihren\n• Aufgaben gehören: Sicherstellung einer professionellen Wäschelogistik unter Einhaltung der Qualitäts-, Hygiene- und Sicherheitsstandards\n\nOrganisation des gesamten Wäschekreislaufs sowie Kontrolle und Bewirtschaftung der Wäschebestände\n\nAnnahme, Prüfung, Sortierung, Lagerung und Ausgabe der Wäsche\n\nKoordination der Zusammenarbeit mit der externen Wäscherei sowie internen Abteilungen\n\nOptimierung von Abläufen und Sicherstellung eines effizienten Waren- und Wäscheflusses im Resort\n\nErste Ansprechperson für sämtliche Themen rund um die Wäschelogistik\n\nDas bringen Sie mit Sie verfügen über erste Erfahrungen im Bereich Wäschelogistik und arbeiten in diesem Bereich lösungsorientiert. Sie bringen einen Führerausweis Kategorie B mit und arbeiten gerne drinnen sowie draussen. Sie haben bereits Erfahrung in der Gastronomie/Hotellerie und packen gerne mit an. Sie sind eine kommunikative und gut organisierte Persönlichkeit, behalten auch in hektischen Situationen den Überblick und arbeiten zuverlässig sowie selbstständig. Sie können sich in Deutsch wie auch in Englisch verständigen. Sie sind motiviert und es bereitet Ihnen Freude, in einem top motivierten Team zu arbeiten.\n\nEs erwartet Sie Neben einem modernen Arbeitsplatz profitieren Sie von zahlreichen attraktiven Mitarbeiterangeboten und Vergünstigungen. Das Personalhaus verfügt über ein eigenes Fitnessstudio, eine TV-Lounge, einen Billardraum sowie eine Bibliothek. Darüber hinaus geniessen Sie Ermässigungen in unseren Restaurants sowie Vorzugskonditionen für Sie, Ihre Familie und Freunde für Übernachtungen in unseren Hotels. Weitere Vorteile umfassen Vergünstigungen für Tennis, Golf, Sportartikel, Versicherungen, Gruppenkurse und REKA-Checks. Auch Ihre Mobilität unterstützen wir: Die Anreise mit öffentlichen Verkehrsmitteln wird finanziell gefördert, und Parkplätze stehen zu attraktiven Konditionen zur Verfügung. Wir investieren in Ihre Zukunft: Mit Zugang zur Beekeeper-Mitarbeiterapp, vielfältigen Weiterbildungsangeboten, internen Entwicklungsmöglichkeiten und erstklassigen Karriereperspektiven schaffen wir den Rahmen für Ihre persönliche und berufliche Entfaltung. Sie erwartet die Chance, Teil eines Weltklasse-Resorts zu sein, aktiv zum gemeinsamen Erfolg beizutragen und sich in einem inspirierenden Umfeld kontinuierlich weiterzuentwickeln. Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen mit Motivationsschreiben, Arbeitszeugnissen und Foto. Auszeichnungen Swiss Location Awards «Switzerland's Best Meeting Location» World Spa Awards «Switzerland’s Best Hotel Spa 2025» LHW Membership Awards «Sustainability Leader» Great Place To Work 2025 The New York Times’ «52 Places to Go in 2018» Travel + Leisure «500 List 2021» Handelszeitung «Bester Arbeitgeber im Hospitality Sektor 2023» Connoisseur Circle «Best Gourmet Hotel» MICHELIN Wellness Award «Best Wellness Hotel» GALA Spa Awards «Best Spa Concept» MICHELIN Keys «3/3 Keys» BÜRGENSTOCK HOTELS AG Sabine Heinrich Junior HR Business Partner Bürgenstock 30 6363 Obbürgen",
         "fr": "Assistant au stockage et à la logistique 100% (f/m/i) - Bürgenstock Resort --> Une icône de l'hôtellerie suisse et une légende depuis son ouverture sensationnelle en 1873. Situé sur le Bürgenberg, un affleurement rocheux de 500 mètres de haut dans le centre de la Suisse, le Bürgenstock Resort Lake Lucerne se distingue par son design audacieux, sa durabilité révolutionnaire, ses paysages à couper le souffle et ses activités de loisirs de pointe. Environ 700 employés de 54 pays assurent une excellente hospitalité et offrent un cadre parfait pour des moments au-delà de l'imagination. Trois hôtels exclusifs, le Bürgenstock Hotel & Alpine Spa (5* Superior) avec les deux options d'hébergement The Contemporary and The Heritage, le Waldhotel by Bürgenstock (5* Superior) et la Tavern 1879 (3*) sont à votre disposition. Chacune de ces maisons sait créer une atmosphère unique. Douze restaurants, salons et bars sont la vitrine de l'excellence culinaire; Au Bürgenstock Alpine Spa primé et au Waldhotel Spa, vous trouverez la détente ultime. La station est non seulement une destination de rêve pour les voyageurs du monde entier, mais aussi un lieu de travail avec une excellente culture d'entreprise. Pour la troisième année consécutive, le Bürgenstock Resort a été officiellement certifié \"Great Place to Work\" en Suisse - un prix qui remplit toute l'équipe avec fierté. Pour renforcer notre équipe, nous serons à la recherche d'un assistant de stockage et de logistique 100% (f/m/i) à partir de septembre 2026 ou par accord.\n• Les tâches comprennent: assurer la logistique de blanchisserie professionnelle conformément aux normes de qualité, d'hygiène et de sécurité\n\nOrganisation de l'ensemble du cycle de lessive et contrôle et gestion des stocks de lessive\n\nAcceptation, essai, tri, stockage et livraison de la lessive\n\nCoordination de la coopération avec les services externes de blanchisserie et les services internes\n\nOptimiser les processus et assurer un flux efficace de marchandises et de blanchisserie dans le complexe\n\nPremière personne de contact pour tous les sujets liés à la logistique de blanchisserie\n\nVous avez une expérience initiale dans le domaine de la logistique de blanchisserie et travaillez dans ce domaine axé sur la solution. Ils apportent un permis de conduire de catégorie B et aiment travailler à l'intérieur et à l'extérieur. Vous avez déjà une expérience dans l'industrie gastronomique / hôtelière et êtes heureux de participer. Ils sont une personnalité communicative et bien organisée, gardent un aperçu même dans des situations agitées et travaillent de façon fiable et indépendante. Vous pouvez communiquer en allemand et en anglais. Vous êtes motivé et cela vous donne le plaisir de travailler dans une équipe très motivée.\n\nIl vous attend une activité polyvalente dans une grande équipe et avec de nombreux avantages, tels que la maison du personnel avec salle de sport, salon TV, salle de piscine et bibliothèque. Vous recevrez des réductions dans les restaurants, dans l'hôtel pour l'hébergement de nuit pour vous et votre famille et vos amis, des réductions pour le tennis, le golf, les articles de sport et l'assurance. Vous pouvez suivre des cours de groupe à des prix attractifs et obtenir des contrôles REKA de notre part à des conditions préférentielles. Le voyage en transports en commun est financé par l'entreprise et les places de stationnement sont offertes à des prix attractifs. En tant qu'employé, vous avez accès à l'application des employés Beekeeper, profitez d'une formation et de possibilités de promotion internes intéressantes et plus encore. Si vous vous identifiez également à nos valeurs d'enthousiasme, d'engagement, de responsabilité et d'entrepreneuriat (BEvU), alors profitez de cette occasion unique d'une tâche variée avec beaucoup de potentiel pour apprendre de nouvelles choses et contribuer au succès de la station de classe mondiale au cœur de la Suisse. Nous attendons avec impatience vos documents de candidature complets avec lettres de motivation, certificats d'emploi et photo. Awards Swiss Location Awards «Le meilleur lieu de réunion de la Suisse» World Spa Awards «Le meilleur hôtel de Suisse Spa 2025» LHW Adhérent Awards «Sustainability Leader» Great Place To Work 2025 The New York Times' «52 Lieux à visiter en 2018» Travel + Leisure «500 List 2021» Handelszeitung «Best Employer in the Hospitality Sector 2023» Conneisseur Circle «Best Gourmet Hotel» MICHELIN Wellness Awards «Best Wellness Hotel» GALA Spa Awards «Best Spa Concept» MICHELIN Keys «3/3 Keys» BÜRGENSTOCK HOTELS AG Sabine Heinrich Junior HR Business Partner Bürgenstock 30 6363 Obbürgen"
       },
+      "needsRetranslation": true,
       "location": "Obbürgen",
       "canton": "NW",
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1540/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:55.290Z",
+      "crawledAt": "2026-09-11T23:21:15.151Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -754,8 +755,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "buergenstock-hotels-6f0fc7cfde88",
@@ -789,7 +789,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1544/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:54.648Z",
+      "crawledAt": "2026-09-11T23:21:14.747Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -866,7 +866,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1494/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:53.996Z",
+      "crawledAt": "2026-09-11T23:21:14.179Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -959,7 +959,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1558/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:53.223Z",
+      "crawledAt": "2026-09-11T23:21:13.633Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1023,7 +1023,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1549/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:52.482Z",
+      "crawledAt": "2026-09-11T23:21:13.074Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1103,7 +1103,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1563/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:51.816Z",
+      "crawledAt": "2026-09-11T23:21:12.659Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1188,7 +1188,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1562/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:51.187Z",
+      "crawledAt": "2026-09-11T23:21:12.238Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1267,7 +1267,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1566/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:50.525Z",
+      "crawledAt": "2026-09-11T23:21:11.678Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1352,7 +1352,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1482/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:49.856Z",
+      "crawledAt": "2026-09-11T23:21:11.260Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1436,7 +1436,7 @@
         "it": "Assistente Manager Ristorante 100% (w/m/i)",
         "en": "Assistant Restaurant Manager 100% (m/f/i)",
         "de": "Assistent Restaurant Manager 100% (w/m/i)",
-        "fr": "Assistant Directeur de Restaurant à 100 % (f/m/i)"
+        "fr": "Assistant Restaurant Manager 100% (w/m/i)"
       },
       "description": "Assistant Restaurant Manager 100% (w/m/i) - Bürgenstock Resort --> Eine Ikone der Schweizer Hotellerie und eine Legende seit der sensationellen Eröffnung im Jahr 1873. Gelegen auf dem Bürgenberg, einem 500 Meter hohen Felsvorsprung in der Zentralschweiz, zeichnet sich das Bürgenstock Resort Lake Lucerne durch gewagtes Design, bahnbrechende Nachhaltigkeit, atemberaubende Landschaften und modernste Freizeitangebote aus. Rund 700 Mitarbeitende aus 54 Nationen sorgen für exzellente Gastfreundschaft und bieten den perfekten Rahmen für Momente jenseits der Vorstellungskraft. Drei exklusive Hotels, das Bürgenstock Hotel & Alpine Spa (5* Superior) mit den beiden Übernachtungsmöglichkeiten The Contemporary und The Heritage, das Waldhotel by Bürgenstock (5* Superior) und die Taverne 1879 (3*) stehen den Gästen zur Verfügung. Jedes dieser Häuser versteht es, eine einzigartige Atmosphäre zu kreieren. Zwölf Restaurants, Lounges und Bars sind das Schaufenster für kulinarische Exzellenz; im preisgekrönten Bürgenstock Alpine Spa und Waldhotel Spa finden Gäste die ultimative Entspannung. Das Resort ist nicht nur eine Traumdestination für Reisende aus aller Welt, sondern auch ein Arbeitsplatz mit hervorragender Unternehmenskultur. Das Bürgenstock Resort erhielt das dritte Jahr in Folge die offizielle Zertifizierung als \"Great Place to Work\" der Schweiz – eine Auszeichnung, die das gesamte Team mit Stolz erfüllt. Zur Verstärkung unseres Teams suchen wir ab sofort oder nach Vereinbarung eine/n: Assistant Restaurant Manager 100% (w/m/i) In dieser gastorientierten Position sind Sie verantwortlich für: Unterstützung des Restaurant Managers bei der täglichen Leitung des Restaurants und Sicherstellung reibungsloser Abläufe\n\nMithilfe bei der Erstellung von Dienstplänen mit Mirus 3.0 und Optimierung der Personalressourcen\n\nAusarbeitung und Durchführung interner Schulungen zu betrieblichen Richtlinien, unserem Angebot und der Weiterentwicklung der Mitarbeitenden\n\nSicherstellung und Kontrolle aller Hygiene- und Qualitätsvorgaben für einen makellosen Gästeservice\n\nDas bringen Sie mit Abgeschlossene Ausbildung in der Gastronomie/Hotellerie oder ein Abschluss einer Hotelfachschule Berufserfahrung in einer vergleichbaren Position und sicherer Umgang mit Micros Symphonie Erfahrung im gehobenen Hotelbetrieb Fliessende Deutsch- und Englischkenntnisse, jede weitere Fremdsprache ist ein Plus Verantwortungsbewusstsein, Flexibilität, Belastbarkeit und ein ausgeprägtes Qualitätsbewusstsein Sensibilität im Umgang mit internationalen Gästen, Freude an der Mitarbeiterführung und ein gewinnendes Auftreten\n\nEs erwartet Sie Neben einem modernen Arbeitsplatz profitieren Sie von zahlreichen attraktiven Mitarbeiterangeboten und Vergünstigungen. Das Personalhaus verfügt über ein eigenes Fitnessstudio, eine TV-Lounge, einen Billardraum sowie eine Bibliothek. Darüber hinaus geniessen Sie Ermässigungen in unseren Restaurants sowie Vorzugskonditionen für Sie, Ihre Familie und Freunde für Übernachtungen in unseren Hotels. Weitere Vorteile umfassen Vergünstigungen für Tennis, Golf, Sportartikel, Versicherungen, Gruppenkurse und REKA-Checks. Auch Ihre Mobilität unterstützen wir: Die Anreise mit öffentlichen Verkehrsmitteln wird finanziell gefördert, und Parkplätze stehen zu attraktiven Konditionen zur Verfügung. Wir investieren in Ihre Zukunft: Mit Zugang zur Beekeeper-Mitarbeiterapp, vielfältigen Weiterbildungsangeboten, internen Entwicklungsmöglichkeiten und erstklassigen Karriereperspektiven schaffen wir den Rahmen für Ihre persönliche und berufliche Entfaltung. Sie erwartet die Chance, Teil eines Weltklasse-Resorts zu sein, aktiv zum gemeinsamen Erfolg beizutragen und sich in einem inspirierenden Umfeld kontinuierlich weiterzuentwickeln. Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen mit Motivationsschreiben, Arbeitszeugnissen und Foto. Auszeichnungen Swiss Location Awards «Switzerland's Best Meeting Location» World Spa Awards «Switzerland’s Best Hotel Spa 2025» LHW Membership Awards «Sustainability Leader» Great Place To Work 2025 The New York Times’ «52 Places to Go in 2018» Travel + Leisure «500 List 2021» Handelszeitung «Bester Arbeitgeber im Hospitality Sektor 2023» Connoisseur Circle «Best Gourmet Hotel» MICHELIN Wellness Award «Best Wellness Hotel» GALA Spa Awards «Best Spa Concept» MICHELIN Keys «3/3 Keys» BÜRGENSTOCK HOTELS AG Sabine Heinrich Junior HR Business Partner Bürgenstock 30 6363 Obbürgen",
       "descriptionByLocale": {
@@ -1445,12 +1445,13 @@
         "de": "Assistant Restaurant Manager 100% (w/m/i) - Bürgenstock Resort --> Eine Ikone der Schweizer Hotellerie und eine Legende seit der sensationellen Eröffnung im Jahr 1873. Gelegen auf dem Bürgenberg, einem 500 Meter hohen Felsvorsprung in der Zentralschweiz, zeichnet sich das Bürgenstock Resort Lake Lucerne durch gewagtes Design, bahnbrechende Nachhaltigkeit, atemberaubende Landschaften und modernste Freizeitangebote aus. Rund 700 Mitarbeitende aus 54 Nationen sorgen für exzellente Gastfreundschaft und bieten den perfekten Rahmen für Momente jenseits der Vorstellungskraft. Drei exklusive Hotels, das Bürgenstock Hotel & Alpine Spa (5* Superior) mit den beiden Übernachtungsmöglichkeiten The Contemporary und The Heritage, das Waldhotel by Bürgenstock (5* Superior) und die Taverne 1879 (3*) stehen den Gästen zur Verfügung. Jedes dieser Häuser versteht es, eine einzigartige Atmosphäre zu kreieren. Zwölf Restaurants, Lounges und Bars sind das Schaufenster für kulinarische Exzellenz; im preisgekrönten Bürgenstock Alpine Spa und Waldhotel Spa finden Gäste die ultimative Entspannung. Das Resort ist nicht nur eine Traumdestination für Reisende aus aller Welt, sondern auch ein Arbeitsplatz mit hervorragender Unternehmenskultur. Das Bürgenstock Resort erhielt das dritte Jahr in Folge die offizielle Zertifizierung als \"Great Place to Work\" der Schweiz – eine Auszeichnung, die das gesamte Team mit Stolz erfüllt. Zur Verstärkung unseres Teams suchen wir ab sofort oder nach Vereinbarung eine/n: Assistant Restaurant Manager 100% (w/m/i) In dieser gastorientierten Position sind Sie verantwortlich für: Unterstützung des Restaurant Managers bei der täglichen Leitung des Restaurants und Sicherstellung reibungsloser Abläufe\n\nMithilfe bei der Erstellung von Dienstplänen mit Mirus 3.0 und Optimierung der Personalressourcen\n\nAusarbeitung und Durchführung interner Schulungen zu betrieblichen Richtlinien, unserem Angebot und der Weiterentwicklung der Mitarbeitenden\n\nSicherstellung und Kontrolle aller Hygiene- und Qualitätsvorgaben für einen makellosen Gästeservice\n\nDas bringen Sie mit Abgeschlossene Ausbildung in der Gastronomie/Hotellerie oder ein Abschluss einer Hotelfachschule Berufserfahrung in einer vergleichbaren Position und sicherer Umgang mit Micros Symphonie Erfahrung im gehobenen Hotelbetrieb Fliessende Deutsch- und Englischkenntnisse, jede weitere Fremdsprache ist ein Plus Verantwortungsbewusstsein, Flexibilität, Belastbarkeit und ein ausgeprägtes Qualitätsbewusstsein Sensibilität im Umgang mit internationalen Gästen, Freude an der Mitarbeiterführung und ein gewinnendes Auftreten\n\nEs erwartet Sie Neben einem modernen Arbeitsplatz profitieren Sie von zahlreichen attraktiven Mitarbeiterangeboten und Vergünstigungen. Das Personalhaus verfügt über ein eigenes Fitnessstudio, eine TV-Lounge, einen Billardraum sowie eine Bibliothek. Darüber hinaus geniessen Sie Ermässigungen in unseren Restaurants sowie Vorzugskonditionen für Sie, Ihre Familie und Freunde für Übernachtungen in unseren Hotels. Weitere Vorteile umfassen Vergünstigungen für Tennis, Golf, Sportartikel, Versicherungen, Gruppenkurse und REKA-Checks. Auch Ihre Mobilität unterstützen wir: Die Anreise mit öffentlichen Verkehrsmitteln wird finanziell gefördert, und Parkplätze stehen zu attraktiven Konditionen zur Verfügung. Wir investieren in Ihre Zukunft: Mit Zugang zur Beekeeper-Mitarbeiterapp, vielfältigen Weiterbildungsangeboten, internen Entwicklungsmöglichkeiten und erstklassigen Karriereperspektiven schaffen wir den Rahmen für Ihre persönliche und berufliche Entfaltung. Sie erwartet die Chance, Teil eines Weltklasse-Resorts zu sein, aktiv zum gemeinsamen Erfolg beizutragen und sich in einem inspirierenden Umfeld kontinuierlich weiterzuentwickeln. Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen mit Motivationsschreiben, Arbeitszeugnissen und Foto. Auszeichnungen Swiss Location Awards «Switzerland's Best Meeting Location» World Spa Awards «Switzerland’s Best Hotel Spa 2025» LHW Membership Awards «Sustainability Leader» Great Place To Work 2025 The New York Times’ «52 Places to Go in 2018» Travel + Leisure «500 List 2021» Handelszeitung «Bester Arbeitgeber im Hospitality Sektor 2023» Connoisseur Circle «Best Gourmet Hotel» MICHELIN Wellness Award «Best Wellness Hotel» GALA Spa Awards «Best Spa Concept» MICHELIN Keys «3/3 Keys» BÜRGENSTOCK HOTELS AG Sabine Heinrich Junior HR Business Partner Bürgenstock 30 6363 Obbürgen",
         "fr": "Assistant directeur de restaurant 100% (f/m/i) - Bürgenstock Resort --> Une icône parmi les hôtels suisses : L'histoire du Bürgenstock Resort Lake Lucerne a commencé en 1873 - une histoire qui continue d'impressionner et de toucher aujourd'hui. Sur les hauteurs du Bürgenberg se trouve une oasis de détente et un lieu d'hospitalité de premier ordre. Le Bürgenstock Resort et ses quelque 700 collaborateurs venus de 54 pays offrent le cadre idéal pour des moments éblouissants dont on se souviendra. Trois hôtels exclusifs, le Bürgenstock Hotel & Alpine Spa (5* Superior) avec les deux hébergements The Contemporary et The Heritage, le Waldhotel by Bürgenstock (5* Superior) et la Taverne 1879 (3*) sont à la disposition des clients. Chacune de ces maisons sait créer une atmosphère unique. Dix restaurants, bars et salons sont la vitrine de l'excellence culinaire ; Les clients trouveront une détente ultime dans les spas alpin et Waldhotel primés. Le Bürgenstock Resort n'est pas seulement une destination de rêve pour les voyageurs du monde entier, mais aussi un lieu de travail doté d'une excellente culture d'entreprise. La station est classée 4ème parmi les meilleurs employeurs de Suisse 2023 dans la catégorie gastronomie, tourisme, hébergement, divertissement et loisirs, et a reçu la certification officielle « Great Place to Work » en Suisse 2025. Deux récompenses dont toute l'équipe est fière. Pour renforcer notre équipe, nous recherchons quelqu'un de suite ou sur rendez-vous : Assistant Directeur de Restaurant 100% (f/m/i) Notre restaurant allie une excellente cuisine à un accueil chaleureux dans une atmosphère unique. En tant que directeur adjoint, vous soutenez le directeur du restaurant dans la gestion opérationnelle, garantissez les normes de qualité les plus élevées et favorisez le développement ultérieur de l'équipe. Soutenir le directeur du restaurant dans la gestion quotidienne du restaurant et assurer le bon déroulement des processus. Aider à la création des listes avec Mirus 3.0 et à l'optimisation des ressources humaines. Développement et mise en œuvre de formations internes sur les directives opérationnelles, nos offres et le développement ultérieur des employés. Assurer et contrôler toutes les exigences d'hygiène et de qualité pour un service client irréprochable. Ce que vous apportez avec vous - votre recette du succès. Une formation complète dans le secteur de la restauration/hôtellerie ou un diplôme d'une école de gestion hôtelière. opérations hôtelières haut de gamme Connaissance courante de l'allemand et de l'anglais, toute autre langue étrangère est un plus Sens des responsabilités, flexibilité, résilience et sens aigu de la qualité Sensibilité dans les relations avec la clientèle internationale, joie de gérer les employés et esprit de gagnant C'est ce que nous vous proposons - travailler là où l'excellence est chez soi Une tâche variée vous attend dans une équipe engagée et dans un environnement de travail qui allie style, qualité et bien-être. Notre maison du personnel moderne vous offre un espace pour vous détendre et vous ressourcer, avec une salle de fitness, une salle de télévision, une salle de billard et une bibliothèque. Au sein du resort, vous bénéficiez de réductions attractives dans nos restaurants et bars, sur l'hébergement à l'hôtel, sur les activités de loisirs comme le tennis ou le golf et sur certaines assurances. Nous vous accompagnons dans vos déplacements en transports publics et vous proposons des places de stationnement à des conditions attractives. Vous pouvez toujours rester connecté via notre application Beekeeper, et des formations complémentaires passionnantes et des opportunités d'avancement interne vous ouvrent de nouvelles perspectives. Si vous partagez nos valeurs d'enthousiasme, d'engagement, de responsabilité et d'entrepreneuriat (BEvU), vous êtes au bon endroit. Faites partie d'une équipe qui vit l'hospitalité au plus haut niveau - avec cœur, exigence et passion. Maintenant c'est votre tour ! Faites partie d'une équipe qui inspire chaque jour avec passion, créativité et sens de l'excellence. Au Bürgenstock Resort, l'élégance, la vue et l'atmosphère s'unissent pour créer un lieu privilégié pour des moments de plaisir sophistiqués - faites-en votre scène ! Montrez-nous comment vous aimeriez enrichir ce lieu avec votre personnalité, votre style et votre expérience. Pour nous, ce n'est pas seulement ce que vous faites qui compte, mais aussi la manière dont vous le faites : avec cœur, sensibilité et hospitalité authentique. Postulez dès maintenant avec votre lettre de motivation, CV, références et photo actuelle. Créons ensemble des expériences inoubliables – pour nos clients et pour vous. Récompenses: Swiss Location Awards «Meilleur lieu de réunion de Suisse» World Travel Awards «Meilleur hôtel de luxe de Suisse 2024» World Spa Awards «Meilleur spa d'hôtel au monde, en Europe et en Suisse 2024» LHW Membership Awards «Remarkable Experience Award 2023» Great Place To Work 2025 The New York Times «52 Places to Go in 2018» Travel + Leisure «500 List 2021» Handelszeitung «Meilleur employeur du secteur hôtelier 2023» Falstaff Magazine «Meilleur hôtel de Suisse - No. 1» Wine Spectator 2024 «Meilleur prix d'excellence» Swiss Bar Awards «Meilleur bar d'hôtel» BÜRGENSTOCK HOTELS AG Sabine Heinrich Junior HR Business Partner Bürgenstock 30 6363 Obbürgen"
       },
+      "needsRetranslation": true,
       "location": "Obbürgen",
       "canton": "NW",
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1438/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:49.049Z",
+      "crawledAt": "2026-09-11T23:21:10.721Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1545,8 +1546,7 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "buergenstock-hotels-d2f0a409dd10",
@@ -1580,7 +1580,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1560/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:48.226Z",
+      "crawledAt": "2026-09-11T23:21:10.160Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1665,7 +1665,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1569/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:47.581Z",
+      "crawledAt": "2026-09-11T23:21:09.761Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1747,7 +1747,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1565/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:46.940Z",
+      "crawledAt": "2026-09-11T23:21:09.226Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1827,7 +1827,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1570/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:46.285Z",
+      "crawledAt": "2026-09-11T23:21:08.669Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1891,7 +1891,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1550/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:45.642Z",
+      "crawledAt": "2026-09-11T23:21:08.071Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1971,7 +1971,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1552/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:45.003Z",
+      "crawledAt": "2026-09-11T23:21:07.447Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2051,7 +2051,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1553/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:44.386Z",
+      "crawledAt": "2026-09-11T23:21:06.819Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2131,7 +2131,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1554/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:43.724Z",
+      "crawledAt": "2026-09-11T23:21:06.182Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2205,7 +2205,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1555/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:43.086Z",
+      "crawledAt": "2026-09-11T23:21:05.533Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2290,7 +2290,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1556/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:42.435Z",
+      "crawledAt": "2026-09-11T23:21:04.913Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2370,7 +2370,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1557/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:41.776Z",
+      "crawledAt": "2026-09-11T23:21:04.295Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2452,7 +2452,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1559/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:41.112Z",
+      "crawledAt": "2026-09-11T23:21:03.674Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2532,7 +2532,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1471/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:40.454Z",
+      "crawledAt": "2026-09-11T23:21:03.259Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2578,7 +2578,7 @@
       "companyDomain": "buergenstock.ch",
       "title": "Sommelier 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Sommelier al 100% (f/m/i)",
+        "it": "Sommelier 100% (w/m/i)",
         "en": "Sommelier 100% (m/f/i)",
         "de": "Sommelier 100% (w/m/i)",
         "fr": "Sommelier 100% (m/f/i)"
@@ -2596,7 +2596,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1521/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:39.616Z",
+      "crawledAt": "2026-09-11T23:21:02.715Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2691,7 +2691,7 @@
       "companyDomain": "buergenstock.ch",
       "title": "F&B Supervisor 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Supervisore F&B al 100% (f/m/i)",
+        "it": "F&B Supervisor 100% (w/m/i)",
         "en": "F&B Supervisor 100% (f/m/i)",
         "de": "F&B Vorgesetzter 100% (w/m/i)",
         "fr": "F&B Superviseur 100% (w/m/i)"
@@ -2703,12 +2703,13 @@
         "de": "F&B Supervisor 100% (w/m/i) - Bürgenstock Resort --> Eine Ikone der Schweizer Hotellerie und eine Legende seit der sensationellen Eröffnung im Jahr 1873. Gelegen auf dem Bürgenberg, einem 500 Meter hohen Felsvorsprung in der Zentralschweiz, zeichnet sich das Bürgenstock Resort Lake Lucerne durch gewagtes Design, bahnbrechende Nachhaltigkeit, atemberaubende Landschaften und modernste Freizeitangebote aus. Rund 700 Mitarbeitende aus 54 Nationen sorgen für exzellente Gastfreundschaft und bieten den perfekten Rahmen für Momente jenseits der Vorstellungskraft. Drei exklusive Hotels, das Bürgenstock Hotel & Alpine Spa (5* Superior) mit den beiden Übernachtungsmöglichkeiten The Contemporary und The Heritage, das Waldhotel by Bürgenstock (5* Superior) und die Taverne 1879 (3*) stehen den Gästen zur Verfügung. Jedes dieser Häuser versteht es, eine einzigartige Atmosphäre zu kreieren. Zwölf Restaurants, Lounges und Bars sind das Schaufenster für kulinarische Exzellenz; im preisgekrönten Bürgenstock Alpine Spa und Waldhotel Spa finden Gäste die ultimative Entspannung. Das Resort ist nicht nur eine Traumdestination für Reisende aus aller Welt, sondern auch ein Arbeitsplatz mit hervorragender Unternehmenskultur. Das Bürgenstock Resort erhielt das dritte Jahr in Folge die offizielle Zertifizierung als \"Great Place to Work\" der Schweiz – eine Auszeichnung, die das gesamte Team mit Stolz erfüllt. Zur Verstärkung unseres Teams suchen wir nach Vereinbarung eine/n: F&B Supervisor 100% (w/m/i) In dieser gastorientierten Position sind Sie verantwortlich für: Leitung des täglichen Betriebs im Restaurant und Sicherstellung eines reibungslosen Ablaufs\n\nVerantwortung für das Team während deiner Schichten und enge Zusammenarbeit mit dem Restaurant Manager und dessen Stellvertretung\n\nMithilfe bei der Mitarbeiterplanung mit Mirus 3.0, Erstellen von Tagesabschlüssen und Sicherstellen von Qualitäts- und Hygienestandards\n\nDurchführung kleiner Schulungen, um das Team zu stärken und betriebliche Richtlinien umzusetzen\n\nDas bringen Sie mit Abgeschlossene Ausbildung in der Gastronomie/Hotellerie oder ein Abschluss einer Hotelfachschule Berufserfahrung in einer vergleichbaren Position und sicherer Umgang mit Micros Symphonie Erfahrung im gehobenen Hotelbetrieb Fliessende Deutsch- und Englischkenntnisse, jede weitere Fremdsprache ist ein Plus Verantwortungsbewusstsein, Flexibilität, Belastbarkeit und ein ausgeprägtes Qualitätsbewusstsein Sensibilität im Umgang mit internationalen Gästen, Freude an der Mitarbeiterführung und ein gewinnendes Auftreten\n\nEs erwartet Sie Neben einem modernen Arbeitsplatz profitieren Sie von zahlreichen attraktiven Mitarbeiterangeboten und Vergünstigungen. Das Personalhaus verfügt über ein eigenes Fitnessstudio, eine TV-Lounge, einen Billardraum sowie eine Bibliothek. Darüber hinaus geniessen Sie Ermässigungen in unseren Restaurants sowie Vorzugskonditionen für Sie, Ihre Familie und Freunde für Übernachtungen in unseren Hotels. Weitere Vorteile umfassen Vergünstigungen für Tennis, Golf, Sportartikel, Versicherungen, Gruppenkurse und REKA-Checks. Auch Ihre Mobilität unterstützen wir: Die Anreise mit öffentlichen Verkehrsmitteln wird finanziell gefördert, und Parkplätze stehen zu attraktiven Konditionen zur Verfügung. Wir investieren in Ihre Zukunft: Mit Zugang zur Beekeeper-Mitarbeiterapp, vielfältigen Weiterbildungsangeboten, internen Entwicklungsmöglichkeiten und erstklassigen Karriereperspektiven schaffen wir den Rahmen für Ihre persönliche und berufliche Entfaltung. Sie erwartet die Chance, Teil eines Weltklasse-Resorts zu sein, aktiv zum gemeinsamen Erfolg beizutragen und sich in einem inspirierenden Umfeld kontinuierlich weiterzuentwickeln. Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen mit Motivationsschreiben, Arbeitszeugnissen und Foto. Auszeichnungen Swiss Location Awards «Switzerland's Best Meeting Location» World Spa Awards «Switzerland’s Best Hotel Spa 2025» LHW Membership Awards «Sustainability Leader» Great Place To Work 2025 The New York Times’ «52 Places to Go in 2018» Travel + Leisure «500 List 2021» Handelszeitung «Bester Arbeitgeber im Hospitality Sektor 2023» Connoisseur Circle «Best Gourmet Hotel» MICHELIN Wellness Award «Best Wellness Hotel» GALA Spa Awards «Best Spa Concept» MICHELIN Keys «3/3 Keys» BÜRGENSTOCK HOTELS AG Sabine Heinrich Junior HR Business Partner Bürgenstock 30 6363 Obbürgen",
         "fr": "Superviseur F&B 100% (f/m/i) - Bürgenstock Resort --> Une icône de l'hôtellerie suisse et une légende depuis son ouverture sensationnelle en 1873. Situé sur le Bürgenberg, un affleurement rocheux de 500 mètres de haut dans le centre de la Suisse, le Bürgenstock Resort Lake Lucerne se distingue par son design audacieux, sa durabilité révolutionnaire, ses paysages à couper le souffle et ses activités de loisirs de pointe. Environ 700 employés de 54 pays offrent une excellente hospitalité et un cadre parfait pour des moments au-delà de l'imagination. Trois hôtels exclusifs, le Bürgenstock Hotel & Alpine Spa (5* Superior) avec les deux options d'hébergement Le Contemporain et Le Patrimoine, le Waldhotel by Bürgenstock (5* Superior) et la Tavern 1879 (3*) sont à votre disposition. Chacune de ces maisons sait créer une atmosphère unique. Douze restaurants, salons et bars sont la vitrine de l'excellence culinaire; Au Bürgenstock Alpine Spa primé et au Waldhotel Spa, vous trouverez la détente ultime. La station est non seulement une destination de rêve pour les voyageurs du monde entier, mais aussi un lieu de travail avec une excellente culture d'entreprise. Pour la troisième année consécutive, le Bürgenstock Resort a été officiellement certifié « Great Place to Work » en Suisse – un prix qui remplit toute l'équipe avec fierté. Pour renforcer notre équipe, nous sommes à la recherche d'un superviseur F&B 100% (f/m/i) dès maintenant ou par accord Dans cette position accueillante, vous êtes responsable : de gérer l'opération quotidienne dans le restaurant et d'assurer un bon fonctionnement\n\nResponsabilité de l'équipe pendant vos quarts de travail et collaboration étroite avec le directeur du restaurant et son adjoint\n\nAider à la planification des employés avec Mirus 3.0, créer des fermetures de fin de journée et assurer des normes de qualité et d'hygiène\n\nOrganiser de petites séances de formation pour renforcer l ' équipe et mettre en œuvre les politiques opérationnelles\n\nCela vous apporte avec une formation complète dans l'industrie de la restauration / hôtel ou un degré d'expérience professionnelle dans une position comparable et la manipulation sûre de Micros Symphony Expérience dans les opérations hôtelières haut de gamme et dans le service de chambre Fluent compétences en allemand et en anglais, toutes les autres langues étrangères est un sens plus de responsabilité, de flexibilité, de résilience et une sensibilisation à la qualité prononcée Sensibilité à traiter avec des invités internationaux, plaisir dans la gestion des employés et une apparition gagnante\n\nIl vous attend une activité polyvalente dans une grande équipe et avec de nombreux avantages, tels que la maison du personnel avec salle de sport, salon TV, salle de piscine et bibliothèque. Vous recevrez des réductions dans les restaurants, dans l'hôtel pour l'hébergement de nuit pour vous et votre famille et vos amis, des réductions pour le tennis, le golf, les articles de sport et l'assurance. Vous pouvez suivre des cours de groupe à des prix attractifs et obtenir des contrôles REKA de notre part à des conditions préférentielles. L'arrivée par les transports publics est soutenue financièrement par l'entreprise et les places de stationnement sont offertes à des prix attractifs. En tant qu'employé, vous avez accès à l'application des employés Beekeeper, profitez de possibilités intéressantes de formation et de promotion interne et plus encore. Si vous vous identifiez également à nos valeurs d'enthousiasme, d'engagement, de responsabilité et d'entrepreneuriat (BEvU), alors profitez de cette occasion unique d'une tâche variée avec beaucoup de potentiel pour apprendre de nouvelles choses et contribuer au succès de la station de classe mondiale au cœur de la Suisse. Nous attendons avec impatience vos documents de candidature complets avec lettres de motivation, certificats d'emploi et photo. Awards Swiss Location Awards «Le meilleur lieu de réunion de la Suisse» World Spa Awards «Le meilleur hôtel de Suisse Spa 2025» LHW Adhérent Awards «Sustainability Leader» Great Place To Work 2025 The New York Times' «52 Lieux à visiter en 2018» Travel + Leisure «500 List 2021» Handelszeitung «Best Employer in the Hospitality Sector 2023» Conneisseur Circle «Best Gourmet Hotel» MICHELIN Wellness Awards «Best Wellness Hotel» GALA Spa Awards «Best Spa Concept» MICHELIN Keys «3/3 Keys» BÜRGENSTOCK HOTELS AG Sabine Heinrich Junior HR Business Partner Bürgenstock 30 6363 Obbürgen"
       },
+      "needsRetranslation": true,
       "location": "Obbürgen",
       "canton": "NW",
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1564/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:38.821Z",
+      "crawledAt": "2026-09-11T23:21:02.295Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2786,8 +2787,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "buergenstock-hotels-765f994f1d12",
@@ -2821,7 +2821,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1534/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:38.005Z",
+      "crawledAt": "2026-09-11T23:21:01.733Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2896,7 +2896,7 @@
       "companyDomain": "buergenstock.ch",
       "title": "In-Room Dining Supervisor 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Supervisore della Ristorazione in Stanza al 100% (f/m/i)",
+        "it": "In-Room Dining Supervisor 100% (w/m/i)",
         "en": "In-room dining supervisor 100% (f/m/i)",
         "de": "In-Room Dining Vorgesetzter 100% (w/m/i)",
         "fr": "In-Room Dining Superviseur 100% (w/m/i)"
@@ -2908,12 +2908,13 @@
         "de": "In-Room Dining Supervisor 100% (w/m/i) - Bürgenstock Resort --> Eine Ikone der Schweizer Hotellerie und eine Legende seit der sensationellen Eröffnung im Jahr 1873. Gelegen auf dem Bürgenberg, einem 500 Meter hohen Felsvorsprung in der Zentralschweiz, zeichnet sich das Bürgenstock Resort Lake Lucerne durch gewagtes Design, bahnbrechende Nachhaltigkeit, atemberaubende Landschaften und modernste Freizeitangebote aus. Rund 700 Mitarbeitende aus 54 Nationen sorgen für exzellente Gastfreundschaft und bieten den perfekten Rahmen für Momente jenseits der Vorstellungskraft. Drei exklusive Hotels, das Bürgenstock Hotel & Alpine Spa (5* Superior) mit den beiden Übernachtungsmöglichkeiten The Contemporary und The Heritage, das Waldhotel by Bürgenstock (5* Superior) und die Taverne 1879 (3*) stehen den Gästen zur Verfügung. Jedes dieser Häuser versteht es, eine einzigartige Atmosphäre zu kreieren. Zwölf Restaurants, Lounges und Bars sind das Schaufenster für kulinarische Exzellenz; im preisgekrönten Bürgenstock Alpine Spa und Waldhotel Spa finden Gäste die ultimative Entspannung. Das Resort ist nicht nur eine Traumdestination für Reisende aus aller Welt, sondern auch ein Arbeitsplatz mit hervorragender Unternehmenskultur. Das Bürgenstock Resort erhielt das dritte Jahr in Folge die offizielle Zertifizierung als \"Great Place to Work\" der Schweiz – eine Auszeichnung, die das gesamte Team mit Stolz erfüllt. Zur Verstärkung unseres Teams suchen wir nach Vereinbarung eine/n: In-Room Dining Supervisor 100% (w/m/i) In dieser gastorientierten Position sind Sie verantwortlich für: Erstklassiger Speise- und Getränkeservice in den Hotelzimmern und Suiten gemäss den Standards von LHW\n\nKompetente Beratung unserer anspruchsvollen Gäste und professionelle Entgegennahme von Bestellungen\n\nPersönliche Betreuung und Erfüllung individueller Wünsche unserer Gäste\n\nEin herzliches erstes Lächeln und aktive Mitgestaltung des Gästeerlebnisses\n\nSelbstständiges und lösungsorientiertes Handeln bei Herausforderungen\n\nÜbernahme von Verantwortung und aktiver Beitrag zu einem starken Teamgeist\n\nUnterstützung anderer Abteilungen für einen reibungslosen Betriebsablauf\n\nSicherstellung höchster Servicequalität und Einhaltung unserer Servicestandards",
         "fr": "Superviseur en salle à manger 100% (f/m/i) - Bürgenstock Resort --> Une icône de l'hôtellerie suisse et une légende depuis son ouverture sensationnelle en 1873. Situé sur le Bürgenberg, un affleurement rocheux de 500 mètres de haut dans le centre de la Suisse, le Bürgenstock Resort Lake Lucerne se distingue par son design audacieux, sa durabilité révolutionnaire, ses paysages à couper le souffle et ses activités de loisirs de pointe. Environ 700 employés de 54 pays offrent une excellente hospitalité et un cadre parfait pour des moments au-delà de l'imagination. Trois hôtels exclusifs, le Bürgenstock Hotel & Alpine Spa (5* Superior) avec les deux options d'hébergement Le Contemporain et Le Patrimoine, le Waldhotel by Bürgenstock (5* Superior) et la Tavern 1879 (3*) sont à votre disposition. Chacune de ces maisons sait créer une atmosphère unique. Douze restaurants, salons et bars sont la vitrine de l'excellence culinaire; au Bürgenstock Alpine Spa primé et Waldhotel Spa, vous trouverez la détente ultime. La station est non seulement une destination de rêve pour les voyageurs du monde entier, mais aussi un lieu de travail avec une excellente culture d'entreprise. Pour la troisième année consécutive, le Bürgenstock Resort a été officiellement certifié « Great Place to Work » en Suisse – un prix qui remplit toute l'équipe avec fierté. Pour renforcer notre équipe, nous recherchons un accord : Superviseur en salle à manger 100% (f/m/i) Dans cette position orientée clients, vous êtes responsable de: Service de restauration et de boissons de première classe dans les chambres et suites de l'hôtel selon les normes LHW\n\nConseils compétents pour nos clients éclairés et réception professionnelle des commandes\n\nSoins personnels et réalisation des souhaits individuels de nos invités\n\nUn premier sourire sincère et une participation active à l'expérience des invités\n\nMesures indépendantes et orientées vers la solution face aux défis\n\nAssumer la responsabilité et contribuer activement à un esprit d'équipe fort\n\nSoutien à d'autres ministères pour une exploitation sans heurts\n\nAssurer la plus haute qualité de service et la conformité à nos normes de service"
       },
+      "needsRetranslation": true,
       "location": "Obbürgen",
       "canton": "NW",
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1571/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:37.207Z",
+      "crawledAt": "2026-09-11T23:21:01.192Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2953,8 +2954,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "buergenstock-hotels-727e96b82e42",
@@ -2988,7 +2988,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1567/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:36.369Z",
+      "crawledAt": "2026-09-11T23:21:00.623Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -3082,7 +3082,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -3147,7 +3147,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]

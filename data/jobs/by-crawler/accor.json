@@ -1,6 +1,6 @@
 {
   "crawlerKey": "accor",
-  "assembledAt": "2026-09-11T13:52:52.859Z",
+  "assembledAt": "2026-09-11T23:21:16.265Z",
   "jobs": [
     {
       "id": "accor-1aa2bc0ca71f",
@@ -33,7 +33,7 @@
       "url": "https://careers.accor.com/fr/fr/job/serveur-chef-de-rang-h-f-x-in-moevenpick-hotel-and-casino-geneva-geneva-switzerl-jid-98917",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:52:46.588Z",
+      "crawledAt": "2026-09-11T23:21:11.131Z",
       "addressLocality": "Mövenpick Hotel And Casino Geneva, Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -52,12 +52,14 @@
       "previousSlugs": [
         "fr-serveur-chef-de-rang-h-f-x-accor-ch",
         "serveur-chef-de-rang-h-f-x-accor-ch",
-        "serveur-chef-de-rang-h-f-x-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland"
+        "serveur-chef-de-rang-h-f-x-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland",
+        "server-leader-m-f-x-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fr-serveur-chef-de-rang-h-f-x-accor-ch",
-          "serveur-chef-de-rang-h-f-x-accor-ch"
+          "serveur-chef-de-rang-h-f-x-accor-ch",
+          "server-leader-m-f-x-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland"
         ],
         "en": [
           "serveur-chef-de-rang-h-f-x-accor-ch"
@@ -70,6 +72,7 @@
           "serveur-chef-de-rang-h-f-x-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T23:39:19.212Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -83,8 +86,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "accor-8dda45f001a9",
@@ -117,7 +119,7 @@
       "url": "https://careers.accor.com/fr/fr/job/femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-100296",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:52:46.587Z",
+      "crawledAt": "2026-09-11T23:21:11.130Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -136,11 +138,13 @@
       "previousSlugs": [
         "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-accor-ch",
         "kammerfrau-auf-anruf-m-w-x-csd-ist-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
-        "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
+        "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
+        "chamberwoman-su-chiamata-m-f-x-csd-e-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-accor-ch"
+          "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-accor-ch",
+          "chamberwoman-su-chiamata-m-f-x-csd-e-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
         ],
         "en": [
           "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-accor-ch"
@@ -150,6 +154,7 @@
           "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T23:39:18.610Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -163,8 +168,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "accor-0b17c7ac3201",
@@ -197,7 +201,7 @@
       "url": "https://careers.accor.com/fr/fr/job/mice-and-groups-sales-manager-h-f-x-in-fairmont-le-montreux-palace-montreux-switzerland-jid-102065",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:46.585Z",
+      "crawledAt": "2026-09-11T23:21:11.128Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -216,12 +220,14 @@
       "previousSlugs": [
         "mice-groups-sales-manager-h-f-x-accor-ch",
         "mice-groups-sales-manager-m-f-x-ibis-budget-montreux",
-        "mice-groups-sales-manager-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
+        "mice-groups-sales-manager-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
+        "mice-groups-sales-manager-m-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mice-groups-sales-manager-h-f-x-accor-ch",
-          "mice-groups-sales-manager-m-f-x-ibis-budget-montreux"
+          "mice-groups-sales-manager-m-f-x-ibis-budget-montreux",
+          "mice-groups-sales-manager-m-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
         ],
         "en": [
           "mice-groups-sales-manager-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
@@ -277,7 +283,7 @@
       "url": "https://careers.accor.com/fr/fr/job/chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-in-moevenpick-hotel-and-casino-geneva-geneva-switzerl-jid-103713",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:52:46.584Z",
+      "crawledAt": "2026-09-11T23:21:11.127Z",
       "addressLocality": "Mövenpick Hotel And Casino Geneva, Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -295,11 +301,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-accor-ch",
-        "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland"
+        "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland",
+        "chef-banquet-m-f-csd-3-mesi-da-iniziare-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-accor-ch"
+          "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-accor-ch",
+          "chef-banquet-m-f-csd-3-mesi-da-iniziare-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland"
         ],
         "en": [
           "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-accor-ch"
@@ -357,7 +365,7 @@
       "url": "https://careers.accor.com/fr/fr/job/serveur-se-sur-appel-f-h-x-cdd-automne-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-104711",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:52:46.583Z",
+      "crawledAt": "2026-09-11T23:21:11.126Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -375,11 +383,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "serveur-se-sur-appel-f-h-x-cdd-automne-2026-accor-ch",
-        "serveur-se-sur-appel-f-h-x-cdd-automne-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
+        "serveur-se-sur-appel-f-h-x-cdd-automne-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
+        "server-su-call-m-f-x-cdd-autunno-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "serveur-se-sur-appel-f-h-x-cdd-automne-2026-accor-ch"
+          "serveur-se-sur-appel-f-h-x-cdd-automne-2026-accor-ch",
+          "server-su-call-m-f-x-cdd-autunno-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
         ],
         "en": [
           "serveur-se-sur-appel-f-h-x-cdd-automne-2026-accor-ch"
@@ -438,7 +448,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistant-manager-operations-banquets-h-f-in-fairmont-le-montreux-palace-montreux-switzerland-jid-105899",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:52:46.582Z",
+      "crawledAt": "2026-09-11T23:21:11.125Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -456,11 +466,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-manager-operations-banquets-h-f-accor-ch",
-        "assistant-manager-operations-banquets-h-f-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
+        "assistant-manager-operations-banquets-h-f-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
+        "assistente-gestione-operazioni-banquet-m-f-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-manager-operations-banquets-h-f-accor-ch"
+          "assistant-manager-operations-banquets-h-f-accor-ch",
+          "assistente-gestione-operazioni-banquet-m-f-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
         ],
         "en": [
           "assistant-manager-operations-banquets-h-f-accor-ch"
@@ -515,7 +527,7 @@
       "url": "https://careers.accor.com/fr/fr/job/superviseur-petits-dejeuners-et-banquets-restauration-cdi-h-f-x-in-fairmont-le-montreux-palace-montreux-switzerland-jid-99334",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:52:46.581Z",
+      "crawledAt": "2026-09-11T23:21:11.123Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -533,11 +545,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "superviseur-petits-dejeuners-et-banquets-restauration-cdi-h-f-x-accor-ch",
-        "superviseur-petits-dejeuners-et-banquets-restauration-cdi-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux"
+        "superviseur-petits-dejeuners-et-banquets-restauration-cdi-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux",
+        "cdi-colazione-e-banquet-supervisor-m-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "superviseur-petits-dejeuners-et-banquets-restauration-cdi-h-f-x-accor-ch"
+          "superviseur-petits-dejeuners-et-banquets-restauration-cdi-h-f-x-accor-ch",
+          "cdi-colazione-e-banquet-supervisor-m-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
         ],
         "en": [
           "superviseur-petits-dejeuners-et-banquets-restauration-cdi-h-f-x-accor-ch"
@@ -596,7 +610,7 @@
       "url": "https://careers.accor.com/fr/fr/job/cluster-sales-manager-mice-and-groups-25hours-and-mama-shelter-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-51451",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:46.580Z",
+      "crawledAt": "2026-09-11T23:21:11.121Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -614,11 +628,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "cluster-sales-manager-mice-groups-25hours-and-mama-shelter-f-m-d-accor-ch",
-        "cluster-sales-manager-mice-groups-25hours-and-mama-shelter-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich"
+        "cluster-sales-manager-mice-groups-25hours-and-mama-shelter-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich",
+        "cluster-sales-manager-mice-groups-25hours-e-mama-shelter-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cluster-sales-manager-mice-groups-25hours-and-mama-shelter-f-m-d-accor-ch"
+          "cluster-sales-manager-mice-groups-25hours-and-mama-shelter-f-m-d-accor-ch",
+          "cluster-sales-manager-mice-groups-25hours-e-mama-shelter-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
         ],
         "en": [
           "cluster-sales-manager-mice-groups-25hours-and-mama-shelter-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich"
@@ -677,7 +693,7 @@
       "url": "https://careers.accor.com/fr/fr/job/instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106298",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:52:46.578Z",
+      "crawledAt": "2026-09-11T23:21:11.120Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -695,11 +711,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-accor",
-        "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-ibis-budget-fairmont-le-montreux"
+        "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-ibis-budget-fairmont-le-montreux",
+        "istruttore-rice-fitness-fairmont-yoga-instructor-spa-m-f-x-su-cdd-call-ibis-budget-fairmont-le-montreux-palace-montreux"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-accor"
+          "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-accor",
+          "istruttore-rice-fitness-fairmont-yoga-instructor-spa-m-f-x-su-cdd-call-ibis-budget-fairmont-le-montreux-palace-montreux"
         ],
         "en": [
           "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-accor"
@@ -708,6 +726,7 @@
           "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-ibis-budget-fairmont-le-montreux"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T23:39:15.289Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -719,87 +738,6 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "needsRetranslation": true
-    },
-    {
-      "id": "accor-5bf571062e63",
-      "slug": "allenamento-operativo-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland",
-      "slugByLocale": {
-        "it": "allenamento-operativo-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland",
-        "en": "operational-trainee-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland",
-        "de": "operational-trainee-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland",
-        "fr": "stagiaire-operationnel-100-accor-ch"
-      },
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Stagiaire Opérationnel - 100%",
-      "titleByLocale": {
-        "it": "Allenamento Operativo - 100%",
-        "en": "Operational Trainee - 100%",
-        "de": "Operational Trainee - 100%",
-        "fr": "Stagiaire Opérationnel - 100%"
-      },
-      "description": "Description de l'entrepriseRejoignez un hôtel membre du réseau Accor, dont le groupe réunit plus de 45 marques, 5 500 hôtels, 10 000 restaurants et destinations lifestyle. Ici, nous croyons en vous et en ce que vous apportez. Les opportunités de développement et d'évolution sont nombreuses. Chaque geste, chaque sourire, chaque action, contribuent à créer un impact positif et mémorable pour nos clients, nos collègues et aussi pour notre planète. Ensemble, nous incarnons la vision de l’hospitalité responsable. Ayez l’opportunité de devenir un Heartist®, et laissez votre coeur vous guider dans ce monde où la vie bat plus fort.Description du posteDans le cadre de votre stage au sein de notre établissement, vous serez amené(e) à découvrir l'ensemble des métiers opérationnels de l'hôtel en tournant sur les différents services (Réception, Petit-Déjeuner, Housekeeping, selon les besoins et votre profil).\n• Vos missions principales :Accueillir, renseigner et satisfaire nos clients tout au long de leur séjourParticiper aux opérations quotidiennes de check-in / check-outContribuer à la mise en place et au service du petit-déjeunerVeiller à la propreté et à la bonne tenue des espaces (chambres, parties communes)Appliquer les standards de qualité et les procédures internes (marque ibis, groupe Accor)Collaborer avec l'ensemble des équipes pour garantir une expérience client optimaleQualificationsVous êtes actuellement en formation dans le domaine de l'hôtellerie-restauration ou souhaitez découvrir ce secteurSens du service et de l'accueil, sourire et amabilitéBonne présentation et sens de l'organisationEsprit d'équipe, flexibilité et adaptabilitéMaîtrise du français, l'anglais est un atoutDisponibilité pour travailler selon un planning incluant weekends et jours fériésInformations supplémentairesLa pratique d'autres langues est un plus. Votre équipe et votre environnement de travail : En quelques mots, présentez l’équipe, l’établissement ou l’environnement de travail qui reflète la culture de l'équipe Notre Engagement Diversité & Inclusion : Nous sommes une entreprise inclusive et notre ambition est d’attirer, de recruter, et de promouvoir la diversité des talents.",
-      "descriptionByLocale": {
-        "it": "Descrizione dell'aziendaUn membro dell'hotel Accor il cui gruppo riunisce più di 45 marchi, 5.500 hotel, 10.000 ristoranti e destinazioni di vita. Qui crediamo in te e in quello che porti. Ci sono molte opportunità per lo sviluppo e lo sviluppo. Ogni gesto, ogni sorriso, ogni azione, aiuta a creare un impatto positivo e memorabile per i nostri clienti, i nostri colleghi e anche per il nostro pianeta. Insieme, incarnamo la visione dell'ospitalità responsabile. Avere l'opportunità di diventare un Heartist®, e lasciare che il tuo cuore ti guidi in questo mondo in cui la vita batte più forte. Descrizione della posizioneCome parte del vostro stage presso il nostro stabilimento, vi verrà chiesto di scoprire tutti i lavori operativi dell'hotel rivolgendosi ai diversi servizi (Reception, Colazione, Pulizia, a seconda delle esigenze e del vostro profilo).\n• Le vostre missioni principali: Benvenuto, informare e soddisfare i nostri ospiti durante tutto il loro soggiornoParticipate nelle operazioni di check-in / check-out quotidianeContribuire alla creazione e al servizio della colazioneVeal alla pulizia e buona manutenzione degli spazi (camere, parti comuni) Applicare gli standard di qualità e le procedure interne (bis brand, gruppo Accor)Collaborare con tutti i team per garantire un'esperienza clienti ottimaleQualificazioni Sei attualmente in formazione nel campo di hotel-ristorante o vuoi scoprire questo settoreSens of service and reception, sorriso e cordialitàBuona presentazione e senso dell'organizzazione Spirito di squadra, flessibilità e adattabilitàMastering French, l'inglese è un beneDisponibilità di lavorare secondo un programma compreso fine settimana e festiviUlteriori informazioni La pratica di altre lingue è un plus. Il vostro team e ambiente di lavoro: In poche parole, presenta il team, l'ambiente di lavoro o di stabilimento che riflette la cultura del team La nostra diversità di impegno & inclusione: Siamo una società inclusiva e la nostra ambizione è di attrarre, reclutare e promuovere la diversità del talento.",
-        "en": "Company descriptionJoin an Accor hotel member whose group brings together more than 45 brands, 5,500 hotels, 10,000 restaurants and lifestyle destinations. Here we believe in you and in what you bring. There are many opportunities for development and development. Every gesture, every smile, every action, helps create a positive and memorable impact for our clients, our colleagues and also for our planet. Together, we embody the vision of responsible hospitality. Have the opportunity to become a Heartist®, and let your heart guide you into this world where life beats harder. Description of the positionAs part of your internship at our establishment, you will be prompted to discover all the operational jobs of the hotel by turning to the different services (Reception, Breakfast, Housekeeping, depending on the needs and your profile).\n• Your main missions: Welcome, inform and satisfy our guests throughout their stayParticipate in the daily check-in / check-out operationsContribute to the setting up and service of breakfastVeal to the cleanliness and good maintenance of the spaces (rooms, common parts)Apply the quality standards and internal procedures (ibis brand, Accor group)Collaborate with all the teams to guarantee an optimal customer experienceQualificationsYou are currently in training in the field of hotel-restaurant or want to discover this sectorSens of service and reception, smile and friendlinessGood presentation and sense of organizationTeam spirit, flexibility and adaptabilityMastering French, English is an assetAvailability to work according to a schedule including weekends and holidaysAdditional informationThe practice of other languages is a plus. Your team and working environment: In a nutshell, present the team, establishment or work environment that reflects the team culture Our Commitment Diversity & Inclusion: We are an inclusive company and our ambition is to attract, recruit, and promote diversity of talent.",
-        "de": "Treten Sie einem Accor-Hotelmitglied bei, dessen Gruppe mehr als 45 Marken, 5.500 Hotels, 10.000 Restaurants und Lifestyle-Destinationen vereint. Hier glauben wir an dich und an das, was du mitbringst. Es gibt viele Möglichkeiten für Entwicklung und Entwicklung. Jede Geste, jedes Lächeln, jede Aktion trägt dazu bei, eine positive und unvergessliche Wirkung für unsere Kunden, unsere Kollegen und auch für unseren Planeten zu erzielen. Gemeinsam verkörpern wir die Vision einer verantwortungsvollen Gastfreundschaft. Haben Sie die Möglichkeit, ein Heartist® zu werden, und lassen Sie sich von Ihrem Herzen in diese Welt führen, in der das Leben härter schlägt. Als Teil Ihres Praktikums in unserer Einrichtung werden Sie aufgefordert, alle operativen Aufgaben des Hotels zu entdecken, indem Sie sich an die verschiedenen Dienstleistungen wenden (Empfang, Frühstück, Hauswirtschaft, abhängig von den Bedürfnissen und Ihrem Profil).\n• Ihre Hauptaufgaben: Begrüßen, informieren und zufriedenstellen unsere Gäste während ihres AufenthaltsTeilnehmen Sie an den täglichen Check-in / Check-out-OperationenBeitragen Sie zur Einrichtung und Service von BreakfastVeal zur Sauberkeit und guten Wartung der Räume (Zimmer, Gemeinschaftsteile) Anwendung der Qualitätsstandards und internen Verfahren (ibis brand, Accor group)Zusammenarbeit mit allen Teams, um ein optimales Kundenerlebnis zu gewährleistenQualifikationen Sie befinden sich derzeit in der Ausbildung im Bereich Hotel-Restaurant oder möchten diesen Sektor entdeckenSinn von Service und Rezeption, Lächeln und FreundlichkeitGute Präsentation und Organisationssinn Teamgeist, Flexibilität und AnpassungsfähigkeitMastering Französisch, Englisch ist ein AssetVerfügbarkeit nach einem Zeitplan einschließlich Wochenenden und FeiertagenZusätzliche Informationen Die Praxis anderer Sprachen ist ein Plus. Ihr Team und Ihre Arbeitsumgebung: Kurz gesagt, stellen Sie das Team, die Einrichtung oder das Arbeitsumfeld vor, das die Teamkultur Our Commitment Diversity & Inclusion widerspiegelt: Wir sind ein integratives Unternehmen und unser Ziel ist es, die Vielfalt von Talenten zu gewinnen, zu rekrutieren und zu fördern.",
-        "fr": "Description de l'entrepriseRejoignez un hôtel membre du réseau Accor, dont le groupe réunit plus de 45 marques, 5 500 hôtels, 10 000 restaurants et destinations lifestyle. Ici, nous croyons en vous et en ce que vous apportez. Les opportunités de développement et d'évolution sont nombreuses. Chaque geste, chaque sourire, chaque action, contribuent à créer un impact positif et mémorable pour nos clients, nos collègues et aussi pour notre planète. Ensemble, nous incarnons la vision de l’hospitalité responsable. Ayez l’opportunité de devenir un Heartist®, et laissez votre coeur vous guider dans ce monde où la vie bat plus fort.Description du posteDans le cadre de votre stage au sein de notre établissement, vous serez amené(e) à découvrir l'ensemble des métiers opérationnels de l'hôtel en tournant sur les différents services (Réception, Petit-Déjeuner, Housekeeping, selon les besoins et votre profil).\n• Vos missions principales :Accueillir, renseigner et satisfaire nos clients tout au long de leur séjourParticiper aux opérations quotidiennes de check-in / check-outContribuer à la mise en place et au service du petit-déjeunerVeiller à la propreté et à la bonne tenue des espaces (chambres, parties communes)Appliquer les standards de qualité et les procédures internes (marque ibis, groupe Accor)Collaborer avec l'ensemble des équipes pour garantir une expérience client optimaleQualificationsVous êtes actuellement en formation dans le domaine de l'hôtellerie-restauration ou souhaitez découvrir ce secteurSens du service et de l'accueil, sourire et amabilitéBonne présentation et sens de l'organisationEsprit d'équipe, flexibilité et adaptabilitéMaîtrise du français, l'anglais est un atoutDisponibilité pour travailler selon un planning incluant weekends et jours fériésInformations supplémentairesLa pratique d'autres langues est un plus. Votre équipe et votre environnement de travail : En quelques mots, présentez l’équipe, l’établissement ou l’environnement de travail qui reflète la culture de l'équipe Notre Engagement Diversité & Inclusion : Nous sommes une entreprise inclusive et notre ambition est d’attirer, de recruter, et de promouvoir la diversité des talents."
-      },
-      "location": "ibis Lausanne Centre, Lausanne, Switzerland",
-      "canton": "VD",
-      "url": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:52:46.577Z",
-      "addressLocality": "ibis Lausanne Centre, Lausanne, Switzerland",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stagiaire-operationnel-100-accor-ch",
-        "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-operationnel-100-accor-ch"
-        ],
-        "en": [
-          "stagiaire-operationnel-100-accor-ch"
-        ],
-        "de": [
-          "stagiaire-operationnel-100-accor-ch"
-        ],
-        "fr": [
-          "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-08-31T23:39:14.384Z",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
           "unitText": "YEAR"
         }
       }
@@ -835,7 +773,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-chef-de-cuisine-f-h-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-106838",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:52:46.577Z",
+      "crawledAt": "2026-09-11T23:21:11.119Z",
       "addressLocality": "Hotel Rotary Geneva - MGallery, Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -852,16 +790,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fr-chef-de-cuisine-f-h-x-accor-ch"
+        "fr-chef-de-cuisine-f-h-x-accor-ch",
+        "en-chef-de-cuisine-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fr-chef-de-cuisine-f-h-x-accor-ch"
+          "fr-chef-de-cuisine-f-h-x-accor-ch",
+          "en-chef-de-cuisine-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland"
         ],
         "en": [
           "fr-chef-de-cuisine-f-h-x-accor-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T23:39:14.685Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -875,8 +816,89 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "accor-5bf571062e63",
+      "slug": "allenamento-operativo-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland",
+      "slugByLocale": {
+        "it": "allenamento-operativo-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland",
+        "en": "operational-trainee-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland",
+        "de": "operational-trainee-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland",
+        "fr": "stagiaire-operationnel-100-accor-ch"
       },
-      "needsRetranslation": true
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Stagiaire Opérationnel - 100%",
+      "titleByLocale": {
+        "it": "Allenamento Operativo - 100%",
+        "en": "Operational Trainee - 100%",
+        "de": "Operational Trainee - 100%",
+        "fr": "Stagiaire Opérationnel - 100%"
+      },
+      "description": "Description de l'entrepriseRejoignez un hôtel membre du réseau Accor, dont le groupe réunit plus de 45 marques, 5 500 hôtels, 10 000 restaurants et destinations lifestyle. Ici, nous croyons en vous et en ce que vous apportez. Les opportunités de développement et d'évolution sont nombreuses. Chaque geste, chaque sourire, chaque action, contribuent à créer un impact positif et mémorable pour nos clients, nos collègues et aussi pour notre planète. Ensemble, nous incarnons la vision de l’hospitalité responsable. Ayez l’opportunité de devenir un Heartist®, et laissez votre coeur vous guider dans ce monde où la vie bat plus fort.Description du posteDans le cadre de votre stage au sein de notre établissement, vous serez amené(e) à découvrir l'ensemble des métiers opérationnels de l'hôtel en tournant sur les différents services (Réception, Petit-Déjeuner, Housekeeping, selon les besoins et votre profil).\n• Vos missions principales :Accueillir, renseigner et satisfaire nos clients tout au long de leur séjourParticiper aux opérations quotidiennes de check-in / check-outContribuer à la mise en place et au service du petit-déjeunerVeiller à la propreté et à la bonne tenue des espaces (chambres, parties communes)Appliquer les standards de qualité et les procédures internes (marque ibis, groupe Accor)Collaborer avec l'ensemble des équipes pour garantir une expérience client optimaleQualificationsVous êtes actuellement en formation dans le domaine de l'hôtellerie-restauration ou souhaitez découvrir ce secteurSens du service et de l'accueil, sourire et amabilitéBonne présentation et sens de l'organisationEsprit d'équipe, flexibilité et adaptabilitéMaîtrise du français, l'anglais est un atoutDisponibilité pour travailler selon un planning incluant weekends et jours fériésInformations supplémentairesLa pratique d'autres langues est un plus. Votre équipe et votre environnement de travail : En quelques mots, présentez l’équipe, l’établissement ou l’environnement de travail qui reflète la culture de l'équipe Notre Engagement Diversité & Inclusion : Nous sommes une entreprise inclusive et notre ambition est d’attirer, de recruter, et de promouvoir la diversité des talents.",
+      "descriptionByLocale": {
+        "it": "Descrizione dell'aziendaUn membro dell'hotel Accor il cui gruppo riunisce più di 45 marchi, 5.500 hotel, 10.000 ristoranti e destinazioni di vita. Qui crediamo in te e in quello che porti. Ci sono molte opportunità per lo sviluppo e lo sviluppo. Ogni gesto, ogni sorriso, ogni azione, aiuta a creare un impatto positivo e memorabile per i nostri clienti, i nostri colleghi e anche per il nostro pianeta. Insieme, incarnamo la visione dell'ospitalità responsabile. Avere l'opportunità di diventare un Heartist®, e lasciare che il tuo cuore ti guidi in questo mondo in cui la vita batte più forte. Descrizione della posizioneCome parte del vostro stage presso il nostro stabilimento, vi verrà chiesto di scoprire tutti i lavori operativi dell'hotel rivolgendosi ai diversi servizi (Reception, Colazione, Pulizia, a seconda delle esigenze e del vostro profilo).\n• Le vostre missioni principali: Benvenuto, informare e soddisfare i nostri ospiti durante tutto il loro soggiornoParticipate nelle operazioni di check-in / check-out quotidianeContribuire alla creazione e al servizio della colazioneVeal alla pulizia e buona manutenzione degli spazi (camere, parti comuni) Applicare gli standard di qualità e le procedure interne (bis brand, gruppo Accor)Collaborare con tutti i team per garantire un'esperienza clienti ottimaleQualificazioni Sei attualmente in formazione nel campo di hotel-ristorante o vuoi scoprire questo settoreSens of service and reception, sorriso e cordialitàBuona presentazione e senso dell'organizzazione Spirito di squadra, flessibilità e adattabilitàMastering French, l'inglese è un beneDisponibilità di lavorare secondo un programma compreso fine settimana e festiviUlteriori informazioni La pratica di altre lingue è un plus. Il vostro team e ambiente di lavoro: In poche parole, presenta il team, l'ambiente di lavoro o di stabilimento che riflette la cultura del team La nostra diversità di impegno & inclusione: Siamo una società inclusiva e la nostra ambizione è di attrarre, reclutare e promuovere la diversità del talento.",
+        "en": "Company descriptionJoin an Accor hotel member whose group brings together more than 45 brands, 5,500 hotels, 10,000 restaurants and lifestyle destinations. Here we believe in you and in what you bring. There are many opportunities for development and development. Every gesture, every smile, every action, helps create a positive and memorable impact for our clients, our colleagues and also for our planet. Together, we embody the vision of responsible hospitality. Have the opportunity to become a Heartist®, and let your heart guide you into this world where life beats harder. Description of the positionAs part of your internship at our establishment, you will be prompted to discover all the operational jobs of the hotel by turning to the different services (Reception, Breakfast, Housekeeping, depending on the needs and your profile).\n• Your main missions: Welcome, inform and satisfy our guests throughout their stayParticipate in the daily check-in / check-out operationsContribute to the setting up and service of breakfastVeal to the cleanliness and good maintenance of the spaces (rooms, common parts)Apply the quality standards and internal procedures (ibis brand, Accor group)Collaborate with all the teams to guarantee an optimal customer experienceQualificationsYou are currently in training in the field of hotel-restaurant or want to discover this sectorSens of service and reception, smile and friendlinessGood presentation and sense of organizationTeam spirit, flexibility and adaptabilityMastering French, English is an assetAvailability to work according to a schedule including weekends and holidaysAdditional informationThe practice of other languages is a plus. Your team and working environment: In a nutshell, present the team, establishment or work environment that reflects the team culture Our Commitment Diversity & Inclusion: We are an inclusive company and our ambition is to attract, recruit, and promote diversity of talent.",
+        "de": "Treten Sie einem Accor-Hotelmitglied bei, dessen Gruppe mehr als 45 Marken, 5.500 Hotels, 10.000 Restaurants und Lifestyle-Destinationen vereint. Hier glauben wir an dich und an das, was du mitbringst. Es gibt viele Möglichkeiten für Entwicklung und Entwicklung. Jede Geste, jedes Lächeln, jede Aktion trägt dazu bei, eine positive und unvergessliche Wirkung für unsere Kunden, unsere Kollegen und auch für unseren Planeten zu erzielen. Gemeinsam verkörpern wir die Vision einer verantwortungsvollen Gastfreundschaft. Haben Sie die Möglichkeit, ein Heartist® zu werden, und lassen Sie sich von Ihrem Herzen in diese Welt führen, in der das Leben härter schlägt. Als Teil Ihres Praktikums in unserer Einrichtung werden Sie aufgefordert, alle operativen Aufgaben des Hotels zu entdecken, indem Sie sich an die verschiedenen Dienstleistungen wenden (Empfang, Frühstück, Hauswirtschaft, abhängig von den Bedürfnissen und Ihrem Profil).\n• Ihre Hauptaufgaben: Begrüßen, informieren und zufriedenstellen unsere Gäste während ihres AufenthaltsTeilnehmen Sie an den täglichen Check-in / Check-out-OperationenBeitragen Sie zur Einrichtung und Service von BreakfastVeal zur Sauberkeit und guten Wartung der Räume (Zimmer, Gemeinschaftsteile) Anwendung der Qualitätsstandards und internen Verfahren (ibis brand, Accor group)Zusammenarbeit mit allen Teams, um ein optimales Kundenerlebnis zu gewährleistenQualifikationen Sie befinden sich derzeit in der Ausbildung im Bereich Hotel-Restaurant oder möchten diesen Sektor entdeckenSinn von Service und Rezeption, Lächeln und FreundlichkeitGute Präsentation und Organisationssinn Teamgeist, Flexibilität und AnpassungsfähigkeitMastering Französisch, Englisch ist ein AssetVerfügbarkeit nach einem Zeitplan einschließlich Wochenenden und FeiertagenZusätzliche Informationen Die Praxis anderer Sprachen ist ein Plus. Ihr Team und Ihre Arbeitsumgebung: Kurz gesagt, stellen Sie das Team, die Einrichtung oder das Arbeitsumfeld vor, das die Teamkultur Our Commitment Diversity & Inclusion widerspiegelt: Wir sind ein integratives Unternehmen und unser Ziel ist es, die Vielfalt von Talenten zu gewinnen, zu rekrutieren und zu fördern.",
+        "fr": "Description de l'entrepriseRejoignez un hôtel membre du réseau Accor, dont le groupe réunit plus de 45 marques, 5 500 hôtels, 10 000 restaurants et destinations lifestyle. Ici, nous croyons en vous et en ce que vous apportez. Les opportunités de développement et d'évolution sont nombreuses. Chaque geste, chaque sourire, chaque action, contribuent à créer un impact positif et mémorable pour nos clients, nos collègues et aussi pour notre planète. Ensemble, nous incarnons la vision de l’hospitalité responsable. Ayez l’opportunité de devenir un Heartist®, et laissez votre coeur vous guider dans ce monde où la vie bat plus fort.Description du posteDans le cadre de votre stage au sein de notre établissement, vous serez amené(e) à découvrir l'ensemble des métiers opérationnels de l'hôtel en tournant sur les différents services (Réception, Petit-Déjeuner, Housekeeping, selon les besoins et votre profil).\n• Vos missions principales :Accueillir, renseigner et satisfaire nos clients tout au long de leur séjourParticiper aux opérations quotidiennes de check-in / check-outContribuer à la mise en place et au service du petit-déjeunerVeiller à la propreté et à la bonne tenue des espaces (chambres, parties communes)Appliquer les standards de qualité et les procédures internes (marque ibis, groupe Accor)Collaborer avec l'ensemble des équipes pour garantir une expérience client optimaleQualificationsVous êtes actuellement en formation dans le domaine de l'hôtellerie-restauration ou souhaitez découvrir ce secteurSens du service et de l'accueil, sourire et amabilitéBonne présentation et sens de l'organisationEsprit d'équipe, flexibilité et adaptabilitéMaîtrise du français, l'anglais est un atoutDisponibilité pour travailler selon un planning incluant weekends et jours fériésInformations supplémentairesLa pratique d'autres langues est un plus. Votre équipe et votre environnement de travail : En quelques mots, présentez l’équipe, l’établissement ou l’environnement de travail qui reflète la culture de l'équipe Notre Engagement Diversité & Inclusion : Nous sommes une entreprise inclusive et notre ambition est d’attirer, de recruter, et de promouvoir la diversité des talents."
+      },
+      "location": "ibis Lausanne Centre, Lausanne, Switzerland",
+      "canton": "VD",
+      "url": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-11T23:21:11.118Z",
+      "addressLocality": "ibis Lausanne Centre, Lausanne, Switzerland",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stagiaire-operationnel-100-accor-ch",
+        "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland",
+        "allenamento-operativo-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-operationnel-100-accor-ch",
+          "allenamento-operativo-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland"
+        ],
+        "en": [
+          "stagiaire-operationnel-100-accor-ch"
+        ],
+        "de": [
+          "stagiaire-operationnel-100-accor-ch"
+        ],
+        "fr": [
+          "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-08-31T23:39:14.384Z",
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "accor-1234db7b20ad",
@@ -909,7 +931,7 @@
       "url": "https://careers.accor.com/fr/fr/job/hotesse-montreux-jazz-cafe-funky-claude-s-bar-h-f-x-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106812",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:52:46.576Z",
+      "crawledAt": "2026-09-11T23:21:11.117Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -927,11 +949,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hotesse-montreux-jazz-cafe-funky-claude-s-bar-h-f-x-cdd-accor-ch",
-        "hotesse-montreux-jazz-cafe-funky-claude-s-bar-h-f-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
+        "hotesse-montreux-jazz-cafe-funky-claude-s-bar-h-f-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
+        "hostesse-montreux-jazz-cafe-funky-claude-s-bar-m-f-x-csd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hotesse-montreux-jazz-cafe-funky-claude-s-bar-h-f-x-cdd-accor-ch"
+          "hotesse-montreux-jazz-cafe-funky-claude-s-bar-h-f-x-cdd-accor-ch",
+          "hostesse-montreux-jazz-cafe-funky-claude-s-bar-m-f-x-csd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
         ],
         "en": [
           "hotesse-montreux-jazz-cafe-funky-claude-s-bar-h-f-x-cdd-accor-ch"
@@ -990,7 +1014,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistent-front-office-manager-in-ibis-styles-zurich-city-center-zuerich-switzerland-jid-107635",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:46.575Z",
+      "crawledAt": "2026-09-11T23:21:11.115Z",
       "addressLocality": "ibis Styles Zurich City Center, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1014,7 +1038,8 @@
         "assistant-front-office-manager-accor-ch-jgn3jb",
         "assistant-front-office-manager-accor-ch-2",
         "assistent-front-office-manager-accor-ch",
-        "assistent-front-office-manager-ibis-budget-ibis-styles-zurich-city-center-zurich-switzerland"
+        "assistent-front-office-manager-ibis-budget-ibis-styles-zurich-city-center-zurich-switzerland",
+        "manager-di-front-office-ibis-budget-ibis-styles-zurich-city-center-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1024,7 +1049,8 @@
           "assistant-front-office-manager-accor-ch",
           "assistant-front-office-manager-accor-ch-jgn3jb",
           "assistant-front-office-manager-accor-ch-2",
-          "assistent-front-office-manager-accor-ch"
+          "assistent-front-office-manager-accor-ch",
+          "manager-di-front-office-ibis-budget-ibis-styles-zurich-city-center-zurich-switzerland"
         ],
         "en": [
           "assistant-front-office-manager-ibis-budget-lugano",
@@ -1085,7 +1111,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistant-groups-and-event-manager-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-107850",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:46.573Z",
+      "crawledAt": "2026-09-11T23:21:11.113Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1103,11 +1129,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-groups-event-manager-f-m-d-accor-ch",
-        "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
+        "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
+        "gruppi-assistenti-event-manager-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-groups-event-manager-f-m-d-accor-ch"
+          "assistant-groups-event-manager-f-m-d-accor-ch",
+          "gruppi-assistenti-event-manager-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
         ],
         "en": [
           "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
@@ -1116,6 +1144,7 @@
           "assistant-groups-event-manager-f-m-d-accor-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T23:39:13.477Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -1129,8 +1158,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "accor-0b1dcb96cad3",
@@ -1163,7 +1191,7 @@
       "url": "https://careers.accor.com/fr/fr/job/service-staff-ribelli-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-24550",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:46.572Z",
+      "crawledAt": "2026-09-11T23:21:11.112Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1181,12 +1209,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "service-staff-ribelli-f-m-d-accor-ch",
-        "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
+        "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
+        "personale-di-servizio-ribelli-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-staff-ribelli-f-m-d-accor-ch",
-          "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
+          "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
+          "personale-di-servizio-ribelli-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
         ],
         "de": [
           "service-staff-ribelli-f-m-d-accor-ch"
@@ -1195,6 +1225,7 @@
           "service-staff-ribelli-f-m-d-accor-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T23:39:13.174Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1208,8 +1239,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "accor-8c87d31fd03f",
@@ -1242,7 +1272,7 @@
       "url": "https://careers.accor.com/fr/fr/job/agent-d-entretien-batiment-f-h-x-cdi-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-107763",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:52:46.570Z",
+      "crawledAt": "2026-09-11T23:21:11.111Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1260,11 +1290,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "agent-d-entretien-batiment-f-h-x-cdi-2026-accor-ch",
-        "agent-d-entretien-batiment-f-h-x-cdi-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
+        "agent-d-entretien-batiment-f-h-x-cdi-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
+        "responsabile-della-manutenzione-degli-edifici-m-f-x-cdi-2026-ibis-budget-fairmont-le-montreux-palace-montreux"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-d-entretien-batiment-f-h-x-cdi-2026-accor-ch"
+          "agent-d-entretien-batiment-f-h-x-cdi-2026-accor-ch",
+          "responsabile-della-manutenzione-degli-edifici-m-f-x-cdi-2026-ibis-budget-fairmont-le-montreux-palace-montreux"
         ],
         "en": [
           "agent-d-entretien-batiment-f-h-x-cdi-2026-accor-ch"
@@ -1322,7 +1354,7 @@
       "url": "https://careers.accor.com/fr/fr/job/groups-and-event-coordinator-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-18387",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:46.568Z",
+      "crawledAt": "2026-09-11T23:21:11.110Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1340,11 +1372,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "groups-event-coordinator-f-m-d-accor-ch",
-        "groups-event-coordinator-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
+        "groups-event-coordinator-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland",
+        "groups-event-coordinatore-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "groups-event-coordinator-f-m-d-accor-ch"
+          "groups-event-coordinator-f-m-d-accor-ch",
+          "groups-event-coordinatore-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
         ],
         "en": [
           "groups-event-coordinator-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
@@ -1375,8 +1409,8 @@
       "id": "accor-4a385b52ea64",
       "slug": "junior-sous-chef-f-m-d-accor-ch",
       "slugByLocale": {
-        "en": "junior-sous-chef-f-m-d-accor-ch",
         "it": "junior-sous-chef-f-m-d-accor-ch",
+        "en": "junior-sous-chef-f-m-d-accor-ch",
         "de": "junior-sous-chef-f-m-d-accor-ch",
         "fr": "junior-sous-chef-f-m-d-accor-ch"
       },
@@ -1385,15 +1419,15 @@
       "companyDomain": "careers.accor.com",
       "title": "Junior Sous-Chef (f/m/d)",
       "titleByLocale": {
-        "en": "Junior Sous-Chef (f/m/d)",
         "it": "Junior Sous-Chef (f/m/d)",
+        "en": "Junior Sous-Chef (f/m/d)",
         "de": "Junior Sous-Chef (f/m/d)",
         "fr": "Junior Sous-Chef (f/m/d)"
       },
       "description": "Company DescriptionThere’s a lively atmosphere at NENI. That’s because the restaurant concept, devised by Haya Molcho and her sons, entirely revolves around sharing and enjoying meals together with passion and Balagan, meaning sympathetic chaos. Now with seven locations, we conjure up delicious dishes on plates and smiles on the faces of our guests. We are hosts with heart, soul and understanding. Heartfelt service and an authentic, personable style are integral for the pleasant chaos at the big round table to the experience that we offer. It’s for that reason that as well as our guests, our colleagues feel at home when they are with us too. The motto of NENI is: Life is beautiful. Be part of it.COME AS YOU ARE & SHOW WHAT YOU CAN...… in a 4-day-workweek. Enjoy 3 days off every week and the opportunity to organize your free time more flexible!Job DescriptionHow does your working day look like …You’ll support the Head Chef and Sous-Chef with resource planning, help manage the team, and support your colleagues’ development in collaboration with the kitchen leadership team.You’ll help ensure that accounts are correct and administrative processes run smoothly.You are a competent and open-minded contact and sparring partner for our external concept partner.You’ll support your colleagues with a winning smile whenever, once again, all the guests order at the same time. On top of this, you’ll also keep your head above water when there are sudden changes of plan, and make sure that every dish tastes as magnificent as it looksQualificationsYour personality counts more than your CV …You’ve gained first experience of management in a kitchen, and can speak English fluentlyYou can inspire your fellow staff just as you can inspire your guests. On top of this, you’re hungry for new food concepts and love eclectic cuisineYou’re passionate about live cooking and international cuisine, and are renowned for your organisational skills in the kitchenYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Only work 4-days a week as a full-time team member without payment or holiday reductionGet to know our 25hours hotels and stay for free for a maximum of 10 nights per years as an employeeTake advantage of being part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the worldBenefit from great offers from our numerous cooperation partnersReconcile your personal situation with work – we are open to part-time employment, mini-jobs and any other adjustmentsBe part of our hilarious staff parties and much more …",
       "descriptionByLocale": {
-        "en": "Company DescriptionThere’s a lively atmosphere at NENI. That’s because the restaurant concept, devised by Haya Molcho and her sons, entirely revolves around sharing and enjoying meals together with passion and Balagan, meaning sympathetic chaos. Now with seven locations, we conjure up delicious dishes on plates and smiles on the faces of our guests. We are hosts with heart, soul and understanding. Heartfelt service and an authentic, personable style are integral for the pleasant chaos at the big round table to the experience that we offer. It’s for that reason that as well as our guests, our colleagues feel at home when they are with us too. The motto of NENI is: Life is beautiful. Be part of it.COME AS YOU ARE & SHOW WHAT YOU CAN...… in a 4-day-workweek. Enjoy 3 days off every week and the opportunity to organize your free time more flexible!Job DescriptionHow does your working day look like …You’ll support the Head Chef and Sous-Chef with resource planning, help manage the team, and support your colleagues’ development in collaboration with the kitchen leadership team.You’ll help ensure that accounts are correct and administrative processes run smoothly.You are a competent and open-minded contact and sparring partner for our external concept partner.You’ll support your colleagues with a winning smile whenever, once again, all the guests order at the same time. On top of this, you’ll also keep your head above water when there are sudden changes of plan, and make sure that every dish tastes as magnificent as it looksQualificationsYour personality counts more than your CV …You’ve gained first experience of management in a kitchen, and can speak English fluentlyYou can inspire your fellow staff just as you can inspire your guests. On top of this, you’re hungry for new food concepts and love eclectic cuisineYou’re passionate about live cooking and international cuisine, and are renowned for your organisational skills in the kitchenYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Only work 4-days a week as a full-time team member without payment or holiday reductionGet to know our 25hours hotels and stay for free for a maximum of 10 nights per years as an employeeTake advantage of being part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the worldBenefit from great offers from our numerous cooperation partnersReconcile your personal situation with work – we are open to part-time employment, mini-jobs and any other adjustmentsBe part of our hilarious staff parties and much more …",
         "it": "Company DescriptionThere’s a lively atmosphere at NENI. That’s because the restaurant concept, devised by Haya Molcho and her sons, entirely revolves around sharing and enjoying meals together with passion and Balagan, meaning sympathetic chaos. Now with seven locations, we conjure up delicious dishes on plates and smiles on the faces of our guests. We are hosts with heart, soul and understanding. Heartfelt service and an authentic, personable style are integral for the pleasant chaos at the big round table to the experience that we offer. It’s for that reason that as well as our guests, our colleagues feel at home when they are with us too. The motto of NENI is: Life is beautiful. Be part of it.COME AS YOU ARE & SHOW WHAT YOU CAN...… in a 4-day-workweek. Enjoy 3 days off every week and the opportunity to organize your free time more flexible!Job DescriptionHow does your working day look like …You’ll support the Head Chef and Sous-Chef with resource planning, help manage the team, and support your colleagues’ development in collaboration with the kitchen leadership team.You’ll help ensure that accounts are correct and administrative processes run smoothly.You are a competent and open-minded contact and sparring partner for our external concept partner.You’ll support your colleagues with a winning smile whenever, once again, all the guests order at the same time. On top of this, you’ll also keep your head above water when there are sudden changes of plan, and make sure that every dish tastes as magnificent as it looksQualificationsYour personality counts more than your CV …You’ve gained first experience of management in a kitchen, and can speak English fluentlyYou can inspire your fellow staff just as you can inspire your guests. On top of this, you’re hungry for new food concepts and love eclectic cuisineYou’re passionate about live cooking and international cuisine, and are renowned for your organisational skills in the kitchenYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Only work 4-days a week as a full-time team member without payment or holiday reductionGet to know our 25hours hotels and stay for free for a maximum of 10 nights per years as an employeeTake advantage of being part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the worldBenefit from great offers from our numerous cooperation partnersReconcile your personal situation with work – we are open to part-time employment, mini-jobs and any other adjustmentsBe part of our hilarious staff parties and much more …",
+        "en": "Company DescriptionThere’s a lively atmosphere at NENI. That’s because the restaurant concept, devised by Haya Molcho and her sons, entirely revolves around sharing and enjoying meals together with passion and Balagan, meaning sympathetic chaos. Now with seven locations, we conjure up delicious dishes on plates and smiles on the faces of our guests. We are hosts with heart, soul and understanding. Heartfelt service and an authentic, personable style are integral for the pleasant chaos at the big round table to the experience that we offer. It’s for that reason that as well as our guests, our colleagues feel at home when they are with us too. The motto of NENI is: Life is beautiful. Be part of it.COME AS YOU ARE & SHOW WHAT YOU CAN...… in a 4-day-workweek. Enjoy 3 days off every week and the opportunity to organize your free time more flexible!Job DescriptionHow does your working day look like …You’ll support the Head Chef and Sous-Chef with resource planning, help manage the team, and support your colleagues’ development in collaboration with the kitchen leadership team.You’ll help ensure that accounts are correct and administrative processes run smoothly.You are a competent and open-minded contact and sparring partner for our external concept partner.You’ll support your colleagues with a winning smile whenever, once again, all the guests order at the same time. On top of this, you’ll also keep your head above water when there are sudden changes of plan, and make sure that every dish tastes as magnificent as it looksQualificationsYour personality counts more than your CV …You’ve gained first experience of management in a kitchen, and can speak English fluentlyYou can inspire your fellow staff just as you can inspire your guests. On top of this, you’re hungry for new food concepts and love eclectic cuisineYou’re passionate about live cooking and international cuisine, and are renowned for your organisational skills in the kitchenYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Only work 4-days a week as a full-time team member without payment or holiday reductionGet to know our 25hours hotels and stay for free for a maximum of 10 nights per years as an employeeTake advantage of being part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the worldBenefit from great offers from our numerous cooperation partnersReconcile your personal situation with work – we are open to part-time employment, mini-jobs and any other adjustmentsBe part of our hilarious staff parties and much more …",
         "de": "Company DescriptionThere’s a lively atmosphere at NENI. That’s because the restaurant concept, devised by Haya Molcho and her sons, entirely revolves around sharing and enjoying meals together with passion and Balagan, meaning sympathetic chaos. Now with seven locations, we conjure up delicious dishes on plates and smiles on the faces of our guests. We are hosts with heart, soul and understanding. Heartfelt service and an authentic, personable style are integral for the pleasant chaos at the big round table to the experience that we offer. It’s for that reason that as well as our guests, our colleagues feel at home when they are with us too. The motto of NENI is: Life is beautiful. Be part of it.COME AS YOU ARE & SHOW WHAT YOU CAN...… in a 4-day-workweek. Enjoy 3 days off every week and the opportunity to organize your free time more flexible!Job DescriptionHow does your working day look like …You’ll support the Head Chef and Sous-Chef with resource planning, help manage the team, and support your colleagues’ development in collaboration with the kitchen leadership team.You’ll help ensure that accounts are correct and administrative processes run smoothly.You are a competent and open-minded contact and sparring partner for our external concept partner.You’ll support your colleagues with a winning smile whenever, once again, all the guests order at the same time. On top of this, you’ll also keep your head above water when there are sudden changes of plan, and make sure that every dish tastes as magnificent as it looksQualificationsYour personality counts more than your CV …You’ve gained first experience of management in a kitchen, and can speak English fluentlyYou can inspire your fellow staff just as you can inspire your guests. On top of this, you’re hungry for new food concepts and love eclectic cuisineYou’re passionate about live cooking and international cuisine, and are renowned for your organisational skills in the kitchenYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Only work 4-days a week as a full-time team member without payment or holiday reductionGet to know our 25hours hotels and stay for free for a maximum of 10 nights per years as an employeeTake advantage of being part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the worldBenefit from great offers from our numerous cooperation partnersReconcile your personal situation with work – we are open to part-time employment, mini-jobs and any other adjustmentsBe part of our hilarious staff parties and much more …",
         "fr": "Company DescriptionThere’s a lively atmosphere at NENI. That’s because the restaurant concept, devised by Haya Molcho and her sons, entirely revolves around sharing and enjoying meals together with passion and Balagan, meaning sympathetic chaos. Now with seven locations, we conjure up delicious dishes on plates and smiles on the faces of our guests. We are hosts with heart, soul and understanding. Heartfelt service and an authentic, personable style are integral for the pleasant chaos at the big round table to the experience that we offer. It’s for that reason that as well as our guests, our colleagues feel at home when they are with us too. The motto of NENI is: Life is beautiful. Be part of it.COME AS YOU ARE & SHOW WHAT YOU CAN...… in a 4-day-workweek. Enjoy 3 days off every week and the opportunity to organize your free time more flexible!Job DescriptionHow does your working day look like …You’ll support the Head Chef and Sous-Chef with resource planning, help manage the team, and support your colleagues’ development in collaboration with the kitchen leadership team.You’ll help ensure that accounts are correct and administrative processes run smoothly.You are a competent and open-minded contact and sparring partner for our external concept partner.You’ll support your colleagues with a winning smile whenever, once again, all the guests order at the same time. On top of this, you’ll also keep your head above water when there are sudden changes of plan, and make sure that every dish tastes as magnificent as it looksQualificationsYour personality counts more than your CV …You’ve gained first experience of management in a kitchen, and can speak English fluentlyYou can inspire your fellow staff just as you can inspire your guests. On top of this, you’re hungry for new food concepts and love eclectic cuisineYou’re passionate about live cooking and international cuisine, and are renowned for your organisational skills in the kitchenYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Only work 4-days a week as a full-time team member without payment or holiday reductionGet to know our 25hours hotels and stay for free for a maximum of 10 nights per years as an employeeTake advantage of being part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the worldBenefit from great offers from our numerous cooperation partnersReconcile your personal situation with work – we are open to part-time employment, mini-jobs and any other adjustmentsBe part of our hilarious staff parties and much more …"
       },
@@ -1402,7 +1436,7 @@
       "url": "https://careers.accor.com/fr/fr/job/junior-sous-chef-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-109967",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:46.566Z",
+      "crawledAt": "2026-09-11T23:21:11.108Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1417,10 +1451,9 @@
       "postedDate": "2026-09-11",
       "applyUrl": "https://careers.accor.com/fr/fr/job/junior-sous-chef-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-109967",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:52:46.566Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1433,8 +1466,72 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "accor-45dd961bae62",
+      "slug": "head-chef-f-wm-d-accor-ch",
+      "slugByLocale": {
+        "en": "head-chef-f-wm-d-accor-ch",
+        "it": "head-chef-f-wm-d-accor-ch",
+        "de": "head-chef-f-wm-d-accor-ch",
+        "fr": "head-chef-f-wm-d-accor-ch"
       },
-      "firstSeenAt": "2026-09-11T13:52:46.566Z"
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Head Chef (f/wm/d)",
+      "titleByLocale": {
+        "en": "Head Chef (f/wm/d)",
+        "it": "Head Chef (f/wm/d)",
+        "de": "Head Chef (f/wm/d)",
+        "fr": "Head Chef (f/wm/d)"
+      },
+      "description": "Company DescriptionThere’s a lively atmosphere at NENI. That’s because the restaurant concept, devised by Haya Molcho and her sons, entirely revolves around sharing and enjoying meals together with passion and Balagan, meaning sympathetic chaos. Now with seven locations, we conjure up delicious dishes on plates and smiles on the faces of our guests. We are hosts with heart, soul and understanding. Heartfelt service and an authentic, personable style are integral for the pleasant chaos at the big round table to the experience that we offer. It’s for that reason that as well as our guests, our colleagues feel at home when they are with us too. The motto of NENI is: Life is beautiful. Be part of it.COME AS YOU ARE & SHOW WHAT YOU CAN...… in a 4-day-workweek. Enjoy 3 days off every week and the opportunity to organize your free time more flexible!Job DescriptionHow does your working day look like …You’ll take care of resource planning, manage the team, and support your colleagues’ developmentYou’ll make sure the accounts are correct and admin processes run smoothly.You’ll take responsibility for your budget, and develop the menu and cuisine with our external concept partner from a business perspectiveYou’ll support your colleagues with a winning smile whenever, once again, all the guests order at the same time. On top of this, you’ll also keep your head above water when there are sudden changes of plan, and make sure that every dish tastes as magnificent as it looksQualificationsYour personality counts more than your CV …You’ve gained experience of management in a kitchen, and can speak English and German fluentlyYou can inspire your fellow staff just as you can inspire your guests. On top of this, you’re hungry for new food concepts and love eclectic cuisineYou’re passionate about live cooking and international cuisine, and are renowned for your organisational skills in the kitchenYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Only work 4-days a week as a full-time team member without payment or holiday reductionGet to know our 25hours hotels and stay for free for a maximum of 10 nights per years as an employeeTake advantage of being part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the worldBenefit from great offers from our numerous cooperation partnersReconcile your personal situation with work – we are open to part-time employment, mini-jobs and any other adjustmentsBe part of our hilarious staff parties and much more …",
+      "descriptionByLocale": {
+        "en": "Company DescriptionThere’s a lively atmosphere at NENI. That’s because the restaurant concept, devised by Haya Molcho and her sons, entirely revolves around sharing and enjoying meals together with passion and Balagan, meaning sympathetic chaos. Now with seven locations, we conjure up delicious dishes on plates and smiles on the faces of our guests. We are hosts with heart, soul and understanding. Heartfelt service and an authentic, personable style are integral for the pleasant chaos at the big round table to the experience that we offer. It’s for that reason that as well as our guests, our colleagues feel at home when they are with us too. The motto of NENI is: Life is beautiful. Be part of it.COME AS YOU ARE & SHOW WHAT YOU CAN...… in a 4-day-workweek. Enjoy 3 days off every week and the opportunity to organize your free time more flexible!Job DescriptionHow does your working day look like …You’ll take care of resource planning, manage the team, and support your colleagues’ developmentYou’ll make sure the accounts are correct and admin processes run smoothly.You’ll take responsibility for your budget, and develop the menu and cuisine with our external concept partner from a business perspectiveYou’ll support your colleagues with a winning smile whenever, once again, all the guests order at the same time. On top of this, you’ll also keep your head above water when there are sudden changes of plan, and make sure that every dish tastes as magnificent as it looksQualificationsYour personality counts more than your CV …You’ve gained experience of management in a kitchen, and can speak English and German fluentlyYou can inspire your fellow staff just as you can inspire your guests. On top of this, you’re hungry for new food concepts and love eclectic cuisineYou’re passionate about live cooking and international cuisine, and are renowned for your organisational skills in the kitchenYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Only work 4-days a week as a full-time team member without payment or holiday reductionGet to know our 25hours hotels and stay for free for a maximum of 10 nights per years as an employeeTake advantage of being part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the worldBenefit from great offers from our numerous cooperation partnersReconcile your personal situation with work – we are open to part-time employment, mini-jobs and any other adjustmentsBe part of our hilarious staff parties and much more …",
+        "it": "Company DescriptionThere’s a lively atmosphere at NENI. That’s because the restaurant concept, devised by Haya Molcho and her sons, entirely revolves around sharing and enjoying meals together with passion and Balagan, meaning sympathetic chaos. Now with seven locations, we conjure up delicious dishes on plates and smiles on the faces of our guests. We are hosts with heart, soul and understanding. Heartfelt service and an authentic, personable style are integral for the pleasant chaos at the big round table to the experience that we offer. It’s for that reason that as well as our guests, our colleagues feel at home when they are with us too. The motto of NENI is: Life is beautiful. Be part of it.COME AS YOU ARE & SHOW WHAT YOU CAN...… in a 4-day-workweek. Enjoy 3 days off every week and the opportunity to organize your free time more flexible!Job DescriptionHow does your working day look like …You’ll take care of resource planning, manage the team, and support your colleagues’ developmentYou’ll make sure the accounts are correct and admin processes run smoothly.You’ll take responsibility for your budget, and develop the menu and cuisine with our external concept partner from a business perspectiveYou’ll support your colleagues with a winning smile whenever, once again, all the guests order at the same time. On top of this, you’ll also keep your head above water when there are sudden changes of plan, and make sure that every dish tastes as magnificent as it looksQualificationsYour personality counts more than your CV …You’ve gained experience of management in a kitchen, and can speak English and German fluentlyYou can inspire your fellow staff just as you can inspire your guests. On top of this, you’re hungry for new food concepts and love eclectic cuisineYou’re passionate about live cooking and international cuisine, and are renowned for your organisational skills in the kitchenYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Only work 4-days a week as a full-time team member without payment or holiday reductionGet to know our 25hours hotels and stay for free for a maximum of 10 nights per years as an employeeTake advantage of being part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the worldBenefit from great offers from our numerous cooperation partnersReconcile your personal situation with work – we are open to part-time employment, mini-jobs and any other adjustmentsBe part of our hilarious staff parties and much more …",
+        "de": "Company DescriptionThere’s a lively atmosphere at NENI. That’s because the restaurant concept, devised by Haya Molcho and her sons, entirely revolves around sharing and enjoying meals together with passion and Balagan, meaning sympathetic chaos. Now with seven locations, we conjure up delicious dishes on plates and smiles on the faces of our guests. We are hosts with heart, soul and understanding. Heartfelt service and an authentic, personable style are integral for the pleasant chaos at the big round table to the experience that we offer. It’s for that reason that as well as our guests, our colleagues feel at home when they are with us too. The motto of NENI is: Life is beautiful. Be part of it.COME AS YOU ARE & SHOW WHAT YOU CAN...… in a 4-day-workweek. Enjoy 3 days off every week and the opportunity to organize your free time more flexible!Job DescriptionHow does your working day look like …You’ll take care of resource planning, manage the team, and support your colleagues’ developmentYou’ll make sure the accounts are correct and admin processes run smoothly.You’ll take responsibility for your budget, and develop the menu and cuisine with our external concept partner from a business perspectiveYou’ll support your colleagues with a winning smile whenever, once again, all the guests order at the same time. On top of this, you’ll also keep your head above water when there are sudden changes of plan, and make sure that every dish tastes as magnificent as it looksQualificationsYour personality counts more than your CV …You’ve gained experience of management in a kitchen, and can speak English and German fluentlyYou can inspire your fellow staff just as you can inspire your guests. On top of this, you’re hungry for new food concepts and love eclectic cuisineYou’re passionate about live cooking and international cuisine, and are renowned for your organisational skills in the kitchenYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Only work 4-days a week as a full-time team member without payment or holiday reductionGet to know our 25hours hotels and stay for free for a maximum of 10 nights per years as an employeeTake advantage of being part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the worldBenefit from great offers from our numerous cooperation partnersReconcile your personal situation with work – we are open to part-time employment, mini-jobs and any other adjustmentsBe part of our hilarious staff parties and much more …",
+        "fr": "Company DescriptionThere’s a lively atmosphere at NENI. That’s because the restaurant concept, devised by Haya Molcho and her sons, entirely revolves around sharing and enjoying meals together with passion and Balagan, meaning sympathetic chaos. Now with seven locations, we conjure up delicious dishes on plates and smiles on the faces of our guests. We are hosts with heart, soul and understanding. Heartfelt service and an authentic, personable style are integral for the pleasant chaos at the big round table to the experience that we offer. It’s for that reason that as well as our guests, our colleagues feel at home when they are with us too. The motto of NENI is: Life is beautiful. Be part of it.COME AS YOU ARE & SHOW WHAT YOU CAN...… in a 4-day-workweek. Enjoy 3 days off every week and the opportunity to organize your free time more flexible!Job DescriptionHow does your working day look like …You’ll take care of resource planning, manage the team, and support your colleagues’ developmentYou’ll make sure the accounts are correct and admin processes run smoothly.You’ll take responsibility for your budget, and develop the menu and cuisine with our external concept partner from a business perspectiveYou’ll support your colleagues with a winning smile whenever, once again, all the guests order at the same time. On top of this, you’ll also keep your head above water when there are sudden changes of plan, and make sure that every dish tastes as magnificent as it looksQualificationsYour personality counts more than your CV …You’ve gained experience of management in a kitchen, and can speak English and German fluentlyYou can inspire your fellow staff just as you can inspire your guests. On top of this, you’re hungry for new food concepts and love eclectic cuisineYou’re passionate about live cooking and international cuisine, and are renowned for your organisational skills in the kitchenYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Only work 4-days a week as a full-time team member without payment or holiday reductionGet to know our 25hours hotels and stay for free for a maximum of 10 nights per years as an employeeTake advantage of being part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the worldBenefit from great offers from our numerous cooperation partnersReconcile your personal situation with work – we are open to part-time employment, mini-jobs and any other adjustmentsBe part of our hilarious staff parties and much more …"
+      },
+      "location": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
+      "canton": "ZH",
+      "url": "https://careers.accor.com/fr/fr/job/head-chef-f-wm-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-109965",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-11T23:21:11.107Z",
+      "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/head-chef-f-wm-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-109965",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-11T23:21:11.107Z"
     }
   ]
 }
