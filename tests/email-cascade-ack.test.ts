@@ -245,6 +245,10 @@ describe('email cascade provider ack contract', () => {
     expect(result.accepted).toHaveLength(1);
     expect(result.ambiguous).toHaveLength(0);
     expect(result.failed).toHaveLength(0);
+    expect(result.accepted[0].persistFailed).toBe(true);
+    expect(result.providerBreakdown).toEqual({
+      mailgun: { identified: 1, ambiguous: 0, persistFailed: 1 },
+    });
   });
 
   it('exposes identified and ambiguous sends separately in providerBreakdown', async () => {
@@ -272,7 +276,7 @@ describe('email cascade provider ack contract', () => {
     });
 
     expect(result.providerBreakdown).toEqual({
-      mailgun: { identified: 1, ambiguous: 1 },
+      mailgun: { identified: 1, ambiguous: 1, persistFailed: 0 },
     });
     expect(result.accepted).toHaveLength(1);
     expect(result.ambiguous).toHaveLength(1);

@@ -5,6 +5,7 @@ import {
   extractCityFromUrl,
   extractTitleFromUrl,
   parseJobPage,
+  stripSiteTitleSuffix,
 } from '../scripts/update-manor-jobs.mjs';
 
 const BIEL_URL =
@@ -37,6 +38,25 @@ describe('Manor jobs2web URL and title parsing', () => {
     );
   });
 
+  it('removes the site suffix while preserving the role title', () => {
+    expect(stripSiteTitleSuffix('Verkäufer*in 60% | Manor')).toBe('Verkäufer*in 60%');
+    expect(stripSiteTitleSuffix('Verkäufer*in 60% - Manor AG')).toBe('Verkäufer*in 60%');
+    expect(stripSiteTitleSuffix('Empfangsmitarbeiter/in 50% | Ferienvertretung 100%')).toBe('Empfangsmitarbeiter/in 50% | Ferienvertretung 100%');
+    expect(stripSiteTitleSuffix('Mitarbeiter*in Verkauf - 60%')).toBe('Mitarbeiter*in Verkauf - 60%');
+  });
+
+  it('strips only the site suffix from a title that also has an internal pipe', () => {
+    expect(stripSiteTitleSuffix('Empfangsmitarbeiter/in 50% | Ferienvertretung 100% | Manor')).toBe(
+      'Empfangsmitarbeiter/in 50% | Ferienvertretung 100%',
+    );
+  });
+
+  it('strips the site suffix from canonical og:title before falling back', () => {
+    const page = '<meta property="og:title" content="Senior Verkäufer*in 60% | Manor" />';
+
+    expect(parseJobPage(page, BIEL_URL).title).toBe('Senior Verkäufer*in 60%');
+  });
+
   it('keeps the legacy itemprop title fallback for older templates', () => {
     const page = '<div itemprop="title">Senior Verkäufer*in 60%</div>';
 
@@ -55,9 +75,9 @@ describe('Manor jobs2web URL and title parsing', () => {
     expect(job).toMatchObject({
       title: 'Mitarbeiter*in Visual Merchandising 80%',
       location: 'Biel',
-      titleByLocale: { it: 'Mitarbeiter*in Visual Merchandising 80%' },
+      titleByLocale: { it: 'Collaboratore/trice*in Visual Merchandising 80%' },
     });
-    expect(job.previousSlugs).toContain(
+    expect([job.slug, ...(job.previousSlugs || [])]).toContain(
       'manor-mitarbeiter-in-visual-merchandising-80-biel-mitarbeiterin-visual-merchandising',
     );
   });

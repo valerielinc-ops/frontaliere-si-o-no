@@ -105,6 +105,9 @@ describe('GA4 page_view employer attribution', () => {
     expect(jobBoardSource).toContain('const [pageViewNavigationVersion, setPageViewNavigationVersion] = useState(0);');
     expect(jobBoardSource).toContain("window.addEventListener('popstate', onHistoryNavigation)");
     expect(jobBoardSource).toContain('window.history.pushState = wrappedPushState;');
+    expect(jobBoardSource).toContain('const wrappedPushState = historyPushStateRef.current?.wrappedPushState;');
+    expect(jobBoardSource).toContain('window.history.pushState !== wrappedPushState');
+    expect(jobBoardSource).toContain('installHistoryPushStateWrapper();');
     expect(jobBoardSource).toContain('pageViewTrackedKey.current = null;');
     expect(jobBoardSource).not.toContain('const pageViewPath = typeof window');
     expect(jobBoardSource).toContain("pageTemplate !== 'job_detail'");

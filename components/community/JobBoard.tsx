@@ -4664,24 +4664,40 @@ const JobBoard: React.FC<JobBoardProps> = ({
   return null;
  }, [selectedJob, companyHubEmployerKey]);
  const [pageViewNavigationVersion, setPageViewNavigationVersion] = useState(0);
- useEffect(() => {
+ const historyPushStateRef = useRef<{
+  originalPushState: History['pushState'];
+  wrappedPushState: History['pushState'];
+ } | null>(null);
+ const onHistoryNavigationRef = useRef<(() => void) | null>(null);
+ const installHistoryPushStateWrapper = useCallback(() => {
   if (typeof window === 'undefined') return;
-  const onHistoryNavigation = () => setPageViewNavigationVersion((version) => version + 1);
   const originalPushState = window.history.pushState;
   const wrappedPushState = function(this: History, ...args: Parameters<History['pushState']>) {
    const result = callNativeHistory('pushState', originalPushState, this || window.history, args);
-   onHistoryNavigation();
+   onHistoryNavigationRef.current?.();
    return result as void;
   } as History['pushState'];
+  historyPushStateRef.current = { originalPushState, wrappedPushState };
   window.history.pushState = wrappedPushState;
+ }, []);
+ useEffect(() => {
+  if (typeof window === 'undefined') return;
+  const onHistoryNavigation = () => setPageViewNavigationVersion((version) => version + 1);
+  onHistoryNavigationRef.current = onHistoryNavigation;
+  installHistoryPushStateWrapper();
   window.addEventListener('popstate', onHistoryNavigation);
   window.addEventListener('hashchange', onHistoryNavigation);
   return () => {
-   if (window.history.pushState === wrappedPushState) window.history.pushState = originalPushState;
+   const wrapper = historyPushStateRef.current;
+   if (wrapper && window.history.pushState === wrapper.wrappedPushState) {
+    window.history.pushState = wrapper.originalPushState;
+   }
+   historyPushStateRef.current = null;
+   onHistoryNavigationRef.current = null;
    window.removeEventListener('popstate', onHistoryNavigation);
    window.removeEventListener('hashchange', onHistoryNavigation);
   };
- }, []);
+ }, [installHistoryPushStateWrapper]);
  const pageViewTrackedKey = useRef<string | null>(null);
 
  // The central route tracker deliberately defers job-detail/company-hub
@@ -4691,6 +4707,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // identity is unavailable; buildPageViewAttributionParams then leaves
  // attribution empty.
  useEffect(() => {
+  const wrappedPushState = historyPushStateRef.current?.wrappedPushState;
+  if (wrappedPushState && window.history.pushState !== wrappedPushState) {
+   installHistoryPushStateWrapper();
+  }
   const path = readCurrentPageViewPath();
   if (!path) return;
   const { pageTemplate } = deriveAnalyticsPageContext(path);
@@ -4704,7 +4724,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (pageViewTrackedKey.current === key) return;
   pageViewTrackedKey.current = key;
   Analytics.trackPageView(path, undefined, pageViewIdentity);
- }, [pageViewIdentity, pageViewNavigationVersion, initialJobSlug, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor, locale]);
+ }, [pageViewIdentity, pageViewNavigationVersion, initialJobSlug, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor, locale, installHistoryPushStateWrapper]);
 
  // A search/company view momentarily shows a non-authoritative `filteredJobs`:
  // either empty while the lazy broaden / cross-locale pools are still being
