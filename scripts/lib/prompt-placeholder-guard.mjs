@@ -511,10 +511,14 @@ export function stripFaqNumberedLabels(value) {
   const patterns = [
     { rx: new RegExp(FAQ_NUMBERED_LINE_LABEL_SOURCE, 'gim'), linePrefix: true },
     { rx: new RegExp(FAQ_NUMBERED_MIDLINE_LABEL_SOURCE, 'gim'), linePrefix: false },
-    { rx: new RegExp(FAQ_UNNUMBERED_LINE_LABEL_SOURCE, 'gim'), linePrefix: true },
+    {
+      rx: new RegExp(FAQ_UNNUMBERED_LINE_LABEL_SOURCE, 'gim'),
+      linePrefix: true,
+      skipTranslatedHeading: true,
+    },
   ];
   let out = value;
-  for (const { rx, linePrefix } of patterns) {
+  for (const { rx, linePrefix, skipTranslatedHeading = false } of patterns) {
     out = out.replace(rx, (match, ...args) => {
       const pre = linePrefix ? args[0] : '';
       const boldOpen = linePrefix ? args[1] : args[0];
@@ -524,7 +528,7 @@ export function stripFaqNumberedLabels(value) {
         || (boldOpen ? boldCloseAfterPunctuation : undefined);
       const offset = linePrefix ? args[4] : args[3];
       const whole = linePrefix ? args[5] : args[4];
-      if (isTranslatedFaqSectionHeading(whole, offset)) return match;
+      if (skipTranslatedHeading && isTranslatedFaqSectionHeading(whole, offset)) return match;
       // Solo se dopo l'etichetta resta contenuto vero sulla stessa riga.
       const rest = whole.slice(offset + match.length);
       const line = rest.split('\n', 1)[0].trim();

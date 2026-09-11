@@ -213,6 +213,23 @@ describe('la famiglia di segnaposto nota, coperta campo per campo', () => {
     );
   });
 
+  it('ripara FAQ numerate dentro heading tradotte senza escluderle', () => {
+    const casi = [
+      [
+        '## Frequently Asked Questions: Domanda frequente 2: quali sono i limiti di reddito?',
+        '## Frequently Asked Questions: quali sono i limiti di reddito?',
+      ],
+      [
+        '**Häufig gestellte Fragen: Domanda frequente 1: quali sono i limiti di reddito?**',
+        '**Häufig gestellte Fragen: quali sono i limiti di reddito?**',
+      ],
+    ] as const;
+    for (const [input, expected] of casi) {
+      expect(findPromptPlaceholders(input).some((hit) => hit.rule === 'faq-numbered-label'), input).toBe(true);
+      expect(stripFaqNumberedLabels(input), input).toEqual({ value: expected, stripped: 1 });
+    }
+  });
+
   it('stripFaqNumberedLabels ripara FAQ non numerate e conserva la soglia di 8 caratteri', () => {
     const { pairs, repaired } = cleanFaqPairs([
       {
