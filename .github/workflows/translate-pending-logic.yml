@@ -410,7 +410,28 @@ jobs:
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
-      # Phase 2d also writes slices. This is the final translation-bearing
+      # ── Phase 2e: Fix source-copy descriptions (same scheduled lane) ──────
+      # Run immediately after Phase 2d on the same non-housekeeping schedules.
+      # This deadline is measured from the shared run marker, so it shares the
+      # 240min repair envelope with title fixes instead of adding 240min.
+      - name: "Phase 2e: Fix untranslated descriptions (free cascade)"
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          # Same 240min run-wide envelope as Phase 2d; 110min remain before
+          # the 350min hard cap for commits, final assemble, and publication.
+          UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '14400000' # shared with title fixes; not additive.
+        run: node scripts/fix-untranslated-descriptions.mjs
+
+      - name: Commit description fixes
+        id: commit_description_fixes
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        run: |
+          before="$(git rev-parse HEAD)"
+          bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)"
+          after="$(git rev-parse HEAD)"
+          if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
+
+      # Phases 2d/2e write slices. This is the final translation-bearing
       # persistence barrier; Phase 3 below changes only slugs.
       - name: Re-assemble true-final translation dataset
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
@@ -454,7 +475,7 @@ jobs:
           node scripts/collect-translation-observability.mjs \
             --mode finalize --report "$RUNNER_TEMP/translation-observability.json" \
             --output "$RUNNER_TEMP/translation-observability.json" \
-            --final-commit "${{ steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}"
+            --final-commit "${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}"
 
       - name: Finalize translation shadow preflight v2 observation
         id: translation_shadow_preflight_v2_finalize
@@ -471,7 +492,7 @@ jobs:
           SHADOW_EVENT_NAME: ${{ github.event_name }}
           SHADOW_EXPECTED_CONTRACT_DIGEST: ${{ steps.translation_shadow_preflight_v2_decision.outputs.expected_contract_digest }}
           SHADOW_EXPECTED_DECISION_DIGEST: ${{ steps.translation_shadow_preflight_v2_decision.outputs.expected_decision_digest }}
-          SHADOW_FINAL_TRANSLATION_COMMIT: ${{ steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}
+          SHADOW_FINAL_TRANSLATION_COMMIT: ${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}
           SHADOW_OBSERVED_JOB_STATUS: ${{ job.status }}
           SHADOW_RUN_ATTEMPT: ${{ github.run_attempt }}
           SHADOW_RUN_ID: ${{ github.run_id }}
