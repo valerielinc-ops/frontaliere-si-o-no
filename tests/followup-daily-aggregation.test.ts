@@ -72,6 +72,13 @@ describe('post-merge triage marker contract', () => {
 
     const marker = '## Post-merge follow-up triage\n\nCreated/updated: 0 issue — nessun item nuovo aggiunto al daily bucket #8248.';
     expect(() => execFileSync('grep', ['-Eiq', pattern!], { input: marker })).not.toThrow();
+
+    const zeroResultBranch = workflow
+      .split("elif [ -z \"$bucket_refs\" ]")[0]
+      .split("if printf '%s' \"$marker_body\" | grep -Eiq '")
+      .at(-1);
+    expect(zeroResultBranch).toBeTruthy();
+    expect(zeroResultBranch).not.toContain('persistence_ok=false');
   });
 });
 
