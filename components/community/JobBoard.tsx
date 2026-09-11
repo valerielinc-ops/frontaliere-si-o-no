@@ -152,7 +152,7 @@ import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
-import { buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
+import { buildJobPostingSchema, isEmployerOwnedApplyUrl, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
 import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/jobCardHtml';
@@ -753,12 +753,7 @@ function normalizeIncomingJob(raw: any): JobListing {
  const description = String(raw?.description || '').trim();
  const company = String(raw?.company || '').trim() || 'Azienda';
  const companyKey = String(raw?.companyKey || '').trim() || undefined;
- const canonicalHost = resolveCompanyWebsiteHost({
- company,
- companyKey,
- companyDomain: String(raw?.companyDomain || '').trim(),
- url: String(raw?.url || '').trim(),
- });
+ const rawCompanyDomain = String(raw?.companyDomain || '').trim();
 
  return {
  ...raw,
@@ -777,7 +772,9 @@ function normalizeIncomingJob(raw: any): JobListing {
  : [],
  featured: Boolean(raw?.featured),
  postedDate: String(raw?.postedDate || '').trim() || new Date().toISOString().slice(0, 10),
- companyDomain: canonicalHost || String(raw?.companyDomain || '').trim() || undefined,
+ // Do not promote job.url (which may be an ATS host) into ownership proof.
+ // Static SEO and runtime JSON-LD must both use the crawler's raw domain.
+ companyDomain: rawCompanyDomain || undefined,
  sector: String(raw?.sector || '').trim() || undefined,
  };
 }
@@ -1851,6 +1848,21 @@ function readSalaryRangeFromUrl(): { min: number | null; max: number | null } {
 /** Update URL query params, optionally creating a navigable search entry. */
 type QueryHistoryMode = 'replace' | 'push';
 
+/**
+ * A URL restore has two possible owners for the in-feed refresh:
+ * the deferred-query filter effect owns query changes, while this listener
+ * owns page-only changes. Keeping the ownership exclusive prevents a query
+ * restore from remounting the same placeholder twice in one pageview.
+ */
+export function shouldRefreshInfeedAdsOnUrlRestore(
+ currentQuery: string,
+ nextQuery: string,
+ currentPage: number,
+ nextPage: number,
+): boolean {
+ return currentQuery === nextQuery && currentPage !== nextPage;
+}
+
 function syncQueryParamsToUrl(
  updates: Record<string, string | null>,
  mode: QueryHistoryMode = 'replace',
@@ -2859,13 +2871,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // parseSearchSlugFilter): on a job bridge page the URL segment is a job's old
  // slug, not a search keyword, so it must not become the search query.
  const next = (isBridgePage ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl();
+ const nextPage = readPageFromUrl();
  applySearchQuery((prev) => (prev === next ? prev : next));
- setPage(readPageFromUrl());
- setAdRefreshKey((k) => k + 1);
+ setPage(nextPage);
+ // Query changes are refreshed exactly once by the deferred-filter effect
+ // below. Only a page-only history restore needs the direct bump here; this
+ // keeps `syncQueryParamsToUrl`/popstate restores idempotent for in-feed
+ // placeholder reservation.
+ if (shouldRefreshInfeedAdsOnUrlRestore(searchQuery, next, page, nextPage)) {
+   setAdRefreshKey((k) => k + 1);
+ }
  };
  window.addEventListener('popstate', syncFromUrl);
  return () => window.removeEventListener('popstate', syncFromUrl);
- }, [initialJobSlug, isBridgePage]);
+ }, [initialJobSlug, isBridgePage, page, searchQuery]);
 
  useEffect(() => {
  const next = searchSlugFilter || readSearchQueryFromUrl();
@@ -5145,11 +5164,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialSectorRegionLanding, editorialNursesHubLanding, editorialPartTimeLanding, editorialCareVariantLanding, jobs]);
 
  useEffect(() => {
+ setAdRefreshKey((k) => k + 1);
  if (skipPageReset.current) { skipPageReset.current = false; return; }
  setPage(1);
  setMobileJobLimit(10);
  syncQueryParamsToUrl({ page: null });
- setAdRefreshKey((k) => k + 1);
  }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, showSavedOnly]);
 
  // Sync search query to URL (?q=) and track in GA4
@@ -5398,7 +5417,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  streetAddress: streetAddress || addressLocality || DEFAULT_CANTON_DISPLAY,
  },
  },
- directApply: Boolean(job.applyUrl || job.url),
+ directApply: isEmployerOwnedApplyUrl(job),
  url: canonicalUrl,
  };
  if (isRemote) {

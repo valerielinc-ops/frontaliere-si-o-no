@@ -472,6 +472,7 @@ async function resolveJobSeoBySlug(
  description: String(job?.descriptionByLocale?.[locale] || job?.description || localizedDescription),
  company: job?.company,
  companyKey: job?.companyKey,
+ companyDomain: job?.companyDomain,
  companyLogoUrl: logoUrl,
  addressLocality: address.locality,
  addressRegion: address.region,
