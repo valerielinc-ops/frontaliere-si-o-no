@@ -17,17 +17,24 @@
  */
 import React, { useId } from 'react';
 import type { EmployerInsights } from '@/services/employerInsights';
+import type { Locale } from '@/services/i18n';
 import { useReveal } from './useReveal';
 
 interface TrendSparklineProps {
   trend: EmployerInsights['trend'];
   /** SVG coordinate height. Width is a fixed 100-unit viewBox (scales to container). */
   height?: number;
+  locale?: Locale;
 }
 
-const nf = new Intl.NumberFormat('it-IT');
+function trendCopy(locale: Locale): { growing: string; declining: string; stable: string; label: string; latest: string } {
+  if (locale === 'en') return { growing: 'growing', declining: 'declining', stable: 'stable', label: 'Weekly recorded views', latest: 'in the latest week' };
+  if (locale === 'de') return { growing: 'steigend', declining: 'sinkend', stable: 'stabil', label: 'Wöchentliche erfasste Aufrufe', latest: 'in der letzten Woche' };
+  if (locale === 'fr') return { growing: 'en hausse', declining: 'en baisse', stable: 'stable', label: 'Vues hebdomadaires enregistrées', latest: 'durant la dernière semaine' };
+  return { growing: 'in crescita', declining: 'in calo', stable: 'stabile', label: 'Andamento visualizzazioni settimanali', latest: "nell'ultima settimana" };
+}
 
-export function TrendSparkline({ trend, height = 48 }: TrendSparklineProps): React.ReactElement | null {
+export function TrendSparkline({ trend, height = 48, locale = 'it' }: TrendSparklineProps): React.ReactElement | null {
   const { ref, inView } = useReveal<HTMLDivElement>();
   const gradId = useId();
 
@@ -50,8 +57,10 @@ export function TrendSparkline({ trend, height = 48 }: TrendSparklineProps): Rea
 
   const first = trend[0].views;
   const last = trend[trend.length - 1].views;
-  const dir = last > first ? 'in crescita' : last < first ? 'in calo' : 'stabile';
-  const ariaLabel = `Andamento visualizzazioni settimanali, ${dir}: da ${nf.format(first)} a ${nf.format(last)} nell'ultima settimana.`;
+  const nf = new Intl.NumberFormat(locale === 'it' ? 'it-IT' : locale);
+  const copy = trendCopy(locale);
+  const dir = last > first ? copy.growing : last < first ? copy.declining : copy.stable;
+  const ariaLabel = `${copy.label}, ${dir}: ${nf.format(first)} → ${nf.format(last)} ${copy.latest}.`;
 
   const endX = x(trend.length - 1);
   const endY = y(last);

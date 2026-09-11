@@ -1,5 +1,5 @@
 /**
- * employerInsights — typed data contract + fetch stub for the per-company
+ * employerInsights — typed data contract + HTTP client for the per-company
  * "wow" traffic report (cold-outreach insights centrepiece).
  *
  * The data lives in Firestore `employer_insights/{companyKey}` and is served
@@ -7,9 +7,8 @@
  * boundary: `EmployerInsightsPage` imports `fetchInsights` and the types from
  * here, so the page never talks to Firestore/HTTP directly.
  *
- * NOTE: `fetchInsights` is intentionally a STUB. The real implementation
- * (CF endpoint URL + token validation + Firestore read) is wired separately —
- * see the TODO below. Keep the signature stable: the page depends on it.
+ * The Cloud Function owns token validation and the Firestore read; this module
+ * keeps that transport boundary stable for the page.
  */
 
 import { FUNCTIONS_BASE } from './functionsBase';
@@ -31,6 +30,8 @@ export interface EmployerAd {
   views: number;
   visitors: number;
   applyClicks: number;
+  /** Provider-observed user units associated with apply clicks; not a global unique union. */
+  applyClickUsers?: number | null;
   applications: number | null;
   applicationsStatus?: string;
   eventsObserved?: number;
@@ -47,6 +48,8 @@ export interface EmployerInsightsTotals {
   profileViews?: number | null;
   profileVisitors?: number | null;
   applyClicks?: number | null;
+  /** Provider-observed user units associated with apply clicks; never PII or a global unique count. */
+  applyClickUsers?: number | null;
   applications?: number | null;
   applicationsStatus?: string;
   adsCount: number;

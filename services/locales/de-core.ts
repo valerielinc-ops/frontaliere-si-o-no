@@ -2803,6 +2803,10 @@ Regeln:
  'consultingCta.article.body': '30 Minuten mit einem Grenzgänger-Steuerexperten, um deinen konkreten Fall zu klären — €49, begrenzte Plätze.',
  'consultingCta.article.button': 'Beratung buchen',
 
+ 'whatsNew.v3963.title': 'Klarere Arbeitgeber-Insights',
+ 'whatsNew.v3963.employerInsights.title': 'Bewerbungsklicks und überprüfbare Daten',
+ 'whatsNew.v3963.employerInsights.desc': 'Private Arbeitgeberberichte unterscheiden jetzt Aufrufe, Bewerbungsklicks, zugeordnete Nutzer und erfasste Bewerbungen und zeigen immer Zeitraum und Datenquelle an.',
+
  // v3.71.0 — Rechner-Upgrade
  'whatsNew.v3962.title': 'Klarerer Kraftstoffvergleich',
  'whatsNew.v3962.fuelCompare.title': 'Benzin und Diesel für jede Gemeinde',

@@ -13,26 +13,35 @@
  */
 import React from 'react';
 import type { EmployerAd } from '@/services/employerInsights';
+import type { Locale } from '@/services/i18n';
 import { useReveal } from './useReveal';
 
 interface TopAdsChartProps {
   ads: EmployerAd[];
   /** How many top rows to show. Default 10. */
   limit?: number;
+  locale?: Locale;
 }
 
-const nf = new Intl.NumberFormat('it-IT');
+function chartCopy(locale: Locale): { listLabel: string; views: string } {
+  if (locale === 'en') return { listLabel: 'Most viewed ads', views: 'views' };
+  if (locale === 'de') return { listLabel: 'Am häufigsten aufgerufene Anzeigen', views: 'Aufrufe' };
+  if (locale === 'fr') return { listLabel: 'Offres les plus consultées', views: 'vues' };
+  return { listLabel: 'Annunci più visti', views: 'visualizzazioni' };
+}
 
-export function TopAdsChart({ ads, limit = 10 }: TopAdsChartProps): React.ReactElement | null {
+export function TopAdsChart({ ads, limit = 10, locale = 'it' }: TopAdsChartProps): React.ReactElement | null {
   const { ref, inView } = useReveal<HTMLDivElement>();
   const rows = ads.slice(0, limit);
   if (rows.length === 0) return null;
 
   const max = Math.max(...rows.map((a) => a.views), 1);
+  const nf = new Intl.NumberFormat(locale === 'it' ? 'it-IT' : locale);
+  const copy = chartCopy(locale);
 
   return (
     <div ref={ref}>
-      <ul className="space-y-3" aria-label="Annunci più visti">
+      <ul className="space-y-3" aria-label={copy.listLabel}>
         {rows.map((ad, i) => {
           const pct = Math.max((ad.views / max) * 100, 2); // floor so tiny bars stay visible
           return (
@@ -46,7 +55,7 @@ export function TopAdsChart({ ads, limit = 10 }: TopAdsChartProps): React.ReactE
               <div
                 className="h-3 w-full rounded-full bg-surface-alt overflow-hidden"
                 role="img"
-                aria-label={`${ad.title}: ${nf.format(ad.views)} visualizzazioni`}
+                aria-label={`${ad.title}: ${nf.format(ad.views)} ${copy.views}`}
               >
                 <div
                   className="h-full rounded-full bg-accent transition-[width] duration-1000 ease-out"
