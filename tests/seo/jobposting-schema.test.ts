@@ -172,6 +172,20 @@ describe('buildJobPostingSchema — application destination', () => {
     }, OPTS);
     expect(schema.directApply).toBe(false);
   });
+
+  it('keeps the raw ownership domain separate from hiringOrganization.sameAs', () => {
+    const schema = buildJobPostingSchema({
+      title: 'Operatore sanitario',
+      description:
+        'Descrizione sufficientemente lunga per verificare che il sito dichiarato per sameAs sia distinto dal dominio usato per ownership.',
+      company: 'Esempio SA',
+      companyDomain: 'ownership.example.com',
+      companyWebsite: 'https://www.employer.example.com',
+      applyUrl: 'https://careers.employer.example.com/application/123',
+    }, OPTS);
+    expect(schema.directApply).toBe(true);
+    expect(schema.hiringOrganization.sameAs).toBe('https://www.employer.example.com');
+  });
 });
 
 describe('buildJobPostingSchema — empty-minimum input', () => {

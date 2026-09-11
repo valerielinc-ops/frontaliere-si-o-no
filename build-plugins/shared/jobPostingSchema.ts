@@ -91,6 +91,8 @@ export interface JobInput {
   readonly company?: string | null;
   readonly companyKey?: string | null;
   readonly companySlug?: string | null;
+  /** Website used for hiringOrganization.sameAs; kept separate from the raw ownership domain. */
+  readonly companyWebsite?: string | null;
   readonly companyDomain?: string | null;
   readonly companyLogoUrl?: string | null;
 
@@ -732,8 +734,9 @@ export function buildJobPostingSchema(
   const logo = rawLogo && rawLogo.startsWith('/') && !rawLogo.startsWith('//')
     ? `${(opts.baseUrl || CANONICAL_ORIGIN).replace(/\/+$/, '')}${rawLogo}`
     : rawLogo;
-  const sameAs = job.companyDomain && String(job.companyDomain).trim().length > 0
-    ? `https://${String(job.companyDomain).replace(/^https?:\/\//, '').trim()}`
+  const companyWebsite = String(job.companyWebsite || '').trim();
+  const sameAs = companyWebsite
+    ? (/^https?:\/\//i.test(companyWebsite) ? companyWebsite : `https://${companyWebsite}`)
     : undefined;
 
   const hiringOrganization: HiringOrganizationSchema = {
