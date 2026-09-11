@@ -43,8 +43,8 @@
       "slugByLocale": {
         "it": "teamleader-project-management-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-ka2ocb",
         "en": "teamleader-project-management-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-ka2ocb",
-        "de": "teamleader-project-management-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-ka2ocb",
-        "fr": "teamleader-project-management-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-ka2ocb"
+        "de": "teamleader-projektmanagement-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau",
+        "fr": "chef-d-equipe-gestion-de-projet-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -115,7 +115,7 @@
         "it": "operations-supply-planner-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-cx01c7",
         "en": "operations-supply-planner-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-cx01c7",
         "de": "operations-supply-planner-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-cx01c7",
-        "fr": "operations-supply-planner-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-cx01c7"
+        "fr": "planificateur-d-approvisionnement-des-operations-h-f-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -147,7 +147,7 @@
     },
     {
       "id": "company-tvxofn",
-      "slug": "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-tvxofn",
+      "slug": "gestione-della-struttura-di-piombo-svizzera-m-f-d-80-100-abb-svizzera-sede-ticino-baden-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Lead Facility Management Switzerland (m/f/d) (80-100%)",
       "location": "Baden, Aargau",
@@ -187,7 +187,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-tvxofn",
+        "it": "gestione-della-struttura-di-piombo-svizzera-m-f-d-80-100-abb-svizzera-sede-ticino-baden-aargau",
         "en": "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-tvxofn",
         "de": "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-tvxofn",
         "fr": "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-tvxofn"
@@ -205,11 +205,13 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau"
+          "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau",
+          "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-tvxofn"
         ]
       },
       "previousSlugs": [
-        "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau"
+        "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau",
+        "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-tvxofn"
       ],
       "salaryMin": 178000,
       "salaryMax": 313000,
@@ -230,7 +232,7 @@
     },
     {
       "id": "company-a86iz6",
-      "slug": "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6",
+      "slug": "responsabile-della-produzione-abb-svizzera-sede-ticino-quartino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Production Manager",
       "location": "Quartino, Ticino",
@@ -274,10 +276,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6",
+        "it": "responsabile-della-produzione-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6",
-        "de": "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6",
-        "fr": "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6"
+        "de": "produktionsleiter-abb-svizzera-sede-ticino-quartino-ticino",
+        "fr": "directeur-de-la-production-abb-svizzera-sede-ticino-quartino-ticino"
       },
       "requirementsByLocale": {
         "it": [],
@@ -297,12 +299,20 @@
       "previousSlugsByLocale": {
         "it": [
           "production-manager-abb-svizzera-sede-ticino-quartino-ticino",
-          "quality-manager-per-il-cliente-80-100-abb-svizzera-sede-ticino-quartino"
+          "quality-manager-per-il-cliente-80-100-abb-svizzera-sede-ticino-quartino",
+          "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6"
+        ],
+        "de": [
+          "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6"
+        ],
+        "fr": [
+          "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6"
         ]
       },
       "previousSlugs": [
         "production-manager-abb-svizzera-sede-ticino-quartino-ticino",
-        "quality-manager-per-il-cliente-80-100-abb-svizzera-sede-ticino-quartino"
+        "quality-manager-per-il-cliente-80-100-abb-svizzera-sede-ticino-quartino",
+        "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6"
       ],
       "salaryMin": 142000,
       "salaryMax": 249500,
@@ -396,7 +406,7 @@
     },
     {
       "id": "company-5rabx9",
-      "slug": "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-5rabx9",
+      "slug": "servizio-tecnico-m-f-d-80-100-abb-svizzera-sede-ticino-schaffhausen",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Service Technician f/m/d (80-100%)",
       "location": "Schaffhausen",
@@ -439,7 +449,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-5rabx9",
+        "it": "servizio-tecnico-m-f-d-80-100-abb-svizzera-sede-ticino-schaffhausen",
         "en": "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-5rabx9",
         "de": "service-techniker-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-5rabx9",
         "fr": "service-technicien-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-5rabx9"
@@ -460,11 +470,13 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen"
+          "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen",
+          "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-5rabx9"
         ]
       },
       "previousSlugs": [
-        "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen"
+        "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen",
+        "service-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-5rabx9"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
