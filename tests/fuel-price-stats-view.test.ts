@@ -95,6 +95,14 @@ describe('fuel data freshness', () => {
     expect(datasetFreshness(dataset({ generatedAt: '2026-09-07T23:00:00.000Z', sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: '2026-09-07T23:00:00.000Z' } } }), now)).toBe('stale');
   });
 
+  it('tolerates a small producer clock skew but rejects a future timestamp beyond it', () => {
+    const sources = dataset().sources;
+    const slightlyAhead = new Date(now + 2 * 60 * 1000).toISOString();
+    const tooFarAhead = new Date(now + 6 * 60 * 1000).toISOString();
+    expect(datasetFreshness(dataset({ sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: slightlyAhead } } }), now)).toBe('current');
+    expect(datasetFreshness(dataset({ sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: tooFarAhead } } }), now)).toBe('stale');
+  });
+
   it('returns unknown only when no usable timestamp exists', () => {
     expect(datasetFreshness(dataset({ generatedAt: '', sources: { ...dataset().sources, italy: { ...dataset().sources.italy, priceSnapshotDate: null }, switzerland: { ...dataset().sources.switzerland, latestObservedUpdate: null } } }), now)).toBe('unknown');
   });
