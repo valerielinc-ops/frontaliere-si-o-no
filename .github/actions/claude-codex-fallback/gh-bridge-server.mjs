@@ -241,14 +241,17 @@ export function resolveGhScope(args, {
   if (repositories.some((value) => !repositoryName(value))) {
     return { error: 'gh --repo must name an exact owner/repository pair' };
   }
+  const hasExplicitRepository = repositories.length > 0;
   const explicitRepository = repositories[0] || siteRepository;
   if (repositories.some((value) => value !== explicitRepository)) {
     return { error: 'gh --repo may not select multiple repositories in one request' };
   }
-  // The corpus checkout can have the same value for siteRepository and
-  // expectedCorpus. Match the exact corpus first so its PAT is never replaced
-  // by the site token merely because the current checkout is the corpus.
-  if (explicitRepository === expectedCorpus) {
+  // The current checkout is the host-side site scope even when the checkout
+  // itself is the corpus: review/comment operations on the current PR use the
+  // runner GITHUB_TOKEN and need the normal `pr` allow-list. The separate
+  // corpus PAT is selected only when the model explicitly targets the corpus
+  // with --repo, which is the write-routing boundary in the prompt.
+  if (hasExplicitRepository && explicitRepository === expectedCorpus) {
     if (!corpusToken) return { error: 'Codex corpus bridge credential is unavailable' };
     return {
       kind: 'corpus',

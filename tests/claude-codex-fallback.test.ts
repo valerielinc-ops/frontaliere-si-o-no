@@ -301,12 +301,18 @@ describe('validator dei bridge host-side', () => {
         corpusToken: 'corpus-secret',
       });
       expect(corpusCheckout).toMatchObject({ kind: 'corpus', repository: CORPUS_REPOSITORY, token: 'corpus-secret' });
-      expect(resolveGhScope(['issue', 'list'], {
+      const implicitCorpus = resolveGhScope(['issue', 'list'], {
         ...context,
         repository: CORPUS_REPOSITORY,
         siteToken: 'site-secret',
         corpusToken: 'corpus-secret',
-      })).toMatchObject({ kind: 'corpus', token: 'corpus-secret' });
+      });
+      expect(implicitCorpus).toMatchObject({
+        kind: 'site',
+        repository: CORPUS_REPOSITORY,
+        token: 'site-secret',
+      });
+      expect(implicitCorpus.allowedCommandSet).toContain('pr');
       expect(resolveGhScope(['pr', 'view', '--repo', 'owner/repo'], {
         ...context,
         repository: CORPUS_REPOSITORY,
@@ -325,6 +331,23 @@ describe('validator dei bridge host-side', () => {
         allowedCommandSet: corpus.allowedCommandSet,
         allowedSubcommandMap: corpus.allowedSubcommandMap,
       })).toMatch(/not permitted/);
+      const currentCorpus = resolveGhScope(['pr', 'comment'], {
+        ...context,
+        repository: CORPUS_REPOSITORY,
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      });
+      expect(currentCorpus).toMatchObject({
+        kind: 'site',
+        repository: CORPUS_REPOSITORY,
+        token: 'site-secret',
+      });
+      expect(validateGhArgs(['pr', 'comment'], {
+        ...context,
+        repository: currentCorpus.repository,
+        allowedCommandSet: currentCorpus.allowedCommandSet,
+        allowedSubcommandMap: currentCorpus.allowedSubcommandMap,
+      })).toBe('');
       expect(resolveGhScope(['issue', 'view', '--repo', 'other/repo'], {
         ...context,
         repository: 'owner/repo',
