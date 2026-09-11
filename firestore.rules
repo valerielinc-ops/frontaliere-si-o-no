@@ -22,6 +22,7 @@ service cloud.firestore {
     function isSiteAdmin() {
       return request.auth != null
         && request.auth.token.email_verified == true
+        && request.auth.token.email != null
         && request.auth.token.email.lower() == 'valerielinc@gmail.com';
     }
 
@@ -74,7 +75,7 @@ service cloud.firestore {
         'consent_method', 'consent_given', 'consent_given_at',
         'consent_source_url', 'consent_user_agent', 'consent_ip',
         'consent_ip_recorded_at', 'consent_upgraded_at',
-        'consent_proof_verified',
+        'consent_proof_verified', 'consent_purpose', 'consent_recorded_at',
       ]);
     }
 
@@ -174,7 +175,9 @@ service cloud.firestore {
       // alerts subcollection below — the subscriber's own signed-in session
       // is always allowed to touch their own consent record.
       allow update: if !consentFieldsTouched(request.resource.data, resource.data)
-        || (request.auth != null && request.auth.token.email.lower() == email.lower());
+        || (request.auth != null
+            && request.auth.token.email != null
+            && request.auth.token.email.lower() == email.lower());
 
       // Engagement events (subscribe, confirm, click, open) — append-only, and
       // never readable by a client.
@@ -220,6 +223,7 @@ service cloud.firestore {
       // Private sub-collection — auth-gated, own data only
       match /private/{docId} {
         allow read, write: if request.auth != null
+          && request.auth.token.email != null
           && request.auth.token.email.lower() == email.lower();
       }
     }
@@ -306,6 +310,7 @@ service cloud.firestore {
     // sibling rules in this same block.
     match /job_alert_subscribers/{email} {
       allow get: if request.auth != null
+        && request.auth.token.email != null
         && request.auth.token.email.lower() == email.lower();
       allow list: if false;
       // Root state remains writable by the public subscription/alert path, but
@@ -315,6 +320,7 @@ service cloud.firestore {
       allow create: if true;
       allow update: if !consentFieldsTouched(request.resource.data, resource.data)
         || (request.auth != null
+            && request.auth.token.email != null
             && request.auth.token.email.lower() == email.lower());
       allow delete: if true;
 
@@ -324,9 +330,11 @@ service cloud.firestore {
       match /alerts/{alertId} {
         allow read: if request.auth != null
           && (request.auth.uid == resource.data.userId
-              || request.auth.token.email.lower() == email.lower());
+              || (request.auth.token.email != null
+                  && request.auth.token.email.lower() == email.lower()));
         allow create: if request.auth != null
           && request.auth.uid == request.resource.data.userId
+          && request.auth.token.email != null
           && request.auth.token.email.lower() == email.lower();
         // UPDATE takes the same disjunction `read` already takes, and #5876 is
         // why. `update` used to require `uid == resource.data.userId` AND the
@@ -347,6 +355,7 @@ service cloud.firestore {
         // (userId, active, createdAt) collection-group query that lists alerts
         // would stop seeing what the client just wrote.
         allow update, delete: if request.auth != null
+          && request.auth.token.email != null
           && request.auth.token.email.lower() == email.lower()
           && (request.auth.uid == resource.data.userId
               || resource.data.userId == null);

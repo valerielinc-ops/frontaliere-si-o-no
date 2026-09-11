@@ -52,6 +52,9 @@ const WRITERS = [
   'newsletterConsentUpgrade.ts',
   // upgradeBackfilledAlertConsent: updateDoc field-level sugli alert travasati.
   'jobAlertConsentUpgrade.ts',
+  // createAlert / company-follow confirmation writes the consent provenance
+  // fields on the alerts subcollection.
+  'jobAlertService.ts',
 ];
 
 /**
@@ -159,5 +162,23 @@ describe('firestore.rules — consentFieldsTouched() copre i campi scritti', () 
       'file services/ che nominano newsletter_subscribers e chiavi consent_*: '
         + 'aggiungili a WRITERS (se scrivono su quella collection) o a NON_WRITERS con il motivo.',
     ).toEqual([]);
+  });
+
+  it('directRules esclude match annidati senza confondere i placeholder del path', () => {
+    const block = `
+      allow update: if true;
+      /* quoted match /ignored/{path=**} { allow read: if false; } */
+      match /alerts/{alertId} {
+        allow read: if true;
+        match /delivery/{deliveryId} {
+          allow write: if true;
+        }
+      }
+    `;
+    const own = directRules(block);
+    expect(own).toContain('allow update: if true');
+    expect(own).not.toContain('allow read: if true');
+    expect(own).not.toContain('allow write: if true');
+    expect(own).not.toContain('match /alerts/');
   });
 });

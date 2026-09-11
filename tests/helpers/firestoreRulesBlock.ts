@@ -23,15 +23,40 @@
  * unbalance the depth count.
  */
 export function directRules(block: string): string {
-  const withoutComments = block.replace(/\/\/[^\n]*/g, '');
-  let depth = 0;
-  let out = '';
-  for (const ch of withoutComments) {
-    if (ch === '{') { depth += 1; continue; }
-    if (ch === '}') { depth -= 1; continue; }
-    if (depth === 0) out += ch;
+  const withoutComments = block
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\/\/[^\n]*/g, '');
+  const lines = withoutComments.split('\n');
+  const out: string[] = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+    if (!/^\s*match\s+/.test(line)) {
+      out.push(line);
+      continue;
+    }
+    // The last `{` on a match header is its block opener; earlier braces are
+    // wildcard placeholders (`/{alertId}` or `/{path=**}`). Starting the
+    // counter at the last one prevents those placeholders from leaking the
+    // nested body back into the parent's direct-rule assertions.
+    const open = line.lastIndexOf('{');
+    if (open === -1) {
+      out.push(line);
+      continue;
+    }
+    let depth = 0;
+    for (const ch of line.slice(open)) {
+      if (ch === '{') depth += 1;
+      else if (ch === '}') depth -= 1;
+    }
+    while (depth > 0 && i + 1 < lines.length) {
+      i += 1;
+      for (const ch of lines[i]) {
+        if (ch === '{') depth += 1;
+        else if (ch === '}') depth -= 1;
+      }
+    }
   }
-  return out;
+  return out.join('\n');
 }
 
 export function matchBlock(source: string, header: string): string {

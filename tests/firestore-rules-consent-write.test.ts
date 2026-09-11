@@ -101,6 +101,18 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
     );
   });
 
+  it.each(['newsletter_subscribers', 'job_alert_subscribers'])
+    ('an authenticated client without an email claim cannot overwrite consent_text on %s', async (collection) => {
+      const noEmailClaim = testEnv.authenticatedContext('uid-without-email-claim');
+      await assertFails(
+        setDoc(
+          doc(noEmailClaim.firestore(), collection, collection === 'newsletter_subscribers' ? SUBSCRIBER_EMAIL : ALERT_EMAIL),
+          { consent_text: 'forged without an email claim' },
+          { merge: true },
+        ),
+      );
+    });
+
   it('an authenticated client whose own email matches the doc id can still update its own consent_text', async () => {
     const owner = testEnv.authenticatedContext('owner-uid', {
       email: SUBSCRIBER_EMAIL,
