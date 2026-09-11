@@ -6262,6 +6262,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.investimento-svizzero-usa-lonza.title': 'Lonza investit aux États-Unis : nouvelle usine pharmaceutique dans l\'Oregon',
     'blog.article.investimento-svizzero-usa-lonza.excerpt': 'Le géant pharmaceutique suisse Lonza construira une nouvelle usine de production à Bend, dans l\'Oregon, avec une achèvement prévu d\'ici 2029.',
     'blog.article.investimento-svizzero-usa-lonza.imageAlt': 'Usine pharmaceutique Lonza aux Etats-Unis',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.title': 'Primes caisse-maladie dans le canton du Jura : réductions et tranches 2024',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.excerpt': 'Guide pratique des primes LAMal dans le canton du Jura : fourchettes de franchise, modèles alternatifs et conditions pour obtenir la réduction cantonale des primes.',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.imageAlt': 'Carte d\'assurance maladie LAMal avec symboles cantonaux jurassiens et documents pour réduction de primes',
 };
 
 export default blogMetaChFr;

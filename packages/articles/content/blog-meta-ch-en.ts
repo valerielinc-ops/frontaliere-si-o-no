@@ -6262,6 +6262,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.investimento-svizzero-usa-lonza.title': 'Lonza invests in the USA: new pharmaceutical plant in Oregon',
     'blog.article.investimento-svizzero-usa-lonza.excerpt': 'Swiss pharmaceutical giant Lonza will build a new manufacturing facility in Bend, Oregon, with completion expected by 2029.',
     'blog.article.investimento-svizzero-usa-lonza.imageAlt': 'Lonza pharmaceutical plant in the United States',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.title': 'Health insurance premiums in the canton of Jura: reductions and bands 2024',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.excerpt': 'Practical Guide to LAMal Awards in the Canton of Jura: Deductible Bands, Alternative Models, and Requirements to Achieve Cantonal Premium Reduction.',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.imageAlt': 'LAMal health insurance card with Jura cantonal symbols and premium reduction documents',
 };
 
 export default blogMetaChEn;

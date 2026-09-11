@@ -18784,6 +18784,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-cassa-malati-canton-giura-riduzioni',
+    category: 'pratico',
+    date: '2026-09-11T00:48:35.425Z',
+    image: '/images/blog/premi-cassa-malati-canton-giura-riduzioni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

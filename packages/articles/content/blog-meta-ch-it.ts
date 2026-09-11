@@ -6262,6 +6262,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.investimento-svizzero-usa-lonza.title': 'Lonza investe negli USA: nuovo impianto farmaceutico in Oregon',
     'blog.article.investimento-svizzero-usa-lonza.excerpt': 'Il colosso farmaceutico svizzero Lonza costruirà un nuovo impianto di produzione a Bend, nell\'Oregon, con completamento previsto entro il 2029.',
     'blog.article.investimento-svizzero-usa-lonza.imageAlt': 'Impianto farmaceutico Lonza negli Stati Uniti',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.title': 'Premi cassa malati nel canton Giura: riduzioni e fasce 2024',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.excerpt': 'Guida pratica ai premi LAMal nel Canton Giura: fasce di franchigia, modelli alternativi e requisiti per ottenere la riduzione cantonale dei premi.',
+    'blog.article.premi-cassa-malati-canton-giura-riduzioni.imageAlt': 'Carta assicurazione malattia LAMal con simboli cantonali del Giura e documenti per riduzione premi',
 };
 
 export default blogMetaChIt;
