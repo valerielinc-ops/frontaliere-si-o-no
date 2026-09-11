@@ -1,23 +1,24 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-09-10T23:15:25.731Z",
+  "generatedAt": "2026-09-11T13:44:26.561Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
   "written": 5,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11055,
-  "avgDurationMs": 11055,
+  "durationMs": 12360,
+  "avgDurationMs": 12360,
   "durationHistory": [
-    11055
+    12360
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "somedia-c861507800dc",
       "slug": "sales-manager-in-aussendienst-80-100-somedia-ch",
@@ -30,7 +31,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:15:11.091Z",
+      "crawledAt": "2026-09-11T13:44:12.856Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -51,16 +52,15 @@
         "identifier": "",
         "hiringOrganization": "Somedia Promotion AG"
       },
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-09-10T23:15:11.091Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "somedia-ab12f68befed",
       "slug": "redaktor-in-video-40-somedia-ch",
@@ -73,7 +73,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:15:12.146Z",
+      "crawledAt": "2026-09-11T13:44:13.968Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -116,7 +116,7 @@
       "url": "https://jobs.somedia.ch/Fachperson-Personalentwicklung-Kultur-100-de-j407.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:15:14.957Z",
+      "crawledAt": "2026-09-11T13:44:17.149Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -158,7 +158,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:15:13.033Z",
+      "crawledAt": "2026-09-11T13:44:14.903Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -200,7 +200,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:15:13.877Z",
+      "crawledAt": "2026-09-11T13:44:15.821Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
