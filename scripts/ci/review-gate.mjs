@@ -470,7 +470,11 @@ function reviewerList(raw) {
   return raw.flatMap((page) => Array.isArray(page) ? page : [page]);
 }
 
-function findingKey(finding) {
+/**
+ * `findingKey()` is the stable identity for an unanchored Important finding
+ * across review retries; keep its normalization contract explicit and tested.
+ */
+export function findingKey(finding) {
   const anchors = (finding?.citations || [])
     .map((citation) => `${normalizePath(citation.path)}:${citation.line || ''}`)
     .sort()
@@ -537,7 +541,11 @@ function confirmationHasUniqueTarget(candidate, finding, openFindings, { ignoreL
   return openMatches.length === 1;
 }
 
-function citationConfirmed(citation, confirmations, finding, openFindings) {
+/**
+ * `citationConfirmed()` follows a moved path+line anchor only when the path
+ * still identifies one finding, preserving convergence without broad matching.
+ */
+export function citationConfirmed(citation, confirmations, finding, openFindings) {
   return confirmations.some((confirmation) => confirmation.citations.some((candidate) => {
     if (!citationPathMatches(candidate.path, citation.path)) return false;
     const sameLine = candidate.line === citation.line
