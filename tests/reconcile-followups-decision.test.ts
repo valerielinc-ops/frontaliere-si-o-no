@@ -14,6 +14,7 @@ import {
   dailyBucketCloseGate,
   isAggregateTitle,
   decideReconcileAction,
+  isReconcileFlagComment,
   isStrongAutoCloseEvidence,
   reconcileDailyItems,
 } from '../scripts/ci/reconcile-followups.mjs';
@@ -115,6 +116,23 @@ describe('daily bucket reconcile — explicit Acceptance token', () => {
       1,
     );
     expect(gate.blocks).toBe(false);
+  });
+});
+
+describe('reconcile flag history — item markers do not consume the grace window', () => {
+  it('does not treat an item-done marker as an aggregate flag', () => {
+    expect(isReconcileFlagComment(
+      '<!-- reconcile-bot -->\n✅ Item `FU-2026-09-11-004` marcato `done`.',
+    )).toBe(false);
+  });
+
+  it('recognizes the dedicated current marker and legacy aggregate flag comments', () => {
+    expect(isReconcileFlagComment(
+      '<!-- reconcile-bot:flag -->\n<!-- reconcile-bot -->\n🤖 **Reconcile (auto)**: done-but-open',
+    )).toBe(true);
+    expect(isReconcileFlagComment(
+      '<!-- reconcile-bot -->\n🤖 **Reconcile (auto)**: done-but-open',
+    )).toBe(true);
   });
 });
 
