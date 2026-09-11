@@ -11648,6 +11648,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-11.imageAlt': 'The day\'s numbers for cross-border commuters – September 11, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-11.seoDescription': 'Cross-border brief, September 11, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-11.ogDescription': 'The numbers for September 11, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.tilo-s10-bus-chiasso-melide.title': 'TILO changes: bus instead of the S10 Chiasso-Melide',
+    'blog.article.tilo-s10-bus-chiasso-melide.excerpt': 'From 13 September 2026, the 4:11 TILO ride from Mendrisio to Chiasso will be replaced by a bus, with early departure, until 19 October 2026.',
+    'blog.article.tilo-s10-bus-chiasso-melide.imageAlt': 'TILO bus at Mendrisio station at dawn, replacing the S10 train for cross-border workers',
 };
 
 export default blogMetaEn;

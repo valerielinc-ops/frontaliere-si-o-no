@@ -11650,6 +11650,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-11.imageAlt': 'Les chiffres du jour pour les frontaliers – 11 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-11.seoDescription': 'Bulletin du frontalier du 11 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-11.ogDescription': 'Les chiffres du 11 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.tilo-s10-bus-chiasso-melide.title': 'Modifications TILO : bus à la place du S10 Chiasso-Melide',
+    'blog.article.tilo-s10-bus-chiasso-melide.excerpt': 'À partir du 13 septembre 2026, la course TILO de 4h11 de Mendrisio à Chiasso sera remplacée par un bus, avec départ anticipé, jusqu\'au 19 octobre 2026.',
+    'blog.article.tilo-s10-bus-chiasso-melide.imageAlt': 'Autobus TILO à la gare de Mendrisio à l\'aube, remplaçant le train S10 pour les frontaliers',
 };
 
 export default blogMetaFr;

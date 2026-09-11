@@ -11649,6 +11649,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-11.imageAlt': 'I numeri del giorno per i frontalieri – 11 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-11.seoDescription': 'Bollettino frontalieri del 11 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-11.ogDescription': 'I numeri del 11 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.tilo-s10-bus-chiasso-melide.title': 'Modifiche TILO: bus al posto della S10 Chiasso-Melide',
+    'blog.article.tilo-s10-bus-chiasso-melide.excerpt': 'Dal 13 settembre 2026 la corsa TILO delle 4:11 da Mendrisio verso Chiasso sarà sostituita da un autobus, con partenza anticipata, fino al 19 ottobre 2026.',
+    'blog.article.tilo-s10-bus-chiasso-melide.imageAlt': 'Autobus TILO alla stazione di Mendrisio all\'alba, sostituto del treno S10 per frontalieri',
 };
 
 export default blogMetaIt;

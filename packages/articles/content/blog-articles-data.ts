@@ -34770,6 +34770,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'tilo-s10-bus-chiasso-melide',
+ category: 'pratico',
+ date: '2026-09-11T18:59:52.263Z',
+ image: '/images/blog/tilo-s10-bus-chiasso-melide.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
