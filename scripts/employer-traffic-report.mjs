@@ -320,8 +320,12 @@ async function postHogSourceFrom() {
   return toIso(rows?.[0]?.[0] ?? rows?.[0]?.source_from);
 }
 
-function ga4Date(iso) {
-  const date = new Date(Date.parse(iso) - 86_400_000);
+export function ga4Date(iso) {
+  const parsed = Date.parse(iso);
+  if (!Number.isFinite(parsed)) throw new Error(`invalid GA4 window end: ${iso}`);
+  const date = new Date(parsed);
+  date.setUTCHours(0, 0, 0, 0);
+  date.setUTCDate(date.getUTCDate() - 1);
   return date.toISOString().slice(0, 10);
 }
 

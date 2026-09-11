@@ -80,6 +80,11 @@ beforeAll(() => {
 
   // A scratch companion, which must not count as a crawler of its own.
   slice('eoc-ente-ospedaliero-cantonale-locale-cache', [{ url: `${UMANTIS}/Vacancies/931/Description/4` }]);
+
+  // JSON TEXT may contain a literal backslash in a URL. The host scanner must
+  // stop at that separator and retain the authority identity, not feed the
+  // path-bearing raw string to the canonical host fallback.
+  slice('text-backslash', [{ url: 'https://text.example.ch\\careers/1' }]);
 });
 
 afterAll(() => {
@@ -94,6 +99,8 @@ describe('source-host ownership', () => {
     expect(own.dedicatedHosts.has('recruitingapp-2761.umantis.com')).toBe(false);
     // The SmartRecruiters lobby fronts two employers — also not an identity.
     expect(own.sharedHosts.has('jobs.smartrecruiters.com')).toBe(true);
+    expect(own.dedicatedHosts.has('text.example.ch')).toBe(true);
+    expect(own.byHost.has('text.example.ch\\careers')).toBe(false);
   });
 
   it('ignores scratch companions the way the dataset assembler does', () => {
@@ -106,6 +113,7 @@ describe('source-host ownership', () => {
 
   it('normalises hosts and job URLs so two spellings compare equal', () => {
     expect(normalizeSourceHost('WWW.Example.CH:443')).toBe('example.ch');
+    expect(normalizeSourceHost('WWW.Example.CH\\careers/1')).toBe('example.ch');
     expect(normalizeJobUrl('https://Host.ch/Job/1/?utm=x#top')).toBe('https://host.ch/job/1');
     expect(normalizeJobUrl("https://www.concorsi.ti.ch/offerte-d'impieghi.html?sid=abc&yid=4264"))
       .toBe("https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4264");

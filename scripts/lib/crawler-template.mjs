@@ -199,6 +199,14 @@ export function slugify(text = '', maxLength = 90) {
 }
 
 /**
+ * Environment switch used by the strict validation gate for one crawler.
+ * Kebab-case company keys must map to shell-safe underscore names.
+ */
+export function crawlerStrictEnvVar(companyKey = '') {
+  return `JOBS_${String(companyKey).toUpperCase().replace(/-/g, '_')}_STRICT`;
+}
+
+/**
  * Build a standard job slug: title-company-location.
  * The result is a clean kebab-case string — no mandatory suffix convention.
  */
@@ -1077,7 +1085,7 @@ export async function runStandardCrawlerPipeline(config) {
   // Checks: locale coverage, URL domains, slug format, description quality.
   // Strict mode (default) fails the crawler if validation finds issues.
   const validateOpts = {
-    strictEnvVar: `JOBS_${companyKey.toUpperCase().replace(/-/g, '_')}_STRICT`,
+    strictEnvVar: crawlerStrictEnvVar(companyKey),
     label: companyLabel,
     dataJobsPath: DATA_JOBS,
     isTargetJob: isCompanyJob,

@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   aggregateGa4Rows,
+  ga4Date,
   postHogBaseQuery,
   resolveGa4Employers,
 } from '../scripts/employer-traffic-report.mjs';
@@ -71,5 +72,11 @@ describe('postHogBaseQuery', () => {
     expect(firstPage).not.toContain('OFFSET');
     expect(nextPage).toContain("> 'acme'");
     expect(nextPage).not.toContain('OFFSET');
+  });
+});
+
+describe('GA4 date windows', () => {
+  it('uses the previous calendar day when an exclusive --to is exactly midnight', () => {
+    expect(ga4Date('2026-09-08T00:00:00.000Z')).toBe('2026-09-07');
   });
 });
