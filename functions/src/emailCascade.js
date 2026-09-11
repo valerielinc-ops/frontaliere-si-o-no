@@ -1642,7 +1642,7 @@ export async function sendEmailCascade(emails, opts = {}) {
   }
   console.log(`✅ Sent: ${accepted.length} identified, ${ambiguous.length} ambiguous (provider-accepted=${sent.length}), Failed: ${failed.length}`);
   if (Object.keys(providerBreakdown).length > 0) {
-    console.log(`   Breakdown: ${Object.entries(providerBreakdown).map(([k, v]) => `${k}=identified:${v.identified},ambiguous:${v.ambiguous},persistFailed:${v.persistFailed}`).join(', ')}`);
+    console.log(`   Breakdown: ${Object.entries(providerBreakdown).map(([k, v]) => `${k}=identified:${v.identified},ambiguous:${v.ambiguous}${v.persistFailed ? `,persistFailed:${v.persistFailed}` : ''}`).join(', ')}`);
   }
   // Per-message scheduled-send breakdown (feature #3798): how many of the
   // successful sends were actually deferred provider-side vs sent immediately.

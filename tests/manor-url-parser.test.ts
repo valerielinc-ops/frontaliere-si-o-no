@@ -41,6 +41,7 @@ describe('Manor jobs2web URL and title parsing', () => {
   it('removes the site suffix while preserving the role title', () => {
     expect(stripSiteTitleSuffix('Verkäufer*in 60% | Manor')).toBe('Verkäufer*in 60%');
     expect(stripSiteTitleSuffix('Verkäufer*in 60% - Manor AG')).toBe('Verkäufer*in 60%');
+    expect(stripSiteTitleSuffix('Empfangsmitarbeiter/in 50% | Ferienvertretung 100%')).toBe('Empfangsmitarbeiter/in 50% | Ferienvertretung 100%');
     expect(stripSiteTitleSuffix('Mitarbeiter*in Verkauf - 60%')).toBe('Mitarbeiter*in Verkauf - 60%');
   });
 
