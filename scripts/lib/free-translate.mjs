@@ -998,10 +998,13 @@ async function _getGoogleCloudAccessToken() {
   return _gcOAuth.accessToken;
 }
 
-async function translateWithGoogleCloud(text, sourceLang, targetLang, outcome = null) {
-  if (!_gcOAuthAvailable) return '';
+export async function translateWithGoogleCloud(text, sourceLang, targetLang, outcome = null) {
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
+  if (!_gcOAuthAvailable) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
   if (_googleCloudDailyChars + clean.length > GOOGLE_CLOUD_DAILY_LIMIT) {
     noteTranslationOutcome(outcome, 'incomplete');
     return '';
@@ -1051,10 +1054,13 @@ async function translateWithGoogleCloud(text, sourceLang, targetLang, outcome = 
 }
 
 // ── Hugging Face OPUS-MT (Helsinki-NLP open-source models) ─────────────────
-async function translateWithHuggingFace(text, sourceLang, targetLang, outcome = null) {
-  if (!HF_TOKEN) return '';
+export async function translateWithHuggingFace(text, sourceLang, targetLang, outcome = null) {
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
+  if (!HF_TOKEN) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
 
   const modelKey = `${sourceLang}-${targetLang}`;
   const model = HF_OPUS_MT_MODELS[modelKey];
@@ -1540,9 +1546,10 @@ export async function freeTranslateWithRetryDetailed({ text, sourceLang, targetL
     if (out) return { text: out, passthrough: false };
   }
 
-  // Aggregate all attempts: an error/incomplete result, or a tier unavailable
-  // for this text, must not be hidden by a later source echo and turned into a
-  // durable passthrough memo.
+  // passthroughs/errors/incomplete are aggregated across attempts. The
+  // tierUnavailable flag is deliberately per-attempt and was reset above, so
+  // a later attempt can prove a clean passthrough without inheriting a missing
+  // tier from an earlier attempt.
   const passthrough = outcome.passthroughs > 0
     && outcome.errors === 0
     && !outcome.incomplete

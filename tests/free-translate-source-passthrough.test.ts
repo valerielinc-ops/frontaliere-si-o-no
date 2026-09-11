@@ -260,6 +260,41 @@ function runRetryOutcomeResetScenario() {
   });
 }
 
+function runUnconfiguredTierScenario(service: 'googleCloud' | 'huggingFace') {
+  const moduleUrl = new URL('../scripts/lib/free-translate.mjs', import.meta.url).href;
+  const childScript = `
+    const { translateWithGoogleCloud, translateWithHuggingFace } = await import(${JSON.stringify(moduleUrl)});
+    const translate = ${service === 'googleCloud' ? 'translateWithGoogleCloud' : 'translateWithHuggingFace'};
+    const invoke = async (text, targetLang) => {
+      const outcome = { passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: false };
+      await translate(text, 'it', targetLang, outcome);
+      return outcome;
+    };
+    process.stdout.write(JSON.stringify({
+      empty: await invoke('', 'en'),
+      sameLanguage: await invoke('Titolo di prova', 'it'),
+      unavailable: await invoke('Titolo di prova', 'en'),
+    }));
+  `;
+
+  return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      AZURE_TRANSLATOR_KEY: '',
+      AZURE_TRANSLATOR_KEY_2: '',
+      DEEPL_API_KEY: '',
+      DEEPL_API_KEY_2: '',
+      GSC_CLIENT_ID: '',
+      GSC_CLIENT_SECRET: '',
+      GSC_REFRESH_TOKEN: '',
+      HF_TOKEN: '',
+      HUGGINGFACE_API_KEY: '',
+      VITEST: '1',
+    },
+  });
+}
+
 const EN = [
   '## In brief',
   '- Cross-border workers living within twenty kilometres of the border stay in the old tax regime',
@@ -466,6 +501,16 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
 
     expect(child.status).toBe(0);
     expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: true });
+  });
+
+  it.each(['googleCloud', 'huggingFace'] as const)('marca %s non configurato senza toccare i guard input', (service) => {
+    const child = runUnconfiguredTierScenario(service);
+
+    expect(child.status).toBe(0);
+    const result = JSON.parse(child.stdout);
+    expect(result.empty.tierUnavailable).toBe(false);
+    expect(result.sameLanguage.tierUnavailable).toBe(false);
+    expect(result.unavailable.tierUnavailable).toBe(true);
   });
 });
 
