@@ -30,9 +30,60 @@
  * `execFileSync`'s own `cwd` option treats identically to "not passed" — i.e.
  * today's behaviour (inherit the ambient cwd), never a new failure mode.
  */
-import { statSync } from 'node:fs';
+import { existsSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
+const CORPUS_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
+const siteRepositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
+const localRepositories = new Map([
+  [SITE_REPOSITORY, {
+    repo: siteRepositoryRoot,
+    checkScript: resolve(siteRepositoryRoot, 'scripts/ci/check-sibling-patterns.mjs'),
+  }],
+  [CORPUS_REPOSITORY, {
+    repo: resolve(siteRepositoryRoot, '..', 'frontaliere-articles'),
+    checkScript: resolve(siteRepositoryRoot, '..', 'frontaliere-articles', 'scripts/ci/check-sibling-patterns.mjs'),
+  }],
+]);
+
+/**
+ * Read the explicit repository flag from `gh pr create` without interpreting
+ * the shell. The root hooks are shared by the site and corpus sessions, so
+ * the repository named by the command — not this module's checkout — decides
+ * whether a repository-local checker is available.
+ *
+ * @param {string} command command received by a PreToolUse hook
+ * @returns {string|undefined}
+ */
+function explicitRepository(command) {
+  const text = String(command ?? '');
+  const bodyIndex = text.search(/\s--body(?:-file)?(?:[= ]|$)/);
+  const cli = bodyIndex >= 0 ? text.slice(0, bodyIndex) : text;
+  const flagRe = /(?:^|\s)(?:--repo[= ]+|-R[= ]*)(?:"([^"]*)"|'([^']*)'|(\S+))/g;
+  for (const match of cli.matchAll(flagRe)) {
+    const raw = (match[1] ?? match[2] ?? match[3] ?? '').trim();
+    if (raw && !/[$`]/.test(raw)) return raw;
+  }
+  return undefined;
+}
+
+/**
+ * Resolve the local repository and optional sibling checker for a PR command.
+ * A repository without a local checker returns `null` instead of silently
+ * running the site's checker against another repository's branch.
+ *
+ * @param {string} command command received by a PreToolUse hook
+ * @returns {{repo:string, checkScript:string}|null}
+ */
+export function resolveHookRepository(command) {
+  const requested = explicitRepository(command) ?? SITE_REPOSITORY;
+  const target = localRepositories.get(requested);
+  if (!target || !existsSync(target.checkScript)) return null;
+  return target;
+}
 
 // Only inspect shell separators (plus the quote opened by `zsh -lc "..."`),
 // and only the prefix before the first `gh pr create`. This avoids treating a

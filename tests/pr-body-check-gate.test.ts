@@ -129,6 +129,13 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(res.status).toBe(0);
   });
 
+  it('still validates a corpus PR body while skipping the site-only diff advisory', () => {
+    const cmd = `gh pr create --repo nanakokyobashi-rgb/frontaliere-articles --title "x" --body '${MISSING_NON}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Non implementato/);
+  });
+
   it('blocks (EXIT_BLOCK=2) when `## Non implementato` is missing', () => {
     const cmd = `gh pr create --title "x" --body '${MISSING_NON}'`;
     const res = runGate(cmd);
