@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gmo",
-  "assembledAt": "2026-09-11T13:36:01.025Z",
+  "assembledAt": "2026-09-11T23:06:37.971Z",
   "jobs": [
     {
       "id": "gmo-4b5a5ae3e4b8",
@@ -33,7 +33,7 @@
       "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:53.909Z",
+      "crawledAt": "2026-09-11T23:06:26.412Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:53.908Z",
+      "crawledAt": "2026-09-11T23:06:26.411Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:53.907Z",
+      "crawledAt": "2026-09-11T23:06:26.410Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -273,7 +273,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:53.903Z",
+      "crawledAt": "2026-09-11T23:06:26.409Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -347,7 +347,7 @@
       "url": "https://www.arsante.ch/emploi/coordinateur-rice-99",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:53.901Z",
+      "crawledAt": "2026-09-11T23:06:26.408Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -427,7 +427,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-100",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:53.898Z",
+      "crawledAt": "2026-09-11T23:06:26.406Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -459,8 +459,8 @@
           "assistant-e-medical-e-gmo-ch-2"
         ]
       },
-      "firstSeenAt": "2026-09-05T22:49:34.246Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-05T22:49:34.246Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -506,7 +506,7 @@
       "url": "https://www.arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:53.891Z",
+      "crawledAt": "2026-09-11T23:06:26.403Z",
       "addressLocality": "Grand-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -558,34 +558,34 @@
       "id": "gmo-ebda8fb668fb",
       "slug": "assistant-e-medical-e-gmo-ch-3",
       "slugByLocale": {
-        "fr": "assistant-e-medical-e-gmo-ch",
         "it": "assistant-e-medical-e-gmo-ch-3",
         "en": "assistant-e-medical-e-gmo-ch-3",
-        "de": "assistant-e-medical-e-gmo-ch-3"
+        "de": "assistant-e-medical-e-gmo-ch-3",
+        "fr": "assistant-e-medical-e-gmo-ch"
       },
       "company": "gmo",
       "companyKey": "gmo",
       "companyDomain": "arsante.ch",
       "title": "Assistant·e médical·e",
       "titleByLocale": {
-        "fr": "Assistant·e médical·e",
         "it": "Assistant·e médical·e",
         "en": "Assistant·e médical·e",
-        "de": "Assistent·e médical·e"
+        "de": "Assistent·e médical·e",
+        "fr": "Assistant·e médical·e"
       },
       "description": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical. \n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin. \n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout",
       "descriptionByLocale": {
-        "fr": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical. \n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin. \n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout",
-        "it": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical. \n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin. \n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout",
-        "en": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical. \n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin. \n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout",
-        "de": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical. \n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin. \n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout"
+        "it": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical.\n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin.\n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout",
+        "en": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical.\n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin.\n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout",
+        "de": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical.\n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin.\n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout",
+        "fr": "Vos conditions : Entrée en fonction : janvier 2027 Contrat à durée indéterminée Taux d’activité : 80% Vos Missions : Dans le cadre de vos activités, vous serez en charge d’accueillir et d’accompagner les patient·es en garantissant un cadre professionnel, bienveillant et sécurisant. Vous assurerez également la gestion des rendez-vous ainsi que l’ensemble des tâches administratives liées au secrétariat médical. \n• Vos responsabilités incluront également, dans le cas où vous êtes titulaire d’un CFC la préparation du matériel médical, l’assistance aux praticiens lors des consultations et la réalisation de soins sous la supervision du médecin. \n• Vos compétences : Titulaire d’un CFC d’assistant·e médical·e Excellentes compétences organisationnelles et capacité à gérer les priorités Rigueur, autonomie et esprit d’équipe Sens du relationnel développé et aptitude à gérer le stress Maîtrise des outils informatiques usuels ; la connaissance du logiciel Mediway constitue un atout"
       },
       "location": "1023 Crissier",
       "canton": "VD",
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:53.884Z",
+      "crawledAt": "2026-09-11T23:06:26.398Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -601,10 +601,17 @@
       "postedDate": "2026-09-11",
       "applyUrl": "https://www.arsante.ch/emploi/assistant-e-medical-e-102",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-e-medical-e-gmo-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-gmo-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:35:53.884Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -617,16 +624,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-11T13:35:53.884Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-medical-e-gmo-ch"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-e-medical-e-gmo-ch"
-      ]
+      }
     },
     {
       "id": "gmo-69ead8a8b120",
@@ -707,7 +705,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-09-11T13:36:14.250Z",
+  "assembledAt": "2026-09-11T23:06:51.371Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:50.266Z",
+      "crawledAt": "2026-09-11T23:06:23.728Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -101,7 +101,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:49.525Z",
+      "crawledAt": "2026-09-11T23:06:22.853Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,16 +141,16 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "pratique-pratique-srg-ssr-cuira"
         ]
       },
-      "previousSlugs": [
-        "pratique-pratique-srg-ssr-cuira"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-29T11:35:50.122Z",
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
@@ -196,7 +196,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:48.696Z",
+      "crawledAt": "2026-09-11T23:06:21.966Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -259,6 +259,17 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern",
+        "service-operator-srg-ssr-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern",
+          "service-operator-srg-ssr-bern"
+        ]
+      },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
       "salaryMin": 71500,
       "salaryMax": 126500,
@@ -273,18 +284,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "previousSlugsByLocale": {
-        "it": [
-          "operatore-di-servizio-srg-ssr-bern",
-          "service-operator-srg-ssr-bern"
-        ]
-      },
-      "previousSlugs": [
-        "operatore-di-servizio-srg-ssr-bern",
-        "service-operator-srg-ssr-bern"
-      ],
-      "needsRetranslation": true
+      "addressRegion": "BE"
     },
     {
       "id": "srg-ssr-a8ae3325568d",
@@ -317,7 +317,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:38.097Z",
+      "crawledAt": "2026-09-11T23:06:21.388Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -366,8 +366,8 @@
         "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
         "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
       ],
-      "firstSeenAt": "2026-08-17T21:37:04.179Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T21:37:04.179Z",
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -414,7 +414,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:34.532Z",
+      "crawledAt": "2026-09-11T23:06:20.811Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -461,8 +461,8 @@
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-17T21:37:03.185Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T21:37:03.185Z",
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -509,7 +509,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:34.045Z",
+      "crawledAt": "2026-09-11T23:06:18.812Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -560,8 +560,8 @@
           "projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-08-13T21:48:15.082Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T21:48:15.082Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -608,7 +608,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:33.463Z",
+      "crawledAt": "2026-09-11T23:06:08.872Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -660,8 +660,8 @@
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-08-13T21:48:14.284Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T21:48:14.284Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -708,7 +708,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:32.917Z",
+      "crawledAt": "2026-09-11T23:06:08.237Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -762,8 +762,8 @@
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ]
       },
-      "firstSeenAt": "2026-08-14T21:28:35.078Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:28:35.078Z",
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -810,7 +810,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:32.339Z",
+      "crawledAt": "2026-09-11T23:06:07.572Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -864,8 +864,8 @@
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ]
       },
-      "firstSeenAt": "2026-08-14T21:28:34.182Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:28:34.182Z",
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -912,7 +912,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:31.781Z",
+      "crawledAt": "2026-09-11T23:06:06.987Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -964,8 +964,8 @@
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-08-21T09:46:05.638Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-21T09:46:05.638Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1012,7 +1012,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:31.211Z",
+      "crawledAt": "2026-09-11T23:06:06.344Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1060,8 +1060,8 @@
         "org": "rsi",
         "orgLabel": "RSI"
       },
-      "firstSeenAt": "2026-08-24T10:00:42.039Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:00:42.039Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -1108,7 +1108,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:30.571Z",
+      "crawledAt": "2026-09-11T23:06:05.774Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1165,8 +1165,8 @@
           "ressources-humaines-partner-in-srg-ssr-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-25T09:48:14.107Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T09:48:14.107Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1181,119 +1181,6 @@
         }
       },
       "addressRegion": "ZH"
-    },
-    {
-      "id": "srg-ssr-6c08b6ba378b",
-      "slug": "presentatore-di-tempo-srg-ssr-bern",
-      "slugByLocale": {
-        "it": "presentatore-di-tempo-srg-ssr-bern",
-        "en": "weather-presenter-srg-ssr-bern",
-        "de": "wettermoderator-srg-ssr-bern",
-        "fr": "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Présentatrice ou présentateur météo",
-      "titleByLocale": {
-        "it": "Presentatore di tempo",
-        "en": "Weather presenter",
-        "de": "Wettermoderator",
-        "fr": "Présentatrice ou présentateur météo"
-      },
-      "description": "Votre mission Vous préparez et présentez les bulletins météo à la TV, notamment les éditions de midi et du soir. Vous analysez les données météorologiques disponibles, sélectionnez les informations pertinentes pour le public et les traduisez en un discours clair, précis et accessible. Vous préparez les cartes et les graphismes nécessaires à vos présentations, sélectionnez les illustrations appropriées et rédigez vos textes. À l'antenne, vous êtes capable de vous adapter aux différentes situations, notamment en direct, et de gérer avec calme et professionnalisme les éventuels imprévus techniques. Vous contribuez également au développement de contenus météo et climatologiques pour les vecteurs digitaux. Vous êtes ainsi amené·e à adapter votre manière de raconter et de vulgariser l'information en fonction des différents formats et des usages numériques. Vous collaborez régulièrement avec MétéoSuisse afin de garantir la précision et la qualité des informations diffusées. Vous partagez également votre expertise avec les journalistes du Département de l'information lors de sujets liés à la météorologie et à la climatologie. Vous travaillerez majoritairement seul avec de l'autonomie, dans une équipe motivée et dynamique, ainsi que de fréquents contacts avec les partenaires. Votre profil\n• Sens aigu de l'information de service public, rigueur et capacité à identifier les besoins du public.\n• Formation dans l'animation, la communication, le journalisme, ou dans un domaine scientifique\n• Intérêt marqué pour la météorologie et la climatologie\n• Expérience dans la présentation ou l'animation\n• Grande aisance dans l'expression orale et face caméra.\n• Excellentes capacités de vulgarisation et aptitude à rendre des informations scientifiques accessibles au grand public.\n• Bonne capacité rédactionnelle et sens de la synthèse.\n• Maîtrise de la présentation en direct et capacité à faire face aux imprévus avec calme et réactivité.\n• Bonne compréhension des outils informatiques utilisés pour la production de cartes et de graphiques météo ainsi que pour la création de contenus digitaux.\n• Notions de tournage digital (moyens légers) et de montage vidéo, un atout.\n• Intérêt pour les nouveaux formats et les usages digitaux.\n• Connaissances en allemand et en anglais : B2.\n• Flexibilité pour du travail 7/365 Ce que nous vous offrons Vous aimez transmettre une information utile au public, vous avez un intérêt marqué pour la météorologie et vous êtes à l'aise face caméra ? Rejoignez-nous dans cette fonction au cœur de l'antenne, où vous contribuez à faire de la météo un rendez-vous clair, fiable et accessible, à la TV comme sur nos vecteurs digitaux. Nous recherchons une présentatrice ou un présentateur météo au sein du département de l'information, qui aura pour mission de préparer et présenter les bulletins météo ainsi que de contribuer à la production de contenus liés à la météorologie et à la climatologie.",
-      "descriptionByLocale": {
-        "it": "La tua missione Si prepara e presenta rapporti meteo su TV, tra cui numeri di mezzogiorno e sera. Analizzi i dati meteo disponibili, seleziona le informazioni pertinenti al pubblico e la traduci in un discorso chiaro, preciso e accessibile. Prepara mappe e grafici per le tue presentazioni, seleziona illustrazioni appropriate e scrivi i tuoi testi. In aria, si è in grado di adattarsi a situazioni diverse, soprattutto dal vivo, e di gestire con calma e professionalità eventuali eventi tecnici imprevisti. Contribuisci anche allo sviluppo del clima e dei contenuti climatici per i vettori digitali. È quindi necessario adattare il vostro modo di raccontare e diffondere informazioni in base a diversi formati e usi digitali. Collabora regolarmente con MétéoSwitzerland per garantire l'accuratezza e la qualità delle informazioni diffuse. Condividi anche la tua esperienza con i giornalisti DPI su temi meteo e climatologia. Si lavorerà principalmente da solo con autonomia, in un team motivato e dinamico, così come contatti frequenti con i partner. Il tuo profilo\n• Forte senso di informazioni di servizio pubblico, rigore e capacità di identificare le esigenze pubbliche.\n• Formazione in animazione, comunicazione, giornalismo, o in campo scientifico\n• Alto interesse per la meteorologia e la climatologia\n• Esperienza in presentazione o animazione\n• Grande facilità in espressione orale e fotocamera faccia.\n• Ottima capacità di accesso e capacità di rendere le informazioni scientifiche accessibili al pubblico generale.\n• Buona capacità editoriale e senso di sintesi.\n• Controllo della presentazione dal vivo e capacità di affrontare eventi imprevisti con calma e reattività.\n• Buona comprensione degli strumenti informatici utilizzati per la produzione di mappe e grafici meteo e per la creazione di contenuti digitali.\n• Concetti di ripresa digitale (media di luce) e editing video, un bene.\n• Interessi in nuovi formati e usi digitali.\n• Conoscenza in tedesco e inglese: B2.\n• Flessibilità del lavoro 7/365 Cosa ti offriamo Ti piace trasmettere informazioni utili al pubblico, avere un forte interesse per la meteorologia e sei confortevole fotocamera di fronte? Unisciti a noi in questa funzione nel cuore dell'antenna, dove aiuta a rendere il tempo un appuntamento chiaro, affidabile e accessibile, in TV come sui nostri vettori digitali. Siamo alla ricerca di un presentatore meteo all'interno del Dipartimento dell'Informazione, la cui missione sarà quella di preparare e presentare rapporti meteorologici, nonché di contribuire alla produzione di contenuti atmosferici e climatici.",
-        "en": "Your Mission You prepare and present weather reports on TV, including noon and evening editions. You analyze the available weather data, select information relevant to the public and translate it into a clear, accurate and accessible speech. You prepare maps and graphics for your presentations, select appropriate illustrations and write your texts. On the air, you are able to adapt to different situations, especially live, and to manage with calm and professionalism any technical unforeseen events. You also contribute to the development of weather and climatological content for digital vectors. You are therefore required to adapt your way of telling and disseminating information according to different formats and digital uses. You regularly collaborate with MétéoSwitzerland to ensure the accuracy and quality of the information disseminated. You also share your expertise with DPI journalists on weather and climatology topics. You will mostly work alone with autonomy, in a motivated and dynamic team, as well as frequent contacts with partners. Your profile\n• Strong sense of public service information, rigour and ability to identify public needs.\n• Training in animation, communication, journalism, or in a scientific field\n• High interest in meteorology and climatology\n• Experience in presentation or animation\n• Great ease in oral expression and face camera.\n• Excellent outreach capacity and ability to make scientific information accessible to the general public.\n• Good editorial capacity and sense of synthesis.\n• Control of live presentation and ability to cope with unforeseen events with calm and reactivity.\n• Good understanding of the computer tools used for the production of maps and weather charts as well as for the creation of digital content.\n• Concepts of digital shooting (light mediums) and video editing, an asset.\n• Interest in new formats and digital uses.\n• Knowledge in German and English: B2.\n• Flexibility for work 7/365 What we offer you Do you like to transmit useful information to the public, have a strong interest in meteorology and are you comfortable facing camera? Join us in this function at the heart of the antenna, where you help make the weather a clear, reliable and accessible appointment, on TV as on our digital vectors. We are looking for a weather presenter within the Information Department, whose mission will be to prepare and present weather reports as well as to contribute to the production of weather and climatology related content.",
-        "de": "Deine Mission Sie erstellen und präsentieren Wetterberichte im Fernsehen, einschließlich Mittags- und Abendausgaben. Sie analysieren die verfügbaren Wetterdaten, wählen für die Öffentlichkeit relevante Informationen aus und übersetzen sie in eine klare, genaue und zugängliche Sprache. Sie erstellen Karten und Grafiken für Ihre Präsentationen, wählen passende Illustrationen aus und schreiben Ihre Texte. In der Luft sind Sie in der Lage, sich an verschiedene Situationen anzupassen, insbesondere live, und mit Ruhe und Professionalität alle technischen unvorhergesehenen Ereignisse zu bewältigen. Sie tragen auch zur Entwicklung von Wetter- und Klimainhalten für digitale Vektoren bei. Sie müssen daher Ihre Art, Informationen zu erzählen und zu verbreiten, an verschiedene Formate und digitale Nutzungen anpassen. Sie arbeiten regelmäßig mit MétéoSwitzerland zusammen, um die Genauigkeit und Qualität der verbreiteten Informationen sicherzustellen. Sie teilen Ihre Expertise auch mit DPI-Journalisten zu Wetter- und Klimathemen. Sie werden meist allein mit Autonomie arbeiten, in einem motivierten und dynamischen Team, sowie häufige Kontakte mit Partnern. Dein Profil\n• Starkes Gespür für Informationen im öffentlichen Dienst, Strenge und Fähigkeit, öffentliche Bedürfnisse zu erkennen.\n• Ausbildung in Animation, Kommunikation, Journalismus oder in einem wissenschaftlichen Bereich\n• Hohes Interesse an Meteorologie und Klimatologie\n• Erfahrung in Präsentation oder Animation\n• Große Leichtigkeit im mündlichen Ausdruck und Gesichtskamera.\n• Hervorragende Outreach-Kapazität und Fähigkeit, wissenschaftliche Informationen der Öffentlichkeit zugänglich zu machen.\n• Gute redaktionelle Kapazität und Sinn für Synthese.\n• Kontrolle der Live-Präsentation und Fähigkeit, mit unvorhergesehenen Ereignissen mit Ruhe und Reaktivität umzugehen.\n• Gutes Verständnis der Computer-Tools für die Erstellung von Karten und Wetterkarten sowie für die Erstellung von digitalen Inhalten.\n• Konzepte des digitalen Schießens (leichte Medien) und Videobearbeitung, ein Asset.\n• Interesse an neuen Formaten und digitalen Nutzungen.\n• Kenntnisse in Deutsch und Englisch: B2.\n• Flexibilität für die Arbeit 7/365 Was wir Ihnen anbieten Möchten Sie nützliche Informationen an die Öffentlichkeit weitergeben, haben ein starkes Interesse an Meteorologie und fühlen Sie sich mit der Kamera wohl? Begleiten Sie uns in dieser Funktion im Herzen der Antenne, wo Sie dazu beitragen, das Wetter zu einem klaren, zuverlässigen und zugänglichen Termin zu machen, im Fernsehen wie auf unseren digitalen Vektoren. Wir suchen einen Wettermoderator innerhalb der Informationsabteilung, dessen Aufgabe es sein wird, Wetterberichte zu erstellen und zu präsentieren sowie zur Erstellung von wetter- und klimatologiebezogenen Inhalten beizutragen.",
-        "fr": "Votre mission Vous préparez et présentez les bulletins météo à la TV, notamment les éditions de midi et du soir. Vous analysez les données météorologiques disponibles, sélectionnez les informations pertinentes pour le public et les traduisez en un discours clair, précis et accessible. Vous préparez les cartes et les graphismes nécessaires à vos présentations, sélectionnez les illustrations appropriées et rédigez vos textes. À l'antenne, vous êtes capable de vous adapter aux différentes situations, notamment en direct, et de gérer avec calme et professionnalisme les éventuels imprévus techniques. Vous contribuez également au développement de contenus météo et climatologiques pour les vecteurs digitaux. Vous êtes ainsi amené·e à adapter votre manière de raconter et de vulgariser l'information en fonction des différents formats et des usages numériques. Vous collaborez régulièrement avec MétéoSuisse afin de garantir la précision et la qualité des informations diffusées. Vous partagez également votre expertise avec les journalistes du Département de l'information lors de sujets liés à la météorologie et à la climatologie. Vous travaillerez majoritairement seul avec de l'autonomie, dans une équipe motivée et dynamique, ainsi que de fréquents contacts avec les partenaires. Votre profil\n• Sens aigu de l'information de service public, rigueur et capacité à identifier les besoins du public.\n• Formation dans l'animation, la communication, le journalisme, ou dans un domaine scientifique\n• Intérêt marqué pour la météorologie et la climatologie\n• Expérience dans la présentation ou l'animation\n• Grande aisance dans l'expression orale et face caméra.\n• Excellentes capacités de vulgarisation et aptitude à rendre des informations scientifiques accessibles au grand public.\n• Bonne capacité rédactionnelle et sens de la synthèse.\n• Maîtrise de la présentation en direct et capacité à faire face aux imprévus avec calme et réactivité.\n• Bonne compréhension des outils informatiques utilisés pour la production de cartes et de graphiques météo ainsi que pour la création de contenus digitaux.\n• Notions de tournage digital (moyens légers) et de montage vidéo, un atout.\n• Intérêt pour les nouveaux formats et les usages digitaux.\n• Connaissances en allemand et en anglais : B2.\n• Flexibilité pour du travail 7/365 Ce que nous vous offrons Vous aimez transmettre une information utile au public, vous avez un intérêt marqué pour la météorologie et vous êtes à l'aise face caméra ? Rejoignez-nous dans cette fonction au cœur de l'antenne, où vous contribuez à faire de la météo un rendez-vous clair, fiable et accessible, à la TV comme sur nos vecteurs digitaux. Nous recherchons une présentatrice ou un présentateur météo au sein du département de l'information, qui aura pour mission de préparer et présenter les bulletins météo ainsi que de contribuer à la production de contenus liés à la météorologie et à la climatologie."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:30.092Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3006",
-      "streetAddress": "Giacomettistrasse 1",
-      "category": "Media / Giornalismo",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
-      "requirements": [
-        "Sens aigu de l'information de service public, rigueur et capacité à identifier les besoins du public.",
-        "Formation dans l'animation, la communication, le journalisme, ou dans un domaine scientifique",
-        "Intérêt marqué pour la météorologie et la climatologie",
-        "Expérience dans la présentation ou l'animation",
-        "Grande aisance dans l'expression orale et face caméra.",
-        "Excellentes capacités de vulgarisation et aptitude à rendre des informations scientifiques accessibles au grand public.",
-        "Bonne capacité rédactionnelle et sens de la synthèse.",
-        "Maîtrise de la présentation en direct et capacité à faire face aux imprévus avec calme et réactivité.",
-        "Bonne compréhension des outils informatiques utilisés pour la production de cartes et de graphiques météo ainsi que pour la création de contenus digitaux.",
-        "Notions de tournage digital (moyens légers) et de montage vidéo, un atout.",
-        "Intérêt pour les nouveaux formats et les usages digitaux.",
-        "Connaissances en allemand et en anglais : B2.",
-        "Flexibilité pour du travail 7/365"
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Sens aigu de l'information de service public, rigueur et capacité à identifier les besoins du public.",
-          "Formation dans l'animation, la communication, le journalisme, ou dans un domaine scientifique",
-          "Intérêt marqué pour la météorologie et la climatologie",
-          "Expérience dans la présentation ou l'animation",
-          "Grande aisance dans l'expression orale et face caméra.",
-          "Excellentes capacités de vulgarisation et aptitude à rendre des informations scientifiques accessibles au grand public.",
-          "Bonne capacité rédactionnelle et sens de la synthèse.",
-          "Maîtrise de la présentation en direct et capacité à faire face aux imprévus avec calme et réactivité."
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "af977dd7-0da1-45f7-b728-14e5db8a1863",
-        "org": "rts",
-        "orgLabel": "RTS",
-        "pensumMin": 35,
-        "pensumMax": 35
-      },
-      "previousSlugs": [
-        "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
-        "presentatore-di-tempo-srg-ssr-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
-          "presentatore-di-tempo-srg-ssr-bern"
-        ],
-        "en": [
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
-        ],
-        "de": [
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-27T19:52:31.631Z",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
     },
     {
       "id": "srg-ssr-5f308f7330f9",
@@ -1326,7 +1213,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:29.608Z",
+      "crawledAt": "2026-09-11T23:06:05.139Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1378,8 +1265,8 @@
           "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:00:42.256Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:00:42.256Z",
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1426,7 +1313,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-di-genere-informazione-nazionale-offerta-operazioni/cfb04e9b-a468-42ae-a4d6-b8a57d4f6c50",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:29.079Z",
+      "crawledAt": "2026-09-11T23:06:04.555Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1463,8 +1350,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-08-31T17:00:43.065Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:00:43.065Z",
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1511,7 +1398,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:28.490Z",
+      "crawledAt": "2026-09-11T23:06:03.937Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1564,8 +1451,8 @@
           "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:00:43.813Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:00:43.813Z",
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1612,7 +1499,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rsi-info-digitale/17338cec-b414-4787-bc8a-0718d1522e66",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:27.898Z",
+      "crawledAt": "2026-09-11T23:06:03.353Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1704,7 +1591,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-interactive-media-designer-rts-couleur-3/6814b6b0-96af-427f-a369-8f1d4275a816",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:27.296Z",
+      "crawledAt": "2026-09-11T23:06:02.777Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1748,8 +1635,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-09-02T23:09:02.702Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-02T23:09:02.702Z",
       "salaryMin": 51000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1796,7 +1683,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-recherchiste/7e518bec-7354-4090-9626-3d8c4ea47d3d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:26.634Z",
+      "crawledAt": "2026-09-11T23:06:02.206Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1856,8 +1743,8 @@
           "stagiaire-recherchiste-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-04T13:28:01.047Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-04T13:28:01.047Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1904,7 +1791,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/unternehmensentwickler-in/3622b4b4-a2dc-463a-80e1-17e8580a49d9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:26.135Z",
+      "crawledAt": "2026-09-11T23:06:01.379Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1959,8 +1846,8 @@
           "unternehmensentwickler-in-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-08T13:36:17.762Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:36:17.762Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -2007,7 +1894,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialiste-developpement-de-l-entreprise-f-h/68d88043-3525-4e16-9feb-b00befaafcd0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:25.538Z",
+      "crawledAt": "2026-09-11T23:06:00.790Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2061,8 +1948,8 @@
           "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-08T13:36:17.077Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:36:17.077Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2109,7 +1996,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialista-sviluppo-aziendale/e5a4e260-bf26-4091-80eb-d00ff6e77726",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:24.984Z",
+      "crawledAt": "2026-09-11T23:05:59.967Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2147,8 +2034,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-09-08T13:36:16.364Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:36:16.364Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2195,7 +2082,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/chargees-de-projet-technique/3631e123-3639-47c1-aa9b-19dd52c04de5",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:24.432Z",
+      "crawledAt": "2026-09-11T23:05:59.320Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2254,8 +2141,8 @@
           "charge-e-s-de-projet-technique-srg-ssr-lausanne"
         ]
       },
-      "firstSeenAt": "2026-09-09T23:04:42.334Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T23:04:42.334Z",
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -2302,7 +2189,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/journaliste-data-actualite/c57274dd-5b5b-40c1-b089-be5ddd120c45",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:23.892Z",
+      "crawledAt": "2026-09-11T23:05:58.728Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2367,8 +2254,8 @@
           "journaliste-data-actualite-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-09T13:45:01.576Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T13:45:01.576Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2415,7 +2302,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-srf-kids/e074e953-1135-4c64-b155-3ef4424df7bc",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:23.358Z",
+      "crawledAt": "2026-09-11T23:05:58.177Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2451,8 +2338,8 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "firstSeenAt": "2026-09-10T23:07:07.025Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-10T23:07:07.025Z",
       "salaryMin": 63500,
       "salaryMax": 112500,
       "salarySource": "estimated",
@@ -2499,7 +2386,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/responsabile-rete-tre/af6a6cbb-11f2-434e-906f-26f2a33ff12a",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:22.815Z",
+      "crawledAt": "2026-09-11T23:05:57.590Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2537,8 +2424,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-09-10T23:07:06.414Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-10T23:07:06.414Z",
       "salaryMin": 75500,
       "salaryMax": 133000,
       "salarySource": "estimated",
@@ -2585,7 +2472,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-radiofonica-di-rete-uno/f0713e91-8f0d-45e7-97e7-594e453d4471",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:22.240Z",
+      "crawledAt": "2026-09-11T23:05:56.994Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2621,9 +2508,7 @@
           "Potresti trovarti a tuo agio nel parlare davanti a un microfono?",
           "Sai instaurare con facilità relazioni interpersonali e lavorare in team?",
           "Sei una persona curiosa, dinamica e proattiva?",
-          "Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?",
-          "Hai una buona conoscenza del territorio?",
-          "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
+          "Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?"
         ]
       },
       "_srgMeta": {
@@ -2634,6 +2519,7 @@
         "pensumMax": 100
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:35:22.240Z",
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -2647,8 +2533,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-09-11T13:35:22.240Z"
+      "addressRegion": "TI"
     },
     {
       "id": "srg-ssr-0829b0ebec26",
@@ -2681,7 +2566,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rete-uno-e-rete-tre/c9783f6a-a253-43f3-9ef7-6a679c49914d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:21.643Z",
+      "crawledAt": "2026-09-11T23:05:56.408Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2718,10 +2603,7 @@
           "Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?",
           "Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?",
           "Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?",
-          "Sai adattare contenuti e linguaggi alle diverse piattaforme social?",
-          "Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?",
-          "Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?",
-          "Hai delle buone conoscenze del territorio svizzero e della cultura generale?"
+          "Sai adattare contenuti e linguaggi alle diverse piattaforme social?"
         ]
       },
       "_srgMeta": {
@@ -2732,6 +2614,7 @@
         "pensumMax": 100
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:35:21.643Z",
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -2745,8 +2628,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-09-11T13:35:21.643Z"
+      "addressRegion": "TI"
     }
   ]
 }
