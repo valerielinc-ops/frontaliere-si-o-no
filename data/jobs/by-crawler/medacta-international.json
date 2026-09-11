@@ -25,7 +25,7 @@
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
       "titleByLocale": {
-        "en": "Manutentore Elettromeccanico",
+        "en": "Electronic maintenance",
         "it": "Manutentore Elettromeccanico",
         "de": "Elektronische Wartung",
         "fr": "Entretien électronique"
@@ -40,7 +40,7 @@
       "crawledAt": "2026-09-10T23:15:41.432Z",
       "slugByLocale": {
         "it": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
-        "en": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate",
+        "en": "electronic-maintenance-medacta-international-sa-castel-san-pietro-rancate",
         "de": "elektronische-wartung-medacta-international-sa-castel-san-pietro-rancate",
         "fr": "entretien-electronique-medacta-international-sa-castel-san-pietro-rancate"
       },
@@ -53,14 +53,12 @@
         ],
         "en": [
           "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate",
-          "electronic-maintenance-medacta-international-sa-castel-san-pietro-rancate",
           "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate"
         ]
       },
       "previousSlugs": [
         "manutentore-elettromeccanico-medacta-castel-san-pietro-rancate",
         "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate",
-        "electronic-maintenance-medacta-international-sa-castel-san-pietro-rancate",
         "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate"
       ],
       "salaryMin": 58000,
@@ -80,8 +78,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-07-06T15:24:11.535Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "id": "medacta-105851",
@@ -204,7 +201,7 @@
       "slugByLocale": {
         "it": "buyer-medacta-international-sa-castel-san-pietro-pmg7dc",
         "en": "buyer-medacta-international-sa-castel-san-pietro",
-        "de": "einkaufer-medacta-international-sa-castel-san-pietro",
+        "de": "kaufer-medacta-international-sa-castel-san-pietro",
         "fr": "acheteur-medacta-international-sa-castel-san-pietro"
       },
       "sourceLang": "it",
@@ -216,7 +213,6 @@
         ],
         "de": [
           "einkaufer-m-w-d-medacta-international-sa-castel-san-pietro",
-          "kaufer-medacta-international-sa-castel-san-pietro",
           "einkaufer-medacta-international-sa-castel-san-pietro"
         ],
         "en": [
@@ -227,7 +223,6 @@
         "buyer-medacta-castel-san-pietro",
         "einkaufer-m-w-d-medacta-international-sa-castel-san-pietro",
         "purchasing-agent-medacta-international-sa-castel-san-pietro",
-        "kaufer-medacta-international-sa-castel-san-pietro",
         "einkaufer-medacta-international-sa-castel-san-pietro"
       ],
       "salaryMin": 58000,
@@ -680,8 +675,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6862",
       "firstSeenAt": "2026-07-06T15:24:04.799Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "id": "medacta-106347",
@@ -753,8 +747,7 @@
       "postalCode": "6874",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-04T13:33:38.057Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-04T13:33:38.057Z"
     },
     {
       "id": "medacta-108271",
@@ -896,8 +889,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-08-24T10:36:34.426Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "id": "medacta-108360",
@@ -1112,8 +1104,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-08-24T10:36:35.482Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "id": "medacta-96190",
@@ -1152,8 +1143,8 @@
       "requirementsByLocale": {},
       "crawledAt": "2026-09-10T23:15:33.797Z",
       "slugByLocale": {
-        "de": "dreher-medacta-international-sa-castel-san-pietro",
-        "en": "lathe-operator-medacta-international-sa-castel-san-pietro",
+        "de": "turner-medacta-international-sa-castel-san-pietro-rancate",
+        "en": "turner-medacta-international-sa-castel-san-pietro-rancate",
         "fr": "tourneur-medacta-international-sa-castel-san-pietro-rancate",
         "it": "tornitore-medacta-international-sa-castel-san-pietro"
       },
@@ -1172,12 +1163,10 @@
         "en": [
           "lathe-operator-medacta-international-sa-castel-san-pietro-rancate",
           "grinding-and-polishing-operator-3-shifts-medacta-international-sa-castel-san-pietro",
-          "turner-medacta-international-sa-castel-san-pietro-rancate",
           "lathe-operator-medacta-international-sa-castel-san-pietro"
         ],
         "de": [
           "dreher-medacta-international-sa-castel-san-pietro-rancate",
-          "turner-medacta-international-sa-castel-san-pietro-rancate",
           "dreher-medacta-international-sa-castel-san-pietro"
         ],
         "fr": [
@@ -1199,7 +1188,6 @@
         "schleif-und-polieroper-3-drehungen-medacta-international-sa-castel-san-pietro",
         "operateur-de-broyage-et-de-polissage-3-tours-medacta-international-sa-castel-san-pietro",
         "operateur-de-polissage-3-tours-medacta-international-sa-castel-san-pietro",
-        "turner-medacta-international-sa-castel-san-pietro-rancate",
         "lathe-operator-medacta-international-sa-castel-san-pietro",
         "dreher-medacta-international-sa-castel-san-pietro"
       ],
@@ -1220,8 +1208,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-07-06T15:24:02.682Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "id": "medacta-104173",
@@ -1301,8 +1288,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-07-06T15:24:01.961Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "id": "medacta-104566",
@@ -1343,7 +1329,7 @@
       "slugByLocale": {
         "it": "measuring-instruments-responsible-medacta-international-sa-castel-san-pietro-m4s3bt",
         "en": "ls-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s-s",
-        "de": "die-mitgliedstaaten-konnen-die-in-absatz-1-genannten-ma-nahmen-in-bezug-auf-die-in-absatz-1-genannten-ma-nahmen-nur-dann-ergreifen-wenn-die-in-absatz-1-genannten-ma-nahmen-gema-art",
+        "de": "zustandige-messgerate-medacta-international-sa-castel-san-pietro",
         "fr": "instruments-de-mesure-responsables-medacta-international-sa-castel-san-pietro"
       },
       "sourceLang": "it",
@@ -1363,7 +1349,6 @@
           "verantwortliche-r-fur-messinstrumente-medacta-international-sa-castel-san-pietro",
           "verantwortlicher-fur-messinstrumente-medacta-international-sa-castel-san-pietro",
           "s",
-          "zustandige-messgerate-medacta-international-sa-castel-san-pietro",
           "die-mitgliedstaaten-konnen-die-in-absatz-1-genannten-ma-nahmen-in-bezug-auf-die-in-absatz-1-genannten-ma-nahmen-nur-dann-ergreifen-wenn-die-in-absatz-1-genannten-ma-nahmen-gema-art"
         ],
         "fr": [
@@ -1408,7 +1393,6 @@
         "verantwortliche-r-fur-messinstrumente-medacta-international-sa-castel-san-pietro",
         "verantwortlicher-fur-messinstrumente-medacta-international-sa-castel-san-pietro",
         "s",
-        "zustandige-messgerate-medacta-international-sa-castel-san-pietro",
         "die-mitgliedstaaten-konnen-die-in-absatz-1-genannten-ma-nahmen-in-bezug-auf-die-in-absatz-1-genannten-ma-nahmen-nur-dann-ergreifen-wenn-die-in-absatz-1-genannten-ma-nahmen-gema-art"
       ],
       "salaryMin": 58000,
@@ -1515,8 +1499,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-07-06T15:24:00.372Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     }
   ]
 }

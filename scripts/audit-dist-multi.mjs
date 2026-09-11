@@ -43,6 +43,7 @@ import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import {
   JOB_BOARD_COMPANY_HUB_PATH_RX,
   JOB_BOARD_SECTION_RX,
+  EMPLOYER_PROFILE_PATH_RX,
 } from './lib/jobBoardSections.mjs';
 import { flatString } from './lib/flat-string.mjs';
 import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
@@ -101,12 +102,12 @@ const DUP_LOCALE_PREFIXES = /** @type {const} */ (['en', 'de', 'fr']);
 const PW_ITALIAN_STATIONS_INDEX_BUDGET = 900 * 1024;
 const PW_ITALIAN_STATIONS_INDEX_RE =
   /(?:^|\/)(?:stazioni-italia|italienische-tankstellen|italian-stations|stations-italiennes)\//;
-// Keep in lock-step with audit-page-weight.mjs: the complete company-hub
-// result set is an explicit owner-approved page-weight exception, while
-// image dimension/loading validation remains enforced.
+// Keep in lock-step with audit-page-weight.mjs: the complete company-hub and
+// employer-profile result sets are explicit owner-approved page-weight
+// exceptions, while image dimension/loading validation remains enforced.
 function pwBudgetForPath(relPath) {
   const p = '/' + String(relPath).replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  if (JOB_BOARD_SECTION_RX.test(p) && JOB_BOARD_COMPANY_HUB_PATH_RX.test(p)) {
+  if (JOB_BOARD_COMPANY_HUB_PATH_RX.test(p) || EMPLOYER_PROFILE_PATH_RX.test(p)) {
     return Number.POSITIVE_INFINITY;
   }
   return PW_ITALIAN_STATIONS_INDEX_RE.test(p) ? PW_ITALIAN_STATIONS_INDEX_BUDGET : MAX_HTML_BYTES;
