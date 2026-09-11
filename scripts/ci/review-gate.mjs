@@ -528,7 +528,12 @@ function citationPathMatches(candidate, wanted) {
     || suffixMatches(wanted, candidate);
 }
 
-function confirmationHasUniqueTarget(candidate, finding, openFindings, { ignoreLine = false } = {}) {
+function confirmationHasUniqueTarget(
+  candidate,
+  finding,
+  openFindings,
+  { ignoreLine = false, allowSharedBarePath = false } = {},
+) {
   const matchesCitation = (citation) => citationPathMatches(candidate.path, citation.path)
     && (ignoreLine || candidate.line === null || candidate.line === citation.line);
   const findingMatches = finding.citations.filter(matchesCitation);
@@ -542,6 +547,15 @@ function confirmationHasUniqueTarget(candidate, finding, openFindings, { ignoreL
       && candidate.path.includes('/')
       && findingMatches[0].path === candidate.path) return true;
 
+  // A single exact confirmation can cover a shared bare companion path when
+  // the caller has already confirmed every other, line-specific anchor of the
+  // same finding. This is safe for the common reviewer form where one helper
+  // file is cited as context by two related findings; precise same-path
+  // findings still use the ambiguity guard below.
+  if (allowSharedBarePath && candidate.line !== null
+      && findingMatches[0].line === null
+      && candidate.path.includes('/')) return true;
+
   const openMatches = openFindings.filter((openFinding) =>
     openFinding.citations.some(matchesCitation),
   );
@@ -552,7 +566,13 @@ function confirmationHasUniqueTarget(candidate, finding, openFindings, { ignoreL
  * `citationConfirmed()` follows a moved path+line anchor only when the path
  * still identifies one finding, preserving convergence without broad matching.
  */
-export function citationConfirmed(citation, confirmations, finding, openFindings) {
+export function citationConfirmed(
+  citation,
+  confirmations,
+  finding,
+  openFindings,
+  { allowSharedBarePath = false } = {},
+) {
   return confirmations.some((confirmation) => confirmation.citations.some((candidate) => {
     if (!citationPathMatches(candidate.path, citation.path)) return false;
     const sameLine = candidate.line === citation.line
@@ -568,6 +588,7 @@ export function citationConfirmed(citation, confirmations, finding, openFindings
     if (!sameLine && !movedLine && !barePathConfirmedAtLine) return false;
     return confirmationHasUniqueTarget(candidate, finding, openFindings, {
       ignoreLine: movedLine || barePathConfirmedAtLine,
+      allowSharedBarePath: allowSharedBarePath && barePathConfirmedAtLine,
     });
   }));
 }
@@ -578,9 +599,19 @@ function findingConfirmed(finding, confirmations, openFindings = [finding]) {
     return confirmations.some((confirmation) => confirmation.key === findingKey(finding)
       || (bodyAnchor !== null && confirmation.bodyAnchor === bodyAnchor));
   }
-  return finding.citations.every((citation) =>
-    citationConfirmed(citation, confirmations, finding, openFindings),
-  );
+  return finding.citations.every((citation) => {
+    const isBareCompanion = citation.line === null && citation.path.includes('/');
+    const otherAnchorsConfirmed = isBareCompanion
+      && finding.citations
+        .filter((other) => other !== citation)
+        .some((other) => other.line !== null)
+      && finding.citations
+        .filter((other) => other !== citation)
+        .every((other) => citationConfirmed(other, confirmations, finding, openFindings));
+    return citationConfirmed(citation, confirmations, finding, openFindings, {
+      allowSharedBarePath: otherAnchorsConfirmed,
+    });
+  });
 }
 
 /**
@@ -796,6 +827,90 @@ function fingerprint(sha) {
   }
 }
 
+function changedPathsBetween(fromSha, toSha) {
+  if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
+      || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
+  try {
+    const output = execFileSync('git', ['diff', '--name-only', `${fromSha}...${toSha}`], {
+      encoding: 'utf8',
+      maxBuffer: 4 * 1024 * 1024,
+    });
+    return [...new Set(String(output).split(/\r?\n/u)
+      .map((path) => normalizePath(path, { stripGitPrefix: false }))
+      .filter(Boolean))];
+  } catch {
+    return null;
+  }
+}
+
+function staleFallbackCarryForward({
+  reviews,
+  latest,
+  headSha,
+  changedPathsFn = changedPathsBetween,
+} = {}) {
+  const latestBody = String(latest?.body || '');
+  if (!latestBody.includes(CODEX_REVIEW_MARKER)
+      || /^##\s+LGTM\b/imu.test(latestBody)) return null;
+
+  const findings = importantFindings(latestBody);
+  // A fallback with a new, ambiguous or unanchored Important must still go
+  // through the normal fail-closed path. Carry-forward is only for an exact
+  // replay of an already reviewed finding.
+  if (findings.length === 0 || findings.some((finding) =>
+    finding.parserUncertain || finding.citations.length === 0)) return null;
+
+  const bots = reviewerList(reviews).filter((review) =>
+    review?.user?.type === 'Bot'
+      && (REVIEWER_LOGIN_RE.test(review.user.login || '')
+        || CODEX_REVIEWER_LOGIN_RE.test(review.user.login || '')),
+  );
+  const latestIndex = bots.findIndex((review) => review === latest);
+  if (latestIndex < 1) return null;
+
+  let priorLgtmIndex = -1;
+  for (let index = latestIndex - 1; index >= 0; index -= 1) {
+    const reviewBody = String(bots[index]?.body || '');
+    if (/^##\s+LGTM\b/imu.test(reviewBody) && importantFindings(reviewBody).length === 0) {
+      priorLgtmIndex = index;
+      break;
+    }
+  }
+  if (priorLgtmIndex === -1) return null;
+
+  const priorFindings = bots.slice(0, priorLgtmIndex)
+    .flatMap((review) => importantFindings(review?.body));
+  if (!findings.every((finding) => priorFindings.some((prior) =>
+    findingKey(prior) === findingKey(finding)))) return null;
+
+  const confirmations = bots.slice(0, priorLgtmIndex + 1)
+    .flatMap((review) => fixConfirmations(review?.body));
+  if (!findings.every((finding) => findingConfirmed(finding, confirmations, findings))) return null;
+
+  const priorCommit = String(bots[priorLgtmIndex]?.commit_id || '');
+  if (!/^[0-9a-f]{40}$/iu.test(priorCommit)) return null;
+  let changedPaths;
+  try {
+    changedPaths = changedPathsFn(priorCommit, headSha);
+  } catch {
+    changedPaths = null;
+  }
+  if (!Array.isArray(changedPaths)) return null;
+  const normalizedChangedPaths = [...new Set(changedPaths
+    .map((path) => normalizePath(path, { stripGitPrefix: false }))
+    .filter(Boolean))];
+  const citedPathChanged = findings.some((finding) => finding.citations.some((citation) =>
+    normalizedChangedPaths.some((path) => citationPathMatches(path, citation.path)),
+  ));
+  if (citedPathChanged) return null;
+
+  return {
+    findings,
+    priorReview: bots[priorLgtmIndex],
+    changedPaths: normalizedChangedPaths,
+  };
+}
+
 export function reviewAppliesToHead(reviewCommit, headSha, fingerprintFn = fingerprint) {
   if (!reviewCommit || !headSha) return false;
   if (reviewCommit === headSha) return true;
@@ -962,6 +1077,7 @@ export async function runReviewGate({
   codexEvidence,
   codexEvidenceFile,
   fingerprintFn = fingerprint,
+  changedPathsFn = changedPathsBetween,
   classifyAndMintReviewFn = classifyAndMintReview,
 } = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || '')) || !/^[0-9a-f]{40}$/iu.test(String(headSha || ''))) {
@@ -988,6 +1104,23 @@ export async function runReviewGate({
   const latest = codexReview || latestReviewer(reviewHistory);
   if (!latest) return { approved: false, reason: 'nessuna review Claude leggibile' };
   const body = String(latest.body || '');
+  const staleCarry = staleFallbackCarryForward({
+    reviews: reviewHistory,
+    latest,
+    headSha,
+    changedPathsFn,
+  });
+  if (staleCarry) {
+    console.log(`review-gate: stale Codex fallback ignorato; finding già confermati dalla review ${staleCarry.priorReview.commit_id}.`);
+    return {
+      approved: true,
+      reason: 'stale fallback review duplicated confirmed findings',
+      reviewCommit: String(latest.commit_id || ''),
+      review: latest,
+      classification: emptyClassification([]),
+      staleFindings: staleCarry.findings,
+    };
+  }
   const historical = historicalImportantFindings(reviewHistory);
   const effectiveBody = reviewBodyWithHistoricalFindings(body, historical);
   const findings = importantFindings(effectiveBody);
