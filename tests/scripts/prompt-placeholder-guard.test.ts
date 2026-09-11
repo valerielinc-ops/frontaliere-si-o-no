@@ -131,6 +131,27 @@ describe('la famiglia di segnaposto nota, coperta campo per campo', () => {
     expect(repaired.stripped).toBe(1);
   });
 
+  it('conserva il grassetto che avvolge tutta la domanda in ogni ancora', () => {
+    const cases = [
+      [
+        '**Domanda frequente 1: Quali sono i servizi inclusi?**',
+        '**Quali sono i servizi inclusi?**',
+      ],
+      [
+        '**Domanda frequente: Quali sono i servizi inclusi?**',
+        '**Quali sono i servizi inclusi?**',
+      ],
+      [
+        'Contesto editoriale: **Domanda frequente 1: Quali sono i servizi inclusi?**',
+        'Contesto editoriale: **Quali sono i servizi inclusi?**',
+      ],
+    ] as const;
+    for (const [input, expected] of cases) {
+      expect(stripFaqNumberedLabels(input).value, input).toBe(expected);
+      expect(stripFaqNumberedLabels(input).stripped, input).toBe(1);
+    }
+  });
+
   it('esclude heading FAQ tradotte anche se indentate, bold, bullet o numerate', () => {
     const headings = [
       '  ## Frequently Asked Questions — Net salary',

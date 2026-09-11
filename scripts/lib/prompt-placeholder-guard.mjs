@@ -238,12 +238,13 @@ const TEXT_LITERALS = SCHEMA_PLACEHOLDER_LITERALS.filter((l) => !SLUG_OWNED_LITE
 const FAQ_LABEL_RX = String.raw`(?:domanda[ \t]+frequente|frequently[ \t]+asked[ \t]+questions?|foire[ \t]+aux[ \t]+questions?|question[ \t]+fr[eé]quemment[ \t]+pos[eé]e|h[aä]ufig[ \t]+gestellte[ \t]+fragen?)`;
 const FAQ_LINE_PREFIX_RX = String.raw`(?:\d+[.)][ \t]*|[#>\-–—]+[ \t]*)?`;
 const FAQ_BOLD_PREFIX_RX = String.raw`(?:\*{1,2}[ \t]*)?`;
+const FAQ_BOLD_MARKER_CAPTURE_SOURCE = String.raw`(\*{1,2})?`;
 const FAQ_HEADING_PREFIX_RX = String.raw`(?:\d+[.)][ \t]*|[#>\-–—]+[ \t]*|\*{1,2}[ \t]*)`;
 const FAQ_TRANSLATED_HEADING_RX = String.raw`(?:frequently[ \t]+asked[ \t]+questions|foire[ \t]+aux[ \t]+questions|h[aä]ufig[ \t]+gestellte[ \t]+fragen)`;
 const FAQ_NUMBERED_LABEL_SOURCE = String.raw`(?:(?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX}\**[ \t]*${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—]|${FAQ_BOLD_PREFIX_RX}${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—])`;
-const FAQ_NUMBERED_LINE_LABEL_SOURCE = String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})\**[ \t]*${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—][ \t]*(?=\S)`;
-const FAQ_NUMBERED_MIDLINE_LABEL_SOURCE = String.raw`${FAQ_BOLD_PREFIX_RX}${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—][ \t]*(?=\S)`;
-const FAQ_UNNUMBERED_LINE_LABEL_SOURCE = String.raw`(?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX}\**[ \t]*${FAQ_LABEL_RX}\**[ \t]*[:.?\-–—][ \t]*(?=\S)`;
+const FAQ_NUMBERED_LINE_LABEL_SOURCE = String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*${FAQ_LABEL_RX}[ \t]*\d+${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*[:.?\-–—][ \t]*(?=\S)`;
+const FAQ_NUMBERED_MIDLINE_LABEL_SOURCE = String.raw`${FAQ_BOLD_MARKER_CAPTURE_SOURCE}${FAQ_LABEL_RX}[ \t]*\d+${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*[:.?\-–—][ \t]*(?=\S)`;
+const FAQ_UNNUMBERED_LINE_LABEL_SOURCE = String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*${FAQ_LABEL_RX}${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*[:.?\-–—][ \t]*(?=\S)`;
 
 /**
  * ── LE REGOLE ─────────────────────────────────────────────────────────────
@@ -509,21 +510,28 @@ export function stripFaqNumberedLabels(value) {
   const patterns = [
     { rx: new RegExp(FAQ_NUMBERED_LINE_LABEL_SOURCE, 'gim'), linePrefix: true },
     { rx: new RegExp(FAQ_NUMBERED_MIDLINE_LABEL_SOURCE, 'gim'), linePrefix: false },
-    { rx: new RegExp(String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})\**[ \t]*${FAQ_LABEL_RX}\**[ \t]*[:.?\-–—][ \t]*(?=\S)`, 'gim'), linePrefix: true },
+    { rx: new RegExp(FAQ_UNNUMBERED_LINE_LABEL_SOURCE, 'gim'), linePrefix: true },
   ];
   let out = value;
   for (const { rx, linePrefix } of patterns) {
     out = out.replace(rx, (match, ...args) => {
       const pre = linePrefix ? args[0] : '';
-      const offset = linePrefix ? args[1] : args[0];
-      const whole = linePrefix ? args[2] : args[1];
+      const boldOpen = linePrefix ? args[1] : args[0];
+      const boldClose = linePrefix ? args[2] : args[1];
+      const offset = linePrefix ? args[3] : args[2];
+      const whole = linePrefix ? args[4] : args[3];
       if (isTranslatedFaqSectionHeading(whole, offset)) return match;
       // Solo se dopo l'etichetta resta contenuto vero sulla stessa riga.
       const rest = whole.slice(offset + match.length);
       const line = rest.split('\n', 1)[0].trim();
       if (line.length < 8) return match;
       stripped += 1;
-      return linePrefix ? pre : '';
+      // Se il grassetto avvolge l'intera domanda, il marker dopo il numero
+      // è assente ma quello finale resta nel resto della riga: conserva la
+      // coppia. Se invece il grassetto avvolge solo l'etichetta, `boldClose`
+      // è presente e i due marker vanno rimossi insieme all'etichetta.
+      const keepsOuterBold = Boolean(boldOpen && !boldClose && line.endsWith(boldOpen));
+      return linePrefix ? `${pre}${keepsOuterBold ? boldOpen : ''}` : (keepsOuterBold ? boldOpen : '');
     });
   }
   return { value: out, stripped };
