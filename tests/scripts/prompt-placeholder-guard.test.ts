@@ -136,7 +136,7 @@ describe('la famiglia di segnaposto nota, coperta campo per campo', () => {
       '  ## Frequently Asked Questions — Net salary',
       '**Frequently Asked Questions**: Net salary',
       '- Foire aux questions — Salaire net',
-      '1. Question Fréquemment Posée: Net salary',
+      '1. Questions Fréquemment Posées: Net salary',
       '> Häufig gestellte Fragen: Nettolohn',
     ];
     for (const heading of headings) {
@@ -145,6 +145,18 @@ describe('la famiglia di segnaposto nota, coperta campo per campo', () => {
         heading,
       ).toHaveLength(0);
       expect(stripFaqNumberedLabels(heading).value, heading).toBe(heading);
+    }
+  });
+
+  it('ripara le label FAQ tradotto singolare senza trattarlo come heading', () => {
+    const labels = [
+      '**Frequently Asked Question**: What services are included?',
+      '- Question Fréquemment Posée: Quels services sont inclus?',
+      '1. Häufig gestellte Frage: Welche Dienste sind enthalten?',
+    ];
+    for (const label of labels) {
+      expect(findPromptPlaceholders(label).some((hit) => hit.rule === 'faq-unnumbered-label'), label).toBe(true);
+      expect(stripFaqNumberedLabels(label).stripped, label).toBe(1);
     }
   });
 

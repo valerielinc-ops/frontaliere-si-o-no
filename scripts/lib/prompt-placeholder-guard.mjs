@@ -239,7 +239,7 @@ const FAQ_LABEL_RX = String.raw`(?:domanda[ \t]+frequente|frequently[ \t]+asked[
 const FAQ_LINE_PREFIX_RX = String.raw`(?:\d+[.)][ \t]*|[#>\-–—]+[ \t]*)?`;
 const FAQ_BOLD_PREFIX_RX = String.raw`(?:\*{1,2}[ \t]*)?`;
 const FAQ_HEADING_PREFIX_RX = String.raw`(?:\d+[.)][ \t]*|[#>\-–—]+[ \t]*|\*{1,2}[ \t]*)`;
-const FAQ_TRANSLATED_HEADING_RX = String.raw`(?:frequently[ \t]+asked[ \t]+questions?|foire[ \t]+aux[ \t]+questions?|question[ \t]+fr[eé]quemment[ \t]+pos[eé]e|h[aä]ufig[ \t]+gestellte[ \t]+fragen?)`;
+const FAQ_TRANSLATED_HEADING_RX = String.raw`(?:frequently[ \t]+asked[ \t]+questions|foire[ \t]+aux[ \t]+questions|h[aä]ufig[ \t]+gestellte[ \t]+fragen)`;
 const FAQ_NUMBERED_LABEL_SOURCE = String.raw`(?:(?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX}\**[ \t]*${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—]|${FAQ_BOLD_PREFIX_RX}${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—])`;
 const FAQ_NUMBERED_LINE_LABEL_SOURCE = String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})\**[ \t]*${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—][ \t]*(?=\S)`;
 const FAQ_NUMBERED_MIDLINE_LABEL_SOURCE = String.raw`${FAQ_BOLD_PREFIX_RX}${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—][ \t]*(?=\S)`;
