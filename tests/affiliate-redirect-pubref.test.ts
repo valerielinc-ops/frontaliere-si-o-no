@@ -150,4 +150,20 @@ describe('affiliate redirect pubref', () => {
       expect(href).toContain('pubref=late-dom-slot');
     }
   });
+
+  it('stops retrying when the visible link never appears', () => {
+    const html = buildRedirectPage(wise);
+    let calls = 0;
+    rewrittenUrl(html, {
+      readyState: 'complete',
+      search: '?pos=missing-link-slot',
+      getElementById: () => {
+        calls += 1;
+        return null;
+      },
+    });
+
+    expect(calls).toBe(3);
+    expect(html).toContain('patchAttempts<3');
+  });
 });

@@ -121,6 +121,9 @@ export function measureBrowserGraph() {
   }
   return {
     moduleCount: modules.size,
+    reachableFiles: [...modules]
+      .map((file) => path.relative(ROOT, file))
+      .sort(),
     leaves: [...byFile.values()].map((leaf) => ({
       ...leaf,
       chain: chainOf(leaf.file, parents),
