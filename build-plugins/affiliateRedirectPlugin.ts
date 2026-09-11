@@ -54,6 +54,7 @@ import { WriteCollector } from './batchWrite';
  * every redirect on top of the explicit page_view below.
  */
 const REDIRECT_TRACKING_TIMEOUT_MS = 400;
+const REDIRECT_LINK_PATCH_MAX_ATTEMPTS = 3;
 
 /**
  * Query parameter every surface may append to `/go/{partner}/` to declare WHICH
@@ -99,7 +100,7 @@ var ref=String(raw).toLowerCase().replace(new RegExp(${JSON.stringify(PUBREF_INV
 if(ref.length>${PUBREF_MAX_LEN}){var h=${PUBREF_HASH_SEED};for(var i=0;i<ref.length;i+=1)h=Math.imul(h^ref.charCodeAt(i),${PUBREF_HASH_MULTIPLIER});var s='-'+(h>>>0).toString(36).padStart(${PUBREF_HASH_LEN},'0');ref=ref.slice(0,${PUBREF_MAX_LEN}-s.length).replace(/-+$/,'')+s;}
 if(ref&&!new RegExp(${JSON.stringify(PUBREF_ALLOWED_RE.source)}).test(ref))ref='';
 if(ref){var t=new URL(u);t.searchParams.set('pubref',ref);u=t.toString();
-var patch=function(){var a=document.getElementById('go-link');if(!a){setTimeout(patch,0);return false;}a.setAttribute('href',u);return true;};
+var patchAttempts=0;var patch=function(){patchAttempts+=1;var a=document.getElementById('go-link');if(!a){if(patchAttempts<${REDIRECT_LINK_PATCH_MAX_ATTEMPTS})setTimeout(patch,0);return false;}a.setAttribute('href',u);return true;};
 if(document.readyState!=='loading')patch();else document.addEventListener('DOMContentLoaded',patch);}
 }catch(e){}
 `

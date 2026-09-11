@@ -4,6 +4,7 @@ import {
   KSW_COMPANY_NAME,
   isKswJob,
   isTrustedDomain,
+  parseKswDetailPage,
 } from '../scripts/lib/ksw-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -56,6 +57,29 @@ describe('Kantonsspital Winterthur (KSW) crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('parseKswDetailPage profileMatch', () => {
+    it('classifies only the profile list inside the Solique profile wrapper', () => {
+      const html = `
+        <h1 class="jobtitle">Pflegefachperson</h1>
+        <div class="profile-wrapper">
+          <h2>Dein Profil</h2>
+          <ul class="profile">
+            <li>Dipl. Pflegefachperson HF</li>
+            <li>Sehr gute Deutschkenntnisse</li>
+          </ul>
+        </div>
+        <div class="unrelated">
+          <ul class="profile"><li>Not KSW profile</li></ul>
+        </div>`;
+
+      const parsed = parseKswDetailPage(html);
+
+      expect(parsed.description).toContain('Profil:\n• Dipl. Pflegefachperson HF');
+      expect(parsed.description).toContain('Sehr gute Deutschkenntnisse');
+      expect(parsed.description).not.toContain('Not KSW profile');
     });
   });
 

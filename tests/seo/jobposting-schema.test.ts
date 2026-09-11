@@ -9,10 +9,12 @@
 import { describe, it, expect } from 'vitest';
 import {
   buildJobPostingSchema,
+  isEmployerOwnedApplyUrl,
   MANDATORY_JOBPOSTING_FIELDS,
   type JobInput,
   type JobPostingSchema,
 } from '../../build-plugins/shared/jobPostingSchema';
+import { SLIM_INDEX_FIELDS } from '../../build-plugins/shared/slimJobIndex';
 
 const OPTS = {
   locale: 'it',
@@ -158,6 +160,23 @@ describe('buildJobPostingSchema — application destination', () => {
       url: 'https://www.example.com/jobs/123',
     }, OPTS);
     expect(schema.directApply).toBe(true);
+  });
+
+  it('keeps the typed applyUrl/companyDomain pair through the slim boundary', () => {
+    const directApplyFields: Pick<JobInput, 'applyUrl' | 'companyDomain'> = {
+      applyUrl: 'https://careers.example.com/application/123',
+      companyDomain: 'example.com',
+    };
+
+    expect(SLIM_INDEX_FIELDS.has('applyUrl')).toBe(true);
+    expect(isEmployerOwnedApplyUrl(directApplyFields)).toBe(true);
+    expect(buildJobPostingSchema({
+      ...directApplyFields,
+      title: 'Operatore sanitario',
+      description:
+        'Descrizione sufficientemente lunga per verificare il percorso tipizzato di candidatura diretta.',
+      company: 'Esempio SA',
+    }, OPTS).directApply).toBe(true);
   });
 
   it('does not label a hosted ATS destination as employer direct apply', () => {
