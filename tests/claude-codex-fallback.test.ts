@@ -293,6 +293,26 @@ describe('validator dei bridge host-side', () => {
         corpusToken: 'corpus-secret',
       });
       expect(corpus).toMatchObject({ kind: 'corpus', repository: CORPUS_REPOSITORY, token: 'corpus-secret' });
+
+      const corpusCheckout = resolveGhScope(['issue', 'create', '--repo', CORPUS_REPOSITORY], {
+        ...context,
+        repository: CORPUS_REPOSITORY,
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      });
+      expect(corpusCheckout).toMatchObject({ kind: 'corpus', repository: CORPUS_REPOSITORY, token: 'corpus-secret' });
+      expect(resolveGhScope(['issue', 'list'], {
+        ...context,
+        repository: CORPUS_REPOSITORY,
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      })).toMatchObject({ kind: 'corpus', token: 'corpus-secret' });
+      expect(resolveGhScope(['pr', 'view', '--repo', 'owner/repo'], {
+        ...context,
+        repository: CORPUS_REPOSITORY,
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      })).toMatchObject({ error: expect.stringMatching(/restricted/) });
       expect(validateGhArgs(['issue', 'create', '--repo', CORPUS_REPOSITORY], {
         ...context,
         repository: corpus.repository,

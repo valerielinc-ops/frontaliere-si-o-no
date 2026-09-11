@@ -241,16 +241,9 @@ export function resolveGhScope(args, {
   if (repositories.some((value) => value !== explicitRepository)) {
     return { error: 'gh --repo may not select multiple repositories in one request' };
   }
-  if (explicitRepository === siteRepository) {
-    if (!siteToken) return { error: 'Codex GitHub bridge site credential is unavailable' };
-    return {
-      kind: 'site',
-      repository: siteRepository,
-      token: siteToken,
-      allowedCommandSet: allowedCommands,
-      allowedSubcommandMap: allowedSubcommands,
-    };
-  }
+  // The corpus checkout can have the same value for siteRepository and
+  // expectedCorpus. Match the exact corpus first so its PAT is never replaced
+  // by the site token merely because the current checkout is the corpus.
   if (explicitRepository === expectedCorpus) {
     if (!corpusToken) return { error: 'Codex corpus bridge credential is unavailable' };
     return {
@@ -259,6 +252,16 @@ export function resolveGhScope(args, {
       token: corpusToken,
       allowedCommandSet: corpusAllowedCommands,
       allowedSubcommandMap: corpusAllowedSubcommands,
+    };
+  }
+  if (explicitRepository === siteRepository) {
+    if (!siteToken) return { error: 'Codex GitHub bridge site credential is unavailable' };
+    return {
+      kind: 'site',
+      repository: siteRepository,
+      token: siteToken,
+      allowedCommandSet: allowedCommands,
+      allowedSubcommandMap: allowedSubcommands,
     };
   }
   return { error: `gh --repo is restricted to ${siteRepository} or the exact corpus repository` };
