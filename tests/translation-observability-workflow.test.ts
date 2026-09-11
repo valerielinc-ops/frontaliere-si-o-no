@@ -8,6 +8,7 @@ const workflow = fs.readFileSync(path.resolve('.github/workflows/translate-pendi
 const portableWorkflow = fs.readFileSync(path.resolve('.github/corpus-workflows/translate-pending.yml'), 'utf8');
 const portableContract = JSON.parse(fs.readFileSync(path.resolve('.github/corpus-workflows/contract.json'), 'utf8'));
 const titleFixScript = fs.readFileSync(path.resolve('scripts/fix-untranslated-titles.mjs'), 'utf8');
+const descriptionFixScript = fs.readFileSync(path.resolve('scripts/fix-untranslated-descriptions.mjs'), 'utf8');
 const commitHelper = fs.readFileSync(path.resolve('scripts/lib/git-commit-data.sh'), 'utf8');
 const UPLOAD_ARTIFACT_V7_SHA = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
 
@@ -59,6 +60,8 @@ describe('translation observability workflow', () => {
     const persist = workflow.indexOf('Re-assemble dataset after Phase 2c mop-up');
     const titleFix = workflow.indexOf('Fix untranslated titles (free cascade)');
     const titleCommit = workflow.indexOf('Commit title fixes');
+    const descriptionFix = workflow.indexOf('Phase 2e: Fix untranslated descriptions (free cascade)');
+    const descriptionCommit = workflow.indexOf('Commit description fixes');
     const trueFinal = workflow.indexOf('Re-assemble true-final translation dataset');
     const statsAfter = workflow.indexOf('Log translation stats (after)');
     const final = workflow.indexOf('Capture final translation observability (shadow)');
@@ -70,6 +73,10 @@ describe('translation observability workflow', () => {
     expect(workflow.slice(mopup, persist)).not.toContain('scatter-jobs-to-slices.mjs');
     expect(trueFinal).toBeGreaterThan(titleFix);
     expect(trueFinal).toBeGreaterThan(titleCommit);
+    expect(descriptionFix).toBeGreaterThan(titleCommit);
+    expect(descriptionCommit).toBeGreaterThan(descriptionFix);
+    expect(trueFinal).toBeGreaterThan(descriptionFix);
+    expect(trueFinal).toBeGreaterThan(descriptionCommit);
     expect(commit).toBeGreaterThan(persist);
     expect(commit).toBeLessThan(titleFix);
     expect(statsAfter).toBeGreaterThan(trueFinal);
@@ -79,7 +86,7 @@ describe('translation observability workflow', () => {
     expect(finalize).toBeGreaterThan(final);
     expect(rollup).toBeGreaterThan(finalize);
     expect(workflow.slice(final, finalize)).toContain('if: always()');
-    expect(workflow).toContain('steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit');
+    expect(workflow).toContain('steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit');
     expect(workflow).toContain("retention-days: 14");
     expect(workflow).toContain('inputs.dry_run != true');
     expect(workflow).not.toContain('translation-shadow-plan.mjs');
@@ -93,6 +100,8 @@ describe('translation observability workflow', () => {
     expect(steps.slice(mopupIndex + 1).some((step) => step.run === 'node scripts/scatter-jobs-to-slices.mjs')).toBe(false);
     expect(titleFixScript).toContain('BY_CRAWLER_DIR');
     expect(titleFixScript).toContain('writeJson(slicePath, sliceData)');
+    expect(descriptionFixScript).toContain('BY_CRAWLER_DIR');
+    expect(descriptionFixScript).toContain('writeJson(slicePath, sliceData)');
 
     for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
       const statsStep = parseTranslationSteps(document)
@@ -112,7 +121,7 @@ describe('translation observability workflow', () => {
     expect(commitHelper).toContain('Deliberately do NOT fast-forward refs/heads/main after the push');
   });
 
-  it('bounds Phase 2d from the shared clock and persists the current slice before stopping', () => {
+  it('bounds Phases 2d/2e from the shared clock and persists the current slice before stopping', () => {
     const source: any = YAML.parse(workflow);
     const timeoutMs = source.jobs.translate['timeout-minutes'] * 60 * 1000;
     expect(timeoutMs - 16_800_000, 'translation deadline must leave 70min for the queue')
@@ -125,6 +134,8 @@ describe('translation observability workflow', () => {
       const mopup = steps.find((step) => step.name === 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
       const titleFix = steps.find((step) => step.name === 'Phase 2d: Fix untranslated titles (free cascade)');
       const titleCommit = steps.find((step) => step.name === 'Commit title fixes');
+      const descriptionFix = steps.find((step) => step.name === 'Phase 2e: Fix untranslated descriptions (free cascade)');
+      const descriptionCommit = steps.find((step) => step.name === 'Commit description fixes');
       expect(mopup, `${label}: Phase 2c missing`).toMatchObject({
         env: { LOCAL_MT_MOPUP_DEADLINE_MS: '16800000' },
       });
@@ -133,6 +144,13 @@ describe('translation observability workflow', () => {
         env: { UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '14400000' },
       });
       expect(titleCommit, `${label}: title commit missing`).toMatchObject({
+        if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
+      });
+      expect(descriptionFix, `${label}: Phase 2e missing`).toMatchObject({
+        if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
+        env: { UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '14400000' },
+      });
+      expect(descriptionCommit, `${label}: description commit missing`).toMatchObject({
         if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
       });
     }
@@ -148,6 +166,17 @@ describe('translation observability workflow', () => {
     const stopAfterPersist = loop.indexOf('if (deadlineReached) break;', persisted);
     expect(persisted).toBeGreaterThanOrEqual(0);
     expect(stopAfterPersist).toBeGreaterThan(persisted);
+
+    expect(descriptionFixScript).toContain("import { readRunStartMs } from './lib/translate-run-clock.mjs';");
+    expect(descriptionFixScript).toMatch(/const RUN_START_MS = readRunStartMs\(\) \?\? Date\.now\(\);/);
+    expect(descriptionFixScript).toContain('Number(process.env.UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS)');
+    const descriptionLoop = descriptionFixScript.slice(descriptionFixScript.indexOf('for (const file of files)'));
+    expect(descriptionLoop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(3);
+    expect(descriptionFixScript).toContain('let deadlineReached = false;');
+    const descriptionPersisted = descriptionLoop.indexOf('writeJson(slicePath, sliceData)');
+    const descriptionStopAfterPersist = descriptionLoop.indexOf('if (deadlineReached) break;', descriptionPersisted);
+    expect(descriptionPersisted).toBeGreaterThanOrEqual(0);
+    expect(descriptionStopAfterPersist).toBeGreaterThan(descriptionPersisted);
   });
 
   it('remains parseable and leaves the translation engine/dispatch commands unchanged', () => {
@@ -192,7 +221,7 @@ describe('translation observability workflow', () => {
         if: "always() && steps.checkout.outcome == 'success'",
         'continue-on-error': true,
         env: {
-          SHADOW_FINAL_TRANSLATION_COMMIT: '${{ steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}',
+          SHADOW_FINAL_TRANSLATION_COMMIT: '${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}',
         },
       });
       expect(finalize?.run).toContain('node scripts/translation-shadow-preflight-v2.mjs');
