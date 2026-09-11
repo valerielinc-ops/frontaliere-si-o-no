@@ -353,12 +353,14 @@ jobs:
               Se un item cita piu' file, scegli il repo del file che richiede la modifica
               comportamentale; se cita solo un sintomo, individua prima il file sorgente
               reale. Scrivi sempre nell'issue `Target repository:` e `Target file:`.
-              Per Nanako usa SEMPRE il comando esplicito:
-              `GH_TOKEN="$GITHUB_PAT" gh issue create --repo nanakokyobashi-rgb/frontaliere-articles ...`.
+              Per Nanako usa SEMPRE `gh` con il repository esplicito:
+              `gh issue create --repo nanakokyobashi-rgb/frontaliere-articles ...`.
+              Nel processo Codex non cercare né interpolare `GITHUB_PAT` o `GH_TOKEN`:
+              il token resta nel bridge host-side della action e il wrapper `gh` lo
+              seleziona per il repository corpus. Se il bridge risponde che il
+              credential corpus è indisponibile, posta il blocco di routing sulla PR
+              e lascia l'item da ritentare nella prossima passata.
               Dedup, label e commenti vanno eseguiti sullo stesso `--repo` target.
-              Se `GITHUB_PAT` manca o e' vuoto, NON creare una issue su Valerie
-              come ripiego: posta sulla PR il blocco di routing e lascia l'item da
-              ritentare nella prossima passata.
             - Parse PR body `## Non implementato (ancora)`. **Il routing lo decide lo STATO LETTERALE del bullet, non una parola-scusa** (AGENTS.md #8; `scripts/ci/followup-has-candidates.mjs` applica esattamente questa regola a monte, e sono la stessa tassonomia — non inventarne una terza):
               - `in questa PR` · `PR concatenata #N` · `per scelta` · `by construction` · `blocked: decisione del proprietario` → **NON creare issue**: la voce è già chiusa o già tracciata altrove.
               - `blocked: <causa tecnica>` → **crea issue**, e riporta la causa nel campo `Blocked on:` dell'item.

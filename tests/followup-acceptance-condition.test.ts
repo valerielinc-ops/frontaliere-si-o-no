@@ -45,6 +45,22 @@ const body = (items: string[]) =>
   items.map((s, i) => `### ${i + 1}. item\n${s}`).join('\n');
 
 const io = (content: string) => ({ fileExists: () => true, readFile: () => content });
+const codexAction = readFileSync(fileURLToPath(new URL('../.github/actions/claude-codex-fallback/action.yml', import.meta.url)), 'utf8');
+const postMergeFollowup = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+
+describe('routing corpus del bridge Codex', () => {
+  it('non espone il PAT al sandbox e istruisce il provider a usare gh --repo', () => {
+    expect(codexAction).toContain('codex_corpus_github_auth="${CODEX_CORPUS_GH_AUTH:-${GITHUB_PAT_NANAKO:-${GITHUB_PAT:-}}}"');
+    expect(codexAction).toContain('unset CODEX_GH_AUTH CODEX_CORPUS_GH_AUTH GITHUB_PAT_NANAKO GITHUB_PAT');
+    const start = postMergeFollowup.indexOf('Per Nanako usa SEMPRE');
+    const end = postMergeFollowup.indexOf('Parse PR body', start);
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+    const routing = postMergeFollowup.slice(start, end);
+    expect(routing).toContain('gh issue create --repo nanakokyobashi-rgb/frontaliere-articles');
+    expect(routing).not.toContain('GH_TOKEN="$GITHUB_PAT"');
+  });
+});
 
 describe('la condizione di accettazione', () => {
   it('un rischio in prosa non ne ha una', () => {
