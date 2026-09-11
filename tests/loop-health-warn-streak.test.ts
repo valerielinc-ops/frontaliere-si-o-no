@@ -16,9 +16,13 @@
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — plain .mjs CI script, no type declarations
 import {
+  backlogTrendWarning,
   claudeReviewCount,
   MERGED_PR_LIST_LIMIT,
   mergedPrStats,
+  PR_REPAIR_RUN_WARN,
+  REPAIR_TO_ISSUE_RATIO_WARN,
+  repairEfficiencyWarnings,
   warnKey,
   warnStreaks,
 } from '../scripts/ci/loop-health-report.mjs';
@@ -32,6 +36,10 @@ function report(sinceDaysAgo: number, warnings: string[]): string {
     ? `\n### ⚠️ Da investigare\n${warnings.map((w) => `- ${w}`).join('\n')}\n`
     : '\n### ✅ Nessuna soglia superata\n';
   return head + tail;
+}
+
+function backlogReport(sinceDaysAgo: number, queued: number, warnings: string[] = []): string {
+  return `${report(sinceDaysAgo, warnings)}\n**Backlog:** agent:fix zombie 0 · in coda ${queued} · fu-parked 0 · needs-human 0.\n`;
 }
 
 describe('warnKey — a streak survives the numbers moving', () => {
@@ -50,6 +58,45 @@ describe('warnKey — a streak survives the numbers moving', () => {
   it('keys the non-workflow warnings too', () => {
     expect(warnKey('first-shot LGTM rate 42% (<50%)')).toBe('first-shot-lgtm');
     expect(warnKey('3 issue agent:fix zombie (>24h, nessuna PR aperta)')).toBe('zombie');
+    expect(warnKey('PR repair volume 401 run reali (> 400)')).toBe('pr-repair-volume');
+    expect(warnKey('rapporto riparazione PR:issue-fix 598:24 (> 7:1)')).toBe('repair-to-issue-ratio');
+    expect(warnKey('coda agent:fix-queued in crescita: 10 → 20 → 30 per 3 report consecutivi'))
+      .toBe('queued-growth');
+  });
+});
+
+describe('repairEfficiencyWarnings — allarmi di allocazione senza nuove chiamate API', () => {
+  it('segnala volume e rapporto oltre i target misurati', () => {
+    const warnings = repairEfficiencyWarnings({
+      repairRuns: PR_REPAIR_RUN_WARN + 1,
+      issueFixRuns: 50,
+    });
+    expect(warnings).toEqual([
+      'PR repair volume 401 run reali (> 400)',
+      'rapporto riparazione PR:issue-fix 401:50 (> 7:1)',
+    ]);
+  });
+
+  it('non segnala un periodo sotto i target o con denominatore nullo', () => {
+    expect(repairEfficiencyWarnings({ repairRuns: PR_REPAIR_RUN_WARN, issueFixRuns: 58 })).toEqual([]);
+    expect(repairEfficiencyWarnings({ repairRuns: 10, issueFixRuns: 0 })).toEqual([]);
+    expect(REPAIR_TO_ISSUE_RATIO_WARN).toBe(7);
+  });
+
+  it('segnala la coda solo dopo due aumenti consecutivi', () => {
+    const prior = [backlogReport(14, 10), backlogReport(7, 20)];
+    expect(backlogTrendWarning(30, prior))
+      .toBe('coda agent:fix-queued in crescita: 10 → 20 → 30 per 3 report consecutivi');
+    expect(repairEfficiencyWarnings({ queued: 30, priorComments: prior })).toContain(
+      'coda agent:fix-queued in crescita: 10 → 20 → 30 per 3 report consecutivi',
+    );
+    expect(backlogTrendWarning(20, [backlogReport(7, 10)])).toBe('');
+    expect(backlogTrendWarning(15, prior)).toBe('');
+  });
+
+  it('non unisce due report separati da un backlog illeggibile', () => {
+    const prior = [backlogReport(21, 10), report(14, []), backlogReport(7, 20)];
+    expect(backlogTrendWarning(30, prior)).toBe('');
   });
 });
 
