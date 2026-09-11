@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import { esc, H1_STYLE, H2_STYLE, H3_STYLE, LEDE_STYLE, BODY_STYLE, CARD_CLASS } from './shared/seoContentTokens';
@@ -157,12 +158,13 @@ function hreflang(kind: PharmacyPageKind, city?: string): string {
 
 function buildPage(kind: PharmacyPageKind, locale: Locale, city: string | undefined, distDir: string): { html: string; path: string; wordCount: number } {
   const body = renderBody(kind, locale, city);
-  const bodyHtml = `<main class="seo-static-content">${body}</main>`;
+  const wordCount = countHtmlBodyWords(body);
+  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
+  const bodyHtml = `<main class="seo-static-content">${body}${endOfContentMultiplexHtml({ indexable: true })}</main>`;
   const pathName = absolutePath(kind, locale, city ? pharmacyCitySlug(city) : undefined);
   const title = kind === 'hub' ? COPY[locale].hubTitle : kind === 'canton' ? COPY[locale].cantonTitle : kind === 'duty-hub' ? COPY[locale].dutyHubTitle : kind === 'city' ? COPY[locale].cityTitle(city || '') : COPY[locale].dutyCityTitle(city || '');
   const description = kind === 'duty-hub' ? COPY[locale].dutyHubLede : kind === 'duty-city' ? COPY[locale].dutyCityLede : kind === 'city' ? COPY[locale].cantonLede : COPY[locale].hubLede;
-  const wordCount = countHtmlBodyWords(body);
-  return { path: pathName, wordCount, html: buildSeoPageHtml({ locale, title: `${title} | Frontaliere Ticino`, description, canonicalUrl: `${BASE_URL}${pathName}`, hreflangHtml: hreflang(kind, city), robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(kind, locale, city), bodyHtml, skipMainWrap: true, distDir }) };
+  return { path: pathName, wordCount, html: buildSeoPageHtml({ locale, title: `${title} | Frontaliere Ticino`, description, canonicalUrl: `${BASE_URL}${pathName}`, hreflangHtml: hreflang(kind, city), robots: indexable ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(kind, locale, city), bodyHtml, skipMainWrap: true, distDir }) };
 }
 
 export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
@@ -174,6 +176,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
       const distDir = path.resolve(rootDir, 'dist');
       const collector = new WriteCollector({ distDir, pluginName: 'pharmacyDirectoryPagesPlugin' });
       const urls: string[] = [];
+      let excludedNoindexRoutes = 0;
       const pageKinds: Array<{ kind: PharmacyPageKind; city?: string }> = [
         { kind: 'hub' }, { kind: 'canton' }, { kind: 'duty-hub' },
         ...TICINO_CITIES.map((city) => ({ kind: 'city' as const, city: city.name })),
@@ -183,7 +186,10 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
         for (const page of pageKinds) {
           const built = buildPage(page.kind, locale, page.city, distDir);
           collector.add(path.join(distDir, `${built.path.replace(/^\/+/, '').replace(/\/+$/, '')}/index.html`), built.html);
-          urls.push(built.path);
+          // Every locale/route still gets its HTML bridge; only the sitemap
+          // excludes below-floor pages that deliberately carry noindex.
+          if (built.wordCount >= MIN_INDEXABLE_WORDS) urls.push(built.path);
+          else excludedNoindexRoutes += 1;
         }
       }
       const dateStamp = new Date().toISOString().slice(0, 10);
@@ -196,7 +202,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
         if (!xml.includes('sitemap-farmacie.xml')) xml = xml.replace('</sitemapindex>', `  <sitemap><loc>${BASE_URL}/sitemap-farmacie.xml</loc><lastmod>${dateStamp}</lastmod></sitemap>\n</sitemapindex>`);
         fs.writeFileSync(master, xml, 'utf8');
       }
-      console.log(`\x1b[36m[pharmacy-directory-pages]\x1b[0m Emitted ${written} pages and ${urls.length} sitemap URLs`);
+      console.log(`\x1b[36m[pharmacy-directory-pages]\x1b[0m Emitted ${written} pages and ${urls.length} sitemap URLs (${excludedNoindexRoutes} noindex routes excluded from sitemap)`);
     },
   };
 }

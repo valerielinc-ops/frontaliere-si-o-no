@@ -3,16 +3,17 @@
  * Parser for the duty table published by the four OFCT Ticino regions.
  *
  * The source exposes local Zurich dates and a pharmacy name/locality, but no
- * machine-readable end time.  OFCT publishes the schedule as an ordered list:
- * a duty starts at the row's local date/time and ends when the next row starts.
- * The last row is intentionally not emitted until a following boundary exists.
- * This avoids inventing an expiry when the source page is truncated.
+ * machine-readable end time. OFCT publishes the schedule as a list: a duty
+ * starts at the row's local date/time and ends when the next chronological row
+ * starts. The last row is intentionally not emitted until a following boundary
+ * exists. This avoids inventing an expiry when the source page is truncated.
  */
 import { localDateTimeToIso } from '../../services/pharmacies/time.mjs';
 import { slugify } from './crawler-template.mjs';
 import { OFCT_REGIONS } from './pharmacy-ticino-parser.mjs';
 
 const DUTY_TABLE_ID = 'tabella_mese_corrente_compatta';
+const MISSING_BOUNDARY = Symbol('missingBoundary');
 
 function decodeEntities(str = '') {
   return String(str || '')
@@ -28,9 +29,38 @@ function textify(html = '') {
   return decodeEntities(String(html || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
 }
 
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function classAttribute(openingTag) {
+  const match = String(openingTag).match(/\bclass\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i);
+  return match?.[1] ?? match?.[2] ?? match?.[3] ?? '';
+}
+
 function cell(rowHtml, className) {
-  const match = rowHtml.match(new RegExp(`<[^>]+class=["'][^"']*\\b${className}\\b[^"']*["'][^>]*>([\\s\\S]*?)<\\/[^>]+>`, 'i'));
-  return match ? textify(match[1]) : '';
+  const openingRe = /<([a-z][\w:-]*)\b[^>]*>/gi;
+  let opening;
+  while ((opening = openingRe.exec(rowHtml)) !== null) {
+    const classes = classAttribute(opening[0]).split(/\s+/).filter(Boolean);
+    if (!classes.some((value) => value.toLowerCase() === String(className).toLowerCase())) continue;
+
+    const tagName = escapeRegExp(opening[1]);
+    const closeRe = new RegExp(`<\\/?${tagName}\\b[^>]*>`, 'gi');
+    closeRe.lastIndex = openingRe.lastIndex;
+    let depth = 1;
+    let tag;
+    while ((tag = closeRe.exec(rowHtml)) !== null) {
+      if (/^<\//.test(tag[0])) {
+        depth -= 1;
+        if (depth === 0) return textify(rowHtml.slice(openingRe.lastIndex, tag.index));
+      } else if (!/\/\s*>$/.test(tag[0])) {
+        depth += 1;
+      }
+    }
+    return '';
+  }
+  return '';
 }
 
 function parseLocality(value) {
@@ -46,6 +76,7 @@ export function parsePharmacyDutyRows(html) {
 
   const rows = [];
   let skipped = 0;
+  let missingBoundary = false;
   let rowMatch;
   const rowRe = /<tr\b[^>]*>([\s\S]*?)<\/tr>/gi;
   while ((rowMatch = rowRe.exec(tableMatch[1])) !== null) {
@@ -57,20 +88,25 @@ export function parsePharmacyDutyRows(html) {
     if (!dateText && !timeText && !name && !localityText) continue;
     if (!dateText || !timeText || !name || !localityText) {
       skipped += 1;
+      missingBoundary = true;
       continue;
     }
     const locality = parseLocality(localityText);
     try {
-      rows.push({
+      const parsedRow = {
         dateText,
         timeText,
         startsAt: localDateTimeToIso(dateText, timeText),
         name,
         postalCode: locality.postalCode,
         city: locality.city,
-      });
+      };
+      if (missingBoundary) Object.defineProperty(parsedRow, MISSING_BOUNDARY, { value: true });
+      rows.push(parsedRow);
+      missingBoundary = false;
     } catch {
       skipped += 1;
+      missingBoundary = true;
     }
   }
   const warnings = [];
@@ -100,9 +136,14 @@ export function buildPharmacyDuties(html, region, fetchedAt, pharmacyIds = new S
   const parsed = parsePharmacyDutyRows(html);
   const warnings = [...parsed.warnings];
   const duties = [];
-  for (let index = 0; index < parsed.rows.length - 1; index += 1) {
-    const row = parsed.rows[index];
-    const next = parsed.rows[index + 1];
+  const rows = [...parsed.rows].sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt));
+  for (let index = 0; index < rows.length - 1; index += 1) {
+    const row = rows[index];
+    const next = rows[index + 1];
+    if (next[MISSING_BOUNDARY]) {
+      warnings.push(`${region.key}: missing duty boundary before row ${index + 1}`);
+      continue;
+    }
     if (Date.parse(next.startsAt) <= Date.parse(row.startsAt)) {
       warnings.push(`${region.key}: non-increasing duty boundary at row ${index + 1}`);
       continue;

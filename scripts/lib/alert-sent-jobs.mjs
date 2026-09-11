@@ -35,7 +35,7 @@ export const CLAIM_TTL_MS = 2 * 60 * 60 * 1000; // 2 hours
 
 // A consent-deferred alert may be retried twice; the third deferred outcome is
 // terminal so an unresolved lookup cannot loop forever. Throughput-cap
-// deferrals keep their independent per-job counter in the delivery ledger.
+// deferrals remain eligible without consuming that failure-attempt budget.
 export const DEFERRED_MAX_ATTEMPTS = 3;
 
 // Hard cap on retained entries per alert (most-recent kept). 500 × ~40 bytes ≈
@@ -57,9 +57,9 @@ export const SENT_JOBS_CAP = 500;
  * `ambiguous` before the provider call; if the final writeback cannot prove
  * what happened, that durable state stays reserved instead of being sent
  * again. `deferred` is observable backlog work and remains eligible for a
- * later run while its owning counter is below `DEFERRED_MAX_ATTEMPTS`; consent
- * deferrals use the alert-level counter and throughput caps use the per-job
- * counter. `deferred-exhausted` is terminal and retry-blocking. `accepted` is
+ * later run while its failure counter is below `DEFERRED_MAX_ATTEMPTS`; consent
+ * deferrals use the alert-level counter and throughput caps do not consume it.
+ * `deferred-exhausted` is terminal and retry-blocking. `accepted` is
  * retained only as a legacy read shape; the current finalizer removes it after
  * updating `sentJobIds`.
  */

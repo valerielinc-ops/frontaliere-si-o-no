@@ -608,7 +608,8 @@ export function buildRecipientSections(
  * Consent/suppression deferrals count at alert level, because they can happen
  * with no current job key (or with a different job key on each run). The
  * throughput reasons (`per-run-cap` and `card-cap`) remain per-job: they are
- * allocator outcomes, not another attempt to resolve consent.
+ * allocator outcomes, not another attempt to resolve consent, and therefore
+ * do not consume the deferred failure budget.
  *
  * @param {object[]} sections
  * @param {number} nowMs
@@ -628,9 +629,7 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
           if (!key) continue;
           const previous = deliveryLedger[key];
           if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
-          const attempts = previous?.state === DELIVERY_STATES.DEFERRED
-            ? (Number(previous.attempts) || 0) + 1
-            : 1;
+          const attempts = positiveAttempts(previous?.attempts);
           const state = attempts >= DEFERRED_MAX_ATTEMPTS
             ? DELIVERY_STATES.DEFERRED_EXHAUSTED
             : DELIVERY_STATES.DEFERRED;
@@ -639,7 +638,7 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
             [job],
             nowMs,
             state,
-            { reason: normalizedReason, attempts },
+            attempts > 0 ? { reason: normalizedReason, attempts } : { reason: normalizedReason },
           );
         }
         return {
@@ -668,12 +667,16 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
         if (!key) continue;
         const previous = deliveryLedger[key];
         if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
+        const attemptsForJob = Math.max(attempts, positiveAttempts(previous?.attempts) + 1);
+        const stateForJob = attemptsForJob >= DEFERRED_MAX_ATTEMPTS
+          ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+          : state;
         deliveryLedger = mergeDeliveryLedger(
           deliveryLedger,
           [job],
           nowMs,
-          state,
-          { reason: normalizedReason, attempts },
+          stateForJob,
+          { reason: normalizedReason, attempts: attemptsForJob },
         );
       }
       return {

@@ -33,8 +33,8 @@ function timeZoneOffsetMs(date) {
 /**
  * Converts a wall-clock value in Europe/Zurich to an ISO instant.
  * Iterating the offset avoids the machine's local timezone and keeps DST
- * transitions explicit. Ambiguous/non-existent wall-clock values are rejected
- * instead of silently inventing an instant.
+ * transitions explicit. A non-existent spring-forward value is mapped to the
+ * next valid instant; malformed calendar values are still rejected.
  */
 export function localDateTimeToIso(dateText, timeText) {
   const dateMatch = String(dateText || '').match(/^(\d{2})[./](\d{2})[./](\d{4})$/);
@@ -43,7 +43,19 @@ export function localDateTimeToIso(dateText, timeText) {
 
   const [, day, month, year] = dateMatch;
   const [, hour, minute] = timeMatch;
-  const localAsUtc = Date.UTC(Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute));
+  const yearNumber = Number(year);
+  const monthNumber = Number(month);
+  const dayNumber = Number(day);
+  const hourNumber = Number(hour);
+  const minuteNumber = Number(minute);
+  const calendarProbe = new Date(Date.UTC(yearNumber, monthNumber - 1, dayNumber));
+  if (hourNumber > 23 || minuteNumber > 59
+    || calendarProbe.getUTCFullYear() !== yearNumber
+    || calendarProbe.getUTCMonth() !== monthNumber - 1
+    || calendarProbe.getUTCDate() !== dayNumber) {
+    throw new Error(`Invalid Zurich local datetime: ${dateText} ${timeText}`);
+  }
+  const localAsUtc = Date.UTC(yearNumber, monthNumber - 1, dayNumber, hourNumber, minuteNumber);
   let candidate = localAsUtc;
   for (let i = 0; i < 4; i += 1) {
     candidate = localAsUtc - timeZoneOffsetMs(new Date(candidate));
@@ -59,6 +71,18 @@ export function localDateTimeToIso(dateText, timeText) {
     second: 0,
   };
   if (Object.entries(expected).some(([key, value]) => resolved[key] !== value)) {
+    const resolvedLocalAsUtc = Date.UTC(
+      resolved.year,
+      resolved.month - 1,
+      resolved.day,
+      resolved.hour,
+      resolved.minute,
+      resolved.second,
+    );
+    const springGapMs = resolvedLocalAsUtc - localAsUtc;
+    if (springGapMs > 0 && springGapMs <= 2 * 60 * 60 * 1000) {
+      return new Date(candidate).toISOString();
+    }
     throw new Error(`Non-existent or ambiguous Zurich local datetime: ${dateText} ${timeText}`);
   }
   return new Date(candidate).toISOString();
