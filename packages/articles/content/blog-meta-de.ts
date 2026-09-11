@@ -11636,6 +11636,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.uss-stipendi-minimo-2027.title': 'Schweiz, Mindestlohn von 5 \'000 Franken beantragt',
     'blog.article.uss-stipendi-minimo-2027.excerpt': 'Der Schweizerische Gewerkschaftsbund (SGB) schlägt eine Erhöhung um 2,5 Prozent und einen Mindestlohn von 5000 Franken für Absolventen bis 2027 vor.',
     'blog.article.uss-stipendi-minimo-2027.imageAlt': 'Professionelle Szene in der Grenzregion Tessin-Italien, Arbeitsplatzkontext, Tageslicht, hohe Qualität',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.title': 'Trenord erweitert Como-Mailand: 4 extra Morgenverbindungen ab 14.9.',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.excerpt': 'Vier neue Werktagszüge auf der Strecke Mailand-Cadorna-Como Lago zur Verbesserung des grenzüberschreitenden Pendelns. Hier sind die vollständigen Fahrpläne.',
+    'blog.article.trenord-como-milano-corse-aggiuntive-2025.imageAlt': 'Trenord-Zug bei Ankunft am Bahnhof Como Lago bei Sonnenaufgang, mit Seeblick und Bergen',
 };
 
 export default blogMetaDe;

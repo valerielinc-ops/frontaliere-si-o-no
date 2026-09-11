@@ -89227,6 +89227,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trenord-como-milano-corse-aggiuntive-2025': {
+    title: 'Trenord potenzia la linea Como-Milano: 4 corse mattutine in più dal 14 settembre',
+    description: 'Dal 14 settembre 2025 quattro nuove corse feriali sulla linea Milano Cadorna-Como Lago. Orari completi e analisi per i frontalieri ticinesi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, trenord, potenzia, linea, como-milano',
+    ogTitle: 'Trenord potenzia Como-Milano: 4 treni in più per i frontalieri',
+    ogDescription: 'Nuove corse mattutine sulla linea Milano-Como dal 14 settembre. Scopri gli orari e come migliorano i collegamenti con il Ticino.',
+    canonicalPath: '/articoli-frontaliere/trenord-como-milano-corse-aggiuntive-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trenord potenzia la linea Como-Milano: 4 corse mattutine in più dal 14 settembre",
+      "description": "Dal 14 settembre 2025 quattro nuove corse feriali sulla linea Milano Cadorna-Como Lago. Orari completi e analisi per i frontalieri ticinesi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trenord-como-milano-corse-aggiuntive-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno Trenord in arrivo a Como Lago all'alba, con vista sul lago e sulle montagne"
+      },
+      "datePublished": "2026-09-11T00:39:11+00:00",
+      "dateModified": "2026-09-11T00:39:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trenord-como-milano-corse-aggiuntive-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
