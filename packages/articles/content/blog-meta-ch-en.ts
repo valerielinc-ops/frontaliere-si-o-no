@@ -6268,6 +6268,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-jura-requisiti-rinnovo.title': 'Residence permit B in Jura: requirements, renewal and competent office',
     'blog.article.permesso-b-jura-requisiti-rinnovo.excerpt': 'Find out how the B permit works in the Canton of Jura, from the documentation to the renewal procedure, with a focus on taxation and compulsory insurance.',
     'blog.article.permesso-b-jura-requisiti-rinnovo.imageAlt': 'Cantonal migration office in Jura, panoramic view',
+    'blog.article.commissione-ue-approva-accordi-svizzera.title': 'EU Commission approves Switzerland-EU agreements: a step forward',
+    'blog.article.commissione-ue-approva-accordi-svizzera.excerpt': 'The Foreign Affairs Committee of the European Parliament approved the package of bilateral agreements with Switzerland by a large majority. Vote in plenary not yet set.',
+    'blog.article.commissione-ue-approva-accordi-svizzera.imageAlt': 'Federal Palace in Bern with Swiss and European flags side by side',
 };
 
 export default blogMetaChEn;

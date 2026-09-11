@@ -6268,6 +6268,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-jura-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B im Jura: Voraussetzungen, Verlängerung und zuständige Stelle',
     'blog.article.permesso-b-jura-requisiti-rinnovo.excerpt': 'Erfahren Sie, wie die B-Bewilligung im Kanton Jura funktioniert, von der Dokumentation bis zum Erneuerungsverfahren, mit Fokus auf Besteuerung und Pflichtversicherung.',
     'blog.article.permesso-b-jura-requisiti-rinnovo.imageAlt': 'Kantonsamt für Migration im Kanton Jura, Panoramablick',
+    'blog.article.commissione-ue-approva-accordi-svizzera.title': 'EU-Kommission genehmigt Abkommen Schweiz-EU: Schritt vorwärts',
+    'blog.article.commissione-ue-approva-accordi-svizzera.excerpt': 'Der Auswärtige Ausschuss der Eurokammer hat das Paket der bilateralen Abkommen mit der Schweiz mit grosser Mehrheit angenommen. Abstimmung im Plenum noch nicht festgelegt.',
+    'blog.article.commissione-ue-approva-accordi-svizzera.imageAlt': 'Bundeshaus in Bern mit Schweizer und europäischen Fahnen nebeneinander',
 };
 
 export default blogMetaChDe;

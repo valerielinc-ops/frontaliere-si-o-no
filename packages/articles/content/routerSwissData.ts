@@ -2115,6 +2115,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'investimento-svizzero-usa-lonza': { it: 'investimento-svizzero-usa-lonza', en: 'swiss-investment-usa-lonza', de: 'schweizer-investition-usa-lonza', fr: 'investissement-suisse-usa-lonza' },
  'premi-cassa-malati-canton-giura-riduzioni': { it: 'premi-cassa-malati-canton-giura-riduzioni', en: 'health-insurance-premiums-jura-canton-reductions', de: 'krankenkassenpraemien-kanton-jura-verbilligungen', fr: 'primes-assurance-maladie-canton-jura-reductions' },
  'permesso-b-jura-requisiti-rinnovo': { it: 'permesso-b-jura-requisiti-rinnovo', en: 'permit-b-jura-requirements-renewal', de: 'aufenthaltsbewilligung-b-jura-anforderungen-verlaengerung', fr: 'permis-b-jura-exigences-renouvellement' },
+ 'commissione-ue-approva-accordi-svizzera': { it: 'commissione-ue-approva-accordi-svizzera', en: 'eu-committee-approves-swiss-agreements', de: 'eu-kommission-genehmigt-schweiz-abkommen', fr: 'commission-ue-approuve-accords-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
