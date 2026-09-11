@@ -158,7 +158,7 @@ jobs:
       - name: Setup Headroom compression proxy
         uses: ./.github/actions/setup-headroom
 
-      - name: Pre-flight — Claude quota beacon for Codex fallback
+      - name: Pre-flight — Claude quota telemetry (Codex primary)
         id: quota
         continue-on-error: true
         env:
@@ -182,7 +182,6 @@ jobs:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
         with:
-          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ env.APP_TOKEN }}
@@ -211,7 +210,7 @@ jobs:
             **Telemetria:** chiudi postando sul digest un commento con l'ultimo marker su riga propria: `<!-- SWEEP_OUTCOME: a=<n> b=<n> c=<n> d=<n> -->`.
 
       - name: Claude usage metrics
-        if: always() && steps.claude_sweep.outputs.fallback_used != 'true'
+        if: always() && steps.claude_sweep.outputs.claude_used == 'true'
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_sweep.outputs.execution_file }}" "needs-human-sweep"
 
       # Colore = lavoro reale: verde se il marker SWEEP_OUTCOME è stato postato

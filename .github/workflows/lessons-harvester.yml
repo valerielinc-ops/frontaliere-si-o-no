@@ -112,7 +112,7 @@ jobs:
           echo "$gate_dir" >> "$GITHUB_PATH"
           echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
 
-      - name: Pre-flight — Claude quota beacon for Codex fallback
+      - name: Pre-flight — Claude quota telemetry (Codex primary)
         id: quota
         if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
         continue-on-error: true
@@ -138,7 +138,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
         with:
-          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
