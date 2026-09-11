@@ -218,6 +218,13 @@ export function extractCityFromLocationText(raw = '') {
   for (const part of dashParts) {
     if (part.length >= 3 && inferAnyCanton(part)) return part;
   }
+
+  // Some board labels carry the canton signal in the complete pre-comma
+  // phrase even though no individual dash segment is recognizable. Preserve
+  // that phrase so the downstream canton resolver can use the same evidence.
+  const beforeComma = cleaned.split(',')[0].trim();
+  if (beforeComma && inferAnyCanton(beforeComma)) return beforeComma;
+
   return '';
 }
 

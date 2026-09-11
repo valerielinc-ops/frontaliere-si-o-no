@@ -114,6 +114,10 @@ describe('Lindt & Sprüngli crawler parser', () => {
       expect(extractCityFromLocationText('LCH - CHE - Plant - Kilchberg - Plant')).toBe('Kilchberg');
     });
 
+    it('falls back to canton inference on the complete pre-comma phrase', () => {
+      expect(extractCityFromLocationText('St - Gallen, Switzerland')).toBe('St - Gallen');
+    });
+
     it('returns empty for a genuinely ambiguous multi-location posting', () => {
       expect(extractCityFromLocationText('2 Locations')).toBe('');
     });
