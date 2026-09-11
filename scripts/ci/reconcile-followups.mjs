@@ -55,6 +55,7 @@ import {
   hasStableItemIdsForDailyKey,
   hasUnterminatedMarkdownFence,
   isDailyBucketTitle,
+  normalizeAcceptanceToken,
   parseFollowupItems,
   updateFollowupItemState,
   splitFollowupItems,
@@ -291,13 +292,18 @@ export function isCurrentUnclassifiable(issue, comments, {
  * Evidence strong enough to AUTO-CLOSE (vs merely flag). A single common dot-member like
  * `meta.model` matches in countless unrelated files → too coincidental to close on. Require
  * MULTIPLE distinct prescribed tokens all present. A single token, even if it looks like a
- * rich expression, can be the status quo that the follow-up asks to change. Weak-but-resolved
- * stays flagged for a human (never silently closed).
+ * rich expression, can be the status quo that the follow-up asks to change. The one-token
+ * exception is an explicit stable-item Acceptance token, whose contract is already scoped
+ * to the item and is checked by the matcher. Weak-but-resolved legacy evidence stays flagged
+ * for a human (never silently closed).
  * @param {string[]} matchedTokens tokens that were found verbatim in a cited file
+ * @param {{acceptanceToken?: string}} [options] explicit stable-item acceptance token
  * @returns {boolean}
  */
-export function isStrongAutoCloseEvidence(matchedTokens) {
+export function isStrongAutoCloseEvidence(matchedTokens, { acceptanceToken = '' } = {}) {
   const uniq = [...new Set((matchedTokens || []).map((t) => String(t)))];
+  const explicit = normalizeAcceptanceToken(acceptanceToken);
+  if (explicit && uniq.includes(explicit)) return true;
   return uniq.length >= 2;
 }
 
@@ -345,10 +351,13 @@ export function dailyBucketCloseGate(
   const unresolvedItems = [];
   const weakItems = [];
   for (const item of items) {
-    const result = detectAlreadyResolved(item.text, io);
+    const result = detectAlreadyResolved(item.text, io, { acceptanceToken: item.acceptanceToken });
     evidenceById.set(item.id, result.evidence || []);
     if (item.state !== 'done' || !result.resolved) unresolvedItems.push(item);
-    if (!isStrongAutoCloseEvidence((result.evidence || []).map((entry) => entry.tok))) weakItems.push(item);
+    if (!isStrongAutoCloseEvidence(
+      (result.evidence || []).map((entry) => entry.tok),
+      { acceptanceToken: item.acceptanceToken },
+    )) weakItems.push(item);
   }
   if (unresolvedItems.length) {
     return { blocks: true, reason: 'valid-item-unconfirmed', validItems: items, unresolvedItems, evidenceById };
@@ -402,7 +411,7 @@ export function reconcileDailyItems(
   const evidenceById = new Map();
   for (const item of items) {
     const result = hasFalsifiableAcceptance(item.text)
-      ? detectAlreadyResolved(item.text, io)
+      ? detectAlreadyResolved(item.text, io, { acceptanceToken: item.acceptanceToken })
       : { resolved: false, evidence: [] };
     evidenceById.set(item.id, result.evidence || []);
     if (result.resolved && (item.state === 'open' || item.state === 'in-progress')) {
