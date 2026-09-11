@@ -12206,7 +12206,7 @@
       "slugByLocale": {
         "it": "capo-squadra-logistica-m-w-d-galaxus-neuenburg-am-rhein-yparq2",
         "en": "team-leader-logistics-m-w-d-galaxus-neuenburg-am-rhein-yparq2",
-        "de": "team-leader-logistics-m-w-d-galaxus-neuenburg-am-rhein",
+        "de": "teamleiter-logistik-m-w-d-galaxus-neuenburg-am-rhein",
         "fr": "team-leader-logistique-m-w-d-galaxus-neuenburg-am-rhein-yparq2"
       },
       "requirementsByLocale": {
@@ -12231,13 +12231,12 @@
         ],
         "de": [
           "team-leader-logistics-m-w-d-galaxus-neuenburg-am-rhein-yparq2",
-          "teamleiter-logistik-m-w-d-galaxus-neuenburg-am-rhein"
+          "team-leader-logistics-m-w-d-galaxus-neuenburg-am-rhein"
         ]
       },
       "previousSlugs": [
         "team-leader-logistics-m-w-d-galaxus-neuenburg-am-rhein",
-        "team-leader-logistics-m-w-d-galaxus-neuenburg-am-rhein-yparq2",
-        "teamleiter-logistik-m-w-d-galaxus-neuenburg-am-rhein"
+        "team-leader-logistics-m-w-d-galaxus-neuenburg-am-rhein-yparq2"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -37531,7 +37530,7 @@
       },
       "slugByLocale": {
         "it": "maestro-vocal-m-f-d-scuola-club-rapperswil-klubschule-migros-rapperswil",
-        "en": "lehrperson-gesang-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil",
+        "en": "teacher-vocal-m-f-d-club-school-rapperswil-klubschule-migros-rapperswil",
         "de": "lehrperson-gesang-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil-fottlw",
         "fr": "professeur-vocal-h-f-d-club-school-rapperswil-klubschule-migros-rapperswil"
       },
@@ -37555,7 +37554,7 @@
         ],
         "en": [
           "lehrperson-gesang-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil-fottlw",
-          "teacher-vocal-m-f-d-club-school-rapperswil-klubschule-migros-rapperswil"
+          "lehrperson-gesang-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil"
         ],
         "fr": [
           "lehrperson-gesang-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil-fottlw"
@@ -37563,8 +37562,7 @@
       },
       "previousSlugs": [
         "lehrperson-gesang-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil",
-        "lehrperson-gesang-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil-fottlw",
-        "teacher-vocal-m-f-d-club-school-rapperswil-klubschule-migros-rapperswil"
+        "lehrperson-gesang-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil-fottlw"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44395,7 +44393,7 @@
       },
       "slugByLocale": {
         "it": "gastronomia-del-tuttofare-genossenschaft-migros-ostschweiz-wil",
-        "en": "allrounder-in-gastronomie-genossenschaft-migros-ostschweiz-wil",
+        "en": "all-rounder-gastronomy-genossenschaft-migros-ostschweiz-wil",
         "de": "allrounder-in-gastronomie-genossenschaft-migros-ostschweiz-wil-wgjcck",
         "fr": "allrounder-in-gastronomie-genossenschaft-migros-ostschweiz-wil-wgjcck"
       },
@@ -44424,15 +44422,14 @@
         "en": [
           "allrounder-in-gastronomie-genossenschaft-migros-ostschweiz-wil-wgjcck",
           "allrounder-in-gastronomy-genossenschaft-migros-ostschweiz-wil",
-          "all-rounder-gastronomy-genossenschaft-migros-ostschweiz-wil"
+          "allrounder-in-gastronomie-genossenschaft-migros-ostschweiz-wil"
         ]
       },
       "previousSlugs": [
         "allrounder-in-gastronomie-genossenschaft-migros-ostschweiz-wil",
         "allrounder-in-gastronomie-genossenschaft-migros-ostschweiz-wil-wgjcck",
         "allrounder-in-gastronomia-genossenschaft-migros-ostschweiz-wil",
-        "allrounder-in-gastronomy-genossenschaft-migros-ostschweiz-wil",
-        "all-rounder-gastronomy-genossenschaft-migros-ostschweiz-wil"
+        "allrounder-in-gastronomy-genossenschaft-migros-ostschweiz-wil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -59487,7 +59484,7 @@
       },
       "slugByLocale": {
         "it": "chef-asiatico-migros-restaurant-pizolpark-mels",
-        "en": "asia-koch-kochin-migros-restaurant-pizolpark-mels",
+        "en": "asian-chef-migros-restaurant-pizolpark-mels",
         "de": "asia-koch-kochin-migros-restaurant-pizolpark-mels-i1e296",
         "fr": "chef-asiatique-migros-restaurant-pizolpark-mels"
       },
@@ -59514,7 +59511,7 @@
         ],
         "en": [
           "asia-koch-kochin-migros-restaurant-pizolpark-mels-i1e296",
-          "asian-chef-migros-restaurant-pizolpark-mels"
+          "asia-koch-kochin-migros-restaurant-pizolpark-mels"
         ],
         "fr": [
           "asia-koch-kochin-migros-restaurant-pizolpark-mels-i1e296"
@@ -59522,8 +59519,7 @@
       },
       "previousSlugs": [
         "asia-koch-kochin-migros-restaurant-pizolpark-mels",
-        "asia-koch-kochin-migros-restaurant-pizolpark-mels-i1e296",
-        "asian-chef-migros-restaurant-pizolpark-mels"
+        "asia-koch-kochin-migros-restaurant-pizolpark-mels-i1e296"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -70789,7 +70785,7 @@
       },
       "slugByLocale": {
         "it": "servizio-casa-tuttofare-con-ambizioni-genossenschaft-migros-ostschweiz-gossau",
-        "en": "allrounder-in-hausdienst-mit-ambitionen-genossenschaft-migros-ostschweiz-gossau",
+        "en": "all-rounder-home-service-with-ambitions-genossenschaft-migros-ostschweiz-gossau",
         "de": "allrounder-in-hausdienst-mit-ambitionen-genossenschaft-migros-ostschweiz-gossau-idluid",
         "fr": "allrounder-dans-le-service-domestique-avec-des-ambitions-genossenschaft-migros-ostschweiz-gossau"
       },
@@ -70816,7 +70812,7 @@
         "en": [
           "allrounder-in-hausdienst-mit-ambitionen-genossenschaft-migros-ostschweiz-gossau-idluid",
           "allrounder-in-domestic-service-with-ambitions-genossenschaft-migros-ostschweiz-gossau",
-          "all-rounder-home-service-with-ambitions-genossenschaft-migros-ostschweiz-gossau"
+          "allrounder-in-hausdienst-mit-ambitionen-genossenschaft-migros-ostschweiz-gossau"
         ],
         "fr": [
           "allrounder-in-hausdienst-mit-ambitionen-genossenschaft-migros-ostschweiz-gossau-idluid"
@@ -70826,8 +70822,7 @@
         "allrounder-in-hausdienst-mit-ambitionen-genossenschaft-migros-ostschweiz-gossau",
         "allrounder-in-hausdienst-mit-ambitionen-genossenschaft-migros-ostschweiz-gossau-idluid",
         "allrounder-in-hausdienst-con-ambitionen-genossenschaft-migros-ostschweiz-gossau-idluid",
-        "allrounder-in-domestic-service-with-ambitions-genossenschaft-migros-ostschweiz-gossau",
-        "all-rounder-home-service-with-ambitions-genossenschaft-migros-ostschweiz-gossau"
+        "allrounder-in-domestic-service-with-ambitions-genossenschaft-migros-ostschweiz-gossau"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

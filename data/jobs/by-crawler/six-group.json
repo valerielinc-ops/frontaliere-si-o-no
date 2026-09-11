@@ -3672,7 +3672,7 @@
         "it": "controller-di-sistema-six-group-madrid",
         "en": "system-controller-six-group-madrid",
         "de": "systemcontroller-six-group-madrid",
-        "fr": "system-controller-six-group-madrid"
+        "fr": "controleur-systeme-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -3714,8 +3714,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "system-controller-six-group-madrid",
-        "controleur-systeme-six-group-madrid"
+        "system-controller-six-group-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3725,7 +3724,7 @@
           "system-controller-six-group-madrid"
         ],
         "fr": [
-          "controleur-systeme-six-group-madrid"
+          "system-controller-six-group-madrid"
         ]
       },
       "firstSeenAt": "2026-07-02T11:58:06.556Z",
@@ -5783,7 +5782,7 @@
         "it": "accounts-receivable-accountant-six-group-warsaw",
         "en": "accounts-receivable-accountant-six-group-warsaw",
         "de": "accounts-receivable-accountant-six-group-warsaw",
-        "fr": "accounts-receivable-accountant-six-group-warsaw"
+        "fr": "comptable-debiteur-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -5825,14 +5824,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-23T12:39:37.833Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "comptable-debiteur-six-group-warsaw"
-        ]
-      },
-      "previousSlugs": [
-        "comptable-debiteur-six-group-warsaw"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
