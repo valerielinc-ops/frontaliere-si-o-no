@@ -130,3 +130,4 @@
 {"timestamp":"2026-09-08T09:18:31.823Z","id":"B.6.embedding-store-outdated","severity":"P1","message":"Embedding store covers 3644 articles but blog-meta-it has 3843 (gap 199 > 50)","evidence":{"liveCount":3843,"storedCount":3644,"gap":199}}
 {"timestamp":"2026-09-09T09:21:32.346Z","id":"heartbeat","severity":"P3","message":"no alerts"}
 {"timestamp":"2026-09-10T09:20:55.489Z","id":"heartbeat","severity":"P3","message":"no alerts"}
+{"timestamp":"2026-09-11T09:19:12.054Z","id":"heartbeat","severity":"P3","message":"no alerts"}
