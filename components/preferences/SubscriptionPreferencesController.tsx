@@ -26,6 +26,7 @@ import {
  setDailyBriefFrequency,
  setAdvertisingEnabled,
  isNewsletterOptOutBinding,
+ isAccountDeletedSubscriber,
  DAILY_BRIEF_FREQUENCIES,
  type DailyBriefFrequency,
  type SubscriptionAlertSummary,
@@ -537,10 +538,7 @@ async function authLoadFullStatus(email: string): Promise<{
  if (subSnap.exists()) {
  const data = subSnap.data() || {};
  const status = data.status;
- const accountDeleted = Boolean(
- data.account_deleted_at
- || String(status || '').trim().toLowerCase() === 'account_deleted',
- );
+ const accountDeleted = isAccountDeletedSubscriber(data);
  // Both spellings — see functions/src/newsletterSubscriptionManagement.js's
  // get_full_status, whose consent rule this mirrors. Auth-mode also treats an
  // account-deletion tombstone as unsubscribed so the toggle can re-register it.
