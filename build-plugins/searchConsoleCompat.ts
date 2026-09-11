@@ -27,6 +27,7 @@ import {
  type JobCareClusterKey,
 } from './jobEditorialLanding';
 import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
+import { EMPLOYER_PROFILE_PATH_RX } from '../scripts/lib/jobBoardSections.mjs';
 import { isExchangeSsgPath } from './exchangeRateSsgData';
 import { isFiscalMunicipalityPath } from './fiscalMunicipalityData';
 import { isTopicIndexPath, resolveTopicClusterHubCanonical } from './topicClusterHubsData';
@@ -134,11 +135,11 @@ const EMPLOYER_PROFILE_SLUGS: ReadonlySet<string> = (() => {
 // /aziende/<slug>/ (+ /en|/de|/fr) — single literal segment for every locale
 // (mirrors the plugin's path builder). normalizePath() strips the trailing
 // slash before this runs, so the pattern is slash-optional.
-const EMPLOYER_PROFILE_PATH_RX = /^\/(?:(?:en|de|fr)\/)?aziende\/([a-z0-9][a-z0-9-]*)\/?$/;
 function isEmployerProfilePath(path: string): boolean {
  const m = EMPLOYER_PROFILE_PATH_RX.exec(path);
  return !!m && EMPLOYER_PROFILE_SLUGS.has(m[1]);
 }
+
 
 // Legacy TI sections — the listing fallback used for `search` and `company`
 // compat targets (canton-independent). Per-canton job-detail paths instead
@@ -917,4 +918,3 @@ export function resolveSearchConsoleCompatTarget(
 
  return null;
 }
-

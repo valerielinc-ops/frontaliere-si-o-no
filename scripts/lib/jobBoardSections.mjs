@@ -82,6 +82,17 @@ export const JOB_BOARD_COMPANY_HUB_PATH_RX = new RegExp(
 );
 
 /**
+ * Matches an evergreen employer profile path, including the directory index
+ * and flat `.html` emitter output for every locale. Capture group 1 is the
+ * profile slug for consumers that also need to validate corpus membership.
+ *
+ * The end anchor is intentional: `/aziende/<slug>/` is the profile page, not
+ * an arbitrary nested route below the employer namespace.
+ */
+export const EMPLOYER_PROFILE_PATH_RX =
+  /^(?:\/(?:en|de|fr))?\/aziende\/([a-z0-9][a-z0-9-]*)(?:\/|\.html)?$/;
+
+/**
  * Matches a single URL path SEGMENT (no slashes) against the job-board
  * section shape — for callers that already split a path into parts (e.g.
  * `pathname.split('/')`) and need to test one segment at a time rather than
