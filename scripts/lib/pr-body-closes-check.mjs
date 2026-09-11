@@ -70,6 +70,18 @@ const CHAIN = new RegExp(
 );
 const ALL_REFS = new RegExp(REF, 'g');
 
+const PENDING_CLOSE_RE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b\s*[:;,]?\s*$/i;
+const QUALIFIED_REF_START_RE = /^\s*[\w.-]+\/[\w.-]+#\d+\b/;
+
+function isPendingCloseLine(line) {
+  return PENDING_CLOSE_RE.test(String(line || '').trim());
+}
+
+function isClosingLine(line) {
+  const value = String(line || '').trim();
+  return isPendingCloseLine(value)
+    || /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b\s*(?:[\w.-]+\/[\w.-]+)?#\d+\s*$/i.test(value);
+}
 const REF_START_RE = new RegExp(`^\\s*${REF}\\b`);
 
 /**
@@ -80,11 +92,14 @@ function lineHasMultiCloseViolation(line, previousLine = '') {
   const current = String(line || '');
   const previous = String(previousLine || '');
   // A soft-wrapped `Closes #12\n#34` is still one GitHub closing chain. Carry
-  // only a line that starts with a bare/qualified ref, and only when the
-  // previous line was not already a complete multi-ref violation: otherwise
-  // the same chain would be reported again on its continuation line.
+  // only a line that starts with a bare/qualified ref when the previous line
+  // belongs to a closing-keyword line. A completed bare `Fixes #12` followed
+  // by an unrelated qualified `owner/repo#34` is two independent references,
+  // not one wrapped closing chain; a pending keyword may still wrap either ref.
   const continuation = previous
     && REF_START_RE.test(current)
+    && isClosingLine(previous)
+    && (!QUALIFIED_REF_START_RE.test(current) || isPendingCloseLine(previous))
     && !lineHasMultiCloseViolation(previous);
   const source = continuation ? `${previous}\n${current}` : current;
   // Guard: if the "extra" segment actually starts a NEW closing keyword for each
@@ -215,6 +230,8 @@ export function checkClosesLines(body = '') {
     const previousLine = i > 0 ? lines[i - 1] : '';
     const continuesChain = previousLine
       && REF_START_RE.test(lines[i])
+      && isClosingLine(previousLine)
+      && (!QUALIFIED_REF_START_RE.test(lines[i]) || isPendingCloseLine(previousLine))
       && !lineHasMultiCloseViolation(previousLine);
     const text = continuesChain
       ? `${(rawLines[i - 1] ?? lines[i - 1]).trim()} ${rawCurrent}`.trim()
