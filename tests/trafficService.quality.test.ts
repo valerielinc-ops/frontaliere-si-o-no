@@ -15,7 +15,12 @@
  */
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { hasLiveTrafficData, type TrafficData } from '../services/trafficService';
+import {
+ buildFallbackTrafficData,
+ effectiveTrafficWaitMinutes,
+ hasLiveTrafficData,
+ type TrafficData,
+} from '../services/trafficService';
 
 // ─── Helpers ─────────────────────────────────────────────────────
 
@@ -81,6 +86,32 @@ beforeEach(() => {
 });
 
 describe('trafficService mock fallback', () => {
+  it('keeps total and queue minutes distinct and does not fabricate a status', () => {
+    const totalOnly = buildFallbackTrafficData(
+      'Total-only crossing',
+      { totalCrossingMinutes: 17, approachMinutes: 4 },
+      '2026-09-11T06:00:00.000Z',
+    );
+
+    expect(totalOnly).toMatchObject({
+      crossingName: 'Total-only crossing',
+      totalCrossingMinutes: 17,
+      approachMinutes: 4,
+      source: 'mock',
+    });
+    expect(totalOnly).not.toHaveProperty('waitTimeMinutes');
+    expect(totalOnly).not.toHaveProperty('status');
+    expect(effectiveTrafficWaitMinutes(totalOnly)).toBe(17);
+
+    const split = buildFallbackTrafficData('Split crossing', {
+      waitTimeMinutes: 9,
+      totalCrossingMinutes: 17,
+      status: 'yellow',
+    });
+    expect(split).toMatchObject({ waitTimeMinutes: 9, totalCrossingMinutes: 17, status: 'yellow' });
+    expect(effectiveTrafficWaitMinutes(split)).toBe(17);
+  });
+
   it('returns source === "mock" when Firestore is empty', async () => {
     vi.mocked(firestoreModule.getDocs).mockResolvedValueOnce({
       empty: true,
