@@ -2803,6 +2803,10 @@ Règles :
  'consultingCta.article.body': '30 minutes avec un expert en fiscalité frontalière pour clarifier ton cas précis — €49, places limitées.',
  'consultingCta.article.button': 'Réserver une consultation',
 
+ 'whatsNew.v3963.title': 'Insights entreprises plus clairs',
+ 'whatsNew.v3963.employerInsights.title': 'Clics de candidature et données vérifiables',
+ 'whatsNew.v3963.employerInsights.desc': 'Les rapports privés pour les entreprises distinguent désormais les vues, les clics pour postuler, les utilisateurs associés et les candidatures enregistrées, avec la période et la source toujours visibles.',
+
  // v3.71.0 — calculateur boosté
  'whatsNew.v3962.title': 'Comparaison des carburants plus claire',
  'whatsNew.v3962.fuelCompare.title': 'Essence et diesel, commune par commune',

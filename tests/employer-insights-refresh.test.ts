@@ -47,7 +47,7 @@ describe('employer insights refresh rollback', () => {
     const result = await commitInChunks(
       db as never,
       ['before-a', 'before-b', 'after-a'],
-      (batch, item) => batch.set({ id: item }, { item }),
+      (batch, item) => batch.set({ id: item } as never, { item }),
       { chunkSize: 2 },
     ).catch((error: unknown) => error as Error & { committedItems?: number });
 
@@ -63,8 +63,10 @@ describe('employer insights refresh rollback', () => {
   it('keeps rollback completion and partial progress visible in the workflow error', () => {
     expect(REFRESH_WORKFLOW_SOURCE).toContain('error?.committedItems');
     expect(REFRESH_WORKFLOW_SOURCE).toMatch(
-      /rollback incomplete: committed \$\{committed\}\/\$\{restore\.length\} documents/,
+      /rollback incomplete: committed \$\{committed\}\/\$\{attempted\} documents \(Firestore items\)/,
     );
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('restoreEmployerInsightsSnapshot');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('error?.attemptedItems');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('rollbackResult.committed');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('rollback status:');
   });

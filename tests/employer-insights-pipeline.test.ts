@@ -252,7 +252,8 @@ describe('employer insights event coverage', () => {
 
     expect(doc.totals.adsCount).toBe(1);
     expect(doc.ads).toHaveLength(1);
-    expect(doc.ads[0]).toMatchObject({ views: 0, applyClicks: 1, eventsObserved: 1 });
+    expect(doc.ads[0]).toMatchObject({ views: 0, applyClicks: 1, applyClickUsers: 1, eventsObserved: 1 });
+    expect(doc.totals.applyClickUsers).toBe(1);
   });
 
   it('excludes an event outside the explicit documentable window', () => {
@@ -792,10 +793,15 @@ describe('employer insights technical deduplication', () => {
     });
     expect(doc).toMatchObject({
       companyKey: 'acme',
-      totals: { views: 7, applyClicks: 1, profileViews: 2 },
+      totals: { views: 7, applyClicks: 1, applyClickUsers: 1, profileViews: 2 },
       source: 'ga4',
     });
-    expect(doc.ads[0]).toMatchObject({ views: 7, applyClicks: 1 });
+    expect(doc.ads[0]).toMatchObject({ views: 7, applyClicks: 1, applyClickUsers: 1 });
+    expect(doc.coverage.identityResolution.applyClickUsers).toMatchObject({
+      identifier: 'person_id',
+      globalUnique: false,
+      pii: false,
+    });
   });
 
   it('marks a short or data-loss GA4 page as truncated instead of declaring full coverage', async () => {

@@ -157,7 +157,7 @@ interface CrawlerSummaryRow {
 }
 
 type CrawlerSortColumn = 'title' | 'schedule' | 'lastRun' | 'total' | 'newCount' | 'updatedCount' | 'removedCount' | 'unchangedCount' | 'duration' | 'status' | 'quality';
-type InsightsSortColumn = 'companyName' | 'views' | 'applyClicks' | 'applications' | 'profileViews' | 'adsObserved' | 'generatedAt' | 'window';
+type InsightsSortColumn = 'companyName' | 'views' | 'applyClicks' | 'applyClickUsers' | 'applications' | 'profileViews' | 'adsObserved' | 'generatedAt' | 'window';
 
 function compareInsightNumbers(a: number | null, b: number | null): number {
  if (a === null && b === null) return 0;
@@ -3300,6 +3300,8 @@ export default function AdminPanel() {
  return compareInsightNumbers(a.totals.views, b.totals.views) * dir;
  case 'applyClicks':
  return compareInsightNumbers(a.totals.applyClicks, b.totals.applyClicks) * dir;
+ case 'applyClickUsers':
+ return compareInsightNumbers(a.totals.applyClickUsers, b.totals.applyClickUsers) * dir;
  case 'applications':
  return compareInsightNumbers(a.totals.applications, b.totals.applications) * dir;
  case 'profileViews':
@@ -3331,6 +3333,7 @@ export default function AdminPanel() {
  window: commonWindow,
  views: sum(r => r.totals.views),
  applyClicks: sum(r => r.totals.applyClicks),
+ applyClickUsers: sum(r => r.totals.applyClickUsers),
  applications: sum(r => r.totals.applications),
  };
  }, [insightsRows]);
@@ -3601,7 +3604,7 @@ export default function AdminPanel() {
  : 'non aggregabile (fonti/finestre diverse o non disponibili)'}
  </p>
  </div>
- <div className="grid grid-cols-3 gap-3">
+ <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
  <div className="bg-surface rounded-xl border border-edge p-4">
  <div className="flex items-center gap-2 text-subtle text-sm mb-1">
  <Eye size={16} /> Visualizzazioni annuncio
@@ -3616,6 +3619,14 @@ export default function AdminPanel() {
  </div>
  <div className="text-2xl font-bold text-strong">
  {insightsLoading ? '…' : formatInsightMetric(insightsTotals.applyClicks)}
+ </div>
+ </div>
+ <div className="bg-surface rounded-xl border border-edge p-4">
+ <div className="flex items-center gap-2 text-subtle text-sm mb-1">
+ <Users size={16} /> Utenti click
+ </div>
+ <div className="text-2xl font-bold text-strong">
+ {insightsLoading ? '…' : formatInsightMetric(insightsTotals.applyClickUsers)}
  </div>
  </div>
  <div className="bg-surface rounded-xl border border-edge p-4">
@@ -3657,6 +3668,7 @@ export default function AdminPanel() {
  { col: 'companyName' as const, label: 'Azienda', align: 'left' },
  { col: 'views' as const, label: 'Visualizzazioni annuncio', align: 'right' },
  { col: 'applyClicks' as const, label: 'Click candidatura', align: 'right' },
+ { col: 'applyClickUsers' as const, label: 'Utenti click', align: 'right' },
  { col: 'applications' as const, label: 'Candidature inviate', align: 'right' },
  { col: 'profileViews' as const, label: 'Visite profilo', align: 'right' },
  { col: 'adsObserved' as const, label: 'Annunci osservati', align: 'right' },
@@ -3703,6 +3715,7 @@ export default function AdminPanel() {
  </td>
  <td className="px-3 py-2 text-right text-body">{formatInsightMetric(row.totals.views)}</td>
  <td className="px-3 py-2 text-right text-body">{formatInsightMetric(row.totals.applyClicks)}</td>
+ <td className="px-3 py-2 text-right text-body">{formatInsightMetric(row.totals.applyClickUsers)}</td>
  <td className="px-3 py-2 text-right text-body">{formatInsightMetric(row.totals.applications)}</td>
  <td className="px-3 py-2 text-right text-body">{formatInsightMetric(row.totals.profileViews)}</td>
  <td className="px-3 py-2 text-right text-body">{formatInsightMetric(row.totals.adsObserved)}</td>
@@ -3734,7 +3747,7 @@ export default function AdminPanel() {
  ))}
  {!insightsLoading && insightsFiltered.length === 0 && (
  <tr>
- <td colSpan={10} className="px-3 py-6 text-center text-muted">
+ <td colSpan={11} className="px-3 py-6 text-center text-muted">
  Nessuna azienda trovata.
  </td>
  </tr>
@@ -3756,14 +3769,15 @@ export default function AdminPanel() {
  ? <span className="text-warning truncate">{row.contactEmailInferred} (inferita)</span>
  : <span className="text-muted italic">contatto mancante</span>}
  </div>
- <div className="grid grid-cols-3 gap-2 text-xs">
+ <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
  <div><span className="block text-muted">Visualizzazioni</span><span className="text-body">{formatInsightMetric(row.totals.views)}</span></div>
  <div><span className="block text-muted">Click candidatura</span><span className="text-body">{formatInsightMetric(row.totals.applyClicks)}</span></div>
+ <div><span className="block text-muted">Utenti click</span><span className="text-body">{formatInsightMetric(row.totals.applyClickUsers)}</span></div>
  <div><span className="block text-muted">Candidature inviate</span><span className="text-body">{formatInsightMetric(row.totals.applications)}</span></div>
  <div><span className="block text-muted">Visite profilo</span><span className="text-body">{formatInsightMetric(row.totals.profileViews)}</span></div>
  <div><span className="block text-muted">Annunci osservati</span><span className="text-body">{formatInsightMetric(row.totals.adsObserved)}</span></div>
  <div><span className="block text-muted">Data</span><span className="text-body">{formatInsightsDate(row.generatedAt)}</span></div>
- <div className="col-span-3"><span className="block text-muted">Finestra</span><span className="text-body">{formatInsightWindow(row.window)}</span></div>
+ <div className="col-span-2 sm:col-span-3"><span className="block text-muted">Finestra</span><span className="text-body">{formatInsightWindow(row.window)}</span></div>
  </div>
  <div className="flex items-center gap-1.5 text-xs">
  <span className="text-muted">Outreach:</span>
@@ -3816,7 +3830,7 @@ export default function AdminPanel() {
  {contactModalRow.companyName}
  </h3>
  <p className="text-xs text-muted">
- {formatInsightMetric(contactModalRow.totals.applyClicks)} click candidatura · {formatInsightMetric(contactModalRow.totals.views)} visualizzazioni
+ {formatInsightMetric(contactModalRow.totals.applyClicks)} click candidatura · {formatInsightMetric(contactModalRow.totals.applyClickUsers)} utenti click · {formatInsightMetric(contactModalRow.totals.views)} visualizzazioni
  </p>
  <p className="text-[11px] text-muted">
  Finestra: {formatInsightWindow(contactModalRow.window)} · Sorgente: {contactModalRow.source || 'non disponibile'}

@@ -2890,6 +2890,10 @@ Regole:
  'consultingCta.article.body': '30 minuti con un esperto di fiscalità frontaliera per chiarire il tuo caso specifico — €49, slot limitati.',
  'consultingCta.article.button': 'Prenota una consulenza',
 
+ 'whatsNew.v3963.title': 'Insights aziende più chiari',
+ 'whatsNew.v3963.employerInsights.title': 'Click candidatura e dati verificabili',
+ 'whatsNew.v3963.employerInsights.desc': 'I report privati per le aziende distinguono visualizzazioni, click per candidarsi, utenti associati e candidature registrate, indicando sempre finestra e sorgente del dato.',
+
  // v3.71.0 — potenziamento calcolatore
  'whatsNew.v3962.title': 'Confronto carburanti più utile',
  'whatsNew.v3962.fuelCompare.title': 'Benzina e diesel, comune per comune',

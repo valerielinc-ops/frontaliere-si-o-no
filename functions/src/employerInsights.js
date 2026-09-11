@@ -5,7 +5,9 @@
  * GET ?c=<companyKey>&t=<token> → verifies the HMAC token, then returns the
  * employer_insights/{companyKey} document as JSON. The token gate keeps each
  * company's data private (a company can only see its own stats via its emailed
- * link); the Firestore collection is not publicly readable.
+ * link); the Firestore collection is not publicly readable. Current snapshots
+ * keep the potentially large `ads` array in the `ads` subcollection and this
+ * handler reassembles it before returning the legacy-compatible JSON shape.
  *
  * Token scheme MUST stay byte-identical to scripts/lib/employer-insights-token.mjs:
  *   token = HMAC-SHA256(secret, `employer_insights:${companyKey}`) hex digest,
@@ -17,6 +19,7 @@ import { createHmac, timingSafeEqual } from 'node:crypto';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 
 const INSIGHTS_COLLECTION = 'employer_insights';
+const ADS_SUBCOLLECTION = 'ads';
 // Canonical prod domain (AGENTS.md). Kept in lockstep with the scripts-side
 // builder scripts/lib/employer-insights-token.mjs (BASE_URL + INSIGHTS_PATH).
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -65,8 +68,20 @@ export async function handleEmployerInsights({ companyKey, token, secret, db: in
   const snap = await db.collection(INSIGHTS_COLLECTION).doc(key).get();
   if (!snap.exists) return { status: 404, body: { error: 'not_found', companyKey: key } };
 
-  const data = snap.data() || {};
+  const data = { ...(snap.data() || {}) };
   // Drop the server-side updatedAt sentinel (not JSON-serializable / not needed client-side).
   delete data.updatedAt;
+  if (!Array.isArray(data.ads) && data.adsStorage?.type === 'subcollection') {
+    const adCollection = snap.ref?.collection?.(ADS_SUBCOLLECTION);
+    if (adCollection) {
+      const adSnapshot = await adCollection.get();
+      data.ads = (adSnapshot.docs || [])
+        .map((doc) => doc.data() || {})
+        .sort((a, b) => Number(b.views || 0) - Number(a.views || 0)
+          || String(a.slug || a.path || '').localeCompare(String(b.slug || b.path || '')));
+    }
+  }
+  if (!Array.isArray(data.ads)) data.ads = [];
+  delete data.adsStorage;
   return { status: 200, body: data };
 }

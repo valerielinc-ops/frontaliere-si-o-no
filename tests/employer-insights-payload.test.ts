@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
 import { EmployerInsightsReport } from '../components/pages/EmployerInsightsPage';
+import type { Locale } from '../services/i18n';
 import { handleList, serializeEmployerInsightsTotals } from '../functions/src/adminEmployerInsights.js';
 
 const employerPageSource = readFileSync(
@@ -69,6 +70,7 @@ const basePayload = {
     visitors: 9,
     profileViews: 903,
     applyClicks: 701,
+    applyClickUsers: 544,
     applications: 302,
     adsCount: 1,
   },
@@ -81,6 +83,7 @@ const basePayload = {
     views: 111,
     visitors: 9,
     applyClicks: 701,
+    applyClickUsers: 544,
     applications: 302,
     applicationsStatus: 'observed',
     eventsObserved: 812,
@@ -93,9 +96,9 @@ const basePayload = {
   profileTrend: [],
 };
 
-function render(data: unknown): string {
+function render(data: unknown, locale?: Locale): string {
   return renderToStaticMarkup(
-    React.createElement(EmployerInsightsReport, { data: data as never }),
+    React.createElement(EmployerInsightsReport, { data: data as never, locale }),
   );
 }
 
@@ -104,6 +107,7 @@ describe('employer insights payload UI', () => {
     expect(serializeEmployerInsightsTotals({ views: 0, applyClicks: 0 }, window)).toMatchObject({
       views: 0,
       applyClicks: 0,
+      applyClickUsers: null,
     });
     expect(serializeEmployerInsightsTotals({ views: undefined, applyClicks: undefined }, window)).toMatchObject({
       views: null,
@@ -114,6 +118,7 @@ describe('employer insights payload UI', () => {
       visitors: 7,
       profileViews: 3,
       applyClicks: 31,
+      applyClickUsers: 27,
       applications: 2,
       applicationsStatus: 'observed',
       adsCount: 4,
@@ -122,6 +127,7 @@ describe('employer insights payload UI', () => {
       visitors: 7,
       profileViews: 3,
       applyClicks: null,
+      applyClickUsers: null,
       applications: null,
       applicationsStatus: null,
       adsObserved: 4,
@@ -192,6 +198,8 @@ describe('employer insights payload UI', () => {
     expect(html).toContain('>701<');
     expect(html).toContain('>302<');
     expect(html).toContain('>903<');
+    expect(html).toContain('Utenti associati ai click');
+    expect(html).toContain('>544<');
     expect(html).toContain('events-source');
     expect(html).toContain('applications-source');
     expect(html.match(/Finestra:/g)?.length).toBeGreaterThanOrEqual(3);
@@ -200,6 +208,19 @@ describe('employer insights payload UI', () => {
     expect(html).toContain('2026-09-09T00:00:00.000Z');
     expect(html).toContain('UTC');
     expect(employerPageSource).not.toMatch(/['"](?:ga4|posthog)['"]/i);
+  });
+
+  it('renders the report copy and number format for every supported locale', () => {
+    const expected = {
+      it: ['Dati di interazione per Fixture', 'Click per candidarsi', 'Rivendica i tuoi annunci'],
+      en: ['Engagement data for Fixture', 'Apply clicks', 'Claim your job ads'],
+      de: ['Interaktionsdaten für Fixture', 'Klicks auf Bewerbung', 'Stellenanzeigen beanspruchen'],
+      fr: ['Données d’interaction pour Fixture', 'Clics pour postuler', 'Revendiquer vos offres'],
+    } as const;
+    for (const [locale, strings] of Object.entries(expected) as Array<[Locale, readonly string[]]>) {
+      const html = render(basePayload, locale);
+      for (const value of strings) expect(html).toContain(value);
+    }
   });
 
   it('keeps observed numbers when timezone is absent but the window is present', () => {
