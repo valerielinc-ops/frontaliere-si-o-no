@@ -11647,6 +11647,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-11.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 11. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-11.seoDescription': 'Grenzgänger-Bulletin vom 11. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-11.ogDescription': 'Die Zahlen vom 11. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.tilo-s10-bus-chiasso-melide.title': 'Änderungen TILO: Bus statt S10 Chiasso-Melide',
+    'blog.article.tilo-s10-bus-chiasso-melide.excerpt': 'Ab dem 13. September 2026 wird die 4:11 -Tilo-Fahrt von Mendrisio nach Chiasso bis zum 19. Oktober 2026 durch einen Bus mit vorzeitiger Abfahrt ersetzt.',
+    'blog.article.tilo-s10-bus-chiasso-melide.imageAlt': 'TILO-Bus am Bahnhof Mendrisio bei Tagesanbruch, Ersatz für den S10-Zug für Grenzgänger',
 };
 
 export default blogMetaDe;
