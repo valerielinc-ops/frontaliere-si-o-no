@@ -1450,7 +1450,7 @@ function normalizedContractStep(step, side, fileName, members) {
 
   if (typeof copy?.uses === 'string' && copy.uses.startsWith('actions/checkout@')) {
     const allowedWith = side === 'generated'
-      ? new Set(['fetch-depth'])
+      ? new Set(['repository', 'fetch-depth', 'ref', 'clean', 'sparse-checkout', 'sparse-checkout-cone-mode'])
       : new Set(['repository', 'fetch-depth']);
     const unexpected = Object.keys(copy.with ?? {}).filter((key) => !allowedWith.has(key));
     if (unexpected.length > 0) {
@@ -1460,10 +1460,16 @@ function normalizedContractStep(step, side, fileName, members) {
       throw new Error(`${fileName}: logic checkout does not target ${SITE_REPOSITORY}`);
     }
     // Conserva ogni campo step-level presente o futuro (`if`, `timeout-*`,
-    // shell, continue-on-error...). Le sole differenze dichiarate sono il nome
-    // descrittivo e `with.repository` nel reusable cross-repo.
+    // shell, continue-on-error...). Le sole differenze dichiarate sono il nome,
+    // il repository/ref del checkout cross-repo e il suo profilo sparse.
     copy.name = 'Checkout';
     delete copy.with.repository;
+    if (side === 'generated') {
+      delete copy.with.ref;
+      delete copy.with.clean;
+      delete copy.with['sparse-checkout'];
+      delete copy.with['sparse-checkout-cone-mode'];
+    }
     return copy;
   }
 
