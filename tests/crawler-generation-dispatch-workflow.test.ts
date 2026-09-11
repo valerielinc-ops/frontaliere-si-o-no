@@ -6,7 +6,9 @@ import { createHash } from 'node:crypto';
 import YAML from 'yaml';
 import { describe, expect, it } from 'vitest';
 import { GROUP_IDS, createCrawlerGenerationSentinel } from '../scripts/lib/crawler-generation-contract.mjs';
-import { CRAWLER_GENERATION_TOKEN_EXPR as GENERATION_TOKEN_EXPR } from '../scripts/generate-crawler-group-workflows.mjs';
+import {
+  CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR as PORTABLE_GENERATION_TOKEN_EXPR,
+} from '../scripts/generate-crawler-group-workflows.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
 const root = path.resolve(import.meta.dirname, '..');
@@ -177,11 +179,11 @@ describe('crawler generation PR B workflow wiring', () => {
         group: `jobs-crawler-group-${group}`,
         'cancel-in-progress': false,
       });
-      expect(crawler['run-name']).toBe(`crawler-generation-${GENERATION_TOKEN_EXPR}-group-${group}`);
+      expect(crawler['run-name']).toBe(`crawler-generation-${PORTABLE_GENERATION_TOKEN_EXPR}-group-${group}`);
       expect(crawler.on.workflow_dispatch.inputs.generation_token)
         .toMatchObject({ required: true, type: 'string' });
       const job = Object.values(crawler.jobs)[0] as any;
-      expect(job.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
+      expect(job.env.CRAWLER_GENERATION_TOKEN).toBe(PORTABLE_GENERATION_TOKEN_EXPR);
       const siteCheckouts = job.steps.filter((step: any) => step.with?.repository === 'valerielinc-ops/frontaliere-si-o-no');
       expect(siteCheckouts).toHaveLength(2);
       expect(siteCheckouts.every((step: any) => step.with.ref === "${{ inputs.site_code_commit || 'main' }}"))
