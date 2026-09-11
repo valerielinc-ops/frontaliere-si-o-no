@@ -1,8 +1,9 @@
 name: "Codex primary with Claude fallback"
 description: >-
   Runs exactly one ephemeral Codex CLI attempt with ChatGPT subscription auth.
-  If Codex does not complete successfully, runs the existing Claude Code action as
-  the fallback. The action has no API-key mode.
+  If Codex fails before any detectable local or remote side effect, runs the
+  existing Claude Code action as the fallback. A failure after a possible side
+  effect stops without retrying the prompt. The action has no API-key mode.
 
 inputs:
   preflight_blocked:
@@ -100,6 +101,9 @@ outputs:
   claude_success:
     description: "true when the Claude fallback completed successfully."
     value: ${{ steps.finalize.outputs.claude_success }}
+  side_effect_detected:
+    description: "true when Codex may have changed local or remote state before failing."
+    value: ${{ steps.finalize.outputs.side_effect_detected }}
 
 runs:
   using: composite
@@ -627,6 +631,78 @@ runs:
         copy_bridge_file git-bridge.sh git
         copy_bridge_file git-bridge-client.mjs git-client.mjs
         copy_bridge_file git-bridge-server.mjs git-server.mjs
+        # Resolve the real Git metadata paths before sanitizing local config.
+        # The sanitizer protects the Codex process from checkout credentials;
+        # the exact files are restored before the next workflow step runs.
+        git_dir="$($git_host_realpath rev-parse --git-dir)"
+        common_git_dir="$($git_host_realpath rev-parse --git-common-dir)"
+        unset CDPATH
+        git_dir="$(cd -- "$git_dir" && pwd -P)"
+        common_git_dir="$(cd -- "$common_git_dir" && pwd -P)"
+        case "$git_dir$common_git_dir" in
+          *$'\n'*|*$'\r'*)
+            echo "::error::Unexpected newline in resolved Git metadata path."
+            exit 1
+            ;;
+        esac
+        git_bridge_host_scratch="$(mktemp -d "$runner_temp/codex-git-bridge.XXXXXX")"
+        chmod 700 "$git_bridge_host_scratch"
+
+        git_config_backup_root="$git_bridge_host_scratch/config-backup"
+        mkdir -p "$git_config_backup_root"
+        chmod 700 "$git_config_backup_root"
+        git_config_paths=(
+          "$git_dir/config"
+          "$common_git_dir/config"
+          "$git_dir/config.worktree"
+          "$common_git_dir/config.worktree"
+        )
+        git_config_backup_present=()
+        for index in "${!git_config_paths[@]}"; do
+          path="${git_config_paths[$index]}"
+          backup="$git_config_backup_root/$index"
+          if [ -f "$path" ]; then
+            cp -- "$path" "$backup"
+            git_config_backup_present[$index]=true
+          else
+            git_config_backup_present[$index]=false
+          fi
+        done
+        git_config_restored=false
+        git_config_restore_ok=false
+        restore_sanitized_git_config() {
+          if [ "$git_config_restored" = true ]; then return 0; fi
+          local index path backup
+          for index in "${!git_config_paths[@]}"; do
+            path="${git_config_paths[$index]}"
+            backup="$git_config_backup_root/$index"
+            if [ "${git_config_backup_present[$index]}" = true ]; then
+              cp -- "$backup" "$path" || return 1
+            else
+              rm -f -- "$path" || return 1
+            fi
+          done
+          git_config_restored=true
+          git_config_restore_ok=true
+          for index in "${!git_config_paths[@]}"; do
+            path="${git_config_paths[$index]}"
+            backup="$git_config_backup_root/$index"
+            if [ "${git_config_backup_present[$index]}" = true ]; then
+              cmp -s -- "$backup" "$path" || { git_config_restore_ok=false; break; }
+            elif [ -e "$path" ]; then
+              git_config_restore_ok=false
+              break
+            fi
+          done
+          if [ "$git_config_restore_ok" != true ]; then
+            echo '::error::Sanitized Git configuration could not be restored byte-for-byte.'
+            return 1
+          fi
+        }
+        # Restore even if sanitization or a later preflight command aborts the
+        # step. The explicit call after Codex makes the config safe before the
+        # Claude fallback can start; this trap covers earlier failures.
+        trap restore_sanitized_git_config EXIT
         if [ ! -f "$runtime_snapshot/action/sanitize-git-config.mjs" ]; then
           echo '::error::Missing Git config sanitizer implementation.'
           exit 1
@@ -696,17 +772,6 @@ runs:
         # Keep hooks/config read-only; never use the global danger-full-access
         # bypass. The auth file is denied to model-generated commands even though
         # Codex itself reads it before running the task.
-        git_dir="$(git rev-parse --git-dir)"
-        common_git_dir="$(git rev-parse --git-common-dir)"
-        unset CDPATH
-        git_dir="$(cd -- "$git_dir" && pwd -P)"
-        common_git_dir="$(cd -- "$common_git_dir" && pwd -P)"
-        case "$git_dir$common_git_dir" in
-          *$'\n'*|*$'\r'*)
-            echo "::error::Unexpected newline in resolved Git metadata path."
-            exit 1
-            ;;
-        esac
         auth_file="$CODEX_HOME/auth.json"
         toml_quote_path() {
           local value="$1"
@@ -728,8 +793,6 @@ runs:
         git_socket="$scratch_dir/git.sock"
         # This directory is host-only. The Codex profile never reopens it; the
         # Git server uses it for a sanitized common-dir config shadow.
-        git_bridge_host_scratch="$(mktemp -d "$runner_temp/codex-git-bridge.XXXXXX")"
-        chmod 700 "$git_bridge_host_scratch"
         cat > "$config_file" <<EOF
         default_permissions = "codex-fallback"
 
@@ -813,6 +876,21 @@ runs:
           codex_filesystem="${base_filesystem_rules},\"$auth_file_toml\"={\".\"=\"deny\"},\"$scratch_dir_toml\"={\".\"=\"write\"},\"$bridge_dir_toml\"={\".\"=\"read\"},$codex_filesystem_rules,\"$git_dir_toml\"=$git_filesystem_rules,\"$common_git_dir_toml\"=$common_filesystem_rules}"
         fi
 
+        codex_side_effect_file="$git_bridge_host_scratch/side-effect"
+        : > "$codex_side_effect_file"
+        chmod 600 "$codex_side_effect_file"
+        snapshot_git_delivery_state() {
+          local target="$1"
+          {
+            printf '%s\n' '[status]'
+            "$git_host_realpath" status --porcelain=v2 --untracked-files=all
+            printf '%s\n' '[head]'
+            "$git_host_realpath" rev-parse HEAD
+            printf '%s\n' '[refs]'
+            "$git_host_realpath" for-each-ref --format='%(refname) %(objectname)'
+          } > "$target"
+        }
+
         env -i \
           CODEX_BRIDGE_TRANSPORT=files \
           CODEX_GH_AUTH="$codex_github_auth" \
@@ -825,6 +903,7 @@ runs:
           CODEX_GH_REPOSITORY="$codex_github_repository" \
           CODEX_GH_HOST="$codex_github_host" \
           CODEX_GH_CORPUS_REPOSITORY="nanakokyobashi-rgb/frontaliere-articles" \
+          CODEX_GH_SIDE_EFFECT_FILE="$codex_side_effect_file" \
           PATH="$gh_host_tools/bin:$PATH" \
           HOME="$scratch_home" \
           "$node_realpath" "$bridge_dir/gh-server.mjs" >/dev/null 2>&1 &
@@ -855,6 +934,7 @@ runs:
           CODEX_GIT_HOST="$codex_github_host" \
           CODEX_GIT_REPOSITORY="$codex_github_repository" \
           CODEX_GIT_REMOTE="$codex_git_remote" \
+          CODEX_GIT_SIDE_EFFECT_FILE="$codex_side_effect_file" \
           PATH="$gh_host_tools/bin:$PATH" \
           HOME="$scratch_home" \
           "$node_realpath" "$bridge_dir/git-server.mjs" >/dev/null 2>&1 &
@@ -866,6 +946,7 @@ runs:
         outside_probe="$runner_temp/codex-fallback-outside-probe.$$"
         printf probe > "$outside_probe"
         cleanup_bridge() {
+          restore_sanitized_git_config || true
           rm -f -- "$outside_probe"
           stop_bridge
           if [ -d "${gh_host_tools:-}" ]; then
@@ -933,6 +1014,14 @@ runs:
           if git config --local --get http.extraheader >/dev/null 2>&1; then exit 1; fi
         ' >/dev/null
 
+        codex_state_before="$git_bridge_host_scratch/state-before"
+        codex_state_after="$git_bridge_host_scratch/state-after"
+        if ! snapshot_git_delivery_state "$codex_state_before"; then
+          echo '::error::Could not snapshot Git state before the Codex primary.'
+          printf 'side_effect_detected=true\n' >> "$GITHUB_OUTPUT"
+          exit 1
+        fi
+
         # Pass only runtime metadata plus bridge paths to Codex. The credential
         # itself stays in the host-side bridge processes. The include_only
         # policy is repeated inside Codex so model-generated commands cannot
@@ -990,12 +1079,33 @@ runs:
         if [ "$CODEX_OUTPUT" != "$codex_output_destination" ] && [ -f "$CODEX_OUTPUT" ]; then
           cp -- "$CODEX_OUTPUT" "$codex_output_destination" || echo "::warning::Codex output could not be copied to the workflow artifact path."
         fi
+        # Stop both host-side bridges before inspecting the result so a
+        # request that completed just as Codex exited cannot race the marker.
+        stop_bridge
+        if ! restore_sanitized_git_config; then
+          echo '::error::Codex primary cannot continue because Git configuration restoration failed.'
+          codex_status=1
+        fi
+        side_effect_detected=true
+        if [ "$git_config_restore_ok" = true ] \
+          && [ ! -s "$codex_side_effect_file" ] \
+          && snapshot_git_delivery_state "$codex_state_after" \
+          && cmp -s -- "$codex_state_before" "$codex_state_after"; then
+          side_effect_detected=false
+        fi
+        if [ "$side_effect_detected" = true ] && [ "$codex_status" -ne 0 ]; then
+          echo '::warning::Claude fallback suppressed because Codex may have changed local or remote state.'
+        fi
+        printf 'side_effect_detected=%s\n' "$side_effect_detected" >> "$GITHUB_OUTPUT"
         printf 'codex_output=%s\n' "$codex_output_destination" >> "$GITHUB_OUTPUT"
         exit "$codex_status"
 
     - name: Run Claude fallback
       id: claude
-      if: always() && steps.codex.outcome != 'success'
+      # A failed Codex process is retryable only when the bridge and Git-state
+      # snapshots prove that it did not deliver or mutate anything. Unknown
+      # state is deliberately non-retryable to avoid duplicate fixes/PRs.
+      if: always() && (steps.codex.outcome == 'skipped' || (steps.codex.outcome == 'failure' && steps.codex.outputs.side_effect_detected == 'false'))
       continue-on-error: true
       uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
       with:
@@ -1013,6 +1123,7 @@ runs:
       shell: bash
       env:
         CODEX_OUTCOME: ${{ steps.codex.outcome }}
+        CODEX_SIDE_EFFECT_DETECTED: ${{ steps.codex.outputs.side_effect_detected }}
         CODEX_OUTPUT: ${{ steps.codex.outputs.codex_output }}
         CLAUDE_OUTCOME: ${{ steps.claude.outcome }}
         EXEC_FILE: ${{ steps.claude.outputs.execution_file }}
@@ -1022,6 +1133,12 @@ runs:
       run: |
         set -euo pipefail
         codex_outcome="${CODEX_OUTCOME:-skipped}"
+        side_effect_detected="${CODEX_SIDE_EFFECT_DETECTED:-unknown}"
+        if [ "$codex_outcome" = 'skipped' ]; then
+          side_effect_detected=false
+        elif [ "$side_effect_detected" != 'false' ]; then
+          side_effect_detected=true
+        fi
         claude_outcome="${CLAUDE_OUTCOME:-skipped}"
         codex_success=false
         [ "$codex_outcome" = 'success' ] && codex_success=true
@@ -1078,6 +1195,7 @@ runs:
         printf 'claude_outcome=%s\n' "$claude_outcome" >> "$GITHUB_OUTPUT"
         printf 'claude_used=%s\n' "$claude_used" >> "$GITHUB_OUTPUT"
         printf 'claude_success=%s\n' "$claude_success" >> "$GITHUB_OUTPUT"
+        printf 'side_effect_detected=%s\n' "$side_effect_detected" >> "$GITHUB_OUTPUT"
         printf 'primary_provider=%s\n' "$primary_provider" >> "$GITHUB_OUTPUT"
         printf 'primary_success=%s\n' "$primary_success" >> "$GITHUB_OUTPUT"
         printf 'selected_provider=%s\n' "$selected_provider" >> "$GITHUB_OUTPUT"
