@@ -40,6 +40,7 @@ describe('checkClosesLines', () => {
       'Closes #12\nCloses #34\nCloses #56',
       'Closes #12, closes #34, closes #56', // keyword repeated before each
       'Fixes #7\nResolves #8',
+      'Fixes #12\nowner/repo#34', // completed ref followed by an unrelated cross-ref
       'Closes #12. See also #99 for context.', // #99 is a bare cross-ref, not after a keyword reach... wait
       '## Implementato\n- Closes the gap in foo\n\nCloses #200\nSupersedes #201\n',
       'No issues referenced here at all.',

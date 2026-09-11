@@ -79,11 +79,11 @@ describe('G5 — follow-up detector regressions', () => {
     expect(isAggregate('follow-up(#1): cleanup', `${G5_BODY}\n1 item deferred`)).toBe(true);
   });
 
-  it('rimuove i fence e legge il fallback keyword solo dal titolo', () => {
+  it('rimuove i fence e legge il fallback keyword anche dal body', () => {
     const fencedKeyword = ['```text', 'batch of unrelated prose', '```'].join('\n');
 
     expect(isAggregate('follow-up(#1): cleanup', fencedKeyword)).toBe(false);
-    expect(isAggregate('follow-up(#1): cleanup', 'This batch has work to do.')).toBe(false);
+    expect(isAggregate('follow-up(#1): cleanup', 'This batch has work to do.')).toBe(true);
     expect(isAggregate('follow-up(#1): batch cleanup', 'ordinary single-item prose')).toBe(true);
   });
 
