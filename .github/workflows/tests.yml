@@ -321,27 +321,6 @@ jobs:
               if (/\b(?:sweep|batch|bulk)\b/i.test(title + '\n' + bodyText)) return true;
               return hasEnumeratedItems(bodyText);
             };
-            // A final PR may use GitHub-native `Closes #N` only after it proves
-            // every numbered item in the aggregate. The circuit-breaker still
-            // rejects partial bodies; this narrow declaration is the explicit
-            // hand-off from one-item progress refs to a complete closure.
-            const aggregateItemsDeclaredComplete = (prBody, issueBody) => {
-              const issueItems = [...String(issueBody || '').matchAll(
-                /^#{2,4}[ \t]+(?:Item[ \t]*)?(\d+)[.)—–](?=[ \t]|$)/gim,
-              )].map((match) => Number(match[1]));
-              const uniqueIssueItems = [...new Set(issueItems)].sort((a, b) => a - b);
-              if (uniqueIssueItems.length < 2) return false;
-              const implementedMatch = String(prBody || '').match(
-                /^\s*##[ \t]+Implementato[^\n]*\n([\s\S]*?)(?=^\s*##[ \t]+|(?![\s\S]))/im,
-              );
-              if (!implementedMatch) return false;
-              const declaredItems = [...implementedMatch[1].matchAll(
-                /^\s*[-*+][ \t]+[^\n]*\bitem[ \t]+(\d+)\b/gim,
-              )].map((match) => Number(match[1]));
-              const uniqueDeclaredItems = [...new Set(declaredItems)].sort((a, b) => a - b);
-              return uniqueDeclaredItems.length === uniqueIssueItems.length
-                && uniqueIssueItems.every((item, index) => uniqueDeclaredItems[index] === item);
-            };
             // Strip code-formatted text first: GitHub does NOT honour a closing
             // keyword inside a fenced block or inline `code` span, so neither should
             // we — otherwise a body that merely DISCUSSES `Closes #N` (docs, this very
@@ -405,8 +384,7 @@ jobs:
                 if (iss.pull_request) continue; // a PR ref, not a tracking issue
                 const labels = (iss.labels || []).map((l) => (typeof l === 'string' ? l : l.name));
                 if (!labels.includes('follow-up')) continue;
-                if (isAggregateTitleBody(iss.title || '', iss.body || '')
-                    && !aggregateItemsDeclaredComplete(body, iss.body || '')) {
+                if (isAggregateTitleBody(iss.title || '', iss.body || '')) {
                   aggregateCloseViolations.push({ num, title: iss.title || '' });
                 }
               } catch (e) {
