@@ -8,6 +8,7 @@ const workflow = fs.readFileSync(path.resolve('.github/workflows/translate-pendi
 const portableWorkflow = fs.readFileSync(path.resolve('.github/corpus-workflows/translate-pending.yml'), 'utf8');
 const portableContract = JSON.parse(fs.readFileSync(path.resolve('.github/corpus-workflows/contract.json'), 'utf8'));
 const titleFixScript = fs.readFileSync(path.resolve('scripts/fix-untranslated-titles.mjs'), 'utf8');
+const commitHelper = fs.readFileSync(path.resolve('scripts/lib/git-commit-data.sh'), 'utf8');
 const UPLOAD_ARTIFACT_V7_SHA = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
 
 type YamlMapping = Record<string, unknown>;
@@ -51,7 +52,7 @@ describe('translation observability workflow', () => {
     }
   });
 
-  it('captures baseline after markers and final only after the Phase 2c persistence barrier', () => {
+  it('captures baseline after markers and final stats only after the final persistence barrier', () => {
     const before = workflow.indexOf('Capture translation observability baseline');
     const marker = workflow.indexOf('Flag wrong-language job titles');
     const mopup = workflow.indexOf('Phase 2c mop-up');
@@ -59,6 +60,7 @@ describe('translation observability workflow', () => {
     const titleFix = workflow.indexOf('Fix untranslated titles (free cascade)');
     const titleCommit = workflow.indexOf('Commit title fixes');
     const trueFinal = workflow.indexOf('Re-assemble true-final translation dataset');
+    const statsAfter = workflow.indexOf('Log translation stats (after)');
     const final = workflow.indexOf('Capture final translation observability (shadow)');
     const commit = workflow.indexOf('Commit translations');
     const finalize = workflow.indexOf('Finalize translation observability report');
@@ -70,7 +72,10 @@ describe('translation observability workflow', () => {
     expect(trueFinal).toBeGreaterThan(titleCommit);
     expect(commit).toBeGreaterThan(persist);
     expect(commit).toBeLessThan(titleFix);
+    expect(statsAfter).toBeGreaterThan(trueFinal);
+    expect(statsAfter).toBeGreaterThan(titleCommit);
     expect(final).toBeGreaterThan(trueFinal);
+    expect(final).toBeGreaterThan(statsAfter);
     expect(finalize).toBeGreaterThan(final);
     expect(rollup).toBeGreaterThan(finalize);
     expect(workflow.slice(final, finalize)).toContain('if: always()');
@@ -88,6 +93,23 @@ describe('translation observability workflow', () => {
     expect(steps.slice(mopupIndex + 1).some((step) => step.run === 'node scripts/scatter-jobs-to-slices.mjs')).toBe(false);
     expect(titleFixScript).toContain('BY_CRAWLER_DIR');
     expect(titleFixScript).toContain('writeJson(slicePath, sliceData)');
+
+    for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
+      const statsStep = parseTranslationSteps(document)
+        .find((step) => step.name === 'Log translation stats (after)');
+      expect(statsStep, `${label}: after stats step missing`).toMatchObject({
+        if: "always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true",
+      });
+      expect(statsStep?.run, `${label}: after stats must use the publication-tree helper`)
+        .toContain('TRANSLATION_STATS_AFTER_TREE=1');
+      expect(statsStep?.run).toContain('node scripts/log-translation-stats.mjs after');
+      expect(statsStep?.run).toContain('data/translation-stats-history.json');
+    }
+    expect(commitHelper).toContain('append_translation_stats_to_index');
+    expect(commitHelper).toContain('TRANSLATION_STATS_AFTER_TREE');
+    expect(commitHelper).toContain('git archive --format=tar "$tree_sha" data/jobs/by-crawler');
+    expect(commitHelper).toContain('GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo');
+    expect(commitHelper).toContain('Deliberately do NOT fast-forward refs/heads/main after the push');
   });
 
   it('bounds Phase 2d from the shared clock and persists the current slice before stopping', () => {
