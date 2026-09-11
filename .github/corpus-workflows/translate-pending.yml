@@ -295,9 +295,6 @@ jobs:
             --mode capture \
             --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" 2>/dev/null || true)
           exit "$legacy_status"
-      - name: Log translation stats (after)
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
-        run: node scripts/log-translation-stats.mjs after
       - name: Scatter changes back to per-crawler slices
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/scatter-jobs-to-slices.mjs
@@ -337,6 +334,14 @@ jobs:
       - name: Re-assemble true-final translation dataset
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/assemble-jobs-dataset.mjs
+      - name: Log translation stats (after)
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            node scripts/log-translation-stats.mjs after
+          else
+            TRANSLATION_STATS_AFTER_TREE=1 bash scripts/lib/git-commit-data.sh --slice-only "📊 Translation stats (after)" data/translation-stats-history.json
+          fi
       - name: Capture final translation observability (shadow)
         if: always() && steps.translation_observability_before.outputs.ready == 'true'
         env:
