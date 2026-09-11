@@ -56,6 +56,19 @@ describe('jobsSeoPagesPlugin static payload budget', () => {
     expect(source).not.toContain('const COMPANY_CANTON_HARD_BUDGET');
     expect(source).not.toContain('[jobs-seo-pages] Per-canton company hub ${canonicalPath} renders to ');
   });
+
+  it('bounds company hub cards and ItemList entries while keeping the total explicit', () => {
+    const source = readFileSync(resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'), 'utf8');
+
+    expect(source).toContain('const COMPANY_HUB_HTML_JOB_CAP = 20;');
+    expect(source).toContain('const COMPANY_HUB_ITEMLIST_JOB_CAP = 10;');
+    expect(source).toContain('const COMPANY_CANTON_JOB_CAP = 30;');
+    expect(source).toContain('const COMPANY_CANTON_ITEMLIST_JOB_CAP = 10;');
+    expect(source).not.toContain('const jobListHtml = jobCardListBody(companyJobs, locale);');
+    expect(source).not.toContain('const openRolesListHtml = jobCardListBody(companyJobs, locale);');
+    expect(source).not.toContain('const cappedJobs = sortedJobs;');
+    expect(source).toContain('(${companyJobs.length})');
+  });
 });
 
 describe('capSearchStatsLandingTitle (#3589 sibling: same escape-unaware title-budget class as eventDetailMetaTitle)', () => {

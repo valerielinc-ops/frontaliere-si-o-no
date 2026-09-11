@@ -355,6 +355,7 @@ describe('Workday shared client compatibility', () => {
     expect(firstLocationSegment('CH–Visp')).toBe('Visp');
     expect(firstLocationSegment('CHE—Lugano')).toBe('Lugano');
     expect(firstLocationSegment('Switzerland - Monthey')).toBe('Monthey');
+    expect(firstLocationSegment('Switzerland-Visp')).toBe('Visp');
     expect(firstLocationSegment('St-Maurice')).toBe('St-Maurice');
     expect(firstLocationSegment('ST-MAURICE')).toBe('ST-MAURICE');
     expect(firstLocationSegment('Sion-VS')).toBe('Sion');

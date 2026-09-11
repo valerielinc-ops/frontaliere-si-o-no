@@ -683,16 +683,19 @@ export function firstLocationSegment(locText = '') {
   if (/\d+\s+location/i.test(cleaned)) return '';
 
   // Workday emits both spaced (`CH - Visp`) and compact (`CH-Visp`) country
-  // prefixes. Keep the compact `ST-MAURICE` city boundary: `ST` is also an
-  // ISO country code, so that particular unspaced form is ambiguous.
-  const codePrefixMatch = cleaned.match(/^([A-Z]{2,3})(\s*[-–—]\s*)(.+)$/);
-  const codePrefix = codePrefixMatch?.[1] || '';
-  const codeSeparator = codePrefixMatch?.[2] || '';
-  const codeIsExplicitlySpaced = /^\s+[-–—]\s+$/.test(codeSeparator);
-  const compactCodeIsUnambiguous = !AMBIGUOUS_COMPACT_LOCATION_CODES.has(codePrefix)
-    || codeIsExplicitlySpaced;
-  const prefixMatch = codePrefixMatch && compactCodeIsUnambiguous
-    ? [codePrefixMatch[0], codePrefix, codePrefixMatch[3]]
+  // prefixes. Country-name prefixes occur in the same compact form
+  // (`Switzerland-Visp`), so accept any recognized administrative marker while
+  // keeping the compact `ST-MAURICE` city boundary: `ST` is also an ISO
+  // country code, so that particular unspaced form is ambiguous.
+  const administrativePrefixMatch = cleaned.match(/^(.+?)(\s*[-–—]\s*)(.+)$/);
+  const administrativePrefix = administrativePrefixMatch?.[1]?.trim() || '';
+  const administrativeSeparator = administrativePrefixMatch?.[2] || '';
+  const prefixIsExplicitlySpaced = /^\s+[-–—]\s+$/.test(administrativeSeparator);
+  const compactPrefixIsUnambiguous = isAdministrativeLocationMarker(administrativePrefix)
+    && (!AMBIGUOUS_COMPACT_LOCATION_CODES.has(administrativePrefix.toUpperCase())
+      || prefixIsExplicitlySpaced);
+  const prefixMatch = administrativePrefixMatch && compactPrefixIsUnambiguous
+    ? [administrativePrefixMatch[0], administrativePrefix, administrativePrefixMatch[3]]
     : cleaned.match(/^(.+?)\s+[-–—]\s+(.+)$/);
   const countryPrefix = prefixMatch && isAdministrativeLocationMarker(prefixMatch[1])
     ? prefixMatch
