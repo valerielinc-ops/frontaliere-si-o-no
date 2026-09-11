@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /**
- * Contratto provider-neutral per il fallback Claude → Codex.
+ * Contratto provider-neutral per l'evidenza Claude/Codex.
  *
- * Questo modulo decide SOLTANTO quando il fallback e' autorizzato e come
- * descrivere la sua evidenza. L'autenticazione e l'invocazione del provider
+ * Questo modulo decide SOLTANTO quando il vecchio fallback Codex e' autorizzato
+ * e come descrivere l'evidenza di una run Codex. L'autenticazione e
+ * l'invocazione del provider
  * restano a carico del workflow/action ufficiale: non leggere token qui e non
  * chiamare direttamente una CLI.
  *
@@ -30,6 +31,7 @@ export const CODEX_FALLBACK_ARGS = '--ephemeral -c shell_environment_policy.igno
 export const FALLBACK_TRIGGER = Object.freeze({
   PREFLIGHT_QUOTA: 'preflight-quota',
   RUNTIME_429: 'runtime-429',
+  CODEX_PRIMARY: 'codex-primary',
 });
 
 export const FALLBACK_STATUS = Object.freeze({
@@ -222,10 +224,13 @@ function main() {
   // Il composite action chiama lo stesso modulo nel passo di finalizzazione.
   // Tenere il writer qui evita che la shell ricostruisca JSON con quoting
   // fragile e rende il contratto verificabile anche senza una run Actions.
-  if (process.env.EVIDENCE_FILE && decision.shouldFallback) {
+  // `EVIDENCE_TRIGGER` permette al nuovo verso Codex-primary di riusare il
+  // marker strutturato senza fingere che una quota Claude abbia innescato la
+  // run. Il percorso storico resta invariato quando la variabile manca.
+  if (process.env.EVIDENCE_FILE && (decision.shouldFallback || process.env.EVIDENCE_TRIGGER)) {
     writeCodexFallbackEvidence({
       file: process.env.EVIDENCE_FILE,
-      trigger: decision.trigger,
+      trigger: process.env.EVIDENCE_TRIGGER || decision.trigger,
       status: process.env.FALLBACK_STATUS || FALLBACK_STATUS.FAILURE,
       detail: process.env.FALLBACK_DETAIL || decision.reason,
     });

@@ -599,7 +599,7 @@ jobs:
           echo "$gate_dir" >> "$GITHUB_PATH"
           echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
 
-      - name: Pre-flight — Claude quota beacon for Codex fallback
+      - name: Pre-flight — Claude quota telemetry (Codex primary)
         id: quota
         if: steps.guard.outputs.proceed == 'true'
         continue-on-error: true
@@ -634,7 +634,6 @@ jobs:
           FIX_TIER: ${{ steps.guard.outputs.tier }}
           FIX_ROUND: ${{ steps.guard.outputs.round }}
         with:
-          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -703,7 +702,7 @@ jobs:
             - Una sola passata: applica, valida, committa, pusha, aggiorna body, STOP.
 
       - name: Claude usage metrics
-        if: always() && steps.guard.outputs.proceed == 'true' && steps.claude_review.outputs.fallback_used != 'true'
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claude_review.outputs.claude_used == 'true'
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "pr-redflag-fixer"
 
       - name: Cleanup Firebase credentials

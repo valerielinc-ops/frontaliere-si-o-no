@@ -1,0 +1,9 @@
+# tests.yml uses the repository runner's `background:` / `wait-all:` step
+# extension to overlap deterministic gates. actionlint does not know that
+# extension, so ignore only its two schema diagnostics for this workflow;
+# ordinary expression, shellcheck, and workflow errors remain enabled.
+paths:
+  .github/workflows/tests.yml:
+    ignore:
+      - 'unexpected key "background"'
+      - 'step must run script with "run" section or run action with "uses" section'
