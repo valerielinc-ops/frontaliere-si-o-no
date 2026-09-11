@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eth-zurich",
-  "assembledAt": "2026-09-11T13:53:41.635Z",
+  "assembledAt": "2026-09-11T23:27:10.666Z",
   "jobs": [
     {
       "id": "eth-zurich-8b3038243257",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_PeBFLlVSXBQT8tuOqj",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:35.535Z",
+      "crawledAt": "2026-09-11T23:27:05.007Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -113,7 +113,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_pPQbOEVFpuNEe6dwGQ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:35.046Z",
+      "crawledAt": "2026-09-11T23:27:04.522Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -185,7 +185,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_WutDHRW09osQjhn0JB",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:34.568Z",
+      "crawledAt": "2026-09-11T23:27:04.033Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,7 +263,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_yD8SBG1VJIv6DUeuOI",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:34.079Z",
+      "crawledAt": "2026-09-11T23:27:03.544Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -347,7 +347,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_hkSa6WxM6WZBjeh5nk",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:33.602Z",
+      "crawledAt": "2026-09-11T23:27:03.054Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -424,7 +424,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_AY3hccIricAb6VIQkw",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:33.124Z",
+      "crawledAt": "2026-09-11T23:27:02.566Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -449,7 +449,7 @@
           "marie-sk-odowska-curie-doctoral-training-network-problemi-accoppiati-per-la-decarbonizzazione-nell-industria-e-nella"
         ]
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T12:03:38.693Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -464,8 +464,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "retranslationAttempts": 0
+      "addressRegion": "ZH"
     },
     {
       "id": "eth-zurich-560ec7892cc4",
@@ -498,7 +497,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_KpOW7lYfI0yXlUiUCo",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:32.646Z",
+      "crawledAt": "2026-09-11T23:27:02.074Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -572,7 +571,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_0ZAkW6S2JIQMm2zZZQ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:32.168Z",
+      "crawledAt": "2026-09-11T23:27:01.584Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -644,7 +643,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_8mKiqyt08ncBT4Vjmf",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:31.691Z",
+      "crawledAt": "2026-09-11T23:27:01.095Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -669,8 +668,8 @@
           "apertura-del-dottorato-in-scienze-materiali-di-conservazione-della-pietra-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-06-24T21:57:04.655Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-24T21:57:04.655Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -717,7 +716,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_7oUtjwnVoYxd8NGYgj",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:31.214Z",
+      "crawledAt": "2026-09-11T23:27:00.607Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -742,8 +741,8 @@
           "posizione-dottorato-in-elettrocatalisi-e-caratterizzazione-elettrochimica-operando-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-06-29T13:16:56.059Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-29T13:16:56.059Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -790,7 +789,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_qDQkbNBtYII2OKLXG6",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:30.735Z",
+      "crawledAt": "2026-09-11T23:27:00.117Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -862,7 +861,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_fV3FNoofTG427Xo88T",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:30.256Z",
+      "crawledAt": "2026-09-11T23:26:59.624Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -887,8 +886,8 @@
           "posizione-del-dottorato-in-modellazione-e-controllo-di-sistemi-dinamici-non-lineari-da-dati-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-06T13:42:41.705Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-06T13:42:41.705Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -935,7 +934,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_7fnNYGEQBYxvwLABPA",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:29.782Z",
+      "crawledAt": "2026-09-11T23:26:59.138Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1013,7 +1012,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_tw2NqKjprjOKgicyhv",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:29.303Z",
+      "crawledAt": "2026-09-11T23:26:58.650Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1091,7 +1090,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_3GbLlhfKdn9Fnpl2iw",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:28.826Z",
+      "crawledAt": "2026-09-11T23:26:58.162Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1123,8 +1122,8 @@
           "scientific-assistant-in-antenna-array-design-and-testing-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-13T12:29:38.259Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T12:29:38.259Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1171,7 +1170,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_F9OMMLCxFXrZnitx0m",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:28.351Z",
+      "crawledAt": "2026-09-11T23:26:57.674Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1249,7 +1248,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_ZFh1EQy7dSPVVYp5Fe",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:27.868Z",
+      "crawledAt": "2026-09-11T23:26:57.182Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1327,7 +1326,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_rsIyqqZyef4ShWNwZs",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:27.390Z",
+      "crawledAt": "2026-09-11T23:26:56.694Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1358,6 +1357,7 @@
           "head-of-geospatial-ai-foundation-models-and-geo-intelligence-platform-eth-zurich-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T12:29:37.320Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -1372,8 +1372,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "eth-zurich-ba4f1dff76db",
@@ -1406,7 +1405,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_lc6GjNrrlKgHF0efWx",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:26.911Z",
+      "crawledAt": "2026-09-11T23:26:56.196Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1437,8 +1436,8 @@
           "agriculture-mission-lead-earth-observation-and-agricultural-decision-support-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-07-13T12:29:36.855Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T12:29:36.855Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1485,7 +1484,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_1bvIMyoiRO2P5VgfZ8",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:25.811Z",
+      "crawledAt": "2026-09-11T23:26:55.347Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1520,8 +1519,8 @@
           "postes-de-doctorat-en-macroeconomie-appliquee-et-economie-politique-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-13T12:29:36.384Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T12:29:36.384Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1568,7 +1567,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_2QuEXdyqJIFt1XOmpk",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:25.330Z",
+      "crawledAt": "2026-09-11T23:26:54.859Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1601,8 +1600,8 @@
           "scientific-assistant-in-analog-digital-integrated-circuits-ics-for-system-integration-and-testing-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-13T12:29:34.951Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T12:29:34.951Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1649,7 +1648,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_KNScGkMQXFtpEkjjIm",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:24.851Z",
+      "crawledAt": "2026-09-11T23:26:54.365Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1727,7 +1726,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_kWhKpJAIZB2OmXNQEH",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:24.360Z",
+      "crawledAt": "2026-09-11T23:26:53.873Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1805,7 +1804,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_pak56jURZkEEEFJw9E",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:23.880Z",
+      "crawledAt": "2026-09-11T23:26:53.382Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1836,8 +1835,8 @@
           "doctoral-position-in-robust-railway-intervention-planning-under-uncertainty-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-07-17T22:24:28.839Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-17T22:24:28.839Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1884,7 +1883,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_P9v49K34WzF1yE3Son",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:23.402Z",
+      "crawledAt": "2026-09-11T23:26:52.894Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1956,7 +1955,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_dGnRTfaN2XEfIHfoyn",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:22.922Z",
+      "crawledAt": "2026-09-11T23:26:52.404Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1989,8 +1988,8 @@
           "forestry-mission-lead-earth-observation-forest-decision-support-and-intelligence-eth"
         ]
       },
-      "firstSeenAt": "2026-07-23T11:18:33.346Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T11:18:33.346Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2037,7 +2036,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_CSxQxJrqbuRsjvCUTm",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:22.442Z",
+      "crawledAt": "2026-09-11T23:26:51.919Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2068,6 +2067,7 @@
           "legal-counsel-contracts-specialist-for-eth-zurich-space-eth-zurich-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T22:03:40.806Z",
       "salaryMin": 85000,
       "salaryMax": 145000,
@@ -2082,8 +2082,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "eth-zurich-76a5dd2d067f",
@@ -2116,7 +2115,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Dg1pAVDTJJvVAzylyw",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:21.959Z",
+      "crawledAt": "2026-09-11T23:26:51.429Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2145,8 +2144,8 @@
           "wissenschaftliche-lehrassistenz-fur-begabungs-und-begabtenforderung-in-der-informatik-m-w"
         ]
       },
-      "firstSeenAt": "2026-07-29T11:34:34.321Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-29T11:34:34.321Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2193,7 +2192,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_ZT1Mdr52EQ9ntI0Ysv",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:21.482Z",
+      "crawledAt": "2026-09-11T23:26:50.941Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2224,8 +2223,8 @@
           "phd-opening-in-3d-printed-stone-for-heritage-buildings-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-07-30T22:11:57.106Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-30T22:11:57.106Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2272,7 +2271,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_dNMnYNvPddidwz8TUy",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:21.001Z",
+      "crawledAt": "2026-09-11T23:26:50.451Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2363,7 +2362,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_CRdGXGajLEsa8nA73N",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:20.511Z",
+      "crawledAt": "2026-09-11T23:26:49.963Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2405,8 +2404,8 @@
           "laboratoire-dans-efz-m-f-d-2027-biologie-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-01T10:59:32.962Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-01T10:59:32.962Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2453,7 +2452,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_oLcCpTQZUjEG7byV8Y",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:20.034Z",
+      "crawledAt": "2026-09-11T23:26:49.477Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2484,8 +2483,8 @@
           "fachperson-information-und-dokumentation-efz-m-w-d-2027-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-01T10:59:31.909Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-01T10:59:31.909Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2532,7 +2531,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_IWFceVLUf7lSD9TI2n",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:19.559Z",
+      "crawledAt": "2026-09-11T23:26:48.988Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2557,8 +2556,8 @@
           "elektroniker-in-cfc-m-w-d-2027-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-01T10:59:30.864Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-01T10:59:30.864Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2605,7 +2604,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_VUTfDCIHI707Adya7s",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:19.083Z",
+      "crawledAt": "2026-09-11T23:26:48.502Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2630,8 +2629,8 @@
           "physiklaborant-in-cfc-m-w-d-2027-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-01T10:59:30.341Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-01T10:59:30.341Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2678,7 +2677,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_xl2UrDWV978Ej7gXIY",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:18.606Z",
+      "crawledAt": "2026-09-11T23:26:48.013Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2703,8 +2702,8 @@
           "tierpfleger-in-cfc-m-w-d-2027-versuchstiere-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-01T10:59:29.815Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-01T10:59:29.815Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2751,7 +2750,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_JljSxe71PrbQYnXQoB",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:18.130Z",
+      "crawledAt": "2026-09-11T23:26:47.526Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2829,7 +2828,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_fchK2inlRA0D5eO7z0",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:17.653Z",
+      "crawledAt": "2026-09-11T23:26:47.038Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2907,7 +2906,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Jpk5hTbut4X6uJlGRu",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:17.173Z",
+      "crawledAt": "2026-09-11T23:26:46.552Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2985,7 +2984,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_vo5Fa7oRMs6iedVJ1F",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:16.696Z",
+      "crawledAt": "2026-09-11T23:26:46.066Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3063,7 +3062,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_w33T6D45OAbECL32WL",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:16.218Z",
+      "crawledAt": "2026-09-11T23:26:45.572Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3091,8 +3090,8 @@
           "computational-design-bim-specialist-m-w-d-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-04T22:15:18.098Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T22:15:18.098Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3139,7 +3138,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_1n0qWTs7lYLeerNmzu",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:15.738Z",
+      "crawledAt": "2026-09-11T23:26:45.087Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3228,7 +3227,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_x8OEdar9kwd7fzO7Ao",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:15.257Z",
+      "crawledAt": "2026-09-11T23:26:44.600Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -3305,7 +3304,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Is1bVBODD9M9q9o4U7",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:14.779Z",
+      "crawledAt": "2026-09-11T23:26:44.112Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -3338,8 +3337,8 @@
           "system-engineer-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth"
         ]
       },
-      "firstSeenAt": "2026-08-06T11:31:31.073Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-06T11:31:31.073Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -3385,7 +3384,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_9QREZzi9U2fptRtMRx",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:14.296Z",
+      "crawledAt": "2026-09-11T23:26:43.627Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -3416,6 +3415,7 @@
           "system-engineer-for-a-cloud-like-hpc-infrastructure-eth-zurich-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:31:30.525Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -3429,8 +3429,7 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "eth-zurich-d6b8bdb2eb92",
@@ -3463,7 +3462,7 @@
       "url": "https://jobs.ethz.ch/job/view/11996",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:13.818Z",
+      "crawledAt": "2026-09-11T23:26:43.140Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3507,8 +3506,8 @@
           "poste-de-doctorat-a-la-chaire-de-marketing-technologique-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-06T11:31:30.019Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-06T11:31:30.019Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3555,7 +3554,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Y3HjOZ86G5P5ss3eqg",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:13.343Z",
+      "crawledAt": "2026-09-11T23:26:42.660Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -3633,7 +3632,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_N5adwDR63ei5mvEd2z",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:12.863Z",
+      "crawledAt": "2026-09-11T23:26:42.168Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3711,7 +3710,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Z7OndPgBOm7sbpwkNC",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:12.387Z",
+      "crawledAt": "2026-09-11T23:26:41.676Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3787,7 +3786,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_vhY5CIAbQKoZeJKDlp",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:11.909Z",
+      "crawledAt": "2026-09-11T23:26:41.188Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3860,7 +3859,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_PItOe6oQJFLOGTo0rn",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.431Z",
+      "crawledAt": "2026-09-11T23:26:40.701Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3938,7 +3937,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_qLpTBYBKn2DIsruf36",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:10.952Z",
+      "crawledAt": "2026-09-11T23:26:40.214Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4016,7 +4015,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_CQ4FarG7443S0Xuox1",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:10.473Z",
+      "crawledAt": "2026-09-11T23:26:39.719Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4047,8 +4046,8 @@
           "postdoctoral-researcher-in-applied-macroeconomics-and-political-economy-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-12T21:53:14.971Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-12T21:53:14.971Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -4095,7 +4094,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_zqMdn6OeN8wS7ZDRfz",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:09.987Z",
+      "crawledAt": "2026-09-11T23:26:39.223Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4173,7 +4172,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_GBb3OdHnnRIPeSabrX",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:09.510Z",
+      "crawledAt": "2026-09-11T23:26:38.740Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -4250,7 +4249,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Ztb8yMz2qN1JyezuM9",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:09.022Z",
+      "crawledAt": "2026-09-11T23:26:38.248Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4328,7 +4327,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_f1da9InQiozVieFweN",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:08.528Z",
+      "crawledAt": "2026-09-11T23:26:37.762Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4359,8 +4358,8 @@
           "phd-student-in-law-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:34.659Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:34.659Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -4407,7 +4406,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_0z7L6XHbhhGWTMZS1r",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:08.051Z",
+      "crawledAt": "2026-09-11T23:26:37.275Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4485,7 +4484,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_sxRoRpn3c2dMnSPe0I",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:07.571Z",
+      "crawledAt": "2026-09-11T23:26:36.785Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4516,8 +4515,8 @@
           "student-assistant-at-the-chair-of-energy-systems-analysis-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-14T21:29:34.253Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:29:34.253Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -4564,7 +4563,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_eB7YadA8OsfYmqD1u4",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:07.091Z",
+      "crawledAt": "2026-09-11T23:26:36.298Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -4595,8 +4594,8 @@
           "postdoctoral-researcher-occl-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:33.712Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:33.712Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -4642,7 +4641,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_4LviIHzRgsOBAvOoB0",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:06.605Z",
+      "crawledAt": "2026-09-11T23:26:35.807Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4720,7 +4719,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_kzU3Bx2lE8HT9YtVg4",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:06.126Z",
+      "crawledAt": "2026-09-11T23:26:35.320Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4751,8 +4750,8 @@
           "doctoral-position-in-functional-oxide-thin-films-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:32.683Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:32.683Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -4799,7 +4798,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_g0XuxC18u21Mu6iBB3",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:05.647Z",
+      "crawledAt": "2026-09-11T23:26:34.832Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4828,8 +4827,8 @@
           "liaison-librarian-architektur-stadtebau-und-raumplanung-m-w-d-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-17T21:34:25.367Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T21:34:25.367Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -4876,7 +4875,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_wGCeDfRpbQMNLdfYbN",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:05.165Z",
+      "crawledAt": "2026-09-11T23:26:34.343Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4951,7 +4950,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_SdeM55IRwLKf81q60O",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:04.688Z",
+      "crawledAt": "2026-09-11T23:26:33.856Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4982,8 +4981,8 @@
           "teamleitung-spezialbibliotheken-zentrum-teaching-librarian-m-w-d-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-18T09:57:50.347Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-18T09:57:50.347Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5030,7 +5029,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_evgABYXJThcT0gNxgF",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:04.209Z",
+      "crawledAt": "2026-09-11T23:26:33.367Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5106,7 +5105,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_jERkOb4LZv8CS4y3PL",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:03.734Z",
+      "crawledAt": "2026-09-11T23:26:32.871Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5185,8 +5184,8 @@
           "institute-coordinateur-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-19T21:44:25.044Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T21:44:25.044Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -5233,7 +5232,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_OhoKsplsc1UZw1xe3i",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:03.256Z",
+      "crawledAt": "2026-09-11T23:26:32.384Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5311,7 +5310,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_vupL5965uBrAoVnyi7",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:02.778Z",
+      "crawledAt": "2026-09-11T23:26:31.898Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5341,8 +5340,8 @@
           "doctoral-position-customer-facing-ai-in-marketing-and-service-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-20T21:35:27.395Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-20T21:35:27.395Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5389,7 +5388,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_mZ7lFXZluUIyWaON1N",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:02.302Z",
+      "crawledAt": "2026-09-11T23:26:31.412Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5467,7 +5466,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_RXOaQH0DOpiNTKwE75",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:01.824Z",
+      "crawledAt": "2026-09-11T23:26:30.926Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5545,7 +5544,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_yMx0O4OoFn5tWTAyLJ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:01.346Z",
+      "crawledAt": "2026-09-11T23:26:30.435Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5623,7 +5622,7 @@
       "url": "https://jobs.ethz.ch/job/view/12048",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:00.863Z",
+      "crawledAt": "2026-09-11T23:26:29.946Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5654,8 +5653,8 @@
           "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-24T21:30:35.000Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:35.000Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5702,7 +5701,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_w2h5ILIaxY2wODvsWo",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:00.383Z",
+      "crawledAt": "2026-09-11T23:26:29.458Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5732,8 +5731,8 @@
           "junior-systemadministrator-linux-it-support-m-w-d-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-24T21:30:34.067Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:34.067Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -5780,7 +5779,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_zABS2w3av3jvVewVb9",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:59.905Z",
+      "crawledAt": "2026-09-11T23:26:28.974Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5852,7 +5851,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_d3lDgHgDI4ewDFQ1Fb",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:59.424Z",
+      "crawledAt": "2026-09-11T23:26:28.489Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5933,7 +5932,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_VICQKrWgFLEoyEPTP7",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:58.938Z",
+      "crawledAt": "2026-09-11T23:26:27.988Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5964,8 +5963,8 @@
           "doctoral-position-in-neutral-atom-quantum-computing-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-25T10:10:37.215Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T10:10:37.215Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6012,7 +6011,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_0Dk3rwrfGt0kHlu7Rh",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:58.452Z",
+      "crawledAt": "2026-09-11T23:26:27.501Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6043,8 +6042,8 @@
         "postdoctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics",
         "posizioni-post-dottorali-in-robot-learning-e-soft-musculoskeletal-e-biohybrid-robotics-eth-zurich-zurich"
       ],
-      "firstSeenAt": "2026-08-26T10:19:02.040Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-26T10:19:02.040Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6091,7 +6090,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_4pQ2q5Y9qBeuGF9aBv",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:57.970Z",
+      "crawledAt": "2026-09-11T23:26:27.000Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6169,7 +6168,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_6stX9I9i0zxAcRPpcP",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:57.472Z",
+      "crawledAt": "2026-09-11T23:26:26.515Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6253,7 +6252,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_xPEbTe5DV76cK9b0qO",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:56.990Z",
+      "crawledAt": "2026-09-11T23:26:26.028Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6331,7 +6330,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_7qpUJghiPxjjg3LgH1",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:56.512Z",
+      "crawledAt": "2026-09-11T23:26:25.537Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6409,7 +6408,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_sKGJYv288uud0RYkmK",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:56.029Z",
+      "crawledAt": "2026-09-11T23:26:25.042Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6440,8 +6439,8 @@
           "postdoctoral-fellowship-at-design-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-31T07:36:23.656Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T07:36:23.656Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6488,7 +6487,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_vsmlFlflTKwJazo8iw",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:55.550Z",
+      "crawledAt": "2026-09-11T23:26:24.550Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6566,7 +6565,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_W0oTRdDIdw1T03uThN",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:55.068Z",
+      "crawledAt": "2026-09-11T23:26:24.059Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6594,8 +6593,8 @@
           "student-assistant-for-strategic-projects-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:27:07.852Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:27:07.852Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6642,7 +6641,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_smgcezMC3tK7ZbfeTI",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:54.581Z",
+      "crawledAt": "2026-09-11T23:26:23.570Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6675,8 +6674,8 @@
           "fachperson-betriebsunterhalt-efz-m-w-d-2027-hausdienst-zurich-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-09-01T00:48:42.417Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T00:48:42.417Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6723,7 +6722,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_6tyjd6I3AMgj0IyUzf",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:54.095Z",
+      "crawledAt": "2026-09-11T23:26:23.081Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6756,8 +6755,8 @@
           "informatiker-in-efz-m-w-d-2027-applikations-oder-plattformentwicklung-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-09-01T00:48:41.944Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T00:48:41.944Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6804,7 +6803,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_MgR4A9fbpfObsSbWtR",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:53.604Z",
+      "crawledAt": "2026-09-11T23:26:22.581Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6837,8 +6836,8 @@
           "kauffrau-mann-efz-m-w-d-2027-branche-d-a-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-09-01T00:48:41.477Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T00:48:41.477Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6885,7 +6884,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_jQbCEZBJ4CDH0gx68u",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:53.126Z",
+      "crawledAt": "2026-09-11T23:26:22.089Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6963,7 +6962,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_7gikVYjIkZZcbykZfL",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:52.647Z",
+      "crawledAt": "2026-09-11T23:26:21.597Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7078,7 +7077,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_PiKcNFhW84Jnzdrsoh",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:52.163Z",
+      "crawledAt": "2026-09-11T23:26:21.105Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7158,7 +7157,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_3WHgzaRecSAwEDOAic",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:52:51.683Z",
+      "crawledAt": "2026-09-11T23:26:20.619Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -7221,7 +7220,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_KrZkN4TsckVwArXTdY",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:51.198Z",
+      "crawledAt": "2026-09-11T23:26:20.122Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7252,8 +7251,8 @@
           "partnerships-and-research-funding-manager-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-09-01T07:43:32.029Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T07:43:32.029Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -7300,7 +7299,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_NWTmX7lwuI3QrOGWH9",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:50.716Z",
+      "crawledAt": "2026-09-11T23:26:19.622Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7328,8 +7327,8 @@
           "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-09-01T16:12:36.235Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T16:12:36.235Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -7376,7 +7375,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_o1vNvmPQLykC2qonMM",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:50.228Z",
+      "crawledAt": "2026-09-11T23:26:19.127Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7409,8 +7408,8 @@
           "fachperson-betriebsunterhalt-efz-m-w-d-2027-hausdienst-basel-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-09-01T00:48:40.994Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T00:48:40.994Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -7457,7 +7456,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_SksxJNWCEnDiqK0smp",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:49.742Z",
+      "crawledAt": "2026-09-11T23:26:18.641Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7537,7 +7536,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_NQ0t1anUYFmmVwevuG",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:49.256Z",
+      "crawledAt": "2026-09-11T23:26:18.153Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7615,7 +7614,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_G5U0mMTovC6WeOdD9F",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:48.778Z",
+      "crawledAt": "2026-09-11T23:26:17.658Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7693,7 +7692,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_HADDooajzVrtCF2fGd",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:48.290Z",
+      "crawledAt": "2026-09-11T23:26:17.171Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7756,7 +7755,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_fEsJT6dU0XVbGPtHhO",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:47.789Z",
+      "crawledAt": "2026-09-11T23:26:16.683Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7834,7 +7833,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_SEZC9QOdfgUhivGinx",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:47.300Z",
+      "crawledAt": "2026-09-11T23:26:16.192Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7918,7 +7917,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_CdinH5OSlw3zrFsdeI",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:46.821Z",
+      "crawledAt": "2026-09-11T23:26:15.700Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8002,7 +8001,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_h2mfMU9KNBhcXo5D5p",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:46.341Z",
+      "crawledAt": "2026-09-11T23:26:15.202Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8093,7 +8092,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_eQatl0pgVb6ow4UwxK",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:45.857Z",
+      "crawledAt": "2026-09-11T23:26:14.705Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -8171,7 +8170,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_9ztFwJ2Wmodh4TFajr",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:45.369Z",
+      "crawledAt": "2026-09-11T23:26:14.214Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8202,8 +8201,8 @@
           "postdoctoral-position-in-soccer-analytics-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-09-07T15:22:36.664Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-07T15:22:36.664Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -8250,7 +8249,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_ngtyDJEuI6GKDIsaRu",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:44.886Z",
+      "crawledAt": "2026-09-11T23:26:13.721Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8330,7 +8329,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_NwixDnw016KLZG2MGE",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:44.401Z",
+      "crawledAt": "2026-09-11T23:26:13.223Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8363,8 +8362,8 @@
           "projektleiter-in-ih-is-gebaudetechnik-infrastruktur-m-w-d-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-09-07T15:22:35.582Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-07T15:22:35.582Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -8411,7 +8410,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_yMji88yvHcGEduZOS5",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:43.911Z",
+      "crawledAt": "2026-09-11T23:26:12.724Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8491,7 +8490,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_5jfFbj5xGmFSyYoPWI",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:43.424Z",
+      "crawledAt": "2026-09-11T23:26:12.212Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -8568,7 +8567,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_3tuqaAfMtOV1CjCMWy",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:42.849Z",
+      "crawledAt": "2026-09-11T23:26:11.679Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8646,7 +8645,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_esjWnLgV1uifiJ1JQt",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:42.365Z",
+      "crawledAt": "2026-09-11T23:26:11.186Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8728,7 +8727,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Y0gdFhhUbaXIhkhNa8",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:41.882Z",
+      "crawledAt": "2026-09-11T23:26:10.690Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8753,8 +8752,8 @@
           "assistente-scientifico-prism-eth-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-08T13:55:20.775Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:55:20.775Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -8801,7 +8800,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Mv6A7zxfE2ogt3097w",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:41.394Z",
+      "crawledAt": "2026-09-11T23:26:10.199Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8879,7 +8878,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_8LgzN42DHapPcYKsYf",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:40.902Z",
+      "crawledAt": "2026-09-11T23:26:09.696Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8957,7 +8956,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_xNU4jaRuX9tlmqmJJB",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:40.417Z",
+      "crawledAt": "2026-09-11T23:26:09.205Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -9035,7 +9034,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_0Sskf67VROUGeIoRkd",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:39.882Z",
+      "crawledAt": "2026-09-11T23:26:08.704Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -9098,7 +9097,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_INHVkFm7btcpysqYwX",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:39.399Z",
+      "crawledAt": "2026-09-11T23:26:08.196Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -9149,8 +9148,8 @@
       "id": "eth-zurich-f2f94983501c",
       "slug": "doctoral-position-in-contact-mechanics-of-architected-interfaces-eth-zurich-ch",
       "slugByLocale": {
-        "en": "doctoral-position-in-contact-mechanics-of-architected-interfaces-eth-zurich-ch",
         "it": "doctoral-position-in-contact-mechanics-of-architected-interfaces-eth-zurich-ch",
+        "en": "doctoral-position-in-contact-mechanics-of-architected-interfaces-eth-zurich-ch",
         "de": "doctoral-position-in-contact-mechanics-of-architected-interfaces-eth-zurich-ch",
         "fr": "doctoral-position-in-contact-mechanics-of-architected-interfaces-eth-zurich-ch"
       },
@@ -9159,15 +9158,15 @@
       "companyDomain": "ethz.ch",
       "title": "Doctoral Position in contact mechanics of architected interfaces",
       "titleByLocale": {
-        "en": "Doctoral Position in contact mechanics of architected interfaces",
         "it": "Doctoral Position in contact mechanics of architected interfaces",
+        "en": "Doctoral Position in contact mechanics of architected interfaces",
         "de": "Doctoral Position in contact mechanics of architected interfaces",
         "fr": "Doctoral Position in contact mechanics of architected interfaces"
       },
       "description": "Doctoral Position in contact mechanics of architected interfaces\n\n100%, Zurich, fixed-term\n\nprint\nDrucken\n\nAt the Professorship of Solid Mechanics (SMEC) in the Institute for Building Materials at ETH Zurich, we aim to understand how materials deform, degrade, break, and ultimately fail. Our research is driven by curiosity about the physical mechanisms that underlie failure and by the ambition to translate this understanding into more reliable and resilient materials and structures. By combining numerical modeling, laboratory experiments, and theoretical analyses, we seek to link microscopic processes with the macroscopic behavior of both engineering and natural systems and develop predictive tools for mechanical failure.\n\nOur team is highly interdisciplinary and international, bringing together researchers with backgrounds in materials science, mechanics, and applied physics. We work across a broad range of topics, including the mechanics of particle systems (colloidal and granular), architected and topologically interlocked materials, the mechanics of fragility in collagen, the mechanics of earthquakes, fracture of soft materials, and modeling failure in multiphysical processes such as corrosion-driven degradation of concrete. What unites these efforts is a shared curiosity about why complex materials fail and a commitment to developing new concepts, experiments, and models that advance our understanding of failure mechanics.\n\nWe are seeking a motivated and innovative doctoral student with a strong interest in solid mechanics, interface mechanics, and computational modeling to investigate how local contact interactions in architected materials shape their macroscopic interface response. The project will explore how architecture influences collective contact behavior, aiming to develop design principles. The work will combine physics-based numerical modeling, theoretical reasoning, and concepts from rough-surface and multiscale mechanics.\n\nJob description\n\n• You will conduct a computational and theoretical investigation of how local contact interactions in architected materials collectively determine their macroscopic interface response.\n\n• The work will connect cell-scale mechanics with concepts from multiscale/rough-surface contact mechanics to develop effective descriptions of architected interfaces.\n\n• You will develop and use numerical models of lattice materials to investigate the underlying principles of contact behavior of architected materials.\n\n• You will analyze how architectural features, material properties, and characteristic length scales influence quantities such as contact area, pressure distributions, interface stiffness, and load transmission.\n\n• Building on these results, you will seek statistical or homogenized descriptions that connect the mechanics of individual contacting cells to the effective behavior of large architected interfaces.\n\n• The position provides a stimulating environment for scientific growth and collaboration.\n\nProfile\n\n• You hold an MSc degree in mechanics, physics, (civil, mechanical, aerospace, or bio-) engineering, material science, computational science, or a related discipline.\n\n• You have a background in mechanics, applied physics, computational mechanics, scientific computing, or a related field. A foundation in areas such as solid mechanics, contact mechanics, or multiscale modeling is particularly relevant.\n\n• You have experience implementing scientific code and assessing computational results through validation, verification, and quantitative comparison with reference data.\n\n• You have prior programming experience in Python and have used version control.\n\n• You are curious, self-motivated, and interested in using modeling and quantitative reasoning to answer mechanics and physics questions. Experience with architected materials, rough-surface contact mechanics, homogenization, statistical mechanics, or multiscale methods is an advantage but is not required; the project-specif",
       "descriptionByLocale": {
-        "en": "Doctoral Position in contact mechanics of architected interfaces\n\n100%, Zurich, fixed-term\n\nprint\nDrucken\n\nAt the Professorship of Solid Mechanics (SMEC) in the Institute for Building Materials at ETH Zurich, we aim to understand how materials deform, degrade, break, and ultimately fail. Our research is driven by curiosity about the physical mechanisms that underlie failure and by the ambition to translate this understanding into more reliable and resilient materials and structures. By combining numerical modeling, laboratory experiments, and theoretical analyses, we seek to link microscopic processes with the macroscopic behavior of both engineering and natural systems and develop predictive tools for mechanical failure.\n\nOur team is highly interdisciplinary and international, bringing together researchers with backgrounds in materials science, mechanics, and applied physics. We work across a broad range of topics, including the mechanics of particle systems (colloidal and granular), architected and topologically interlocked materials, the mechanics of fragility in collagen, the mechanics of earthquakes, fracture of soft materials, and modeling failure in multiphysical processes such as corrosion-driven degradation of concrete. What unites these efforts is a shared curiosity about why complex materials fail and a commitment to developing new concepts, experiments, and models that advance our understanding of failure mechanics.\n\nWe are seeking a motivated and innovative doctoral student with a strong interest in solid mechanics, interface mechanics, and computational modeling to investigate how local contact interactions in architected materials shape their macroscopic interface response. The project will explore how architecture influences collective contact behavior, aiming to develop design principles. The work will combine physics-based numerical modeling, theoretical reasoning, and concepts from rough-surface and multiscale mechanics.\n\nJob description\n\n• You will conduct a computational and theoretical investigation of how local contact interactions in architected materials collectively determine their macroscopic interface response.\n\n• The work will connect cell-scale mechanics with concepts from multiscale/rough-surface contact mechanics to develop effective descriptions of architected interfaces.\n\n• You will develop and use numerical models of lattice materials to investigate the underlying principles of contact behavior of architected materials.\n\n• You will analyze how architectural features, material properties, and characteristic length scales influence quantities such as contact area, pressure distributions, interface stiffness, and load transmission.\n\n• Building on these results, you will seek statistical or homogenized descriptions that connect the mechanics of individual contacting cells to the effective behavior of large architected interfaces.\n\n• The position provides a stimulating environment for scientific growth and collaboration.\n\nProfile\n\n• You hold an MSc degree in mechanics, physics, (civil, mechanical, aerospace, or bio-) engineering, material science, computational science, or a related discipline.\n\n• You have a background in mechanics, applied physics, computational mechanics, scientific computing, or a related field. A foundation in areas such as solid mechanics, contact mechanics, or multiscale modeling is particularly relevant.\n\n• You have experience implementing scientific code and assessing computational results through validation, verification, and quantitative comparison with reference data.\n\n• You have prior programming experience in Python and have used version control.\n\n• You are curious, self-motivated, and interested in using modeling and quantitative reasoning to answer mechanics and physics questions. Experience with architected materials, rough-surface contact mechanics, homogenization, statistical mechanics, or multiscale methods is an advantage but is not required; the project-specif",
         "it": "Doctoral Position in contact mechanics of architected interfaces\n\n100%, Zurich, fixed-term\n\nprint\nDrucken\n\nAt the Professorship of Solid Mechanics (SMEC) in the Institute for Building Materials at ETH Zurich, we aim to understand how materials deform, degrade, break, and ultimately fail. Our research is driven by curiosity about the physical mechanisms that underlie failure and by the ambition to translate this understanding into more reliable and resilient materials and structures. By combining numerical modeling, laboratory experiments, and theoretical analyses, we seek to link microscopic processes with the macroscopic behavior of both engineering and natural systems and develop predictive tools for mechanical failure.\n\nOur team is highly interdisciplinary and international, bringing together researchers with backgrounds in materials science, mechanics, and applied physics. We work across a broad range of topics, including the mechanics of particle systems (colloidal and granular), architected and topologically interlocked materials, the mechanics of fragility in collagen, the mechanics of earthquakes, fracture of soft materials, and modeling failure in multiphysical processes such as corrosion-driven degradation of concrete. What unites these efforts is a shared curiosity about why complex materials fail and a commitment to developing new concepts, experiments, and models that advance our understanding of failure mechanics.\n\nWe are seeking a motivated and innovative doctoral student with a strong interest in solid mechanics, interface mechanics, and computational modeling to investigate how local contact interactions in architected materials shape their macroscopic interface response. The project will explore how architecture influences collective contact behavior, aiming to develop design principles. The work will combine physics-based numerical modeling, theoretical reasoning, and concepts from rough-surface and multiscale mechanics.\n\nJob description\n\n• You will conduct a computational and theoretical investigation of how local contact interactions in architected materials collectively determine their macroscopic interface response.\n\n• The work will connect cell-scale mechanics with concepts from multiscale/rough-surface contact mechanics to develop effective descriptions of architected interfaces.\n\n• You will develop and use numerical models of lattice materials to investigate the underlying principles of contact behavior of architected materials.\n\n• You will analyze how architectural features, material properties, and characteristic length scales influence quantities such as contact area, pressure distributions, interface stiffness, and load transmission.\n\n• Building on these results, you will seek statistical or homogenized descriptions that connect the mechanics of individual contacting cells to the effective behavior of large architected interfaces.\n\n• The position provides a stimulating environment for scientific growth and collaboration.\n\nProfile\n\n• You hold an MSc degree in mechanics, physics, (civil, mechanical, aerospace, or bio-) engineering, material science, computational science, or a related discipline.\n\n• You have a background in mechanics, applied physics, computational mechanics, scientific computing, or a related field. A foundation in areas such as solid mechanics, contact mechanics, or multiscale modeling is particularly relevant.\n\n• You have experience implementing scientific code and assessing computational results through validation, verification, and quantitative comparison with reference data.\n\n• You have prior programming experience in Python and have used version control.\n\n• You are curious, self-motivated, and interested in using modeling and quantitative reasoning to answer mechanics and physics questions. Experience with architected materials, rough-surface contact mechanics, homogenization, statistical mechanics, or multiscale methods is an advantage but is not required; the project-specif",
+        "en": "Doctoral Position in contact mechanics of architected interfaces\n\n100%, Zurich, fixed-term\n\nprint\nDrucken\n\nAt the Professorship of Solid Mechanics (SMEC) in the Institute for Building Materials at ETH Zurich, we aim to understand how materials deform, degrade, break, and ultimately fail. Our research is driven by curiosity about the physical mechanisms that underlie failure and by the ambition to translate this understanding into more reliable and resilient materials and structures. By combining numerical modeling, laboratory experiments, and theoretical analyses, we seek to link microscopic processes with the macroscopic behavior of both engineering and natural systems and develop predictive tools for mechanical failure.\n\nOur team is highly interdisciplinary and international, bringing together researchers with backgrounds in materials science, mechanics, and applied physics. We work across a broad range of topics, including the mechanics of particle systems (colloidal and granular), architected and topologically interlocked materials, the mechanics of fragility in collagen, the mechanics of earthquakes, fracture of soft materials, and modeling failure in multiphysical processes such as corrosion-driven degradation of concrete. What unites these efforts is a shared curiosity about why complex materials fail and a commitment to developing new concepts, experiments, and models that advance our understanding of failure mechanics.\n\nWe are seeking a motivated and innovative doctoral student with a strong interest in solid mechanics, interface mechanics, and computational modeling to investigate how local contact interactions in architected materials shape their macroscopic interface response. The project will explore how architecture influences collective contact behavior, aiming to develop design principles. The work will combine physics-based numerical modeling, theoretical reasoning, and concepts from rough-surface and multiscale mechanics.\n\nJob description\n\n• You will conduct a computational and theoretical investigation of how local contact interactions in architected materials collectively determine their macroscopic interface response.\n\n• The work will connect cell-scale mechanics with concepts from multiscale/rough-surface contact mechanics to develop effective descriptions of architected interfaces.\n\n• You will develop and use numerical models of lattice materials to investigate the underlying principles of contact behavior of architected materials.\n\n• You will analyze how architectural features, material properties, and characteristic length scales influence quantities such as contact area, pressure distributions, interface stiffness, and load transmission.\n\n• Building on these results, you will seek statistical or homogenized descriptions that connect the mechanics of individual contacting cells to the effective behavior of large architected interfaces.\n\n• The position provides a stimulating environment for scientific growth and collaboration.\n\nProfile\n\n• You hold an MSc degree in mechanics, physics, (civil, mechanical, aerospace, or bio-) engineering, material science, computational science, or a related discipline.\n\n• You have a background in mechanics, applied physics, computational mechanics, scientific computing, or a related field. A foundation in areas such as solid mechanics, contact mechanics, or multiscale modeling is particularly relevant.\n\n• You have experience implementing scientific code and assessing computational results through validation, verification, and quantitative comparison with reference data.\n\n• You have prior programming experience in Python and have used version control.\n\n• You are curious, self-motivated, and interested in using modeling and quantitative reasoning to answer mechanics and physics questions. Experience with architected materials, rough-surface contact mechanics, homogenization, statistical mechanics, or multiscale methods is an advantage but is not required; the project-specif",
         "de": "Doctoral Position in contact mechanics of architected interfaces\n\n100%, Zurich, fixed-term\n\nprint\nDrucken\n\nAt the Professorship of Solid Mechanics (SMEC) in the Institute for Building Materials at ETH Zurich, we aim to understand how materials deform, degrade, break, and ultimately fail. Our research is driven by curiosity about the physical mechanisms that underlie failure and by the ambition to translate this understanding into more reliable and resilient materials and structures. By combining numerical modeling, laboratory experiments, and theoretical analyses, we seek to link microscopic processes with the macroscopic behavior of both engineering and natural systems and develop predictive tools for mechanical failure.\n\nOur team is highly interdisciplinary and international, bringing together researchers with backgrounds in materials science, mechanics, and applied physics. We work across a broad range of topics, including the mechanics of particle systems (colloidal and granular), architected and topologically interlocked materials, the mechanics of fragility in collagen, the mechanics of earthquakes, fracture of soft materials, and modeling failure in multiphysical processes such as corrosion-driven degradation of concrete. What unites these efforts is a shared curiosity about why complex materials fail and a commitment to developing new concepts, experiments, and models that advance our understanding of failure mechanics.\n\nWe are seeking a motivated and innovative doctoral student with a strong interest in solid mechanics, interface mechanics, and computational modeling to investigate how local contact interactions in architected materials shape their macroscopic interface response. The project will explore how architecture influences collective contact behavior, aiming to develop design principles. The work will combine physics-based numerical modeling, theoretical reasoning, and concepts from rough-surface and multiscale mechanics.\n\nJob description\n\n• You will conduct a computational and theoretical investigation of how local contact interactions in architected materials collectively determine their macroscopic interface response.\n\n• The work will connect cell-scale mechanics with concepts from multiscale/rough-surface contact mechanics to develop effective descriptions of architected interfaces.\n\n• You will develop and use numerical models of lattice materials to investigate the underlying principles of contact behavior of architected materials.\n\n• You will analyze how architectural features, material properties, and characteristic length scales influence quantities such as contact area, pressure distributions, interface stiffness, and load transmission.\n\n• Building on these results, you will seek statistical or homogenized descriptions that connect the mechanics of individual contacting cells to the effective behavior of large architected interfaces.\n\n• The position provides a stimulating environment for scientific growth and collaboration.\n\nProfile\n\n• You hold an MSc degree in mechanics, physics, (civil, mechanical, aerospace, or bio-) engineering, material science, computational science, or a related discipline.\n\n• You have a background in mechanics, applied physics, computational mechanics, scientific computing, or a related field. A foundation in areas such as solid mechanics, contact mechanics, or multiscale modeling is particularly relevant.\n\n• You have experience implementing scientific code and assessing computational results through validation, verification, and quantitative comparison with reference data.\n\n• You have prior programming experience in Python and have used version control.\n\n• You are curious, self-motivated, and interested in using modeling and quantitative reasoning to answer mechanics and physics questions. Experience with architected materials, rough-surface contact mechanics, homogenization, statistical mechanics, or multiscale methods is an advantage but is not required; the project-specif",
         "fr": "Doctoral Position in contact mechanics of architected interfaces\n\n100%, Zurich, fixed-term\n\nprint\nDrucken\n\nAt the Professorship of Solid Mechanics (SMEC) in the Institute for Building Materials at ETH Zurich, we aim to understand how materials deform, degrade, break, and ultimately fail. Our research is driven by curiosity about the physical mechanisms that underlie failure and by the ambition to translate this understanding into more reliable and resilient materials and structures. By combining numerical modeling, laboratory experiments, and theoretical analyses, we seek to link microscopic processes with the macroscopic behavior of both engineering and natural systems and develop predictive tools for mechanical failure.\n\nOur team is highly interdisciplinary and international, bringing together researchers with backgrounds in materials science, mechanics, and applied physics. We work across a broad range of topics, including the mechanics of particle systems (colloidal and granular), architected and topologically interlocked materials, the mechanics of fragility in collagen, the mechanics of earthquakes, fracture of soft materials, and modeling failure in multiphysical processes such as corrosion-driven degradation of concrete. What unites these efforts is a shared curiosity about why complex materials fail and a commitment to developing new concepts, experiments, and models that advance our understanding of failure mechanics.\n\nWe are seeking a motivated and innovative doctoral student with a strong interest in solid mechanics, interface mechanics, and computational modeling to investigate how local contact interactions in architected materials shape their macroscopic interface response. The project will explore how architecture influences collective contact behavior, aiming to develop design principles. The work will combine physics-based numerical modeling, theoretical reasoning, and concepts from rough-surface and multiscale mechanics.\n\nJob description\n\n• You will conduct a computational and theoretical investigation of how local contact interactions in architected materials collectively determine their macroscopic interface response.\n\n• The work will connect cell-scale mechanics with concepts from multiscale/rough-surface contact mechanics to develop effective descriptions of architected interfaces.\n\n• You will develop and use numerical models of lattice materials to investigate the underlying principles of contact behavior of architected materials.\n\n• You will analyze how architectural features, material properties, and characteristic length scales influence quantities such as contact area, pressure distributions, interface stiffness, and load transmission.\n\n• Building on these results, you will seek statistical or homogenized descriptions that connect the mechanics of individual contacting cells to the effective behavior of large architected interfaces.\n\n• The position provides a stimulating environment for scientific growth and collaboration.\n\nProfile\n\n• You hold an MSc degree in mechanics, physics, (civil, mechanical, aerospace, or bio-) engineering, material science, computational science, or a related discipline.\n\n• You have a background in mechanics, applied physics, computational mechanics, scientific computing, or a related field. A foundation in areas such as solid mechanics, contact mechanics, or multiscale modeling is particularly relevant.\n\n• You have experience implementing scientific code and assessing computational results through validation, verification, and quantitative comparison with reference data.\n\n• You have prior programming experience in Python and have used version control.\n\n• You are curious, self-motivated, and interested in using modeling and quantitative reasoning to answer mechanics and physics questions. Experience with architected materials, rough-surface contact mechanics, homogenization, statistical mechanics, or multiscale methods is an advantage but is not required; the project-specif"
       },
@@ -9176,7 +9175,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_DPag8hXtGdgomqwMdO",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:38.919Z",
+      "crawledAt": "2026-09-11T23:26:07.701Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -9190,10 +9189,9 @@
       "postedDate": "2026-09-11",
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_DPag8hXtGdgomqwMdO",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:52:38.919Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -9207,32 +9205,31 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-11T13:52:38.919Z"
+      "addressRegion": "ZH"
     },
     {
       "id": "eth-zurich-77c6bbb6f6fc",
-      "slug": "student-assistant-conducting-vr-experiment-in-educational-research-eth-zurich-ch",
+      "slug": "student-assistant-conducting-vr-experiment-in-educational-ricerca-eth-zurich-zurich",
       "slugByLocale": {
+        "it": "student-assistant-conducting-vr-experiment-in-educational-ricerca-eth-zurich-zurich",
         "en": "student-assistant-conducting-vr-experiment-in-educational-research-eth-zurich-ch",
-        "it": "student-assistant-conducting-vr-experiment-in-educational-research-eth-zurich-ch",
-        "de": "student-assistant-conducting-vr-experiment-in-educational-research-eth-zurich-ch",
-        "fr": "student-assistant-conducting-vr-experiment-in-educational-research-eth-zurich-ch"
+        "de": "student-assistent-conducting-vr-experiment-in-educational-forschung-eth-zurich-zurich",
+        "fr": "student-assistant-conducting-vr-experiment-in-educational-recherche-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
       "companyDomain": "ethz.ch",
       "title": "Student Assistant: Conducting VR experiment in educational research",
       "titleByLocale": {
-        "en": "Student Assistant: Conducting VR experiment in educational research",
         "it": "Student Assistant: Conducting VR experiment in educational Ricerca",
+        "en": "Student Assistant: Conducting VR experiment in educational research",
         "de": "Student Assistent: Conducting VR experiment in educational Forschung",
         "fr": "Student Assistant: Conducting VR experiment in educational Recherche"
       },
       "description": "Student Assistant: Conducting VR experiment in educational research\n\n30%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Professorship for Learning Sciences and Higher Education at ETH Zurich is seeking a motivated student assistant (30%) starting in October 2026.\n\nIn this role, you will support research projects involving VR experiments in embodied learning. Your main responsibility will be to conduct experiments according to established protocols, including setting up VR, interviewing participants, and addressing unexpected scenarios during the studies. For interested candidates, there may also be opportunities for future involvement in data analysis or related side projects.\n\nOur research group is dedicated to investigating human cognition and learning processes. We conduct theory-driven research about how people learn and how to develop learning environments to better support learning.\n\nProject background\n\nWe are conducting VR experiments on STEM learning, particularly in physics and mathematics. As a student assistant, you will work closely with a doctoral candidate and, after receiving appropriate training, support the data collection process by conducting experimental sessions with participants.\n\nJob description\n\n• Be able to conduct studies independently according to the study protocol.\n\n• Set up VR and address potential technical issues after training.\n\n• Conduct in-depth interviews about users’ experience.\n\n• Manage data properly.\n\nProfile\n\n• You are currently enrolled as a student at a university in Zurich.\n\n• You are fluent in English.\n\n• You are able to explain basic physics or mathematics concepts clearly.\n\n• You pay strong attention to details, and you work responsibly.\n\n• You are available to work approximately 10 -15 hours per week during Oct - Dec (i.e. at least 1 full day per week).\n\n• You are able to grasp technical aspects and can respond to potential issues quickly (prior experience with VR is not a must).\n\n• You are interested in interacting with people.\n\n• Previous experience in interviewing or teaching is a plus.\n\nWorkplace\n\nWe offer\n\n• A workload of up to 15 hours per week\n\n• Insights into educational research involving VR design and user experience\n\n• The opportunity to work in an interdisciplinary team in a friendly and collaborative environment.\n\nchevron_right\nWorking, teaching and research at ETH Zurich\n\nWe value diversity and sustainability\n\nIn line with our values , ETH Zurich encourages an inclusive culture. We promote equality of opportunity, value diversity and nurture a working and learning environment in which the rights and dignity of all our staff and students are respected. Visit our Equal Opportunities and Diversity website to find out how we ensure a fair and open environment that allows everyone to grow and flourish. Sustainability is a core value for us – we are consistently working towards a climate-neutral future .\n\nCurious? So are we.\n\nWe look forward to receiving your online application, including the following documents:\n\n• A brief statement explaining why you would like to join us and what you can contribute\n\n• Curriculum vitae (CV)\n\n• Proof of enrollment\n\nFurther information about the Professorship for Learning Sciences and Higher Education can be found on our website . If you have any questions regarding the project or the position, please contact Fan Wang (fan.wang@gess.ethz.ch).\n\nPlease note that we exclusively accept applications submitted through our online application portal. Applications via email or postal services will not be considered.\n\nWe would like to point out that the pre-selection is carried out by the responsible recruiters and not by artificial intelligence.\n\nFor recruitment services the GTC of ETH Zurich apply.\n\nAbout ETH Zürich\n\nETH Zurich is one of the world’s leading universities specialising in\nscience and technology. We are renowned for our excellent education,\ncutting-edge fundamental research and direct transfer of new knowledge\nin",
       "descriptionByLocale": {
-        "en": "Student Assistant: Conducting VR experiment in educational research\n\n30%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Professorship for Learning Sciences and Higher Education at ETH Zurich is seeking a motivated student assistant (30%) starting in October 2026.\n\nIn this role, you will support research projects involving VR experiments in embodied learning. Your main responsibility will be to conduct experiments according to established protocols, including setting up VR, interviewing participants, and addressing unexpected scenarios during the studies. For interested candidates, there may also be opportunities for future involvement in data analysis or related side projects.\n\nOur research group is dedicated to investigating human cognition and learning processes. We conduct theory-driven research about how people learn and how to develop learning environments to better support learning.\n\nProject background\n\nWe are conducting VR experiments on STEM learning, particularly in physics and mathematics. As a student assistant, you will work closely with a doctoral candidate and, after receiving appropriate training, support the data collection process by conducting experimental sessions with participants.\n\nJob description\n\n• Be able to conduct studies independently according to the study protocol.\n\n• Set up VR and address potential technical issues after training.\n\n• Conduct in-depth interviews about users’ experience.\n\n• Manage data properly.\n\nProfile\n\n• You are currently enrolled as a student at a university in Zurich.\n\n• You are fluent in English.\n\n• You are able to explain basic physics or mathematics concepts clearly.\n\n• You pay strong attention to details, and you work responsibly.\n\n• You are available to work approximately 10 -15 hours per week during Oct - Dec (i.e. at least 1 full day per week).\n\n• You are able to grasp technical aspects and can respond to potential issues quickly (prior experience with VR is not a must).\n\n• You are interested in interacting with people.\n\n• Previous experience in interviewing or teaching is a plus.\n\nWorkplace\n\nWe offer\n\n• A workload of up to 15 hours per week\n\n• Insights into educational research involving VR design and user experience\n\n• The opportunity to work in an interdisciplinary team in a friendly and collaborative environment.\n\nchevron_right\nWorking, teaching and research at ETH Zurich\n\nWe value diversity and sustainability\n\nIn line with our values , ETH Zurich encourages an inclusive culture. We promote equality of opportunity, value diversity and nurture a working and learning environment in which the rights and dignity of all our staff and students are respected. Visit our Equal Opportunities and Diversity website to find out how we ensure a fair and open environment that allows everyone to grow and flourish. Sustainability is a core value for us – we are consistently working towards a climate-neutral future .\n\nCurious? So are we.\n\nWe look forward to receiving your online application, including the following documents:\n\n• A brief statement explaining why you would like to join us and what you can contribute\n\n• Curriculum vitae (CV)\n\n• Proof of enrollment\n\nFurther information about the Professorship for Learning Sciences and Higher Education can be found on our website . If you have any questions regarding the project or the position, please contact Fan Wang (fan.wang@gess.ethz.ch).\n\nPlease note that we exclusively accept applications submitted through our online application portal. Applications via email or postal services will not be considered.\n\nWe would like to point out that the pre-selection is carried out by the responsible recruiters and not by artificial intelligence.\n\nFor recruitment services the GTC of ETH Zurich apply.\n\nAbout ETH Zürich\n\nETH Zurich is one of the world’s leading universities specialising in\nscience and technology. We are renowned for our excellent education,\ncutting-edge fundamental research and direct transfer of new knowledge\nin",
         "it": "Student Assistant: Conducting VR experiment in educational research\n\n30%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Professorship for Learning Sciences and Higher Education at ETH Zurich is seeking a motivated student assistant (30%) starting in October 2026.\n\nIn this role, you will support research projects involving VR experiments in embodied learning. Your main responsibility will be to conduct experiments according to established protocols, including setting up VR, interviewing participants, and addressing unexpected scenarios during the studies. For interested candidates, there may also be opportunities for future involvement in data analysis or related side projects.\n\nOur research group is dedicated to investigating human cognition and learning processes. We conduct theory-driven research about how people learn and how to develop learning environments to better support learning.\n\nProject background\n\nWe are conducting VR experiments on STEM learning, particularly in physics and mathematics. As a student assistant, you will work closely with a doctoral candidate and, after receiving appropriate training, support the data collection process by conducting experimental sessions with participants.\n\nJob description\n\n• Be able to conduct studies independently according to the study protocol.\n\n• Set up VR and address potential technical issues after training.\n\n• Conduct in-depth interviews about users’ experience.\n\n• Manage data properly.\n\nProfile\n\n• You are currently enrolled as a student at a university in Zurich.\n\n• You are fluent in English.\n\n• You are able to explain basic physics or mathematics concepts clearly.\n\n• You pay strong attention to details, and you work responsibly.\n\n• You are available to work approximately 10 -15 hours per week during Oct - Dec (i.e. at least 1 full day per week).\n\n• You are able to grasp technical aspects and can respond to potential issues quickly (prior experience with VR is not a must).\n\n• You are interested in interacting with people.\n\n• Previous experience in interviewing or teaching is a plus.\n\nWorkplace\n\nWe offer\n\n• A workload of up to 15 hours per week\n\n• Insights into educational research involving VR design and user experience\n\n• The opportunity to work in an interdisciplinary team in a friendly and collaborative environment.\n\nchevron_right\nWorking, teaching and research at ETH Zurich\n\nWe value diversity and sustainability\n\nIn line with our values , ETH Zurich encourages an inclusive culture. We promote equality of opportunity, value diversity and nurture a working and learning environment in which the rights and dignity of all our staff and students are respected. Visit our Equal Opportunities and Diversity website to find out how we ensure a fair and open environment that allows everyone to grow and flourish. Sustainability is a core value for us – we are consistently working towards a climate-neutral future .\n\nCurious? So are we.\n\nWe look forward to receiving your online application, including the following documents:\n\n• A brief statement explaining why you would like to join us and what you can contribute\n\n• Curriculum vitae (CV)\n\n• Proof of enrollment\n\nFurther information about the Professorship for Learning Sciences and Higher Education can be found on our website . If you have any questions regarding the project or the position, please contact Fan Wang (fan.wang@gess.ethz.ch).\n\nPlease note that we exclusively accept applications submitted through our online application portal. Applications via email or postal services will not be considered.\n\nWe would like to point out that the pre-selection is carried out by the responsible recruiters and not by artificial intelligence.\n\nFor recruitment services the GTC of ETH Zurich apply.\n\nAbout ETH Zürich\n\nETH Zurich is one of the world’s leading universities specialising in\nscience and technology. We are renowned for our excellent education,\ncutting-edge fundamental research and direct transfer of new knowledge\nin",
+        "en": "Student Assistant: Conducting VR experiment in educational research\n\n30%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Professorship for Learning Sciences and Higher Education at ETH Zurich is seeking a motivated student assistant (30%) starting in October 2026.\n\nIn this role, you will support research projects involving VR experiments in embodied learning. Your main responsibility will be to conduct experiments according to established protocols, including setting up VR, interviewing participants, and addressing unexpected scenarios during the studies. For interested candidates, there may also be opportunities for future involvement in data analysis or related side projects.\n\nOur research group is dedicated to investigating human cognition and learning processes. We conduct theory-driven research about how people learn and how to develop learning environments to better support learning.\n\nProject background\n\nWe are conducting VR experiments on STEM learning, particularly in physics and mathematics. As a student assistant, you will work closely with a doctoral candidate and, after receiving appropriate training, support the data collection process by conducting experimental sessions with participants.\n\nJob description\n\n• Be able to conduct studies independently according to the study protocol.\n\n• Set up VR and address potential technical issues after training.\n\n• Conduct in-depth interviews about users’ experience.\n\n• Manage data properly.\n\nProfile\n\n• You are currently enrolled as a student at a university in Zurich.\n\n• You are fluent in English.\n\n• You are able to explain basic physics or mathematics concepts clearly.\n\n• You pay strong attention to details, and you work responsibly.\n\n• You are available to work approximately 10 -15 hours per week during Oct - Dec (i.e. at least 1 full day per week).\n\n• You are able to grasp technical aspects and can respond to potential issues quickly (prior experience with VR is not a must).\n\n• You are interested in interacting with people.\n\n• Previous experience in interviewing or teaching is a plus.\n\nWorkplace\n\nWe offer\n\n• A workload of up to 15 hours per week\n\n• Insights into educational research involving VR design and user experience\n\n• The opportunity to work in an interdisciplinary team in a friendly and collaborative environment.\n\nchevron_right\nWorking, teaching and research at ETH Zurich\n\nWe value diversity and sustainability\n\nIn line with our values , ETH Zurich encourages an inclusive culture. We promote equality of opportunity, value diversity and nurture a working and learning environment in which the rights and dignity of all our staff and students are respected. Visit our Equal Opportunities and Diversity website to find out how we ensure a fair and open environment that allows everyone to grow and flourish. Sustainability is a core value for us – we are consistently working towards a climate-neutral future .\n\nCurious? So are we.\n\nWe look forward to receiving your online application, including the following documents:\n\n• A brief statement explaining why you would like to join us and what you can contribute\n\n• Curriculum vitae (CV)\n\n• Proof of enrollment\n\nFurther information about the Professorship for Learning Sciences and Higher Education can be found on our website . If you have any questions regarding the project or the position, please contact Fan Wang (fan.wang@gess.ethz.ch).\n\nPlease note that we exclusively accept applications submitted through our online application portal. Applications via email or postal services will not be considered.\n\nWe would like to point out that the pre-selection is carried out by the responsible recruiters and not by artificial intelligence.\n\nFor recruitment services the GTC of ETH Zurich apply.\n\nAbout ETH Zürich\n\nETH Zurich is one of the world’s leading universities specialising in\nscience and technology. We are renowned for our excellent education,\ncutting-edge fundamental research and direct transfer of new knowledge\nin",
         "de": "Student Assistant: Conducting VR experiment in educational research\n\n30%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Professorship for Learning Sciences and Higher Education at ETH Zurich is seeking a motivated student assistant (30%) starting in October 2026.\n\nIn this role, you will support research projects involving VR experiments in embodied learning. Your main responsibility will be to conduct experiments according to established protocols, including setting up VR, interviewing participants, and addressing unexpected scenarios during the studies. For interested candidates, there may also be opportunities for future involvement in data analysis or related side projects.\n\nOur research group is dedicated to investigating human cognition and learning processes. We conduct theory-driven research about how people learn and how to develop learning environments to better support learning.\n\nProject background\n\nWe are conducting VR experiments on STEM learning, particularly in physics and mathematics. As a student assistant, you will work closely with a doctoral candidate and, after receiving appropriate training, support the data collection process by conducting experimental sessions with participants.\n\nJob description\n\n• Be able to conduct studies independently according to the study protocol.\n\n• Set up VR and address potential technical issues after training.\n\n• Conduct in-depth interviews about users’ experience.\n\n• Manage data properly.\n\nProfile\n\n• You are currently enrolled as a student at a university in Zurich.\n\n• You are fluent in English.\n\n• You are able to explain basic physics or mathematics concepts clearly.\n\n• You pay strong attention to details, and you work responsibly.\n\n• You are available to work approximately 10 -15 hours per week during Oct - Dec (i.e. at least 1 full day per week).\n\n• You are able to grasp technical aspects and can respond to potential issues quickly (prior experience with VR is not a must).\n\n• You are interested in interacting with people.\n\n• Previous experience in interviewing or teaching is a plus.\n\nWorkplace\n\nWe offer\n\n• A workload of up to 15 hours per week\n\n• Insights into educational research involving VR design and user experience\n\n• The opportunity to work in an interdisciplinary team in a friendly and collaborative environment.\n\nchevron_right\nWorking, teaching and research at ETH Zurich\n\nWe value diversity and sustainability\n\nIn line with our values , ETH Zurich encourages an inclusive culture. We promote equality of opportunity, value diversity and nurture a working and learning environment in which the rights and dignity of all our staff and students are respected. Visit our Equal Opportunities and Diversity website to find out how we ensure a fair and open environment that allows everyone to grow and flourish. Sustainability is a core value for us – we are consistently working towards a climate-neutral future .\n\nCurious? So are we.\n\nWe look forward to receiving your online application, including the following documents:\n\n• A brief statement explaining why you would like to join us and what you can contribute\n\n• Curriculum vitae (CV)\n\n• Proof of enrollment\n\nFurther information about the Professorship for Learning Sciences and Higher Education can be found on our website . If you have any questions regarding the project or the position, please contact Fan Wang (fan.wang@gess.ethz.ch).\n\nPlease note that we exclusively accept applications submitted through our online application portal. Applications via email or postal services will not be considered.\n\nWe would like to point out that the pre-selection is carried out by the responsible recruiters and not by artificial intelligence.\n\nFor recruitment services the GTC of ETH Zurich apply.\n\nAbout ETH Zürich\n\nETH Zurich is one of the world’s leading universities specialising in\nscience and technology. We are renowned for our excellent education,\ncutting-edge fundamental research and direct transfer of new knowledge\nin",
         "fr": "Student Assistant: Conducting VR experiment in educational research\n\n30%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Professorship for Learning Sciences and Higher Education at ETH Zurich is seeking a motivated student assistant (30%) starting in October 2026.\n\nIn this role, you will support research projects involving VR experiments in embodied learning. Your main responsibility will be to conduct experiments according to established protocols, including setting up VR, interviewing participants, and addressing unexpected scenarios during the studies. For interested candidates, there may also be opportunities for future involvement in data analysis or related side projects.\n\nOur research group is dedicated to investigating human cognition and learning processes. We conduct theory-driven research about how people learn and how to develop learning environments to better support learning.\n\nProject background\n\nWe are conducting VR experiments on STEM learning, particularly in physics and mathematics. As a student assistant, you will work closely with a doctoral candidate and, after receiving appropriate training, support the data collection process by conducting experimental sessions with participants.\n\nJob description\n\n• Be able to conduct studies independently according to the study protocol.\n\n• Set up VR and address potential technical issues after training.\n\n• Conduct in-depth interviews about users’ experience.\n\n• Manage data properly.\n\nProfile\n\n• You are currently enrolled as a student at a university in Zurich.\n\n• You are fluent in English.\n\n• You are able to explain basic physics or mathematics concepts clearly.\n\n• You pay strong attention to details, and you work responsibly.\n\n• You are available to work approximately 10 -15 hours per week during Oct - Dec (i.e. at least 1 full day per week).\n\n• You are able to grasp technical aspects and can respond to potential issues quickly (prior experience with VR is not a must).\n\n• You are interested in interacting with people.\n\n• Previous experience in interviewing or teaching is a plus.\n\nWorkplace\n\nWe offer\n\n• A workload of up to 15 hours per week\n\n• Insights into educational research involving VR design and user experience\n\n• The opportunity to work in an interdisciplinary team in a friendly and collaborative environment.\n\nchevron_right\nWorking, teaching and research at ETH Zurich\n\nWe value diversity and sustainability\n\nIn line with our values , ETH Zurich encourages an inclusive culture. We promote equality of opportunity, value diversity and nurture a working and learning environment in which the rights and dignity of all our staff and students are respected. Visit our Equal Opportunities and Diversity website to find out how we ensure a fair and open environment that allows everyone to grow and flourish. Sustainability is a core value for us – we are consistently working towards a climate-neutral future .\n\nCurious? So are we.\n\nWe look forward to receiving your online application, including the following documents:\n\n• A brief statement explaining why you would like to join us and what you can contribute\n\n• Curriculum vitae (CV)\n\n• Proof of enrollment\n\nFurther information about the Professorship for Learning Sciences and Higher Education can be found on our website . If you have any questions regarding the project or the position, please contact Fan Wang (fan.wang@gess.ethz.ch).\n\nPlease note that we exclusively accept applications submitted through our online application portal. Applications via email or postal services will not be considered.\n\nWe would like to point out that the pre-selection is carried out by the responsible recruiters and not by artificial intelligence.\n\nFor recruitment services the GTC of ETH Zurich apply.\n\nAbout ETH Zürich\n\nETH Zurich is one of the world’s leading universities specialising in\nscience and technology. We are renowned for our excellent education,\ncutting-edge fundamental research and direct transfer of new knowledge\nin"
       },
@@ -9241,7 +9238,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_6hzCDueAi1KWlW3pMB",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:52:38.434Z",
+      "crawledAt": "2026-09-11T23:26:07.211Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -9255,10 +9252,23 @@
       "postedDate": "2026-09-11",
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_6hzCDueAi1KWlW3pMB",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:52:38.434Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "student-assistant-conducting-vr-experiment-in-educational-research-eth-zurich-ch"
+        ],
+        "de": [
+          "student-assistant-conducting-vr-experiment-in-educational-research-eth-zurich-ch"
+        ],
+        "fr": [
+          "student-assistant-conducting-vr-experiment-in-educational-research-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "student-assistant-conducting-vr-experiment-in-educational-research-eth-zurich-ch"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -9272,16 +9282,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-11T13:52:38.434Z"
+      "addressRegion": "ZH"
     },
     {
       "id": "eth-zurich-c57cac86edcb",
       "slug": "praktikant-in-im-stab-eth-sustainability-m-w-d-eth-zurich-ch",
       "slugByLocale": {
-        "de": "praktikant-in-im-stab-eth-sustainability-m-w-d-eth-zurich-ch",
         "it": "praktikant-in-im-stab-eth-sustainability-m-w-d-eth-zurich-ch",
         "en": "praktikant-in-im-stab-eth-sustainability-m-w-d-eth-zurich-ch",
+        "de": "praktikant-in-im-stab-eth-sustainability-m-w-d-eth-zurich-ch",
         "fr": "praktikant-in-im-stab-eth-sustainability-m-w-d-eth-zurich-ch"
       },
       "company": "ETH Zürich",
@@ -9289,16 +9298,16 @@
       "companyDomain": "ethz.ch",
       "title": "Praktikant:in im Stab ETH Sustainability (m/w/d)",
       "titleByLocale": {
-        "de": "Praktikant:in im Stab ETH Sustainability (m/w/d)",
         "it": "Praktikant:in im Stab ETH Sustainability (m/w/d)",
         "en": "Praktikant:in im Stab ETH Sustainability (m/w/d)",
+        "de": "Praktikant:in im Stab ETH Sustainability (m/w/d)",
         "fr": "Praktikant:in im Stab ETH Sustainability (m/w/d)"
       },
       "description": "Praktikant:in im Stab ETH Sustainability (m/w/d)\n\n80%-90%, Zürich, befristet\n\nprint\nDrucken\n\nDie ETH Zürich verfolgt Nachhaltigkeit als strategische Leitlinie in ihren Kernbereichen Forschung, Lehre, Campus und Dialog mit der Gesellschaft. Sie ist bestrebt, auf nationaler und internationaler Ebene eine führende Rolle zu spielen. Als Stab ETH Sustainability im Vizepräsidium Infrastruktur und Nachhaltigkeit vernetzen, fördern, entwickeln und unterstützen wir die ETH-Gemeinschaft in ihrem Beitrag zu einer nachhaltigen Entwicklung im Rahmen der Agenda 2030 und gestalten Bedingungen und Prozesse auf dem Weg zu einer klimafreundlichen Hochschule.\n\nZur Unterstützung des aktuellen Portfolios an Projekten und Aktivitäten suchen wir ab sofort eine:n motivierte:n und kommunikative:n Hochschulabsolvent:in (BSc) als Praktikant:in für die Dauer von 6 Monaten. Für ETH-Master-Studierende eignet sich die Praktikumsstelle während eines Urlaubsemesters oder Zwischenjahres.\n\nStellenbeschreibung\n\n• Mitarbeit bei Prozessen und Projekten in den Themenbereichen klimafreundliche Hochschule und Nachhaltige Entwicklung und eigenständige Bearbeitung von Arbeitspaketen\n\n• Mitwirkung bei der Vorbereitung und Durchführung von ETH-internen sowie öffentlichen Veranstaltungen und Community Events\n\n• Unterstützung bei der Aktualisierung der Website und Erstellung von Webinhalten und Social Media Content\n\nProfil\n\n• Bachelor-Absolvent:in oder Master-Studierende:r, vorzugsweise von der ETH Zürich oder mit Kenntnissen der ETH Zürich\n\n• Ausgeprägtes Interesse an Nachhaltigkeit, der Agenda 2030, den Sustainable Development Goals und der Netto-Null Thematik sowie an nachhaltigkeits-orientierten Umsetzungsaktivitäten auf dem ETH-Campus\n\n• Proaktive:r, motivierte:r und kommunikative:r Teamplayer:in\n\n• Basiskenntnisse für Webpublishing und Social Media (LinkedIn)\n\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\n\nArbeitsort\n\nWir bieten\n\n• On-the-job Training und Mentoring\n\n• Arbeit in dynamischen und aktuellen Themenfeldern\n\n• Offene, kollaborative und unterstützende Teamkultur\n\n• Zugang zu ETH-internen, nationalen und internationalen Netzwerken\n\nchevron_right\nArbeiten, Lehren und Forschen an der ETH Zürich\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n\n• Lebenslauf\n\n• Motivationsschreiben\n\n• Diplome und Arbeitszeugnisse\n\nWeitere Informationen über ETH Sustainability finden Sie auf unserer Webseite . Für Auskünfte steht Dr. Claudia Zingerli, Leiterin Stab ETH Sustainability, sustainability@ethz.ch (E-Mail Betreff: Praktikumsstelle), Telefon +41 44 632 65 42, gerne zur Verfügung.\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von n",
       "descriptionByLocale": {
-        "de": "Praktikant:in im Stab ETH Sustainability (m/w/d)\n\n80%-90%, Zürich, befristet\n\nprint\nDrucken\n\nDie ETH Zürich verfolgt Nachhaltigkeit als strategische Leitlinie in ihren Kernbereichen Forschung, Lehre, Campus und Dialog mit der Gesellschaft. Sie ist bestrebt, auf nationaler und internationaler Ebene eine führende Rolle zu spielen. Als Stab ETH Sustainability im Vizepräsidium Infrastruktur und Nachhaltigkeit vernetzen, fördern, entwickeln und unterstützen wir die ETH-Gemeinschaft in ihrem Beitrag zu einer nachhaltigen Entwicklung im Rahmen der Agenda 2030 und gestalten Bedingungen und Prozesse auf dem Weg zu einer klimafreundlichen Hochschule.\n\nZur Unterstützung des aktuellen Portfolios an Projekten und Aktivitäten suchen wir ab sofort eine:n motivierte:n und kommunikative:n Hochschulabsolvent:in (BSc) als Praktikant:in für die Dauer von 6 Monaten. Für ETH-Master-Studierende eignet sich die Praktikumsstelle während eines Urlaubsemesters oder Zwischenjahres.\n\nStellenbeschreibung\n\n• Mitarbeit bei Prozessen und Projekten in den Themenbereichen klimafreundliche Hochschule und Nachhaltige Entwicklung und eigenständige Bearbeitung von Arbeitspaketen\n\n• Mitwirkung bei der Vorbereitung und Durchführung von ETH-internen sowie öffentlichen Veranstaltungen und Community Events\n\n• Unterstützung bei der Aktualisierung der Website und Erstellung von Webinhalten und Social Media Content\n\nProfil\n\n• Bachelor-Absolvent:in oder Master-Studierende:r, vorzugsweise von der ETH Zürich oder mit Kenntnissen der ETH Zürich\n\n• Ausgeprägtes Interesse an Nachhaltigkeit, der Agenda 2030, den Sustainable Development Goals und der Netto-Null Thematik sowie an nachhaltigkeits-orientierten Umsetzungsaktivitäten auf dem ETH-Campus\n\n• Proaktive:r, motivierte:r und kommunikative:r Teamplayer:in\n\n• Basiskenntnisse für Webpublishing und Social Media (LinkedIn)\n\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\n\nArbeitsort\n\nWir bieten\n\n• On-the-job Training und Mentoring\n\n• Arbeit in dynamischen und aktuellen Themenfeldern\n\n• Offene, kollaborative und unterstützende Teamkultur\n\n• Zugang zu ETH-internen, nationalen und internationalen Netzwerken\n\nchevron_right\nArbeiten, Lehren und Forschen an der ETH Zürich\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n\n• Lebenslauf\n\n• Motivationsschreiben\n\n• Diplome und Arbeitszeugnisse\n\nWeitere Informationen über ETH Sustainability finden Sie auf unserer Webseite . Für Auskünfte steht Dr. Claudia Zingerli, Leiterin Stab ETH Sustainability, sustainability@ethz.ch (E-Mail Betreff: Praktikumsstelle), Telefon +41 44 632 65 42, gerne zur Verfügung.\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von n",
         "it": "Praktikant:in im Stab ETH Sustainability (m/w/d)\n\n80%-90%, Zürich, befristet\n\nprint\nDrucken\n\nDie ETH Zürich verfolgt Nachhaltigkeit als strategische Leitlinie in ihren Kernbereichen Forschung, Lehre, Campus und Dialog mit der Gesellschaft. Sie ist bestrebt, auf nationaler und internationaler Ebene eine führende Rolle zu spielen. Als Stab ETH Sustainability im Vizepräsidium Infrastruktur und Nachhaltigkeit vernetzen, fördern, entwickeln und unterstützen wir die ETH-Gemeinschaft in ihrem Beitrag zu einer nachhaltigen Entwicklung im Rahmen der Agenda 2030 und gestalten Bedingungen und Prozesse auf dem Weg zu einer klimafreundlichen Hochschule.\n\nZur Unterstützung des aktuellen Portfolios an Projekten und Aktivitäten suchen wir ab sofort eine:n motivierte:n und kommunikative:n Hochschulabsolvent:in (BSc) als Praktikant:in für die Dauer von 6 Monaten. Für ETH-Master-Studierende eignet sich die Praktikumsstelle während eines Urlaubsemesters oder Zwischenjahres.\n\nStellenbeschreibung\n\n• Mitarbeit bei Prozessen und Projekten in den Themenbereichen klimafreundliche Hochschule und Nachhaltige Entwicklung und eigenständige Bearbeitung von Arbeitspaketen\n\n• Mitwirkung bei der Vorbereitung und Durchführung von ETH-internen sowie öffentlichen Veranstaltungen und Community Events\n\n• Unterstützung bei der Aktualisierung der Website und Erstellung von Webinhalten und Social Media Content\n\nProfil\n\n• Bachelor-Absolvent:in oder Master-Studierende:r, vorzugsweise von der ETH Zürich oder mit Kenntnissen der ETH Zürich\n\n• Ausgeprägtes Interesse an Nachhaltigkeit, der Agenda 2030, den Sustainable Development Goals und der Netto-Null Thematik sowie an nachhaltigkeits-orientierten Umsetzungsaktivitäten auf dem ETH-Campus\n\n• Proaktive:r, motivierte:r und kommunikative:r Teamplayer:in\n\n• Basiskenntnisse für Webpublishing und Social Media (LinkedIn)\n\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\n\nArbeitsort\n\nWir bieten\n\n• On-the-job Training und Mentoring\n\n• Arbeit in dynamischen und aktuellen Themenfeldern\n\n• Offene, kollaborative und unterstützende Teamkultur\n\n• Zugang zu ETH-internen, nationalen und internationalen Netzwerken\n\nchevron_right\nArbeiten, Lehren und Forschen an der ETH Zürich\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n\n• Lebenslauf\n\n• Motivationsschreiben\n\n• Diplome und Arbeitszeugnisse\n\nWeitere Informationen über ETH Sustainability finden Sie auf unserer Webseite . Für Auskünfte steht Dr. Claudia Zingerli, Leiterin Stab ETH Sustainability, sustainability@ethz.ch (E-Mail Betreff: Praktikumsstelle), Telefon +41 44 632 65 42, gerne zur Verfügung.\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von n",
         "en": "Praktikant:in im Stab ETH Sustainability (m/w/d)\n\n80%-90%, Zürich, befristet\n\nprint\nDrucken\n\nDie ETH Zürich verfolgt Nachhaltigkeit als strategische Leitlinie in ihren Kernbereichen Forschung, Lehre, Campus und Dialog mit der Gesellschaft. Sie ist bestrebt, auf nationaler und internationaler Ebene eine führende Rolle zu spielen. Als Stab ETH Sustainability im Vizepräsidium Infrastruktur und Nachhaltigkeit vernetzen, fördern, entwickeln und unterstützen wir die ETH-Gemeinschaft in ihrem Beitrag zu einer nachhaltigen Entwicklung im Rahmen der Agenda 2030 und gestalten Bedingungen und Prozesse auf dem Weg zu einer klimafreundlichen Hochschule.\n\nZur Unterstützung des aktuellen Portfolios an Projekten und Aktivitäten suchen wir ab sofort eine:n motivierte:n und kommunikative:n Hochschulabsolvent:in (BSc) als Praktikant:in für die Dauer von 6 Monaten. Für ETH-Master-Studierende eignet sich die Praktikumsstelle während eines Urlaubsemesters oder Zwischenjahres.\n\nStellenbeschreibung\n\n• Mitarbeit bei Prozessen und Projekten in den Themenbereichen klimafreundliche Hochschule und Nachhaltige Entwicklung und eigenständige Bearbeitung von Arbeitspaketen\n\n• Mitwirkung bei der Vorbereitung und Durchführung von ETH-internen sowie öffentlichen Veranstaltungen und Community Events\n\n• Unterstützung bei der Aktualisierung der Website und Erstellung von Webinhalten und Social Media Content\n\nProfil\n\n• Bachelor-Absolvent:in oder Master-Studierende:r, vorzugsweise von der ETH Zürich oder mit Kenntnissen der ETH Zürich\n\n• Ausgeprägtes Interesse an Nachhaltigkeit, der Agenda 2030, den Sustainable Development Goals und der Netto-Null Thematik sowie an nachhaltigkeits-orientierten Umsetzungsaktivitäten auf dem ETH-Campus\n\n• Proaktive:r, motivierte:r und kommunikative:r Teamplayer:in\n\n• Basiskenntnisse für Webpublishing und Social Media (LinkedIn)\n\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\n\nArbeitsort\n\nWir bieten\n\n• On-the-job Training und Mentoring\n\n• Arbeit in dynamischen und aktuellen Themenfeldern\n\n• Offene, kollaborative und unterstützende Teamkultur\n\n• Zugang zu ETH-internen, nationalen und internationalen Netzwerken\n\nchevron_right\nArbeiten, Lehren und Forschen an der ETH Zürich\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n\n• Lebenslauf\n\n• Motivationsschreiben\n\n• Diplome und Arbeitszeugnisse\n\nWeitere Informationen über ETH Sustainability finden Sie auf unserer Webseite . Für Auskünfte steht Dr. Claudia Zingerli, Leiterin Stab ETH Sustainability, sustainability@ethz.ch (E-Mail Betreff: Praktikumsstelle), Telefon +41 44 632 65 42, gerne zur Verfügung.\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von n",
+        "de": "Praktikant:in im Stab ETH Sustainability (m/w/d)\n\n80%-90%, Zürich, befristet\n\nprint\nDrucken\n\nDie ETH Zürich verfolgt Nachhaltigkeit als strategische Leitlinie in ihren Kernbereichen Forschung, Lehre, Campus und Dialog mit der Gesellschaft. Sie ist bestrebt, auf nationaler und internationaler Ebene eine führende Rolle zu spielen. Als Stab ETH Sustainability im Vizepräsidium Infrastruktur und Nachhaltigkeit vernetzen, fördern, entwickeln und unterstützen wir die ETH-Gemeinschaft in ihrem Beitrag zu einer nachhaltigen Entwicklung im Rahmen der Agenda 2030 und gestalten Bedingungen und Prozesse auf dem Weg zu einer klimafreundlichen Hochschule.\n\nZur Unterstützung des aktuellen Portfolios an Projekten und Aktivitäten suchen wir ab sofort eine:n motivierte:n und kommunikative:n Hochschulabsolvent:in (BSc) als Praktikant:in für die Dauer von 6 Monaten. Für ETH-Master-Studierende eignet sich die Praktikumsstelle während eines Urlaubsemesters oder Zwischenjahres.\n\nStellenbeschreibung\n\n• Mitarbeit bei Prozessen und Projekten in den Themenbereichen klimafreundliche Hochschule und Nachhaltige Entwicklung und eigenständige Bearbeitung von Arbeitspaketen\n\n• Mitwirkung bei der Vorbereitung und Durchführung von ETH-internen sowie öffentlichen Veranstaltungen und Community Events\n\n• Unterstützung bei der Aktualisierung der Website und Erstellung von Webinhalten und Social Media Content\n\nProfil\n\n• Bachelor-Absolvent:in oder Master-Studierende:r, vorzugsweise von der ETH Zürich oder mit Kenntnissen der ETH Zürich\n\n• Ausgeprägtes Interesse an Nachhaltigkeit, der Agenda 2030, den Sustainable Development Goals und der Netto-Null Thematik sowie an nachhaltigkeits-orientierten Umsetzungsaktivitäten auf dem ETH-Campus\n\n• Proaktive:r, motivierte:r und kommunikative:r Teamplayer:in\n\n• Basiskenntnisse für Webpublishing und Social Media (LinkedIn)\n\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\n\nArbeitsort\n\nWir bieten\n\n• On-the-job Training und Mentoring\n\n• Arbeit in dynamischen und aktuellen Themenfeldern\n\n• Offene, kollaborative und unterstützende Teamkultur\n\n• Zugang zu ETH-internen, nationalen und internationalen Netzwerken\n\nchevron_right\nArbeiten, Lehren und Forschen an der ETH Zürich\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n\n• Lebenslauf\n\n• Motivationsschreiben\n\n• Diplome und Arbeitszeugnisse\n\nWeitere Informationen über ETH Sustainability finden Sie auf unserer Webseite . Für Auskünfte steht Dr. Claudia Zingerli, Leiterin Stab ETH Sustainability, sustainability@ethz.ch (E-Mail Betreff: Praktikumsstelle), Telefon +41 44 632 65 42, gerne zur Verfügung.\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von n",
         "fr": "Praktikant:in im Stab ETH Sustainability (m/w/d)\n\n80%-90%, Zürich, befristet\n\nprint\nDrucken\n\nDie ETH Zürich verfolgt Nachhaltigkeit als strategische Leitlinie in ihren Kernbereichen Forschung, Lehre, Campus und Dialog mit der Gesellschaft. Sie ist bestrebt, auf nationaler und internationaler Ebene eine führende Rolle zu spielen. Als Stab ETH Sustainability im Vizepräsidium Infrastruktur und Nachhaltigkeit vernetzen, fördern, entwickeln und unterstützen wir die ETH-Gemeinschaft in ihrem Beitrag zu einer nachhaltigen Entwicklung im Rahmen der Agenda 2030 und gestalten Bedingungen und Prozesse auf dem Weg zu einer klimafreundlichen Hochschule.\n\nZur Unterstützung des aktuellen Portfolios an Projekten und Aktivitäten suchen wir ab sofort eine:n motivierte:n und kommunikative:n Hochschulabsolvent:in (BSc) als Praktikant:in für die Dauer von 6 Monaten. Für ETH-Master-Studierende eignet sich die Praktikumsstelle während eines Urlaubsemesters oder Zwischenjahres.\n\nStellenbeschreibung\n\n• Mitarbeit bei Prozessen und Projekten in den Themenbereichen klimafreundliche Hochschule und Nachhaltige Entwicklung und eigenständige Bearbeitung von Arbeitspaketen\n\n• Mitwirkung bei der Vorbereitung und Durchführung von ETH-internen sowie öffentlichen Veranstaltungen und Community Events\n\n• Unterstützung bei der Aktualisierung der Website und Erstellung von Webinhalten und Social Media Content\n\nProfil\n\n• Bachelor-Absolvent:in oder Master-Studierende:r, vorzugsweise von der ETH Zürich oder mit Kenntnissen der ETH Zürich\n\n• Ausgeprägtes Interesse an Nachhaltigkeit, der Agenda 2030, den Sustainable Development Goals und der Netto-Null Thematik sowie an nachhaltigkeits-orientierten Umsetzungsaktivitäten auf dem ETH-Campus\n\n• Proaktive:r, motivierte:r und kommunikative:r Teamplayer:in\n\n• Basiskenntnisse für Webpublishing und Social Media (LinkedIn)\n\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\n\nArbeitsort\n\nWir bieten\n\n• On-the-job Training und Mentoring\n\n• Arbeit in dynamischen und aktuellen Themenfeldern\n\n• Offene, kollaborative und unterstützende Teamkultur\n\n• Zugang zu ETH-internen, nationalen und internationalen Netzwerken\n\nchevron_right\nArbeiten, Lehren und Forschen an der ETH Zürich\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n\n• Lebenslauf\n\n• Motivationsschreiben\n\n• Diplome und Arbeitszeugnisse\n\nWeitere Informationen über ETH Sustainability finden Sie auf unserer Webseite . Für Auskünfte steht Dr. Claudia Zingerli, Leiterin Stab ETH Sustainability, sustainability@ethz.ch (E-Mail Betreff: Praktikumsstelle), Telefon +41 44 632 65 42, gerne zur Verfügung.\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von n"
       },
       "location": "Zürich",
@@ -9306,7 +9315,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_a3HpaxsugZpRFhd5p3",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:37.947Z",
+      "crawledAt": "2026-09-11T23:26:06.705Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -9320,10 +9329,9 @@
       "postedDate": "2026-09-11",
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_a3HpaxsugZpRFhd5p3",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:52:37.947Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -9337,83 +9345,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-11T13:52:37.947Z"
-    },
-    {
-      "id": "eth-zurich-9d1e096d6363",
-      "slug": "assistente-studentesco-per-il-progetto-prenatal-genetics-eth-zurich-zurich",
-      "slugByLocale": {
-        "it": "assistente-studentesco-per-il-progetto-prenatal-genetics-eth-zurich-zurich",
-        "en": "student-assistant-for-prenatal-genetics-project-eth-zurich-ch",
-        "de": "student-assistent-for-prenatal-genetics-project-eth-zurich-zurich",
-        "fr": "assistant-etudiant-pour-le-projet-de-genetique-prenatale-eth-zurich-zurich"
-      },
-      "company": "ETH Zürich",
-      "companyKey": "eth-zurich",
-      "companyDomain": "ethz.ch",
-      "title": "Student Assistant for Prenatal Genetics Project",
-      "titleByLocale": {
-        "it": "Assistente studentesco per il progetto Prenatal Genetics",
-        "en": "Student Assistant for Prenatal Genetics Project",
-        "de": "Student Assistent for Prenatal Genetics Project",
-        "fr": "Assistant étudiant pour le projet de génétique prénatale"
-      },
-      "description": "Student Assistant for Prenatal Genetics Project\n\n10%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Health Ethics & Policy Lab is conducting a SNSF-funded project on the ethics of prenatal genetic testing . As part of this project, we are conducting interview studies with pregnant patients and families with a rare disease diagnosis to understand their views and experiences with prenatal genetic testing.\n\nJob description\n\nWe are looking for a Research Assistant with French, Italian, and English proficiency to conduct and process interviews with study participants during the academic year 2026-2027 (primarily during the Autumn semester, though there may be some remaining work in the early part of the Spring semester). We anticipate this job will require approximately 120-150 work hours in total.\n\nOur lab will provide the training necessary to be successful in this position, although prior experience with semi-structured interviewing is a plus.\n\nTasks may include:\n\n• Conducting research interviews with participants in French and/or Italian.\n\n• Accuracy checking and data cleaning of interview transcripts in the language they are conducted in.\n\n• Reviewing English translations of interview transcripts for accuracy.\n\n• Administrative tasks supporting participant recruitment and data collection, including scheduling and coordinating interviews with other team members.\n\n• The Research Assistant may also support additional aspects of this project based on interest, time and needs.\n\nProfile\n\nRequired\n\n• Excellent oral and written communication skills in French and/or Italian (C1+, preferably mother tongue). Preference will be given to candidates who are fluent in both languages.\n\n• Strong oral and written communication skills in English (B2+).\n\n• Ability to discuss sensitive topics in a caring and empathic manner.\n\n• Ability to work independently, reliably, and accurately.\n\nDesirable\n\n• Prior experience or familiarity with interviewing and qualitative methodologies.\n\n• Interest in bioethics, including genetics and reproductive ethics.\n\nWorkplace\n\nWe offer\n\nThis is an hourly position, and salary will be based on the work hours completed. Hybrid work is possible and work times are flexible. This position will provide valuable research experience and the opportunity to learn about the field of bioethics. You will primarily work with a doctoral student and the project co-PI. If you are interested in other aspects of work in our lab, you will be welcome to attend various presentations and journal clubs.\n\nchevron_right\nWorking, teaching and research at ETH Zurich\n\nWe value diversity and sustainability\n\nIn line with our values , ETH Zurich encourages an inclusive culture. We promote equality of opportunity, value diversity and nurture a working and learning environment in which the rights and dignity of all our staff and students are respected. Visit our Equal Opportunities and Diversity website to find out how we ensure a fair and open environment that allows everyone to grow and flourish. Sustainability is a core value for us – we are consistently working towards a climate-neutral future .\n\nCurious? So are we.\n\nWe look forward to receiving your online application with the following documents:\n\n• Cover Letter\n\n• CV\n\nFurther information about the project can be found on our website . Questions regarding the position should be directed to Kelly Ormond ( kelly.ormond@hest.ethz.ch ) (no applications).\n\nPlease note that we exclusively accept applications submitted through our online application portal. Applications via email or postal services will not be considered.\n\nWe would like to point out that the pre-selection is carried out by the responsible recruiters and not by artificial intelligence.\n\nAbout ETH Zürich\n\nETH Zurich is one of the world’s leading universities specialising in\nscience and technology. We are renowned for our excellent education,\ncutting-edge fundamental research and direct transfer of new knowledge\ninto societ",
-      "descriptionByLocale": {
-        "it": "Assistente studentesco per il progetto Prenatal Genetics\n\n10%, Zurigo, a tempo determinato\n\nstampa\nDruppo\n\nIl Health Ethics & Policy Lab sta conducendo un progetto finanziato dalla SNSF sull'etica del test genetico prenatale . Nell'ambito di questo progetto, stiamo conducendo studi di intervista con pazienti incinte e famiglie con una diagnosi di malattia rara per comprendere le loro opinioni ed esperienze con test genetici prenatali.\n\nDescrizione del lavoro\n\nSiamo alla ricerca di un assistente di ricerca con la competenza francese, italiana e inglese per condurre e elaborare interviste con i partecipanti allo studio durante l'anno accademico 2026-2027 (soprattutto durante il semestre autunnale, anche se ci può essere qualche restante lavoro nella prima parte del semestre di primavera). Prevediamo che questo lavoro richiederà circa 120-150 ore di lavoro in totale.\n\nIl nostro laboratorio fornirà la formazione necessaria per avere successo in questa posizione, anche se l'esperienza precedente con l'intervista semi-strutturata è un plus.\n\nLe attività possono includere:\n\n• Condurre colloqui di ricerca con i partecipanti in francese e/o italiano.\n\n• Controllo accurato e pulizia dei dati delle trascrizioni di intervista nella lingua in cui sono condotti.\n\n• Revisione delle traduzioni in inglese delle trascrizioni di intervista per accuratezza.\n\n• Attività amministrative che supportano il reclutamento dei partecipanti e la raccolta dei dati, tra cui la pianificazione e il coordinamento delle interviste con altri membri del team.\n\n• L'Assistente di Ricerca può anche sostenere aspetti aggiuntivi di questo progetto basati su interessi, tempo e necessità.\n\nProfilo\n\nObbligo\n\n• Eccellente capacità di comunicazione orale e scritta in francese e/o italiano (C1+, preferibilmente madrelingua). Preferenze saranno date ai candidati che sono fluenti in entrambe le lingue.\n\n• Forte capacità di comunicazione orale e scritta in inglese (B2+).\n\n• Possibilità di discutere argomenti sensibili in modo attento ed empatico.\n\n• Capacità di lavorare in modo indipendente, affidabile e preciso.\n\nDesiderabile\n\n• Esperienza prioritaria o familiarità con l'intervista e metodologie qualitative.\n\n• Interessi nella bioetica, tra cui genetica ed etica riproduttiva.\n\nLuogo di lavoro\n\nOffriamo\n\nQuesta è una posizione oraria, e lo stipendio sarà basato sulle ore di lavoro completate. Il lavoro ibrido è possibile e i tempi di lavoro sono flessibili. Questa posizione fornirà preziosa esperienza di ricerca e l'opportunità di conoscere il campo della bioetica. Si lavorerà principalmente con uno studente di dottorato e il co-PI progetto. Se siete interessati ad altri aspetti del lavoro nel nostro laboratorio, sarete invitati a partecipare a varie presentazioni e club di riviste.\n\nchevron right\nLavoro, insegnamento e ricerca presso l'ETH di Zurigo\n\nApprezziamo la diversità e la sostenibilità\n\nIn linea con i nostri valori, ETH Zurich incoraggia una cultura inclusiva. Promuoviamo l'uguaglianza di opportunità, la diversità di valore e nutrire un ambiente di lavoro e di apprendimento in cui i diritti e la dignità di tutto il nostro staff e gli studenti sono rispettati. Visita il nostro sito Equal Opportunities and Diversity per scoprire come garantiamo un ambiente equo e aperto che permetta a tutti di crescere e fiorire. La sostenibilità è un valore fondamentale per noi – stiamo costantemente lavorando verso un futuro neutro dal clima.\n\nCurioso? Anche noi.\n\nNon vediamo l'ora di ricevere la tua domanda online con i seguenti documenti:\n\n• Lettera di copertina\n\n• CV\n\nUlteriori informazioni sul progetto si possono trovare sul nostro sito web . Le domande relative alla posizione devono essere indirizzate a Kelly Ormond ( kelly.ormond@hest.ethz.ch ) (nessuna domanda).\n\nSi prega di notare che accettiamo esclusivamente le applicazioni inviate tramite il nostro portale di applicazioni online. Le applicazioni via e-mail o servizi postali non saranno considerate.\n\nVorremmo sottolineare che la pre-selezione è effettuata dai reclutatori responsabili e non dall'intelligenza artificiale.\n\nInformazioni su ETH Zürich\n\nETH Zurich è una delle università più importanti del mondo specializzata in\nscienza e tecnologia. Siamo rinomati per la nostra eccellente educazione,\nricerca fondamentale all'avanguardia e trasferimento diretto di nuove conoscenze\nin sociologia",
-        "en": "Student Assistant for Prenatal Genetics Project\n\n10%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Health Ethics & Policy Lab is conducting a SNSF-funded project on the ethics of prenatal genetic testing . As part of this project, we are conducting interview studies with pregnant patients and families with a rare disease diagnosis to understand their views and experiences with prenatal genetic testing.\n\nJob description\n\nWe are looking for a Research Assistant with French, Italian, and English proficiency to conduct and process interviews with study participants during the academic year 2026-2027 (primarily during the Autumn semester, though there may be some remaining work in the early part of the Spring semester). We anticipate this job will require approximately 120-150 work hours in total.\n\nOur lab will provide the training necessary to be successful in this position, although prior experience with semi-structured interviewing is a plus.\n\nTasks may include:\n\n• Conducting research interviews with participants in French and/or Italian.\n\n• Accuracy checking and data cleaning of interview transcripts in the language they are conducted in.\n\n• Reviewing English translations of interview transcripts for accuracy.\n\n• Administrative tasks supporting participant recruitment and data collection, including scheduling and coordinating interviews with other team members.\n\n• The Research Assistant may also support additional aspects of this project based on interest, time and needs.\n\nProfile\n\nRequired\n\n• Excellent oral and written communication skills in French and/or Italian (C1+, preferably mother tongue). Preference will be given to candidates who are fluent in both languages.\n\n• Strong oral and written communication skills in English (B2+).\n\n• Ability to discuss sensitive topics in a caring and empathic manner.\n\n• Ability to work independently, reliably, and accurately.\n\nDesirable\n\n• Prior experience or familiarity with interviewing and qualitative methodologies.\n\n• Interest in bioethics, including genetics and reproductive ethics.\n\nWorkplace\n\nWe offer\n\nThis is an hourly position, and salary will be based on the work hours completed. Hybrid work is possible and work times are flexible. This position will provide valuable research experience and the opportunity to learn about the field of bioethics. You will primarily work with a doctoral student and the project co-PI. If you are interested in other aspects of work in our lab, you will be welcome to attend various presentations and journal clubs.\n\nchevron_right\nWorking, teaching and research at ETH Zurich\n\nWe value diversity and sustainability\n\nIn line with our values , ETH Zurich encourages an inclusive culture. We promote equality of opportunity, value diversity and nurture a working and learning environment in which the rights and dignity of all our staff and students are respected. Visit our Equal Opportunities and Diversity website to find out how we ensure a fair and open environment that allows everyone to grow and flourish. Sustainability is a core value for us – we are consistently working towards a climate-neutral future .\n\nCurious? So are we.\n\nWe look forward to receiving your online application with the following documents:\n\n• Cover Letter\n\n• CV\n\nFurther information about the project can be found on our website . Questions regarding the position should be directed to Kelly Ormond ( kelly.ormond@hest.ethz.ch ) (no applications).\n\nPlease note that we exclusively accept applications submitted through our online application portal. Applications via email or postal services will not be considered.\n\nWe would like to point out that the pre-selection is carried out by the responsible recruiters and not by artificial intelligence.\n\nAbout ETH Zürich\n\nETH Zurich is one of the world’s leading universities specialising in\nscience and technology. We are renowned for our excellent education,\ncutting-edge fundamental research and direct transfer of new knowledge\ninto societ",
-        "de": "Student Assistant für Prenatal Genetics Project\n\n10%, Zürich, befristet\n\nDruck\nDruckerzeugnisse\n\nDas Health Ethics & Policy Lab führt ein vom SNF gefördertes Projekt zur Ethik pränataler Gentests durch. Im Rahmen dieses Projekts führen wir Interviewstudien mit schwangeren Patienten und Familien mit einer seltenen Krankheitsdiagnose durch, um ihre Ansichten und Erfahrungen mit pränatalen genetischen Tests zu verstehen.\n\nStellenbeschreibung\n\nWir suchen einen wissenschaftlichen Assistenten mit Französisch-, Italienisch- und Englischkenntnissen, um Interviews mit Studienteilnehmern während des akademischen Jahres 2026-2027 durchzuführen und zu verarbeiten (hauptsächlich während des Herbstsemesters, obwohl es zu Beginn des Frühlingssemesters noch einige Arbeiten geben kann). Wir gehen davon aus, dass dieser Job insgesamt etwa 120-150 Arbeitsstunden erfordern wird.\n\nUnser Labor wird die notwendige Ausbildung anbieten, um in dieser Position erfolgreich zu sein, obwohl frühere Erfahrungen mit semi-strukturierten Interviews ein Plus sind.\n\nZu den Aufgaben können gehören:\n\n• Durchführung von Forschungsinterviews mit Teilnehmern auf Französisch und/oder Italienisch.\n\n• Genauigkeitsprüfung und Datenreinigung von Interview-Transkripten in der Sprache, in der sie durchgeführt werden.\n\n• Überprüfung der englischen Übersetzungen von Interview-Transkripten auf Genauigkeit.\n\n• Verwaltungsaufgaben zur Unterstützung der Teilnehmerrekrutierung und Datenerhebung, einschließlich der Planung und Koordination von Interviews mit anderen Teammitgliedern.\n\n• Der Forschungsassistent kann auch zusätzliche Aspekte dieses Projekts auf der Grundlage von Interesse, Zeit und Bedürfnissen unterstützen.\n\nProfil\n\nerforderlich\n\n• Hervorragende mündliche und schriftliche Kommunikationsfähigkeiten in Französisch und / oder Italienisch (C1 +, vorzugsweise Muttersprache). Bevorzugt werden Kandidaten, die beide Sprachen fließend beherrschen.\n\n• Starke mündliche und schriftliche Kommunikationsfähigkeiten in Englisch (B2+).\n\n• Fähigkeit, sensible Themen auf fürsorgliche und empathische Weise zu diskutieren.\n\n• Fähigkeit, unabhängig, zuverlässig und präzise zu arbeiten.\n\nWünschenswert\n\n• Vorkenntnisse oder Vertrautheit mit Interviews und qualitativen Methoden.\n\n• Interesse an Bioethik, einschließlich Genetik und Reproduktionsethik.\n\nArbeitsplatz\n\nWir bieten\n\nDies ist eine stündliche Position, und das Gehalt basiert auf den geleisteten Arbeitsstunden. Hybridarbeit ist möglich und Arbeitszeiten sind flexibel. Diese Position wird wertvolle Forschungserfahrung und die Möglichkeit bieten, sich über den Bereich der Bioethik zu informieren. Sie werden in erster Linie mit einem Doktoranden und dem Projekt Co-PI arbeiten. Wenn Sie sich für andere Aspekte der Arbeit in unserem Labor interessieren, können Sie gerne an verschiedenen Präsentationen und Zeitschriftenclubs teilnehmen.\n\nchevron right\nArbeiten, Lehren und Forschen an der ETH Zürich\n\nWir legen Wert auf Vielfalt und Nachhaltigkeit\n\nIm Einklang mit unseren Werten fördert die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und fördern ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller unserer Mitarbeiter und Studenten respektiert werden. Besuchen Sie unsere Website für Chancengleichheit und Vielfalt, um herauszufinden, wie wir ein faires und offenes Umfeld gewährleisten, in dem jeder wachsen und gedeihen kann. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent auf eine klimaneutrale Zukunft hin.\n\nNeugierig? Wir sind es auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit folgenden Unterlagen:\n\n• Deckblatt\n\n• CV\n\nWeitere Informationen zum Projekt finden Sie auf unserer Website. Fragen zur Stelle sind an Kelly Ormond (kelly.ormond@hest.ethz.ch) zu richten (keine Bewerbungen).\n\nBitte beachten Sie, dass wir ausschließlich Bewerbungen annehmen, die über unser Online-Bewerbungsportal eingereicht werden. Bewerbungen per E-Mail oder Post werden nicht berücksichtigt.\n\nWir weisen darauf hin, dass die Vorauswahl durch die verantwortlichen Recruiter und nicht durch künstliche Intelligenz erfolgt.\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der weltweit führenden Universitäten, die sich auf\nWissenschaft und Technologie. Wir sind bekannt für unsere hervorragende Ausbildung,\nSpitzenforschung und direkter Wissenstransfer\nin die Gesellschaft",
-        "fr": "Assistant étudiant pour le projet de génétique prénatale\n\n10%, Zurich, durée déterminée\n\nimprimer\nDrucken\n\nLe Health Ethics & Policy Lab mène un projet financé par la SNSF sur l'éthique des tests génétiques prénatals. Dans le cadre de ce projet, nous menons des études d'entrevue avec des patientes enceintes et des familles ayant un diagnostic de maladie rare afin de comprendre leur point de vue et leurs expériences en matière de dépistage génétique prénatal.\n\nDescription du poste\n\nNous sommes à la recherche d'un assistant de recherche avec compétence en français, en italien et en anglais pour mener et traiter des entrevues avec les participants à l'étude au cours de l'année académique 2026-2027 (principalement au cours du semestre d'automne, bien qu'il puisse y avoir encore du travail au début du semestre du printemps). Nous prévoyons que ce travail nécessitera environ 120 à 150 heures de travail au total.\n\nNotre laboratoire fournira la formation nécessaire pour réussir dans ce poste, bien que l'expérience antérieure de l'entrevue semi-structurée soit un atout.\n\nLes tâches peuvent comprendre :\n\n• Réalisation d'entretiens de recherche avec des participants en français et/ou en italien.\n\n• Vérification de l'exactitude et nettoyage des données des transcriptions des entrevues dans la langue dans laquelle elles sont effectuées.\n\n• Examiner les traductions en anglais des transcriptions des entrevues pour en vérifier l'exactitude.\n\n• Tâches administratives appuyant le recrutement des participants et la collecte de données, y compris la planification et la coordination des entrevues avec d'autres membres de l'équipe.\n\n• L'adjoint à la recherche peut également appuyer d'autres aspects de ce projet en fonction de l'intérêt, du temps et des besoins.\n\nProfil\n\nRequis\n\n• Excellentes compétences en communication orale et écrite en français et/ou en italien (C1+, de préférence langue maternelle). La préférence sera donnée aux candidats qui parlent couramment les deux langues.\n\n• Fortes compétences en communication orale et écrite en anglais (B2+).\n\n• Capacité de discuter de sujets sensibles de manière bienveillante et empathique.\n\n• Capacité de travailler de façon indépendante, fiable et précise.\n\nDésireux\n\n• Expérience préalable ou connaissance des entrevues et des méthodologies qualitatives.\n\n• Intérêt pour la bioéthique, y compris la génétique et l'éthique reproductive.\n\nLieu de travail\n\nNous offrons\n\nIl s'agit d'un poste horaire, et le salaire sera basé sur les heures de travail accomplies. Le travail hybride est possible et les temps de travail flexibles. Ce poste offrira une expérience de recherche précieuse et l'occasion d'en apprendre davantage sur le domaine de la bioéthique. Vous travaillerez principalement avec un doctorant et le co-PI du projet. Si vous êtes intéressé par d'autres aspects du travail dans notre laboratoire, vous serez invités à assister à diverses présentations et clubs de revues.\n\nchevron droit\nTravail, enseignement et recherche à l'ETH Zurich\n\nNous apprécions la diversité et la durabilité\n\nConformément à nos valeurs , ETH Zurich encourage une culture inclusive. Nous favorisons l'égalité des chances, valorisons la diversité et favorisons un environnement de travail et d'apprentissage dans lequel les droits et la dignité de tous nos employés et étudiants sont respectés. Visitez notre site Web sur l'égalité des chances et la diversité pour découvrir comment nous garantissons un environnement équitable et ouvert qui permet à chacun de grandir et de prospérer. La durabilité est une valeur fondamentale pour nous – nous travaillons constamment vers un avenir neutre sur le plan climatique.\n\nCurieux ? Nous aussi.\n\nNous sommes impatients de recevoir votre demande en ligne avec les documents suivants :\n\n• Lettre couverture\n\n• CV\n\nDe plus amples informations sur le projet sont disponibles sur notre site . Les questions concernant le poste doivent être adressées à Kelly Ormond (kelly.ormond@hest.ethz.ch ) (aucune demande).\n\nVeuillez noter que nous acceptons exclusivement les demandes soumises par notre portail en ligne. Les demandes par courriel ou par la poste ne seront pas prises en considération.\n\nNous tenons à souligner que la présélection est effectuée par les recruteurs responsables et non par l'intelligence artificielle.\n\nA propos de l'ETH Zürich\n\nETH Zurich est l'une des plus grandes universités du monde spécialisées dans\nla science et la technologie. Nous sommes réputés pour notre excellente éducation,\nrecherche fondamentale de pointe et transfert direct de nouvelles connaissances\nen société"
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_cJ2T2rEws9MRTFqKU8",
-      "source": "ETH Zürich Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:25:40.312Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "fixed-term",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Università / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_cJ2T2rEws9MRTFqKU8",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "student-assistant-for-prenatal-genetics-project-eth-zurich-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "student-assistant-for-prenatal-genetics-project-eth-zurich-ch"
-        ],
-        "fr": [
-          "student-assistant-for-prenatal-genetics-project-eth-zurich-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-27T20:12:16.200Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     }
   ]
 }
