@@ -5164,11 +5164,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialSectorRegionLanding, editorialNursesHubLanding, editorialPartTimeLanding, editorialCareVariantLanding, jobs]);
 
  useEffect(() => {
+ setAdRefreshKey((k) => k + 1);
  if (skipPageReset.current) { skipPageReset.current = false; return; }
  setPage(1);
  setMobileJobLimit(10);
  syncQueryParamsToUrl({ page: null });
- setAdRefreshKey((k) => k + 1);
  }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, showSavedOnly]);
 
  // Sync search query to URL (?q=) and track in GA4

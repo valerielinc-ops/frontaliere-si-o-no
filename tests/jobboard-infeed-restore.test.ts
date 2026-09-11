@@ -30,6 +30,16 @@ describe('JobBoard in-feed reservation on URL restore', () => {
     );
   });
 
+  it('refreshes before the detail-return page-reset guard exits', () => {
+    const filterEffect = JOB_BOARD_SOURCE.slice(
+      JOB_BOARD_SOURCE.indexOf('useEffect(() => {\n setAdRefreshKey((k) => k + 1);'),
+      JOB_BOARD_SOURCE.indexOf('}, [deferredSearchQuery, selectedCategory'),
+    );
+    expect(filterEffect).toMatch(
+      /setAdRefreshKey\(\(k\) => k \+ 1\);[\s\S]*if \(skipPageReset\.current\)/,
+    );
+  });
+
   it('keeps the crawler companyDomain raw for direct-apply ownership', () => {
     const normalizer = JOB_BOARD_SOURCE.slice(
       JOB_BOARD_SOURCE.indexOf('function normalizeIncomingJob'),
