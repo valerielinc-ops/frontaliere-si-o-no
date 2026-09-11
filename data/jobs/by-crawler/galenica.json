@@ -355,7 +355,7 @@
       "slug": "apotheker-apothekerin-m-w-d-galenica-ag-galenica-bern",
       "slugByLocale": {
         "it": "apotheker-apothekerin-m-w-d-galenica-ag-galenica-bern",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
         "fr": "apotheker-apothekerin-m-w-d-galenica-ag-galenica-bern"
       },
@@ -366,19 +366,15 @@
         "fr": "Apotheker / Apothekerin (h/f/d)"
       },
       "id": "galenica-6516edcee86c",
-      "previousSlugs": [
-        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
-        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
-        "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern",
-        "apotekeriste-apotetheker-h-f-d-galenica-ag-galenica-bern"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
           "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern"
         ],
         "en": [
-          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9"
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
         ],
         "de": [
           "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
@@ -388,7 +384,12 @@
           "apotekeriste-apotetheker-h-f-d-galenica-ag-galenica-bern"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
+        "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern",
+        "apotekeriste-apotetheker-h-f-d-galenica-ag-galenica-bern"
+      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -893,7 +894,7 @@
       "slug": "apotheker-apothekerin-m-w-d-galenica-bern",
       "slugByLocale": {
         "it": "apotheker-apothekerin-m-w-d-galenica-bern",
-        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
         "fr": "apotheker-apothekerin-m-w-d-galenica-bern"
       },
@@ -904,24 +905,7 @@
         "fr": "Apotheker / Apothekerin (h/f/d)"
       },
       "id": "galenica-50ee8fb74dfa",
-      "previousSlugs": [
-        "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
-        "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
-        "apotheker-apothekerin-m-w-d-galenica-bern-nx4t0k",
-        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern",
-        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx4t0k",
-        "farmacista-m-f-galenica-galenica-bern-65dfc4",
-        "pharmacien-pharmacienne-h-f-d-galenica-galenica-bern-65dfc4",
-        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
-        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx3l4d",
-        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5cwv",
-        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx64co",
-        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx64h1",
-        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx6liu",
-        "farmacista-m-f-galenica-galenica-bern",
-        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx2s94",
-        "pharmacien-pharmacienne-h-f-d-galenica-galenica-bern"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
@@ -940,7 +924,8 @@
         ],
         "en": [
           "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern",
-          "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p"
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
         ],
         "de": [
           "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
@@ -952,7 +937,24 @@
           "pharmacien-pharmacienne-h-f-d-galenica-galenica-bern"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+        "apotheker-apothekerin-m-w-d-galenica-bern-nx4t0k",
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx4t0k",
+        "farmacista-m-f-galenica-galenica-bern-65dfc4",
+        "pharmacien-pharmacienne-h-f-d-galenica-galenica-bern-65dfc4",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx3l4d",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5cwv",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx64co",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx64h1",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx6liu",
+        "farmacista-m-f-galenica-galenica-bern",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx2s94",
+        "pharmacien-pharmacienne-h-f-d-galenica-galenica-bern"
+      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,

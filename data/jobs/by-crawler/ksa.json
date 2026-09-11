@@ -112,7 +112,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
-      "needsRetranslation": true,
       "salaryMin": 52500,
       "salaryMax": 96500,
       "salarySource": "estimated",
@@ -228,7 +227,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
-      "needsRetranslation": true,
       "salaryMin": 52500,
       "salaryMax": 96500,
       "salarySource": "estimated",
@@ -303,7 +301,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
-      "needsRetranslation": true,
       "salaryMin": 52500,
       "salaryMax": 96500,
       "salarySource": "estimated",
@@ -699,14 +696,14 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -745,7 +742,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
-        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
+        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -757,14 +755,14 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ],
         "en": [
           "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-21T21:48:21.989Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -859,7 +857,7 @@
       "slugByLocale": {
         "it": "occupazione-sociale-kantonsspital-aarau-ksa-aarau",
         "en": "social-worker-kantonsspital-aarau-ksa-aarau",
-        "de": "sozialarbeiter-in-ksa-ch",
+        "de": "sozialarbeiter-in-ksa-ch-9ztjk3",
         "fr": "travailleurs-sociaux-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -916,7 +914,8 @@
           "sozialarbeiter-in-ksa-ch"
         ],
         "de": [
-          "sozialarbeiter-in-kantonsspital-aarau-ksa-aarau"
+          "sozialarbeiter-in-kantonsspital-aarau-ksa-aarau",
+          "sozialarbeiter-in-ksa-ch"
         ],
         "fr": [
           "sozialarbeiter-in-ksa-ch"
@@ -1007,7 +1006,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T22:02:55.986Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1113,7 +1111,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Infermiera / chirurgia dell'infermiera",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
+        "en": "Dipl. Nurse / nurse specialist surgery",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
         "fr": "Dipl. Chirurgie infirmière/infirmière"
       },
@@ -1172,7 +1170,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.727Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1202,7 +1199,7 @@
       "title": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
       "titleByLocale": {
         "it": "Corso di laurea Dipl. Expert / Expert Anesthesia Care NDS HF",
-        "en": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
+        "en": "Postgraduate degree program Dipl. Expert / Expert Anesthesia Care NDS HF",
         "de": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
         "fr": "Programme d'études supérieures Dipl. Expert / Expert Anesthésie Soins NDS HF"
       },
@@ -1255,7 +1252,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.725Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1367,7 +1363,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Infermiera / chirurgia dell'infermiera",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
+        "en": "Dipl. Nurse / nurse specialist surgery",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
         "fr": "Dipl. Chirurgie infirmière/infirmière"
       },
@@ -1429,7 +1425,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1699,7 +1694,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -1751,7 +1746,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:58:54.338Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1772,7 +1766,7 @@
       "slugByLocale": {
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau-ca1a26",
-        "de": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "de": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztly5",
         "fr": "med-assistant-pratique-kantonsspital-aarau-ksa-aarau-ca1a26"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -1840,7 +1834,6 @@
         "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26"
       ],
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1870,7 +1863,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -1935,7 +1928,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2116,7 +2108,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:54:11.993Z",
-      "needsRetranslation": true,
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -2476,7 +2467,7 @@
       "title": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert Anesthesia Care NDS HF",
-        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
+        "en": "Dipl. Expert / Expert Anesthesia Care NDS HF",
         "de": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
         "fr": "Dipl. Expert / Expert Anesthésie Soins NDS HF"
       },
@@ -2527,7 +2518,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2682,7 +2672,6 @@
         "med-assistente-pratico-in-consulenza-per-l-infanzia-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2712,7 +2701,7 @@
       "title": "Dipl. Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Certificato esperto / certificato di assistenza di emergenza NDS HF",
-        "en": "Dipl. Expertin / Experte Notfallpflege NDS HF",
+        "en": "Dipl. Expert / Expert Emergency Care NDS HF",
         "de": "Dipl. Expertin / Experte Notfallpflege NDS HF",
         "fr": "Expert certifié / Expert certifié Soins d'urgence NDS HF"
       },
@@ -2768,7 +2757,6 @@
         "esperto-certificato-in-cure-di-emergenza-nds-hf-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2873,7 +2861,7 @@
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2946,11 +2934,11 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3272,7 +3260,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -3347,7 +3334,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -3500,7 +3486,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3575,7 +3560,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -3750,7 +3734,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:26:20.862Z",
-      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
@@ -3780,7 +3763,7 @@
       "title": "Ergotherapeut/in",
       "titleByLocale": {
         "it": "terapeuta del lavoro",
-        "en": "Ergotherapeut/in",
+        "en": "Occupational therapists",
         "de": "Ergotherapeut/in",
         "fr": "ergothérapeute"
       },
@@ -3833,7 +3816,6 @@
         "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-09-03T23:15:12.099Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3870,9 +3852,9 @@
       "description": "Aufgaben:\nEinsatz in der Unterhaltsreinigung in verschiedenen Abteilungen. Arbeitszeiten (Montag bis Sonntag) entweder im Tagdienst zwischen 06.00-17.00 Uhr (ca. 70%) oder im Abenddienst zwischen 15.00-22.00 Uhr (ca. 50%).\n\nAnforderungen:\n• Berufserfahrung in der Reinigungsbranche von Vorteil\n\n• Freundlich, belastbar und flexibel\n\n• Gute Deutschkenntnisse in Wort\n\n• Mindestalter 18 Jahre\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "de": "Aufgaben:\nEinsatz in der Unterhaltsreinigung in verschiedenen Abteilungen. Arbeitszeiten (Montag bis Sonntag) entweder im Tagdienst zwischen 06.00-17.00 Uhr (ca. 70%) oder im Abenddienst zwischen 15.00-22.00 Uhr (ca. 50%).\n\nAnforderungen:\n• Berufserfahrung in der Reinigungsbranche von Vorteil\n\n• Freundlich, belastbar und flexibel\n\n• Gute Deutschkenntnisse in Wort\n\n• Mindestalter 18 Jahre\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "it": "Aufgaben:\nEinsatz in der Unterhaltsreinigung in verschiedenen Abteilungen. Arbeitszeiten (Montag bis Sonntag) entweder im Tagdienst zwischen 06.00-17.00 Uhr (ca. 70%) oder im Abenddienst zwischen 15.00-22.00 Uhr (ca. 50%).\n\nAnforderungen:\n• Berufserfahrung in der Reinigungsbranche von Vorteil\n\n• Freundlich, belastbar und flexibel\n\n• Gute Deutschkenntnisse in Wort\n\n• Mindestalter 18 Jahre\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Aufgaben:\nEinsatz in der Unterhaltsreinigung in verschiedenen Abteilungen. Arbeitszeiten (Montag bis Sonntag) entweder im Tagdienst zwischen 06.00-17.00 Uhr (ca. 70%) oder im Abenddienst zwischen 15.00-22.00 Uhr (ca. 50%).\n\nAnforderungen:\n• Berufserfahrung in der Reinigungsbranche von Vorteil\n\n• Freundlich, belastbar und flexibel\n\n• Gute Deutschkenntnisse in Wort\n\n• Mindestalter 18 Jahre\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Aufgaben:\nEinsatz in der Unterhaltsreinigung in verschiedenen Abteilungen. Arbeitszeiten (Montag bis Sonntag) entweder im Tagdienst zwischen 06.00-17.00 Uhr (ca. 70%) oder im Abenddienst zwischen 15.00-22.00 Uhr (ca. 50%).\n\nAnforderungen:\n• Berufserfahrung in der Reinigungsbranche von Vorteil\n\n• Freundlich, belastbar und flexibel\n\n• Gute Deutschkenntnisse in Wort\n\n• Mindestalter 18 Jahre\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "it": "Compiti:\nUtilizzare nella pulizia di manutenzione in vari dipartimenti. Orario di lavoro (lunedì a domenica) sia in servizio diurno tra le 06.00 e le 17.00 (circa il 70%) sia in servizio serale tra le 15.00 e le 22.00 (circa il 50%).\n\nRequisiti\n• Esperienza professionale nel settore della pulizia è vantaggioso\n\n• Amichevole, resistente e flessibile\n\n• Buona conoscenza del tedesco in Word\n\n• Età minima 18 anni\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Tasks:\nUse in maintenance cleaning in various departments. Working hours (Monday to Sunday) either in the day service between 06.00 and 17.00 (about 70%) or in the evening service between 15.00 and 22.00 (about 50%).\n\nRequirements\n• Professional experience in the cleaning industry is beneficial\n\n• Friendly, resilient and flexible\n\n• Good knowledge of German in Word\n\n• Minimum age 18 years\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+        "fr": "Tâches :\nUtilisation dans le nettoyage d'entretien dans différents départements. Heures de travail (du lundi au dimanche) soit en service de jour entre 6h00 et 17h00 (environ 70%) soit en service de nuit entre 15h00 et 22h00 (environ 50%).\n\nExigences\n• Expérience professionnelle dans l'industrie du nettoyage est bénéfique\n\n• Amiable, résistant et flexible\n\n• Bonne connaissance de l'allemand en paroles\n\n• Âge minimum 18 ans\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -3915,7 +3897,6 @@
           "mitarbeiter-in-reinigung-teilzeit-fur-oktober-bis-dezember-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:30:52.141Z",
       "salaryMin": 67500,
       "salaryMax": 84500,
@@ -4059,7 +4040,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -4100,7 +4081,20 @@
         "continuous-night-service-dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau",
         "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "service-continu-de-nuit-dipl-infirmiere-infirmiere-professionnelle-kantonsspital-aarau-ksa-aarau",
-        "dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau"
+        "dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-4",
+        "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-e8307b",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-7",
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztjq1",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-6-9ztjq1",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
+        "logi-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
+        "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-a16fed",
+        "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztl7f",
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4109,20 +4103,34 @@
           "continuous-night-service-dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau",
           "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch",
           "service-continu-de-nuit-dipl-infirmiere-infirmiere-professionnelle-kantonsspital-aarau-ksa-aarau",
-          "dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau"
+          "dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
+          "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-4",
+          "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-e8307b",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-7",
+          "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztjq1",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-6-9ztjq1",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
+          "logi-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
+          "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-a16fed",
+          "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
+          "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztl7f",
+          "dipl-pflegefachfrau-pflegefachmann-dialyse-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "continuous-night-service-dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
-          "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+          "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+          "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "service-continu-de-nuit-dipl-infirmiere-infirmiere-professionnelle-kantonsspital-aarau-ksa-aarau"
+          "service-continu-de-nuit-dipl-infirmiere-infirmiere-professionnelle-kantonsspital-aarau-ksa-aarau",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-4"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4371,22 +4379,35 @@
       "previousSlugs": [
         "abteilungsleitung-ksa-ch",
         "abteilungsleitung-kantonsspital-aarau-ksa-aarau",
-        "capo-dipartimento-kantonsspital-aarau-ksa-aarau"
+        "capo-dipartimento-kantonsspital-aarau-ksa-aarau",
+        "capo-della-gastronomia-kantonsspital-aarau-ksa-aarau",
+        "head-of-gastronomy-kantonsspital-aarau-ksa-aarau",
+        "leitung-gastronomie-ksa-ch",
+        "chef-de-la-gastronomie-kantonsspital-aarau-ksa-aarau",
+        "leitung-gastronomie-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleitung-ksa-ch",
           "abteilungsleitung-kantonsspital-aarau-ksa-aarau",
-          "capo-dipartimento-kantonsspital-aarau-ksa-aarau"
+          "capo-dipartimento-kantonsspital-aarau-ksa-aarau",
+          "capo-della-gastronomia-kantonsspital-aarau-ksa-aarau",
+          "head-of-gastronomy-kantonsspital-aarau-ksa-aarau",
+          "leitung-gastronomie-ksa-ch",
+          "chef-de-la-gastronomie-kantonsspital-aarau-ksa-aarau",
+          "leitung-gastronomie-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
-          "abteilungsleitung-kantonsspital-aarau-ksa-aarau"
+          "abteilungsleitung-kantonsspital-aarau-ksa-aarau",
+          "head-of-gastronomy-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
-          "abteilungsleitung-kantonsspital-aarau-ksa-aarau"
+          "abteilungsleitung-kantonsspital-aarau-ksa-aarau",
+          "leitung-gastronomie-ksa-ch"
         ],
         "fr": [
-          "abteilungsleitung-kantonsspital-aarau-ksa-aarau"
+          "abteilungsleitung-kantonsspital-aarau-ksa-aarau",
+          "chef-de-la-gastronomie-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-27T00:37:44.718Z",
@@ -4476,7 +4497,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:28.951Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4506,7 +4526,7 @@
       "title": "Betriebselektriker/in",
       "titleByLocale": {
         "it": "Società elettrica",
-        "en": "Betriebselektriker/in",
+        "en": "Work electricians",
         "de": "Betriebselektriker/in",
         "fr": "Entreprise électricienne"
       },
@@ -4733,7 +4753,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:28.951Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4830,7 +4849,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:44:27.746Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4919,7 +4937,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:34:35.235Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5006,7 +5023,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T21:48:21.990Z",
-      "needsRetranslation": true,
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -5278,7 +5294,7 @@
         "it": "Controller di cura",
         "en": "Care controller",
         "de": "Pflegecontroller/in",
-        "fr": "Pflegecontroller/in"
+        "fr": "Contrôleur de soins"
       },
       "description": "Aufgaben:\n• Die finanzielle Führung des gesamten KSA läuft in der Direktion Finanzen zusammen. Du bist Teil dieses engagierten Teams und zuständig für die finanziellen Belange der Direktion CNO.\n\n• Du übernimmst eine zentrale Rolle in der betriebswirtschaftlichen Führung und Steuerung des Pflegebereichs und unterstützen die CNO sowie die Pflegeverantwortlichen in der finanziellen Führung. Insbesondere überwachst du die Budgeteinhaltung der Direktion CNO.\n\n• Du gestaltest die Finanz- und Budgetplanung des Pflegebereichs aktiv mit und erstellst Kalkulationen zur Ressourcen- und Personalplanung, unter anderem auf Basis von NHPPD (Nursing Hours Per Patient Day).\n\n• Du analysierst Personal-, Leistungs-, Belegungs- und Qualitätsdaten, erkennst Entwicklungspotenziale und leitest gemeinsam mit der CNO sowie den Verantwortlichen der Pflege konkrete Massnahmen zur Optimierung der Prozesse ab.\n\n• Du verantwortest pflegespezifische Datenerhebungen und Auswertungen, insbesondere in den Bereichen LEP, NHPPD und Pflegekomplexbehandlung (CHOP) sowie weiterer gesetzlicher und betrieblicher Anforderungen.\n\n• Du entwickelst Steuerungsinstrumente, Kennzahlenmodelle und Reportings kontinuierlich weiter und leistest damit einen wichtigen Beitrag zur datenbasierten Steuerung der Direktion CNO.\n\nAnforderungen:\n• Abgeschlossenes Studium auf Fachhochschul- oder Hochschulniveau, vorzugsweise mit betriebswirtschaftlichem, gesundheitsökonomischem oder pflegerischem Hintergrund.\n\n• Mehrjährige Berufserfahrung in einer betriebswirtschaftlichen Steuerungsfunktion im Gesundheitswesen, idealerweise im Pflegecontrolling, Gesundheitsmanagement oder einem vergleichbaren Umfeld.\n\n• Ausgeprägtes Verständnis für betriebswirtschaftliche Zusammenhänge sowie Erfahrung in der Beratung und Unterstützung von Führungskräften bei strategischen und operativen Fragestellungen.\n\n• Sehr gute analytische und konzeptionelle Fähigkeiten, hohe Zahlen- und IT-Affinität sowie fundierte Kenntnisse in der Datenanalyse; Erfahrung mit LEP ist von Vorteil.\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung sowie Freude daran, Veränderungsprozesse aktiv mitzugestalten und eine moderne, datenbasierte Unternehmenssteuerung weiterzuentwickeln.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -5345,7 +5361,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:42:21.739Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5377,7 +5392,7 @@
         "it": "mentore pratico",
         "en": "Practical mentor",
         "de": "Praxismentor/in",
-        "fr": "Praxismentor/in"
+        "fr": "Maître pratique"
       },
       "description": "Aufgaben:\n• Beratung, Begleitung und Unterstützung der Berufsbildner/innen in pädagogischen Fragestellungen.\n\n• Coaching und individuelle Begleitung von Lernenden und Studierenden in ihrem Lern- und Entwicklungsprozess.\n\n• Planung, Gestaltung und Durchführung von praxisnahen Lerneinheiten (Einführung, Peermentoring etc.)\n\n• Mitwirkung bei der Weiterentwicklung und Sicherstellung der Ausbildungsqualität in der Praxis.\n\nAnforderungen:\n• Dipl. Pflegefachfrau HF / FH\n\n• Zwei Jahre Berufserfahrung als Berufsbildner/in Pflege\n\n• Eidg. FA Ausbilder/in oder die Bereitschaft, diesen zu absolvieren\n\n• Sie zeichnen sich durch eine gute Organisationsfähigkeit, hohe Sozial- und Selbstkompetenz aus.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -5429,7 +5444,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T22:20:09.667Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5615,7 +5629,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T22:00:59.199Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5731,7 +5744,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -5789,7 +5802,6 @@
         "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-6ded8e"
       ],
       "firstSeenAt": "2026-08-07T21:58:54.338Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5818,7 +5830,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -5911,7 +5923,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:58:26.812Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6102,7 +6113,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:45:41.568Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6210,7 +6220,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann IMC",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann IMC",
+        "it": "Dipl. Infermieristica professionale / infermieristica IMC",
         "en": "Registered Nurse / Nursing Specialist",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann IMC",
         "fr": "Infirmier / Infirmière Diplômé(e)"
@@ -6275,7 +6285,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6304,7 +6313,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
+        "it": "Dipl. Infermiera / specialista in infermiera Dialysis",
         "en": "Dipl. Nurse / nurse specialist Dialysis",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
         "fr": "Dipl. Infirmière / Infirmière spécialiste Dialyse"
@@ -6353,7 +6362,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6465,7 +6473,7 @@
       "title": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Laurea specialistica Dipl. Expert / Expert Emergency Care NDS HF",
-        "en": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
+        "en": "Postgraduate degree Dipl. Expert / Expert Emergency Care NDS HF",
         "de": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
         "fr": "Diplôme supérieur Dipl. Expert / Expert Soins d'urgence NDS HF"
       },
@@ -6516,7 +6524,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6546,7 +6553,7 @@
       "title": "Dipl. Expertin / Experte Intensivpflege",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert Intensive Care",
-        "en": "Dipl. Expertin / Experte Intensivpflege",
+        "en": "Dipl. Expert / Expert Intensive Care",
         "de": "Dipl. Expertin / Experte Intensivpflege",
         "fr": "Dipl. Expert / Expert soins intensifs"
       },
@@ -6581,7 +6588,6 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6618,7 +6624,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Registered Nurse / Nursing Specialist",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Infirmier / Infirmière Diplômé(e)"
@@ -6679,7 +6685,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6835,7 +6840,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:42:13.467Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6865,7 +6869,7 @@
       "title": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
       "titleByLocale": {
         "it": "Corso di laurea Dipl. Expert / Expert Intensive Care NDS HF",
-        "en": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
+        "en": "Postgraduate degree program Dipl. Expert / Expert Intensive Care NDS HF",
         "de": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
         "fr": "Programme d'études supérieures Dipl. Expert / Expert Soins intensifs NDS HF"
       },
@@ -6912,7 +6916,6 @@
         "nachdiplomstudieng-dipl-experten-experten-intensivpflege-nds-hf-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-09-08T13:32:49.217Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6997,7 +7000,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:33.541Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -7533,7 +7535,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -7588,7 +7590,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7778,16 +7779,16 @@
       "title": "Sozialarbeiter/in",
       "titleByLocale": {
         "de": "Sozialarbeiter/in",
-        "it": "Sozialarbeiter/in",
-        "en": "Sozialarbeiter/in",
-        "fr": "Sozialarbeiter/in"
+        "it": "Lavoratori sociali",
+        "en": "Social workers",
+        "fr": "Travailleurs sociaux"
       },
       "description": "Aufgaben:\n• Sie beraten Patientinnen und Patienten, sowie deren Bezugspersonen während der Spitalbehandlung in persönlichen, sozialen, rechtlichen und finanziellen Fragen.\n\n• Gemeinsam mit Patientinnen und Patienten erarbeiten Sie situationsadäquate Lösungen. Dazu klären Sie die sozialen Verhältnisse ab, vermitteln Sachhilfe und planen einen effizienten Spitalaustritt.\n\n• Sie arbeiten im interdisziplinären Kontext und nutzen vielfältige Kontakte zu externen Stellen wie Sozialversicherungen, Behörden und Leistungserbringern des Gesundheitswesens.\n\nAnforderungen:\n• Bachelor-Abschluss in Sozialer Arbeit oder vergleichbarem Diplom\n\n• Berufserfahrung, von Vorteil im Gesundheitswesen\n\n• Lösungsorientierte und selbstständige Arbeitsweise und Freude am dynamischen Spitalalltag\n\n• Fähigkeit zur klaren Kommunikation\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Sie beraten Patientinnen und Patienten, sowie deren Bezugspersonen während der Spitalbehandlung in persönlichen, sozialen, rechtlichen und finanziellen Fragen.\n\n• Gemeinsam mit Patientinnen und Patienten erarbeiten Sie situationsadäquate Lösungen. Dazu klären Sie die sozialen Verhältnisse ab, vermitteln Sachhilfe und planen einen effizienten Spitalaustritt.\n\n• Sie arbeiten im interdisziplinären Kontext und nutzen vielfältige Kontakte zu externen Stellen wie Sozialversicherungen, Behörden und Leistungserbringern des Gesundheitswesens.\n\nAnforderungen:\n• Bachelor-Abschluss in Sozialer Arbeit oder vergleichbarem Diplom\n\n• Berufserfahrung, von Vorteil im Gesundheitswesen\n\n• Lösungsorientierte und selbstständige Arbeitsweise und Freude am dynamischen Spitalalltag\n\n• Fähigkeit zur klaren Kommunikation\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "it": "Aufgaben:\n• Sie beraten Patientinnen und Patienten, sowie deren Bezugspersonen während der Spitalbehandlung in persönlichen, sozialen, rechtlichen und finanziellen Fragen.\n\n• Gemeinsam mit Patientinnen und Patienten erarbeiten Sie situationsadäquate Lösungen. Dazu klären Sie die sozialen Verhältnisse ab, vermitteln Sachhilfe und planen einen effizienten Spitalaustritt.\n\n• Sie arbeiten im interdisziplinären Kontext und nutzen vielfältige Kontakte zu externen Stellen wie Sozialversicherungen, Behörden und Leistungserbringern des Gesundheitswesens.\n\nAnforderungen:\n• Bachelor-Abschluss in Sozialer Arbeit oder vergleichbarem Diplom\n\n• Berufserfahrung, von Vorteil im Gesundheitswesen\n\n• Lösungsorientierte und selbstständige Arbeitsweise und Freude am dynamischen Spitalalltag\n\n• Fähigkeit zur klaren Kommunikation\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Aufgaben:\n• Sie beraten Patientinnen und Patienten, sowie deren Bezugspersonen während der Spitalbehandlung in persönlichen, sozialen, rechtlichen und finanziellen Fragen.\n\n• Gemeinsam mit Patientinnen und Patienten erarbeiten Sie situationsadäquate Lösungen. Dazu klären Sie die sozialen Verhältnisse ab, vermitteln Sachhilfe und planen einen effizienten Spitalaustritt.\n\n• Sie arbeiten im interdisziplinären Kontext und nutzen vielfältige Kontakte zu externen Stellen wie Sozialversicherungen, Behörden und Leistungserbringern des Gesundheitswesens.\n\nAnforderungen:\n• Bachelor-Abschluss in Sozialer Arbeit oder vergleichbarem Diplom\n\n• Berufserfahrung, von Vorteil im Gesundheitswesen\n\n• Lösungsorientierte und selbstständige Arbeitsweise und Freude am dynamischen Spitalalltag\n\n• Fähigkeit zur klaren Kommunikation\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Aufgaben:\n• Sie beraten Patientinnen und Patienten, sowie deren Bezugspersonen während der Spitalbehandlung in persönlichen, sozialen, rechtlichen und finanziellen Fragen.\n\n• Gemeinsam mit Patientinnen und Patienten erarbeiten Sie situationsadäquate Lösungen. Dazu klären Sie die sozialen Verhältnisse ab, vermitteln Sachhilfe und planen einen effizienten Spitalaustritt.\n\n• Sie arbeiten im interdisziplinären Kontext und nutzen vielfältige Kontakte zu externen Stellen wie Sozialversicherungen, Behörden und Leistungserbringern des Gesundheitswesens.\n\nAnforderungen:\n• Bachelor-Abschluss in Sozialer Arbeit oder vergleichbarem Diplom\n\n• Berufserfahrung, von Vorteil im Gesundheitswesen\n\n• Lösungsorientierte und selbstständige Arbeitsweise und Freude am dynamischen Spitalalltag\n\n• Fähigkeit zur klaren Kommunikation\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "it": "Compiti:\n• Essi consigliano i pazienti e i loro assistenti durante il trattamento ospedaliero in questioni personali, sociali, legali e finanziarie.\n\n• Insieme ai pazienti, si sviluppano soluzioni appropriate alla situazione. A questo scopo, si chiarisce le condizioni sociali, fornire assistenza materiale e pianificare un'uscita ospedaliera efficiente.\n\n• Lavorano in un contesto interdisciplinare e utilizzano diversi contatti con enti esterni come assicurazioni sociali, autorità pubbliche e fornitori di assistenza sanitaria.\n\nRequisiti\n• Corso di laurea in lavoro sociale o diploma comparabile\n\n• Esperienza professionale, benefica nell'assistenza sanitaria\n\n• Metodo di lavoro orientato alla soluzione e indipendente e godimento della vita quotidiana ospedaliera dinamica\n\n• Capacità di comunicare chiaramente\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Tasks:\n• They advise patients and their caregivers during hospital treatment in personal, social, legal and financial matters.\n\n• Together with patients, you develop situation-appropriate solutions. For this purpose, you clarify the social conditions, provide material assistance and plan an efficient hospital exit.\n\n• They work in an interdisciplinary context and use diverse contacts with external bodies such as social insurance, public authorities and healthcare providers.\n\nRequirements\n• Bachelor’s degree in social work or comparable diploma\n\n• Professional experience, beneficial in health care\n\n• Solution-oriented and independent working method and enjoyment of dynamic hospital everyday life\n\n• Ability to communicate clearly\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+        "fr": "Tâches :\n• Ils conseillent les patients et leurs soignants pendant le traitement hospitalier en matière personnelle, sociale, juridique et financière.\n\n• Avec les patients, vous développez des solutions adaptées à la situation. À cette fin, vous clarifiez les conditions sociales, fournissez une aide matérielle et planifiez une sortie d'hôpital efficace.\n\n• Ils travaillent dans un contexte interdisciplinaire et utilisent divers contacts avec des organismes externes tels que l'assurance sociale, les pouvoirs publics et les prestataires de soins de santé.\n\nExigences\n• Licence en travail social ou diplôme comparable\n\n• Expérience professionnelle, bénéfique dans les soins de santé\n\n• Méthode de travail indépendante et orientée vers la solution et jouissance de la vie quotidienne d'un hôpital dynamique\n\n• Capacité de communiquer clairement\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -7814,7 +7815,6 @@
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7844,7 +7844,7 @@
       "companyDomain": "ksa.ch",
       "title": "Business Intelligence Spezialist/in",
       "titleByLocale": {
-        "it": "Business Intelligence Spezialist/in",
+        "it": "Specialista dell'intelligenza aziendale",
         "en": "Business Intelligence Specialist",
         "de": "Business Intelligence Spezialist/in",
         "fr": "Spécialiste du renseignement commercial"
@@ -7893,7 +7893,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:42:13.466Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -8006,16 +8005,16 @@
       "title": "ICT Applikationsmanager",
       "titleByLocale": {
         "de": "ICT Applikationsmanager",
-        "it": "ICT Applikationsmanager",
-        "en": "ICT Applikationsmanager",
-        "fr": "ICT Applikationsmanager"
+        "it": "Gestione delle applicazioni ICT",
+        "en": "ICT Application Manager",
+        "fr": "Gestionnaire des applications TIC"
       },
       "description": "Aufgaben:\n• Betreuung der bestehenden SAP S/4 CO & RE-FX Systemlandschaft\n\n• Kontinuierliche konzeptionelle Weiterentwicklung und Optimierung der Geschäftsprozesse im SAP CO & RE-FX\n\n• Anforderungsanalyse sowie Erarbeitung entsprechender Lösungskonzepte mit anschließender Überwachung von deren Implementierung\n\n• Schnittstellenmanagement zwischen Entwicklern, Fachbereichen und externen Dienstleistern\n\n• Aktive Mitarbeit an facettenreichen SAP CO & RE-FX Projekten\n\nAnforderungen:\n• Mehrjährige Erfahrung als SAP Applikationsmanager oder SAP Consultant mit Schwerpunkt SAP CO\n\n• Gute Kenntnisse in SAP RE-FX und SAP FI oder Bereitschaft, sich in diesem Bereich weiter zu vertiefen\n\n• Abgeschlossene Ausbildung im Bereich Wirtschaftsinformatik, BWL, Informatik (HF/FH/Uni) oder vergleichbare Qualifikation\n\n• Hohe Kunden- und Serviceorientierung sowie ausgeprägtes Verantwortungsbewusstsein\n\n• Erfahrung in der Zusammenarbeit mit Fachbereichen und externen Dienstleistern\n\n• Erfahrung im Umgang mit Changes, Releases und Projekten im IT-Umfeld\n\n• Kenntnisse in gängigen Technologien, Schnittstellen und Applikationsarchitekturen\n\n• Vertrautheit mit ITIL-Prozessen von Vorteil\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Betreuung der bestehenden SAP S/4 CO & RE-FX Systemlandschaft\n\n• Kontinuierliche konzeptionelle Weiterentwicklung und Optimierung der Geschäftsprozesse im SAP CO & RE-FX\n\n• Anforderungsanalyse sowie Erarbeitung entsprechender Lösungskonzepte mit anschließender Überwachung von deren Implementierung\n\n• Schnittstellenmanagement zwischen Entwicklern, Fachbereichen und externen Dienstleistern\n\n• Aktive Mitarbeit an facettenreichen SAP CO & RE-FX Projekten\n\nAnforderungen:\n• Mehrjährige Erfahrung als SAP Applikationsmanager oder SAP Consultant mit Schwerpunkt SAP CO\n\n• Gute Kenntnisse in SAP RE-FX und SAP FI oder Bereitschaft, sich in diesem Bereich weiter zu vertiefen\n\n• Abgeschlossene Ausbildung im Bereich Wirtschaftsinformatik, BWL, Informatik (HF/FH/Uni) oder vergleichbare Qualifikation\n\n• Hohe Kunden- und Serviceorientierung sowie ausgeprägtes Verantwortungsbewusstsein\n\n• Erfahrung in der Zusammenarbeit mit Fachbereichen und externen Dienstleistern\n\n• Erfahrung im Umgang mit Changes, Releases und Projekten im IT-Umfeld\n\n• Kenntnisse in gängigen Technologien, Schnittstellen und Applikationsarchitekturen\n\n• Vertrautheit mit ITIL-Prozessen von Vorteil\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "it": "Aufgaben:\n• Betreuung der bestehenden SAP S/4 CO & RE-FX Systemlandschaft\n\n• Kontinuierliche konzeptionelle Weiterentwicklung und Optimierung der Geschäftsprozesse im SAP CO & RE-FX\n\n• Anforderungsanalyse sowie Erarbeitung entsprechender Lösungskonzepte mit anschließender Überwachung von deren Implementierung\n\n• Schnittstellenmanagement zwischen Entwicklern, Fachbereichen und externen Dienstleistern\n\n• Aktive Mitarbeit an facettenreichen SAP CO & RE-FX Projekten\n\nAnforderungen:\n• Mehrjährige Erfahrung als SAP Applikationsmanager oder SAP Consultant mit Schwerpunkt SAP CO\n\n• Gute Kenntnisse in SAP RE-FX und SAP FI oder Bereitschaft, sich in diesem Bereich weiter zu vertiefen\n\n• Abgeschlossene Ausbildung im Bereich Wirtschaftsinformatik, BWL, Informatik (HF/FH/Uni) oder vergleichbare Qualifikation\n\n• Hohe Kunden- und Serviceorientierung sowie ausgeprägtes Verantwortungsbewusstsein\n\n• Erfahrung in der Zusammenarbeit mit Fachbereichen und externen Dienstleistern\n\n• Erfahrung im Umgang mit Changes, Releases und Projekten im IT-Umfeld\n\n• Kenntnisse in gängigen Technologien, Schnittstellen und Applikationsarchitekturen\n\n• Vertrautheit mit ITIL-Prozessen von Vorteil\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Aufgaben:\n• Betreuung der bestehenden SAP S/4 CO & RE-FX Systemlandschaft\n\n• Kontinuierliche konzeptionelle Weiterentwicklung und Optimierung der Geschäftsprozesse im SAP CO & RE-FX\n\n• Anforderungsanalyse sowie Erarbeitung entsprechender Lösungskonzepte mit anschließender Überwachung von deren Implementierung\n\n• Schnittstellenmanagement zwischen Entwicklern, Fachbereichen und externen Dienstleistern\n\n• Aktive Mitarbeit an facettenreichen SAP CO & RE-FX Projekten\n\nAnforderungen:\n• Mehrjährige Erfahrung als SAP Applikationsmanager oder SAP Consultant mit Schwerpunkt SAP CO\n\n• Gute Kenntnisse in SAP RE-FX und SAP FI oder Bereitschaft, sich in diesem Bereich weiter zu vertiefen\n\n• Abgeschlossene Ausbildung im Bereich Wirtschaftsinformatik, BWL, Informatik (HF/FH/Uni) oder vergleichbare Qualifikation\n\n• Hohe Kunden- und Serviceorientierung sowie ausgeprägtes Verantwortungsbewusstsein\n\n• Erfahrung in der Zusammenarbeit mit Fachbereichen und externen Dienstleistern\n\n• Erfahrung im Umgang mit Changes, Releases und Projekten im IT-Umfeld\n\n• Kenntnisse in gängigen Technologien, Schnittstellen und Applikationsarchitekturen\n\n• Vertrautheit mit ITIL-Prozessen von Vorteil\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Aufgaben:\n• Betreuung der bestehenden SAP S/4 CO & RE-FX Systemlandschaft\n\n• Kontinuierliche konzeptionelle Weiterentwicklung und Optimierung der Geschäftsprozesse im SAP CO & RE-FX\n\n• Anforderungsanalyse sowie Erarbeitung entsprechender Lösungskonzepte mit anschließender Überwachung von deren Implementierung\n\n• Schnittstellenmanagement zwischen Entwicklern, Fachbereichen und externen Dienstleistern\n\n• Aktive Mitarbeit an facettenreichen SAP CO & RE-FX Projekten\n\nAnforderungen:\n• Mehrjährige Erfahrung als SAP Applikationsmanager oder SAP Consultant mit Schwerpunkt SAP CO\n\n• Gute Kenntnisse in SAP RE-FX und SAP FI oder Bereitschaft, sich in diesem Bereich weiter zu vertiefen\n\n• Abgeschlossene Ausbildung im Bereich Wirtschaftsinformatik, BWL, Informatik (HF/FH/Uni) oder vergleichbare Qualifikation\n\n• Hohe Kunden- und Serviceorientierung sowie ausgeprägtes Verantwortungsbewusstsein\n\n• Erfahrung in der Zusammenarbeit mit Fachbereichen und externen Dienstleistern\n\n• Erfahrung im Umgang mit Changes, Releases und Projekten im IT-Umfeld\n\n• Kenntnisse in gängigen Technologien, Schnittstellen und Applikationsarchitekturen\n\n• Vertrautheit mit ITIL-Prozessen von Vorteil\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "it": "Compiti:\n• Supporto del panorama di sistema SAP S/4 CO & RE-FX esistente\n\n• Sviluppo concettuale continuo e ottimizzazione dei processi aziendali in SAP CO & RE-FX\n\n• Analisi dei requisiti e sviluppo dei corrispondenti concetti di soluzione con il successivo monitoraggio della loro attuazione\n\n• Gestione delle interfacce tra sviluppatori, dipartimenti e fornitori di servizi esterni\n\n• Partecipazione attiva ai progetti SAP CO & RE-FX\n\nRequisiti\n• Diversi anni di esperienza come SAP Application Manager o SAP Consultant con un focus su SAP CO\n\n• Buona conoscenza di SAP RE-FX e SAP FI o volontà di approfondire ulteriormente in questo settore\n\n• Formazione completa in informatica aziendale, amministrazione aziendale, informatica (HF/FH/Uni) o qualificazione comparabile\n\n• Alto orientamento al cliente e al servizio, nonché un forte senso di responsabilità\n\n• Esperienza in collaborazione con dipartimenti e fornitori di servizi esterni\n\n• Esperienza nell'affrontare cambiamenti, release e progetti nell'ambiente IT\n\n• Conoscenza delle tecnologie, delle interfacce e delle architetture applicative comuni\n\n• La familiarità con i processi ITIL è un vantaggio\n\n• Conoscenza molto buona del tedesco nelle parole e nella scrittura, altre lingue sono vantaggiose\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Tasks:\n• Support of the existing SAP S/4 CO & RE-FX system landscape\n\n• Continuous conceptual development and optimization of business processes in SAP CO & RE-FX\n\n• Requirements analysis and development of corresponding solution concepts with subsequent monitoring of their implementation\n\n• Interface management between developers, departments and external service providers\n\n• Active participation in multifaceted SAP CO & RE-FX projects\n\nRequirements\n• Several years of experience as SAP Application Manager or SAP Consultant with a focus on SAP CO\n\n• Good knowledge of SAP RE-FX and SAP FI or willingness to deepen further in this area\n\n• Completed training in business informatics, business administration, computer science (HF/FH/Uni) or comparable qualification\n\n• High customer and service orientation as well as a strong sense of responsibility\n\n• Experience in cooperation with departments and external service providers\n\n• Experience in dealing with changes, releases and projects in the IT environment\n\n• Knowledge of common technologies, interfaces and application architectures\n\n• Familiarity with ITIL processes is an advantage\n\n• Very good knowledge of German in words and writing, other languages are advantageous\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+        "fr": "Tâches :\n• Soutien du système SAP S/4 CO & RE-FX existant\n\n• Développement conceptuel continu et optimisation des processus opérationnels dans SAP CO & RE-FX\n\n• Analyse des besoins et élaboration de concepts de solutions correspondants avec suivi ultérieur de leur mise en œuvre\n\n• Gestion de l'interface entre les développeurs, les ministères et les fournisseurs de services externes\n\n• Participation active aux multiples projets SAP CO & RE-FX\n\nExigences\n• Plusieurs années d'expérience en tant que gestionnaire d'applications SAP ou consultant SAP avec un accent sur le CO SAP\n\n• Bonne connaissance de SAP RE-FX et de SAP FI ou volonté d'approfondir ce domaine\n\n• Formation complète en informatique des affaires, administration des affaires, informatique (HF/FH/Uni) ou qualification comparable\n\n• Orientation client et service élevée ainsi qu'un fort sens des responsabilités\n\n• Expérience en coopération avec les départements et les prestataires de services externes\n\n• Expérience dans la gestion des changements, des rejets et des projets dans l'environnement informatique\n\n• Connaissance des technologies, interfaces et architectures d'application communes\n\n• La connaissance des processus ITIL est un avantage\n\n• Très bonne connaissance de l'allemand en mots et en écriture, d'autres langues sont avantageuses\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -8042,7 +8041,6 @@
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ict-applikationsmanager-ksa-ch"
@@ -8081,7 +8079,7 @@
       "title": "Compensation & Benefits Analyst",
       "titleByLocale": {
         "it": "Compensation & Benefits Analista",
-        "en": "Compensation & Benefits Analyst",
+        "en": "Compensation and Benefits Analyst",
         "de": "Compensation & Benefits Analyst",
         "fr": "Compensation & Benefits Analyste"
       },
@@ -8140,8 +8138,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksa-3c8e4de3556a",
@@ -8226,14 +8223,14 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "en": "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Registered Nurse / Nursing Professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Infirmier / Infirmière Diplômé(e)"
@@ -8274,7 +8271,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax",
-        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau"
+        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8290,7 +8288,8 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -8307,8 +8306,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
