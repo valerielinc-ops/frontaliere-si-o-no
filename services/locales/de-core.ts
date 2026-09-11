@@ -3856,6 +3856,8 @@ Regeln:
  'publisherDashboard.kpi.totalApplications': 'Bewerbungen',
  'publisherDashboard.kpi.intentRate': 'Intent-/Klickrate',
  'publisherDashboard.kpi.noDataYet': 'Die Statistiken füllen sich, sobald Grenzgänger Ihre Inserate sehen.',
+ 'publisherDashboard.analytics.dedupUnavailable': 'Deduplizierung nicht verfügbar',
+ 'publisherDashboard.analytics.metricUnavailable': 'Nicht verfügbar',
  'publisherDashboard.adsHeading': 'Ihre Inserate',
  'publisherDashboard.bestPerformer': 'Meist gesehen',
  'publisherDashboard.empty.title': 'Hier beginnen Ihre Bewerbungen',

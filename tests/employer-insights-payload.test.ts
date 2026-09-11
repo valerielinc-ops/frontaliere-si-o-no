@@ -59,6 +59,10 @@ const basePayload = {
   source: 'events-source',
   window,
   applicationsCoverage: { source: 'applications-source' },
+  // The builder writes this block on every document. A payload without it
+  // cannot claim its event counts are free of technical duplicates, so the
+  // fixture carries the proof the real payload carries.
+  coverage: { deduplication: { key: 'emission_id', status: 'available', unavailableCount: 0 } },
   provenance: { source: 'events-source', window },
   totals: {
     views: 111,
@@ -207,6 +211,33 @@ describe('employer insights payload UI', () => {
     expect(html).toContain('>701<');
     expect(html).toContain('dato osservato');
     expect(html).toContain('timezone non disponibile');
+  });
+
+  it('says a count is not proven unique when the payload carries no deduplication proof', () => {
+    const { coverage, ...withoutProof } = basePayload;
+    const html = render(withoutProof);
+
+    // The measured traffic is kept — dropping it would delete real events...
+    expect(html).toContain('>701<');
+    // ...but it is not presented as a proven count of distinct acts.
+    expect(html).toContain('conteggio osservato, unicità non provata');
+    const applyClicksStart = html.indexOf('aria-label="Click per candidarsi: 701"');
+    const applicationsStart = html.indexOf('aria-label="Candidature inviate: 302"');
+    expect(applyClicksStart).toBeGreaterThanOrEqual(0);
+    expect(applicationsStart).toBeGreaterThan(applyClicksStart);
+    expect(html.slice(applyClicksStart, applicationsStart)).not.toContain('dato osservato');
+  });
+
+  it('reports how many units could not be deduplicated', () => {
+    const html = render({
+      ...basePayload,
+      coverage: { deduplication: { key: 'emission_id', status: 'dedup non disponibile', unavailableCount: 412 } },
+    });
+
+    expect(html).toContain('>701<');
+    expect(html).toContain('conteggio osservato, unicità non provata');
+    expect(html).toContain('Unità senza prova di unicità');
+    expect(html).toContain('412');
   });
 
   it('treats a payload source literally, even when it matches the UI fallback text', () => {

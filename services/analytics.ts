@@ -100,6 +100,7 @@ import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
+import { createAnalyticsEmissionId } from './analyticsEmissionId';
 import {
  isBenignErrorMessage,
  isOriginRedactedThirdPartyStack,
@@ -208,29 +209,9 @@ export function buildPageViewAttributionParams(
  return {};
 }
 
-/** Create one non-identifying key shared by all provider emissions of one action. */
-export function createAnalyticsEmissionId(): string {
- try {
-  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
- } catch {
-  // Fall through to a local key when Web Crypto is unavailable.
- }
- return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-}
-
-export interface AnalyticsPageViewEmission {
- path: string;
- emissionId: string;
-}
-
-/** Reuse the emission id while the SPA remains on the same physical route. */
-export function getPageViewEmissionId(
- path: string,
- current: AnalyticsPageViewEmission | null,
-): string {
- if (current?.path === path && current.emissionId) return current.emissionId;
- return createAnalyticsEmissionId();
-}
+// Re-exported here because this name is part of the analytics module's public
+// surface and existing callers use it for non-page-view emission ids.
+export { createAnalyticsEmissionId } from './analyticsEmissionId';
 
 // ─── Clarity Bridge ────────────────────────────────────────────
 // Tag Clarity sessions with custom events for cross-tool analysis.
@@ -382,7 +363,7 @@ const log = (eventName: string, params?: Record<string, any>) => {
  posthogCapture('$pageview', {
   $current_url: params?.page_location || window.location.origin + pagePath,
   title: params?.page_title || document.title,
-  ...(params?.emission_id ? { emission_id: params.emission_id } : {}),
+  emission_id: params?.emission_id ?? null,
  });
  } else {
  posthogCapture(eventName, params);
@@ -427,9 +408,7 @@ const setProps = (properties: Record<string, string>) => {
 let sessionStartTime = Date.now();
 let currentScreen = '/';
 let previousScreen = '';
-let lastTrackedPagePath = '';
 let lastTrackedPageAt = 0;
-let currentPageViewEmission: AnalyticsPageViewEmission | null = null;
 let _maxScrollDepth = 0;
 const ATTRIBUTION_KEY = 'ft_attribution_v1';
 const ATTRIBUTION_LOGGED_KEY = 'ft_attribution_logged_v1';
@@ -1007,9 +986,18 @@ export const Analytics = {
  * This means non-blocked users get a duplicate page_view (gtag + Firebase)
  * on the initial page, which is a minor metric inflation but correct.
  */
- trackPageView: (path: string, title?: string, identity?: AnalyticsPageViewIdentity | null) => {
+ trackPageView: (
+ path: string,
+ title?: string,
+ identity?: AnalyticsPageViewIdentity | null,
+ // Omitted (`undefined`) means this call is a new act and must coin its own
+ // id. `string` is an explicit id for a retry of the same act. `null` means
+ // the caller could not determine an id and must remain "dedup non
+ // disponibile" — never a guessed value.
+ emissionId?: string | null,
+ ) => {
+ const pageViewEmissionId = emissionId === undefined ? createAnalyticsEmissionId() : emissionId;
  const now = Date.now();
- if (path === lastTrackedPagePath && now - lastTrackedPageAt < 500) return;
  // NOTE: We intentionally do NOT skip Firebase page_view even when
  // window.__GTAG_PAGE_VIEW_SENT__ is set by static HTML pages.
  //
@@ -1031,14 +1019,11 @@ export const Analytics = {
  }
  // Calculate time spent on previous page (for pagesPerSession accuracy)
  const timeOnPrevPage = previousScreen ? now - lastTrackedPageAt : 0;
- lastTrackedPagePath = path;
  lastTrackedPageAt = now;
  previousScreen = currentScreen;
  currentScreen = path;
  _maxScrollDepth = 0; // Reset scroll tracking for new page
  const pageContext = deriveAnalyticsPageContext(path);
- const emissionId = getPageViewEmissionId(path, currentPageViewEmission);
- currentPageViewEmission = { path, emissionId };
  log('page_view', {
  page_path: path,
  page_title: title || path,
@@ -1050,7 +1035,7 @@ export const Analytics = {
  content_locale: pageContext.contentLocale,
  route_family: pageContext.routeFamily,
  engagement_time_msec: timeOnPrevPage > 0 ? Math.min(timeOnPrevPage, 3600000) : undefined,
- emission_id: emissionId,
+ emission_id: pageViewEmissionId,
  ...buildPageViewAttributionParams(path, identity),
  });
  if (pageContext.pageTemplate === 'job_detail') {
@@ -1061,6 +1046,7 @@ export const Analytics = {
  tagClarity('content_group', pageContext.contentGroup);
  // Reset dead-click counter for new page
  _deadClickCount = 0;
+ return pageViewEmissionId;
  },
 
  /**

@@ -68,6 +68,28 @@ export interface EmployerApplicationsCoverage {
   invariant?: boolean;
 }
 
+/**
+ * Event-coverage block written by scripts/build-employer-insights.mjs. Only the
+ * fields the report reads are typed; the builder writes more (residual ledger,
+ * identity resolution) and the endpoint forwards the document whole.
+ */
+export interface EmployerEventsCoverage {
+  source?: string | null;
+  status?: string;
+  /**
+   * Whether the observed counts are provably free of technical duplicates.
+   * `status: 'available'` is the only value that proves it; anything else —
+   * including an absent block on a pre-ledger payload — leaves the counts
+   * observed but not proven unique.
+   */
+  deduplication?: {
+    key?: string;
+    status?: string;
+    unavailableCount?: number;
+  };
+  [key: string]: unknown;
+}
+
 export interface EmployerInsightsWindowSummary {
   window: EmployerInsightsWindow;
   totals: EmployerInsightsTotals;
@@ -92,6 +114,7 @@ export interface EmployerInsights {
   /** Weekly buckets, oldest → newest. */
   trend: { week: string; views: number }[];
   profileTrend?: { week: string; views: number }[];
+  coverage?: EmployerEventsCoverage;
   applicationsCoverage?: EmployerApplicationsCoverage;
   provenance?: {
     source?: string | null;

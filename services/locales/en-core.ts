@@ -3853,6 +3853,8 @@ Rules:
  'publisherDashboard.kpi.totalApplications': 'Applications',
  'publisherDashboard.kpi.intentRate': 'Intent / click rate',
  'publisherDashboard.kpi.noDataYet': 'Stats fill in as cross-border workers see your ads.',
+ 'publisherDashboard.analytics.dedupUnavailable': 'Deduplication unavailable',
+ 'publisherDashboard.analytics.metricUnavailable': 'Not available',
  'publisherDashboard.adsHeading': 'Your ads',
  'publisherDashboard.bestPerformer': 'Most viewed',
  'publisherDashboard.empty.title': 'Your applications start here',
