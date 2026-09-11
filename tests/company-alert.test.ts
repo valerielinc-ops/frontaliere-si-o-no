@@ -1522,7 +1522,7 @@ describe('the three deferred items (#5012 — closing the «Non implementato» l
     const plugin = readRepoFile('build-plugins/employerProfilePagesPlugin.ts');
     expect(plugin).toContain("'employer-job-counts.json'");
     // Only slugs that got a page: a count linking to a 404 is worse than none.
-    expect(plugin).toContain('employerJobCounts.set(slug, profile.activeJobs)');
+    expect(plugin).toContain('employerJobCounts.set(slug, liveActive)');
     expect(plugin).toContain('employerJobCounts.set(slug, rec.activeJobs)');
     // dist/data/ is the prefix deploy-it-pages-prep.sh syncs to R2 (max-age=600).
     expect(plugin).toContain("np.join(distDir, 'data')");
