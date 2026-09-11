@@ -1,6 +1,6 @@
 {
   "crawlerKey": "capri-holdings",
-  "assembledAt": "2026-09-10T23:19:08.859Z",
+  "assembledAt": "2026-09-11T13:53:03.071Z",
   "jobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
@@ -27,7 +27,7 @@
         "it": "Senior General Ledger Contabile",
         "en": "Senior General Ledger Accountant",
         "de": "Senior General Ledger Buchhalter",
-        "fr": "Directeur général principal comptable"
+        "fr": "Senior General Ledger Accountant"
       },
       "slug": "senior-general-ledger-contabile-capri-holdings-michael-kors-versace-manno",
       "slugByLocale": {
@@ -64,6 +64,7 @@
       },
       "firstSeenAt": "2026-07-27T22:07:37.799Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "currency": "CHF",
@@ -319,7 +320,9 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
