@@ -368,10 +368,6 @@ jobs:
             --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" 2>/dev/null || true)
           exit "$legacy_status"
 
-      - name: Log translation stats (after)
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
-        run: node scripts/log-translation-stats.mjs after
-
       - name: Scatter changes back to per-crawler slices
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/scatter-jobs-to-slices.mjs
@@ -410,7 +406,8 @@ jobs:
         if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
         env:
           # 300min from the shared marker leaves 50min before the 350min hard
-          # cap for title commit, final assemble, observability, and uploads.
+          # cap for title commit, final assemble, publication-tree stats,
+          # observability, and uploads.
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '18000000' # 300 * 60 * 1000; 50min remain.
         run: node scripts/fix-untranslated-titles.mjs
 
@@ -428,6 +425,20 @@ jobs:
       - name: Re-assemble true-final translation dataset
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/assemble-jobs-dataset.mjs
+
+      # The commit helper refreshes origin/main, performs its private-index
+      # 3-way merge, measures that candidate tree, and stages the history blob
+      # before commit-tree. The checkout ref remains deliberately untouched.
+      # Keep always(): a failed preceding phase must still leave an observable
+      # point for the tree that was (or can be) published.
+      - name: Log translation stats (after)
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            node scripts/log-translation-stats.mjs after
+          else
+            TRANSLATION_STATS_AFTER_TREE=1 bash scripts/lib/git-commit-data.sh --slice-only "📊 Translation stats (after)" data/translation-stats-history.json
+          fi
 
       - name: Capture final translation observability (shadow)
         if: always() && steps.translation_observability_before.outputs.ready == 'true'

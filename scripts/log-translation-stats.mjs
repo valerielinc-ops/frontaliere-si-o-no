@@ -4,6 +4,8 @@
  * Called by translate-pending.yml after each run to build a monitoring history.
  *
  * Usage: node scripts/log-translation-stats.mjs [label]
+ * Optional: TRANSLATION_STATS_ROOT=/path/to/tree measures that tree instead of
+ * the checkout (used by the isolated publication commit helper).
  *
  * ── Why the percentage is FLOORED, never rounded ──────────────────────────
  * Until 2026-08-10 the summary line was
@@ -68,8 +70,15 @@ import { titleOffence, descriptionOffence } from './mark-mistranslated-jobs.mjs'
 import { QUEUE_AGE_BUCKET_KEYS, summarizeQueueAge } from './lib/job-traffic-priority.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
-const CRAWLERS_DIR = 'data/jobs/by-crawler';
-const STATS_FILE = 'data/translation-stats-history.json';
+/**
+ * Root of the tree being measured. The normal invocation leaves this empty
+ * and reads the checkout. The isolated commit helper sets it to a temporary
+ * materialisation of the exact private-index tree it is about to publish, so
+ * the `after` row cannot describe a stale worktree.
+ */
+const STATS_ROOT = process.env.TRANSLATION_STATS_ROOT || '';
+const CRAWLERS_DIR = path.join(STATS_ROOT, 'data/jobs/by-crawler');
+const STATS_FILE = path.join(STATS_ROOT, 'data/translation-stats-history.json');
 
 /**
  * Sidecar carrying the incomplete cohort from the `before` pass to the `after`
