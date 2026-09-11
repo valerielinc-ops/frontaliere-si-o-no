@@ -1,21 +1,22 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-09-11T13:38:54.121Z",
+  "generatedAt": "2026-09-11T23:11:12.609Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1218,
-  "avgDurationMs": 1218,
+  "durationMs": 1105,
+  "avgDurationMs": 1105,
   "durationHistory": [
-    1218
+    1105
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "F&B und Event Manager 100% (all genders)",
-      "slug": "f-b-und-event-manager-100-all-genders-the-living-circle-ascona",
+      "slug": "f-b-e-event-manager-100-all-genders-the-living-circle-ascona",
       "url": "https://jobs.thelivingcircle.ch/jobs/67378285/F-B-und-Event-Manager-100%25-all-genders-/",
       "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67378285/F-B-und-Event-Manager-100%25-all-genders-/",
       "company": "The Living Circle",
@@ -35,16 +36,18 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 83,
+      "id": "the-living-circle-e28ac1886309",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:38:48.303Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 20,
+        "translation": 23,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

@@ -1,7 +1,7 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-09-11T13:38:57.724Z",
+  "generatedAt": "2026-09-11T23:11:17.418Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,10 +12,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6259,
-  "avgDurationMs": 6259,
+  "durationMs": 5629,
+  "avgDurationMs": 5629,
   "durationHistory": [
-    6259
+    5629
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000148269569-executive-assistant-ceo-80-100-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:38:48.389Z",
+      "crawledAt": "2026-09-11T23:11:08.994Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -48,6 +48,7 @@
       "postedDate": "2026-09-08",
       "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000148269569-executive-assistant-ceo-80-100-all-?oga=true",
       "jobReqId": "744000148269569",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T23:23:26.040Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -69,7 +70,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000147495900-head-r-d-project-automatic-assembly-tools-oetiker-group-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:38:48.362Z",
+      "crawledAt": "2026-09-11T23:11:09.025Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -108,7 +109,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000147421499-junior-firmware-engineer-embedded-systems-c-c-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:38:48.394Z",
+      "crawledAt": "2026-09-11T23:11:09.030Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -147,7 +148,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:38:48.398Z",
+      "crawledAt": "2026-09-11T23:11:09.019Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -164,6 +165,7 @@
       "postedDate": "2026-07-06",
       "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "jobReqId": "744000135999378",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T15:15:19.162Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
