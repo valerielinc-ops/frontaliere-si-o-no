@@ -1,7 +1,330 @@
 {
   "crawlerKey": "suva",
-  "assembledAt": "2026-09-10T23:10:45.033Z",
+  "assembledAt": "2026-09-11T13:39:29.826Z",
   "jobs": [
+    {
+      "id": "suva-bb75752f2b07",
+      "slug": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-lausanne",
+      "slugByLocale": {
+        "it": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-lausanne",
+        "en": "apprenticeship-2027-trade-employee-cfc-100-suva-lausanne",
+        "de": "lehrling-2027-berufstatiger-cfc-100-suva-lausanne",
+        "fr": "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne"
+      },
+      "company": "Suva",
+      "companyKey": "suva",
+      "companyDomain": "suva.ch",
+      "title": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %",
+      "titleByLocale": {
+        "it": "Apprendistato 2027 dipendente commerciale CFC 100%",
+        "en": "Apprenticeship 2027 trade employee CFC 100%",
+        "de": "Lehrling 2027 Berufstätiger CFC 100%",
+        "fr": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %"
+      },
+      "description": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !",
+      "descriptionByLocale": {
+        "it": "Vuoi scoprire il mondo dell'assicurazione e prenderti gradualmente la responsabilità? Allora sei nel posto giusto!",
+        "en": "You want to discover the world of insurance and gradually take responsibility? Then you're in the right place!",
+        "de": "Möchten Sie die Welt der Versicherung entdecken und schrittweise Verantwortung übernehmen? Dann bist du am richtigen Ort!",
+        "fr": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.suva.ch/job/Lausanne-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-VD-1003/1431768333/",
+      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-11T13:39:21.826Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1003",
+      "streetAddress": "Avenue de la Gare 19",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://jobs.suva.ch/job/Lausanne-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-VD-1003/1431768333/",
+      "pensum": "100%",
+      "sfJobId": "1431768333",
+      "previousSlugs": [
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne",
+        "apprendistato-2027-dipendente-commerciale-cfc-100-suva-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne",
+          "apprendistato-2027-dipendente-commerciale-cfc-100-suva-lausanne"
+        ],
+        "en": [
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne"
+        ],
+        "de": [
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T22:32:49.424Z",
+      "salaryMin": 57000,
+      "salaryMax": 87500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57000,
+          "maxValue": 87500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD"
+    },
+    {
+      "id": "suva-635ce1f034fe",
+      "slug": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-sion",
+      "slugByLocale": {
+        "it": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-sion",
+        "en": "apprenticeship-2027-trade-employee-cfc-100-suva-sion",
+        "de": "lehrling-2027-berufstatiger-cfc-100-suva-sion",
+        "fr": "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion"
+      },
+      "company": "Suva",
+      "companyKey": "suva",
+      "companyDomain": "suva.ch",
+      "title": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %",
+      "titleByLocale": {
+        "it": "Apprendistato 2027 dipendente commerciale CFC 100%",
+        "en": "Apprenticeship 2027 trade employee CFC 100%",
+        "de": "Lehrling 2027 Berufstätiger CFC 100%",
+        "fr": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %"
+      },
+      "description": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !",
+      "descriptionByLocale": {
+        "it": "Vuoi scoprire il mondo dell'assicurazione e prenderti gradualmente la responsabilità? Allora sei nel posto giusto!",
+        "en": "You want to discover the world of insurance and gradually take responsibility? Then you're in the right place!",
+        "de": "Möchten Sie die Welt der Versicherung entdecken und schrittweise Verantwortung übernehmen? Dann bist du am richtigen Ort!",
+        "fr": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://jobs.suva.ch/job/Sion-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-VS-1950/1431769833/",
+      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-11T13:39:20.765Z",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "streetAddress": "Avenue de Tourbillon 36",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://jobs.suva.ch/job/Sion-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-VS-1950/1431769833/",
+      "pensum": "100%",
+      "sfJobId": "1431769833",
+      "previousSlugs": [
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion",
+        "apprendistato-2027-dipendente-commerciale-cfc-100-suva-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion",
+          "apprendistato-2027-dipendente-commerciale-cfc-100-suva-sion"
+        ],
+        "en": [
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion"
+        ],
+        "de": [
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T22:32:52.710Z",
+      "salaryMin": 57000,
+      "salaryMax": 87500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57000,
+          "maxValue": 87500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS"
+    },
+    {
+      "id": "suva-4a959a82c204",
+      "slug": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-geneve",
+      "slugByLocale": {
+        "it": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-geneve",
+        "en": "apprenticeship-2027-trade-employee-cfc-100-suva-geneve",
+        "de": "lehrling-2027-berufstatiger-cfc-100-suva-geneve",
+        "fr": "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve"
+      },
+      "company": "Suva",
+      "companyKey": "suva",
+      "companyDomain": "suva.ch",
+      "title": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %",
+      "titleByLocale": {
+        "it": "Apprendistato 2027 dipendente commerciale CFC 100%",
+        "en": "Apprenticeship 2027 trade employee CFC 100%",
+        "de": "Lehrling 2027 Berufstätiger CFC 100%",
+        "fr": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %"
+      },
+      "description": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !",
+      "descriptionByLocale": {
+        "it": "Vuoi scoprire il mondo dell'assicurazione e prenderti gradualmente la responsabilità? Allora sei nel posto giusto!",
+        "en": "You want to discover the world of insurance and gradually take responsibility? Then you're in the right place!",
+        "de": "Möchten Sie die Welt der Versicherung entdecken und schrittweise Verantwortung übernehmen? Dann bist du am richtigen Ort!",
+        "fr": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !"
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://jobs.suva.ch/job/Gen%C3%A8ve-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-GE-1207/1431769133/",
+      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-11T13:39:19.699Z",
+      "addressLocality": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1207",
+      "streetAddress": "Rue Ami-Lullin 12",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://jobs.suva.ch/job/Gen%C3%A8ve-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-GE-1207/1431769133/",
+      "pensum": "100%",
+      "sfJobId": "1431769133",
+      "previousSlugs": [
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve",
+        "apprendistato-2027-dipendente-commerciale-cfc-100-suva-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve",
+          "apprendistato-2027-dipendente-commerciale-cfc-100-suva-geneve"
+        ],
+        "en": [
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve"
+        ],
+        "de": [
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T22:32:50.520Z",
+      "salaryMin": 57000,
+      "salaryMax": 87500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57000,
+          "maxValue": 87500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GE"
+    },
+    {
+      "id": "suva-3b96995a9ca6",
+      "slug": "settore-assicurazione-militare-capo-80-100-suva-geneve",
+      "slugByLocale": {
+        "it": "settore-assicurazione-militare-capo-80-100-suva-geneve",
+        "en": "chief-military-insurance-sector-80-100-suva-geneve",
+        "de": "chef-militarversicherungssektor-80-100-suva-geneve",
+        "fr": "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve"
+      },
+      "company": "Suva",
+      "companyKey": "suva",
+      "companyDomain": "suva.ch",
+      "title": "Chef∙fe de secteur assurance militaire 80 - 100 %",
+      "titleByLocale": {
+        "it": "Settore Assicurazione Militare Capo 80 - 100%",
+        "en": "Chief Military Insurance Sector 80 - 100%",
+        "de": "Chef Militärversicherungssektor 80 - 100%",
+        "fr": "Chef∙fe de secteur assurance militaire 80 - 100 %"
+      },
+      "description": "Ce que tu accomplis\n• Tu diriges et accompagnes une équipe d'une vingtaine de personnes chargés de la gestion de l'assurance militaire en Suisse romande.\n• Tu assures le pilotage opérationnel et budgétaire de ton secteur.\n• Tu analyses les processus, identifies les potentiels d'amélioration et contribues à l’évolution de l'assurance militaire.\n• Tu entretiens des relations de confiance avec les assurés, les partenaires médicaux, ainsi qu’avec les institutions et organisations concernées.\n• Tu fais le lien entre le siège de l'assurance militaire à Berne et les activités en Suisse romande.\n• En tant que membre du collège des cadres, tu participes activement au développement de la région Suisse-occidentale et de l'assurance militaire dans l'agence Suva Genève. Ce que tu apportes\n• Tu es titulaire d'un master en droit et d'un brevet d'avocat ou diplôme équivalent.\n• Tu as une expérience confirmée dans la conduite d'équipes, ainsi que dans la gestion de projets et de processus.\n• Tu disposes de plusieurs années d'expérience dans le domaine des assurances sociales ou de personnes.\n• Le français est ta langue maternelle et tu possèdes d'excellentes connaissances en allemand.\n• Tu te distingues par ton esprit d'analyse, ta capacité de synthèse et ton aisance dans la prise de décision.\n• Tu fais preuve d'une grande aisance relationnelle et apprécies évoluer au sein d'une organisation matricielle.",
+      "descriptionByLocale": {
+        "it": "Che cosa fai\n• Si guida e accompagna un team di circa 20 persone responsabili della gestione dell'assicurazione militare in Svizzera francofona.\n• Sei responsabile del controllo operativo e di bilancio del tuo settore.\n• Si analizzano i processi, si identificano potenziali miglioramenti e contribuiscono all'evoluzione dell'assicurazione militare.\n• Hai un rapporto di fiducia con persone assicurate, partner medici e istituzioni e organizzazioni rilevanti.\n• Lei collega la sede dell'assicurazione militare a Berna alle attività in Svizzera francofona.\n• Come membro del College of Executives, sei attivamente coinvolto nello sviluppo della regione svizzera-occidentale e dell'assicurazione militare a Suva Ginevra. Cosa porti\n• Hai un master in diritto e un certificato di avvocato o un diploma equivalente.\n• Hai dimostrato esperienza nella gestione del team, nella gestione dei progetti e dei processi.\n• Hai diversi anni di esperienza nel campo dell'assicurazione sociale o delle persone.\n• Il francese è la tua lingua madre e hai una conoscenza eccellente del tedesco.\n• Si distingue per il vostro spirito analitico, la vostra capacità di sintesi e la vostra facilità nel processo decisionale.\n• Hai grande facilità relazionale e godere di evolversi all'interno di un'organizzazione di matrice.",
+        "en": "What You Do\n• You lead and accompany a team of about 20 people in charge of the management of military insurance in French-speaking Switzerland.\n• You are responsible for the operational and budgetary control of your sector.\n• You analyze processes, identify potential improvements and contribute to the evolution of military insurance.\n• You have a relationship of trust with insured persons, medical partners, and relevant institutions and organisations.\n• You link the headquarters of military insurance in Bern to activities in French-speaking Switzerland.\n• As a member of the College of Executives, you are actively involved in the development of the Swiss-Western region and military insurance in Suva Geneva. What you bring\n• You have a master's degree in law and a lawyer's certificate or equivalent degree.\n• You have proven experience in team management, project and process management.\n• You have several years of experience in the field of social insurance or people.\n• French is your mother tongue and you have excellent knowledge of German.\n• You stand out for your analytical spirit, your capacity for synthesis and your ease in decision-making.\n• You have great relational ease and enjoy evolving within a matrix organization.",
+        "de": "Was Sie tun\n• Du leitest und begleitest ein Team von rund 20 Personen, das für die Verwaltung der Militärversicherung in der französischsprachigen Schweiz zuständig ist.\n• Sie sind für die Betriebs- und Haushaltskontrolle Ihres Sektors verantwortlich.\n• Sie analysieren Prozesse, identifizieren mögliche Verbesserungen und tragen zur Entwicklung der Militärversicherung bei.\n• Sie haben ein Vertrauensverhältnis zu Versicherten, medizinischen Partnern und relevanten Institutionen und Organisationen.\n• Sie verbinden den Hauptsitz der Militärversicherung in Bern mit Aktivitäten in der französischsprachigen Schweiz.\n• Als Mitglied des College of Executives sind Sie aktiv an der Entwicklung der Schweizer-West-Region und der Militärversicherung in Suva Genf beteiligt. Was du mitbringst\n• Sie haben einen Master-Abschluss in Rechtswissenschaften und ein Anwaltszertifikat oder einen gleichwertigen Abschluss.\n• Sie haben nachgewiesene Erfahrung im Teammanagement, Projekt- und Prozessmanagement.\n• Sie haben mehrere Jahre Erfahrung im Bereich der Sozialversicherung oder Menschen.\n• Französisch ist Ihre Muttersprache und Sie haben ausgezeichnete Deutschkenntnisse.\n• Sie zeichnen sich durch Ihren analytischen Geist, Ihre Fähigkeit zur Synthese und Ihre Entscheidungsfreiheit aus.\n• Sie haben große relationale Leichtigkeit und genießen es, sich innerhalb einer Matrixorganisation zu entwickeln.",
+        "fr": "Ce que tu accomplis\n• Tu diriges et accompagnes une équipe d'une vingtaine de personnes chargés de la gestion de l'assurance militaire en Suisse romande.\n• Tu assures le pilotage opérationnel et budgétaire de ton secteur.\n• Tu analyses les processus, identifies les potentiels d'amélioration et contribues à l’évolution de l'assurance militaire.\n• Tu entretiens des relations de confiance avec les assurés, les partenaires médicaux, ainsi qu’avec les institutions et organisations concernées.\n• Tu fais le lien entre le siège de l'assurance militaire à Berne et les activités en Suisse romande.\n• En tant que membre du collège des cadres, tu participes activement au développement de la région Suisse-occidentale et de l'assurance militaire dans l'agence Suva Genève. Ce que tu apportes\n• Tu es titulaire d'un master en droit et d'un brevet d'avocat ou diplôme équivalent.\n• Tu as une expérience confirmée dans la conduite d'équipes, ainsi que dans la gestion de projets et de processus.\n• Tu disposes de plusieurs années d'expérience dans le domaine des assurances sociales ou de personnes.\n• Le français est ta langue maternelle et tu possèdes d'excellentes connaissances en allemand.\n• Tu te distingues par ton esprit d'analyse, ta capacité de synthèse et ton aisance dans la prise de décision.\n• Tu fais preuve d'une grande aisance relationnelle et apprécies évoluer au sein d'une organisation matricielle."
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://jobs.suva.ch/job/Gen%C3%A8ve-Chef%E2%88%99fe-de-secteur-assurance-militaire-80-100-GE-1207/1426208033/",
+      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-11T13:39:18.590Z",
+      "addressLocality": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1207",
+      "streetAddress": "Rue Ami-Lullin 12",
+      "category": "Assicurazioni",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://jobs.suva.ch/job/Gen%C3%A8ve-Chef%E2%88%99fe-de-secteur-assurance-militaire-80-100-GE-1207/1426208033/",
+      "pensum": "80-100%",
+      "sfJobId": "1426208033",
+      "previousSlugs": [
+        "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve",
+        "settore-assicurazione-militare-capo-80-100-suva-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve",
+          "settore-assicurazione-militare-capo-80-100-suva-geneve"
+        ],
+        "en": [
+          "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve"
+        ],
+        "de": [
+          "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve"
+        ]
+      },
+      "firstSeenAt": "2026-08-17T10:09:56.496Z",
+      "salaryMin": 90000,
+      "salaryMax": 149500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 90000,
+          "maxValue": 149500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GE"
+    },
     {
       "id": "suva-a09695abc6ad",
       "slug": "costi-medici-specialistici-stazionari-80-100-suva-aarau-solothurn",
@@ -33,7 +356,7 @@
       "url": "https://jobs.suva.ch/job/Aarau-Spezialistin-Heilkosten-station%C3%A4r-80-100-AG-5000/1435309533/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:34.121Z",
+      "crawledAt": "2026-09-11T13:39:17.519Z",
       "addressLocality": "Aarau | Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -113,7 +436,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Kundenbetreuung-Rentenleistungen-100-LU-6004/1425534333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:33.220Z",
+      "crawledAt": "2026-09-11T13:39:16.490Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -147,6 +470,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:09:53.318Z",
+      "needsRetranslation": true,
       "salaryMin": 61000,
       "salaryMax": 101000,
       "salarySource": "estimated",
@@ -193,7 +517,7 @@
       "url": "https://jobs.suva.ch/job/Z%C3%BCrich-Fach%C3%A4rztin-Facharzt-Neurologie-80-100-ZH-8002/1387059033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:32.129Z",
+      "crawledAt": "2026-09-11T13:39:15.419Z",
       "addressLocality": "Winterthur | Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -243,87 +567,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "suva-635ce1f034fe",
-      "slug": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-sion",
-      "slugByLocale": {
-        "it": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-sion",
-        "en": "apprenticeship-2027-trade-employee-cfc-100-suva-sion",
-        "de": "lehrling-2027-berufstatiger-cfc-100-suva-sion",
-        "fr": "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %",
-      "titleByLocale": {
-        "it": "Apprendistato 2027 dipendente commerciale CFC 100%",
-        "en": "Apprenticeship 2027 trade employee CFC 100%",
-        "de": "Lehrling 2027 Berufstätiger CFC 100%",
-        "fr": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %"
-      },
-      "description": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !",
-      "descriptionByLocale": {
-        "it": "Vuoi scoprire il mondo dell'assicurazione e prenderti gradualmente la responsabilità? Allora sei nel posto giusto!",
-        "en": "You want to discover the world of insurance and gradually take responsibility? Then you're in the right place!",
-        "de": "Möchten Sie die Welt der Versicherung entdecken und schrittweise Verantwortung übernehmen? Dann bist du am richtigen Ort!",
-        "fr": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://jobs.suva.ch/job/Sion-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-VS-1950/1431769833/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:10:31.188Z",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "streetAddress": "Avenue de Tourbillon 36",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://jobs.suva.ch/job/Sion-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-VS-1950/1431769833/",
-      "pensum": "100%",
-      "sfJobId": "1431769833",
-      "previousSlugs": [
-        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion",
-        "apprendistato-2027-dipendente-commerciale-cfc-100-suva-sion"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion",
-          "apprendistato-2027-dipendente-commerciale-cfc-100-suva-sion"
-        ],
-        "en": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion"
-        ],
-        "de": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T22:32:52.710Z",
-      "salaryMin": 57000,
-      "salaryMax": 87500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57000,
-          "maxValue": 87500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS"
-    },
-    {
       "id": "suva-36471dc778f7",
       "slug": "psichiatria-specialistica-tutti-i-sessi-80-100-suva-ticino",
       "slugByLocale": {
@@ -354,7 +597,7 @@
       "url": "https://jobs.suva.ch/job/St_-Gallen-Fach%C3%A4rztin-Facharzt-Psychiatrie-%28alle-Geschlechter%29-80-100-SG-9000/1371896633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:30.079Z",
+      "crawledAt": "2026-09-11T13:39:14.377Z",
       "addressLocality": "San Gallo",
       "addressCountry": "CH",
       "country": "CH",
@@ -434,7 +677,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Projektassistentin-Baumanagement-60-80-LU-6004/1434835333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:29.192Z",
+      "crawledAt": "2026-09-11T13:39:13.346Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -514,7 +757,7 @@
       "url": "https://jobs.suva.ch/job/Bern-Sachbearbeiterin-Kompetenz-Center-Schaden-80-100-BE-3008/1434285933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:28.314Z",
+      "crawledAt": "2026-09-11T13:39:12.276Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -594,7 +837,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Quereinsteigerin-Pr%C3%A4vention-100-LU-6004/1422839033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:27.413Z",
+      "crawledAt": "2026-09-11T13:39:11.233Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -679,7 +922,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Internal-Auditor-ICT-%28all-genders%29-80-100-LU-6004/1429647333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:26.508Z",
+      "crawledAt": "2026-09-11T13:39:10.190Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -756,7 +999,7 @@
       "url": "https://jobs.suva.ch/job/Gen%C3%A8ve-Chef%E2%88%99fe-de-team-pilotage-des-cas-80-100-GE-1207/1424788433/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:10:25.622Z",
+      "crawledAt": "2026-09-11T13:39:09.124Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -790,6 +1033,7 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:44:30.642Z",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 109000,
       "salarySource": "estimated",
@@ -836,7 +1080,7 @@
       "url": "https://jobs.suva.ch/job/Root-Leiterin-Centermanagement-D4-Business-Village-80-100-LU-6039/1424797533/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:24.717Z",
+      "crawledAt": "2026-09-11T13:39:08.082Z",
       "addressLocality": "Root",
       "addressCountry": "CH",
       "country": "CH",
@@ -915,7 +1159,7 @@
       "url": "https://jobs.suva.ch/job/Aarau-Spezialistin-Bek%C3%A4mpfung-Versicherungsmissbrauch-80-100-AG-5000/1424876233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:23.830Z",
+      "crawledAt": "2026-09-11T13:39:07.034Z",
       "addressLocality": "Argovia",
       "addressCountry": "CH",
       "country": "CH",
@@ -967,87 +1211,6 @@
       "addressRegion": "AG"
     },
     {
-      "id": "suva-bb75752f2b07",
-      "slug": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-lausanne",
-      "slugByLocale": {
-        "it": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-lausanne",
-        "en": "apprenticeship-2027-trade-employee-cfc-100-suva-lausanne",
-        "de": "lehrling-2027-berufstatiger-cfc-100-suva-lausanne",
-        "fr": "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %",
-      "titleByLocale": {
-        "it": "Apprendistato 2027 dipendente commerciale CFC 100%",
-        "en": "Apprenticeship 2027 trade employee CFC 100%",
-        "de": "Lehrling 2027 Berufstätiger CFC 100%",
-        "fr": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %"
-      },
-      "description": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !",
-      "descriptionByLocale": {
-        "it": "Vuoi scoprire il mondo dell'assicurazione e prenderti gradualmente la responsabilità? Allora sei nel posto giusto!",
-        "en": "You want to discover the world of insurance and gradually take responsibility? Then you're in the right place!",
-        "de": "Möchten Sie die Welt der Versicherung entdecken und schrittweise Verantwortung übernehmen? Dann bist du am richtigen Ort!",
-        "fr": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://jobs.suva.ch/job/Lausanne-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-VD-1003/1431768333/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:10:22.920Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1003",
-      "streetAddress": "Avenue de la Gare 19",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://jobs.suva.ch/job/Lausanne-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-VD-1003/1431768333/",
-      "pensum": "100%",
-      "sfJobId": "1431768333",
-      "previousSlugs": [
-        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne",
-        "apprendistato-2027-dipendente-commerciale-cfc-100-suva-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne",
-          "apprendistato-2027-dipendente-commerciale-cfc-100-suva-lausanne"
-        ],
-        "en": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne"
-        ],
-        "de": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T22:32:49.424Z",
-      "salaryMin": 57000,
-      "salaryMax": 87500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57000,
-          "maxValue": 87500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
-    },
-    {
       "id": "suva-788f6d4b886f",
       "slug": "vantaggi-specialistici-a-breve-termine-80-100-suva-basel-luzern",
       "slugByLocale": {
@@ -1078,7 +1241,7 @@
       "url": "https://jobs.suva.ch/job/Basel-Spezialistin-Kurzfristgeldleistungen-80-100-BS-4052/1432420333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:22.028Z",
+      "crawledAt": "2026-09-11T13:39:05.974Z",
       "addressLocality": "Basel | Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1160,7 +1323,7 @@
       "url": "https://jobs.suva.ch/job/Basel-Sachbearbeiterin-Kompetenz-Center-Schaden-80-100-BS-4052/1434285433/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:21.095Z",
+      "crawledAt": "2026-09-11T13:39:04.918Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1240,7 +1403,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Bauingenieurin-Baumeisterin-80%C2%A0-%C2%A0100%C2%A0-LU-6004/1383023233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:20.242Z",
+      "crawledAt": "2026-09-11T13:39:03.850Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1274,6 +1437,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:44.466Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1320,7 +1484,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-HR-Nachwuchsentwicklung-100-LU-6004/1423913433/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:19.354Z",
+      "crawledAt": "2026-09-11T13:39:02.688Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1348,6 +1512,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:09:52.233Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -1394,7 +1559,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Customer-Service-Center-100-LU-6004/1423913333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:18.332Z",
+      "crawledAt": "2026-09-11T13:39:01.600Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1425,6 +1590,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:09:54.463Z",
+      "needsRetranslation": true,
       "salaryMin": 61000,
       "salaryMax": 101000,
       "salarySource": "estimated",
@@ -1471,7 +1637,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Kundenmanagement-und-Kommunikation-100-LU-6004/1423912633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:17.462Z",
+      "crawledAt": "2026-09-11T13:39:00.576Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1516,6 +1682,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:09:55.470Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 106500,
       "salarySource": "estimated",
@@ -1546,7 +1713,7 @@
       "title": "Senior Business Consultant (alle Geschlechter) 80 - 100 %",
       "titleByLocale": {
         "it": "Senior Business Consultant (tutti i sessi) 80 - 100%",
-        "en": "Senior Business Consultant (all genders) 80 - 100%",
+        "en": "Senior Business Consultant (alle Geschlechter) 80 - 100 %",
         "de": "Senior Business Berater (alle Geschlechter) 80 - 100 %",
         "fr": "Consultant principal en affaires (tous genres) 80 - 100%"
       },
@@ -1562,7 +1729,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Senior-Business-Consultant-%28alle-Geschlechter%29-80-100-LU-6004/1430131133/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:16.585Z",
+      "crawledAt": "2026-09-11T13:38:59.519Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1590,6 +1757,7 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:00:24.400Z",
+      "needsRetranslation": true,
       "salaryMin": 102500,
       "salaryMax": 170000,
       "salarySource": "estimated",
@@ -1636,7 +1804,7 @@
       "url": "https://jobs.suva.ch/job/Lucerne-Sp%C3%A9cialiste-oppositions-60-100-LU-6004/1426867233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:10:15.685Z",
+      "crawledAt": "2026-09-11T13:38:58.372Z",
       "addressLocality": "Lucerne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1669,6 +1837,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:10:04.766Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1715,7 +1884,7 @@
       "url": "https://jobs.suva.ch/job/Bern-Rechtsanw%C3%A4ltin-Rechtsanwalt-Milit%C3%A4rversicherung-%28alle-Geschlechter%29-80-100-BE-3008/1415800833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:14.804Z",
+      "crawledAt": "2026-09-11T13:38:57.332Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1749,6 +1918,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:54:52.014Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -1795,7 +1965,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Spezialistin-Arbeitssicherheit-und-Gesundheitsschutz-60-100-LU-6004/1430437233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:13.903Z",
+      "crawledAt": "2026-09-11T13:38:56.293Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1878,7 +2048,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-SAP-Basis-Engineer-%28all-genders%29-80-100-LU-6004/1428590033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:13.018Z",
+      "crawledAt": "2026-09-11T13:38:55.242Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1896,6 +2066,7 @@
       "pensum": "80-100%",
       "sfJobId": "1428590033",
       "firstSeenAt": "2026-08-24T10:06:55.900Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1942,7 +2113,7 @@
       "url": "https://jobs.suva.ch/job/Wetzikon-Spezialistin-Kurzfristgeldleistungen-80-100-ZH-8620/1420760933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:11.899Z",
+      "crawledAt": "2026-09-11T13:38:54.165Z",
       "addressLocality": "Wetzikon | Ziegelbrücke",
       "addressCountry": "CH",
       "country": "CH",
@@ -2022,7 +2193,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Sachbearbeiterin-Customer-Service-Center-100-DEFR-LU-6004/1431399033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:10.995Z",
+      "crawledAt": "2026-09-11T13:38:53.104Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2101,7 +2272,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Produktmanagerin-Projektleiterin-Pr%C3%A4vention-80-100-LU-6004/1407285633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:09.977Z",
+      "crawledAt": "2026-09-11T13:38:52.028Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2137,6 +2308,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:52:44.412Z",
+      "needsRetranslation": true,
       "salaryMin": 102500,
       "salaryMax": 170000,
       "salarySource": "estimated",
@@ -2183,7 +2355,7 @@
       "url": "https://jobs.suva.ch/job/Fribourg-Sp%C3%A9cialiste-en-s%C3%A9curit%C3%A9-int%C3%A9gr%C3%A9e-80-100-FR-1700/1409237433/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:10:09.104Z",
+      "crawledAt": "2026-09-11T13:38:50.983Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -2217,6 +2389,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:37.715Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2263,7 +2436,7 @@
       "url": "https://jobs.suva.ch/job/Bern-Spezialistin-Fallf%C3%BChrung-80-100-BE-3008/1426861633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:10:08.182Z",
+      "crawledAt": "2026-09-11T13:38:49.944Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2311,167 +2484,6 @@
         }
       },
       "addressRegion": "BE"
-    },
-    {
-      "id": "suva-3b96995a9ca6",
-      "slug": "settore-assicurazione-militare-capo-80-100-suva-geneve",
-      "slugByLocale": {
-        "it": "settore-assicurazione-militare-capo-80-100-suva-geneve",
-        "en": "chief-military-insurance-sector-80-100-suva-geneve",
-        "de": "chef-militarversicherungssektor-80-100-suva-geneve",
-        "fr": "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Chef∙fe de secteur assurance militaire 80 - 100 %",
-      "titleByLocale": {
-        "it": "Settore Assicurazione Militare Capo 80 - 100%",
-        "en": "Chief Military Insurance Sector 80 - 100%",
-        "de": "Chef Militärversicherungssektor 80 - 100%",
-        "fr": "Chef∙fe de secteur assurance militaire 80 - 100 %"
-      },
-      "description": "Ce que tu accomplis\n• Tu diriges et accompagnes une équipe d'une vingtaine de personnes chargés de la gestion de l'assurance militaire en Suisse romande.\n• Tu assures le pilotage opérationnel et budgétaire de ton secteur.\n• Tu analyses les processus, identifies les potentiels d'amélioration et contribues à l’évolution de l'assurance militaire.\n• Tu entretiens des relations de confiance avec les assurés, les partenaires médicaux, ainsi qu’avec les institutions et organisations concernées.\n• Tu fais le lien entre le siège de l'assurance militaire à Berne et les activités en Suisse romande.\n• En tant que membre du collège des cadres, tu participes activement au développement de la région Suisse-occidentale et de l'assurance militaire dans l'agence Suva Genève. Ce que tu apportes\n• Tu es titulaire d'un master en droit et d'un brevet d'avocat ou diplôme équivalent.\n• Tu as une expérience confirmée dans la conduite d'équipes, ainsi que dans la gestion de projets et de processus.\n• Tu disposes de plusieurs années d'expérience dans le domaine des assurances sociales ou de personnes.\n• Le français est ta langue maternelle et tu possèdes d'excellentes connaissances en allemand.\n• Tu te distingues par ton esprit d'analyse, ta capacité de synthèse et ton aisance dans la prise de décision.\n• Tu fais preuve d'une grande aisance relationnelle et apprécies évoluer au sein d'une organisation matricielle.",
-      "descriptionByLocale": {
-        "it": "Che cosa fai\n• Si guida e accompagna un team di circa 20 persone responsabili della gestione dell'assicurazione militare in Svizzera francofona.\n• Sei responsabile del controllo operativo e di bilancio del tuo settore.\n• Si analizzano i processi, si identificano potenziali miglioramenti e contribuiscono all'evoluzione dell'assicurazione militare.\n• Hai un rapporto di fiducia con persone assicurate, partner medici e istituzioni e organizzazioni rilevanti.\n• Lei collega la sede dell'assicurazione militare a Berna alle attività in Svizzera francofona.\n• Come membro del College of Executives, sei attivamente coinvolto nello sviluppo della regione svizzera-occidentale e dell'assicurazione militare a Suva Ginevra. Cosa porti\n• Hai un master in diritto e un certificato di avvocato o un diploma equivalente.\n• Hai dimostrato esperienza nella gestione del team, nella gestione dei progetti e dei processi.\n• Hai diversi anni di esperienza nel campo dell'assicurazione sociale o delle persone.\n• Il francese è la tua lingua madre e hai una conoscenza eccellente del tedesco.\n• Si distingue per il vostro spirito analitico, la vostra capacità di sintesi e la vostra facilità nel processo decisionale.\n• Hai grande facilità relazionale e godere di evolversi all'interno di un'organizzazione di matrice.",
-        "en": "What You Do\n• You lead and accompany a team of about 20 people in charge of the management of military insurance in French-speaking Switzerland.\n• You are responsible for the operational and budgetary control of your sector.\n• You analyze processes, identify potential improvements and contribute to the evolution of military insurance.\n• You have a relationship of trust with insured persons, medical partners, and relevant institutions and organisations.\n• You link the headquarters of military insurance in Bern to activities in French-speaking Switzerland.\n• As a member of the College of Executives, you are actively involved in the development of the Swiss-Western region and military insurance in Suva Geneva. What you bring\n• You have a master's degree in law and a lawyer's certificate or equivalent degree.\n• You have proven experience in team management, project and process management.\n• You have several years of experience in the field of social insurance or people.\n• French is your mother tongue and you have excellent knowledge of German.\n• You stand out for your analytical spirit, your capacity for synthesis and your ease in decision-making.\n• You have great relational ease and enjoy evolving within a matrix organization.",
-        "de": "Was Sie tun\n• Du leitest und begleitest ein Team von rund 20 Personen, das für die Verwaltung der Militärversicherung in der französischsprachigen Schweiz zuständig ist.\n• Sie sind für die Betriebs- und Haushaltskontrolle Ihres Sektors verantwortlich.\n• Sie analysieren Prozesse, identifizieren mögliche Verbesserungen und tragen zur Entwicklung der Militärversicherung bei.\n• Sie haben ein Vertrauensverhältnis zu Versicherten, medizinischen Partnern und relevanten Institutionen und Organisationen.\n• Sie verbinden den Hauptsitz der Militärversicherung in Bern mit Aktivitäten in der französischsprachigen Schweiz.\n• Als Mitglied des College of Executives sind Sie aktiv an der Entwicklung der Schweizer-West-Region und der Militärversicherung in Suva Genf beteiligt. Was du mitbringst\n• Sie haben einen Master-Abschluss in Rechtswissenschaften und ein Anwaltszertifikat oder einen gleichwertigen Abschluss.\n• Sie haben nachgewiesene Erfahrung im Teammanagement, Projekt- und Prozessmanagement.\n• Sie haben mehrere Jahre Erfahrung im Bereich der Sozialversicherung oder Menschen.\n• Französisch ist Ihre Muttersprache und Sie haben ausgezeichnete Deutschkenntnisse.\n• Sie zeichnen sich durch Ihren analytischen Geist, Ihre Fähigkeit zur Synthese und Ihre Entscheidungsfreiheit aus.\n• Sie haben große relationale Leichtigkeit und genießen es, sich innerhalb einer Matrixorganisation zu entwickeln.",
-        "fr": "Ce que tu accomplis\n• Tu diriges et accompagnes une équipe d'une vingtaine de personnes chargés de la gestion de l'assurance militaire en Suisse romande.\n• Tu assures le pilotage opérationnel et budgétaire de ton secteur.\n• Tu analyses les processus, identifies les potentiels d'amélioration et contribues à l’évolution de l'assurance militaire.\n• Tu entretiens des relations de confiance avec les assurés, les partenaires médicaux, ainsi qu’avec les institutions et organisations concernées.\n• Tu fais le lien entre le siège de l'assurance militaire à Berne et les activités en Suisse romande.\n• En tant que membre du collège des cadres, tu participes activement au développement de la région Suisse-occidentale et de l'assurance militaire dans l'agence Suva Genève. Ce que tu apportes\n• Tu es titulaire d'un master en droit et d'un brevet d'avocat ou diplôme équivalent.\n• Tu as une expérience confirmée dans la conduite d'équipes, ainsi que dans la gestion de projets et de processus.\n• Tu disposes de plusieurs années d'expérience dans le domaine des assurances sociales ou de personnes.\n• Le français est ta langue maternelle et tu possèdes d'excellentes connaissances en allemand.\n• Tu te distingues par ton esprit d'analyse, ta capacité de synthèse et ton aisance dans la prise de décision.\n• Tu fais preuve d'une grande aisance relationnelle et apprécies évoluer au sein d'une organisation matricielle."
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://jobs.suva.ch/job/Gen%C3%A8ve-Chef%E2%88%99fe-de-secteur-assurance-militaire-80-100-GE-1207/1426208033/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:10:07.226Z",
-      "addressLocality": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1207",
-      "streetAddress": "Rue Ami-Lullin 12",
-      "category": "Assicurazioni",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://jobs.suva.ch/job/Gen%C3%A8ve-Chef%E2%88%99fe-de-secteur-assurance-militaire-80-100-GE-1207/1426208033/",
-      "pensum": "80-100%",
-      "sfJobId": "1426208033",
-      "previousSlugs": [
-        "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve",
-        "settore-assicurazione-militare-capo-80-100-suva-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve",
-          "settore-assicurazione-militare-capo-80-100-suva-geneve"
-        ],
-        "en": [
-          "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve"
-        ],
-        "de": [
-          "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve"
-        ]
-      },
-      "firstSeenAt": "2026-08-17T10:09:56.496Z",
-      "salaryMin": 90000,
-      "salaryMax": 149500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 90000,
-          "maxValue": 149500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GE"
-    },
-    {
-      "id": "suva-4a959a82c204",
-      "slug": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-geneve",
-      "slugByLocale": {
-        "it": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-geneve",
-        "en": "apprenticeship-2027-trade-employee-cfc-100-suva-geneve",
-        "de": "lehrling-2027-berufstatiger-cfc-100-suva-geneve",
-        "fr": "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %",
-      "titleByLocale": {
-        "it": "Apprendistato 2027 dipendente commerciale CFC 100%",
-        "en": "Apprenticeship 2027 trade employee CFC 100%",
-        "de": "Lehrling 2027 Berufstätiger CFC 100%",
-        "fr": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %"
-      },
-      "description": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !",
-      "descriptionByLocale": {
-        "it": "Vuoi scoprire il mondo dell'assicurazione e prenderti gradualmente la responsabilità? Allora sei nel posto giusto!",
-        "en": "You want to discover the world of insurance and gradually take responsibility? Then you're in the right place!",
-        "de": "Möchten Sie die Welt der Versicherung entdecken und schrittweise Verantwortung übernehmen? Dann bist du am richtigen Ort!",
-        "fr": "Tu souhaites découvrir le monde de l’assurance et prendre progressivement des responsabilités ? Alors tu es au bon endroit !"
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://jobs.suva.ch/job/Gen%C3%A8ve-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-GE-1207/1431769133/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:10:04.472Z",
-      "addressLocality": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1207",
-      "streetAddress": "Rue Ami-Lullin 12",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://jobs.suva.ch/job/Gen%C3%A8ve-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-GE-1207/1431769133/",
-      "pensum": "100%",
-      "sfJobId": "1431769133",
-      "previousSlugs": [
-        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve",
-        "apprendistato-2027-dipendente-commerciale-cfc-100-suva-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve",
-          "apprendistato-2027-dipendente-commerciale-cfc-100-suva-geneve"
-        ],
-        "en": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve"
-        ],
-        "de": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T22:32:50.520Z",
-      "salaryMin": 57000,
-      "salaryMax": 87500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57000,
-          "maxValue": 87500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GE"
     },
     {
       "id": "suva-e9247ee03bea",
@@ -2550,73 +2562,8 @@
         }
       },
       "addressRegion": "LU",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "suva-bd970a26367d",
-      "slug": "social-media-manager-in-60-suva-luzern",
-      "slugByLocale": {
-        "it": "social-media-manager-in-60-suva-luzern",
-        "en": "social-media-manager-in-60-suva-luzern",
-        "de": "social-media-manager-in-60-suva-luzern",
-        "fr": "gestionnaire-des-medias-sociaux-60-suva-luzern"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Social Media Manager:in 60 %",
-      "titleByLocale": {
-        "it": "Social Media Manager: 60%",
-        "en": "Social Media Manager:in 60 %",
-        "de": "Social Media Manager:in 60 %",
-        "fr": "Gestionnaire des médias sociaux : 60%"
-      },
-      "description": "Du brennst für Social Media und verwandelst kreative Ideen in erfolgreichen Content. Dann bist du bei uns richtig. Was du bewirkst\n• Du erkennst neue Trends und entwickelst unsere Social-Media-Kanäle strategisch und operativ weiter.\n• Gemeinsam mit Agenturen konzipierst und produzierst du zielgruppengerechten Content, der Reichweite, Interaktion und Markenbindung stärkt.\n• Du koordinierst die Inhalte im Newsroom und steuerst kanalübergreifende Kampagnen.\n• Du betreust das Community Management und berätst interne Anspruchsgruppen zu Social Media. Was du mitbringst\n• Du hast ein abgeschlossenes Hochschulstudium oder eine gleichwertige Ausbildung in Kommunikation, Marketing oder Multimedia-Produktion sowie mehrjährige Berufserfahrung im Social-Media-Management.\n• Du schreibst stilsicher und hast ein gutes Gespür für verschiedene Zielgruppen.\n• Du verfügst über ein ausgeprägtes digitales Verständnis und kennst die wichtigsten Social-Media-Plattformen, Content-Formate und Projektmanagement-Tools.\n• Du arbeitest selbstständig, strukturiert und bringst deine Ideen mit Eigeninitiative und Tatkraft ein.\n• Du bist eine teamorientierte Persönlichkeit mit Beratungskompetenz, Durchsetzungsvermögen und Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen.",
-      "descriptionByLocale": {
-        "it": "Cosa fai\n• Riconoscerai nuove tendenze e svilupperai i nostri canali social media in modo strategico e operativo.\n• Insieme alle agenzie, si progetta e produce contenuti orientati al gruppo target che rafforza la portata, l'interazione e la lealtà del marchio.\n• Coordinate i contenuti nelle newsroom e controllate le campagne cross-channel.\n• Gestisci la gestione della comunità e consiglia gli stakeholder interni sui social media. Cosa porti\n• Hai completato gli studi universitari o una formazione equivalente nella comunicazione, marketing o produzione multimediale, nonché diversi anni di esperienza professionale nella gestione dei social media.\n• Si scrive elegantemente e hanno una buona sensazione per diversi gruppi target.\n• Hai una forte comprensione digitale e conosci le più importanti piattaforme di social media, i formati di contenuti e gli strumenti di project management.\n• Lavorate in modo indipendente, strutturato e portate le vostre idee con iniziativa ed energia.\n• Sei una personalità orientata al team con competenze di consulenza, assertività e piacere nel lavorare con diverse aree specialistiche.",
-        "en": "What you do\n• You will recognize new trends and develop our social media channels strategically and operationally.\n• Together with agencies, you design and produce target-group-oriented content that strengthens reach, interaction and brand loyalty.\n• You coordinate the content in the newsroom and control cross-channel campaigns.\n• You manage community management and advise internal stakeholders on social media. What you bring\n• You have completed university studies or an equivalent education in communication, marketing or multimedia production as well as several years of professional experience in social media management.\n• You write stylishly and have a good feeling for different target groups.\n• You have a strong digital understanding and know the most important social media platforms, content formats and project management tools.\n• You work independently, structured and bring your ideas with initiative and energy.\n• You are a team-oriented personality with consulting skills, assertiveness and pleasure in working with different specialist areas.",
-        "de": "Du brennst für Social Media und verwandelst kreative Ideen in erfolgreichen Content. Dann bist du bei uns richtig. Was du bewirkst\n• Du erkennst neue Trends und entwickelst unsere Social-Media-Kanäle strategisch und operativ weiter.\n• Gemeinsam mit Agenturen konzipierst und produzierst du zielgruppengerechten Content, der Reichweite, Interaktion und Markenbindung stärkt.\n• Du koordinierst die Inhalte im Newsroom und steuerst kanalübergreifende Kampagnen.\n• Du betreust das Community Management und berätst interne Anspruchsgruppen zu Social Media. Was du mitbringst\n• Du hast ein abgeschlossenes Hochschulstudium oder eine gleichwertige Ausbildung in Kommunikation, Marketing oder Multimedia-Produktion sowie mehrjährige Berufserfahrung im Social-Media-Management.\n• Du schreibst stilsicher und hast ein gutes Gespür für verschiedene Zielgruppen.\n• Du verfügst über ein ausgeprägtes digitales Verständnis und kennst die wichtigsten Social-Media-Plattformen, Content-Formate und Projektmanagement-Tools.\n• Du arbeitest selbstständig, strukturiert und bringst deine Ideen mit Eigeninitiative und Tatkraft ein.\n• Du bist eine teamorientierte Persönlichkeit mit Beratungskompetenz, Durchsetzungsvermögen und Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen.",
-        "fr": "Ce que tu fais\n• Vous reconnaîtrez les nouvelles tendances et développerez nos canaux de médias sociaux de façon stratégique et opérationnelle.\n• Avec les agences, vous concevez et produisez des contenus axés sur des groupes cibles qui renforcent la portée, l'interaction et la fidélité de la marque.\n• Vous coordonnez le contenu dans la salle de presse et contrôlez les campagnes cross-channel.\n• Vous gérez la gestion communautaire et conseillez les intervenants internes sur les médias sociaux. Ce que vous apportez\n• Vous avez terminé des études universitaires ou une formation équivalente en communication, marketing ou production multimédia ainsi que plusieurs années d'expérience professionnelle en gestion des médias sociaux.\n• Vous écrivez élégamment et avez une bonne sensation pour différents groupes cibles.\n• Vous avez une solide compréhension numérique et connaissez les plateformes de médias sociaux, les formats de contenu et les outils de gestion de projet les plus importants.\n• Vous travaillez de manière indépendante, structurée et apportez vos idées avec initiative et énergie.\n• Vous êtes une personnalité axée sur l'équipe avec des compétences de conseil, d'affirmation et de plaisir à travailler avec différents domaines spécialisés."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.suva.ch/job/Luzern-Social-Media-Managerin-60-LU-6004/1423914033/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:48:14.697Z",
-      "addressLocality": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6004",
-      "streetAddress": "Fluhmattstrasse 1",
-      "category": "Assicurazioni",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://jobs.suva.ch/job/Luzern-Social-Media-Managerin-60-LU-6004/1423914033/",
-      "pensum": "60%",
-      "sfJobId": "1423914033",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T10:09:49.921Z",
-      "salaryMin": 61500,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 61500,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "LU",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
