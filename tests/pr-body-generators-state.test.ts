@@ -84,7 +84,7 @@ async function walk(dir: string, out: string[]): Promise<void> {
       if (e.isDirectory()) {
         if (SKIP_DIR.has(e.name)) return;
         await walk(full, out);
-      } else if (SCAN_EXT.has(path.extname(e.name))) {
+      } else if ((e.isFile() || e.isSymbolicLink()) && SCAN_EXT.has(path.extname(e.name))) {
         out.push(full);
       }
     }),
@@ -162,7 +162,7 @@ function promptBlocks(text: string): string[] {
   const out: string[] = [];
   const lines = text.split(/\r?\n/);
   for (let i = 0; i < lines.length; i++) {
-    const m = /^(\s*)prompt:\s*[|>](?:[+-]?\d?|\d?[+-]?)(?:[ \t]+(?:#.*)?)?$/.exec(lines[i]);
+    const m = /^(\s*)prompt:\s*([|>])(?:[+-]?\d?|\d?[+-]?)(?:[ \t]+(?:#.*)?)?$/.exec(lines[i]);
     if (!m) continue;
     const indent = m[1].length;
     const buf: string[] = [];
@@ -173,7 +173,17 @@ function promptBlocks(text: string): string[] {
       if (ind <= indent) break;
       buf.push(l);
     }
-    out.push(buf.join('\n'));
+    const nonEmpty = buf.filter((line) => line.trim() !== '');
+    const commonIndent = nonEmpty.length === 0
+      ? 0
+      : Math.min(...nonEmpty.map((line) => line.length - line.replace(/^\s*/, '').length));
+    const normalized = buf
+      .map((line) => line.trim() === '' ? '' : line.slice(commonIndent))
+      .join('\n')
+      .trimEnd();
+    out.push(m[2] === '>'
+      ? normalized.replace(/([^\n])\n(?=[^\n])/g, '$1 ')
+      : normalized);
   }
   return out;
 }
@@ -207,7 +217,7 @@ describe('generatori del body PR — sezione dei residui', () => {
     const workflowSources = sources.filter((s) => /^\.github\/workflows\/[^/]+\.(?:yml|yaml)$/.test(s.rel));
     const workflowDir = path.join(REPO, '.github/workflows');
     const workflowFiles = (await fs.readdir(workflowDir, { withFileTypes: true }))
-      .filter((entry) => entry.isFile() && /\.(?:yml|yaml)$/.test(entry.name))
+      .filter((entry) => (entry.isFile() || entry.isSymbolicLink()) && /\.(?:yml|yaml)$/.test(entry.name))
       .map((entry) => `.github/workflows/${entry.name}`)
       .sort();
     expect(
@@ -226,6 +236,10 @@ describe('generatori del body PR — sezione dei residui', () => {
         `${workflow.rel}: il parser non ha estratto il block scalar prompt`,
       ).toBeGreaterThan(0);
     }
+    expect(
+      promptWorkflows.flatMap((workflow) => promptBlocks(workflow.text)).length,
+      'il numero totale di prompt deve impedire che il discovery si riduca a un solo caso',
+    ).toBeGreaterThanOrEqual(10);
 
     const offenders: string[] = [];
     for (const workflow of workflowSources) {

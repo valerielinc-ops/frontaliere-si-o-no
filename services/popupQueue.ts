@@ -28,6 +28,7 @@ interface QueueEntry {
 
 let queue: QueueEntry[] = [];
 let activeId: string | null = null;
+let activePriority: number | null = null;
 const listeners = new Set<Listener>();
 let promotionTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -47,6 +48,7 @@ function promoteNext() {
  cancelPromotionTimer();
  if (queue.length === 0) {
  activeId = null;
+ activePriority = null;
  notify();
  return;
  }
@@ -55,11 +57,13 @@ function promoteNext() {
  promotionTimer = null;
  if (queue.length === 0) {
  activeId = null;
+ activePriority = null;
  notify();
  return;
  }
  queue.sort((a, b) => b.priority - a.priority || a.requestedAt - b.requestedAt);
  activeId = queue[0].id;
+ activePriority = queue[0].priority;
  notify();
  }, 500);
 }
@@ -73,12 +77,18 @@ export function requestSlot(id: string, priority: number): boolean {
  const existing = queue.find((e) => e.id === id);
  if (existing) {
  existing.priority = priority;
- if (activeId === id) return true;
+ if (activeId === id) {
+ activePriority = priority;
+ return true;
+ }
  // Re-evaluate if this should preempt current
  if (activeId) {
  const currentEntry = queue.find((e) => e.id === activeId);
- if (currentEntry && priority > currentEntry.priority) {
+ const currentPriority = currentEntry?.priority ?? activePriority;
+ if (currentPriority !== null && priority > currentPriority) {
+ cancelPromotionTimer();
  activeId = id;
+ activePriority = priority;
  notify();
  return true;
  }
@@ -90,14 +100,18 @@ export function requestSlot(id: string, priority: number): boolean {
 
  if (activeId === null) {
  activeId = id;
+ activePriority = priority;
  notify();
  return true;
  }
 
  // Preempt if higher priority than current
  const currentEntry = queue.find((e) => e.id === activeId);
- if (currentEntry && priority > currentEntry.priority) {
+ const currentPriority = currentEntry?.priority ?? activePriority;
+ if (currentPriority !== null && priority > currentPriority) {
+ cancelPromotionTimer();
  activeId = id;
+ activePriority = priority;
  notify();
  return true;
  }
@@ -114,9 +128,10 @@ export function releaseSlot(id: string) {
  if (activeId === id) {
   promoteNext();
  } else if (queue.length === 0 && promotionTimer !== null) {
-  cancelPromotionTimer();
-  activeId = null;
-  notify();
+ cancelPromotionTimer();
+ activeId = null;
+ activePriority = null;
+ notify();
  }
 }
 

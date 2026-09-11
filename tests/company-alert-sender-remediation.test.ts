@@ -45,7 +45,7 @@ function alert(
   id: string,
   companyKey: string,
   extra: Record<string, unknown> = {},
-) {
+): any {
   return {
     id,
     ref: ref(`job_alert_subscribers/fixture/alerts/${id}`),
@@ -478,7 +478,7 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
       NOW + 1,
       'per-run-cap',
     );
-    expect(throughputWrite.deliveryLedger['b6-racing-job'].attempts).toBe(1);
+    expect(throughputWrite.deliveryLedger['b6-racing-job']).not.toHaveProperty('attempts');
 
     const db = serializedDb({
       [sourceAlert.ref.path]: {
@@ -546,6 +546,90 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
         },
       },
     });
+  });
+
+  it('does not consume the failure budget on repeated throughput deferrals', () => {
+    const sourceAlert = alert('b6-throughput-budget', 'Acme');
+    const sourceJob = job('b6-throughput-budget-job', 'Acme', 'acme');
+    let persistedAlert = sourceAlert;
+
+    for (let attempt = 1; attempt <= DEFERRED_MAX_ATTEMPTS + 1; attempt += 1) {
+      const [write] = planDeferredDeliveryWrites([{
+        alert: persistedAlert,
+        jobs: [sourceJob],
+      }], NOW + attempt, 'per-run-cap');
+      expect(write.deliveryDeferredAttempts).toBeUndefined();
+      expect(write.deliveryLedger[sourceJob.id]).toMatchObject({
+        state: DELIVERY_STATES.DEFERRED,
+      });
+      persistedAlert = {
+        ...persistedAlert,
+        deliveryLedger: write.deliveryLedger,
+      };
+    }
+
+    expect(hasDeferredCompanyAlertWork([persistedAlert])).toBe(true);
+  });
+
+  it.each([DELIVERY_STATES.CLAIMED, DELIVERY_STATES.FAILED])(
+    'increments a failure deferral from a prior %s entry',
+    (priorState) => {
+      const sourceJob = job(`b6-failure-after-${priorState}`, 'Acme', 'acme');
+      const sourceAlert = alert(`b6-failure-after-${priorState}`, 'Acme', {
+        deliveryLedger: {
+          [sourceJob.id]: {
+            state: priorState,
+            at: NOW,
+            attempts: 2,
+          },
+        },
+      });
+
+      const [write] = planDeferredDeliveryWrites([{
+        alert: sourceAlert,
+        jobs: [sourceJob],
+      }], NOW + 1, 'consent-lookup-failed');
+
+      expect(write.deliveryLedger[sourceJob.id]).toMatchObject({
+        state: DELIVERY_STATES.DEFERRED,
+        attempts: 3,
+      });
+    },
+  );
+
+  it('coalesces the maximum per-job attempt regardless of write order', () => {
+    const sourceAlert = alert('b6-coalesce-order', 'Acme');
+    const sourceJob = job('b6-coalesce-order-job', 'Acme', 'acme');
+    const writes = [
+      {
+        ref: sourceAlert.ref,
+        deliveryLedger: {
+          [sourceJob.id]: {
+            state: DELIVERY_STATES.DEFERRED,
+            at: NOW,
+            attempts: 2,
+          },
+        },
+        reason: 'consent-lookup-failed',
+        at: NOW,
+      },
+      {
+        ref: sourceAlert.ref,
+        deliveryLedger: {
+          [sourceJob.id]: {
+            state: DELIVERY_STATES.DEFERRED,
+            at: NOW + 1,
+            attempts: 3,
+          },
+        },
+        reason: 'consent-lookup-failed',
+        at: NOW + 1,
+      },
+    ];
+
+    for (const order of [writes, [...writes].reverse()]) {
+      expect(coalesceDeliveryWrites(order)[0].deliveryLedger[sourceJob.id].attempts).toBe(3);
+    }
   });
 
   it('counts repeated deferrals per alert, not per job key', () => {

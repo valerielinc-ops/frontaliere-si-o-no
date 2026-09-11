@@ -14,6 +14,8 @@ const WAITING_SLOT = 'c3b-waiting';
 const GUIDE_SLOT = 'c3b-guide-equal';
 const COMPANY_SLOT = 'c3b-company-equal';
 const LATER_GUIDE_SLOT = 'c3b-guide-equal-later';
+const COOKIE_SLOT = 'c3b-cookie-consent';
+const CHATBOT_SLOT = 'c3b-chatbot-panel';
 
 describe('C3b — popup queue promotion timer', () => {
   afterEach(() => {
@@ -22,6 +24,8 @@ describe('C3b — popup queue promotion timer', () => {
     releaseSlot(GUIDE_SLOT);
     releaseSlot(COMPANY_SLOT);
     releaseSlot(LATER_GUIDE_SLOT);
+    releaseSlot(COOKIE_SLOT);
+    releaseSlot(CHATBOT_SLOT);
     vi.clearAllTimers();
     vi.useRealTimers();
   });
@@ -74,5 +78,22 @@ describe('C3b — popup queue promotion timer', () => {
 
     expect(getActiveSlotId()).toBe(COMPANY_SLOT);
     expect([GUIDE_SLOT, COMPANY_SLOT, LATER_GUIDE_SLOT].filter(isActive)).toEqual([COMPANY_SLOT]);
+  });
+
+  it('uses the released popup priority while its promotion window is pending', () => {
+    vi.useFakeTimers();
+
+    expect(requestSlot(GUIDE_SLOT, POPUP_PRIORITY.GUIDE_BANNER)).toBe(true);
+    expect(requestSlot(COMPANY_SLOT, POPUP_PRIORITY.COMPANY_FOLLOW_PROMPT)).toBe(false);
+    releaseSlot(GUIDE_SLOT);
+
+    expect(requestSlot(COOKIE_SLOT, POPUP_PRIORITY.COOKIE_CONSENT)).toBe(true);
+    releaseSlot(COOKIE_SLOT);
+    expect(getActiveSlotId()).toBe(COOKIE_SLOT);
+
+    expect(requestSlot(CHATBOT_SLOT, POPUP_PRIORITY.CHATBOT_PANEL)).toBe(true);
+    expect(getActiveSlotId()).toBe(CHATBOT_SLOT);
+    vi.advanceTimersByTime(500);
+    expect(getActiveSlotId()).toBe(CHATBOT_SLOT);
   });
 });
