@@ -231,6 +231,13 @@ const escapeRx = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 /** I letterali che diventano matcher (tutti tranne quelli di competenza dello slug guard). */
 const TEXT_LITERALS = SCHEMA_PLACEHOLDER_LITERALS.filter((l) => !SLUG_OWNED_LITERALS.includes(l));
 
+// Le traduzioni dell'etichetta FAQ sopravvivono al passaggio del traduttore.
+// Il numero non fa parte di questa testa: la variante non numerata è stata
+// osservata nei body pubblicati e deve avere la stessa ancora di riga della
+// variante numerata.
+const FAQ_LABEL_RX = String.raw`(?:domanda[ \t]+frequente|frequently[ \t]+asked[ \t]+questions?|foire[ \t]+aux[ \t]+questions?|question[ \t]+fr[eé]quemment[ \t]+pos[eé]e|h[aä]ufig[ \t]+gestellte[ \t]+fragen?)`;
+const FAQ_LINE_PREFIX_RX = String.raw`(?:\d+[.)][ \t]*|[*#>\-–—]+[ \t]*)?`;
+
 /**
  * ── LE REGOLE ─────────────────────────────────────────────────────────────
  *
@@ -382,8 +389,17 @@ export const PLACEHOLDER_RULES = Object.freeze([
   {
     id: 'faq-numbered-label',
     kind: 'schema-label',
-    rx: /(?:^|[\s*#>\-–—.)\]])\**\s*domanda\s+frequente\s+\d+\**\s*[:.?\-–—]/i,
+    rx: new RegExp(String.raw`(?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX}\**[ \t]*${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—]`, 'gim'),
     why: "L'etichetta numerata dello schema FAQ, usata come intestazione o come domanda. Lo schema si ferma a 3: la regola conta qualunque cifra.",
+  },
+  {
+    id: 'faq-unnumbered-label',
+    kind: 'schema-label',
+    // Un modello può perdere il numero dello schema e conservare comunque
+    // l'etichetta. Si accetta solo a inizio riga, così una frase editoriale
+    // come «la domanda frequente riguarda...» non diventa un falso positivo.
+    rx: new RegExp(String.raw`(?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX}\**[ \t]*${FAQ_LABEL_RX}\**[ \t]*[:.?\-–—][ \t]*(?=\S)`, 'gim'),
+    why: 'Etichetta FAQ non numerata rimasta nel testo pubblicato: è uno schema del prompt, non contenuto editoriale.',
   },
   {
     id: 'faq-numbered-bare',
@@ -407,6 +423,17 @@ export const PLACEHOLDER_RULES = Object.freeze([
   })),
 ]);
 
+// Le heading FAQ plurali tradotte sono sezioni editoriali reali, non
+// etichette incollate davanti a una domanda. L'esclusione è per-hit: una
+// heading legittima all'inizio non deve nascondere un'etichetta vera dopo.
+const TRANSLATED_FAQ_SECTION_HEADING_RX = /^#{1,6}[ \t]*(?:frequently\s+asked\s+questions|foire\s+aux\s+questions|h[aä]ufig\s+gestellte\s+fragen)\**[ \t]*[:.?\-–—]/i;
+
+function isTranslatedFaqSectionHeading(value, offset = 0) {
+  const lineStart = value.lastIndexOf('\n', offset) + 1;
+  const line = value.slice(lineStart).split('\n', 1)[0];
+  return TRANSLATED_FAQ_SECTION_HEADING_RX.test(line);
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Rilevamento
 // ─────────────────────────────────────────────────────────────────────────────
@@ -421,9 +448,25 @@ export function findPromptPlaceholders(value) {
   if (typeof value !== 'string' || !value) return [];
   const hits = [];
   for (const rule of PLACEHOLDER_RULES) {
-    const m = matchRule(rule, value);
-    if (!m) continue;
-    hits.push({ rule: rule.id, kind: rule.kind, found: m.found.trim(), index: m.index });
+    // I matcher strutturali mantengono l'interfaccia a hit singolo. Le regex
+    // invece vengono sempre percorse per intero: una heading tradotta esclusa
+    // non può nascondere un'etichetta reale successiva nello stesso campo.
+    if (!(rule.rx instanceof RegExp)) {
+      const m = matchRule(rule, value);
+      if (!m) continue;
+      if (rule.id === 'faq-unnumbered-label' && isTranslatedFaqSectionHeading(value, m.index)) continue;
+      hits.push({ rule: rule.id, kind: rule.kind, found: m.found.trim(), index: m.index });
+      continue;
+    }
+    const matcher = rule.rx.global
+      ? rule.rx
+      : new RegExp(rule.rx.source, `${rule.rx.flags}g`);
+    matcher.lastIndex = 0;
+    for (const m of value.matchAll(matcher)) {
+      if (rule.id === 'faq-unnumbered-label' && isTranslatedFaqSectionHeading(value, m.index)) continue;
+      hits.push({ rule: rule.id, kind: rule.kind, found: m[0].trim(), index: m.index });
+    }
+    matcher.lastIndex = 0;
   }
   return hits;
 }
@@ -450,18 +493,25 @@ export function stripFaqNumberedLabels(value) {
   if (typeof value !== 'string' || !value) return { value, stripped: 0 };
   let stripped = 0;
   // `pre` si porta dentro la spaziatura: senza, «- Domanda frequente 1: X»
-  // tornerebbe «-X», perche' lo spazio del bullet viene mangiato dall'etichetta.
-  const out = value.replace(
-    /((?:^|[\s\n*#>\-–—.)\]])\s*)\**\s*[Dd]omanda\s+frequente\s+\d+\**\s*[:.\-–—]\s*(?=\S)/g,
-    (match, pre, offset, whole) => {
+  // tornerebbe «-X», perché lo spazio del bullet viene mangiato dall'etichetta.
+  // La forma non numerata usa la stessa ancora di riga della regola di
+  // rilevamento; una frase editoriale nel mezzo della prosa non va riparata.
+  const patterns = [
+    new RegExp(String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})\**[ \t]*${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—][ \t]*(?=\S)`, 'gim'),
+    new RegExp(String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})\**[ \t]*${FAQ_LABEL_RX}\**[ \t]*[:.?\-–—][ \t]*(?=\S)`, 'gim'),
+  ];
+  let out = value;
+  for (const pattern of patterns) {
+    out = out.replace(pattern, (match, pre, offset, whole) => {
+      if (isTranslatedFaqSectionHeading(whole, offset)) return match;
       // Solo se dopo l'etichetta resta contenuto vero sulla stessa riga.
       const rest = whole.slice(offset + match.length);
       const line = rest.split('\n', 1)[0].trim();
       if (line.length < 8) return match;
       stripped += 1;
       return pre;
-    },
-  );
+    });
+  }
   return { value: out, stripped };
 }
 

@@ -100,6 +100,49 @@ describe('la famiglia di segnaposto nota, coperta campo per campo', () => {
     expect(hasPromptPlaceholder('Domanda frequente 4:')).toBe(true); // lo schema si ferma a 3 — la regola conta qualunque cifra
   });
 
+  it('FAQ non numerate: lingue tradotte e prefissi di riga', () => {
+    const casi: Array<[string, string]> = [
+      ['it', 'Domanda frequente: Quali sono i servizi inclusi?'],
+      ['en', 'Frequently Asked Question: Which services are included?'],
+      ['fr', 'Foire aux questions — Quels services sont inclus?'],
+      ['de', 'Häufig gestellte Fragen: Welche Leistungen sind enthalten?'],
+      ['heading numerata', '## Domanda frequente: Quali sono i servizi inclusi?'],
+      ['lista numerata', '1. Domanda frequente: Quali sono i servizi inclusi?'],
+    ];
+    for (const [label, testo] of casi) {
+      expect(
+        findPromptPlaceholders(testo).some((hit) => hit.rule === 'faq-unnumbered-label'),
+        `${label} non visto: ${testo}`,
+      ).toBe(true);
+    }
+  });
+
+  it('una heading FAQ tradotta esclusa non nasconde un hit reale successivo', () => {
+    const testo = '## Frequently Asked Questions — Net salary\n\nDomanda frequente: quanto costa il permesso G?';
+    const hits = findPromptPlaceholders(testo).filter((hit) => hit.rule === 'faq-unnumbered-label');
+    expect(hits).toHaveLength(1);
+    expect(hits[0].found).toContain('Domanda frequente');
+  });
+
+  it('stripFaqNumberedLabels ripara FAQ non numerate e conserva la soglia di 8 caratteri', () => {
+    const { pairs, repaired } = cleanFaqPairs([
+      {
+        q: '1. Domanda frequente: Quali sono i servizi inclusi?',
+        a: 'La risposta spiega i servizi inclusi nel permesso e le condizioni applicabili.',
+      },
+      {
+        q: 'Frequently Asked Question: Which services are included?',
+        a: 'The answer explains the included services and the applicable conditions.',
+      },
+    ], { minPairs: 1 });
+    expect(repaired).toBe(2);
+    expect(pairs?.map((pair) => pair.q)).toEqual([
+      '1. Quali sono i servizi inclusi?',
+      'Which services are included?',
+    ]);
+    expect(findPromptPlaceholders('Domanda frequente: Perché?')).toHaveLength(1);
+  });
+
   it('l\'excerpt TRADOTTO in quattro lingue: solo la regola di FORMA lo vede, nessun letterale', () => {
     const casi: Array<[string, string]> = [
       ['it', 'Sottotitolo con dati concreti DALLA FONTE (max 160 char)'],
@@ -727,8 +770,12 @@ describe('#5847 item 2 — budget-parenthetical tollera il drift del modello', (
     // L'unica lettura diretta ammessa e' il fallback DENTRO `matchRule`: e' il
     // punto in cui una regola a sola `rx` viene applicata. Qualunque altra e' un
     // consumatore che salterebbe le regole strutturali.
-    const letture = src.match(/\b(?:rule|r)\.rx\b/g) || [];
-    expect(letture, 'una regola strutturale sarebbe invisibile a un consumatore').toHaveLength(1);
+    // Le regex native possono essere percorse direttamente per tutte le
+    // occorrenze; il matcher strutturale resta invece instradato attraverso
+    // `matchRule` nel ramo non-RegExp.
+    expect(src).toContain('if (!(rule.rx instanceof RegExp))');
+    expect(src).toContain('const m = matchRule(rule, value);');
+    expect(src).toContain('const matcher = rule.rx.global');
     const matchRuleSrc = src.slice(src.indexOf('export function matchRule'));
     expect(matchRuleSrc.slice(0, 300)).toContain('rule.rx.exec');
     const budget = PLACEHOLDER_RULES.find((r) => r.id === 'budget-parenthetical');
