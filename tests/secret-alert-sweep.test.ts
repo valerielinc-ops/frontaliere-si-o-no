@@ -1,12 +1,22 @@
 import { describe, expect, it } from 'vitest';
 
-import { sweepOwner } from '../scripts/ci/monitor-secret-alerts.mjs';
+import {
+  parseRepositoryAllowlist,
+  runSweep,
+  sweepOwner,
+} from '../scripts/ci/monitor-secret-alerts.mjs';
 
 function response(body: unknown, status = 200) {
   return { ok: status >= 200 && status < 300, status, json: async () => body };
 }
 
 describe('secret alert sweep', () => {
+  it('normalizes the declared unavailable-repository allowlist', () => {
+    expect(parseRepositoryAllowlist(' example/a,example/b , ,')).toEqual(
+      new Set(['example/a', 'example/b']),
+    );
+  });
+
   it('enumerates all repos and returns metadata without secret values', async () => {
     const calls: string[] = [];
     const fetchImpl = async (input: URL) => {
@@ -41,6 +51,22 @@ describe('secret alert sweep', () => {
     const result = await sweepOwner({ owner: 'example', token: 'test-token', fetchImpl });
     expect(result.openAlerts).toEqual([]);
     expect(result.unavailable).toEqual(['example/site']);
+  });
+
+  it('does not fail on an explicitly declared unavailable repository', async () => {
+    const fetchImpl = async (input: URL) => {
+      if (input.pathname === '/user') return response({ login: 'example' });
+      if (input.pathname === '/user/repos') return response([{ full_name: 'example/site' }]);
+      return response({ message: 'not found' }, 404);
+    };
+
+    await expect(runSweep({
+      owner: 'example',
+      token: 'test-token',
+      fetchImpl,
+      allowedUnavailable: 'example/site',
+      failOnUnavailable: true,
+    })).resolves.toMatchObject({ unavailable: ['example/site'] });
   });
 
   it('rifiuta un token appartenente a un altro owner', async () => {

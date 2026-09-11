@@ -14,6 +14,15 @@ import { pathToFileURL } from 'node:url';
 const DEFAULT_API_URL = 'https://api.github.com';
 const API_VERSION = '2022-11-28';
 
+export function parseRepositoryAllowlist(value = '') {
+  return new Set(
+    String(value)
+      .split(',')
+      .map((repository) => repository.trim())
+      .filter(Boolean),
+  );
+}
+
 function createClient({ token, apiUrl = DEFAULT_API_URL, fetchImpl = fetch }) {
   if (!token) throw new Error('SECRET_SCAN_TOKEN/GH_TOKEN mancante');
 
@@ -102,7 +111,14 @@ export async function sweepOwner({ owner, token, apiUrl, fetchImpl = fetch }) {
   return { owner, repositories: repos.length, openAlerts, unavailable };
 }
 
-export async function runSweep({ owner, token, apiUrl, fetchImpl = fetch } = {}) {
+export async function runSweep({
+  owner,
+  token,
+  apiUrl,
+  fetchImpl = fetch,
+  allowedUnavailable = process.env.SECRET_SCAN_ALLOWED_UNAVAILABLE,
+  failOnUnavailable = process.env.SECRET_SCAN_FAIL_ON_UNAVAILABLE === 'true',
+} = {}) {
   const result = await sweepOwner({
     owner: owner || process.env.SECRET_SCAN_OWNER,
     token: token || process.env.SECRET_SCAN_TOKEN || process.env.GH_TOKEN,
@@ -111,13 +127,18 @@ export async function runSweep({ owner, token, apiUrl, fetchImpl = fetch } = {})
   });
 
   const observed = result.repositories - result.unavailable.length;
+  const allowlist = parseRepositoryAllowlist(allowedUnavailable);
+  const unexpectedUnavailable = result.unavailable.filter(
+    (repository) => !allowlist.has(repository),
+  );
   process.stdout.write(
     `[secret-alert-sweep] ${result.owner}: ${result.repositories} repo, `
     + `${observed} osservati, ${result.unavailable.length} non monitorabili, `
     + `${result.openAlerts.length} alert aperti.\n`,
   );
   for (const repository of result.unavailable) {
-    process.stderr.write(`[secret-alert-sweep] secret scanning non disponibile: ${repository}\n`);
+    const suffix = allowlist.has(repository) ? ' (gap noto e dichiarato)' : '';
+    process.stderr.write(`[secret-alert-sweep] secret scanning non disponibile: ${repository}${suffix}\n`);
   }
   for (const alert of result.openAlerts) {
     process.stderr.write(
@@ -131,8 +152,8 @@ export async function runSweep({ owner, token, apiUrl, fetchImpl = fetch } = {})
     error.code = 'OPEN_SECRET_ALERTS';
     throw error;
   }
-  if (result.unavailable.length && process.env.SECRET_SCAN_FAIL_ON_UNAVAILABLE === 'true') {
-    const error = new Error(`${result.unavailable.length} repo senza secret scanning monitorabile`);
+  if (unexpectedUnavailable.length && failOnUnavailable) {
+    const error = new Error(`${unexpectedUnavailable.length} repo senza secret scanning monitorabile`);
     error.code = 'UNMONITORED_REPOSITORIES';
     throw error;
   }
