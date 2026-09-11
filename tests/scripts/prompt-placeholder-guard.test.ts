@@ -619,21 +619,26 @@ describe('GATE — 0 offender sul pubblicato, ratchet contro il buco fra scrittu
     return { totalFields, offenders };
   }
 
-  // scanContent() rilegge e regex-scansiona ogni file blog-meta*.ts del
-  // corpus (~117k campi). Il budget default di 15s vitest basta in
+  // scanContent() rilegge e regex-scansiona ogni file di contenuto presente
+  // nel checkout. Nel checkout completo di origin/main la stessa regex conta
+  // 166.602 campi (71.599 nei blog-meta + 95.003 nei blog-body); il profilo
+  // sparse di tests.yml esclude intenzionalmente blog-body/ e lascia i
+  // blog-meta*.ts, perciò il run CI #34561074308 ha misurato 71.635 campi.
+  // Il budget default di 15s vitest basta in
   // isolamento (~6.3s misurato) ma sfora sotto la sovrapposizione
   // deliberata independent↔dependent di tests.yml sulle 4 vCPU (run
   // 32968718774: scaduto a 15000ms, mai arrivato all'assert). Stesso margine
   // gia' dato ad altre scansioni full-corpus sotto la stessa contesa
   // (tests/all-known-job-slugs-store.test.ts, tests/orphan-enriched-store.test.ts) —
-  // nessuna soglia toccata.
-  it('scansiona almeno ~100k campi — la soglia che distingue "zero offender" da "zero file letti"', { timeout: 180_000 }, () => {
+  // nessun altro ratchet toccato.
+  it('scansiona almeno ~70k campi — la soglia che distingue "zero offender" da "zero file letti"', { timeout: 180_000 }, () => {
     // Difende contro un gate che passa a vuoto: un path rinominato, una
-    // cartella spostata, un worktree sparse configurato male. La misura reale
-    // e' ~117k; 100k lascia margine al normale via-vai editoriale senza
-    // indebolire il segnale se lo scan smette di leggere quasi tutto.
+    // cartella spostata, un worktree sparse configurato male. 70k è sotto la
+    // misura CI osservata di 71.635 (profilo sparse + assemble) e resta ben
+    // sotto i 166.602 campi del checkout completo, senza mascherare la
+    // perdita dell'intero insieme blog-meta.
     const { totalFields } = scanContent();
-    expect(totalFields).toBeGreaterThanOrEqual(100_000);
+    expect(totalFields).toBeGreaterThanOrEqual(70_000);
   });
 
   it('0 offender: nessun campo pubblicato porta un segnaposto del prompt', { timeout: 180_000 }, () => {
