@@ -6259,6 +6259,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantonali-giura-aliquote-deduzioni.title': 'Cantonal taxes Jura: rates, brackets and deductions 2024',
     'blog.article.imposte-cantonali-giura-aliquote-deduzioni.excerpt': 'Practical guide to the tax system of the Canton of Jura: three-level structure, municipal multipliers, allowable deductions and official portal for the declaration.',
     'blog.article.imposte-cantonali-giura-aliquote-deduzioni.imageAlt': 'Swiss cantonal tax office with citizen service counters',
+    'blog.article.investimento-svizzero-usa-lonza.title': 'Lonza invests in the USA: new pharmaceutical plant in Oregon',
+    'blog.article.investimento-svizzero-usa-lonza.excerpt': 'Swiss pharmaceutical giant Lonza will build a new manufacturing facility in Bend, Oregon, with completion expected by 2029.',
+    'blog.article.investimento-svizzero-usa-lonza.imageAlt': 'Lonza pharmaceutical plant in the United States',
 };
 
 export default blogMetaChEn;

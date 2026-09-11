@@ -18775,6 +18775,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'investimento-svizzero-usa-lonza',
+    category: 'novita',
+    date: '2026-09-11T00:33:25.753Z',
+    image: '/images/blog/investimento-svizzero-usa-lonza.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
