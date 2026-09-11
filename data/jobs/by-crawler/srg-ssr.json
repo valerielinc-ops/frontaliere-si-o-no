@@ -1,7 +1,386 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-09-10T23:07:30.456Z",
+  "assembledAt": "2026-09-11T13:36:14.250Z",
   "jobs": [
+    {
+      "id": "srg-ssr-25dd75af254b",
+      "slug": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
+      "slugByLocale": {
+        "it": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
+        "en": "fufragnadi-trial-entrepreneurship-srg-ssr-cuira",
+        "de": "fufragnadi-testunternehmertum-srg-ssr-cuira",
+        "fr": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Fufragnadi - emprendissadi da prova",
+      "titleByLocale": {
+        "it": "Fufragnadi - imprenditoria di prova",
+        "en": "Fufragnadi - trial entrepreneurship",
+        "de": "Fufragnadi - Testunternehmertum",
+        "fr": "Fufragnadi - emprendissadi da prova"
+      },
+      "description": "Tge èn las pussaivladads? RTR porscha fufragnadis per giuvnas e giuvens che vulan far in emprendissadi mercantil/commerzial u l'emprendissadi d'informatica Il fufragnadi organisain nus gugent tenor ils termins cunvegnents durant 1 di Tge èn nossas spetgas? Ti discurras in idiom rumantsch e sas era scriver rumantsch Ti has almain terminà l'emprima classa dal stgalim superiur Per infurmaziun davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
+      "descriptionByLocale": {
+        "it": "Quali sono le possibilità? RTR offre opportunità di imprenditoria per giovani e giovanissimi che vogliono intraprendere un'attività commerciale o informatica. L'imprenditoria si organizza volentieri secondo le scadenze concordate per 1 giorno. Quali sono le nostre aspettative? Tu parli in lingua romancia e sai anche scrivere in romancio. Hai almeno completato il primo anno della scuola superiore. Per informazioni sul processo di candidatura, contatta Flurina Foppa, Responsabile risorse umane, +41 58 136 31 08.",
+        "en": "What are the opportunities? RTR offers entrepreneurship opportunities for young people who want to engage in commercial or IT entrepreneurship. The entrepreneurship is gladly organized according to the agreed deadlines for 1 day. What are our expectations? You speak in the Romansh language and can also write in Romansh. You have at least completed the first year of high school. For information about the application process, contact Flurina Foppa, Human Resources Manager, +41 58 136 31 08.",
+        "de": "Was sind die Möglichkeiten? RTR bietet Unternehmungsmöglichkeiten für junge Menschen, die ein Handels- oder IT-Unternehmen gründen möchten. Das Unternehmertum wird gerne nach den vereinbarten Fristen für 1 Tag organisiert. Was sind unsere Erwartungen? Du sprichst Rätoromanisch und kannst auch Rätoromanisch schreiben. Du hast mindestens das erste Jahr der Oberstufe abgeschlossen. Für Informationen zum Bewerbungsprozess kontaktiere Flurina Foppa, Personalverantwortliche, +41 58 136 31 08.",
+        "fr": "Tge èn las pussaivladads? RTR porscha fufragnadis per giuvnas e giuvens che vulan far in emprendissadi mercantil/commerzial u l'emprendissadi d'informatica Il fufragnadi organisain nus gugent tenor ils termins cunvegnents durant 1 di Tge èn nossas spetgas? Ti discurras in idiom rumantsch e sas era scriver rumantsch Ti has almain terminà l'emprima classa dal stgalim superiur Per infurmaziun davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08"
+      },
+      "location": "Cuira",
+      "canton": "",
+      "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-11T13:35:50.266Z",
+      "addressLocality": "Cuira",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Via da Masans 2",
+      "category": "Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2022-09-14",
+      "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_srgMeta": {
+        "uuid": "b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
+        "org": "rtr",
+        "orgLabel": "RTR"
+      },
+      "firstSeenAt": "2026-06-29T11:35:51.857Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "srg-ssr-4295227a1917",
+      "slug": "praticanta-praticant-srg-ssr-cuira",
+      "slugByLocale": {
+        "it": "praticanta-praticant-srg-ssr-cuira",
+        "en": "intern-srg-ssr-cuira",
+        "de": "praktikant-srg-ssr-cuira",
+        "fr": "praticanta-praticant-srg-ssr-cuira"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Praticanta / praticant",
+      "titleByLocale": {
+        "it": "Praticanta / praticant",
+        "en": "Intern",
+        "de": "Praktikant",
+        "fr": "Praticanta / praticant"
+      },
+      "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
+      "descriptionByLocale": {
+        "it": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
+        "en": "Description - Do you want to become a journalist? Or work as a technician? - Are you curious and eager to be where things happen - are you interested in the Romansh language, Graubünden, the world - do you enjoy working with language, images, sound, or technology? - We support and train you! You can do an internship with us for 3 to 6 months. - During this time, you will learn about the media industry and our company with its extensive offerings. - From the very beginning, you will be part of the team and can develop your skills in practice with support and internal training.\n• Requirements - Age: approximately 18 to 30 years - Education: apprenticeship, high school diploma or vocational training, studies or equivalent education - Duration: ideally 6 months; positions are limited, usually 1 intern for half a year. Contact - And after the internship? About the application process - Flurina Foppa - Human Resources Manager - +41 58 136 31 08",
+        "de": "Beschreibung - Möchtest du Journalist oder Journalistin werden? Oder als Techniker oder Technikerin arbeiten? - Bist du neugierig und möchtest dort sein, wo die Dinge passieren - interessierst du dich für die Rätoromanische Sprache, Graubünden, die Welt - arbeitest du gerne mit Sprache, Bildern, Ton oder Technik? - Wir unterstützen und bilden dich aus! Du kannst ein Praktikum bei uns für 3 bis 6 Monate machen. - In dieser Zeit lernst du die Medienbranche und unser Unternehmen mit seinen umfangreichen Angeboten kennen. - Von Anfang an bist du Teil des Teams und kannst deine Fähigkeiten in der Praxis mit Unterstützung und interner Schulung entwickeln.\n• Anforderungen - Alter: etwa 18 bis 30 Jahre - Ausbildung: Lehre, Matura oder Berufsausbildung, Studium oder gleichwertige Ausbildung - Dauer: idealerweise 6 Monate; die Plätze sind begrenzt, in der Regel 1 Praktikant für ein halbes Jahr. Kontakt - Und nach dem Praktikum? Über den Bewerbungsprozess - Flurina Foppa - Leiterin Human Resources - +41 58 136 31 08",
+        "fr": "Description - Voulez-vous devenir journaliste ? Ou travailler comme technicien ? - Êtes-vous curieux et souhaitez-vous être là où les choses se passent - vous intéressez-vous à la langue romanche, aux Grisons, au monde - aimez-vous travailler avec la langue, les images, le son ou la technique ? - Nous vous soutenons et vous formons ! Vous pouvez faire un stage chez nous pendant 3 à 6 mois. - Pendant cette période, vous découvrirez le secteur des médias et notre entreprise avec ses vastes offres. - Dès le début, vous ferez partie de l'équipe et pourrez développer vos compétences en pratique avec un soutien et une formation interne.\n• Exigences - Âge : environ 18 à 30 ans - Éducation : apprentissage, diplôme de maturité ou formation professionnelle, études ou formation équivalente - Durée : idéalement 6 mois ; les places sont limitées, généralement 1 stagiaire pour un semestre. Contact - Et après le stage ? À propos du processus de candidature - Flurina Foppa - Responsable des ressources humaines - +41 58 136 31 08"
+      },
+      "location": "Cuira",
+      "canton": "",
+      "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-11T13:35:49.525Z",
+      "addressLocality": "Cuira",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Via da Masans 2",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2022-09-15",
+      "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": [
+          "Age: approximately 18 to 30 years",
+          "Education: apprenticeship, high school diploma or vocational training, studies or equivalent education",
+          "Duration: ideally 6 months; positions are limited, usually 1 intern for half a year."
+        ],
+        "de": [
+          "Alter: etwa 18 bis 30 Jahre",
+          "Ausbildung: Lehre, Matura oder Berufsausbildung, Studium oder gleichwertige Ausbildung",
+          "Dauer: idealerweise 6 Monate; die Plätze sind begrenzt, in der Regel 1 Praktikant für ein halbes Jahr."
+        ],
+        "fr": [
+          "Âge : environ 18 à 30 ans",
+          "Éducation : apprentissage, diplôme de maturité ou formation professionnelle, études ou formation équivalente",
+          "Durée : idéalement 6 mois ; les places sont limitées, généralement 1 stagiaire pour un semestre."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "4a660497-3bdc-452a-ab3f-d9b8493cc46f",
+        "org": "rtr",
+        "orgLabel": "RTR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
+      "salaryMin": 42640,
+      "salaryMax": 61000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 42640,
+          "maxValue": 61000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "srg-ssr-d9ec5b9a657a",
+      "slug": "service-operator-srg-ssr-bern",
+      "slugByLocale": {
+        "it": "service-operator-srg-ssr-bern",
+        "en": "service-operator-srg-ssr-bern",
+        "de": "service-operator-srg-ssr-bern",
+        "fr": "operateur-de-service-srg-ssr-bern"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Service Operator",
+      "titleByLocale": {
+        "it": "Service Operator",
+        "en": "Service",
+        "de": "Service Operator",
+        "fr": "Opérateur de Service"
+      },
+      "description": "Das ist Ihr Beitrag Im Bereich Service Monitoring engagieren Sie sich für folgende Themen:\n• Zentrales Monitoring der nationalen ICT und Infrastruktur Services sowie aller SRG SSR Programme mit den verschiedenen Verbreitungswegen in Früh-, Mittel- und Spätschicht.\n• Gesamtkoordination und Sicherstellung der Service Support Prozesse mit den Supporteinheiten innerhalb der SRG und externen Lieferanten.\n• Incident-, Change-, Access- und Eventhandling inkl. deren Dokumentation im Service Management System\n• Einleitung von ersten Continuity Massnahmen für Broadcast- und Broadband-Services und Eskalationen an interne SRG-Teams oder unsere externen Partner.\n• Koordination und Kommunikation der Störungsbehebungsmassnahmen im Falle von \"Major Incidents\" mit nationaler Auswirkung sowie deren Nachbearbeitung\n• Qualitätssicherung im Störungsprozess Damit begeistern Sie uns\n• Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich\n• Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert\n• Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden\n• Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch\n• Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst\n• Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation Damit begeistern wir Sie\n• Vielseitige und interessante Funktion in einem dynamischen Umfeld der elektronischen Medien und des Service Public\n• Äusserst spannendes und kollegiales Umfeld\n• Fortschrittliche Anstellungsbedingungen und Weiterbildungsmöglichkeiten Noch Fragen? zum Bewerbungsprozess Nils Hirschi HR Berater Telefon +41 58 136 43 36 Der Bereich Operationen übernimmt die zentrale strategische und steuernde Rolle für die technologische Ausrichtung und die Produktion der SRG SSR. Die Abteilung IT unterstützt alle Mitarbeitenden, Technologiebereiche und Supportfunktionen mit effizienten, verlässlichen und modernen IT-Services, um die strategischen und operativen Bedürfnisse der Organisation zu erfüllen.",
+      "descriptionByLocale": {
+        "it": "Descrizione - Nel settore del Monitoraggio dei Servizi, ci si impegna nei seguenti temi:\n• Monitoraggio centrale dei servizi ICT nazionali e delle infrastrutture, nonché di tutti i programmi SRG SSR con i vari canali di diffusione nei turni di mattina, pomeriggio e sera.\n• Coordinamento generale e assicurazione dei processi di supporto ai servizi con le unità di supporto all'interno della SRG e fornitori esterni.\n• Gestione di incidenti, cambiamenti, accessi ed eventi, inclusa la loro documentazione nel sistema di gestione dei servizi.\n• Inizio delle prime misure di continuità per i servizi di broadcast e broadband e escalation ai team interni SRG o ai nostri partner esterni.\n• Coordinamento e comunicazione delle misure di risoluzione dei problemi in caso di \"Incidenti Maggiori\" con impatto nazionale e loro follow-up.\n• Assicurazione della qualità nel processo di gestione dei problemi. Requisiti - Formazione completata in informatica, elettronica o ingegneria elettrica. - Ampia conoscenza e interesse nel settore ICT e/o Broadcast desiderati. - Forti capacità di comunicazione e coordinamento nel rapporto con partner commerciali, fornitori e clienti. - Conoscenze linguistiche in tedesco e inglese, e idealmente in francese o italiano. - Disponibilità a lavorare su turni e nei fine settimana, nonché a partecipare a servizi di guardia. - Conoscenze pratiche e teoriche di ITIL nel campo del supporto ai servizi e dell'operazione dei servizi. Cosa offriamo - Funzione versatile e interessante in un ambiente dinamico dei media elettronici e del servizio pubblico. - Ambiente estremamente stimolante e collaborativo. - Condizioni di assunzione avanzate e opportunità di formazione. Contatto - Nils Hirschi Consulente HR - Telefono +41 58 136 43 36 Il settore Operazioni - Assume il ruolo strategico e di controllo centrale per l'orientamento tecnologico e la produzione della SRG SSR. - Il dipartimento IT supporta tutti i dipendenti, le aree tecnologiche e le funzioni di supporto con servizi IT efficienti, affidabili e moderni, per soddisfare le esigenze strategiche e operative dell'organizzazione.",
+        "en": "Description - In the area of Service Monitoring, you will engage in the following topics:\n• Central monitoring of national ICT and infrastructure services as well as all SRG SSR programs with various distribution channels in early, mid, and late shifts.\n• Overall coordination and assurance of the service support processes with the support units within SRG and external suppliers.\n• Incident, change, access, and event handling including their documentation in the service management system.\n• Initiation of initial continuity measures for broadcast and broadband services and escalations to internal SRG teams or our external partners.\n• Coordination and communication of troubleshooting measures in the event of \"Major Incidents\" with national impact as well as their follow-up.\n• Quality assurance in the incident process. Requirements - Completed apprenticeship in computer science, electronics, or electrical engineering. - Broad ICT and/or broadcast knowledge and interest desirable. - Strong communication and coordination skills in dealing with business partners, suppliers, and customers. - Language skills in German and English, as well as ideally in French or Italian. - Willingness to work shifts and weekends as well as on-call duty. - Practical and theoretical ITIL knowledge in the area of service support and service operation. What we offer - Versatile and interesting role in a dynamic environment of electronic media and public service. - Extremely exciting and collegial environment. - Progressive employment conditions and training opportunities. Contact - Nils Hirschi HR Consultant - Phone +41 58 136 43 36 The Operations Area - Takes on the central strategic and controlling role for the technological orientation and production of SRG SSR. - The IT department supports all employees, technological areas, and support functions with efficient, reliable, and modern IT services to meet the strategic and operational needs of the organization.",
+        "de": "Das ist Ihr Beitrag Im Bereich Service Monitoring engagieren Sie sich für folgende Themen:\n• Zentrales Monitoring der nationalen ICT und Infrastruktur Services sowie aller SRG SSR Programme mit den verschiedenen Verbreitungswegen in Früh-, Mittel- und Spätschicht.\n• Gesamtkoordination und Sicherstellung der Service Support Prozesse mit den Supporteinheiten innerhalb der SRG und externen Lieferanten.\n• Incident-, Change-, Access- und Eventhandling inkl. deren Dokumentation im Service Management System\n• Einleitung von ersten Continuity Massnahmen für Broadcast- und Broadband-Services und Eskalationen an interne SRG-Teams oder unsere externen Partner.\n• Koordination und Kommunikation der Störungsbehebungsmassnahmen im Falle von \"Major Incidents\" mit nationaler Auswirkung sowie deren Nachbearbeitung\n• Qualitätssicherung im Störungsprozess Damit begeistern Sie uns\n• Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich\n• Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert\n• Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden\n• Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch\n• Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst\n• Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation Damit begeistern wir Sie\n• Vielseitige und interessante Funktion in einem dynamischen Umfeld der elektronischen Medien und des Service Public\n• Äusserst spannendes und kollegiales Umfeld\n• Fortschrittliche Anstellungsbedingungen und Weiterbildungsmöglichkeiten Noch Fragen? zum Bewerbungsprozess Nils Hirschi HR Berater Telefon +41 58 136 43 36 Der Bereich Operationen übernimmt die zentrale strategische und steuernde Rolle für die technologische Ausrichtung und die Produktion der SRG SSR. Die Abteilung IT unterstützt alle Mitarbeitenden, Technologiebereiche und Supportfunktionen mit effizienten, verlässlichen und modernen IT-Services, um die strategischen und operativen Bedürfnisse der Organisation zu erfüllen.",
+        "fr": "Description - Dans le domaine de la surveillance des services, vous vous engagerez dans les sujets suivants :\n• Surveillance centrale des services ICT nationaux et des infrastructures ainsi que de tous les programmes SRG SSR avec les différents canaux de diffusion dans les équipes de matin, d'après-midi et de soir.\n• Coordination générale et assurance des processus de support des services avec les unités de support au sein de la SRG et les fournisseurs externes.\n• Gestion des incidents, des changements, des accès et des événements, y compris leur documentation dans le système de gestion des services.\n• Initiation des premières mesures de continuité pour les services de diffusion et de large bande et escalades vers les équipes internes de la SRG ou nos partenaires externes.\n• Coordination et communication des mesures de résolution des problèmes en cas de \"grands incidents\" ayant un impact national ainsi que leur suivi.\n• Assurance qualité dans le processus de gestion des incidents. Exigences - Formation achevée en informatique, électronique ou ingénierie électrique. - Large connaissance et intérêt pour le secteur ICT et/ou Broadcast souhaités. - Solides compétences en communication et en coordination dans les relations avec les partenaires commerciaux, les fournisseurs et les clients. - Compétences linguistiques en allemand et en anglais, ainsi qu'idéalement en français ou en italien. - Disponibilité pour travailler en équipes et le week-end ainsi que pour des services d'astreinte. - Connaissances pratiques et théoriques d'ITIL dans le domaine du support des services et de l'exploitation des services. Ce que nous offrons - Rôle polyvalent et intéressant dans un environnement dynamique des médias électroniques et du service public. - Environnement extrêmement stimulant et collégial. - Conditions d'emploi progressistes et opportunités de formation. Contact - Nils Hirschi Consultant RH - Téléphone +41 58 136 43 36 Le domaine des opérations - Prend le rôle stratégique et de contrôle central pour l'orientation technologique et la production de la SRG SSR. - Le département IT soutient tous les employés, les domaines technologiques et les fonctions de support avec des services informatiques efficaces, fiables et modernes pour répondre aux besoins stratégiques et opérationnels de l'organisation."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-11T13:35:48.696Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Giacomettistrasse 1",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-18",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
+      "requirements": [
+        "Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich",
+        "Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert",
+        "Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden",
+        "Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch",
+        "Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst",
+        "Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Formazione completata in informatica, elettronica o ingegneria elettrica.",
+          "Ampia conoscenza e interesse nel settore ICT e/o Broadcast desiderati.",
+          "Forti capacità di comunicazione e coordinamento nel rapporto con partner commerciali, fornitori e clienti.",
+          "Conoscenze linguistiche in tedesco e inglese, e idealmente in francese o italiano.",
+          "Disponibilità a lavorare su turni e nei fine settimana, nonché a partecipare a servizi di guardia.",
+          "Conoscenze pratiche e teoriche di ITIL nel campo del supporto ai servizi e dell'operazione dei servizi."
+        ],
+        "en": [
+          "Completed apprenticeship in computer science, electronics, or electrical engineering.",
+          "Broad ICT and/or broadcast knowledge and interest desirable.",
+          "Strong communication and coordination skills in dealing with business partners, suppliers, and customers.",
+          "Language skills in German and English, as well as ideally in French or Italian.",
+          "Willingness to work shifts and weekends as well as on-call duty.",
+          "Practical and theoretical ITIL knowledge in the area of service support and service operation."
+        ],
+        "de": [
+          "Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich",
+          "Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert",
+          "Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden",
+          "Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch",
+          "Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst",
+          "Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation"
+        ],
+        "fr": [
+          "Formation achevée en informatique, électronique ou ingénierie électrique.",
+          "Large connaissance et intérêt pour le secteur ICT et/ou Broadcast souhaités.",
+          "Compétences linguistiques en allemand et en anglais, ainsi qu'idéalement en français ou en italien.",
+          "Disponibilité pour travailler en équipes et le week-end ainsi que pour des services d'astreinte.",
+          "Connaissances pratiques et théoriques d'ITIL dans le domaine du support des services et de l'exploitation des services."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "b7aea4ab-5915-4645-a639-79a98c2543ff",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 80
+      },
+      "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 71500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
+    },
+    {
+      "id": "srg-ssr-a8ae3325568d",
+      "slug": "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich",
+      "slugByLocale": {
+        "it": "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich",
+        "en": "basic-training-as-event-specialist-ms-efz-srg-ssr-zurich",
+        "de": "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
+        "fr": "formation-de-base-en-tant-que-specialiste-de-l-evenement-mme-efz-srg-ssr-zurich"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Grundausbildung als Veranstaltungsfachmann/fachfrau EFZ",
+      "titleByLocale": {
+        "it": "Formazione di base come specialista di eventi EFZ",
+        "en": "Basic training as event specialist EFZ",
+        "de": "Grundausbildung als Veranstaltungsfachmann/fachfrau EFZ",
+        "fr": "Formation de base en tant que spécialiste EFZ"
+      },
+      "description": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Betreuung der technischen Aspekte von Fernseh- Radio- und Videoproduktionen sowie Events\n• Sicherstellung eines reibungslosen und sicheren Ablaufs von Shows hinter den Kulissen\n• Installation und Bedienung von ton-, video- und beleuchtungstechnischen Anlagen\n• Auf- und Abbau von Bühnen und szenentechnischen Einrichtungen Wie kannst du dich bewerben?\n• Bewerbungsschreiben inklusive lückenloser Lebenslauf mit Foto\n• Zeugniskopien aller Oberstufenzeugnisse und/oder des 10. Schuljahres\n• Diplome oder andere Auszeichnungen sowie Schnupperlehrfeedbacks (falls vorhanden)\n• Eignungstest Stellwerk Was bringst du mit?\n• In Mathematik, Geometrie und Englisch gute schulische Leistungen (im höchsten/mittleren Niveau)\n• Zuverlässigkeit, Selbstständigkeit, rasche Auffassungsgabe\n• Gute körperliche Verfassung, Belastbarkeit und Freude am Arbeiten im Freien Worauf kannst du dich freuen?\n• Einblicke in die faszinierende Welt des Fernseh- und Radiomachens\n• Freundliche und motivierte Mitarbeiter:innen\n• Aufgestellte Lernende\n• Kompetente Ausbildung\n• 6 Wochen Ferien Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
+      "descriptionByLocale": {
+        "it": "Quali sono i tuoi compiti? Con l'inizio dell'insegnamento nell'agosto 2027, vi impegnate nei seguenti argomenti:\n• Supervisione degli aspetti tecnici delle produzioni televisive, radio e video, nonché degli eventi\n• Garantire una gestione fluida e sicura degli spettacoli dietro le quinte\n• Installazione e funzionamento di apparecchiature audio, video e illuminazione\n• Installazione e smantellamento delle fasi e degli impianti tecnici Come si può applicare?\n• Lettera di richiesta con CV completo con foto\n• copie di tutti i certificati di livello superiore e/o 10. Anno scolastico\n• Diplomi o altri premi così come feedback del degustatore (se disponibile)\n• Test di attitudine Stellwerk Cosa porti?\n• In Matematica, Geometria e Inglese buone prestazioni accademiche (livello massimo/medio)\n• Affidabilità, indipendenza, rapida comprensione\n• Buone condizioni fisiche, resilienza e gioia di lavorare all'aperto Cosa puoi aspettare?\n• Insights nel mondo affascinante della televisione e della radio\n• Dipendenti amichevoli e motivati: dentro\n• Studenti istituiti\n• Formazione competente\n• 6 settimane di vacanza Ancora domande? Claudia Hirt Specialista Formazione Professionale +41 58 135 15 07 La formazione avviene all'interno della SSR e si svolge nell'unità regionale SRF di Zurigo. SRG SSR è la più grande società di media in Svizzera. Con le sue business unit SRF, RTS, RSI e RTR, produce e distribuisce contenuti nei settori dell'informazione, dell'istruzione, della cultura, dell'intrattenimento e dello sport. Come apprendista, diventerai parte di una società diversificata e orientata al futuro che collega le persone in tutta la Svizzera e raggiunge ogni giorno milioni di utenti su diverse piattaforme.",
+        "en": "What are your tasks? With the start of teaching in August 2027, you are committed to the following topics:\n• Supervision of the technical aspects of television, radio and video productions as well as events\n• Ensuring a smooth and safe running of shows behind the scenes\n• Installation and operation of sound, video and lighting equipment\n• Setting up and dismantling stages and technical scene facilities How can you apply?\n• Application letter including complete CV with photo\n• copies of all upper-level certificates and/or 10. School year\n• Diplomas or other awards as well as taster feedback (if available)\n• Aptitude test Stellwerk What do you bring?\n• In Mathematics, Geometry and English good academic performance (highest/medium level)\n• Reliability, independence, rapid comprehension\n• Good physical condition, resilience and joy of working outdoors What can you look forward to?\n• Insights into the fascinating world of television and radio making\n• Friendly and motivated employees: inside\n• Established learners\n• Competent training\n• 6 weeks of vacation Still questions? Claudia Hirt Specialist Vocational Training +41 58 135 15 07 Training takes place within the SRG SSR and takes place in the regional unit SRF in Zurich. SRG SSR is the largest media company in Switzerland. With its business units SRF, RTS, RSI and RTR, it produces and distributes content in the fields of information, education, culture, entertainment and sports. As a learner, you will become part of a diverse and future-oriented company that connects people across Switzerland and reaches millions of users on different platforms every day.",
+        "de": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Betreuung der technischen Aspekte von Fernseh- Radio- und Videoproduktionen sowie Events\n• Sicherstellung eines reibungslosen und sicheren Ablaufs von Shows hinter den Kulissen\n• Installation und Bedienung von ton-, video- und beleuchtungstechnischen Anlagen\n• Auf- und Abbau von Bühnen und szenentechnischen Einrichtungen Wie kannst du dich bewerben?\n• Bewerbungsschreiben inklusive lückenloser Lebenslauf mit Foto\n• Zeugniskopien aller Oberstufenzeugnisse und/oder des 10. Schuljahres\n• Diplome oder andere Auszeichnungen sowie Schnupperlehrfeedbacks (falls vorhanden)\n• Eignungstest Stellwerk Was bringst du mit?\n• In Mathematik, Geometrie und Englisch gute schulische Leistungen (im höchsten/mittleren Niveau)\n• Zuverlässigkeit, Selbstständigkeit, rasche Auffassungsgabe\n• Gute körperliche Verfassung, Belastbarkeit und Freude am Arbeiten im Freien Worauf kannst du dich freuen?\n• Einblicke in die faszinierende Welt des Fernseh- und Radiomachens\n• Freundliche und motivierte Mitarbeiter:innen\n• Aufgestellte Lernende\n• Kompetente Ausbildung\n• 6 Wochen Ferien Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
+        "fr": "Quelles sont vos tâches ? Avec le début de l'enseignement en août 2027, vous êtes engagés dans les sujets suivants:\n• Surveillance des aspects techniques des productions télévisées, radiophoniques et vidéo ainsi que des événements\n• Assurer le bon déroulement des spectacles dans les coulisses\n• Installation et fonctionnement d'équipements sonores, vidéo et d'éclairage\n• Mise en place et démantèlement des étapes et des installations techniques Comment pouvez-vous postuler?\n• Lettre de candidature comprenant CV complet avec photo\n• des copies de tous les certificats de niveau supérieur et/ou 10. Année scolaire\n• Diplômes ou autres prix ainsi que les commentaires des goûteurs (si disponibles)\n• Test d'aptitude Stellwerk Qu'est-ce que tu apportes ?\n• En mathématiques, Géométrie et anglais bonne performance académique (niveau le plus élevé/medium)\n• Fiabilité, indépendance, compréhension rapide\n• Bonne condition physique, résilience et joie de travailler à l'extérieur Que pouvez-vous attendre avec impatience?\n• Regards sur le monde fascinant de la télévision et de la radio\n• Personnel amical et motivé: à l'intérieur\n• Apprentis établis\n• Formation compétente\n• 6 semaines de vacances Toujours des questions ? Claudia Hirt Spécialiste Formation professionnelle +41 58 135 15 07 La formation se déroule au sein du SSR du SRG et dans l'unité régionale SRF de Zurich. SRG SSR est la plus grande entreprise de médias en Suisse. Avec ses unités d'affaires SRF, RTS, RSI et RTR, il produit et distribue des contenus dans les domaines de l'information, de l'éducation, de la culture, du divertissement et du sport. En tant qu'apprenant, vous deviendrez membre d'une entreprise diversifiée et tournée vers l'avenir qui relie les gens à travers la Suisse et atteint des millions d'utilisateurs sur différentes plateformes chaque jour."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-11T13:35:38.097Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8052",
+      "streetAddress": "Fernsehstrasse 1-4",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-03",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
+      "requirements": [
+        "In Mathematik, Geometrie und Englisch gute schulische Leistungen (im höchsten/mittleren Niveau)",
+        "Zuverlässigkeit, Selbstständigkeit, rasche Auffassungsgabe",
+        "Gute körperliche Verfassung, Belastbarkeit und Freude am Arbeiten im Freien"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "In Mathematik, Geometrie und Englisch gute schulische Leistungen (im höchsten/mittleren Niveau)",
+          "Zuverlässigkeit, Selbstständigkeit, rasche Auffassungsgabe",
+          "Gute körperliche Verfassung, Belastbarkeit und Freude am Arbeiten im Freien"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "6ceb5b23-a763-4947-88be-2df9ce20cca3",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 100,
+        "pensumMax": 100
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
+        ],
+        "it": [
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
+        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
+      ],
+      "firstSeenAt": "2026-08-17T21:37:04.179Z",
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 136000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 136000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
     {
       "id": "srg-ssr-5022fb7a0f73",
       "slug": "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich",
@@ -33,7 +412,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:07:19.543Z",
+      "crawledAt": "2026-09-11T13:35:34.532Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -68,17 +447,20 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-08-17T21:37:03.185Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -125,7 +507,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:07:18.967Z",
+      "crawledAt": "2026-09-11T13:35:34.045Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -177,6 +559,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:15.082Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -223,7 +606,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:07:18.454Z",
+      "crawledAt": "2026-09-11T13:35:33.463Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -260,11 +643,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -274,6 +659,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -320,7 +706,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:07:17.823Z",
+      "crawledAt": "2026-09-11T13:35:32.917Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -359,11 +745,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
@@ -373,6 +761,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:35.078Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -419,7 +808,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:07:17.294Z",
+      "crawledAt": "2026-09-11T13:35:32.339Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -458,11 +847,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
@@ -472,6 +863,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:34.182Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -518,7 +910,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:07:16.766Z",
+      "crawledAt": "2026-09-11T13:35:31.781Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -555,11 +947,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -569,6 +963,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -615,7 +1010,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-10T23:07:16.189Z",
+      "crawledAt": "2026-09-11T13:35:31.211Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -664,6 +1059,7 @@
         "orgLabel": "RSI"
       },
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -710,7 +1106,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:07:15.672Z",
+      "crawledAt": "2026-09-11T13:35:30.571Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -768,6 +1164,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:48:14.107Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -778,90 +1175,6 @@
           "@type": "QuantitativeValue",
           "minValue": 83000,
           "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "srg-ssr-c7f5a87d3e4b",
-      "slug": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
-      "slugByLocale": {
-        "it": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
-        "en": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
-        "de": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
-        "fr": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "HMS-Praktikum Kauffrau/Kaufmann",
-      "titleByLocale": {
-        "it": "Interno HMS Kauffrau/Kaufmann",
-        "en": "HMS internship Kauffrau/Kaufmann",
-        "de": "HMS-Praktikum Kauffrau/Kaufmann",
-        "fr": "Stage HMS Kauffrau/Kaufmann"
-      },
-      "description": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen.",
-      "descriptionByLocale": {
-        "it": "Quali sono i tuoi compiti? Si guadagna esperienza pratica e si impegna ai seguenti compiti:\n• Insight nel mondo diversificato delle risorse umane\n• Sostiene il team Leadership & Training e si occupa di compiti e progetti per giovani talenti e carriere.\n• Si organizzano alcuni eventi per gli studenti e formatori professionali:\n• Lavori in vari sistemi di personale e impari ad applicarli Cosa porti?\n• Capacità organizzative, di squadra e di comunicazione\n• Lavoro responsabile e indipendente\n• Motivazione e affidabilità\n• Interessato a un mondo dei media diversificato Cosa puoi aspettare?\n• Insights e cooperazione in aree di lavoro emozionanti\n• Allenatori professionisti che ti sostengono in tutte le questioni\n• Impostare gli studenti, eventi di squadra regolari\n• 6 settimane di vacanza Ancora domande? Claudia Hirt Specialista Formazione Professionale +41 58 135 15 07 La formazione avviene all'interno della SSR e si svolge nell'unità regionale SRF di Zurigo. SRG SSR è la più grande società di media in Svizzera. Con le sue business unit SRF, RTS, RSI e RTR, produce e distribuisce contenuti nei settori dell'informazione, dell'istruzione, della cultura, dell'intrattenimento e dello sport. Come apprendista, diventerai parte di una società diversificata e orientata al futuro che collega le persone in tutta la Svizzera e raggiunge ogni giorno milioni di utenti su diverse piattaforme. Questo stage fa parte della formazione di base come commerciante / donna d'affari (organizzato da scuola). Come laureato della Handelsmittelschule, è possibile completare uno stage di un anno con noi e laurearsi con l'EFZ come commerciante / meccanico con maturità professionale.",
-        "en": "What are your tasks? You gain practical experience and are committed to the following tasks:\n• Insight into the diverse world of human resources\n• You support the Leadership & Training team and take on tasks and projects for young talents and careers.\n• You organize some events for the learners and vocational trainers:\n• You work in various personnel systems and learn to apply them What do you bring?\n• Organisational, team and communication skills\n• Responsible and independent work\n• Motivation and reliability\n• Interested in a diverse media world What can you look forward to?\n• Insights and cooperation in exciting work areas\n• Loose professional trainers who support you in all matters\n• Set up learners, regular team events\n• 6 weeks of vacation Still questions? Claudia Hirt Specialist Vocational Training +41 58 135 15 07 Training takes place within the SRG SSR and takes place in the regional unit SRF in Zurich. SRG SSR is the largest media company in Switzerland. With its business units SRF, RTS, RSI and RTR, it produces and distributes content in the fields of information, education, culture, entertainment and sports. As a learner, you will become part of a diverse and future-oriented company that connects people across Switzerland and reaches millions of users on different platforms every day. This internship is part of the basic training as a merchant / businesswoman (organised by school). As a graduate of the Handelsmittelschule, you can complete a one-year internship with us and graduate with the EFZ as a merchant/merchant with vocational maturity.",
-        "de": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen.",
-        "fr": "Quelles sont vos tâches ? Vous avez acquis une expérience pratique et vous êtes engagé dans les tâches suivantes:\n• Regard sur la diversité des ressources humaines\n• Vous soutenez l'équipe Leadership & Formation et vous chargez des tâches et des projets pour les jeunes talents et les carrières.\n• Vous organisez des événements pour les apprenants et les formateurs professionnels:\n• Vous travaillez dans différents systèmes de personnel et apprenez à les appliquer Que apportez-vous?\n• Compétences organisationnelles, d'équipe et de communication\n• Travail responsable et indépendant\n• Motivation et fiabilité\n• Intéressé par un monde médiatique diversifié Que pouvez-vous attendre avec impatience?\n• Perspectives et coopération dans des domaines de travail passionnants\n• Des formateurs professionnels qui vous soutiennent dans tous les domaines\n• Mettre en place des apprenants, des événements d'équipe réguliers\n• 6 semaines de vacances Toujours des questions ? Claudia Hirt Spécialiste Formation professionnelle +41 58 135 15 07 La formation se déroule au sein du SSR du SRG et dans l'unité régionale SRF de Zurich. SRG SSR est la plus grande entreprise de médias en Suisse. Avec ses unités d'affaires SRF, RTS, RSI et RTR, il produit et distribue des contenus dans les domaines de l'information, de l'éducation, de la culture, du divertissement et du sport. En tant qu'apprenant, vous deviendrez membre d'une entreprise diversifiée et tournée vers l'avenir qui relie les gens à travers la Suisse et atteint des millions d'utilisateurs sur différentes plateformes chaque jour. Ce stage fait partie de la formation de base en tant que commerçante / femme d'affaires (organisée par l'école). En tant que diplômé de la Handelsmittelschule, vous pouvez effectuer un stage d'un an avec nous et obtenir un diplôme avec l'EFZ en tant que marchand / marchand avec la maturité professionnelle."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:07:15.087Z",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8052",
-      "streetAddress": "Fernsehstrasse 1-4",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
-      "requirements": [
-        "Organisations-, Team- und Kommunikationsfähigkeit",
-        "Verantwortungsbewusstes und selbstständiges Arbeiten",
-        "Motivation und Zuverlässigkeit",
-        "Interesse an einer vielfältigen Medienwelt"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Organisations-, Team- und Kommunikationsfähigkeit",
-          "Verantwortungsbewusstes und selbstständiges Arbeiten",
-          "Motivation und Zuverlässigkeit",
-          "Interesse an einer vielfältigen Medienwelt"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 100,
-        "pensumMax": 100
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-27T00:39:02.729Z",
-      "salaryMin": 77000,
-      "salaryMax": 136000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 136000,
           "unitText": "YEAR"
         }
       },
@@ -898,7 +1211,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:07:14.538Z",
+      "crawledAt": "2026-09-11T13:35:30.092Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -948,11 +1261,13 @@
         "pensumMax": 35
       },
       "previousSlugs": [
-        "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+        "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
+        "presentatore-di-tempo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
+          "presentatore-di-tempo-srg-ssr-bern"
         ],
         "en": [
           "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
@@ -962,6 +1277,7 @@
         ]
       },
       "firstSeenAt": "2026-08-27T19:52:31.631Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1008,7 +1324,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:07:13.916Z",
+      "crawledAt": "2026-09-11T13:35:29.608Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1045,11 +1361,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
+        "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+        "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
+          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+          "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich"
         ],
         "en": [
           "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
@@ -1059,6 +1377,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:42.256Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1105,7 +1424,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-di-genere-informazione-nazionale-offerta-operazioni/cfb04e9b-a468-42ae-a4d6-b8a57d4f6c50",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-10T23:07:13.305Z",
+      "crawledAt": "2026-09-11T13:35:29.079Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1143,6 +1462,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-08-31T17:00:43.065Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1189,7 +1509,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:07:12.685Z",
+      "crawledAt": "2026-09-11T13:35:28.490Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1227,11 +1547,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
+        "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+        "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
+          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+          "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich"
         ],
         "en": [
           "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
@@ -1241,6 +1563,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:43.813Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1287,7 +1610,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rsi-info-digitale/17338cec-b414-4787-bc8a-0718d1522e66",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-10T23:07:12.079Z",
+      "crawledAt": "2026-09-11T13:35:27.898Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1379,7 +1702,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-interactive-media-designer-rts-couleur-3/6814b6b0-96af-427f-a369-8f1d4275a816",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:07:11.440Z",
+      "crawledAt": "2026-09-11T13:35:27.296Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1424,6 +1747,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-02T23:09:02.702Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1470,7 +1794,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-recherchiste/7e518bec-7354-4090-9626-3d8c4ea47d3d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:07:10.832Z",
+      "crawledAt": "2026-09-11T13:35:26.634Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1515,11 +1839,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-recherchiste-srg-ssr-bern"
+        "stagiaire-recherchiste-srg-ssr-bern",
+        "formazione-di-ricerca-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-srg-ssr-bern"
+          "stagiaire-recherchiste-srg-ssr-bern",
+          "formazione-di-ricerca-srg-ssr-bern"
         ],
         "en": [
           "stagiaire-recherchiste-srg-ssr-bern"
@@ -1529,6 +1855,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:01.047Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1575,7 +1902,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/unternehmensentwickler-in/3622b4b4-a2dc-463a-80e1-17e8580a49d9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:07:10.314Z",
+      "crawledAt": "2026-09-11T13:35:26.135Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1615,11 +1942,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "unternehmensentwickler-in-srg-ssr-bern"
+        "unternehmensentwickler-in-srg-ssr-bern",
+        "sviluppatori-di-imprese-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unternehmensentwickler-in-srg-ssr-bern"
+          "unternehmensentwickler-in-srg-ssr-bern",
+          "sviluppatori-di-imprese-srg-ssr-bern"
         ],
         "en": [
           "unternehmensentwickler-in-srg-ssr-bern"
@@ -1629,6 +1958,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:17.762Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1675,7 +2005,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialiste-developpement-de-l-entreprise-f-h/68d88043-3525-4e16-9feb-b00befaafcd0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:07:09.613Z",
+      "crawledAt": "2026-09-11T13:35:25.538Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1714,11 +2044,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
+        "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
+        "specialista-di-sviluppo-aziendale-m-f-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
+          "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
+          "specialista-di-sviluppo-aziendale-m-f-srg-ssr-bern"
         ],
         "en": [
           "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
@@ -1728,6 +2060,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:17.077Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1774,7 +2107,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialista-sviluppo-aziendale/e5a4e260-bf26-4091-80eb-d00ff6e77726",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-10T23:07:08.933Z",
+      "crawledAt": "2026-09-11T13:35:24.984Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1813,6 +2146,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-08T13:36:16.364Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1859,7 +2193,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/chargees-de-projet-technique/3631e123-3639-47c1-aa9b-19dd52c04de5",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:07:08.290Z",
+      "crawledAt": "2026-09-11T13:35:24.432Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1903,11 +2237,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "charge-e-s-de-projet-technique-srg-ssr-lausanne"
+        "charge-e-s-de-projet-technique-srg-ssr-lausanne",
+        "responsabile-del-progetto-tecnico-srg-ssr-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-e-s-de-projet-technique-srg-ssr-lausanne"
+          "charge-e-s-de-projet-technique-srg-ssr-lausanne",
+          "responsabile-del-progetto-tecnico-srg-ssr-lausanne"
         ],
         "en": [
           "charge-e-s-de-projet-technique-srg-ssr-lausanne"
@@ -1917,6 +2253,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:04:42.334Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -1963,7 +2300,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/journaliste-data-actualite/c57274dd-5b5b-40c1-b089-be5ddd120c45",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:07:07.658Z",
+      "crawledAt": "2026-09-11T13:35:23.892Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2013,11 +2350,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "journaliste-data-actualite-srg-ssr-bern"
+        "journaliste-data-actualite-srg-ssr-bern",
+        "giornalista-news-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "journaliste-data-actualite-srg-ssr-bern"
+          "journaliste-data-actualite-srg-ssr-bern",
+          "giornalista-news-srg-ssr-bern"
         ],
         "en": [
           "journaliste-data-actualite-srg-ssr-bern"
@@ -2027,6 +2366,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:45:01.576Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2046,9 +2386,9 @@
       "id": "srg-ssr-c35abfd5a04b",
       "slug": "praktikant-in-srf-kids-srg-ssr-zurich",
       "slugByLocale": {
-        "de": "praktikant-in-srf-kids-srg-ssr-zurich",
         "it": "praktikant-in-srf-kids-srg-ssr-zurich",
         "en": "praktikant-in-srf-kids-srg-ssr-zurich",
+        "de": "praktikant-in-srf-kids-srg-ssr-zurich",
         "fr": "enfants-stagiaires-srf-srg-ssr-zurich"
       },
       "company": "SRG SSR",
@@ -2056,16 +2396,16 @@
       "companyDomain": "srgssr.ch",
       "title": "Praktikant:in SRF Kids",
       "titleByLocale": {
-        "de": "Praktikant:in SRF Kids",
         "it": "Interno SRF Kids",
         "en": "Intern SRF Kids",
+        "de": "Praktikant:in SRF Kids",
         "fr": "Enfants stagiaires SRF"
       },
       "description": "Was sind Ihre Aufgaben? Unter dem Namen SRF Kids bietet Schweizer Radio und Fernsehen SRF Kindern von 8 bis 12 Jahren viel Spass und Abwechslung. Auf srfkids.ch, YouTube SRF Kids, im Radio und im TV. Für Kinder und mit Kindern. Wir suchen vom 15. Februar 2027 bis 14. August 2027 einen Praktikanten oder eine Praktikantin.\n• Sie unterstützen bei Audioreportagen zusammen mit Kindern, konzipieren und filmen Inhalte für YT Shorts\n• Sie recherchieren und schreiben Artikel und Quiz für die Website von SRF Kids\n• Sie tragen Mitverantwortung für das Community Management im \"Treff\"\n• Sie übernehmen administrative Aufgaben wie das Verschicken von Preisen Was bringen Sie mit?\n• Sie arbeiten gerne für und mit Kindern\n• Sie haben erste Erfahrungen im Journalismus und/oder eine entsprechende Vorbildung\n• Sie haben Spass für Kinder zu Schreiben\n• Sie haben erste Erfahrungen in Fotografie und Bildbearbeitung Worauf können Sie sich freuen?\n• Als Praktikant:in in einem kleinen Team arbeiten sie von Anfang mit und können eigene Ideen einbringen und umsetzen\n• Sie erhalten Einblick in alle Aufgabenbereiche der Kinderredaktion\n• Sie sind Teil eines kreativen und motivierten Teams zum Bewerbungsprozess Selina Schär Fachspezialistin HR +41 58 135 25 27 Die Abteilung Unterhaltung erreicht alle Zielgruppen und trifft mit ihren Produktionen das Herz der Menschen. Sie lösen Emotionen aus, ecken an und verbinden. Die Abteilung Unterhaltung bietet Plattformen für Profis, Nachwuchs und UGC. Interaktion hat dabei einen zentralen Stellenwert.",
       "descriptionByLocale": {
-        "de": "Was sind Ihre Aufgaben? Unter dem Namen SRF Kids bietet Schweizer Radio und Fernsehen SRF Kindern von 8 bis 12 Jahren viel Spass und Abwechslung. Auf srfkids.ch, YouTube SRF Kids, im Radio und im TV. Für Kinder und mit Kindern. Wir suchen vom 15. Februar 2027 bis 14. August 2027 einen Praktikanten oder eine Praktikantin.\n• Sie unterstützen bei Audioreportagen zusammen mit Kindern, konzipieren und filmen Inhalte für YT Shorts\n• Sie recherchieren und schreiben Artikel und Quiz für die Website von SRF Kids\n• Sie tragen Mitverantwortung für das Community Management im \"Treff\"\n• Sie übernehmen administrative Aufgaben wie das Verschicken von Preisen Was bringen Sie mit?\n• Sie arbeiten gerne für und mit Kindern\n• Sie haben erste Erfahrungen im Journalismus und/oder eine entsprechende Vorbildung\n• Sie haben Spass für Kinder zu Schreiben\n• Sie haben erste Erfahrungen in Fotografie und Bildbearbeitung Worauf können Sie sich freuen?\n• Als Praktikant:in in einem kleinen Team arbeiten sie von Anfang mit und können eigene Ideen einbringen und umsetzen\n• Sie erhalten Einblick in alle Aufgabenbereiche der Kinderredaktion\n• Sie sind Teil eines kreativen und motivierten Teams zum Bewerbungsprozess Selina Schär Fachspezialistin HR +41 58 135 25 27 Die Abteilung Unterhaltung erreicht alle Zielgruppen und trifft mit ihren Produktionen das Herz der Menschen. Sie lösen Emotionen aus, ecken an und verbinden. Die Abteilung Unterhaltung bietet Plattformen für Profis, Nachwuchs und UGC. Interaktion hat dabei einen zentralen Stellenwert.",
         "it": "Quali sono i tuoi compiti? Sotto il nome SRF Kids, la radio svizzera e la televisione SRF offre ai bambini da 8 a 12 anni un sacco di divertimento e varietà. Su srfkids.ch, YouTube SRF Kids, alla radio e in TV. Per i bambini e con i bambini. Cerchiamo dal 15 febbraio 2027 al 14. Agosto 2027 un tirocinante.\n• Supporti rapporti audio insieme a bambini, design e contenuti film per YT Shorts\n• Ricerca e scrittura articoli e quiz per il sito web SRF Kids\n• Condividi la responsabilità per la gestione della comunità nel \"Treff\"\n• Lei assume compiti amministrativi come l'invio di premi Cosa porti?\n• A loro piace lavorare per e con i bambini\n• Hai esperienza iniziale nel giornalismo e/o una corrispondente istruzione precedente\n• Divertiti a scrivere per i bambini\n• Hai esperienza iniziale nella fotografia e nell'elaborazione delle immagini Cosa puoi aspettare?\n• Come tirocinante: in una piccola squadra lavorano fin dall'inizio e possono contribuire e implementare le proprie idee\n• Ottieni informazioni su tutte le aree di responsabilità della redazione dei bambini\n• Sei parte di un team creativo e motivato per il processo di applicazione Selina Schär specialista HR +41 58 135 25 27 Il reparto di intrattenimento raggiunge tutti i gruppi target e incontra il cuore delle persone con le sue produzioni. Attivano emozioni, angolo e collegano. Il reparto di intrattenimento offre piattaforme per professionisti, giovani e UGC. L'interazione è di fondamentale importanza.",
         "en": "What are your tasks? Under the name SRF Kids, Swiss radio and television SRF offers children from 8 to 12 years a lot of fun and variety. On srfkids.ch, YouTube SRF Kids, on the radio and on TV. For children and with children. We search from February 15, 2027 to 14. August 2027 an intern.\n• You support audio reports together with children, design and film content for YT Shorts\n• You research and write articles and quiz for the SRF Kids website\n• You share responsibility for community management in the \"Treff\"\n• You take on administrative tasks such as sending prizes What do you bring?\n• They like working for and with children\n• You have initial experience in journalism and/or a corresponding prior education\n• Have fun writing for kids\n• You have initial experience in photography and image processing What can you look forward to?\n• As an intern: in a small team, they work from the beginning and can contribute and implement their own ideas\n• You get insight into all areas of responsibility of the children's editorial team\n• You are part of a creative and motivated team for the application process Selina Schär specialist HR +41 58 135 25 27 The entertainment department reaches all target groups and meets the heart of the people with its productions. They trigger emotions, corner and connect. The entertainment department offers platforms for professionals, young people and UGC. Interaction is of central importance.",
+        "de": "Was sind Ihre Aufgaben? Unter dem Namen SRF Kids bietet Schweizer Radio und Fernsehen SRF Kindern von 8 bis 12 Jahren viel Spass und Abwechslung. Auf srfkids.ch, YouTube SRF Kids, im Radio und im TV. Für Kinder und mit Kindern. Wir suchen vom 15. Februar 2027 bis 14. August 2027 einen Praktikanten oder eine Praktikantin.\n• Sie unterstützen bei Audioreportagen zusammen mit Kindern, konzipieren und filmen Inhalte für YT Shorts\n• Sie recherchieren und schreiben Artikel und Quiz für die Website von SRF Kids\n• Sie tragen Mitverantwortung für das Community Management im \"Treff\"\n• Sie übernehmen administrative Aufgaben wie das Verschicken von Preisen Was bringen Sie mit?\n• Sie arbeiten gerne für und mit Kindern\n• Sie haben erste Erfahrungen im Journalismus und/oder eine entsprechende Vorbildung\n• Sie haben Spass für Kinder zu Schreiben\n• Sie haben erste Erfahrungen in Fotografie und Bildbearbeitung Worauf können Sie sich freuen?\n• Als Praktikant:in in einem kleinen Team arbeiten sie von Anfang mit und können eigene Ideen einbringen und umsetzen\n• Sie erhalten Einblick in alle Aufgabenbereiche der Kinderredaktion\n• Sie sind Teil eines kreativen und motivierten Teams zum Bewerbungsprozess Selina Schär Fachspezialistin HR +41 58 135 25 27 Die Abteilung Unterhaltung erreicht alle Zielgruppen und trifft mit ihren Produktionen das Herz der Menschen. Sie lösen Emotionen aus, ecken an und verbinden. Die Abteilung Unterhaltung bietet Plattformen für Profis, Nachwuchs und UGC. Interaktion hat dabei einen zentralen Stellenwert.",
         "fr": "Quelles sont vos tâches ? Sous le nom de SRF Kids, la radio et la télévision suisses SRF offre aux enfants de 8 à 12 ans beaucoup de plaisir et de variété. Sur srfkids.ch, YouTube SRF Kids, à la radio et à la télévision. Pour les enfants et avec les enfants. Nous cherchons depuis le 15 février 2027 à 14. Août 2027 un stagiaire.\n• Vous supportez les rapports audio avec les enfants, le design et le contenu du film pour YT Shorts\n• Vous recherchez et écrivez des articles et des quiz pour le site SRF Kids\n• Vous partagez la responsabilité de la gestion communautaire dans le \"Treff\"\n• Vous assumez des tâches administratives telles que l'envoi de prix Qu'est-ce que tu apportes ?\n• Ils aiment travailler pour et avec les enfants\n• Vous avez une expérience initiale en journalisme et/ou une formation antérieure correspondante\n• Amusez-vous à écrire pour les enfants\n• Vous avez une expérience initiale en photographie et traitement d'image Que pouvez-vous attendre avec impatience?\n• En tant que stagiaire: dans une petite équipe, ils travaillent dès le début et peuvent contribuer et mettre en œuvre leurs propres idées\n• Vous obtenez un aperçu de tous les domaines de responsabilité de l'équipe éditoriale pour enfants\n• Vous faites partie d'une équipe créative et motivée pour le processus de candidature Selina Schär spécialiste HR +41 58 135 25 27 Le service de divertissement atteint tous les groupes cibles et rencontre le cœur de la population avec ses productions. Ils déclenchent des émotions, se coincent et se connectent. Le service de divertissement offre des plateformes pour les professionnels, les jeunes et l'UGC. L'interaction revêt une importance capitale."
       },
       "location": "Zürich",
@@ -2073,7 +2413,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-srf-kids/e074e953-1135-4c64-b155-3ef4424df7bc",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:07:07.025Z",
+      "crawledAt": "2026-09-11T13:35:23.358Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2109,6 +2449,8 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
+      "firstSeenAt": "2026-09-10T23:07:07.025Z",
+      "needsRetranslation": true,
       "salaryMin": 63500,
       "salaryMax": 112500,
       "salarySource": "estimated",
@@ -2122,8 +2464,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-10T23:07:07.025Z"
+      "addressRegion": "ZH"
     },
     {
       "id": "srg-ssr-28c170232c31",
@@ -2156,7 +2497,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/responsabile-rete-tre/af6a6cbb-11f2-434e-906f-26f2a33ff12a",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-10T23:07:06.414Z",
+      "crawledAt": "2026-09-11T13:35:22.815Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2181,11 +2522,9 @@
       ],
       "requirementsByLocale": {
         "it": [
-          "Comprovata conoscenza del linguaggio radiofonico, del pubblico di riferimento e del territorio, unita a una buona padronanza degli altri vettori su cui opera l'azienda.",
           "Esperienza nella gestione del personale, delle risorse e dei progetti.",
           "Spiccata sensibilità musicale e propensione al mondo dell'intrattenimento.",
           "Personalità concreta ed efficiente, con doti organizzative e un approccio strutturato.",
-          "Solide doti comunicative, di relazione, negoziazione e forte orientamento alla risoluzione dei problemi. Forte propensione al lavoro di gruppo e doti di leadership. Spirito propositivo, flessibilità, ottima resistenza allo stress.",
           "Ottime conoscenze di italiano e di almeno un'altra lingua nazionale."
         ]
       },
@@ -2196,6 +2535,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
+      "firstSeenAt": "2026-09-10T23:07:06.414Z",
+      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "salarySource": "estimated",
@@ -2209,368 +2550,201 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-09-10T23:07:06.414Z"
+      "addressRegion": "TI"
     },
     {
-      "id": "srg-ssr-25dd75af254b",
-      "slug": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
+      "id": "srg-ssr-acb1d5747513",
+      "slug": "stage-nella-redazione-radiofonica-di-rete-uno-srg-ssr-comano",
       "slugByLocale": {
-        "it": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
-        "en": "fufragnadi-trial-entrepreneurship-srg-ssr-cuira",
-        "de": "fufragnadi-testunternehmertum-srg-ssr-cuira",
-        "fr": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira"
+        "it": "stage-nella-redazione-radiofonica-di-rete-uno-srg-ssr-comano",
+        "en": "stage-nella-redazione-radiofonica-di-rete-uno-srg-ssr-comano",
+        "de": "stage-nella-redazione-radiofonica-di-rete-uno-srg-ssr-comano",
+        "fr": "stage-nella-redazione-radiofonica-di-rete-uno-srg-ssr-comano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
       "companyDomain": "srgssr.ch",
-      "title": "Fufragnadi - emprendissadi da prova",
+      "title": "Stage nella redazione radiofonica di Rete Uno",
       "titleByLocale": {
-        "it": "Fufragnadi - imprenditoria di prova",
-        "en": "Fufragnadi - trial entrepreneurship",
-        "de": "Fufragnadi - Testunternehmertum",
-        "fr": "Fufragnadi - emprendissadi da prova"
+        "it": "Stage nella redazione radiofonica di Rete Uno",
+        "en": "Stage nella redazione radiofonica di Rete Uno",
+        "de": "Stage nella redazione radiofonica di Rete Uno",
+        "fr": "Stage nella redazione radiofonica di Rete Uno"
       },
-      "description": "Tge èn las pussaivladads? RTR porscha fufragnadis per giuvnas e giuvens che vulan far in emprendissadi mercantil/commerzial u l'emprendissadi d'informatica Il fufragnadi organisain nus gugent tenor ils termins cunvegnents durant 1 di Tge èn nossas spetgas? Ti discurras in idiom rumantsch e sas era scriver rumantsch Ti has almain terminà l'emprima classa dal stgalim superiur Per infurmaziun davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
+      "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alle attività quotidiane della redazione radiofonica di Rete Uno.\n• Ricerca, selezione e sviluppo di temi di attualità, cultura, società e intrattenimento da proporre in trasmissione.\n• Preparazione di contributi radiofonici e approfondimenti editoriali.\n• Organizzazione e preparazione di interviste con ospiti ed esperti.\n• Partecipazione alla realizzazione e alla conduzione di una trasmissione radiofonica.\n• Collaborazione con conduttrici, conduttori e redazione nella pianificazione dei contenuti.\n• Supporto alle attività redazionali e di produzione legate alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti appassiona il mondo della radio e segui l'attualità?\n• Possiedi una buona cultura generale?\n• Hai ottime capacità comunicative, sia scritte sia orali?\n• Potresti trovarti a tuo agio nel parlare davanti a un microfono?\n• Sai instaurare con facilità relazioni interpersonali e lavorare in team?\n• Sei una persona curiosa, dinamica e proattiva?\n• Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?\n• Hai una buona conoscenza del territorio?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
       "descriptionByLocale": {
-        "it": "Quali sono le possibilità? RTR offre opportunità di imprenditoria per giovani e giovanissimi che vogliono intraprendere un'attività commerciale o informatica. L'imprenditoria si organizza volentieri secondo le scadenze concordate per 1 giorno. Quali sono le nostre aspettative? Tu parli in lingua romancia e sai anche scrivere in romancio. Hai almeno completato il primo anno della scuola superiore. Per informazioni sul processo di candidatura, contatta Flurina Foppa, Responsabile risorse umane, +41 58 136 31 08.",
-        "en": "What are the opportunities? RTR offers entrepreneurship opportunities for young people who want to engage in commercial or IT entrepreneurship. The entrepreneurship is gladly organized according to the agreed deadlines for 1 day. What are our expectations? You speak in the Romansh language and can also write in Romansh. You have at least completed the first year of high school. For information about the application process, contact Flurina Foppa, Human Resources Manager, +41 58 136 31 08.",
-        "de": "Was sind die Möglichkeiten? RTR bietet Unternehmungsmöglichkeiten für junge Menschen, die ein Handels- oder IT-Unternehmen gründen möchten. Das Unternehmertum wird gerne nach den vereinbarten Fristen für 1 Tag organisiert. Was sind unsere Erwartungen? Du sprichst Rätoromanisch und kannst auch Rätoromanisch schreiben. Du hast mindestens das erste Jahr der Oberstufe abgeschlossen. Für Informationen zum Bewerbungsprozess kontaktiere Flurina Foppa, Personalverantwortliche, +41 58 136 31 08.",
-        "fr": "Tge èn las pussaivladads? RTR porscha fufragnadis per giuvnas e giuvens che vulan far in emprendissadi mercantil/commerzial u l'emprendissadi d'informatica Il fufragnadi organisain nus gugent tenor ils termins cunvegnents durant 1 di Tge èn nossas spetgas? Ti discurras in idiom rumantsch e sas era scriver rumantsch Ti has almain terminà l'emprima classa dal stgalim superiur Per infurmaziun davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08"
+        "it": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alle attività quotidiane della redazione radiofonica di Rete Uno.\n• Ricerca, selezione e sviluppo di temi di attualità, cultura, società e intrattenimento da proporre in trasmissione.\n• Preparazione di contributi radiofonici e approfondimenti editoriali.\n• Organizzazione e preparazione di interviste con ospiti ed esperti.\n• Partecipazione alla realizzazione e alla conduzione di una trasmissione radiofonica.\n• Collaborazione con conduttrici, conduttori e redazione nella pianificazione dei contenuti.\n• Supporto alle attività redazionali e di produzione legate alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti appassiona il mondo della radio e segui l'attualità?\n• Possiedi una buona cultura generale?\n• Hai ottime capacità comunicative, sia scritte sia orali?\n• Potresti trovarti a tuo agio nel parlare davanti a un microfono?\n• Sai instaurare con facilità relazioni interpersonali e lavorare in team?\n• Sei una persona curiosa, dinamica e proattiva?\n• Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?\n• Hai una buona conoscenza del territorio?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
+        "en": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alle attività quotidiane della redazione radiofonica di Rete Uno.\n• Ricerca, selezione e sviluppo di temi di attualità, cultura, società e intrattenimento da proporre in trasmissione.\n• Preparazione di contributi radiofonici e approfondimenti editoriali.\n• Organizzazione e preparazione di interviste con ospiti ed esperti.\n• Partecipazione alla realizzazione e alla conduzione di una trasmissione radiofonica.\n• Collaborazione con conduttrici, conduttori e redazione nella pianificazione dei contenuti.\n• Supporto alle attività redazionali e di produzione legate alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti appassiona il mondo della radio e segui l'attualità?\n• Possiedi una buona cultura generale?\n• Hai ottime capacità comunicative, sia scritte sia orali?\n• Potresti trovarti a tuo agio nel parlare davanti a un microfono?\n• Sai instaurare con facilità relazioni interpersonali e lavorare in team?\n• Sei una persona curiosa, dinamica e proattiva?\n• Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?\n• Hai una buona conoscenza del territorio?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
+        "de": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alle attività quotidiane della redazione radiofonica di Rete Uno.\n• Ricerca, selezione e sviluppo di temi di attualità, cultura, società e intrattenimento da proporre in trasmissione.\n• Preparazione di contributi radiofonici e approfondimenti editoriali.\n• Organizzazione e preparazione di interviste con ospiti ed esperti.\n• Partecipazione alla realizzazione e alla conduzione di una trasmissione radiofonica.\n• Collaborazione con conduttrici, conduttori e redazione nella pianificazione dei contenuti.\n• Supporto alle attività redazionali e di produzione legate alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti appassiona il mondo della radio e segui l'attualità?\n• Possiedi una buona cultura generale?\n• Hai ottime capacità comunicative, sia scritte sia orali?\n• Potresti trovarti a tuo agio nel parlare davanti a un microfono?\n• Sai instaurare con facilità relazioni interpersonali e lavorare in team?\n• Sei una persona curiosa, dinamica e proattiva?\n• Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?\n• Hai una buona conoscenza del territorio?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
+        "fr": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alle attività quotidiane della redazione radiofonica di Rete Uno.\n• Ricerca, selezione e sviluppo di temi di attualità, cultura, società e intrattenimento da proporre in trasmissione.\n• Preparazione di contributi radiofonici e approfondimenti editoriali.\n• Organizzazione e preparazione di interviste con ospiti ed esperti.\n• Partecipazione alla realizzazione e alla conduzione di una trasmissione radiofonica.\n• Collaborazione con conduttrici, conduttori e redazione nella pianificazione dei contenuti.\n• Supporto alle attività redazionali e di produzione legate alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti appassiona il mondo della radio e segui l'attualità?\n• Possiedi una buona cultura generale?\n• Hai ottime capacità comunicative, sia scritte sia orali?\n• Potresti trovarti a tuo agio nel parlare davanti a un microfono?\n• Sai instaurare con facilità relazioni interpersonali e lavorare in team?\n• Sei una persona curiosa, dinamica e proattiva?\n• Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?\n• Hai una buona conoscenza del territorio?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera."
       },
-      "location": "Cuira",
-      "canton": "",
-      "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:05:12.728Z",
-      "addressLocality": "Cuira",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Via da Masans 2",
-      "category": "Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2022-09-14",
-      "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_srgMeta": {
-        "uuid": "b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
-        "org": "rtr",
-        "orgLabel": "RTR"
-      },
-      "firstSeenAt": "2026-06-29T11:35:51.857Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "srg-ssr-4295227a1917",
-      "slug": "praticanta-praticant-srg-ssr-cuira",
-      "slugByLocale": {
-        "it": "praticanta-praticant-srg-ssr-cuira",
-        "en": "intern-srg-ssr-cuira",
-        "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Praticanta / praticant",
-      "titleByLocale": {
-        "it": "Praticanta / praticant",
-        "en": "Intern",
-        "de": "Praktikant",
-        "fr": "Pratique / Pratique"
-      },
-      "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
-      "descriptionByLocale": {
-        "it": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
-        "en": "Description - Do you want to become a journalist? Or work as a technician? - Are you curious and eager to be where things happen - are you interested in the Romansh language, Graubünden, the world - do you enjoy working with language, images, sound, or technology? - We support and train you! You can do an internship with us for 3 to 6 months. - During this time, you will learn about the media industry and our company with its extensive offerings. - From the very beginning, you will be part of the team and can develop your skills in practice with support and internal training.\n• Requirements - Age: approximately 18 to 30 years - Education: apprenticeship, high school diploma or vocational training, studies or equivalent education - Duration: ideally 6 months; positions are limited, usually 1 intern for half a year. Contact - And after the internship? About the application process - Flurina Foppa - Human Resources Manager - +41 58 136 31 08",
-        "de": "Beschreibung - Möchtest du Journalist oder Journalistin werden? Oder als Techniker oder Technikerin arbeiten? - Bist du neugierig und möchtest dort sein, wo die Dinge passieren - interessierst du dich für die Rätoromanische Sprache, Graubünden, die Welt - arbeitest du gerne mit Sprache, Bildern, Ton oder Technik? - Wir unterstützen und bilden dich aus! Du kannst ein Praktikum bei uns für 3 bis 6 Monate machen. - In dieser Zeit lernst du die Medienbranche und unser Unternehmen mit seinen umfangreichen Angeboten kennen. - Von Anfang an bist du Teil des Teams und kannst deine Fähigkeiten in der Praxis mit Unterstützung und interner Schulung entwickeln.\n• Anforderungen - Alter: etwa 18 bis 30 Jahre - Ausbildung: Lehre, Matura oder Berufsausbildung, Studium oder gleichwertige Ausbildung - Dauer: idealerweise 6 Monate; die Plätze sind begrenzt, in der Regel 1 Praktikant für ein halbes Jahr. Kontakt - Und nach dem Praktikum? Über den Bewerbungsprozess - Flurina Foppa - Leiterin Human Resources - +41 58 136 31 08",
-        "fr": "Description - Voulez-vous devenir journaliste ? Ou travailler comme technicien ? - Êtes-vous curieux et souhaitez-vous être là où les choses se passent - vous intéressez-vous à la langue romanche, aux Grisons, au monde - aimez-vous travailler avec la langue, les images, le son ou la technique ? - Nous vous soutenons et vous formons ! Vous pouvez faire un stage chez nous pendant 3 à 6 mois. - Pendant cette période, vous découvrirez le secteur des médias et notre entreprise avec ses vastes offres. - Dès le début, vous ferez partie de l'équipe et pourrez développer vos compétences en pratique avec un soutien et une formation interne.\n• Exigences - Âge : environ 18 à 30 ans - Éducation : apprentissage, diplôme de maturité ou formation professionnelle, études ou formation équivalente - Durée : idéalement 6 mois ; les places sont limitées, généralement 1 stagiaire pour un semestre. Contact - Et après le stage ? À propos du processus de candidature - Flurina Foppa - Responsable des ressources humaines - +41 58 136 31 08"
-      },
-      "location": "Cuira",
-      "canton": "",
-      "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
+      "location": "Comano",
+      "canton": "TI",
+      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-radiofonica-di-rete-uno/f0713e91-8f0d-45e7-97e7-594e453d4471",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:05:11.256Z",
-      "addressLocality": "Cuira",
+      "crawledAt": "2026-09-11T13:35:22.240Z",
+      "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Via da Masans 2",
-      "category": "Tecnica",
+      "postalCode": "6949",
+      "streetAddress": "via Cureglia 38",
+      "category": "Produzione Media",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "intern",
       "sector": "Media / Broadcasting",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2022-09-15",
-      "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
-      "requirements": [],
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-radiofonica-di-rete-uno/f0713e91-8f0d-45e7-97e7-594e453d4471",
+      "requirements": [
+        "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
+        "Ti appassiona il mondo della radio e segui l'attualità?",
+        "Possiedi una buona cultura generale?",
+        "Hai ottime capacità comunicative, sia scritte sia orali?",
+        "Potresti trovarti a tuo agio nel parlare davanti a un microfono?",
+        "Sai instaurare con facilità relazioni interpersonali e lavorare in team?",
+        "Sei una persona curiosa, dinamica e proattiva?",
+        "Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?",
+        "Hai una buona conoscenza del territorio?",
+        "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
+      ],
       "requirementsByLocale": {
-        "en": [
-          "Age: approximately 18 to 30 years",
-          "Education: apprenticeship, high school diploma or vocational training, studies or equivalent education",
-          "Duration: ideally 6 months; positions are limited, usually 1 intern for half a year."
-        ],
-        "de": [
-          "Alter: etwa 18 bis 30 Jahre",
-          "Ausbildung: Lehre, Matura oder Berufsausbildung, Studium oder gleichwertige Ausbildung",
-          "Dauer: idealerweise 6 Monate; die Plätze sind begrenzt, in der Regel 1 Praktikant für ein halbes Jahr."
-        ],
-        "fr": [
-          "Âge : environ 18 à 30 ans",
-          "Éducation : apprentissage, diplôme de maturité ou formation professionnelle, études ou formation équivalente",
-          "Durée : idéalement 6 mois ; les places sont limitées, généralement 1 stagiaire pour un semestre."
+        "it": [
+          "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
+          "Ti appassiona il mondo della radio e segui l'attualità?",
+          "Possiedi una buona cultura generale?",
+          "Hai ottime capacità comunicative, sia scritte sia orali?",
+          "Potresti trovarti a tuo agio nel parlare davanti a un microfono?",
+          "Sai instaurare con facilità relazioni interpersonali e lavorare in team?",
+          "Sei una persona curiosa, dinamica e proattiva?",
+          "Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?",
+          "Hai una buona conoscenza del territorio?",
+          "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
         ]
       },
       "_srgMeta": {
-        "uuid": "4a660497-3bdc-452a-ab3f-d9b8493cc46f",
-        "org": "rtr",
-        "orgLabel": "RTR",
+        "uuid": "f0713e91-8f0d-45e7-97e7-594e453d4471",
+        "org": "rsi",
+        "orgLabel": "RSI",
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "salaryMin": 42640,
-      "salaryMax": 61000,
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 74000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 42640,
-          "maxValue": 61000,
+          "minValue": 41600,
+          "maxValue": 74000,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-09-11T13:35:22.240Z"
     },
     {
-      "id": "srg-ssr-d9ec5b9a657a",
-      "slug": "service-operator-srg-ssr-bern",
+      "id": "srg-ssr-0829b0ebec26",
+      "slug": "stage-social-media-content-creator-rete-uno-e-rete-tre-srg-ssr-comano",
       "slugByLocale": {
-        "it": "operatore-di-servizio-srg-ssr-bern",
-        "en": "service-operator-srg-ssr-bern",
-        "de": "service-operator-srg-ssr-bern",
-        "fr": "operateur-de-service-srg-ssr-bern"
+        "it": "stage-social-media-content-creator-rete-uno-e-rete-tre-srg-ssr-comano",
+        "en": "stage-social-media-content-creator-rete-uno-e-rete-tre-srg-ssr-comano",
+        "de": "stage-social-media-content-creator-rete-uno-e-rete-tre-srg-ssr-comano",
+        "fr": "stage-social-media-content-creator-rete-uno-e-rete-tre-srg-ssr-comano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
       "companyDomain": "srgssr.ch",
-      "title": "Service Operator",
+      "title": "Stage Social Media / Content Creator, Rete Uno e Rete Tre",
       "titleByLocale": {
-        "it": "Operatore di servizio",
-        "en": "Service",
-        "de": "Service Operator",
-        "fr": "Opérateur de Service"
+        "it": "Stage Social Media / Content Creator, Rete Uno e Rete Tre",
+        "en": "Stage Social Media / Content Creator, Rete Uno e Rete Tre",
+        "de": "Stage Social Media / Content Creator, Rete Uno e Rete Tre",
+        "fr": "Stage Social Media / Content Creator, Rete Uno e Rete Tre"
       },
-      "description": "Das ist Ihr Beitrag Im Bereich Service Monitoring engagieren Sie sich für folgende Themen:\n• Zentrales Monitoring der nationalen ICT und Infrastruktur Services sowie aller SRG SSR Programme mit den verschiedenen Verbreitungswegen in Früh-, Mittel- und Spätschicht.\n• Gesamtkoordination und Sicherstellung der Service Support Prozesse mit den Supporteinheiten innerhalb der SRG und externen Lieferanten.\n• Incident-, Change-, Access- und Eventhandling inkl. deren Dokumentation im Service Management System\n• Einleitung von ersten Continuity Massnahmen für Broadcast- und Broadband-Services und Eskalationen an interne SRG-Teams oder unsere externen Partner.\n• Koordination und Kommunikation der Störungsbehebungsmassnahmen im Falle von \"Major Incidents\" mit nationaler Auswirkung sowie deren Nachbearbeitung\n• Qualitätssicherung im Störungsprozess Damit begeistern Sie uns\n• Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich\n• Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert\n• Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden\n• Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch\n• Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst\n• Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation Damit begeistern wir Sie\n• Vielseitige und interessante Funktion in einem dynamischen Umfeld der elektronischen Medien und des Service Public\n• Äusserst spannendes und kollegiales Umfeld\n• Fortschrittliche Anstellungsbedingungen und Weiterbildungsmöglichkeiten Noch Fragen? zum Bewerbungsprozess Nils Hirschi HR Berater Telefon +41 58 136 43 36 Der Bereich Operationen übernimmt die zentrale strategische und steuernde Rolle für die technologische Ausrichtung und die Produktion der SRG SSR. Die Abteilung IT unterstützt alle Mitarbeitenden, Technologiebereiche und Supportfunktionen mit effizienten, verlässlichen und modernen IT-Services, um die strategischen und operativen Bedürfnisse der Organisation zu erfüllen.",
+      "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alla gestione e allo sviluppo della presenza social di Rete Uno e Rete Tre.\n• Ideazione e produzione di contenuti digitali a partire dai programmi radiofonici.\n• Creazione di reel, stories, caroselli e altri contenuti originali per Instagram e gli altri canali digitali.\n• Realizzazione di riprese video con smartphone durante trasmissioni, interviste, eventi ed emissioni esterne.\n• Montaggio e adattamento di contenuti per i diversi formati e piattaforme social.\n• Ricerca di idee, linguaggi e formati innovativi per valorizzare i contenuti delle due reti. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?\n• Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?\n• Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?\n• Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?\n• Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?\n• Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?\n• Sai adattare contenuti e linguaggi alle diverse piattaforme social?\n• Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?\n• Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale? Cosa offriamo Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026. LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
       "descriptionByLocale": {
-        "it": "Descrizione - Nel settore del Monitoraggio dei Servizi, ci si impegna nei seguenti temi:\n• Monitoraggio centrale dei servizi ICT nazionali e delle infrastrutture, nonché di tutti i programmi SRG SSR con i vari canali di diffusione nei turni di mattina, pomeriggio e sera.\n• Coordinamento generale e assicurazione dei processi di supporto ai servizi con le unità di supporto all'interno della SRG e fornitori esterni.\n• Gestione di incidenti, cambiamenti, accessi ed eventi, inclusa la loro documentazione nel sistema di gestione dei servizi.\n• Inizio delle prime misure di continuità per i servizi di broadcast e broadband e escalation ai team interni SRG o ai nostri partner esterni.\n• Coordinamento e comunicazione delle misure di risoluzione dei problemi in caso di \"Incidenti Maggiori\" con impatto nazionale e loro follow-up.\n• Assicurazione della qualità nel processo di gestione dei problemi. Requisiti - Formazione completata in informatica, elettronica o ingegneria elettrica. - Ampia conoscenza e interesse nel settore ICT e/o Broadcast desiderati. - Forti capacità di comunicazione e coordinamento nel rapporto con partner commerciali, fornitori e clienti. - Conoscenze linguistiche in tedesco e inglese, e idealmente in francese o italiano. - Disponibilità a lavorare su turni e nei fine settimana, nonché a partecipare a servizi di guardia. - Conoscenze pratiche e teoriche di ITIL nel campo del supporto ai servizi e dell'operazione dei servizi. Cosa offriamo - Funzione versatile e interessante in un ambiente dinamico dei media elettronici e del servizio pubblico. - Ambiente estremamente stimolante e collaborativo. - Condizioni di assunzione avanzate e opportunità di formazione. Contatto - Nils Hirschi Consulente HR - Telefono +41 58 136 43 36 Il settore Operazioni - Assume il ruolo strategico e di controllo centrale per l'orientamento tecnologico e la produzione della SRG SSR. - Il dipartimento IT supporta tutti i dipendenti, le aree tecnologiche e le funzioni di supporto con servizi IT efficienti, affidabili e moderni, per soddisfare le esigenze strategiche e operative dell'organizzazione.",
-        "en": "Description - In the area of Service Monitoring, you will engage in the following topics:\n• Central monitoring of national ICT and infrastructure services as well as all SRG SSR programs with various distribution channels in early, mid, and late shifts.\n• Overall coordination and assurance of the service support processes with the support units within SRG and external suppliers.\n• Incident, change, access, and event handling including their documentation in the service management system.\n• Initiation of initial continuity measures for broadcast and broadband services and escalations to internal SRG teams or our external partners.\n• Coordination and communication of troubleshooting measures in the event of \"Major Incidents\" with national impact as well as their follow-up.\n• Quality assurance in the incident process. Requirements - Completed apprenticeship in computer science, electronics, or electrical engineering. - Broad ICT and/or broadcast knowledge and interest desirable. - Strong communication and coordination skills in dealing with business partners, suppliers, and customers. - Language skills in German and English, as well as ideally in French or Italian. - Willingness to work shifts and weekends as well as on-call duty. - Practical and theoretical ITIL knowledge in the area of service support and service operation. What we offer - Versatile and interesting role in a dynamic environment of electronic media and public service. - Extremely exciting and collegial environment. - Progressive employment conditions and training opportunities. Contact - Nils Hirschi HR Consultant - Phone +41 58 136 43 36 The Operations Area - Takes on the central strategic and controlling role for the technological orientation and production of SRG SSR. - The IT department supports all employees, technological areas, and support functions with efficient, reliable, and modern IT services to meet the strategic and operational needs of the organization.",
-        "de": "Das ist Ihr Beitrag Im Bereich Service Monitoring engagieren Sie sich für folgende Themen:\n• Zentrales Monitoring der nationalen ICT und Infrastruktur Services sowie aller SRG SSR Programme mit den verschiedenen Verbreitungswegen in Früh-, Mittel- und Spätschicht.\n• Gesamtkoordination und Sicherstellung der Service Support Prozesse mit den Supporteinheiten innerhalb der SRG und externen Lieferanten.\n• Incident-, Change-, Access- und Eventhandling inkl. deren Dokumentation im Service Management System\n• Einleitung von ersten Continuity Massnahmen für Broadcast- und Broadband-Services und Eskalationen an interne SRG-Teams oder unsere externen Partner.\n• Koordination und Kommunikation der Störungsbehebungsmassnahmen im Falle von \"Major Incidents\" mit nationaler Auswirkung sowie deren Nachbearbeitung\n• Qualitätssicherung im Störungsprozess Damit begeistern Sie uns\n• Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich\n• Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert\n• Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden\n• Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch\n• Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst\n• Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation Damit begeistern wir Sie\n• Vielseitige und interessante Funktion in einem dynamischen Umfeld der elektronischen Medien und des Service Public\n• Äusserst spannendes und kollegiales Umfeld\n• Fortschrittliche Anstellungsbedingungen und Weiterbildungsmöglichkeiten Noch Fragen? zum Bewerbungsprozess Nils Hirschi HR Berater Telefon +41 58 136 43 36 Der Bereich Operationen übernimmt die zentrale strategische und steuernde Rolle für die technologische Ausrichtung und die Produktion der SRG SSR. Die Abteilung IT unterstützt alle Mitarbeitenden, Technologiebereiche und Supportfunktionen mit effizienten, verlässlichen und modernen IT-Services, um die strategischen und operativen Bedürfnisse der Organisation zu erfüllen.",
-        "fr": "Description - Dans le domaine de la surveillance des services, vous vous engagerez dans les sujets suivants :\n• Surveillance centrale des services ICT nationaux et des infrastructures ainsi que de tous les programmes SRG SSR avec les différents canaux de diffusion dans les équipes de matin, d'après-midi et de soir.\n• Coordination générale et assurance des processus de support des services avec les unités de support au sein de la SRG et les fournisseurs externes.\n• Gestion des incidents, des changements, des accès et des événements, y compris leur documentation dans le système de gestion des services.\n• Initiation des premières mesures de continuité pour les services de diffusion et de large bande et escalades vers les équipes internes de la SRG ou nos partenaires externes.\n• Coordination et communication des mesures de résolution des problèmes en cas de \"grands incidents\" ayant un impact national ainsi que leur suivi.\n• Assurance qualité dans le processus de gestion des incidents. Exigences - Formation achevée en informatique, électronique ou ingénierie électrique. - Large connaissance et intérêt pour le secteur ICT et/ou Broadcast souhaités. - Solides compétences en communication et en coordination dans les relations avec les partenaires commerciaux, les fournisseurs et les clients. - Compétences linguistiques en allemand et en anglais, ainsi qu'idéalement en français ou en italien. - Disponibilité pour travailler en équipes et le week-end ainsi que pour des services d'astreinte. - Connaissances pratiques et théoriques d'ITIL dans le domaine du support des services et de l'exploitation des services. Ce que nous offrons - Rôle polyvalent et intéressant dans un environnement dynamique des médias électroniques et du service public. - Environnement extrêmement stimulant et collégial. - Conditions d'emploi progressistes et opportunités de formation. Contact - Nils Hirschi Consultant RH - Téléphone +41 58 136 43 36 Le domaine des opérations - Prend le rôle stratégique et de contrôle central pour l'orientation technologique et la production de la SRG SSR. - Le département IT soutient tous les employés, les domaines technologiques et les fonctions de support avec des services informatiques efficaces, fiables et modernes pour répondre aux besoins stratégiques et opérationnels de l'organisation."
+        "it": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alla gestione e allo sviluppo della presenza social di Rete Uno e Rete Tre.\n• Ideazione e produzione di contenuti digitali a partire dai programmi radiofonici.\n• Creazione di reel, stories, caroselli e altri contenuti originali per Instagram e gli altri canali digitali.\n• Realizzazione di riprese video con smartphone durante trasmissioni, interviste, eventi ed emissioni esterne.\n• Montaggio e adattamento di contenuti per i diversi formati e piattaforme social.\n• Ricerca di idee, linguaggi e formati innovativi per valorizzare i contenuti delle due reti. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?\n• Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?\n• Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?\n• Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?\n• Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?\n• Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?\n• Sai adattare contenuti e linguaggi alle diverse piattaforme social?\n• Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?\n• Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale? Cosa offriamo Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026. LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
+        "en": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alla gestione e allo sviluppo della presenza social di Rete Uno e Rete Tre.\n• Ideazione e produzione di contenuti digitali a partire dai programmi radiofonici.\n• Creazione di reel, stories, caroselli e altri contenuti originali per Instagram e gli altri canali digitali.\n• Realizzazione di riprese video con smartphone durante trasmissioni, interviste, eventi ed emissioni esterne.\n• Montaggio e adattamento di contenuti per i diversi formati e piattaforme social.\n• Ricerca di idee, linguaggi e formati innovativi per valorizzare i contenuti delle due reti. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?\n• Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?\n• Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?\n• Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?\n• Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?\n• Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?\n• Sai adattare contenuti e linguaggi alle diverse piattaforme social?\n• Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?\n• Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale? Cosa offriamo Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026. LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
+        "de": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alla gestione e allo sviluppo della presenza social di Rete Uno e Rete Tre.\n• Ideazione e produzione di contenuti digitali a partire dai programmi radiofonici.\n• Creazione di reel, stories, caroselli e altri contenuti originali per Instagram e gli altri canali digitali.\n• Realizzazione di riprese video con smartphone durante trasmissioni, interviste, eventi ed emissioni esterne.\n• Montaggio e adattamento di contenuti per i diversi formati e piattaforme social.\n• Ricerca di idee, linguaggi e formati innovativi per valorizzare i contenuti delle due reti. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?\n• Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?\n• Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?\n• Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?\n• Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?\n• Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?\n• Sai adattare contenuti e linguaggi alle diverse piattaforme social?\n• Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?\n• Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale? Cosa offriamo Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026. LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
+        "fr": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alla gestione e allo sviluppo della presenza social di Rete Uno e Rete Tre.\n• Ideazione e produzione di contenuti digitali a partire dai programmi radiofonici.\n• Creazione di reel, stories, caroselli e altri contenuti originali per Instagram e gli altri canali digitali.\n• Realizzazione di riprese video con smartphone durante trasmissioni, interviste, eventi ed emissioni esterne.\n• Montaggio e adattamento di contenuti per i diversi formati e piattaforme social.\n• Ricerca di idee, linguaggi e formati innovativi per valorizzare i contenuti delle due reti. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?\n• Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?\n• Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?\n• Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?\n• Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?\n• Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?\n• Sai adattare contenuti e linguaggi alle diverse piattaforme social?\n• Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?\n• Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale? Cosa offriamo Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026. LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera."
       },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
+      "location": "Comano",
+      "canton": "TI",
+      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rete-uno-e-rete-tre/c9783f6a-a253-43f3-9ef7-6a679c49914d",
       "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:00.642Z",
-      "addressLocality": "Bern",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-11T13:35:21.643Z",
+      "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3006",
-      "streetAddress": "Giacomettistrasse 1",
+      "postalCode": "6949",
+      "streetAddress": "via Cureglia 38",
       "category": "Produzione Media",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "intern",
       "sector": "Media / Broadcasting",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rete-uno-e-rete-tre/c9783f6a-a253-43f3-9ef7-6a679c49914d",
       "requirements": [
-        "Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich",
-        "Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert",
-        "Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden",
-        "Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch",
-        "Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst",
-        "Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation"
+        "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
+        "Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?",
+        "Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?",
+        "Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?",
+        "Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?",
+        "Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?",
+        "Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?",
+        "Sai adattare contenuti e linguaggi alle diverse piattaforme social?",
+        "Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?",
+        "Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?",
+        "Hai delle buone conoscenze del territorio svizzero e della cultura generale?"
       ],
       "requirementsByLocale": {
         "it": [
-          "Formazione completata in informatica, elettronica o ingegneria elettrica.",
-          "Ampia conoscenza e interesse nel settore ICT e/o Broadcast desiderati.",
-          "Forti capacità di comunicazione e coordinamento nel rapporto con partner commerciali, fornitori e clienti.",
-          "Conoscenze linguistiche in tedesco e inglese, e idealmente in francese o italiano.",
-          "Disponibilità a lavorare su turni e nei fine settimana, nonché a partecipare a servizi di guardia.",
-          "Conoscenze pratiche e teoriche di ITIL nel campo del supporto ai servizi e dell'operazione dei servizi."
-        ],
-        "en": [
-          "Completed apprenticeship in computer science, electronics, or electrical engineering.",
-          "Broad ICT and/or broadcast knowledge and interest desirable.",
-          "Strong communication and coordination skills in dealing with business partners, suppliers, and customers.",
-          "Language skills in German and English, as well as ideally in French or Italian.",
-          "Willingness to work shifts and weekends as well as on-call duty.",
-          "Practical and theoretical ITIL knowledge in the area of service support and service operation."
-        ],
-        "de": [
-          "Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich",
-          "Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert",
-          "Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden",
-          "Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch",
-          "Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst",
-          "Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation"
-        ],
-        "fr": [
-          "Formation achevée en informatique, électronique ou ingénierie électrique.",
-          "Large connaissance et intérêt pour le secteur ICT et/ou Broadcast souhaités.",
-          "Compétences linguistiques en allemand et en anglais, ainsi qu'idéalement en français ou en italien.",
-          "Disponibilité pour travailler en équipes et le week-end ainsi que pour des services d'astreinte.",
-          "Connaissances pratiques et théoriques d'ITIL dans le domaine du support des services et de l'exploitation des services."
+          "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
+          "Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?",
+          "Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?",
+          "Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?",
+          "Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?",
+          "Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?",
+          "Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?",
+          "Sai adattare contenuti e linguaggi alle diverse piattaforme social?",
+          "Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?",
+          "Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?",
+          "Hai delle buone conoscenze del territorio svizzero e della cultura generale?"
         ]
       },
       "_srgMeta": {
-        "uuid": "b7aea4ab-5915-4645-a639-79a98c2543ff",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
+        "uuid": "c9783f6a-a253-43f3-9ef7-6a679c49914d",
+        "org": "rsi",
+        "orgLabel": "RSI",
         "pensumMin": 80,
-        "pensumMax": 80
-      },
-      "firstSeenAt": "2026-06-29T11:35:27.904Z",
-      "salaryMin": 71500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "srg-ssr-a8ae3325568d",
-      "slug": "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich",
-      "slugByLocale": {
-        "it": "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich",
-        "en": "basic-training-as-event-specialist-ms-efz-srg-ssr-zurich",
-        "de": "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
-        "fr": "formation-de-base-en-tant-que-specialiste-de-l-evenement-mme-efz-srg-ssr-zurich"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Grundausbildung als Veranstaltungsfachmann/fachfrau EFZ",
-      "titleByLocale": {
-        "it": "Formazione di base come specialista di eventi EFZ",
-        "en": "Basic training as event specialist EFZ",
-        "de": "Grundausbildung als Veranstaltungsfachmann/fachfrau EFZ",
-        "fr": "Formation de base en tant que spécialiste EFZ"
-      },
-      "description": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Betreuung der technischen Aspekte von Fernseh- Radio- und Videoproduktionen sowie Events\n• Sicherstellung eines reibungslosen und sicheren Ablaufs von Shows hinter den Kulissen\n• Installation und Bedienung von ton-, video- und beleuchtungstechnischen Anlagen\n• Auf- und Abbau von Bühnen und szenentechnischen Einrichtungen Wie kannst du dich bewerben?\n• Bewerbungsschreiben inklusive lückenloser Lebenslauf mit Foto\n• Zeugniskopien aller Oberstufenzeugnisse und/oder des 10. Schuljahres\n• Diplome oder andere Auszeichnungen sowie Schnupperlehrfeedbacks (falls vorhanden)\n• Eignungstest Stellwerk Was bringst du mit?\n• In Mathematik, Geometrie und Englisch gute schulische Leistungen (im höchsten/mittleren Niveau)\n• Zuverlässigkeit, Selbstständigkeit, rasche Auffassungsgabe\n• Gute körperliche Verfassung, Belastbarkeit und Freude am Arbeiten im Freien Worauf kannst du dich freuen?\n• Einblicke in die faszinierende Welt des Fernseh- und Radiomachens\n• Freundliche und motivierte Mitarbeiter:innen\n• Aufgestellte Lernende\n• Kompetente Ausbildung\n• 6 Wochen Ferien Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
-      "descriptionByLocale": {
-        "it": "Quali sono i tuoi compiti? Con l'inizio dell'insegnamento nell'agosto 2027, vi impegnate nei seguenti argomenti:\n• Supervisione degli aspetti tecnici delle produzioni televisive, radio e video, nonché degli eventi\n• Garantire una gestione fluida e sicura degli spettacoli dietro le quinte\n• Installazione e funzionamento di apparecchiature audio, video e illuminazione\n• Installazione e smantellamento delle fasi e degli impianti tecnici Come si può applicare?\n• Lettera di richiesta con CV completo con foto\n• copie di tutti i certificati di livello superiore e/o 10. Anno scolastico\n• Diplomi o altri premi così come feedback del degustatore (se disponibile)\n• Test di attitudine Stellwerk Cosa porti?\n• In Matematica, Geometria e Inglese buone prestazioni accademiche (livello massimo/medio)\n• Affidabilità, indipendenza, rapida comprensione\n• Buone condizioni fisiche, resilienza e gioia di lavorare all'aperto Cosa puoi aspettare?\n• Insights nel mondo affascinante della televisione e della radio\n• Dipendenti amichevoli e motivati: dentro\n• Studenti istituiti\n• Formazione competente\n• 6 settimane di vacanza Ancora domande? Claudia Hirt Specialista Formazione Professionale +41 58 135 15 07 La formazione avviene all'interno della SSR e si svolge nell'unità regionale SRF di Zurigo. SRG SSR è la più grande società di media in Svizzera. Con le sue business unit SRF, RTS, RSI e RTR, produce e distribuisce contenuti nei settori dell'informazione, dell'istruzione, della cultura, dell'intrattenimento e dello sport. Come apprendista, diventerai parte di una società diversificata e orientata al futuro che collega le persone in tutta la Svizzera e raggiunge ogni giorno milioni di utenti su diverse piattaforme.",
-        "en": "What are your tasks? With the start of teaching in August 2027, you are committed to the following topics:\n• Supervision of the technical aspects of television, radio and video productions as well as events\n• Ensuring a smooth and safe running of shows behind the scenes\n• Installation and operation of sound, video and lighting equipment\n• Setting up and dismantling stages and technical scene facilities How can you apply?\n• Application letter including complete CV with photo\n• copies of all upper-level certificates and/or 10. School year\n• Diplomas or other awards as well as taster feedback (if available)\n• Aptitude test Stellwerk What do you bring?\n• In Mathematics, Geometry and English good academic performance (highest/medium level)\n• Reliability, independence, rapid comprehension\n• Good physical condition, resilience and joy of working outdoors What can you look forward to?\n• Insights into the fascinating world of television and radio making\n• Friendly and motivated employees: inside\n• Established learners\n• Competent training\n• 6 weeks of vacation Still questions? Claudia Hirt Specialist Vocational Training +41 58 135 15 07 Training takes place within the SRG SSR and takes place in the regional unit SRF in Zurich. SRG SSR is the largest media company in Switzerland. With its business units SRF, RTS, RSI and RTR, it produces and distributes content in the fields of information, education, culture, entertainment and sports. As a learner, you will become part of a diverse and future-oriented company that connects people across Switzerland and reaches millions of users on different platforms every day.",
-        "de": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Betreuung der technischen Aspekte von Fernseh- Radio- und Videoproduktionen sowie Events\n• Sicherstellung eines reibungslosen und sicheren Ablaufs von Shows hinter den Kulissen\n• Installation und Bedienung von ton-, video- und beleuchtungstechnischen Anlagen\n• Auf- und Abbau von Bühnen und szenentechnischen Einrichtungen Wie kannst du dich bewerben?\n• Bewerbungsschreiben inklusive lückenloser Lebenslauf mit Foto\n• Zeugniskopien aller Oberstufenzeugnisse und/oder des 10. Schuljahres\n• Diplome oder andere Auszeichnungen sowie Schnupperlehrfeedbacks (falls vorhanden)\n• Eignungstest Stellwerk Was bringst du mit?\n• In Mathematik, Geometrie und Englisch gute schulische Leistungen (im höchsten/mittleren Niveau)\n• Zuverlässigkeit, Selbstständigkeit, rasche Auffassungsgabe\n• Gute körperliche Verfassung, Belastbarkeit und Freude am Arbeiten im Freien Worauf kannst du dich freuen?\n• Einblicke in die faszinierende Welt des Fernseh- und Radiomachens\n• Freundliche und motivierte Mitarbeiter:innen\n• Aufgestellte Lernende\n• Kompetente Ausbildung\n• 6 Wochen Ferien Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
-        "fr": "Quelles sont vos tâches ? Avec le début de l'enseignement en août 2027, vous êtes engagés dans les sujets suivants:\n• Surveillance des aspects techniques des productions télévisées, radiophoniques et vidéo ainsi que des événements\n• Assurer le bon déroulement des spectacles dans les coulisses\n• Installation et fonctionnement d'équipements sonores, vidéo et d'éclairage\n• Mise en place et démantèlement des étapes et des installations techniques Comment pouvez-vous postuler?\n• Lettre de candidature comprenant CV complet avec photo\n• des copies de tous les certificats de niveau supérieur et/ou 10. Année scolaire\n• Diplômes ou autres prix ainsi que les commentaires des goûteurs (si disponibles)\n• Test d'aptitude Stellwerk Qu'est-ce que tu apportes ?\n• En mathématiques, Géométrie et anglais bonne performance académique (niveau le plus élevé/medium)\n• Fiabilité, indépendance, compréhension rapide\n• Bonne condition physique, résilience et joie de travailler à l'extérieur Que pouvez-vous attendre avec impatience?\n• Regards sur le monde fascinant de la télévision et de la radio\n• Personnel amical et motivé: à l'intérieur\n• Apprentis établis\n• Formation compétente\n• 6 semaines de vacances Toujours des questions ? Claudia Hirt Spécialiste Formation professionnelle +41 58 135 15 07 La formation se déroule au sein du SSR du SRG et dans l'unité régionale SRF de Zurich. SRG SSR est la plus grande entreprise de médias en Suisse. Avec ses unités d'affaires SRF, RTS, RSI et RTR, il produit et distribue des contenus dans les domaines de l'information, de l'éducation, de la culture, du divertissement et du sport. En tant qu'apprenant, vous deviendrez membre d'une entreprise diversifiée et tournée vers l'avenir qui relie les gens à travers la Suisse et atteint des millions d'utilisateurs sur différentes plateformes chaque jour."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:56.483Z",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8052",
-      "streetAddress": "Fernsehstrasse 1-4",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
-      "requirements": [
-        "In Mathematik, Geometrie und Englisch gute schulische Leistungen (im höchsten/mittleren Niveau)",
-        "Zuverlässigkeit, Selbstständigkeit, rasche Auffassungsgabe",
-        "Gute körperliche Verfassung, Belastbarkeit und Freude am Arbeiten im Freien"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "In Mathematik, Geometrie und Englisch gute schulische Leistungen (im höchsten/mittleren Niveau)",
-          "Zuverlässigkeit, Selbstständigkeit, rasche Auffassungsgabe",
-          "Gute körperliche Verfassung, Belastbarkeit und Freude am Arbeiten im Freien"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "6ceb5b23-a763-4947-88be-2df9ce20cca3",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 100,
         "pensumMax": 100
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
-        ],
-        "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
-      ],
-      "firstSeenAt": "2026-08-17T21:37:04.179Z",
-      "salaryMin": 77000,
-      "salaryMax": 136000,
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 74000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 136000,
+          "minValue": 41600,
+          "maxValue": 74000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-09-11T13:35:21.643Z"
     }
   ]
 }
