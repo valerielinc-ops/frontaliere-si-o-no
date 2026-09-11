@@ -23,6 +23,19 @@ describe('renderFastestCrossingCard', () => {
     expect(html).toContain('Chiasso Centro');
     expect(html).toContain('0 min');
   });
+
+  it('ignores negative readings when selecting the fastest crossing', () => {
+    const html = renderFastestCrossingCard([
+      { slug: 'zero-crossing', labelIt: 'Zero crossing', waitTimeMinutes: 0 },
+      { slug: 'invalid-crossing', labelIt: 'Invalid crossing', waitTimeMinutes: -1 },
+      { slug: 'slow-crossing', labelIt: 'Slow crossing', waitTimeMinutes: 5 },
+    ], 'it');
+
+    expect(html).toContain('Zero crossing');
+    expect(html).toContain('0 min');
+    expect(html).not.toContain('Invalid crossing');
+    expect(html).not.toContain('-1 min');
+  });
 });
 
 describe('renderTrafficFluidBanner', () => {

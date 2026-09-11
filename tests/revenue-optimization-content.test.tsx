@@ -13,8 +13,9 @@
  * strategy and easy to regress during refactors.
  */
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { AD_SLOTS } from '@/services/adsenseSlots';
+import { trafficService, type TrafficData } from '@/services/trafficService';
 
 vi.mock('@/services/i18n', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@/services/i18n')>();
@@ -36,8 +37,14 @@ vi.mock('@/services/router', () => ({
 }));
 
 vi.mock('@/services/trafficService', () => ({
-  trafficService: { getTrafficData: vi.fn(async () => []) },
+  trafficService: { getTrafficData: vi.fn(async () => [] as TrafficData[]) },
   hasLiveTrafficData: vi.fn(() => false),
+  effectiveTrafficWaitMinutes: (item: Pick<TrafficData, 'waitTimeMinutes' | 'totalCrossingMinutes'>) =>
+    typeof item.totalCrossingMinutes === 'number'
+      ? item.totalCrossingMinutes
+      : typeof item.waitTimeMinutes === 'number'
+        ? item.waitTimeMinutes
+        : null,
 }));
 
 // Analytics is mocked globally in tests/setup.tsx — no override needed here.
@@ -135,6 +142,40 @@ describe('TrafficAlerts — Chiasso Brogeda striking-distance editorial', () => 
     const { container } = render(<TrafficAlerts initialCrossingId="gaggiolo" />);
     const text = container.textContent ?? '';
     expect(text).not.toMatch(/Traffico dogana Chiasso e Brogeda/i);
+  });
+
+  it('ranks fastest and slowest only among measured waits', async () => {
+    vi.mocked(trafficService.getTrafficData).mockResolvedValueOnce([
+      {
+        crossingName: 'Measured fast',
+        waitTimeMinutes: 5,
+        status: 'yellow',
+        lastUpdate: new Date(),
+        source: 'firestore',
+      },
+      {
+        crossingName: 'Measured slow',
+        waitTimeMinutes: 12,
+        status: 'red',
+        lastUpdate: new Date(),
+        source: 'firestore',
+      },
+      {
+        crossingName: 'Unavailable crossing',
+        lastUpdate: new Date(),
+        source: 'mock',
+      },
+    ]);
+
+    const { default: TrafficAlerts } = await import('@/components/guide/TrafficAlerts');
+    const { container } = render(<TrafficAlerts />);
+
+    await waitFor(() => {
+      const text = container.textContent ?? '';
+      expect(text).toContain('Measured fast');
+      expect(text).toContain('Measured slow');
+      expect(text).not.toContain('Unavailable crossing');
+    });
   });
 });
 

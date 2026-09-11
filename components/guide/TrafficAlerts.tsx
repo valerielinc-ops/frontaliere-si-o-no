@@ -152,7 +152,9 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  }, [initialCrossingId]);
 
  const sortedTraffic = useMemo(
- () => [...trafficData].sort((a, b) => (effectiveWait(a) ?? Infinity) - (effectiveWait(b) ?? Infinity)),
+ () => [...trafficData]
+ .filter((traffic) => effectiveWait(traffic) !== null)
+ .sort((a, b) => (effectiveWait(a) ?? 0) - (effectiveWait(b) ?? 0)),
  [trafficData]
  );
 

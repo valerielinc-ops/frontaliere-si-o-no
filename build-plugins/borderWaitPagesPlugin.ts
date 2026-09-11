@@ -365,6 +365,7 @@ export function renderFastestCrossingCard(
 
   let best: FastestCrossingInput | null = null;
   for (const c of crossings) {
+    if (c.waitTimeMinutes < 0) continue;
     if (best === null || c.waitTimeMinutes < best.waitTimeMinutes) {
       best = c;
     }
