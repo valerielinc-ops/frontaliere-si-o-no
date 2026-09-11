@@ -15,7 +15,8 @@
  *  - **Watermark = ultima run di SUCCESSO** di questo workflow (non l'ultima run).
  *    Una run fallita NON avanza il watermark → la finestra viene ri-coperta dalla
  *    run schedulata successiva = nessuna perdita (at-least-once by-construction).
- *    Fallback se nessun successo storico: now − 6h (2× la cadenza cron = margine).
+ *    Se non esiste ancora una schedule riuscita, il limite durevole è la più antica
+ *    schedule osservata; solo una storia completamente vuota usa now − 6h.
  *  - **Idempotenza:** scarta le PR che hanno GIÀ un commento
  *    `## Post-merge follow-up triage` (il marker che Claude posta su OGNI PR
  *    processata) → niente doppio-triage sulla finestra di overlap.
@@ -94,9 +95,12 @@ export function canonicalLogin(login) {
 
 /**
  * Watermark = start of the LAST SUCCESSFUL run of this workflow. A failed run does
- * NOT advance it → the window is re-covered next time (no follow-up lost). Prefers
- * `startedAt`, falls back to `createdAt`, then to now − FALLBACK_HOURS.
- * @param {string} runListJson  output of `gh run list ... --json createdAt,startedAt,event`
+ * NOT advance it → the window is re-covered next time (no follow-up lost). When no
+ * scheduled run has succeeded yet, the OLDEST scheduled run is the durable boundary:
+ * retries cannot slide a now-minus-six-hours window forward and lose deferred PRs.
+ * Prefers `startedAt`, falls back to `createdAt`, then to now − FALLBACK_HOURS only
+ * when the workflow has no scheduled-run history at all.
+ * @param {string} runListJson output of `gh run list ... --json createdAt,startedAt,event,status,conclusion`
  * @param {number} [nowMs]
  * @param {number} [fallbackHours]
  * @returns {string} ISO8601
@@ -108,10 +112,59 @@ export function computeWatermarkISO(runListJson, nowMs = Date.now(), fallbackHou
   } catch {
     runs = [];
   }
-  const r = Array.isArray(runs) && runs.length ? runs[0] : null;
-  const ts = r && (r.startedAt || r.createdAt);
-  if (ts && !Number.isNaN(Date.parse(ts))) return new Date(ts).toISOString();
+  const validRuns = Array.isArray(runs)
+    ? runs.filter((run) => {
+      if (!run || typeof run !== 'object' || Array.isArray(run)) return false;
+      if (run.event !== undefined && run.event !== 'schedule') return false;
+      const ts = run.startedAt || run.createdAt;
+      return typeof ts === 'string' && !Number.isNaN(Date.parse(ts));
+    })
+    : [];
+  const successfulRuns = validRuns.filter((run) => (
+    // Legacy callers pass the already-filtered successful response without
+    // status/conclusion fields; treat those rows as successful.
+    (run.status === undefined && run.conclusion === undefined)
+    || run.conclusion === 'success'
+  ));
+  const candidates = successfulRuns.length ? successfulRuns : validRuns;
+  if (candidates.length) {
+    const timestamps = candidates.map((run) => Date.parse(run.startedAt || run.createdAt));
+    const timestamp = successfulRuns.length ? Math.max(...timestamps) : Math.min(...timestamps);
+    return new Date(timestamp).toISOString();
+  }
   return new Date(nowMs - fallbackHours * 3600_000).toISOString();
+}
+
+/**
+ * Validate a complete schedule-run response. Unlike the old success-only query,
+ * failed/in-progress schedule rows are retained so computeWatermarkISO can keep
+ * the first observed boundary stable until a scheduled run succeeds.
+ *
+ * @param {string} runListJson
+ * @returns {Array<{createdAt?:string,startedAt?:string,event:string,status?:string,conclusion?:string|null}>|null}
+ */
+export function parseScheduleRunList(runListJson) {
+  let runs;
+  try {
+    runs = JSON.parse(runListJson || '');
+  } catch {
+    return null;
+  }
+  if (!Array.isArray(runs)) return null;
+  const scheduled = [];
+  for (const run of runs) {
+    if (!run || typeof run !== 'object' || Array.isArray(run)) return null;
+    if (typeof run.event !== 'string' || !run.event.trim()) return null;
+    // `workflow_dispatch` is not part of the automatic collection window.
+    if (run.event !== 'schedule') continue;
+    const timestamp = run.startedAt || run.createdAt;
+    if (typeof timestamp !== 'string' || Number.isNaN(Date.parse(timestamp))) return null;
+    if (run.status !== undefined && typeof run.status !== 'string') return null;
+    if (run.conclusion !== undefined && run.conclusion !== null
+        && typeof run.conclusion !== 'string') return null;
+    scheduled.push(run);
+  }
+  return scheduled;
 }
 
 /**
@@ -124,28 +177,12 @@ export function computeWatermarkISO(runListJson, nowMs = Date.now(), fallbackHou
  * @returns {Array<{createdAt?:string,startedAt?:string,event:string}>|null}
  */
 export function parseSuccessfulRunList(runListJson) {
-  let runs;
-  try {
-    runs = JSON.parse(runListJson || '');
-  } catch {
-    return null;
-  }
-  if (!Array.isArray(runs)) return null;
-  if (!runs.length) return runs;
-  const scheduled = [];
-  for (const run of runs) {
-    if (!run || typeof run !== 'object' || Array.isArray(run)) return null;
-    if (typeof run.event !== 'string' || !run.event.trim()) return null;
-    // `workflow_dispatch` can be a successful run immediately before the cron.
-    // It is deliberately not a watermark: only the scheduled cadence owns the
-    // automatic collection window.  Filter before looking at timestamps so a
-    // malformed/manual run cannot become a false checkpoint.
-    if (run.event !== 'schedule') continue;
-    const timestamp = run.startedAt || run.createdAt;
-    if (typeof timestamp !== 'string' || Number.isNaN(Date.parse(timestamp))) return null;
-    scheduled.push(run);
-  }
-  return scheduled;
+  const scheduled = parseScheduleRunList(runListJson);
+  if (!scheduled) return null;
+  return scheduled.filter((run) => (
+    (run.status === undefined && run.conclusion === undefined)
+    || run.conclusion === 'success'
+  ));
 }
 
 /**
@@ -262,7 +299,7 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   // prose may mention a sealed historical bucket for audit context; treating
   // that reference as another claim makes a valid marker fail verification.
   const claim = body.split(/\r?\n/)
-    .filter((line) => /^\s*Created(?:\/updated)?:/i.test(line))
+    .filter((line) => /^\s*(?:[-*]\s+)?Created(?:\/updated)?:/i.test(line))
     .join('\n');
   const buckets = [...claim.matchAll(/\bbucket\s+#([1-9]\d*)\b/gi)]
     .map((match) => Number(match[1]));
@@ -412,19 +449,18 @@ export function main() {
   const dailyKey = triageDailyKey();
   if (!REPO) throw new Error('GH_REPO/GITHUB_REPOSITORY mancante: raccolta non verificabile');
   console.log(`Daily key (successful triage day, Europe/Zurich): ${dailyKey}`);
-  // 1. Watermark = start of the last SUCCESSFUL run (failed run → re-covered later).
+  // 1. Watermark = start of the last SUCCESSFUL run. If no schedule has succeeded
+  // yet, computeWatermarkISO uses the oldest observed schedule boundary so repeated
+  // failed/incomplete runs cannot move the window forward and lose PRs.
   const runListRaw = gh([
-    'run', 'list', `--workflow=${WORKFLOW}`, '--status', 'success',
-    '--event', 'schedule', '--json', 'createdAt,startedAt,event', '--limit', '1', ...repoArgs,
+    'run', 'list', `--workflow=${WORKFLOW}`, '--event', 'schedule',
+    '--json', 'createdAt,startedAt,event,status,conclusion', '--limit', '1000', ...repoArgs,
   ]);
   if (runListRaw === null) throw new Error('gh run list non riuscita: watermark non verificabile');
-  const successfulRuns = parseSuccessfulRunList(runListRaw);
-  if (!successfulRuns) throw new Error('risposta gh run list non parsabile/incompleta: watermark non verificabile');
-  // Use the already-filtered schedule-only response.  Keeping the raw response
-  // here would let a dispatch run advance the watermark despite `--event` being
-  // removed/ignored by an older gh version or a mocked runner.
-  const watermark = computeWatermarkISO(JSON.stringify(successfulRuns));
-  console.log(`Watermark (last successful run start, fallback now-${FALLBACK_HOURS}h): ${watermark}`);
+  const scheduleRuns = parseScheduleRunList(runListRaw);
+  if (!scheduleRuns) throw new Error('risposta gh run list non parsabile/incompleta: watermark non verificabile');
+  const watermark = computeWatermarkISO(JSON.stringify(scheduleRuns));
+  console.log(`Watermark (last successful schedule start, durable first-run boundary, fallback only without history): ${watermark}`);
 
   // 2. Merged PRs since the watermark, eligible authors only.
   // Search API pagination has an explicit total_count, unlike `gh pr list --limit`
