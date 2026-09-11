@@ -95,12 +95,13 @@ const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
 const ASSIGNMENTS_PATH = path.join(REPO_ROOT, 'data/crawler-group-assignments.json');
 const CHECKOUT_BUCKETS_PATH = path.join(REPO_ROOT, 'scripts/ci/checkout-buckets.json');
 const TRANSLATE_LOGIC_PATH = path.join(WORKFLOWS_DIR, 'translate-pending-logic.yml');
-// Every supported group trigger must bind the caller to an explicit token.
-// The fallback is retained only as a defensive renderer guard for future
-// inputs; the workflow input is required and the central barrier rejects an
-// unbound run.
+// Both workflow forms use the same token expression as the canonical helper:
+// an explicit input wins, while an empty dispatch input derives the run
+// coordinates. Keeping the expression identical in run-name and env prevents
+// an empty portable input from splitting observer identity from runtime state.
 export const CRAWLER_GENERATION_TOKEN_EXPR =
   "${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}";
+export const CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR = CRAWLER_GENERATION_TOKEN_EXPR;
 const PORTABLE_CORPUS_DIR = path.join(REPO_ROOT, '.github/corpus-workflows');
 const PORTABLE_CONTRACT_PATH = path.join(PORTABLE_CORPUS_DIR, 'contract.json');
 const CORPUS_OBSERVER_SITE_SOURCES = new Map([
@@ -853,6 +854,36 @@ function crawlerGenerationRosterFromGroups(groups) {
   return createCrawlerGenerationRoster(rosterGroups, primarySlices);
 }
 
+export function crawlerGenerationLedgerPersistenceRun() {
+  return [
+    'set +e',
+    'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
+    'git_commit_exit=$?',
+    'if [ "$git_commit_exit" -eq 42 ]; then',
+    '  echo "::warning::crawler generation ledger: push lost the ref race after all retries (contention); this cycle ledger entry was not committed and the next scheduled cycle records its own ledger state."',
+    '  echo "⚠️ crawler generation ledger: push contention loss (exit 42) — this cycle ledger entry was not committed; next scheduled cycle records its own state" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
+    '  exit 0',
+    'fi',
+    'if [ "$git_commit_exit" -ne 0 ]; then',
+    `  if [ "$git_commit_exit" -eq ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`,
+    `    echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT})"`,
+    `    echo "❌ crawler generation ledger: shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT})" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
+    '  else',
+    '    echo "::error::crawler generation ledger persistence failed (exit $git_commit_exit)"',
+    '    echo "❌ crawler generation ledger persistence failed (exit $git_commit_exit)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
+    '  fi',
+    'fi',
+    'exit "$git_commit_exit"',
+  ].join('\n');
+}
+
+function crawlerGenerationFinalizerFailureRun() {
+  return [
+    'echo "::error::crawler generation finalizer failed; ledger persistence skipped so a missing/partial manifest cannot be recorded as success"',
+    'echo "❌ crawler generation finalizer failed; ledger persistence skipped (no false-success ledger entry)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
+  ].join('\n');
+}
+
 function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
   const nn = String(groupIndex).padStart(2, '0');
   const output = `\${{ runner.temp }}/crawler-generation/crawler-group-${nn}-terminal.json`;
@@ -880,11 +911,17 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
       run: 'node scripts/crawler-group-generation-finalizer.mjs',
     },
     {
+      name: 'Report crawler generation finalizer failure',
+      if: "always() && steps.crawler-generation-finalizer.outcome == 'failure'",
+      'continue-on-error': true,
+      run: crawlerGenerationFinalizerFailureRun(),
+    },
+    {
       name: 'Persist crawler generation ledger',
-      if: 'always()',
+      if: "always() && steps.crawler-generation-finalizer.outcome == 'success'",
       'continue-on-error': true,
       env: { CRAWLER_GENERATION_RECEIPT_DIR: '', SKIP_AI_TRANSLATION: '1' },
-      run: 'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
+      run: crawlerGenerationLedgerPersistenceRun(),
     },
     {
       name: 'Upload crawler generation manifest (shadow)',
@@ -1533,6 +1570,22 @@ export function buildStandaloneCrossRepoWorkflow({
   const job = Object.values(workflow.jobs ?? {})[0];
   if (!job?.steps) throw new Error(`${name}: reusable logic has no runnable job steps`);
 
+  // Keep the portable workflow's run-name/job/step env aligned with the
+  // canonical helper. `required: true` documents the supported caller, but an
+  // empty dispatch value must still resolve identically in the observer name
+  // and in every runtime consumer.
+  if (/^crawler-group-\d{2}\.yml$/u.test(workflowFile)) {
+    job.env = {
+      ...(job.env ?? {}),
+      CRAWLER_GENERATION_TOKEN: CRAWLER_GENERATION_TOKEN_EXPR,
+    };
+    for (const step of job.steps) {
+      if (step?.env?.CRAWLER_GENERATION_TOKEN === CRAWLER_GENERATION_TOKEN_EXPR) {
+        step.env.CRAWLER_GENERATION_TOKEN = CRAWLER_GENERATION_TOKEN_EXPR;
+      }
+    }
+  }
+
   const checkoutIndex = job.steps.findIndex((step) =>
     typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'));
   if (checkoutIndex < 0) throw new Error(`${name}: reusable logic has no actions/checkout step`);
@@ -1686,8 +1739,10 @@ export function buildStandaloneCrossRepoWorkflow({
 
 function groupTrigger(logic) {
   const inputs = structuredClone(logic.on.workflow_call.inputs);
-  // Standalone corpus callers are generated from the token-aware dispatch
-  // contract and must not inherit the reusable workflow's rollout shim.
+  // Standalone corpus callers have exactly one supported caller: the site
+  // orchestrator, which always passes the correlation token. Keep this input
+  // required and without a default; the reusable site workflow remains
+  // optional because its direct/manual path intentionally owns the fallback.
   inputs.generation_token = {
     ...inputs.generation_token,
     required: true,

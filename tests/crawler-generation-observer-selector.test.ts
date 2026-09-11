@@ -5,6 +5,8 @@ import {
   MAX_DISCOVERY_TOKENS,
   MAX_SCHEDULE_SELECTIONS,
   crawlerGenerationSentinelDiscoveryPath,
+  generationDispatchRef,
+  generationSentinelName,
   recordDiscoveredArtifactIds,
   selectLatestCrawlerGenerationObserverReport,
   selectCrawlerGenerationReconciliations,
@@ -87,6 +89,13 @@ function reportOwner(runId = 95_001, event = 'schedule') {
 }
 
 describe('crawler generation scheduled selector', () => {
+  it('does not manufacture refs or display names for an invalid token', () => {
+    expect(generationDispatchRef(null)).toBeNull();
+    expect(generationDispatchRef('null')).toBeNull();
+    expect(generationSentinelName(null)).toBeNull();
+    expect(generationSentinelName('null')).toBeNull();
+  });
+
   it('binds sentinel and report owners to exact static name, dynamic title and event-specific ref', () => {
     const sentinel = {
       ...reportOwner(90_001, 'workflow_dispatch'),

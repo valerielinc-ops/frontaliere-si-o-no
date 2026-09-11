@@ -11640,6 +11640,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.title': 'Trenord boosts the Como-Milan line: 4 more morning rides from 14 September',
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.excerpt': 'Four new weekday trains on the Milan Cadorna-Como Lago route to improve cross-border commuting. Here are the full hours.',
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.imageAlt': 'Trenord train arriving at Como Lago station at dawn, with lake and mountain view',
+    'blog.article.fino-mornasco-frontaliere-ticino.title': 'Living in Fino Mornasco and working in Ticino',
+    'blog.article.fino-mornasco-frontaliere-ticino.excerpt': 'Practical guide for border workers in Fino Mornasco: links to Brogeda, taxes, social security deductions and daily budget management.',
+    'blog.article.fino-mornasco-frontaliere-ticino.imageAlt': 'Commuter route towards the Swiss border from Fino Mornasco to Canton Ticino',
 };
 
 export default blogMetaEn;

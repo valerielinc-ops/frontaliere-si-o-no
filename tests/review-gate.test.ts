@@ -712,6 +712,15 @@ describe('review gate: citazioni e conferme', () => {
     expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
   });
 
+  it('conserva la riga quando il reviewer chiude il code span prima di :L', () => {
+    const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/update-manor-jobs.mjs`:L275: 🔴 Important: il suffisso pipe non è ancorato al brand.');
+    expect(importantFindings(opened.body)[0].citations).toEqual([
+      { path: 'scripts/update-manor-jobs.mjs', line: 275 },
+    ]);
+    const confirmed = bot('## Findings (Important: 0, Nit: 0)\nFix di `scripts/update-manor-jobs.mjs:L275`: ok.\n## LGTM');
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
   it('retains every precise anchor and explicit companion path until each is confirmed', () => {
     const opened = bot('## Findings\n🔴 Important: `src/a.ts:L3` and `src/b.ts:L4` are broken; also fix `src/helper.ts`.');
     const partial = bot('## Findings\nFix di `src/a.ts:L3`: ok.\n## LGTM');
