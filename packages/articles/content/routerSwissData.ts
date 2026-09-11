@@ -2116,6 +2116,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-canton-giura-riduzioni': { it: 'premi-cassa-malati-canton-giura-riduzioni', en: 'health-insurance-premiums-jura-canton-reductions', de: 'krankenkassenpraemien-kanton-jura-verbilligungen', fr: 'primes-assurance-maladie-canton-jura-reductions' },
  'permesso-b-jura-requisiti-rinnovo': { it: 'permesso-b-jura-requisiti-rinnovo', en: 'permit-b-jura-requirements-renewal', de: 'aufenthaltsbewilligung-b-jura-anforderungen-verlaengerung', fr: 'permis-b-jura-exigences-renouvellement' },
  'commissione-ue-approva-accordi-svizzera': { it: 'commissione-ue-approva-accordi-svizzera', en: 'eu-committee-approves-swiss-agreements', de: 'eu-kommission-genehmigt-schweiz-abkommen', fr: 'commission-ue-approuve-accords-suisse' },
+ 'permesso-dimora-b-canton-giura': { it: 'permesso-dimora-b-canton-giura', en: 'residence-permit-b-jura', de: 'aufenthaltsbewilligung-b-jura', fr: 'permis-dimora-b-jura' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

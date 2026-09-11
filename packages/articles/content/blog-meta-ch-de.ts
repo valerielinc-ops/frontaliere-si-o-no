@@ -6271,6 +6271,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.commissione-ue-approva-accordi-svizzera.title': 'EU-Kommission genehmigt Abkommen Schweiz-EU: Schritt vorwärts',
     'blog.article.commissione-ue-approva-accordi-svizzera.excerpt': 'Der Auswärtige Ausschuss der Eurokammer hat das Paket der bilateralen Abkommen mit der Schweiz mit grosser Mehrheit angenommen. Abstimmung im Plenum noch nicht festgelegt.',
     'blog.article.commissione-ue-approva-accordi-svizzera.imageAlt': 'Bundeshaus in Bern mit Schweizer und europäischen Fahnen nebeneinander',
+    'blog.article.permesso-dimora-b-canton-giura.title': 'Aufenthaltsbewilligung B im Jura: Voraussetzungen, Dokumente und Verlängerung',
+    'blog.article.permesso-dimora-b-canton-giura.excerpt': 'Informieren Sie sich über die Anforderungen, die einzureichenden Dokumente und das Erneuerungsverfahren der B-Bewilligung im Kanton Jura mit praktischen Hinweisen für Personen, die in der Schweiz leben.',
+    'blog.article.permesso-dimora-b-canton-giura.imageAlt': 'Kantonsamt für Migration im Kanton Jura, typisches Schweizer Gebäude mit Schildern.',
 };
 
 export default blogMetaChDe;

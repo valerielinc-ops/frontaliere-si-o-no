@@ -6271,6 +6271,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.commissione-ue-approva-accordi-svizzera.title': 'EU Commission approves Switzerland-EU agreements: a step forward',
     'blog.article.commissione-ue-approva-accordi-svizzera.excerpt': 'The Foreign Affairs Committee of the European Parliament approved the package of bilateral agreements with Switzerland by a large majority. Vote in plenary not yet set.',
     'blog.article.commissione-ue-approva-accordi-svizzera.imageAlt': 'Federal Palace in Bern with Swiss and European flags side by side',
+    'blog.article.permesso-dimora-b-canton-giura.title': 'Residence permit B in Jura: requirements, documents and renewal',
+    'blog.article.permesso-dimora-b-canton-giura.excerpt': 'Discover the requirements, the documents to be produced and the procedure for renewing the B permit in the Canton of Jura, with practical instructions for those living in Switzerland.',
+    'blog.article.permesso-dimora-b-canton-giura.imageAlt': 'Cantonal migration office in Jura, Swiss building with official signs.',
 };
 
 export default blogMetaChEn;

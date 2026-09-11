@@ -6271,6 +6271,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.commissione-ue-approva-accordi-svizzera.title': 'Commissione Ue approva accordi Svizzera-Ue: passo avanti',
     'blog.article.commissione-ue-approva-accordi-svizzera.excerpt': 'La commissione esteri dell\'Eurocamera ha approvato a larga maggioranza il pacchetto di accordi bilaterali con la Svizzera. Voto in plenaria non ancora fissato.',
     'blog.article.commissione-ue-approva-accordi-svizzera.imageAlt': 'Palazzo federale a Berna con bandiere svizzere ed europee affiancate',
+    'blog.article.permesso-dimora-b-canton-giura.title': 'Permesso di dimora B in Giura: requisiti, documenti e rinnovo',
+    'blog.article.permesso-dimora-b-canton-giura.excerpt': 'Scopri i requisiti, i documenti da produrre e la procedura di rinnovo del permesso B nel Cantone Giura, con indicazioni pratiche per chi vive in Svizzera.',
+    'blog.article.permesso-dimora-b-canton-giura.imageAlt': 'Ufficio cantonale della migrazione in Giura, edificio tipico svizzero con insegne ufficiali.',
 };
 
 export default blogMetaChIt;
