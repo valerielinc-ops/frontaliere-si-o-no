@@ -1,7 +1,7 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-09-10T23:18:59.762Z",
+  "generatedAt": "2026-09-11T13:52:25.223Z",
   "total": 2,
   "discovered": 6,
   "parsed": 2,
@@ -10,10 +10,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11423,
-  "avgDurationMs": 11423,
+  "durationMs": 10168,
+  "avgDurationMs": 10168,
   "durationHistory": [
-    11423
+    10168
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "sector": "Alimentare / Cioccolato",
       "source": "baronie-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-10",
+      "postedDate": "2026-09-11",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -46,11 +46,11 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-10T21:57:18.763Z",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -72,22 +72,22 @@
       "sector": "Alimentare / Cioccolato",
       "source": "baronie-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-10",
+      "postedDate": "2026-09-11",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
       "id": "baronie-b2a397ea654e",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-10T21:57:18.763Z",
-      "_qualityScore": 82,
+      "needsRetranslation": true,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     }
