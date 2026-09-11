@@ -7,12 +7,12 @@ const root = resolve(__dirname, '..');
 describe('JobBoard apply URL preference', () => {
   it('prefers applyUrl over the generic job url for the candidati CTA', () => {
     const source = readFileSync(resolve(root, 'components/community/JobBoard.tsx'), 'utf8');
-    expect(source).toContain('const applyUrl = buildReferralUrl(selectedJob);');
+    expect(source).toContain('const applyUrl = buildJobReferralUrl(selectedJob);');
   });
 
   it('uses the preferred destination for imperative apply hand-offs too', () => {
     const source = readFileSync(resolve(root, 'components/community/JobBoard.tsx'), 'utf8');
-    expect(source).toContain('const applyDestination = buildReferralUrl(job);');
+    expect(source).toContain('const applyDestination = buildJobReferralUrl(job);');
     expect(source).toContain("window.open(applyDestination, '_blank', 'noopener,noreferrer');");
   });
 
