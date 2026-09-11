@@ -45,10 +45,7 @@ describe('Manor jobs2web URL and title parsing', () => {
     expect(stripSiteTitleSuffix('Mitarbeiter*in Verkauf - 60%')).toBe('Mitarbeiter*in Verkauf - 60%');
   });
 
-  it('keeps a legitimate internal pipe that is not the site suffix', () => {
-    expect(stripSiteTitleSuffix('Empfangsmitarbeiter/in 50% | Ferienvertretung 100%')).toBe(
-      'Empfangsmitarbeiter/in 50% | Ferienvertretung 100%',
-    );
+  it('strips only the site suffix from a title that also has an internal pipe', () => {
     expect(stripSiteTitleSuffix('Empfangsmitarbeiter/in 50% | Ferienvertretung 100% | Manor')).toBe(
       'Empfangsmitarbeiter/in 50% | Ferienvertretung 100%',
     );
