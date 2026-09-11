@@ -115,7 +115,7 @@ export function freshnessBoost(job, nowMs) {
  * @property {string[]}  sectors       Lowercased sector / category signals.
  * @property {string[]}  contractTypes Lowercased contract-type signals.
  * @property {string[]}  specificJobIds    Exact job ids this alert is pinned to (hard scope).
- * @property {string}    specificCompanyKey Exact companyKey this alert is pinned to ('' when none).
+ * @property {string}    specificCompanyKey Canonical employer profile key this alert is pinned to ('' when none).
  * @property {string[]}  preferredLocations High-confidence geo signals (home city + explicit
  *                                       on-site filters + clicked/source job) for the graduated
  *                                       geo PREFERENCE — see {@link partitionByGeoPreference}.
@@ -127,10 +127,10 @@ const uniq = (arr) => [...new Set(arr.filter(Boolean))];
 /**
  * Normalize a company display name / key into a compact, canonical token:
  * lowercased, accent-stripped, alphanumerics only, with declared brand aliases
- * folded by the shared company profile slug. This reconciles the two shapes we
- * compare — the newsletter `job_company` display name ("Board International")
- * and the job's `companyKey` slug ("board-international") both collapse to
- * "boardinternational" — without turning identity matching into containment.
+ * folded by the shared company profile slug. This reconciles the newsletter
+ * `job_company` display name ("Board International") with the canonical
+ * employer key stored on the alert. The job-side pinned comparison deliberately
+ * uses the display name only: a crawler key can cover several employer labels.
  * Returns '' for values too short to be a reliable signal (avoids matching on
  * stray 1-2 char fragments like legal-form suffixes).
  * @param {string} value
@@ -142,25 +142,47 @@ function normalizeCompanyToken(value) {
 }
 
 /**
- * Company token for the PINNED-employer comparison, with declared brand aliases folded
- * onto their canonical.
- *
- * Alias for {@link normalizeCompanyToken}, kept at the pinned call site so
- * the hard path stays explicit. Both paths use the same canonical slug; the
- * pinned comparison below is equality, never substring containment.
- *
- * It survived review twice because the two brands under test hide it: Lidl folds every
- * variant to `lidl` on both sides, and `migros-ticino` happens to CONTAIN `migros`, so the
- * bidirectional substring check passes by luck. Guess has neither property — the alert
- * stores `guess-europe-sagl`, the job yields `guess-ticino`, neither contains the other,
- * and a follower of that brand would never have received a single email. No error, no log:
- * exactly the silent failure this feature was extracted to prevent (#5012 review).
+ * Company token for the PINNED-employer comparison, with declared brand aliases
+ * folded onto their canonical employer key. Both sides are compared by exact
+ * equality; crawler keys are intentionally not an identity fallback.
  *
  * @param {string} value
  * @returns {string}
  */
 function canonicalCompanyToken(value) {
   return normalizeCompanyToken(value);
+}
+
+const LEGAL_FORM_SUFFIXES = new Set([
+  'ag', 'bv', 'gmbh', 'inc', 'ltd', 'nv', 'plc', 'sa', 'sagl', 'sarl', 'spa', 'srl',
+]);
+
+/**
+ * Resolve the only safe bridge between a display label and a crawler key:
+ * an exact display slug with a trailing legal-form suffix removed. This keeps
+ * `Board International SA` + `board-international` compatible without treating
+ * an arbitrary shared crawler key as an employer alias.
+ *
+ * @param {object|null|undefined} job
+ * @returns {string[]}
+ */
+function pinnedCompanyIdentityKeys(job) {
+  const displaySlug = canonicalCompanyProfileSlug(job?.company, job?.company);
+  if (!displaySlug) return [];
+
+  const keys = [canonicalCompanyToken(displaySlug)];
+  const crawlerSlug = canonicalCompanyProfileSlug(job?.companyKey, job?.companyKey);
+  const displayParts = displaySlug.split('-');
+  while (
+    displayParts.length > 1
+    && LEGAL_FORM_SUFFIXES.has(displayParts[displayParts.length - 1])
+  ) {
+    displayParts.pop();
+  }
+  if (crawlerSlug && displayParts.join('-') === crawlerSlug) {
+    keys.push(canonicalCompanyToken(crawlerSlug));
+  }
+  return [...new Set(keys.filter(Boolean))];
 }
 
 /**
@@ -176,7 +198,7 @@ function canonicalCompanyToken(value) {
  */
 export function jobCompanyIdentityQuarantineReason(job, profile) {
   if (!profile?.specificCompanyKey) return null;
-  return canonicalCompanyToken(job?.companyKey || job?.company)
+  return pinnedCompanyIdentityKeys(job).length > 0
     ? null
     : 'unresolved-job-company-key';
 }
@@ -435,23 +457,10 @@ export function scoreJobForAlert(job, profile, locale) {
   if (pinnedJobs.length > 0 || pinnedCompany) {
     // `companyKey` identifies the crawler and can cover several employer labels
     // (the Migros crawler also publishes Galaxus jobs). The display name is the
-    // employer identity used by the public profile and the writer. Keep it as
-    // the primary identity, and accept the crawler key only when it is a
-    // demonstrably more compact spelling of that same display label (for
-    // example `Board International SA` + `board-international`). Never let a
-    // shared crawler key alone broaden a company follow to another employer.
-    const displayCompanyKey = canonicalCompanyToken(job.company);
-    const crawlerCompanyKey = canonicalCompanyToken(job.companyKey);
-    const jobCompanyKeys = displayCompanyKey ? [displayCompanyKey] : [];
-    if (!displayCompanyKey && crawlerCompanyKey) {
-      jobCompanyKeys.push(crawlerCompanyKey);
-    } else if (
-      displayCompanyKey
-      && crawlerCompanyKey
-      && (displayCompanyKey.includes(crawlerCompanyKey) || crawlerCompanyKey.includes(displayCompanyKey))
-    ) {
-      jobCompanyKeys.push(crawlerCompanyKey);
-    }
+    // employer identity used by the public profile and the writer. Use the
+    // shared canonical resolver on that display name only; never let a crawler
+    // key, substring, or missing display name broaden a company follow.
+    const jobCompanyKeys = pinnedCompanyIdentityKeys(job);
     const idHit = pinnedJobs.includes(String(job.id || ''))
       || pinnedJobs.includes(String(job.publisherJobId || ''));
     const companyHit = Boolean(pinnedCompany && jobCompanyKeys.includes(pinnedCompany));

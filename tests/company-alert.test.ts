@@ -129,6 +129,15 @@ describe('one company-slug normalisation (#5012, Non-Negotiable #6)', () => {
     expect(scoreJobForAlert(unrelatedJob, profile)).toBe(0);
   });
 
+  it('never promotes a shared crawler key to a pinned employer identity', () => {
+    const pinnedKey = canonicalCompanyProfileSlug('Acme International');
+    const profile = buildAlertProfile({ specificCompanyKey: pinnedKey });
+
+    expect(scoreJobForAlert({ company: 'Acme', companyKey: 'acme-international' }, profile)).toBe(0);
+    expect(scoreJobForAlert({ company: '', companyKey: 'acme-international' }, profile)).toBe(0);
+    expect(scoreJobForAlert({ company: 'Acme International', companyKey: 'shared-crawler' }, profile)).toBeGreaterThan(0);
+  });
+
   it('keeps the historical shape: accents stripped, runs collapsed, Lidl folded', () => {
     expect(baseCompanySlug('Bürgenstock Hotels & Resort')).toBe('burgenstock-hotels-resort');
     expect(baseCompanySlug('Lidl Schweiz AG')).toBe('lidl');
