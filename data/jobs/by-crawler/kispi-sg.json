@@ -60,15 +60,13 @@
       "previousSlugs": [
         "praktikant-in-pflege-und-betreuung-80-100-befristet-fur-6-12-monate-kispi-sg-st-gallen",
         "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri",
-        "praktikant-in-pflege-e-betreuung-80-100-befristet-per-6-12-monate-ostschweizer-kinderspital-st-gallen",
-        "infermieristica-e-cura-del-tirocinante-80-100-temporaneo-per-6-12-mesi-ostschweizer-kinderspital-st-gallen"
+        "praktikant-in-pflege-e-betreuung-80-100-befristet-per-6-12-monate-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-pflege-und-betreuung-80-100-befristet-fur-6-12-monate-kispi-sg-st-gallen",
           "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri",
-          "praktikant-in-pflege-e-betreuung-80-100-befristet-per-6-12-monate-ostschweizer-kinderspital-st-gallen",
-          "infermieristica-e-cura-del-tirocinante-80-100-temporaneo-per-6-12-mesi-ostschweizer-kinderspital-st-gallen"
+          "praktikant-in-pflege-e-betreuung-80-100-befristet-per-6-12-monate-ostschweizer-kinderspital-st-gallen"
         ],
         "en": [
           "praktikant-in-pflege-und-betreuung-80-100-befristet-fur-6-12-monate-kispi-sg-st-gallen"
@@ -94,12 +92,12 @@
     },
     {
       "id": "kispi-sg-d917cf443acc",
-      "slug": "phd-student-in-medicine-100-kispi-sg-st-gallen",
+      "slug": "dottorato-di-ricerca-in-medicina-100-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "de": "phd-student-in-medicine-100-kispi-sg-st-gallen",
-        "it": "phd-student-in-medicine-100-kispi-sg-st-gallen",
+        "it": "dottorato-di-ricerca-in-medicina-100-ostschweizer-kinderspital-st-gallen",
         "en": "phd-student-in-medicine-100-ostschweizer-kinderspital-st-gallen",
-        "fr": "phd-student-in-medicine-100-kispi-sg-st-gallen"
+        "fr": "doctorant-en-medecine-100-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -156,7 +154,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:18:11.287Z"
+      "firstSeenAt": "2026-09-10T23:18:11.287Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-in-medicine-100-kispi-sg-st-gallen"
+        ],
+        "fr": [
+          "phd-student-in-medicine-100-kispi-sg-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "phd-student-in-medicine-100-kispi-sg-st-gallen"
+      ]
     },
     {
       "id": "kispi-sg-33eb27a3ffcd",
@@ -208,13 +217,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen",
-        "infermiere-a-per-cure-palliative-pediatriche-e-advanced-care-40-60-ostschweizer-kinderspital-st-gallen"
+        "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen",
-          "infermiere-a-per-cure-palliative-pediatriche-e-advanced-care-40-60-ostschweizer-kinderspital-st-gallen"
+          "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:42.082Z",
@@ -300,8 +307,7 @@
         "direttore-a-medico-a-pediatriologia-endocrinologia-diabetologia-70-ostschweizer-kinderspital-st-gallen",
         "senior-physician-pediatric-endocrinology-diabetology-70-ostschweizer-kinderspital-st-gallen",
         "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen",
-        "medecin-chef-fe-endocrinologie-diabetologie-pediatrique-70-ostschweizer-kinderspital-st-gallen",
-        "medico-assistente-capo-o-primario-di-nefrologia-pediatrica-40-80-ostschweizer-kinderspital-st-gallen"
+        "medecin-chef-fe-endocrinologie-diabetologie-pediatrique-70-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -316,8 +322,7 @@
           "direttore-a-medico-a-pediatriologia-endocrinologia-diabetologia-70-ostschweizer-kinderspital-st-gallen",
           "senior-physician-pediatric-endocrinology-diabetology-70-ostschweizer-kinderspital-st-gallen",
           "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen",
-          "medecin-chef-fe-endocrinologie-diabetologie-pediatrique-70-ostschweizer-kinderspital-st-gallen",
-          "medico-assistente-capo-o-primario-di-nefrologia-pediatrica-40-80-ostschweizer-kinderspital-st-gallen"
+          "medecin-chef-fe-endocrinologie-diabetologie-pediatrique-70-ostschweizer-kinderspital-st-gallen"
         ],
         "en": [
           "oberassistenzarztin-arzt-oder-oberarztin-arzt-padiatrische-nephrologie-40-80-kispi-sg-st",
@@ -407,14 +412,12 @@
       },
       "previousSlugs": [
         "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen",
-        "oberarztin-oberarzt-neonatologie-padiatrische-intensivmedizin-80-100-kispi-sg-st-gallen",
-        "direttore-a-intensivpediatria-e-neonatologia-80-100-ostschweizer-kinderspital-st-gallen"
+        "oberarztin-oberarzt-neonatologie-padiatrische-intensivmedizin-80-100-kispi-sg-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen",
-          "oberarztin-oberarzt-neonatologie-padiatrische-intensivmedizin-80-100-kispi-sg-st-gallen",
-          "direttore-a-intensivpediatria-e-neonatologia-80-100-ostschweizer-kinderspital-st-gallen"
+          "oberarztin-oberarzt-neonatologie-padiatrische-intensivmedizin-80-100-kispi-sg-st-gallen"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:39.035Z",
@@ -483,14 +486,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-kinder-und-jugendmedizin-fur-die-interdisziplinare",
-        "oberarztin-oberarzt-kinder-e-jugendmedizin-per-la-interdisziplinare-kindernotfallstation-50-100-ostschweizer-kinderspital-st-gallen",
-        "pediatrico-medico-senior-e-medicina-adolescente-per-il-reparto-di-emergenza-bambino-interdisciplinare-50-100"
+        "oberarztin-oberarzt-kinder-e-jugendmedizin-per-la-interdisziplinare-kindernotfallstation-50-100-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-kinder-und-jugendmedizin-fur-die-interdisziplinare",
-          "oberarztin-oberarzt-kinder-e-jugendmedizin-per-la-interdisziplinare-kindernotfallstation-50-100-ostschweizer-kinderspital-st-gallen",
-          "pediatrico-medico-senior-e-medicina-adolescente-per-il-reparto-di-emergenza-bambino-interdisciplinare-50-100"
+          "oberarztin-oberarzt-kinder-e-jugendmedizin-per-la-interdisziplinare-kindernotfallstation-50-100-ostschweizer-kinderspital-st-gallen"
         ],
         "en": [
           "oberarztin-oberarzt-kinder-und-jugendmedizin-fur-die-interdisziplinare"
@@ -578,8 +579,7 @@
         "assistente-medico-mpa-30-ostschweizer-kinderspital-st-gallen",
         "medical-practice-assistant-mpa-30-ostschweizer-kinderspital-st-gallen",
         "assistant-a-la-pratique-medicale-mpa-30-ostschweizer-kinderspital-st-gallen",
-        "medizinische-praxisassistenz-mpa-30-ostschweizer-kinderspital-st-gallen",
-        "assistente-di-studio-medico-mpa-40-60-ostschweizer-kinderspital-st-gallen"
+        "medizinische-praxisassistenz-mpa-30-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -589,8 +589,7 @@
           "assistente-medico-mpa-30-ostschweizer-kinderspital-st-gallen",
           "medical-practice-assistant-mpa-30-ostschweizer-kinderspital-st-gallen",
           "assistant-a-la-pratique-medicale-mpa-30-ostschweizer-kinderspital-st-gallen",
-          "medizinische-praxisassistenz-mpa-30-ostschweizer-kinderspital-st-gallen",
-          "assistente-di-studio-medico-mpa-40-60-ostschweizer-kinderspital-st-gallen"
+          "medizinische-praxisassistenz-mpa-30-ostschweizer-kinderspital-st-gallen"
         ],
         "en": [
           "medical-practice-assistant-mpa-30-ostschweizer-kinderspital-st-gallen"
@@ -680,18 +679,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "leitung-qualitats-und-risikomanagement-70-kispi-sg-st-gallen",
-          "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich"
+          "leitung-qualitats-und-risikomanagement-70-kispi-sg-st-gallen"
         ],
         "it": [
-          "leitung-qualitats-und-risikomanagement-70-kispi-sg-st-gallen",
-          "medico-specialista-in-anestesiologia-30-50-nsn-medical-group-zurich"
+          "leitung-qualitats-und-risikomanagement-70-kispi-sg-st-gallen"
         ]
       },
       "previousSlugs": [
-        "leitung-qualitats-und-risikomanagement-70-kispi-sg-st-gallen",
-        "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich",
-        "medico-specialista-in-anestesiologia-30-50-nsn-medical-group-zurich"
+        "leitung-qualitats-und-risikomanagement-70-kispi-sg-st-gallen"
       ],
       "firstSeenAt": "2026-06-11T11:20:37.544Z",
       "salaryMin": 77400,
@@ -759,14 +754,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-kispi-sg-st",
-        "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-ostschweizer-kinderspital-st-gallen",
-        "fellow-posizione-educativa-medicina-di-emergenza-per-bambini-interdisciplinare-50-100-ostschweizer-kinderspital-st"
+        "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-kispi-sg-st",
-          "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-ostschweizer-kinderspital-st-gallen",
-          "fellow-posizione-educativa-medicina-di-emergenza-per-bambini-interdisciplinare-50-100-ostschweizer-kinderspital-st"
+          "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-ostschweizer-kinderspital-st-gallen"
         ],
         "en": [
           "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-ostschweizer-kinderspital-st-gallen"
@@ -846,16 +839,14 @@
         "fachexperte-in-infektionspravention-und-spitalhygiene-60-80-kispi-sg-st-gallen",
         "fachexperte-in-infektionspravention-60-80-kispi-sg-st-gallen",
         "fachexperte-in-infektionspravention-60-80-ostschweizer-kinderspital-st-gallen",
-        "fachexperte-in-infektionspravention-e-spitalhygiene-60-80-ostschweizer-kinderspital-st-gallen",
-        "esperto-nella-prevenzione-delle-infezioni-60-80-ostschweizer-kinderspital-st-gallen"
+        "fachexperte-in-infektionspravention-e-spitalhygiene-60-80-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachexperte-in-infektionspravention-und-spitalhygiene-60-80-kispi-sg-st-gallen",
           "fachexperte-in-infektionspravention-60-80-kispi-sg-st-gallen",
           "fachexperte-in-infektionspravention-60-80-ostschweizer-kinderspital-st-gallen",
-          "fachexperte-in-infektionspravention-e-spitalhygiene-60-80-ostschweizer-kinderspital-st-gallen",
-          "esperto-nella-prevenzione-delle-infezioni-60-80-ostschweizer-kinderspital-st-gallen"
+          "fachexperte-in-infektionspravention-e-spitalhygiene-60-80-ostschweizer-kinderspital-st-gallen"
         ],
         "de": [
           "fachexperte-in-infektionspravention-und-spitalhygiene-60-80-kispi-sg-st-gallen",
@@ -933,13 +924,11 @@
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-kinder-und-jugendmedizin-40-100-fur-kinderarztpraxis-buchs-kispi-sg-st",
-        "specialista-in-pediatria-e-medicina-dell-adolescenza-40-100-per-la-pratica-pediatrica-buchs-ostschweizer-kinderspital-st"
+        "facharztin-facharzt-kinder-und-jugendmedizin-40-100-fur-kinderarztpraxis-buchs-kispi-sg-st"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-kinder-und-jugendmedizin-40-100-fur-kinderarztpraxis-buchs-kispi-sg-st",
-          "specialista-in-pediatria-e-medicina-dell-adolescenza-40-100-per-la-pratica-pediatrica-buchs-ostschweizer-kinderspital-st"
+          "facharztin-facharzt-kinder-und-jugendmedizin-40-100-fur-kinderarztpraxis-buchs-kispi-sg-st"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:36.047Z",
@@ -1009,14 +998,12 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-oder-dipl-experten-expertin-notfallpflege-60-100-kispi-sg-st",
         "dipl-pflegefachperson-hf-fh-o-dipl-experten-expertin-notfallpflege-60-100-ostschweizer-kinderspital-st-gallen",
-        "dipl-pflegefachperson-hf-fh-oder-dipl-experten-expertin-notfallpflege-60-100-ostschweizer-kinderspital-st-gallen",
-        "dipl-cura-professionale-hf-fh-o-dipl-expert-emergency-care-60-100-ostschweizer-kinderspital-st-gallen"
+        "dipl-pflegefachperson-hf-fh-oder-dipl-experten-expertin-notfallpflege-60-100-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-oder-dipl-experten-expertin-notfallpflege-60-100-kispi-sg-st",
-          "dipl-pflegefachperson-hf-fh-o-dipl-experten-expertin-notfallpflege-60-100-ostschweizer-kinderspital-st-gallen",
-          "dipl-cura-professionale-hf-fh-o-dipl-expert-emergency-care-60-100-ostschweizer-kinderspital-st-gallen"
+          "dipl-pflegefachperson-hf-fh-o-dipl-experten-expertin-notfallpflege-60-100-ostschweizer-kinderspital-st-gallen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-oder-dipl-experten-expertin-notfallpflege-60-100-ostschweizer-kinderspital-st-gallen"
@@ -1098,13 +1085,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-80-100-fur-die-neonatologische-imc-und-neonatologie-kispi-sg",
-        "infermiera-certificata-hf-fh-80-100-per-imc-neonatale-e-neonatologia-ostschweizer-kinderspital-st-gallen"
+        "dipl-pflegefachperson-hf-fh-80-100-fur-die-neonatologische-imc-und-neonatologie-kispi-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-80-100-fur-die-neonatologische-imc-und-neonatologie-kispi-sg",
-          "infermiera-certificata-hf-fh-80-100-per-imc-neonatale-e-neonatologia-ostschweizer-kinderspital-st-gallen"
+          "dipl-pflegefachperson-hf-fh-80-100-fur-die-neonatologische-imc-und-neonatologie-kispi-sg"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:35.288Z",
@@ -1182,8 +1167,7 @@
         "dipl-expert-expert-nds-hf-soins-intensifs-80-100-ostschweizer-kinderspital-st-gallen",
         "dipl-expert-expert-anesthesia-care-nds-hf-40-ostschweizer-kinderspital-st-gallen",
         "dipl-expertin-experte-anasthesiepflege-nds-hf-40-kispi-sg-st-gallen",
-        "diplome-d-expert-en-anesthesie-infirmiere-nds-ic-40-ostschweizer-kinderspital-st-gallen",
-        "infermiera-diplomata-in-hf-per-l-ipp-di-terapia-intensiva-nds-hf-90-100-ostschweizer-kinderspital-st-gallen"
+        "diplome-d-expert-en-anesthesie-infirmiere-nds-ic-40-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1194,8 +1178,7 @@
           "dipl-expert-expert-nds-hf-soins-intensifs-80-100-ostschweizer-kinderspital-st-gallen",
           "dipl-expert-expert-anesthesia-care-nds-hf-40-ostschweizer-kinderspital-st-gallen",
           "dipl-expertin-experte-anasthesiepflege-nds-hf-40-kispi-sg-st-gallen",
-          "diplome-d-expert-en-anesthesie-infirmiere-nds-ic-40-ostschweizer-kinderspital-st-gallen",
-          "infermiera-diplomata-in-hf-per-l-ipp-di-terapia-intensiva-nds-hf-90-100-ostschweizer-kinderspital-st-gallen"
+          "diplome-d-expert-en-anesthesie-infirmiere-nds-ic-40-ostschweizer-kinderspital-st-gallen"
         ],
         "en": [
           "dipl-expert-expert-nds-hf-intensive-care-80-100-ostschweizer-kinderspital-st-gallen"
@@ -1279,13 +1262,11 @@
         ]
       },
       "previousSlugs": [
-        "ausbildung-zur-dipl-pflegefachperson-hf-100-kispi-sg-st-gallen",
-        "formazione-come-infermiere-qualificato-hf-100-ostschweizer-kinderspital-st-gallen"
+        "ausbildung-zur-dipl-pflegefachperson-hf-100-kispi-sg-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-zur-dipl-pflegefachperson-hf-100-kispi-sg-st-gallen",
-          "formazione-come-infermiere-qualificato-hf-100-ostschweizer-kinderspital-st-gallen"
+          "ausbildung-zur-dipl-pflegefachperson-hf-100-kispi-sg-st-gallen"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:32.318Z",
@@ -1359,8 +1340,7 @@
         "medical-secretary-60-ostschweizer-kinderspital-st-gallen",
         "secretaire-medical-e-60-ostschweizer-kinderspital-st-gallen",
         "secretaire-medicale-60-ostschweizer-kinderspital-st-gallen",
-        "segretaria-medica-60-ostschweizer-kinderspital-st-gallen",
-        "segreteria-medica-60-70-ostschweizer-kinderspital-st-gallen"
+        "segretaria-medica-60-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1369,8 +1349,7 @@
           "medical-secretary-60-ostschweizer-kinderspital-st-gallen",
           "secretaire-medical-e-60-ostschweizer-kinderspital-st-gallen",
           "secretaire-medicale-60-ostschweizer-kinderspital-st-gallen",
-          "segretaria-medica-60-ostschweizer-kinderspital-st-gallen",
-          "segreteria-medica-60-70-ostschweizer-kinderspital-st-gallen"
+          "segretaria-medica-60-ostschweizer-kinderspital-st-gallen"
         ],
         "en": [
           "arztsekretar-in-60-70-kispi-sg-st-gallen"

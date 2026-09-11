@@ -6,7 +6,9 @@
       "id": "alpiq-c58e916d1b0b",
       "slug": "product-manager-trading-and-origination-alpiq-olten",
       "slugByLocale": {
-        "it": "product-manager-trading-and-origination-alpiq-olten"
+        "it": "product-manager-trading-and-origination-alpiq-olten",
+        "de": "produktmanager-handel-und-herkunft-alpiq-olten",
+        "fr": "gestionnaire-de-produits-trading-and-origination-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -64,7 +66,8 @@
       "id": "alpiq-24db5dc75d88",
       "slug": "it-domain-architect-trading-alpiq-switzerland",
       "slugByLocale": {
-        "it": "it-domain-architect-trading-alpiq-switzerland"
+        "it": "it-domain-architect-trading-alpiq-switzerland",
+        "fr": "domaine-it-architect-trading-alpiq-switzerland"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -119,9 +122,11 @@
     },
     {
       "id": "alpiq-afdc6bd66056",
-      "slug": "head-of-algorithmic-trading-governance-alpiq-lausanne",
+      "slug": "capo-della-governance-di-trading-algoritmico-alpiq-lausanne",
       "slugByLocale": {
-        "it": "head-of-algorithmic-trading-governance-alpiq-lausanne"
+        "it": "capo-della-governance-di-trading-algoritmico-alpiq-lausanne",
+        "de": "leiter-algorithmic-trading-governance-alpiq-lausanne",
+        "fr": "responsable-de-la-gouvernance-des-transactions-algorithmiques-alpiq-lausanne"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -173,7 +178,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:23:08.460Z"
+      "firstSeenAt": "2026-09-10T23:23:08.460Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-algorithmic-trading-governance-alpiq-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-algorithmic-trading-governance-alpiq-lausanne"
+      ]
     },
     {
       "id": "alpiq-183e0087fef4",
@@ -232,15 +245,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "it-domain-architect-trading-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "it-domain-architect-trading-alpiq-olten"
-      ]
+      "crawlerMissStreak": 1
     },
     {
       "id": "alpiq-32ea120ec164",

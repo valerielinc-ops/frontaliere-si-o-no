@@ -17221,12 +17221,12 @@
     },
     {
       "id": "jumbo-0755266e-8a3",
-      "slug": "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
+      "slug": "chef-capo-dipartimento-giardino-m-f-d-jumbo-crissier",
       "slugByLocale": {
         "fr": "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
-        "it": "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
-        "en": "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
-        "de": "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
+        "it": "chef-capo-dipartimento-giardino-m-f-d-jumbo-crissier",
+        "en": "chef-head-of-department-garden-m-f-d-jumbo-crissier",
+        "de": "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17302,29 +17302,33 @@
         "it": [
           "chef-capo-dipartimento-giardino-m-f-d-jumbo-crissier",
           "chef-head-of-department-garden-m-f-d-jumbo-crissier",
-          "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier"
+          "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier",
+          "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
         ],
         "en": [
-          "chef-head-of-department-garden-m-f-d-jumbo-crissier"
+          "chef-head-of-department-garden-m-f-d-jumbo-crissier",
+          "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
         ],
         "de": [
-          "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier"
+          "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier",
+          "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
         ]
       },
       "previousSlugs": [
         "chef-capo-dipartimento-giardino-m-f-d-jumbo-crissier",
         "chef-head-of-department-garden-m-f-d-jumbo-crissier",
-        "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier"
+        "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier",
+        "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
       ]
     },
     {
       "id": "jumbo-57aa0c84-11a",
-      "slug": "verkaufsberater-in-garden-jumbo-reinach",
+      "slug": "vendite-advisor-garden-jumbo-argovia",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-reinach",
-        "it": "verkaufsberater-in-garden-jumbo-reinach",
-        "en": "verkaufsberater-in-garden-jumbo-reinach",
-        "fr": "verkaufsberater-in-garden-jumbo-reinach"
+        "it": "vendite-advisor-garden-jumbo-argovia",
+        "en": "sales-advisor-garden-jumbo-argovia",
+        "fr": "conseiller-aux-ventes-jardin-jumbo-argovia"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17403,13 +17407,16 @@
           "conseiller-aux-ventes-jardin-jumbo-argovia",
           "consulente-vendite-in-garden-jumbo-argovia",
           "sales-advisor-in-garden-jumbo-argovia",
-          "conseiller-en-ventes-a-garden-jumbo-argovia"
+          "conseiller-en-ventes-a-garden-jumbo-argovia",
+          "verkaufsberater-in-garden-jumbo-reinach"
         ],
         "en": [
-          "sales-advisor-garden-jumbo-argovia"
+          "sales-advisor-garden-jumbo-argovia",
+          "verkaufsberater-in-garden-jumbo-reinach"
         ],
         "fr": [
-          "conseiller-aux-ventes-jardin-jumbo-argovia"
+          "conseiller-aux-ventes-jardin-jumbo-argovia",
+          "verkaufsberater-in-garden-jumbo-reinach"
         ]
       },
       "previousSlugs": [
@@ -17418,17 +17425,18 @@
         "conseiller-aux-ventes-jardin-jumbo-argovia",
         "consulente-vendite-in-garden-jumbo-argovia",
         "sales-advisor-in-garden-jumbo-argovia",
-        "conseiller-en-ventes-a-garden-jumbo-argovia"
+        "conseiller-en-ventes-a-garden-jumbo-argovia",
+        "verkaufsberater-in-garden-jumbo-reinach"
       ]
     },
     {
       "id": "jumbo-8e6e62e3-28b",
-      "slug": "verkaufsberater-in-deco-jumbo-arbon",
+      "slug": "consulente-commerciale-deco-jumbo-arbon",
       "slugByLocale": {
         "de": "verkaufsberater-in-deco-jumbo-arbon",
-        "it": "verkaufsberater-in-deco-jumbo-arbon",
-        "en": "verkaufsberater-in-deco-jumbo-arbon",
-        "fr": "verkaufsberater-in-deco-jumbo-arbon"
+        "it": "consulente-commerciale-deco-jumbo-arbon",
+        "en": "sales-consultant-deco-jumbo-arbon",
+        "fr": "consultant-en-ventes-deco-jumbo-arbon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17499,16 +17507,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:07:55.394Z"
+      "firstSeenAt": "2026-09-10T23:07:55.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-deco-jumbo-arbon"
+        ],
+        "en": [
+          "verkaufsberater-in-deco-jumbo-arbon"
+        ],
+        "fr": [
+          "verkaufsberater-in-deco-jumbo-arbon"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-deco-jumbo-arbon"
+      ]
     },
     {
       "id": "jumbo-27a38ff7-1eb",
-      "slug": "verkaufsberater-in-do-it-jumbo-arbon",
+      "slug": "consulente-commerciale-do-it-jumbo-arbon",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-arbon",
-        "it": "verkaufsberater-in-do-it-jumbo-arbon",
-        "en": "verkaufsberater-in-do-it-jumbo-arbon",
-        "fr": "verkaufsberater-in-do-it-jumbo-arbon"
+        "it": "consulente-commerciale-do-it-jumbo-arbon",
+        "en": "sales-consultant-do-it-jumbo-arbon",
+        "fr": "consultant-en-ventes-do-it-jumbo-arbon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17579,16 +17601,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:07:55.392Z"
+      "firstSeenAt": "2026-09-10T23:07:55.392Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-arbon"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-arbon"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-arbon"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-arbon"
+      ]
     },
     {
       "id": "jumbo-83d5c688-854",
-      "slug": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau",
+      "slug": "consulente-commerciale-do-it-jumbo-eppenberg-woschnau",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau",
-        "it": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau",
-        "en": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau",
-        "fr": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
+        "it": "consulente-commerciale-do-it-jumbo-eppenberg-woschnau",
+        "en": "sales-consultant-do-it-jumbo-eppenberg-woschnau",
+        "fr": "consultant-en-ventes-do-it-jumbo-eppenberg-woschnau"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17659,7 +17695,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:07:55.386Z"
+      "firstSeenAt": "2026-09-10T23:07:55.386Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
+      ]
     },
     {
       "id": "jumbo-727e2dc8-c62",
@@ -17667,8 +17717,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-logistik-jumbo-wurenlingen",
         "it": "addetto-a-alla-logistica-jumbo-wurenlingen",
-        "en": "mitarbeiter-in-logistik-jumbo-wurenlingen",
-        "fr": "mitarbeiter-in-logistik-jumbo-wurenlingen"
+        "en": "associate-logistik-jumbo-wurenlingen",
+        "fr": "collaborateur-trice-logistik-jumbo-wurenlingen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17777,12 +17827,12 @@
     },
     {
       "id": "jumbo-8863ff88-492",
-      "slug": "responsable-administration-service-clients-f-h-d-jumbo-bienne",
+      "slug": "responsabile-amministrazione-servizio-clienti-m-f-d-jumbo-bienne",
       "slugByLocale": {
         "fr": "responsable-administration-service-clients-f-h-d-jumbo-bienne",
-        "it": "responsable-administration-service-clients-f-h-d-jumbo-bienne",
-        "en": "responsable-administration-service-clients-f-h-d-jumbo-bienne",
-        "de": "responsable-administration-service-clients-f-h-d-jumbo-bienne"
+        "it": "responsabile-amministrazione-servizio-clienti-m-f-d-jumbo-bienne",
+        "en": "head-of-administration-customer-service-m-f-d-jumbo-bienne",
+        "de": "leiter-verwaltung-kundenservice-m-w-d-jumbo-bienne"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17853,16 +17903,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:07:55.376Z"
+      "firstSeenAt": "2026-09-10T23:07:55.376Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-administration-service-clients-f-h-d-jumbo-bienne"
+        ],
+        "en": [
+          "responsable-administration-service-clients-f-h-d-jumbo-bienne"
+        ],
+        "de": [
+          "responsable-administration-service-clients-f-h-d-jumbo-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-administration-service-clients-f-h-d-jumbo-bienne"
+      ]
     },
     {
       "id": "jumbo-960c5db7-0c9",
-      "slug": "verkaufer-in-kassen-services-jumbo-kriens",
+      "slug": "vendita-cassa-servizi-jumbo-kriens",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-kriens",
-        "it": "verkaufer-in-kassen-services-jumbo-kriens",
-        "en": "verkaufer-in-kassen-services-jumbo-kriens",
-        "fr": "verkaufer-in-kassen-services-jumbo-kriens"
+        "it": "vendita-cassa-servizi-jumbo-kriens",
+        "en": "seller-cash-register-services-jumbo-kriens",
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-kriens"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17933,7 +17997,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:07:55.374Z"
+      "firstSeenAt": "2026-09-10T23:07:55.374Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-kriens"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-kriens"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-kriens"
+      ]
     }
   ]
 }

@@ -54,7 +54,6 @@
         "translational-medicine-strategic-feasibility-expert-associate-director-novartis-ch",
         "translational-medicine-strategic-feasibility-expert-associate-direktor-novartis-basel-city",
         "translational-medicine-strategic-feasibility-expert-associate-directeur-novartis-basel-city",
-        "translational-medicine-expert-dermatology-associate-direttore-novartis-basel-city",
         "translational-medicine-expert-dermatology-direttore-novartis-basel-city",
         "translational-medicine-expert-dermatology-director-novartis-ch",
         "translational-medicine-expert-dermatology-direktor-novartis-basel-city",
@@ -67,7 +66,6 @@
           "translational-medicine-strategic-feasibility-expert-associate-director-novartis-ch",
           "translational-medicine-strategic-feasibility-expert-associate-direktor-novartis-basel-city",
           "translational-medicine-strategic-feasibility-expert-associate-directeur-novartis-basel-city",
-          "translational-medicine-expert-dermatology-associate-direttore-novartis-basel-city",
           "translational-medicine-expert-dermatology-direttore-novartis-basel-city",
           "translational-medicine-expert-dermatology-director-novartis-ch",
           "translational-medicine-expert-dermatology-direktor-novartis-basel-city",
@@ -2406,7 +2404,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "director-therapeutic-area-strategy-crm-novartis-ch",
-        "direttore-therapeutic-area-strategy-crm-novartis-basel-city",
         "associate-direttore-therapeutic-area-communications-novartis-basel-city",
         "associate-director-therapeutic-area-communications-novartis-ch",
         "associate-direktor-therapeutic-area-communications-novartis-basel-city",
@@ -2415,7 +2412,6 @@
       "previousSlugsByLocale": {
         "it": [
           "director-therapeutic-area-strategy-crm-novartis-ch",
-          "direttore-therapeutic-area-strategy-crm-novartis-basel-city",
           "associate-direttore-therapeutic-area-communications-novartis-basel-city",
           "associate-director-therapeutic-area-communications-novartis-ch",
           "associate-direktor-therapeutic-area-communications-novartis-basel-city",
@@ -3881,12 +3877,12 @@
     },
     {
       "id": "novartis-843685e3724d",
-      "slug": "senior-expert-engineering-novartis-ch",
+      "slug": "ingegneria-degli-esperti-senior-novartis-basel-city",
       "slugByLocale": {
         "en": "senior-expert-engineering-novartis-ch",
-        "it": "senior-expert-engineering-novartis-ch",
+        "it": "ingegneria-degli-esperti-senior-novartis-basel-city",
         "de": "senior-expert-engineering-novartis-ch",
-        "fr": "senior-expert-engineering-novartis-ch"
+        "fr": "ingenieur-expert-principal-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3942,7 +3938,18 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-10T23:14:12.673Z"
+      "firstSeenAt": "2026-09-10T23:14:12.673Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-expert-engineering-novartis-ch"
+        ],
+        "fr": [
+          "senior-expert-engineering-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-expert-engineering-novartis-ch"
+      ]
     },
     {
       "id": "novartis-7f1250f9909b",
