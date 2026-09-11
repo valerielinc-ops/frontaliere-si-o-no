@@ -1,9 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
   classifyReview,
+  citationConfirmed,
   auditHistoricalCitations,
   followupIssueBody,
   followupItemsFromBody,
+  findingKey,
   extractFileCitations,
   historicalImportantFindings,
   importantFindings,
@@ -677,6 +679,28 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 
 describe('review gate: citazioni e conferme', () => {
   const bot = (body: string) => ({ user: { type: 'Bot', login: 'claude[bot]' }, body, commit_id: 'c'.repeat(40) });
+
+  it('keeps findingKey() and citationConfirmed() as direct moved-anchor contracts', () => {
+    const citation = { path: 'scripts/ci/review-gate.mjs', line: 431 };
+    const finding = { citations: [citation], text: 'moved review anchor' };
+    const confirmation = {
+      citations: [{ path: citation.path, line: 488 }],
+      key: '',
+      bodyAnchor: null,
+    };
+
+    expect(findingKey({ citations: [citation], text: 'ignored when anchored' }))
+      .toBe('scripts/ci/review-gate.mjs:431');
+    expect(citationConfirmed(citation, [confirmation], finding, [finding])).toBe(true);
+
+    const concurrentFinding = { citations: [citation], text: 'another moved anchor' };
+    expect(citationConfirmed(
+      citation,
+      [confirmation],
+      finding,
+      [finding, concurrentFinding],
+    )).toBe(false);
+  });
 
 
   it('recognizes a Markdown-escaped primary anchor without treating a mentioned helper as another finding', () => {
