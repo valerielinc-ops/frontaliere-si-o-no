@@ -44,14 +44,13 @@ import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resum
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import {
-  appendJobRankingParams,
   assignJobRankingVariant,
   buildJobEmailDeliveryId,
   rankEmailJobs,
   readJobEmailRankingConfig,
   stableJobId,
 } from '../functions/src/lib/jobEmailRanking.js';
-import { NEWSLETTER_JOB_LIMIT } from '../functions/src/lib/jobEmailRankingLinks.js';
+import { appendJobRankingParams, NEWSLETTER_JOB_LIMIT } from '../functions/src/lib/jobEmailRankingLinks.js';
 import {
   loadNewsletterRankingStats,
   recordJobEmailImpressions,
