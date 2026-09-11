@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-09-10T23:22:01.299Z",
+  "generatedAt": "2026-09-11T13:53:20.377Z",
   "total": 20,
   "newCount": 0,
-  "updatedCount": 20,
+  "updatedCount": 19,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 50743,
-  "avgDurationMs": 50743,
+  "unchangedCount": 1,
+  "durationMs": 63167,
+  "avgDurationMs": 63167,
   "durationHistory": [
-    50743
+    63167
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -466,38 +466,6 @@
       }
     },
     {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-giuridico/serv-giuridico-collaboratrice-tore-senior.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/serv-giuridico/serv-giuridico-collaboratrice-tore-senior.pdf",
-      "title": "Collaboratrice/Collaboratore giuridica/o senior",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "collaboratrice-collaboratore-giuridica-o-senior-usi",
-      "department": "Servizio legale e compliance",
-      "category": "staff",
-      "datePosted": "2026-05-27",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-bea2e2769328",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-05-27T14:21:30.822Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/controlling/controlling-controller-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/controlling/controlling-controller-2026.pdf",
       "title": "Controller",
@@ -659,5 +627,47 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-giuridico/serv-giuridico-collaboratrice-tore-senior.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/serv-giuridico/serv-giuridico-collaboratrice-tore-senior.pdf",
+      "title": "Collaboratrice/Collaboratore giuridica/o senior",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "collaboratrice-collaboratore-giuridica-o-senior-usi",
+      "department": "Servizio legale e compliance",
+      "category": "staff",
+      "datePosted": "2026-05-27",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-bea2e2769328",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-05-27T14:21:30.822Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ]
 }
