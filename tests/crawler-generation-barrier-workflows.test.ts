@@ -236,7 +236,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(persist.run).toContain('exit "$git_commit_exit"');
       const finalizerFailure = stepByName(job.steps, 'Report crawler generation finalizer failure');
       expect(finalizerFailure.if).toBe(
-        "always() && steps.crawler-generation-finalizer.outcome != 'success'",
+        "always() && steps.crawler-generation-finalizer.outcome == 'failure'",
       );
       expect(finalizerFailure.run).toContain('ledger persistence skipped');
       expect(stepByName(job.steps, 'Upload crawler generation manifest (shadow)')).toMatchObject({
@@ -246,6 +246,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
 
       const portableText = fs.readFileSync(path.join(PORTABLE, `crawler-group-${group}.yml`), 'utf8');
       const portable = YAML.parse(portableText);
+      expect(PORTABLE_GENERATION_TOKEN_EXPR).toBe(GENERATION_TOKEN_EXPR);
       expect(portable['run-name']).toBe(`crawler-generation-${PORTABLE_GENERATION_TOKEN_EXPR}-group-${group}`);
       expect(portable.on.workflow_dispatch.inputs.generation_token)
         .toMatchObject({ required: true, type: 'string' });
