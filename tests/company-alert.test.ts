@@ -23,6 +23,7 @@ import { buildAlertProfile, scoreJobForAlert } from '@/services/jobAlertMatching
 // Hoisted by vitest above every import below.
 const addDocMock = vi.fn<(...args: unknown[]) => Promise<{ id: string }>>(async () => ({ id: 'alert-id' }));
 const setDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => undefined);
+const updateDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => undefined);
 const getDocMock = vi.fn<(...args: unknown[]) => Promise<{ exists: () => boolean; data: () => any }>>(
   async () => ({ exists: () => false, data: () => undefined }),
 );
@@ -36,7 +37,7 @@ vi.mock('firebase/firestore', () => ({
   doc: vi.fn((...args: unknown[]) => ({ id: String(args[args.length - 1] || 'doc-id') })),
   getDoc: (...args: unknown[]) => getDocMock(...args),
   setDoc: (...args: unknown[]) => setDocMock(...args),
-  updateDoc: vi.fn(async () => undefined),
+  updateDoc: (...args: unknown[]) => updateDocMock(...args),
   query: vi.fn(() => ({})),
   where: vi.fn(() => ({})),
   getDocs: (...args: unknown[]) => getDocsMock(...args),
@@ -109,6 +110,23 @@ describe('one company-slug normalisation (#5012, Non-Negotiable #6)', () => {
 
   it.each(cases)('canonicalCompanySlug delegates to baseCompanySlug for %s', (name, key) => {
     expect(canonicalCompanySlug(name, key)).toBe(baseCompanySlug(name, key));
+  });
+
+  it('uses the employer display canonicalization instead of a shared crawler key', () => {
+    const storedKey = companyAlertKey('Galaxus', 'migros-ticino');
+    const profile = buildAlertProfile({ specificCompanyKey: storedKey });
+    const job = {
+      company: 'Galaxus',
+      companyKey: 'migros-ticino',
+      title: 'Role',
+      titleByLocale: {},
+      description: '',
+    };
+    const unrelatedJob = { ...job, company: 'Denner AG' };
+
+    expect(storedKey).toBe(canonicalCompanyProfileSlug('Galaxus', 'migros-ticino'));
+    expect(scoreJobForAlert(job, profile)).toBeGreaterThan(0);
+    expect(scoreJobForAlert(unrelatedJob, profile)).toBe(0);
   });
 
   it('keeps the historical shape: accents stripped, runs collapsed, Lidl folded', () => {
@@ -441,6 +459,7 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
   beforeEach(() => {
     addDocMock.mockClear();
     setDocMock.mockClear();
+    updateDocMock.mockClear();
     getDocMock.mockReset();
     getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
     getDocsMock.mockClear();
@@ -493,6 +512,7 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
     };
     getDocMock
       .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
+      .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
       .mockResolvedValueOnce({ exists: () => true, data: () => stored });
     getDocsMock.mockResolvedValue({ size: 0, docs: [] });
 
@@ -506,6 +526,24 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
     });
     expect(alertWrites).toHaveLength(1);
     expect(addDocMock).not.toHaveBeenCalled();
+  });
+
+  it('clears the server follow-up marker only after the alert write resolves', async () => {
+    getDocMock
+      .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
+      .mockResolvedValueOnce({ exists: () => true, data: () => ({ company_follow_followup_pending: true }) });
+
+    await subscribeCompanyAlert(
+      'user-1',
+      'foo@example.com',
+      { name: 'Renamed Display SA', companyKey: 'stable-crawler-key' },
+      'it',
+    );
+
+    expect(updateDocMock).toHaveBeenCalledWith(
+      expect.anything(),
+      { company_follow_followup_pending: false },
+    );
   });
 });
 
@@ -935,6 +973,20 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     expect(readPendingCompanyFollows()).toHaveLength(0);
   });
 
+  it('retains an intent when the resolved response is an ambiguous non-alert', async () => {
+    savePendingCompanyFollow(intent);
+    const subscribe = vi.fn(async () => ({ success: false, ambiguousDelivery: true } as never));
+
+    await expect(
+      flushPendingCompanyFollows('uid-1', 'anon@example.com', subscribe as never),
+    ).resolves.toMatchObject({
+      created: [],
+      failed: [{ company: 'Board International SA', error: 'subscribe_failed' }],
+      pending: 1,
+    });
+    expect(readPendingCompanyFollows()).toHaveLength(1);
+  });
+
   it('never replays another visitor\'s parked follow on a shared device', async () => {
     savePendingCompanyFollow(intent);
     const subscribe = vi.fn(async () => ({ id: 'x' }));
@@ -1052,6 +1104,9 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     expect(app).toContain("action === 'confirm_newsletter'");
     expect(app).toContain('companyFollowFollowup');
     expect(app).toContain('outcome.pending');
+    expect(app).toContain('let followupStillOpen = Boolean(followupForUi);');
+    expect(app).toContain('followupStillOpen = false;');
+    expect(app).toContain('if (!followupStillOpen && result.alreadyConfirmed)');
     expect(app).toContain('Torna alla pagina e completa il seguito');
   });
 });

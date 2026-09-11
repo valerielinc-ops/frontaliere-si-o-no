@@ -3,7 +3,11 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { buildSequence as rawBuildSequence, selectOutreachMetric } from '../scripts/generate-cold-emails.mjs';
+import {
+  buildSequence as rawBuildSequence,
+  compareOutreachTargets,
+  selectOutreachMetric,
+} from '../scripts/generate-cold-emails.mjs';
 
 type SequenceArgs = {
   company: string;
@@ -36,11 +40,28 @@ describe('cold-email commercial copy', () => {
       label: 'segnali di interesse',
       source: 'applyClickProxy',
     });
-    expect(selectOutreachMetric({ candidates: 23 })).toEqual({
-      value: 23,
-      label: 'segnali di interesse',
-      source: 'candidates',
-    });
+    expect(selectOutreachMetric({ candidates: 23 })).toBeNull();
+  });
+
+  it('ranks raw apply clicks before a larger proxy and shares that comparator with sending', () => {
+    const ranked = [
+      { entry: { key: 'proxy-first', applyClickProxy: 40 }, metric: selectOutreachMetric({ applyClickProxy: 40 }) },
+      { entry: { key: 'click-first', applyClicks: 31 }, metric: selectOutreachMetric({ applyClicks: 31 }) },
+    ].sort(compareOutreachTargets);
+
+    expect(ranked.map(({ entry }) => entry.key)).toEqual(['click-first', 'proxy-first']);
+    expect(fs.readFileSync(path.join(path.resolve(import.meta.dirname, '..'), 'scripts/send-cold-emails.mjs'), 'utf8'))
+      .toContain('compareOutreachTargets');
+    expect(fs.readFileSync(path.join(path.resolve(import.meta.dirname, '..'), 'scripts/enrich-employer-contacts.mjs'), 'utf8'))
+      .toContain('compareOutreachTargets');
+  });
+
+  it('uses the canonical metric labels at both web-UI callsites', () => {
+    const root = path.resolve(import.meta.dirname, '..');
+    expect(fs.readFileSync(path.join(root, 'functions/src/adminSendColdEmail.js'), 'utf8'))
+      .toContain('OUTREACH_METRIC_LABELS.applyClicks');
+    expect(fs.readFileSync(path.join(root, 'components/pages/AdminPanel.tsx'), 'utf8'))
+      .toContain('OUTREACH_METRIC_LABELS.applyClicks');
   });
 
   it('uses the proxy when raw apply clicks are zero and keeps an unlabeled metric neutral', () => {

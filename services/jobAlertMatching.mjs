@@ -433,13 +433,28 @@ export function scoreJobForAlert(job, profile, locale) {
   const pinnedJobs = profile.specificJobIds || [];
   const pinnedCompany = profile.specificCompanyKey || '';
   if (pinnedJobs.length > 0 || pinnedCompany) {
-    // Both sides are folded onto the canonical brand, then compared exactly.
-    // Prefix/suffix containment is unsafe: `Acme` must never select `Acme
-    // Holdings`, and a missing identity must never be inferred from prose.
-    const jobCompanyKey = canonicalCompanyToken(job.companyKey || job.company);
+    // `companyKey` identifies the crawler and can cover several employer labels
+    // (the Migros crawler also publishes Galaxus jobs). The display name is the
+    // employer identity used by the public profile and the writer. Keep it as
+    // the primary identity, and accept the crawler key only when it is a
+    // demonstrably more compact spelling of that same display label (for
+    // example `Board International SA` + `board-international`). Never let a
+    // shared crawler key alone broaden a company follow to another employer.
+    const displayCompanyKey = canonicalCompanyToken(job.company);
+    const crawlerCompanyKey = canonicalCompanyToken(job.companyKey);
+    const jobCompanyKeys = displayCompanyKey ? [displayCompanyKey] : [];
+    if (!displayCompanyKey && crawlerCompanyKey) {
+      jobCompanyKeys.push(crawlerCompanyKey);
+    } else if (
+      displayCompanyKey
+      && crawlerCompanyKey
+      && (displayCompanyKey.includes(crawlerCompanyKey) || crawlerCompanyKey.includes(displayCompanyKey))
+    ) {
+      jobCompanyKeys.push(crawlerCompanyKey);
+    }
     const idHit = pinnedJobs.includes(String(job.id || ''))
       || pinnedJobs.includes(String(job.publisherJobId || ''));
-    const companyHit = Boolean(pinnedCompany && jobCompanyKey && jobCompanyKey === pinnedCompany);
+    const companyHit = Boolean(pinnedCompany && jobCompanyKeys.includes(pinnedCompany));
     return (idHit || companyHit) ? 10 : 0;
   }
 

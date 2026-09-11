@@ -19,7 +19,7 @@
  */
 
 import { FieldValue } from 'firebase-admin/firestore';
-import { buildSequence, bodyToHtml } from './coldEmailSequence.js';
+import { buildSequence, bodyToHtml, OUTREACH_METRIC_LABELS } from './coldEmailSequence.js';
 import { buildInsightsUrl } from './employerInsights.js';
 import { buildUnsubUrl } from './outreachUnsubscribe.js';
 
@@ -92,7 +92,7 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
   const sequence = buildSequence({
     company: insights.companyName || contact.companyName || key,
     metricValue: periodLabel ? totals.applyClicks : null,
-    metricLabel: 'click per candidarsi',
+    metricLabel: OUTREACH_METRIC_LABELS.applyClicks,
     periodLabel,
     contactName: contact.contactName || '',
     topRole: contact.topRole || '',
