@@ -10,6 +10,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   computeWatermarkISO,
+  parseScheduleRunList,
   parseSuccessfulRunList,
   parseMergedPRPages,
   parseMergedPRs,
@@ -65,6 +66,19 @@ describe('computeWatermarkISO', () => {
 
   it('respects a custom fallback window', () => {
     expect(computeWatermarkISO('[]', NOW, 3)).toBe(new Date(NOW - 3 * 3600_000).toISOString());
+  });
+
+  it('keeps the oldest schedule boundary durable until one schedule succeeds', () => {
+    const failedRuns = JSON.stringify([
+      { event: 'schedule', startedAt: '2026-06-30T11:00:00Z', status: 'completed', conclusion: 'failure' },
+      { event: 'schedule', startedAt: '2026-06-30T08:00:00Z', status: 'completed', conclusion: 'failure' },
+    ]);
+    expect(computeWatermarkISO(failedRuns, NOW)).toBe('2026-06-30T08:00:00.000Z');
+    const withSuccess = JSON.stringify([
+      { event: 'schedule', startedAt: '2026-06-30T12:00:00Z', status: 'completed', conclusion: 'success' },
+      ...JSON.parse(failedRuns),
+    ]);
+    expect(computeWatermarkISO(withSuccess, NOW)).toBe('2026-06-30T12:00:00.000Z');
   });
 });
 
@@ -124,6 +138,15 @@ describe('collector fail-closed parsing', () => {
     expect(parseSuccessfulRunList(JSON.stringify([{ event: 'schedule', startedAt: '2026-09-09T08:00:00Z' }]))).toHaveLength(1);
     expect(parseSuccessfulRunList(JSON.stringify([{}]))).toBeNull();
     expect(parseSuccessfulRunList('not-json')).toBeNull();
+  });
+
+  it('retains failed schedule rows while excluding manual runs', () => {
+    const runs = parseScheduleRunList(JSON.stringify([
+      { event: 'workflow_dispatch', startedAt: '2026-09-09T12:00:00Z' },
+      { event: 'schedule', startedAt: '2026-09-09T09:00:00Z', status: 'completed', conclusion: 'failure' },
+    ]));
+    expect(runs).toHaveLength(1);
+    expect(runs?.[0].conclusion).toBe('failure');
   });
 
   it('usa solo l\'ultima run success schedulata: un dispatch non avanza il watermark', () => {
@@ -219,6 +242,12 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
     expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [42], requiresBucket: true });
     expect(latestTriageCommentBody(JSON.stringify({ comments: [{ body: marker }] }))).toBe(marker);
     expect(persistedBucketIssueMatches(persisted, 8101)).toBe(true);
+  });
+
+  it('recognizes Markdown bullet markers as persistence claims', () => {
+    expect(triageMarkerPersistenceExpectation(
+      '## Post-merge follow-up triage\n- Created: daily bucket #42 con 1 item',
+    )).toEqual({ buckets: [42], requiresBucket: true });
   });
 
   it('ignores historical bucket references in a positive marker', () => {
