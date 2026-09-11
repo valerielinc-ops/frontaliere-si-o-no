@@ -42,6 +42,11 @@ describe('isDistinctiveToken', () => {
     expect(isDistinctiveToken('build-plugins/bar.ts')).toBe(false);
   });
 
+  it('rejects file line anchors as citation metadata, not code tokens', () => {
+    expect(isDistinctiveToken('scripts/ci/review-gate.mjs:L410')).toBe(false);
+    expect(isDistinctiveToken('scripts/ci/review-gate.mjs:431')).toBe(false);
+  });
+
   it('rejects bare funnel field/helper names — they occur in cited files independent of any fix (#1647)', () => {
     // REVIEW.md L92 fields: present in slug/redirect/orphan-merge files INDEPENDENTLY of any
     // prescribed fix. A bare occurrence must NOT qualify as distinctive, or a coincidental
@@ -182,6 +187,22 @@ describe('detectAlreadyResolved (end-to-end matcher)', () => {
     const res = detectAlreadyResolved(body, io);
     expect(res.resolved).toBe(true);
     expect(res.evidence).toEqual([{ file: 'scripts/ci/parser.mjs', tok: 'markStale()' }]);
+  });
+
+  it('does not turn cited file line anchors into extra unresolved tokens', () => {
+    const body = [
+      '### 1. Emit the normalized finding key',
+      '- Suggested action: expose `findingKey()` in `scripts/ci/review-gate.mjs:L410`',
+      '### 2. Converge moved citations',
+      '- Suggested action: use `citationConfirmed()` in `scripts/ci/review-gate.mjs:L431`',
+    ].join('\n');
+    const io = {
+      fileExists: (p: string) => p === 'scripts/ci/review-gate.mjs',
+      readFile: () => 'export function findingKey() {}\nexport function citationConfirmed() {}',
+    };
+    const res = detectAlreadyResolved(body, io);
+    expect(res.tokens).toEqual(['findingKey()', 'citationConfirmed()']);
+    expect(res.resolved).toBe(true);
   });
 
   it('does NOT flag when the prescribed token is absent (work still pending)', () => {
