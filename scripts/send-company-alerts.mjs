@@ -1494,6 +1494,11 @@ async function main() {
     // job triggered the send.
     const locale = headline.locale;
     const autologinCode = generateAutologinCode(recipient);
+    const companyAlertUtm = {
+      utmSource: COMPANY_ALERT_TEMPLATE_ID,
+      utmMedium: 'email',
+      utmCampaign: `alert_${headline.alert.id}`,
+    };
     // Two decorators, one perimeter (#5725). Both add the campaign parameters;
     // only `wrapJobUrl` can add the `ne`/`ac` autologin pair, and only because
     // it says why. The shared builder is fail-closed: anything it does not
@@ -1502,7 +1507,7 @@ async function main() {
     // default, which is the change.
     const wrapUrl = (raw) => makeAuthenticatedUrl(raw, recipient, {
       autologinCode,
-      utmMedium: 'email',
+      ...companyAlertUtm,
       preserveExistingUtmMedium: true,
     });
     // A job DETAIL page is not public: components/community/JobBoard.tsx swaps
@@ -1510,7 +1515,7 @@ async function main() {
     // HUB above is, and loses the credential.
     const wrapJobUrl = (raw) => makeAuthenticatedUrl(raw, recipient, {
       autologinCode,
-      utmMedium: 'email',
+      ...companyAlertUtm,
       preserveExistingUtmMedium: true,
       sessionGated:
         'job detail page — components/community/JobBoard.tsx renders the sign-in gate '

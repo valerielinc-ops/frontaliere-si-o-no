@@ -10,7 +10,7 @@ const SECRET = 'newsletter-url-attribution-test-secret';
 const NEWSLETTER_UTM = {
   utmSource: 'newsletter',
   utmMedium: 'email',
-  utmCampaign: 'weekly_2026-09-07',
+  utmCampaign: 'weekly_fixture',
   preserveExistingUtmMedium: true,
 };
 const JOB_ALERT_UTM = {
@@ -33,7 +33,7 @@ describe('new email link attribution', () => {
     expect(first).toBe(second);
     expect(params.get('utm_source')).toBe('newsletter');
     expect(params.get('utm_medium')).toBe('email');
-    expect(params.get('utm_campaign')).toBe('weekly_2026-09-07');
+    expect(params.get('utm_campaign')).toBe('weekly_fixture');
   });
 
   it('keeps the existing JobAlert taxonomy and does not duplicate UTM keys', () => {
@@ -82,7 +82,7 @@ describe('new email link attribution', () => {
     expect(relative.searchParams.get('ac')).toBeTruthy();
     expect(relative.searchParams.get('utm_source')).toBe('newsletter');
     expect(relative.searchParams.get('utm_medium')).toBe('email');
-    expect(relative.searchParams.get('utm_campaign')).toBe('weekly_2026-09-07');
+    expect(relative.searchParams.get('utm_campaign')).toBe('weekly_fixture');
   });
 
   it('keeps recipient and authentication code out of UTM values', () => {
@@ -122,5 +122,23 @@ describe('sender call-sites', () => {
     expect(source).toMatch(/utmCampaign: `alert_\$\{alert\.id\}`/);
     expect(source).toContain('makeAuthenticatedUrl(rawUrl, alert.email, autologinCode, alertUtm)');
     expect(source).toContain('...alertUtm');
+  });
+
+  it('keeps the welcome sender and preview on the newsletter taxonomy', () => {
+    for (const relativePath of ['functions/src/newsletterWelcomeEmail.js', 'scripts/preview-welcome-email.mjs']) {
+      const source = read(relativePath);
+      expect(source).toContain("utmSource: 'newsletter'");
+      expect(source).toContain("utmMedium: 'email'");
+      expect(source).toContain('preserveExistingUtmMedium: true');
+    }
+  });
+
+  it('tracks company-alert links with their own source and campaign', () => {
+    const source = read('scripts/send-company-alerts.mjs');
+
+    expect(source).toMatch(/const companyAlertUtm = \{[\s\S]*utmSource: COMPANY_ALERT_TEMPLATE_ID/);
+    expect(source).toMatch(/utmMedium: 'email'/);
+    expect(source).toMatch(/utmCampaign: `alert_\$\{headline\.alert\.id\}`/);
+    expect(source).toContain('...companyAlertUtm');
   });
 });

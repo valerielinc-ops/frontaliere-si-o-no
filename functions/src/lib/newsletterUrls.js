@@ -394,10 +394,23 @@ export function makeAuthenticatedUrl(
  *
  * @param {string} html
  * @param {string} email
- * @param {{secret?: string, utmCampaign?: string|null, scheme?: 'legacy'|'v1'}} [opts]
+ * @param {{secret?: string, utmSource?: string|null, utmMedium?: string,
+ *   utmCampaign?: string|null, preserveExistingUtmMedium?: boolean,
+ *   scheme?: 'legacy'|'v1'}} [opts]
  * @returns {string}
  */
-export function wrapAuthenticatedHrefs(html, email, { secret, utmCampaign, scheme } = {}) {
+export function wrapAuthenticatedHrefs(
+  html,
+  email,
+  {
+    secret,
+    utmSource,
+    utmMedium = 'newsletter',
+    utmCampaign,
+    preserveExistingUtmMedium = false,
+    scheme,
+  } = {},
+) {
   if (!html || !email) return html;
   const autologinCode = generateAutologinCode(email, { secret, scheme });
   return html.replace(/href="([^"]+)"/g, (whole, rawHref) => {
@@ -409,7 +422,14 @@ export function wrapAuthenticatedHrefs(html, email, { secret, utmCampaign, schem
     // "no idea" resolves to "no credential" by construction — there is no
     // sessionGated argument here and there deliberately cannot be one.
     if (!isOwnRewritableHref(href)) return whole;
-    const wrapped = makeAuthenticatedUrl(href, email, { secret, autologinCode, utmCampaign });
+    const wrapped = makeAuthenticatedUrl(href, email, {
+      secret,
+      autologinCode,
+      utmSource,
+      utmMedium,
+      utmCampaign,
+      preserveExistingUtmMedium,
+    });
     return `href="${wrapped.replace(/&/g, '&amp;')}"`;
   });
 }
