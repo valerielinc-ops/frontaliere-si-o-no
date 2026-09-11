@@ -122,6 +122,32 @@ describe('crawler generation observer report contract', () => {
     })).toMatchObject({ terminal: false, reason: 'report_stale' });
   });
 
+  it('terminalizes a tokenless report when a generation binding is expected', () => {
+    const value = report();
+    const tokenless = createCrawlerGenerationObserverReport({
+      evaluatedAt: value.evaluatedAt,
+      generationToken: null,
+      siteCodeCommit: value.siteCodeCommit,
+      corpusCodeCommit: value.corpusCodeCommit,
+      sentinelDigest: value.sentinelDigest,
+      sentinelSetDigest: value.sentinelSetDigest,
+      sentinelReplayCount: value.sentinelReplayCount,
+      dispatchDiagnostics: value.dispatchDiagnostics,
+      evidenceDigest: value.evidenceDigest,
+      status: value.observer.status,
+      reasons: value.observer.reasons,
+      barrier: value.barrier,
+    });
+    expect(validateCrawlerGenerationObserverReport(tokenless).valid).toBe(true);
+    expect(validateCrawlerGenerationObserverReport(tokenless, expectedBinding(value)).errors)
+      .toContain('invalid_generation_token');
+    expect(classifyCrawlerGenerationObserverReport(tokenless, {
+      expected: expectedBinding(value),
+      now: Date.parse(evaluatedAt) + 1_000,
+      sentinelCreatedAt: Date.parse(evaluatedAt),
+    })).toEqual({ terminal: true, reason: 'invalid_generation_token' });
+  });
+
   it('terminalizes ready and definitive blocked evidence, with artifact-missing grace', () => {
     const ready = report();
     expect(classifyCrawlerGenerationObserverReport(ready, {
