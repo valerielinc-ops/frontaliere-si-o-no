@@ -173,6 +173,28 @@ describe('analytics.ts — trackCtaClick helper', () => {
   });
 });
 
+describe('analytics.ts — qualified application funnel', () => {
+  it('declares separate qualified-session and external hand-off events', () => {
+    expect(analyticsSrc).toContain("JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session'");
+    expect(analyticsSrc).toContain("JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff'");
+    expect(analyticsSrc).toMatch(/trackQualifiedJobSession:\s*\(/);
+    expect(analyticsSrc).toMatch(/trackJobApplyHandoff:\s*\(/);
+  });
+
+  it('keeps the hand-off explicitly distinct from a submitted application', () => {
+    const handoffBlock = analyticsSrc.match(/trackJobApplyHandoff:[\s\S]*?\n \},/);
+    expect(handoffBlock).not.toBeNull();
+    expect(handoffBlock![0]).toContain("application_status: 'redirect_only'");
+    expect(handoffBlock![0]).toContain('destination_host: destinationHost');
+  });
+
+  it('deduplicates the qualified denominator with session storage plus a memory fallback', () => {
+    expect(analyticsSrc).toContain('QUALIFIED_JOB_SESSION_KEY');
+    expect(analyticsSrc).toContain('sessionStorage.getItem(QUALIFIED_JOB_SESSION_KEY)');
+    expect(analyticsSrc).toContain('qualifiedJobSessionEmitted');
+  });
+});
+
 describe('analytics.ts — job_auth funnel aliasing', () => {
   it('trackJobAuthFunnel emits both `step` and `funnel: \'job_auth\'`', () => {
     const block = analyticsSrc.match(/trackJobAuthFunnel:[\s\S]*?\},\n/);
