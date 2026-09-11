@@ -493,8 +493,13 @@ runs:
         # and immediately remove their environment bindings before executing or
         # reading any action/workspace file.
         codex_github_auth="${CODEX_GH_AUTH:-}"
-        codex_corpus_github_auth="${CODEX_CORPUS_GH_AUTH:-}"
-        unset CODEX_GH_AUTH CODEX_CORPUS_GH_AUTH
+        # The caller may load the corpus PAT through GITHUB_ENV immediately
+        # before this composite action.  A runtime GITHUB_PAT expression
+        # in the caller can still resolve before that runtime update, so keep
+        # the host-side bridge usable from the inherited step environment too.
+        # The value never enters Codex: it is captured only by the bridge.
+        codex_corpus_github_auth="${CODEX_CORPUS_GH_AUTH:-${GITHUB_PAT_NANAKO:-${GITHUB_PAT:-}}}"
+        unset CODEX_GH_AUTH CODEX_CORPUS_GH_AUTH GITHUB_PAT_NANAKO GITHUB_PAT
         if [ -z "$codex_github_auth" ]; then
           echo "::error::The primary Codex run requires the caller's explicit codex_github_token input."
           exit 1
