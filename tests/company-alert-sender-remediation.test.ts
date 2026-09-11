@@ -507,6 +507,47 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
     });
   });
 
+  it('keeps a terminal per-job defer when alert-level and throughput writes coalesce', async () => {
+    const sourceAlert = alert('b6-terminal-coalescing', 'Acme', {
+      deliveryDeferredAttempts: DEFERRED_MAX_ATTEMPTS - 1,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED,
+    });
+    const sourceJob = job('b6-terminal-coalescing-job', 'Acme', 'acme');
+    const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
+    const [alertLevelWrite] = planDeferredDeliveryWrites(
+      [{ alert: sourceAlert, jobs: [sourceJob] }],
+      NOW,
+      'consent-lookup-failed',
+    );
+    const [throughputWrite] = planDeferredDeliveryWrites(
+      [section],
+      NOW + 1,
+      'per-run-cap',
+    );
+
+    const db = serializedDb({
+      [sourceAlert.ref.path]: {
+        ...sourceAlert,
+        ref: undefined,
+        deliveryLedger: {},
+      },
+    });
+    await persistDeferredDeliveryWrites(db, [alertLevelWrite, throughputWrite], false);
+
+    expect(db.docs.get(sourceAlert.ref.path)).toMatchObject({
+      deliveryLastDeferredReason: 'consent-lookup-failed',
+      deliveryDeferredAttempts: DEFERRED_MAX_ATTEMPTS,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+      deliveryLedger: {
+        [sourceJob.id]: {
+          state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+          attempts: DEFERRED_MAX_ATTEMPTS,
+          reason: 'consent-lookup-failed',
+        },
+      },
+    });
+  });
+
   it('counts repeated deferrals per alert, not per job key', () => {
     const sourceAlert = alert('b6-alert-attempts', 'Acme');
     let persistedAlert = sourceAlert;
