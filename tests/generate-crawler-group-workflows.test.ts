@@ -1174,10 +1174,19 @@ describe('cross-repo crawler execution artifacts', () => {
     });
     const outDir = path.join(tmp, 'workflows');
     const contractPath = path.join(tmp, 'crawler-cross-repo-contract.json');
+    // The committed portable artifacts are an observation of an explicit site
+    // revision.  Keep this fixture comparison on that same pin instead of
+    // letting CI's pull_request merge ref silently produce a different
+    // sourceRef/sourceCommit on every run.
+    const committedContract = JSON.parse(
+      fs.readFileSync(path.join(repoRoot, '.github/corpus-workflows/contract.json'), 'utf8'),
+    );
     const result = generateCrossRepoExecutionArtifacts({
       groupResults,
       outDir,
       contractPath,
+      sourceRef: committedContract.sourceRef,
+      sourceCommit: committedContract.sourceCommit,
     });
     return { ...result, outDir, contractPath };
   }
