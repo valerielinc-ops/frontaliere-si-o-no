@@ -34752,6 +34752,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fino-mornasco-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-09-11T02:59:51.890Z',
+ image: '/images/blog/fino-mornasco-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

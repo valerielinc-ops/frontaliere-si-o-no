@@ -11641,6 +11641,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.title': 'Trenord potenzia la linea Como-Milano: 4 corse mattutine in più dal 14 settembre',
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.excerpt': 'Quattro nuovi treni feriali sulla tratta Milano Cadorna-Como Lago per migliorare il pendolarismo transfrontaliero. Ecco gli orari completi.',
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.imageAlt': 'Treno Trenord in arrivo a Como Lago all\'alba, con vista sul lago e sulle montagne',
+    'blog.article.fino-mornasco-frontaliere-ticino.title': 'Vivere a Fino Mornasco e lavorare in Ticino',
+    'blog.article.fino-mornasco-frontaliere-ticino.excerpt': 'Guida pratica per frontalieri a Fino Mornasco: collegamenti verso Brogeda, imposte, detrazioni previdenziali e gestione del budget quotidiano.',
+    'blog.article.fino-mornasco-frontaliere-ticino.imageAlt': 'Tragitto verso il confine svizzero da Fino Mornasco per frontalieri in Canton Ticino',
 };
 
 export default blogMetaIt;

@@ -11642,6 +11642,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.title': 'Trainord renforce Como-Milan : +4 matinaux dès le 14/09',
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.excerpt': 'Quatre nouveaux trains de semaine sur la ligne Milano Cadorna-Como Lago pour améliorer les déplacements transfrontaliers. Voici les horaires complets.',
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.imageAlt': 'Train Trenord arrivant à la gare de Como Lago à l\'aube, avec vue sur le lac et les montagnes',
+    'blog.article.fino-mornasco-frontaliere-ticino.title': 'Vivre à Fino Mornasco et travailler au Tessin',
+    'blog.article.fino-mornasco-frontaliere-ticino.excerpt': 'Guide pratique pour les frontaliers à Fino Mornasco : liaisons vers Brogeda, taxes, déductions de sécurité sociale et gestion du budget quotidien.',
+    'blog.article.fino-mornasco-frontaliere-ticino.imageAlt': 'Trajet de banlieue vers la frontière suisse depuis Fino Mornasco vers le Tessin',
 };
 
 export default blogMetaFr;
