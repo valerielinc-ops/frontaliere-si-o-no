@@ -47,6 +47,8 @@ import { settledDays, settledEndDate, fmtUtcDate, utcDaysBefore } from './lib/an
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
+const JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session';
+const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
 const SERP_HISTORY_PATH = resolve(__dirname, '..', 'data', 'seo-serp-experiment-history.json');
 const SERP_LAST_RUN_PATH = resolve(__dirname, '..', 'data', 'seo-serp-autopilot-last-run.json');
 const AI_CHANNEL_HISTORY_PATH = resolve(__dirname, '..', 'data', 'ai-channel-history.jsonl');
@@ -960,6 +962,68 @@ async function reportGA4(token) {
   } catch (e) {
     log('⚠️', `GA4 summary: ${e.message}`);
     markEngagementNotComputed(e.message);
+  }
+
+  // ── 3a-bis. Qualified job sessions → external application hand-offs ──
+  // Both values are GA4 session metrics filtered by event name, so the report
+  // never treats a redirect as a submitted application. The ratio is only
+  // reported when the qualified-session denominator exists.
+  try {
+    const queryEventSessions = async (eventName) => {
+      const res = await fetchRetry(
+        `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
+        {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({
+            ...settledRequest,
+            metrics: [{ name: 'sessions' }],
+            dimensionFilter: {
+              filter: {
+                fieldName: 'eventName',
+                stringFilter: { value: eventName, matchType: 'EXACT' },
+              },
+            },
+            limit: 1,
+          }),
+        },
+      );
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      return Math.max(0, parseInt(data.rows?.[0]?.metricValues?.[0]?.value || '0', 10));
+    };
+
+    const [validApplyAccesses, qualifiedSessions] = await Promise.all([
+      queryEventSessions(JOB_APPLY_HANDOFF_EVENT),
+      queryEventSessions(JOB_QUALIFIED_SESSION_EVENT),
+    ]);
+    result.applicationMetric = {
+      name: 'valid_apply_access_per_1000_qualified_sessions',
+      definition: 'distinct sessions with job_apply_handoff / distinct sessions with job_qualified_session × 1,000',
+      status: 'handoff_not_submitted_application',
+      validApplyAccesses,
+      qualifiedSessions,
+      perThousandQualifiedSessions: qualifiedSessions > 0
+        ? Number(((validApplyAccesses / qualifiedSessions) * 1_000).toFixed(2))
+        : null,
+      window: settledRequest.dateRanges[0],
+      proof: 'job_apply_handoff records an external redirect only; no submission is inferred',
+    };
+    if (!flags.json) {
+      const metric = result.applicationMetric;
+      const rate = metric.perThousandQualifiedSessions == null ? 'n/d' : metric.perThousandQualifiedSessions;
+      log('🧭', `Accessi candidatura validi: ${fmtNum(metric.validApplyAccesses)} · sessioni qualificate: ${fmtNum(metric.qualifiedSessions)} · per 1.000: ${rate}`);
+    }
+  } catch (e) {
+    result.applicationMetric = {
+      name: 'valid_apply_access_per_1000_qualified_sessions',
+      status: 'source_unavailable',
+      validApplyAccesses: null,
+      qualifiedSessions: null,
+      perThousandQualifiedSessions: null,
+      proof: `GA4 event-session query failed: ${e.message}`,
+    };
+    log('⚠️', `GA4 application funnel: ${e.message}`);
   }
 
   // ── 3b. Top pages + top articles + keyword intent ─────────

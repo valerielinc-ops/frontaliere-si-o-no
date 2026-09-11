@@ -33,6 +33,7 @@ export interface JobDetailJob {
   readonly postedDate?: string;
   readonly crawledAt?: string;
   readonly url?: string;
+  readonly applyUrl?: string;
 }
 
 /**

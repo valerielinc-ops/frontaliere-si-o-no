@@ -38,6 +38,8 @@
  * │ input_change │ Form input changed (debounced 2s) │
  * │ ui_interaction │ Structured UI interaction │
  * │ funnel_step │ Conversion funnel progression │
+ * │ job_qualified_session │ One qualified job-detail session │
+ * │ job_apply_handoff │ External application destination hand-off │
  * ├──────────────────────┼──────────────────────────────────────┤
  * │ APP-SPECIFIC — Feature usage │
  * ├──────────────────────┼──────────────────────────────────────┤
@@ -118,6 +120,13 @@ export type AnalyticsJobIdentitySource = {
  companyKey?: string | null;
 };
 
+export type AnalyticsJobApplySource = AnalyticsJobIdentitySource & {
+ featured?: boolean | null;
+};
+
+export const JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session';
+export const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
+
 /**
  * Resolve the identity carried by job analytics from the canonical job fields.
  * The caller must already have resolved route aliases/locales to the current
@@ -149,6 +158,19 @@ export function buildJobApplyAttributionParams(
   employer_key: employerKey || 'unknown',
   job_slug: identity?.jobSlug || '',
  };
+}
+
+/** Keep destination URLs out of analytics while retaining the external host. */
+function resolveExternalDestinationHost(destination: string): string | null {
+ try {
+  const base = typeof window !== 'undefined' ? window.location.origin : undefined;
+  const url = new URL(destination, base);
+  if (!['http:', 'https:'].includes(url.protocol)) return null;
+  if (typeof window !== 'undefined' && url.origin === window.location.origin) return null;
+  return url.host || null;
+ } catch {
+  return null;
+ }
 }
 
 /**
@@ -411,6 +433,23 @@ let currentPageViewEmission: AnalyticsPageViewEmission | null = null;
 let _maxScrollDepth = 0;
 const ATTRIBUTION_KEY = 'ft_attribution_v1';
 const ATTRIBUTION_LOGGED_KEY = 'ft_attribution_logged_v1';
+const QUALIFIED_JOB_SESSION_KEY = 'ft_job_qualified_session_v1';
+let qualifiedJobSessionEmitted = false;
+
+function claimQualifiedJobSession(): 'session_storage' | 'memory_only' | null {
+ if (qualifiedJobSessionEmitted) return null;
+ let deduplication: 'session_storage' | 'memory_only' = 'memory_only';
+ try {
+  if (sessionStorage.getItem(QUALIFIED_JOB_SESSION_KEY) === '1') return null;
+  sessionStorage.setItem(QUALIFIED_JOB_SESSION_KEY, '1');
+  deduplication = 'session_storage';
+ } catch {
+  // Private browsing or blocked storage: the module-level guard still avoids
+  // duplicate route emissions during the current page lifetime.
+ }
+ qualifiedJobSessionEmitted = true;
+ return deduplication;
+}
 
 const getEngagementTime = () => Math.round((Date.now() - sessionStartTime) / 1000);
 
@@ -1014,6 +1053,9 @@ export const Analytics = {
  emission_id: emissionId,
  ...buildPageViewAttributionParams(path, identity),
  });
+ if (pageContext.pageTemplate === 'job_detail') {
+  Analytics.trackQualifiedJobSession(identity);
+ }
  // Bridge: tag Clarity session with page template for filtering
  tagClarity('page_template', pageContext.pageTemplate);
  tagClarity('content_group', pageContext.contentGroup);
@@ -1770,6 +1812,42 @@ export const Analytics = {
  is_sponsored: isSponsored ? 'sponsored' : 'free',
  job_slug: jobSlug || '',
  });
+ },
+
+ /** Emit the denominator once per browser session after a job detail is viewed. */
+ trackQualifiedJobSession: (identity?: AnalyticsPageViewIdentity | null) => {
+  const deduplication = claimQualifiedJobSession();
+  if (!deduplication) return false;
+  log(JOB_QUALIFIED_SESSION_EVENT, {
+   page_template: 'job_detail',
+   qualification: 'job_detail_view',
+   deduplication,
+   job_slug: identity?.jobSlug || '',
+   employer_key: identity?.employerKey || '',
+  });
+  return true;
+ },
+
+ /**
+  * Record an external application hand-off without claiming that an
+  * application was submitted. Only the destination host is retained.
+  */
+ trackJobApplyHandoff: (
+  job: AnalyticsJobApplySource,
+  destination: string,
+  details: { surface?: string; emissionId?: string } = {},
+ ) => {
+  const destinationHost = resolveExternalDestinationHost(destination);
+  if (!destinationHost) return false;
+  log(JOB_APPLY_HANDOFF_EVENT, {
+   ...buildJobApplyAttributionParams(job),
+   is_sponsored: job.featured ? 'sponsored' : 'free',
+   destination_host: destinationHost,
+   handoff_surface: details.surface || 'job_board_apply',
+   application_status: 'redirect_only',
+   emission_id: details.emissionId || createAnalyticsEmissionId(),
+  });
+  return true;
  },
 
  /**

@@ -706,8 +706,9 @@ const CONTRACT_TO_EMPLOYMENT_TYPE: Record<ContractType, string> = {
  contract: 'CONTRACTOR',
 };
 
-/** Append UTM referral parameters to an external job URL. */
-function buildReferralUrl(raw: string, job: JobListing): string {
+/** Append UTM referral parameters to the effective application destination. */
+function buildReferralUrl(job: JobListing): string {
+ const raw = job.applyUrl || job.url || '';
  try {
  const u = new URL(raw);
  u.searchParams.set('utm_source', 'frontaliereticino');
@@ -6386,6 +6387,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const trackPublisherApplySignals = (job: JobListing, contentType: string): string => {
  const eventId = createPublisherApplyEventId();
+ const referralUrl = buildReferralUrl(job);
  Analytics.trackEvent('select_content', {
  content_type: contentType,
  item_id: `${job.company}_${job.title}`,
@@ -6396,6 +6398,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  is_sponsored: job.featured ? 'sponsored' : 'free',
  emission_id: eventId,
  });
+ const mode = (job as { applyMode?: string }).applyMode;
+ if (mode !== 'in_house' && mode !== 'forward_email') {
+  Analytics.trackJobApplyHandoff(job, referralUrl, {
+   surface: contentType,
+   emissionId: eventId,
+  });
+ }
  return eventId;
  };
 
@@ -6415,9 +6424,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // External publisher ads: count the apply click too (session-debounced, so it
  // never double-counts with the header logo/title links). No-op for crawled jobs.
  trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
- const applyDestination = job.applyUrl || job.url;
+ const applyDestination = buildReferralUrl(job);
  if (applyDestination) {
- window.open(buildReferralUrl(applyDestination, job), '_blank', 'noopener,noreferrer');
+ window.open(applyDestination, '_blank', 'noopener,noreferrer');
  // Mutate the page in the same tick as the hand-off — the confirmation is the
  // user-visible receipt AND the DOM change that makes this click non-dead.
  setAppliedJobId(job.id);
@@ -8597,7 +8606,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ...canonicalResidualSections,
  ];
  const hybridLayoutEnabled = false;
- const applyUrl = buildReferralUrl(selectedJob.applyUrl || selectedJob.url || '', selectedJob);
+ const applyUrl = buildReferralUrl(selectedJob);
  const applyMode = (selectedJob as { applyMode?: string }).applyMode;
  const isInHouseApply = applyMode === 'in_house' || applyMode === 'forward_email';
  // Publisher / sponsored ad: a paid submission carries a `publisherJobId`. Used

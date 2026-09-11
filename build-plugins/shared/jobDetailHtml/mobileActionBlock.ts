@@ -78,7 +78,7 @@ export function renderMobileActionBlock(ctx: MobileActionBlockContext): string {
       )}</span><span class="mab-salary-value">${esc(salaryText)}</span></div>`
     : '';
   return `<section class="mobile-action-block" aria-label="${esc(localeLabels.quickDetails)}">
- <a href="${referralUrl(job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="mab-cta">${esc(localeLabels.applyNow)}</a>
+ <a href="${referralUrl(job.applyUrl || job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="mab-cta">${esc(localeLabels.applyNow)}</a>
  <dl class="mab-grid">
  <div class="mab-tile"><dt>${esc(localeLabels.location)}</dt><dd>${esc(addressLocality)}</dd></div>
  <div class="mab-tile"><dt>${esc(localeLabels.contract)}</dt><dd>${esc(contractText)}</dd></div>
