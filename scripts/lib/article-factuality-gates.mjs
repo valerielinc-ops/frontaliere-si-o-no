@@ -2485,6 +2485,13 @@ export function runFactualityGates(params = {}) {
   const joined = (obj) => Object.values(obj).filter((v) => typeof v === 'string').join('\n\n');
   const fullText = joined(sections);
   const localeOptions = { ...options, locale };
+  // A missing/thin source cannot support the learner's negative evidence: an
+  // empty source is not proof that an acronym is fabricated. Keep curated
+  // static guards active, but do not let memory learned from other articles
+  // block this run or feed another unknown observation back into the learner.
+  const hasUsableSourceForLearning = typeof sourceText === 'string'
+    && sourceText.length >= MIN_SOURCE_CHARS_FOR_SUPPORT;
+  const learnedMemory = hasUsableSourceForLearning ? memory : {};
 
   let issues = [];
   for (const [label, text] of Object.entries(sections)) {
@@ -2505,9 +2512,9 @@ export function runFactualityGates(params = {}) {
 
   if (locale === 'it') {
     issues.push(...checkFabricatedInstitutionAcronyms(fullText, {
-      learnedDenylist: memory.denylist,
-      learnedSuspects: memory.suspects,
-      memoryDegraded: memory.degraded,
+      learnedDenylist: learnedMemory.denylist,
+      learnedSuspects: learnedMemory.suspects,
+      memoryDegraded: learnedMemory.degraded,
     }));
     issues.push(...checkContradictoryNormDates(fullText));
     issues.push(...checkSourceFreshness({ sourceDate, publishedAt, text: fullText, ...options }));
@@ -2554,7 +2561,9 @@ export function runFactualityGates(params = {}) {
   // that consumes them is keyed on the acronym alone. Harvesting the same
   // acronym four times, once per locale, would quadruple every sighting count
   // and promote unknowns to CONFIRMED on one article's evidence.
-  const observations = locale === 'it' ? collectInstitutionAcronyms(fullText, { sourceText }) : [];
+  const observations = locale === 'it' && hasUsableSourceForLearning
+    ? collectInstitutionAcronyms(fullText, { sourceText })
+    : [];
 
   issues.sort((a, b) => (SEVERITY[b.severity] || 0) - (SEVERITY[a.severity] || 0));
   const blocking = issues.filter((i) => i.severity === 'critical');
