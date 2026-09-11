@@ -1,21 +1,21 @@
 {
   "key": "hospice-general",
   "label": "Hospice général",
-  "generatedAt": "2026-09-10T23:24:39.777Z",
-  "total": 7,
+  "generatedAt": "2026-09-11T13:54:41.581Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 7,
+  "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4471,
-  "avgDurationMs": 4471,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3622,
+  "avgDurationMs": 3622,
   "durationHistory": [
-    4471
+    3622
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000148152471-charge-de-formation-h-f-80-cdi-unite-formation-de-base-direction-insertion-et-soutien-operationnel?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:24:34.970Z",
+      "crawledAt": "2026-09-11T13:54:36.883Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Genève",
@@ -69,7 +69,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000147435399-responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:24:34.977Z",
+      "crawledAt": "2026-09-11T13:54:36.881Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Genève",
@@ -107,7 +107,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000113099616-un-civiliste-aide-animateur-100-min-6-mois-maison-de-vacances-pour-seniors-la-nouvelle-roseraie-saint-legier-vd?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:24:34.995Z",
+      "crawledAt": "2026-09-11T13:54:36.878Z",
       "addressLocality": "Saint Légier",
       "addressRegion": "GE",
       "streetAddress": "Saint Légier",
@@ -145,7 +145,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000113099246-un-civiliste-aide-animateur-100-min-4-mois-au-cad-centre-d-animation-pour-les-seniors-a-lancy?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:24:34.995Z",
+      "crawledAt": "2026-09-11T13:54:36.886Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "streetAddress": "Lancy",
@@ -183,7 +183,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000112674907-des-civilistes-aide-socio-administratif-100-min-6-mois-differents-lieux?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:24:34.997Z",
+      "crawledAt": "2026-09-11T13:54:36.885Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Genève",
@@ -221,7 +221,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000112673546-civiliste-aide-manutentionnaire-100-min-6-mois-aide-aux-migrants?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:24:34.998Z",
+      "crawledAt": "2026-09-11T13:54:36.888Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Genève",
@@ -248,8 +248,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hospice-general-5f00d89d7ee3",
       "slug": "consulente-per-l-integrazione-professionale-m-f-80-cdi-servizio-di-integrazione-professionale-direzione-per-l",
@@ -292,5 +291,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
