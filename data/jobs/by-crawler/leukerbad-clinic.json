@@ -1,7 +1,333 @@
 {
   "crawlerKey": "leukerbad-clinic",
-  "assembledAt": "2026-09-11T13:44:19.721Z",
+  "assembledAt": "2026-09-11T23:13:57.806Z",
   "jobs": [
+    {
+      "id": "leukerbad-clinic-62d178b67f9d",
+      "slug": "attrezzatura-spontan-leukerbad-clinic-leukerbad",
+      "slugByLocale": {
+        "it": "attrezzatura-spontan-leukerbad-clinic-leukerbad",
+        "en": "spontan-equipment-leukerbad-clinic-leukerbad",
+        "de": "spontanbewerbung-leukerbad-clinic-leukerbad",
+        "fr": "materiel-spontan-leukerbad-clinic-leukerbad"
+      },
+      "company": "Leukerbad Clinic",
+      "companyKey": "leukerbad-clinic",
+      "companyDomain": "leukerbadclinic.ch",
+      "title": "SPONTANBEWERBUNG",
+      "titleByLocale": {
+        "it": "ATTREZZATURA SPONTAN",
+        "en": "SPONTAN EQUIPMENT",
+        "de": "SPONTANBEWERBUNG",
+        "fr": "MATÉRIEL SPONTAN"
+      },
+      "description": "zu vereinbaren · zu vereinbaren\n\nWir freuen uns über Ihr Interesse an der Leukerbad Clinic !\nGern können Sie uns Ihre Bewerbung hier zukommen lassen (Bewerbungsschreiben, CV und Arbeitszeugnisse).",
+      "descriptionByLocale": {
+        "it": "concordare · concordare\n\nSiamo lieti del vostro interesse per la clinica Leukerbad!\nSiete invitati a inviarci la vostra domanda qui (lettera di domanda, CV e certificati di lavoro).",
+        "en": "to agree · to agree\n\nWe are pleased about your interest in the Leukerbad Clinic!\nYou are welcome to send us your application here (application letter, CV and employment certificates).",
+        "de": "zu vereinbaren · zu vereinbaren\n\nWir freuen uns über Ihr Interesse an der Leukerbad Clinic !\nGern können Sie uns Ihre Bewerbung hier zukommen lassen (Bewerbungsschreiben, CV und Arbeitszeugnisse).",
+        "fr": "d'accepter · d'accepter\n\nNous sommes heureux de votre intérêt pour la clinique Leukerbad!\nVous pouvez nous envoyer votre candidature ici (lettre de candidature, CV et certificats d'emploi)."
+      },
+      "location": "Leukerbad",
+      "canton": "VS",
+      "addressLocality": "Leukerbad",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3954",
+      "category": "healthcare",
+      "sector": "Salute / Riabilitazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2024-07-29",
+      "url": "https://leukerbadclinic.ch/de/page/jobs/#job-62d178b67f9d",
+      "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-62d178b67f9d",
+      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-11T23:13:46.822Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "spontanbewerbung-leukerbad-clinic-leukerbad",
+        "attrezzatura-spontan-leukerbad-clinic-leukerbad"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "spontanbewerbung-leukerbad-clinic-leukerbad",
+          "attrezzatura-spontan-leukerbad-clinic-leukerbad"
+        ],
+        "en": [
+          "spontanbewerbung-leukerbad-clinic-leukerbad"
+        ],
+        "fr": [
+          "spontanbewerbung-leukerbad-clinic-leukerbad"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T22:22:23.632Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "leukerbad-clinic-2bcf18b9fd5c",
+      "slug": "spontancy-leukerbad-clinic-loeche-les-bains",
+      "slugByLocale": {
+        "it": "spontancy-leukerbad-clinic-loeche-les-bains",
+        "en": "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+        "de": "spontanz-leukerbad-clinic-loeche-les-bains",
+        "fr": "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
+      },
+      "company": "Leukerbad Clinic",
+      "companyKey": "leukerbad-clinic",
+      "companyDomain": "leukerbadclinic.ch",
+      "title": "CANDIDATURE SPONTANEE",
+      "titleByLocale": {
+        "it": "SPONTANCY",
+        "en": "CANDIDATURE SPONTANEE",
+        "de": "SPONTANZ",
+        "fr": "CANDIDATURE SPONTANEE"
+      },
+      "description": "à convenir · à convenir\n\nMerci pour votre intérêt pour la Leukerbad Clinic. Nous nous réjouissons de prendre connaissance de votre dossier complet (lettre de motivation, CV et certificats) !",
+      "descriptionByLocale": {
+        "it": "essere concordato\n\nGrazie per il vostro interesse per la clinica Leukerbad. Non vediamo l'ora di vedere il tuo file completo (lettera di motivazione, CV e certificati)!",
+        "en": "to be agreed\n\nThank you for your interest in the Leukerbad Clinic. We look forward to seeing your complete file (motivation letter, CV and certificates)!",
+        "de": "zu vereinbaren\n\nVielen Dank für Ihr Interesse an der Leukerbad Klinik. Wir freuen uns auf Ihre vollständige Datei (Motivationsschreiben, Lebenslauf und Zertifikate)!",
+        "fr": "à convenir · à convenir\n\nMerci pour votre intérêt pour la Leukerbad Clinic. Nous nous réjouissons de prendre connaissance de votre dossier complet (lettre de motivation, CV et certificats) !"
+      },
+      "location": "Loèche-les-Bains",
+      "canton": "VS",
+      "addressLocality": "Loèche-les-Bains",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3954",
+      "category": "healthcare",
+      "sector": "Salute / Riabilitazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2024-07-29",
+      "url": "https://leukerbadclinic.ch/fr/page/jobs/#job-2bcf18b9fd5c",
+      "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-2bcf18b9fd5c",
+      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-11T23:13:46.822Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+        "spontancy-leukerbad-clinic-loeche-les-bains"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+          "spontancy-leukerbad-clinic-loeche-les-bains"
+        ],
+        "de": [
+          "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T22:22:23.632Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "leukerbad-clinic-121ff121f549",
+      "slug": "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
+      "slugByLocale": {
+        "it": "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
+        "en": "spontaneous-application-for-a-job-as-diplomiated-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
+        "de": "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
+        "fr": "demande-spontanee-pour-un-emploi-comme-diplomiated-r-physiotherapeut-in-leukerbad-clinic-leukerbad"
+      },
+      "company": "Leukerbad Clinic",
+      "companyKey": "leukerbad-clinic",
+      "companyDomain": "leukerbadclinic.ch",
+      "title": "Spontanbewerbung für eine Stelle als DIPLOMIERTE/R PHYSIOTHERAPEUT/IN",
+      "titleByLocale": {
+        "it": "Spontanbewerbung per eine Stelle come DIPLOMIERTE/R PHYSIOTHERAPEUT/IN",
+        "en": "Spontaneous application for a job as DIPLOMIATED/R PHYSIOTHERAPEUT/IN",
+        "de": "Spontanbewerbung für eine Stelle als DIPLOMIERTE/R PHYSIOTHERAPEUT/IN",
+        "fr": "Demande spontanée pour un emploi comme DIPLOMIATED/R PHYSIOTHERAPEUT/IN"
+      },
+      "description": "PHYSIOTHERAPIE\n\nnach Vereinbarung · nach Vereinbarung\n\nIHR PROFIL\n• Eine abgeschlossene Ausbildung als Physiotherapeut/in\n• Erfahrung in der Muskuloskelettalen Rehabilitation\n• Zweisprachigkeit deutsch/französisch mit guten Kenntnissen der anderen Sprache oder dem Wunsch, diese zu lernen\n• Interesse an der Betreuung von Physiotherapie-Praktikanten und -Schülern\n• Bereitschaft zur Teamarbeit nach den vier Kernwerten der Leukerbad Clinic : Professionalität – Engagement – Kompetenz – Empathie\nAUFGABEN\n• Betreuung und Behandlung von Patienten im Bereich der Muskuloskelletalen, Post-operativen und Orthopädischen Rehabilitation\n• Definition und Durchführung eines physiotherapeutischen Programms entsprechend den spezifischen Patientenbedürfnissen und medizinischen Empfehlungen\n• Administrative Führung der elektronischen Patientenunterlagen\n• Mitwirkung bei der Integration neuer Mitarbeiter und bei der Betreuung sowie Bewertung von Studenten und Praktikanten\n• Kenntnis und Anwendung der Prinzipien der Spitalhygiene, um den ordnungsgemäßen Betrieb der Physiotherapieabteilung zu gewährleisten\nWIR BIETEN\n• Abwechslungsreiche Arbeit in einem dynamischen interdisziplinären Team, insbesondere mit den Abteilungen Ergotherapie, Sporttherapie und der Pflege\n• Möglichkeiten zur internen und externen Weiterbildung\n• Attraktive, zukunftsorientierte Klinik mit etabliertem Renommee (60-jähriges Firmenjubiläum)\n• Moderne Infrastruktur dank Renovierungen\n• Personalhaus und Personalrestaurant\n• Eine natürliche Umgebung im Herzen der Berge mit zahlreichen Möglichkeiten für sportliche Aktivitäten, die typisch für einen Skiort mit Thermalbädern sind\nWir freuen uns auf Ihre Bewerbungsunterlagen (Bewerbungsschreiben, Curriculum Vitae und Arbeitszeugnisse) !",
+      "descriptionByLocale": {
+        "it": "PHYSIOTHERAPIA\n\nd'accordo · d'accordo\n\nIl tuo progetto\n• Formazione completa come fisioterapista\n• Esperienza nella riabilitazione muscoloscheletrica\n• bilingue tedesco/francese con buona conoscenza dell'altra lingua o il desiderio di impararla\n• Interessato alla cura di medici e studenti di fisioterapia\n• Volontà di lavorare in un team secondo i quattro valori fondamentali della Clinica Leukerbad: Professionalità – Impegno – Competenza – Empathy\nTASKS\n• Cura e trattamento dei pazienti nel campo della riabilitazione muscoloscheletrica, postoperatoria e ortopedica\n• Definizione e attuazione di un programma fisioterapico secondo specifiche esigenze del paziente e raccomandazioni mediche\n• Gestione amministrativa dei registri dei pazienti elettronici\n• Partecipazione all'integrazione del nuovo personale e alla supervisione e valutazione degli studenti e dei tirocinanti\n• Conoscenza e applicazione dei principi dell'igiene ospedaliera per garantire il corretto funzionamento del reparto fisioterapia\nForniamo\n• Variato lavoro in un team interdisciplinare dinamico, soprattutto con i dipartimenti terapia occupazionale, terapia sportiva e cura\n• Opportunità di formazione interna ed esterna\n• Clinica attraente e orientata al futuro con una reputazione consolidata (60 ° anniversario della società)\n• Moderne infrastrutture grazie ai lavori di ristrutturazione\n• Staff House e Staff Ristorante\n• Un ambiente naturale nel cuore delle montagne con numerose opportunità per attività sportive tipiche di una stazione sciistica con bagni termali\nAttendiamo con ansia i vostri documenti di applicazione (lettera di domanda, curriculum vitae e certificati di lavoro)!",
+        "en": "PHYSIOTHERAPIA\n\nby agreement · by agreement\n\nYOUR PROFILE\n• Completed training as a physiotherapist\n• Experience in musculoskeletal rehabilitation\n• Bilingualism German/French with good knowledge of the other language or the desire to learn it\n• Interested in the care of physiotherapy practitioners and students\n• Willingness to work in a team according to the four core values of the Leukerbad Clinic: Professionalism – Commitment – Competence – Empathy\nTASKS\n• Care and treatment of patients in the field of musculoskeletal, postoperative and orthopaedic rehabilitation\n• Definition and implementation of a physiotherapeutic program according to specific patient needs and medical recommendations\n• Administrative management of electronic patient records\n• Participation in the integration of new staff and in the supervision and evaluation of students and trainees\n• Knowledge and application of the principles of hospital hygiene to ensure the proper operation of the physiotherapy department\nWe provide\n• Varied work in a dynamic interdisciplinary team, especially with the departments occupational therapy, sports therapy and care\n• Opportunities for internal and external training\n• Attractive, future-oriented clinic with an established reputation (60th company anniversary)\n• Modern infrastructure thanks to renovations\n• Staff House and Staff Restaurant\n• A natural environment in the heart of the mountains with numerous opportunities for sporting activities typical of a ski resort with thermal baths\nWe look forward to your application documents (application letter, curriculum vitae and employment certificates) !",
+        "de": "PHYSIOTHERAPIE\n\nnach Vereinbarung · nach Vereinbarung\n\nIHR PROFIL\n• Eine abgeschlossene Ausbildung als Physiotherapeut/in\n• Erfahrung in der Muskuloskelettalen Rehabilitation\n• Zweisprachigkeit deutsch/französisch mit guten Kenntnissen der anderen Sprache oder dem Wunsch, diese zu lernen\n• Interesse an der Betreuung von Physiotherapie-Praktikanten und -Schülern\n• Bereitschaft zur Teamarbeit nach den vier Kernwerten der Leukerbad Clinic : Professionalität – Engagement – Kompetenz – Empathie\nAUFGABEN\n• Betreuung und Behandlung von Patienten im Bereich der Muskuloskelletalen, Post-operativen und Orthopädischen Rehabilitation\n• Definition und Durchführung eines physiotherapeutischen Programms entsprechend den spezifischen Patientenbedürfnissen und medizinischen Empfehlungen\n• Administrative Führung der elektronischen Patientenunterlagen\n• Mitwirkung bei der Integration neuer Mitarbeiter und bei der Betreuung sowie Bewertung von Studenten und Praktikanten\n• Kenntnis und Anwendung der Prinzipien der Spitalhygiene, um den ordnungsgemäßen Betrieb der Physiotherapieabteilung zu gewährleisten\nWIR BIETEN\n• Abwechslungsreiche Arbeit in einem dynamischen interdisziplinären Team, insbesondere mit den Abteilungen Ergotherapie, Sporttherapie und der Pflege\n• Möglichkeiten zur internen und externen Weiterbildung\n• Attraktive, zukunftsorientierte Klinik mit etabliertem Renommee (60-jähriges Firmenjubiläum)\n• Moderne Infrastruktur dank Renovierungen\n• Personalhaus und Personalrestaurant\n• Eine natürliche Umgebung im Herzen der Berge mit zahlreichen Möglichkeiten für sportliche Aktivitäten, die typisch für einen Skiort mit Thermalbädern sind\nWir freuen uns auf Ihre Bewerbungsunterlagen (Bewerbungsschreiben, Curriculum Vitae und Arbeitszeugnisse) !",
+        "fr": "PHYSIOTHÉRAPIE\n\npar accord · par accord\n\nVOTRE PROFIL\n• Formation complète en physiothérapeute\n• Expérience en réadaptation musculo-squelettique\n• Bilinguisme Allemand/Français avec une bonne connaissance de l'autre langue ou le désir de l'apprendre\n• Intéressé par les soins des praticiens de physiothérapie et des étudiants\n• Volonté de travailler en équipe selon les quatre valeurs fondamentales de la Clinique Leukerbad : Professionnalisme – Engagement – Compétence – Empathy\nTÂCHES\n• Soins et traitement des patients dans le domaine de la réadaptation musculo-squelettique, postopératoire et orthopédique\n• Définition et mise en œuvre d'un programme de physiothérapie en fonction des besoins spécifiques des patients et des recommandations médicales\n• Gestion administrative des dossiers électroniques des patients\n• Participation à l ' intégration de nouveaux personnels et à la supervision et à l ' évaluation des étudiants et des stagiaires\n• Connaissance et application des principes d'hygiène hospitalière pour assurer le bon fonctionnement du service de physiothérapie\nNous fournissons\n• Travail varié dans une équipe interdisciplinaire dynamique, en particulier avec les départements d'ergothérapie, de thérapie sportive et de soins\n• Possibilités de formation interne et externe\n• Clinique attractive et tournée vers l'avenir avec une réputation établie (60e anniversaire de l'entreprise)\n• Infrastructure moderne grâce aux rénovations\n• Staff House et Staff Restaurant\n• Un environnement naturel au cœur des montagnes avec de nombreuses possibilités d'activités sportives typiques d'une station de ski avec thermes\nNous attendons avec impatience vos documents de candidature (lettre de candidature, curriculum vitae et certificats d'emploi) !"
+      },
+      "location": "Leukerbad",
+      "canton": "VS",
+      "addressLocality": "Leukerbad",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3954",
+      "category": "healthcare",
+      "sector": "Salute / Riabilitazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2024-07-29",
+      "url": "https://leukerbadclinic.ch/de/page/jobs/#job-121ff121f549",
+      "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-121ff121f549",
+      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-11T23:13:46.822Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
+        "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
+        "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-cl-vfaz2f",
+        "verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad",
+        "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic",
+        "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
+        "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
+        "spontanbewerbung-fur-ein-praktikum-in-der-pflege-leukerbad-clinic-leukerbad",
+        "spontanbewerbung-leukerbad-clinic-leukerbad",
+        "spontanbewerbung-fur-eine-stelle-als-fachmann-frau-gesundheit-efz-leukerbad-clinic"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
+          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
+          "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-cl-vfaz2f",
+          "verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad",
+          "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic",
+          "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
+          "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
+          "spontanbewerbung-fur-ein-praktikum-in-der-pflege-leukerbad-clinic-leukerbad",
+          "spontanbewerbung-leukerbad-clinic-leukerbad",
+          "spontanbewerbung-fur-eine-stelle-als-fachmann-frau-gesundheit-efz-leukerbad-clinic"
+        ],
+        "en": [
+          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic"
+        ],
+        "de": [
+          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad"
+        ],
+        "fr": [
+          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T22:22:23.632Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "leukerbad-clinic-25df7166bb17",
+      "slug": "medico-principale-con-fmh-medicina-interna-generale-leukerbad-clinic-leukerbad",
+      "slugByLocale": {
+        "it": "medico-principale-con-fmh-medicina-interna-generale-leukerbad-clinic-leukerbad",
+        "en": "chief-physician-with-fmh-general-internal-medicine-leukerbad-clinic-leukerbad",
+        "de": "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
+        "fr": "medecin-chef-en-medecine-interne-generale-fmh-leukerbad-clinic-leukerbad"
+      },
+      "company": "Leukerbad Clinic",
+      "companyKey": "leukerbad-clinic",
+      "companyDomain": "leukerbadclinic.ch",
+      "title": "Chefärztin / Chefarzt mit FMH allgemeine innere Medizin",
+      "titleByLocale": {
+        "it": "medico principale con FMH medicina interna generale",
+        "en": "Chief physician with FMH general internal medicine",
+        "de": "Chefärztin / Chefarzt mit FMH allgemeine innere Medizin",
+        "fr": "Médecin-chef en médecine interne générale FMH"
+      },
+      "description": "80-100% · Nach Vereinbarung\n\nIhre Aufgaben\n\nIn dieser Schlüsselposition leiten oder co-leiten Sie die medizinischen Geschicke unseres Rehabilitationszentrums mit Fokus auf die ganzheitliche Behandlung und Wiedereingliederung unserer Patientinnen und Patienten.\n• Medizinische Verantwortung für den Bereich Allgemeine Innere Medizin.\n• Fachliche und personelle Führung des ärztlichen Teams im interdisziplinären Kontext (Pflege, Therapie, Psychologie etc.).\n• Mitgestaltung und Weiterentwicklung von rehabilitativen Behandlungspfaden.\n• Sicherstellung der medizinischen Qualität und Patientensicherheit.\n• Förderung von Fort- und Weiterbildungen sowie Supervision von AssistenzärztInnen.\n• Enge Zusammenarbeit mit zuweisenden Spitälern, HausärztInnen und Kostenträgern\n\nIhr Profil\n\n• Facharzttitel FMH Allgemeine Innere Medizin (oder EU-äquivalente Anerkennung).\n• Mehrjährige klinische Erfahrung, idealerweise mit rehabilitativer Ausrichtung.\n• Führungskompetenz und hohe Sozialkompetenz im interprofessionellen Setting.\n• Interesse an langfristiger Betreuung, komplexen Krankheitsbildern und Rehabilitationsprozessen.\n• Offenheit für Qualitätsentwicklung, Digitalisierung und innovative Versorgungsmodelle.\n\nWir bieten\n\n• Eine verantwortungsvolle Führungsfunktion mit Gestaltungsspielraum in einem modern geführten Rehabilitationszentrum.\n• Interprofessionelle Zusammenarbeit in einem motivierten, erfahrenen Team.\n• Moderne Infrastruktur, ruhige aber spektakuläre Lage und patientenorientierte Arbeitsweise.\n• Attraktive Arbeitsbedingungen inkl. Weiterbildungsbudget und Förderung individueller Entwicklung.\n• Unterstützung bei Umzug, Wohnungssuche und administrativen Belangen möglich.\n\nKontakt & Bewerbung\n\nFür Auskünfte steht Ihnen gerne Jens Gawron, HR-Verantwortlicher, +41 27 472 56 19 zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "80-100% · Contratto\n\nI loro compiti\n\nIn questa posizione chiave, guiderai o co-dirigerai le fortune mediche del nostro centro di riabilitazione con un focus sul trattamento olistico e sulla reintegrazione dei nostri pazienti.\n• Responsabilità medica per il campo della medicina interna generale.\n• Gestione professionale e personale del team medico in un contesto interdisciplinare (assistenza, terapia, psicologia, ecc.).\n• Co-design e ulteriore sviluppo delle vie di trattamento riabilitative.\n• garantire la qualità medica e la sicurezza dei pazienti.\n• Promozione dell'istruzione e della formazione, nonché della supervisione dei medici assistenti.\n• stretta collaborazione con l'assegnazione di ospedali, medici di famiglia e paganti\n\nIl tuo profilo\n\n• Titolo specialistico FMH Medicina Interna Generale (o riconoscimento equivalente UE).\n• Diversi anni di esperienza clinica, idealmente con orientamento riabilitativo.\n• Competenze di leadership e alta competenza sociale in ambito interprofessionale.\n• Interessato a cure a lungo termine, complesse immagini cliniche e processi di riabilitazione.\n• Apertura allo sviluppo di qualità, digitalizzazione e modelli di fornitura innovativi.\n\nOffriamo\n\n• Una funzione di gestione responsabile con spazio di manovra in un moderno centro di riabilitazione.\n• Cooperazione interprofessionale in un team motivato e esperto.\n• Infrastrutture moderne, posizione tranquilla ma spettacolare e metodi di lavoro orientati al paziente.\n• Condizioni di lavoro interessanti incl. Bilancio di formazione e promozione dello sviluppo individuale.\n• Assistenza in movimento, trovare la sistemazione e le questioni amministrative possibili.\n\nContatto e applicazione\n\nPer informazioni, si prega di contattare Jens Gawron, HR manager, +41 27 472 56 19.",
+        "en": "80-100% · By agreement\n\nTheir tasks\n\nIn this key position, you will lead or co-direct the medical fortunes of our rehabilitation center with a focus on the holistic treatment and reintegration of our patients.\n• Medical responsibility for the field of General Internal Medicine.\n• Professional and personnel management of the medical team in an interdisciplinary context (care, therapy, psychology, etc.).\n• Co-design and further development of rehabilitative treatment pathways.\n• ensuring medical quality and patient safety.\n• Promotion of further education and training as well as supervision of assistant doctors.\n• Close cooperation with assigning hospitals, family doctors and payers\n\nYour profile\n\n• Specialist title FMH General Internal Medicine (or EU equivalent recognition).\n• Several years of clinical experience, ideally with rehabilitative orientation.\n• Leadership competence and high social competence in interprofessional setting.\n• Interested in long-term care, complex clinical pictures and rehabilitation processes.\n• Openness to quality development, digitalization and innovative supply models.\n\nWe offer\n\n• A responsible management function with room for manoeuvre in a modernly run rehabilitation centre.\n• Interprofessional cooperation in a motivated, experienced team.\n• Modern infrastructure, quiet but spectacular location and patient-oriented working methods.\n• Attractive working conditions incl. Training budget and promotion of individual development.\n• Assistance in moving, finding accommodation and administrative matters possible.\n\nContact and Application\n\nFor information, please contact Jens Gawron, HR manager, +41 27 472 56 19.",
+        "de": "80-100% · Nach Vereinbarung\n\nIhre Aufgaben\n\nIn dieser Schlüsselposition leiten oder co-leiten Sie die medizinischen Geschicke unseres Rehabilitationszentrums mit Fokus auf die ganzheitliche Behandlung und Wiedereingliederung unserer Patientinnen und Patienten.\n• Medizinische Verantwortung für den Bereich Allgemeine Innere Medizin.\n• Fachliche und personelle Führung des ärztlichen Teams im interdisziplinären Kontext (Pflege, Therapie, Psychologie etc.).\n• Mitgestaltung und Weiterentwicklung von rehabilitativen Behandlungspfaden.\n• Sicherstellung der medizinischen Qualität und Patientensicherheit.\n• Förderung von Fort- und Weiterbildungen sowie Supervision von AssistenzärztInnen.\n• Enge Zusammenarbeit mit zuweisenden Spitälern, HausärztInnen und Kostenträgern\n\nIhr Profil\n\n• Facharzttitel FMH Allgemeine Innere Medizin (oder EU-äquivalente Anerkennung).\n• Mehrjährige klinische Erfahrung, idealerweise mit rehabilitativer Ausrichtung.\n• Führungskompetenz und hohe Sozialkompetenz im interprofessionellen Setting.\n• Interesse an langfristiger Betreuung, komplexen Krankheitsbildern und Rehabilitationsprozessen.\n• Offenheit für Qualitätsentwicklung, Digitalisierung und innovative Versorgungsmodelle.\n\nWir bieten\n\n• Eine verantwortungsvolle Führungsfunktion mit Gestaltungsspielraum in einem modern geführten Rehabilitationszentrum.\n• Interprofessionelle Zusammenarbeit in einem motivierten, erfahrenen Team.\n• Moderne Infrastruktur, ruhige aber spektakuläre Lage und patientenorientierte Arbeitsweise.\n• Attraktive Arbeitsbedingungen inkl. Weiterbildungsbudget und Förderung individueller Entwicklung.\n• Unterstützung bei Umzug, Wohnungssuche und administrativen Belangen möglich.\n\nKontakt & Bewerbung\n\nFür Auskünfte steht Ihnen gerne Jens Gawron, HR-Verantwortlicher, +41 27 472 56 19 zur Verfügung.",
+        "fr": "80-100 % · Par accord\n\nLeurs tâches\n\nDans cette position clé, vous dirigerez ou codirigerez les fortunes médicales de notre centre de réadaptation en mettant l'accent sur le traitement holistique et la réinsertion de nos patients.\n• Responsabilité médicale dans le domaine de la médecine interne générale.\n• Gestion professionnelle et du personnel de l'équipe médicale dans un contexte interdisciplinaire (soins, thérapie, psychologie, etc.).\n• Co-conception et développement des voies de traitement de réadaptation.\n• garantir la qualité médicale et la sécurité des patients.\n• Promotion de l'éducation et de la formation continues ainsi que de la supervision des médecins adjoints.\n• Coopération étroite avec les hôpitaux, les médecins de famille et les payeurs\n\nVotre profil\n\n• Titre du spécialiste FMH General Internal Medicine (ou reconnaissance équivalente de l'UE).\n• Plusieurs années d'expérience clinique, idéalement avec une orientation de réadaptation.\n• Compétence en leadership et haute compétence sociale dans le cadre interprofessionnel.\n• Intéressé par les soins de longue durée, les images cliniques complexes et les processus de réadaptation.\n• Ouverture au développement de la qualité, numérisation et modèles d'approvisionnement innovants.\n\nNous offrons\n\n• Une fonction de gestion responsable avec une marge de manœuvre dans un centre de réadaptation géré de façon moderne.\n• La coopération interprofessionnelle dans une équipe motivée et expérimentée.\n• Infrastructure moderne, situation calme mais spectaculaire et méthodes de travail axées sur le patient.\n• Conditions de travail attrayantes, y compris Budget de formation et promotion du développement individuel.\n• Aide au déménagement, à la recherche d'un logement et aux questions administratives possibles.\n\nContact et demande\n\nPour plus d'informations, veuillez contacter Jens Gawron, responsable RH, +41 27 472 56 19."
+      },
+      "location": "Leukerbad",
+      "canton": "VS",
+      "addressLocality": "Leukerbad",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3954",
+      "category": "healthcare-medical",
+      "sector": "Salute / Riabilitazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2024-07-29",
+      "url": "https://leukerbadclinic.ch/de/page/jobs/#job-25df7166bb17",
+      "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-25df7166bb17",
+      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-11T23:13:46.821Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "chief-physician-in-internal-medicine-with-fmh-leukerbad-clinic-leukerbad",
+        "medecin-chef-en-medecine-interne-avec-fmh-leukerbad-clinic-leukerbad",
+        "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
+        "medico-principale-con-fmh-medicina-interna-generale-leukerbad-clinic-leukerbad"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-physician-in-internal-medicine-with-fmh-leukerbad-clinic-leukerbad",
+          "medecin-chef-en-medecine-interne-avec-fmh-leukerbad-clinic-leukerbad",
+          "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
+          "medico-principale-con-fmh-medicina-interna-generale-leukerbad-clinic-leukerbad"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T22:22:23.632Z",
+      "salaryMin": 116500,
+      "salaryMax": 162500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 116500,
+          "maxValue": 162500,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "leukerbad-clinic-24f51169b1e8",
       "slug": "assistente-medico-pratico-m-f-leukerbad-clinic-leukerbad",
@@ -47,7 +373,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-24f51169b1e8",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:11.645Z",
+      "crawledAt": "2026-09-11T23:13:46.821Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
@@ -129,7 +455,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-d80ce36d545a",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:44:11.645Z",
+      "crawledAt": "2026-09-11T23:13:46.821Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
@@ -209,7 +535,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-97372b1445ea",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:44:11.645Z",
+      "crawledAt": "2026-09-11T23:13:46.821Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
@@ -301,7 +627,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-ee4dad784780",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:11.645Z",
+      "crawledAt": "2026-09-11T23:13:46.821Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "spontanbewerbung-fur-eine-stelle-als-fachmann-frau-gesundheit-efz-leukerbad-clinic",
@@ -379,7 +705,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-2ce107b356df",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:11.645Z",
+      "crawledAt": "2026-09-11T23:13:46.821Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "spontanbewerbung-fur-ein-praktikum-in-der-pflege-leukerbad-clinic-leukerbad"
@@ -393,256 +719,6 @@
         ],
         "fr": [
           "spontanbewerbung-fur-ein-praktikum-in-der-pflege-leukerbad-clinic-leukerbad"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T22:22:23.632Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "leukerbad-clinic-62d178b67f9d",
-      "slug": "attrezzatura-spontan-leukerbad-clinic-leukerbad",
-      "slugByLocale": {
-        "it": "attrezzatura-spontan-leukerbad-clinic-leukerbad",
-        "en": "spontan-equipment-leukerbad-clinic-leukerbad",
-        "de": "spontanbewerbung-leukerbad-clinic-leukerbad",
-        "fr": "materiel-spontan-leukerbad-clinic-leukerbad"
-      },
-      "company": "Leukerbad Clinic",
-      "companyKey": "leukerbad-clinic",
-      "companyDomain": "leukerbadclinic.ch",
-      "title": "SPONTANBEWERBUNG",
-      "titleByLocale": {
-        "it": "ATTREZZATURA SPONTAN",
-        "en": "SPONTAN EQUIPMENT",
-        "de": "SPONTANBEWERBUNG",
-        "fr": "MATÉRIEL SPONTAN"
-      },
-      "description": "zu vereinbaren · zu vereinbaren\n\nWir freuen uns über Ihr Interesse an der Leukerbad Clinic !\nGern können Sie uns Ihre Bewerbung hier zukommen lassen (Bewerbungsschreiben, CV und Arbeitszeugnisse).",
-      "descriptionByLocale": {
-        "it": "concordare · concordare\n\nSiamo lieti del vostro interesse per la clinica Leukerbad!\nSiete invitati a inviarci la vostra domanda qui (lettera di domanda, CV e certificati di lavoro).",
-        "en": "to agree · to agree\n\nWe are pleased about your interest in the Leukerbad Clinic!\nYou are welcome to send us your application here (application letter, CV and employment certificates).",
-        "de": "zu vereinbaren · zu vereinbaren\n\nWir freuen uns über Ihr Interesse an der Leukerbad Clinic !\nGern können Sie uns Ihre Bewerbung hier zukommen lassen (Bewerbungsschreiben, CV und Arbeitszeugnisse).",
-        "fr": "d'accepter · d'accepter\n\nNous sommes heureux de votre intérêt pour la clinique Leukerbad!\nVous pouvez nous envoyer votre candidature ici (lettre de candidature, CV et certificats d'emploi)."
-      },
-      "location": "Leukerbad",
-      "canton": "VS",
-      "addressLocality": "Leukerbad",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3954",
-      "category": "healthcare",
-      "sector": "Salute / Riabilitazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2024-07-29",
-      "url": "https://leukerbadclinic.ch/de/page/jobs/#job-62d178b67f9d",
-      "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-62d178b67f9d",
-      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:11.645Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "spontanbewerbung-leukerbad-clinic-leukerbad",
-        "attrezzatura-spontan-leukerbad-clinic-leukerbad"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "spontanbewerbung-leukerbad-clinic-leukerbad",
-          "attrezzatura-spontan-leukerbad-clinic-leukerbad"
-        ],
-        "en": [
-          "spontanbewerbung-leukerbad-clinic-leukerbad"
-        ],
-        "fr": [
-          "spontanbewerbung-leukerbad-clinic-leukerbad"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T22:22:23.632Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "leukerbad-clinic-2bcf18b9fd5c",
-      "slug": "spontancy-leukerbad-clinic-loeche-les-bains",
-      "slugByLocale": {
-        "it": "spontancy-leukerbad-clinic-loeche-les-bains",
-        "en": "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
-        "de": "spontanz-leukerbad-clinic-loeche-les-bains",
-        "fr": "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
-      },
-      "company": "Leukerbad Clinic",
-      "companyKey": "leukerbad-clinic",
-      "companyDomain": "leukerbadclinic.ch",
-      "title": "CANDIDATURE SPONTANEE",
-      "titleByLocale": {
-        "it": "SPONTANCY",
-        "en": "CANDIDATURE SPONTANEE",
-        "de": "SPONTANZ",
-        "fr": "CANDIDATURE SPONTANEE"
-      },
-      "description": "à convenir · à convenir\n\nMerci pour votre intérêt pour la Leukerbad Clinic. Nous nous réjouissons de prendre connaissance de votre dossier complet (lettre de motivation, CV et certificats) !",
-      "descriptionByLocale": {
-        "it": "essere concordato\n\nGrazie per il vostro interesse per la clinica Leukerbad. Non vediamo l'ora di vedere il tuo file completo (lettera di motivazione, CV e certificati)!",
-        "en": "to be agreed\n\nThank you for your interest in the Leukerbad Clinic. We look forward to seeing your complete file (motivation letter, CV and certificates)!",
-        "de": "zu vereinbaren\n\nVielen Dank für Ihr Interesse an der Leukerbad Klinik. Wir freuen uns auf Ihre vollständige Datei (Motivationsschreiben, Lebenslauf und Zertifikate)!",
-        "fr": "à convenir · à convenir\n\nMerci pour votre intérêt pour la Leukerbad Clinic. Nous nous réjouissons de prendre connaissance de votre dossier complet (lettre de motivation, CV et certificats) !"
-      },
-      "location": "Loèche-les-Bains",
-      "canton": "VS",
-      "addressLocality": "Loèche-les-Bains",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3954",
-      "category": "healthcare",
-      "sector": "Salute / Riabilitazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2024-07-29",
-      "url": "https://leukerbadclinic.ch/fr/page/jobs/#job-2bcf18b9fd5c",
-      "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-2bcf18b9fd5c",
-      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:44:11.645Z",
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
-        "spontancy-leukerbad-clinic-loeche-les-bains"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
-          "spontancy-leukerbad-clinic-loeche-les-bains"
-        ],
-        "de": [
-          "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T22:22:23.632Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "leukerbad-clinic-121ff121f549",
-      "slug": "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
-      "slugByLocale": {
-        "it": "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
-        "en": "spontaneous-application-for-a-job-as-diplomiated-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
-        "de": "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
-        "fr": "demande-spontanee-pour-un-emploi-comme-diplomiated-r-physiotherapeut-in-leukerbad-clinic-leukerbad"
-      },
-      "company": "Leukerbad Clinic",
-      "companyKey": "leukerbad-clinic",
-      "companyDomain": "leukerbadclinic.ch",
-      "title": "Spontanbewerbung für eine Stelle als DIPLOMIERTE/R PHYSIOTHERAPEUT/IN",
-      "titleByLocale": {
-        "it": "Spontanbewerbung per eine Stelle come DIPLOMIERTE/R PHYSIOTHERAPEUT/IN",
-        "en": "Spontaneous application for a job as DIPLOMIATED/R PHYSIOTHERAPEUT/IN",
-        "de": "Spontanbewerbung für eine Stelle als DIPLOMIERTE/R PHYSIOTHERAPEUT/IN",
-        "fr": "Demande spontanée pour un emploi comme DIPLOMIATED/R PHYSIOTHERAPEUT/IN"
-      },
-      "description": "PHYSIOTHERAPIE\n\nnach Vereinbarung · nach Vereinbarung\n\nIHR PROFIL\n• Eine abgeschlossene Ausbildung als Physiotherapeut/in\n• Erfahrung in der Muskuloskelettalen Rehabilitation\n• Zweisprachigkeit deutsch/französisch mit guten Kenntnissen der anderen Sprache oder dem Wunsch, diese zu lernen\n• Interesse an der Betreuung von Physiotherapie-Praktikanten und -Schülern\n• Bereitschaft zur Teamarbeit nach den vier Kernwerten der Leukerbad Clinic : Professionalität – Engagement – Kompetenz – Empathie\nAUFGABEN\n• Betreuung und Behandlung von Patienten im Bereich der Muskuloskelletalen, Post-operativen und Orthopädischen Rehabilitation\n• Definition und Durchführung eines physiotherapeutischen Programms entsprechend den spezifischen Patientenbedürfnissen und medizinischen Empfehlungen\n• Administrative Führung der elektronischen Patientenunterlagen\n• Mitwirkung bei der Integration neuer Mitarbeiter und bei der Betreuung sowie Bewertung von Studenten und Praktikanten\n• Kenntnis und Anwendung der Prinzipien der Spitalhygiene, um den ordnungsgemäßen Betrieb der Physiotherapieabteilung zu gewährleisten\nWIR BIETEN\n• Abwechslungsreiche Arbeit in einem dynamischen interdisziplinären Team, insbesondere mit den Abteilungen Ergotherapie, Sporttherapie und der Pflege\n• Möglichkeiten zur internen und externen Weiterbildung\n• Attraktive, zukunftsorientierte Klinik mit etabliertem Renommee (60-jähriges Firmenjubiläum)\n• Moderne Infrastruktur dank Renovierungen\n• Personalhaus und Personalrestaurant\n• Eine natürliche Umgebung im Herzen der Berge mit zahlreichen Möglichkeiten für sportliche Aktivitäten, die typisch für einen Skiort mit Thermalbädern sind\nWir freuen uns auf Ihre Bewerbungsunterlagen (Bewerbungsschreiben, Curriculum Vitae und Arbeitszeugnisse) !",
-      "descriptionByLocale": {
-        "it": "PHYSIOTHERAPIA\n\nd'accordo · d'accordo\n\nIl tuo progetto\n• Formazione completa come fisioterapista\n• Esperienza nella riabilitazione muscoloscheletrica\n• bilingue tedesco/francese con buona conoscenza dell'altra lingua o il desiderio di impararla\n• Interessato alla cura di medici e studenti di fisioterapia\n• Volontà di lavorare in un team secondo i quattro valori fondamentali della Clinica Leukerbad: Professionalità – Impegno – Competenza – Empathy\nTASKS\n• Cura e trattamento dei pazienti nel campo della riabilitazione muscoloscheletrica, postoperatoria e ortopedica\n• Definizione e attuazione di un programma fisioterapico secondo specifiche esigenze del paziente e raccomandazioni mediche\n• Gestione amministrativa dei registri dei pazienti elettronici\n• Partecipazione all'integrazione del nuovo personale e alla supervisione e valutazione degli studenti e dei tirocinanti\n• Conoscenza e applicazione dei principi dell'igiene ospedaliera per garantire il corretto funzionamento del reparto fisioterapia\nForniamo\n• Variato lavoro in un team interdisciplinare dinamico, soprattutto con i dipartimenti terapia occupazionale, terapia sportiva e cura\n• Opportunità di formazione interna ed esterna\n• Clinica attraente e orientata al futuro con una reputazione consolidata (60 ° anniversario della società)\n• Moderne infrastrutture grazie ai lavori di ristrutturazione\n• Staff House e Staff Ristorante\n• Un ambiente naturale nel cuore delle montagne con numerose opportunità per attività sportive tipiche di una stazione sciistica con bagni termali\nAttendiamo con ansia i vostri documenti di applicazione (lettera di domanda, curriculum vitae e certificati di lavoro)!",
-        "en": "PHYSIOTHERAPIA\n\nby agreement · by agreement\n\nYOUR PROFILE\n• Completed training as a physiotherapist\n• Experience in musculoskeletal rehabilitation\n• Bilingualism German/French with good knowledge of the other language or the desire to learn it\n• Interested in the care of physiotherapy practitioners and students\n• Willingness to work in a team according to the four core values of the Leukerbad Clinic: Professionalism – Commitment – Competence – Empathy\nTASKS\n• Care and treatment of patients in the field of musculoskeletal, postoperative and orthopaedic rehabilitation\n• Definition and implementation of a physiotherapeutic program according to specific patient needs and medical recommendations\n• Administrative management of electronic patient records\n• Participation in the integration of new staff and in the supervision and evaluation of students and trainees\n• Knowledge and application of the principles of hospital hygiene to ensure the proper operation of the physiotherapy department\nWe provide\n• Varied work in a dynamic interdisciplinary team, especially with the departments occupational therapy, sports therapy and care\n• Opportunities for internal and external training\n• Attractive, future-oriented clinic with an established reputation (60th company anniversary)\n• Modern infrastructure thanks to renovations\n• Staff House and Staff Restaurant\n• A natural environment in the heart of the mountains with numerous opportunities for sporting activities typical of a ski resort with thermal baths\nWe look forward to your application documents (application letter, curriculum vitae and employment certificates) !",
-        "de": "PHYSIOTHERAPIE\n\nnach Vereinbarung · nach Vereinbarung\n\nIHR PROFIL\n• Eine abgeschlossene Ausbildung als Physiotherapeut/in\n• Erfahrung in der Muskuloskelettalen Rehabilitation\n• Zweisprachigkeit deutsch/französisch mit guten Kenntnissen der anderen Sprache oder dem Wunsch, diese zu lernen\n• Interesse an der Betreuung von Physiotherapie-Praktikanten und -Schülern\n• Bereitschaft zur Teamarbeit nach den vier Kernwerten der Leukerbad Clinic : Professionalität – Engagement – Kompetenz – Empathie\nAUFGABEN\n• Betreuung und Behandlung von Patienten im Bereich der Muskuloskelletalen, Post-operativen und Orthopädischen Rehabilitation\n• Definition und Durchführung eines physiotherapeutischen Programms entsprechend den spezifischen Patientenbedürfnissen und medizinischen Empfehlungen\n• Administrative Führung der elektronischen Patientenunterlagen\n• Mitwirkung bei der Integration neuer Mitarbeiter und bei der Betreuung sowie Bewertung von Studenten und Praktikanten\n• Kenntnis und Anwendung der Prinzipien der Spitalhygiene, um den ordnungsgemäßen Betrieb der Physiotherapieabteilung zu gewährleisten\nWIR BIETEN\n• Abwechslungsreiche Arbeit in einem dynamischen interdisziplinären Team, insbesondere mit den Abteilungen Ergotherapie, Sporttherapie und der Pflege\n• Möglichkeiten zur internen und externen Weiterbildung\n• Attraktive, zukunftsorientierte Klinik mit etabliertem Renommee (60-jähriges Firmenjubiläum)\n• Moderne Infrastruktur dank Renovierungen\n• Personalhaus und Personalrestaurant\n• Eine natürliche Umgebung im Herzen der Berge mit zahlreichen Möglichkeiten für sportliche Aktivitäten, die typisch für einen Skiort mit Thermalbädern sind\nWir freuen uns auf Ihre Bewerbungsunterlagen (Bewerbungsschreiben, Curriculum Vitae und Arbeitszeugnisse) !",
-        "fr": "PHYSIOTHÉRAPIE\n\npar accord · par accord\n\nVOTRE PROFIL\n• Formation complète en physiothérapeute\n• Expérience en réadaptation musculo-squelettique\n• Bilinguisme Allemand/Français avec une bonne connaissance de l'autre langue ou le désir de l'apprendre\n• Intéressé par les soins des praticiens de physiothérapie et des étudiants\n• Volonté de travailler en équipe selon les quatre valeurs fondamentales de la Clinique Leukerbad : Professionnalisme – Engagement – Compétence – Empathy\nTÂCHES\n• Soins et traitement des patients dans le domaine de la réadaptation musculo-squelettique, postopératoire et orthopédique\n• Définition et mise en œuvre d'un programme de physiothérapie en fonction des besoins spécifiques des patients et des recommandations médicales\n• Gestion administrative des dossiers électroniques des patients\n• Participation à l ' intégration de nouveaux personnels et à la supervision et à l ' évaluation des étudiants et des stagiaires\n• Connaissance et application des principes d'hygiène hospitalière pour assurer le bon fonctionnement du service de physiothérapie\nNous fournissons\n• Travail varié dans une équipe interdisciplinaire dynamique, en particulier avec les départements d'ergothérapie, de thérapie sportive et de soins\n• Possibilités de formation interne et externe\n• Clinique attractive et tournée vers l'avenir avec une réputation établie (60e anniversaire de l'entreprise)\n• Infrastructure moderne grâce aux rénovations\n• Staff House et Staff Restaurant\n• Un environnement naturel au cœur des montagnes avec de nombreuses possibilités d'activités sportives typiques d'une station de ski avec thermes\nNous attendons avec impatience vos documents de candidature (lettre de candidature, curriculum vitae et certificats d'emploi) !"
-      },
-      "location": "Leukerbad",
-      "canton": "VS",
-      "addressLocality": "Leukerbad",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3954",
-      "category": "healthcare",
-      "sector": "Salute / Riabilitazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2024-07-29",
-      "url": "https://leukerbadclinic.ch/de/page/jobs/#job-121ff121f549",
-      "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-121ff121f549",
-      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:11.645Z",
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
-        "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
-        "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-cl-vfaz2f",
-        "verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad",
-        "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic",
-        "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
-        "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
-        "spontanbewerbung-fur-ein-praktikum-in-der-pflege-leukerbad-clinic-leukerbad",
-        "spontanbewerbung-leukerbad-clinic-leukerbad",
-        "spontanbewerbung-fur-eine-stelle-als-fachmann-frau-gesundheit-efz-leukerbad-clinic"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
-          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
-          "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-cl-vfaz2f",
-          "verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad",
-          "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic",
-          "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
-          "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
-          "spontanbewerbung-fur-ein-praktikum-in-der-pflege-leukerbad-clinic-leukerbad",
-          "spontanbewerbung-leukerbad-clinic-leukerbad",
-          "spontanbewerbung-fur-eine-stelle-als-fachmann-frau-gesundheit-efz-leukerbad-clinic"
-        ],
-        "en": [
-          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic"
-        ],
-        "de": [
-          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad"
-        ],
-        "fr": [
-          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic"
         ]
       },
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
@@ -705,7 +781,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-62f27c302dc6",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:11.644Z",
+      "crawledAt": "2026-09-11T23:13:46.820Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad",
@@ -783,7 +859,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-6002fb5ee1f1",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:11.644Z",
+      "crawledAt": "2026-09-11T23:13:46.820Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
@@ -859,7 +935,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-e191f21bed34",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:44:11.644Z",
+      "crawledAt": "2026-09-11T23:13:46.820Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc",
@@ -892,82 +968,6 @@
           "@type": "QuantitativeValue",
           "minValue": 86500,
           "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "leukerbad-clinic-25df7166bb17",
-      "slug": "medico-principale-con-fmh-medicina-interna-generale-leukerbad-clinic-leukerbad",
-      "slugByLocale": {
-        "it": "medico-principale-con-fmh-medicina-interna-generale-leukerbad-clinic-leukerbad",
-        "en": "chief-physician-with-fmh-general-internal-medicine-leukerbad-clinic-leukerbad",
-        "de": "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
-        "fr": "medecin-chef-en-medecine-interne-generale-fmh-leukerbad-clinic-leukerbad"
-      },
-      "company": "Leukerbad Clinic",
-      "companyKey": "leukerbad-clinic",
-      "companyDomain": "leukerbadclinic.ch",
-      "title": "Chefärztin / Chefarzt mit FMH allgemeine innere Medizin",
-      "titleByLocale": {
-        "it": "medico principale con FMH medicina interna generale",
-        "en": "Chief physician with FMH general internal medicine",
-        "de": "Chefärztin / Chefarzt mit FMH allgemeine innere Medizin",
-        "fr": "Médecin-chef en médecine interne générale FMH"
-      },
-      "description": "80-100% · Nach Vereinbarung\n\nIhre Aufgaben\n\nIn dieser Schlüsselposition leiten oder co-leiten Sie die medizinischen Geschicke unseres Rehabilitationszentrums mit Fokus auf die ganzheitliche Behandlung und Wiedereingliederung unserer Patientinnen und Patienten.\n• Medizinische Verantwortung für den Bereich Allgemeine Innere Medizin.\n• Fachliche und personelle Führung des ärztlichen Teams im interdisziplinären Kontext (Pflege, Therapie, Psychologie etc.).\n• Mitgestaltung und Weiterentwicklung von rehabilitativen Behandlungspfaden.\n• Sicherstellung der medizinischen Qualität und Patientensicherheit.\n• Förderung von Fort- und Weiterbildungen sowie Supervision von AssistenzärztInnen.\n• Enge Zusammenarbeit mit zuweisenden Spitälern, HausärztInnen und Kostenträgern\n\nIhr Profil\n\n• Facharzttitel FMH Allgemeine Innere Medizin (oder EU-äquivalente Anerkennung).\n• Mehrjährige klinische Erfahrung, idealerweise mit rehabilitativer Ausrichtung.\n• Führungskompetenz und hohe Sozialkompetenz im interprofessionellen Setting.\n• Interesse an langfristiger Betreuung, komplexen Krankheitsbildern und Rehabilitationsprozessen.\n• Offenheit für Qualitätsentwicklung, Digitalisierung und innovative Versorgungsmodelle.\n\nWir bieten\n\n• Eine verantwortungsvolle Führungsfunktion mit Gestaltungsspielraum in einem modern geführten Rehabilitationszentrum.\n• Interprofessionelle Zusammenarbeit in einem motivierten, erfahrenen Team.\n• Moderne Infrastruktur, ruhige aber spektakuläre Lage und patientenorientierte Arbeitsweise.\n• Attraktive Arbeitsbedingungen inkl. Weiterbildungsbudget und Förderung individueller Entwicklung.\n• Unterstützung bei Umzug, Wohnungssuche und administrativen Belangen möglich.\n\nKontakt & Bewerbung\n\nFür Auskünfte steht Ihnen gerne Jens Gawron, HR-Verantwortlicher, +41 27 472 56 19 zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "80-100% · Contratto\n\nI loro compiti\n\nIn questa posizione chiave, guiderai o co-dirigerai le fortune mediche del nostro centro di riabilitazione con un focus sul trattamento olistico e sulla reintegrazione dei nostri pazienti.\n• Responsabilità medica per il campo della medicina interna generale.\n• Gestione professionale e personale del team medico in un contesto interdisciplinare (assistenza, terapia, psicologia, ecc.).\n• Co-design e ulteriore sviluppo delle vie di trattamento riabilitative.\n• garantire la qualità medica e la sicurezza dei pazienti.\n• Promozione dell'istruzione e della formazione, nonché della supervisione dei medici assistenti.\n• stretta collaborazione con l'assegnazione di ospedali, medici di famiglia e paganti\n\nIl tuo profilo\n\n• Titolo specialistico FMH Medicina Interna Generale (o riconoscimento equivalente UE).\n• Diversi anni di esperienza clinica, idealmente con orientamento riabilitativo.\n• Competenze di leadership e alta competenza sociale in ambito interprofessionale.\n• Interessato a cure a lungo termine, complesse immagini cliniche e processi di riabilitazione.\n• Apertura allo sviluppo di qualità, digitalizzazione e modelli di fornitura innovativi.\n\nOffriamo\n\n• Una funzione di gestione responsabile con spazio di manovra in un moderno centro di riabilitazione.\n• Cooperazione interprofessionale in un team motivato e esperto.\n• Infrastrutture moderne, posizione tranquilla ma spettacolare e metodi di lavoro orientati al paziente.\n• Condizioni di lavoro interessanti incl. Bilancio di formazione e promozione dello sviluppo individuale.\n• Assistenza in movimento, trovare la sistemazione e le questioni amministrative possibili.\n\nContatto e applicazione\n\nPer informazioni, si prega di contattare Jens Gawron, HR manager, +41 27 472 56 19.",
-        "en": "80-100% · By agreement\n\nTheir tasks\n\nIn this key position, you will lead or co-direct the medical fortunes of our rehabilitation center with a focus on the holistic treatment and reintegration of our patients.\n• Medical responsibility for the field of General Internal Medicine.\n• Professional and personnel management of the medical team in an interdisciplinary context (care, therapy, psychology, etc.).\n• Co-design and further development of rehabilitative treatment pathways.\n• ensuring medical quality and patient safety.\n• Promotion of further education and training as well as supervision of assistant doctors.\n• Close cooperation with assigning hospitals, family doctors and payers\n\nYour profile\n\n• Specialist title FMH General Internal Medicine (or EU equivalent recognition).\n• Several years of clinical experience, ideally with rehabilitative orientation.\n• Leadership competence and high social competence in interprofessional setting.\n• Interested in long-term care, complex clinical pictures and rehabilitation processes.\n• Openness to quality development, digitalization and innovative supply models.\n\nWe offer\n\n• A responsible management function with room for manoeuvre in a modernly run rehabilitation centre.\n• Interprofessional cooperation in a motivated, experienced team.\n• Modern infrastructure, quiet but spectacular location and patient-oriented working methods.\n• Attractive working conditions incl. Training budget and promotion of individual development.\n• Assistance in moving, finding accommodation and administrative matters possible.\n\nContact and Application\n\nFor information, please contact Jens Gawron, HR manager, +41 27 472 56 19.",
-        "de": "80-100% · Nach Vereinbarung\n\nIhre Aufgaben\n\nIn dieser Schlüsselposition leiten oder co-leiten Sie die medizinischen Geschicke unseres Rehabilitationszentrums mit Fokus auf die ganzheitliche Behandlung und Wiedereingliederung unserer Patientinnen und Patienten.\n• Medizinische Verantwortung für den Bereich Allgemeine Innere Medizin.\n• Fachliche und personelle Führung des ärztlichen Teams im interdisziplinären Kontext (Pflege, Therapie, Psychologie etc.).\n• Mitgestaltung und Weiterentwicklung von rehabilitativen Behandlungspfaden.\n• Sicherstellung der medizinischen Qualität und Patientensicherheit.\n• Förderung von Fort- und Weiterbildungen sowie Supervision von AssistenzärztInnen.\n• Enge Zusammenarbeit mit zuweisenden Spitälern, HausärztInnen und Kostenträgern\n\nIhr Profil\n\n• Facharzttitel FMH Allgemeine Innere Medizin (oder EU-äquivalente Anerkennung).\n• Mehrjährige klinische Erfahrung, idealerweise mit rehabilitativer Ausrichtung.\n• Führungskompetenz und hohe Sozialkompetenz im interprofessionellen Setting.\n• Interesse an langfristiger Betreuung, komplexen Krankheitsbildern und Rehabilitationsprozessen.\n• Offenheit für Qualitätsentwicklung, Digitalisierung und innovative Versorgungsmodelle.\n\nWir bieten\n\n• Eine verantwortungsvolle Führungsfunktion mit Gestaltungsspielraum in einem modern geführten Rehabilitationszentrum.\n• Interprofessionelle Zusammenarbeit in einem motivierten, erfahrenen Team.\n• Moderne Infrastruktur, ruhige aber spektakuläre Lage und patientenorientierte Arbeitsweise.\n• Attraktive Arbeitsbedingungen inkl. Weiterbildungsbudget und Förderung individueller Entwicklung.\n• Unterstützung bei Umzug, Wohnungssuche und administrativen Belangen möglich.\n\nKontakt & Bewerbung\n\nFür Auskünfte steht Ihnen gerne Jens Gawron, HR-Verantwortlicher, +41 27 472 56 19 zur Verfügung.",
-        "fr": "80-100 % · Par accord\n\nLeurs tâches\n\nDans cette position clé, vous dirigerez ou codirigerez les fortunes médicales de notre centre de réadaptation en mettant l'accent sur le traitement holistique et la réinsertion de nos patients.\n• Responsabilité médicale dans le domaine de la médecine interne générale.\n• Gestion professionnelle et du personnel de l'équipe médicale dans un contexte interdisciplinaire (soins, thérapie, psychologie, etc.).\n• Co-conception et développement des voies de traitement de réadaptation.\n• garantir la qualité médicale et la sécurité des patients.\n• Promotion de l'éducation et de la formation continues ainsi que de la supervision des médecins adjoints.\n• Coopération étroite avec les hôpitaux, les médecins de famille et les payeurs\n\nVotre profil\n\n• Titre du spécialiste FMH General Internal Medicine (ou reconnaissance équivalente de l'UE).\n• Plusieurs années d'expérience clinique, idéalement avec une orientation de réadaptation.\n• Compétence en leadership et haute compétence sociale dans le cadre interprofessionnel.\n• Intéressé par les soins de longue durée, les images cliniques complexes et les processus de réadaptation.\n• Ouverture au développement de la qualité, numérisation et modèles d'approvisionnement innovants.\n\nNous offrons\n\n• Une fonction de gestion responsable avec une marge de manœuvre dans un centre de réadaptation géré de façon moderne.\n• La coopération interprofessionnelle dans une équipe motivée et expérimentée.\n• Infrastructure moderne, situation calme mais spectaculaire et méthodes de travail axées sur le patient.\n• Conditions de travail attrayantes, y compris Budget de formation et promotion du développement individuel.\n• Aide au déménagement, à la recherche d'un logement et aux questions administratives possibles.\n\nContact et demande\n\nPour plus d'informations, veuillez contacter Jens Gawron, responsable RH, +41 27 472 56 19."
-      },
-      "location": "Leukerbad",
-      "canton": "VS",
-      "addressLocality": "Leukerbad",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3954",
-      "category": "healthcare-medical",
-      "sector": "Salute / Riabilitazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2024-07-29",
-      "url": "https://leukerbadclinic.ch/de/page/jobs/#job-25df7166bb17",
-      "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-25df7166bb17",
-      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:11.644Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "chief-physician-in-internal-medicine-with-fmh-leukerbad-clinic-leukerbad",
-        "medecin-chef-en-medecine-interne-avec-fmh-leukerbad-clinic-leukerbad",
-        "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
-        "medico-principale-con-fmh-medicina-interna-generale-leukerbad-clinic-leukerbad"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chief-physician-in-internal-medicine-with-fmh-leukerbad-clinic-leukerbad",
-          "medecin-chef-en-medecine-interne-avec-fmh-leukerbad-clinic-leukerbad",
-          "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
-          "medico-principale-con-fmh-medicina-interna-generale-leukerbad-clinic-leukerbad"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T22:22:23.632Z",
-      "salaryMin": 116500,
-      "salaryMax": 162500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 116500,
-          "maxValue": 162500,
           "unitText": "YEAR"
         }
       }
@@ -1017,7 +1017,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-b29517b96283",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:44:11.643Z",
+      "crawledAt": "2026-09-11T23:13:46.819Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "candidature-spontanee-pour-un-poste-d-infirmier-ere-diplome-e-leukerbad-clinic-loeche-les",
@@ -1097,7 +1097,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-3e54b746704c",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:44:11.643Z",
+      "crawledAt": "2026-09-11T23:13:46.819Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad",
@@ -1175,7 +1175,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-e4801fc46d03",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:44:11.642Z",
+      "crawledAt": "2026-09-11T23:13:46.818Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "assistant-e-en-soins-et-sante-communautaire-cfc-assc-h-f-80-100-leukerbad-clinic-leukerbad",

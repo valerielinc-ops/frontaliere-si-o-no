@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-09-11T13:45:11.655Z",
+  "generatedAt": "2026-09-11T23:14:48.561Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25943,
-  "avgDurationMs": 25943,
+  "durationMs": 26491,
+  "avgDurationMs": 26491,
   "durationHistory": [
-    25943
+    26491
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,6 +42,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-02T13:45:20.607Z",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,

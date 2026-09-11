@@ -1,6 +1,6 @@
 {
   "crawlerKey": "city-pop",
-  "assembledAt": "2026-09-11T13:45:09.711Z",
+  "assembledAt": "2026-09-11T23:14:48.359Z",
   "jobs": [
     {
       "id": "city-pop-6c976dbd152e",
@@ -33,7 +33,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/2b348b1e-a516-4a1f-87f6-748275ef32cf/",
       "source": "City Pop Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:45:02.311Z",
+      "crawledAt": "2026-09-11T23:14:39.790Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bernerstrasse Süd 169",
@@ -52,6 +52,19 @@
       "hiringOrganizationName": "City Pop AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "housekeeping-executive-100-city-pop-zurich",
+        "esecutivo-delle-pulizie-100-city-pop-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-executive-100-city-pop-zurich",
+          "esecutivo-delle-pulizie-100-city-pop-zurich"
+        ],
+        "de": [
+          "housekeeping-executive-100-city-pop-zurich"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:57.850Z",
       "salaryMin": 73500,
@@ -66,18 +79,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "housekeeping-executive-100-city-pop-zurich"
-        ],
-        "de": [
-          "housekeeping-executive-100-city-pop-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "housekeeping-executive-100-city-pop-zurich"
-      ]
+      }
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-09-11T13:45:20.109Z",
-  "total": 10,
+  "generatedAt": "2026-09-11T23:15:11.890Z",
+  "total": 7,
   "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "updatedCount": 7,
+  "removedCount": 3,
   "unchangedCount": 0,
-  "durationMs": 31502,
-  "avgDurationMs": 31502,
+  "durationMs": 48332,
+  "avgDurationMs": 48332,
   "durationHistory": [
-    31502
+    48332
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -80,6 +80,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T11:42:12.605Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -272,10 +273,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Mechanical Engineer",
-      "slug": "mechanical-engineer-delvitech-mendrisio",
+      "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/mechanical-engineer-2/",
       "applyUrl": "mailto:career@delvi.tech?subject=Application%20-%20Mechanical%20Engineer",
       "company": "Delvitech SA",
@@ -291,7 +294,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-11",
+      "postedDate": "2026-09-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -328,7 +331,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-11",
+      "postedDate": "2026-09-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -349,7 +352,7 @@
     },
     {
       "title": "Customer Support Manager",
-      "slug": "customer-support-manager-delvitech-mendrisio",
+      "slug": "responsabile-del-supporto-clienti-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/customer-support-manager/",
       "applyUrl": "mailto:career@delvi.tech?subject=Application%20-%20Customer%20Support%20Manager",
       "company": "Delvitech SA",
@@ -365,18 +368,18 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-11",
+      "postedDate": "2026-09-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-572058706020",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-10T23:16:11.085Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -386,6 +389,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
