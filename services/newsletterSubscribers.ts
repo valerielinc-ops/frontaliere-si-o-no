@@ -493,7 +493,13 @@ function isExplicitNewsletterReOptIn(input: NewsletterUpsertInput): boolean {
  return normalizeSourceChannel(input) === 'resubscribe_link';
 }
 
-function isAccountDeletedSubscriber(existing: Record<string, any> | undefined): boolean {
+/**
+ * The single tombstone predicate shared by inference, preflight reads and the
+ * authenticated preferences surface. Keeping the two persisted spellings
+ * here prevents one reader from treating a deleted Auth lifecycle as an
+ * opt-out while another reader offers the re-registration toggle.
+ */
+export function isAccountDeletedSubscriber(existing: Record<string, any> | undefined): boolean {
  const doc = existing || {};
  return Boolean(
  doc.account_deleted_at
@@ -541,7 +547,9 @@ function isAccountDeletionReRegistration(
  * post-filter can never silently acquire a blind spot the way it had one for
  * `pending`.
  */
-const NEWSLETTER_STATUS_KIND: Record<NewsletterSubscriberStatus, 'subscription' | 'suppression'> = {
+export type NewsletterSubscriberStatusKind = 'subscription' | 'suppression';
+
+export const NEWSLETTER_STATUS_KIND: Record<NewsletterSubscriberStatus, NewsletterSubscriberStatusKind> = {
  pending: 'subscription',
  confirmed: 'subscription',
  // Explicit reactivation is not a suppression, but its status alone is not
@@ -698,7 +706,7 @@ export async function isNewsletterOptedOut(db: Firestore, email: string): Promis
  // Account deletion is a lifecycle tombstone, not a permanent newsletter
  // opt-out. A subsequent registration is allowed to clear it through the
  // normal upsert path, including OAuth and autologin callers.
- if (data.account_deleted_at || String(data.status || '').trim().toLowerCase() === 'account_deleted') {
+ if (isAccountDeletedSubscriber(data)) {
  return false;
  }
  return isNewsletterOptOutBinding(data);
@@ -731,10 +739,7 @@ export async function isNewsletterAccountDeleted(db: Firestore, email: string): 
  const snap = await getDoc(doc(collection(db, 'newsletter_subscribers'), normalized));
  if (!snap.exists()) return false;
  const data = snap.data() || {};
- return Boolean(
- data.account_deleted_at
- || String(data.status || '').trim().toLowerCase() === 'account_deleted',
- );
+ return isAccountDeletedSubscriber(data);
  } catch (err) {
  reportCaughtError(err, 'newsletter.accountDeletionCheckUnavailable');
  return false;

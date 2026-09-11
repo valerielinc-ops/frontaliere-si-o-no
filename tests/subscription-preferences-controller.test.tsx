@@ -526,8 +526,8 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
  });
 
  it('keeps a tombstoned auth subscriber unsubscribed so the newsletter toggle can re-opt in', () => {
-  expect(src).toMatch(/const accountDeleted = Boolean\(/);
-  expect(src).toMatch(/data\.account_deleted_at/);
+  expect(src).toMatch(/const accountDeleted = isAccountDeletedSubscriber\(data\)/);
+  expect(src).toMatch(/isAccountDeletedSubscriber/);
   expect(src).toMatch(/!accountDeleted && !optOutBinding/);
   expect(src).toMatch(/authToggleNewsletter\(email, next\)/);
  });
