@@ -11639,6 +11639,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.title': 'Trenord erweitert Como-Mailand: 4 extra Morgenverbindungen ab 14.9.',
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.excerpt': 'Vier neue Werktagszüge auf der Strecke Mailand-Cadorna-Como Lago zur Verbesserung des grenzüberschreitenden Pendelns. Hier sind die vollständigen Fahrpläne.',
     'blog.article.trenord-como-milano-corse-aggiuntive-2025.imageAlt': 'Trenord-Zug bei Ankunft am Bahnhof Como Lago bei Sonnenaufgang, mit Seeblick und Bergen',
+    'blog.article.fino-mornasco-frontaliere-ticino.title': 'Leben in Fino Mornasco und Arbeiten im Tessin',
+    'blog.article.fino-mornasco-frontaliere-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger in Fino Mornasco: Verbindungen nach Brogeda, Steuern, Sozialversicherungsabzüge und Verwaltung des täglichen Budgets.',
+    'blog.article.fino-mornasco-frontaliere-ticino.imageAlt': 'Pendlerstrecke zur Schweizer Grenze von Fino Mornasco ins Tessin',
 };
 
 export default blogMetaDe;
