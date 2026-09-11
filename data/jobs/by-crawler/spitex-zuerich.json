@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitex-zuerich",
-  "assembledAt": "2026-09-11T13:41:21.878Z",
+  "assembledAt": "2026-09-11T23:18:11.508Z",
   "jobs": [
     {
       "id": "spitex-zuerich-c4d09145d66d",
@@ -34,7 +34,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ui3t7tv680e4hueff634rq8p897izdc",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:16.525Z",
+      "crawledAt": "2026-09-11T23:18:07.523Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/8py3fp47kmu9qgsundvik7gfkhkkbit",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:15.640Z",
+      "crawledAt": "2026-09-11T23:18:06.205Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/uxnd9n2w77zl0spdig5tk7verwaggef",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:14.549Z",
+      "crawledAt": "2026-09-11T23:18:05.299Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "slugByLocale": {
         "it": "specialista-in-tessuto-60-80-a-spitex-zurich-zurich",
         "en": "wound-specialist-60-80-a-spitex-zurich-zurich",
-        "de": "wundspezialist-in-60-80-a-spitex-zurich-zurich",
+        "de": "wundspezialist-in-60-80-a-spitex-zuerich-zurich",
         "fr": "specialiste-des-blessures-60-80-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
@@ -281,7 +281,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/43jag5jtai5x0utbf4ywxr8l5payjlq",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:13.737Z",
+      "crawledAt": "2026-09-11T23:18:03.954Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -298,12 +298,11 @@
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/43jag5jtai5x0utbf4ywxr8l5payjlq",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "wundspezialist-in-60-80-a-spitex-zuerich-zurich",
-        "specialista-in-tessuto-60-80-a-spitex-zurich-zurich",
-        "wundspezialist-in-60-80-a-spitex-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "wundspezialist-in-60-80-a-spitex-zurich-zurich",
+          "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
+        ],
         "it": [
           "wundspezialist-in-60-80-a-spitex-zuerich-zurich",
           "specialista-in-tessuto-60-80-a-spitex-zurich-zurich"
@@ -311,14 +310,15 @@
         "en": [
           "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
         ],
-        "de": [
-          "wundspezialist-in-60-80-a-spitex-zuerich-zurich",
-          "wundspezialist-in-60-80-a-spitex-zurich-zurich"
-        ],
         "fr": [
           "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
         ]
       },
+      "previousSlugs": [
+        "wundspezialist-in-60-80-a-spitex-zuerich-zurich",
+        "wundspezialist-in-60-80-a-spitex-zurich-zurich",
+        "specialista-in-tessuto-60-80-a-spitex-zurich-zurich"
+      ],
       "firstSeenAt": "2026-09-03T13:43:06.764Z",
       "salaryMin": 73200,
       "salaryMax": 102400,
@@ -366,7 +366,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/jzni3a9y33rycfe1yv6io2sh48gqojf",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:12.928Z",
+      "crawledAt": "2026-09-11T23:18:02.636Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -438,7 +438,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ftcl1sap4pjlx3fu7uqqo9spw2rx2sn",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:11.837Z",
+      "crawledAt": "2026-09-11T23:18:01.285Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -510,7 +510,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/0fvlry9hj8ewyuwwbwjwojxpwte083e",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:10.739Z",
+      "crawledAt": "2026-09-11T23:18:00.365Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -595,7 +595,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/pu8ir3fqh979nrk70plj684tmjxle2t",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:09.661Z",
+      "crawledAt": "2026-09-11T23:17:59.495Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -677,7 +677,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/yokseq8dxgpbtffdcsdh3mm658g4o84",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:08.603Z",
+      "crawledAt": "2026-09-11T23:17:58.124Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -741,7 +741,7 @@
       "slugByLocale": {
         "it": "psichiatria-professionale-infermieristica-con-responsabilita-diurna-tav-60-100-a-spitex-zurich-zurich",
         "en": "dipl-nursing-professional-psychiatry-with-daytime-responsibility-tav-60-100-a-spitex-zurich-zurich",
-        "de": "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zurich-zurich",
+        "de": "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich",
         "fr": "dipl-psychiatrie-professionnelle-infirmiere-avec-responsabilite-diurne-tav-60-100-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
@@ -767,7 +767,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/o2zrmakgo0d30685qtppv1tq8orjk7m",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:07.544Z",
+      "crawledAt": "2026-09-11T23:17:56.788Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -784,13 +784,11 @@
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/o2zrmakgo0d30685qtppv1tq8orjk7m",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich",
-        "dipl-pflegefachfrau-mann-psychiatrie-con-tagesverantwortung-tav-60-100-a-spitex-zurich",
-        "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zurich-zurich",
-        "psichiatria-professionale-infermieristica-con-responsabilita-diurna-tav-60-100-a-spitex-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zurich-zurich",
+          "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich"
+        ],
         "it": [
           "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich",
           "dipl-pflegefachfrau-mann-psychiatrie-con-tagesverantwortung-tav-60-100-a-spitex-zurich",
@@ -801,11 +799,14 @@
         ],
         "fr": [
           "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zurich-zurich"
-        ],
-        "de": [
-          "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich"
         ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich",
+        "dipl-pflegefachfrau-mann-psychiatrie-con-tagesverantwortung-tav-60-100-a-spitex-zurich",
+        "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zurich-zurich",
+        "psichiatria-professionale-infermieristica-con-responsabilita-diurna-tav-60-100-a-spitex-zurich-zurich"
+      ],
       "firstSeenAt": "2026-09-10T23:17:30.321Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -820,199 +821,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "spitex-zuerich-460f5e5c7f49",
-      "slug": "dipl-professionista-infermieristico-con-gestione-case-somatic-80-100-a-spitex-zurich-zurich",
-      "slugByLocale": {
-        "it": "dipl-professionista-infermieristico-con-gestione-case-somatic-80-100-a-spitex-zurich-zurich",
-        "en": "dipl-nursing-professional-with-case-management-somatic-80-100-a-spitex-zurich-zurich",
-        "de": "dipl-pflegefachfrau-mann-mit-fallfuhrung-somatik-80-100-a-spitex-zuerich-zurich",
-        "fr": "dipl-professionnel-infirmier-avec-gestion-de-cas-somatic-80-100-a-spitex-zurich-zurich"
-      },
-      "company": "Spitex Zürich",
-      "companyKey": "spitex-zuerich",
-      "companyDomain": "spitex-zuerich.ch",
-      "title": "Dipl. Pflegefachfrau/-mann mit Fallführung – Somatik 80-100% (a)",
-      "titleByLocale": {
-        "it": "Dipl. Professionista infermieristico con gestione case – Somatic 80-100% (a)",
-        "en": "Dipl. Nursing professional with case management – Somatic 80-100% (a)",
-        "de": "Dipl. Pflegefachfrau/-mann mit Fallführung – Somatik 80-100% (a)",
-        "fr": "Dipl. Professionnel infirmier avec gestion de cas – Somatic 80-100% (a)"
-      },
-      "description": "Dipl. Pflegefachfrau/-mann mit Fallführung – Somatik 80-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
-      "descriptionByLocale": {
-        "it": "Dipl. Specialista infermieristico con case management – Somatic 80-100% (a) presso Spitex Zurich, Zurigo (ZH), Svizzera.\n\n• Ore lavorative: part-time / full-time\n• Posizione: Zurigo (ZH)\n• Area: cura ambulatoria e amministrazione domestica\n• Applicazione tramite il portale di carriera softgarden onlyfy.jobs di Spitex Zurigo",
-        "en": "Dipl. Nursing specialist with case management – Somatic 80-100% (a) at Spitex Zurich, Zurich (ZH), Switzerland.\n\n• Working hours: part-time / full-time\n• Location: Zurich (ZH)\n• Area: ambulatory care and home administration\n• Application via the softgarden onlyfy.jobs career portal of Spitex Zurich",
-        "de": "Dipl. Pflegefachfrau/-mann mit Fallführung – Somatik 80-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
-        "fr": "Dipl. Spécialiste des soins infirmiers avec gestion de cas – Somatic 80-100% (a) chez Spitex Zurich, Zurich (ZH), Suisse.\n\n• Heures de travail: à temps partiel / à temps plein\n• Lieu: Zurich (ZH)\n• Domaine: soins ambulatoires et administration à domicile\n• Application via le portail de carrière softgarden onlyfy.jobs de Spitex Zurich"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/cjo4ai0y4m3ynl7pxfi0qinbgdwkm1e",
-      "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:12:47.131Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/cjo4ai0y4m3ynl7pxfi0qinbgdwkm1e",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-mit-fallfuhrung-somatik-80-100-a-spitex-zuerich-zurich",
-        "dipl-pflegefachfrau-mann-con-fallfuhrung-somatik-80-100-a-spitex-zurich",
-        "dipl-nursing-professional-spitex-notturno-60-80-a-spitex-zurich-zurich",
-        "dipl-nursing-professional-night-spitex-60-80-a-spitex-zurich-zurich",
-        "dipl-pflegefachfrau-mann-nachtspitex-60-80-a-spitex-zuerich-zurich",
-        "dipl-professionnel-des-soins-infirmiers-spitex-de-nuit-60-80-a-spitex-zurich-zurich",
-        "wiedereinstieg-in-la-pflege-dipl-pflegefachfrau-mann-50-100-a-spitex-zurich",
-        "re-entry-into-care-dipl-nursing-professional-50-100-a-spitex-zurich-zurich",
-        "wiedereinstieg-in-die-pflege-dipl-pflegefachfrau-mann-50-100-a-spitex-zuerich-zurich",
-        "readmission-dans-les-soins-dipl-professionnel-des-soins-infirmiers-50-100-a-spitex-zurich-zurich",
-        "wiedereinstieg-in-die-pflege-dipl-pflegefachfrau-mann-60-100-a-spitex-zuerich-zurich",
-        "stazione-di-allenamento-dipl-infermieristica-professionale-hf-2026-2027-a-spitex-zurich-zurich",
-        "training-station-dipl-nursing-professional-hf-2026-2027-a-spitex-zurich-zurich",
-        "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zuerich-zurich",
-        "station-de-formation-dipl-professionnel-des-soins-infirmiers-hf-2026-2027-a-spitex-zurich-zurich",
-        "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zurich",
-        "dipl-pflegefachfrau-mann-abenddienst-im-internen-pool-30-60-a-spitex-zurich",
-        "dipl-pflegefachfrau-mann-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-mann-mit-fallfuhrung-somatik-80-100-a-spitex-zuerich-zurich",
-          "dipl-pflegefachfrau-mann-con-fallfuhrung-somatik-80-100-a-spitex-zurich",
-          "dipl-nursing-professional-spitex-notturno-60-80-a-spitex-zurich-zurich",
-          "dipl-nursing-professional-night-spitex-60-80-a-spitex-zurich-zurich",
-          "dipl-pflegefachfrau-mann-nachtspitex-60-80-a-spitex-zuerich-zurich",
-          "dipl-professionnel-des-soins-infirmiers-spitex-de-nuit-60-80-a-spitex-zurich-zurich",
-          "wiedereinstieg-in-la-pflege-dipl-pflegefachfrau-mann-50-100-a-spitex-zurich",
-          "re-entry-into-care-dipl-nursing-professional-50-100-a-spitex-zurich-zurich",
-          "wiedereinstieg-in-die-pflege-dipl-pflegefachfrau-mann-50-100-a-spitex-zuerich-zurich",
-          "readmission-dans-les-soins-dipl-professionnel-des-soins-infirmiers-50-100-a-spitex-zurich-zurich",
-          "wiedereinstieg-in-die-pflege-dipl-pflegefachfrau-mann-60-100-a-spitex-zuerich-zurich",
-          "stazione-di-allenamento-dipl-infermieristica-professionale-hf-2026-2027-a-spitex-zurich-zurich",
-          "training-station-dipl-nursing-professional-hf-2026-2027-a-spitex-zurich-zurich",
-          "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zuerich-zurich",
-          "station-de-formation-dipl-professionnel-des-soins-infirmiers-hf-2026-2027-a-spitex-zurich-zurich",
-          "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zurich",
-          "dipl-pflegefachfrau-mann-abenddienst-im-internen-pool-30-60-a-spitex-zurich",
-          "dipl-pflegefachfrau-mann-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-mann-mit-fallfuhrung-somatik-80-100-a-spitex-zuerich-zurich",
-          "dipl-nursing-professional-night-spitex-60-80-a-spitex-zurich-zurich"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-mann-mit-fallfuhrung-somatik-80-100-a-spitex-zuerich-zurich",
-          "dipl-professionnel-des-soins-infirmiers-spitex-de-nuit-60-80-a-spitex-zurich-zurich"
-        ],
-        "de": [
-          "dipl-pflegefachfrau-mann-nachtspitex-60-80-a-spitex-zuerich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-08-26T10:08:11.856Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "spitex-zuerich-185526464b2a",
-      "slug": "specialista-della-salute-fage-turno-serale-20-80-a-spitex-zurich-zurich",
-      "slugByLocale": {
-        "it": "specialista-della-salute-fage-turno-serale-20-80-a-spitex-zurich-zurich",
-        "en": "health-specialist-fage-evening-service-20-80-a-spitex-zurich-zurich",
-        "de": "fachfrau-mann-gesundheit-fage-abenddienst-20-80-a-spitex-zuerich-zurich",
-        "fr": "specialiste-de-la-sante-fage-service-en-soiree-20-80-a-spitex-zurich-zurich"
-      },
-      "company": "Spitex Zürich",
-      "companyKey": "spitex-zuerich",
-      "companyDomain": "spitex-zuerich.ch",
-      "title": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst 50-80% (a)",
-      "titleByLocale": {
-        "de": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst 50-80% (a)",
-        "it": "Specialista sanitario (FaGe) – servizio serale 50-80% (a)",
-        "en": "Health specialist (FaGe) – evening service 50-80% (a)",
-        "fr": "Spécialiste de la santé (FaGe) – service en soirée 50-80% (a)"
-      },
-      "description": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst 50-80% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
-      "descriptionByLocale": {
-        "de": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst 50-80% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
-        "it": "Specialist Health (FaGe) – servizio serale 50-80% (a) a Spitex Zurich, Zurigo (ZH), Svizzera.\n\n• Orario di lavoro: part-time\n• Posizione: Zurigo (ZH)\n• Area: cura ambulatoria e amministrazione domestica\n• Applicazione tramite il portale di carriera softgarden onlyfy.jobs di Spitex Zurigo",
-        "en": "Specialist Health (FaGe) – evening service 50-80% (a) at Spitex Zurich, Zurich (ZH), Switzerland.\n\n• Working time: part-time\n• Location: Zurich (ZH)\n• Area: ambulatory care and home administration\n• Application via the softgarden onlyfy.jobs career portal of Spitex Zurich",
-        "fr": "Spécialiste de la santé (FaGe) – service en soirée 50-80% (a) à Spitex Zurich, Zurich (ZH), Suisse.\n\n• Temps de travail: temps partiel\n• Lieu: Zurich (ZH)\n• Domaine: soins ambulatoires et administration à domicile\n• Application via le portail de carrière softgarden onlyfy.jobs de Spitex Zurich"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/dydz9op8m3siff0rexrqjqgljybmwei",
-      "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:12:39.079Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8000",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-09",
-      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/dydz9op8m3siff0rexrqjqgljybmwei",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-gesundheit-fage-abenddienst-50-80-a-spitex-zuerich-zurich"
-        ],
-        "de": [
-          "fachfrau-mann-gesundheit-fage-abenddienst-50-80-a-spitex-zuerich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-fage-abenddienst-50-80-a-spitex-zuerich-zurich"
-      ],
-      "salaryMin": 73200,
-      "salaryMax": 102400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73200,
-          "maxValue": 102400,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-09T13:54:41.348Z",
-      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,23 +1,24 @@
 {
   "key": "recruitingapp-1154",
   "label": "SGKB Bewerbermanagement Stellen",
-  "generatedAt": "2026-09-11T13:42:14.334Z",
+  "generatedAt": "2026-09-11T23:18:58.720Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
   "lastFetchOutcome": null,
   "written": 10,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 8,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 51039,
-  "avgDurationMs": 51039,
+  "durationMs": 50520,
+  "avgDurationMs": 50520,
   "durationHistory": [
-    51039
+    50520
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "recruitingapp-1154-a1b5a6fb7e67",
       "slug": "leiter-in-frontsupport-firmenkunden-80-100-recruitingapp-1154-ch",
@@ -30,7 +31,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3807/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:42:07.524Z",
+      "crawledAt": "2026-09-11T23:18:50.776Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -45,11 +46,13 @@
       "featured": false,
       "postedDate": "2026-09-11",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3807/Description/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:42:07.524Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -65,7 +68,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3806/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:42:07.826Z",
+      "crawledAt": "2026-09-11T23:18:51.078Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -80,16 +83,16 @@
       "featured": false,
       "postedDate": "2026-09-11",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3806/Description/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:42:07.826Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "recruitingapp-1154-146dbca5b26b",
       "slug": "it-controller-in-80-100-w-m-d-recruitingapp-1154-ch",
@@ -102,7 +105,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3804/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:42:08.128Z",
+      "crawledAt": "2026-09-11T23:18:51.380Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -117,6 +120,7 @@
       "featured": false,
       "postedDate": "2026-09-09",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3804/Description/1",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:55:27.322Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -138,7 +142,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3803/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:42:08.430Z",
+      "crawledAt": "2026-09-11T23:18:51.680Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -153,6 +157,7 @@
       "featured": false,
       "postedDate": "2026-09-08",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3803/Description/1",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:46:44.516Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -174,7 +179,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3802/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:42:08.732Z",
+      "crawledAt": "2026-09-11T23:18:51.983Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -189,6 +194,7 @@
       "featured": false,
       "postedDate": "2026-09-02",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3802/Description/1",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:45:28.253Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -210,7 +216,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3799/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:42:09.033Z",
+      "crawledAt": "2026-09-11T23:18:52.284Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -225,6 +231,7 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3799/Description/1",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-31T17:30:39.823Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -246,7 +253,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3795/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:42:09.335Z",
+      "crawledAt": "2026-09-11T23:18:52.585Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -282,7 +289,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:42:09.636Z",
+      "crawledAt": "2026-09-11T23:18:52.887Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -299,11 +306,11 @@
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-24T10:32:04.862Z",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -319,7 +326,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:42:09.937Z",
+      "crawledAt": "2026-09-11T23:18:53.188Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -334,6 +341,7 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-23T09:39:20.134Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -355,7 +363,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:42:10.240Z",
+      "crawledAt": "2026-09-11T23:18:53.490Z",
       "addressLocality": "St. Margrethen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -370,6 +378,7 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:39:21.062Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
