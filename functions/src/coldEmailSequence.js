@@ -22,6 +22,14 @@ export const PRICE = 'CHF 49 al mese per annuncio';
 // Indirizzo opt-out: chi risponde qui (o "STOP") va messo `suppressed` nel send-log.
 export const OPTOUT_EMAIL = 'valerie@frontaliereticino.ch';
 
+/** The only metric labels the outreach copy is allowed to claim. */
+export const OUTREACH_METRIC_LABELS = Object.freeze({
+  applyClicks: 'click per candidarsi',
+  interestSignals: 'segnali di interesse',
+});
+
+const OUTREACH_ALLOWED_LABELS = new Set(Object.values(OUTREACH_METRIC_LABELS));
+
 const OUTREACH_TIME_ZONE = 'Europe/Zurich';
 const ITALIAN_MONTHS = [
   'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
@@ -88,9 +96,9 @@ export function buildSequence({ company, metricValue, metricLabel, periodLabel, 
   const metric = count !== null && count > 0
     ? {
         value: count,
-        label: metricLabel === 'click per candidarsi' || metricLabel === 'segnali di interesse'
+        label: OUTREACH_ALLOWED_LABELS.has(metricLabel)
           ? metricLabel
-          : 'segnali di interesse',
+          : OUTREACH_METRIC_LABELS.interestSignals,
       }
     : null;
   const period = formatItalianPeriodLabel(periodLabel);

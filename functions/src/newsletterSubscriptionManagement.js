@@ -79,6 +79,19 @@ function normalizeEmail(value) {
 }
 
 /**
+ * A successful CompanyAlert is the explicit completion act for the
+ * double-opt-in follow-up. Keep the marker authoritative: a later confirm
+ * must not re-open the action just because the historical source channel is
+ * still `company_follow_button`.
+ */
+async function clearCompanyFollowFollowupPending(db, email) {
+ const ref = db.collection('newsletter_subscribers').doc(email);
+ const snapshot = await ref.get();
+ if (!snapshot.exists) return;
+ await ref.set({ company_follow_followup_pending: false }, { merge: true });
+}
+
+/**
  * The LEGACY credential check: `HMAC(secret, <email>)`, unscoped and undated.
  *
  * Kept, exported and still true, because every email ever sent carries one of
@@ -1220,6 +1233,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
   const deterministicRef = alertsCol.doc(`intent_${idempotencyKey}`);
   const deterministicSnap = await deterministicRef.get();
   if (deterministicSnap.exists && deterministicSnap.data()?.active !== false) {
+   if (companyPin) await clearCompanyFollowFollowupPending(db, normalizedEmail);
    return {
     status: 200,
     json: { success: true, alert: serializeAlertDoc(deterministicRef.id, deterministicSnap.data() || {}) },
@@ -1238,6 +1252,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
   });
   if (existingIdempotent.length > 0) {
    const existingDoc = existingIdempotent[0];
+   if (companyPin) await clearCompanyFollowFollowupPending(db, normalizedEmail);
    return {
     status: 200,
     json: { success: true, alert: serializeAlertDoc(existingDoc.id, existingDoc.data() || {}) },
@@ -1316,6 +1331,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  } catch {
  alertOut = serializeAlertDoc(newRef.id, docData);
  }
+ if (companyPin) await clearCompanyFollowFollowupPending(db, normalizedEmail);
  return { status: 200, json: { success: true, alert: alertOut } };
  } catch (err) {
  console.error('[create_alert] Failed:', err?.message);
@@ -1378,7 +1394,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
   const subscriberDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
   const subscriberData = subscriberDoc.exists ? (subscriberDoc.data() || {}) : {};
   const companyFollowPending = subscriberData.company_follow_followup_pending === true
-   || subscriberData.source_channel === 'company_follow_button';
+   || (subscriberData.company_follow_followup_pending === undefined
+    && subscriberData.source_channel === 'company_follow_button');
   const companyFollowOnly = subscriberData.company_follow_only === true;
   let alreadyConfirmed = false;
 

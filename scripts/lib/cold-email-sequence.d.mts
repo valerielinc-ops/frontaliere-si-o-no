@@ -2,6 +2,10 @@
 
 export const PRICE: string;
 export const OPTOUT_EMAIL: string;
+export const OUTREACH_METRIC_LABELS: Readonly<{
+  applyClicks: 'click per candidarsi';
+  interestSignals: 'segnali di interesse';
+}>;
 
 export interface ColdEmailTouch {
   touch: number;

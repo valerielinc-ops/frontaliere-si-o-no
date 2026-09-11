@@ -38,9 +38,14 @@ import { classifySector } from './lib/employer-sectors.mjs';
 // (AGENTS.md Non-Negotiable #6: no copy-paste of the touch bodies). Re-exported
 // here so send-cold-emails.mjs keeps importing the shared sequence and its
 // outreach metric selector from this file.
-import { buildSequence, OPTOUT_EMAIL, formatItalianPeriodLabel } from './lib/cold-email-sequence.mjs';
+import {
+  buildSequence,
+  OPTOUT_EMAIL,
+  OUTREACH_METRIC_LABELS,
+  formatItalianPeriodLabel,
+} from './lib/cold-email-sequence.mjs';
 
-export { buildSequence, OPTOUT_EMAIL };
+export { buildSequence, OPTOUT_EMAIL, OUTREACH_METRIC_LABELS };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -70,18 +75,27 @@ function countOrNull(value) {
 export function selectOutreachMetric(entry = {}) {
   const applyClicks = countOrNull(entry.applyClicks);
   if (applyClicks !== null && applyClicks > 0) {
-    return { value: applyClicks, label: 'click per candidarsi', source: 'applyClicks' };
+    return { value: applyClicks, label: OUTREACH_METRIC_LABELS.applyClicks, source: 'applyClicks' };
   }
-  const proxyField = entry.applyClickProxy !== undefined
-    && entry.applyClickProxy !== null
-    && entry.applyClickProxy !== ''
-    ? 'applyClickProxy'
-    : 'candidates';
-  const proxy = countOrNull(entry[proxyField]);
+  const proxyField = 'applyClickProxy';
+  const proxy = countOrNull(entry.applyClickProxy);
   if (proxy !== null) {
-    return { value: proxy, label: 'segnali di interesse', source: proxyField };
+    return { value: proxy, label: OUTREACH_METRIC_LABELS.interestSignals, source: proxyField };
   }
   return null;
+}
+
+/**
+ * Rank only comparable values together: a raw apply click is a stronger
+ * signal than a proxy count, so proxy values never displace raw-click targets
+ * merely because their unit happens to be numerically larger.
+ */
+export function compareOutreachTargets(a, b) {
+  const aPrimary = a?.metric?.source === 'applyClicks' ? 1 : 0;
+  const bPrimary = b?.metric?.source === 'applyClicks' ? 1 : 0;
+  return bPrimary - aPrimary
+    || (b?.metric?.value ?? -1) - (a?.metric?.value ?? -1)
+    || String(a?.entry?.key || a?.entry?.name || '').localeCompare(String(b?.entry?.key || b?.entry?.name || ''));
 }
 
 function run() {
@@ -105,8 +119,7 @@ function run() {
   const targets = report.employers
     .map((entry) => ({ entry, metric: selectOutreachMetric(entry) }))
     .filter(({ metric }) => metric && metric.value >= min)
-    .sort((a, b) => b.metric.value - a.metric.value
-      || String(a.entry.key || a.entry.name || '').localeCompare(String(b.entry.key || b.entry.name || '')))
+    .sort(compareOutreachTargets)
     .slice(0, top)
     .map(({ entry }) => entry);
 

@@ -963,6 +963,7 @@ const App: React.FC = () => {
     : {}),
   }
   : null;
+ let followupStillOpen = Boolean(followupForUi);
 
  // A company-only confirmation is intentionally suppressed for the generic
  // newsletter. Do not leave a stale client flag claiming the broader signup
@@ -1013,9 +1014,11 @@ const App: React.FC = () => {
      Analytics.trackUIInteraction('company_alert', 'double_optin_flush', String(outcome.created.length));
     }
     if (outcome.pending === 0) {
+     followupStillOpen = false;
      setCompanyFollowFollowup(null);
      setCompanyFollowRetry(null);
     } else {
+     followupStillOpen = true;
      setCompanyFollowFollowup(followupForUi || {
       required: true,
       sourcePath: localCompanyFollowPath,
@@ -1025,6 +1028,7 @@ const App: React.FC = () => {
     }
    } catch (followErr) {
     reportCaughtError(followErr, 'app.companyFollowFlush');
+    followupStillOpen = true;
     setCompanyFollowFollowup(followupForUi || {
      required: true,
      sourcePath: localCompanyFollowPath,
@@ -1039,9 +1043,9 @@ const App: React.FC = () => {
   await runCompanyFollowFlush();
  }
 
- if (!followupForUi && result.alreadyConfirmed) {
+ if (!followupStillOpen && result.alreadyConfirmed) {
  setUnsubscribeMsg(t('newsletter.alreadyConfirmed'));
- } else if (!followupForUi) {
+ } else if (!followupStillOpen) {
  setShowNewsletterWelcome(true);
  }
  } else if (result.error === 'invalid_token') {

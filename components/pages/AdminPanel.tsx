@@ -16,7 +16,7 @@ import { getAllAuthors } from '@/data/authors';
 import { ARTICLES } from '@/data/blog-articles-data';
 // Cold-email sequence: single shared source so the admin preview is byte-identical
 // to what send-cold-emails.mjs actually sends (AGENTS.md Non-Negotiable #6).
-import { buildSequence } from '../../scripts/lib/cold-email-sequence.mjs';
+import { buildSequence, OUTREACH_METRIC_LABELS } from '../../scripts/lib/cold-email-sequence.mjs';
 import { githubApiHeaders } from '../../scripts/lib/githubApiHeaders.mjs';
 import {
  classifyWorkflowRunUiOutcome,
@@ -897,7 +897,7 @@ export default function AdminPanel() {
  const touches = buildAdminEmailSequence({
  company: contactModalRow.companyName,
  metricValue: contactModalRow.totals.applyClicks,
- metricLabel: 'click per candidarsi',
+    metricLabel: OUTREACH_METRIC_LABELS.applyClicks,
  periodLabel: contactModalRow.window
  ? contactModalRow.window.from + ' → ' + contactModalRow.window.to
  : '',

@@ -24,7 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { classifySector, slugify } from './lib/employer-sectors.mjs';
-import { selectOutreachMetric } from './generate-cold-emails.mjs';
+import { compareOutreachTargets, selectOutreachMetric } from './generate-cold-emails.mjs';
 import { apexDomain, pickBestEmail, inferPatternEmail } from './lib/email-finder.mjs';
 import { ATS_DOMAINS, mxOk, findDomain, scrapeCompanyEmails } from './lib/email-enrichment.mjs';
 
@@ -87,8 +87,7 @@ async function run() {
   // Nessuna azienda esclusa: prendi le prime `top` per metrica di outreach.
   const targets = (report.employers || [])
     .map((entry) => ({ entry, metric: selectOutreachMetric(entry) }))
-    .sort((a, b) => (b.metric?.value ?? -1) - (a.metric?.value ?? -1)
-      || String(a.entry.key || a.entry.name || '').localeCompare(String(b.entry.key || b.entry.name || '')))
+    .sort(compareOutreachTargets)
     .slice(0, top)
     .map(({ entry }) => entry);
 
