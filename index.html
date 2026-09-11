@@ -525,17 +525,16 @@
         if (cc.registry) return; // don't overwrite a registry set elsewhere
         // Grant access (suppress the Offerwall) for existing newsletter
         // subscribers OR signed-in users. The Firebase key arrives through
-        // runtime public config, so static HTML cannot carry it. Before React
-        // hydrates, scan the stable Auth storage namespace instead.
+        // runtime public config, so static HTML cannot carry it. Auth writes
+        // this explicit marker after Firebase confirms the session; before
+        // React hydrates, read only that marker instead of another project's
+        // Firebase namespace.
         // No async auth hydration wait (initialize must resolve in < 1s). Only
         // anonymous, non-subscribed readers (the funnel target) see the Offerwall.
         function hasAccess(){
           try {
             if (window.localStorage.getItem('newsletter_subscribed') === 'true') return true;
-            for (var i = 0; i < window.localStorage.length; i++) {
-              var key = window.localStorage.key(i);
-              if (key && key.indexOf('firebase:authUser:') === 0) return true;
-            }
+            if (window.localStorage.getItem('frontaliere:auth-session') === 'true') return true;
           } catch (e) { /* localStorage unavailable */ }
           return false;
         }

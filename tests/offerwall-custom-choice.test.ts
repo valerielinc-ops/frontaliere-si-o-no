@@ -56,11 +56,12 @@ describe('Offerwall custom-choice registry — index.html', () => {
 
   it('initialize() detects signed-in users without embedding a Firebase key', () => {
     // The key is runtime public configuration and must not be copied into the
-    // static shell. The namespace probe keeps the parse-time check synchronous;
-    // the hydrated app narrows it to the active project's exact key.
+    // static shell. Auth writes an explicit marker after confirmation; the
+    // hydrated app still narrows the runtime check to the active project's key.
     expect(REGISTRY_BLOCK).toMatch(
-      /localStorage\.length[\s\S]*indexOf\(['"]firebase:authUser:/,
+      /localStorage\.getItem\(['"]frontaliere:auth-session['"]\)[\s\S]*['"]true['"]\)/,
     );
+    expect(REGISTRY_BLOCK).not.toMatch(/localStorage\.length|firebase:authUser:/);
     expect(REGISTRY_BLOCK).not.toMatch(/firebaseApiKey|firebaseAuthPersistenceKey/);
   });
 

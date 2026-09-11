@@ -56,6 +56,7 @@ import { adSlotHtml } from './lib/adSlotHtml';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from './shared/robotsDirective';
+import { FIREBASE_AUTH_SESSION_MARKER_KEY } from '../services/firebaseAuthPersistence';
 
 /**
  * Regex-source strings interpolated into SELF_HEAL_SCRIPT_CONTENT below,
@@ -95,10 +96,11 @@ const POSTHOG_THIRD_PARTY_STACK_SOURCE = THIRD_PARTY_STACK_ORIGINS.map((re) => r
 const POSTHOG_ORIGIN_REDACTED_FRAME_SOURCE = WEBKIT_ORIGIN_REDACTED_FRAME.source;
 
 // Static HTML cannot carry the Firebase Web API key: it is public runtime
-// configuration and arrives through the allowlisted Cloud Function. The
-// namespace probe keeps the parse-time Offerwall gate synchronous without
-// putting a key literal in source or generated HTML.
-const OFFERWALL_AUTH_CHECK = "for(var i=0;i<window.localStorage.length;i++){var k=window.localStorage.key(i);if(k&&k.indexOf('firebase:authUser:')===0)return true;}";
+// configuration and arrives through the allowlisted Cloud Function. Auth
+// writes this explicit marker after Firebase confirms the session; probing it
+// keeps the parse-time Offerwall gate synchronous without accepting another
+// Firebase project's persistence namespace.
+const OFFERWALL_AUTH_CHECK = `if(window.localStorage.getItem('${FIREBASE_AUTH_SESSION_MARKER_KEY}')==='true')return true;`;
 
 const DEPLOY_BUILD_ID_OVERRIDE = (process.env.DEPLOY_BUILD_ID || '').replace(/\D/g, '');
 export const BUILD_ID = DEPLOY_BUILD_ID_OVERRIDE || String(Date.now());

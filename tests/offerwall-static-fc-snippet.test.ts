@@ -46,12 +46,13 @@ describe('OFFERWALL_FC_SNIPPET — registry', () => {
 
   it('initialize() grants access to subscribers AND a persisted Firebase session', () => {
     // Same dual gate as the index.html registry. The static snippet cannot
-    // embed runtime public configuration, so it probes the stable namespace;
-    // the hydrated app narrows the check to the active Firebase project.
+    // embed runtime public configuration, so authService writes an explicit
+    // marker; the hydrated app narrows the check to the active Firebase key.
     expect(OFFERWALL_FC_SNIPPET).toMatch(/newsletter_subscribed/);
     expect(OFFERWALL_FC_SNIPPET).toMatch(
-      /localStorage\.length[\s\S]*indexOf\(['"]firebase:authUser:/,
+      /localStorage\.getItem\(['"]frontaliere:auth-session['"]\)[\s\S]*['"]true['"]\)/,
     );
+    expect(OFFERWALL_FC_SNIPPET).not.toMatch(/localStorage\.length|firebase:authUser:/);
     expect(OFFERWALL_FC_SNIPPET).not.toMatch(/FIREBASE_API_KEY|firebaseApiKey/);
   });
 
