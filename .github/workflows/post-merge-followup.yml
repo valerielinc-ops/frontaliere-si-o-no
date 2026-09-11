@@ -491,7 +491,7 @@ jobs:
                 marker_ok=false
               else
                 marker_body=$(printf '%s' "$comments" | jq -r '[.comments[]?.body // "" | select(contains("## Post-merge follow-up triage"))] | last // ""' 2>/dev/null || true)
-                bucket_refs=$(printf '%s\n' "$marker_body" | sed -n -E '/^[[:space:]]*Created(\/updated)?:/p' | grep -Eo 'bucket #[0-9]+' | sed -E 's/.*#//' | sort -un || true)
+                bucket_refs=$(printf '%s\n' "$marker_body" | sed -n -E '/^[[:space:]]*(-[[:space:]]+|\*[[:space:]]+)?Created(\/updated)?:/p' | grep -Eo 'bucket #[0-9]+' | sed -E 's/.*#//' | sort -un || true)
                 # A zero-candidate summary may name the unchanged daily bucket for
                 # audit context. That is not a claim that this PR was persisted in
                 # the bucket, so it must use the empty-result path below.
