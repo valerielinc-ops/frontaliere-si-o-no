@@ -189,6 +189,38 @@ describe('detectAlreadyResolved (end-to-end matcher)', () => {
     expect(res.evidence).toEqual([{ file: 'scripts/ci/parser.mjs', tok: 'markStale()' }]);
   });
 
+  it('uses the explicit Acceptance token and matches a real call with arguments', () => {
+    const explicitBody = [
+      '- Target file: `scripts/update-manor-jobs.mjs`',
+      '- Suggested action: add `stripSiteTitleSuffix()` before persisting the title',
+      '- Acceptance token: `stripSiteTitleSuffix()`',
+    ].join('\n');
+    const io = {
+      fileExists: (p: string) => p === 'scripts/update-manor-jobs.mjs',
+      readFile: () => [
+        'export function stripSiteTitleSuffix(rawTitle) { return rawTitle; }',
+        'const title = stripSiteTitleSuffix(rawTitle);',
+      ].join('\n'),
+    };
+    const res = detectAlreadyResolved(explicitBody, io, { acceptanceToken: '`stripSiteTitleSuffix()`' });
+    expect(res.tokens).toEqual(['stripSiteTitleSuffix()']);
+    expect(res.evidence).toEqual([{ file: 'scripts/update-manor-jobs.mjs', tok: 'stripSiteTitleSuffix()' }]);
+    expect(res.resolved).toBe(true);
+  });
+
+  it('does not treat the function declaration alone as an Acceptance-token match', () => {
+    const explicitBody = [
+      '- Target file: `scripts/update-manor-jobs.mjs`',
+      '- Suggested action: add `stripSiteTitleSuffix()` before persisting the title',
+      '- Acceptance token: `stripSiteTitleSuffix()`',
+    ].join('\n');
+    const io = {
+      fileExists: (p: string) => p === 'scripts/update-manor-jobs.mjs',
+      readFile: () => 'export function stripSiteTitleSuffix() { return "unchanged"; }',
+    };
+    expect(detectAlreadyResolved(explicitBody, io, { acceptanceToken: '`stripSiteTitleSuffix()`' }).resolved).toBe(false);
+  });
+
   it('does not turn cited file line anchors into extra unresolved tokens', () => {
     const body = [
       '### 1. Emit the normalized finding key',
