@@ -1,18 +1,56 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-09-10T23:07:39.353Z",
-  "total": 6,
-  "newCount": 0,
+  "generatedAt": "2026-09-11T13:35:48.915Z",
+  "total": 7,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3766,
-  "avgDurationMs": 3766,
+  "durationMs": 1718,
+  "avgDurationMs": 1718,
   "durationHistory": [
-    3766
+    1718
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Senior Java Developer",
+      "slug": "senior-java-developer-fincons-group-lugano-ticino-switzerland",
+      "url": "https://fincons.applytojob.com/apply/qepOmkU4de/Senior-Java-Developer",
+      "applyUrl": "https://fincons.applytojob.com/apply/qepOmkU4de/Senior-Java-Developer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-11",
+      "validThrough": "2026-12-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260911083112_OG0VBICHWF2TZVZ4",
+        "listingLocation": "Lugano, Ticino, Switzerland",
+        "listingDepartment": "Lugano"
+      },
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Accounts Payable & Accounting Specialist",
