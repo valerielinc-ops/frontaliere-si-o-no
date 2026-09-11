@@ -560,9 +560,14 @@ export function citationConfirmed(citation, confirmations, finding, openFindings
     const movedLine = candidate.line !== null
       && citation.line !== null
       && candidate.line !== citation.line;
-    if (!sameLine && !movedLine) return false;
+    // A historical finding may mention a full companion path without a line
+    // while the follow-up confirms that same unique file at its exact fix
+    // line. Treat that as the same anchor, but keep the uniqueness guard so a
+    // line-specific confirmation cannot close two same-path findings.
+    const barePathConfirmedAtLine = citation.line === null && candidate.line !== null;
+    if (!sameLine && !movedLine && !barePathConfirmedAtLine) return false;
     return confirmationHasUniqueTarget(candidate, finding, openFindings, {
-      ignoreLine: movedLine,
+      ignoreLine: movedLine || barePathConfirmedAtLine,
     });
   }));
 }

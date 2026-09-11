@@ -729,6 +729,24 @@ describe('review gate: citazioni e conferme', () => {
     expect(remaining[0].citations).toHaveLength(3);
   });
 
+  it('closes a unique bare companion path when the follow-up confirms its fix line', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`functions/index.js:L344`: 🔴 Important: the consumer is in `build-plugins/borderWaitHydrationScript.ts`.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `functions/index.js:L344`: ok.',
+      'Fix di `build-plugins/borderWaitHydrationScript.ts:L79`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
   it('treats a bare repeat of a precise path as context, not a second anchor', () => {
     const opened = bot([
       '## Findings (Important: 1, Nit: 0)',
