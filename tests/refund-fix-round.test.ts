@@ -8,6 +8,7 @@ import {
   pickRoundCommentId,
   refundMarkerName,
   roundMarkerRe,
+  shouldRefundRateLimitedRound,
 } from '../scripts/ci/refund-fix-round.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -48,6 +49,16 @@ describe('refund-fix-round', () => {
     });
     expect(body).toContain(`<!-- ${refundMarkerName(marker)}: 1 -->`);
     expect(body).not.toContain(`<!-- ${marker}: 1 -->`);
+  });
+
+  it('rimborsa solo un 429 strutturato senza turni o costo Claude', () => {
+    expect(shouldRefundRateLimitedRound(JSON.stringify({
+      type: 'result', is_error: true, api_error_status: 429, num_turns: 1, total_cost_usd: 0,
+    }))).toBe(true);
+    expect(shouldRefundRateLimitedRound(JSON.stringify({
+      type: 'result', is_error: true, api_error_status: 429, num_turns: 3, total_cost_usd: 0.42,
+    }))).toBe(false);
+    expect(shouldRefundRateLimitedRound('HTTP 429 Too Many Requests')).toBe(false);
   });
 
   it('i due fixer continuano a cablare lo script di rimborso', () => {

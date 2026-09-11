@@ -7,7 +7,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 
-import { detectClaudeRateLimit, shouldRefundRateLimitedRound } from './claude-rate-limit.mjs';
+import { detectClaudeRateLimit, parseExecutionMessages } from './claude-rate-limit.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const PR = process.env.PR;
@@ -17,6 +17,34 @@ const EXEC_FILE = process.env.EXEC_FILE;
 const RUN_URL = process.env.RUN_URL || '';
 const WORKFLOW = process.env.WORKFLOW || 'pr-fixer';
 const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
+
+/**
+ * Refund only when the structured result proves that Claude stopped before
+ * doing work. The site parser deliberately stays fail-closed for plain logs:
+ * without a result/metrics record, a 429 alone cannot prove zero-turn.
+ */
+export function shouldRefundRateLimitedRound(raw) {
+  const detected = detectClaudeRateLimit(raw);
+  if (!detected.rateLimited) return false;
+  const messages = parseExecutionMessages(raw);
+  const results = messages.filter((message) => message && message.type === 'result');
+  if (!results.length) return false;
+
+  const hasTurns = results.some((message) => Number.isFinite(Number(message.num_turns)));
+  const hasCost = results.some((message) => Number.isFinite(Number(message.total_cost_usd)));
+  if (!hasTurns && !hasCost && messages.some((message) => message && message.type === 'assistant')) {
+    return false;
+  }
+  const turns = results.reduce((max, message) => {
+    const value = Number(message.num_turns);
+    return Number.isFinite(value) ? Math.max(max, value) : max;
+  }, 0);
+  const cost = results.reduce((max, message) => {
+    const value = Number(message.total_cost_usd);
+    return Number.isFinite(value) ? Math.max(max, value) : max;
+  }, 0);
+  return (hasTurns || hasCost) && turns <= 1 && cost <= 0;
+}
 
 function gh(args) {
   try {
