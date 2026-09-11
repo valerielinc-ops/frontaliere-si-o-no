@@ -5,10 +5,22 @@ import {
   isSwisslogJob,
   isTrustedDomain,
   resolveCanton,
+  resolveSwisslogListingCity,
 } from '../scripts/lib/swisslog-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Swisslog crawler parser', () => {
+  describe('resolveSwisslogListingCity', () => {
+    it('prefers the vacancy-specific listing locality over the JSON-LD region', () => {
+      expect(resolveSwisslogListingCity('Buchs, Switzerland', 'Argovia')).toBe('Buchs');
+    });
+
+    it('falls back to JSON-LD when the listing exposes only the country', () => {
+      expect(resolveSwisslogListingCity('Switzerland', 'Buchs')).toBe('Buchs');
+      expect(resolveSwisslogListingCity('CH', 'Mägenwil')).toBe('Mägenwil');
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(SWISSLOG_KEY).toBe('swisslog');

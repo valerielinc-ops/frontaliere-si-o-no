@@ -333,6 +333,10 @@ export interface FastestCrossingInput {
   waitTimeMinutes: number;
 }
 
+function hasPositiveWait(crossings: ReadonlyArray<Pick<FastestCrossingInput, 'waitTimeMinutes'>>): boolean {
+  return crossings.some((c) => c.waitTimeMinutes > 0);
+}
+
 function getCrossingLabel(
   cr: FastestCrossingInput,
   locale: 'it' | 'en' | 'de' | 'fr',
@@ -357,12 +361,11 @@ export function renderFastestCrossingCard(
   crossings: ReadonlyArray<FastestCrossingInput>,
   locale: 'it' | 'en' | 'de' | 'fr',
 ): string {
-  const hasAnyWait = crossings.some((c) => c.waitTimeMinutes > 0);
-  if (!hasAnyWait) return '';
+  if (!hasPositiveWait(crossings)) return '';
 
   let best: FastestCrossingInput | null = null;
   for (const c of crossings) {
-    if (c.waitTimeMinutes <= 0) continue;
+    if (c.waitTimeMinutes < 0) continue;
     if (best === null || c.waitTimeMinutes < best.waitTimeMinutes) {
       best = c;
     }
@@ -1742,7 +1745,9 @@ function renderLeafPage(inp: LeafInputs): string {
   // Content pieces
   let h1 = copy.leafH1(crossingDisplay, dateStamp);
   const intro = copy.intro(crossingDisplay, statusWord, dateStamp);
-  const adviceBannerHtml = renderAdviceBanner(status.label, liveWait, bestHour, worstHour, copy);
+  const adviceBannerHtml = liveWait === null
+    ? renderBorderWaitUnavailableBanner(locale)
+    : renderAdviceBanner(status.label, liveWait, bestHour, worstHour, copy);
   const paragraph = copy.paragraph(crossingDisplay, countryTokens, bestHour, worstHour);
 
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
@@ -2279,10 +2284,10 @@ function renderHubPage(inp: HubInputs): string {
   // `heroInputs` scarta i valichi senza dato: senza questo ramo, un solo
   // valico non misurato con gli altri a zero produceva ne' hero ne' banner,
   // cioe' il blocco vuoto che l'invariante sopra promette di non lasciare mai.
-  const hasPositiveWait = heroInputs.some((c) => c.waitTimeMinutes > 0);
+  const positiveWait = hasPositiveWait(heroInputs);
   const bestBannerHtml = allZeros
     ? renderTrafficFluidBanner(true, locale)
-    : hasPositiveWait
+    : positiveWait
       ? renderFastestCrossingCard(heroInputs, locale)
       : renderBorderWaitUnavailableBanner(locale);
 
