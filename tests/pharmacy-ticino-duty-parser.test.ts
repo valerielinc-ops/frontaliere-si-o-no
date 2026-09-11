@@ -45,4 +45,15 @@ describe('OFCT Ticino duty parser', () => {
     expect(result.duties.some((duty) => duty.startsAt === '2026-09-12T06:00:00.000Z')).toBe(false);
     expect(result.skipped).toBe(1);
   });
+
+  it('does not treat valid out-of-order rows as a malformed source gap', () => {
+    const html = `<table id="tabella_mese_corrente_compatta"><tr><td class="cella_farma_compatta_data">12/09/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Amavita</td><td class="cella_farma_compatta_localita">6826 Riva San Vitale</td></tr><tr><td class="cella_farma_compatta_data">20/09/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Farmacia Centro</td><td class="cella_farma_compatta_localita">6900 Lugano</td></tr><tr><td class="cella_farma_compatta_data">08/09/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Alchemilla</td><td class="cella_farma_compatta_localita">6850 Mendrisio</td></tr></table>`;
+    const result = buildPharmacyDuties(html, REGION, '2026-09-09T00:00:00.000Z');
+    expect(result.duties).toHaveLength(2);
+    expect(result.duties.map((duty) => [duty.startsAt, duty.endsAt])).toEqual([
+      ['2026-09-08T06:00:00.000Z', '2026-09-12T06:00:00.000Z'],
+      ['2026-09-12T06:00:00.000Z', '2026-09-20T06:00:00.000Z'],
+    ]);
+    expect(result.skipped).toBe(0);
+  });
 });

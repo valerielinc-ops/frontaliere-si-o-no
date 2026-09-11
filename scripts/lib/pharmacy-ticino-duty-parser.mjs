@@ -13,7 +13,6 @@ import { slugify } from './crawler-template.mjs';
 import { OFCT_REGIONS } from './pharmacy-ticino-parser.mjs';
 
 const DUTY_TABLE_ID = 'tabella_mese_corrente_compatta';
-const SOURCE_INDEX = Symbol('sourceIndex');
 const MISSING_BOUNDARY = Symbol('missingBoundary');
 
 function decodeEntities(str = '') {
@@ -78,7 +77,6 @@ export function parsePharmacyDutyRows(html) {
   const rows = [];
   let skipped = 0;
   let missingBoundary = false;
-  let sourceIndex = 0;
   let rowMatch;
   const rowRe = /<tr\b[^>]*>([\s\S]*?)<\/tr>/gi;
   while ((rowMatch = rowRe.exec(tableMatch[1])) !== null) {
@@ -88,8 +86,6 @@ export function parsePharmacyDutyRows(html) {
     const name = cell(rowHtml, 'cella_farma_compatta_nome');
     const localityText = cell(rowHtml, 'cella_farma_compatta_localita');
     if (!dateText && !timeText && !name && !localityText) continue;
-    const currentSourceIndex = sourceIndex;
-    sourceIndex += 1;
     if (!dateText || !timeText || !name || !localityText) {
       skipped += 1;
       missingBoundary = true;
@@ -105,7 +101,6 @@ export function parsePharmacyDutyRows(html) {
         postalCode: locality.postalCode,
         city: locality.city,
       };
-      Object.defineProperty(parsedRow, SOURCE_INDEX, { value: currentSourceIndex });
       if (missingBoundary) Object.defineProperty(parsedRow, MISSING_BOUNDARY, { value: true });
       rows.push(parsedRow);
       missingBoundary = false;
@@ -145,7 +140,7 @@ export function buildPharmacyDuties(html, region, fetchedAt, pharmacyIds = new S
   for (let index = 0; index < rows.length - 1; index += 1) {
     const row = rows[index];
     const next = rows[index + 1];
-    if (next[MISSING_BOUNDARY] || Math.abs(next[SOURCE_INDEX] - row[SOURCE_INDEX]) > 1) {
+    if (next[MISSING_BOUNDARY]) {
       warnings.push(`${region.key}: missing duty boundary before row ${index + 1}`);
       continue;
     }
