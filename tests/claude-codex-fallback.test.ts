@@ -36,6 +36,7 @@ import {
   FORCE_KILL_GRACE_MS as GH_FORCE_KILL_GRACE_MS,
   SHUTDOWN_TIMEOUT_MS as GH_SHUTDOWN_TIMEOUT_MS,
   CORPUS_REPOSITORY,
+  isMutatingGhArgs,
   resolveGhScope,
   validatePrBodyContract,
   validateGhArgs,
@@ -50,6 +51,7 @@ import {
   SHUTDOWN_TIMEOUT_MS as GIT_SHUTDOWN_TIMEOUT_MS,
   buildGitNetworkArgs,
   canonicalGitRemote,
+  isMutatingGitArgs,
   validateGitArgs,
 } from '../.github/actions/claude-codex-fallback/git-bridge-server.mjs';
 import {
@@ -650,7 +652,10 @@ describe('copertura workflow diretti', () => {
     expect(authStart).toBeLessThan(codexStart);
     expect(codexStart).toBeLessThan(claudeStart);
     expect(claudeStart).toBeLessThan(finalizeStart);
-    expect(action).toContain("if: always() && steps.codex.outcome != 'success'");
+    expect(action).toContain("steps.codex.outcome == 'failure'");
+    expect(action).toContain("steps.codex.outputs.side_effect_detected == 'false'");
+    expect(action).toContain('restore_sanitized_git_config');
+    expect(action).toContain('snapshot_git_delivery_state');
     expect(action).not.toContain('steps.preflight');
     expect(action).not.toContain('steps.runtime.outputs');
     const installBlock = action.slice(installStart, authStart);
@@ -809,6 +814,13 @@ describe('copertura workflow diretti', () => {
     expect(ghBridge).toContain('CODEX_GH_CORPUS_AUTH');
     expect(ghBridge).toContain('CORPUS_REPOSITORY');
     expect(ghBridge).toContain('resolveGhScope(args');
+  });
+
+  it('classifica i side-effect dei bridge prima di autorizzare un retry', () => {
+    expect(isMutatingGhArgs(['--repo', 'owner/repo', 'pr', 'comment', '--body-file', 'body.md'])).toBe(true);
+    expect(isMutatingGhArgs(['--repo', 'owner/repo', 'pr', 'view', '1'])).toBe(false);
+    expect(isMutatingGitArgs(['push', 'origin', 'HEAD'])).toBe(true);
+    expect(isMutatingGitArgs(['ls-remote', 'origin', 'HEAD'])).toBe(false);
   });
 
   it('verifica URL, versione e SHA-256 della release Node pinnata', () => {
