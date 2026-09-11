@@ -50,8 +50,11 @@ const WORKFLOW = 'post-merge-followup.yml';
 const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
 const FALLBACK_HOURS = Number(process.env.FALLBACK_HOURS) || 6;
 const SEARCH_PAGE_SIZE = 100;
-// The provider step has a 32-minute ceiling. Four PRs stay below that ceiling
-// even at the measured upper end of one triage. If the candidate window is
+// Capacity evidence: run 34602892494 reached the provider's 32-minute ceiling
+// while processing a 36-PR window. Four is therefore a conservative operational
+// cap, not a promise of measured per-PR capacity; the workflow's incomplete-run
+// trigger below is the rollback signal if that bound proves too high.
+// If the candidate window is
 // larger, the workflow deliberately reports an incomplete collection after
 // emitting the prefix: its final verifier fails the scheduled run, so the
 // successful-run watermark does not advance and the next run re-collects the
