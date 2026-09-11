@@ -68,6 +68,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
@@ -131,6 +132,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
 
 const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 const CROSS_REPO_BACKOFF_SECONDS = 30;
+const SHA1_COMMIT_RE = /^[a-f0-9]{40}$/u;
 
 // Solo bucket misurati e confermati estranei al ciclo crawler. L'allowlist e'
 // deliberatamente sulle ESCLUSIONI: un nuovo bucket di checkout-buckets.json
@@ -162,6 +164,28 @@ export const SAFETY_CEILING_MS = JOB_TIMEOUT_MINUTES * 60 * 1000;
 
 function loadJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
+}
+
+/** Resolve the exact site revision whose generated artifacts are observed. */
+export function resolveCrawlerContractSource({ sourceCommit, sourceRef } = {}) {
+  let commit = sourceCommit || process.env.CRAWLER_SOURCE_COMMIT || process.env.GITHUB_SHA;
+  if (!commit) {
+    try {
+      commit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8' }).trim();
+    } catch (error) {
+      throw new Error(`cannot resolve crawler contract source commit: ${error.message}`);
+    }
+  }
+  if (!SHA1_COMMIT_RE.test(String(commit))) {
+    throw new Error(`crawler contract sourceCommit must be a 40-character source commit SHA, got ${JSON.stringify(commit)}`);
+  }
+
+  const githubRef = String(process.env.GITHUB_REF || '').replace(/^refs\/heads\//u, '');
+  const ref = sourceRef || process.env.CRAWLER_SOURCE_REF || process.env.GITHUB_REF_NAME || githubRef || 'main';
+  if (!ref || /\s/u.test(String(ref))) {
+    throw new Error(`crawler contract sourceRef must be a non-empty ref without whitespace, got ${JSON.stringify(ref)}`);
+  }
+  return { sourceCommit: String(commit), sourceRef: String(ref) };
 }
 
 /**
@@ -1426,7 +1450,7 @@ function normalizedContractStep(step, side, fileName, members) {
 
   if (typeof copy?.uses === 'string' && copy.uses.startsWith('actions/checkout@')) {
     const allowedWith = side === 'generated'
-      ? new Set(['fetch-depth'])
+      ? new Set(['repository', 'fetch-depth', 'ref', 'clean', 'sparse-checkout', 'sparse-checkout-cone-mode'])
       : new Set(['repository', 'fetch-depth']);
     const unexpected = Object.keys(copy.with ?? {}).filter((key) => !allowedWith.has(key));
     if (unexpected.length > 0) {
@@ -1436,10 +1460,16 @@ function normalizedContractStep(step, side, fileName, members) {
       throw new Error(`${fileName}: logic checkout does not target ${SITE_REPOSITORY}`);
     }
     // Conserva ogni campo step-level presente o futuro (`if`, `timeout-*`,
-    // shell, continue-on-error...). Le sole differenze dichiarate sono il nome
-    // descrittivo e `with.repository` nel reusable cross-repo.
+    // shell, continue-on-error...). Le sole differenze dichiarate sono il nome,
+    // il repository/ref del checkout cross-repo e il suo profilo sparse.
     copy.name = 'Checkout';
     delete copy.with.repository;
+    if (side === 'generated') {
+      delete copy.with.ref;
+      delete copy.with.clean;
+      delete copy.with['sparse-checkout'];
+      delete copy.with['sparse-checkout-cone-mode'];
+    }
     return copy;
   }
 
@@ -1796,6 +1826,8 @@ function translateTrigger(logic) {
  *   contractPath?: string,
  *   workflowsDir?: string,
  *   translateLogicPath?: string,
+ *   sourceCommit?: string,
+ *   sourceRef?: string,
  *   write?: boolean,
  * }} [options]
  */
@@ -1805,6 +1837,8 @@ export function generateCrossRepoExecutionArtifacts({
   contractPath,
   workflowsDir = WORKFLOWS_DIR,
   translateLogicPath = TRANSLATE_LOGIC_PATH,
+  sourceCommit,
+  sourceRef,
   write = true,
 } = {}) {
   if (!outDir || !contractPath) throw new Error('cross-repo generation requires outDir and contractPath');
@@ -1814,6 +1848,8 @@ export function generateCrossRepoExecutionArtifacts({
   if (!validateCrawlerGenerationRoster(groupResults.generationRoster).valid) {
     throw new Error('cross-repo generation requires a valid crawler generation roster');
   }
+  const source = resolveCrawlerContractSource({ sourceCommit, sourceRef });
+  const generatorSha256 = sha256(fs.readFileSync(fileURLToPath(import.meta.url), 'utf8'));
 
   const artifacts = [];
   const artifactContents = [];
@@ -1843,6 +1879,7 @@ export function generateCrossRepoExecutionArtifacts({
       sourceLogic: path.basename(logicPath),
       sourceSha256: sha256(logicText),
       artifactSha256: sha256(content),
+      generatorSha256,
       members,
     });
   }
@@ -1864,6 +1901,7 @@ export function generateCrossRepoExecutionArtifacts({
     sourceLogic: path.basename(translateLogicPath),
     sourceSha256: sha256(translateLogicText),
     artifactSha256: sha256(translateContent),
+    generatorSha256,
     members: [],
   });
 
@@ -1889,8 +1927,15 @@ export function generateCrossRepoExecutionArtifacts({
   const contract = {
     schemaVersion: 1,
     generatedBy: 'frontaliere-si-o-no/scripts/generate-crawler-group-workflows.mjs',
-    generatorSha256: sha256(fs.readFileSync(fileURLToPath(import.meta.url), 'utf8')),
+    generatorSha256,
     sourceRepository: SITE_REPOSITORY,
+    sourceRef: source.sourceRef,
+    sourceCommit: source.sourceCommit,
+    artifactObservation: {
+      generatorSha256,
+      sourceRef: source.sourceRef,
+      sourceCommit: source.sourceCommit,
+    },
     groupCount: GROUP_COUNT,
     artifactCount: artifacts.length,
     observerCount: observers.length,
@@ -1941,10 +1986,13 @@ export function generateCrossRepoExecutionArtifacts({
 export function checkGeneratedArtifacts({ profileRenderer = computeProfiledText } = {}) {
   const groupResults = generate({ profileRenderer, write: false });
   const logicArtifacts = generateCrawlerLogicArtifacts({ groupResults, write: false });
+  const committedContract = loadJson(PORTABLE_CONTRACT_PATH);
   const cross = generateCrossRepoExecutionArtifacts({
     groupResults,
     outDir: PORTABLE_CORPUS_DIR,
     contractPath: PORTABLE_CONTRACT_PATH,
+    sourceCommit: committedContract.sourceCommit,
+    sourceRef: committedContract.sourceRef,
     write: false,
   });
   const changed = [];
@@ -2169,6 +2217,7 @@ if (isMain) {
     });
     console.log(`Generated ${cross.artifacts.length} standalone corpus workflows -> ${outDir}`);
     console.log(`Cross-repo contract -> ${contractPath}`);
+    console.log(`Cross-repo source -> ${cross.contract.sourceRef}@${cross.contract.sourceCommit}`);
   } else {
     const cross = generateCrossRepoExecutionArtifacts({
       groupResults: results,
@@ -2176,6 +2225,7 @@ if (isMain) {
       contractPath: PORTABLE_CONTRACT_PATH,
     });
     console.log(`Generated ${cross.artifacts.length} portable corpus workflows -> ${PORTABLE_CORPUS_DIR}`);
+    console.log(`Cross-repo source -> ${cross.contract.sourceRef}@${cross.contract.sourceCommit}`);
   }
   if (rebalance) {
     console.log('⚠️  --rebalance: membership re-derived from scratch — expect all 23 files to change.');

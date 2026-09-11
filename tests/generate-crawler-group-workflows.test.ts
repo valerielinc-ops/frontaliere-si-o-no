@@ -21,7 +21,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -1174,10 +1174,19 @@ describe('cross-repo crawler execution artifacts', () => {
     });
     const outDir = path.join(tmp, 'workflows');
     const contractPath = path.join(tmp, 'crawler-cross-repo-contract.json');
+    // The committed portable artifacts are an observation of an explicit site
+    // revision.  Keep this fixture comparison on that same pin instead of
+    // letting CI's pull_request merge ref silently produce a different
+    // sourceRef/sourceCommit on every run.
+    const committedContract = JSON.parse(
+      fs.readFileSync(path.join(repoRoot, '.github/corpus-workflows/contract.json'), 'utf8'),
+    );
     const result = generateCrossRepoExecutionArtifacts({
       groupResults,
       outDir,
       contractPath,
+      sourceRef: committedContract.sourceRef,
+      sourceCommit: committedContract.sourceCommit,
     });
     return { ...result, outDir, contractPath };
   }
@@ -1317,6 +1326,14 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(fs.readFileSync(path.join(portableDir, 'contract.json'), 'utf8'))
       .toBe(fs.readFileSync(contractPath, 'utf8'));
     expect(contract.generatorSha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(contract.sourceCommit).toMatch(/^[a-f0-9]{40}$/);
+    expect(contract.sourceRef).toBeTruthy();
+    expect(contract.artifactObservation).toEqual({
+      generatorSha256: contract.generatorSha256,
+      sourceRef: contract.sourceRef,
+      sourceCommit: contract.sourceCommit,
+    });
+    expect(contract.artifacts.every((artifact: any) => artifact.generatorSha256 === contract.generatorSha256)).toBe(true);
     expect(contract.observerCount).toBe(CORPUS_OBSERVER_FILES.length);
     expect(contract.observers.map(({ source, target }: any) => ({ source, target })))
       .toEqual(CORPUS_OBSERVER_FILES);
@@ -1324,6 +1341,15 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(fs.readFileSync(path.join(outDir, observer.source), 'utf8'))
         .toBe(fs.readFileSync(path.join(portableDir, observer.source), 'utf8'));
     }
+  });
+
+  it('rifiuta un ancoraggio commit non osservabile e conserva ref/sha espliciti', () => {
+    expect(resolveCrawlerContractSource({
+      sourceCommit: 'a'.repeat(40),
+      sourceRef: 'main',
+    })).toEqual({ sourceCommit: 'a'.repeat(40), sourceRef: 'main' });
+    expect(() => resolveCrawlerContractSource({ sourceCommit: 'main', sourceRef: 'main' }))
+      .toThrow(/40-character source commit SHA/);
   });
 
   it('add/remove arriva al corpus eseguito e una nuova data lascia baseline allineate byte-identiche', () => {
