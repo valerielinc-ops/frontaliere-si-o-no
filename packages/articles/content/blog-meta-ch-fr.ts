@@ -6265,6 +6265,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.title': 'Primes caisse-maladie dans le canton du Jura : réductions et tranches 2024',
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.excerpt': 'Guide pratique des primes LAMal dans le canton du Jura : fourchettes de franchise, modèles alternatifs et conditions pour obtenir la réduction cantonale des primes.',
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.imageAlt': 'Carte d\'assurance maladie LAMal avec symboles cantonaux jurassiens et documents pour réduction de primes',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.title': 'Permis de séjour B dans le Jura : exigences, renouvellement et bureau compétent',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.excerpt': 'Découvrez comment fonctionne le permis B dans le canton du Jura, de la documentation à la procédure de renouvellement, en mettant l\'accent sur la fiscalité et l\'assurance obligatoire.',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.imageAlt': 'Office cantonal de la migration dans le canton du Jura, vue panoramique',
 };
 
 export default blogMetaChFr;

@@ -2114,6 +2114,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposte-cantonali-giura-aliquote-deduzioni': { it: 'imposte-cantonali-giura-aliquote-deduzioni', en: 'jura-cantonal-tax-rates-deductions', de: 'jura-kantonssteuer-saetze-abzuege', fr: 'impots-cantonaux-jura-taux-deductions' },
  'investimento-svizzero-usa-lonza': { it: 'investimento-svizzero-usa-lonza', en: 'swiss-investment-usa-lonza', de: 'schweizer-investition-usa-lonza', fr: 'investissement-suisse-usa-lonza' },
  'premi-cassa-malati-canton-giura-riduzioni': { it: 'premi-cassa-malati-canton-giura-riduzioni', en: 'health-insurance-premiums-jura-canton-reductions', de: 'krankenkassenpraemien-kanton-jura-verbilligungen', fr: 'primes-assurance-maladie-canton-jura-reductions' },
+ 'permesso-b-jura-requisiti-rinnovo': { it: 'permesso-b-jura-requisiti-rinnovo', en: 'permit-b-jura-requirements-renewal', de: 'aufenthaltsbewilligung-b-jura-anforderungen-verlaengerung', fr: 'permis-b-jura-exigences-renouvellement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
