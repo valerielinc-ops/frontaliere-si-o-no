@@ -77,11 +77,18 @@ export function fuelRowView(row: MunicipalityFuelRow, fuelType: FuelType): FuelR
 }
 export type FuelDataFreshness = 'current' | 'stale' | 'unknown';
 const DATASET_MAX_AGE_MS = 36 * 60 * 60 * 1000;
+const FUTURE_SKEW_TOLERANCE_MS = 5 * 60 * 1000;
 // `priceSnapshotDate` e' una data pura (mezzanotte UTC) e il feed MIMIT e' sistematicamente
 // indietro di un giorno: con la soglia dei timestamp pieni un dataset appena rigenerato
 // diventerebbe `stale` a meta' giornata. La data pura ha una tolleranza propria.
 const DATE_ONLY_MAX_AGE_MS = 48 * 60 * 60 * 1000;
 const DATE_ONLY_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * Classifies the dataset while allowing a small producer/client clock skew:
+ * `datasetFreshness()` clamps an accepted negative age to zero, but still
+ * rejects timestamps that are too far in the future to be a clock skew.
+ */
 export function datasetFreshness(data: FuelPricesDataset, now = Date.now()): FuelDataFreshness {
  const entries = [data.generatedAt, data.sources.italy.priceSnapshotDate, data.sources.switzerland.latestObservedUpdate]
   .map((value) => ({
@@ -90,7 +97,11 @@ export function datasetFreshness(data: FuelPricesDataset, now = Date.now()): Fue
   }))
   .filter((entry) => Number.isFinite(entry.timestamp));
  if (!entries.length) return 'unknown';
- return entries.every(({ timestamp, maxAgeMs }) => now - timestamp >= 0 && now - timestamp <= maxAgeMs) ? 'current' : 'stale';
+ return entries.every(({ timestamp, maxAgeMs }) => {
+  const rawAgeMs = now - timestamp;
+  const ageMs = Math.max(0, rawAgeMs);
+  return rawAgeMs >= -FUTURE_SKEW_TOLERANCE_MS && ageMs <= maxAgeMs;
+ }) ? 'current' : 'stale';
 }
 function recommendationToneForCode(code: string) { if (code === 'IT') return 'text-success bg-success-subtle border-success-border'; if (code === 'CH') return 'text-accent bg-accent-subtle border-accent-border'; if (code === 'SAME') return 'text-warning bg-warning-subtle border-warning-border'; return 'text-subtle bg-surface-alt/50 border-edge'; }
 
