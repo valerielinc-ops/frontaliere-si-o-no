@@ -132,7 +132,10 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  const trimmed = lines[i].trim();
 
  if (fence) {
-  paragraphBuf.push(trimmed);
+  // Keep the raw source while the trimmed view is only used to recognise the
+  // closing marker. Indentation is part of fenced code and must survive the
+  // SEO fallback just as it does in the SPA renderer.
+  paragraphBuf.push(lines[i]);
   if (markdownFenceCloses(trimmed, fence)) fence = null;
   i++;
   continue;
@@ -140,7 +143,7 @@ const buildArticleBodyBlocks = (text: string): string[] => {
 
  const openingFence = markdownFenceFor(trimmed);
  if (openingFence) {
-  paragraphBuf.push(trimmed);
+  paragraphBuf.push(lines[i]);
   fence = openingFence;
   i++;
   continue;

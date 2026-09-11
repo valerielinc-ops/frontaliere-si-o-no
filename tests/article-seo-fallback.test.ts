@@ -195,6 +195,22 @@ describe('article SEO fallback builder', () => {
       expect(section.html).not.toContain('<h3>');
       expect(section.html).toContain('heading interno');
     });
+
+    it('preserves code indentation while the fence is kept out of heading recovery', () => {
+      const fence = String.fromCharCode(96).repeat(3);
+      const [section] = cleanupArticleBodySections(keyed([
+        [
+          fence + 'ts',
+          '    const value = 1;',
+          '      return value;',
+          '  ' + fence,
+        ].join('\n'),
+      ]));
+
+      expect(section.html).not.toContain('<h3>');
+      expect(section.html).toContain('    const value = 1;');
+      expect(section.html).toContain('      return value;');
+    });
   });
 
   it('preserves the source key when an intermediate body section is empty, so heading pairing never shifts (#3205)', () => {
