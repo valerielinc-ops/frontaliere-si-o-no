@@ -70,14 +70,15 @@ export const JOB_BOARD_SECTION_RX =
   new RegExp(`(?:^|/)(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/`);
 
 /**
- * Matches the company-hub segment immediately below a job-board section.
+ * Matches the company-hub segment immediately below a job-board section,
+ * including both the directory index and the flat `.html` emitter output.
  * Keeping the section prefix in this shared matcher prevents page-weight
  * exceptions from accidentally covering a job-detail slug that happens to
  * start with `azienda-`/`company-`.
  */
 export const JOB_BOARD_COMPANY_HUB_PATH_RX = new RegExp(
   `^(?:/(?:en|de|fr))?/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/` +
-  '(?:azienda|company|unternehmen|entreprise)-[a-z0-9][a-z0-9-]*(?:/|$)',
+  '(?:azienda|company|unternehmen|entreprise)-[a-z0-9][a-z0-9-]*(?:/|\\.html$|$)',
 );
 
 /**

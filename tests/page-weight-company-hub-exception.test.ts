@@ -17,6 +17,10 @@ describe('audit:page-weight company hubs', () => {
       html,
     );
     auditor.collect(
+      resolve('dist/cerca-lavoro-argovia/azienda-sta-personal-ag.html'),
+      html,
+    );
+    auditor.collect(
       resolve('dist/cerca-lavoro-argovia/categoria-it/index.html'),
       html,
     );
