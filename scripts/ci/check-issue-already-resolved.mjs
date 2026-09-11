@@ -224,7 +224,8 @@ export function isAggregate(title, body) {
   // that wrongly blocked `pr-body-contract` on a fully-completed single item
   // (#3378).
   if (m) return Number(m[1]) >= 2;
-  if (/\b(?:sweep|batch|bulk)\b/i.test(titleText)) return true;
+  const bodyText = stripFencedBlocks(body);
+  if (/\b(?:sweep|batch|bulk)\b/i.test(`${titleText}\n${bodyText}`)) return true;
   return hasEnumeratedItems(body);
 }
 
