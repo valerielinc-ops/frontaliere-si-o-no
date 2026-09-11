@@ -3943,6 +3943,7 @@ Regole:
  'publisherDashboard.kpi.totalApplications': 'Candidature',
  'publisherDashboard.kpi.intentRate': 'Tasso di intento / clic',
  'publisherDashboard.kpi.noDataYet': 'Le statistiche si popolano man mano che i frontalieri vedono i tuoi annunci.',
+ 'publisherDashboard.analytics.dedupUnavailable': 'Dedup non disponibile',
  'publisherDashboard.adsHeading': 'I tuoi annunci',
  'publisherDashboard.bestPerformer': 'Il più visto',
  'publisherDashboard.empty.title': 'Qui nascono le tue candidature',

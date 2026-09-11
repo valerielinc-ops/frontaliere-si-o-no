@@ -218,17 +218,67 @@ export function createAnalyticsEmissionId(): string {
  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
+export const PAGE_VIEW_HISTORY_STATE_KEY = '__frontaliere_page_view_entry_id';
+
+type HistoryStateRecord = Record<string, unknown>;
+
+function isHistoryStateRecord(value: unknown): value is HistoryStateRecord {
+ if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
+ try {
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === Object.prototype || prototype === null;
+ } catch {
+  return false;
+ }
+}
+
+function readPageViewHistoryEntryId(state: unknown): string | null {
+ if (!isHistoryStateRecord(state)) return null;
+ const value = state[PAGE_VIEW_HISTORY_STATE_KEY];
+ return typeof value === 'string' && value.trim() ? value : null;
+}
+
+function stateForNewPageViewHistoryEntry(state: unknown, entryId: string): HistoryStateRecord | null {
+ if (state == null) return { [PAGE_VIEW_HISTORY_STATE_KEY]: entryId };
+ if (!isHistoryStateRecord(state)) return null;
+ return { ...state, [PAGE_VIEW_HISTORY_STATE_KEY]: entryId };
+}
+
+function stateForReplacedPageViewHistoryEntry(
+ state: unknown,
+ currentEntryId: string | null,
+ entryId: string,
+): HistoryStateRecord | null {
+ if (state == null) return { [PAGE_VIEW_HISTORY_STATE_KEY]: currentEntryId || entryId };
+ if (!isHistoryStateRecord(state)) return null;
+ return {
+  ...state,
+  [PAGE_VIEW_HISTORY_STATE_KEY]: readPageViewHistoryEntryId(state) || currentEntryId || entryId,
+ };
+}
+
 export interface AnalyticsPageViewEmission {
  path: string;
  emissionId: string;
+ historyEntry: string | null;
 }
 
-/** Reuse the emission id while the SPA remains on the same physical route. */
+/**
+ * Reuse the emission id only while the same page-view lifecycle is open.
+ * `historyEntry` changes on a new pushState entry; popstate/pagehide close the
+ * lifecycle explicitly, so elapsed time never decides whether a visit is new.
+ */
 export function getPageViewEmissionId(
  path: string,
  current: AnalyticsPageViewEmission | null,
+ historyEntry: string | null,
 ): string {
- if (current?.path === path && current.emissionId) return current.emissionId;
+ if (!historyEntry) return '';
+ if (
+  current?.path === path
+  && current.emissionId
+  && current.historyEntry === historyEntry
+ ) return current.emissionId;
  return createAnalyticsEmissionId();
 }
 
@@ -427,9 +477,16 @@ const setProps = (properties: Record<string, string>) => {
 let sessionStartTime = Date.now();
 let currentScreen = '/';
 let previousScreen = '';
-let lastTrackedPagePath = '';
 let lastTrackedPageAt = 0;
 let currentPageViewEmission: AnalyticsPageViewEmission | null = null;
+let pageViewLifecycleWindow: Window | null = null;
+let pageViewHistoryPatch: {
+ history: History;
+ originalPushState: History['pushState'];
+ originalReplaceState: History['replaceState'];
+ patchedPushState?: History['pushState'];
+ patchedReplaceState?: History['replaceState'];
+} | null = null;
 let _maxScrollDepth = 0;
 const ATTRIBUTION_KEY = 'ft_attribution_v1';
 const ATTRIBUTION_LOGGED_KEY = 'ft_attribution_logged_v1';
@@ -449,6 +506,117 @@ function claimQualifiedJobSession(): 'session_storage' | 'memory_only' | null {
  }
  qualifiedJobSessionEmitted = true;
  return deduplication;
+}
+
+function closePageViewLifecycle(): void {
+ currentPageViewEmission = null;
+}
+
+function restorePageViewHistoryPatch(): void {
+ if (!pageViewHistoryPatch) return;
+ const patch = pageViewHistoryPatch;
+ try {
+  if (patch.patchedPushState && patch.history.pushState === patch.patchedPushState) {
+   patch.history.pushState = patch.originalPushState;
+  }
+  if (patch.patchedReplaceState && patch.history.replaceState === patch.patchedReplaceState) {
+   patch.history.replaceState = patch.originalReplaceState;
+  }
+ } catch {
+  // History methods may be non-writable in a constrained host.
+ }
+ pageViewHistoryPatch = null;
+}
+
+function patchPageViewHistory(historyRef: History): void {
+ restorePageViewHistoryPatch();
+ const originalPushState = historyRef.pushState;
+ const originalReplaceState = historyRef.replaceState;
+ const patch: NonNullable<typeof pageViewHistoryPatch> = {
+  history: historyRef,
+  originalPushState,
+  originalReplaceState,
+ };
+
+ if (typeof originalPushState === 'function') {
+  const patchedPushState = function patchedPageViewPushState(
+   this: History,
+   state: unknown,
+   unused: string,
+   url?: string | URL | null,
+  ): void {
+   const entryId = createAnalyticsEmissionId();
+   const nextState = stateForNewPageViewHistoryEntry(state, entryId);
+   return originalPushState.call(this, nextState || state, unused, url);
+  } as History['pushState'];
+  try {
+   historyRef.pushState = patchedPushState;
+   patch.patchedPushState = patchedPushState;
+  } catch {
+   // Leave the host's History API untouched if it cannot be patched.
+  }
+ }
+
+ if (typeof originalReplaceState === 'function') {
+  const patchedReplaceState = function patchedPageViewReplaceState(
+   this: History,
+   state: unknown,
+   unused: string,
+   url?: string | URL | null,
+  ): void {
+   const currentEntryId = readPageViewHistoryEntryId(this.state);
+   const entryId = createAnalyticsEmissionId();
+   const nextState = stateForReplacedPageViewHistoryEntry(state, currentEntryId, entryId);
+   return originalReplaceState.call(this, nextState || state, unused, url);
+  } as History['replaceState'];
+  try {
+   historyRef.replaceState = patchedReplaceState;
+   patch.patchedReplaceState = patchedReplaceState;
+  } catch {
+   // Leave the host's History API untouched if it cannot be patched.
+  }
+ }
+
+ if (patch.patchedPushState || patch.patchedReplaceState) pageViewHistoryPatch = patch;
+}
+
+function ensurePageViewLifecycle(): void {
+ if (typeof window === 'undefined') return;
+ if (pageViewLifecycleWindow === window) return;
+
+ if (pageViewLifecycleWindow) {
+  if (typeof pageViewLifecycleWindow.removeEventListener === 'function') {
+   pageViewLifecycleWindow.removeEventListener('popstate', closePageViewLifecycle, true);
+   pageViewLifecycleWindow.removeEventListener('pagehide', closePageViewLifecycle, true);
+  }
+ }
+
+ pageViewLifecycleWindow = window;
+ const historyRef = (window as unknown as { history?: History }).history;
+ if (historyRef) patchPageViewHistory(historyRef);
+ closePageViewLifecycle();
+ if (typeof window.addEventListener === 'function') {
+  window.addEventListener('popstate', closePageViewLifecycle, true);
+  window.addEventListener('pagehide', closePageViewLifecycle, true);
+ }
+}
+
+function ensureCurrentPageViewHistoryEntryId(): string | null {
+ if (typeof window === 'undefined') return null;
+ const historyRef = (window as unknown as { history?: History }).history;
+ if (!historyRef) return null;
+ const currentEntryId = readPageViewHistoryEntryId(historyRef.state);
+ if (currentEntryId) return currentEntryId;
+ if (typeof historyRef.replaceState !== 'function') return null;
+ const entryId = createAnalyticsEmissionId();
+ const nextState = stateForReplacedPageViewHistoryEntry(historyRef.state, null, entryId);
+ if (!nextState) return null;
+ try {
+  historyRef.replaceState(nextState, '', '');
+  return readPageViewHistoryEntryId(historyRef.state) === entryId ? entryId : null;
+ } catch {
+  return null;
+ }
 }
 
 const getEngagementTime = () => Math.round((Date.now() - sessionStartTime) / 1000);
@@ -1008,8 +1176,12 @@ export const Analytics = {
  * on the initial page, which is a minor metric inflation but correct.
  */
  trackPageView: (path: string, title?: string, identity?: AnalyticsPageViewIdentity | null) => {
+ ensurePageViewLifecycle();
  const now = Date.now();
- if (path === lastTrackedPagePath && now - lastTrackedPageAt < 500) return;
+ const historyEntry = ensureCurrentPageViewHistoryEntryId();
+ // Do not use elapsed time to decide whether to emit. Re-emissions for the
+ // same history entry carry the same emission id and are collapsed downstream;
+ // a new entry gets a different id even when it has the same path.
  // NOTE: We intentionally do NOT skip Firebase page_view even when
  // window.__GTAG_PAGE_VIEW_SENT__ is set by static HTML pages.
  //
@@ -1031,14 +1203,13 @@ export const Analytics = {
  }
  // Calculate time spent on previous page (for pagesPerSession accuracy)
  const timeOnPrevPage = previousScreen ? now - lastTrackedPageAt : 0;
- lastTrackedPagePath = path;
  lastTrackedPageAt = now;
  previousScreen = currentScreen;
  currentScreen = path;
  _maxScrollDepth = 0; // Reset scroll tracking for new page
  const pageContext = deriveAnalyticsPageContext(path);
- const emissionId = getPageViewEmissionId(path, currentPageViewEmission);
- currentPageViewEmission = { path, emissionId };
+ const emissionId = getPageViewEmissionId(path, currentPageViewEmission, historyEntry);
+ currentPageViewEmission = { path, emissionId, historyEntry };
  log('page_view', {
  page_path: path,
  page_title: title || path,

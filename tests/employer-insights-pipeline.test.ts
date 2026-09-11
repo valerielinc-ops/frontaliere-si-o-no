@@ -325,6 +325,26 @@ describe('employer insights event coverage', () => {
     expect(result).toMatchObject({ observed: 2, removed: 0, dedupUnavailable: 0 });
   });
 
+  it('counts two real page views of the same route when their emission ids differ', () => {
+    const path = '/offerte-di-lavoro-ticino/role-it/';
+    const result = collapseTechnicalDuplicates([
+      event({ event: '$pageview', path, jobSlug: 'role-it', emissionId: 'page-view-visit-1' }),
+      event({ event: '$pageview', path, jobSlug: 'role-it', emissionId: 'page-view-visit-2' }),
+    ]);
+
+    expect(result).toMatchObject({ observed: 2, removed: 0, dedupUnavailable: 0 });
+  });
+
+  it('counts one page view when a retry shares its emission id', () => {
+    const path = '/offerte-di-lavoro-ticino/role-it/';
+    const result = collapseTechnicalDuplicates([
+      event({ event: '$pageview', path, jobSlug: 'role-it', emissionId: 'page-view-retry' }),
+      event({ event: '$pageview', path, jobSlug: 'role-it', emissionId: 'page-view-retry' }),
+    ]);
+
+    expect(result).toMatchObject({ observed: 1, removed: 1, dedupUnavailable: 0 });
+  });
+
   it('does not fuse events without an emission id and marks dedup as unavailable', () => {
     const rows = [
       event({ event: 'job_apply', eventKey: 'same-provider-key', emissionId: '' }),
@@ -693,14 +713,24 @@ describe('publisher apply-click deduplication', () => {
     });
   });
 
-  it('bounds the publisher emission ledger and marks overflow unavailable', () => {
+  it('does not recount an evicted retry when the publisher ledger reaches its limit', () => {
     const existing = Array.from({ length: 64 }, (_, index) => `click-${index + 1}`);
-    const next = appendApplyClickEmissionId(existing, 'click-65');
+    const overflow = decideApplyClickDedup({ eventId: 'click-65', seenEventIds: existing });
+    const next = appendApplyClickEmissionId(existing, overflow.record ? 'click-65' : null);
+    const retry = decideApplyClickDedup({ eventId: 'click-1', seenEventIds: next.emissionIds });
 
-    expect(next).toMatchObject({ unavailable: 1 });
+    expect(overflow).toMatchObject({
+      record: false,
+      removed: 0,
+      unavailable: 1,
+      status: 'dedup non disponibile',
+      reason: 'dedup_unavailable',
+    });
+    expect(next).toMatchObject({ unavailable: 0 });
     expect(next.emissionIds).toHaveLength(64);
-    expect(next.emissionIds[0]).toBe('click-2');
-    expect(next.emissionIds.at(-1)).toBe('click-65');
+    expect(next.emissionIds[0]).toBe('click-1');
+    expect(next.emissionIds.at(-1)).toBe('click-64');
+    expect(retry).toMatchObject({ record: false, removed: 1, unavailable: 0, status: 'available' });
   });
 
   it('passes a stable emission id at every publisher apply callsite', () => {
