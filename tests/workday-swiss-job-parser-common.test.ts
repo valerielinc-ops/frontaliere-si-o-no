@@ -193,3 +193,53 @@ describe('createWorkdaySwissParser — externalPath location fallback (Medbase: 
     expect(jobs.some((j: any) => j.title === 'Foreign Consultant')).toBe(false);
   });
 });
+
+describe('createWorkdaySwissParser — detail location wins over an N Locations listing roll-up', () => {
+  const ORIGINAL_FETCH = global.fetch;
+
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  it('uses the Swiss detail location instead of the configured HQ fallback', async () => {
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Medical Scientific Liaison',
+            externalPath: '/job/Lausanne/Medical-Scientific-Liaison_JR1',
+            locationsText: '2 Locations',
+            postedOn: 'Posted Today',
+            bulletFields: ['JR1'],
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: {
+          location: 'Lausanne',
+          additionalLocations: [{ descriptor: 'Zug' }],
+          jobDescription: '<p>Detailed role description with enough content for a realistic vacancy, including responsibilities, required qualifications, team context, and practical application information.</p>',
+        },
+      }), { status: 200 });
+    });
+
+    const parser = createWorkdaySwissParser({
+      companyKey: 'galderma',
+      companyName: 'Galderma',
+      companyDomain: 'galderma.com',
+      tenantHost: 'galderma.wd3.myworkdayjobs.com',
+      sitePath: 'External',
+      defaultCanton: 'ZG',
+      defaultCity: 'Zug',
+    });
+
+    const jobs = await parser.fetchAllJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ location: 'Lausanne', canton: 'VD' });
+    expect(jobs[0].description).toContain('Detailed role description');
+  });
+});

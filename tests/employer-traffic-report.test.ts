@@ -3,6 +3,7 @@ import {
   aggregateGa4Rows,
   comparePostHogCompany,
   postHogBaseQuery,
+  reportPayload,
   resolveGa4Employers,
 } from '../scripts/employer-traffic-report.mjs';
 
@@ -60,6 +61,34 @@ describe('aggregateGa4Rows', () => {
 
     expect(result.employers).toHaveLength(1);
     expect(result.employers[0]).toMatchObject({ key: 'acme', observed: 0, applyClicks: 0 });
+  });
+
+  it('keeps zero-valued GA4 employers out of the printed table without non-finite totals', () => {
+    const companies = new Map([
+      ['acme', { key: 'acme', name: 'Acme SA', aliases: new Set(['acme']) }],
+    ]);
+    const [row] = aggregateGa4Rows([ga4Row('acme', false, 0, 0, 0)]);
+    const resolved = resolveGa4Employers([row], companies);
+    const payload = reportPayload({
+      source: 'ga4',
+      window: WINDOW,
+      data: {
+        coverage: {
+          observed: resolved.observed,
+          attributed: resolved.attributed,
+          residuals: resolved.residuals,
+          residualTotal: 0,
+          limits: { groups: { limit: 1, pageSize: 1, totalBeforeCut: 1, returned: 1, pages: 1, truncated: false } },
+        },
+      },
+      rows: resolved.employers,
+      min: 1,
+      days: 90,
+    });
+
+    expect(payload.employers).toHaveLength(0);
+    expect(payload.totals).toMatchObject({ applyClickProxy: 0, applyClicks: 0, persons: 0, sessions: 0, clicks: 0 });
+    expect(JSON.stringify(payload)).not.toMatch(/NaN|Infinity/);
   });
 });
 

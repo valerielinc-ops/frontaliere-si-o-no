@@ -27,7 +27,7 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetail,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -81,6 +81,31 @@ function locationFromExternalPath(externalPath = '') {
   } catch {
     return parts[1].trim();
   }
+}
+
+function locationDescriptor(value) {
+  if (typeof value === 'string') return value;
+  return value?.descriptor || value?.location || value?.name || '';
+}
+
+/**
+ * Resolve a Swiss city from the detail payload's primary/additional locations.
+ * Workday listing rows often collapse multi-location vacancies to `N Locations`;
+ * the detail payload is the per-vacancy source of truth in that case.
+ */
+function locationFromDetail(detail) {
+  const info = detail?.jobPostingInfo || {};
+  const candidates = [
+    info.location,
+    ...(Array.isArray(info.additionalLocations) ? info.additionalLocations : []),
+  ];
+  for (const candidate of candidates) {
+    const raw = locationDescriptor(candidate);
+    if (!raw || isLocationExplicitlyForeign(raw)) continue;
+    const cleaned = cleanWorkdayLocation(raw);
+    if (cleaned && inferSwissTargetCanton(cleaned)) return cleaned;
+  }
+  return '';
 }
 
 function detectCategory(title = '') {
@@ -263,12 +288,35 @@ export function createWorkdaySwissParser(config) {
       // non-empty and slip the posting past the guard below, mislabelling it as
       // the HQ canton. Keep the raw empty so the guard drops it. The facet path
       // (board already CH-only) keeps the benign HQ fallback.
-      const rawLocation = listing.locationRaw || (strictSwiss ? '' : defaultCity);
+      // Fetch detail once: besides the body it carries the real primary and
+      // additional locations when the listing is an `N Locations` roll-up.
+      let detail = null;
+      try {
+        detail = await fetchWorkdayJobDetail(API_BASE, listing.externalPath);
+      } catch {
+        detail = null;
+      }
+      const detailInfo = detail?.jobPostingInfo || {};
+      const detailLocations = [
+        detailInfo.location,
+        ...(Array.isArray(detailInfo.additionalLocations) ? detailInfo.additionalLocations : []),
+      ].map(locationDescriptor).filter(Boolean);
+      const detailLocation = locationFromDetail(detail);
+      const detailIsForeignOnly = detailLocations.length > 0
+        && !detailLocation
+        && detailLocations.some((value) => isLocationExplicitlyForeign(value));
+      const listingRawLocation = listing.locationRaw || (strictSwiss ? '' : defaultCity);
+      if (detailIsForeignOnly) {
+        console.log(`  ⏭️  Skipped foreign detail location: ${detailLocations.join(' | ')} — ${title}`);
+        continue;
+      }
+      const rawLocation = detailLocation || listingRawLocation;
       if (isLocationExplicitlyForeign(rawLocation)) {
         console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
         continue;
       }
       let cleaned = cleanWorkdayLocation(rawLocation);
+      if (!cleaned && detailLocation) cleaned = detailLocation;
       // In strict mode an empty `cleaned` means the listing exposed no usable
       // single Swiss location from `locationsText` — a multi-site "N Locations"
       // rollup, an unparseable string, or an absent location. Before dropping,
@@ -312,13 +360,14 @@ export function createWorkdaySwissParser(config) {
       const canton = inferredCanton || defaultCanton;
       const publicUrl = listing.url || careerUrl || PUBLIC_BASE;
 
-      // Workday listing endpoint never returns the body — fetch detail.
-      let detailDescription = '';
-      try {
-        detailDescription = await fetchWorkdayJobDescriptionText(API_BASE, listing.externalPath, stripHtml);
-      } catch {
-        detailDescription = '';
-      }
+      const detailDescription = detailInfo.jobDescription
+        ? stripHtml(String(detailInfo.jobDescription))
+          .replace(/[ \t]+/g, ' ')
+          .replace(/[ \t]*\n[ \t]*/g, '\n')
+          .replace(/\n{3,}/g, '\n\n')
+          .trim()
+          .slice(0, 4000)
+        : '';
       await new Promise((r) => setTimeout(r, 350));
 
       const fallbackDescription = [

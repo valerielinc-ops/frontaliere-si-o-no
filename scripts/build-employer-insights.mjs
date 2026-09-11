@@ -794,6 +794,10 @@ function queryCoverageOrDefault(queryCoverage, coverage, window) {
     queryHash: query.queryHash || null,
     snapshotId: query.snapshotId || null,
     sourceObserved: query.sourceObserved ?? coverage.rawObserved,
+    sourceResponse: query.sourceResponse ?? null,
+    sourceResponseRows: query.sourceResponseRows ?? null,
+    groupedResponse: query.groupedResponse ?? null,
+    groupedResponseRows: query.groupedResponseRows ?? null,
     from: window.from,
     to: window.to,
   };
@@ -830,6 +834,10 @@ export function buildDryRunPayload({
       truncated: normalizedCoverage.truncated,
       queryHash: normalizedCoverage.queryHash,
       snapshotId: normalizedCoverage.snapshotId,
+      sourceResponse: normalizedCoverage.sourceResponse,
+      sourceResponseRows: normalizedCoverage.sourceResponseRows,
+      groupedResponse: normalizedCoverage.groupedResponse,
+      groupedResponseRows: normalizedCoverage.groupedResponseRows,
     },
     documents,
   };
@@ -973,6 +981,8 @@ export function buildInsightsDocuments({
       profileTrend,
       coverage: {
         ...aggregate.coverage,
+        sourceResponse: eventLimits.sourceResponse,
+        sourceResponseRows: eventLimits.sourceResponseRows,
         residuals: { ...aggregate.coverage.residuals },
         identityResolution: {
           method: 'explicit_alias',
@@ -1006,6 +1016,10 @@ export function buildInsightsDocuments({
         pages: eventLimits.pages,
         pageSize: eventLimits.pageSize,
         truncated: eventLimits.truncated,
+        sourceResponse: eventLimits.sourceResponse,
+        sourceResponseRows: eventLimits.sourceResponseRows,
+        groupedResponse: eventLimits.groupedResponse,
+        groupedResponseRows: eventLimits.groupedResponseRows,
       },
     };
     if (Object.keys(additionalWindows).length) doc.additionalWindows = additionalWindows;
@@ -1200,6 +1214,26 @@ function eventCountSelect(window) {
   `.trim();
 }
 
+function readPostHogCountResult(rows, label) {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    throw new Error(`posthog ${label} count response unavailable`);
+  }
+  const first = rows[0];
+  const raw = Array.isArray(first) ? first[0] : first?.total;
+  if (raw === undefined || raw === null || raw === '') {
+    throw new Error(`posthog ${label} count response invalid`);
+  }
+  const value = Number(raw);
+  if (!Number.isFinite(value)) {
+    throw new Error(`posthog ${label} count response invalid`);
+  }
+  return {
+    count: Math.max(0, Math.trunc(value)),
+    response: 'present',
+    rawRows: rows.length,
+  };
+}
+
 export async function queryEventRows(window, { query: runQuery = hogql, pageSize = EVENT_QUERY_PAGE_SIZE } = {}) {
   const baseQuery = eventSelect(window);
   const queryHash = sha256(baseQuery);
@@ -1207,8 +1241,10 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
     runQuery('SELECT count() AS total FROM (' + baseQuery + ')'),
     runQuery(eventCountSelect(window)),
   ]);
-  const groupedRowsBeforeCut = Math.max(0, Math.trunc(numberOr(countRows?.[0]?.[0] ?? countRows?.[0]?.total, 0)));
-  const sourceObserved = Math.max(0, Math.trunc(numberOr(sourceCountRows?.[0]?.[0] ?? sourceCountRows?.[0]?.total, 0)));
+  const groupedCount = readPostHogCountResult(countRows, 'grouped');
+  const sourceCount = readPostHogCountResult(sourceCountRows, 'source');
+  const groupedRowsBeforeCut = groupedCount.count;
+  const sourceObserved = sourceCount.count;
   const rows = [];
   let pages = 0;
   let cursor = null;
@@ -1243,6 +1279,10 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
       queryHash,
       snapshotId: sha256(`${queryHash}:${window.from}:${window.to}`),
       sourceObserved,
+      sourceResponse: sourceCount.response,
+      sourceResponseRows: sourceCount.rawRows,
+      groupedResponse: groupedCount.response,
+      groupedResponseRows: groupedCount.rawRows,
     },
   };
 }

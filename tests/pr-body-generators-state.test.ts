@@ -32,6 +32,7 @@ import { describe, it, expect, beforeAll } from 'vitest';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import YAML from 'yaml';
 
 import {
   bulletState,
@@ -158,8 +159,39 @@ function isPlaceholder(bullet: string): boolean {
  * indentazione come vuole lo scalare YAML: il blocco finisce alla prima riga
  * non vuota con indentazione minore o uguale a quella della chiave.
  */
-function promptBlocks(text: string): string[] {
+type PromptBlock = { prompt: string; renderedWith: string };
+
+/**
+ * The server limit applies to the rendered `with:` mapping, not just to its
+ * `prompt` scalar. YAML comments and indentation are not sent to the action;
+ * all inputs in the mapping are. Parse the workflow so the guard measures the
+ * same values GitHub passes to the action, including non-prompt inputs.
+ */
+function renderedWithBlocks(text: string): string[] {
+  if (!/^\s*prompt:\s*[|>]/m.test(text)) return [];
+  let document: any;
+  try {
+    document = YAML.parse(text);
+  } catch {
+    return [];
+  }
   const out: string[] = [];
+  for (const job of Object.values<any>(document?.jobs ?? {})) {
+    for (const step of job?.steps ?? []) {
+      if (typeof step?.with?.prompt !== 'string') continue;
+      out.push(
+        Object.entries(step.with)
+          .map(([key, value]) => `${key}: ${typeof value === 'string' ? value : String(value)}`)
+          .join('\n'),
+      );
+    }
+  }
+  return out;
+}
+
+function promptBlocks(text: string): PromptBlock[] {
+  const out: PromptBlock[] = [];
+  const renderedWith = renderedWithBlocks(text);
   const lines = text.split(/\r?\n/);
   for (let i = 0; i < lines.length; i++) {
     const m = /^(\s*)prompt:\s*[|>](?:[+-]?\d?|\d?[+-]?)(?:[ \t]+(?:#.*)?)?$/.exec(lines[i]);
@@ -173,7 +205,8 @@ function promptBlocks(text: string): string[] {
       if (ind <= indent) break;
       buf.push(l);
     }
-    out.push(buf.join('\n'));
+    const prompt = buf.join('\n');
+    out.push({ prompt, renderedWith: renderedWith[out.length] ?? prompt });
   }
   return out;
 }
@@ -229,10 +262,10 @@ describe('generatori del body PR — sezione dei residui', () => {
 
     const offenders: string[] = [];
     for (const workflow of workflowSources) {
-      for (const [index, prompt] of promptBlocks(workflow.text).entries()) {
-        if (prompt.length > 20_000) {
+      for (const [index, block] of promptBlocks(workflow.text).entries()) {
+        if (block.renderedWith.length > 20_000) {
           offenders.push(
-            `${workflow.rel} prompt #${index + 1}: ${prompt.length} caratteri; `
+            `${workflow.rel} with #${index + 1}: ${block.renderedWith.length} caratteri; `
               + 'GitHub può rendere invalido il workflow, avviarlo senza job e fermarne il loop',
           );
         }
@@ -319,7 +352,7 @@ describe('generatori del body PR — sezione dei residui', () => {
     const covered: string[] = [];
     for (const s of sources) {
       const blocks = promptBlocks(s.text);
-      if (!blocks.some((b) => WRITES.test(b) && MENTIONS.test(b))) continue;
+      if (!blocks.some((b) => WRITES.test(b.prompt) && MENTIONS.test(b.prompt))) continue;
       covered.push(s.rel);
       const missing = RESIDUAL_STATE_LITERALS
         .map((lit) => lit.replace(/\s*<[^>]*>$/, '').replace(/\s*#N$/, ''))

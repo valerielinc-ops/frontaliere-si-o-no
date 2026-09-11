@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   aggregateApplicationEvidence,
+  aggregateEmployerEvents,
   assertCompleteEventCoverage,
   buildIdentityCatalog,
   buildDryRunPayload,
@@ -10,6 +11,7 @@ import {
   collapseTechnicalDuplicates,
   queryGa4EventRows,
   queryEventRows,
+  resolveEventIdentity,
 } from '../scripts/build-employer-insights.mjs';
 import { validateEmployerInsightsPayload } from '../scripts/ci/validate-employer-insights-payload.mjs';
 import {
@@ -479,6 +481,59 @@ describe('employer insights technical deduplication', () => {
     expect(result.dedupUnavailable).toBe(3);
   });
 
+  it('accounts for item_id-only identity loss instead of guessing an ad', () => {
+    const aliasCatalog = buildIdentityCatalog([job()]);
+    const aliasRow = event({
+      event: 'select_content',
+      eventKey: 'item-id-only',
+      jobSlug: '',
+      itemId: 'acme_role-it',
+      contentType: 'job_board_apply',
+    });
+    const aliasIdentity = resolveEventIdentity(aliasRow, aliasCatalog);
+    expect(aliasIdentity).toMatchObject({ scope: 'company', companyKey: 'acme' });
+
+    const aliasAggregate = aggregateEmployerEvents([aliasRow], {
+      catalog: aliasCatalog,
+      window: WINDOW,
+    });
+    expect(aliasAggregate.coverage).toMatchObject({ observed: 1, attributed: 1, residualTotal: 0, invariant: true });
+    expect(aliasAggregate.states.get('acme')?.ads.size).toBe(0);
+
+    const ambiguousCatalog = buildIdentityCatalog([
+      job({ id: 'job-first', companyKey: 'first', company: 'Shared Co', slug: 'role-first' }),
+      job({ id: 'job-second', companyKey: 'second', company: 'Shared Co', slug: 'role-second' }),
+    ]);
+    const ambiguousRow = event({
+      eventKey: 'ambiguous-item-id',
+      jobSlug: '',
+      itemId: 'shared-co_role',
+    });
+    const unidentifiedRow = event({
+      eventKey: 'unidentified-event',
+      jobSlug: '',
+      itemId: '',
+      employerKey: '',
+      path: '',
+      jobId: '',
+      providerId: '',
+    });
+    expect(resolveEventIdentity(ambiguousRow, ambiguousCatalog)).toMatchObject({ residual: 'ambiguous_company_alias' });
+    expect(resolveEventIdentity(unidentifiedRow, ambiguousCatalog)).toMatchObject({ residual: 'unidentified_event' });
+
+    const residualAggregate = aggregateEmployerEvents([ambiguousRow, unidentifiedRow], {
+      catalog: ambiguousCatalog,
+      window: WINDOW,
+    });
+    expect(residualAggregate.coverage).toMatchObject({
+      observed: 2,
+      attributed: 0,
+      residualTotal: 2,
+      invariant: true,
+      residuals: { ambiguous_company_alias: 1, unidentified_event: 1 },
+    });
+  });
+
   it('uses a non-empty event key as the final total cursor discriminator', () => {
     expect(EMPLOYER_INSIGHTS_SOURCE).toContain('const EVENT_KEY_EXPRESSION');
     expect(EMPLOYER_INSIGHTS_SOURCE).toContain('properties.$insert_id');
@@ -583,6 +638,27 @@ describe('employer insights technical deduplication', () => {
     expect(pageQueries[1]).toContain('timestamp >');
     expect(pageQueries[1]).toContain("2026-09-01 12:00:01.000000");
     expect(pageQueries[1]).toContain('cursor_event_key');
+  });
+
+  it('distinguishes an empty provider response from an explicit zero count', async () => {
+    await expect(queryEventRows(WINDOW, {
+      query: async () => [],
+      pageSize: 1,
+    })).rejects.toThrow('count response unavailable');
+
+    const runQuery = async (query: string) => {
+      if (query.startsWith('SELECT count() AS total FROM (')) return [[0]];
+      if (query.includes('SELECT count() AS total') && query.includes('FROM events')) return [[0]];
+      return [];
+    };
+    const result = await queryEventRows(WINDOW, { query: runQuery, pageSize: 1 });
+    expect(result.coverage).toMatchObject({
+      sourceObserved: 0,
+      sourceResponse: 'present',
+      sourceResponseRows: 1,
+      groupedResponse: 'present',
+      groupedResponseRows: 1,
+    });
   });
 
   it('converts a non-UTC object cursor to UTC before resuming', async () => {

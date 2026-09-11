@@ -36,6 +36,7 @@ import {
 import {
   generateBorderWaitArchives,
   generateBorderWaitPages,
+  renderFastestCrossingCard,
   type BorderWaitCurrent,
   type BorderWaitHistoryDay,
 } from '../build-plugins/borderWaitPagesPlugin';
@@ -182,6 +183,16 @@ describe('borderWaitData — router helpers', () => {
 // ── Page-generator tests ──────────────────────────────────────────
 
 describe('borderWaitPagesPlugin — page generation', () => {
+  it('keeps a valid zero-minute crossing in a mixed fastest-crossing hero', () => {
+    const html = renderFastestCrossingCard([
+      { slug: 'zero-crossing', labelIt: 'Zero crossing', waitTimeMinutes: 0 },
+      { slug: 'slow-crossing', labelIt: 'Slow crossing', waitTimeMinutes: 5 },
+    ], 'it');
+
+    expect(html).toContain('Zero crossing');
+    expect(html).toContain('0 min');
+  });
+
   const today = new Date('2026-04-21T06:00:00.000Z');
   const pages = generateBorderWaitPages({ current: MINIMAL_CURRENT, history: [], today });
 
@@ -305,6 +316,7 @@ describe('borderWaitPagesPlugin — page generation', () => {
     // 'crociale-dei-mulini' is not in MINIMAL_CURRENT.perCrossing
     const html = pages[buildOggiPath('it', 'crociale-dei-mulini')];
     expect(html).toContain('Dati statistici');
+    expect(html).toContain('Tempi di attesa non disponibili');
   });
 
   it('leaf pages without history show the "storico in accumulo" notice', () => {

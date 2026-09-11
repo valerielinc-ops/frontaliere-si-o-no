@@ -102,6 +102,23 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+const COUNTRY_ONLY_LOCATION_RX = /^(?:switzerland|schweiz|suisse|svizzera|ch)(?:\s*\([^)]*\))?$/i;
+
+/**
+ * Prefer Swisslog's listing locality over the detail JSON-LD locality.
+ *
+ * The listing facet is vacancy-specific (for example, `Buchs,
+ * Switzerland`), while the detail JSON-LD currently exposes `Argovia` for
+ * the same jobs. A country-only listing label is not useful, so in that case
+ * the structured detail locality remains the fallback.
+ */
+export function resolveSwisslogListingCity(locationLabel = '', detailAddressLocality = '') {
+  const label = normalizeSpace(locationLabel);
+  const listingCity = normalizeSpace(label.split(',')[0] || label);
+  if (listingCity && !COUNTRY_ONLY_LOCATION_RX.test(listingCity)) return listingCity;
+  return normalizeSpace(detailAddressLocality);
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -314,8 +331,9 @@ async function fetchJobListings() {
       const locationLabel = Array.isArray(item?.facetsTop) && item.facetsTop.length
         ? item.facetsTop[0]
         : '';
-      const cityRaw = normalizeSpace(
-        address.addressLocality || (locationLabel.split(',')[0] || ''),
+      const cityRaw = resolveSwisslogListingCity(
+        locationLabel,
+        address.addressLocality || '',
       );
 
       listings.push({

@@ -20,11 +20,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { extractDetailFields, extractJsonLd } from './lib/prospector/extract.mjs';
+import { resolveSourceBackedSwissGeography } from './lib/prospector/location-evidence.mjs';
 import { readAttr } from './lib/html-attr.mjs';
 import {
+  canonicalSwissCityName,
   findSwissCityInText,
   isCantonOnlyLabel,
   isKnownSwissMunicipality,
+  swissMunicipalityCantons,
 } from './lib/target-swiss-locations.mjs';
 import {
   FOREIGN_COUNTRY_NAME_LABELS,
@@ -443,6 +446,33 @@ function swissMunicipalityKey(value) {
 }
 
 /**
+ * Resolve a municipality when the source appends a site/neighbourhood label
+ * that is not itself in the BFS snapshot (`Carouge La Praille`). The exact
+ * canton-only guard remains in force, so `Appenzell Ausserrhoden` cannot be
+ * reduced to the municipality prefix `Appenzell`.
+ */
+function municipalityKeyWithDescriptor(value) {
+  const text = plainText(value);
+  if (!text) return '';
+  // `isCantonOnlyLabel` deliberately treats bare ambiguous municipality names
+  // such as Carouge as canton-like. An exact BFS municipality membership is
+  // stronger evidence and is safe to use here.
+  const exactCantons = swissMunicipalityCantons(text);
+  if (isCantonOnlyLabel(text) && exactCantons.length === 0) return '';
+  const exact = swissMunicipalityKey(text);
+  if (exact) return exact;
+  if (exactCantons.length > 0) return normalizePlace(canonicalSwissCityName(text));
+  const words = text.split(/\s+/).filter(Boolean);
+  for (let length = words.length - 1; length > 0; length -= 1) {
+    const prefix = words.slice(0, length).join(' ');
+    if (swissMunicipalityCantons(prefix).length > 0) {
+      return normalizePlace(canonicalSwissCityName(prefix));
+    }
+  }
+  return '';
+}
+
+/**
  * A source candidate that repeats the published locality is the trailing
  * region component — not the workplace — when an earlier candidate already
  * named a different commune: `Winterthur, Zürich` and `Lyss, Bern Grossraum`
@@ -476,7 +506,7 @@ export function sourceLocationMatches(published, source) {
 
   const publishedCandidates = plainText(published).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
   const sourceCandidates = plainText(source).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
-  const publishedMunicipality = swissMunicipalityKey(published);
+  const publishedMunicipality = municipalityKeyWithDescriptor(published);
   for (const publishedCandidate of publishedCandidates) {
     const publishedTokens = canonicalLocationTokens(publishedCandidate);
     if (!publishedTokens.length) continue;
@@ -486,7 +516,7 @@ export function sourceLocationMatches(published, source) {
       if (!sourceTokens.length) continue;
       const publishedHasPostalCode = /\b\d{4,5}\b/.test(publishedCandidate);
       const candidateHasPostalCode = /\b\d{4,5}\b/.test(rawSourceCandidate);
-      const sourceMunicipality = swissMunicipalityKey(rawSourceCandidate);
+      const sourceMunicipality = municipalityKeyWithDescriptor(rawSourceCandidate);
       const trailingRegion = sourceIndex > 0 && !candidateHasPostalCode
         && precededByOtherLocality(sourceCandidates, sourceIndex, sourceMunicipality);
       // In structured `city, canton` values, a published city must not pass only
@@ -563,10 +593,17 @@ function elementValue(html, openTagEnd, tagName, attrs) {
  * promoted merely because a different job-scoped location exists later.
  */
 export function extractSourceLocationObservation(html = '', pageUrl = '') {
-  const structured = extractJsonLd(html, pageUrl)
+  const structuredCandidates = extractJsonLd(html, pageUrl)
     .flatMap((item) => (item.locationCandidates || [])
       .filter((candidate) => isUsableSourceLocation(candidate.location, candidate)))
-    .at(0);
+  // A JobPosting may list a foreign tenant/primary office first and the Swiss
+  // workplace in a later location. This audit runs on a Swiss corpus: prefer a
+  // candidate that independently resolves to Swiss geography, while retaining
+  // the first authoritative candidate for foreign-only postings so a bad
+  // Swiss default still remains visible.
+  const structured = structuredCandidates.find((candidate) => (
+    resolveSourceBackedSwissGeography(candidate)
+  )) || structuredCandidates.at(0);
   if (structured) return { location: structured.location, evidence: 'jsonld' };
 
   const stack = [];

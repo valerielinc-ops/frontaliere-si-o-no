@@ -334,10 +334,13 @@ describe('the autonomous fixers read declared states before contradicting them (
     // NEW prompt text hinges on: the two halves of `blocked:` decide opposite
     // ways, in the module AND in the gate the prompts cite.
     const owner = '- il flag lo decide il proprietario — blocked: decisione del proprietario';
+    const ownerEnglish = '- the owner decides the flag — blocked: owner decision';
     const technical = '- attende il repo gemello — blocked: il mirror è manuale';
     expect((sections as any).bulletState(owner)).toBe('blocked-owner');
+    expect((sections as any).bulletState(ownerEnglish)).toBe('blocked-owner');
     expect((sections as any).bulletState(technical)).toBe('blocked-technical');
     expect(isCandidateItem(owner), 'blocked-owner must NOT reopen as a follow-up').toBe(false);
+    expect(isCandidateItem(ownerEnglish), 'English blocked-owner must NOT reopen as a follow-up').toBe(false);
     expect(isCandidateItem(technical), 'blocked-technical must stay open work').toBe(true);
 
     // And the property that makes `sectionBullets` mandatory in the prompts: a
