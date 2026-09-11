@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-09-11T13:53:20.377Z",
+  "generatedAt": "2026-09-11T23:21:55.141Z",
   "total": 20,
   "newCount": 0,
   "updatedCount": 19,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 63167,
-  "avgDurationMs": 63167,
+  "durationMs": 67010,
+  "avgDurationMs": 67010,
   "durationHistory": [
-    63167
+    67010
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -660,7 +660,7 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

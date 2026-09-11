@@ -1,6 +1,6 @@
 {
   "crawlerKey": "empa",
-  "assembledAt": "2026-09-11T13:53:19.066Z",
+  "assembledAt": "2026-09-11T23:21:48.979Z",
   "jobs": [
     {
       "id": "empa-8d5a51c62388",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/673276/2176/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.759Z",
+      "crawledAt": "2026-09-11T23:21:43.448Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -115,7 +115,7 @@
       "url": "https://apply.refline.ch/673276/2181/pub/4/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.757Z",
+      "crawledAt": "2026-09-11T23:21:43.447Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -151,8 +151,8 @@
           "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.182Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.182Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -198,7 +198,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:11.756Z",
+      "crawledAt": "2026-09-11T23:21:43.445Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -256,8 +256,8 @@
           "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.178Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.178Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -303,7 +303,7 @@
       "url": "https://apply.refline.ch/673276/2206/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:11.754Z",
+      "crawledAt": "2026-09-11T23:21:43.444Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -376,8 +376,8 @@
           "apprenti-e-polymechaniker-in-a-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.167Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.167Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -423,7 +423,7 @@
       "url": "https://apply.refline.ch/673276/2207/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.753Z",
+      "crawledAt": "2026-09-11T23:21:43.443Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -443,6 +443,7 @@
       "jobReqId": "2207",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:39:25.164Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -456,8 +457,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "empa-3f0d824112e5",
@@ -490,7 +490,7 @@
       "url": "https://apply.refline.ch/673276/2209/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.751Z",
+      "crawledAt": "2026-09-11T23:21:43.442Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -528,8 +528,8 @@
           "position-postdoc-dans-l-histopathologie-par-rayons-x-3d-des-tumeurs-colorectales-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.163Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.163Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -575,7 +575,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:11.750Z",
+      "crawledAt": "2026-09-11T23:21:43.440Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -654,8 +654,8 @@
           "lernende-r-physiklaborant-in-a-empa-thun"
         ]
       },
-      "firstSeenAt": "2026-07-07T22:14:30.867Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-07T22:14:30.867Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -701,7 +701,7 @@
       "url": "https://apply.refline.ch/673276/2217/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.748Z",
+      "crawledAt": "2026-09-11T23:21:43.439Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -783,7 +783,7 @@
       "url": "https://apply.refline.ch/673276/2218/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.747Z",
+      "crawledAt": "2026-09-11T23:21:43.438Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -803,6 +803,7 @@
       "jobReqId": "2218",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T22:55:02.889Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -816,8 +817,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "empa-d5c944130420",
@@ -850,7 +850,7 @@
       "url": "https://apply.refline.ch/673276/2220/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:11.746Z",
+      "crawledAt": "2026-09-11T23:21:43.437Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -919,8 +919,8 @@
           "leader-du-groupe-en-electric-80-100-a-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-08-06T11:49:43.418Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-06T11:49:43.418Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -966,7 +966,7 @@
       "url": "https://apply.refline.ch/673276/2222/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.743Z",
+      "crawledAt": "2026-09-11T23:21:43.435Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1002,8 +1002,8 @@
           "phd-position-in-nanomedicine-quantitative-design-of-multi-cargo-nanoparticles-for-cancer"
         ]
       },
-      "firstSeenAt": "2026-08-11T10:36:02.292Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-11T10:36:02.292Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1049,7 +1049,7 @@
       "url": "https://apply.refline.ch/673276/2221/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.740Z",
+      "crawledAt": "2026-09-11T23:21:43.433Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1122,8 +1122,8 @@
           "chercheur-postdoctoral-en-ceramique-proton-conducteurs-et-semi-conducteur-photoelectrochimie-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-08-12T22:09:11.999Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-12T22:09:11.999Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1169,7 +1169,7 @@
       "url": "https://apply.refline.ch/673276/2223/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:11.737Z",
+      "crawledAt": "2026-09-11T23:21:43.432Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1283,7 +1283,7 @@
       "url": "https://apply.refline.ch/673276/2204/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:11.735Z",
+      "crawledAt": "2026-09-11T23:21:43.431Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1352,8 +1352,8 @@
           "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-08-20T21:51:51.012Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-20T21:51:51.012Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -1399,7 +1399,7 @@
       "url": "https://apply.refline.ch/673276/2224/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.734Z",
+      "crawledAt": "2026-09-11T23:21:43.429Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -1460,8 +1460,8 @@
           "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:33:57.028Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:33:57.028Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1507,7 +1507,7 @@
       "url": "https://apply.refline.ch/673276/2225/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.732Z",
+      "crawledAt": "2026-09-11T23:21:43.428Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1589,7 +1589,7 @@
       "url": "https://apply.refline.ch/673276/2226/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.731Z",
+      "crawledAt": "2026-09-11T23:21:43.427Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1671,7 +1671,7 @@
       "url": "https://apply.refline.ch/673276/2229/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.729Z",
+      "crawledAt": "2026-09-11T23:21:43.426Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1707,8 +1707,8 @@
           "postdoc-position-on-redox-targeted-flow-batteries-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-09-04T13:47:24.050Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-04T13:47:24.050Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1754,7 +1754,7 @@
       "url": "https://apply.refline.ch/673276/2228/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.726Z",
+      "crawledAt": "2026-09-11T23:21:43.424Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1830,7 +1830,7 @@
       "url": "https://apply.refline.ch/673276/2231/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.724Z",
+      "crawledAt": "2026-09-11T23:21:43.423Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1912,7 +1912,7 @@
       "url": "https://apply.refline.ch/673276/2230/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:11.721Z",
+      "crawledAt": "2026-09-11T23:21:43.421Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1948,8 +1948,8 @@
           "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-09-08T23:33:50.106Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T23:33:50.106Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
