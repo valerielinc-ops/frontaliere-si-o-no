@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "stiftung-kind-autismus-30a978247924",
-      "slug": "apprendistato-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-stiftung-kind-und-autismus-urdorf",
+      "slug": "apprendistato-professionale-industria-alberghiera-efz-stiftung-kind-und-autismus-urdorf",
       "slugByLocale": {
         "de": "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stiftung-kind-autismus-urdorf",
-        "it": "apprendistato-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-stiftung-kind-und-autismus-urdorf",
-        "en": "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stiftung-kind-autismus-urdorf",
-        "fr": "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stiftung-kind-autismus-urdorf"
+        "it": "apprendistato-professionale-industria-alberghiera-efz-stiftung-kind-und-autismus-urdorf",
+        "en": "apprenticeship-professional-hotel-industry-efz-stiftung-kind-und-autismus-urdorf",
+        "fr": "apprentissage-professionnel-de-l-hotellerie-efz-stiftung-kind-und-autismus-urdorf"
       },
       "company": "Stiftung Kind und Autismus",
       "companyKey": "stiftung-kind-autismus",
@@ -55,11 +55,19 @@
       "externalId": "0105",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stiftung-kind-autismus-urdorf",
+          "apprendistato-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-stiftung-kind-und-autismus-urdorf"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stiftung-kind-autismus-urdorf"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stiftung-kind-autismus-urdorf"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stiftung-kind-autismus-urdorf"
+        "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stiftung-kind-autismus-urdorf",
+        "apprendistato-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-stiftung-kind-und-autismus-urdorf"
       ],
       "salaryMin": 82000,
       "salaryMax": 114500,
@@ -127,13 +135,11 @@
       "requirementsByLocale": {},
       "externalId": "0102",
       "previousSlugs": [
-        "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf",
-        "lavoratore-sociale-in-servizio-civile-stiftung-kind-und-autismus-urdorf"
+        "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf",
-          "lavoratore-sociale-in-servizio-civile-stiftung-kind-und-autismus-urdorf"
+          "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
         ],
         "en": [
           "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"

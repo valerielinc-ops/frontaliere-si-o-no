@@ -52,26 +52,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "paralegal-officer-pictet-luxembourg",
-        "parajuriste-pictet-group-luxembourg",
-        "ufficiale-del-paralegal-pictet-group-luxembourg",
-        "paralegal-officer-pictet-group-luxembourg"
+        "parajuriste-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "paralegal-officer-pictet-luxembourg",
-          "ufficiale-del-paralegal-pictet-group-luxembourg"
+          "paralegal-officer-pictet-luxembourg"
         ],
         "de": [
           "paralegal-officer-pictet-luxembourg"
         ],
         "fr": [
           "paralegal-officer-pictet-luxembourg",
-          "parajuriste-pictet-group-luxembourg",
-          "paralegal-officer-pictet-group-luxembourg"
+          "parajuriste-pictet-group-luxembourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:33:31.605Z",
+      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -135,13 +131,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-specialist-pictet-geneva",
-        "investment-specialista-pictet-group-geneva"
+        "investment-specialist-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-specialist-pictet-geneva",
-          "investment-specialista-pictet-group-geneva"
+          "investment-specialist-pictet-geneva"
         ],
         "de": [
           "investment-specialist-pictet-geneva"
@@ -342,25 +336,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "trainee-data-management-pictet-luxembourg",
-        "stagiaire-gestion-des-donnees-pictet-group-luxembourg",
-        "apprendista-data-management-pictet-group-luxembourg",
-        "trainee-data-management-pictet-group-luxembourg"
+        "stagiaire-gestion-des-donnees-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-data-management-pictet-luxembourg",
-          "apprendista-data-management-pictet-group-luxembourg"
+          "trainee-data-management-pictet-luxembourg"
         ],
         "de": [
           "trainee-data-management-pictet-luxembourg"
         ],
         "fr": [
-          "stagiaire-gestion-des-donnees-pictet-group-luxembourg",
-          "trainee-data-management-pictet-group-luxembourg"
+          "stagiaire-gestion-des-donnees-pictet-group-luxembourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:40:23.293Z",
+      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -423,19 +413,13 @@
       "jobReqId": "124954",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
-        "operational-tax-officer-tax-reclaim-relief-pictet-luxembourg",
-        "funzionario-fiscale-imposte-cliente-regolazione-reporting-pictet-group-luxembourg"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
-          "operational-tax-officer-tax-reclaim-relief-pictet-luxembourg",
-          "funzionario-fiscale-imposte-cliente-regolazione-reporting-pictet-group-luxembourg"
-        ],
         "en": [
           "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
+        ],
+        "it": [
+          "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
+          "operational-tax-officer-tax-reclaim-relief-pictet-luxembourg"
         ],
         "de": [
           "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
@@ -444,6 +428,10 @@
           "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
         ]
       },
+      "previousSlugs": [
+        "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
+        "operational-tax-officer-tax-reclaim-relief-pictet-luxembourg"
+      ],
       "firstSeenAt": "2026-09-08T13:40:21.827Z",
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -508,13 +496,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-unit-network-security-pictet-geneva",
-        "responsabile-unit-network-security-pictet-group-geneva"
+        "head-of-unit-network-security-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-unit-network-security-pictet-geneva",
-          "responsabile-unit-network-security-pictet-group-geneva"
+          "head-of-unit-network-security-pictet-geneva"
         ],
         "de": [
           "head-of-unit-network-security-pictet-geneva"
@@ -524,7 +510,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:50:16.244Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -537,7 +522,8 @@
           "maxValue": 306000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pictet-b0c838ee10ab",
@@ -588,13 +574,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "asia-operational-risk-lead-pictet-hong-kong",
-        "piombo-di-rischio-operativo-asia-pictet-group-hong-kong"
+        "asia-operational-risk-lead-pictet-hong-kong"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "asia-operational-risk-lead-pictet-hong-kong",
-          "piombo-di-rischio-operativo-asia-pictet-group-hong-kong"
+          "asia-operational-risk-lead-pictet-hong-kong"
         ],
         "de": [
           "asia-operational-risk-lead-pictet-hong-kong"
@@ -620,12 +604,12 @@
     },
     {
       "id": "pictet-b2365480904e",
-      "slug": "client-relationship-officer-pictet-luxembourg",
+      "slug": "responsabile-relazioni-cliente-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "client-relationship-officer-pictet-luxembourg",
-        "it": "client-relationship-officer-pictet-luxembourg",
+        "it": "responsabile-relazioni-cliente-pictet-group-luxembourg",
         "de": "client-relationship-officer-pictet-luxembourg",
-        "fr": "client-relationship-officer-pictet-luxembourg"
+        "fr": "agent-de-relations-avec-la-clientele-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -680,7 +664,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:09:33.137Z"
+      "firstSeenAt": "2026-09-10T23:09:33.137Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-pictet-luxembourg"
+        ],
+        "fr": [
+          "client-relationship-officer-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-pictet-luxembourg"
+      ]
     },
     {
       "id": "pictet-bd0df3455fac",
