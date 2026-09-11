@@ -135,7 +135,8 @@ export function validateCrawlerGenerationObserverReport(report, expected = null)
     errors.push('unsupported_schema_version');
   }
   if (!Number.isFinite(Date.parse(report.evaluatedAt ?? ''))) errors.push('invalid_evaluated_at');
-  if (report.generationToken !== null && !isCrawlerGenerationToken(report.generationToken)) {
+  if ((report.generationToken === null && expected !== null)
+      || (report.generationToken !== null && !isCrawlerGenerationToken(report.generationToken))) {
     errors.push('invalid_generation_token');
   }
   if (report.siteCodeCommit !== null && !COMMIT_RE.test(report.siteCodeCommit ?? '')) {
@@ -211,10 +212,17 @@ export function classifyCrawlerGenerationObserverReport(report, {
   now,
   sentinelCreatedAt,
 }) {
-  if (!validateCrawlerGenerationObserverReport(report).valid) {
-    return { terminal: false, reason: 'report_malformed' };
+  const intrinsic = validateCrawlerGenerationObserverReport(report);
+  if (!intrinsic.valid) {
+    return intrinsic.errors.includes('invalid_generation_token')
+      ? { terminal: true, reason: 'invalid_generation_token' }
+      : { terminal: false, reason: 'report_malformed' };
   }
-  if (!validateCrawlerGenerationObserverReport(report, expected).valid) {
+  const binding = validateCrawlerGenerationObserverReport(report, expected);
+  if (!binding.valid) {
+    if (binding.errors.includes('invalid_generation_token')) {
+      return { terminal: true, reason: 'invalid_generation_token' };
+    }
     return { terminal: false, reason: 'report_stale' };
   }
   if (report.observer.status === 'ready') return { terminal: true, reason: 'ready' };

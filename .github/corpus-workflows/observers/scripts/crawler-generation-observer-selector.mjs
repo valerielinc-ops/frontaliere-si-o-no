@@ -80,8 +80,14 @@ function exactWorkflowPath(value, base, ref) {
   return value === base || value === `${base}@${ref}`;
 }
 
-function generationDispatchRef(generationToken) {
+export function generationDispatchRef(generationToken) {
+  if (!isCrawlerGenerationToken(generationToken)) return null;
   return `${GENERATION_DISPATCH_REF_PREFIX}${generationToken}`;
+}
+
+export function generationSentinelName(generationToken) {
+  if (!isCrawlerGenerationToken(generationToken)) return null;
+  return `crawler-generation-sentinel-${generationToken}`;
 }
 
 function exactRunBase(run, runId, headBranch = 'main') {
@@ -94,11 +100,13 @@ function exactRunBase(run, runId, headBranch = 'main') {
 }
 
 export function validateSentinelOwnerRun(run, { runId, generationToken, corpusCodeCommit }) {
-  const runName = `crawler-generation-sentinel-${generationToken}`;
-  return RUN_ID_RE.test(String(runId ?? ''))
-    && isCrawlerGenerationToken(generationToken)
+  const runName = generationSentinelName(generationToken);
+  const dispatchRef = generationDispatchRef(generationToken);
+  return runName !== null
+    && dispatchRef !== null
+    && RUN_ID_RE.test(String(runId ?? ''))
     && COMMIT_RE.test(corpusCodeCommit ?? '')
-    && exactRunBase(run, runId, generationDispatchRef(generationToken))
+    && exactRunBase(run, runId, dispatchRef)
     && (run.name === OBSERVER_WORKFLOW_NAME || run.name === runName)
     && run.display_title === runName
     && run.event === 'workflow_dispatch'
@@ -106,9 +114,10 @@ export function validateSentinelOwnerRun(run, { runId, generationToken, corpusCo
 }
 
 export function validateObserverReportOwnerRun(run, runId, generationToken = null) {
-  const headBranch = run?.event === 'workflow_dispatch' && isCrawlerGenerationToken(generationToken)
-    ? generationDispatchRef(generationToken)
-    : 'main';
+  const isDispatch = run?.event === 'workflow_dispatch';
+  if (isDispatch && !isCrawlerGenerationToken(generationToken)) return false;
+  const headBranch = isDispatch ? generationDispatchRef(generationToken) : 'main';
+  if (headBranch === null) return false;
   if (!RUN_ID_RE.test(String(runId ?? '')) || !exactRunBase(run, runId, headBranch)) return false;
   let expectedName;
   if (run.event === 'schedule') expectedName = `crawler-generation-observer-schedule-${runId}`;
@@ -116,8 +125,8 @@ export function validateObserverReportOwnerRun(run, runId, generationToken = nul
     expectedName = /^crawler-generation-observer-event-[1-9][0-9]*$/.test(run.display_title ?? '')
       ? run.display_title
       : null;
-  } else if (run.event === 'workflow_dispatch' && isCrawlerGenerationToken(generationToken)) {
-    expectedName = `crawler-generation-sentinel-${generationToken}`;
+  } else if (isDispatch) {
+    expectedName = generationSentinelName(generationToken);
   } else return false;
   return expectedName !== null
     && (run.name === OBSERVER_WORKFLOW_NAME || run.name === expectedName)
@@ -244,17 +253,19 @@ function validateSentinelDocument(sentinel) {
 
 function validateGroupRun(run, sentinel, group) {
   const binding = sentinel.groups[group];
+  const dispatchRef = generationDispatchRef(sentinel.generationToken);
+  if (dispatchRef === null) return false;
   return String(run?.id ?? '') === String(binding.runId)
     && run?.repository?.full_name === CALLER_REPOSITORY
     && exactWorkflowPath(
       run?.path,
       `.github/workflows/${binding.workflowFile}`,
-      generationDispatchRef(sentinel.generationToken),
+      dispatchRef,
     )
     && (run?.name === binding.workflowName || run?.name === binding.runName)
     && run?.display_title === binding.runName
     && run?.event === 'workflow_dispatch'
-    && run?.head_branch === generationDispatchRef(sentinel.generationToken)
+    && run?.head_branch === dispatchRef
     && run?.head_sha === sentinel.corpusCodeCommit
     && validLifecycle(run);
 }

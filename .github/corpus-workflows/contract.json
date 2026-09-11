@@ -548,7 +548,7 @@
     {
       "source": "observers/scripts/crawler-generation-observer-selector.mjs",
       "target": "scripts/ci/crawler-generation-observer-selector.mjs",
-      "sha256": "e113301d2b884cdace8ae6765b442aec5a604f867b2cc658b6f076e2681cc732"
+      "sha256": "712a817d31a6ddb76ded21675eab9fa770a2d2bb988d938091022ce537ff45a2"
     },
     {
       "source": "observers/scripts/lib/canonical-json-digest.mjs",
@@ -558,12 +558,12 @@
     {
       "source": "observers/scripts/lib/crawler-generation-observer-report.mjs",
       "target": "scripts/ci/lib/crawler-generation-observer-report.mjs",
-      "sha256": "a4a2bcbae04fd4ee35d52b9f1fe635ab4c25015b9540d90a635143a9cfdf56c8"
+      "sha256": "0a32d9f5ee5bc96157a90b84547860441de523baf340889faeeb1dc7e55af5ea"
     },
     {
       "source": "observers/scripts/lib/crawler-generation-token.mjs",
       "target": "scripts/ci/lib/crawler-generation-token.mjs",
-      "sha256": "2388e3be4213c69676667afcb7731103612fb61910d4ae82169d4df9f154f99f"
+      "sha256": "024ff3be7962dd9f41e0726883d939e6f7f595e2c17cab0438e36cbd13e96145"
     },
     {
       "source": "observers/scripts/lib/github-actions-read-client.mjs",
