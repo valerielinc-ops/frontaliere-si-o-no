@@ -54,6 +54,14 @@ describe('border-wait hydration IIFE — payload integrity', () => {
     expect(BORDER_WAIT_HYDRATION_JS).not.toContain('?key=');
   });
 
+  it('keeps the pre-rendered snapshot when the public function is unavailable', () => {
+    // The function returns 503 on an Admin SDK/read failure. The IIFE must
+    // reject non-2xx responses so the catch path marks the badge offline
+    // without calling set(element, undefined) on the indexed values.
+    expect(BORDER_WAIT_HYDRATION_JS).toContain('if(!r.ok)throw Error("HTTP "+r.status)');
+    expect(BORDER_WAIT_HYDRATION_JS).toContain('badge("offline")');
+  });
+
   it('uses the public frontaliere-ticino project', () => {
     expect(BORDER_WAIT_HYDRATION_JS).toContain('frontaliere-ticino');
   });
