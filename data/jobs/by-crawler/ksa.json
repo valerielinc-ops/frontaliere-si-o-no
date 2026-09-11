@@ -803,7 +803,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T21:48:21.989Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -816,7 +815,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-803625157377",
@@ -1101,12 +1101,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
+      "previousSlugs": [
+        "sozialarbeiter-in-ksa-ch",
+        "sozialarbeiter-in-kantonsspital-aarau-ksa-aarau",
+        "sozialarbeiter-in-ksa-ch-9ztjk3",
+        "occupazione-sociale-kantonsspital-aarau-ksa-aarau"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "sozialarbeiter-in-kantonsspital-aarau-ksa-aarau",
-          "sozialarbeiter-in-ksa-ch-9ztjk3",
-          "sozialarbeiter-in-ksa-ch"
-        ],
         "it": [
           "sozialarbeiter-in-ksa-ch",
           "occupazione-sociale-kantonsspital-aarau-ksa-aarau"
@@ -1114,16 +1115,15 @@
         "en": [
           "sozialarbeiter-in-ksa-ch"
         ],
+        "de": [
+          "sozialarbeiter-in-kantonsspital-aarau-ksa-aarau",
+          "sozialarbeiter-in-ksa-ch-9ztjk3",
+          "sozialarbeiter-in-ksa-ch"
+        ],
         "fr": [
           "sozialarbeiter-in-ksa-ch"
         ]
       },
-      "previousSlugs": [
-        "sozialarbeiter-in-ksa-ch",
-        "sozialarbeiter-in-kantonsspital-aarau-ksa-aarau",
-        "sozialarbeiter-in-ksa-ch-9ztjk3",
-        "occupazione-sociale-kantonsspital-aarau-ksa-aarau"
-      ],
       "firstSeenAt": "2026-08-14T22:02:55.986Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -1963,7 +1963,6 @@
         "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26"
       ],
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1976,7 +1975,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b17df214a77f",
@@ -3590,7 +3590,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3603,7 +3602,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-50d01a54c105",

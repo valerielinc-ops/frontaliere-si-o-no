@@ -1740,10 +1740,10 @@
       "companyDomain": "epi.ch",
       "title": "Stv. Teamleiterin/Teamleiter Bereich Wohnen",
       "titleByLocale": {
+        "de": "Stv. Teamleiterin/Teamleiter Bereich Wohnen",
         "it": "Stv. Team Leader Area Living",
         "en": "Stv. Team Leader Living Area",
-        "de": "Stv. Teamleiterin/Teamleiter Bereich Wohnen",
-        "fr": "Lieu de vie du chef d'équipe Stv."
+        "fr": "Chef d'équipe/chef d'équipe"
       },
       "description": "Aufgaben:\n• Als Stv. Teamleiterin/Teamleiter unterstützen Sie die Teamleitung bei der Organisation und Durchführung agoischer und pflegerischen Leistungen sowie weiteren Aufgaben und tragen die Mitverantwortung der Abteilung bei Abwesenheit der Teamleitung\n\n• Zusammen mit ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund begleiten und betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung und mit teilweise herausfordernden Verhaltensweisen und Epilepsie. Dabei bauen Sie eine professionelle Beziehung zu den Bewohnerinnen und Bewohnern auf und gestalten mit ihnen ihren Lebensraum sowie die Tages-und Freizeitstrukturen nach ihren individuellen Bedürfnissen. Sie berücksichtigen dabei die UNBRK\n\n• Sie fördern und unterstützen die Bewohnerinnen und Bewohner in der Wahrnehmung ihrer Grundbedürfnisse, gestalten mit ihnen ihren Alltag und unterstützen sie in ihrer Gesundheitserhaltung\n\n• Sie sind verantwortlich für die Planung, Durchführung und Evaluation des agogischen Prozesses und arbeiten dabei mit internen Ansprechpersonen, Angehörigen und gesetzlichen Vertretenden sowie externen Stellen zusammen\n\n• Sie arbeiten in Fach- und Arbeitsgruppen mit und nehmen so aktiven Anteil an der Entwicklung der Gesamtinstitution und deren Bereichen teil\n\nAnforderungen:\n• Sie sind dipl. Sozialpädagogin/Sozialpädagoge HF oder FH oder haben eine pflegerische Ausbildung als dipl. Pflegefachfrau/mann HF / FH und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigung oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n\n• Von Vorteil verfügen Sie bereits über erste Führungserfahrungen oder möchten den nächsten Karriereschritt mit uns gehen\n\n• Sie zeigen eine hohe Bereitschaft, sich auf eine professionelle Beziehung mit den Bewohnerinnen und Bewohnern einzulassen und deren Anliegen zu vertreten\n\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten sie den Alltag proaktiv\n\nWir bieten:\n• Die Möglichkeit, die Entwicklung der Abteilung zusammen mit der Teamleitung mitzugestalten\n\n• Führungskompetenzen zu erwerben bzw. weiter auszubauen\n\n• Ein lebendiges Umfeld, das man mit eigenen Ideen mitgestalten kann\n\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n\n• Umfangreiches internes Weiterbildungsangebot und Unterstützung bei externen Weiterbildungen\n\n• Personalwohnungen, Parkplätze und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement\n\nManchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
       "descriptionByLocale": {
@@ -1776,12 +1776,20 @@
       "applyUrl": "https://job.swissepi.ch/offene-stellen/stv-teamleiterin-teamleiter-bereich-wohnen/7823d0a7-dfff-4035-a0d9-1235d6d4f775",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stv-team-leader-living-area-schweizerische-epilepsie-stiftung-epi-zurich",
-        "lieu-de-vie-du-chef-d-equipe-stv-schweizerische-epilepsie-stiftung-epi-zurich",
-        "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich",
-        "stv-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich"
-      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-10T23:07:46.560Z",
       "previousSlugsByLocale": {
         "it": [
           "stv-team-leader-living-area-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -1798,20 +1806,12 @@
           "lieu-de-vie-du-chef-d-equipe-stv-schweizerische-epilepsie-stiftung-epi-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-10T23:07:46.560Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "stv-team-leader-living-area-schweizerische-epilepsie-stiftung-epi-zurich",
+        "lieu-de-vie-du-chef-d-equipe-stv-schweizerische-epilepsie-stiftung-epi-zurich",
+        "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich",
+        "stv-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-c40cff3b420b",

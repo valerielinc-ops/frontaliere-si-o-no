@@ -4139,7 +4139,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:12.203Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4152,7 +4151,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-70ec46e46c03",
@@ -5784,10 +5784,9 @@
           "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1466,
-      "retranslationAttempts": 14,
+      "retranslationAttempts": 15,
       "firstSeenAt": "2026-08-20T21:47:46.721Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10465,12 +10464,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-universitatsspital-basel-basel",
-        "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-soins-intensifs-universitatsspital-basel-basel"
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-soins-intensifs-universitatsspital-basel-basel",
+        "dipl-specialista-hf-fh-unita-di-cura-intensiva-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-universitatsspital-basel-basel",
+          "dipl-specialista-hf-fh-unita-di-cura-intensiva-universitatsspital-basel-basel"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-universitatsspital-basel-basel",
@@ -10479,9 +10480,8 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1425,
-      "retranslationAttempts": 8,
+      "retranslationAttempts": 9,
       "firstSeenAt": "2026-08-06T11:40:59.660Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",

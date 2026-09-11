@@ -1072,7 +1072,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:31:21.324Z",
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -1085,7 +1084,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-eee453871973",
@@ -1362,7 +1362,6 @@
         "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
       ],
       "firstSeenAt": "2026-07-30T22:18:33.770Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1375,7 +1374,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-fe83f2ef1c8a",
@@ -1454,10 +1454,9 @@
           "senior-software-ingenieur-net-fullstack-vz-vermogenszentrum-zug"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2490,
-      "retranslationAttempts": 4,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-17T11:36:57.056Z",
       "salaryMin": 114500,
       "salaryMax": 195000,
@@ -1849,7 +1848,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:52:40.710Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -1862,7 +1860,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-d6a92e62bd0d",
