@@ -1608,6 +1608,10 @@ export async function sendEmailCascade(emails, opts = {}) {
           try {
             await onSent(item, result);
           } catch (callbackError) {
+            // The provider accepted the message, but the durable bookkeeping
+            // callback did not. Keep the terminal outcome accepted while
+            // exposing the persistence failure to the caller for quarantine.
+            outcome.persistFailed = true;
             console.warn(`⚠️ onSent callback failed after ${result?.provider || 'provider'} accepted the message: ${String(callbackError?.message || callbackError).slice(0, 200)}`);
           }
         }
@@ -1627,16 +1631,18 @@ export async function sendEmailCascade(emails, opts = {}) {
   // Print summary
   const providerBreakdown = {};
   for (const s of accepted) {
-    const stats = providerBreakdown[s.provider] || (providerBreakdown[s.provider] = { identified: 0, ambiguous: 0 });
+    const stats = providerBreakdown[s.provider] || (providerBreakdown[s.provider] = { identified: 0, ambiguous: 0, persistFailed: 0 });
     stats.identified += 1;
+    if (s.persistFailed) stats.persistFailed += 1;
   }
   for (const s of ambiguous) {
-    const stats = providerBreakdown[s.provider] || (providerBreakdown[s.provider] = { identified: 0, ambiguous: 0 });
+    const stats = providerBreakdown[s.provider] || (providerBreakdown[s.provider] = { identified: 0, ambiguous: 0, persistFailed: 0 });
     stats.ambiguous += 1;
+    if (s.persistFailed) stats.persistFailed += 1;
   }
   console.log(`✅ Sent: ${accepted.length} identified, ${ambiguous.length} ambiguous (provider-accepted=${sent.length}), Failed: ${failed.length}`);
   if (Object.keys(providerBreakdown).length > 0) {
-    console.log(`   Breakdown: ${Object.entries(providerBreakdown).map(([k, v]) => `${k}=identified:${v.identified},ambiguous:${v.ambiguous}`).join(', ')}`);
+    console.log(`   Breakdown: ${Object.entries(providerBreakdown).map(([k, v]) => `${k}=identified:${v.identified},ambiguous:${v.ambiguous},persistFailed:${v.persistFailed}`).join(', ')}`);
   }
   // Per-message scheduled-send breakdown (feature #3798): how many of the
   // successful sends were actually deferred provider-side vs sent immediately.

@@ -269,11 +269,19 @@ function readMetaContent(html, key) {
   return '';
 }
 
+export function stripSiteTitleSuffix(rawTitle) {
+  const title = decodeEntities(String(rawTitle || '')).trim();
+  return title
+    .replace(/\s+\|\s+[^|]+$/u, '')
+    .replace(/\s+-\s+Manor(?:\s+AG)?$/iu, '')
+    .trim();
+}
+
 export function parseJobPage(html, url) {
   // Manor's current SuccessFactors markup exposes the canonical role in
   // og:title, while older templates used itemprop="title". Prefer the
   // structured metadata before falling back to the URL slug.
-  const metaTitle = readMetaContent(html, 'og:title');
+  const metaTitle = stripSiteTitleSuffix(readMetaContent(html, 'og:title'));
   const titleMatch = html.match(/itemprop="title"[^>]*>([^<]+)/i);
   const title = metaTitle || (titleMatch ? decodeEntities(titleMatch[1]).trim() : null);
 
@@ -669,7 +677,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isDirectRun = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isDirectRun) {
   main().catch((err) => exitCrawlerOnError(err, 'Manor'));
 }
