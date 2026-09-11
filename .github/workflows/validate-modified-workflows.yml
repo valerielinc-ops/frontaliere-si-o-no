@@ -1,0 +1,38 @@
+name: Validate modified workflows
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/**'
+      - 'scripts/ci/validate-modified-workflows.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: modified workflows valid
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          filter: blob:none
+
+      - name: Validate workflow contracts
+        id: contracts
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: node scripts/ci/validate-modified-workflows.mjs
+
+      - name: actionlint modified workflows
+        if: steps.contracts.outputs.files != ''
+        uses: raven-actions/actionlint@v2
+        with:
+          files: ${{ steps.contracts.outputs.files }}
+          shellcheck: false
+          pyflakes: false
