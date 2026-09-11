@@ -3,14 +3,11 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 /**
- * V6 §1 — the lazy proxy is the single synchronous choke point every
- * `trackPageView` caller goes through, so it is where the page-view identity
- * is bound. It captures the history entry at call time and forwards it as a
- * value; nothing downstream re-derives it from ambient `window.history.state`.
- *
- * Binding it here rather than at each of the ~14 call sites makes the race
- * impossible by construction instead of by discipline: a new caller cannot
- * forget to do it.
+ * V8 D2 — the lazy proxy is a synchronous capture point for callers that use
+ * it. Direct `Analytics` imports remain valid; eager per-entry coning in the
+ * leaf is what makes the invariant hold for both paths. The proxy captures the
+ * history entry at call time and forwards it as a value; nothing downstream
+ * re-derives it from ambient `window.history.state`.
  *
  * Distinctness and collapse are proven in tests/page-view-history-entry.test.ts
  * against the capture itself, which is deterministic. Here we prove the proxy
@@ -27,6 +24,8 @@ vi.mock('@/services/analytics', () => ({
 }));
 
 const proxySource = readFileSync(resolve(__dirname, '../services/analyticsProxy.ts'), 'utf8');
+const analyticsSource = readFileSync(resolve(__dirname, '../services/analytics.ts'), 'utf8');
+const historyEntrySource = readFileSync(resolve(__dirname, '../services/pageViewHistoryEntry.ts'), 'utf8');
 
 function stubWindow(history: unknown, path: string) {
   vi.stubGlobal('window', {
@@ -49,7 +48,7 @@ describe('the lazy analytics proxy binds the page-view identity synchronously', 
     trackPageView.mockClear();
   });
 
-  it('captures the entry before the dynamic import, not inside its .then()', () => {
+  it('documents the proxy as optional, while retaining synchronous capture', () => {
     // The defect was ordering, so the ordering is the assertion: the capture
     // must be evaluated in the synchronous body of the forwarding function.
     // A capture moved inside `.then()` reads whichever entry is current by
@@ -66,6 +65,14 @@ describe('the lazy analytics proxy binds the page-view identity synchronously', 
     expect(importIndex).toBeGreaterThan(-1);
     expect(bindIndex).toBeLessThan(importIndex);
     expect(proxySource).toContain("from './pageViewHistoryEntry'");
+    expect(proxySource.includes('one synchronous choke point every caller crosses')).toBe(false);
+    expect(proxySource.includes('a new caller cannot forget')).toBe(false);
+  });
+
+  it('documents the per-entry coning that makes direct late callers safe for dedup', () => {
+    expect(analyticsSource.includes('the only correct fallback for a direct, non-proxied call that is already')).toBe(false);
+    expect(analyticsSource.includes('eager per-entry')).toBe(true);
+    expect(historyEntrySource.includes('EAGER')).toBe(true);
   });
 
   it('forwards the captured entry id as the page-view identity', async () => {

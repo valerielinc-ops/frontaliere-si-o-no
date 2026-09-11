@@ -17,17 +17,15 @@ export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
  {
  get: (_t, method: string) =>
  (...args: unknown[]) => {
- // A page view's identity is the history entry it happens on, and it is
- // only knowable HERE — synchronously, while the navigation that caused
- // this call is still the current entry. Below, inside `.then()`, the
- // dynamic import has already resolved on a later tick and the entry may
- // have moved on: two rapid navigations would both read the last one and
- // collapse into a single observed unit (measured in V6). So bind it now
- // and forward it as a value; `trackPageView` must never re-derive it.
+ // A page view's identity is already coined on its History entry by the leaf.
+ // Capture that value synchronously for proxy callers before the dynamic
+ // import; inside `.then()` the entry may have moved on, so forwarding a late
+ // read would attribute two rapid navigations to the last one (the V6 defect).
+ // Forward the value now; `trackPageView` must never re-derive it.
  //
- // The proxy is the one synchronous choke point every caller crosses, so
- // doing it here fixes every call site by construction — a new caller
- // cannot forget. `null` means "not determinable" and stays null: an
+ // The proxy is a synchronous capture point for callers that use it. Direct
+ // Analytics imports remain supported because the leaf eagerly coins the id
+ // on every History entry. `null` means "not determinable" and stays null: an
  // invented id would become an observed count nothing measured.
  // See services/pageViewHistoryEntry.ts for the rule in full.
  const forwarded = method === 'trackPageView'

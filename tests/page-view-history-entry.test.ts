@@ -2,14 +2,12 @@ import { describe, expect, it, vi } from 'vitest';
 import { collapseTechnicalDuplicates } from '../scripts/build-employer-insights.mjs';
 
 /**
- * V6 §1 — the page-view identity is bound to the history entry at the instant
- * the navigation is observed, synchronously, by the code that observes it.
+ * V8 D1 — the page-view identity is coined when its History entry is opened by
+ * the eager `pushState`/`replaceState` wrappers in the leaf module.
  *
  * This module is the single place that decides that identity. It is a leaf on
  * purpose: the lazy analytics proxy must be able to call it without pulling in
- * Firebase, so the binding happens at call time instead of inside the `.then()`
- * of a dynamic import — which is where the identity used to be re-derived from
- * whatever entry happened to be current by then.
+ * Firebase, while the wrapper itself is installed before navigation can happen.
  *
  * The invariant is symmetric and both directions are defects:
  *   - two emissions of the SAME navigation share the id  → one observed unit;
@@ -45,14 +43,67 @@ function stubWindowWith(history: unknown) {
   vi.stubGlobal('window', { history, location: { origin: 'https://example.test', pathname: '/' } });
 }
 
-const loadEntryModule = async () =>
-  vi.importActual<typeof import('@/services/pageViewHistoryEntry')>('@/services/pageViewHistoryEntry');
+const loadEntryModule = async (history?: unknown) => {
+  vi.resetModules();
+  if (history !== undefined) stubWindowWith(history);
+  return vi.importActual<typeof import('@/services/pageViewHistoryEntry')>('@/services/pageViewHistoryEntry');
+};
 
 describe('page-view history entry identity', () => {
-  it('gives two real navigations two distinct ids, captured synchronously', async () => {
-    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule();
-    const history = createHistoryStack({ route: { activeTab: 'job-board' } });
+  it('does not let a copied state inherit the id of a newly pushed entry', async () => {
+    const entries: { state: unknown }[] = [{ state: { route: { activeTab: 'job-board' } } }];
+    let index = 0;
+    const history = {
+      get length() { return entries.length; },
+      get state() { return entries[index].state; },
+      pushState(state: unknown) {
+        entries.splice(index + 1);
+        entries.push({ state: structuredClone(state) });
+        index = entries.length - 1;
+      },
+      replaceState(state: unknown) {
+        entries[index].state = state;
+      },
+    };
     stubWindowWith(history);
+
+    try {
+      // Load after installing the browser mock: the real browser module must
+      // patch History eagerly, before this first navigation can happen.
+      vi.resetModules();
+      const { ensureCurrentPageViewHistoryEntryId } = await import('@/services/pageViewHistoryEntry');
+      const first = ensureCurrentPageViewHistoryEntryId();
+      history.pushState(history.state);
+      const second = ensureCurrentPageViewHistoryEntryId();
+
+      expect({ entryCount: entries.length, sameId: first === second }).toEqual({ entryCount: 2, sameId: false });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('does not trust an id already present when the wrapper cannot install', async () => {
+    const key = '__frontaliere_page_view_entry_id';
+    const history = {
+      state: { route: { activeTab: 'job-board' }, [key]: 'inherited-id' },
+      replaceState: vi.fn(),
+      pushState: vi.fn(),
+    };
+    Object.defineProperty(history, 'pushState', { writable: false });
+    stubWindowWith(history);
+
+    try {
+      vi.resetModules();
+      const { ensureCurrentPageViewHistoryEntryId } = await import('@/services/pageViewHistoryEntry');
+      expect(ensureCurrentPageViewHistoryEntryId()).toBeNull();
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('gives two real navigations two distinct ids, captured synchronously', async () => {
+    const history = createHistoryStack({ route: { activeTab: 'job-board' } });
+    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule(history);
 
     try {
       // Two real navigations to the same route. Each capture happens while its
@@ -77,9 +128,8 @@ describe('page-view history entry identity', () => {
   });
 
   it('gives one navigation the same id however many times it is captured', async () => {
-    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule();
     const history = createHistoryStack({ route: { activeTab: 'job-board' } });
-    stubWindowWith(history);
+    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule(history);
 
     try {
       history.pushState({ route: { activeTab: 'job-board' } });
@@ -102,9 +152,8 @@ describe('page-view history entry identity', () => {
   });
 
   it('preserves the application state already on the entry', async () => {
-    const { ensureCurrentPageViewHistoryEntryId, PAGE_VIEW_HISTORY_STATE_KEY } = await loadEntryModule();
     const history = createHistoryStack({ route: { activeTab: 'job-board', jobSlug: 'a-role' } });
-    stubWindowWith(history);
+    const { ensureCurrentPageViewHistoryEntryId, PAGE_VIEW_HISTORY_STATE_KEY } = await loadEntryModule(history);
 
     try {
       const entryId = ensureCurrentPageViewHistoryEntryId();
@@ -120,9 +169,8 @@ describe('page-view history entry identity', () => {
   });
 
   it('allocates on a null state without inventing application state', async () => {
-    const { ensureCurrentPageViewHistoryEntryId, PAGE_VIEW_HISTORY_STATE_KEY } = await loadEntryModule();
     const history = createHistoryStack(null);
-    stubWindowWith(history);
+    const { ensureCurrentPageViewHistoryEntryId, PAGE_VIEW_HISTORY_STATE_KEY } = await loadEntryModule(history);
 
     try {
       const entryId = ensureCurrentPageViewHistoryEntryId();
@@ -134,10 +182,10 @@ describe('page-view history entry identity', () => {
   });
 
   it('answers "not determinable" for a primitive state it must not overwrite', async () => {
-    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule();
     // Another navigation owner holds this entry's state. Overwriting it would
     // break that owner; guessing an id would fabricate an observation.
-    stubWindowWith({ length: 2, state: 'owned-by-another-navigation', replaceState: vi.fn() });
+    const history = { length: 2, state: 'owned-by-another-navigation', replaceState: vi.fn(), pushState: vi.fn() };
+    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule(history);
 
     try {
       expect(ensureCurrentPageViewHistoryEntryId()).toBeNull();
@@ -147,8 +195,8 @@ describe('page-view history entry identity', () => {
   });
 
   it('answers "not determinable" for an array state', async () => {
-    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule();
-    stubWindowWith({ length: 2, state: [1, 2, 3], replaceState: vi.fn() });
+    const history = { length: 2, state: [1, 2, 3], replaceState: vi.fn(), pushState: vi.fn() };
+    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule(history);
 
     try {
       expect(ensureCurrentPageViewHistoryEntryId()).toBeNull();
@@ -158,32 +206,33 @@ describe('page-view history entry identity', () => {
   });
 
   it('answers "not determinable" when replaceState is missing or refuses', async () => {
-    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule();
-
-    stubWindowWith({ length: 2, state: null });
+    const missingReplaceState = { length: 2, state: null, pushState: vi.fn() };
+    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule(missingReplaceState);
     try {
       expect(ensureCurrentPageViewHistoryEntryId()).toBeNull();
     } finally {
       vi.unstubAllGlobals();
     }
 
-    stubWindowWith({
+    const refusingReplaceState = {
       length: 2,
       state: null,
+      pushState: vi.fn(),
       replaceState: () => { throw new Error('SecurityError: history is not writable here'); },
-    });
+    };
+    const refusingModule = await loadEntryModule(refusingReplaceState);
     try {
-      expect(ensureCurrentPageViewHistoryEntryId()).toBeNull();
+      expect(refusingModule.ensureCurrentPageViewHistoryEntryId()).toBeNull();
     } finally {
       vi.unstubAllGlobals();
     }
   });
 
   it('answers "not determinable" when replaceState silently does not take', async () => {
-    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule();
     // A host that accepts the call and keeps its own state: reporting the id we
     // tried to write would claim an identity the entry does not carry.
-    stubWindowWith({ length: 2, state: null, replaceState: vi.fn() });
+    const history = { length: 2, state: null, pushState: vi.fn(), replaceState: vi.fn() };
+    const { ensureCurrentPageViewHistoryEntryId } = await loadEntryModule(history);
 
     try {
       expect(ensureCurrentPageViewHistoryEntryId()).toBeNull();
@@ -211,16 +260,33 @@ describe('page-view history entry identity', () => {
   });
 
   it('reads back an id already on the entry instead of allocating a new one', async () => {
-    const { ensureCurrentPageViewHistoryEntryId, PAGE_VIEW_HISTORY_STATE_KEY } = await loadEntryModule();
-    const history = createHistoryStack({ route: { activeTab: 'stats' }, [PAGE_VIEW_HISTORY_STATE_KEY]: 'already-here' });
+    const history = createHistoryStack({ route: { activeTab: 'stats' }, __frontaliere_page_view_entry_id: 'already-here' });
     const replaceState = vi.spyOn(history, 'replaceState');
-    stubWindowWith(history);
+    const { ensureCurrentPageViewHistoryEntryId, PAGE_VIEW_HISTORY_STATE_KEY } = await loadEntryModule(history);
 
     try {
       expect(ensureCurrentPageViewHistoryEntryId()).toBe('already-here');
       expect(replaceState).not.toHaveBeenCalled();
     } finally {
       replaceState.mockRestore();
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('preserves the current id when replaceState updates the same entry', async () => {
+    const history = createHistoryStack({ route: { activeTab: 'stats' } });
+    const { ensureCurrentPageViewHistoryEntryId, PAGE_VIEW_HISTORY_STATE_KEY } = await loadEntryModule(history);
+
+    try {
+      const first = ensureCurrentPageViewHistoryEntryId();
+      history.replaceState({ route: { activeTab: 'job-board' }, [PAGE_VIEW_HISTORY_STATE_KEY]: 'stale-id' });
+
+      expect(history.state).toMatchObject({
+        route: { activeTab: 'job-board' },
+        [PAGE_VIEW_HISTORY_STATE_KEY]: first,
+      });
+      expect(ensureCurrentPageViewHistoryEntryId()).toBe(first);
+    } finally {
       vi.unstubAllGlobals();
     }
   });

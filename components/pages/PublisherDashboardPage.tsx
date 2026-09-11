@@ -77,6 +77,10 @@ interface ApplicationRow {
   createdAt: number | null;
 }
 
+export function countPublisherApplications(applications: readonly ApplicationRow[] | null): number | null {
+  return applications === null ? null : applications.length;
+}
+
 function tsToMillis(value: unknown): number | null {
   if (value == null) return null;
   if (typeof value === 'number') return value;
@@ -261,14 +265,14 @@ export function readPublisherJobMetrics(
 export interface PublisherDashboardMetricSummary {
   views: number | null;
   clicks: number | null;
-  applications: number;
+  applications: number | null;
   intentRate: number | null;
   applyClicksDeduplication: PublisherApplyClickDeduplication;
 }
 
 export function summarizePublisherDashboardMetrics(
   rows: ReadonlyArray<Pick<DashboardRow, 'views' | 'applyClicks' | 'applyClicksDeduplication'>>,
-  applications: number,
+  applications: number | null,
 ): PublisherDashboardMetricSummary {
   // A sum over rows that include an unread one is a smaller number wearing the
   // costume of a complete total. Either every row is measured, or the total is
@@ -497,7 +501,7 @@ const PublisherDashboardPage: React.FC = () => {
   const { t, locale } = useTranslation();
   const { user, loading, signIn } = useAuth();
   const [rows, setRows] = useState<DashboardRow[]>([]);
-  const [apps, setApps] = useState<ApplicationRow[]>([]);
+  const [apps, setApps] = useState<ApplicationRow[] | null>(null);
   const [crawledTraffic, setCrawledTraffic] = useState<CrawledTrafficState>({ status: 'loading' });
   const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const [billingBusy, setBillingBusy] = useState(false);
@@ -702,7 +706,7 @@ const PublisherDashboardPage: React.FC = () => {
         result.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
 
         // Applications received (in-house/forward) — the publisher owns these by publisherUid.
-        let appRows: ApplicationRow[] = [];
+        let appRows: ApplicationRow[] | null = [];
         try {
           const aSnap = await getDocs(query(collection(db, 'applications'), where('publisherUid', '==', user.uid)));
           appRows = aSnap.docs.map((d) => {
@@ -719,7 +723,9 @@ const PublisherDashboardPage: React.FC = () => {
           });
           appRows.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
         } catch {
-          // applications optional / index building
+          // A rejected read is not an observed empty result. Keep the null
+          // state so the summary, KPI and per-ad funnel say "not available".
+          appRows = null;
         }
 
         // Crawled free-listing traffic signal (source status + possible upsell):
@@ -811,13 +817,15 @@ const PublisherDashboardPage: React.FC = () => {
   // ── Aggregates (derived client-side from already-loaded data) ──
   const appsByJob = useMemo(() => {
     const m = new Map<string, number>();
-    for (const a of apps) m.set(a.jobId, (m.get(a.jobId) ?? 0) + 1);
+    for (const a of apps ?? []) m.set(a.jobId, (m.get(a.jobId) ?? 0) + 1);
     return m;
   }, [apps]);
 
+  const applicationCount = countPublisherApplications(apps);
+
   const totals = useMemo(
-    () => summarizePublisherDashboardMetrics(rows, apps.length),
-    [rows, apps.length],
+    () => summarizePublisherDashboardMetrics(rows, applicationCount),
+    [rows, applicationCount],
   );
 
   // Best performer = the ad with the most views (only worth crowning if >0 and
@@ -1003,9 +1011,9 @@ const PublisherDashboardPage: React.FC = () => {
               {/* Supporting metrics — varied weight, not an identical grid. */}
               <div className="mt-6 grid grid-cols-3 gap-3">
                 {[
-                  { key: 'clicks', icon: <MousePointerClick className="w-4 h-4" />, value: totals.clicks, label: t('publisherDashboard.kpi.totalClicks'), suffix: '', decimals: 0 },
-                  { key: 'apps', icon: <FileText className="w-4 h-4" />, value: totals.applications, label: t('publisherDashboard.kpi.totalApplications'), suffix: '', decimals: 0 },
-                  { key: 'intent-rate', icon: <TrendingUp className="w-4 h-4" />, value: totals.intentRate, label: t('publisherDashboard.kpi.intentRate'), suffix: '%', decimals: 1 },
+                  { key: 'clicks', icon: <MousePointerClick className="w-4 h-4" />, value: totals.clicks, unavailableLabel: summaryUnavailableLabel, label: t('publisherDashboard.kpi.totalClicks'), suffix: '', decimals: 0 },
+                  { key: 'apps', icon: <FileText className="w-4 h-4" />, value: totals.applications, unavailableLabel: metricUnavailableLabel, label: t('publisherDashboard.kpi.totalApplications'), suffix: '', decimals: 0 },
+                  { key: 'intent-rate', icon: <TrendingUp className="w-4 h-4" />, value: totals.intentRate, unavailableLabel: summaryUnavailableLabel, label: t('publisherDashboard.kpi.intentRate'), suffix: '%', decimals: 1 },
                 ].map((m) => (
                   <div key={m.key} className="rounded-2xl bg-surface p-4 border border-edge">
                     <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-accent-subtle text-link mb-2">
@@ -1013,7 +1021,7 @@ const PublisherDashboardPage: React.FC = () => {
                     </span>
                     <p className={`font-bold font-display text-strong leading-tight ${m.value === null ? 'text-sm' : 'text-2xl tabular-nums'}`}>
                       {m.value === null
-                        ? summaryUnavailableLabel
+                        ? m.unavailableLabel
                         : <><CountUpValue value={m.value} active={state === 'ready'} decimals={m.decimals} />{m.suffix}</>}
                     </p>
                     <p className="text-xs text-subtle mt-1.5 leading-tight">{m.label}</p>
@@ -1079,7 +1087,7 @@ const PublisherDashboardPage: React.FC = () => {
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {rows.map((r, i) => {
-                const applications = appsByJob.get(r.id) ?? 0;
+                const applications = apps === null ? null : appsByJob.get(r.id) ?? 0;
                 // An unread counter is labelled for what it is: "not available"
                 // when the row was never measured, "dedup unavailable" when it
                 // was measured but the count is not provably unique.
@@ -1091,7 +1099,9 @@ const PublisherDashboardPage: React.FC = () => {
                 const clickPct = clicksAvailable && (r.views ?? 0) > 0
                   ? ((r.applyClicks as number) / (r.views as number)) * 100
                   : 0;
-                const appPct = (r.views ?? 0) > 0 ? (applications / (r.views as number)) * 100 : 0;
+                const appPct = applications !== null && (r.views ?? 0) > 0
+                  ? (applications / (r.views as number)) * 100
+                  : 0;
                 const sponsored = isSponsored(r.tier);
                 const azienda = isAzienda(r.tier);
                 const isBest = r.id === bestPerformerId;
@@ -1177,7 +1187,7 @@ const PublisherDashboardPage: React.FC = () => {
                         icon={<FileText className="w-3.5 h-3.5" />}
                         label={t('publisherDashboard.col.applications')}
                         value={applications}
-                        unavailableLabel={rowUnavailableLabel}
+                        unavailableLabel={applications === null ? metricUnavailableLabel : rowUnavailableLabel}
                         pct={appPct}
                         tone="bg-success"
                         mounted={barsMounted}
@@ -1243,13 +1253,18 @@ const PublisherDashboardPage: React.FC = () => {
         <section className="mt-10">
           <h2 className="flex items-center gap-2 text-lg font-bold font-display text-strong mb-3">
             {t('publisherDashboard.applications.title')}
-            {apps.length > 0 && (
+            {apps !== null && apps.length > 0 && (
               <span className="inline-flex items-center justify-center min-w-6 h-6 px-2 rounded-full text-xs font-semibold bg-accent-subtle text-link">
                 {apps.length}
               </span>
             )}
           </h2>
-          {apps.length === 0 ? (
+          {apps === null ? (
+            <div className="rounded-2xl border border-dashed border-edge bg-surface-alt p-6 text-center">
+              <Sparkles className="w-5 h-5 text-muted mx-auto mb-2" />
+              <p className="text-sm text-subtle">{metricUnavailableLabel}</p>
+            </div>
+          ) : apps.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-edge bg-surface-alt p-6 text-center">
               <Sparkles className="w-5 h-5 text-muted mx-auto mb-2" />
               <p className="text-sm text-subtle">{t('publisherDashboard.applications.empty')}</p>

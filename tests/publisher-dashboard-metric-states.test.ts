@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  countPublisherApplications,
   readPublisherJobMetrics,
   summarizePublisherDashboardMetrics,
 } from '@/components/pages/PublisherDashboardPage';
@@ -123,6 +124,15 @@ describe('the dashboard summary never turns an unmeasured row into a number', ()
     expect(summary.views).toBe(15);
     expect(summary.clicks).toBeNull();
     expect(summary.intentRate).toBeNull();
+  });
+});
+
+describe('publisher applications preserve the read outcome', () => {
+  it('keeps a failed query unavailable while preserving an observed zero', () => {
+    expect(countPublisherApplications(null)).toBeNull();
+    expect(countPublisherApplications([])).toBe(0);
+    expect(summarizePublisherDashboardMetrics([], null).applications).toBeNull();
+    expect(summarizePublisherDashboardMetrics([], 0).applications).toBe(0);
   });
 });
 

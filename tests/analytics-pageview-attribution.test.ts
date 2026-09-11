@@ -6,6 +6,10 @@ import { collapseTechnicalDuplicates } from '../scripts/build-employer-insights.
 vi.mock('@/services/posthog', () => ({ captureEvent: vi.fn() }));
 
 const loadAnalyticsHelpers = async () => vi.importActual<typeof import('@/services/analytics')>('@/services/analytics');
+const reloadAnalyticsHelpers = async () => {
+  vi.resetModules();
+  return vi.importActual<typeof import('@/services/analytics')>('@/services/analytics');
+};
 const jobBoardSource = readFileSync(
   resolve(__dirname, '../components/community/JobBoard.tsx'),
   'utf8',
@@ -135,7 +139,6 @@ describe('GA4 page_view employer attribution', () => {
   });
 
   it('emits the same id for a same-route page-view retry after async identity resolution', async () => {
-    const { Analytics } = await loadAnalyticsHelpers();
     const { captureEvent } = await import('@/services/posthog');
     const capture = vi.mocked(captureEvent);
     const path = '/offerte-di-lavoro-ticino/direct-page-view-retry/';
@@ -156,6 +159,7 @@ describe('GA4 page_view employer attribution', () => {
     capture.mockClear();
 
     try {
+      const { Analytics } = await reloadAnalyticsHelpers();
       Analytics.trackPageView(path);
       Analytics.trackPageView(path, undefined, { employerKey: 'example-employer' });
 
@@ -170,7 +174,6 @@ describe('GA4 page_view employer attribution', () => {
   });
 
   it('emits a new id when a same-route visit opens a new history entry', async () => {
-    const { Analytics } = await loadAnalyticsHelpers();
     const { captureEvent } = await import('@/services/posthog');
     const capture = vi.mocked(captureEvent);
     const path = '/offerte-di-lavoro-ticino/same-route-new-visit/';
@@ -193,6 +196,7 @@ describe('GA4 page_view employer attribution', () => {
     capture.mockClear();
 
     try {
+      const { Analytics } = await reloadAnalyticsHelpers();
       Analytics.trackPageView(path);
       expect(historyState).toMatchObject({ route: { entry: 'first' } });
       historyState = { route: { entry: 'second' } };
@@ -254,7 +258,6 @@ describe('GA4 page_view employer attribution', () => {
   });
 
   it('does not time-debounce a retry that carries the same emission id', async () => {
-    const { Analytics } = await loadAnalyticsHelpers();
     const { captureEvent } = await import('@/services/posthog');
     const capture = vi.mocked(captureEvent);
     const path = '/offerte-di-lavoro-ticino/rapid-page-view-retry/';
@@ -275,6 +278,7 @@ describe('GA4 page_view employer attribution', () => {
     capture.mockClear();
 
     try {
+      const { Analytics } = await reloadAnalyticsHelpers();
       Analytics.trackPageView(path);
       Analytics.trackPageView(path);
 

@@ -101,9 +101,6 @@ import { captureEvent as posthogCapture } from './posthog';
 import {
  createAnalyticsEmissionId,
  ensureCurrentPageViewHistoryEntryId,
- readPageViewHistoryEntryId,
- stateForNewPageViewHistoryEntry,
- stateForReplacedPageViewHistoryEntry,
 } from './pageViewHistoryEntry';
 import {
  isBenignErrorMessage,
@@ -193,10 +190,11 @@ export function buildPageViewAttributionParams(
  return {};
 }
 
-// The page-view identity lives in its own leaf module: the lazy analytics
-// proxy imports it statically to bind the history entry BEFORE its dynamic
-// import resolves, which is what keeps two rapid navigations distinct. Keeping
-// one definition means the producer and the emitter cannot drift apart.
+// The page-view identity lives in its own leaf module, whose eager per-entry
+// coning happens before navigation can happen. The lazy analytics proxy
+// captures that id synchronously for the callers that use it; direct Analytics
+// callers remain valid because the id is already attached to their entry.
+// Keeping one definition means the producer and the emitter cannot drift apart.
 // Re-exported here because these names are part of this module's public
 // surface and existing callers and tests import them from it.
 export {
@@ -428,87 +426,12 @@ let previousScreen = '';
 let lastTrackedPageAt = 0;
 let currentPageViewEmission: AnalyticsPageViewEmission | null = null;
 let pageViewLifecycleWindow: Window | null = null;
-let pageViewHistoryPatch: {
- history: History;
- originalPushState: History['pushState'];
- originalReplaceState: History['replaceState'];
- patchedPushState?: History['pushState'];
- patchedReplaceState?: History['replaceState'];
-} | null = null;
 let _maxScrollDepth = 0;
 const ATTRIBUTION_KEY = 'ft_attribution_v1';
 const ATTRIBUTION_LOGGED_KEY = 'ft_attribution_logged_v1';
 
 function closePageViewLifecycle(): void {
  currentPageViewEmission = null;
-}
-
-function restorePageViewHistoryPatch(): void {
- if (!pageViewHistoryPatch) return;
- const patch = pageViewHistoryPatch;
- try {
-  if (patch.patchedPushState && patch.history.pushState === patch.patchedPushState) {
-   patch.history.pushState = patch.originalPushState;
-  }
-  if (patch.patchedReplaceState && patch.history.replaceState === patch.patchedReplaceState) {
-   patch.history.replaceState = patch.originalReplaceState;
-  }
- } catch {
-  // History methods may be non-writable in a constrained host.
- }
- pageViewHistoryPatch = null;
-}
-
-function patchPageViewHistory(historyRef: History): void {
- restorePageViewHistoryPatch();
- const originalPushState = historyRef.pushState;
- const originalReplaceState = historyRef.replaceState;
- const patch: NonNullable<typeof pageViewHistoryPatch> = {
-  history: historyRef,
-  originalPushState,
-  originalReplaceState,
- };
-
- if (typeof originalPushState === 'function') {
-  const patchedPushState = function patchedPageViewPushState(
-   this: History,
-   state: unknown,
-   unused: string,
-   url?: string | URL | null,
-  ): void {
-   const entryId = createAnalyticsEmissionId();
-   const nextState = stateForNewPageViewHistoryEntry(state, entryId);
-   return originalPushState.call(this, nextState || state, unused, url);
-  } as History['pushState'];
-  try {
-   historyRef.pushState = patchedPushState;
-   patch.patchedPushState = patchedPushState;
-  } catch {
-   // Leave the host's History API untouched if it cannot be patched.
-  }
- }
-
- if (typeof originalReplaceState === 'function') {
-  const patchedReplaceState = function patchedPageViewReplaceState(
-   this: History,
-   state: unknown,
-   unused: string,
-   url?: string | URL | null,
-  ): void {
-   const currentEntryId = readPageViewHistoryEntryId(this.state);
-   const entryId = createAnalyticsEmissionId();
-   const nextState = stateForReplacedPageViewHistoryEntry(state, currentEntryId, entryId);
-   return originalReplaceState.call(this, nextState || state, unused, url);
-  } as History['replaceState'];
-  try {
-   historyRef.replaceState = patchedReplaceState;
-   patch.patchedReplaceState = patchedReplaceState;
-  } catch {
-   // Leave the host's History API untouched if it cannot be patched.
-  }
- }
-
- if (patch.patchedPushState || patch.patchedReplaceState) pageViewHistoryPatch = patch;
 }
 
 function ensurePageViewLifecycle(): void {
@@ -523,8 +446,6 @@ function ensurePageViewLifecycle(): void {
  }
 
  pageViewLifecycleWindow = window;
- const historyRef = (window as unknown as { history?: History }).history;
- if (historyRef) patchPageViewHistory(historyRef);
  closePageViewLifecycle();
  if (typeof window.addEventListener === 'function') {
   window.addEventListener('popstate', closePageViewLifecycle, true);
@@ -1095,9 +1016,14 @@ export const Analytics = {
  // The history entry captured by the caller at the instant the navigation
  // happened. `string` = that entry; `null` = captured and not determinable,
  // which must stay "dedup non disponibile" and never become a guess. Omitted
- // (`undefined`) means the caller did not capture, so we read it here — the
- // only correct fallback for a direct, non-proxied call that is already
- // running synchronously with its own navigation.
+ // (`undefined`) means a direct caller did not pass a value. The eager leaf
+ // wrapper has already coined the id on the current entry, so this fallback
+ // reads that per-entry id even when the direct caller runs after async work.
+ // That includes direct callers such as FuelPriceStats after its fetch `.then()`
+ // and JobBoard from an async-resolution `useEffect`: late timing is no longer
+ // a deduplication hole, although it can still affect attribution.
+ // It is safe for deduplication; it does not claim that the caller's
+ // attribution was captured at navigation time.
  historyEntryId?: string | null,
  ) => {
  ensurePageViewLifecycle();

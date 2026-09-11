@@ -2,9 +2,10 @@
  * pageViewHistoryEntry — the one place that decides a page view's identity.
  *
  * A page view is one act of navigation. Its identity is the history entry it
- * happens on, and it is bound **synchronously, at the instant the navigation
- * is observed**, by whoever observes it. The value then travels forward as an
- * argument. Nothing downstream re-derives it from ambient `window.history.state`.
+ * happens on, and it is coined by the code that opens that entry: the eager
+ * `pushState`/`replaceState` wrappers below. The value then travels forward as
+ * an argument. Nothing downstream re-derives it from ambient
+ * `window.history.state`.
  *
  * That rule is the whole design, and it makes both failure directions
  * impossible by construction rather than by discipline:
@@ -12,24 +13,22 @@
  *   - two emissions of the SAME act (Firebase + PostHog, or a retry after the
  *     employer identity resolves) read the same entry → they share the id →
  *     downstream deduplication collapses them to ONE observed unit;
- *   - two REAL distinct navigations are captured while each one's own entry is
- *     current → different ids → TWO observed units.
+ *   - two REAL distinct navigations open two entries → two fresh ids → TWO
+ *     observed units.
  *
- * The defect this replaces was a late read: the lazy analytics proxy runs
- * `trackPageView` inside the `.then()` of a dynamic import, so an emitter that
- * sampled `window.history.state` there read whichever entry was current by
- * then. Two rapid navigations both sampled the last one and counted as one.
- * Collapsing real traffic and inflating it are both defects; the fix is to
- * stop sampling ambient state late, not to add another correction on top.
+ * The defect this replaces was trusting a late read: a new entry could be
+ * opened with `pushState(history.state)`, carrying the previous id with it.
+ * The push wrapper always overwrites that stale value with a fresh id; the
+ * replace wrapper preserves the id of the entry that already exists.
  *
  * When the entry cannot be determined the answer is `null` — "dedup non
  * disponibile" — never a guessed id. A fabricated identity would silently
  * become an observed count that nothing measured.
  *
- * This module is deliberately a LEAF: no imports, no Firebase, no side effects
- * at load. The lazy proxy imports it statically so the binding can happen
- * before the dynamic import, without dragging the analytics bundle into the
- * critical path — which is the reason the proxy exists.
+ * This module is deliberately a LEAF: no imports and no Firebase. In a
+ * browser it EAGERLY patches the current History at module evaluation, before
+ * navigation can happen; the `typeof window` guard keeps the same module safe
+ * when Node evaluates it during SSG.
  */
 
 export const PAGE_VIEW_HISTORY_STATE_KEY = '__frontaliere_page_view_entry_id';
@@ -78,18 +77,110 @@ export function stateForReplacedPageViewHistoryEntry(
   currentEntryId: string | null,
   entryId: string,
 ): HistoryStateRecord | null {
-  if (state == null) return { [PAGE_VIEW_HISTORY_STATE_KEY]: currentEntryId || entryId };
+  const preservedEntryId = currentEntryId || entryId;
+  if (state == null) return { [PAGE_VIEW_HISTORY_STATE_KEY]: preservedEntryId };
   if (!isHistoryStateRecord(state)) return null;
   return {
     ...state,
-    [PAGE_VIEW_HISTORY_STATE_KEY]: readPageViewHistoryEntryId(state) || currentEntryId || entryId,
+    [PAGE_VIEW_HISTORY_STATE_KEY]: preservedEntryId,
   };
 }
 
+type PageViewHistoryPatch = {
+  patchedPushState?: History['pushState'];
+  patchedReplaceState?: History['replaceState'];
+  pushStateInstalled: boolean;
+  replaceStateInstalled: boolean;
+};
+
+const pageViewHistoryPatches = new WeakMap<object, PageViewHistoryPatch>();
+const PAGE_VIEW_HISTORY_PATCH_MARKER = Symbol.for('frontaliere.pageViewHistoryEntry.patch');
+
+function installPageViewHistoryEntryWrappers(): void {
+  if (typeof window === 'undefined') return;
+  const historyRef = (window as unknown as { history?: History }).history;
+  if (!historyRef || (typeof historyRef !== 'object' && typeof historyRef !== 'function')) return;
+
+  const historyObject = historyRef as unknown as object;
+  if (pageViewHistoryPatches.has(historyObject)) return;
+  const markedPatch = (historyRef as unknown as Record<PropertyKey, unknown>)[PAGE_VIEW_HISTORY_PATCH_MARKER];
+  if (markedPatch && typeof markedPatch === 'object') {
+    pageViewHistoryPatches.set(historyObject, markedPatch as PageViewHistoryPatch);
+    return;
+  }
+
+  const originalPushState = (historyRef as unknown as { pushState?: History['pushState'] }).pushState;
+  const originalReplaceState = (historyRef as unknown as { replaceState?: History['replaceState'] }).replaceState;
+  const patch: PageViewHistoryPatch = {
+    pushStateInstalled: false,
+    replaceStateInstalled: false,
+  };
+
+  if (typeof originalPushState === 'function') {
+    const patchedPushState = function patchedPageViewPushState(
+      this: History,
+      state: unknown,
+      unused: string,
+      url?: string | URL | null,
+    ): void {
+      const entryId = createAnalyticsEmissionId();
+      const nextState = stateForNewPageViewHistoryEntry(state, entryId);
+      return originalPushState.call(this, nextState || state, unused, url);
+    } as History['pushState'];
+    try {
+      historyRef.pushState = patchedPushState;
+      patch.patchedPushState = patchedPushState;
+      patch.pushStateInstalled = historyRef.pushState === patchedPushState;
+    } catch {
+      // A constrained host may expose a non-writable History API.
+    }
+  }
+
+  if (typeof originalReplaceState === 'function') {
+    const patchedReplaceState = function patchedPageViewReplaceState(
+      this: History,
+      state: unknown,
+      unused: string,
+      url?: string | URL | null,
+    ): void {
+      let currentState: unknown;
+      try {
+        currentState = this.state;
+      } catch {
+        return originalReplaceState.call(this, state, unused, url);
+      }
+      const currentEntryId = readPageViewHistoryEntryId(currentState);
+      const entryId = currentEntryId || createAnalyticsEmissionId();
+      const nextState = stateForReplacedPageViewHistoryEntry(state, currentEntryId, entryId);
+      return originalReplaceState.call(this, nextState || state, unused, url);
+    } as History['replaceState'];
+    try {
+      historyRef.replaceState = patchedReplaceState;
+      patch.patchedReplaceState = patchedReplaceState;
+      patch.replaceStateInstalled = historyRef.replaceState === patchedReplaceState;
+    } catch {
+      // A constrained host may expose a non-writable History API.
+    }
+  }
+
+  try {
+    Object.defineProperty(historyRef, PAGE_VIEW_HISTORY_PATCH_MARKER, {
+      configurable: false,
+      enumerable: false,
+      value: patch,
+      writable: false,
+    });
+  } catch {
+    // The local WeakMap still keeps repeated installation idempotent here.
+  }
+  pageViewHistoryPatches.set(historyObject, patch);
+}
+
 /**
- * Read — or, the first time, allocate — the identity of the history entry that
- * is current RIGHT NOW. Synchronous by contract: the value is only meaningful
- * at the instant the navigation is observed.
+ * Read the identity already coined for the entry that is current RIGHT NOW.
+ * For the initial entry, ask the eager `replaceState` wrapper to coin it in
+ * place. Synchronous by contract: the value describes this entry, not a new
+ * navigation.
  *
  * Returns `null` whenever the entry cannot be identified without lying: no
  * window, no history, a state we must not overwrite, a host that refuses
@@ -101,22 +192,25 @@ export function ensureCurrentPageViewHistoryEntryId(): string | null {
   if (typeof window === 'undefined') return null;
   const historyRef = (window as unknown as { history?: History }).history;
   if (!historyRef) return null;
+  const patch = pageViewHistoryPatches.get(historyRef as unknown as object);
+  if (!patch?.pushStateInstalled || !patch.replaceStateInstalled) return null;
+  if (historyRef.pushState !== patch.patchedPushState || historyRef.replaceState !== patch.patchedReplaceState) {
+    return null;
+  }
   const currentEntryId = readPageViewHistoryEntryId(historyRef.state);
   if (currentEntryId) return currentEntryId;
   if (typeof historyRef.replaceState !== 'function') return null;
-  const entryId = createAnalyticsEmissionId();
-  const nextState = stateForReplacedPageViewHistoryEntry(historyRef.state, null, entryId);
-  if (!nextState) return null;
   try {
-    // Two arguments, never a third: `replaceState(state, '', '')` resolves the
-    // empty URL against the document base and DROPS the fragment, so allocating
-    // an analytics id would rewrite the address bar. Omitting `url` leaves the
-    // URL untouched, which is the only thing this call is allowed to do.
-    historyRef.replaceState(nextState, '');
+    // The wrapper coins the id for the current entry. Two arguments, never a
+    // third: omitting `url` leaves the address bar, including its fragment,
+    // untouched.
+    historyRef.replaceState(historyRef.state, '');
     // Confirm the host actually took it. Reporting an id the entry does not
     // carry would claim an identity that no later read could reproduce.
-    return readPageViewHistoryEntryId(historyRef.state) === entryId ? entryId : null;
+    return readPageViewHistoryEntryId(historyRef.state);
   } catch {
     return null;
   }
 }
+
+installPageViewHistoryEntryWrappers();
