@@ -4038,7 +4038,9 @@ function renderItalianCityPage(opts: {
  * Returns a map of canonical path → HTML string.
  *
  * Safety cap: MAX_FUEL_STATION_PAGES_PER_BUILD (env var). When exceeded the
- * generator stops emitting and logs a warning.
+ * generator stops emitting and logs a warning. The current matrix is 256
+ * stations × 4 locales × 2 fuels; therefore `MAX_FUEL_STATION_PAGES_PER_BUILD >= 2048`
+ * is the minimum default that keeps the emitted station set aligned with its index.
  *
  * Single source of truth (2026-04-29 anti-orphan fix): callers may pass a
  * pre-collected `contexts` array. The fuel-station browseable index plugin
@@ -4067,7 +4069,7 @@ export function generateFuelStationPages(opts: {
   const distDir = opts.distDir;
   const history = opts.history;
   const rootDir = opts.rootDir;
-  const maxPages = opts.maxPages ?? intFromEnv('MAX_FUEL_STATION_PAGES_PER_BUILD', 1500);
+  const maxPages = opts.maxPages ?? intFromEnv('MAX_FUEL_STATION_PAGES_PER_BUILD', 2048);
   const pages: Record<string, string> = {};
 
   const contexts = opts.contexts ?? collectSwissStationContexts(dataset);
