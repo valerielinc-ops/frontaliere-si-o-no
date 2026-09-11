@@ -928,11 +928,12 @@ async function runSharedCrawler(companyKeys, maxJobs) {
  * needed by the company-skip ledger and by the artifact; `cleared` must never
  * be used as its proxy.
  */
-function servedCompanyKeysFromCrawlerResult(crawlerResult) {
-  const companyKeys = Array.isArray(crawlerResult?.localizationCoveredCompanyKeys)
-    ? crawlerResult.localizationCoveredCompanyKeys
-    : (Array.isArray(crawlerResult?.localizationAttemptedCompanyKeys)
-      ? crawlerResult.localizationAttemptedCompanyKeys : []);
+export function servedCompanyKeysFromCrawlerResult(crawlerResult) {
+  const coveredCompanyKeys = crawlerResult?.localizationCoveredCompanyKeys;
+  const attemptedCompanyKeys = crawlerResult?.localizationAttemptedCompanyKeys;
+  const companyKeys = Array.isArray(coveredCompanyKeys) && coveredCompanyKeys.length > 0
+    ? coveredCompanyKeys
+    : (Array.isArray(attemptedCompanyKeys) ? attemptedCompanyKeys : []);
   return new Set(
     companyKeys
       .map((companyKey) => normalizeCompanyKey(companyKey).slice(0, 64))
@@ -2238,7 +2239,7 @@ export async function runRelocalization(phase) {
     for (const [arm, a] of Object.entries(summary.arms)) {
       const ms = a.msPerJob === null ? 'n/d' : `${Math.round(a.msPerJob / 1000)}s/job`;
       const acc = a.acceptRate === null ? 'n/d' : `${(a.acceptRate * 100).toFixed(1)}%`;
-      console.log(`   ${arm.padEnd(12)} ${String(a.companies).padStart(3)} aziende, ${String(a.jobs).padStart(4)} job, ${ms.padStart(8)}, accettate ${acc} (${a.cleared}/${a.attempted})`);
+      console.log(`   ${arm.padEnd(12)} ${String(a.companies).padStart(3)} aziende (${a.servedCompanies} servite, ${a.unservedCompanies} non servite), ${String(a.jobs).padStart(4)} job, ${ms.padStart(8)}, accettate ${acc} (${a.cleared}/${a.attempted})`);
     }
     // L'artefatto vive nel RUNNER_TEMP e viene caricato dal workflow: non
     // committarlo, sarebbe un file di dati riscritto a ogni run.
