@@ -1,6 +1,6 @@
 {
   "crawlerKey": "givaudan",
-  "assembledAt": "2026-09-10T23:18:48.518Z",
+  "assembledAt": "2026-09-11T13:52:44.740Z",
   "jobs": [
     {
       "id": "givaudan-da54bfc5498e",
@@ -33,7 +33,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119410EXTERNALENGLOBAL/bioprocess-specialist-m-f-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T23:18:41.208Z",
+      "crawledAt": "2026-09-11T13:52:39.010Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -92,7 +92,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "givaudan-9f646df7d79d",
@@ -125,7 +126,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119206EXTERNALENGLOBAL/global-process-safety-manager",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T23:18:40.982Z",
+      "crawledAt": "2026-09-11T13:52:38.342Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -204,7 +205,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119915EXTERNALENGLOBAL/innovation-project-intern-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T23:18:40.673Z",
+      "crawledAt": "2026-09-11T13:52:37.996Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -238,6 +239,7 @@
         ]
       },
       "firstSeenAt": "2026-09-07T23:41:25.350Z",
+      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -283,7 +285,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119877EXTERNALENGLOBAL/site-operations-controller-ingredients-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T23:18:40.165Z",
+      "crawledAt": "2026-09-11T13:52:37.230Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -317,6 +319,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:39:50.714Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -362,7 +365,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119889EXTERNALENGLOBAL/senior-site-buyer",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T23:18:39.911Z",
+      "crawledAt": "2026-09-11T13:52:36.871Z",
       "addressLocality": "Dübendorf",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -441,7 +444,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119521EXTERNALENGLOBAL/ot-technical-lead-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T23:18:39.565Z",
+      "crawledAt": "2026-09-11T13:52:36.128Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -475,6 +478,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:19:46.350Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -520,7 +524,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117704EXTERNALENGLOBAL/automation-engineer-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:39.252Z",
+      "crawledAt": "2026-09-11T13:52:35.794Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -553,6 +557,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.831Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -581,7 +586,7 @@
       "companyDomain": "givaudan.com",
       "title": "Operator (m/w/d)",
       "titleByLocale": {
-        "it": "Operatore (m/f/d)",
+        "it": "Operator (m/w/d)",
         "en": "Operator (m/f/d)",
         "de": "Operator (m/w/d)",
         "fr": "Opérateur (m/w/d)"
@@ -598,7 +603,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119747EXTERNALENGLOBAL/operator-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:38.931Z",
+      "crawledAt": "2026-09-11T13:52:35.252Z",
       "addressLocality": "Dübendorf",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -629,6 +634,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:39:23.115Z",
+      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -658,7 +664,7 @@
       "title": "Industrial Automation Project Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Industrial Automation Project Ingegnere (m/w/d)",
-        "en": "Industrial Automation Project Engineer (m/f/d)",
+        "en": "Industrial Automation Project Engineer (m/w/d)",
         "de": "Industrial Automation Project Ingenieur (m/w/d)",
         "fr": "Industrial Automation Project Ingénieur (m/w/d)"
       },
@@ -674,7 +680,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119626EXTERNALENGLOBAL/industrial-automation-project-engineer-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:38.628Z",
+      "crawledAt": "2026-09-11T13:52:34.672Z",
       "addressLocality": "Dübendorf",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -751,7 +757,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119286EXTERNALENGLOBAL/ingenieur-process-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:38.073Z",
+      "crawledAt": "2026-09-11T13:52:33.753Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -785,6 +791,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:41:56.858Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -830,7 +837,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118987EXTERNALENGLOBAL/quality-assurance-sample-technician-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:37.765Z",
+      "crawledAt": "2026-09-11T13:52:32.964Z",
       "addressLocality": "Burgdorf",
       "postalCode": "",
       "addressRegion": "BE",
@@ -871,6 +878,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:08:16.688Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -916,7 +924,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117803EXTERNALENGLOBAL/anlagenfuhrer-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:37.168Z",
+      "crawledAt": "2026-09-11T13:52:31.675Z",
       "addressLocality": "Burgdorf",
       "postalCode": "",
       "addressRegion": "BE",
@@ -967,6 +975,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:07:13.918Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1012,7 +1021,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119373EXTERNALENGLOBAL/electromecanicien-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:36.785Z",
+      "crawledAt": "2026-09-11T13:52:31.378Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1088,7 +1097,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119322EXTERNALENGLOBAL/produktionsmitarbeiter-misch-und-abfullanlagen-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:36.477Z",
+      "crawledAt": "2026-09-11T13:52:30.671Z",
       "addressLocality": "Bischofszell",
       "postalCode": "",
       "addressRegion": "TG",
@@ -1165,7 +1174,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119393EXTERNALENGLOBAL/produktion-continuous-improvement-intern-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:35.890Z",
+      "crawledAt": "2026-09-11T13:52:30.300Z",
       "addressLocality": "Burgdorf",
       "postalCode": "",
       "addressRegion": "BE",
@@ -1196,6 +1205,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:07:37.765Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1241,7 +1251,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119124EXTERNALENGLOBAL/superviseur-en-production-ingredients-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:35.506Z",
+      "crawledAt": "2026-09-11T13:52:29.586Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1304,7 +1314,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118226EXTERNALENGLOBAL/quality-control-analyst-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:35.168Z",
+      "crawledAt": "2026-09-11T13:52:29.124Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1338,6 +1348,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.838Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1383,7 +1394,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119102EXTERNALENGLOBAL/agent-prevention-et-intervention-h-f-d-3x8-cdd-jusqu-au-31-12-2027",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:34.703Z",
+      "crawledAt": "2026-09-11T13:52:27.573Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1423,7 +1434,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "givaudan-b6b87070365c",
@@ -1456,7 +1468,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119415EXTERNALENGLOBAL/senior-regulatory-data-analyst",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T23:18:34.286Z",
+      "crawledAt": "2026-09-11T13:52:26.906Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
