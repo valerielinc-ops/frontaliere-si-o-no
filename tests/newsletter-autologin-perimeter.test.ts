@@ -336,7 +336,7 @@ describe('the call-site opt-out is an argument, not a switch', () => {
       src.indexOf('export function wrapAuthenticatedHrefs'),
       src.indexOf('export function wrapAuthenticatedHrefs') + 200,
     );
-    expect(signature).toMatch(/\{ secret, utmCampaign, scheme \} = \{\}/);
+    expect(signature).toMatch(/utmSource[\s\S]*utmCampaign[\s\S]*preserveExistingUtmMedium/);
     expect(signature).not.toMatch(/sessionGated/);
   });
 });
