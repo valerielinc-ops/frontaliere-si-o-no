@@ -4,11 +4,11 @@
   "generatorSha256": "5afcb32644e828038c6b9864a5f6d0275f543626d0a7b58aafd5dc325f3ce942",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "3398075f162bb000bdbc21e843142330fcc8f0a7",
+  "sourceCommit": "1e93269470a21281069d1845a46cba07ec0e3279",
   "artifactObservation": {
     "generatorSha256": "5afcb32644e828038c6b9864a5f6d0275f543626d0a7b58aafd5dc325f3ce942",
     "sourceRef": "main",
-    "sourceCommit": "3398075f162bb000bdbc21e843142330fcc8f0a7"
+    "sourceCommit": "1e93269470a21281069d1845a46cba07ec0e3279"
   },
   "groupCount": 23,
   "artifactCount": 24,
@@ -30,6 +30,7 @@
     "scripts/collect-translation-observability.mjs",
     "scripts/crawler-generation-observer.mjs",
     "scripts/crawler-group-generation-finalizer.mjs",
+    "scripts/fix-untranslated-descriptions.mjs",
     "scripts/fix-untranslated-titles.mjs",
     "scripts/generate-crawler-group-workflows.mjs",
     "scripts/lib/atomic-write-json.mjs",
@@ -1410,8 +1411,8 @@
     {
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
-      "sourceSha256": "d7667cef5a543b01efcf89f9a4a695bd3840092aca8d954b3baf17cf1f5dabf6",
-      "artifactSha256": "26919a86b4041fa0ec75770e51e4a36f0c6dea5b014c976e4054829abf3aa26f",
+      "sourceSha256": "7f9809bd85013ba0f9fac683831fc0579f19d8eabc38340ad1bf16c8b3b249e4",
+      "artifactSha256": "421e29c4b786ca57303a93135926d9b7abeca6704bab2d14165250fa6c75830d",
       "generatorSha256": "5afcb32644e828038c6b9864a5f6d0275f543626d0a7b58aafd5dc325f3ce942",
       "members": []
     }
