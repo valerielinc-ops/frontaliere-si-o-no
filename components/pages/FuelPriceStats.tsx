@@ -11,7 +11,7 @@ import { brandLogoSlug } from '@/build-plugins/shared/brandSlug';
 
 type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
 
-type FuelType = 'benzina' | 'diesel';
+export type FuelType = 'benzina' | 'diesel';
 
 export interface FuelViewState { fuelType: FuelType; search: string; province: string; sortKey: SortKey; selectedKey: string | null; homeMunicipalityKey: string; tankLiters: number; costPerKmEur: number; page: number; }
 export interface FuelRowView {
@@ -19,6 +19,7 @@ export interface FuelRowView {
  swiss: { optionCount: number; minPriceChf: number | null; minPriceEur: number | null; cheapestStation: FuelStationSwitzerland | null; nearbyStations: FuelStationSwitzerland[]; };
  comparison: { cheaperCountry: FuelComparisonCountry; priceDeltaEur: number | null; saving50LEur: number | null; };
 }
+export type FuelRowViewFactory = (row: MunicipalityFuelRow, fuelType: FuelType) => FuelRowView;
 const DEFAULT_FUEL_VIEW: FuelViewState = { fuelType: 'benzina', search: '', province: 'ALL', sortKey: 'saving', selectedKey: null, homeMunicipalityKey: '', tankLiters: 50, costPerKmEur: 0.18, page: 1 };
 function parseNumberParam(value: string | null, fallback: number, min: number, max: number) { const parsed = Number(value); return Number.isFinite(parsed) ? Math.min(max, Math.max(min, parsed)) : fallback; }
 function isSortKey(value: string | null): value is SortKey { return value === 'saving' || value === 'delta' || value === 'italy' || value === 'swiss' || value === 'name'; }
@@ -50,6 +51,10 @@ function minPrice<T>(items: T[], getPrice: (item: T) => number | null): number |
  const prices = items.map(getPrice).filter((value): value is number => value != null);
  return prices.length ? Math.min(...prices) : null;
 }
+/**
+ * Typed projection boundary: every `fuelRowView()` call stays within the
+ * MunicipalityFuelRow → FuelRowView contract, including the diesel path.
+ */
 export function fuelRowView(row: MunicipalityFuelRow, fuelType: FuelType): FuelRowView {
  const italyStations = row.italy.stations.filter((station) => italyStationPrice(station, fuelType) != null);
  const swissStations = row.swiss.nearbyStations.filter((station) => swissStationPrice(station, fuelType, 'CHF') != null);
