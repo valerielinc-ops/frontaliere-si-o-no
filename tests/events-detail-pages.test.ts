@@ -4,8 +4,8 @@
  * detail page with complete structured data + breadcrumb + ≥ MIN_INDEXABLE_WORDS,
  * and the router recognising the 2-segment detail URL.
  */
-import { describe, it, expect } from 'vitest';
-import { mkdtempSync, readFileSync } from 'node:fs';
+import { describe, it, expect, vi } from 'vitest';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, OTHER_EVENTS_COMUNE_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
@@ -23,6 +23,7 @@ import {
   eventSlugRedirectKey,
   reserveLiveSiblingSlugs,
   renderEventSlugRedirectPage,
+  pruneStaleEventSlugRedirects,
   categoryLabel,
   normalizeCategoryKey,
 } from '../build-plugins/eventsSeoPagesPlugin';
@@ -1069,6 +1070,32 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(migrations[1].fromSlug.length).toBeLessThanOrEqual(EVENT_SLUG_MAX_LENGTH);
   });
 
+  it('skips a legacy tie bridge whose truncated candidate is another event bare slug', () => {
+    const title = 'Una manifestazione straordinaria con un programma molto ricco e dettagliato';
+    const first = { ...EVENT, id: 'tio-agenda:legacy-collision-a', title, startDate: '' };
+    const duplicate = { ...EVENT, id: 'tio-agenda:legacy-collision-b', title, startDate: '' };
+    const legacyBase = slugifyLegacyEvent(first);
+    const collidingLegacySlug = disambiguateEventSlug(legacyBase, 2);
+    const colliding = {
+      ...EVENT,
+      id: 'tio-agenda:legacy-collision-c',
+      title: collidingLegacySlug.replace(/-/g, ' '),
+      startDate: '',
+    };
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+    try {
+      const events = [first, duplicate, colliding];
+      const assigned = assignEventSlugs(events as never);
+      const migrations = changedEventSlugMigrations(events as never, 'TI', 'Lugano', assigned);
+      expect(migrations.find((migration) => migration.eventId === duplicate.id)).toBeUndefined();
+      expect(migrations.find((migration) => migration.fromSlug === collidingLegacySlug)?.eventId).toBe(colliding.id);
+      expect(migrations.some((migration) => migration.eventId === duplicate.id && migration.fromSlug === collidingLegacySlug)).toBe(false);
+      expect(warn).toHaveBeenCalled();
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
   it('the -N tie-breaker never lands on the reserved page-N ladder shape (issue #7743)', () => {
     // A dateless event titled `Page` mints base `page`, which is correctly NOT
     // reserved. Without the reservation on the tie-breaker the second sibling
@@ -1109,11 +1136,46 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(slugs.get(event.id)).toBe('page-2-evento-2');
   });
 
+  it('semina la stessa forma riservata anche per il namespace legacy', () => {
+    const event = { ...EVENT, id: 'tio-agenda:legacy-page-two', title: 'Page 2', startDate: '' };
+    const reserved = new Set(['page-2']);
+    const assigned = assignEventSlugs([event] as never, reserved);
+    expect(changedEventSlugMigrations([event] as never, 'TI', 'Lugano', assigned, reserved)).toEqual([]);
+  });
+
   it('keeps the old published tie slug reachable through a noindex canonical bridge', () => {
     const html = renderEventSlugRedirectPage('it', '/eventi/ticino/lugano/nuovo-slug/');
     expect(html).toContain('<meta name="robots" content="noindex,follow">');
     expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/">');
     expect(html).toContain('http-equiv="refresh" content="0; url=https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/"');
+  });
+});
+
+describe('pruneStaleEventSlugRedirects', () => {
+  it('rimuove i bridge non più registrati e conserva quello corrente e una pagina noindex normale', () => {
+    const distDir = mkdtempSync(path.join(os.tmpdir(), 'events-redirect-prune-'));
+    const staleIndex = path.join(distDir, 'eventi/ticino/lugano/vecchio/index.html');
+    const staleFlat = path.join(distDir, 'eventi/ticino/lugano/vecchio.html');
+    const currentIndex = path.join(distDir, 'eventi/ticino/lugano/corrente/index.html');
+    const currentFlat = path.join(distDir, 'eventi/ticino/lugano/corrente.html');
+    const thinPage = path.join(distDir, 'eventi/ticino/lugano/sottile/index.html');
+    const bridge = renderEventSlugRedirectPage('it', '/eventi/ticino/lugano/corrente/');
+    mkdirSync(path.dirname(staleIndex), { recursive: true });
+    mkdirSync(path.dirname(currentIndex), { recursive: true });
+    mkdirSync(path.dirname(thinPage), { recursive: true });
+    writeFileSync(staleIndex, bridge);
+    writeFileSync(staleFlat, bridge);
+    writeFileSync(currentIndex, bridge);
+    writeFileSync(currentFlat, bridge);
+    writeFileSync(thinPage, '<meta name="robots" content="noindex,follow">');
+
+    const removed = pruneStaleEventSlugRedirects(distDir, [currentIndex, currentFlat]);
+    expect(removed).toHaveLength(2);
+    expect(existsSync(staleIndex)).toBe(false);
+    expect(existsSync(staleFlat)).toBe(false);
+    expect(existsSync(currentIndex)).toBe(true);
+    expect(existsSync(currentFlat)).toBe(true);
+    expect(existsSync(thinPage)).toBe(true);
   });
 });
 
