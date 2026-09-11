@@ -3857,6 +3857,7 @@ Règles :
  'publisherDashboard.kpi.intentRate': 'Taux d’intention / clic',
  'publisherDashboard.kpi.noDataYet': 'Les statistiques se remplissent à mesure que les frontaliers voient vos annonces.',
  'publisherDashboard.analytics.dedupUnavailable': 'Déduplication indisponible',
+ 'publisherDashboard.analytics.metricUnavailable': 'Non disponible',
  'publisherDashboard.adsHeading': 'Vos annonces',
  'publisherDashboard.bestPerformer': 'La plus vue',
  'publisherDashboard.empty.title': 'Vos candidatures commencent ici',

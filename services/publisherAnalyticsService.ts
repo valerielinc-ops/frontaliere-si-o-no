@@ -138,6 +138,42 @@ async function incrementView(eventDocId: string): Promise<void> {
 }
 
 /** Create one stable key for all telemetry emitted by a single UI action. */
+/**
+ * Resolve the deduplication state written on this transaction, fail-closed.
+ *
+ * The status is decided by the running unavailable count, so a stored value we
+ * cannot read is not a zero: `Number(value) || 0` on a junk field silently
+ * downgraded a document that is NOT provably deduplicated back to `available`,
+ * and the read side then trusts that status. Absent is different from junk —
+ * a document written before the ledger existed simply has no counter yet.
+ */
+export function resolveApplyClickDedupState(
+  storedUnavailable: unknown,
+  addedUnavailable: number,
+): { status: 'available' | 'dedup non disponibile'; unavailableCount: number } {
+  const added = Number.isFinite(addedUnavailable) && addedUnavailable > 0 ? addedUnavailable : 0;
+  // Only ABSENT means "never written". An explicit `null` is a value, and it is
+  // not a readable count — so it fails closed like any other junk.
+  if (storedUnavailable === undefined) {
+    return { status: added > 0 ? 'dedup non disponibile' : 'available', unavailableCount: added };
+  }
+  const previous = typeof storedUnavailable === 'number'
+    && Number.isInteger(storedUnavailable)
+    && storedUnavailable >= 0
+    ? storedUnavailable
+    : null;
+  if (previous === null) {
+    // Unreadable history: we cannot prove the earlier units were deduplicated,
+    // so we do not claim they were.
+    return { status: 'dedup non disponibile', unavailableCount: added };
+  }
+  const unavailableCount = previous + added;
+  return {
+    status: unavailableCount > 0 ? 'dedup non disponibile' : 'available',
+    unavailableCount,
+  };
+}
+
 export function createPublisherApplyEventId(): string {
   return createAnalyticsEmissionId();
 }
@@ -174,16 +210,15 @@ async function incrementApplyClick(eventDocId: string, eventId: string): Promise
         decision.record ? eventId : null,
       );
       const unavailable = decision.unavailable + ledgerUpdate.unavailable;
-      const previousUnavailable = Math.max(0, Number(data.applyClicksDedupUnavailable) || 0);
-      const dedupUnavailable = previousUnavailable + unavailable;
+      const dedupState = resolveApplyClickDedupState(data.applyClicksDedupUnavailable, unavailable);
       const update: Record<string, unknown> = {
         jobId: eventDocId,
         updatedAt: new Date(nowMs),
         applyClicksDeduplication: {
           strategy: 'emission_id_only',
           key: 'emission_id',
-          status: dedupUnavailable > 0 ? 'dedup non disponibile' : 'available',
-          unavailableCount: dedupUnavailable,
+          status: dedupState.status,
+          unavailableCount: dedupState.unavailableCount,
         },
         applyClicksTechnicalDuplicatesRemoved: fsIncrement(decision.removed),
         applyClicksDedupUnavailable: fsIncrement(unavailable),

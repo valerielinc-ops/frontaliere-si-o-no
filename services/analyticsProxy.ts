@@ -10,11 +10,29 @@
  * import { Analytics } from '@/services/analyticsProxy';
  * Analytics.trackPageView('/foo'); // safe to call immediately
  */
+import { ensureCurrentPageViewHistoryEntryId } from './pageViewHistoryEntry';
+
 export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
  {} as Record<string, (...a: unknown[]) => void>,
  {
  get: (_t, method: string) =>
  (...args: unknown[]) => {
+ // A page view's identity is the history entry it happens on, and it is
+ // only knowable HERE — synchronously, while the navigation that caused
+ // this call is still the current entry. Below, inside `.then()`, the
+ // dynamic import has already resolved on a later tick and the entry may
+ // have moved on: two rapid navigations would both read the last one and
+ // collapse into a single observed unit (measured in V6). So bind it now
+ // and forward it as a value; `trackPageView` must never re-derive it.
+ //
+ // The proxy is the one synchronous choke point every caller crosses, so
+ // doing it here fixes every call site by construction — a new caller
+ // cannot forget. `null` means "not determinable" and stays null: an
+ // invented id would become an observed count nothing measured.
+ // See services/pageViewHistoryEntry.ts for the rule in full.
+ const forwarded = method === 'trackPageView'
+  ? [args[0], args[1], args[2], ensureCurrentPageViewHistoryEntryId()]
+  : args;
  // Guard + catch like the sibling lazy helpers below (lines 28, 37): a
  // stale-deploy chunk can resolve the dynamic import to a module whose
  // `Analytics` export is undefined, so `m.Analytics[method]` throws and —
@@ -27,7 +45,7 @@ export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
  import('@/services/analytics')
  .then((m) => {
  const fn = (m.Analytics as any)?.[method];
- if (typeof fn === 'function') fn(...args);
+ if (typeof fn === 'function') fn(...forwarded);
  })
  .catch(() => {});
  },

@@ -99,6 +99,13 @@ import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
 import {
+ createAnalyticsEmissionId,
+ ensureCurrentPageViewHistoryEntryId,
+ readPageViewHistoryEntryId,
+ stateForNewPageViewHistoryEntry,
+ stateForReplacedPageViewHistoryEntry,
+} from './pageViewHistoryEntry';
+import {
  isBenignErrorMessage,
  isOriginRedactedThirdPartyStack,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
@@ -186,54 +193,17 @@ export function buildPageViewAttributionParams(
  return {};
 }
 
-/** Create one non-identifying key shared by all provider emissions of one action. */
-export function createAnalyticsEmissionId(): string {
- try {
-  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
- } catch {
-  // Fall through to a local key when Web Crypto is unavailable.
- }
- return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-}
-
-export const PAGE_VIEW_HISTORY_STATE_KEY = '__frontaliere_page_view_entry_id';
-
-type HistoryStateRecord = Record<string, unknown>;
-
-function isHistoryStateRecord(value: unknown): value is HistoryStateRecord {
- if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
- try {
-  const prototype = Object.getPrototypeOf(value);
-  return prototype === Object.prototype || prototype === null;
- } catch {
-  return false;
- }
-}
-
-function readPageViewHistoryEntryId(state: unknown): string | null {
- if (!isHistoryStateRecord(state)) return null;
- const value = state[PAGE_VIEW_HISTORY_STATE_KEY];
- return typeof value === 'string' && value.trim() ? value : null;
-}
-
-function stateForNewPageViewHistoryEntry(state: unknown, entryId: string): HistoryStateRecord | null {
- if (state == null) return { [PAGE_VIEW_HISTORY_STATE_KEY]: entryId };
- if (!isHistoryStateRecord(state)) return null;
- return { ...state, [PAGE_VIEW_HISTORY_STATE_KEY]: entryId };
-}
-
-function stateForReplacedPageViewHistoryEntry(
- state: unknown,
- currentEntryId: string | null,
- entryId: string,
-): HistoryStateRecord | null {
- if (state == null) return { [PAGE_VIEW_HISTORY_STATE_KEY]: currentEntryId || entryId };
- if (!isHistoryStateRecord(state)) return null;
- return {
-  ...state,
-  [PAGE_VIEW_HISTORY_STATE_KEY]: readPageViewHistoryEntryId(state) || currentEntryId || entryId,
- };
-}
+// The page-view identity lives in its own leaf module: the lazy analytics
+// proxy imports it statically to bind the history entry BEFORE its dynamic
+// import resolves, which is what keeps two rapid navigations distinct. Keeping
+// one definition means the producer and the emitter cannot drift apart.
+// Re-exported here because these names are part of this module's public
+// surface and existing callers and tests import them from it.
+export {
+ PAGE_VIEW_HISTORY_STATE_KEY,
+ createAnalyticsEmissionId,
+ ensureCurrentPageViewHistoryEntryId,
+} from './pageViewHistoryEntry';
 
 export interface AnalyticsPageViewEmission {
  path: string;
@@ -559,24 +529,6 @@ function ensurePageViewLifecycle(): void {
  if (typeof window.addEventListener === 'function') {
   window.addEventListener('popstate', closePageViewLifecycle, true);
   window.addEventListener('pagehide', closePageViewLifecycle, true);
- }
-}
-
-function ensureCurrentPageViewHistoryEntryId(): string | null {
- if (typeof window === 'undefined') return null;
- const historyRef = (window as unknown as { history?: History }).history;
- if (!historyRef) return null;
- const currentEntryId = readPageViewHistoryEntryId(historyRef.state);
- if (currentEntryId) return currentEntryId;
- if (typeof historyRef.replaceState !== 'function') return null;
- const entryId = createAnalyticsEmissionId();
- const nextState = stateForReplacedPageViewHistoryEntry(historyRef.state, null, entryId);
- if (!nextState) return null;
- try {
-  historyRef.replaceState(nextState, '', '');
-  return readPageViewHistoryEntryId(historyRef.state) === entryId ? entryId : null;
- } catch {
-  return null;
  }
 }
 
@@ -1136,10 +1088,26 @@ export const Analytics = {
  * This means non-blocked users get a duplicate page_view (gtag + Firebase)
  * on the initial page, which is a minor metric inflation but correct.
  */
- trackPageView: (path: string, title?: string, identity?: AnalyticsPageViewIdentity | null) => {
+ trackPageView: (
+ path: string,
+ title?: string,
+ identity?: AnalyticsPageViewIdentity | null,
+ // The history entry captured by the caller at the instant the navigation
+ // happened. `string` = that entry; `null` = captured and not determinable,
+ // which must stay "dedup non disponibile" and never become a guess. Omitted
+ // (`undefined`) means the caller did not capture, so we read it here — the
+ // only correct fallback for a direct, non-proxied call that is already
+ // running synchronously with its own navigation.
+ historyEntryId?: string | null,
+ ) => {
  ensurePageViewLifecycle();
  const now = Date.now();
- const historyEntry = ensureCurrentPageViewHistoryEntryId();
+ // Use what the observer captured. Re-reading `window.history.state` here
+ // would sample whichever entry is current NOW, which for a call that arrived
+ // through the lazy proxy is a later tick than the navigation it describes.
+ const historyEntry = historyEntryId === undefined
+ ? ensureCurrentPageViewHistoryEntryId()
+ : historyEntryId;
  // Do not use elapsed time to decide whether to emit. Re-emissions for the
  // same history entry carry the same emission id and are collapsed downstream;
  // a new entry gets a different id even when it has the same path.
