@@ -10608,7 +10608,6 @@
       "previousSlugs": [
         "dipl-expertin-experte-intensivpflege-nds-hf-mit-zusatzfunktion-in-der-fachverantwortung",
         "dipl-expertin-experte-intensivpflege-nds-hf-mit-zusatzfunktion-in-der-fachverantwortung-spital-thurgau-stgag",
-        "dipl-expert-expert-intensive-care-nds-hf-con-funzione-aggiuntiva-nella-responsabilita-professionale-spital-thurgau-stgag",
         "dipl-expert-expert-intensive-care-nds-hf-con-funzione-aggiuntiva-attuazione-studio-ficus-70-100-spital-thurgau-stgag",
         "dipl-expert-expert-intensive-care-nds-hf-with-additional-function-implementation-ficus-study-70-100-spital-thurgau-stgag",
         "dipl-expertin-experte-intensivpflege-nds-hf-mit-zusatzfunktion-implementierung-ficus",
@@ -10620,7 +10619,6 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-intensivpflege-nds-hf-mit-zusatzfunktion-in-der-fachverantwortung",
-          "dipl-expert-expert-intensive-care-nds-hf-con-funzione-aggiuntiva-nella-responsabilita-professionale-spital-thurgau-stgag",
           "dipl-expert-expert-intensive-care-nds-hf-con-funzione-aggiuntiva-attuazione-studio-ficus-70-100-spital-thurgau-stgag",
           "dipl-expert-expert-intensive-care-nds-hf-with-additional-function-implementation-ficus-study-70-100-spital-thurgau-stgag",
           "dipl-expertin-experte-intensivpflege-nds-hf-mit-zusatzfunktion-implementierung-ficus",
@@ -14543,8 +14541,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-stgag-ch",
         "it": "collaboratore-trice-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "en": "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "fr": "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "en": "staff-reception-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fr": "reception-du-personnel-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14594,16 +14592,15 @@
           "mitarbeiter-in-empfang-stgag-ch"
         ],
         "en": [
-          "staff-reception-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "fr": [
-          "reception-du-personnel-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-empfang-stgag-ch",
-        "staff-reception-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "reception-du-personnel-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
