@@ -12,7 +12,7 @@ import { resolve } from 'node:path';
 
 export const PROMPT_SCALAR_LIMIT = 20_000;
 
-/** Extract YAML block scalars attached to a `prompt:` key. */
+/** Extract YAML block scalars attached to a `prompt:` key, dedented come li riceve GitHub. */
 export function promptBlocks(text) {
   const out = [];
   const lines = String(text || '').split(/\r?\n/);

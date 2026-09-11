@@ -43,9 +43,19 @@ describe('validate-modified-workflows', () => {
     ]);
   });
 
-  it('accepts a prompt at the limit', () => {
-    const prompt = `prompt: |\n  ${'x'.repeat(PROMPT_SCALAR_LIMIT - 2)}`;
+  it('accepts a prompt exactly at the limit once dedented', () => {
+    const prompt = `prompt: |\n  ${'x'.repeat(PROMPT_SCALAR_LIMIT)}`;
 
     expect(validateWorkflowText('.github/workflows/issue-fix.yml', prompt)).toEqual([]);
+  });
+
+  it('accepts a deeply indented prompt whose raw lines exceed the limit', () => {
+    const body = Array.from({ length: 400 }, () => 'y'.repeat(45)).join('\n');
+    const indented = body.split('\n').map((line) => `          ${line}`).join('\n');
+    const workflow = `        prompt: |\n${indented}`;
+
+    expect(body.length).toBeLessThan(PROMPT_SCALAR_LIMIT);
+    expect(indented.length).toBeGreaterThan(PROMPT_SCALAR_LIMIT);
+    expect(validateWorkflowText('.github/workflows/issue-fix.yml', workflow)).toEqual([]);
   });
 });
