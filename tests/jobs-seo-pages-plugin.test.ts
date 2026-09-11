@@ -68,6 +68,7 @@ describe('jobsSeoPagesPlugin static payload budget', () => {
     expect(source).not.toContain('const jobListHtml = jobCardListBody(companyJobs, locale);');
     expect(source).not.toContain('const openRolesListHtml = jobCardListBody(companyJobs, locale);');
     expect(source).not.toContain('const cappedJobs = sortedJobs;');
+    expect(source).not.toContain('itemListElement: cappedJobs.slice(0, 10).map');
     expect(source).toContain('(${companyJobs.length})');
   });
 });

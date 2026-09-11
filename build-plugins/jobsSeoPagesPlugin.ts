@@ -6965,7 +6965,7 @@ ${staticAnalyticsHtml}
  // Embed a full JobPosting per item (capped description, never throws → falls
  // back to a name+url stub). Mirrors the editorial-landing ItemList; the
  // authoritative per-job JobPosting still lives on each linked detail page.
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) =>
+ itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
  const listHtml = jobCardListBody(cappedJobs, locale);
@@ -7819,7 +7819,7 @@ ${staticAnalyticsHtml}
  // Embed a full JobPosting per item (capped description, never throws → falls
  // back to a name+url stub). Mirrors the editorial-landing ItemList; the
  // authoritative per-job JobPosting still lives on each linked detail page.
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) =>
+ itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
  // Honest counts over the full (uncapped) match set, not the 30 carded jobs —
@@ -8606,7 +8606,7 @@ ${staticAnalyticsHtml}
  // Embed a full JobPosting per item (capped description, never throws → falls
  // back to a name+url stub). Mirrors the editorial-landing ItemList; the
  // authoritative per-job JobPosting still lives on each linked detail page.
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) =>
+ itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
  // sameAs/logo (issue #4306) — real, derived values only. See
