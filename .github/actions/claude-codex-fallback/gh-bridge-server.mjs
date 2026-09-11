@@ -32,6 +32,11 @@ const corpusAllowedCommands = new Set(['issue']);
 const corpusAllowedSubcommands = new Map([
   ['issue', new Set(['view', 'list', 'create', 'comment', 'edit'])],
 ]);
+const mutatingSubcommands = new Map([
+  ['issue', new Set(['create', 'comment', 'edit'])],
+  ['label', new Set(['create'])],
+  ['pr', new Set(['comment', 'create', 'edit', 'review'])],
+]);
 const operationValueFlags = new Set([
   '--repo', '-R', '--hostname', '--method', '-X', '--header', '-H', '--input', '--template',
   '--body-file', '--body', '--title', '--label', '--add-label', '--remove-label',
@@ -85,6 +90,11 @@ function commandIndexFor(args) {
   return index;
 }
 
+function markSideEffect(sideEffectFile) {
+  if (!sideEffectFile || !path.isAbsolute(sideEffectFile)) return;
+  fs.writeFileSync(sideEffectFile, 'gh\n', { flag: 'a', mode: 0o600 });
+}
+
 function normalizedHost(value) {
   const raw = String(value || '').trim();
   if (!raw || /[\u0000-\u001f\u007f\s]/.test(raw)) return '';
@@ -127,6 +137,14 @@ function firstOperationArg(args, start) {
     if (!arg.includes('=') && operationValueFlags.has(arg)) index += 1;
   }
   return '';
+}
+
+/** Return whether a validated gh request can change remote state. */
+export function isMutatingGhArgs(args) {
+  if (!Array.isArray(args)) return false;
+  const commandIndex = commandIndexFor(args);
+  const command = args[commandIndex];
+  return mutatingSubcommands.get(command)?.has(firstOperationArg(args, commandIndex + 1)) ?? false;
 }
 
 function hasExplicitOption(args, name) {
@@ -549,6 +567,7 @@ function main() {
   const siteToken = process.env.CODEX_GH_AUTH;
   const corpusToken = process.env.CODEX_GH_CORPUS_AUTH || '';
   const realGh = process.env.CODEX_REAL_GH;
+  const sideEffectFile = process.env.CODEX_GH_SIDE_EFFECT_FILE || '';
   const cwd = process.env.CODEX_GH_CWD;
   const workspaceRoot = process.env.CODEX_GH_WORKSPACE || cwd;
   const scratchRoot = process.env.CODEX_GH_SCRATCH;
@@ -659,6 +678,7 @@ function main() {
         finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
         return;
       }
+      if (isMutatingGhArgs(args)) markSideEffect(sideEffectFile);
       client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
       child = spawn(realGh, args, {
         cwd,
