@@ -711,9 +711,9 @@
       "slug": "manor-mitarbeiter-in-kasse-70-biel",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-kasse-70-biel",
-        "en": "manor-mitarbeiter-in-kasse-70-biel",
+        "en": "employees-in-cash-register-70-manor-ag-biel",
         "de": "manor-mitarbeiter-in-kasse-70-biel",
-        "fr": "manor-mitarbeiter-in-kasse-70-biel"
+        "fr": "employes-dans-la-caisse-enregistreuse-70-manor-ag-biel"
       },
       "titleByLocale": {
         "it": "Lavoratori* in cassa 70%",
@@ -767,9 +767,9 @@
       "slug": "manor-collaborateur-trice-caisse-70-biel",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-caisse-70-biel",
-        "en": "manor-collaborateur-trice-caisse-70-biel",
-        "de": "manor-collaborateur-trice-caisse-70-biel",
-        "fr": "collaborateur-caisse-de-theatre-70-manor-ag-biel"
+        "en": "worker-eur-7-per-machine-70-manor-ag-biel",
+        "de": "arbeitnehmer-7-eur-pro-maschine-70-manor-ag-biel",
+        "fr": "ouvrier-7-eur-par-machine-70-manor-ag-biel"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice caisse 70%",
@@ -797,7 +797,15 @@
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-10T23:16:57.125Z"
+      "firstSeenAt": "2026-09-10T23:16:57.125Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "collaborateur-caisse-de-theatre-70-manor-ag-biel"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-caisse-de-theatre-70-manor-ag-biel"
+      ]
     },
     {
       "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
@@ -884,9 +892,9 @@
       "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf",
-        "en": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf",
+        "en": "staff-logistics-commentation-100-manor-ag-hochdorf-868d93",
         "de": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf",
-        "fr": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf"
+        "fr": "commentaires-du-personnel-sur-la-logistique-100-manor-ag-hochdorf-868d93"
       },
       "titleByLocale": {
         "it": "Commento Logistica personale 100%",
@@ -940,8 +948,8 @@
       "slug": "manor-collaborateur-trice-visual-merchandising-non-food-80-geneve",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-visual-merchandising-non-food-80-geneve",
-        "en": "manor-collaborateur-trice-visual-merchandising-non-food-80-geneve",
-        "de": "manor-collaborateur-trice-visual-merchandising-non-food-80-geneve",
+        "en": "partner-of-the-european-commission-eur-manor-ag-geneve",
+        "de": "partner-der-europaischen-kommission-eur-manor-ag-geneve",
         "fr": "collaborateur-trice-de-marchandises-visuelles-non-alimentaires-80-manor-ag-geneve"
       },
       "titleByLocale": {
@@ -994,9 +1002,9 @@
       "slug": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-        "en": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+        "en": "employees-in-logistics-emanor-assembly-assistance-20-manor-ag-hochdorf",
         "de": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-        "fr": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+        "fr": "employes-en-logistique-assistance-au-manor-20-manor-ag-hochdorf"
       },
       "titleByLocale": {
         "it": "Dipendenti in logistica (assistenza al montaggio eManor) 20%",
@@ -1118,7 +1126,7 @@
       "slug": "manor-boucher-ere-70-marin-epagnier",
       "slugByLocale": {
         "it": "manor-boucher-ere-70-marin-epagnier",
-        "en": "manor-boucher-ere-70-marin-epagnier",
+        "en": "boucher-restaurant-70-manor-ag-marin-epagnier",
         "de": "manor-boucher-ere-70-marin-epagnier",
         "fr": "manor-boucher-ere-70-marin-epagnier"
       },
@@ -1670,7 +1678,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-vente-accessori-dames-60-manor-ag-vevey-collaborateurtrice-vente-accessoires",
         "en": "manor-collaborateur-trice-vente-accessoires-dames-60-vevey-collaborateurtrice-vente-accessoires",
-        "de": "manor-collaborateur-trice-vente-accessoires-dames-60-vevey-collaborateurtrice-vente-accessoires",
+        "de": "kollaborator-windmaschine-accessori-dames-60-manor-ag-vevey",
         "fr": "manor-collaborateur-trice-vente-accessoires-dames-60-vevey-collaborateurtrice-vente-accessoires"
       },
       "titleByLocale": {
@@ -1691,6 +1699,9 @@
           "manor-collaborateur-trice-vente-accessoires-dames-60-vevey-collaborateurtrice-vente-accessoires",
           "manor-collaborateur-trice-vente-accessoires-dames-60-vevey",
           "collaboratore-trice-vente-accessori-dames-60-manor-ag-vevey-collaborateurtrice-vente-accessoires"
+        ],
+        "de": [
+          "manor-collaborateur-trice-vente-accessoires-dames-60-vevey-collaborateurtrice-vente-accessoires"
         ]
       },
       "needsRetranslation": true,
@@ -1738,7 +1749,7 @@
       "slugByLocale": {
         "it": "manor-collaborateur-trice-vente-parfumerie-60-vevey-collaborateurtrice-vente-parfumerie",
         "en": "manor-collaborateur-trice-vente-parfumerie-60-vevey-collaborateurtrice-vente-parfumerie",
-        "de": "manor-collaborateur-trice-vente-parfumerie-60-vevey-collaborateurtrice-vente-parfumerie",
+        "de": "kollaborator-windmaschine-parfumerie-60-manor-ag-vevey",
         "fr": "collaborateur-chaine-vente-parfumerie-60-manor-ag-vevey"
       },
       "titleByLocale": {
@@ -1989,7 +2000,7 @@
       "slugByLocale": {
         "it": "manor-collaborateur-trice-caisse-parfumerie-100-vevey-collaborateurtrice-caisse-parfumerie",
         "en": "manor-collaborateur-trice-caisse-parfumerie-100-vevey-collaborateurtrice-caisse-parfumerie",
-        "de": "manor-collaborateur-trice-caisse-parfumerie-100-vevey-collaborateurtrice-caisse-parfumerie",
+        "de": "mitarbeiter-kaiser-parfumerien-100-manor-ag-vevey",
         "fr": "collaborateur-cassette-parfumerie-100-manor-ag-vevey"
       },
       "titleByLocale": {

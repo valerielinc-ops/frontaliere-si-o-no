@@ -5245,7 +5245,7 @@
       "slugByLocale": {
         "it": "solution-architetto-sap-pm-bpt-buhler-group-uzwil",
         "en": "solution-architect-sap-pm-amp-bpt-buehler-uzwil",
-        "de": "solution-architect-sap-pm-amp-bpt-buehler-uzwil",
+        "de": "systemarchitekt-sap-pm-btp-buhler-group-uzwil",
         "fr": "solution-architecte-sap-pm-bpt-buhler-group-uzwil"
       },
       "company": "Bühler Group",
@@ -5302,7 +5302,7 @@
           "solution-architetto-sap-pm-bpt-buhler-group-uzwil"
         ],
         "de": [
-          "systemarchitekt-sap-pm-btp-buhler-group-uzwil"
+          "solution-architect-sap-pm-amp-bpt-buehler-uzwil"
         ],
         "fr": [
           "solution-architect-sap-pm-amp-bpt-buehler-uzwil"
@@ -7349,7 +7349,7 @@
       "slug": "engineering-intern-buehler-santa-ana-tlapaltitlan",
       "slugByLocale": {
         "it": "engineering-intern-buehler-santa-ana-tlapaltitlan",
-        "en": "engineering-intern-buhler-group-santa-ana-tlapaltitlan",
+        "en": "internal-engineering-buhler-group-santa-ana-tlapaltitlan",
         "de": "engineering-praktikant-buhler-group-santa-ana-tlapaltitlan",
         "fr": "engineering-stagiaire-buhler-group-santa-ana-tlapaltitlan"
       },
@@ -7407,7 +7407,15 @@
         }
       },
       "firstSeenAt": "2026-09-10T20:34:16.450Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "engineering-intern-buhler-group-santa-ana-tlapaltitlan"
+        ]
+      },
+      "previousSlugs": [
+        "engineering-intern-buhler-group-santa-ana-tlapaltitlan"
+      ]
     },
     {
       "id": "buehler-e615a627f972",
@@ -10257,7 +10265,7 @@
       "slugByLocale": {
         "it": "gestione-vendite-scb-buhler-group-wuxi",
         "en": "scb-sales-manager-buehler-wuxi",
-        "de": "scb-sales-manager-buehler-wuxi",
+        "de": "scb-verkaufsleiter-buhler-group-wuxi",
         "fr": "directeur-des-ventes-de-scb-buhler-group-wuxi"
       },
       "company": "Bühler Group",
@@ -10302,14 +10310,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "en": [
+          "scb-sales-manager-buhler-group-wuxi"
+        ],
         "it": [
           "scb-sales-manager-buehler-wuxi",
           "gestione-vendite-scb-buhler-group-wuxi"
         ],
-        "en": [
-          "scb-sales-manager-buhler-group-wuxi"
-        ],
         "fr": [
+          "scb-sales-manager-buehler-wuxi"
+        ],
+        "de": [
           "scb-sales-manager-buehler-wuxi"
         ]
       },
@@ -11618,11 +11629,11 @@
     },
     {
       "id": "buehler-d890ccc57da4",
-      "slug": "area-sales-manager-milling-buehler-ikeja",
+      "slug": "responsabile-vendite-regionale-fresatura-buhler-group-ikeja",
       "slugByLocale": {
-        "it": "area-sales-manager-milling-buehler-ikeja",
+        "it": "responsabile-vendite-regionale-fresatura-buhler-group-ikeja",
         "en": "area-sales-manager-milling-buehler-ikeja",
-        "de": "area-sales-manager-milling-buehler-ikeja",
+        "de": "bereichsverkaufsleiter-frasen-buhler-group-ikeja",
         "fr": "directeur-des-ventes-fraisage-buhler-group-ikeja"
       },
       "company": "Bühler Group",
@@ -11667,11 +11678,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "area-sales-manager-milling-buhler-group-ikeja"
+        "area-sales-manager-milling-buhler-group-ikeja",
+        "area-sales-manager-milling-buehler-ikeja"
       ],
       "previousSlugsByLocale": {
         "en": [
           "area-sales-manager-milling-buhler-group-ikeja"
+        ],
+        "it": [
+          "area-sales-manager-milling-buehler-ikeja"
+        ],
+        "de": [
+          "area-sales-manager-milling-buehler-ikeja"
         ]
       },
       "firstSeenAt": "2026-09-08T13:39:51.823Z",
@@ -12528,11 +12546,11 @@
     },
     {
       "id": "buehler-2b2d2036870c",
-      "slug": "regional-sales-manager-lo-buehler-tangerang",
+      "slug": "responsabile-regionale-delle-vendite-lo-buhler-group-tangerang",
       "slugByLocale": {
-        "it": "regional-sales-manager-lo-buehler-tangerang",
+        "it": "responsabile-regionale-delle-vendite-lo-buhler-group-tangerang",
         "en": "regional-sales-manager-lo-buehler-tangerang",
-        "de": "regional-sales-manager-lo-buehler-tangerang",
+        "de": "regionalverkaufsleiter-lo-buhler-group-tangerang",
         "fr": "directeur-regional-des-ventes-lo-buhler-group-tangerang"
       },
       "company": "Bühler Group",
@@ -12579,10 +12597,17 @@
       "previousSlugsByLocale": {
         "en": [
           "regional-sales-manager-lo-buhler-group-tangerang"
+        ],
+        "it": [
+          "regional-sales-manager-lo-buehler-tangerang"
+        ],
+        "de": [
+          "regional-sales-manager-lo-buehler-tangerang"
         ]
       },
       "previousSlugs": [
-        "regional-sales-manager-lo-buhler-group-tangerang"
+        "regional-sales-manager-lo-buhler-group-tangerang",
+        "regional-sales-manager-lo-buehler-tangerang"
       ],
       "firstSeenAt": "2026-09-10T19:18:22.540Z",
       "salaryMin": 110500,

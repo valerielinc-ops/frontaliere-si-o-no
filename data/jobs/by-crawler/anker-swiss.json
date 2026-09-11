@@ -4953,7 +4953,7 @@
         "it": "metallbauer-100-anker-swiss-ag-winterthur-anker-swiss-ch-2e1511e7",
         "en": "metallbauer-100-anker-swiss-ag-winterthur-anker-swiss-ch-2e1511e7",
         "de": "metallbauer-100-anker-swiss-ag-winterthur-anker-swiss-ch-2e1511e7",
-        "fr": "metallbauer-100-anker-swiss-ag-winterthur-anker-swiss-ch-2e1511e7"
+        "fr": "constructeur-metallique-100-anker-swiss-ag-anker-swiss-ticino-ag-winterthur-2e1511e7"
       },
       "slugDisambiguator": "2e1511e7",
       "company": "Anker Swiss Ticino AG",
@@ -6533,9 +6533,9 @@
       "slug": "betonwerker-schaler-100-anker-swiss-ag-giswil-anker-swiss-ch-db79b9a5",
       "slugByLocale": {
         "it": "betonwerker-schaler-100-anker-swiss-ag-giswil-anker-swiss-ch-db79b9a5",
-        "en": "betonwerker-schaler-100-anker-swiss-ag-giswil-anker-swiss-ch-db79b9a5",
+        "en": "concrete-worker-scaler-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5",
         "de": "betonwerker-schaler-100-anker-swiss-ag-giswil-anker-swiss-ch-db79b9a5",
-        "fr": "betonwerker-schaler-100-anker-swiss-ag-giswil-anker-swiss-ch-db79b9a5"
+        "fr": "betonniere-coffrage-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5"
       },
       "slugDisambiguator": "db79b9a5",
       "company": "Anker Swiss Ticino AG",
@@ -7975,7 +7975,7 @@
         "it": "metallbauer-100-anker-swiss-ag-wichtrach-anker-swiss-ch-4fd74aaa",
         "en": "metallbauer-100-anker-swiss-ag-wichtrach-anker-swiss-ch-4fd74aaa",
         "de": "metallbauer-100-anker-swiss-ag-wichtrach-anker-swiss-ch-4fd74aaa",
-        "fr": "metallbauer-100-anker-swiss-ag-wichtrach-anker-swiss-ch-4fd74aaa"
+        "fr": "constructeur-metallique-100-anker-swiss-ag-anker-swiss-ticino-ag-wichtrach-4fd74aaa"
       },
       "slugDisambiguator": "4fd74aaa",
       "company": "Anker Swiss Ticino AG",
@@ -10280,7 +10280,7 @@
         "it": "metallbauer-100-anker-swiss-ag-ziefen-anker-swiss-ch-e131b357",
         "en": "metallbauer-100-anker-swiss-ag-ziefen-anker-swiss-ch-e131b357",
         "de": "metallbauer-100-anker-swiss-ag-ziefen-anker-swiss-ch-e131b357",
-        "fr": "metallbauer-100-anker-swiss-ag-ziefen-anker-swiss-ch-e131b357"
+        "fr": "constructeur-metallique-100-anker-swiss-ag-anker-swiss-ticino-ag-ziefen-e131b357"
       },
       "slugDisambiguator": "e131b357",
       "company": "Anker Swiss Ticino AG",
@@ -13030,12 +13030,12 @@
     },
     {
       "id": "anker-swiss-49330da203bb",
-      "slug": "storenmonteur-100-anker-swiss-ag-urdorf-anker-swiss-ch-49330da2",
+      "slug": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-urdorf-49330da2",
       "slugByLocale": {
-        "it": "storenmonteur-100-anker-swiss-ag-urdorf-anker-swiss-ch-49330da2",
-        "en": "storenmonteur-100-anker-swiss-ag-urdorf-anker-swiss-ch-49330da2",
+        "it": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-urdorf-49330da2",
+        "en": "blind-fitter-100-anker-swiss-ag-anker-swiss-ticino-ag-urdorf-49330da2",
         "de": "storenmonteur-100-anker-swiss-ag-urdorf-anker-swiss-ch-49330da2",
-        "fr": "storenmonteur-100-anker-swiss-ag-urdorf-anker-swiss-ch-49330da2"
+        "fr": "ajusteur-de-stores-a-100-anker-swiss-ag-anker-swiss-ticino-ag-urdorf-49330da2"
       },
       "slugDisambiguator": "49330da2",
       "company": "Anker Swiss Ticino AG",
@@ -13090,16 +13090,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "storenmonteur-100-anker-swiss-ag-urdorf-anker-swiss-ch-49330da2"
+        ],
+        "en": [
+          "storenmonteur-100-anker-swiss-ag-urdorf-anker-swiss-ch-49330da2"
+        ],
+        "fr": [
+          "storenmonteur-100-anker-swiss-ag-urdorf-anker-swiss-ch-49330da2"
+        ]
+      },
+      "previousSlugs": [
+        "storenmonteur-100-anker-swiss-ag-urdorf-anker-swiss-ch-49330da2"
+      ]
     },
     {
       "id": "anker-swiss-64e22dae93f7",
-      "slug": "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae",
+      "slug": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae",
       "slugByLocale": {
-        "it": "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae",
-        "en": "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae",
         "de": "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae",
-        "fr": "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae"
+        "it": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae",
+        "en": "blind-fitter-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae",
+        "fr": "ajusteur-de-stores-a-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae"
       },
       "slugDisambiguator": "64e22dae",
       "company": "Anker Swiss Ticino AG",
@@ -13143,17 +13157,20 @@
       "previousSlugs": [
         "storenmonteur-100-anker-swiss-ag-zurich-anker-swiss-ch-62dfb8cf",
         "storenmonteur-100-anker-swiss-ag-zurich-anker-swiss-ch-64e22dae",
-        "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-62dfb8cf"
+        "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-62dfb8cf",
+        "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae"
       ],
       "previousSlugsByLocale": {
         "it": [
           "storenmonteur-100-anker-swiss-ag-zurich-anker-swiss-ch-62dfb8cf",
           "storenmonteur-100-anker-swiss-ag-zurich-anker-swiss-ch-64e22dae",
-          "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-62dfb8cf"
+          "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-62dfb8cf",
+          "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae"
         ],
         "en": [
           "storenmonteur-100-anker-swiss-ag-zurich-anker-swiss-ch-64e22dae",
-          "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-62dfb8cf"
+          "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-62dfb8cf",
+          "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae"
         ],
         "de": [
           "storenmonteur-100-anker-swiss-ag-zurich-anker-swiss-ch-62dfb8cf",
@@ -13162,7 +13179,8 @@
         ],
         "fr": [
           "storenmonteur-100-anker-swiss-ag-zurich-anker-swiss-ch-64e22dae",
-          "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-62dfb8cf"
+          "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-62dfb8cf",
+          "storenmonteur-100-anker-swiss-ag-anker-swiss-ticino-ag-zurich-64e22dae"
         ]
       },
       "needsRetranslation": true,
@@ -13183,12 +13201,12 @@
     },
     {
       "id": "anker-swiss-0cc39fad0f2a",
-      "slug": "storenmonteur-100-anker-swiss-ag-seengen-anker-swiss-ch-0cc39fad",
+      "slug": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-seengen-0cc39fad",
       "slugByLocale": {
-        "it": "storenmonteur-100-anker-swiss-ag-seengen-anker-swiss-ch-0cc39fad",
-        "en": "storenmonteur-100-anker-swiss-ag-seengen-anker-swiss-ch-0cc39fad",
+        "it": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-seengen-0cc39fad",
+        "en": "blind-fitter-100-anker-swiss-ag-anker-swiss-ticino-ag-seengen-0cc39fad",
         "de": "storenmonteur-100-anker-swiss-ag-seengen-anker-swiss-ch-0cc39fad",
-        "fr": "storenmonteur-100-anker-swiss-ag-seengen-anker-swiss-ch-0cc39fad"
+        "fr": "ajusteur-de-stores-a-100-anker-swiss-ag-anker-swiss-ticino-ag-seengen-0cc39fad"
       },
       "slugDisambiguator": "0cc39fad",
       "company": "Anker Swiss Ticino AG",
@@ -13243,16 +13261,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "storenmonteur-100-anker-swiss-ag-seengen-anker-swiss-ch-0cc39fad"
+        ],
+        "en": [
+          "storenmonteur-100-anker-swiss-ag-seengen-anker-swiss-ch-0cc39fad"
+        ],
+        "fr": [
+          "storenmonteur-100-anker-swiss-ag-seengen-anker-swiss-ch-0cc39fad"
+        ]
+      },
+      "previousSlugs": [
+        "storenmonteur-100-anker-swiss-ag-seengen-anker-swiss-ch-0cc39fad"
+      ]
     },
     {
       "id": "anker-swiss-6d15392f1263",
-      "slug": "storenmonteur-100-anker-swiss-ag-deitingen-anker-swiss-ch-6d15392f",
+      "slug": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-deitingen-6d15392f",
       "slugByLocale": {
-        "it": "storenmonteur-100-anker-swiss-ag-deitingen-anker-swiss-ch-6d15392f",
-        "en": "storenmonteur-100-anker-swiss-ag-deitingen-anker-swiss-ch-6d15392f",
+        "it": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-deitingen-6d15392f",
+        "en": "blind-fitter-100-anker-swiss-ag-anker-swiss-ticino-ag-deitingen-6d15392f",
         "de": "storenmonteur-100-anker-swiss-ag-deitingen-anker-swiss-ch-6d15392f",
-        "fr": "storenmonteur-100-anker-swiss-ag-deitingen-anker-swiss-ch-6d15392f"
+        "fr": "ajusteur-de-stores-a-100-anker-swiss-ag-anker-swiss-ticino-ag-deitingen-6d15392f"
       },
       "slugDisambiguator": "6d15392f",
       "company": "Anker Swiss Ticino AG",
@@ -13307,7 +13339,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "storenmonteur-100-anker-swiss-ag-deitingen-anker-swiss-ch-6d15392f"
+        ],
+        "en": [
+          "storenmonteur-100-anker-swiss-ag-deitingen-anker-swiss-ch-6d15392f"
+        ],
+        "fr": [
+          "storenmonteur-100-anker-swiss-ag-deitingen-anker-swiss-ch-6d15392f"
+        ]
+      },
+      "previousSlugs": [
+        "storenmonteur-100-anker-swiss-ag-deitingen-anker-swiss-ch-6d15392f"
+      ]
     },
     {
       "id": "anker-swiss-648684c2cd08",
@@ -14189,10 +14235,10 @@
     },
     {
       "id": "anker-swiss-22dc64e18096",
-      "slug": "betonwerker-100-anker-swiss-ag-dagmersellen-anker-swiss-ch-22dc64e1",
+      "slug": "operai-del-calcestruzzo-al-100-anker-swiss-ag-anker-swiss-ticino-ag-dagmersellen-22dc64e1",
       "slugByLocale": {
-        "it": "betonwerker-100-anker-swiss-ag-dagmersellen-anker-swiss-ch-22dc64e1",
-        "en": "betonwerker-100-anker-swiss-ag-dagmersellen-anker-swiss-ch-22dc64e1",
+        "it": "operai-del-calcestruzzo-al-100-anker-swiss-ag-anker-swiss-ticino-ag-dagmersellen-22dc64e1",
+        "en": "concrete-workers-100-anker-swiss-ag-anker-swiss-ticino-ag-dagmersellen-22dc64e1",
         "de": "betonwerker-100-anker-swiss-ag-dagmersellen-anker-swiss-ch-22dc64e1",
         "fr": "betonwerker-100-anker-swiss-ag-dagmersellen-anker-swiss-ch-22dc64e1"
       },
@@ -14249,7 +14295,18 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "betonwerker-100-anker-swiss-ag-dagmersellen-anker-swiss-ch-22dc64e1"
+        ],
+        "en": [
+          "betonwerker-100-anker-swiss-ag-dagmersellen-anker-swiss-ch-22dc64e1"
+        ]
+      },
+      "previousSlugs": [
+        "betonwerker-100-anker-swiss-ag-dagmersellen-anker-swiss-ch-22dc64e1"
+      ]
     },
     {
       "id": "anker-swiss-f225d05d23d0",
@@ -14417,10 +14474,10 @@
     },
     {
       "id": "anker-swiss-f4036bec7af2",
-      "slug": "betonwerker-100-anker-swiss-ag-veltheim-ag-anker-swiss-ch-f4036bec",
+      "slug": "operai-del-calcestruzzo-al-100-anker-swiss-ag-anker-swiss-ticino-ag-veltheim-ag-f4036bec",
       "slugByLocale": {
-        "it": "betonwerker-100-anker-swiss-ag-veltheim-ag-anker-swiss-ch-f4036bec",
-        "en": "betonwerker-100-anker-swiss-ag-veltheim-ag-anker-swiss-ch-f4036bec",
+        "it": "operai-del-calcestruzzo-al-100-anker-swiss-ag-anker-swiss-ticino-ag-veltheim-ag-f4036bec",
+        "en": "concrete-workers-100-anker-swiss-ag-anker-swiss-ticino-ag-veltheim-ag-f4036bec",
         "de": "betonwerker-100-anker-swiss-ag-veltheim-ag-anker-swiss-ch-f4036bec",
         "fr": "betonwerker-100-anker-swiss-ag-veltheim-ag-anker-swiss-ch-f4036bec"
       },
@@ -14477,7 +14534,18 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "betonwerker-100-anker-swiss-ag-veltheim-ag-anker-swiss-ch-f4036bec"
+        ],
+        "en": [
+          "betonwerker-100-anker-swiss-ag-veltheim-ag-anker-swiss-ch-f4036bec"
+        ]
+      },
+      "previousSlugs": [
+        "betonwerker-100-anker-swiss-ag-veltheim-ag-anker-swiss-ch-f4036bec"
+      ]
     },
     {
       "id": "anker-swiss-0d0366af8986",
@@ -16979,12 +17047,12 @@
     },
     {
       "id": "anker-swiss-3d4cf7a51c9c",
-      "slug": "storenmonteur-100-anker-swiss-ag-dietikon-anker-swiss-ch-3d4cf7a5",
+      "slug": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-dietikon-3d4cf7a5",
       "slugByLocale": {
-        "it": "storenmonteur-100-anker-swiss-ag-dietikon-anker-swiss-ch-3d4cf7a5",
-        "en": "storenmonteur-100-anker-swiss-ag-dietikon-anker-swiss-ch-3d4cf7a5",
+        "it": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-dietikon-3d4cf7a5",
+        "en": "blind-fitter-100-anker-swiss-ag-anker-swiss-ticino-ag-dietikon-3d4cf7a5",
         "de": "storenmonteur-100-anker-swiss-ag-dietikon-anker-swiss-ch-3d4cf7a5",
-        "fr": "storenmonteur-100-anker-swiss-ag-dietikon-anker-swiss-ch-3d4cf7a5"
+        "fr": "ajusteur-de-stores-a-100-anker-swiss-ag-anker-swiss-ticino-ag-dietikon-3d4cf7a5"
       },
       "slugDisambiguator": "3d4cf7a5",
       "company": "Anker Swiss Ticino AG",
@@ -17039,7 +17107,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "storenmonteur-100-anker-swiss-ag-dietikon-anker-swiss-ch-3d4cf7a5"
+        ],
+        "en": [
+          "storenmonteur-100-anker-swiss-ag-dietikon-anker-swiss-ch-3d4cf7a5"
+        ],
+        "fr": [
+          "storenmonteur-100-anker-swiss-ag-dietikon-anker-swiss-ch-3d4cf7a5"
+        ]
+      },
+      "previousSlugs": [
+        "storenmonteur-100-anker-swiss-ag-dietikon-anker-swiss-ch-3d4cf7a5"
+      ]
     },
     {
       "id": "anker-swiss-5bfb12b3080c",
@@ -20200,12 +20282,12 @@
     },
     {
       "id": "anker-swiss-e1745949dcd4",
-      "slug": "storenmonteur-100-anker-swiss-ag-glattbrugg-anker-swiss-ch-e1745949",
+      "slug": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-glattbrugg-e1745949",
       "slugByLocale": {
-        "it": "storenmonteur-100-anker-swiss-ag-glattbrugg-anker-swiss-ch-e1745949",
-        "en": "storenmonteur-100-anker-swiss-ag-glattbrugg-anker-swiss-ch-e1745949",
+        "it": "installatore-di-tende-al-100-anker-swiss-ag-anker-swiss-ticino-ag-glattbrugg-e1745949",
+        "en": "blind-fitter-100-anker-swiss-ag-anker-swiss-ticino-ag-glattbrugg-e1745949",
         "de": "storenmonteur-100-anker-swiss-ag-glattbrugg-anker-swiss-ch-e1745949",
-        "fr": "storenmonteur-100-anker-swiss-ag-glattbrugg-anker-swiss-ch-e1745949"
+        "fr": "ajusteur-de-stores-a-100-anker-swiss-ag-anker-swiss-ticino-ag-glattbrugg-e1745949"
       },
       "slugDisambiguator": "e1745949",
       "company": "Anker Swiss Ticino AG",
@@ -20261,7 +20343,21 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "storenmonteur-100-anker-swiss-ag-glattbrugg-anker-swiss-ch-e1745949"
+        ],
+        "en": [
+          "storenmonteur-100-anker-swiss-ag-glattbrugg-anker-swiss-ch-e1745949"
+        ],
+        "fr": [
+          "storenmonteur-100-anker-swiss-ag-glattbrugg-anker-swiss-ch-e1745949"
+        ]
+      },
+      "previousSlugs": [
+        "storenmonteur-100-anker-swiss-ag-glattbrugg-anker-swiss-ch-e1745949"
+      ]
     },
     {
       "id": "anker-swiss-ae1f663f1812",
