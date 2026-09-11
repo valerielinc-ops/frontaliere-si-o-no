@@ -6271,6 +6271,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.commissione-ue-approva-accordi-svizzera.title': 'La Commission européenne approuve les accords Suisse-UE : pas en avant',
     'blog.article.commissione-ue-approva-accordi-svizzera.excerpt': 'La commission des affaires étrangères du Parlement européen a approuvé à une large majorité le paquet d\'accords bilatéraux avec la Suisse. Vote en plénière non encore fixé.',
     'blog.article.commissione-ue-approva-accordi-svizzera.imageAlt': 'Palais fédéral à Berne avec drapeaux suisses et européens côte à côte',
+    'blog.article.permesso-dimora-b-canton-giura.title': 'Permis de séjour B dans le Jura : exigences, documents et renouvellement',
+    'blog.article.permesso-dimora-b-canton-giura.excerpt': 'Découvrez les exigences, les documents à produire et la procédure de renouvellement du permis B dans le canton du Jura, avec des indications pratiques pour ceux qui vivent en Suisse.',
+    'blog.article.permesso-dimora-b-canton-giura.imageAlt': 'Office cantonal de la migration dans le Jura, bâtiment suisse avec panneaux officiels.',
 };
 
 export default blogMetaChFr;
