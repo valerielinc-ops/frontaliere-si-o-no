@@ -44,6 +44,15 @@ describe('Manor jobs2web URL and title parsing', () => {
     expect(stripSiteTitleSuffix('Mitarbeiter*in Verkauf - 60%')).toBe('Mitarbeiter*in Verkauf - 60%');
   });
 
+  it('keeps a legitimate internal pipe that is not the site suffix', () => {
+    expect(stripSiteTitleSuffix('Empfangsmitarbeiter/in 50% | Ferienvertretung 100%')).toBe(
+      'Empfangsmitarbeiter/in 50% | Ferienvertretung 100%',
+    );
+    expect(stripSiteTitleSuffix('Empfangsmitarbeiter/in 50% | Ferienvertretung 100% | Manor')).toBe(
+      'Empfangsmitarbeiter/in 50% | Ferienvertretung 100%',
+    );
+  });
+
   it('strips the site suffix from canonical og:title before falling back', () => {
     const page = '<meta property="og:title" content="Senior Verkäufer*in 60% | Manor" />';
 

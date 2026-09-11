@@ -272,7 +272,7 @@ function readMetaContent(html, key) {
 export function stripSiteTitleSuffix(rawTitle) {
   const title = decodeEntities(String(rawTitle || '')).trim();
   return title
-    .replace(/\s+\|\s+[^|]+$/u, '')
+    .replace(/\s+\|\s+Manor(?:\s+AG)?$/iu, '')
     .replace(/\s+-\s+Manor(?:\s+AG)?$/iu, '')
     .trim();
 }
