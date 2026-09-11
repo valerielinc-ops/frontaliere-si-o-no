@@ -61,6 +61,18 @@ describe('NVIDIA (ufficio Zurich) crawler parser', () => {
   });
 
   describe('detail location resolution', () => {
+    it.each([
+      ['CH-ZH', 'hyphenated canton code'],
+      ['CHE-8002', 'hyphenated postal code'],
+    ])('recognizes %s as Swiss when Workday joins the code with a hyphen (%s)', (countryCode) => {
+      expect(hasNvidiaSwissLocation({
+        location: 'Berlin, Germany',
+        additionalLocations: [
+          { descriptor: 'Berlin, Germany', country: { code: countryCode } },
+        ],
+      })).toBe(true);
+    });
+
     it('recognizes a Swiss descriptor object in additionalLocations', () => {
       expect(hasNvidiaSwissLocation({
         location: 'Germany, Remote',

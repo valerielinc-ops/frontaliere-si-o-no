@@ -513,6 +513,8 @@ function normalizeWorkdayLocationField(value) {
  * Convert the string/object shapes used by Workday location fields to text.
  * Detail payloads commonly put the country in a nested object and use
  * `descriptor` for the human-readable location; String(object) loses both.
+ * The flattened contract is explicit: descriptor, location, city, cityName,
+ * region, country descriptor/name, country.alpha2Code, and country.code.
  */
 export function normalizeWorkdayLocationCandidate(candidate) {
   if (typeof candidate === 'string' || typeof candidate === 'number') {
@@ -542,12 +544,17 @@ export function normalizeWorkdayLocationCandidate(candidate) {
  * requisition location, then listing summary.
  */
 export function getWorkdayLocationCandidates(info = {}, listingLocation = '') {
-  return [
+  // Keep the source order explicit: primary detail, extra detail locations,
+  // requisition location, then the listing summary. Every object in this
+  // list is flattened by normalizeWorkdayLocationCandidate above, including
+  // country.alpha2Code and country.code when Workday supplies them.
+  const rawCandidates = [
     info?.location,
     ...(Array.isArray(info?.additionalLocations) ? info.additionalLocations : []),
     info?.jobRequisitionLocation,
     listingLocation,
-  ].map(normalizeWorkdayLocationCandidate).filter(Boolean);
+  ];
+  return rawCandidates.map(normalizeWorkdayLocationCandidate).filter(Boolean);
 }
 
 /**

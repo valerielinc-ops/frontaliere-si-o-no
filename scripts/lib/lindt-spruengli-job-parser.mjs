@@ -218,6 +218,19 @@ export function extractCityFromLocationText(raw = '') {
   for (const part of dashParts) {
     if (part.length >= 3 && inferAnyCanton(part)) return part;
   }
+
+  // A pre-comma board label may contain a canton signal in one dash-separated
+  // segment. Return only that matched segment: returning the whole label (for
+  // example `ZH - Plant`) would leak an internal org-hierarchy descriptor into
+  // addressLocality and the generated slug. If no segment matches, stay empty.
+  const beforeComma = cleaned.split(',')[0].trim();
+  const matchedSegment = beforeComma
+    .split(/\s*-\s*/)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .find((part) => part.length >= 3 && inferAnyCanton(part));
+  if (matchedSegment) return matchedSegment;
+
   return '';
 }
 
