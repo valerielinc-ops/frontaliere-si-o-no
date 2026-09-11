@@ -14,10 +14,9 @@ import type { FirebasePerformance, PerformanceTrace } from "firebase/performance
 import type { AppCheck } from "firebase/app-check";
 import { reportCaughtError } from '@/services/errorReporter';
 import { isRecaptchaClientReady, type RecaptchaLikeWindow } from '@/services/recaptchaReady';
-import { FIREBASE_API_KEY } from '@/services/firebaseAuthPersistence';
+import { setFirebaseApiKey } from '@/services/firebaseAuthPersistence';
 
 const firebaseConfig = {
- apiKey: FIREBASE_API_KEY,
  // Use the default Firebase auth domain (frontaliere-ticino.firebaseapp.com), NOT the
  // custom auth.frontaliereticino.ch domain. The custom domain requires
  // Custom auth domain — auth.frontaliereticino.ch is registered as an authorized
@@ -119,16 +118,57 @@ const firebaseError = (...args: unknown[]) => {
 // imported. The vendor-firebase chunk is only downloaded when these functions
 // are first called, not when this module is evaluated.
 let _app: FirebaseApp | null = null;
+let _appLoading: Promise<FirebaseApp> | null = null;
 let _analytics: FirebaseAnalytics | null = null;
 let _analyticsLoading: Promise<FirebaseAnalytics | null> | null = null;
 let _analyticsBlocked = false;
 
-async function getAppInstance(): Promise<FirebaseApp> {
- if (!_app) {
- const { initializeApp } = await import("firebase/app");
- _app = initializeApp(firebaseConfig);
+function getEnvironmentFirebaseApiKey(): string {
+ if (typeof process === 'undefined') return '';
+ return String(process.env.FIREBASE_API_KEY || process.env.VITE_FIREBASE_API_KEY || '').trim();
+}
+
+async function resolveFirebaseApiKey(): Promise<string> {
+ const environmentKey = getEnvironmentFirebaseApiKey();
+ if (environmentKey) {
+ setFirebaseApiKey(environmentKey);
+ return environmentKey;
  }
+
+ // In the browser the key is public runtime configuration, delivered by the
+ // allowlisted endpoint instead of being inlined into source or static HTML.
+ await initRemoteConfig();
+ let remoteKey = publicConfig?.FIREBASE_API_KEY?.trim() || '';
+ if (!remoteKey && typeof window !== 'undefined') {
+ // `initRemoteConfig()` memoizes the first attempt, including a transient
+ // failure. Retry directly before making Firebase initialization terminal for
+ // the entire page view.
+ await refreshRemoteConfig();
+ remoteKey = publicConfig?.FIREBASE_API_KEY?.trim() || '';
+ }
+ if (remoteKey) setFirebaseApiKey(remoteKey);
+ return remoteKey;
+}
+
+async function getAppInstance(): Promise<FirebaseApp> {
+ if (_app) return _app;
+ if (_appLoading) return _appLoading;
+
+ _appLoading = (async () => {
+ const apiKey = await resolveFirebaseApiKey();
+ if (!apiKey) {
+ throw new Error('Firebase Web API key unavailable from runtime public config');
+ }
+ const { initializeApp } = await import("firebase/app");
+ _app = initializeApp({ ...firebaseConfig, apiKey });
  return _app;
+ })();
+
+ try {
+ return await _appLoading;
+ } finally {
+ _appLoading = null;
+ }
 }
 
 let _firestoreDb: unknown = null;

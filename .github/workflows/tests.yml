@@ -904,6 +904,22 @@ jobs:
               await github.rest.issues.createComment({ owner, repo, issue_number, body });
             }
 
+      # Blocking source gate (#8304): keep the stable browser-graph entry point
+      # exercised in the same required job as its Vitest coverage. The wrapper
+      # reads only the source tree and fails if a Node builtin reaches the SPA.
+      - name: Assert browser graph has no Node leaves
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
+        background: true
+        run: node scripts/ci/assert-browser-graph-node-free.mjs
+
+      # Blocking source gate (#8304): every newsletter webhook must cross the
+      # store boundary, so browser-only ranking helpers never enter the
+      # Node-backed ranking module through an adapter.
+      - name: Assert webhook ranking imports stay at the store boundary
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
+        background: true
+        run: node scripts/ci/assert-webhook-ranking-imports.mjs
+
       # Blocking gate (escalation #1954, bucket reviewer-finding/cls-layout 6×/14d):
       # forbid hard-coded AdSense <ins> in build-plugins. Only adSlotHtml() may emit
       # the raw ad markup; its min-height/format come from the registry

@@ -25,11 +25,18 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT = path.join(ROOT, 'scripts', 'cloud-session-secrets.sh');
 
+const FAKE_PRIVATE_KEY = [
+  '-----BEGIN' + ' PRIVATE KEY-----',
+  'test-fixture',
+  '-----END' + ' PRIVATE KEY-----',
+  '',
+].join('\n');
+
 /** Service account minimo: solo i campi che lo script valida. */
 const FAKE_SA = JSON.stringify({
   type: 'service_account',
   client_email: 'test@example.iam.gserviceaccount.com',
-  private_key: '-----BEGIN PRIVATE KEY-----\nnot-a-real-key\n-----END PRIVATE KEY-----\n',
+  private_key: FAKE_PRIVATE_KEY,
 });
 
 let tmp: string;

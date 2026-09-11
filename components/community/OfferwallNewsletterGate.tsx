@@ -28,7 +28,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { useAuth } from '@/services/authService';
-import { getFirebaseAuthPersistenceKey } from '@/services/firebaseAuthPersistence';
+import { hasFirebaseAuthPersistence } from '@/services/firebaseAuthPersistence';
 import {
   upsertNewsletterSubscriber,
   markNewsletterSubscribedLocally,
@@ -144,7 +144,7 @@ function normalizeLocale(code?: string | null, fallback?: string): OfferwallLoca
 function offerwallHasAccess(w: any): boolean {
   try {
     if (w.localStorage.getItem('newsletter_subscribed') === 'true') return true;
-    if (w.localStorage.getItem(getFirebaseAuthPersistenceKey()) !== null) return true;
+    if (hasFirebaseAuthPersistence(w.localStorage)) return true;
   } catch { /* localStorage unavailable */ }
   return false;
 }

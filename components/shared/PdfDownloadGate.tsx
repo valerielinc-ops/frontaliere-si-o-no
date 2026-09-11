@@ -29,7 +29,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { useAuth } from '@/services/authService';
-import { getFirebaseAuthPersistenceKey } from '@/services/firebaseAuthPersistence';
+import { hasFirebaseAuthPersistence } from '@/services/firebaseAuthPersistence';
 import { getFirestoreLazy } from '@/services/firebase';
 import {
   upsertNewsletterSubscriber,
@@ -40,7 +40,7 @@ import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 function hasGateAccess(): boolean {
   try {
     if (localStorage.getItem(NEWSLETTER_SUBSCRIBED_KEY) === 'true') return true;
-    if (localStorage.getItem(getFirebaseAuthPersistenceKey()) !== null) return true;
+    if (hasFirebaseAuthPersistence(localStorage)) return true;
   } catch { /* localStorage unavailable */ }
   return false;
 }
