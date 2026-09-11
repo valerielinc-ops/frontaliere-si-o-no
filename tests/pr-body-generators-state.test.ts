@@ -161,6 +161,83 @@ function isPlaceholder(bullet: string): boolean {
  */
 type PromptBlock = { prompt: string; renderedWith: string };
 
+// Keep the detector and the body extractor on the same YAML spelling. In
+// particular, `prompt : |` is valid YAML and must not be selected by one side
+// while being invisible to the other.
+const PROMPT_BLOCK_HEADER_RE =
+  /^([ \t]*)prompt[ \t]*:[ \t]*([|>])(?:[+-]?\d?|\d?[+-]?)(?:[ \t]+(?:#.*)?)?[ \t]*$/m;
+
+function scalarValue(node: any): unknown {
+  return node?.constructor?.name === 'Scalar' ? node.value : undefined;
+}
+
+function mapPairs(node: any): any[] {
+  return node?.constructor?.name === 'YAMLMap' ? node.items : [];
+}
+
+function sequenceItems(node: any): any[] {
+  return node?.constructor?.name === 'YAMLSeq' ? node.items : [];
+}
+
+function mapValue(node: any, key: string): any {
+  return mapPairs(node).find((pair) => scalarValue(pair.key) === key)?.value;
+}
+
+function isClaudeStep(uses: unknown): boolean {
+  return typeof uses === 'string' && /claude/i.test(uses);
+}
+
+type ClaudePromptNode = {
+  line: number | null;
+  indent: number | null;
+  style: '|' | '>' | null;
+};
+
+/**
+ * Locate prompt keys in the parsed `jobs.*.steps[].with` mapping of a Claude
+ * step, rather than scanning prompt text as if it were workflow structure.
+ * The key range gives us the source line on which the shared header regex is
+ * applied, so a nested `prompt: |` mentioned by the prompt itself cannot turn
+ * into a second block.
+ */
+function claudePromptNodes(text: string): ClaudePromptNode[] {
+  let document: any;
+  try {
+    document = YAML.parseDocument(text);
+  } catch {
+    return [];
+  }
+  if (document.errors?.length) return [];
+
+  const lines = text.split(/\r?\n/);
+  const out: ClaudePromptNode[] = [];
+  const jobs = mapValue(document.contents, 'jobs');
+  for (const job of mapPairs(jobs)) {
+    const steps = mapValue(job.value, 'steps');
+    for (const step of sequenceItems(steps)) {
+      if (!isClaudeStep(scalarValue(mapValue(step, 'uses')))) continue;
+      const promptPair = mapPairs(mapValue(step, 'with')).find(
+        (pair) => scalarValue(pair.key) === 'prompt' && typeof scalarValue(pair.value) === 'string',
+      );
+      if (!promptPair) continue;
+      const offset = promptPair.key?.range?.[0];
+      if (typeof offset !== 'number') {
+        out.push({ line: null, indent: null, style: null });
+        continue;
+      }
+      const line = text.slice(0, offset).split(/\r?\n/).length - 1;
+      const header = PROMPT_BLOCK_HEADER_RE.exec(lines[line] ?? '');
+      const style = header?.[2];
+      out.push({
+        line,
+        indent: header?.[1].length ?? null,
+        style: style === '|' || style === '>' ? style : null,
+      });
+    }
+  }
+  return out;
+}
+
 /**
  * The server limit applies to the rendered `with:` mapping, not just to its
  * `prompt` scalar. YAML comments and indentation are not sent to the action;
@@ -168,7 +245,7 @@ type PromptBlock = { prompt: string; renderedWith: string };
  * same values GitHub passes to the action, including non-prompt inputs.
  */
 function renderedWithBlocks(text: string): string[] {
-  if (!/^\s*prompt:\s*[|>]/m.test(text)) return [];
+  if (!PROMPT_BLOCK_HEADER_RE.test(text)) return [];
   let document: any;
   try {
     document = YAML.parse(text);
@@ -178,6 +255,7 @@ function renderedWithBlocks(text: string): string[] {
   const out: string[] = [];
   for (const job of Object.values<any>(document?.jobs ?? {})) {
     for (const step of job?.steps ?? []) {
+      if (!isClaudeStep(step?.uses)) continue;
       if (typeof step?.with?.prompt !== 'string') continue;
       out.push(
         Object.entries(step.with)
@@ -190,35 +268,35 @@ function renderedWithBlocks(text: string): string[] {
 }
 
 function promptBlocks(text: string): PromptBlock[] {
-  const out: PromptBlock[] = [];
   const renderedWith = renderedWithBlocks(text);
   const lines = text.split(/\r?\n/);
-  for (let i = 0; i < lines.length; i++) {
-    const m = /^(\s*)prompt:\s*([|>])(?:[+-]?\d?|\d?[+-]?)(?:[ \t]+(?:#.*)?)?$/.exec(lines[i]);
-    if (!m) continue;
-    const indent = m[1].length;
-    const buf: string[] = [];
-    for (let j = i + 1; j < lines.length; j++) {
-      const l = lines[j];
-      if (l.trim() === '') { buf.push(l); continue; }
-      const ind = l.length - l.replace(/^\s*/, '').length;
-      if (ind <= indent) break;
-      buf.push(l);
-    }
-    const nonEmpty = buf.filter((line) => line.trim() !== '');
-    const commonIndent = nonEmpty.length === 0
-      ? 0
-      : Math.min(...nonEmpty.map((line) => line.length - line.replace(/^\s*/, '').length));
-    const normalized = buf
-      .map((line) => line.trim() === '' ? '' : line.slice(commonIndent))
-      .join('\n')
-      .trimEnd();
-    const prompt = m[2] === '>'
-      ? normalized.replace(/([^\n])\n(?=[^\n])/g, '$1 ')
-      : normalized;
-    out.push({ prompt, renderedWith: renderedWith[out.length] ?? prompt });
-  }
-  return out;
+  return claudePromptNodes(text)
+    .filter((node): node is { line: number; indent: number; style: '|' | '>' } =>
+      node.line !== null && node.indent !== null && node.style !== null,
+    )
+    .map((node, index) => {
+      const { line: i, indent, style } = node;
+      const buf: string[] = [];
+      for (let j = i + 1; j < lines.length; j++) {
+        const l = lines[j];
+        if (l.trim() === '') { buf.push(l); continue; }
+        const ind = l.length - l.replace(/^\s*/, '').length;
+        if (ind <= indent) break;
+        buf.push(l);
+      }
+      const nonEmpty = buf.filter((line) => line.trim() !== '');
+      const commonIndent = nonEmpty.length === 0
+        ? 0
+        : Math.min(...nonEmpty.map((line) => line.length - line.replace(/^\s*/, '').length));
+      const normalized = buf
+        .map((line) => line.trim() === '' ? '' : line.slice(commonIndent))
+        .join('\n')
+        .trimEnd();
+      const prompt = style === '>'
+        ? normalized.replace(/([^\n])\n(?=[^\n])/g, '$1 ')
+        : normalized;
+      return { prompt, renderedWith: renderedWith[index] ?? prompt };
+    });
 }
 
 type Emission = { rel: string; bullets: string[]; placeholders: string[]; raw: string };
@@ -258,16 +336,27 @@ describe('generatori del body PR — sezione dei residui', () => {
       'il discovery dei workflow non deve diventare parziale o vuoto',
     ).toEqual(workflowFiles);
 
+    // The expected floor comes from parsed Claude steps, not from an
+    // unconstrained raw-text regex. A prompt-shaped line inside another
+    // prompt must not create a false candidate, and a valid `prompt : |`
+    // spelling must not disappear between detection and extraction.
     const promptWorkflows = workflowSources.filter(({ text }) =>
-      /^\s*prompt\s*:\s*[|>]/m.test(text),
+      claudePromptNodes(text).length > 0,
     );
-    expect(promptWorkflows.length, 'nessun block scalar prompt trovato: il controllo sarebbe vacuo')
+    const recognizedPromptWorkflows = workflowSources.filter(({ text }) =>
+      promptBlocks(text).length > 0,
+    );
+    expect(promptWorkflows.length, 'nessun Claude step con prompt trovato: il controllo sarebbe vacuo')
       .toBeGreaterThan(0);
+    expect(
+      recognizedPromptWorkflows.map((s) => s.rel).sort(),
+      'il detector dei prompt deve riconoscere tutti e soli gli step Claude con prompt',
+    ).toEqual(promptWorkflows.map((s) => s.rel).sort());
     for (const workflow of promptWorkflows) {
       expect(
         promptBlocks(workflow.text).length,
         `${workflow.rel}: il parser non ha estratto il block scalar prompt`,
-      ).toBeGreaterThan(0);
+      ).toBe(claudePromptNodes(workflow.text).length);
     }
     expect(
       promptWorkflows.flatMap((workflow) => promptBlocks(workflow.text)).length,
@@ -289,6 +378,27 @@ describe('generatori del body PR — sezione dei residui', () => {
     // its server-side limit. Keep the existing 20,000-character ratchet and
     // apply it to every workflow, not just issue-fix.yml.
     expect(offenders, 'prompt oversize: il workflow diventerebbe invalido e smetterebbe di girare').toEqual([]);
+  });
+
+  it('usa la stessa chiave anche con spazi e ignora i marker dentro il prompt', () => {
+    const fixture = [
+      'name: prompt fixture',
+      'jobs:',
+      '  review:',
+      '    steps:',
+      '      - uses: acme/claude-codex-fallback@main',
+      '        with:',
+      '          prompt : |',
+      '            This instruction mentions a nested marker:',
+      '            prompt: |',
+      '              this is still prompt text',
+    ].join('\n');
+
+    expect(claudePromptNodes(fixture)).toHaveLength(1);
+    const blocks = promptBlocks(fixture);
+    expect(blocks).toHaveLength(1);
+    expect(blocks[0].prompt).toContain('prompt: |');
+    expect(blocks[0].renderedWith).toContain('This instruction mentions a nested marker:');
   });
 
   it('trova almeno i generatori noti (il discovery non è vacuo)', async () => {

@@ -1118,6 +1118,27 @@ const App: React.FC = () => {
  return;
  }
 
+ if (authenticated && action === 'unsubscribe') {
+ // A successful 'ac' exchange creates a session but does not tell the
+ // unsubscribe event writer which URL credential actually authorized the
+ // opt-out. Give the Cloud Function every credential in URL order even on
+ // this authenticated path: a valid email token is then recorded as
+ // 'email_token', while an 'ac' fallback is recorded as 'autologin_code'.
+ // If the function is unavailable, the direct writer below remains the
+ // outage-safe fallback and keeps the existing session-based credential.
+ const { unsubscribeViaCloudFunction } = await import('@/services/newsletterSubscribers');
+ for (const credential of [urlParams.get('token'), autologinCode]) {
+ if (!credential) continue;
+ const out = await unsubscribeViaCloudFunction(normalizedEmail, credential);
+ if (out.success) {
+ setUnsubscribeMsg(t('newsletter.unsubscribed'));
+ localStorage.removeItem('newsletter_subscribed');
+ window.history.replaceState({}, '', window.location.pathname);
+ return;
+ }
+ }
+ }
+
  if (!authenticated) {
  // ── The exit does not depend on the session (#5685) ──────────────────
  // Every way the block above can fail — the `ac` expired, it was revoked,
@@ -1245,17 +1266,11 @@ const App: React.FC = () => {
  email: normalizedEmail,
  sourceChannel: 'unsubscribe_link',
  sourcePage: window.location.pathname,
- // WHAT GOT THIS PERSON OUT, in the Cloud Function's own vocabulary
- // (#5719). Both roads into this write require the `ac`: the authenticated
- // one only reaches it after `exchangeNewsletterAuthCode` succeeded, and
- // the session-less fall-through above returns unless `autologinCode` is
- // present and unforged. So this is never the email HMAC — it is the
- // autologin fallback, i.e. precisely the cohort that loses its exit the
- // day #5724 puts a TTL on `ac`. Omitting it made every one of these
- // events score `missing` in
- // scripts/check-unsubscribe-credential-rate.mjs, which drops `missing`
- // from its denominator: 52 of 209 events in the 7 days to 2026-08-18,
- // the population the monitor exists to size, invisible to the monitor.
+ // The Cloud Function above gets the first chance to stamp the credential
+ // that actually authorized the opt-out. This direct write is only its
+ // outage-safe fallback: an authenticated 'ac'/legacy session remains
+ // distinguishable, while a valid email token never reaches this writer
+ // without first being recorded as 'email_token' by the function.
  credential: autologinCode ? 'autologin_code' : 'legacy_auth_token',
  });
  setUnsubscribeMsg(t('newsletter.unsubscribed'));
