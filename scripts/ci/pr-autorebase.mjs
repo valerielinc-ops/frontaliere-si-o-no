@@ -79,7 +79,8 @@ import {
   jobRefFromCheckRun,
   currentAttemptJobSteps,
 } from './lib/vitestCheck.mjs';
-import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment } from './lib/prComments.mjs';
+import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment,
+  countPaginatedLines, lastPaginatedJsonLine } from './lib/prComments.mjs';
 import { runBudgetFromEnv, rotateForFairness } from './lib/run-budget.mjs';
 import { parseCollisionPeers, collisionGateDecision } from './auto-merge-eval.mjs';
 import {
@@ -381,14 +382,16 @@ function reopenToRetrigger(num) {
 function reopenStateFingerprint(num, vitestConclusion) {
   const d = gh(['pr', 'view', String(num), '--repo', REPO, '--json',
     'additions,deletions,changedFiles'], { allowFail: true }) || {};
-  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate',
-    '--jq', 'length'], { json: false, allowFail: true });
+  // `--jq 'length'` sotto `--paginate` conta PER PAGINA ("30\n30\n7"): il
+  // conteggio si fa element-wise, una riga per review su tutte le pagine.
+  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews?per_page=100`, '--paginate',
+    '--jq', '.[].id'], { json: false, allowFail: true });
   return reopenFingerprint({
     additions: d.additions,
     deletions: d.deletions,
     changedFiles: d.changedFiles,
     vitestConclusion,
-    reviewCount: parseInt((reviews || '0').trim(), 10) || 0,
+    reviewCount: countPaginatedLines(reviews),
   });
 }
 
@@ -478,10 +481,13 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
 
 /** Body del commento sticky del budget, o '' se non c'è. */
 function readReopenBudgetBody(num) {
-  const raw = gh(['api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
-    '--jq', `[.[] | select(.body // "" | contains("${REOPEN_BUDGET_MARKER}")) | .body] | last // ""`],
+  // Element-wise + `@json` (un body per riga, escapato): un aggregato come
+  // `| last` girerebbe PER PAGINA sotto `--paginate` e concatenerebbe l'ultimo
+  // match di OGNI pagina, restituendo due body incollati invece di uno.
+  const raw = gh(['api', `repos/${REPO}/issues/${num}/comments?per_page=100`, '--paginate',
+    '--jq', `.[] | select(.body // "" | contains("${REOPEN_BUDGET_MARKER}")) | .body | @json`],
   { json: false, allowFail: true });
-  return raw || '';
+  return lastPaginatedJsonLine(raw);
 }
 
 /** Label correnti della PR (rilette: il breaker può averle appena cambiate). */
