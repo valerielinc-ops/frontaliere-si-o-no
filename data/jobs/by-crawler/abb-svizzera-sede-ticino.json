@@ -185,8 +185,8 @@
       "crawledAt": "2026-09-11T13:41:07.440Z",
       "firstSeenAt": "2026-09-10T23:12:35.970Z",
       "titleByLocale": {
-        "it": "Teamleader Project Management (80-100%)",
         "en": "Teamleader Project Management (80-100%)",
+        "it": "Gestione dei progetti Teamleader (80-100%)",
         "de": "Teamleader Projektmanagement (80-100%)",
         "fr": "Chef d'équipe Gestion de projet (80-100%)"
       },
@@ -214,6 +214,8 @@
       "previousSlugs": [
         "teamleader-project-management-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau"
       ],
+      "salaryMin": 107000,
+      "salaryMax": 187500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -227,9 +229,7 @@
       },
       "addressLocality": "Untersiggenthal, Aargau",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 107000,
-      "salaryMax": 187500
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-cx01c7",
@@ -1782,7 +1782,7 @@
         "en": "(80 – 100%) IS Functional Analyst",
         "it": "(80 – 100%) IS Functional Analista",
         "fr": "(80 – 100%) IS Functional Analyste",
-        "de": "(80 – 100%) IS Functional Analyst"
+        "de": "(80 – 100%) IS-Funktionalanalyst"
       },
       "descriptionByLocale": {
         "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>IS Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p>In this role, you will have the opportunity to provide technical, business process and data advice to support ongoing operations and new software development. Each day, you will expand and utilize your knowledge on IS applications and emerging technologies. You will also showcase your expertise by overseeing the development, and validating the functionality, of the final IS application.</p><p></p><p>This role is contributing to all local divisions in Switzerland. Main stakeholders are business process owners, application owners and function managers across all organizational levels as well as local and global IS teams (architects, developers, IS security specialists, compliance specialists).</p><p></p><p>You will join a diverse and committed team where we support each other’s, and in which a self-reliant allrounder finds space to explore, grow, and excel.</p><p></p><p>The work model for the role is: hybrid #LI-hybrid (min. 60% on site)</p><p><br /><b>You will be mainly accountable for:</b></p><ul><li>Jointly with business stakeholders formulating user stories which document and \"translate\" business requirements into specifications for local or global development/support teams. Collaborating with these teams to ensure the use case and business user needs are understood. </li><li>Acting as a Subject Matter Expert in ongoing operations of IS applications, and participating in projects to introduce new or modify existing IS solutions/services, by contributing technology, business process and data expertise. </li><li>Supporting IS application power-users in resolving incidents and in further developing the functionality. Supporting them also in validating and user acceptance testing IS application solutions in stage environment. Formulating test scripts according to acceptance criteria. </li><li>Managing a specific IS application (for management of industrial standards), including budget responsibility. Providing efficient, requirement-compliant, and cost-effective provision and procurement of services for internal user groups. </li></ul><p></p><p><b>\n• Qualifications for the Role:</b></p><ul><li>Higher education degree in Computer Science or Business Informatics (University, University of Applied Sciences) or equivalent. </li><li>Fluent English and good German language skills (spoken and written). </li><li>Practical experience as an IS Functional Analyst or Business Analyst, preferably in an international environment. Experience as an IS Application Manager or IS Service Manager is advantageous. </li><li>Commitment to building trusted relationships to and consensus among various stakeholders. Ability to collaborate and communicate self-reliantly with all management levels. </li><li>Practical experience in requirements analysis and change management, as well as with the Software Development Lifecycle. Scrum or general Agile knowledge and Design Thinking knowledge are advantageous. </li><li>Talent and fondness for planning, organization, coordination, and communication.</li><li>Experience with or interest in industrial standards management or document management is an advantage.</li></ul><p></p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
@@ -2192,7 +2192,7 @@
       "crawledAt": "2026-09-11T13:41:07.440Z",
       "firstSeenAt": "2026-09-01T23:12:36.916Z",
       "titleByLocale": {
-        "it": "Global R&D Lead, Energy Storage Systems, Traction",
+        "it": "Responsabile R&S globale, Sistemi di accumulo dell'energia, Trazione",
         "en": "Global R&D Lead, Energy Storage Systems, Traction",
         "de": "Global R&D Lead, Energiespeichersysteme, Traktion",
         "fr": "R-D mondiale, Systèmes de stockage d'énergie, Traction"

@@ -1330,7 +1330,7 @@
       "title": "IT Business Analyst - domaine Opérations de Marché",
       "titleByLocale": {
         "it": "IT Business Analista - domaine Opérations de Marché",
-        "en": "IT Business Analyst - domaine Opérations de Marché",
+        "en": "IT Business Analyst - Market Operations",
         "de": "IT Business Analyst - Bereich Market Operations",
         "fr": "IT Business Analyste - domaine Opérations de Marché"
       },
@@ -1386,7 +1386,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:26.214Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1399,7 +1398,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-28b1bd8c597b",
