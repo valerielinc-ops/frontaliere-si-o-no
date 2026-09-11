@@ -56,6 +56,21 @@ describe('jobsSeoPagesPlugin static payload budget', () => {
     expect(source).not.toContain('const COMPANY_CANTON_HARD_BUDGET');
     expect(source).not.toContain('[jobs-seo-pages] Per-canton company hub ${canonicalPath} renders to ');
   });
+
+  it('bounds company hub cards and ItemList entries while keeping the total explicit', () => {
+    const source = readFileSync(resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'), 'utf8');
+
+    expect(source).toContain('const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;');
+    expect(source).toContain('const listedCompanyJobs = companyJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);');
+    expect(source).toContain('const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);');
+    expect(source).not.toContain('COMPANY_HUB_ITEMLIST_JOB_CAP');
+    expect(source).not.toContain('COMPANY_CANTON_ITEMLIST_JOB_CAP');
+    expect(source).not.toContain('const jobListHtml = jobCardListBody(companyJobs, locale);');
+    expect(source).not.toContain('const openRolesListHtml = jobCardListBody(companyJobs, locale);');
+    expect(source).not.toContain('const cappedJobs = sortedJobs;');
+    expect(source).not.toContain('itemListElement: cappedJobs.slice(0, 10).map');
+    expect(source).toContain('(${companyJobs.length})');
+  });
 });
 
 describe('capSearchStatsLandingTitle (#3589 sibling: same escape-unaware title-budget class as eventDetailMetaTitle)', () => {
