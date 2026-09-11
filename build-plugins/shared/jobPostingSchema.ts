@@ -734,7 +734,10 @@ export function buildJobPostingSchema(
   const logo = rawLogo && rawLogo.startsWith('/') && !rawLogo.startsWith('//')
     ? `${(opts.baseUrl || CANONICAL_ORIGIN).replace(/\/+$/, '')}${rawLogo}`
     : rawLogo;
-  const companyWebsite = String(job.companyWebsite || '').trim();
+  // Keep the dedicated website for job-page callers, while preserving the
+  // legacy sameAs signal for other consumers that only provide companyDomain.
+  // Ownership proof remains isolated in isEmployerOwnedApplyUrl().
+  const companyWebsite = String(job.companyWebsite || job.companyDomain || '').trim();
   const sameAs = companyWebsite
     ? (/^https?:\/\//i.test(companyWebsite) ? companyWebsite : `https://${companyWebsite}`)
     : undefined;

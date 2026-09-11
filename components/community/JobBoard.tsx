@@ -753,12 +753,7 @@ function normalizeIncomingJob(raw: any): JobListing {
  const description = String(raw?.description || '').trim();
  const company = String(raw?.company || '').trim() || 'Azienda';
  const companyKey = String(raw?.companyKey || '').trim() || undefined;
- const canonicalHost = resolveCompanyWebsiteHost({
- company,
- companyKey,
- companyDomain: String(raw?.companyDomain || '').trim(),
- url: String(raw?.url || '').trim(),
- });
+ const rawCompanyDomain = String(raw?.companyDomain || '').trim();
 
  return {
  ...raw,
@@ -777,7 +772,9 @@ function normalizeIncomingJob(raw: any): JobListing {
  : [],
  featured: Boolean(raw?.featured),
  postedDate: String(raw?.postedDate || '').trim() || new Date().toISOString().slice(0, 10),
- companyDomain: canonicalHost || String(raw?.companyDomain || '').trim() || undefined,
+ // Do not promote job.url (which may be an ATS host) into ownership proof.
+ // Static SEO and runtime JSON-LD must both use the crawler's raw domain.
+ companyDomain: rawCompanyDomain || undefined,
  sector: String(raw?.sector || '').trim() || undefined,
  };
 }

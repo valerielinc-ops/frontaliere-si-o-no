@@ -29,6 +29,16 @@ describe('JobBoard in-feed reservation on URL restore', () => {
       /if \(shouldRefreshInfeedAdsOnUrlRestore\([\s\S]*?\)\) \{[\s\S]*?setAdRefreshKey\(\(k\) => k \+ 1\);/,
     );
   });
+
+  it('keeps the crawler companyDomain raw for direct-apply ownership', () => {
+    const normalizer = JOB_BOARD_SOURCE.slice(
+      JOB_BOARD_SOURCE.indexOf('function normalizeIncomingJob'),
+      JOB_BOARD_SOURCE.indexOf('function readSeededJob'),
+    );
+    expect(normalizer).toContain('const rawCompanyDomain = String(raw?.companyDomain || \'\').trim();');
+    expect(normalizer).toContain('companyDomain: rawCompanyDomain || undefined');
+    expect(normalizer).not.toContain('companyDomain: canonicalHost');
+  });
 });
 
 describe('employer-insights checkout identity catalog', () => {
