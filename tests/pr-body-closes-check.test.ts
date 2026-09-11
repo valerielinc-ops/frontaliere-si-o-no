@@ -10,7 +10,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { checkClosesLines, maskQuoted } from '../scripts/lib/pr-body-closes-check.mjs';
+import { checkClosesLines, maskQuoted, stripEmphasis } from '../scripts/lib/pr-body-closes-check.mjs';
 import { readFileSync } from 'node:fs';
 
 describe('checkClosesLines', () => {
@@ -90,6 +90,18 @@ describe('checkClosesLines', () => {
  * valid keywords, so a line without one was neither a violation nor a `Closes`.
  */
 describe('checkClosesLines — ineffective closing keyword', () => {
+  it('non attraversa un a capo o un marker di lista con il gap markdown', () => {
+    const res = checkClosesLines('Le issue non sono ancora fixed:\n\n* #849\n\nchiude #849');
+    expect(res.ok).toBe(false);
+    expect(res.violations.find((v) => v.type === 'ineffective-closing-keyword')?.ref).toBe('#849');
+  });
+
+  it('non fonde parole vere quando normalizza l enfasi markdown', () => {
+    expect(stripEmphasis('skip_total')).toBe('skiptotal');
+    expect(stripEmphasis('stato_attuale')).toBe('statoattuale');
+    expect(stripEmphasis('parola*altra*parola')).toBe('parola altra parola');
+  });
+
   it('non tronca il contesto a una finestra fissa di 24 caratteri', () => {
     const source = readFileSync(new URL('../scripts/lib/pr-body-closes-check.mjs', import.meta.url), 'utf8');
     expect(source).not.toContain('m.index - 24');

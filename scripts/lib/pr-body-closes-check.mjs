@@ -121,7 +121,11 @@ function lineHasMultiCloseViolation(line, previousLine = '') {
 // The ONLY tokens GitHub acts on. Note what is absent: the gerunds. `Closing
 // #12` / `Fixing #12` read as closure to a human and do nothing at all.
 const EFFECTIVE_KW = '(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)';
-const EFFECTIVE_RE = new RegExp(`\\b${EFFECTIVE_KW}\\b[\\s:]*[*_\`[]*(${REF})`, 'gi');
+// Keep the gap horizontal: `\\s` would let a keyword reach a reference on a
+// later line, while GitHub only closes the reference it sees on that line.
+// Markdown emphasis/punctuation may still sit between the keyword and ref.
+const MD_GAP = '(?:[^\\S\\n]|[:*_`\\[])*';
+const EFFECTIVE_RE = new RegExp(`\\b${EFFECTIVE_KW}\\b${MD_GAP}(${REF})`, 'gi');
 
 // Tokens that state closure but are NOT GitHub keywords. Italian verbs (the
 // measured recurrence) plus the English near-misses that share the failure
@@ -154,11 +158,34 @@ const NEG_REPORT_RE = new RegExp(
   `(?:\\s+[\\p{L}\\p{N}_'’]+){0,2}\\s*$`,
   'iu',
 );
+const EMPHASIS_RUN_RE = /[*_`]+/g;
+const WORD_CHAR_RE = /[\p{L}\p{N}]/u;
+
+/**
+ * Remove markdown emphasis without merging real words.
+ *
+ * An underscore between word characters is the identifier form we want to
+ * normalize (`skip_total` → `skiptotal`). Asterisks/backticks between words
+ * are emphasis/code boundaries and must become a space instead.
+ */
+export function stripEmphasis(s) {
+  return String(s || '').replace(EMPHASIS_RUN_RE, (run, at, whole) => {
+    const prev = whole[at - 1];
+    const next = whole[at + run.length];
+    return /^_+$/.test(run)
+      && prev
+      && next
+      && WORD_CHAR_RE.test(prev)
+      && WORD_CHAR_RE.test(next)
+      ? ''
+      : ' ';
+  }).replace(/[^\S\n]+/g, ' ');
+}
 // Filler tolerated between the verb and the ref: `Chiusa da #12`, `Risolve
 // definitivamente #12`, `Closing the #12`. Bounded to a known word list so a
 // sentence boundary or real prose can never bridge verb and ref.
 const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
-const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}[\\s:]*[*_\`[]*(${REF})`, 'gi');
+const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}${MD_GAP}(${REF})`, 'gi');
 
 /** Every ref a real GitHub keyword governs → the ones that will actually close. */
 function effectiveRefs(body) {
@@ -182,7 +209,7 @@ function lineIntentRefs(line) {
       // into a false closure finding. The regexes below already stop at
       // punctuation and bound the words they accept, so the full prefix does
       // not make a sentence boundary disappear.
-      const before = s.slice(0, m.index);
+      const before = stripEmphasis(s.slice(0, m.index));
       return !PAST_REPORT_RE.test(before) && !NEG_REPORT_RE.test(before);
     })
     .map((m) => ({ keyword: m[1], ref: m[2] }));

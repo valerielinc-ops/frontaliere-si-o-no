@@ -1422,7 +1422,12 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
         noteTranslationOutcome(_outcome, 'incomplete');
         return ''; // quota hit mid-chunk, abort
       }
-      parts.push(mm);
+      // One verbatim chunk is enough to invalidate the whole field. Comparing
+      // only the joined output lets a translated chunk mask an echoed one and
+      // publishes a mixed-language body as a successful translation.
+      const normalized = normalizeBlock(mm);
+      if (rejectedAsPassthrough('myMemory', chunk, normalized, _outcome)) return '';
+      parts.push(normalized);
     }
     // `return joined` e non un confronto locale: questo e' il ramo dei testi
     // lunghi, cioe' dei body, cioe' esattamente dei 27 passthrough misurati.
