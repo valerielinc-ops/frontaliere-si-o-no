@@ -1033,6 +1033,26 @@ function hogqlDate(iso) {
   return String(iso).replace('T', ' ').replace(/\.\d{3}Z$/, '');
 }
 
+// Every grouped event row needs a cursor discriminator that cannot be empty.
+// PostHog installations expose the identity in different places, so prefer
+// the stable provider ids and fall back to the complete grouped identity.
+const EVENT_KEY_EXPRESSION = [
+  'coalesce(',
+  "nullIf(toString(properties.$insert_id), ''),",
+  "nullIf(toString(properties.$event_id), ''),",
+  "nullIf(toString(uuid), ''),",
+  "concat(toString(timestamp), '|', toString(event), '|',",
+  "coalesce(toString(properties.$pathname), ''), '|',",
+  "coalesce(toString(properties.job_slug), ''), '|',",
+  "coalesce(toString(properties.job_id), ''), '|',",
+  "coalesce(toString(properties.publisher_job_id), ''), '|',",
+  "coalesce(toString(properties.employer_key), ''), '|',",
+  "coalesce(toString(properties.item_id), ''), '|',",
+  "coalesce(toString(properties.content_type), ''), '|',",
+  "coalesce(toString(properties.emission_id), ''))",
+  ')',
+].join(' ');
+
 const EVENT_CURSOR_TIMESTAMP_INDEX = 16;
 const EVENT_CURSOR_FIELDS = [
   { name: 'event', index: 17, alias: 'cursor_event', expression: 'toString(event)', objectKeys: ['cursor_event', 'event'] },
@@ -1045,6 +1065,7 @@ const EVENT_CURSOR_FIELDS = [
   { name: 'itemId', index: 24, alias: 'cursor_item_id', expression: "coalesce(toString(properties.item_id), '')", objectKeys: ['cursor_item_id', 'itemId', 'item_id'] },
   { name: 'contentType', index: 25, alias: 'cursor_content_type', expression: "coalesce(toString(properties.content_type), '')", objectKeys: ['cursor_content_type', 'contentType', 'content_type'] },
   { name: 'emissionId', index: 26, alias: 'cursor_emission_id', expression: "coalesce(toString(properties.emission_id), '')", objectKeys: ['cursor_emission_id', 'emissionId', 'emission_id'] },
+  { name: 'eventKey', index: 27, alias: 'cursor_event_key', expression: EVENT_KEY_EXPRESSION, objectKeys: ['cursor_event_key', 'eventKey', 'event_key'] },
 ];
 
 function hogqlString(value) {
@@ -1052,12 +1073,26 @@ function hogqlString(value) {
 }
 
 function hogqlTimestamp(value) {
-  const raw = String(value ?? '')
-    .trim()
-    .replace('T', ' ')
-    .replace(/(?:Z|[+-]\d\d:\d\d)$/, '');
-  const [whole, fraction = ''] = raw.split('.', 2);
-  return whole + '.' + fraction.slice(0, 6).padEnd(6, '0');
+  const match = String(value ?? '').trim().match(
+    /^(\d{4}-\d{2}-\d{2})[T ](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?(Z|[+-]\d{2}:?\d{2})?$/,
+  );
+  if (!match) throw new Error('invalid PostHog cursor timestamp');
+  const [, datePart, hour, minute, second, rawFraction = '', zone = ''] = match;
+  const fraction = rawFraction.slice(0, 6).padEnd(6, '0');
+  if (!zone || zone === 'Z') return `${datePart} ${hour}:${minute}:${second}.${fraction}`;
+
+  const sign = zone[0] === '+' ? 1 : -1;
+  const offsetDigits = zone.slice(1).replace(':', '');
+  const offsetHours = Number(offsetDigits.slice(0, 2));
+  const offsetMinutes = Number(offsetDigits.slice(2, 4));
+  if (offsetHours > 23 || offsetMinutes > 59) throw new Error('invalid PostHog cursor timestamp offset');
+  const [year, month, day] = datePart.split('-').map(Number);
+  const base = Date.UTC(year, month - 1, day, Number(hour), Number(minute), Number(second));
+  if (!Number.isFinite(base)) throw new Error('invalid PostHog cursor timestamp');
+  const utc = new Date(base - sign * (offsetHours * 60 + offsetMinutes) * 60_000);
+  const pad = (number) => String(number).padStart(2, '0');
+  return `${utc.getUTCFullYear()}-${pad(utc.getUTCMonth() + 1)}-${pad(utc.getUTCDate())} `
+    + `${pad(utc.getUTCHours())}:${pad(utc.getUTCMinutes())}:${pad(utc.getUTCSeconds())}.${fraction}`;
 }
 
 function cursorFieldValue(row, field) {
@@ -1073,15 +1108,31 @@ function eventCursorFromRow(row) {
     ? row[EVENT_CURSOR_TIMESTAMP_INDEX]
     : row?.cursorTimestamp ?? row?.cursor_timestamp ?? row?.timestamp;
   const values = EVENT_CURSOR_FIELDS.map((field) => [field.name, cursorFieldValue(row, field)]);
-  if (timestamp == null || timestamp === '' || values.some(([, value]) => value == null)) return null;
+  const eventKey = values.find(([name]) => name === 'eventKey')?.[1];
+  if (
+    timestamp == null
+    || timestamp === ''
+    || values.some(([, value]) => value == null)
+    || eventKey === ''
+  ) return null;
   return {
     timestamp: String(timestamp),
     ...Object.fromEntries(values.map(([name, value]) => [name, String(value)])),
   };
 }
 
-function eventCursorSortKey(cursor) {
-  return [hogqlTimestamp(cursor.timestamp), ...EVENT_CURSOR_FIELDS.map((field) => cursor[field.name])].join('\u0000');
+function compareCursorText(left, right) {
+  return Buffer.from(String(left), 'utf8').compare(Buffer.from(String(right), 'utf8'));
+}
+
+function compareEventCursors(left, right) {
+  const timestampResult = compareCursorText(hogqlTimestamp(left.timestamp), hogqlTimestamp(right.timestamp));
+  if (timestampResult !== 0) return timestampResult;
+  for (const field of EVENT_CURSOR_FIELDS) {
+    const result = compareCursorText(left[field.name], right[field.name]);
+    if (result !== 0) return result;
+  }
+  return 0;
 }
 
 function eventCursorFilter(cursor, cursorTimestamp) {
@@ -1134,7 +1185,8 @@ function eventSelect(window, cursor = null) {
     FROM events
     WHERE timestamp >= toDateTime('${from}') AND timestamp < toDateTime('${to}')${cursorFilter}
     GROUP BY event, week, path, job_slug, job_id, provider_id,
-             employer_key, item_id, content_type, emission_id, timestamp
+             employer_key, item_id, content_type, emission_id, timestamp,
+             ${EVENT_KEY_EXPRESSION}
     ORDER BY cursor_timestamp, ${cursorOrder}
   `.trim();
 }
@@ -1167,7 +1219,7 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
     if (!pageRows.length) break;
     const nextCursor = eventCursorFromRow(pageRows.at(-1));
     if (!nextCursor) throw new Error('posthog page missing keyset cursor');
-    if (cursor && eventCursorSortKey(nextCursor) <= eventCursorSortKey(cursor)) {
+    if (cursor && compareEventCursors(nextCursor, cursor) <= 0) {
       throw new Error('posthog keyset cursor did not advance');
     }
     cursor = nextCursor;
@@ -1193,6 +1245,15 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
       sourceObserved,
     },
   };
+}
+
+/** Do not hand a partial event snapshot to the document builder. */
+export function assertCompleteEventCoverage(coverage) {
+  if (coverage?.truncated) {
+    throw new Error(
+      `employer insights event query truncated (${coverage.rowsReturned ?? 0}/${coverage.totalRows ?? 0} grouped rows)`,
+    );
+  }
 }
 
 const GA4_INSIGHTS_EVENTS = ['page_view', 'job_apply'];
@@ -1488,6 +1549,7 @@ async function main() {
     const queried = source === 'ga4'
       ? await queryGa4EventRows(window, ga4Options)
       : await queryEventRows(window);
+    assertCompleteEventCoverage(queried.coverage);
     if (source === 'ga4' && queried.coverage.identityObserved <= 0) {
       throw new Error(`GA4 employer identity feed unavailable for ${window.from} → ${window.to}`);
     }

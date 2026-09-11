@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   aggregateApplicationEvidence,
+  assertCompleteEventCoverage,
   buildIdentityCatalog,
   buildDryRunPayload,
   buildGa4EventQueryBody,
@@ -458,10 +459,20 @@ describe('employer insights technical deduplication', () => {
     expect(result.dedupUnavailable).toBe(3);
   });
 
-  it('does not use provider identifiers as a query cursor or emission fallback', () => {
-    expect(EMPLOYER_INSIGHTS_SOURCE).not.toMatch(
-      /EVENT_KEY_EXPRESSION|\$insert_id|\$event_id|\b(?:uuid|eventId|insert_id)\b/,
-    );
+  it('uses a non-empty event key as the final total cursor discriminator', () => {
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain('const EVENT_KEY_EXPRESSION');
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain('properties.$insert_id');
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain('properties.$event_id');
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain('toString(uuid)');
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain("concat(toString(timestamp), '|'");
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain('cursor_event_key');
+  });
+
+  it('fails closed instead of handing a truncated event snapshot to consumers', () => {
+    expect(() => assertCompleteEventCoverage({ rowsReturned: 9, totalRows: 10, truncated: true }))
+      .toThrow('event query truncated');
+    expect(() => assertCompleteEventCoverage({ rowsReturned: 10, totalRows: 10, truncated: false }))
+      .not.toThrow();
   });
 
   it('keeps views and clicks separate from the emission id in grouped rows', () => {
@@ -526,7 +537,7 @@ describe('employer insights technical deduplication', () => {
       '',
       '',
       '',
-      '',
+      unusedSlot,
     ];
     const pageRows = [
       groupedRow('slot-a', '2026-09-01 12:00:00.000000'),
@@ -551,6 +562,59 @@ describe('employer insights technical deduplication', () => {
     expect(pageQueries.every((query) => !query.includes('OFFSET'))).toBe(true);
     expect(pageQueries[1]).toContain('timestamp >');
     expect(pageQueries[1]).toContain("2026-09-01 12:00:01.000000");
+    expect(pageQueries[1]).toContain('cursor_event_key');
+  });
+
+  it('converts a non-UTC object cursor to UTC before resuming', async () => {
+    const cursorRow = (timestamp: string, eventKey: string) => ({
+      cursorTimestamp: timestamp,
+      cursor_event: 'scroll_depth',
+      cursor_week: '2026-09-01',
+      cursor_path: '',
+      cursor_job_slug: '',
+      cursor_job_id: '',
+      cursor_provider_id: '',
+      cursor_employer_key: '',
+      cursor_item_id: '',
+      cursor_content_type: '',
+      cursor_emission_id: '',
+      cursor_event_key: eventKey,
+      observed: 1,
+    });
+    const queries: string[] = [];
+    const rows = [
+      cursorRow('2026-09-01T12:00:01.123456+02:00', 'key-a'),
+      cursorRow('2026-09-01T12:00:02.123456+02:00', 'key-b'),
+    ];
+    const runQuery = async (query: string) => {
+      queries.push(query);
+      if (query.startsWith('SELECT count() AS total FROM (')) return [[2]];
+      if (query.includes('SELECT count() AS total') && query.includes('FROM events')) return [[2]];
+      const pageNumber = queries.filter((candidate) => candidate.includes(' LIMIT 1')).length;
+      return [rows[pageNumber - 1]];
+    };
+
+    const result = await queryEventRows(WINDOW, { query: runQuery, pageSize: 1 });
+    const pageQueries = queries.filter((query) => query.includes(' LIMIT 1'));
+
+    expect(result.rows).toHaveLength(2);
+    expect(pageQueries[1]).toContain("toDateTime64('2026-09-01 10:00:01.123456', 6)");
+  });
+
+  it('rejects a page whose event discriminator is empty', async () => {
+    const row = Array(28).fill('');
+    row[10] = 1;
+    row[16] = '2026-09-01 12:00:00.000000';
+    row[17] = 'scroll_depth';
+    row[27] = '';
+    const runQuery = async (query: string) => {
+      if (query.startsWith('SELECT count() AS total FROM (')) return [[1]];
+      if (query.includes('SELECT count() AS total') && query.includes('FROM events')) return [[1]];
+      return [row];
+    };
+
+    await expect(queryEventRows(WINDOW, { query: runQuery, pageSize: 1 }))
+      .rejects.toThrow('posthog page missing keyset cursor');
   });
 
   it('reads paginated GA4 pageview/apply rows with explicit employer identity', async () => {

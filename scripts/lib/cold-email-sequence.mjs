@@ -12,6 +12,7 @@
 export {
   PRICE,
   OPTOUT_EMAIL,
+  OUTREACH_METRIC_LABELS,
   buildSequence,
   bodyToHtml,
   formatItalianPeriodLabel,

@@ -212,6 +212,37 @@ describe('handleSubscriptionManagement', () => {
     expect(Object.values(alertDocs).some((data: any) => data.locations?.includes('Lugano'))).toBe(true);
   });
 
+  it('marks a company-follow follow-up complete after a successful token alert create', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'suppressed',
+          company_follow_only: true,
+          company_follow_followup_pending: true,
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'create_alert',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      specificCompanyKey: 'Migros Ticino',
+      frequency: 'immediate',
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    const markerSet = db.__sets.find(
+      (s) => s.collection === 'newsletter_subscribers'
+        && s.data.company_follow_followup_pending !== undefined,
+    );
+    expect(markerSet?.data).toMatchObject({ company_follow_followup_pending: false });
+  });
+
   it('deletes an alert by state transition and keeps the audit document', async () => {
     const db = createFakeDb({}, {
       job_alert_subscribers: {

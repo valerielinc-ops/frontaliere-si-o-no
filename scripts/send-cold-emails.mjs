@@ -37,7 +37,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildSequence, OPTOUT_EMAIL, selectOutreachMetric } from './generate-cold-emails.mjs';
+import {
+  buildSequence,
+  OPTOUT_EMAIL,
+  compareOutreachTargets,
+  selectOutreachMetric,
+} from './generate-cold-emails.mjs';
 import { bodyToHtml, formatItalianPeriodLabel } from './lib/cold-email-sequence.mjs';
 import { classifySector } from './lib/employer-sectors.mjs';
 import { buildUnsubUrl } from './lib/outreach-unsubscribe-token.mjs';
@@ -362,22 +367,16 @@ async function run() {
   const topExplicit = process.argv.includes('--top');
   let targets = report.employers.slice();
   if (onlyCompany && onlyCompany !== true) targets = report.employers.filter((e) => (e.key || '') === onlyCompany);
-  targets = targets
+  const rankedTargets = targets
     .map((entry) => ({ entry, metric: selectOutreachMetric(entry) }))
-    .sort((a, b) => (b.metric?.value ?? -1) - (a.metric?.value ?? -1)
-      || String(a.entry.key || a.entry.name || '').localeCompare(String(b.entry.key || b.entry.name || '')))
+    .sort(compareOutreachTargets);
+  // Guard: a target without a usable outreach metric gets no numeric claim.
+  const skipped = rankedTargets.slice(0, top).filter(({ metric }) => !metric || metric.value <= 0);
+  if (skipped.length) console.warn(`↷ ${skipped.length} target senza metrica valida saltati: ${skipped.map(({ entry }) => entry.name).join(', ').slice(0, 120)}`);
+  targets = rankedTargets
+    .filter(({ metric }) => metric && metric.value > 0)
     .slice(0, top)
     .map(({ entry }) => entry);
-  // Guard: a target without a usable outreach metric gets no numeric claim.
-  const skipped = targets.filter((e) => {
-    const metric = selectOutreachMetric(e);
-    return !metric || metric.value <= 0;
-  });
-  if (skipped.length) console.warn(`↷ ${skipped.length} target senza metrica valida saltati: ${skipped.map((e) => e.name).join(', ').slice(0, 120)}`);
-  targets = targets.filter((e) => {
-    const metric = selectOutreachMetric(e);
-    return metric && metric.value > 0;
-  });
   if (!targets.length) { console.error('nessun target valido (controlla --company / --report)'); process.exit(1); }
   // Safety: in --test/--send without an explicit --company or --top, don't fan
   // out to all `top` targets by surprise — limit to 1 (one preview / one send).

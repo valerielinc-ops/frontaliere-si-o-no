@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   aggregateGa4Rows,
+  comparePostHogCompany,
   postHogBaseQuery,
   resolveGa4Employers,
 } from '../scripts/employer-traffic-report.mjs';
@@ -71,5 +72,15 @@ describe('postHogBaseQuery', () => {
     expect(firstPage).not.toContain('OFFSET');
     expect(nextPage).toContain("> 'acme'");
     expect(nextPage).not.toContain('OFFSET');
+  });
+
+  it('compares company cursors with ClickHouse UTF-8 byte ordering', () => {
+    const supplementary = String.fromCodePoint(0x10000);
+    const privateUseBmp = '\uE000';
+
+    // JavaScript UTF-16 and ClickHouse UTF-8 disagree for this pair; the
+    // cursor guard must follow the database ordering, not the JS default.
+    expect(supplementary > privateUseBmp).toBe(false);
+    expect(comparePostHogCompany(supplementary, privateUseBmp)).toBeGreaterThan(0);
   });
 });
