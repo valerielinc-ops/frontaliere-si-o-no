@@ -2561,7 +2561,12 @@ export function runFactualityGates(params = {}) {
   // that consumes them is keyed on the acronym alone. Harvesting the same
   // acronym four times, once per locale, would quadruple every sighting count
   // and promote unknowns to CONFIRMED on one article's evidence.
-  const observations = locale === 'it' && hasUsableSourceForLearning
+  // Keep the observation shape stable for source-less retro-audits: the
+  // collector deliberately marks every finding `unknown` when the source is
+  // empty or too thin. `recordObservations()` can therefore persist the
+  // audit without mistaking missing evidence for unsupported evidence. The
+  // learned memory above remains disabled until the source is usable.
+  const observations = locale === 'it'
     ? collectInstitutionAcronyms(fullText, { sourceText })
     : [];
 

@@ -435,10 +435,21 @@ describe('runFactualityGates — memory plumbing', () => {
   it('blocks on a learned denylist entry passed through the memory field', () => {
     const r = runFactualityGates({
       sections: { body1: 'Lo dice l\'Ufficio cantonale del lavoro (UCLV).' },
+      sourceText: 'Fonte ufficiale sul mercato del lavoro ticinese. '.repeat(12),
       memory: { denylist: new Set(['UCLV']) },
     });
     expect(r.passed).toBe(false);
     expect(codes(r.blocking)).toContain('fabricated-institution');
+  });
+
+  it('does not apply learned memory when the source is missing', () => {
+    const r = runFactualityGates({
+      sections: { body1: 'Lo dice l\'Ufficio cantonale del lavoro (UCLV).' },
+      memory: { denylist: new Set(['UCLV']) },
+    });
+    expect(r.passed).toBe(true);
+    expect(codes(r.issues)).toEqual(['unknown-institution']);
+    expect(r.observations[0].support).toBe('unknown');
   });
 
   it('is unchanged when called without a memory (corpus retro-audit path)', () => {
