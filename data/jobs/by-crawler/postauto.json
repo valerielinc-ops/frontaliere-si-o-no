@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-09-10T23:18:32.700Z",
+  "assembledAt": "2026-09-11T13:42:02.314Z",
   "jobs": [
     {
       "id": "posta-svizzera-centro-regionale-0fd41e8901e3",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-Auxiliaire-Transport-scolaire%2C-Canton-Vaud/74508-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:25.373Z",
+      "crawledAt": "2026-09-11T13:41:57.999Z",
       "addressLocality": "Belmont-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -56,14 +56,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-carpostal-belmont-sur-lausanne"
         ],
         "it": [
-          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-post"
         ]
       },
       "previousSlugs": [
-        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-carpostal-belmont-sur-lausanne",
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-post"
       ],
       "firstSeenAt": "2026-08-17T09:59:08.422Z",
       "datePosted": "2026-08-17",
@@ -112,7 +116,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-Thierrens/74564-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:24.019Z",
+      "crawledAt": "2026-09-11T13:41:57.064Z",
       "addressLocality": "Thierrens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -135,12 +139,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conductrice-conducteur-carpostal-thierrens-post",
-        "conductrice-conducteur-carpostal-thierrens-postauto-thierrens"
+        "conductrice-conducteur-carpostal-thierrens-postauto-thierrens",
+        "driver-per-il-dispositivo-carpostal-thierrens-carpostal-thierrens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conductrice-conducteur-carpostal-thierrens-post",
-          "conductrice-conducteur-carpostal-thierrens-postauto-thierrens"
+          "conductrice-conducteur-carpostal-thierrens-postauto-thierrens",
+          "driver-per-il-dispositivo-carpostal-thierrens-carpostal-thierrens"
         ],
         "en": [
           "conductrice-conducteur-carpostal-thierrens-post"
@@ -154,6 +160,7 @@
       },
       "firstSeenAt": "2026-08-20T21:39:58.447Z",
       "datePosted": "2026-08-20",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -199,7 +206,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-St-Aubin-Sauges/74588-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:22.685Z",
+      "crawledAt": "2026-09-11T13:41:56.111Z",
       "addressLocality": "St-Aubin-Sauges",
       "addressRegion": "NE",
       "streetAddress": "",
@@ -222,12 +229,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conductrice-conducteur-carpostal-st-aubin-sauges-postauto-st-aubin-sauges",
-        "conductrice-conducteur-carpostal-st-aubin-sauges-post"
+        "conductrice-conducteur-carpostal-st-aubin-sauges-post",
+        "driver-carpostal-st-aubin-sauges-postauto-ag-st-aubin-sauges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conductrice-conducteur-carpostal-st-aubin-sauges-postauto-st-aubin-sauges",
-          "conductrice-conducteur-carpostal-st-aubin-sauges-post"
+          "conductrice-conducteur-carpostal-st-aubin-sauges-post",
+          "driver-carpostal-st-aubin-sauges-postauto-ag-st-aubin-sauges"
         ],
         "fr": [
           "conductrice-conducteur-carpostal-st-aubin-sauges-post"
@@ -235,6 +244,7 @@
       },
       "firstSeenAt": "2026-08-26T10:12:04.446Z",
       "datePosted": "2026-08-26",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -280,7 +290,7 @@
       "url": "https://job.post.ch/default/job/Responsable-d'%C3%A9quipe-Personnel-de-conduite%2C-Gland/74610-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:21.314Z",
+      "crawledAt": "2026-09-11T13:41:55.179Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -304,16 +314,20 @@
       "previousSlugsByLocale": {
         "fr": [
           "responsable-d-equipe-personnel-de-conduite-post",
-          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+          "responsable-d-equipe-personnel-de-conduite-gland-carpostal-gland"
         ],
         "it": [
           "responsable-d-equipe-personnel-de-conduite-post",
-          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+          "responsable-d-equipe-personnel-de-conduite-gland-post"
         ]
       },
       "previousSlugs": [
         "responsable-d-equipe-personnel-de-conduite-post",
-        "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+        "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+        "responsable-d-equipe-personnel-de-conduite-gland-carpostal-gland",
+        "responsable-d-equipe-personnel-de-conduite-gland-post"
       ],
       "firstSeenAt": "2026-08-27T00:49:51.119Z",
       "datePosted": "2026-08-26",
@@ -362,7 +376,7 @@
       "url": "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal%2C-Aubonne-Gimel-Gland/74652-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:19.994Z",
+      "crawledAt": "2026-09-11T13:41:54.247Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -384,11 +398,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne"
+        "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne",
+        "driver-carpostal-aubonne-gimel-gland-postauto-ag-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne"
+          "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne",
+          "driver-carpostal-aubonne-gimel-gland-postauto-ag-aubonne"
         ],
         "en": [
           "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne"
@@ -398,6 +414,7 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:45:42.584Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -443,7 +460,7 @@
       "url": "https://job.post.ch/default/job/Conductrice-Conducteur-Auxiliaire-CarPostal%2C-Aubonne/74680-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:18.646Z",
+      "crawledAt": "2026-09-11T13:41:53.326Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -466,12 +483,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne",
-        "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne"
+        "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne",
+        "driver-auxiliary-driver-carpostal-aubonne-postauto-ag-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne",
-          "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne"
+          "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne",
+          "driver-auxiliary-driver-carpostal-aubonne-postauto-ag-aubonne"
         ],
         "en": [
           "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne"
@@ -526,7 +545,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-Yverdon-les-Bains/74682-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-10T23:18:17.452Z",
+      "crawledAt": "2026-09-11T13:41:52.370Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -552,7 +571,8 @@
         "carpostal-driver-carpostal-yverdon-les-bains",
         "carpostal-fahrer-carpostal-yverdon-les-bains",
         "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains",
-        "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
+        "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
+        "driver-per-il-dispositivo-carpostal-yverdon-les-bains-postauto-ag-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -560,7 +580,8 @@
           "carpostal-driver-carpostal-yverdon-les-bains",
           "carpostal-fahrer-carpostal-yverdon-les-bains",
           "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains",
-          "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
+          "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
+          "driver-per-il-dispositivo-carpostal-yverdon-les-bains-postauto-ag-yverdon-les-bains"
         ],
         "en": [
           "carpostal-driver-carpostal-yverdon-les-bains",
@@ -585,95 +606,6 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "postauto-b4474cae4aea",
-      "slug": "postbus-driver-in-postauto-ag-reichenburg",
-      "slugByLocale": {
-        "it": "postbus-driver-in-postauto-ag-reichenburg",
-        "en": "postbus-driver-in-postauto-reichenburg",
-        "de": "postauto-fahrer-in-postauto-reichenburg",
-        "fr": "pilote-postbus-in-postauto-ag-reichenburg"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "PostAuto-Fahrer:in",
-      "titleByLocale": {
-        "it": "Driver PostBus",
-        "en": "PostBus drivers",
-        "de": "PostAuto-Fahrer:in",
-        "fr": "Pilotes PostBus"
-      },
-      "description": "Liebst du es, jeden Tag neue Menschen zu treffen und möchtest eigenverantwortlich arbeiten? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n-\n\nAuf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\nDu bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\nDer tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\nAls Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\nDas bringst du mit\n\nDu verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\nFür diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\nZuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\nDu verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
-      "descriptionByLocale": {
-        "it": "Ti piace incontrare nuove persone ogni giorno e vuoi lavorare in modo indipendente? Allora stiamo cercando esattamente voi, perché con voi al volante i nostri passeggeri arrivano in tempo e in modo sicuro alla loro destinazione.\n\nPuoi farlo.\n\n-\n\nNelle nostre varie linee regionali porti i nostri passeggeri a destinazione da lunedì a domenica.\n\nLei è l'ospite: nei nostri autobus postali e consiglia i nostri clienti su questioni tariffarie e orari.\n\nIl contatto quotidiano con i vostri passeggeri arricchisce la vostra vita quotidiana con incontri emozionanti e crei esperienze positive per i nostri clienti.\n\nCome autista: ti muovi molto di più del tuo veicolo sulla strada. In contatto diretto con il cliente, si verificano situazioni nuove e varie ogni giorno.\n\nLo porti con te.\n\nHai la pratica di guida nel trasporto passeggeri e godere della varietà che ore di lavoro irregolari (comprese le domeniche e festivi) portare con loro.\n\nPer questo lavoro, è necessario una licenza del driver di categoria D e un certificato di qualifica del conducente valido.\n\nAffidabilità e godimento del contatto quotidiano del cliente sono tra i vostri punti di forza.\n\nAvete una buona conoscenza del tedesco e sono ben versi nell'uso di dispositivi digitali.",
-        "en": "Do you love meeting new people every day and want to work independently? Then we are looking for exactly you, because with you at the wheel our passengers arrive on time and safely to their destination.\n\nYou can do that.\n\n-\n\nOn our varied regional lines you bring our passengers to their destination from Monday to Sunday.\n\nYou are the host: in our post buses and advise our customers on tariff and timetable issues.\n\nThe daily contact with your passengers enriches your everyday life with exciting encounters and you create positive experiences for our customers.\n\nAs a driver: you move much more than just your vehicle on the road. In direct customer contact, you experience new and varied situations every day.\n\nYou bring that with you\n\nYou have driving practice in passenger transport and enjoy the variety that irregular working hours (including Sundays and public holidays) bring with them.\n\nFor this job, you need a category D driver’s license and a valid driver qualification certificate.\n\nReliability and enjoyment of daily customer contact are among your strengths.\n\nYou have a good knowledge of German and are well versed in using digital devices.",
-        "de": "Liebst du es, jeden Tag neue Menschen zu treffen und möchtest eigenverantwortlich arbeiten? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n-\n\nAuf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\nDu bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\nDer tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\nAls Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\nDas bringst du mit\n\nDu verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\nFür diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\nZuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\nDu verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
-        "fr": "Aimez-vous rencontrer de nouvelles personnes chaque jour et voulez-vous travailler de façon indépendante ? Ensuite, nous recherchons exactement vous, car avec vous au volant nos passagers arrivent à temps et en toute sécurité à leur destination.\n\nTu peux le faire.\n\n-\n\nSur nos lignes régionales variées, vous amènez nos passagers à destination du lundi au dimanche.\n\nVous êtes l'hôte: dans nos bus postaux et conseillez nos clients sur les questions de tarif et d'horaire.\n\nLe contact quotidien avec vos passagers enrichit votre vie quotidienne de rencontres passionnantes et vous créez des expériences positives pour nos clients.\n\nEn tant que conducteur, vous déplacez beaucoup plus que votre véhicule sur la route. En contact direct avec le client, vous ressentez des situations nouvelles et variées chaque jour.\n\nApporte ça avec toi.\n\nVous pratiquez la conduite dans le transport de voyageurs et profitez de la variété que les horaires irréguliers (y compris le dimanche et les jours fériés) apportent avec eux.\n\nPour ce travail, vous avez besoin d'un permis de conduire de catégorie D et d'un certificat de qualification de conducteur valide.\n\nLa fiabilité et la jouissance du contact quotidien avec le client sont parmi vos points forts.\n\nVous avez une bonne connaissance de l'allemand et vous connaissez bien l'utilisation des appareils numériques."
-      },
-      "location": "Reichenburg",
-      "canton": "SZ",
-      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74494-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:16.093Z",
-      "addressLocality": "Reichenburg",
-      "addressRegion": "SZ",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Autisti / Conducenti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-12",
-      "validThrough": "2026-09-11",
-      "pensum": "80-100%",
-      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74494-de_DE",
-      "jobReqId": "74494",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "postauto-fahrer-in-postauto-reichenburg",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-reichenburg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postauto-fahrer-in-postauto-reichenburg",
-          "postauto-fahrer-in-post",
-          "postbus-driver-in-postauto-reichenburg"
-        ],
-        "en": [
-          "postauto-fahrer-in-postauto-reichenburg",
-          "postauto-fahrer-in-post"
-        ],
-        "fr": [
-          "postauto-fahrer-in-postauto-reichenburg",
-          "postauto-fahrer-in-post",
-          "pilote-postbus-in-postauto-reichenburg"
-        ]
-      },
-      "firstSeenAt": "2026-08-12T10:23:52.533Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -709,7 +641,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74549-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:14.749Z",
+      "crawledAt": "2026-09-11T13:41:51.444Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -731,11 +663,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-chauffeur-in-postauto-bad-ragaz"
+        "postauto-chauffeur-in-postauto-bad-ragaz",
+        "postauto-chauffeur-in-post"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-chauffeur-in-postauto-bad-ragaz"
+          "postauto-chauffeur-in-postauto-bad-ragaz",
+          "postauto-chauffeur-in-post"
         ]
       },
       "needsRetranslation": true,
@@ -785,7 +719,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin-im-Stundenlohn/74565-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:13.404Z",
+      "crawledAt": "2026-09-11T13:41:50.509Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -811,13 +745,15 @@
         "postauto-fahrer-in-im-stundenlohn-post",
         "postbus-driver-nel-salario-orario-postauto-einsiedeln",
         "postbus-driver-in-the-hourly-wage-postauto-einsiedeln",
-        "conducteur-postbus-dans-le-salaire-horaire-postauto-einsiedeln"
+        "conducteur-postbus-dans-le-salaire-horaire-postauto-einsiedeln",
+        "postbus-driver-nel-salario-orario-postauto-ag-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-im-stundenlohn-postauto-einsiedeln",
           "postauto-fahrer-in-im-stundenlohn-post",
-          "postbus-driver-nel-salario-orario-postauto-einsiedeln"
+          "postbus-driver-nel-salario-orario-postauto-einsiedeln",
+          "postbus-driver-nel-salario-orario-postauto-ag-einsiedeln"
         ],
         "en": [
           "postauto-fahrer-in-im-stundenlohn-postauto-einsiedeln",
@@ -876,7 +812,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74566-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:12.067Z",
+      "crawledAt": "2026-09-11T13:41:49.578Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -898,11 +834,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-chauffeur-in-postauto-einsiedeln"
+        "postauto-chauffeur-in-postauto-einsiedeln",
+        "postauto-autista-postauto-ag-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-chauffeur-in-postauto-einsiedeln"
+          "postauto-chauffeur-in-postauto-einsiedeln",
+          "postauto-autista-postauto-ag-einsiedeln"
         ]
       },
       "needsRetranslation": true,
@@ -952,7 +890,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:10.729Z",
+      "crawledAt": "2026-09-11T13:41:48.632Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -978,13 +916,15 @@
         "postbus-driver-in-postauto-ilanz",
         "postauto-fahrer-in-post",
         "pilote-postbus-in-postauto-ilanz",
-        "pilote-postbus-in-postauto-ag-ilanz"
+        "pilote-postbus-in-postauto-ag-ilanz",
+        "postbus-driver-in-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-ilanz",
           "postbus-driver-in-postauto-ilanz",
-          "postauto-fahrer-in-post"
+          "postauto-fahrer-in-post",
+          "postbus-driver-in-postauto-ag-ilanz"
         ],
         "en": [
           "postbus-driver-in-postauto-ilanz",
@@ -1044,7 +984,7 @@
       "url": "https://job.post.ch/default/job/Fachspezialistin-Kundenservice-Inkasso/74547-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:09.405Z",
+      "crawledAt": "2026-09-11T13:41:47.710Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1070,13 +1010,15 @@
         "fachspezialist-in-kundenservice-inkasso-post",
         "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich",
         "specialist-in-customer-service-debt-collection-postauto-zurich",
-        "specialiste-dans-le-recouvrement-des-dettes-du-service-a-la-clientele-postauto-zurich"
+        "specialiste-dans-le-recouvrement-des-dettes-du-service-a-la-clientele-postauto-zurich",
+        "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
           "fachspezialist-in-kundenservice-inkasso-post",
-          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich"
+          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich",
+          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-ag-zurich"
         ],
         "en": [
           "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
@@ -1135,7 +1077,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74626-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:08.055Z",
+      "crawledAt": "2026-09-11T13:41:46.787Z",
       "addressLocality": "Klosters",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1157,11 +1099,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-chauffeur-in-postauto-klosters"
+        "postauto-chauffeur-in-postauto-klosters",
+        "postauto-autista-postauto-ag-klosters"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-chauffeur-in-postauto-klosters"
+          "postauto-chauffeur-in-postauto-klosters",
+          "postauto-autista-postauto-ag-klosters"
         ]
       },
       "needsRetranslation": true,
@@ -1211,7 +1155,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:06.741Z",
+      "crawledAt": "2026-09-11T13:41:45.853Z",
       "addressLocality": "Appenzell",
       "addressRegion": "AI",
       "streetAddress": "",
@@ -1236,14 +1180,16 @@
         "postauto-fahrer-in-postauto-appenzell",
         "postauto-fahrer-in-post",
         "pilote-postbus-in-postauto-ag-appenzell",
-        "postbus-driver-in-postauto-ag-appenzell"
+        "postbus-driver-in-postauto-ag-appenzell",
+        "postbus-driver-in-postauto-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-appenzell",
           "postauto-fahrer-in-post",
           "pilote-postbus-in-postauto-ag-appenzell",
-          "postbus-driver-in-postauto-ag-appenzell"
+          "postbus-driver-in-postauto-ag-appenzell",
+          "postbus-driver-in-postauto-appenzell"
         ]
       },
       "firstSeenAt": "2026-08-31T17:30:56.441Z",
@@ -1292,7 +1238,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74660-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:05.403Z",
+      "crawledAt": "2026-09-11T13:41:44.861Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -1314,11 +1260,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-chauffeur-in-postauto-stans"
+        "postauto-chauffeur-in-postauto-stans",
+        "postauto-autista-postauto-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-chauffeur-in-postauto-stans"
+          "postauto-chauffeur-in-postauto-stans",
+          "postauto-autista-postauto-ag-stans"
         ]
       },
       "needsRetranslation": true,
@@ -1368,7 +1316,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74661-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:04.078Z",
+      "crawledAt": "2026-09-11T13:41:43.927Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -1391,12 +1339,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-chauffeur-in-post",
-        "postauto-chauffeur-in-postauto-sarnen"
+        "postauto-chauffeur-in-postauto-sarnen",
+        "postauto-autista-postauto-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-chauffeur-in-post",
-          "postauto-chauffeur-in-postauto-sarnen"
+          "postauto-chauffeur-in-postauto-sarnen",
+          "postauto-autista-postauto-ag-sarnen"
         ],
         "en": [
           "postauto-chauffeur-in-post"
@@ -1452,7 +1402,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74691-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:02.730Z",
+      "crawledAt": "2026-09-11T13:41:42.956Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1482,7 +1432,8 @@
         "ticketkontrolleur-in-und-kundenberatung-post-2",
         "controleur-de-billetterie-in-et-conseil-client-postauto-chur",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-        "biglietteria-in-e-consulenza-clienti-postauto-chur"
+        "biglietteria-in-e-consulenza-clienti-postauto-chur",
+        "biglietteria-e-consulenza-clienti-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1494,7 +1445,8 @@
           "ticketkontrolleur-in-und-kundenberatung-post-2",
           "controleur-de-billetterie-in-et-conseil-client-postauto-chur",
           "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-          "biglietteria-in-e-consulenza-clienti-postauto-chur"
+          "biglietteria-in-e-consulenza-clienti-postauto-chur",
+          "biglietteria-e-consulenza-clienti-postauto-ag-chur"
         ],
         "en": [
           "ticket-controller-in-and-customer-advice-postauto-chur",
@@ -1551,7 +1503,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:01.397Z",
+      "crawledAt": "2026-09-11T13:41:42.039Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1574,14 +1526,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
           "security-specialist-in-public-transport-postauto-ag-winterthur",
           "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
           "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
-          "sicherheitsspezialist-in-offentlicher-verkehr-post"
+          "sicherheitsspezialist-in-offentlicher-verkehr-post",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
@@ -1598,7 +1552,9 @@
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-post"
+        "sicherheitsspezialist-in-offentlicher-verkehr-post",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
       ],
       "firstSeenAt": "2026-08-03T22:23:06.691Z",
       "salaryMin": 73500,
@@ -1646,7 +1602,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:18:00.049Z",
+      "crawledAt": "2026-09-11T13:41:41.074Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1673,7 +1629,8 @@
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen",
-        "sicherheitsspezialist-in-offentlicher-verkehr-post"
+        "sicherheitsspezialist-in-offentlicher-verkehr-post",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1681,7 +1638,8 @@
           "security-specialist-in-public-transport-postauto-ag-wallisellen",
           "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
           "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
-          "sicherheitsspezialist-in-offentlicher-verkehr-post"
+          "sicherheitsspezialist-in-offentlicher-verkehr-post",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen",
@@ -1738,7 +1696,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74425-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:17:58.742Z",
+      "crawledAt": "2026-09-11T13:41:40.146Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1821,7 +1779,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74422-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:17:57.387Z",
+      "crawledAt": "2026-09-11T13:41:39.196Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -1890,9 +1848,9 @@
       "id": "postauto-66101739bd06",
       "slug": "biglietteria-e-consulenza-clienti-postauto-ag-luzern",
       "slugByLocale": {
-        "de": "ticketkontrolleur-in-und-kundenberatung-postauto-luzern",
         "it": "biglietteria-e-consulenza-clienti-postauto-ag-luzern",
         "en": "ticket-controller-and-customer-advice-postauto-ag-luzern",
+        "de": "ticketkontrolleur-in-und-kundenberatung-postauto-luzern",
         "fr": "controleur-de-billets-et-conseil-a-la-clientele-postauto-ag-luzern"
       },
       "company": "PostAuto AG",
@@ -1900,16 +1858,16 @@
       "companyDomain": "postauto.ch",
       "title": "Ticketkontrolleur:in und Kundenberatung",
       "titleByLocale": {
-        "de": "Ticketkontrolleur:in und Kundenberatung",
         "it": "Biglietteria e consulenza clienti",
         "en": "Ticket controller and customer advice",
+        "de": "Ticketkontrolleur:in und Kundenberatung",
         "fr": "Contrôleur de billets et conseil à la clientèle"
       },
       "description": "Bist du gerne unterwegs und schätzt den direkten Kontakt mit Fahrgästen? Dann bist du bei uns genau richtig, denn mit dir erleben unsere Fahrgäste erstklassigen Service und professionelle Beratung auf jedem Kilometer!\n\nDas kannst du bewirken\n\n- Zusammen mit deinem Team sorgst du für professionelle Ticketkontrollen und leistest damit einen wichtigen Beitrag zur Einnahmensicherung.\n\n- Von Montag bis Sonntag bist du auf unseren abwechslungsreichen regionalen Linien im Einsatz.\n\n- Du berätst unsere Fahrgäste kompetent und zuvorkommend in Tarif- und Fahrplanfragen und schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Ausserdem übernimmst du Sonderaufgaben wie Strukturerhebungen oder Betrugsprävention.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung abgeschlossen und verfügst über den Führerausweis der Kategorie B.\n\n- Dank deiner lösungsorientierten Art kannst du geschickt argumentieren und auch in hektischen Situationen souverän und ruhig bleiben.\n\n- Du hast Freude am täglichen Kundenkontakt und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Deine sehr guten Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift und ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
       "descriptionByLocale": {
-        "de": "Bist du gerne unterwegs und schätzt den direkten Kontakt mit Fahrgästen? Dann bist du bei uns genau richtig, denn mit dir erleben unsere Fahrgäste erstklassigen Service und professionelle Beratung auf jedem Kilometer!\n\nDas kannst du bewirken\n\n- Zusammen mit deinem Team sorgst du für professionelle Ticketkontrollen und leistest damit einen wichtigen Beitrag zur Einnahmensicherung.\n\n- Von Montag bis Sonntag bist du auf unseren abwechslungsreichen regionalen Linien im Einsatz.\n\n- Du berätst unsere Fahrgäste kompetent und zuvorkommend in Tarif- und Fahrplanfragen und schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Ausserdem übernimmst du Sonderaufgaben wie Strukturerhebungen oder Betrugsprävention.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung abgeschlossen und verfügst über den Führerausweis der Kategorie B.\n\n- Dank deiner lösungsorientierten Art kannst du geschickt argumentieren und auch in hektischen Situationen souverän und ruhig bleiben.\n\n- Du hast Freude am täglichen Kundenkontakt und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Deine sehr guten Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift und ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
         "it": "Ti piace viaggiare e apprezzare il contatto diretto con i passeggeri? Allora siete esattamente con noi, perché con voi i nostri passeggeri sperimentano servizio di prima classe e consulenza professionale su ogni chilometro!\n\nPuoi farlo.\n\n- Insieme al vostro team, assicurate i controlli dei biglietti professionali e, quindi, un importante contributo per garantire il fatturato.\n\n- Da lunedì a domenica sarete sulle nostre varie linee regionali.\n\n- Si consiglia ai nostri passeggeri competenti e cortesemente su questioni tariffarie e orari e creare esperienze positive per i nostri clienti.\n\n- Si occupa anche di compiti speciali come indagini strutturali o prevenzione delle frodi.\n\nLo porti con te.\n\n- Hai completato una formazione di base e hai la patente di guida di categoria B.\n\n- Grazie alla vostra natura orientata alla soluzione, potete discutere abilmente e rimanere sovrani e calmi anche in situazioni frenetiche.\n\n- Vi piace il contatto quotidiano del cliente e godetevi la varietà che le ore di lavoro irregolari (comprese le domeniche e le festività pubbliche) portano con loro.\n\n- La vostra conoscenza molto buona del tedesco e buona conoscenza dell'inglese in parola e scrittura e un uso esperto di dispositivi digitali completano il vostro profilo.",
         "en": "Do you like to travel and appreciate the direct contact with passengers? Then you are exactly right with us, because with you our passengers experience first-class service and professional advice on every kilometre!\n\nYou can do that.\n\n- Together with your team, you ensure professional ticket checks and thus make an important contribution to securing revenue.\n\n- From Monday to Sunday you will be on our varied regional lines.\n\n- You advise our passengers competently and courteously on tariff and timetable issues and create positive experiences for our customers.\n\n- You also take on special tasks such as structural surveys or fraud prevention.\n\nYou bring that with you\n\n- You have completed a basic training and have the category B driving licence.\n\n- Thanks to your solution-oriented nature, you can argue skillfully and remain sovereign and calm even in hectic situations.\n\n- You enjoy daily customer contact and enjoy the variety that irregular working hours (including Sundays and public holidays) bring with them.\n\n- Your very good knowledge of German as well as good knowledge of English in word and writing and an experienced use of digital devices round off your profile.",
+        "de": "Bist du gerne unterwegs und schätzt den direkten Kontakt mit Fahrgästen? Dann bist du bei uns genau richtig, denn mit dir erleben unsere Fahrgäste erstklassigen Service und professionelle Beratung auf jedem Kilometer!\n\nDas kannst du bewirken\n\n- Zusammen mit deinem Team sorgst du für professionelle Ticketkontrollen und leistest damit einen wichtigen Beitrag zur Einnahmensicherung.\n\n- Von Montag bis Sonntag bist du auf unseren abwechslungsreichen regionalen Linien im Einsatz.\n\n- Du berätst unsere Fahrgäste kompetent und zuvorkommend in Tarif- und Fahrplanfragen und schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Ausserdem übernimmst du Sonderaufgaben wie Strukturerhebungen oder Betrugsprävention.\n\nDas bringst du mit\n\n- Du hast eine Grundausbildung abgeschlossen und verfügst über den Führerausweis der Kategorie B.\n\n- Dank deiner lösungsorientierten Art kannst du geschickt argumentieren und auch in hektischen Situationen souverän und ruhig bleiben.\n\n- Du hast Freude am täglichen Kundenkontakt und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Deine sehr guten Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift und ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
         "fr": "Vous aimez voyager et apprécier le contact direct avec les passagers? Ensuite, vous avez raison avec nous, car avec vous nos passagers font l'expérience d'un service de première classe et de conseils professionnels sur chaque kilomètre!\n\nTu peux le faire.\n\n- Avec votre équipe, vous assurez des contrôles de billets professionnels et contribuez ainsi de façon importante à l'obtention de revenus.\n\n- Du lundi au dimanche, vous serez sur nos lignes régionales variées.\n\n- Vous conseillez nos passagers avec compétence et courtoisie sur les questions de tarif et de calendrier et créez des expériences positives pour nos clients.\n\n- Vous assumez également des tâches spéciales telles que les enquêtes structurelles ou la prévention de la fraude.\n\nApporte ça avec toi.\n\n- Vous avez suivi une formation de base et avez le permis de conduire de catégorie B.\n\n- Grâce à votre nature orientée vers la solution, vous pouvez argumenter habilement et rester souverain et calme même dans des situations agitées.\n\n- Vous appréciez le contact quotidien avec le client et profitez de la variété que les horaires irréguliers (y compris le dimanche et les jours fériés) apportent avec eux.\n\n- Votre très bonne connaissance de l'allemand ainsi que la bonne connaissance de l'anglais dans la parole et l'écriture et une utilisation expérimentée des appareils numériques complètent votre profil."
       },
       "location": "Luzern",
@@ -1917,7 +1875,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74776-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:17:55.307Z",
+      "crawledAt": "2026-09-11T13:41:38.245Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1937,13 +1895,17 @@
       "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74776-de_DE",
       "jobReqId": "74776",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ticketkontrolleur-in-und-kundenberatung-postauto-luzern",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-luzern",
+        "biglietteria-e-consulenza-clienti-postauto-ag-luzern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-luzern",
-          "ticketkontrolleur-in-e-kundenberatung-postauto-ag-luzern"
+          "ticketkontrolleur-in-e-kundenberatung-postauto-ag-luzern",
+          "biglietteria-e-consulenza-clienti-postauto-ag-luzern"
         ],
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-luzern"
@@ -1952,10 +1914,7 @@
           "ticketkontrolleur-in-und-kundenberatung-postauto-luzern"
         ]
       },
-      "previousSlugs": [
-        "ticketkontrolleur-in-und-kundenberatung-postauto-luzern",
-        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-luzern"
-      ],
+      "firstSeenAt": "2026-09-10T23:17:55.307Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1968,8 +1927,98 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "postauto-b4474cae4aea",
+      "slug": "postbus-driver-in-postauto-ag-reichenburg",
+      "slugByLocale": {
+        "it": "postbus-driver-in-postauto-ag-reichenburg",
+        "en": "postbus-driver-in-postauto-reichenburg",
+        "de": "postauto-fahrer-in-postauto-reichenburg",
+        "fr": "pilote-postbus-in-postauto-ag-reichenburg"
       },
-      "firstSeenAt": "2026-09-10T23:17:55.307Z"
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "PostAuto-Fahrer:in",
+      "titleByLocale": {
+        "it": "Driver PostBus",
+        "en": "PostBus drivers",
+        "de": "PostAuto-Fahrer:in",
+        "fr": "Pilotes PostBus"
+      },
+      "description": "Liebst du es, jeden Tag neue Menschen zu treffen und möchtest eigenverantwortlich arbeiten? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n-\n\nAuf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\nDu bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\nDer tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\nAls Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\nDas bringst du mit\n\nDu verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\nFür diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\nZuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\nDu verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+      "descriptionByLocale": {
+        "it": "Ti piace incontrare nuove persone ogni giorno e vuoi lavorare in modo indipendente? Allora stiamo cercando esattamente voi, perché con voi al volante i nostri passeggeri arrivano in tempo e in modo sicuro alla loro destinazione.\n\nPuoi farlo.\n\n-\n\nNelle nostre varie linee regionali porti i nostri passeggeri a destinazione da lunedì a domenica.\n\nLei è l'ospite: nei nostri autobus postali e consiglia i nostri clienti su questioni tariffarie e orari.\n\nIl contatto quotidiano con i vostri passeggeri arricchisce la vostra vita quotidiana con incontri emozionanti e crei esperienze positive per i nostri clienti.\n\nCome autista: ti muovi molto di più del tuo veicolo sulla strada. In contatto diretto con il cliente, si verificano situazioni nuove e varie ogni giorno.\n\nLo porti con te.\n\nHai la pratica di guida nel trasporto passeggeri e godere della varietà che ore di lavoro irregolari (comprese le domeniche e festivi) portare con loro.\n\nPer questo lavoro, è necessario una licenza del driver di categoria D e un certificato di qualifica del conducente valido.\n\nAffidabilità e godimento del contatto quotidiano del cliente sono tra i vostri punti di forza.\n\nAvete una buona conoscenza del tedesco e sono ben versi nell'uso di dispositivi digitali.",
+        "en": "Do you love meeting new people every day and want to work independently? Then we are looking for exactly you, because with you at the wheel our passengers arrive on time and safely to their destination.\n\nYou can do that.\n\n-\n\nOn our varied regional lines you bring our passengers to their destination from Monday to Sunday.\n\nYou are the host: in our post buses and advise our customers on tariff and timetable issues.\n\nThe daily contact with your passengers enriches your everyday life with exciting encounters and you create positive experiences for our customers.\n\nAs a driver: you move much more than just your vehicle on the road. In direct customer contact, you experience new and varied situations every day.\n\nYou bring that with you\n\nYou have driving practice in passenger transport and enjoy the variety that irregular working hours (including Sundays and public holidays) bring with them.\n\nFor this job, you need a category D driver’s license and a valid driver qualification certificate.\n\nReliability and enjoyment of daily customer contact are among your strengths.\n\nYou have a good knowledge of German and are well versed in using digital devices.",
+        "de": "Liebst du es, jeden Tag neue Menschen zu treffen und möchtest eigenverantwortlich arbeiten? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n-\n\nAuf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\nDu bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\nDer tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\nAls Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\nDas bringst du mit\n\nDu verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\nFür diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\nZuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\nDu verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+        "fr": "Aimez-vous rencontrer de nouvelles personnes chaque jour et voulez-vous travailler de façon indépendante ? Ensuite, nous recherchons exactement vous, car avec vous au volant nos passagers arrivent à temps et en toute sécurité à leur destination.\n\nTu peux le faire.\n\n-\n\nSur nos lignes régionales variées, vous amènez nos passagers à destination du lundi au dimanche.\n\nVous êtes l'hôte: dans nos bus postaux et conseillez nos clients sur les questions de tarif et d'horaire.\n\nLe contact quotidien avec vos passagers enrichit votre vie quotidienne de rencontres passionnantes et vous créez des expériences positives pour nos clients.\n\nEn tant que conducteur, vous déplacez beaucoup plus que votre véhicule sur la route. En contact direct avec le client, vous ressentez des situations nouvelles et variées chaque jour.\n\nApporte ça avec toi.\n\nVous pratiquez la conduite dans le transport de voyageurs et profitez de la variété que les horaires irréguliers (y compris le dimanche et les jours fériés) apportent avec eux.\n\nPour ce travail, vous avez besoin d'un permis de conduire de catégorie D et d'un certificat de qualification de conducteur valide.\n\nLa fiabilité et la jouissance du contact quotidien avec le client sont parmi vos points forts.\n\nVous avez une bonne connaissance de l'allemand et vous connaissez bien l'utilisation des appareils numériques."
+      },
+      "location": "Reichenburg",
+      "canton": "SZ",
+      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74494-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-11T13:41:36.801Z",
+      "addressLocality": "Reichenburg",
+      "addressRegion": "SZ",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Autisti / Conducenti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "validThrough": "2026-09-18",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74494-de_DE",
+      "jobReqId": "74494",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-reichenburg",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-reichenburg",
+        "pilote-postbus-in-postauto-reichenburg",
+        "postbus-driver-in-postauto-ag-reichenburg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-reichenburg",
+          "postauto-fahrer-in-post",
+          "postbus-driver-in-postauto-reichenburg",
+          "postbus-driver-in-postauto-ag-reichenburg"
+        ],
+        "en": [
+          "postauto-fahrer-in-postauto-reichenburg",
+          "postauto-fahrer-in-post"
+        ],
+        "fr": [
+          "postauto-fahrer-in-postauto-reichenburg",
+          "postauto-fahrer-in-post",
+          "pilote-postbus-in-postauto-reichenburg"
+        ]
+      },
+      "firstSeenAt": "2026-08-12T10:23:52.533Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "postauto-462868114795",
@@ -2059,7 +2108,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "postauto-c7235468a4e7",
@@ -2144,7 +2193,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
