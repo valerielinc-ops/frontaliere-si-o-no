@@ -49,6 +49,13 @@ describe('jobsSeoPagesPlugin static payload budget', () => {
     expect(source).not.toContain('fonts.googleapis.com/css2?family=Manrope');
     expect(source).not.toContain('fonts.gstatic.com');
   });
+
+  it('does not reject the complete per-canton company result set with the legacy byte guard', () => {
+    const source = readFileSync(resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'), 'utf8');
+
+    expect(source).not.toContain('const COMPANY_CANTON_HARD_BUDGET');
+    expect(source).not.toContain('[jobs-seo-pages] Per-canton company hub ${canonicalPath} renders to ');
+  });
 });
 
 describe('capSearchStatsLandingTitle (#3589 sibling: same escape-unaware title-budget class as eventDetailMetaTitle)', () => {

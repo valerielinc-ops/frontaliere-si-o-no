@@ -70,6 +70,17 @@ export const JOB_BOARD_SECTION_RX =
   new RegExp(`(?:^|/)(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/`);
 
 /**
+ * Matches the company-hub segment immediately below a job-board section.
+ * Keeping the section prefix in this shared matcher prevents page-weight
+ * exceptions from accidentally covering a job-detail slug that happens to
+ * start with `azienda-`/`company-`.
+ */
+export const JOB_BOARD_COMPANY_HUB_PATH_RX = new RegExp(
+  `^(?:/(?:en|de|fr))?/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/` +
+  '(?:azienda|company|unternehmen|entreprise)-[a-z0-9][a-z0-9-]*(?:/|$)',
+);
+
+/**
  * Matches a single URL path SEGMENT (no slashes) against the job-board
  * section shape — for callers that already split a path into parts (e.g.
  * `pathname.split('/')`) and need to test one segment at a time rather than
