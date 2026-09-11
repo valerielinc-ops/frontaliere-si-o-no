@@ -61,6 +61,7 @@ import {
 } from './lib/hook-target-cwd.mjs';
 import {
   findIssueFixReadBudgetViolation,
+  findIssueFixReadToolViolation,
   formatReadBudgetViolation,
 } from './issue-fix-read-budget.mjs';
 
@@ -147,6 +148,8 @@ export const DECLARATION_HOWTO =
 
 async function main() {
   let command = '';
+  let toolName = '';
+  let toolInput = {};
   let targetCwd;
   try {
     const chunks = [];
@@ -157,8 +160,12 @@ async function main() {
     if (raw) {
       try {
         const payload = JSON.parse(raw);
+        toolName = payload?.tool_name ?? '';
+        toolInput = payload?.tool_input && typeof payload.tool_input === 'object'
+          ? payload.tool_input
+          : {};
         command =
-          payload?.tool_input?.command ??
+          toolInput.command ??
           payload?.command ??
           '';
         targetCwd = resolveHookTargetCwd(payload, command);
@@ -180,7 +187,15 @@ async function main() {
     !command.includes('gh pr create')
   ) {
     try {
-      const violation = findIssueFixReadBudgetViolation({ command, cwd: targetCwd });
+      const violation = toolName === 'Read'
+        ? findIssueFixReadToolViolation({
+          filePath: toolInput.file_path,
+          path: toolInput.path,
+          offset: toolInput.offset,
+          limit: toolInput.limit,
+          cwd: targetCwd,
+        })
+        : findIssueFixReadBudgetViolation({ command, cwd: targetCwd });
       if (violation) {
         process.stderr.write(formatReadBudgetViolation(violation));
         process.exit(EXIT_BLOCK);

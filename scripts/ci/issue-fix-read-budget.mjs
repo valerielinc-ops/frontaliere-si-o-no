@@ -54,9 +54,14 @@ function splitShellCommands(command) {
       quote = char;
       continue;
     }
-    if (char === ';' || char === '\n' || (char === '&' && text[i + 1] === '&')) {
+    if (
+      char === ';' ||
+      char === '\n' ||
+      (char === '&' && text[i + 1] === '&') ||
+      char === '|'
+    ) {
       segments.push(text.slice(start, i));
-      if (char === '&') i += 1;
+      if ((char === '&' || char === '|') && text[i + 1] === char) i += 1;
       start = i + 1;
     }
   }
@@ -121,16 +126,17 @@ function tokenizeShellSegment(segment) {
 }
 
 /**
- * Return paths that are operands of a simple, unpiped `cat` command. A
- * pipeline is deliberately ignored: its downstream command may already cap
- * the output, and an ambiguous command must fail toward preserving context.
+ * Return source paths whose command can emit an unbounded amount of text.
+ * Pipelines are split into their individual stages so a large `cat` cannot
+ * hide behind a downstream command. `head`/`tail` are accepted only when
+ * their byte cap is larger than the transcript budget.
  *
  * @param {string} command
  * @returns {string[]}
  */
 export function extractUnboundedCatPaths(command) {
   const text = String(command ?? '');
-  if (!text || text.includes('|')) return [];
+  if (!text) return [];
 
   const paths = [];
   for (const segment of splitShellCommands(text)) {
@@ -146,7 +152,8 @@ export function extractUnboundedCatPaths(command) {
     ) {
       commandIndex += 1;
     }
-    if (tokens[commandIndex] !== 'cat') continue;
+    const commandName = tokens[commandIndex];
+    if (!['cat', 'head', 'tail'].includes(commandName)) continue;
 
     const commandTokens = tokens.slice(commandIndex + 1);
     const stdoutRedirect = commandTokens.some((token, index) => {
@@ -156,25 +163,93 @@ export function extractUnboundedCatPaths(command) {
     });
     if (stdoutRedirect) continue;
 
+    const candidatePaths = [];
+    const addCandidatePath = (token) => {
+      if (token && !token.startsWith('$') && !/[`*?[\]]/.test(token)) {
+        candidatePaths.push(token);
+      }
+    };
+
+    if (commandName === 'cat') {
+      let optionsEnded = false;
+      for (let i = 0; i < commandTokens.length; i += 1) {
+        const token = commandTokens[i];
+        if (token === '>' || token === '>>' || token === '<<') break;
+        if (token === '<') {
+          addCandidatePath(commandTokens[i + 1]);
+          i += 1;
+          continue;
+        }
+        if (!optionsEnded && token === '--') {
+          optionsEnded = true;
+          continue;
+        }
+        if (!optionsEnded && token.startsWith('-')) continue;
+        if (token === '2' || token === '3') continue;
+        addCandidatePath(token);
+      }
+      paths.push(...candidatePaths);
+      continue;
+    }
+
     let optionsEnded = false;
+    let byteLimit;
+    let hasByteOption = false;
     for (let i = 0; i < commandTokens.length; i += 1) {
       const token = commandTokens[i];
       if (token === '>' || token === '>>' || token === '<<') break;
       if (token === '<') {
-        const redirectedPath = commandTokens[i + 1];
-        if (redirectedPath && !redirectedPath.startsWith('$') && !/[`*?[\]]/.test(redirectedPath)) {
-          paths.push(redirectedPath);
-          i += 1;
-        }
+        addCandidatePath(commandTokens[i + 1]);
+        i += 1;
         continue;
       }
       if (!optionsEnded && token === '--') {
         optionsEnded = true;
         continue;
       }
+
+      if (!optionsEnded && (token === '-c' || token === '--bytes')) {
+        const next = Number(commandTokens[i + 1]);
+        if (Number.isFinite(next)) {
+          byteLimit = Math.abs(next);
+          hasByteOption = true;
+          i += 1;
+        }
+        continue;
+      }
+      if (!optionsEnded && token.startsWith('--bytes=')) {
+        const value = Number(token.slice('--bytes='.length));
+        if (Number.isFinite(value)) {
+          byteLimit = Math.abs(value);
+          hasByteOption = true;
+        }
+        continue;
+      }
+      if (!optionsEnded && token.startsWith('-c') && token.length > 2) {
+        const value = Number(token.slice(2));
+        if (Number.isFinite(value)) {
+          byteLimit = Math.abs(value);
+          hasByteOption = true;
+        }
+        continue;
+      }
+      if (!optionsEnded && /^-\d+$/.test(token)) {
+        byteLimit = Number(token.slice(1));
+        hasByteOption = true;
+        continue;
+      }
+      if (!optionsEnded && (token === '-n' || token === '--lines')) {
+        i += 1;
+        continue;
+      }
+      if (!optionsEnded && token.startsWith('--lines=')) continue;
       if (!optionsEnded && token.startsWith('-')) continue;
       if (token === '2' || token === '3') continue;
-      if (token && !token.startsWith('$') && !/[`*?[\]]/.test(token)) paths.push(token);
+      addCandidatePath(token);
+    }
+
+    if (hasByteOption && (!Number.isFinite(byteLimit) || byteLimit > MAX_SOURCE_BYTES)) {
+      paths.push(...candidatePaths);
     }
   }
   return paths;
@@ -218,6 +293,29 @@ export function findIssueFixReadBudgetViolation({ command = '', cwd = process.cw
     if (violation) return violation;
   }
   return null;
+}
+
+/**
+ * @param {{filePath?:string,path?:string,offset?:number,limit?:number|string|null,cwd?:string}} input
+ * @returns {{relativePath:string,bytes:number}|null}
+ */
+export function findIssueFixReadToolViolation({
+  filePath = '',
+  path: alternatePath = '',
+  offset: _offset,
+  limit,
+  cwd = process.cwd(),
+} = {}) {
+  const violation = largeSourceFile(filePath || alternatePath, cwd);
+  if (!violation) return null;
+
+  const hasExplicitLimit = typeof limit === 'number'
+    || (typeof limit === 'string' && limit.trim() !== '');
+  const numericLimit = hasExplicitLimit ? Number(limit) : Number.NaN;
+  if (Number.isFinite(numericLimit) && numericLimit >= 0 && numericLimit <= MAX_SOURCE_BYTES) {
+    return null;
+  }
+  return violation;
 }
 
 /** @param {{relativePath:string,bytes:number}} violation */

@@ -31,4 +31,17 @@ describe('bundle browser: nessun builtin Node nel grafo dell\'entry SPA', () => 
       .join('\n');
     expect(leaves, `foglie con import Node nel grafo SPA:\n${detail}`).toEqual([]);
   });
+
+  it('keeps the Node-backed build wrappers outside the SPA graph', () => {
+    const { reachableFiles } = measureBrowserGraph();
+
+    expect(reachableFiles).toEqual(expect.arrayContaining([
+      'build-plugins/shared/healthPremiumsPaths.ts',
+    ]));
+    expect(reachableFiles).not.toEqual(expect.arrayContaining([
+      'build-plugins/healthPremiumsData.ts',
+      'build-plugins/jobBoardSeo.ts',
+      'build-plugins/shared/seoContentTokens.ts',
+    ]));
+  });
 });
