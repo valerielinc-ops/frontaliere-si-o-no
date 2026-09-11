@@ -520,7 +520,8 @@ export function stripFaqNumberedLabels(value) {
       const boldOpen = linePrefix ? args[1] : args[0];
       const boldCloseBeforePunctuation = linePrefix ? args[2] : args[1];
       const boldCloseAfterPunctuation = linePrefix ? args[3] : args[2];
-      const boldClose = boldCloseBeforePunctuation || boldCloseAfterPunctuation;
+      const boldClose = boldCloseBeforePunctuation
+        || (boldOpen ? boldCloseAfterPunctuation : undefined);
       const offset = linePrefix ? args[4] : args[3];
       const whole = linePrefix ? args[5] : args[4];
       if (isTranslatedFaqSectionHeading(whole, offset)) return match;
@@ -534,7 +535,13 @@ export function stripFaqNumberedLabels(value) {
       // coppia. Se invece il grassetto avvolge solo l'etichetta, `boldClose`
       // è presente e i due marker vanno rimossi insieme all'etichetta.
       const keepsOuterBold = Boolean(boldOpen && !boldClose && line.endsWith(boldOpen));
-      return linePrefix ? `${pre}${keepsOuterBold ? boldOpen : ''}` : (keepsOuterBold ? boldOpen : '');
+      const keepsQuestionBold = Boolean(!boldOpen && boldCloseAfterPunctuation);
+      const marker = keepsQuestionBold
+        ? boldCloseAfterPunctuation
+        : keepsOuterBold
+          ? boldOpen
+          : '';
+      return linePrefix ? `${pre}${marker}` : marker;
     });
   }
   return { value: out, stripped };

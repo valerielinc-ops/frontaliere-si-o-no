@@ -146,6 +146,14 @@ describe('la famiglia di segnaposto nota, coperta campo per campo', () => {
         'Quali sono i servizi inclusi?',
       ],
       [
+        'Domanda frequente 1: **Quali sono i servizi inclusi?**',
+        '**Quali sono i servizi inclusi?**',
+      ],
+      [
+        '- Domanda frequente 3: **Come si calcola l’imposta alla fonte?**',
+        '- **Come si calcola l’imposta alla fonte?**',
+      ],
+      [
         'Contesto editoriale: **Domanda frequente 1: Quali sono i servizi inclusi?**',
         'Contesto editoriale: **Quali sono i servizi inclusi?**',
       ],
