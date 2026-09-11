@@ -102,6 +102,11 @@ describe('translation observability workflow', () => {
     expect(titleFixScript).toContain('writeJson(slicePath, sliceData)');
     expect(descriptionFixScript).toContain('BY_CRAWLER_DIR');
     expect(descriptionFixScript).toContain('writeJson(slicePath, sliceData)');
+    expect(descriptionFixScript).toContain("import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';");
+    expect(descriptionFixScript).toContain('const normalizedSourceDesc = normalizeForLengthComparison(sourceDesc).toLowerCase();');
+    expect(descriptionFixScript).toContain('if (normalizeForLengthComparison(existing).toLowerCase() !== normalizedSourceDesc) continue;');
+    expect(descriptionFixScript).not.toContain('if (existing.toLowerCase() !== sourceDesc.toLowerCase()) continue;');
+    expect(descriptionFixScript).toContain('if (isNewLanguage && isAcceptable && translated.length >= 120)');
 
     for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
       const statsStep = parseTranslationSteps(document)
