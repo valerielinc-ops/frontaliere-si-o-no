@@ -79,11 +79,19 @@ function normalizeSpace(s = '') {
 
 function isSwissLocationCandidate(locationText) {
   const text = String(locationText || '');
-  const hasSwissCountryCode = text
-    .split(/[\s,;|/]+/)
-    .some((token) => /^(?:ch|che|756)$/i.test(token));
+  // Workday sometimes joins the country code to a canton/postal suffix
+  // (`CH-ZH`, `CHE-8002`). Tokenize on the hyphen too, but do not treat an
+  // arbitrary internal code such as `CH-WID` as a country signal: only the
+  // observed canton/postal shapes are accepted in the hyphenated branch.
+  const tokens = text.split(/[\s,;|/-]+/);
+  const hasStandaloneSwissCountryCode = tokens.some((token) =>
+    /^(?:ch|che|756)$/i.test(token)
+    && new RegExp(`(?:^|[\\s,;|/])${token}(?=$|[\\s,;|/])`, 'i').test(text),
+  );
+  const hasHyphenatedSwissCountryCode = /\b(?:ch-[a-z]{2}|che-\d{4})\b/i.test(text);
   return /\b(?:switzerland|schweiz|suisse|svizzera)\b/i.test(text)
-    || hasSwissCountryCode
+    || hasStandaloneSwissCountryCode
+    || hasHyphenatedSwissCountryCode
     || isSwissLocationText(text);
 }
 
