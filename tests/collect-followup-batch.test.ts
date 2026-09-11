@@ -20,6 +20,8 @@ import {
   verifyTriageMarkerPersistence,
   canonicalLogin,
   maxTurnsFor,
+  selectFollowupSessionBatch,
+  sessionCollectionComplete,
   shouldTriageAfterCandidateGate,
   shouldTriageAfterFixGate,
 } from '../scripts/ci/collect-followup-batch.mjs';
@@ -218,6 +220,27 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
     expect(latestTriageCommentBody(JSON.stringify({ comments: [{ body: marker }] }))).toBe(marker);
     expect(persistedBucketIssueMatches(persisted, 8101)).toBe(true);
   });
+
+  it('ignores historical bucket references in a positive marker', () => {
+    const markerWithHistory = [
+      '## Post-merge follow-up triage',
+      'Created/updated: daily bucket #8293 `follow-up(daily:2026-09-11)` con 1 item.',
+      'Nota: il bucket #8248 della stessa chiave è già sealed e chiuso.',
+    ].join('\n');
+    const current = {
+      number: 8293,
+      title: 'follow-up(daily:2026-09-11): 1 item — owner/repo',
+      body: '### FU-2026-09-11-005 — item\n- Sources: PR #8204\n',
+    };
+    expect(triageMarkerPersistenceExpectation(markerWithHistory)).toEqual({
+      buckets: [8293],
+      requiresBucket: true,
+    });
+    expect(verifyTriageMarkerPersistence(markerWithHistory, 8204, (bucket) => {
+      if (bucket !== 8293) throw new Error(`historical bucket ${bucket} must not be read`);
+      return current;
+    })).toBe(true);
+  });
 });
 
 describe('maxTurnsFor', () => {
@@ -230,6 +253,19 @@ describe('maxTurnsFor', () => {
   });
   it('caps at 80', () => {
     expect(maxTurnsFor(20)).toBe(80);
+  });
+});
+
+describe('follow-up provider session bound', () => {
+  it('defers overflow PRs without mutating the candidate list', () => {
+    const candidates = [1, 2, 3, 4, 5, 6];
+    expect(selectFollowupSessionBatch(candidates)).toEqual([1, 2, 3, 4]);
+    expect(candidates).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+
+  it('keeps the successful-run watermark closed while overflow is deferred', () => {
+    expect(sessionCollectionComplete([1, 2, 3, 4], [1, 2, 3, 4])).toBe(true);
+    expect(sessionCollectionComplete([1, 2, 3, 4, 5, 6], [1, 2, 3, 4])).toBe(false);
   });
 });
 
