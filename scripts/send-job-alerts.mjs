@@ -57,7 +57,6 @@ import {
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import {
-  appendJobRankingParams,
   assignJobRankingVariant,
   buildEmbeddedRankingUpdate,
   buildJobEmailDeliveryId,
@@ -65,6 +64,7 @@ import {
   readJobEmailRankingConfig,
   stableJobId,
 } from '../functions/src/lib/jobEmailRanking.js';
+import { appendJobRankingParams } from '../functions/src/lib/jobEmailRankingLinks.js';
 import { recordJobEmailImpressions } from '../functions/src/lib/jobEmailRankingStore.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';

@@ -1,8 +1,8 @@
 import { createHash } from 'node:crypto';
 import admin from 'firebase-admin';
+import { parseJobRankingClick } from './jobEmailRankingLinks.js';
 import {
   buildEmbeddedRankingUpdate,
-  parseJobRankingClick,
   pseudonymousUserId,
   rankingDay,
   stableJobId,

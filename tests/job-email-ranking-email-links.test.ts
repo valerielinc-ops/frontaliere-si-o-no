@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest';
+import * as rankingModule from '../functions/src/lib/jobEmailRanking.js';
+import { MAX_SAFE_SCORE } from '../functions/src/lib/jobEmailRankingLinks.js';
 import { buildNewsletter } from '../services/newsletter-template.mjs';
 
 describe('job email ranking link attribution', () => {
@@ -44,5 +46,12 @@ describe('job email ranking link attribution', () => {
       }],
     });
     expect(html).not.toContain('je=1');
+  });
+
+  it('keeps the Node ranking module from re-exporting browser link helpers', () => {
+    expect(MAX_SAFE_SCORE).toBe(1_000_000);
+    expect(rankingModule).not.toHaveProperty('MAX_SAFE_SCORE');
+    expect(rankingModule).not.toHaveProperty('appendJobRankingParams');
+    expect(rankingModule).not.toHaveProperty('parseJobRankingClick');
   });
 });
