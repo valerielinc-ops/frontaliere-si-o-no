@@ -2174,7 +2174,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return `<img src="${LOGO_FALLBACK_SRC}" alt="${safeAlt}" width="${width}" height="${height}" loading="lazy" data-logo-url="${esc(url)}" onerror="this.onerror=null;this.src='${LOGO_FALLBACK_SRC}'"${styleAttr}>`;
  };
 
- const referralUrl = (raw: string, job: any): string => {
+ const referralUrl = (raw: string, job: { slug?: string; id?: string }): string => {
  try {
  const u = new URL(raw);
  u.searchParams.set('utm_source', 'frontaliereticino');
@@ -3415,7 +3415,7 @@ ${staticAnalyticsHtml}
  <div class="timeline">
  ${timelineHtml || (hasCanonical ? `<div class="timeline-step">${sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, [])}</div>` : '')}
  </div>
- <a href="${referralUrl(job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="cta">${esc(localeCopy[locale].applyNow)}</a>
+ <a href="${referralUrl(job.applyUrl || job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="cta">${esc(localeCopy[locale].applyNow)}</a>
  ${jobFaqHtml}
  </article>
  ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords, esc })}
