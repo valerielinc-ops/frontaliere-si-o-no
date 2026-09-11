@@ -138,7 +138,14 @@ async function resolveFirebaseApiKey(): Promise<string> {
  // In the browser the key is public runtime configuration, delivered by the
  // allowlisted endpoint instead of being inlined into source or static HTML.
  await initRemoteConfig();
- const remoteKey = publicConfig?.FIREBASE_API_KEY?.trim() || '';
+ let remoteKey = publicConfig?.FIREBASE_API_KEY?.trim() || '';
+ if (!remoteKey && typeof window !== 'undefined') {
+ // `initRemoteConfig()` memoizes the first attempt, including a transient
+ // failure. Retry directly before making Firebase initialization terminal for
+ // the entire page view.
+ await refreshRemoteConfig();
+ remoteKey = publicConfig?.FIREBASE_API_KEY?.trim() || '';
+ }
  if (remoteKey) setFirebaseApiKey(remoteKey);
  return remoteKey;
 }

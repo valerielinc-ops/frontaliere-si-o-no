@@ -340,8 +340,9 @@ export const getTrafficCurrent = onRequest(
  res.status(200).json(snapshot);
  } catch (error) {
  console.error('[getTrafficCurrent]', error instanceof Error ? error.message : String(error));
- // Hydration is an enhancement; the pre-rendered values remain usable.
- res.status(200).json({ documents: [] });
+ // A non-2xx response is essential: the client then keeps the pre-rendered
+ // values instead of treating an empty 200 snapshot as authoritative.
+ res.status(503).json({ documents: [], error: 'traffic_snapshot_unavailable' });
  }
  },
 );
