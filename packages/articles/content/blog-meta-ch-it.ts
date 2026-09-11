@@ -6268,6 +6268,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-b-jura-requisiti-rinnovo.title': 'Permesso di dimora B in Giura: requisiti, rinnovo e ufficio competente',
     'blog.article.permesso-b-jura-requisiti-rinnovo.excerpt': 'Scopri come funziona il permesso B nel Cantone di Giura, dalla documentazione alla procedura di rinnovo, con focus su tassazione e assicurazione obbligatoria.',
     'blog.article.permesso-b-jura-requisiti-rinnovo.imageAlt': 'Ufficio cantonale della migrazione nel Cantone di Giura, vista panoramica',
+    'blog.article.commissione-ue-approva-accordi-svizzera.title': 'Commissione Ue approva accordi Svizzera-Ue: passo avanti',
+    'blog.article.commissione-ue-approva-accordi-svizzera.excerpt': 'La commissione esteri dell\'Eurocamera ha approvato a larga maggioranza il pacchetto di accordi bilaterali con la Svizzera. Voto in plenaria non ancora fissato.',
+    'blog.article.commissione-ue-approva-accordi-svizzera.imageAlt': 'Palazzo federale a Berna con bandiere svizzere ed europee affiancate',
 };
 
 export default blogMetaChIt;

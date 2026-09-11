@@ -81374,6 +81374,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-commissione-ue-approva-accordi-svizzera': {
+    title: 'Commissione Ue approva accordi Svizzera-Ue: passo avanti',
+    description: 'La commissione esteri dell\'Eurocamera approva a larga maggioranza il pacchetto di accordi bilaterali con la Svizzera. Voto in plenaria non ancora fissato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, commissione, approva, accordi, svizzera-ue',
+    ogTitle: 'Commissione Ue approva accordi Svizzera-Ue',
+    ogDescription: 'La commissione per gli affari esteri del Parlamento europeo ha approvato a larga maggioranza il pacchetto di accordi tra Svizzera e Unione europea. Approvata anche una risoluzione di accompagnamento. La votazione in plenaria non è ancora stata',
+    canonicalPath: '/articoli-svizzera/commissione-ue-approva-accordi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commissione Ue approva accordi Svizzera-Ue: passo avanti",
+      "description": "La commissione esteri dell'Eurocamera approva a larga maggioranza il pacchetto di accordi bilaterali con la Svizzera. Voto in plenaria non ancora fissato.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/commissione-ue-approva-accordi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna con bandiere svizzere ed europee affiancate"
+      },
+      "datePublished": "2026-09-11T04:18:19+00:00",
+      "dateModified": "2026-09-11T04:18:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/commissione-ue-approva-accordi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
