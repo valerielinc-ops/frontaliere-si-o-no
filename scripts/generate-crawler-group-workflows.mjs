@@ -134,6 +134,15 @@ const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 const CROSS_REPO_BACKOFF_SECONDS = 30;
 const SHA1_COMMIT_RE = /^[a-f0-9]{40}$/u;
 
+// Group 07 has two legacy source slugs whose data-slice identities are the
+// canonical names consumed by the generation observer. Keep this translation
+// explicit and closed: every other crawler keeps its source slug as its step
+// id, and a mapped scope must still match the declared housekeeping scope.
+const CRAWLER_STEP_ID_OVERRIDES = Object.freeze({
+  guess: 'guess-europe',
+  vf: 'vf-international-the-north-face-timberland',
+});
+
 // Solo bucket misurati e confermati estranei al ciclo crawler. L'allowlist e'
 // deliberatamente sulle ESCLUSIONI: un nuovo bucket di checkout-buckets.json
 // resta incluso by default, quindi non puo' sparire in silenzio dal runner.
@@ -850,6 +859,34 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   return merged;
 }
 
+/**
+ * Return the canonical runtime identity used by a crawler background step.
+ *
+ * `crawler.slug` names the source workflow/script (and remains the key in the
+ * pinned assignment file). The two explicit group-07 overrides below use the
+ * corresponding JOBS_HOUSEKEEPING_SCOPE as the GitHub step identity, keeping
+ * the step, roster and artifacts.members on one canonical name. An invalid or
+ * mismatched mapped scope is an error, not an implicit fallback.
+ */
+export function crawlerWorkflowStepId(crawler, stepEnv = buildCrawlerStepEnv(
+  crawler,
+  `/tmp/slug-history-summary-${crawler.slug}.txt`,
+)) {
+  const identity = CRAWLER_STEP_ID_OVERRIDES[crawler.slug] ?? crawler.slug;
+  if (typeof identity !== 'string' || !/^[A-Za-z_][A-Za-z0-9_-]*$/u.test(identity)) {
+    throw new Error(
+      `${crawler.slug}: canonical workflow identity must be valid, got ${JSON.stringify(identity)}`,
+    );
+  }
+  if (Object.prototype.hasOwnProperty.call(CRAWLER_STEP_ID_OVERRIDES, crawler.slug) &&
+      stepEnv.JOBS_HOUSEKEEPING_SCOPE !== identity) {
+    throw new Error(
+      `${crawler.slug}: canonical workflow identity ${identity} does not match JOBS_HOUSEKEEPING_SCOPE ${JSON.stringify(stepEnv.JOBS_HOUSEKEEPING_SCOPE)}`,
+    );
+  }
+  return `crawler-${identity}`;
+}
+
 function crawlerGenerationMembers(group) {
   return group.members
     .map((crawler) => {
@@ -1098,8 +1135,9 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   });
 
   for (const crawler of group.members) {
-    const stepId = `crawler-${crawler.slug}`;
     const summaryFile = `/tmp/slug-history-summary-${crawler.slug}.txt`;
+    const stepEnv = buildCrawlerStepEnv(crawler, summaryFile);
+    const stepId = crawlerWorkflowStepId(crawler, stepEnv);
 
     steps.push({
       name: `Run ${crawler.slug}`,
@@ -1109,7 +1147,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       // env value the crawler's runStep/postSteps declared lives here, in the
       // step's own YAML env: map, instead of being text-spliced into the
       // shell body — see buildCrawlerStepEnv().
-      env: buildCrawlerStepEnv(crawler, summaryFile),
+      env: stepEnv,
       run: buildCrawlerShellBody(crawler),
     });
   }
@@ -2145,10 +2183,20 @@ export function generate({
  * .yml files are the artefact that actually describes production, so when the
  * pins and the .yml disagree (a hand-edit like PR #6484, a rebase onto a branch
  * that touched a group, a pin file lost in a merge) the .yml wins and this
- * reads the truth back out of them. Reads the ordered `id: crawler-<slug>`
- * background steps — the same identity the generator writes.
+ * reads the truth back out of them. Reads the ordered
+ * `id: crawler-<canonical runtime identity>` background steps — the same
+ * identity the generator writes.
  */
 export function extractAssignmentsFromWorkflows(outDir = WORKFLOWS_DIR) {
+  const { manifest } = loadJson(MANIFEST_PATH);
+  const slugByStepId = new Map();
+  for (const crawler of manifest) {
+    const stepId = crawlerWorkflowStepId(crawler);
+    if (slugByStepId.has(stepId)) {
+      throw new Error(`extractAssignmentsFromWorkflows: duplicate canonical step id ${stepId}`);
+    }
+    slugByStepId.set(stepId, crawler.slug);
+  }
   const files = fs
     .readdirSync(outDir)
     .filter((f) => /^crawler-group-\d+\.yml$/.test(f))
@@ -2160,7 +2208,16 @@ export function extractAssignmentsFromWorkflows(outDir = WORKFLOWS_DIR) {
       .filter((s) => s && s.background && typeof s.id === 'string')
       .map((s) => /^crawler-(.+)$/.exec(s.id))
       .filter(Boolean)
-      .map((m) => m[1]);
+      .map((m) => {
+        const stepId = `crawler-${m[1]}`;
+        const slug = slugByStepId.get(stepId);
+        if (!slug) {
+          throw new Error(
+            `extractAssignmentsFromWorkflows: unknown canonical crawler step id ${stepId} in ${f}`,
+          );
+        }
+        return slug;
+      });
   });
 }
 
