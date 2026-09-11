@@ -17,7 +17,7 @@
       "title": "Ocean Freight Operations Specialist – FCL & Project Cargo",
       "titleByLocale": {
         "it": "Ocean Freight Operations Specialista – FCL & Project Cargo",
-        "en": "Ocean Freight Operations Specialist – FCL & Project Cargo",
+        "en": "Ocean Freight Operations Specialist-FCL & Pro Cargo",
         "de": "Ocean Freight Operations Spezialist – FCL & Project Cargo",
         "fr": "Ocean Freight Operations Spécialiste – FCL & Project Cargo"
       },
@@ -58,7 +58,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:37:33.780Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -71,7 +70,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cippatrasporti-c38396f76831",
