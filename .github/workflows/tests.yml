@@ -204,7 +204,8 @@ jobs:
               /```[\s\S]*?```|~~~[\s\S]*?~~~|<!--[\s\S]*?-->|`[^`\n]*`/g,
               (m) => m.replace(/[^\n]/g, ' '),
             );
-            const EFFECTIVE_RE = new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b[\\s:]*[*_\`[]*(${REF})`, 'gi');
+            const MD_GAP = '(?:[^\\S\\n]|[:*_`\\[])*';
+            const EFFECTIVE_RE = new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b${MD_GAP}(${REF})`, 'gi');
             // The Italian verbs (measured recurrence) plus the English near-misses
             // that share the failure mode. Deliberately NOT here: `addresses`, `see`,
             // `related to`, `refs`, `part of` — those mean "connected to", and
@@ -225,7 +226,7 @@ jobs:
             // chiude #12` reportable — that phrasing concedes the closure.
             const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?!\s+(?:solo|soltanto|only)\b)(?:\s+[\p{L}\p{N}_'’]+){0,2}\s*$/iu;
             const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
-            const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}[\\s:]*[*_\`[]*(${REF})`, 'gi');
+            const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}${MD_GAP}(${REF})`, 'gi');
 
             const maskedBodyForIntent = maskQuotedKeepLines(body);
             const willCloseRefs = new Set();

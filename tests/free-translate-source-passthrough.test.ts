@@ -383,6 +383,26 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     expect(after.hits - before.hits).toBe(0);
   });
 
+  it('rifiuta un body misto quando solo uno dei chunk torna verbatim', async () => {
+    const frase = 'I frontalieri residenti entro venti chilometri dal confine restano nel vecchio regime fiscale e la soglia dei quarantacinque giorni di telelavoro vale dal primo gennaio. ';
+    const lungo = frase.repeat(40).trim();
+    expect(lungo.length).toBeGreaterThan(5000);
+    let calls = 0;
+    vi.mocked(translateWithMyMemory).mockImplementation(async (chunk: string) => {
+      calls += 1;
+      return calls === 1 ? 'Translated first chunk' : chunk;
+    });
+    const before = statsSnapshot();
+
+    const out = await freeTranslate({ text: lungo, sourceLang: 'it', targetLang: 'en', fieldType: 'description' });
+    const after = statsSnapshot();
+
+    expect(calls).toBeGreaterThan(1);
+    expect(out).toBe('');
+    expect(after.passthroughs - before.passthroughs).toBe(1);
+    expect(after.hits - before.hits).toBe(0);
+  });
+
   it('nomina il passthrough nel sommario della cascata', async () => {
     vi.mocked(translateWithMyMemory).mockResolvedValue(IT);
     await freeTranslate({ text: IT, sourceLang: 'it', targetLang: 'fr', fieldType: 'description' });
