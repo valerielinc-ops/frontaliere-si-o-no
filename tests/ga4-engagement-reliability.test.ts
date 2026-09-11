@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import {
   engagementConsistency,
   dailyEngagementConsistency,
+  deriveDateRangeDays,
   fetchDailyEngagementVerdict,
   engagementUnreliableNote,
   engagementUnreliableNoteFromReason,
@@ -538,7 +539,9 @@ describe('fetchGa4ByPage — verdetto engagement per-giorno, non sulla finestra 
     // Stesso filtro newsletter-excluded e stessa finestra della prima.
     expect(calls[1].dimensionFilter).toEqual(calls[0].dimensionFilter);
     expect(calls[1].dateRanges).toEqual(calls[0].dateRanges);
-    expect(calls[1].limit).toBe(35);
+    // `windowDates(30)` is an inclusive 31-day absolute range; the helper
+    // derives 31 + 5 instead of trusting a duplicated windowDays constant.
+    expect(calls[1].limit).toBe(36);
     // Nessun prodotto `pagePath × date`: è il blocco che questa forma evita.
     expect(calls[1].dimensions).not.toContainEqual({ name: 'pagePath' });
   });
@@ -601,12 +604,48 @@ describe('fetchDailyEngagementVerdict — richiesta per-giorno condivisa', () =>
       },
       dateRanges,
       dimensionFilter: filter,
-      windowDays: 30,
+      // Deliberately disagree with the absolute range: the request itself is
+      // authoritative, not a duplicated caller constant.
+      windowDays: 7,
     });
     expect(seen[0].dimensions).toEqual([{ name: 'date' }]);
     expect(seen[0].dateRanges).toBe(dateRanges);
     expect(seen[0].dimensionFilter).toBe(filter);
     expect(seen[0].limit).toBe(35);
+    expect(seen[0].orderBys).toEqual([{ dimension: { dimensionName: 'date' }, desc: false }]);
+  });
+
+  it('somma più intervalli assoluti e usa windowDays solo per date relative', async () => {
+    expect(deriveDateRangeDays([
+      { startDate: '2026-08-01', endDate: '2026-08-03' },
+      { startDate: '2026-09-01', endDate: '2026-09-02' },
+    ])).toBe(5);
+    expect(deriveDateRangeDays([{ startDate: '30daysAgo', endDate: 'yesterday' }])).toBeNull();
+
+    const seen: any[] = [];
+    await fetchDailyEngagementVerdict({
+      dateRanges: [{ startDate: '30daysAgo', endDate: 'yesterday' }],
+      windowDays: 7,
+      runReport: async (body: any) => {
+        seen.push(body);
+        return { ok: true, status: 200, json: async () => ({ rows: [] }) };
+      },
+    });
+    expect(seen[0].limit).toBe(12);
+  });
+
+  it('rifiuta una risposta che raggiunge il limite perché può aver perso giornate', async () => {
+    const limit = 35;
+    const rows = Array.from({ length: limit }, (_, i) => ({
+      dimensionValues: [{ value: `202608${String(i + 1).padStart(2, '0')}` }],
+      metricValues: [{ value: '100' }, { value: '50' }, { value: '100' }],
+    }));
+    const result = await fetchDailyEngagementVerdict({
+      dateRanges,
+      runReport: async () => ({ ok: true, status: 200, json: async () => ({ rows }) }),
+    });
+    expect(result.reliable).toBe(false);
+    expect(result.reason).toContain('raggiunto il limite di 35');
   });
 
   it('omette `dimensionFilter` quando il report giudicato non ne ha uno', async () => {
