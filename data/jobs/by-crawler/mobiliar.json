@@ -4953,7 +4953,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:08:19.452Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4967,7 +4966,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-52e20ab9544d",

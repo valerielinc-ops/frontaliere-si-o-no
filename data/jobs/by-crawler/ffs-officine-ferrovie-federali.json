@@ -10221,6 +10221,7 @@
           "recycleur-ffs-officine-ferrovie-federali-trimbach"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T22:21:23.520Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -10236,7 +10237,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-133b1d32511a",

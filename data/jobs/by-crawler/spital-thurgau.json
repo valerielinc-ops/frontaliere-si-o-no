@@ -10919,7 +10919,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:24:15.114Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -10932,7 +10931,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-thurgau-90b6022a963e",

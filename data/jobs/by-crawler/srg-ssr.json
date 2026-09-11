@@ -260,15 +260,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "operatore-di-servizio-srg-ssr-bern"
-        ]
-      },
-      "previousSlugs": [
-        "operatore-di-servizio-srg-ssr-bern"
-      ],
-      "needsRetranslation": true,
       "salaryMin": 71500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -282,7 +273,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern",
+          "service-operator-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern",
+        "service-operator-srg-ssr-bern"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "srg-ssr-a8ae3325568d",

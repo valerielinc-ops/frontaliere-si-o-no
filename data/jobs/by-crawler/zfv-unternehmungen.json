@@ -708,7 +708,7 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-11T13:39:07.546Z",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8044",
       "streetAddress": "Orellistrasse 21",
@@ -751,7 +751,8 @@
           "maxValue": 122500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "zfv-unternehmungen-2fccb09080b4",
@@ -1996,7 +1997,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-11T13:38:57.278Z",
-      "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Sihlstrasse 9",
@@ -2018,14 +2018,14 @@
         "interno-ufficio-anteriore-in-zfv-unternehmungen-zurich-5aba0e"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "front-office-praktikant-in-zfv-unternehmungen-zurich"
-        ],
         "en": [
           "interno-ufficio-anteriore-in-zfv-unternehmungen-zurich-5aba0e"
         ],
         "fr": [
           "interno-ufficio-anteriore-in-zfv-unternehmungen-zurich-5aba0e"
+        ],
+        "it": [
+          "front-office-praktikant-in-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-09-10T19:18:48.824Z",
@@ -2041,7 +2041,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": false
     },
     {
       "id": "zfv-unternehmungen-629e9d004fa2",
