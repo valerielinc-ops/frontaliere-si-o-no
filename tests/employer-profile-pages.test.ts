@@ -225,7 +225,7 @@ describe('employerProfilePagesPlugin', () => {
 
   it('keeps the repeated profile payload bounded while exposing the live total', () => {
     const source = fs.readFileSync(path.resolve(__dirname, '../build-plugins/employerProfilePagesPlugin.ts'), 'utf8');
-    expect(source).toContain('const MAX_JOBS_LISTED = 8;');
+    expect(source).toContain('const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;');
     expect(source).toContain('const listed = group.slice(0, MAX_JOBS_LISTED);');
     expect(source).toContain('${esc(JOBS_HEADING[locale])} (${profile.activeJobs})');
   });

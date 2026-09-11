@@ -298,13 +298,13 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
   it('company pages bound repeated payloads while preserving live totals', () => {
     const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
 
-    expect(plugin).toContain('const cappedJobs = sortedJobs.slice(0, COMPANY_CANTON_JOB_CAP);');
-    expect(plugin).toContain('const itemListJobs = cappedJobs.slice(0, COMPANY_CANTON_ITEMLIST_JOB_CAP);');
-    expect(plugin).toContain('numberOfItems: itemListJobs.length,');
+    expect(plugin).toContain('const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);');
+    expect(plugin).toContain('numberOfItems: cappedJobs.length,');
     expect(plugin).toContain('const jobListHtml = jobCardListBody(listedCompanyJobs, locale);');
     expect(plugin).toContain('const openRolesListHtml = jobCardListBody(listedCompanyJobs, locale);');
     expect(plugin).toContain('const listHtml = jobCardListBody(cappedJobs, locale);');
     expect(plugin).toContain('value: companyJobs.length,');
+    expect(plugin).not.toContain('COMPANY_CANTON_ITEMLIST_JOB_CAP');
     expect(plugin).toContain('const jobCardListBody = (jobs: ReadonlyArray<any>, locale:');
     expect(plugin).toContain('shouldPlaceInfeedAd(i + 1)');
   });

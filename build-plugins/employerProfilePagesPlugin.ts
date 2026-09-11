@@ -63,6 +63,7 @@ import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mj
 import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
 import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { JOBLIST_AD_EVERY_N, JOBLIST_AD_MAX_PER_LIST } from '../services/adsenseSlots';
 
 export const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Locale = (typeof LOCALES)[number];
@@ -77,10 +78,11 @@ const profilePath = (locale: Locale, slug: string): string => buildEmployerProfi
 
 /**
  * Max active jobs rendered as cards and JobPosting ItemList entries per
- * profile page. The full active count remains visible in the stat tile and
- * jobs heading; the cap bounds the repeated card + structured-data payload.
+ * profile page. Derive the boundary from the shared in-feed cadence: the
+ * trailing card keeps the slot after the last eligible position renderable,
+ * while the full active count remains visible in the stat tile and heading.
  */
-const MAX_JOBS_LISTED = 8;
+const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;
 
 export interface EmployerProfile {
   slug: string;

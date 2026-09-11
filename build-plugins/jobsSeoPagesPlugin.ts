@@ -72,7 +72,11 @@ import {
  type JobCardLocale,
 } from './shared/jobCardHtml';
 import { infeedAdGridBlockHtml, infeedAdListItemHtml } from './lib/adSlotHtml';
-import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
+import {
+ JOBLIST_AD_EVERY_N,
+ JOBLIST_AD_MAX_PER_LIST,
+ shouldPlaceInfeedAd,
+} from '../services/adsenseSlots';
 import { isInfeedAdExperimentActiveFromEnv, isInfeedAdExperimentSurface, resolveInfeedAdVariant } from '../services/adExperiment';
 import { LOGO_FALLBACK_SCRIPT } from './shared/logoFallbackScript';
 import { renderJobBoardListingDensityProse, renderListingPaginationProse } from './shared/jobListingProse';
@@ -219,6 +223,11 @@ import { SECTION_LEGACY_TI } from './shared/cantonSection';
 // accepted by the build so a rollback can restore the manual slot on the
 // treatment pages without touching Auto Ads or control pages.
 const STATIC_INFEED_AD_EXPERIMENT_ACTIVE = isInfeedAdExperimentActiveFromEnv(process.env);
+
+// Bound repeated company-job payloads only at the shared in-feed boundary.
+// Keep one trailing card so the renderer can place the last eligible slot
+// after card 36 while keeping cards and ItemList on the same set.
+const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;
 
 // ── Build-OOM diagnostic instrumentation (#1290) ──────────────────────────────
 // `logBuildMem` now lives in ./shared/buildMemLog so employerProfilePagesPlugin
@@ -4189,12 +4198,9 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${xDefaultHrefC}">`,
  ].join('\n');
 
- // Keep the repeated card payload bounded; the visible heading below carries
- // the live total and the full section remains one click away.
- const COMPANY_HUB_HTML_JOB_CAP = 20;
- const COMPANY_HUB_ITEMLIST_JOB_CAP = 10;
- const listedCompanyJobs = companyJobs.slice(0, COMPANY_HUB_HTML_JOB_CAP);
- const itemListCompanyJobs = companyJobs.slice(0, COMPANY_HUB_ITEMLIST_JOB_CAP);
+ // Keep the repeated card payload bounded at the shared in-feed boundary;
+ // the visible heading below still carries the live total.
+ const listedCompanyJobs = companyJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);
  const jobListHtml = jobCardListBody(listedCompanyJobs, locale);
 
  const breadcrumbLd = inlineScriptJson({
@@ -4270,7 +4276,7 @@ ${staticAnalyticsHtml}
  // structured data points at the actually-emitted job-detail page
  // (not the soft-canonical TI redirect). Otherwise Google ingests
  // canonical chains in rich-result candidates.
- const itemListItems = itemListCompanyJobs.map((job, idx) => {
+ const itemListItems = listedCompanyJobs.map((job, idx) => {
  const jSlug = localizedSlug(job, locale);
  const jobCantonForList = sharedResolveJobCanton(job as { canton?: string; location?: string });
  const sectionForJob = jobCantonForList ? sharedResolveCantonSection(locale, jobCantonForList) : sectionByLocale[locale];
@@ -8123,8 +8129,6 @@ ${staticAnalyticsHtml}
   */
  {
  const MIN_JOBS_PER_CANTON_COMPANY = 3;
- const COMPANY_CANTON_JOB_CAP = 30;
- const COMPANY_CANTON_ITEMLIST_JOB_CAP = 10;
  // Bucket (canton, companyCanonicalSlug) → jobs[], with display-name.
  type CompCanton = { name: string; jobs: typeof validJobs };
  const cantonCompanyBuckets: Map<string, Map<string, CompCanton>> = new Map();
@@ -8240,10 +8244,9 @@ ${staticAnalyticsHtml}
  }
  continue;
  }
- // Keep the live total in the intro, but bound the repeated card payload and
- // the structured-data subset independently for page weight.
- const cappedJobs = sortedJobs.slice(0, COMPANY_CANTON_JOB_CAP);
- const itemListJobs = cappedJobs.slice(0, COMPANY_CANTON_ITEMLIST_JOB_CAP);
+ // Keep the live total in the intro, but use one shared payload boundary for
+ // cards and ItemList so structured data describes every visible card.
+ const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompanyCanton = startTimer();
@@ -8304,11 +8307,11 @@ ${staticAnalyticsHtml}
  '@context': 'https://schema.org',
  '@type': 'ItemList',
  name: pageTitle,
- numberOfItems: itemListJobs.length,
+ numberOfItems: cappedJobs.length,
  // Embed a full JobPosting per item (capped description, never throws → falls
  // back to a name+url stub). Mirrors the editorial-landing ItemList; the
  // authoritative per-job JobPosting still lives on each linked detail page.
- itemListElement: itemListJobs.map((job: any, i: number) =>
+ itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
  // Organization JSON-LD — derived from job data (no curated overlay).
