@@ -6265,6 +6265,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.title': 'Health insurance premiums in the canton of Jura: reductions and bands 2024',
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.excerpt': 'Practical Guide to LAMal Awards in the Canton of Jura: Deductible Bands, Alternative Models, and Requirements to Achieve Cantonal Premium Reduction.',
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.imageAlt': 'LAMal health insurance card with Jura cantonal symbols and premium reduction documents',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.title': 'Residence permit B in Jura: requirements, renewal and competent office',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.excerpt': 'Find out how the B permit works in the Canton of Jura, from the documentation to the renewal procedure, with a focus on taxation and compulsory insurance.',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.imageAlt': 'Cantonal migration office in Jura, panoramic view',
 };
 
 export default blogMetaChEn;

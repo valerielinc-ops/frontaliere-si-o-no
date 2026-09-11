@@ -6265,6 +6265,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.title': 'Krankenkassenprämien im Kanton Jura: Kürzungen und Bandbreiten 2024',
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.excerpt': 'Praktischer Leitfaden zu den KVG-Prämien im Kanton Jura: Franchise-Bänder, alternative Modelle und Voraussetzungen für die kantonale Prämienverbilligung.',
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.imageAlt': 'Krankenversicherungskarte LAMal mit Symbolen des Kantons Jura und Unterlagen zur Prämienverbilligung',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B im Jura: Voraussetzungen, Verlängerung und zuständige Stelle',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.excerpt': 'Erfahren Sie, wie die B-Bewilligung im Kanton Jura funktioniert, von der Dokumentation bis zum Erneuerungsverfahren, mit Fokus auf Besteuerung und Pflichtversicherung.',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.imageAlt': 'Kantonsamt für Migration im Kanton Jura, Panoramablick',
 };
 
 export default blogMetaChDe;

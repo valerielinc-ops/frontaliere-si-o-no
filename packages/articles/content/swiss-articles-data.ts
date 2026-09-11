@@ -18793,6 +18793,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-b-jura-requisiti-rinnovo',
+    category: 'pratico',
+    date: '2026-09-11T03:38:57.302Z',
+    image: '/images/blog/permesso-b-jura-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

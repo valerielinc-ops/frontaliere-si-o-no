@@ -6265,6 +6265,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.title': 'Premi cassa malati nel canton Giura: riduzioni e fasce 2024',
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.excerpt': 'Guida pratica ai premi LAMal nel Canton Giura: fasce di franchigia, modelli alternativi e requisiti per ottenere la riduzione cantonale dei premi.',
     'blog.article.premi-cassa-malati-canton-giura-riduzioni.imageAlt': 'Carta assicurazione malattia LAMal con simboli cantonali del Giura e documenti per riduzione premi',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.title': 'Permesso di dimora B in Giura: requisiti, rinnovo e ufficio competente',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.excerpt': 'Scopri come funziona il permesso B nel Cantone di Giura, dalla documentazione alla procedura di rinnovo, con focus su tassazione e assicurazione obbligatoria.',
+    'blog.article.permesso-b-jura-requisiti-rinnovo.imageAlt': 'Ufficio cantonale della migrazione nel Cantone di Giura, vista panoramica',
 };
 
 export default blogMetaChIt;
