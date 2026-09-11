@@ -7,7 +7,7 @@
  */
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 import { findGhRunMutation, normalizeRepository, readHookCommand } from './lib/hook-command-parser.mjs';
-import { claimMarker } from './lib/hook-state.mjs';
+import { claimMarker, resolveHookRepositoryScope } from './lib/hook-state.mjs';
 
 export const MUTATION_REASON_ENV = 'FRONTALIERE_RUN_MUTATION_REASON';
 export const MAX_MUTATIONS_PER_RUN = 1;
@@ -48,7 +48,10 @@ async function main() {
   const repo =
     mutation.repo ??
     normalizeRepository(process.env.GITHUB_REPOSITORY ?? process.env.GH_REPO) ??
-    'ambient-repository';
+    resolveHookRepositoryScope(input.cwd);
+  // Do not collapse an unknown local target into a shared ambient namespace:
+  // an untrusted scope cannot safely enforce a per-repository cap.
+  if (!repo) return;
   const marker = claimMarker({
     scope: 'run-mutations',
     key: `${repo}:${mutation.runId}`,
