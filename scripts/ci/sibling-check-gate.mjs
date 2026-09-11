@@ -46,8 +46,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { existsSync } from 'node:fs';
-import { dirname, join, basename, resolve } from 'node:path';
+import { basename, resolve } from 'node:path';
 import { extractPrBody, describePrBodySource } from './pr-body-check-gate.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import {
@@ -55,44 +54,15 @@ import {
   unresolvedBaseOverrideActive,
 } from './lib/resolve-merge-base.mjs';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
-import { resolveHookTargetCwd, resolveGatedHeadRef } from './lib/hook-target-cwd.mjs';
+import {
+  resolveHookRepository,
+  resolveHookTargetCwd,
+  resolveGatedHeadRef,
+} from './lib/hook-target-cwd.mjs';
 import {
   findIssueFixReadBudgetViolation,
   formatReadBudgetViolation,
 } from './issue-fix-read-budget.mjs';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-// Il repo a cui questo gate appartiene, ricavato dal proprio path: e' l'unica
-// directory sempre giusta, anche quando `payload.cwd` e' inchiodato altrove
-// (thread di sub-agente — vedi lib/hook-target-cwd.mjs).
-const gateRepo = resolve(__dirname, '..', '..');
-const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
-const CORPUS_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
-const localRepositories = new Map([
-  [SITE_REPOSITORY, {
-    repo: gateRepo,
-    checkScript: join(gateRepo, 'scripts/ci/check-sibling-patterns.mjs'),
-  }],
-  [CORPUS_REPOSITORY, {
-    repo: resolve(gateRepo, '..', 'frontaliere-articles'),
-    checkScript: resolve(gateRepo, '..', 'frontaliere-articles', 'scripts/ci/check-sibling-patterns.mjs'),
-  }],
-]);
-
-/**
- * Read the explicit repository flag from `gh pr create` without interpreting
- * the shell. The root hook is shared by the site and corpus sessions, so the
- * repository named by the command — not the hook's own checkout — decides
- * whether and where the sibling analysis can run.
- */
-function explicitRepository(command) {
-  const flagRe = /(?:^|\s)(?:--repo[= ]+|-R[= ]*)(?:"([^"]*)"|'([^']*)'|(\S+))/g;
-  for (const match of String(command ?? '').matchAll(flagRe)) {
-    const raw = (match[1] ?? match[2] ?? match[3] ?? '').trim();
-    if (raw && !/[$`]/.test(raw)) return raw;
-  }
-  return undefined;
-}
 
 /**
  * Resolve the local checker for the repository that the PR command targets.
@@ -102,10 +72,7 @@ function explicitRepository(command) {
  * opt in later by adding its own checker at the conventional path.
  */
 export function resolveSiblingGateTarget(command) {
-  const requested = explicitRepository(command) ?? SITE_REPOSITORY;
-  const target = localRepositories.get(requested);
-  if (!target || !existsSync(target.checkScript)) return null;
-  return target;
+  return resolveHookRepository(command);
 }
 
 /**
