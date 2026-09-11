@@ -494,7 +494,7 @@ runs:
         # reading any action/workspace file.
         codex_github_auth="${CODEX_GH_AUTH:-}"
         # The caller may load the corpus PAT through GITHUB_ENV immediately
-        # before this composite action.  A `${{ env.GITHUB_PAT }}` expression
+        # before this composite action.  A runtime GITHUB_PAT expression
         # in the caller can still resolve before that runtime update, so keep
         # the host-side bridge usable from the inherited step environment too.
         # The value never enters Codex: it is captured only by the bridge.
