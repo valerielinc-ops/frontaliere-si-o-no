@@ -238,7 +238,6 @@ jobs:
           BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}
           TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
           REPO: ${{ github.repository }}
-          GITHUB_PAT: ${{ env.GITHUB_PAT }}
           EVENT_NAME: ${{ github.event_name }}
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
@@ -256,7 +255,7 @@ jobs:
           # The corpus PAT is a separate host-side bridge scope. It is never
           # included in the Codex child environment and is accepted only for
           # nanakokyobashi-rgb/frontaliere-articles issue operations.
-          codex_corpus_github_token: ${{ env.GITHUB_PAT }}
+          codex_corpus_github_token: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           # Il merge che alimenta questo workflow è fatto da automation interna con DUE
           # actor bot distinti — entrambi vanno in whitelist o claude-code-action aborta
           # "Workflow initiated by non-human actor":

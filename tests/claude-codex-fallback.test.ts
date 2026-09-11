@@ -301,12 +301,18 @@ describe('validator dei bridge host-side', () => {
         corpusToken: 'corpus-secret',
       });
       expect(corpusCheckout).toMatchObject({ kind: 'corpus', repository: CORPUS_REPOSITORY, token: 'corpus-secret' });
-      expect(resolveGhScope(['issue', 'list'], {
+      const implicitCorpus = resolveGhScope(['issue', 'list'], {
         ...context,
         repository: CORPUS_REPOSITORY,
         siteToken: 'site-secret',
         corpusToken: 'corpus-secret',
-      })).toMatchObject({ kind: 'corpus', token: 'corpus-secret' });
+      });
+      expect(implicitCorpus).toMatchObject({
+        kind: 'site',
+        repository: CORPUS_REPOSITORY,
+        token: 'site-secret',
+      });
+      expect(implicitCorpus.allowedCommandSet).toContain('pr');
       expect(resolveGhScope(['pr', 'view', '--repo', 'owner/repo'], {
         ...context,
         repository: CORPUS_REPOSITORY,
@@ -325,6 +331,23 @@ describe('validator dei bridge host-side', () => {
         allowedCommandSet: corpus.allowedCommandSet,
         allowedSubcommandMap: corpus.allowedSubcommandMap,
       })).toMatch(/not permitted/);
+      const currentCorpus = resolveGhScope(['pr', 'comment'], {
+        ...context,
+        repository: CORPUS_REPOSITORY,
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      });
+      expect(currentCorpus).toMatchObject({
+        kind: 'site',
+        repository: CORPUS_REPOSITORY,
+        token: 'site-secret',
+      });
+      expect(validateGhArgs(['pr', 'comment'], {
+        ...context,
+        repository: currentCorpus.repository,
+        allowedCommandSet: currentCorpus.allowedCommandSet,
+        allowedSubcommandMap: currentCorpus.allowedSubcommandMap,
+      })).toBe('');
       expect(resolveGhScope(['issue', 'view', '--repo', 'other/repo'], {
         ...context,
         repository: 'owner/repo',
@@ -342,12 +365,18 @@ describe('validator dei bridge host-side', () => {
         siteToken: 'site-secret',
         corpusToken: 'corpus-secret',
       })).toMatchObject({ kind: 'corpus' });
-      expect(validateGhArgs(['api', 'repos/' + CORPUS_REPOSITORY + '/issues', '--repo', CORPUS_REPOSITORY], {
+      expect(validateGhArgs(['api', 'repos/' + CORPUS_REPOSITORY + '/issues', '--repo', CORPUS_REPOSITORY, '--method', 'GET'], {
         ...context,
         repository: corpus.repository,
         allowedCommandSet: corpus.allowedCommandSet,
         allowedSubcommandMap: corpus.allowedSubcommandMap,
-      })).toMatch(/not permitted/);
+      })).toBe('');
+      expect(validateGhArgs(['api', 'repos/' + CORPUS_REPOSITORY + '/issues', '--repo', CORPUS_REPOSITORY, '--method', 'POST'], {
+        ...context,
+        repository: corpus.repository,
+        allowedCommandSet: corpus.allowedCommandSet,
+        allowedSubcommandMap: corpus.allowedSubcommandMap,
+      })).toMatch(/mutations/);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
@@ -658,7 +687,7 @@ describe('copertura workflow diretti', () => {
     expect(action).not.toContain('real_gh="$(command -v gh');
     expect(action).toContain('CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth"');
     expect(action).toContain('CODEX_GH_CORPUS_REPOSITORY="nanakokyobashi-rgb/frontaliere-articles"');
-    expect(postMerge).toContain('codex_corpus_github_token: ${{ env.GITHUB_PAT }}');
+    expect(postMerge).toContain('codex_corpus_github_token: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}');
     expect(action).toContain('codex_install_root=');
     const installStart = action.indexOf('- name: Install pinned Codex CLI (primary');
     const sandboxStart = action.indexOf('- name: Prepare Linux sandbox prerequisites for Codex primary');
