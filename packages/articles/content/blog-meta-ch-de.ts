@@ -6259,6 +6259,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonali-giura-aliquote-deduzioni.title': 'Kantonale Steuern Jura: Steuersätze, Staffeln und Abzüge 2024',
     'blog.article.imposte-cantonali-giura-aliquote-deduzioni.excerpt': 'Praktischer Leitfaden zum Steuersystem des Kantons Jura: dreistufige Struktur, kommunale Multiplikatoren, zulässige Abzüge und offizielles Deklarationsportal.',
     'blog.article.imposte-cantonali-giura-aliquote-deduzioni.imageAlt': 'Schweizer kantonales Steueramt mit Bürgerschaltern',
+    'blog.article.investimento-svizzero-usa-lonza.title': 'Lonza investiert in den USA: neue pharmazeutische Anlage in Oregon',
+    'blog.article.investimento-svizzero-usa-lonza.excerpt': 'Der Schweizer Pharmariese Lonza wird in Bend, Oregon, eine neue Produktionsstätte errichten, deren Fertigstellung bis 2029 geplant ist.',
+    'blog.article.investimento-svizzero-usa-lonza.imageAlt': 'Lonza Pharma-Anlage in den Vereinigten Staaten',
 };
 
 export default blogMetaChDe;

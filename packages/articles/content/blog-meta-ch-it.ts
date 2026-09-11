@@ -6259,6 +6259,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonali-giura-aliquote-deduzioni.title': 'Imposte cantonali Giura: aliquote, scaglioni e deduzioni 2024',
     'blog.article.imposte-cantonali-giura-aliquote-deduzioni.excerpt': 'Guida pratica al sistema fiscale del Cantone Giura: struttura a tre livelli, moltiplicatori comunali, deduzioni ammesse e portale ufficiale per la dichiarazione.',
     'blog.article.imposte-cantonali-giura-aliquote-deduzioni.imageAlt': 'Ufficio dell\'amministrazione fiscale cantonale svizzera con sportelli per contribuenti',
+    'blog.article.investimento-svizzero-usa-lonza.title': 'Lonza investe negli USA: nuovo impianto farmaceutico in Oregon',
+    'blog.article.investimento-svizzero-usa-lonza.excerpt': 'Il colosso farmaceutico svizzero Lonza costruirà un nuovo impianto di produzione a Bend, nell\'Oregon, con completamento previsto entro il 2029.',
+    'blog.article.investimento-svizzero-usa-lonza.imageAlt': 'Impianto farmaceutico Lonza negli Stati Uniti',
 };
 
 export default blogMetaChIt;
