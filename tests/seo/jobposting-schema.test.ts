@@ -135,7 +135,7 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
 });
 
 describe('buildJobPostingSchema — application destination', () => {
-  it('marks a job directly applicable when only applyUrl is available', () => {
+  it('keeps directApply false when only an applyUrl is available without employer proof', () => {
     const schema = buildJobPostingSchema({
       title: 'Operatore sanitario',
       description:
@@ -144,7 +144,33 @@ describe('buildJobPostingSchema — application destination', () => {
       applyUrl: 'https://jobs.example.test/application/123',
       url: '',
     }, OPTS);
+    expect(schema.directApply).toBe(false);
+  });
+
+  it('marks a same-organisation application subdomain as direct apply', () => {
+    const schema = buildJobPostingSchema({
+      title: 'Operatore sanitario',
+      description:
+        'Descrizione sufficientemente lunga per verificare il percorso di candidatura esterno del lavoro.',
+      company: 'Esempio SA',
+      companyDomain: 'example.com',
+      applyUrl: 'https://careers.example.com/application/123',
+      url: 'https://www.example.com/jobs/123',
+    }, OPTS);
     expect(schema.directApply).toBe(true);
+  });
+
+  it('does not label a hosted ATS destination as employer direct apply', () => {
+    const schema = buildJobPostingSchema({
+      title: 'Operatore sanitario',
+      description:
+        'Descrizione sufficientemente lunga per verificare il percorso di candidatura esterno del lavoro.',
+      company: 'Esempio SA',
+      companyDomain: 'example.com',
+      applyUrl: 'https://example.wd5.myworkdayjobs.com/en-US/careers/job/123',
+      url: 'https://www.example.com/jobs/123',
+    }, OPTS);
+    expect(schema.directApply).toBe(false);
   });
 });
 

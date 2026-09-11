@@ -3240,7 +3240,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  description: capJsonLdDescription(finalJobPostingDescription),
  company: job.company,
  companyKey: job.companyKey,
- companyDomain: companyWebsite(job),
+ companyDomain: job.companyDomain,
  companyLogoUrl: logoUrl,
  addressLocality,
  addressRegion,

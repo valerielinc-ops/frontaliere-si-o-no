@@ -63,6 +63,7 @@ import {
   isValidPostalCode,
   resolvePostalCode,
 } from './postalCodes';
+import { sameOrg } from '../../scripts/lib/prospector/registrable.mjs';
 import {
   resolveSalaryBand,
   TICINO_MIN_ANNUAL_CHF,
@@ -216,6 +217,21 @@ export interface JobPostingSchema {
     readonly '@type': 'Country';
     readonly name: string;
   };
+}
+
+/**
+ * Return true only when the apply destination belongs to the employer domain.
+ * A merely present `url`/`applyUrl` is not proof of a direct employer flow:
+ * crawled records commonly point at an aggregator or a hosted ATS. Missing
+ * employer-domain evidence therefore stays conservatively false.
+ */
+export function isEmployerOwnedApplyUrl(
+  job: Pick<JobInput, 'applyUrl' | 'companyDomain'>,
+): boolean {
+  const applyUrl = String(job?.applyUrl || '').trim();
+  const companyDomain = String(job?.companyDomain || '').trim();
+  if (!applyUrl || !companyDomain) return false;
+  return sameOrg(applyUrl, companyDomain);
 }
 
 /** Schema.org `JobPosting.employmentType` closed set. */
@@ -742,7 +758,7 @@ export function buildJobPostingSchema(
     baseSalary,
     url: opts.url,
     validThrough,
-    directApply: Boolean(job.applyUrl || job.url),
+    directApply: isEmployerOwnedApplyUrl(job),
     ...(job.id || job.slug
       ? {
           identifier: {
