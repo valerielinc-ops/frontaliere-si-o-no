@@ -1,21 +1,21 @@
 {
   "key": "vitrea-gesundheit",
   "label": "Vitrea Gesundheit",
-  "generatedAt": "2026-09-11T13:33:43.262Z",
-  "total": 11,
+  "generatedAt": "2026-09-11T23:06:46.963Z",
+  "total": 10,
   "discovered": null,
   "parsed": 10,
   "lastFetchOutcome": null,
-  "written": 11,
+  "written": 10,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 24852,
-  "avgDurationMs": 24852,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 25716,
+  "avgDurationMs": 25716,
   "durationHistory": [
-    24852
+    25716
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/gpb5d18fkdoinbnp704k3s6vbv59dqz",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:20.149Z",
+      "crawledAt": "2026-09-11T23:06:23.813Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/rkv6zbijfmvqoleotiq04vpqi8jxtv7",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:21.908Z",
+      "crawledAt": "2026-09-11T23:06:25.564Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/utgov9k4nem0k8ua5ss5aujwhhvibqj",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:24.063Z",
+      "crawledAt": "2026-09-11T23:06:27.653Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -137,13 +137,13 @@
       "companyKey": "vitrea-gesundheit",
       "companyDomain": "vitrea-gesundheit.ch",
       "title": "Koch / Köchin (a) 100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Seewis im Prättigau",
       "canton": "GR",
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/2w6qcazc574b80n08dbbc52t1ssuv31",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:28.272Z",
+      "crawledAt": "2026-09-11T23:06:31.883Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/70qsl9xzw8i1zkrwptfexj2dkl2k5lc",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:29.947Z",
+      "crawledAt": "2026-09-11T23:06:33.505Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -217,7 +217,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/htskcmwbuks5cb73o861ma55aoi44r4",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:31.212Z",
+      "crawledAt": "2026-09-11T23:06:35.141Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/z62dcqztpy83t50b10e0o4a484givmf",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:32.877Z",
+      "crawledAt": "2026-09-11T23:06:36.818Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -291,7 +291,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ivvmtr2df9yx9hatg5fchnraonjycbv",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:26.200Z",
+      "crawledAt": "2026-09-11T23:06:29.802Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -328,7 +328,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/20k7y38ps00805p5panwmeojn5prlyl",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:34.097Z",
+      "crawledAt": "2026-09-11T23:06:38.928Z",
       "addressLocality": "Seefeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -365,7 +365,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/b3zrzlbtthmji417r4vauc9l3jdos4t",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:33:36.196Z",
+      "crawledAt": "2026-09-11T23:06:40.577Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -390,8 +390,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "vitrea-gesundheit-03dd1c1e1181",
       "slug": "apn-cura-mentale-80-100-a-spitex-zurich-zurich",
@@ -433,5 +432,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
