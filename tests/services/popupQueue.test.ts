@@ -96,4 +96,44 @@ describe('C3b — popup queue promotion timer', () => {
     vi.advanceTimersByTime(500);
     expect(getActiveSlotId()).toBe(CHATBOT_SLOT);
   });
+
+  it('re-arbitrates a reprioritized active entry with one notification', () => {
+    vi.useFakeTimers();
+    const listener = vi.fn();
+    const unsubscribe = subscribe(listener);
+
+    try {
+      expect(requestSlot(ACTIVE_SLOT, 100)).toBe(true);
+      expect(requestSlot(WAITING_SLOT, 80)).toBe(false);
+      expect(requestSlot(ACTIVE_SLOT, 70)).toBe(false);
+
+      expect(getActiveSlotId()).toBe(WAITING_SLOT);
+      expect(listener).toHaveBeenCalledTimes(2);
+      vi.advanceTimersByTime(500);
+      expect(listener).toHaveBeenCalledTimes(2);
+    } finally {
+      unsubscribe();
+    }
+  });
+
+  it('re-arbitrates a released owner that changes priority during the promotion window', () => {
+    vi.useFakeTimers();
+    const listener = vi.fn();
+    const unsubscribe = subscribe(listener);
+
+    try {
+      expect(requestSlot(ACTIVE_SLOT, 100)).toBe(true);
+      expect(requestSlot(WAITING_SLOT, 80)).toBe(false);
+      releaseSlot(ACTIVE_SLOT);
+      expect(getActiveSlotId()).toBe(ACTIVE_SLOT);
+
+      expect(requestSlot(ACTIVE_SLOT, 70)).toBe(false);
+      expect(getActiveSlotId()).toBe(WAITING_SLOT);
+      expect(listener).toHaveBeenCalledTimes(2);
+      vi.advanceTimersByTime(500);
+      expect(listener).toHaveBeenCalledTimes(2);
+    } finally {
+      unsubscribe();
+    }
+  });
 });

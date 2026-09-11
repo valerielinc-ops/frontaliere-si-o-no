@@ -548,6 +548,56 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
     });
   });
 
+  it('marks a per-job defer terminal when its attempts exceed the alert counter', () => {
+    const sourceJob = job('b6-job-terminal-before-alert', 'Acme', 'acme');
+    const sourceAlert = alert('b6-alert-job-terminal-before-alert', 'Acme', {
+      deliveryDeferredAttempts: 1,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED,
+      deliveryLedger: {
+        [sourceJob.id]: {
+          state: DELIVERY_STATES.FAILED,
+          at: NOW,
+          attempts: DEFERRED_MAX_ATTEMPTS - 1,
+        },
+      },
+    });
+
+    const [write] = planDeferredDeliveryWrites([{
+      alert: sourceAlert,
+      jobs: [sourceJob],
+    }], NOW + 1, 'consent-lookup-failed');
+
+    expect(write.deliveryDeferredAttempts).toBe(2);
+    expect(write.deliveryDeferredState).toBe(DELIVERY_STATES.DEFERRED);
+    expect(write.deliveryLedger[sourceJob.id]).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+      attempts: DEFERRED_MAX_ATTEMPTS,
+    });
+  });
+
+  it('keeps an already exhausted per-job defer terminal through a throughput cap', () => {
+    const sourceJob = job('b6-throughput-after-terminal', 'Acme', 'acme');
+    const sourceAlert = alert('b6-throughput-after-terminal', 'Acme', {
+      deliveryLedger: {
+        [sourceJob.id]: {
+          state: DELIVERY_STATES.DEFERRED,
+          at: NOW,
+          attempts: DEFERRED_MAX_ATTEMPTS,
+        },
+      },
+    });
+
+    const [write] = planDeferredDeliveryWrites([{
+      alert: sourceAlert,
+      jobs: [sourceJob],
+    }], NOW + 1, 'card-cap');
+
+    expect(write.deliveryLedger[sourceJob.id]).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+      attempts: DEFERRED_MAX_ATTEMPTS,
+    });
+  });
+
   it('does not consume the failure budget on repeated throughput deferrals', () => {
     const sourceAlert = alert('b6-throughput-budget', 'Acme');
     const sourceJob = job('b6-throughput-budget-job', 'Acme', 'acme');
@@ -591,7 +641,7 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
       }], NOW + 1, 'consent-lookup-failed');
 
       expect(write.deliveryLedger[sourceJob.id]).toMatchObject({
-        state: DELIVERY_STATES.DEFERRED,
+        state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
         attempts: 3,
       });
     },

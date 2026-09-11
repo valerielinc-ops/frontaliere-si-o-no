@@ -176,7 +176,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
       const distDir = path.resolve(rootDir, 'dist');
       const collector = new WriteCollector({ distDir, pluginName: 'pharmacyDirectoryPagesPlugin' });
       const urls: string[] = [];
-      let excludedNoindex = 0;
+      let excludedNoindexRoutes = 0;
       const pageKinds: Array<{ kind: PharmacyPageKind; city?: string }> = [
         { kind: 'hub' }, { kind: 'canton' }, { kind: 'duty-hub' },
         ...TICINO_CITIES.map((city) => ({ kind: 'city' as const, city: city.name })),
@@ -186,8 +186,10 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
         for (const page of pageKinds) {
           const built = buildPage(page.kind, locale, page.city, distDir);
           collector.add(path.join(distDir, `${built.path.replace(/^\/+/, '').replace(/\/+$/, '')}/index.html`), built.html);
+          // Every locale/route still gets its HTML bridge; only the sitemap
+          // excludes below-floor pages that deliberately carry noindex.
           if (built.wordCount >= MIN_INDEXABLE_WORDS) urls.push(built.path);
-          else excludedNoindex += 1;
+          else excludedNoindexRoutes += 1;
         }
       }
       const dateStamp = new Date().toISOString().slice(0, 10);
@@ -200,7 +202,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
         if (!xml.includes('sitemap-farmacie.xml')) xml = xml.replace('</sitemapindex>', `  <sitemap><loc>${BASE_URL}/sitemap-farmacie.xml</loc><lastmod>${dateStamp}</lastmod></sitemap>\n</sitemapindex>`);
         fs.writeFileSync(master, xml, 'utf8');
       }
-      console.log(`\x1b[36m[pharmacy-directory-pages]\x1b[0m Emitted ${written} pages and ${urls.length} sitemap URLs (${excludedNoindex} noindex pages excluded)`);
+      console.log(`\x1b[36m[pharmacy-directory-pages]\x1b[0m Emitted ${written} pages and ${urls.length} sitemap URLs (${excludedNoindexRoutes} noindex routes excluded from sitemap)`);
     },
   };
 }

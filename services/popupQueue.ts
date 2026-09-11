@@ -44,27 +44,43 @@ function cancelPromotionTimer() {
  promotionTimer = null;
 }
 
+function setActive(id: string | null, priority: number | null) {
+ const changed = activeId !== id || activePriority !== priority;
+ activeId = id;
+ activePriority = priority;
+ if (changed) notify();
+}
+
+function highestQueuedEntry(): QueueEntry | undefined {
+ queue.sort((a, b) => b.priority - a.priority || a.requestedAt - b.requestedAt);
+ return queue[0];
+}
+
+function reconcileActiveRequest(id: string, priority: number): boolean {
+ const candidate = highestQueuedEntry();
+ const next = candidate && candidate.id !== id && candidate.priority > priority
+  ? candidate
+  : { id, priority };
+ cancelPromotionTimer();
+ setActive(next.id, next.priority);
+ return next.id === id;
+}
+
 function promoteNext() {
  cancelPromotionTimer();
  if (queue.length === 0) {
- activeId = null;
- activePriority = null;
- notify();
+ setActive(null, null);
  return;
  }
  // Brief delay so the previous popup's exit doesn't visually collide with the next
  promotionTimer = setTimeout(() => {
  promotionTimer = null;
  if (queue.length === 0) {
- activeId = null;
- activePriority = null;
- notify();
+ setActive(null, null);
  return;
  }
- queue.sort((a, b) => b.priority - a.priority || a.requestedAt - b.requestedAt);
- activeId = queue[0].id;
- activePriority = queue[0].priority;
- notify();
+ const next = highestQueuedEntry();
+ setActive(next.id, next.priority);
  }, 500);
 }
 
@@ -78,8 +94,7 @@ export function requestSlot(id: string, priority: number): boolean {
  if (existing) {
  existing.priority = priority;
  if (activeId === id) {
- activePriority = priority;
- return true;
+ return reconcileActiveRequest(id, priority);
  }
  // Re-evaluate if this should preempt current
  if (activeId) {
@@ -98,10 +113,15 @@ export function requestSlot(id: string, priority: number): boolean {
 
  queue.push({ id, priority, requestedAt: Date.now() });
 
+ // The released owner remains visible during the exit window. If it
+ // re-requests with a new priority, include that candidate in the same
+ // arbitration pass instead of leaving a stale activeId until the timer.
+ if (promotionTimer !== null && activeId === id) {
+ return reconcileActiveRequest(id, priority);
+ }
+
  if (activeId === null) {
- activeId = id;
- activePriority = priority;
- notify();
+ setActive(id, priority);
  return true;
  }
 
@@ -110,9 +130,7 @@ export function requestSlot(id: string, priority: number): boolean {
  const currentPriority = currentEntry?.priority ?? activePriority;
  if (currentPriority !== null && priority > currentPriority) {
  cancelPromotionTimer();
- activeId = id;
- activePriority = priority;
- notify();
+ setActive(id, priority);
  return true;
  }
 
@@ -129,9 +147,7 @@ export function releaseSlot(id: string) {
   promoteNext();
  } else if (queue.length === 0 && promotionTimer !== null) {
  cancelPromotionTimer();
- activeId = null;
- activePriority = null;
- notify();
+ setActive(null, null);
  }
 }
 

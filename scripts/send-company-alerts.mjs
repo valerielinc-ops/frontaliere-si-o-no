@@ -630,11 +630,14 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
           const previous = deliveryLedger[key];
           if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
           const attempts = positiveAttempts(previous?.attempts);
+          const state = attempts >= DEFERRED_MAX_ATTEMPTS
+            ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+            : DELIVERY_STATES.DEFERRED;
           deliveryLedger = mergeDeliveryLedger(
             deliveryLedger,
             [job],
             nowMs,
-            DELIVERY_STATES.DEFERRED,
+            state,
             attempts > 0 ? { reason: normalizedReason, attempts } : { reason: normalizedReason },
           );
         }
@@ -665,11 +668,14 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
         const previous = deliveryLedger[key];
         if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
         const attemptsForJob = Math.max(attempts, positiveAttempts(previous?.attempts) + 1);
+        const stateForJob = attemptsForJob >= DEFERRED_MAX_ATTEMPTS
+          ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+          : state;
         deliveryLedger = mergeDeliveryLedger(
           deliveryLedger,
           [job],
           nowMs,
-          state,
+          stateForJob,
           { reason: normalizedReason, attempts: attemptsForJob },
         );
       }
