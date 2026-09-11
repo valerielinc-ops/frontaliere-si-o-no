@@ -156,6 +156,11 @@ export function canonicalDailyBuckets(issues) {
  */
 export function isDistinctiveToken(s) {
   if (s.length < 6 || s.length > 80) return false;
+  // Markdown source locations such as `scripts/ci/review-gate.mjs:L410` are
+  // citation metadata, not prescribed code.  The file is already extracted by
+  // `citedFiles()`; counting its `:Lnnn` suffix as a second token makes a
+  // resolved item look unresolved whenever the issue includes a line anchor.
+  if (/^[\w./-]+\.[a-z0-9]{2,5}:L?\d+$/i.test(s) && s.includes('/')) return false;
   if (/^[\w./-]+$/.test(s) && /\.[a-z]{2,4}$/i.test(s)) return false; // bare file path
   if (/\s/.test(s.trim()) && !/[(){}'"`:=<>]|\.\w/.test(s)) return false; // prose phrase
   // ONLY code punctuation qualifies. A bare identifier (even a familiar field/helper name
