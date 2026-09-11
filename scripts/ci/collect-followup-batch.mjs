@@ -50,6 +50,10 @@ const WORKFLOW = 'post-merge-followup.yml';
 const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
 const FALLBACK_HOURS = Number(process.env.FALLBACK_HOURS) || 6;
 const SEARCH_PAGE_SIZE = 100;
+// The provider step has a 32-minute ceiling. Four PRs stay below that ceiling
+// even at the measured upper end of one triage, while the watermark/idempotency
+// contract leaves the remaining PRs for the next scheduled run.
+export const FOLLOWUP_SESSION_BATCH_LIMIT = 4;
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -248,10 +252,16 @@ export function latestTriageCommentBody(commentsJson, prefix = TRIAGE_COMMENT_PR
  */
 export function triageMarkerPersistenceExpectation(markerBody) {
   const body = String(markerBody || '');
-  const buckets = [...body.matchAll(/\bbucket\s+#([1-9]\d*)\b/gi)]
+  // Only the explicit creation/update line is a persistence claim. Later
+  // prose may mention a sealed historical bucket for audit context; treating
+  // that reference as another claim makes a valid marker fail verification.
+  const claim = body.split(/\r?\n/)
+    .filter((line) => /^\s*Created(?:\/updated)?:/i.test(line))
+    .join('\n');
+  const buckets = [...claim.matchAll(/\bbucket\s+#([1-9]\d*)\b/gi)]
     .map((match) => Number(match[1]));
   const uniqueBuckets = [...new Set(buckets)];
-  const noBucketExpected = /zero outstanding items|backfill skipped|Created:\s*0 issue\s*\(solo live-verification batchata\)/i.test(body);
+  const noBucketExpected = /zero outstanding items|backfill skipped|Created:\s*0 issue\s*\(solo live-verification batchata\)|Created\/updated:\s*(?:0 issue\s*[—-]\s*nessun item nuovo aggiunto|nessun nuovo item nel bucket)/i.test(body);
   return {
     buckets: uniqueBuckets,
     requiresBucket: uniqueBuckets.length > 0 || !noBucketExpected,
@@ -293,6 +303,11 @@ export function verifyTriageMarkerPersistence(markerBody, prNumber, readIssue) {
  */
 export function maxTurnsFor(batchCount) {
   return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 80);
+}
+
+/** Select one bounded provider session; deferred PRs remain eligible next run. */
+export function selectFollowupSessionBatch(batch) {
+  return Array.isArray(batch) ? batch.slice(0, FOLLOWUP_SESSION_BATCH_LIMIT) : [];
 }
 
 /**
@@ -468,7 +483,18 @@ export function main() {
     console.log(`PR #${n}: passes both gates → added to batch.`);
   }
 
-  emit(batch, dailyKey);
+  const sessionBatch = selectFollowupSessionBatch(batch);
+  if (sessionBatch.length < batch.length) {
+    const deferred = batch.length - sessionBatch.length;
+    console.log(`Sessione limitata a ${sessionBatch.length} PR; ${deferred} PR rinviate alla prossima finestra.`);
+    if (process.env.GITHUB_STEP_SUMMARY) {
+      fs.appendFileSync(
+        process.env.GITHUB_STEP_SUMMARY,
+        `Sessione limitata a ${sessionBatch.length} PR; ${deferred} PR rinviate alla prossima finestra schedulata.\n`,
+      );
+    }
+  }
+  emit(sessionBatch, dailyKey);
 }
 
 // CLI entrypoint only (importing for tests must not invoke gh). Proceed-safe: any

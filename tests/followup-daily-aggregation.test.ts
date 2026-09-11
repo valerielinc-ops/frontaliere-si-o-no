@@ -80,6 +80,13 @@ describe('post-merge triage marker contract', () => {
     expect(zeroResultBranch).toBeTruthy();
     expect(zeroResultBranch).not.toContain('persistence_ok=false');
   });
+
+  it('reads positive persistence only from the explicit creation/update line', () => {
+    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+    const bucketLine = workflow.split('\n').find((line) => line.includes('bucket_refs=$(printf'));
+    expect(bucketLine).toContain('Created');
+    expect(bucketLine).toContain('bucket #[0-9]+');
+  });
 });
 
 function item(id: string, state = 'open', title = 'Proteggi il comportamento') {
