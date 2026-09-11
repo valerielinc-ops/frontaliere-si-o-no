@@ -61,4 +61,28 @@ describe('inferNewsletterSubscriptionState', () => {
       isActive: true,
     });
   });
+
+ it('gives an account-deletion tombstone precedence over stale subscription fields', () => {
+  const tombstone = {
+   status: 'subscribed',
+   isActive: true,
+   active: true,
+   account_deleted_at: '2026-09-01T12:00:00.000Z',
+  };
+
+  expect(inferNewsletterSubscriptionState({
+   email: 'user@example.com',
+   source: 'popup',
+  }, tombstone)).toEqual({
+   status: 'pending',
+   isActive: false,
+  });
+  expect(inferNewsletterSubscriptionState({
+   email: 'user@example.com',
+   source: 'signup',
+  }, tombstone)).toEqual({
+   status: 'confirmed',
+   isActive: true,
+  });
+ });
 });
