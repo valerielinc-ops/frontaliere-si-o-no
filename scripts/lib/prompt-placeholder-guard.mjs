@@ -241,7 +241,7 @@ const FAQ_BOLD_PREFIX_RX = String.raw`(?:\*{1,2}[ \t]*)?`;
 const FAQ_BOLD_MARKER_CAPTURE_SOURCE = String.raw`(\*{1,2})?`;
 const FAQ_HEADING_PREFIX_RX = String.raw`(?:\d+[.)][ \t]*|[#>\-–—]+[ \t]*|\*{1,2}[ \t]*)`;
 const FAQ_TRANSLATED_HEADING_RX = String.raw`(?:frequently[ \t]+asked[ \t]+questions|foire[ \t]+aux[ \t]+questions|h[aä]ufig[ \t]+gestellte[ \t]+fragen)`;
-const FAQ_BOLD_CLOSE_PUNCTUATION_SOURCE = String.raw`(?:${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*[:.?\-–—](?![ \t]*\*{1,2})|[:.?\-–—][ \t]*${FAQ_BOLD_MARKER_CAPTURE_SOURCE})`;
+const FAQ_BOLD_CLOSE_PUNCTUATION_SOURCE = String.raw`${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*[:.?\-–—][ \t]*${FAQ_BOLD_MARKER_CAPTURE_SOURCE}`;
 const FAQ_NUMBERED_LABEL_SOURCE = String.raw`(?:(?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX}\**[ \t]*${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—]|${FAQ_BOLD_PREFIX_RX}${FAQ_LABEL_RX}[ \t]*\d+\**[ \t]*[:.?\-–—])`;
 const FAQ_NUMBERED_LINE_LABEL_SOURCE = String.raw`((?:^|\n)[ \t]*${FAQ_LINE_PREFIX_RX})${FAQ_BOLD_MARKER_CAPTURE_SOURCE}[ \t]*${FAQ_LABEL_RX}[ \t]*\d+${FAQ_BOLD_CLOSE_PUNCTUATION_SOURCE}[ \t]*(?=\S)`;
 const FAQ_NUMBERED_MIDLINE_LABEL_SOURCE = String.raw`${FAQ_BOLD_MARKER_CAPTURE_SOURCE}${FAQ_LABEL_RX}[ \t]*\d+${FAQ_BOLD_CLOSE_PUNCTUATION_SOURCE}[ \t]*(?=\S)`;
@@ -535,7 +535,9 @@ export function stripFaqNumberedLabels(value) {
       // coppia. Se invece il grassetto avvolge solo l'etichetta, `boldClose`
       // è presente e i due marker vanno rimossi insieme all'etichetta.
       const keepsOuterBold = Boolean(boldOpen && !boldClose && line.endsWith(boldOpen));
-      const keepsQuestionBold = Boolean(!boldOpen && boldCloseAfterPunctuation);
+      const keepsQuestionBold = Boolean(
+        boldCloseAfterPunctuation && (!boldOpen || boldCloseBeforePunctuation),
+      );
       const marker = keepsQuestionBold
         ? boldCloseAfterPunctuation
         : keepsOuterBold
