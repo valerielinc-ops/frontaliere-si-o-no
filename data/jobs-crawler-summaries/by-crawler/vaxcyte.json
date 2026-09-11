@@ -1,23 +1,64 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-09-11T13:33:26.042Z",
-  "total": 3,
+  "generatedAt": "2026-09-11T23:06:32.220Z",
+  "total": 4,
   "discovered": null,
-  "parsed": 3,
+  "parsed": 4,
   "lastFetchOutcome": null,
-  "written": 3,
+  "written": 4,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5816,
-  "avgDurationMs": 5816,
+  "durationMs": 5807,
+  "avgDurationMs": 5807,
   "durationHistory": [
-    5816
+    5807
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "vaxcyte-6b03024d1766",
+      "slug": "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Senior Bioprocess Engineer II, MSAT, Proteins",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-11T23:06:18.703Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "1950",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
+      "department": "Global MSAT",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "vaxcyte-fb837ce9abee",
@@ -31,7 +72,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:15.280Z",
+      "crawledAt": "2026-09-11T23:06:18.733Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -73,7 +114,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:15.319Z",
+      "crawledAt": "2026-09-11T23:06:18.758Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -93,6 +134,7 @@
         "canton": "VS",
         "location": "Visp"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-25T23:32:47.249Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -114,7 +156,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:15.286Z",
+      "crawledAt": "2026-09-11T23:06:18.736Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
