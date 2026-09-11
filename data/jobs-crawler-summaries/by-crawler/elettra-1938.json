@@ -1,7 +1,7 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-09-11T13:52:31.607Z",
+  "generatedAt": "2026-09-11T23:21:18.765Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,10 +12,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5386,
-  "avgDurationMs": 5386,
+  "durationMs": 5745,
+  "avgDurationMs": 5745,
   "durationHistory": [
-    5386
+    5745
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-724414/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:52:23.630Z",
+      "crawledAt": "2026-09-11T23:21:10.685Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -46,6 +46,7 @@
       "featured": false,
       "postedDate": "2026-08-27",
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-724414/it/",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:49:57.238Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
