@@ -13,6 +13,11 @@
  *
  *   --slice limits the run to a single by-crawler slice (basename with or without
  *   .json, e.g. `banca-cler`) for surgical, single-company fixes.
+ *
+ * Env:
+ *   UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS — run-wide wall-clock deadline
+ *     measured from the translate-pending run marker (default 300*60*1000).
+ *     Standalone runs without a marker fall back to this process's start time.
  */
 
 import fs from 'node:fs';
@@ -21,6 +26,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
 import { isAcceptableTranslation, MIN_TRANSLATION_CHARS } from './lib/translation-quality.mjs';
+import { readRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -39,6 +45,11 @@ const MAX = (() => {
   const idx = process.argv.indexOf('--max');
   return idx !== -1 && process.argv[idx + 1] ? Number(process.argv[idx + 1]) : Infinity;
 })();
+// Run-wide deadline measured from the shared translate-pending start marker.
+// Standalone invocations have no marker, so they get the same budget from now.
+const DESCRIPTION_FIX_DEADLINE_MS = Number(process.env.UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS)
+  || 300 * 60 * 1000;
+const RUN_START_MS = readRunStartMs() ?? Date.now();
 const SLICE = (() => {
   const idx = process.argv.indexOf('--slice');
   if (idx === -1 || !process.argv[idx + 1]) return null;
@@ -61,6 +72,8 @@ async function main() {
   let totalFailed = 0;
   let slicesChanged = 0;
   let charsTranslated = 0;
+  const budgetOk = () => (Date.now() - RUN_START_MS) < DESCRIPTION_FIX_DEADLINE_MS;
+  let deadlineReached = false;
 
   console.log(`🔧 Fixing untranslated descriptions across ${files.length} slices...`);
   if (DRY_RUN) console.log('   (DRY RUN — no files will be modified)');
@@ -68,6 +81,10 @@ async function main() {
   console.log('');
 
   for (const file of files) {
+    if (!budgetOk()) {
+      deadlineReached = true;
+      break;
+    }
     if (totalFixed + totalFailed >= MAX) break;
 
     const slicePath = path.join(BY_CRAWLER_DIR, file);
@@ -78,6 +95,10 @@ async function main() {
     let sliceChanged = false;
 
     for (const job of jobs) {
+      if (!budgetOk()) {
+        deadlineReached = true;
+        break;
+      }
       if (totalFixed + totalFailed >= MAX) break;
 
       const sl = job.sourceLang || 'it';
@@ -87,6 +108,10 @@ async function main() {
       const dbl = job.descriptionByLocale || {};
 
       for (const locale of LOCALES) {
+        if (!budgetOk()) {
+          deadlineReached = true;
+          break;
+        }
         if (locale === sl) continue;
         if (totalFixed + totalFailed >= MAX) break;
 
@@ -135,6 +160,8 @@ async function main() {
           totalFailed++;
         }
       }
+
+      if (deadlineReached) break;
     }
 
     if (sliceChanged && !DRY_RUN) {
@@ -142,6 +169,13 @@ async function main() {
       slicesChanged++;
       console.log(`  ✅ ${file.replace('.json', '')}`);
     }
+
+    if (deadlineReached) break;
+  }
+
+  if (deadlineReached) {
+    const elapsedMin = Math.round((Date.now() - RUN_START_MS) / 60000);
+    console.log(`\n⏰ Description-fix deadline reached after ~${elapsedMin}min — completed work was persisted; remaining slices stay queued for the next run.`);
   }
 
   console.log(`\n📊 Description fix complete: ${totalFixed} translated, ${totalFailed} failed`);
