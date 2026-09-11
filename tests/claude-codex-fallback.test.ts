@@ -658,7 +658,7 @@ describe('copertura workflow diretti', () => {
     expect(action).not.toContain('real_gh="$(command -v gh');
     expect(action).toContain('CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth"');
     expect(action).toContain('CODEX_GH_CORPUS_REPOSITORY="nanakokyobashi-rgb/frontaliere-articles"');
-    expect(postMerge).toContain('codex_corpus_github_token: ${{ env.GITHUB_PAT }}');
+    expect(postMerge).toContain('codex_corpus_github_token: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}');
     expect(action).toContain('codex_install_root=');
     const installStart = action.indexOf('- name: Install pinned Codex CLI (primary');
     const sandboxStart = action.indexOf('- name: Prepare Linux sandbox prerequisites for Codex primary');
