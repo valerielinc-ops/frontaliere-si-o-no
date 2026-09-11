@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-09-11T13:49:32.128Z",
-  "total": 10,
+  "generatedAt": "2026-09-11T23:22:10.774Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 18820,
-  "avgDurationMs": 18820,
+  "removedCount": 3,
+  "unchangedCount": 0,
+  "durationMs": 20233,
+  "avgDurationMs": 20233,
   "durationHistory": [
-    18820
+    20233
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -253,8 +253,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://www.mikron.com/en/warehouse-logistics-team-leader",
       "applyUrl": "https://www.mikron.com/en/warehouse-logistics-team-leader",
@@ -372,5 +371,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
