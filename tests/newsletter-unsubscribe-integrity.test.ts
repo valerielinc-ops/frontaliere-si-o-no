@@ -840,6 +840,14 @@ describe('the two unsubscribe paths leave the same observable state', () => {
     expect(call, 'the App.tsx call to unsubscribeNewsletterSubscriber moved or changed shape').toBeTruthy();
     expect(call![0], 'App.tsx must pass `credential` — see #5719 and the 52 uncounted events').toMatch(/\bcredential:/);
     expect(call![0]).toMatch(/autologin_code/);
+
+    const preflightStart = appSrc.indexOf("if (authenticated && action === 'unsubscribe') {");
+    const directWriteAt = appSrc.indexOf('await unsubscribeNewsletterSubscriber(db, {');
+    expect(preflightStart).toBeGreaterThan(-1);
+    expect(preflightStart).toBeLessThan(directWriteAt);
+    const preflight = appSrc.slice(preflightStart, directWriteAt);
+    expect(preflight).toMatch(/for \(const credential of \[urlParams\.get\('token'\), autologinCode\]\)/);
+    expect(preflight).toContain('unsubscribeViaCloudFunction');
   });
 
   it('leaves both unrestorable by restore-mailtrap-suspension-suppressions.mjs', async () => {
