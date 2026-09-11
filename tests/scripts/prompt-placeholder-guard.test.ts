@@ -11,6 +11,7 @@ import {
   hasPromptPlaceholder,
   cleanFaqPairs,
   orphanFaqLocales,
+  stripFaqNumberedLabels,
   sanitizePromptPlaceholders,
 } from '../../scripts/lib/prompt-placeholder-guard.mjs';
 import { unescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../../scripts/lib/unescape-ts-string.mjs';
@@ -122,6 +123,37 @@ describe('la famiglia di segnaposto nota, coperta campo per campo', () => {
     const hits = findPromptPlaceholders(testo).filter((hit) => hit.rule === 'faq-unnumbered-label');
     expect(hits).toHaveLength(1);
     expect(hits[0].found).toContain('Domanda frequente');
+  });
+
+  it('non lascia asterischi orfani dopo un etichetta FAQ in grassetto', () => {
+    const repaired = stripFaqNumberedLabels('**Domanda frequente 1**: Quali sono i servizi inclusi?');
+    expect(repaired.value).toBe('Quali sono i servizi inclusi?');
+    expect(repaired.stripped).toBe(1);
+  });
+
+  it('esclude heading FAQ tradotte anche se indentate, bold, bullet o numerate', () => {
+    const headings = [
+      '  ## Frequently Asked Questions — Net salary',
+      '**Frequently Asked Questions**: Net salary',
+      '- Foire aux questions — Salaire net',
+      '1. Question Fréquemment Posée: Net salary',
+      '> Häufig gestellte Fragen: Nettolohn',
+    ];
+    for (const heading of headings) {
+      expect(
+        findPromptPlaceholders(heading).filter((hit) => hit.rule === 'faq-unnumbered-label'),
+        heading,
+      ).toHaveLength(0);
+      expect(stripFaqNumberedLabels(heading).value, heading).toBe(heading);
+    }
+  });
+
+  it('mantiene la compatibilità con etichette FAQ numerate a metà riga', () => {
+    const testo = 'Contesto editoriale: Domanda frequente 1: Quali sono i servizi inclusi?';
+    expect(findPromptPlaceholders(testo).some((hit) => hit.rule === 'faq-numbered-label')).toBe(true);
+    expect(stripFaqNumberedLabels(testo).value).toBe(
+      'Contesto editoriale: Quali sono i servizi inclusi?',
+    );
   });
 
   it('stripFaqNumberedLabels ripara FAQ non numerate e conserva la soglia di 8 caratteri', () => {
