@@ -51,8 +51,11 @@ const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
 const FALLBACK_HOURS = Number(process.env.FALLBACK_HOURS) || 6;
 const SEARCH_PAGE_SIZE = 100;
 // The provider step has a 32-minute ceiling. Four PRs stay below that ceiling
-// even at the measured upper end of one triage, while the watermark/idempotency
-// contract leaves the remaining PRs for the next scheduled run.
+// even at the measured upper end of one triage. If the candidate window is
+// larger, the workflow deliberately reports an incomplete collection after
+// emitting the prefix: its final verifier fails the scheduled run, so the
+// successful-run watermark does not advance and the next run re-collects the
+// deferred PRs. Idempotency skips the prefix already persisted in that run.
 export const FOLLOWUP_SESSION_BATCH_LIMIT = 4;
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
@@ -305,9 +308,20 @@ export function maxTurnsFor(batchCount) {
   return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 80);
 }
 
-/** Select one bounded provider session; deferred PRs remain eligible next run. */
+/** Select one bounded provider session; the caller must keep incomplete runs red. */
 export function selectFollowupSessionBatch(batch) {
   return Array.isArray(batch) ? batch.slice(0, FOLLOWUP_SESSION_BATCH_LIMIT) : [];
+}
+
+/**
+ * A capped session is intentionally not a successful collection: the workflow
+ * must leave its successful-run watermark unchanged so the deferred suffix is
+ * visible to the next scheduled run.
+ */
+export function sessionCollectionComplete(batch, sessionBatch) {
+  return Array.isArray(batch)
+    && Array.isArray(sessionBatch)
+    && batch.length === sessionBatch.length;
 }
 
 /**
@@ -484,9 +498,10 @@ export function main() {
   }
 
   const sessionBatch = selectFollowupSessionBatch(batch);
+  const collectionOk = sessionCollectionComplete(batch, sessionBatch);
   if (sessionBatch.length < batch.length) {
     const deferred = batch.length - sessionBatch.length;
-    console.log(`Sessione limitata a ${sessionBatch.length} PR; ${deferred} PR rinviate alla prossima finestra.`);
+    console.log(`Sessione limitata a ${sessionBatch.length} PR; ${deferred} PR rinviate alla prossima finestra. collection_ok=false: il watermark di successo resta invariato.`);
     if (process.env.GITHUB_STEP_SUMMARY) {
       fs.appendFileSync(
         process.env.GITHUB_STEP_SUMMARY,
@@ -494,7 +509,7 @@ export function main() {
       );
     }
   }
-  emit(sessionBatch, dailyKey);
+  emit(sessionBatch, dailyKey, { collectionOk });
 }
 
 // CLI entrypoint only (importing for tests must not invoke gh). Proceed-safe: any

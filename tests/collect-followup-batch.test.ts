@@ -21,6 +21,7 @@ import {
   canonicalLogin,
   maxTurnsFor,
   selectFollowupSessionBatch,
+  sessionCollectionComplete,
   shouldTriageAfterCandidateGate,
   shouldTriageAfterFixGate,
 } from '../scripts/ci/collect-followup-batch.mjs';
@@ -260,6 +261,11 @@ describe('follow-up provider session bound', () => {
     const candidates = [1, 2, 3, 4, 5, 6];
     expect(selectFollowupSessionBatch(candidates)).toEqual([1, 2, 3, 4]);
     expect(candidates).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+
+  it('keeps the successful-run watermark closed while overflow is deferred', () => {
+    expect(sessionCollectionComplete([1, 2, 3, 4], [1, 2, 3, 4])).toBe(true);
+    expect(sessionCollectionComplete([1, 2, 3, 4, 5, 6], [1, 2, 3, 4])).toBe(false);
   });
 });
 
