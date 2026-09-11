@@ -3637,13 +3637,27 @@ export function assignEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlyS
 }
 
 function assignLegacyEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySet<string> = new Set()): Map<string, string> {
-  const used = new Set<string>(reservedBaseSlugs);
+  const used = new Set<string>([...reservedBaseSlugs].map((slug) => reserveLadderShape(slug, 'evento')));
+  const rawBaseFor = new Map(list.map((ev) => [ev.id, slugifyLegacyEvent(ev)]));
+  const rawBaseOwners = new Map<string, string>();
+  for (const [eventId, base] of rawBaseFor) if (!rawBaseOwners.has(base)) rawBaseOwners.set(base, eventId);
   const slugFor = new Map<string, string>();
   for (const ev of list) {
-    const base = slugifyLegacyEvent(ev);
+    const base = rawBaseFor.get(ev.id)!;
     let slug = base;
     let n = 2;
-    while (used.has(slug)) slug = disambiguateEventSlug(base, n++);
+    let collidesWithRawBase = false;
+    while (used.has(slug)) {
+      const candidate = disambiguateEventSlug(base, n++);
+      const rawOwner = rawBaseOwners.get(candidate);
+      if (rawOwner && rawOwner !== ev.id) {
+        console.warn(`[events-pages] skip legacy slug bridge for ${ev.id}: ${candidate} collides with ${rawOwner}`);
+        collidesWithRawBase = true;
+        break;
+      }
+      slug = candidate;
+    }
+    if (collidesWithRawBase) continue;
     used.add(slug);
     slugFor.set(ev.id, slug);
   }
@@ -3669,9 +3683,17 @@ export function changedEventSlugMigrations(
   reservedBaseSlugs: ReadonlySet<string> = new Set(),
 ): EventSlugMigration[] {
   const legacy = assignLegacyEventSlugs(list as SiteEvent[], reservedBaseSlugs);
+  const emittedFromSlugs = new Map<string, string>();
   return list.flatMap((ev) => {
-    const fromSlug = legacy.get(ev.id)!;
+    const fromSlug = legacy.get(ev.id);
     const toSlug = assigned.get(ev.id)!;
+    if (!fromSlug) return [];
+    const priorOwner = emittedFromSlugs.get(fromSlug);
+    if (priorOwner && priorOwner !== ev.id) {
+      console.warn(`[events-pages] skip legacy slug bridge for ${ev.id}: ${fromSlug} already belongs to ${priorOwner}`);
+      return [];
+    }
+    emittedFromSlugs.set(fromSlug, ev.id);
     return fromSlug === toSlug ? [] : [{ canton, comune, eventId: ev.id, fromSlug, toSlug }];
   });
 }
@@ -3695,6 +3717,55 @@ export function renderEventSlugRedirectPage(locale: Locale, canonicalPath: strin
     noindex: true,
   });
   return bridge.replace('</head>', ` <meta http-equiv="refresh" content="0; url=${canonicalUrl}">\n </head>`);
+}
+
+const EVENT_ROUTE_ROOTS: Record<Locale, string> = {
+  it: 'eventi',
+  en: 'en/events',
+  de: 'de/veranstaltungen',
+  fr: 'fr/evenements',
+};
+
+/**
+ * Remove only redirect bridges that this build no longer emits. Event detail
+ * pages can be renamed or disappear from the grace window while their old
+ * files remain in `dist/`; leaving those files behind makes an orphaned
+ * legacy URL look live to crawlers. The refresh+noindex pair is specific to
+ * `renderEventSlugRedirectPage`, so thin detail pages and other noindex output
+ * are left untouched.
+ */
+export function pruneStaleEventSlugRedirects(
+  distDir: string,
+  expectedPaths: ReadonlySet<string> | readonly string[],
+): string[] {
+  const expected = new Set([...expectedPaths].map((p) => path.resolve(p)));
+  const removed: string[] = [];
+  const isRedirectBridge = (filePath: string) => {
+    let html: string;
+    try { html = fs.readFileSync(filePath, 'utf8'); } catch { return false; }
+    return html.includes('<meta name="robots" content="noindex,follow">')
+      && html.includes('<meta http-equiv="refresh" content="0; url=');
+  };
+  const walk = (dir: string) => {
+    let entries: fs.Dirent[];
+    try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { return; }
+    for (const entry of entries) {
+      const filePath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(filePath);
+        continue;
+      }
+      if (!entry.isFile() || (!entry.name.endsWith('.html') && entry.name !== 'index.html')) continue;
+      if (expected.has(path.resolve(filePath)) || !isRedirectBridge(filePath)) continue;
+      fs.rmSync(filePath, { force: true });
+      removed.push(filePath);
+    }
+  };
+  for (const locale of LOCALES) {
+    if (!shouldEmitLocale(locale)) continue;
+    walk(path.join(distDir, EVENT_ROUTE_ROOTS[locale]));
+  }
+  return removed;
 }
 
 /**
@@ -3837,6 +3908,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const canonicalDetailPaths = new Set<string>();
       for (const entry of detailSlugs.values()) for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, entry.comune, entry.slug, entry.canton));
       const emittedSlugRedirects = new Set<string>();
+      const expectedSlugRedirectPaths = new Set<string>();
 
       const emit = (rendered: { urlPath: string; html: string; wordCount: number }) => {
         if (rendered.wordCount < MIN_INDEXABLE_WORDS) thinPages += 1;
@@ -3853,8 +3925,12 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const key = eventSlugRedirectKey(locale, fromPath);
         if (fromPath === toPath || canonicalDetailPaths.has(fromPath) || emittedSlugRedirects.has(key)) return;
         const html = renderEventSlugRedirectPage(locale, toPath);
-        collector.add(path.join(distDir, fromPath, 'index.html'), html);
-        collector.add(path.join(distDir, fromPath.replace(/\/+$/, '') + '.html'), html);
+        const indexPath = path.join(distDir, fromPath, 'index.html');
+        const flatPath = path.join(distDir, fromPath.replace(/\/+$/, '') + '.html');
+        expectedSlugRedirectPaths.add(indexPath);
+        expectedSlugRedirectPaths.add(flatPath);
+        collector.add(indexPath, html);
+        collector.add(flatPath, html);
         emittedSlugRedirects.add(key);
       };
 
@@ -4092,6 +4168,11 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const sitemapXml = buildSitemap(perCantonSitemap, dateStamp, detailEntries);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
+
+      const staleSlugRedirects = pruneStaleEventSlugRedirects(distDir, expectedSlugRedirectPaths);
+      if (staleSlugRedirects.length) {
+        console.log(`\x1b[36m[events-pages]\x1b[0m Removed ${staleSlugRedirects.length} stale event slug bridge file(s)`);
+      }
 
       const t0 = Date.now();
       const flushed = await collector.flush();
