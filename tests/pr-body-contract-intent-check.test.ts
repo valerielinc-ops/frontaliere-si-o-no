@@ -77,7 +77,10 @@ interface ContractResult {
  * injects (`github`, `context`, `core`). No network, no repo checkout needed
  * — the step itself has none either.
  */
-async function runContractCheck(body: string): Promise<ContractResult> {
+async function runContractCheck(
+  body: string,
+  aggregateIssue?: { number: number; title: string; body: string },
+): Promise<ContractResult> {
   const script = extractContractScript();
   const calls: ContractResult = { setFailed: [], comments: [] };
   const core = {
@@ -95,7 +98,16 @@ async function runContractCheck(body: string): Promise<ContractResult> {
         updateComment: async ({ body: b }: { body: string }) => { calls.comments.push(b); },
         // Neutral closed-issue stub: no labels → never trips the aggregate-close check,
         // which is out of scope for this observer.
-        get: async () => ({ data: { labels: [] as string[] } }),
+        get: async ({ issue_number }: { issue_number: number }) => ({
+          data: aggregateIssue?.number === Number(issue_number)
+            ? {
+              pull_request: false,
+              title: aggregateIssue.title,
+              body: aggregateIssue.body,
+              labels: [{ name: 'follow-up' }],
+            }
+            : { labels: [] as string[] },
+        }),
       },
     },
   };
@@ -153,5 +165,41 @@ describe('tests.yml contract job — ineffective closing keyword (issue #5784)',
   it('matches the measured recurrence shape (PR #5776 → issue #5725)', async () => {
     const { setFailed } = await runContractCheck(wrap('Chiude #5725'));
     expect(setFailed.join(' ')).toMatch(/ineffective closing keyword/);
+  });
+
+  it('allows a final aggregate close only when every numbered item is listed as implemented', async () => {
+    const cases = [
+      {
+        number: 8185,
+        title: 'follow-up(#8126): 3 item deferred — Company Alerts',
+        body: '### 1. Queue\n### 2. Handler\n### 3. Module state',
+        implemented: '- Item 1: queue contract\n- Item 2: handler contract\n- Item 3: module isolation',
+      },
+      {
+        number: 8181,
+        title: 'follow-up(#8149): 2 item deferred — review gate',
+        body: '### 1. Expected key\n### 2. Moved citation',
+        implemented: '- Item 1: expected key\n- Item 2: moved citation',
+      },
+    ];
+
+    for (const issue of cases) {
+      const complete = [
+        '## Implementato',
+        issue.implemented,
+        '',
+        `Closes #${issue.number}`,
+        '',
+        '## Non implementato (ancora)',
+        'Nessuno',
+      ].join('\n');
+      const completeResult = await runContractCheck(complete, issue);
+      expect(completeResult.setFailed, `complete aggregate #${issue.number}`).toEqual([]);
+
+      const partial = complete.replace(/\n- Item \d+: [^\n]+(?=\n- Item \d+:)/, '');
+      const partialResult = await runContractCheck(partial, issue);
+      expect(partialResult.setFailed.join(' '), `partial aggregate #${issue.number}`)
+        .toMatch(/Closes on multi-item aggregate/);
+    }
   });
 });
