@@ -422,8 +422,51 @@ function deferredStateForAlert(alert) {
 }
 
 function deferredAttemptsForAlert(alert) {
-  const storedAttempts = Number(alert?.deliveryDeferredAttempts);
-  return Number.isInteger(storedAttempts) && storedAttempts > 0 ? storedAttempts : 0;
+  return positiveAttempts(alert?.deliveryDeferredAttempts);
+}
+
+function positiveAttempts(value) {
+  const attempts = Number(value);
+  return Number.isInteger(attempts) && attempts > 0 ? attempts : 0;
+}
+
+function mergeCoalescedDeliveryLedger(priorLedger, writeLedger) {
+  // One run can coalesce an alert-level terminal write with a throughput write
+  // for the same job. The latter is derived from the pre-write snapshot and
+  // must never downgrade the terminal evidence or its attempt count.
+  const merged = { ...priorLedger };
+  for (const [key, candidate] of Object.entries(writeLedger || {})) {
+    const previous = merged[key];
+    if (!previous) {
+      merged[key] = candidate;
+      continue;
+    }
+
+    const attempts = Math.max(
+      positiveAttempts(previous.attempts),
+      positiveAttempts(candidate.attempts),
+    );
+    const previousExhausted = previous.state === DELIVERY_STATES.DEFERRED_EXHAUSTED;
+    const candidateExhausted = candidate.state === DELIVERY_STATES.DEFERRED_EXHAUSTED;
+    if (previousExhausted || candidateExhausted) {
+      const terminalEntry = previousExhausted ? previous : candidate;
+      merged[key] = {
+        ...previous,
+        ...candidate,
+        state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+        ...(attempts > 0 ? { attempts } : {}),
+        ...(terminalEntry.reason ? { reason: terminalEntry.reason } : {}),
+      };
+      continue;
+    }
+
+    merged[key] = {
+      ...previous,
+      ...candidate,
+      ...(attempts > 0 ? { attempts } : {}),
+    };
+  }
+  return merged;
 }
 
 function isDeferredExhausted(alert) {
@@ -659,7 +702,10 @@ export function coalesceDeliveryWrites(writes) {
     }
     const priorHasAlertLevelAttempt = deferredAttemptsForAlert(prior) > 0;
     const writeAttempts = deferredAttemptsForAlert(write);
-    prior.deliveryLedger = { ...prior.deliveryLedger, ...write.deliveryLedger };
+    prior.deliveryLedger = mergeCoalescedDeliveryLedger(
+      prior.deliveryLedger,
+      write.deliveryLedger,
+    );
     if (writeAttempts > 0) {
       prior.deliveryDeferredAttempts = Math.max(
         deferredAttemptsForAlert(prior),
@@ -725,11 +771,9 @@ export async function persistDeferredDeliveryWrites(db, writes, dryRun) {
           // this plan was built. Never let a stale deferred write downgrade a
           // retry-blocking state and reopen a duplicate-send race.
           if (deliveryEntryBlocksRetry(current[key], write.at)) continue;
-          const currentAttempts = Number(current[key]?.attempts);
-          const plannedAttempts = Number(entry.attempts);
           const attempts = Math.max(
-            Number.isInteger(currentAttempts) && currentAttempts > 0 ? currentAttempts : 0,
-            Number.isInteger(plannedAttempts) && plannedAttempts > 0 ? plannedAttempts : 0,
+            positiveAttempts(current[key]?.attempts),
+            positiveAttempts(entry.attempts),
           );
           const nextEntry = attempts > 0 ? { ...entry, attempts } : entry;
           if (nextEntry.state === DELIVERY_STATES.DEFERRED
