@@ -17,9 +17,10 @@ export function promptBlocks(text) {
   const out = [];
   const lines = String(text || '').split(/\r?\n/);
   for (let i = 0; i < lines.length; i += 1) {
-    const match = /^(\s*)prompt:\s*[|>](?:[+-]?\d?|\d?[+-]?)(?:[ \t]+#.*)?$/.exec(lines[i]);
+    const match = /^(\s*)prompt:\s*[|>](?:[+-]?([1-9])|([1-9])[+-]?|[+-])?(?:[ \t]+#.*)?$/.exec(lines[i]);
     if (!match) continue;
     const indent = match[1].length;
+    const explicitIndent = Number(match[2] || match[3] || 0);
     const block = [];
     for (let j = i + 1; j < lines.length; j += 1) {
       const line = lines[j];
@@ -31,7 +32,18 @@ export function promptBlocks(text) {
       if (lineIndent <= indent) break;
       block.push(line);
     }
-    out.push(block.join('\n'));
+    const contentIndent = explicitIndent > 0
+      ? indent + explicitIndent
+      : block
+        .filter(line => line.trim() !== '')
+        .reduce((minimum, line) => Math.min(
+          minimum,
+          line.length - line.replace(/^\s*/, '').length,
+        ), Number.POSITIVE_INFINITY);
+    out.push(block.map(line => {
+      if (line.trim() === '') return '';
+      return line.slice(Number.isFinite(contentIndent) ? contentIndent : line.length);
+    }).join('\n'));
   }
   return out;
 }

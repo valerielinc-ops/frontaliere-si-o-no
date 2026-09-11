@@ -7,7 +7,7 @@ import {
 } from '../scripts/ci/validate-modified-workflows.mjs';
 
 describe('validate-modified-workflows', () => {
-  it('extracts each prompt block without consuming the next YAML key', () => {
+  it('extracts each prompt block dedented without consuming the next YAML key', () => {
     const workflow = [
       'steps:',
       '  - name: Claude',
@@ -17,7 +17,18 @@ describe('validate-modified-workflows', () => {
       '    timeout-minutes: 10',
     ].join('\n');
 
-    expect(promptBlocks(workflow)).toEqual(['      first line\n      second line']);
+    expect(promptBlocks(workflow)).toEqual(['first line\nsecond line']);
+  });
+
+  it('honors an explicit YAML indentation indicator', () => {
+    const workflow = [
+      '  prompt: |2',
+      '    first line',
+      '      nested line',
+      '  timeout-minutes: 10',
+    ].join('\n');
+
+    expect(promptBlocks(workflow)).toEqual(['first line\n  nested line']);
   });
 
   it('rejects a prompt scalar above the GitHub workflow limit', () => {
@@ -27,7 +38,7 @@ describe('validate-modified-workflows', () => {
       {
         file: '.github/workflows/issue-fix.yml',
         index: 1,
-        length: PROMPT_SCALAR_LIMIT + 3,
+        length: PROMPT_SCALAR_LIMIT + 1,
       },
     ]);
   });
