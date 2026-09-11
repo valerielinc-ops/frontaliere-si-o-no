@@ -134,9 +134,12 @@ const EMPLOYER_PROFILE_SLUGS: ReadonlySet<string> = (() => {
 
 // /aziende/<slug>/ (+ /en|/de|/fr) — single literal segment for every locale
 // (mirrors the plugin's path builder). normalizePath() strips the trailing
-// slash before this runs, so the pattern is slash-optional.
+// slash before this runs, so the pattern is slash-optional. The shared matcher
+// also accepts the SSG's flat `.html` twin; the resolver canonicalizes that
+// twin back to the directory URL before returning it.
 function isEmployerProfilePath(path: string): boolean {
- const m = EMPLOYER_PROFILE_PATH_RX.exec(path);
+ const profilePath = path.replace(/\.html$/, '');
+ const m = EMPLOYER_PROFILE_PATH_RX.exec(profilePath);
  return !!m && EMPLOYER_PROFILE_SLUGS.has(m[1]);
 }
 
@@ -592,8 +595,9 @@ export function resolveSearchConsoleCompatTarget(
  // emitted at this exact path, so a GSC 404 snapshot for a now-live URL
  // resolves to itself. Unknown slugs fall through (no live page).
  if (isEmployerProfilePath(path)) {
+ const profilePath = path.replace(/\.html$/, '');
  return {
- canonicalPath: ensureTrailingSlash(path),
+ canonicalPath: ensureTrailingSlash(profilePath),
  kind: 'legacy',
  locale,
  };
