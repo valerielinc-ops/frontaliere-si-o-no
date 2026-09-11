@@ -79,6 +79,16 @@ describe('crawler generation token fallback', () => {
     })).toBeNull();
   });
 
+  it('fails closed when a non-empty raw token normalizes to empty', () => {
+    for (const rawToken of ['  ', '"  "', '""', "''"]) {
+      expect(resolveCrawlerGenerationToken({
+        CRAWLER_GENERATION_TOKEN: rawToken,
+        GITHUB_RUN_ID: '33585044260',
+        GITHUB_RUN_ATTEMPT: '1',
+      })).toBeNull();
+    }
+  });
+
   it('returns null when neither the input nor the run coordinates yield a token', () => {
     expect(resolveCrawlerGenerationToken({ CRAWLER_GENERATION_TOKEN: '' })).toBeNull();
     expect(resolveCrawlerGenerationToken({
