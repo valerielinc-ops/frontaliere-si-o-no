@@ -160,7 +160,7 @@ export function isDistinctiveToken(s) {
   // citation metadata, not prescribed code.  The file is already extracted by
   // `citedFiles()`; counting its `:Lnnn` suffix as a second token makes a
   // resolved item look unresolved whenever the issue includes a line anchor.
-  if (/^[\w./-]+\.[a-z0-9]{2,5}:L?\d+$/i.test(s) && s.includes('/')) return false;
+  if (/^[\w./-]+\.[a-z0-9]{2,5}:L?\d+(?:-L?\d+)?$/i.test(s) && s.includes('/')) return false;
   if (/^[\w./-]+$/.test(s) && /\.[a-z]{2,4}$/i.test(s)) return false; // bare file path
   if (/\s/.test(s.trim()) && !/[(){}'"`:=<>]|\.\w/.test(s)) return false; // prose phrase
   // ONLY code punctuation qualifies. A bare identifier (even a familiar field/helper name
@@ -200,15 +200,19 @@ export function mostSpecificToken(tokens) {
  */
 export function citedFiles(body, fileExists) {
   const out = new Set();
+  // A prose citation is context, not an actionable target.  Only explicit
+  // `Suggested action` regions may contribute backticked file references;
+  // `Target file:` remains live metadata for legacy bodies without that field.
+  const actionText = explicitSuggestedActionText(body);
   const unprotected = markdownRecords(body)
     .filter((record) => !record.protected)
     .map((record) => record.line)
     .join('\n');
-  for (const m of unprotected.matchAll(/`([\w./-]+\.[a-z]{2,5})(?::L?\d+)?`/gi)) {
+  for (const m of actionText.matchAll(/`([\w./-]+\.[a-z]{2,5})(?::L?\d+(?:-L?\d+)?)?`/gi)) {
     const p = m[1];
     if (p.includes('/') && fileExists(p)) out.add(p);
   }
-  for (const m of unprotected.matchAll(/(?:^|\n)\s*(?:[-*]\s*)?Target file:\s*([\w./-]+\.[a-z]{2,5})(?::L?\d+)?\s*$/gim)) {
+  for (const m of unprotected.matchAll(/(?:^|\n)\s*(?:[-*]\s*)?Target file:\s*`?([\w./-]+\.[a-z]{2,5})(?::L?\d+(?:-L?\d+)?)?`?\s*$/gim)) {
     const p = m[1];
     if (p.includes('/') && fileExists(p)) out.add(p);
   }
@@ -267,6 +271,16 @@ function acceptanceScopeText(body) {
  */
 export function suggestedActionText(body) {
   const scoped = acceptanceScopeText(body);
+  const regions = suggestedActionRegions(body, scoped);
+  return regions.length ? regions.join('\n') : scoped;
+}
+
+/** Return only explicit Suggested action regions; unlike `suggestedActionText`, never falls back. */
+function explicitSuggestedActionText(body) {
+  return suggestedActionRegions(body).join('\n');
+}
+
+function suggestedActionRegions(body, scoped = acceptanceScopeText(body)) {
   const lines = scoped.split('\n');
   const regions = [];
   for (let i = 0; i < lines.length; i++) {
@@ -279,7 +293,7 @@ export function suggestedActionText(body) {
       regions.push(buf.join('\n'));
     }
   }
-  return regions.length ? regions.join('\n') : scoped;
+  return regions;
 }
 
 /** Backticked spans inside the suggested-action region → distinctive tokens (capped, deduped). */
@@ -1007,9 +1021,9 @@ export function followupItemMarkers(text) {
 // "issue") Italian prose puts between the verb and the `#N`, bounded to that
 // fixed word list so a real sentence boundary still breaks the run exactly
 // like the English case above.
-const IT_BRIDGE = '(?:anche\\s+)?(?:l[ae]\\s+)?(?:issue\\s+)?';
+const IT_BRIDGE = '(?:anche[ \\t]+)?(?:l[ae][ \\t]+)?(?:issue[ \\t]+)?';
 const CLOSE_KW_LIST = new RegExp(
-  `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?|chiud[eo]|risolv[eo]|super[ae])\\b\\s*:?\\s*${IT_BRIDGE}((?:#\\d+(?:[\\s,&]+(?:and\\s+)?)?)+)`,
+  `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?|chiud[eo]|risolv[eo]|super[ae])\\b[ \\t]*:?[ \\t]*${IT_BRIDGE}((?:#\\d+(?:[ \\t,&]+(?:and[ \\t]+)?)?)+)`,
   'ig',
 );
 
