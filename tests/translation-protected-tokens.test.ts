@@ -563,10 +563,12 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'classifyMopupWrite',
       'createFreshCoverageMeter',
       'finalizeMopupTranslation',
+      'languageAwareOverwriteEnabled',
       'masculineGermanTitle',
       'missingSlots',
       'needsWork',
       'orderMopupJobsByTraffic',
+      'shouldApplyMopupWrite',
     ]);
   });
 });
