@@ -52,6 +52,21 @@ afterEach(() => {
 });
 
 describe('relocalize company invocation batching', () => {
+  it('separates historical truncated keys by the full company name before batching', async () => {
+    const { canonicalCompanyKeyForJob } = await import('../scripts/relocalize-pending-jobs.mjs');
+    const firstName = `${'x'.repeat(63)} one`;
+    const secondName = `${'x'.repeat(63)} two`;
+    const historicalKey = 'x'.repeat(63) + '-';
+    const normalizedHistoricalKey = 'x'.repeat(63);
+
+    expect(canonicalCompanyKeyForJob({ company: firstName, companyKey: historicalKey }))
+      .not.toBe(canonicalCompanyKeyForJob({ company: secondName, companyKey: historicalKey }));
+    expect(canonicalCompanyKeyForJob({ company: firstName, companyKey: normalizedHistoricalKey }))
+      .toBe(canonicalCompanyKeyForJob({ company: firstName, companyKey: historicalKey }));
+    expect(canonicalCompanyKeyForJob({ company: firstName, companyKey: historicalKey }))
+      .toBe((await import('../scripts/lib/company-key.mjs')).normalizeCompanyKey(firstName));
+  });
+
   it('batches short companies, keeps large companies separate, and preserves company rows', async () => {
     const { buildCompanyExecutionGroups, SMALL_COMPANY_JOB_LIMIT } = await import('../scripts/relocalize-pending-jobs.mjs');
     const orderedCompanyKeys = ['short-first', 'large', 'short-later', 'large-later'];

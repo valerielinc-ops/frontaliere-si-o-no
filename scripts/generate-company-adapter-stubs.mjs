@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
-import { normalizeCompanyKey } from './lib/company-key.mjs';
+import { canonicalizeCompanyDefinition } from './lib/company-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,8 +27,9 @@ function parseTsxCompanies(tsxSource) {
   for (const raw of objects) {
     const name = raw.match(/name:\s*'([^']+)'/)?.[1];
     const website = raw.match(/website:\s*'([^']+)'/)?.[1];
+    const employees = Number(raw.match(/employees:\s*(\d+)/)?.[1] || 0);
     if (!name || !website) continue;
-    out.push({ key: normalizeCompanyKey(name), name, website });
+    out.push(canonicalizeCompanyDefinition({ name, website, employees }));
   }
   return out;
 }
@@ -40,7 +41,12 @@ function loadExtra() {
     if (!Array.isArray(arr)) return [];
     return arr
       .filter((x) => x && typeof x === 'object' && x.name && x.website)
-      .map((x) => ({ key: normalizeCompanyKey(x.name), name: String(x.name), website: String(x.website) }));
+      .map((x) => canonicalizeCompanyDefinition({
+        key: x.key,
+        name: String(x.name),
+        website: String(x.website),
+        employees: Number(x.employees || 0),
+      }));
   } catch {
     return [];
   }
@@ -73,7 +79,16 @@ const all = [...parseTsxCompanies(tsx), ...loadExtra()];
 const dedup = new Map();
 for (const c of all) {
   if (!c.key) continue;
-  if (!dedup.has(c.key)) dedup.set(c.key, c);
+  const prev = dedup.get(normalizeHost(c.website));
+  const preferred = !prev || c.employees > prev.employees ? c : prev;
+  const aliases = [...new Set([
+    ...(prev?.companyKeyAliases || []),
+    ...(c.companyKeyAliases || []),
+  ])].filter((alias) => alias && alias !== preferred.key);
+  dedup.set(normalizeHost(c.website), {
+    ...preferred,
+    ...(aliases.length > 0 ? { companyKeyAliases: aliases } : {}),
+  });
 }
 const companies = [...dedup.values()].sort((a, b) => a.name.localeCompare(b.name));
 
@@ -93,9 +108,24 @@ for (const company of companies) {
   const fileName = `${company.key}.json`;
   const relPath = `adapters/${fileName}`;
   const absPath = path.resolve(ADAPTERS_DIR, relPath);
-  const existing = readJson(absPath, null);
+  let existing = readJson(absPath, null);
+  if (!existing) {
+    for (const alias of company.companyKeyAliases || []) {
+      const legacyPath = path.resolve(ADAPTERS_DIR, 'adapters', `${alias}.json`);
+      const legacy = readJson(legacyPath, null);
+      if (legacy) {
+        existing = legacy;
+        break;
+      }
+    }
+  }
+  const companyKeyAliases = [...new Set([
+    ...(company.companyKeyAliases || []),
+    ...(Array.isArray(existing?.companyKeyAliases) ? existing.companyKeyAliases : []),
+  ])].filter((alias) => alias && alias !== company.key);
   const next = {
     companyKey: company.key,
+    ...(companyKeyAliases.length > 0 ? { companyKeyAliases } : {}),
     companyName: company.name,
     companyHost: host,
     enabled: true,

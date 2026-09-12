@@ -7590,9 +7590,15 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   const nowIsoDate = dateOnly(Date.now());
   const nowIsoTs = new Date().toISOString();
   const map = new Map();
+  const resolveCompanyKey = typeof options.resolveCompanyKey === 'function'
+    ? options.resolveCompanyKey
+    : normalizeCompanyKey;
+  const resolveJobCompanyKey = typeof options.resolveJobCompanyKey === 'function'
+    ? options.resolveJobCompanyKey
+    : (job) => resolveCompanyKey(String(job?.companyKey || job?.company || ''));
   const scopeCompanyKeys = new Set(
     (Array.isArray(options.scopeCompanyKeys) ? options.scopeCompanyKeys : [])
-      .map((k) => normalizeCompanyKey(k))
+      .map((k) => resolveCompanyKey(k))
       .filter(Boolean)
   );
   const hasScopedCompanyKeys = scopeCompanyKeys.size > 0;
@@ -7613,6 +7619,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (!fp) continue;
     const normalized = {
       ...job,
+      ...(job?.companyKey ? { companyKey: resolveJobCompanyKey(job) } : {}),
       crawledAt: normalizeSpace(job.crawledAt || ''),
     };
     const prev = map.get(fp);
@@ -7644,6 +7651,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     seenIncoming.add(fp);
     const next = {
       ...raw,
+      ...(raw?.companyKey ? { companyKey: resolveJobCompanyKey(raw) } : {}),
       id: raw.id || buildStableId(raw),
       crawledAt: nowIsoTs,
     };
@@ -7780,13 +7788,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   const allMerged = [...map.values()];
   const inScopeJobs = hasScopedCompanyKeys
     ? allMerged.filter((j) => {
-      const key = normalizeCompanyKey(String(j?.companyKey || j?.company || ''));
+      const key = resolveJobCompanyKey(j);
       return scopeCompanyKeys.has(key);
     })
     : allMerged;
   const outOfScopeJobs = hasScopedCompanyKeys
     ? allMerged.filter((j) => {
-      const key = normalizeCompanyKey(String(j?.companyKey || j?.company || ''));
+      const key = resolveJobCompanyKey(j);
       return !scopeCompanyKeys.has(key);
     })
     : [];
