@@ -37,7 +37,6 @@ on:
 concurrency:
   group: jobs-data-pipeline
   cancel-in-progress: false
-  queue: max
 
 permissions:
   contents: write
