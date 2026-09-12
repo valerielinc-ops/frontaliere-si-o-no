@@ -202,9 +202,12 @@ export function referencedIssueNumbers(prs) {
     }
     // `Addresses item 1 e item 2 di #8039` is deliberately broader than a
     // closing keyword: an aggregate PR can reference the source issue several
-    // words after `Addresses` and must still protect its in-flight claim.
-    for (const m of body.matchAll(/\baddresses?\b[^\n#]{0,160}#(\d+)/gi)) {
-      out.add(Number(m[1]));
+    // words after `Addresses` and must still protect its in-flight claim. Scan
+    // every number on the matching line: a single `Addresses #A ... #B` line
+    // is one aggregate declaration, not permission to release #B.
+    for (const line of body.split('\n')) {
+      if (!/\baddresses?\b/i.test(line)) continue;
+      for (const m of line.matchAll(/#(\d+)/g)) out.add(Number(m[1]));
     }
     // Aggregate follow-up PRs also use `Ref #N`/`Refs #N` when the source issue
     // must stay open. Scan only lines that declare that keyword, keeping the
