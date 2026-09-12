@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisslog",
-  "assembledAt": "2026-09-11T23:10:03.591Z",
+  "assembledAt": "2026-09-12T12:58:09.537Z",
   "jobs": [
     {
       "id": "swisslog-34572dec2de5",
@@ -33,7 +33,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:09:56.189Z",
+      "crawledAt": "2026-09-12T12:57:58.017Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -71,87 +71,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:41:26.496Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "swisslog-b368fd2bd87c",
-      "slug": "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland",
-      "slugByLocale": {
-        "it": "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland",
-        "en": "maintenance-technician-m-f-d-swisslog-buchs-switzerland",
-        "de": "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland",
-        "fr": "technicien-d-entretien-m-f-d-swisslog-buchs-switzerland"
-      },
-      "company": "Swisslog",
-      "companyKey": "swisslog",
-      "companyDomain": "swisslog.com",
-      "title": "Instandhaltungs-Techniker (m/w/d)",
-      "titleByLocale": {
-        "it": "Tecnico di manutenzione (m/f/d)",
-        "en": "Maintenance technician (m/f/d)",
-        "de": "Instandhaltungs-Techniker (m/w/d)",
-        "fr": "Technicien d ' entretien (m/f/d)"
-      },
-      "description": "Instandhaltungs-Techniker (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\n Bei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\n• Überwachen und Bedienen der Logistikanlage und Störungsbehebung im Schichtbetrieb (2-Schicht)\n\n• Elektrische und / oder mechanische Unterhaltsarbeiten an der Logistikanlage\n\n• Mitarbeiten bei Montagearbeiten, Elektro-Installationen, Hardware-Inbetriebnahmen sowie Unterstützung von Software-Inbetriebnahmen\n\n• Sicherstellen der geforderten Verfügbarkeit und kontinuierliche Verbesserung der Anlage\n\nBewerberprofil Das bringst du mit\n\n• Technische Grundausbildung (Mechatroniker, Maschinenmechaniker, Elektromonteur etc.)\n\n• Mehrjährige technische Erfahrung im Bereich Instandhaltung und Anlagenbau (Intralogistik-Anlagen von Vorteil)\n\n• Gute Anwenderkenntnisse MS-Office Paket\n\n• Teamplayer mit Eigeninitiative, Verantwortungsbewusstsein sowie Leistungsbereitschaft\n\n• Offene und kommunikative Persönlichkeit\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nUnser Versprechen an dich\n Swisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\n Begleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\n Über Swisslog\n Swisslog gestaltet die Zukunft der Intralogistik. Als Teil der KUKA Group arbeiten wir an den neuesten Technologien, die die Welt der Logistik neu erfinden. Wir sind ein Team von 3.000+ Experten aus 50 Ländern und bedienen einige der größten und aufregendsten Marken der Welt. Gemeinsam setzen wir smarte und innovative Ansätze um, einschließlich flexibler daten- und robotergesteuerten Automatisierungslösungen, die die Lieferkette transformieren. Ergänze unser Team und teile deine einzigartige Perspektive.\n Gehe mit uns auf die Reise!\n Wenn du glaubst, dass eine Karriere bei Swisslog das Richtige für dich sein könnte, würden wir gerne von dir hören. Wir freuen uns auf deine Bewerbung!",
-      "descriptionByLocale": {
-        "it": "Tecnici di manutenzione (m/f/d) Dove le persone amano ciò che fanno e sono grandi ad esso?\nA Swisslog, ovviamente! I nostri team sono al centro di una società leader mondiale di dati e robot-driven che sfrutta il potere della tecnologia per modellare il futuro dell'intralogistica. Il risultato? Offriamo prestazioni ed efficienza ai nostri clienti in tutto il mondo, dando loro il vantaggio decisivo nei loro mercati. Descrizione del lavoro Qui fai qualcosa\n\n• Monitoraggio e gestione della struttura logistica e risoluzione dei problemi durante il funzionamento a turni (2 turni)\n\n• Lavori di manutenzione elettrica e/o meccanica sull'impianto logistico\n\n• Cooperazione nel lavoro di assemblaggio, impianti elettrici, messa in servizio hardware e supporto della messa in servizio software\n\n• Garantire la disponibilità e il miglioramento continuo dell'impianto\n\nProfilo applicabile Questo è ciò che porti con te\n\n• Formazione tecnica di base (tecnico di meccatronica, meccanico, elettroinstallatore, ecc.)\n\n• Diversi anni di esperienza tecnica nel campo della manutenzione e della costruzione di impianti (sistemi di vantaggi intralogistici)\n\n• Buona conoscenza dell'utente MS-Office pacchetto\n\n• Giocatore di squadra con iniziativa, senso di responsabilità e volontà di eseguire\n\n• Personalità aperta e comunicativa\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\nLa nostra promessa a te\nSwisslog è un mondo pieno di possibilità. Con noi, si modella il futuro dell'intralogistica con soluzioni di automazione controllate da dati e robot. Questo crea un valore aggiunto eccezionale per i nostri clienti.\nUnisciti a noi in questo viaggio e diventare parte di una società globale orgogliosa delle sue radici svizzere. In qualità di azienda globale, non vediamo l'ora delle opportunità offerte a tutti nella famiglia Swisslog. Scatena il tuo potenziale in una squadra unita dalla passione e guidata dallo spirito di squadra OneSwisslog.\nInformazioni su Swisslog\nSwisslog plasma il futuro dell'intralogistica. Nell'ambito del Gruppo KUKA, stiamo lavorando sulle ultime tecnologie che reinventano il mondo della logistica. Siamo un team di 3.000 esperti di 50 paesi che servono alcuni dei marchi più grandi e più eccitanti del mondo. Insieme, implementiamo approcci intelligenti e innovativi, tra cui soluzioni di dati flessibili e automazione robotica che trasformano la supply chain. Completa il nostro team e condividi la tua prospettiva unica.\nAndate con noi durante il viaggio!\nSe pensate che una carriera a Swisslog potrebbe essere giusta per voi, ci piacerebbe sentire da voi. Attendiamo con ansia la vostra applicazione!",
-        "en": "Maintenance technicians (m/f/d) Where do people love what they do and are great at it?\nAt Swisslog, of course! Our teams are at the heart of a world-leading data- and robot-driven company that harnesses the power of technology to shape the future of intralogistics. The result? We deliver performance and efficiency to our customers around the world, giving them the decisive advantage in their markets. Job description Here you do something\n\n• Monitoring and operating the logistics facility and troubleshooting during shift operation (2 shift)\n\n• Electrical and/or mechanical maintenance work on the logistics plant\n\n• Cooperation in assembly work, electrical installations, hardware commissioning and support of software commissioning\n\n• Ensuring the required availability and continuous improvement of the plant\n\nApplicant profile This is what you bring with you\n\n• Basic technical training (mechatronics technician, mechanic, electro-installer, etc.)\n\n• Several years of technical experience in the field of maintenance and plant construction (intralogistics systems of advantage)\n\n• Good user knowledge MS-Office package\n\n• Team player with initiative, sense of responsibility and willingness to perform\n\n• Open and communicative personality\n\n• Good knowledge of German in words and writing\n\nOur Promise to You\nSwisslog is a world full of possibilities. With us, you shape the future of intralogistics with data- and robot-controlled automation solutions. This creates exceptional added value for our customers.\nJoin us on this journey and become part of a global company proud of its Swiss roots. As a global company, we look forward to the opportunities offered to everyone in the Swisslog family. Unleash your potential in a team united by passion and driven by the OneSwisslog team spirit.\nAbout Swisslog\nSwisslog shapes the future of intralogistics. As part of the KUKA Group, we are working on the latest technologies that reinvent the world of logistics. We are a team of 3,000+ experts from 50 countries serving some of the biggest and most exciting brands in the world. Together, we implement smart and innovative approaches, including flexible data and robotic automation solutions that transform the supply chain. Complement our team and share your unique perspective.\nGo with us on the journey!\nIf you think a career at Swisslog could be right for you, we would love to hear from you. We look forward to your application!",
-        "de": "Instandhaltungs-Techniker (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\nBei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\n• Überwachen und Bedienen der Logistikanlage und Störungsbehebung im Schichtbetrieb (2-Schicht)\n\n• Elektrische und / oder mechanische Unterhaltsarbeiten an der Logistikanlage\n\n• Mitarbeiten bei Montagearbeiten, Elektro-Installationen, Hardware-Inbetriebnahmen sowie Unterstützung von Software-Inbetriebnahmen\n\n• Sicherstellen der geforderten Verfügbarkeit und kontinuierliche Verbesserung der Anlage\n\nBewerberprofil Das bringst du mit\n\n• Technische Grundausbildung (Mechatroniker, Maschinenmechaniker, Elektromonteur etc.)\n\n• Mehrjährige technische Erfahrung im Bereich Instandhaltung und Anlagenbau (Intralogistik-Anlagen von Vorteil)\n\n• Gute Anwenderkenntnisse MS-Office Paket\n\n• Teamplayer mit Eigeninitiative, Verantwortungsbewusstsein sowie Leistungsbereitschaft\n\n• Offene und kommunikative Persönlichkeit\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nUnser Versprechen an dich\nSwisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\nBegleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\nÜber Swisslog\nSwisslog gestaltet die Zukunft der Intralogistik. Als Teil der KUKA Group arbeiten wir an den neuesten Technologien, die die Welt der Logistik neu erfinden. Wir sind ein Team von 3.000+ Experten aus 50 Ländern und bedienen einige der größten und aufregendsten Marken der Welt. Gemeinsam setzen wir smarte und innovative Ansätze um, einschließlich flexibler daten- und robotergesteuerten Automatisierungslösungen, die die Lieferkette transformieren. Ergänze unser Team und teile deine einzigartige Perspektive.\nGehe mit uns auf die Reise!\nWenn du glaubst, dass eine Karriere bei Swisslog das Richtige für dich sein könnte, würden wir gerne von dir hören. Wir freuen uns auf deine Bewerbung!",
-        "fr": "Techniciens d'entretien (m/f/d) Où les gens aiment-ils ce qu'ils font et y sont bien?\nAu Swisslog, bien sûr ! Nos équipes sont au cœur d'une entreprise mondiale de pointe axée sur les données et les robots qui exploite la puissance de la technologie pour façonner l'avenir de l'intralogistique. Le résultat? Nous offrons performances et efficacité à nos clients dans le monde entier, leur donnant l'avantage décisif sur leurs marchés. Description du poste Ici tu fais quelque chose\n\n• Surveillance et exploitation de l'installation logistique et dépannage pendant les équipes (2 équipes)\n\n• Travaux d'entretien électrique et/ou mécanique de l'usine de logistique\n\n• Coopération dans les travaux d'assemblage, les installations électriques, la mise en service du matériel et le soutien à la mise en service des logiciels\n\n• Assurer la disponibilité et l'amélioration continue de l'usine\n\nProfil du demandeur C'est ce que vous apportez avec vous\n\n• Formation technique de base (mécatronique, mécanicien, électro-installateur, etc.)\n\n• Plusieurs années d'expérience technique dans le domaine de l'entretien et de la construction d'installations (systèmes intralogistiques d'avantage)\n\n• Bonnes connaissances des utilisateurs\n\n• Joueur d'équipe avec initiative, sens des responsabilités et volonté de jouer\n\n• Personnalité ouverte et communicative\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nNotre promesse à vous\nSwisslog est un monde plein de possibilités. Avec nous, vous façonnez l'avenir de l'intralogistique avec des solutions d'automatisation contrôlées par les données et les robots. Cela crée une valeur ajoutée exceptionnelle pour nos clients.\nRejoignez-nous dans ce voyage et devenez membre d'une entreprise mondiale fière de ses racines suisses. En tant qu'entreprise mondiale, nous nous réjouissons des opportunités offertes à tous dans la famille Swisslog. Libérez votre potentiel dans une équipe unie par la passion et animée par l'esprit d'équipe OneSwisslog.\nÀ propos de Swisslog\nSwisslog façonne l'avenir de l'intralogistique. Dans le cadre du groupe KUKA, nous travaillons sur les dernières technologies qui réinventent le monde de la logistique. Nous sommes une équipe de plus de 3000 experts de 50 pays servant certaines des marques les plus grandes et les plus excitantes du monde. Ensemble, nous mettons en œuvre des approches intelligentes et innovantes, y compris des solutions d'automatisation des données et robotiques flexibles qui transforment la chaîne d'approvisionnement. Compléter notre équipe et partager votre perspective unique.\nAllez avec nous au voyage !\nSi vous pensez qu'une carrière chez Swisslog pourrait vous convenir, nous aimerions avoir de vos nouvelles. Nous nous réjouissons de votre candidature!"
-      },
-      "location": "Buchs, Switzerland",
-      "canton": "AG",
-      "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
-      "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:09:56.188Z",
-      "addressLocality": "Argovia",
-      "addressRegion": "AG",
-      "streetAddress": "Webereiweg 3",
-      "postalCode": "5033",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Logistica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
-      "jobReqId": "4384",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland",
-        "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland",
-          "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland"
-        ],
-        "en": [
-          "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
-        ],
-        "fr": [
-          "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-28T22:07:43.772Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -181,7 +101,7 @@
       "title": "Controls Software Service Engineer (Siemens) (m/w/d)",
       "titleByLocale": {
         "it": "Controls Software Service Ingegnere (Siemens) (m/w/d)",
-        "en": "Controls Software Service Engineer (Siemens) (m/f/d)",
+        "en": "Controls Software Service Engineer (Siemens) (m/w/d)",
         "de": "Controls Software Service Ingenieur (Siemens) (m/w/d)",
         "fr": "Controls Software Service Ingénieur (Siemens) (m/w/d)"
       },
@@ -197,7 +117,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:09:56.188Z",
+      "crawledAt": "2026-09-12T12:57:58.016Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -256,84 +176,6 @@
       }
     },
     {
-      "id": "swisslog-0eb581e2e3de",
-      "slug": "apprendista-informatico-m-f-d-swisslog-buchs-switzerland",
-      "slugByLocale": {
-        "it": "apprendista-informatico-m-f-d-swisslog-buchs-switzerland",
-        "en": "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
-        "de": "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
-        "fr": "apprentis-en-informatique-m-f-d-swisslog-buchs-switzerland"
-      },
-      "company": "Swisslog",
-      "companyKey": "swisslog",
-      "companyDomain": "swisslog.com",
-      "title": "Apprentice Computer Scientist (m/w/d)",
-      "titleByLocale": {
-        "it": "Apprendista informatico (m/f/d)",
-        "en": "Apprentice Computer Scientist (m/f/d)",
-        "de": "Apprentice Computer Scientist (m/w/d)",
-        "fr": "Apprentis en informatique (m/f/d)"
-      },
-      "description": "Apprentice Computer Scientist (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\n Bei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\nSwisslog bietet Dir die Möglichkeit zur persönlichen Weiterentwicklung, während Du mit uns an einer wegweisenden Mission arbeitest: die Zukunft der Intralogistik zu verändern indem wir eine Ära der roboterbasierten und datengestützten Lösungen schaffen, die herausragenden Kundennutzen stiftet. Wir sind stolz auf unsere Schweizer Wurzeln, während sich die Möglichkeiten, die wir bieten, über den ganzen Globus erstrecken. Wir erwarten keine Perfektion, dafür aber Collaboration, Commitment, Clarity und Competence (unsere Core Values) von allen unseren Mitarbeitenden. Im Gegenzug bieten wir Dir die Chance Teil der treibenden Kraft hinter Lösungen zu sein, die die Zukunft verändern.\n\nAls Informatiker Fachrichtung Applikationsentwicklung stehst du im Zentrum des Geschehens: Du bist zuständig für die Entwicklung und Pflege unterschiedlichster Programme. Dazu gehört das Analysieren von Prozessen, das Verfassen eines Konzepts und das Programmieren mit Java. Am Schluss wird die Applikation dem Kunden vorgeführt, was bedingt, dass alle Beteiligten instruiert und geschult werden. Weitere Aufgaben sind: Produkte weiterentwickeln, Datenbanken pflegen und PC-Support für unsere Mitarbeitenden leisten. Bewerberprofil Das bringst du mit\n\n• Abschluss der Bezirksschule (Sek E) mit guten Noten oder gleichwertige Schulbildung\n\n• Gute Schulnoten in Mathematik und Englisch\n\n• Eine rasche Auffassungsgabe und eine ausgeprägte Konzentrationsfähigkeit\n\n• Sehr gutes logisch-abstraktes Denkvermögen\n\n• Interesse an neuen IT-Technologie und am Lösen komplexer Aufgabenstellungen\n\n• Freude am Arbeiten im Team und Einsatzbereitschaft\n\nUnser Versprechen an dich\n Swisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\n Begleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\n Gehe mit uns auf die Reise!\n Wir freuen uns auf deine Bewerbung!\n Talent Acquisition Manager: Ronja Heiniger",
-      "descriptionByLocale": {
-        "it": "Apprendista informatico (m/f/d) Dove le persone amano quello che fanno e sono grandi ad esso?\nA Swisslog, ovviamente! I nostri team sono al centro di una società leader mondiale di dati e robot-driven che sfrutta il potere della tecnologia per modellare il futuro dell'intralogistica. Il risultato? Offriamo prestazioni ed efficienza ai nostri clienti in tutto il mondo, dando loro il vantaggio decisivo nei loro mercati. Descrizione del lavoro Qui fai qualcosa\n\nOfferte Swisslog Avrai l'opportunità di personalizzare mentre lavori con noi in una missione innovativa: cambiare il futuro dell'intralogistica creando un'era di soluzioni basate su robot e basate sui dati che offrono un valore clienti eccezionale. Siamo orgogliosi delle nostre radici svizzere mentre le opportunità che offriamo si estendono in tutto il mondo. Non ci aspettiamo la perfezione, ma la collaborazione, l'impegno, la chiarezza e la competenza (i nostri valori fondamentali) da tutti i nostri dipendenti. In cambio, vi offriamo la possibilità di far parte della forza trainante dietro soluzioni che cambiano il futuro.\n\nCome scienziato informatico specializzato nello sviluppo delle applicazioni, siete al centro dell'azione: Sei responsabile per lo sviluppo e la manutenzione di una vasta gamma di programmi. Questo include l'analisi dei processi, la scrittura di un concetto e la programmazione con Java. Alla fine, la domanda viene presentata al cliente, che richiede che tutti i partecipanti siano istruiti e addestrati. Altri compiti includono lo sviluppo di prodotti, il mantenimento di database e la fornitura di supporto PC per i nostri dipendenti. Profilo applicabile Questo è ciò che porti con te\n\n• Completamento della scuola distrettuale (Sek E) con buoni voti o istruzione equivalente\n\n• Gradi di buona scuola in matematica e inglese\n\n• Rapida comprensione e una spiccata capacità di concentrazione\n\n• Molto buon pensiero logico-astratto\n\n• Interessi nella nuova tecnologia IT e nella risoluzione di compiti complessi\n\n• Gioia di lavorare in una squadra e impegno\n\nLa nostra promessa a te\nSwisslog è un mondo pieno di possibilità. Con noi, si modella il futuro dell'intralogistica con soluzioni di automazione controllate da dati e robot. Questo crea un valore aggiunto eccezionale per i nostri clienti.\nUnisciti a noi in questo viaggio e diventare parte di una società globale orgogliosa delle sue radici svizzere. In qualità di azienda globale, non vediamo l'ora delle opportunità offerte a tutti nella famiglia Swisslog. Scatena il tuo potenziale in una squadra unita dalla passione e guidata dallo spirito di squadra OneSwisslog.\nAndate con noi durante il viaggio!\nAttendiamo con ansia la vostra applicazione!\nTalent Acquisition Manager: Ronja Heiniger",
-        "en": "Apprentice Computer Scientist (m/f/d) Where do people love what they do and are great at it?\nAt Swisslog, of course! Our teams are at the heart of a world-leading data- and robot-driven company that harnesses the power of technology to shape the future of intralogistics. The result? We deliver performance and efficiency to our customers around the world, giving them the decisive advantage in their markets. Job description Here you do something\n\nSwisslog offers You will have the opportunity to personalize as you work with us on a groundbreaking mission: to change the future of intralogistics by creating an era of robot-based and data-driven solutions that deliver outstanding customer value. We are proud of our Swiss roots while the opportunities we offer extend across the globe. We do not expect perfection, but collaboration, commitment, clarity and competence (our core values) from all our employees. In return, we offer you the chance to be part of the driving force behind solutions that change the future.\n\nAs a computer scientist specializing in application development, you are at the center of the action: You are responsible for the development and maintenance of a wide range of programs. This includes analyzing processes, writing a concept, and programming with Java. At the end, the application is presented to the customer, which requires that all participants are instructed and trained. Other tasks include further developing products, maintaining databases and providing PC support for our employees. Applicant profile This is what you bring with you\n\n• Completion of the district school (Sek E) with good grades or equivalent education\n\n• Good School Grades in Mathematics and English\n\n• Rapid comprehension and a pronounced ability to concentrate\n\n• Very good logical-abstract thinking\n\n• Interest in new IT technology and solving complex tasks\n\n• Joy of working in a team and commitment\n\nOur Promise to You\nSwisslog is a world full of possibilities. With us, you shape the future of intralogistics with data- and robot-controlled automation solutions. This creates exceptional added value for our customers.\nJoin us on this journey and become part of a global company proud of its Swiss roots. As a global company, we look forward to the opportunities offered to everyone in the Swisslog family. Unleash your potential in a team united by passion and driven by the OneSwisslog team spirit.\nGo with us on the journey!\nWe look forward to your application!\nTalent Acquisition Manager: Ronja Heiniger",
-        "de": "Apprentice Computer Scientist (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\nBei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\nSwisslog bietet Dir die Möglichkeit zur persönlichen Weiterentwicklung, während Du mit uns an einer wegweisenden Mission arbeitest: die Zukunft der Intralogistik zu verändern indem wir eine Ära der roboterbasierten und datengestützten Lösungen schaffen, die herausragenden Kundennutzen stiftet. Wir sind stolz auf unsere Schweizer Wurzeln, während sich die Möglichkeiten, die wir bieten, über den ganzen Globus erstrecken. Wir erwarten keine Perfektion, dafür aber Collaboration, Commitment, Clarity und Competence (unsere Core Values) von allen unseren Mitarbeitenden. Im Gegenzug bieten wir Dir die Chance Teil der treibenden Kraft hinter Lösungen zu sein, die die Zukunft verändern.\n\nAls Informatiker Fachrichtung Applikationsentwicklung stehst du im Zentrum des Geschehens: Du bist zuständig für die Entwicklung und Pflege unterschiedlichster Programme. Dazu gehört das Analysieren von Prozessen, das Verfassen eines Konzepts und das Programmieren mit Java. Am Schluss wird die Applikation dem Kunden vorgeführt, was bedingt, dass alle Beteiligten instruiert und geschult werden. Weitere Aufgaben sind: Produkte weiterentwickeln, Datenbanken pflegen und PC-Support für unsere Mitarbeitenden leisten. Bewerberprofil Das bringst du mit\n\n• Abschluss der Bezirksschule (Sek E) mit guten Noten oder gleichwertige Schulbildung\n\n• Gute Schulnoten in Mathematik und Englisch\n\n• Eine rasche Auffassungsgabe und eine ausgeprägte Konzentrationsfähigkeit\n\n• Sehr gutes logisch-abstraktes Denkvermögen\n\n• Interesse an neuen IT-Technologie und am Lösen komplexer Aufgabenstellungen\n\n• Freude am Arbeiten im Team und Einsatzbereitschaft\n\nUnser Versprechen an dich\nSwisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\nBegleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\nGehe mit uns auf die Reise!\nWir freuen uns auf deine Bewerbung!\nTalent Acquisition Manager: Ronja Heiniger",
-        "fr": "Apprentis en informatique (m/f/d) Où les gens aiment-ils ce qu'ils font et y sont grands ?\nAu Swisslog, bien sûr ! Nos équipes sont au cœur d'une entreprise mondiale de pointe axée sur les données et les robots qui exploite la puissance de la technologie pour façonner l'avenir de l'intralogistique. Le résultat? Nous offrons performances et efficacité à nos clients dans le monde entier, leur donnant l'avantage décisif sur leurs marchés. Description du poste Ici tu fais quelque chose\n\nOffres Swisslog Vous aurez l'occasion de personnaliser votre travail avec nous dans le cadre d'une mission révolutionnaire : changer l'avenir de l'intralogistique en créant une ère de solutions basées sur des robots et des données qui offrent une valeur client exceptionnelle. Nous sommes fiers de nos racines suisses tandis que les opportunités que nous offrons s'étendent à travers le monde. Nous ne nous attendons pas à la perfection, mais à la collaboration, à l'engagement, à la clarté et à la compétence (nos valeurs fondamentales) de tous nos employés. En retour, nous vous offrons la possibilité de faire partie de la force motrice derrière les solutions qui changent l'avenir.\n\nEn tant qu'informaticien spécialisé dans le développement d'applications, vous êtes au centre de l'action: Vous êtes responsable du développement et de la maintenance d'un large éventail de programmes. Cela inclut l'analyse des processus, l'écriture d'un concept et la programmation avec Java. À la fin, l'application est présentée au client, ce qui exige que tous les participants soient instruits et formés. Parmi les autres tâches, mentionnons le développement de produits, la tenue de bases de données et la prestation d'un soutien informatique à nos employés. Profil du demandeur C'est ce que vous apportez avec vous\n\n• Achèvement de l'école de district (Sek E) avec de bonnes notes ou un enseignement équivalent\n\n• Bonnes notes scolaires en mathématiques et en anglais\n\n• Compréhension rapide et capacité de concentration prononcée\n\n• Très bonne pensée logique-abstract\n\n• Intérêt pour les nouvelles technologies de l'information et la résolution de tâches complexes\n\n• Joy de travailler en équipe et de s'engager\n\nNotre promesse à vous\nSwisslog est un monde plein de possibilités. Avec nous, vous façonnez l'avenir de l'intralogistique avec des solutions d'automatisation contrôlées par les données et les robots. Cela crée une valeur ajoutée exceptionnelle pour nos clients.\nRejoignez-nous dans ce voyage et devenez membre d'une entreprise mondiale fière de ses racines suisses. En tant qu'entreprise mondiale, nous nous réjouissons des opportunités offertes à tous dans la famille Swisslog. Libérez votre potentiel dans une équipe unie par la passion et animée par l'esprit d'équipe OneSwisslog.\nAllez avec nous au voyage !\nNous nous réjouissons de votre candidature!\nGestionnaire d'acquisition de talents : Ronja Heiniger"
-      },
-      "location": "Buchs, Switzerland",
-      "canton": "AG",
-      "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
-      "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:09:56.186Z",
-      "addressLocality": "Argovia",
-      "addressRegion": "AG",
-      "streetAddress": "Webereiweg 3",
-      "postalCode": "5033",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Logistica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-05",
-      "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
-      "jobReqId": "4458",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
-        "apprendista-informatico-m-f-d-swisslog-buchs-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
-          "apprendista-informatico-m-f-d-swisslog-buchs-switzerland"
-        ],
-        "fr": [
-          "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T22:29:21.809Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "swisslog-0fdca037d51d",
       "slug": "software-project-manager-m-w-d-swisslog-buchs-switzerland",
       "slugByLocale": {
@@ -348,7 +190,7 @@
       "title": "Software Project Manager (m/w/d)",
       "titleByLocale": {
         "it": "Software Project Manager (m/f/d)",
-        "en": "Software Project Manager (m/f/d)",
+        "en": "Software Project Manager (m/w/d)",
         "de": "Software Project Manager (m/w/d)",
         "fr": "Gestionnaire de projet logiciel (m/f/d)"
       },
@@ -364,7 +206,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:09:56.185Z",
+      "crawledAt": "2026-09-12T12:57:58.015Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -402,6 +244,7 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:32:14.801Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -412,6 +255,166 @@
           "@type": "QuantitativeValue",
           "minValue": 99500,
           "maxValue": 169500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "swisslog-b368fd2bd87c",
+      "slug": "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland",
+      "slugByLocale": {
+        "it": "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland",
+        "en": "maintenance-technician-m-f-d-swisslog-buchs-switzerland",
+        "de": "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland",
+        "fr": "technicien-d-entretien-m-f-d-swisslog-buchs-switzerland"
+      },
+      "company": "Swisslog",
+      "companyKey": "swisslog",
+      "companyDomain": "swisslog.com",
+      "title": "Instandhaltungs-Techniker (m/w/d)",
+      "titleByLocale": {
+        "it": "Tecnico di manutenzione (m/f/d)",
+        "en": "Maintenance technician (m/f/d)",
+        "de": "Instandhaltungs-Techniker (m/w/d)",
+        "fr": "Technicien d ' entretien (m/f/d)"
+      },
+      "description": "Instandhaltungs-Techniker (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\n Bei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\n• Überwachen und Bedienen der Logistikanlage und Störungsbehebung im Schichtbetrieb (2-Schicht)\n\n• Elektrische und / oder mechanische Unterhaltsarbeiten an der Logistikanlage\n\n• Mitarbeiten bei Montagearbeiten, Elektro-Installationen, Hardware-Inbetriebnahmen sowie Unterstützung von Software-Inbetriebnahmen\n\n• Sicherstellen der geforderten Verfügbarkeit und kontinuierliche Verbesserung der Anlage\n\nBewerberprofil Das bringst du mit\n\n• Technische Grundausbildung (Mechatroniker, Maschinenmechaniker, Elektromonteur etc.)\n\n• Mehrjährige technische Erfahrung im Bereich Instandhaltung und Anlagenbau (Intralogistik-Anlagen von Vorteil)\n\n• Gute Anwenderkenntnisse MS-Office Paket\n\n• Teamplayer mit Eigeninitiative, Verantwortungsbewusstsein sowie Leistungsbereitschaft\n\n• Offene und kommunikative Persönlichkeit\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nUnser Versprechen an dich\n Swisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\n Begleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\n Über Swisslog\n Swisslog gestaltet die Zukunft der Intralogistik. Als Teil der KUKA Group arbeiten wir an den neuesten Technologien, die die Welt der Logistik neu erfinden. Wir sind ein Team von 3.000+ Experten aus 50 Ländern und bedienen einige der größten und aufregendsten Marken der Welt. Gemeinsam setzen wir smarte und innovative Ansätze um, einschließlich flexibler daten- und robotergesteuerten Automatisierungslösungen, die die Lieferkette transformieren. Ergänze unser Team und teile deine einzigartige Perspektive.\n Gehe mit uns auf die Reise!\n Wenn du glaubst, dass eine Karriere bei Swisslog das Richtige für dich sein könnte, würden wir gerne von dir hören. Wir freuen uns auf deine Bewerbung!",
+      "descriptionByLocale": {
+        "it": "Tecnici di manutenzione (m/f/d) Dove le persone amano ciò che fanno e sono grandi ad esso?\nA Swisslog, ovviamente! I nostri team sono al centro di una società leader mondiale di dati e robot-driven che sfrutta il potere della tecnologia per modellare il futuro dell'intralogistica. Il risultato? Offriamo prestazioni ed efficienza ai nostri clienti in tutto il mondo, dando loro il vantaggio decisivo nei loro mercati. Descrizione del lavoro Qui fai qualcosa\n\n• Monitoraggio e gestione della struttura logistica e risoluzione dei problemi durante il funzionamento a turni (2 turni)\n\n• Lavori di manutenzione elettrica e/o meccanica sull'impianto logistico\n\n• Cooperazione nel lavoro di assemblaggio, impianti elettrici, messa in servizio hardware e supporto della messa in servizio software\n\n• Garantire la disponibilità e il miglioramento continuo dell'impianto\n\nProfilo applicabile Questo è ciò che porti con te\n\n• Formazione tecnica di base (tecnico di meccatronica, meccanico, elettroinstallatore, ecc.)\n\n• Diversi anni di esperienza tecnica nel campo della manutenzione e della costruzione di impianti (sistemi di vantaggi intralogistici)\n\n• Buona conoscenza dell'utente MS-Office pacchetto\n\n• Giocatore di squadra con iniziativa, senso di responsabilità e volontà di eseguire\n\n• Personalità aperta e comunicativa\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\nLa nostra promessa a te\nSwisslog è un mondo pieno di possibilità. Con noi, si modella il futuro dell'intralogistica con soluzioni di automazione controllate da dati e robot. Questo crea un valore aggiunto eccezionale per i nostri clienti.\nUnisciti a noi in questo viaggio e diventare parte di una società globale orgogliosa delle sue radici svizzere. In qualità di azienda globale, non vediamo l'ora delle opportunità offerte a tutti nella famiglia Swisslog. Scatena il tuo potenziale in una squadra unita dalla passione e guidata dallo spirito di squadra OneSwisslog.\nInformazioni su Swisslog\nSwisslog plasma il futuro dell'intralogistica. Nell'ambito del Gruppo KUKA, stiamo lavorando sulle ultime tecnologie che reinventano il mondo della logistica. Siamo un team di 3.000 esperti di 50 paesi che servono alcuni dei marchi più grandi e più eccitanti del mondo. Insieme, implementiamo approcci intelligenti e innovativi, tra cui soluzioni di dati flessibili e automazione robotica che trasformano la supply chain. Completa il nostro team e condividi la tua prospettiva unica.\nAndate con noi durante il viaggio!\nSe pensate che una carriera a Swisslog potrebbe essere giusta per voi, ci piacerebbe sentire da voi. Attendiamo con ansia la vostra applicazione!",
+        "en": "Maintenance technicians (m/f/d) Where do people love what they do and are great at it?\nAt Swisslog, of course! Our teams are at the heart of a world-leading data- and robot-driven company that harnesses the power of technology to shape the future of intralogistics. The result? We deliver performance and efficiency to our customers around the world, giving them the decisive advantage in their markets. Job description Here you do something\n\n• Monitoring and operating the logistics facility and troubleshooting during shift operation (2 shift)\n\n• Electrical and/or mechanical maintenance work on the logistics plant\n\n• Cooperation in assembly work, electrical installations, hardware commissioning and support of software commissioning\n\n• Ensuring the required availability and continuous improvement of the plant\n\nApplicant profile This is what you bring with you\n\n• Basic technical training (mechatronics technician, mechanic, electro-installer, etc.)\n\n• Several years of technical experience in the field of maintenance and plant construction (intralogistics systems of advantage)\n\n• Good user knowledge MS-Office package\n\n• Team player with initiative, sense of responsibility and willingness to perform\n\n• Open and communicative personality\n\n• Good knowledge of German in words and writing\n\nOur Promise to You\nSwisslog is a world full of possibilities. With us, you shape the future of intralogistics with data- and robot-controlled automation solutions. This creates exceptional added value for our customers.\nJoin us on this journey and become part of a global company proud of its Swiss roots. As a global company, we look forward to the opportunities offered to everyone in the Swisslog family. Unleash your potential in a team united by passion and driven by the OneSwisslog team spirit.\nAbout Swisslog\nSwisslog shapes the future of intralogistics. As part of the KUKA Group, we are working on the latest technologies that reinvent the world of logistics. We are a team of 3,000+ experts from 50 countries serving some of the biggest and most exciting brands in the world. Together, we implement smart and innovative approaches, including flexible data and robotic automation solutions that transform the supply chain. Complement our team and share your unique perspective.\nGo with us on the journey!\nIf you think a career at Swisslog could be right for you, we would love to hear from you. We look forward to your application!",
+        "de": "Instandhaltungs-Techniker (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\nBei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\n• Überwachen und Bedienen der Logistikanlage und Störungsbehebung im Schichtbetrieb (2-Schicht)\n\n• Elektrische und / oder mechanische Unterhaltsarbeiten an der Logistikanlage\n\n• Mitarbeiten bei Montagearbeiten, Elektro-Installationen, Hardware-Inbetriebnahmen sowie Unterstützung von Software-Inbetriebnahmen\n\n• Sicherstellen der geforderten Verfügbarkeit und kontinuierliche Verbesserung der Anlage\n\nBewerberprofil Das bringst du mit\n\n• Technische Grundausbildung (Mechatroniker, Maschinenmechaniker, Elektromonteur etc.)\n\n• Mehrjährige technische Erfahrung im Bereich Instandhaltung und Anlagenbau (Intralogistik-Anlagen von Vorteil)\n\n• Gute Anwenderkenntnisse MS-Office Paket\n\n• Teamplayer mit Eigeninitiative, Verantwortungsbewusstsein sowie Leistungsbereitschaft\n\n• Offene und kommunikative Persönlichkeit\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nUnser Versprechen an dich\nSwisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\nBegleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\nÜber Swisslog\nSwisslog gestaltet die Zukunft der Intralogistik. Als Teil der KUKA Group arbeiten wir an den neuesten Technologien, die die Welt der Logistik neu erfinden. Wir sind ein Team von 3.000+ Experten aus 50 Ländern und bedienen einige der größten und aufregendsten Marken der Welt. Gemeinsam setzen wir smarte und innovative Ansätze um, einschließlich flexibler daten- und robotergesteuerten Automatisierungslösungen, die die Lieferkette transformieren. Ergänze unser Team und teile deine einzigartige Perspektive.\nGehe mit uns auf die Reise!\nWenn du glaubst, dass eine Karriere bei Swisslog das Richtige für dich sein könnte, würden wir gerne von dir hören. Wir freuen uns auf deine Bewerbung!",
+        "fr": "Techniciens d'entretien (m/f/d) Où les gens aiment-ils ce qu'ils font et y sont bien?\nAu Swisslog, bien sûr ! Nos équipes sont au cœur d'une entreprise mondiale de pointe axée sur les données et les robots qui exploite la puissance de la technologie pour façonner l'avenir de l'intralogistique. Le résultat? Nous offrons performances et efficacité à nos clients dans le monde entier, leur donnant l'avantage décisif sur leurs marchés. Description du poste Ici tu fais quelque chose\n\n• Surveillance et exploitation de l'installation logistique et dépannage pendant les équipes (2 équipes)\n\n• Travaux d'entretien électrique et/ou mécanique de l'usine de logistique\n\n• Coopération dans les travaux d'assemblage, les installations électriques, la mise en service du matériel et le soutien à la mise en service des logiciels\n\n• Assurer la disponibilité et l'amélioration continue de l'usine\n\nProfil du demandeur C'est ce que vous apportez avec vous\n\n• Formation technique de base (mécatronique, mécanicien, électro-installateur, etc.)\n\n• Plusieurs années d'expérience technique dans le domaine de l'entretien et de la construction d'installations (systèmes intralogistiques d'avantage)\n\n• Bonnes connaissances des utilisateurs\n\n• Joueur d'équipe avec initiative, sens des responsabilités et volonté de jouer\n\n• Personnalité ouverte et communicative\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nNotre promesse à vous\nSwisslog est un monde plein de possibilités. Avec nous, vous façonnez l'avenir de l'intralogistique avec des solutions d'automatisation contrôlées par les données et les robots. Cela crée une valeur ajoutée exceptionnelle pour nos clients.\nRejoignez-nous dans ce voyage et devenez membre d'une entreprise mondiale fière de ses racines suisses. En tant qu'entreprise mondiale, nous nous réjouissons des opportunités offertes à tous dans la famille Swisslog. Libérez votre potentiel dans une équipe unie par la passion et animée par l'esprit d'équipe OneSwisslog.\nÀ propos de Swisslog\nSwisslog façonne l'avenir de l'intralogistique. Dans le cadre du groupe KUKA, nous travaillons sur les dernières technologies qui réinventent le monde de la logistique. Nous sommes une équipe de plus de 3000 experts de 50 pays servant certaines des marques les plus grandes et les plus excitantes du monde. Ensemble, nous mettons en œuvre des approches intelligentes et innovantes, y compris des solutions d'automatisation des données et robotiques flexibles qui transforment la chaîne d'approvisionnement. Compléter notre équipe et partager votre perspective unique.\nAllez avec nous au voyage !\nSi vous pensez qu'une carrière chez Swisslog pourrait vous convenir, nous aimerions avoir de vos nouvelles. Nous nous réjouissons de votre candidature!"
+      },
+      "location": "Buchs, Switzerland",
+      "canton": "AG",
+      "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
+      "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-12T12:57:58.015Z",
+      "addressLocality": "Argovia",
+      "addressRegion": "AG",
+      "streetAddress": "Webereiweg 3",
+      "postalCode": "5033",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Logistica / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
+      "jobReqId": "4384",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland",
+        "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland",
+          "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland"
+        ],
+        "en": [
+          "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
+        ],
+        "fr": [
+          "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-28T22:07:43.772Z",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 110500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "swisslog-0eb581e2e3de",
+      "slug": "apprendista-informatico-m-f-d-swisslog-buchs-switzerland",
+      "slugByLocale": {
+        "it": "apprendista-informatico-m-f-d-swisslog-buchs-switzerland",
+        "en": "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
+        "de": "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
+        "fr": "apprentis-en-informatique-m-f-d-swisslog-buchs-switzerland"
+      },
+      "company": "Swisslog",
+      "companyKey": "swisslog",
+      "companyDomain": "swisslog.com",
+      "title": "Apprentice Computer Scientist (m/w/d)",
+      "titleByLocale": {
+        "it": "Apprendista informatico (m/f/d)",
+        "en": "Apprentice Computer Scientist (m/w/d)",
+        "de": "Apprentice Computer Scientist (m/w/d)",
+        "fr": "Apprentis en informatique (m/f/d)"
+      },
+      "description": "Apprentice Computer Scientist (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\n Bei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\nSwisslog bietet Dir die Möglichkeit zur persönlichen Weiterentwicklung, während Du mit uns an einer wegweisenden Mission arbeitest: die Zukunft der Intralogistik zu verändern indem wir eine Ära der roboterbasierten und datengestützten Lösungen schaffen, die herausragenden Kundennutzen stiftet. Wir sind stolz auf unsere Schweizer Wurzeln, während sich die Möglichkeiten, die wir bieten, über den ganzen Globus erstrecken. Wir erwarten keine Perfektion, dafür aber Collaboration, Commitment, Clarity und Competence (unsere Core Values) von allen unseren Mitarbeitenden. Im Gegenzug bieten wir Dir die Chance Teil der treibenden Kraft hinter Lösungen zu sein, die die Zukunft verändern.\n\nAls Informatiker Fachrichtung Applikationsentwicklung stehst du im Zentrum des Geschehens: Du bist zuständig für die Entwicklung und Pflege unterschiedlichster Programme. Dazu gehört das Analysieren von Prozessen, das Verfassen eines Konzepts und das Programmieren mit Java. Am Schluss wird die Applikation dem Kunden vorgeführt, was bedingt, dass alle Beteiligten instruiert und geschult werden. Weitere Aufgaben sind: Produkte weiterentwickeln, Datenbanken pflegen und PC-Support für unsere Mitarbeitenden leisten. Bewerberprofil Das bringst du mit\n\n• Abschluss der Bezirksschule (Sek E) mit guten Noten oder gleichwertige Schulbildung\n\n• Gute Schulnoten in Mathematik und Englisch\n\n• Eine rasche Auffassungsgabe und eine ausgeprägte Konzentrationsfähigkeit\n\n• Sehr gutes logisch-abstraktes Denkvermögen\n\n• Interesse an neuen IT-Technologie und am Lösen komplexer Aufgabenstellungen\n\n• Freude am Arbeiten im Team und Einsatzbereitschaft\n\nUnser Versprechen an dich\n Swisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\n Begleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\n Gehe mit uns auf die Reise!\n Wir freuen uns auf deine Bewerbung!\n Talent Acquisition Manager: Ronja Heiniger",
+      "descriptionByLocale": {
+        "it": "Apprendista informatico (m/f/d) Dove le persone amano quello che fanno e sono grandi ad esso?\nA Swisslog, ovviamente! I nostri team sono al centro di una società leader mondiale di dati e robot-driven che sfrutta il potere della tecnologia per modellare il futuro dell'intralogistica. Il risultato? Offriamo prestazioni ed efficienza ai nostri clienti in tutto il mondo, dando loro il vantaggio decisivo nei loro mercati. Descrizione del lavoro Qui fai qualcosa\n\nOfferte Swisslog Avrai l'opportunità di personalizzare mentre lavori con noi in una missione innovativa: cambiare il futuro dell'intralogistica creando un'era di soluzioni basate su robot e basate sui dati che offrono un valore clienti eccezionale. Siamo orgogliosi delle nostre radici svizzere mentre le opportunità che offriamo si estendono in tutto il mondo. Non ci aspettiamo la perfezione, ma la collaborazione, l'impegno, la chiarezza e la competenza (i nostri valori fondamentali) da tutti i nostri dipendenti. In cambio, vi offriamo la possibilità di far parte della forza trainante dietro soluzioni che cambiano il futuro.\n\nCome scienziato informatico specializzato nello sviluppo delle applicazioni, siete al centro dell'azione: Sei responsabile per lo sviluppo e la manutenzione di una vasta gamma di programmi. Questo include l'analisi dei processi, la scrittura di un concetto e la programmazione con Java. Alla fine, la domanda viene presentata al cliente, che richiede che tutti i partecipanti siano istruiti e addestrati. Altri compiti includono lo sviluppo di prodotti, il mantenimento di database e la fornitura di supporto PC per i nostri dipendenti. Profilo applicabile Questo è ciò che porti con te\n\n• Completamento della scuola distrettuale (Sek E) con buoni voti o istruzione equivalente\n\n• Gradi di buona scuola in matematica e inglese\n\n• Rapida comprensione e una spiccata capacità di concentrazione\n\n• Molto buon pensiero logico-astratto\n\n• Interessi nella nuova tecnologia IT e nella risoluzione di compiti complessi\n\n• Gioia di lavorare in una squadra e impegno\n\nLa nostra promessa a te\nSwisslog è un mondo pieno di possibilità. Con noi, si modella il futuro dell'intralogistica con soluzioni di automazione controllate da dati e robot. Questo crea un valore aggiunto eccezionale per i nostri clienti.\nUnisciti a noi in questo viaggio e diventare parte di una società globale orgogliosa delle sue radici svizzere. In qualità di azienda globale, non vediamo l'ora delle opportunità offerte a tutti nella famiglia Swisslog. Scatena il tuo potenziale in una squadra unita dalla passione e guidata dallo spirito di squadra OneSwisslog.\nAndate con noi durante il viaggio!\nAttendiamo con ansia la vostra applicazione!\nTalent Acquisition Manager: Ronja Heiniger",
+        "en": "Apprentice Computer Scientist (m/f/d) Where do people love what they do and are great at it?\nAt Swisslog, of course! Our teams are at the heart of a world-leading data- and robot-driven company that harnesses the power of technology to shape the future of intralogistics. The result? We deliver performance and efficiency to our customers around the world, giving them the decisive advantage in their markets. Job description Here you do something\n\nSwisslog offers You will have the opportunity to personalize as you work with us on a groundbreaking mission: to change the future of intralogistics by creating an era of robot-based and data-driven solutions that deliver outstanding customer value. We are proud of our Swiss roots while the opportunities we offer extend across the globe. We do not expect perfection, but collaboration, commitment, clarity and competence (our core values) from all our employees. In return, we offer you the chance to be part of the driving force behind solutions that change the future.\n\nAs a computer scientist specializing in application development, you are at the center of the action: You are responsible for the development and maintenance of a wide range of programs. This includes analyzing processes, writing a concept, and programming with Java. At the end, the application is presented to the customer, which requires that all participants are instructed and trained. Other tasks include further developing products, maintaining databases and providing PC support for our employees. Applicant profile This is what you bring with you\n\n• Completion of the district school (Sek E) with good grades or equivalent education\n\n• Good School Grades in Mathematics and English\n\n• Rapid comprehension and a pronounced ability to concentrate\n\n• Very good logical-abstract thinking\n\n• Interest in new IT technology and solving complex tasks\n\n• Joy of working in a team and commitment\n\nOur Promise to You\nSwisslog is a world full of possibilities. With us, you shape the future of intralogistics with data- and robot-controlled automation solutions. This creates exceptional added value for our customers.\nJoin us on this journey and become part of a global company proud of its Swiss roots. As a global company, we look forward to the opportunities offered to everyone in the Swisslog family. Unleash your potential in a team united by passion and driven by the OneSwisslog team spirit.\nGo with us on the journey!\nWe look forward to your application!\nTalent Acquisition Manager: Ronja Heiniger",
+        "de": "Apprentice Computer Scientist (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\nBei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\nSwisslog bietet Dir die Möglichkeit zur persönlichen Weiterentwicklung, während Du mit uns an einer wegweisenden Mission arbeitest: die Zukunft der Intralogistik zu verändern indem wir eine Ära der roboterbasierten und datengestützten Lösungen schaffen, die herausragenden Kundennutzen stiftet. Wir sind stolz auf unsere Schweizer Wurzeln, während sich die Möglichkeiten, die wir bieten, über den ganzen Globus erstrecken. Wir erwarten keine Perfektion, dafür aber Collaboration, Commitment, Clarity und Competence (unsere Core Values) von allen unseren Mitarbeitenden. Im Gegenzug bieten wir Dir die Chance Teil der treibenden Kraft hinter Lösungen zu sein, die die Zukunft verändern.\n\nAls Informatiker Fachrichtung Applikationsentwicklung stehst du im Zentrum des Geschehens: Du bist zuständig für die Entwicklung und Pflege unterschiedlichster Programme. Dazu gehört das Analysieren von Prozessen, das Verfassen eines Konzepts und das Programmieren mit Java. Am Schluss wird die Applikation dem Kunden vorgeführt, was bedingt, dass alle Beteiligten instruiert und geschult werden. Weitere Aufgaben sind: Produkte weiterentwickeln, Datenbanken pflegen und PC-Support für unsere Mitarbeitenden leisten. Bewerberprofil Das bringst du mit\n\n• Abschluss der Bezirksschule (Sek E) mit guten Noten oder gleichwertige Schulbildung\n\n• Gute Schulnoten in Mathematik und Englisch\n\n• Eine rasche Auffassungsgabe und eine ausgeprägte Konzentrationsfähigkeit\n\n• Sehr gutes logisch-abstraktes Denkvermögen\n\n• Interesse an neuen IT-Technologie und am Lösen komplexer Aufgabenstellungen\n\n• Freude am Arbeiten im Team und Einsatzbereitschaft\n\nUnser Versprechen an dich\nSwisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\nBegleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\nGehe mit uns auf die Reise!\nWir freuen uns auf deine Bewerbung!\nTalent Acquisition Manager: Ronja Heiniger",
+        "fr": "Apprentis en informatique (m/f/d) Où les gens aiment-ils ce qu'ils font et y sont grands ?\nAu Swisslog, bien sûr ! Nos équipes sont au cœur d'une entreprise mondiale de pointe axée sur les données et les robots qui exploite la puissance de la technologie pour façonner l'avenir de l'intralogistique. Le résultat? Nous offrons performances et efficacité à nos clients dans le monde entier, leur donnant l'avantage décisif sur leurs marchés. Description du poste Ici tu fais quelque chose\n\nOffres Swisslog Vous aurez l'occasion de personnaliser votre travail avec nous dans le cadre d'une mission révolutionnaire : changer l'avenir de l'intralogistique en créant une ère de solutions basées sur des robots et des données qui offrent une valeur client exceptionnelle. Nous sommes fiers de nos racines suisses tandis que les opportunités que nous offrons s'étendent à travers le monde. Nous ne nous attendons pas à la perfection, mais à la collaboration, à l'engagement, à la clarté et à la compétence (nos valeurs fondamentales) de tous nos employés. En retour, nous vous offrons la possibilité de faire partie de la force motrice derrière les solutions qui changent l'avenir.\n\nEn tant qu'informaticien spécialisé dans le développement d'applications, vous êtes au centre de l'action: Vous êtes responsable du développement et de la maintenance d'un large éventail de programmes. Cela inclut l'analyse des processus, l'écriture d'un concept et la programmation avec Java. À la fin, l'application est présentée au client, ce qui exige que tous les participants soient instruits et formés. Parmi les autres tâches, mentionnons le développement de produits, la tenue de bases de données et la prestation d'un soutien informatique à nos employés. Profil du demandeur C'est ce que vous apportez avec vous\n\n• Achèvement de l'école de district (Sek E) avec de bonnes notes ou un enseignement équivalent\n\n• Bonnes notes scolaires en mathématiques et en anglais\n\n• Compréhension rapide et capacité de concentration prononcée\n\n• Très bonne pensée logique-abstract\n\n• Intérêt pour les nouvelles technologies de l'information et la résolution de tâches complexes\n\n• Joy de travailler en équipe et de s'engager\n\nNotre promesse à vous\nSwisslog est un monde plein de possibilités. Avec nous, vous façonnez l'avenir de l'intralogistique avec des solutions d'automatisation contrôlées par les données et les robots. Cela crée une valeur ajoutée exceptionnelle pour nos clients.\nRejoignez-nous dans ce voyage et devenez membre d'une entreprise mondiale fière de ses racines suisses. En tant qu'entreprise mondiale, nous nous réjouissons des opportunités offertes à tous dans la famille Swisslog. Libérez votre potentiel dans une équipe unie par la passion et animée par l'esprit d'équipe OneSwisslog.\nAllez avec nous au voyage !\nNous nous réjouissons de votre candidature!\nGestionnaire d'acquisition de talents : Ronja Heiniger"
+      },
+      "location": "Buchs, Switzerland",
+      "canton": "AG",
+      "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
+      "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-12T12:57:58.013Z",
+      "addressLocality": "Argovia",
+      "addressRegion": "AG",
+      "streetAddress": "Webereiweg 3",
+      "postalCode": "5033",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Logistica / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
+      "jobReqId": "4458",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
+        "apprendista-informatico-m-f-d-swisslog-buchs-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
+          "apprendista-informatico-m-f-d-swisslog-buchs-switzerland"
+        ],
+        "fr": [
+          "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-08-05T22:29:21.809Z",
+      "needsRetranslation": true,
+      "salaryMin": 52000,
+      "salaryMax": 78500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 52000,
+          "maxValue": 78500,
           "unitText": "YEAR"
         }
       }
