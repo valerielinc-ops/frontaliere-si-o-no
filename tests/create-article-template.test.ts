@@ -47,6 +47,15 @@ describe('AI Search prompt block', () => {
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/NON inventare/);
   });
 
+  it('allows only source-backed optional key facts and forbids placeholders', () => {
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).toContain('3-8 coppie');
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).not.toContain('5-8 coppie');
+    for (const placeholder of ['non specificato', 'not specified', 'nicht angegeben', 'non spécifié']) {
+      expect(AI_SEARCH_PROMPT_BLOCK_IT).toContain(placeholder);
+    }
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/OMETTILO/);
+  });
+
   it('is injected into scripts/create-article.mjs', () => {
     const src = readFileSync(
       resolve(__dirname, '..', 'scripts', 'create-article.mjs'),
@@ -171,6 +180,20 @@ describe('buildBackfillPrompt()', () => {
     expect(prompt).toMatch(/JSON/);
     expect(prompt).toMatch(/tldr/);
     expect(prompt).toMatch(/keyFacts/);
+  });
+
+  it('makes backfill facts optional and source-backed', () => {
+    const prompt = buildBackfillPrompt({
+      title: 'Nuovo accordo frontalieri',
+      fullBody: 'Body content here.',
+      locale: 'it',
+    });
+    expect(prompt).toContain('3-8 coppie');
+    expect(prompt).not.toContain('5-8 coppie');
+    expect(prompt).toMatch(/OMETTILO/);
+    for (const placeholder of ['non specificato', 'not specified', 'nicht angegeben', 'non spécifié']) {
+      expect(prompt).toContain(placeholder);
+    }
   });
 });
 

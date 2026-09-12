@@ -42,6 +42,7 @@ import {
   QUOTA_DEFERRAL_MIN_TRANSIENT_SHARE,
   isInputCapDeferralVeto,
   inputCapVetoSummary,
+  providerCooldownEchoOnlySummary,
   isLegitimateQuotaDeferral,
   quotaDeferralShare,
 } from '../scripts/lib/exhaustion-disposition.mjs';
@@ -139,7 +140,41 @@ describe('isInputCapDeferralVeto — il pareggio non differisce piu\'', () => {
   it('inputCapVetoSummary dice DI QUANTO tagliare', () => {
     // Il numero azionabile non deve dipendere da chi legge la prosa.
     const s = inputCapVetoSummary(cascata({ transient: 53, persistent: 53, capCount: 38, est: 9740, best: 8000 }));
-    expect(s).toEqual({ estimatedRequestTokens: 9740, maxSkippedReqLimit: 8000, over: 1740, refusals: 38 });
+    expect(s).toEqual({
+      estimatedRequestTokens: 9740,
+      maxSkippedReqLimit: 8000,
+      over: 1740,
+      refusals: 38,
+      transient: 53,
+      persistent: 53,
+      providerCooldownSkips: 0,
+      echoDominated: false,
+      decidedBy: 'net',
+      netEvidence: 106,
+      echoHiddenInBuckets: 0,
+      marginAttribution: 'persistent',
+      votedTransient: 53,
+      votedPersistent: 53,
+    });
+  });
+
+  it('rifiuta il replay all-echo legacy senza i due contatori di split', () => {
+    for (const providerCooldownSkips of [
+      { total: 5 },
+      { total: 5, transient: 0 },
+      { total: 5, persistent: 0 },
+    ]) {
+      const err = {
+        code: 'ALL_MODELS_EXHAUSTED',
+        exhaustionBreakdown: {
+          transient: 0,
+          persistent: 0,
+          total: 5,
+          providerCooldownSkips,
+        },
+      };
+      expect(providerCooldownEchoOnlySummary(err)).toBeNull();
+    }
   });
 });
 
