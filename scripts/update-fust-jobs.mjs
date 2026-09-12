@@ -69,6 +69,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { enrichCoopSourceBackedJobs, validateCoopDescription } from './lib/coop-job-parser.mjs';
+import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -76,6 +77,7 @@ const ROOT = path.resolve(__dirname, '..');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const FUST_KEY = 'fust';
+const fustSummaryCounts = { detailDrop: null };
 // Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
 // defaults to internally for a single-key run, so this script's own
 // pre/post-crawl reads see the shared engine's actual output instead of the
@@ -903,6 +905,7 @@ async function writeReconciledFustScratch(discovery, priorJobs, { refreshSource 
     ? await enrichCoopSourceBackedJobs(scratchJobs, {
         allowedHosts: ['jobs.fust.ch'],
         concurrency: 4,
+        onDropSummary: (drop) => { fustSummaryCounts.detailDrop = drop; },
         onGone: (urls) => goneUrls.push(...urls),
         // A detail payload the enricher rejects one vacancy at a time leaves
         // the authoritative set by the same door as a withdrawn one: the
@@ -946,7 +949,7 @@ function runBaseCrawler() {
 export function buildFustPublishPlan(
   jobs,
   beforeSnapshot = new Map(),
-  { durationMs = 0, generatedAt = new Date().toISOString() } = {},
+  { durationMs = 0, generatedAt = new Date().toISOString(), detailDrop = null } = {},
 ) {
   const sliceJobs = (Array.isArray(jobs) ? jobs : []).filter(isFustJob);
   const crawlDiff = computeCrawlDiff(beforeSnapshot, snapshotJobSlugs(sliceJobs));
@@ -958,6 +961,7 @@ export function buildFustPublishPlan(
       label: 'Fust',
       generatedAt,
       total: sliceJobs.length,
+      ...detailDropSummaryFields(detailDrop),
       newCount: crawlDiff.newJobs.length,
       updatedCount: crawlDiff.updatedJobs.length,
       removedCount: crawlDiff.removedJobs.length,
@@ -1163,7 +1167,7 @@ export async function handleFustEmptyDiscovery(discovery, priorJobs, beforeSnaps
     // and reopened for every one after them.
     // Heartbeat: re-publish the confirmed zero with a fresh `generatedAt` so the
     // proof, and the freshness the `stale` gate reads, both keep advancing.
-    const heartbeatPlan = buildFustPublishPlan([], beforeSnapshot, { durationMs, generatedAt });
+    const heartbeatPlan = buildFustPublishPlan([], beforeSnapshot, { durationMs, generatedAt, detailDrop: fustSummaryCounts.detailDrop });
     await writeSummary({
       ...heartbeatPlan.summary,
       authoritativeEmptyConfirmed: true,
@@ -1174,7 +1178,7 @@ export async function handleFustEmptyDiscovery(discovery, priorJobs, beforeSnaps
   const priorEmptyRuns = emptySnapshotRunCount(previousSummary);
 
   if (priorEmptyRuns < 1) {
-    const preservedPlan = buildFustPublishPlan(priorJobs, beforeSnapshot, { durationMs, generatedAt });
+    const preservedPlan = buildFustPublishPlan(priorJobs, beforeSnapshot, { durationMs, generatedAt, detailDrop: fustSummaryCounts.detailDrop });
     await writeSummary({
       ...preservedPlan.summary,
       authoritativeEmptyConsecutiveRuns: 1,
@@ -1184,7 +1188,7 @@ export async function handleFustEmptyDiscovery(discovery, priorJobs, beforeSnaps
   }
 
   const emptyJobs = await writeScratch(discovery, priorJobs);
-  const emptyPlan = buildFustPublishPlan(emptyJobs, beforeSnapshot, { durationMs, generatedAt });
+  const emptyPlan = buildFustPublishPlan(emptyJobs, beforeSnapshot, { durationMs, generatedAt, detailDrop: fustSummaryCounts.detailDrop });
   const result = await writeFustPublishPlan(emptyPlan, {
     ...publishOptions,
     authoritativeEmpty: true,
@@ -1218,7 +1222,8 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(FUST_KEY, 'Fust');
+  fustSummaryCounts.detailDrop = null;
+  registerCrawlerSummaryGuard(FUST_KEY, 'Fust', fustSummaryCounts);
   console.log('🏪 Running dedicated Fust jobs crawler...');
   console.log('   Platform: Prospective.ch JobBooster (Career Center 1000103, Coop Group)');
   console.log('   Scope: CH-wide (all 26 cantons, unfiltered national query; Fust subsidiary only)');
@@ -1275,7 +1280,7 @@ async function main() {
 
   // Step 6: Stats + validation
   const _durationMs = getCrawlerElapsedMs();
-  const _plan = buildFustPublishPlan(readScratchJobs(), _beforeSnapshot, { durationMs: _durationMs });
+  const _plan = buildFustPublishPlan(readScratchJobs(), _beforeSnapshot, { durationMs: _durationMs, detailDrop: fustSummaryCounts.detailDrop });
   const stats = logStats(_plan);
   if (stats.total === 0) throw new Error('Fust parser produced zero jobs for a non-empty authoritative snapshot.');
 

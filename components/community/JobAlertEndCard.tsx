@@ -2,13 +2,23 @@ import { BellRing, ArrowRight } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
+import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 
 interface JobAlertEndCardProps {
  keyword?: string;
+ userId?: string | null;
+ authResolved?: boolean;
 }
 
-export default function JobAlertEndCard({ keyword }: JobAlertEndCardProps) {
+export default function JobAlertEndCard({ keyword, userId = null, authResolved = true }: JobAlertEndCardProps) {
  const { t } = useTranslation();
+ const eligibility = useJobAlertEligibility({
+ enabled: true,
+ authResolved,
+ userId,
+ keyword,
+ surface: 'end_card',
+ });
  // Impression: fired the first time the card is genuinely ON SCREEN, not when
  // it mounts. The card is rendered at the end of the listings on every job-board
  // load, so the previous mount-based effect counted a "shown" for every visitor
@@ -28,6 +38,8 @@ export default function JobAlertEndCard({ keyword }: JobAlertEndCardProps) {
  const heading = keyword && keyword.length >= 2
  ? (t('jobAlert.endCardTitleWithKeyword') || 'Hai visto tutti i lavori «{keyword}»').replace('{keyword}', keyword)
  : (t('jobAlert.endCardTitle') || 'Hai visto tutti i lavori');
+
+ if (eligibility !== true) return null;
 
  return (
  <div ref={impressionRef} className="mt-6 rounded-2xl border border-accent-border bg-gradient-to-br from-accent-subtle via-surface to-accent-subtle p-6 text-center">

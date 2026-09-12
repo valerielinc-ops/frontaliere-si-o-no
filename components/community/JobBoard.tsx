@@ -182,6 +182,7 @@ import {
 } from '@/build-plugins/shared/jobDescription/parser';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
+import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 import {
  isMultiLocation,
  normalizeJobCategory,
@@ -3385,6 +3386,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isJobDetailView = selectedJob !== null;
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
+ const appliedAlertSurfaceVisible = Boolean(
+  appliedJobId && selectedJob && appliedJobId === selectedJob.id,
+ );
+ const appliedAlertKeyword = appliedAlertSurfaceVisible && selectedJob
+  ? (t(categoryTranslationKey(selectedJob)) || '').trim()
+  : '';
+ const appliedAlertEligible = useJobAlertEligibility({
+  enabled: enableJobAlerts && appliedAlertSurfaceVisible,
+  authResolved,
+  userId,
+  keyword: appliedAlertKeyword,
+  surface: 'job_detail_button',
+ });
+ const appliedAlertCtaVisible = appliedAlertSurfaceVisible && appliedAlertEligible === true;
 
  // Job-match profile, part 2: merge in the newsletter_subscribers doc's
  // sector_interest/location_interest for logged-in subscribers (issue #3648
@@ -3764,10 +3779,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // rendered directly under the button the user just pressed — it is on screen by
  // construction, so an in-view check would add machinery without adding truth.
  useEffect(() => {
- if (!appliedJobId || !selectedJob || appliedJobId !== selectedJob.id) return;
- Analytics.trackJobAlertCtaShown('job_detail_button', (t(categoryTranslationKey(selectedJob)) || '').trim());
- // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [appliedJobId, selectedJob?.id]);
+ if (!appliedAlertCtaVisible) return;
+ Analytics.trackJobAlertCtaShown('job_detail_button', appliedAlertKeyword);
+ }, [appliedAlertCtaVisible, appliedAlertKeyword]);
 
  // Drop the applied receipt when the user moves to a different job / leaves the
  // detail view, so it never leaks onto an unrelated listing.
@@ -6619,7 +6633,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // mounted JobAlertForm, which owns auth + email capture, using the same
  // queued-request + backToList hand-off SavedJobsAlertNudge already uses from
  // the detail view.
- const appliedNoticeJsx = (appliedJobId && selectedJob && appliedJobId === selectedJob.id) ? (
+ const appliedNoticeJsx = appliedAlertSurfaceVisible ? (
  <div
  role="status"
  className="rounded-xl border border-success-border bg-success-subtle p-3 space-y-2"
@@ -6634,6 +6648,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
  <div className="flex flex-wrap gap-2">
+ {appliedAlertCtaVisible && (
  <button
  type="button"
  onClick={() => {
@@ -6647,6 +6662,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <BellRing className="w-3.5 h-3.5" aria-hidden="true" />
  {t('jobBoard.applied.alertCta')}
  </button>
+ )}
  <button
  type="button"
  onClick={() => handleApply(selectedJob)}
@@ -10298,13 +10314,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {enableJobAlerts && filteredJobs.length >= 3 && (
  <Suspense fallback={<div className="mt-6 rounded-2xl border border-edge bg-surface-raised animate-pulse min-h-[280px]" aria-hidden="true" />}>
- <JobAlertEndCard keyword={deferredSearchQuery.trim()} />
+ <JobAlertEndCard
+ keyword={deferredSearchQuery.trim()}
+ userId={userId}
+ authResolved={authResolved}
+ />
  </Suspense>
  )}
 
  {enableJobAlerts && (
  <Suspense fallback={null}>
- <JobAlertStickyBanner />
+ <JobAlertStickyBanner
+ userId={userId}
+ authResolved={authResolved}
+ keyword={deferredSearchQuery.trim()}
+ />
  </Suspense>
  )}
 

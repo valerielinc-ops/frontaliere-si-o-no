@@ -158,6 +158,42 @@ describe('#7311 — the created event carries the funnel surface dimension', () 
   });
 });
 
+describe('#7765 — CTA eligibility precedes rendering and impression', () => {
+  it.each([
+    ['components/community/JobAlertEndCard.tsx', 'end_card'],
+    ['components/community/JobAlertStickyBanner.tsx', 'sticky_banner'],
+  ])('%s uses the shared eligibility gate before its impression surface', (rel, surface) => {
+    const src = fs.readFileSync(path.join(ROOT, rel), 'utf-8');
+    expect(src, `${rel} must use the shared alert gate`).toContain('useJobAlertEligibility');
+    expect(src).toContain('eligibility !== true');
+    expect(src).toContain(`surface: '${surface}'`);
+  });
+
+  it('the post-apply detail button gates both the CTA and its shown event', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    expect(src).toContain("surface: 'job_detail_button'");
+    expect(src).toContain('if (!appliedAlertCtaVisible) return;');
+    expect(src).toContain('{appliedAlertCtaVisible && (');
+  });
+
+  it('all three surfaces resolve through the shared per-user cache', () => {
+    const hook = fs.readFileSync(path.join(ROOT, 'hooks/useJobAlertEligibility.ts'), 'utf-8');
+    const resolver = fs.readFileSync(path.join(ROOT, 'services/jobAlertEligibility.ts'), 'utf-8');
+    expect(hook).toContain('getJobAlertEligibility');
+    expect(resolver).toContain('fetchUserAlertsCached');
+    expect(resolver).toContain("import('./jobAlertService')");
+  });
+
+  it('analytics accepts an eligibility skip for each gated surface', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8');
+    const start = src.indexOf('trackJobAlertCtaSkipped:');
+    const block = src.slice(start, src.indexOf('},', start));
+    for (const surface of ['sticky_banner', 'end_card', 'job_detail_button']) {
+      expect(block).toContain(`'${surface}'`);
+    }
+  });
+});
+
 describe('#5040 — the apply hand-off leaves a visible trace on the page', () => {
   const src = () => fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
 
