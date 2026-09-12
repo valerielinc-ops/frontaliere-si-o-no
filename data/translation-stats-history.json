@@ -1,83 +1,5 @@
 [
   {
-    "timestamp": "2026-08-22T01:50:12.686Z",
-    "label": "after",
-    "total": 27528,
-    "needsRetranslation": 10744,
-    "suppressed": 52,
-    "incomplete": 11950,
-    "complete": 15578,
-    "slotsPresent": 15578,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 15578,
-    "sourceCopyExcused": 577,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 361,
-      "en": 297,
-      "de": 143,
-      "fr": 318
-    },
-    "queueAge": {
-      "count": 10744,
-      "withTimestamp": 10744,
-      "oldestAgeDays": 130.7,
-      "p50AgeDays": 21.1,
-      "p90AgeDays": 72.5,
-      "buckets": {
-        "0-7d": 1964,
-        "7-30d": 4929,
-        "30-90d": 3344,
-        "90-180d": 507,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1972
-      },
-      {
-        "company": "Roche",
-        "pending": 552
-      },
-      {
-        "company": "Klubschule Migros",
-        "pending": 481
-      },
-      {
-        "company": "Ernst Sutter AG",
-        "pending": 285
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 266
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 262
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 254
-      },
-      {
-        "company": "BKW",
-        "pending": 228
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 217
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 196
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-22T06:35:50.391Z",
     "label": "before",
     "total": 27524,
@@ -16973,6 +16895,107 @@
       {
         "company": "Stadt Zürich",
         "pending": 73
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-12T15:17:01.897Z",
+    "label": "after",
+    "total": 32766,
+    "needsRetranslation": 15268,
+    "suppressed": 141,
+    "incomplete": 8861,
+    "complete": 23905,
+    "slotsPresent": 23905,
+    "flaggedAmongSlotsPresent": 7142,
+    "verifiedTranslated": 16763,
+    "sourceCopyExcused": 781,
+    "slotsPresentByLength": 32635,
+    "languageVerified": 24758,
+    "missingByLocale": {
+      "it": 660,
+      "en": 423,
+      "de": 152,
+      "fr": 409
+    },
+    "queueAge": {
+      "count": 15268,
+      "withTimestamp": 15268,
+      "oldestAgeDays": 152.2,
+      "p50AgeDays": 23.7,
+      "p90AgeDays": 101.7,
+      "buckets": {
+        "0-1d": 279,
+        "1-2d": 625,
+        "2-7d": 2765,
+        "0-7d": 3669,
+        "7-30d": 4730,
+        "30-90d": 4745,
+        "90-180d": 2124,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 88,
+      "withTimestamp": 88,
+      "oldestAgeDays": 124.7,
+      "p50AgeDays": 15.8,
+      "p90AgeDays": 27.7,
+      "buckets": {
+        "0-1d": 1,
+        "1-2d": 9,
+        "2-7d": 8,
+        "0-7d": 18,
+        "7-30d": 63,
+        "30-90d": 6,
+        "90-180d": 1,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "STA Personal AG",
+        "pending": 1277
+      },
+      {
+        "company": "Roche",
+        "pending": 558
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 524
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 370
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 212
+      },
+      {
+        "company": "Sulzer",
+        "pending": 197
+      },
+      {
+        "company": "Halag Chemie AG",
+        "pending": 174
+      },
+      {
+        "company": "Anker Swiss Ticino AG",
+        "pending": 170
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 168
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 153
       }
     ]
   }
