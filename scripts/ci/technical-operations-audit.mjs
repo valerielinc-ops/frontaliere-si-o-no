@@ -176,11 +176,46 @@ function stepOutputKeys(run) {
   return new Set([...String(run).matchAll(OUTPUT_RE)].map((match) => match[1]));
 }
 
+function expressionIsInComment(source, offset) {
+  const lineStart = source.lastIndexOf('\n', offset) + 1;
+  let singleQuoted = false;
+  let doubleQuoted = false;
+  for (let i = lineStart; i < offset; i += 1) {
+    const char = source[i];
+    if (doubleQuoted && char === '\\') {
+      i += 1;
+      continue;
+    }
+    if (!doubleQuoted && char === "'") {
+      if (singleQuoted && source[i + 1] === "'") i += 1;
+      else singleQuoted = !singleQuoted;
+      continue;
+    }
+    if (!singleQuoted && char === '"') {
+      doubleQuoted = !doubleQuoted;
+      continue;
+    }
+    if (!singleQuoted && !doubleQuoted && char === '#') {
+      const previous = i === lineStart ? '' : source[i - 1];
+      if (previous === '' || /\s/u.test(previous) || ';|&(){}<>'.includes(previous)) return true;
+    }
+  }
+  return false;
+}
+
 function expressions(source) {
-  return [...String(source || '').matchAll(/\$\{\{([\s\S]*?)\}\}/g)].map((match) => ({
-    text: match[1],
-    offset: match.index ?? 0,
-  }));
+  const raw = String(source || '');
+  return [...raw.matchAll(/\$\{\{([\s\S]*?)\}\}/g)]
+    // The audit receives the raw YAML source for workflow-level input checks,
+    // and also receives multiline `run:` strings for job checks. An expression
+    // in a full-line YAML/shell comment is documentation, not an evaluated
+    // Actions expression; treating it as live creates a false error (for
+    // example a deliberately unsafe `${{ inputs.x }}` shown in a guard comment).
+    .filter((match) => !expressionIsInComment(raw, match.index ?? 0))
+    .map((match) => ({
+      text: match[1],
+      offset: match.index ?? 0,
+    }));
 }
 
 function validateInputs(triggers, file, source, findings) {

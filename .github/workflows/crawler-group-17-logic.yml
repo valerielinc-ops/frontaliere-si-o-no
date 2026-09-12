@@ -47,6 +47,16 @@ on:
         required: false
         type: string
         default: ""
+      timeout_ms:
+        description: Per-crawler timeout override in milliseconds (empty uses the crawler default)
+        required: false
+        default: ""
+        type: string
+      strict_localization:
+        description: Require localized job data (empty uses the crawler default; 1=yes, 0=no)
+        required: false
+        default: ""
+        type: string
     secrets:
       FIREBASE_SERVICE_ACCOUNT_JSON:
         required: false
@@ -114,9 +124,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-siemens-healthineers.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_SIEMENS_HEALTHINEERS_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_SIEMENS_HEALTHINEERS_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: siemens-healthineers
@@ -173,9 +183,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-proton.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_PROTON_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_PROTON_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: proton
@@ -232,9 +242,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-spital-zofingen.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_SPITAL_ZOFINGEN_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_SPITAL_ZOFINGEN_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           SKIP_BOILERPLATE_GUARD: "1"
@@ -292,9 +302,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-sygnum.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_SYGNUM_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_SYGNUM_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: sygnum
@@ -351,9 +361,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-gim-architekten.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_GIM_ARCHITEKTEN_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_GIM_ARCHITEKTEN_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: gim-architekten
@@ -410,9 +420,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-klinik-arlesheim.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_KLINIK_ARLESHEIM_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_KLINIK_ARLESHEIM_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: klinik-arlesheim
@@ -469,9 +479,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-zurich.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_ZURICH_INSURANCE_SEDE_TICINO_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_ZURICH_INSURANCE_SEDE_TICINO_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: zurich-insurance-sede-ticino
@@ -528,9 +538,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-veeam.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_VEEAM_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_VEEAM_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: veeam
@@ -587,9 +597,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kispi.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_KISPI_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_KISPI_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: kispi
@@ -646,9 +656,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pigna.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_PIGNA_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_PIGNA_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: pigna
@@ -705,9 +715,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-new-yorker.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_NEW_YORKER_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_NEW_YORKER_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: new-yorker
@@ -764,9 +774,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-relewant.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_RELEWANT_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_RELEWANT_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: relewant
@@ -823,9 +833,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-implenia.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_IMPLENIA_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_IMPLENIA_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: implenia
@@ -882,9 +892,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-baronie.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_BARONIE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_BARONIE_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: baronie
@@ -941,9 +951,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-recruitingapp-1123.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_RECRUITINGAPP_1123_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_RECRUITINGAPP_1123_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: recruitingapp-1123
@@ -1000,9 +1010,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pdgr.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_PDGR_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_PDGR_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: pdgr
@@ -1059,9 +1069,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-imerys.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_IMERYS_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_IMERYS_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: imerys
@@ -1118,9 +1128,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-elettra-1938.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_ELETTRA_1938_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_ELETTRA_1938_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: elettra-1938
@@ -1177,9 +1187,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cerbios-pharma.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_CERBIOS_PHARMA_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_CERBIOS_PHARMA_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: cerbios-pharma
@@ -1236,9 +1246,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-clinique-de-montchoisi.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_CLINIQUE_DE_MONTCHOISI_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_CLINIQUE_DE_MONTCHOISI_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: clinique-de-montchoisi
@@ -1295,9 +1305,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ophtalmique.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_OPHTALMIQUE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_OPHTALMIQUE_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: ophtalmique
@@ -1354,9 +1364,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-barry-callebaut.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_BARRY_CALLEBAUT_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_BARRY_CALLEBAUT_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: barry-callebaut
@@ -1413,9 +1423,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-evam-vaud.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_EVAM_VAUD_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_EVAM_VAUD_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: evam-vaud
@@ -1472,9 +1482,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-holmes-place.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_HOLMES_PLACE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_HOLMES_PLACE_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: holmes-place
@@ -1531,9 +1541,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-clinique-generale-beaulieu.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_CLINIQUE_GENERALE_BEAULIEU_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_CLINIQUE_GENERALE_BEAULIEU_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: clinique-generale-beaulieu
@@ -1590,9 +1600,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-board.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_BOARD_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_BOARD_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: board-international
@@ -1649,9 +1659,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-aldi-suisse.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_ALDI_SUISSE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_ALDI_SUISSE_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: aldi-suisse
@@ -1708,9 +1718,9 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-badrutts-palace.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_BADRUTTS_PALACE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_BADRUTTS_PALACE_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: badrutts-palace
