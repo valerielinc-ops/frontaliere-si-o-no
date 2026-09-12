@@ -95,10 +95,10 @@ function emptyProfileSnapshot(sourcePath) {
   };
 }
 
-function emptyOutcomeSnapshot(sourcePath) {
+function emptyOutcomeSnapshot(sourcePath, { missing = true } = {}) {
   return {
     path: sourcePath,
-    missing: true,
+    missing,
     generatedAt: null,
     ageHours: null,
     eligibleEmployerAccounts: null,
@@ -313,13 +313,17 @@ export function validateEmployerFunnelOutcomes(outcomes, {
   profileCount = null,
   profileGeneratedAt = null,
   profileSourcePath = DEFAULT_PROFILES_PATH,
+  outcomePresent = outcomes !== null && outcomes !== undefined,
 } = {}) {
   if (!object(outcomes)) {
+    const missing = !outcomePresent;
     return {
-      quality: 'unmeasurable',
-      issues: ['employer funnel outcome ledger is missing'],
+      quality: missing ? 'unmeasurable' : 'partial',
+      issues: [missing
+        ? 'employer funnel outcome ledger is missing'
+        : 'employer funnel outcome ledger is present but malformed'],
       warnings: ['profile inventory cannot substitute for checkout, subscription or paid activation evidence'],
-      snapshot: emptyOutcomeSnapshot(sourcePath),
+      snapshot: emptyOutcomeSnapshot(sourcePath, { missing }),
     };
   }
   const issues = [];
@@ -415,7 +419,7 @@ export function validateEmployerFunnelOutcomes(outcomes, {
   return { quality, issues, warnings, snapshot };
 }
 
-export function validateEmployerActivation({ profiles, outcomes = null }, {
+export function validateEmployerActivation({ profiles, outcomes = null, outcomePresent = outcomes !== null && outcomes !== undefined }, {
   now = new Date(),
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   sourcePath = DEFAULT_PROFILES_PATH,
@@ -431,6 +435,7 @@ export function validateEmployerActivation({ profiles, outcomes = null }, {
     profileCount: profileVerdict.snapshot?.profileCount,
     profileGeneratedAt: profileVerdict.snapshot?.generatedAt,
     profileSourcePath: sourcePath,
+    outcomePresent,
   });
   const issues = [...profileVerdict.issues, ...outcomeVerdict.issues];
   const warnings = [...profileVerdict.warnings, ...outcomeVerdict.warnings];
@@ -603,10 +608,12 @@ export async function runL9({
   logger = console,
 } = {}) {
   let verdict;
+  const outcomePresent = fs.existsSync(path.resolve(outcomePath));
   try {
     verdict = validateEmployerActivation({
       profiles: readJson(profilesPath, 'employer profiles'),
       outcomes: readOptionalJson(outcomePath),
+      outcomePresent,
     }, {
       now,
       maxAgeHours,
@@ -624,7 +631,7 @@ export async function runL9({
       snapshot: {
         source: 'employer-profile-inventory-plus-funnel-ledger',
         profiles: emptyProfileSnapshot(profilesPath),
-        outcomes: emptyOutcomeSnapshot(outcomePath),
+        outcomes: emptyOutcomeSnapshot(outcomePath, { missing: !outcomePresent }),
       },
       candidates: [{
         autonomy: 'A2',

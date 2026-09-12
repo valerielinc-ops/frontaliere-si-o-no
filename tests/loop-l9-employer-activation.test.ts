@@ -90,6 +90,23 @@ describe('L9 Employer Supply → Paid Activation', () => {
     expect(verdict.candidates.some((candidate) => candidate.action.includes('draft-outreach'))).toBe(true);
   });
 
+  it('does not exempt a present but malformed outcome ledger', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l9-test-'));
+    const profilesPath = writeJson(dir, 'profiles.json', profiles());
+    const outcomePath = writeJson(dir, 'outcomes.json', null);
+    const result = await runL9({
+      now: NOW,
+      profilesPath,
+      outcomePath,
+      reportDir: path.join(dir, 'report'),
+      logger: { log() {} },
+    });
+    expect(result.verdict.quality).toBe('partial');
+    expect(result.verdict.snapshot.outcomes).toMatchObject({ missing: false });
+    expect(result.verdict.issues).toContain('employer funnel outcome ledger is present but malformed');
+    expect(result.verdict.snapshot.profiles.validProfileCount).toBe(1);
+  });
+
   it('rejects a profile whose location distribution exceeds its active inventory', () => {
     const verdict = validateEmployerProfiles(profiles(profile({
       cantons: [{ name: 'TI', count: 13 }],
