@@ -17,6 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM, flushScores, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { normalizeCompanyKey } from './lib/company-key.mjs';
 import { decodeHtmlEntities } from './lib/dedicated-crawler-common.mjs';
 import { registrableDomain } from './lib/prospector/registrable.mjs';
 
@@ -64,15 +65,6 @@ const ATS_HOST_HINTS = [
 
 function normalizeSpace(s) {
   return String(s || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
-}
-
-function slugify(s) {
-  return String(s || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
 }
 
 function readJson(filePath, fallback = null) {
@@ -184,7 +176,7 @@ async function main() {
   if (!companyWebsite) throw new Error(`Invalid company website URL: ${PARSER_COMPANY_WEBSITE}`);
 
   const companyName = PARSER_COMPANY_NAME;
-  const companyKey = PARSER_COMPANY_KEY || slugify(companyName);
+  const companyKey = normalizeCompanyKey(PARSER_COMPANY_KEY || companyName);
   const companyHost = hostOf(companyWebsite);
 
   const heuristicSeeds = buildHeuristicSeeds(companyWebsite, companyHost);
