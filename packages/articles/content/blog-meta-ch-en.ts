@@ -6304,6 +6304,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.title': 'Rentals St. Gallen: fees, deposit and tenant\'s rights',
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.excerpt': 'Uniform federal legal framework, maximum deposit 3 months, cancellation only on official form, dispute within 30 days to the conciliation authority.',
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.imageAlt': 'Residential building in Canton St. Gallen with mountains in background',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.title': 'Naturalization in St. Gallen: requirements and procedure',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.excerpt': 'Find out about the requirements for years, integration tests, language and fees for ordinary naturalisation in the canton of St. Gallen.',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.imageAlt': 'St. Gallen countryside with hills and traditional Swiss houses',
 };
 
 export default blogMetaChEn;
