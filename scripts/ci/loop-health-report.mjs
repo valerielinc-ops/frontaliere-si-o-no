@@ -53,6 +53,11 @@ export const PR_REPAIR_RUN_WARN = 400;
 export const REPAIR_TO_ISSUE_RATIO_WARN = 7;
 export const MERGED_PR_LIST_LIMIT = 1000;
 const CLAUDE_REVIEW_LOGIN = /^(?:claude|frontaliere-automation)(?:\[bot\])?$/i;
+const TESTS_CLAUDE_RUN_LIMIT = 1000;
+// `tests.yml` already emits this persisted step only after the Claude fallback
+// was actually used. A skipped step therefore distinguishes tests-only and
+// Codex-primary runs without changing the adapted workflow here.
+export const CLAUDE_USAGE_STEP_NAME = 'Claude usage metrics';
 
 function gh(args, { json = true } = {}) {
   const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
@@ -86,6 +91,78 @@ function runStats(workflow, since) {
   const real = total - (by.cancelled || 0) - (by.skipped || 0); // run che hanno lavorato
   const fail = by.failure || 0;
   return { total, real, fail, ok: by.success || 0, cancelled: by.cancelled || 0, skipped: by.skipped || 0, rate: real ? fail / real : 0 };
+}
+
+/**
+ * Whether a tests.yml job persisted the actual Claude-fallback signal.
+ * @param {unknown} jobs Actions jobs response (or its `jobs` array)
+ */
+export function claudeUsageStepRan(jobs) {
+  const list = Array.isArray(jobs) ? jobs : [];
+  return list.some((job) => (Array.isArray(job?.steps) ? job.steps : []).some((step) =>
+    step?.name === CLAUDE_USAGE_STEP_NAME
+    && step.status === 'completed'
+    && step.conclusion !== 'skipped'));
+}
+
+/**
+ * Count actual Claude fallback consumers in the embedded tests.yml reviewer.
+ * Jobs are inspected only for this workflow; an API failure makes the metric
+ * explicitly indeterminate instead of silently reporting a false zero.
+ */
+export function claudeReviewRunStats(since, runGh = gh) {
+  let runs = [];
+  try {
+    runs = runGh(['run', 'list', '--repo', REPO, '--workflow', 'tests.yml',
+      '--event', 'pull_request', '--status', 'completed', '--created', `>${since}`,
+      '--limit', String(TESTS_CLAUDE_RUN_LIMIT), '--json', 'databaseId']);
+  } catch {
+    return { total: 0, claudeRuns: 0, measured: false, truncated: false };
+  }
+  if (!Array.isArray(runs)) return { total: 0, claudeRuns: 0, measured: false, truncated: false };
+
+  let claudeRuns = 0;
+  let measured = true;
+  for (const run of runs) {
+    if (!run?.databaseId) {
+      measured = false;
+      continue;
+    }
+    try {
+      const response = runGh([
+        'api',
+        `repos/${REPO}/actions/runs/${run.databaseId}/jobs?filter=latest&per_page=100`,
+      ]);
+      if (claudeUsageStepRan(response?.jobs)) claudeRuns += 1;
+    } catch {
+      measured = false;
+    }
+  }
+  const truncated = runs.length === TESTS_CLAUDE_RUN_LIMIT;
+  return { total: runs.length, claudeRuns, measured: measured && !truncated, truncated };
+}
+
+/**
+ * Merge the embedded reviewer into the PR-repair allocation only when its
+ * measurement is complete. The report remains advisory when GitHub is
+ * temporarily unreadable: it prints n/d and does not invent a ratio.
+ */
+export function claudeAllocation({
+  prRepairRuns = 0,
+  embeddedReviewRuns = 0,
+  embeddedMeasured = true,
+  issueFixRuns = 0,
+} = {}) {
+  const repairs = Number(prRepairRuns);
+  const embedded = Number(embeddedReviewRuns);
+  const issueFix = Number(issueFixRuns);
+  const repairRuns = embeddedMeasured && Number.isFinite(repairs) && Number.isFinite(embedded)
+    ? repairs + embedded
+    : null;
+  const ratio = repairRuns !== null && Number.isFinite(issueFix) && issueFix > 0
+    ? `${(repairRuns / issueFix).toFixed(1)}:1`
+    : 'n/d';
+  return { repairRuns, issueFixRuns: issueFix, ratio };
 }
 
 export function claudeReviewCount(pr) {
@@ -336,6 +413,10 @@ function main() {
     if (flag) warns.push(`failure-rate ${(s.rate * 100).toFixed(0)}% su ${wf} (${s.fail}/${s.real} run reali)`);
     lines.push(`| ${wf}${flag} | ${s.real} | ${s.ok} | ${s.fail} | ${(s.rate * 100).toFixed(0)}% | ${s.cancelled} | ${s.skipped} |`);
   }
+  const embeddedClaude = claudeReviewRunStats(since);
+  const embeddedClaudeLabel = embeddedClaude.measured ? embeddedClaude.claudeRuns : 'n/d';
+  if (embeddedClaude.measured) claudePerDay += embeddedClaude.claudeRuns / DAYS;
+  lines.push(`| tests.yml (Claude usage metrics) | ${embeddedClaudeLabel} | — | — | — | — | — |`);
   lines.push('');
   lines.push(`**Invocazioni Claude ≈ ${claudePerDay.toFixed(0)}/giorno** (run reali, proxy token-burn).`);
 
@@ -357,17 +438,26 @@ function main() {
   // the same read for the queue trend: no extra GitHub request per report.
   const tracker = findTracker();
   const trackerComments = tracker ? defaultFetchComments(tracker) : [];
-  const repairRuns = (workflowStats['pr-redflag-fixer.yml']?.real || 0)
-    + (workflowStats['pr-redcheck-fixer.yml']?.real || 0);
   const issueFixRuns = workflowStats['issue-fix.yml']?.real || 0;
-  const allocationRatio = issueFixRuns > 0 ? `${(repairRuns / issueFixRuns).toFixed(1)}:1` : 'n/d';
-  lines.push(`**Allocazione:** riparazione PR ${repairRuns} run reali · issue-fix ${issueFixRuns} · rapporto ${allocationRatio}.`);
-  warns.push(...repairEfficiencyWarnings({
-    repairRuns,
+  const allocation = claudeAllocation({
+    prRepairRuns: (workflowStats['pr-redflag-fixer.yml']?.real || 0)
+      + (workflowStats['pr-redcheck-fixer.yml']?.real || 0),
+    embeddedReviewRuns: embeddedClaude.claudeRuns,
+    embeddedMeasured: embeddedClaude.measured,
     issueFixRuns,
-    queued,
-    priorComments: trackerComments,
-  }));
+  });
+  const allocationRepairs = allocation.repairRuns === null ? 'n/d' : allocation.repairRuns;
+  lines.push(`**Allocazione:** riparazione PR ${allocationRepairs} run reali (incluso tests.yml Claude ${embeddedClaudeLabel}) · issue-fix ${issueFixRuns} · rapporto ${allocation.ratio}.`);
+  if (!embeddedClaude.measured) {
+    warns.push('tests.yml Claude reviewer non misurabile: jobs API incompleta');
+  } else {
+    warns.push(...repairEfficiencyWarnings({
+      repairRuns: allocation.repairRuns,
+      issueFixRuns,
+      queued,
+      priorComments: trackerComments,
+    }));
+  }
 
   // Quanto dura ciascun allarme: una riga di soglia accesa da due mesi senza
   // mai cambiare stato non si legge più. Il conteggio la rende di nuovo

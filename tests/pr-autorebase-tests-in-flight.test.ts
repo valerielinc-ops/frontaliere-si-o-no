@@ -24,7 +24,10 @@ describe('testsRunInFlightOnHead (#6037 autorebase↔tests livelock guard)', () 
   it('il lettore del verdetto completato verifica il tentativo corrente', () => {
     const reader = AUTOREBASE_SOURCE.match(/function vitestJobSteps\(head\) \{[\s\S]*?^\}/m)?.[0];
     expect(reader).toContain('jobs?filter=latest');
-    expect(reader).toContain('currentAttemptJobSteps({ checkRun: last, jobId: ref.jobId, jobs: out })');
+    expect(reader).toContain('currentAttemptJobSteps({');
+    expect(reader).toContain('jobs: Array.isArray(out) ? out : []');
+    expect(reader).toContain('pollUntil');
+    expect(reader).toContain('vitestJobIsConcluded');
     expect(reader).not.toContain('actions/jobs/');
   });
   it('review-in-flight usa lo step della Jobs API, non il check-run morto `review`', () => {
@@ -36,8 +39,9 @@ describe('testsRunInFlightOnHead (#6037 autorebase↔tests livelock guard)', () 
     ])).toBe(false);
     expect(AUTOREBASE_SOURCE).toContain('actions/jobs/');
     expect(AUTOREBASE_SOURCE).toContain('reviewStepIsInFlight');
+    expect(AUTOREBASE_SOURCE).toContain('ready: (response) => vitestJobIsConcluded(response)');
     expect(AUTOREBASE_SOURCE).toContain('if (!jobId) return true;');
-    expect(AUTOREBASE_SOURCE).toContain('if (!job || !Array.isArray(job.steps) || job.steps.length === 0) return true;');
+    expect(AUTOREBASE_SOURCE).toContain('if (!vitestJobIsConcluded(job) || !Array.isArray(job.steps) || job.steps.length === 0) return true;');
     expect(AUTOREBASE_SOURCE).not.toContain('c.name == "review"');
   });
 
