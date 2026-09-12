@@ -11661,6 +11661,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-laveno-mombello-ticino.title': 'Frontalieri a Laveno-Mombello: guida e fisco in Ticino',
     'blog.article.frontaliere-laveno-mombello-ticino.excerpt': 'Vivere a Laveno-Mombello e lavorare in Ticino: collegamenti, imposte alla fonte, franchigie e previdenza per i lavoratori frontalieri.',
     'blog.article.frontaliere-laveno-mombello-ticino.imageAlt': 'Veduta del Lago Maggiore vicino a Laveno-Mombello per frontalieri in Ticino',
+    'blog.article.indice-rischio-geopolitico-ticino.title': 'Ticino misura il rischio geopolitico con un nuovo indice',
+    'blog.article.indice-rischio-geopolitico-ticino.excerpt': 'Un nuovo documento di 54 pagine valuta le tensioni globali e l\'impatto sull\'economia ticinese, offrendo analisi e previsioni per le imprese.',
+    'blog.article.indice-rischio-geopolitico-ticino.imageAlt': 'Panorama di Lugano e del lago con cielo nuvoloso',
 };
 
 export default blogMetaIt;

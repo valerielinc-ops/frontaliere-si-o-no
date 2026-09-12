@@ -11660,6 +11660,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-laveno-mombello-ticino.title': 'Frontier workers in Laveno-Mombello: driving and tax in Ticino',
     'blog.article.frontaliere-laveno-mombello-ticino.excerpt': 'Living in Laveno-Mombello and working in Ticino: connections, taxes at source, deductibles and pension for frontier workers.',
     'blog.article.frontaliere-laveno-mombello-ticino.imageAlt': 'View of Lake Maggiore near Laveno-Mombello for cross-border workers in Ticino',
+    'blog.article.indice-rischio-geopolitico-ticino.title': 'Ticino measures geopolitical risk with a new index',
+    'blog.article.indice-rischio-geopolitico-ticino.excerpt': 'A new 54-page document assesses global tensions and the impact on the Ticino economy, offering analysis and forecasts for businesses.',
+    'blog.article.indice-rischio-geopolitico-ticino.imageAlt': 'View of Lugano and lake under cloudy sky',
 };
 
 export default blogMetaEn;
