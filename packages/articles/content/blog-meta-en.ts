@@ -11666,6 +11666,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guasto-ferrovia-melegnano-settembre.title': 'Railway failure in Melegnano: delays and variations',
     'blog.article.guasto-ferrovia-melegnano-settembre.excerpt': 'A breakdown of the circulation systems in the Melegnano station causes average delays of about thirty minutes and inconvenience on the suburban lines S1 and S12.',
     'blog.article.guasto-ferrovia-melegnano-settembre.imageAlt': 'Regional train stopped at railway station due to technical failure',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.title': 'Freight traffic in the Alps: the train goes backwards and the trucks grow',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.excerpt': 'The Federal Office of Transport records a growth in road transport equal to twice that of rail transport along the Alps.',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.imageAlt': 'Goods and truck traffic along alpine passes in Switzerland',
 };
 
 export default blogMetaEn;

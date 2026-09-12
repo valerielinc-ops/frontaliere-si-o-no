@@ -11667,6 +11667,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guasto-ferrovia-melegnano-settembre.title': 'Guasto ferroviario a Melegnano: ritardi e variazioni',
     'blog.article.guasto-ferrovia-melegnano-settembre.excerpt': 'Un guasto agli impianti di circolazione nella stazione di Melegnano provoca ritardi medi di circa trenta minuti e disagi sulle linee suburbane S1 e S12.',
     'blog.article.guasto-ferrovia-melegnano-settembre.imageAlt': 'Treno regionale fermo in stazione a causa di un guasto tecnico',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.title': 'Traffico merci sulle Alpi: il treno arretra e i camion crescono',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.excerpt': 'L\'Ufficio federale dei trasporti registra una crescita del trasporto su gomma pari al doppio di quello ferroviario lungo le Alpi.',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.imageAlt': 'Traffico di merci e autocarri lungo i valichi alpini in Svizzera',
 };
 
 export default blogMetaIt;

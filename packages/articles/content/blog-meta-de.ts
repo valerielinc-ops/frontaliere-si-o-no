@@ -11665,6 +11665,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guasto-ferrovia-melegnano-settembre.title': 'Bahnausfall in Melegnano: Verspätungen und Änderungen',
     'blog.article.guasto-ferrovia-melegnano-settembre.excerpt': 'Ein Ausfall der Verkehrssysteme im Bahnhof Melegnano verursacht durchschnittliche Verzögerungen von etwa dreißig Minuten und Unannehmlichkeiten auf den S-Bahnlinien S1 und S12.',
     'blog.article.guasto-ferrovia-melegnano-settembre.imageAlt': 'Regionalzug wegen technischen Defekts am Bahnhof angehalten',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.title': 'Güterverkehr in den Alpen: Zug fährt zurück und Lastwagen wachsen',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.excerpt': 'Das Bundesamt für Verkehr verzeichnet ein Wachstum des Straßenverkehrs, das doppelt so hoch ist wie das der Eisenbahn entlang der Alpen.',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.imageAlt': 'Güter- und Lastwagenverkehr an den Alpenübergängen in der Schweiz',
 };
 
 export default blogMetaDe;

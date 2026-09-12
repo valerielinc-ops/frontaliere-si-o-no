@@ -34824,6 +34824,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'traffico-merci-alpi-ferrovia-camion',
+ category: 'pratico',
+ date: '2026-09-12T02:10:13.299Z',
+ image: '/images/blog/traffico-merci-alpi-ferrovia-camion.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
