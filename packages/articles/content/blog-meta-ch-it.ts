@@ -6307,6 +6307,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-canton-san-gallo-procedura.title': 'Naturalizzazione a San Gallo: requisiti e procedura',
     'blog.article.naturalizzazione-canton-san-gallo-procedura.excerpt': 'Scopri i requisiti di anni, test d\'integrazione, lingua e tasse per la naturalizzazione ordinaria nel cantone San Gallo.',
     'blog.article.naturalizzazione-canton-san-gallo-procedura.imageAlt': 'Paesaggio del cantone San Gallo con colline e case tradizionali svizzere',
+    'blog.article.premi-cassa-malati-vaud-riduzione.title': 'Premi cassa malati Vaud: come ottenere la riduzione',
+    'blog.article.premi-cassa-malati-vaud-riduzione.excerpt': 'Franchigie, modelli alternativi e requisiti per il sussidio cantonale: guida pratica ai premi LAMal nel Canton Vaud.',
+    'blog.article.premi-cassa-malati-vaud-riduzione.imageAlt': 'Ufficio assicurazione sanitaria in Svizzera con consulente e cliente',
 };
 
 export default blogMetaChIt;

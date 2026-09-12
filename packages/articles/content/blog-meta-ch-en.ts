@@ -6307,6 +6307,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-canton-san-gallo-procedura.title': 'Naturalization in St. Gallen: requirements and procedure',
     'blog.article.naturalizzazione-canton-san-gallo-procedura.excerpt': 'Find out about the requirements for years, integration tests, language and fees for ordinary naturalisation in the canton of St. Gallen.',
     'blog.article.naturalizzazione-canton-san-gallo-procedura.imageAlt': 'St. Gallen countryside with hills and traditional Swiss houses',
+    'blog.article.premi-cassa-malati-vaud-riduzione.title': 'Vaud sick pay premiums: how to get the reduction',
+    'blog.article.premi-cassa-malati-vaud-riduzione.excerpt': 'Deductibles, alternative models and cantonal subsidy requirements: a practical guide to LAMal awards in the Canton of Vaud.',
+    'blog.article.premi-cassa-malati-vaud-riduzione.imageAlt': 'Swiss health insurance office with consultant and client',
 };
 
 export default blogMetaChEn;

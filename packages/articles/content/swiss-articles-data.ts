@@ -18919,6 +18919,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-cassa-malati-vaud-riduzione',
+    category: 'pratico',
+    date: '2026-09-12T20:12:56.485Z',
+    image: '/images/blog/premi-cassa-malati-vaud-riduzione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
