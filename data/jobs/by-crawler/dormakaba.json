@@ -61,8 +61,6 @@
         "technician-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne",
         "techniker-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
         "technicien-portes-automatiques-f-m-d-dormakaba-ch",
-        "technician-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "techniker-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
         "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -74,14 +72,12 @@
         "en": [
           "automatic-door-technician-f-m-d-dormakaba-le-mont-sur-lausanne",
           "technician-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne",
-          "technician-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
           "technicien-portes-automatiques-f-m-d-dormakaba-ch",
           "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
         "de": [
           "automatischer-turtechniker-m-m-d-dormakaba-le-mont-sur-lausanne",
           "techniker-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
-          "techniker-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
           "technicien-portes-automatiques-f-m-d-dormakaba-ch",
           "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
         ]
@@ -324,7 +320,6 @@
         "project-leader-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne",
         "projektleiter-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch",
-        "projektmanager-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -340,7 +335,6 @@
         "de": [
           "projektleiter-automatische-turen-m-m-d-dormakaba-le-mont-sur-lausanne",
           "projektleiter-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
-          "projektmanager-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
           "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch",
           "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
         ]
@@ -675,7 +669,6 @@
         "project-manager-access-control-m-f-d-dormakaba-le-mont-sur-lausanne",
         "projektmanager-zugangskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
-        "projektmanager-zugriffskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -689,7 +682,6 @@
         "en": [
           "chef-de-projet-m-f-d-dormakaba-ch",
           "project-leader-m-f-d-dormakaba-le-mont-sur-lausanne",
-          "project-manager-access-control-m-f-d-dormakaba-le-mont-sur-lausanne",
           "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
           "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
@@ -697,7 +689,6 @@
           "chef-de-projet-m-f-d-dormakaba-ch",
           "projektleiter-m-w-d-dormakaba-le-mont-sur-lausanne",
           "projektmanager-zugangskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
-          "projektmanager-zugriffskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
           "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
           "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
@@ -722,12 +713,12 @@
     },
     {
       "id": "dormakaba-11900",
-      "slug": "configurable-materials-master-data-domain-lead-dormakaba-ch",
+      "slug": "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
       "slugByLocale": {
         "en": "configurable-materials-master-data-domain-lead-dormakaba-ch",
         "de": "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang",
         "fr": "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
-        "it": "configurable-materials-master-data-domain-lead-dormakaba-ch"
+        "it": "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -775,12 +766,14 @@
       "previousSlugs": [
         "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
         "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
-        "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
+        "configurable-materials-master-data-domain-lead-dormakaba-rumlang",
+        "configurable-materials-master-data-domain-lead-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
-          "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang"
+          "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
+          "configurable-materials-master-data-domain-lead-dormakaba-ch"
         ],
         "fr": [
           "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
@@ -932,8 +925,6 @@
       "previousSlugs": [
         "coordinateur-de-commandes-f-m-d-dormakaba-le-mont-sur-lausanne",
         "coordinateur-de-commandes-f-m-d-dormakaba-ch",
-        "m-f-d-command-coordinator-dormakaba-le-mont-sur-lausanne",
-        "m-w-d-kommandokoordinator-dormakaba-le-mont-sur-lausanne",
         "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -941,12 +932,10 @@
           "coordinateur-de-commandes-f-m-d-dormakaba-ch"
         ],
         "en": [
-          "m-f-d-command-coordinator-dormakaba-le-mont-sur-lausanne",
           "coordinateur-de-commandes-f-m-d-dormakaba-ch",
           "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
         "de": [
-          "m-w-d-kommandokoordinator-dormakaba-le-mont-sur-lausanne",
           "coordinateur-de-commandes-f-m-d-dormakaba-ch",
           "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],

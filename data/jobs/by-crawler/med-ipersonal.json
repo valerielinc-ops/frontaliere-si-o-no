@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "med-ipersonal-9b0c895050c8",
-      "slug": "techniker-elektronik-100-in-der-region-nottwil-temporarburo-ipersonal-med-ipersonal-ch",
+      "slug": "tecnico-elettronica-100-nella-regione-di-nottwil-ufficio-temporaneo-ipersonal-ipersonal-ag-nottwil-luzern",
       "slugByLocale": {
         "de": "techniker-elektronik-100-in-der-region-nottwil-temporarburo-ipersonal-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-in-der-region-nottwil-temporarburo-ipersonal-med-ipersonal-ch",
-        "en": "techniker-elektronik-100-in-der-region-nottwil-temporarburo-ipersonal-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-in-der-region-nottwil-temporarburo-ipersonal-med-ipersonal-ch"
+        "it": "tecnico-elettronica-100-nella-regione-di-nottwil-ufficio-temporaneo-ipersonal-ipersonal-ag-nottwil-luzern",
+        "en": "technician-electronics-100-in-the-nottwil-region-temporary-office-ipersonal-ipersonal-ag-nottwil-luzern",
+        "fr": "technicien-electronique-100-dans-la-region-de-nottwil-bureau-temporaire-ipersonal-ipersonal-ag-nottwil-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -61,16 +61,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-12T13:18:05.592Z"
+      "firstSeenAt": "2026-09-12T13:18:05.592Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-elektronik-100-in-der-region-nottwil-temporarburo-ipersonal-med-ipersonal-ch"
+        ],
+        "en": [
+          "techniker-elektronik-100-in-der-region-nottwil-temporarburo-ipersonal-med-ipersonal-ch"
+        ],
+        "fr": [
+          "techniker-elektronik-100-in-der-region-nottwil-temporarburo-ipersonal-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-elektronik-100-in-der-region-nottwil-temporarburo-ipersonal-med-ipersonal-ch"
+      ]
     },
     {
       "id": "med-ipersonal-37477307a917",
-      "slug": "techniker-elektronik-100-per-la-region-einsiedeln-jobangebot-ipersonal-ag-einsiedeln",
+      "slug": "tecnici-elettronica-100-per-la-regione-einsiedeln-offerta-di-lavoro-ipersonal-ag-einsiedeln-schwyz",
       "slugByLocale": {
         "de": "techniker-elektronik-100-fur-die-region-einsiedeln-jobangebot-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-per-la-region-einsiedeln-jobangebot-ipersonal-ag-einsiedeln",
-        "en": "techniker-elektronik-100-fur-die-region-einsiedeln-jobangebot-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-fur-die-region-einsiedeln-jobangebot-med-ipersonal-ch"
+        "it": "tecnici-elettronica-100-per-la-regione-einsiedeln-offerta-di-lavoro-ipersonal-ag-einsiedeln-schwyz",
+        "en": "technicians-electronics-100-for-the-region-einsiedeln-job-offer-ipersonal-ag-einsiedeln-schwyz",
+        "fr": "techniciens-electronique-100-pour-la-region-einsiedeln-offre-d-emploi-ipersonal-ag-einsiedeln-schwyz"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -112,15 +126,21 @@
       "previousSlugsByLocale": {
         "it": [
           "techniker-elektronik-100-fur-die-region-einsiedeln-jobangebot-med-ipersonal-ch",
-          "techniker-elektronik-100-in-der-region-muotathal-jobangebot-med-ipersonal-ch"
+          "techniker-elektronik-100-in-der-region-muotathal-jobangebot-med-ipersonal-ch",
+          "techniker-elektronik-100-per-la-region-einsiedeln-jobangebot-ipersonal-ag-einsiedeln"
         ],
         "fr": [
-          "techniker-elektronik-100-in-der-region-muotathal-jobangebot-med-ipersonal-ch"
+          "techniker-elektronik-100-in-der-region-muotathal-jobangebot-med-ipersonal-ch",
+          "techniker-elektronik-100-fur-die-region-einsiedeln-jobangebot-med-ipersonal-ch"
+        ],
+        "en": [
+          "techniker-elektronik-100-fur-die-region-einsiedeln-jobangebot-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
         "techniker-elektronik-100-fur-die-region-einsiedeln-jobangebot-med-ipersonal-ch",
-        "techniker-elektronik-100-in-der-region-muotathal-jobangebot-med-ipersonal-ch"
+        "techniker-elektronik-100-in-der-region-muotathal-jobangebot-med-ipersonal-ch",
+        "techniker-elektronik-100-per-la-region-einsiedeln-jobangebot-ipersonal-ag-einsiedeln"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -139,12 +159,12 @@
     },
     {
       "id": "med-ipersonal-a51392eca2bd",
-      "slug": "techniker-elektronik-100-in-der-region-sattel-gesucht-med-ipersonal-ch",
+      "slug": "tecnico-elettronica-100-ricercato-in-sella-regione-ipersonal-ag-sattel-schwyz",
       "slugByLocale": {
         "de": "techniker-elektronik-100-in-der-region-sattel-gesucht-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-in-der-region-sattel-gesucht-med-ipersonal-ch",
-        "en": "techniker-elektronik-100-in-der-region-sattel-gesucht-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-in-der-region-sattel-gesucht-med-ipersonal-ch"
+        "it": "tecnico-elettronica-100-ricercato-in-sella-regione-ipersonal-ag-sattel-schwyz",
+        "en": "technician-electronics-100-sought-after-in-region-saddle-ipersonal-ag-sattel-schwyz",
+        "fr": "technicien-electronique-100-recherche-dans-la-selle-regionale-ipersonal-ag-sattel-schwyz"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -196,16 +216,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-12T13:18:04.990Z"
+      "firstSeenAt": "2026-09-12T13:18:04.990Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-elektronik-100-in-der-region-sattel-gesucht-med-ipersonal-ch"
+        ],
+        "en": [
+          "techniker-elektronik-100-in-der-region-sattel-gesucht-med-ipersonal-ch"
+        ],
+        "fr": [
+          "techniker-elektronik-100-in-der-region-sattel-gesucht-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-elektronik-100-in-der-region-sattel-gesucht-med-ipersonal-ch"
+      ]
     },
     {
       "id": "med-ipersonal-42fa82c10520",
-      "slug": "techniker-elektronik-100-in-der-region-galgenen-jobangebot-med-ipersonal-ch",
+      "slug": "tecnici-elettronica-100-nella-regione-galgenen-offerta-di-lavoro-ipersonal-ag-galgenen-schwyz",
       "slugByLocale": {
         "de": "techniker-elektronik-100-in-der-region-galgenen-jobangebot-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-in-der-region-galgenen-jobangebot-med-ipersonal-ch",
-        "en": "techniker-elektronik-100-in-der-region-galgenen-jobangebot-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-in-der-region-galgenen-jobangebot-med-ipersonal-ch"
+        "it": "tecnici-elettronica-100-nella-regione-galgenen-offerta-di-lavoro-ipersonal-ag-galgenen-schwyz",
+        "en": "technicians-electronics-100-in-the-galgenen-region-job-offer-ipersonal-ag-galgenen-schwyz",
+        "fr": "techniciens-electronique-100-dans-la-region-de-galgenen-offre-d-emploi-ipersonal-ag-galgenen-schwyz"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -257,16 +291,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-12T13:18:04.689Z"
+      "firstSeenAt": "2026-09-12T13:18:04.689Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-elektronik-100-in-der-region-galgenen-jobangebot-med-ipersonal-ch"
+        ],
+        "en": [
+          "techniker-elektronik-100-in-der-region-galgenen-jobangebot-med-ipersonal-ch"
+        ],
+        "fr": [
+          "techniker-elektronik-100-in-der-region-galgenen-jobangebot-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-elektronik-100-in-der-region-galgenen-jobangebot-med-ipersonal-ch"
+      ]
     },
     {
       "id": "med-ipersonal-cae16d42c917",
-      "slug": "techniker-elektronik-100-in-der-region-weggis-gesucht-med-ipersonal-ch",
+      "slug": "tecnici-elettronica-100-ricercata-nella-regione-di-weggis-ipersonal-ag-weggis-luzern",
       "slugByLocale": {
         "de": "techniker-elektronik-100-in-der-region-weggis-gesucht-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-in-der-region-weggis-gesucht-med-ipersonal-ch",
-        "en": "techniker-elektronik-100-in-der-region-weggis-gesucht-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-in-der-region-weggis-gesucht-med-ipersonal-ch"
+        "it": "tecnici-elettronica-100-ricercata-nella-regione-di-weggis-ipersonal-ag-weggis-luzern",
+        "en": "technicians-electronics-100-sought-in-the-weggis-region-ipersonal-ag-weggis-luzern",
+        "fr": "techniciens-electronique-100-recherches-dans-la-region-de-weggis-ipersonal-ag-weggis-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -318,16 +366,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-12T13:18:04.387Z"
+      "firstSeenAt": "2026-09-12T13:18:04.387Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-elektronik-100-in-der-region-weggis-gesucht-med-ipersonal-ch"
+        ],
+        "en": [
+          "techniker-elektronik-100-in-der-region-weggis-gesucht-med-ipersonal-ch"
+        ],
+        "fr": [
+          "techniker-elektronik-100-in-der-region-weggis-gesucht-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-elektronik-100-in-der-region-weggis-gesucht-med-ipersonal-ch"
+      ]
     },
     {
       "id": "med-ipersonal-0702427be718",
-      "slug": "installatore-trice-elettrico-a-100-in-der-region-walchwil-freie-stelle-ipersonal-ag-walchwil",
+      "slug": "installatore-elettrico-100-nella-regione-walchwil-lavoro-vacante-ipersonal-ag-walchwil-zug",
       "slugByLocale": {
         "de": "elektroinstallateur-100-in-der-region-walchwil-freie-stelle-med-ipersonal-ch",
-        "it": "installatore-trice-elettrico-a-100-in-der-region-walchwil-freie-stelle-ipersonal-ag-walchwil",
-        "en": "elektroinstallateur-100-in-der-region-walchwil-freie-stelle-med-ipersonal-ch",
-        "fr": "elektroinstallateur-100-in-der-region-walchwil-freie-stelle-med-ipersonal-ch"
+        "it": "installatore-elettrico-100-nella-regione-walchwil-lavoro-vacante-ipersonal-ag-walchwil-zug",
+        "en": "electrical-installer-100-in-the-walchwil-region-vacant-job-ipersonal-ag-walchwil-zug",
+        "fr": "installateur-electrique-100-dans-la-region-de-walchwil-emploi-vacant-ipersonal-ag-walchwil-zug"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -376,16 +438,19 @@
           "installatore-trice-elettrico-a-100-in-der-region-triengen-freie-stelle-ipersonal-ag-triengen",
           "elektroinstallateur-100-in-der-region-triengen-freie-stelle-med-ipersonal-ch",
           "installatore-trice-elettrico-a-100-per-la-region-freienbach-freie-stelle-ipersonal-ag-freienbach",
-          "elektroinstallateur-100-fur-die-region-freienbach-freie-stelle-med-ipersonal-ch"
+          "elektroinstallateur-100-fur-die-region-freienbach-freie-stelle-med-ipersonal-ch",
+          "installatore-trice-elettrico-a-100-in-der-region-walchwil-freie-stelle-ipersonal-ag-walchwil"
         ],
         "en": [
-          "electrical-installer-100-for-the-laufenburg-region-vacant-position-ipersonal-ag-laufenburg-aargau"
+          "electrical-installer-100-for-the-laufenburg-region-vacant-position-ipersonal-ag-laufenburg-aargau",
+          "elektroinstallateur-100-in-der-region-walchwil-freie-stelle-med-ipersonal-ch"
         ],
         "de": [
           "elektroinstallateur-100-fur-die-region-laufenburg-freie-stelle-med-ipersonal-ch"
         ],
         "fr": [
-          "installateur-electrique-100-pour-la-region-de-laufenburg-poste-vacant-ipersonal-ag-laufenburg-aargau"
+          "installateur-electrique-100-pour-la-region-de-laufenburg-poste-vacant-ipersonal-ag-laufenburg-aargau",
+          "elektroinstallateur-100-in-der-region-walchwil-freie-stelle-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -397,7 +462,8 @@
         "installatore-trice-elettrico-a-100-in-der-region-triengen-freie-stelle-ipersonal-ag-triengen",
         "elektroinstallateur-100-in-der-region-triengen-freie-stelle-med-ipersonal-ch",
         "installatore-trice-elettrico-a-100-per-la-region-freienbach-freie-stelle-ipersonal-ag-freienbach",
-        "elektroinstallateur-100-fur-die-region-freienbach-freie-stelle-med-ipersonal-ch"
+        "elektroinstallateur-100-fur-die-region-freienbach-freie-stelle-med-ipersonal-ch",
+        "installatore-trice-elettrico-a-100-in-der-region-walchwil-freie-stelle-ipersonal-ag-walchwil"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -416,12 +482,12 @@
     },
     {
       "id": "med-ipersonal-923d73d97cde",
-      "slug": "techniker-elektronik-100-per-la-region-zug-direkte-festanstellung-ipersonal-ag-zug",
+      "slug": "tecnico-elettronica-100-per-la-regione-di-zug-lavoro-permanente-diretto-ipersonal-ag-zug-zug",
       "slugByLocale": {
         "de": "techniker-elektronik-100-fur-die-region-zug-direkte-festanstellung-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-per-la-region-zug-direkte-festanstellung-ipersonal-ag-zug",
-        "en": "techniker-elektronik-100-fur-die-region-zug-direkte-festanstellung-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-fur-die-region-zug-direkte-festanstellung-med-ipersonal-ch"
+        "it": "tecnico-elettronica-100-per-la-regione-di-zug-lavoro-permanente-diretto-ipersonal-ag-zug-zug",
+        "en": "technician-electronics-100-for-the-zug-region-direct-permanent-employment-ipersonal-ag-zug-zug",
+        "fr": "technicien-electronique-100-pour-la-region-de-zug-emploi-permanent-direct-ipersonal-ag-zug-zug"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -462,11 +528,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/techniker-elektronik-100-fuer-die-region-zug-direkte-festanstellung/",
       "previousSlugsByLocale": {
         "it": [
+          "techniker-elektronik-100-fur-die-region-zug-direkte-festanstellung-med-ipersonal-ch",
+          "techniker-elektronik-100-per-la-region-zug-direkte-festanstellung-ipersonal-ag-zug"
+        ],
+        "en": [
+          "techniker-elektronik-100-fur-die-region-zug-direkte-festanstellung-med-ipersonal-ch"
+        ],
+        "fr": [
           "techniker-elektronik-100-fur-die-region-zug-direkte-festanstellung-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
-        "techniker-elektronik-100-fur-die-region-zug-direkte-festanstellung-med-ipersonal-ch"
+        "techniker-elektronik-100-fur-die-region-zug-direkte-festanstellung-med-ipersonal-ch",
+        "techniker-elektronik-100-per-la-region-zug-direkte-festanstellung-ipersonal-ag-zug"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -485,12 +559,12 @@
     },
     {
       "id": "med-ipersonal-4b0372e30c4b",
-      "slug": "techniker-elektronik-100-per-la-region-schubelbach-freie-stelle-ipersonal-ag-schubelbach",
+      "slug": "tecnico-elettronica-100-per-la-regione-di-schubelbach-posizione-vacante-ipersonal-ag-schubelbach-schwyz",
       "slugByLocale": {
         "de": "techniker-elektronik-100-fur-die-region-schubelbach-freie-stelle-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-per-la-region-schubelbach-freie-stelle-ipersonal-ag-schubelbach",
-        "en": "techniker-elektronik-100-fur-die-region-schubelbach-freie-stelle-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-fur-die-region-schubelbach-freie-stelle-med-ipersonal-ch"
+        "it": "tecnico-elettronica-100-per-la-regione-di-schubelbach-posizione-vacante-ipersonal-ag-schubelbach-schwyz",
+        "en": "technician-electronics-100-for-the-schubelbach-region-vacant-position-ipersonal-ag-schubelbach-schwyz",
+        "fr": "technicien-electronique-100-pour-la-region-de-schubelbach-poste-vacant-ipersonal-ag-schubelbach-schwyz"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -533,16 +607,22 @@
         "it": [
           "techniker-elektronik-100-fur-die-region-schubelbach-freie-stelle-med-ipersonal-ch",
           "techniker-elektronik-100-per-la-region-kussnacht-am-rigi-freie-stelle-ipersonal-ag-kussnacht-am-rigi",
-          "techniker-elektronik-100-fur-die-region-kussnacht-am-rigi-freie-stelle-med-ipersonal-ch"
+          "techniker-elektronik-100-fur-die-region-kussnacht-am-rigi-freie-stelle-med-ipersonal-ch",
+          "techniker-elektronik-100-per-la-region-schubelbach-freie-stelle-ipersonal-ag-schubelbach"
         ],
         "fr": [
-          "techniker-elektronik-100-fur-die-region-kussnacht-am-rigi-freie-stelle-med-ipersonal-ch"
+          "techniker-elektronik-100-fur-die-region-kussnacht-am-rigi-freie-stelle-med-ipersonal-ch",
+          "techniker-elektronik-100-fur-die-region-schubelbach-freie-stelle-med-ipersonal-ch"
+        ],
+        "en": [
+          "techniker-elektronik-100-fur-die-region-schubelbach-freie-stelle-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
         "techniker-elektronik-100-fur-die-region-schubelbach-freie-stelle-med-ipersonal-ch",
         "techniker-elektronik-100-per-la-region-kussnacht-am-rigi-freie-stelle-ipersonal-ag-kussnacht-am-rigi",
-        "techniker-elektronik-100-fur-die-region-kussnacht-am-rigi-freie-stelle-med-ipersonal-ch"
+        "techniker-elektronik-100-fur-die-region-kussnacht-am-rigi-freie-stelle-med-ipersonal-ch",
+        "techniker-elektronik-100-per-la-region-schubelbach-freie-stelle-ipersonal-ag-schubelbach"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -565,8 +645,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-100-fur-die-region-neuheim-offene-stelle-med-ipersonal-ch",
         "it": "installatore-trice-elettrico-a-100-per-la-region-neuheim-offene-stelle-ipersonal-ag-neuheim",
-        "en": "elektroinstallateur-100-fur-die-region-neuheim-offene-stelle-med-ipersonal-ch",
-        "fr": "elektroinstallateur-100-fur-die-region-neuheim-offene-stelle-med-ipersonal-ch"
+        "en": "electrical-installer-100-for-the-neuheim-region-open-position-ipersonal-ag-neuheim-zug",
+        "fr": "installation-electrique-100-pour-la-region-de-neuheim-position-ouverte-ipersonal-ag-neuheim-zug"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -608,6 +688,12 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-100-fur-die-region-neuheim-offene-stelle-med-ipersonal-ch"
+        ],
+        "en": [
+          "elektroinstallateur-100-fur-die-region-neuheim-offene-stelle-med-ipersonal-ch"
+        ],
+        "fr": [
+          "elektroinstallateur-100-fur-die-region-neuheim-offene-stelle-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -630,12 +716,12 @@
     },
     {
       "id": "med-ipersonal-bd8241863b95",
-      "slug": "installatore-trice-elettrico-a-100-per-la-region-menzingen-gesucht-jetzt-bewerben-ipersonal-ag-menzingen",
+      "slug": "installatore-elettrico-100-voluto-per-la-regione-menzingen-applicare-ora-ipersonal-ag-menzingen-zug",
       "slugByLocale": {
         "de": "elektroinstallateur-100-fur-die-region-menzingen-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "it": "installatore-trice-elettrico-a-100-per-la-region-menzingen-gesucht-jetzt-bewerben-ipersonal-ag-menzingen",
-        "en": "elektroinstallateur-100-fur-die-region-menzingen-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "fr": "elektroinstallateur-100-fur-die-region-menzingen-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        "it": "installatore-elettrico-100-voluto-per-la-regione-menzingen-applicare-ora-ipersonal-ag-menzingen-zug",
+        "en": "electrical-installer-100-wanted-for-the-menzingen-region-apply-now-ipersonal-ag-menzingen-zug",
+        "fr": "installateur-electrique-100-recherche-pour-la-region-de-menzingen-appliquez-maintenant-ipersonal-ag-menzingen-zug"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -688,11 +774,13 @@
           "installateur-electrique-100-recherche-pour-la-region-de-volketswil-appliquez-maintenant-ipersonal-ag-volketswil-zurich",
           "installatore-trice-elettrico-a-100-per-la-region-bad-zurzach-gesucht-jetzt-bewerben-ipersonal-ag-bad-zurzach",
           "elektroinstallateur-100-fur-die-region-bad-zurzach-gesucht-jetzt-bewerben-med-ipersonal-ch",
-          "installatore-trice-elettrico-a-100-per-la-region-volketswil-gesucht-jetzt-bewerben-ipersonal-ag-volketswil"
+          "installatore-trice-elettrico-a-100-per-la-region-volketswil-gesucht-jetzt-bewerben-ipersonal-ag-volketswil",
+          "installatore-trice-elettrico-a-100-per-la-region-menzingen-gesucht-jetzt-bewerben-ipersonal-ag-menzingen"
         ],
         "en": [
           "electrical-installer-100-wanted-in-the-dagmersellen-region-apply-now-ipersonal-ag-dagmersellen-luzern",
-          "electrical-installer-100-wanted-for-the-volketswil-region-apply-now-ipersonal-ag-volketswil-zurich"
+          "electrical-installer-100-wanted-for-the-volketswil-region-apply-now-ipersonal-ag-volketswil-zurich",
+          "elektroinstallateur-100-fur-die-region-menzingen-gesucht-jetzt-bewerben-med-ipersonal-ch"
         ],
         "de": [
           "elektroinstallateur-100-in-der-region-dagmersellen-gesucht-jetzt-bewerben-med-ipersonal-ch",
@@ -700,7 +788,8 @@
         ],
         "fr": [
           "installateur-electrique-100-recherche-dans-la-region-de-dagmersellen-appliquez-maintenant-ipersonal-ag-dagmersellen",
-          "installateur-electrique-100-recherche-pour-la-region-de-volketswil-appliquez-maintenant-ipersonal-ag-volketswil-zurich"
+          "installateur-electrique-100-recherche-pour-la-region-de-volketswil-appliquez-maintenant-ipersonal-ag-volketswil-zurich",
+          "elektroinstallateur-100-fur-die-region-menzingen-gesucht-jetzt-bewerben-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -716,7 +805,8 @@
         "installateur-electrique-100-recherche-pour-la-region-de-volketswil-appliquez-maintenant-ipersonal-ag-volketswil-zurich",
         "installatore-trice-elettrico-a-100-per-la-region-bad-zurzach-gesucht-jetzt-bewerben-ipersonal-ag-bad-zurzach",
         "elektroinstallateur-100-fur-die-region-bad-zurzach-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "installatore-trice-elettrico-a-100-per-la-region-volketswil-gesucht-jetzt-bewerben-ipersonal-ag-volketswil"
+        "installatore-trice-elettrico-a-100-per-la-region-volketswil-gesucht-jetzt-bewerben-ipersonal-ag-volketswil",
+        "installatore-trice-elettrico-a-100-per-la-region-menzingen-gesucht-jetzt-bewerben-ipersonal-ag-menzingen"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -735,12 +825,12 @@
     },
     {
       "id": "med-ipersonal-b615036472c1",
-      "slug": "techniker-elektronik-100-per-la-region-reichenburg-gesucht-ipersonal-ag-reichenburg",
+      "slug": "tecnici-elettronica-100-ricercati-per-la-regione-del-reichenburg-ipersonal-ag-reichenburg-schwyz",
       "slugByLocale": {
         "de": "techniker-elektronik-100-fur-die-region-reichenburg-gesucht-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-per-la-region-reichenburg-gesucht-ipersonal-ag-reichenburg",
-        "en": "techniker-elektronik-100-fur-die-region-reichenburg-gesucht-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-fur-die-region-reichenburg-gesucht-med-ipersonal-ch"
+        "it": "tecnici-elettronica-100-ricercati-per-la-regione-del-reichenburg-ipersonal-ag-reichenburg-schwyz",
+        "en": "technicians-electronics-100-sought-for-the-reichenburg-region-ipersonal-ag-reichenburg-schwyz",
+        "fr": "techniciens-electronique-100-recherche-pour-la-region-de-reichenburg-ipersonal-ag-reichenburg-schwyz"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -781,11 +871,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/techniker-elektronik-100-fuer-die-region-reichenburg-gesucht/",
       "previousSlugsByLocale": {
         "it": [
+          "techniker-elektronik-100-fur-die-region-reichenburg-gesucht-med-ipersonal-ch",
+          "techniker-elektronik-100-per-la-region-reichenburg-gesucht-ipersonal-ag-reichenburg"
+        ],
+        "en": [
+          "techniker-elektronik-100-fur-die-region-reichenburg-gesucht-med-ipersonal-ch"
+        ],
+        "fr": [
           "techniker-elektronik-100-fur-die-region-reichenburg-gesucht-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
-        "techniker-elektronik-100-fur-die-region-reichenburg-gesucht-med-ipersonal-ch"
+        "techniker-elektronik-100-fur-die-region-reichenburg-gesucht-med-ipersonal-ch",
+        "techniker-elektronik-100-per-la-region-reichenburg-gesucht-ipersonal-ag-reichenburg"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -804,12 +902,12 @@
     },
     {
       "id": "med-ipersonal-e9c3646989ba",
-      "slug": "techniker-elektronik-100-per-la-region-vitznau-temporarburo-ipersonal-ag-vitznau",
+      "slug": "tecnico-elettronica-100-per-la-regione-di-vitznau-ufficio-temporaneo-ipersonal-ipersonal-ag-vitznau-luzern",
       "slugByLocale": {
         "de": "techniker-elektronik-100-fur-die-region-vitznau-temporarburo-ipersonal-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-per-la-region-vitznau-temporarburo-ipersonal-ag-vitznau",
-        "en": "techniker-elektronik-100-fur-die-region-vitznau-temporarburo-ipersonal-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-fur-die-region-vitznau-temporarburo-ipersonal-med-ipersonal-ch"
+        "it": "tecnico-elettronica-100-per-la-regione-di-vitznau-ufficio-temporaneo-ipersonal-ipersonal-ag-vitznau-luzern",
+        "en": "technician-electronics-100-for-the-vitznau-region-temporary-office-ipersonal-ipersonal-ag-vitznau-luzern",
+        "fr": "technicien-electronique-100-pour-la-region-de-vitznau-bureau-temporaire-ipersonal-ipersonal-ag-vitznau-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -850,11 +948,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/techniker-elektronik-100-fuer-die-region-vitznau-temporaerbuero-ipersonal/",
       "previousSlugsByLocale": {
         "it": [
+          "techniker-elektronik-100-fur-die-region-vitznau-temporarburo-ipersonal-med-ipersonal-ch",
+          "techniker-elektronik-100-per-la-region-vitznau-temporarburo-ipersonal-ag-vitznau"
+        ],
+        "en": [
+          "techniker-elektronik-100-fur-die-region-vitznau-temporarburo-ipersonal-med-ipersonal-ch"
+        ],
+        "fr": [
           "techniker-elektronik-100-fur-die-region-vitznau-temporarburo-ipersonal-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
-        "techniker-elektronik-100-fur-die-region-vitznau-temporarburo-ipersonal-med-ipersonal-ch"
+        "techniker-elektronik-100-fur-die-region-vitznau-temporarburo-ipersonal-med-ipersonal-ch",
+        "techniker-elektronik-100-per-la-region-vitznau-temporarburo-ipersonal-ag-vitznau"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -873,12 +979,12 @@
     },
     {
       "id": "med-ipersonal-bbb21e3dd385",
-      "slug": "techniker-elektronik-100-in-der-region-ruswil-temporarburo-ipersonal-med-ipersonal-ch",
+      "slug": "tecnico-elettronica-100-nella-regione-di-ruswil-ufficio-temporaneo-ipersonal-ipersonal-ag-ruswil-luzern",
       "slugByLocale": {
         "de": "techniker-elektronik-100-in-der-region-ruswil-temporarburo-ipersonal-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-in-der-region-ruswil-temporarburo-ipersonal-med-ipersonal-ch",
-        "en": "techniker-elektronik-100-in-der-region-ruswil-temporarburo-ipersonal-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-in-der-region-ruswil-temporarburo-ipersonal-med-ipersonal-ch"
+        "it": "tecnico-elettronica-100-nella-regione-di-ruswil-ufficio-temporaneo-ipersonal-ipersonal-ag-ruswil-luzern",
+        "en": "technician-electronics-100-in-the-ruswil-region-temporary-office-ipersonal-ipersonal-ag-ruswil-luzern",
+        "fr": "technicien-electronique-100-dans-la-region-de-ruswil-bureau-temporaire-ipersonal-ipersonal-ag-ruswil-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -930,16 +1036,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-12T13:18:01.980Z"
+      "firstSeenAt": "2026-09-12T13:18:01.980Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-elektronik-100-in-der-region-ruswil-temporarburo-ipersonal-med-ipersonal-ch"
+        ],
+        "en": [
+          "techniker-elektronik-100-in-der-region-ruswil-temporarburo-ipersonal-med-ipersonal-ch"
+        ],
+        "fr": [
+          "techniker-elektronik-100-in-der-region-ruswil-temporarburo-ipersonal-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-elektronik-100-in-der-region-ruswil-temporarburo-ipersonal-med-ipersonal-ch"
+      ]
     },
     {
       "id": "med-ipersonal-cbee34796ba2",
-      "slug": "techniker-elektronik-100-in-der-region-hitzkirch-gesucht-jetzt-bewerben-med-ipersonal-ch",
+      "slug": "i-tecnici-l-elettronica-100-ricercata-nella-regione-di-hitzkirch-si-applicano-ora-ipersonal-ag-hitzkirch-luzern",
       "slugByLocale": {
         "de": "techniker-elektronik-100-in-der-region-hitzkirch-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-in-der-region-hitzkirch-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "en": "techniker-elektronik-100-in-der-region-hitzkirch-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-in-der-region-hitzkirch-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        "it": "i-tecnici-l-elettronica-100-ricercata-nella-regione-di-hitzkirch-si-applicano-ora-ipersonal-ag-hitzkirch-luzern",
+        "en": "technicians-electronics-100-sought-in-the-hitzkirch-region-apply-now-ipersonal-ag-hitzkirch-luzern",
+        "fr": "techniciens-electronique-100-recherche-dans-la-region-de-hitzkirch-postuler-maintenant-ipersonal-ag-hitzkirch-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -991,16 +1111,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-12T13:18:01.679Z"
+      "firstSeenAt": "2026-09-12T13:18:01.679Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-elektronik-100-in-der-region-hitzkirch-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        ],
+        "en": [
+          "techniker-elektronik-100-in-der-region-hitzkirch-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        ],
+        "fr": [
+          "techniker-elektronik-100-in-der-region-hitzkirch-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-elektronik-100-in-der-region-hitzkirch-gesucht-jetzt-bewerben-med-ipersonal-ch"
+      ]
     },
     {
       "id": "med-ipersonal-b6669352e60c",
-      "slug": "techniker-elektronik-100-in-der-region-walchwil-stellenangebot-med-ipersonal-ch",
+      "slug": "tecnici-elettronica-100-nella-regione-walchwil-offerta-di-lavoro-ipersonal-ag-walchwil-zug",
       "slugByLocale": {
         "de": "techniker-elektronik-100-in-der-region-walchwil-stellenangebot-med-ipersonal-ch",
-        "it": "techniker-elektronik-100-in-der-region-walchwil-stellenangebot-med-ipersonal-ch",
-        "en": "techniker-elektronik-100-in-der-region-walchwil-stellenangebot-med-ipersonal-ch",
-        "fr": "techniker-elektronik-100-in-der-region-walchwil-stellenangebot-med-ipersonal-ch"
+        "it": "tecnici-elettronica-100-nella-regione-walchwil-offerta-di-lavoro-ipersonal-ag-walchwil-zug",
+        "en": "technicians-electronics-100-in-the-walchwil-region-job-offer-ipersonal-ag-walchwil-zug",
+        "fr": "techniciens-electronique-100-dans-la-region-de-walchwil-offre-d-emploi-ipersonal-ag-walchwil-zug"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -1052,7 +1186,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-12T13:18:01.377Z"
+      "firstSeenAt": "2026-09-12T13:18:01.377Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-elektronik-100-in-der-region-walchwil-stellenangebot-med-ipersonal-ch"
+        ],
+        "en": [
+          "techniker-elektronik-100-in-der-region-walchwil-stellenangebot-med-ipersonal-ch"
+        ],
+        "fr": [
+          "techniker-elektronik-100-in-der-region-walchwil-stellenangebot-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-elektronik-100-in-der-region-walchwil-stellenangebot-med-ipersonal-ch"
+      ]
     }
   ]
 }
