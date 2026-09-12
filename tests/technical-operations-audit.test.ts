@@ -47,6 +47,40 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule.startsWith('workflow.wait-all'))).toEqual([]);
   });
 
+  it('non interpreta le espressioni dentro commenti come input runtime', () => {
+    const source = [
+      '# documentazione: ${{ inputs.not_declared }}',
+      'name: comments',
+      'on:',
+      '  workflow_dispatch:',
+      '    inputs:',
+      '      known:',
+      '        type: string',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: run',
+      '        run: |',
+      '          # esempio non valutato: ${{ inputs.not_declared }}',
+      '          echo "${{ inputs.known }}" # esempio inline non valutato: ${{ inputs.not_declared }}',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/comments.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.input-reference')).toEqual([]);
+
+    const literalHash = auditWorkflowText('.github/workflows/literal-hash.yml', [
+      'name: literal-hash',
+      'on: [push]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: run',
+      '        run: echo jobs#all ${{ inputs.not_declared }}',
+    ].join('\n'), { root: '/repo' });
+    expect(literalHash.filter((item: any) => item.rule === 'workflow.input-reference')).toHaveLength(1);
+  });
+
   it('segnala riferimenti, step executor, concurrency e scrittura dati senza check', () => {
     const source = [
       'name: broken',

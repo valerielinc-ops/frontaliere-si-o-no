@@ -1241,6 +1241,61 @@ describe('cross-repo crawler execution artifacts', () => {
     }
   });
 
+  it('dichiara gli input runtime in ogni forma del workflow e usa il contesto portabile', () => {
+    const generatedArtifacts = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const [generated] = generatedArtifacts;
+    const generatedDoc = YAML.parse(generated.content);
+    const expectedInputs = ['timeout_ms', 'strict_localization'];
+    for (const input of expectedInputs) {
+      expect(generatedDoc.on.workflow_dispatch.inputs[input], input).toMatchObject({
+        required: false,
+        type: 'string',
+      });
+    }
+    expect(generatedDoc.on.workflow_dispatch.inputs.strict_localization.default).toBe('');
+    expect(generatedDoc.on.workflow_dispatch.inputs.scan_start_id).toBeUndefined();
+
+    const generatedArmani = generatedArtifacts.find((artifact: any) => artifact.groupIndex === 12);
+    expect(generatedArmani).toBeDefined();
+    const generatedArmaniDoc = YAML.parse(generatedArmani.content);
+    expect(generatedArmaniDoc.on.workflow_dispatch.inputs.scan_start_id).toMatchObject({
+      required: false,
+      type: 'string',
+    });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const logicDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    for (const input of expectedInputs) {
+      expect(logicDoc.on.workflow_call.inputs[input], `workflow_call.${input}`).toMatchObject({
+        required: false,
+        type: 'string',
+      });
+    }
+    expect(logicDoc.on.workflow_call.inputs.strict_localization.default).toBe('');
+    expect(logicDoc.on.workflow_call.inputs.scan_start_id).toBeUndefined();
+
+    const armaniLogicPath = path.join(workflowsDir, 'crawler-group-12-logic.yml');
+    const armaniLogicDoc = YAML.parse(fs.readFileSync(armaniLogicPath, 'utf8'));
+    expect(armaniLogicDoc.on.workflow_call.inputs.scan_start_id).toMatchObject({
+      required: false,
+      type: 'string',
+    });
+
+    const stepValues = [
+      ...Object.values(generatedArmaniDoc.jobs)[0].steps,
+      ...Object.values(armaniLogicDoc.jobs)[0].steps,
+    ]
+      .filter((step: any) => step.background === true)
+      .flatMap((step: any) => Object.values(step.env ?? {}))
+      .filter((value: any): value is string => typeof value === 'string');
+    expect(stepValues.some((value) => value.includes('github.event.inputs.'))).toBe(false);
+    expect(stepValues.some((value) => value.includes('inputs.timeout_ms'))).toBe(true);
+    expect(stepValues.some((value) => value.includes('inputs.strict_localization'))).toBe(true);
+    expect(stepValues.some((value) => value.includes('inputs.scan_start_id'))).toBe(true);
+    const armaniStep = Object.values(armaniLogicDoc.jobs)[0].steps
+      .find((step: any) => step.id === 'crawler-giorgio-armani');
+    expect(armaniStep.env.JOBS_GIORGIO_ARMANI_STRICT).toBe("${{ inputs.strict_localization || '0' }}");
+  });
+
   it('rifiuta drift nel setup non-background, non soltanto nel roster', () => {
     const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
     const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
