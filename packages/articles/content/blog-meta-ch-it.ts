@@ -6304,6 +6304,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.title': 'Affitti San Gallo: canoni, deposito e diritti dell\'inquilino',
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.excerpt': 'Quadro legale federale uniforme, deposito max 3 mensilità, disdetta solo su modulo ufficiale, contestazione entro 30 giorni all\'autorità di conciliazione.',
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.imageAlt': 'Palazzina residenziale nel Canton San Gallo con montagne sullo sfondo',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.title': 'Naturalizzazione a San Gallo: requisiti e procedura',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.excerpt': 'Scopri i requisiti di anni, test d\'integrazione, lingua e tasse per la naturalizzazione ordinaria nel cantone San Gallo.',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.imageAlt': 'Paesaggio del cantone San Gallo con colline e case tradizionali svizzere',
 };
 
 export default blogMetaChIt;

@@ -6304,6 +6304,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.title': 'Mieten St. Gallen: Mieten, Kaution und Mieterrechte',
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.excerpt': 'Einheitlicher bundesrechtlicher Rahmen, max. 3 Monatsraten Kaution, Kündigung nur auf amtlichem Formular, Beschwerde innert 30 Tagen bei der Schlichtungsbehörde.',
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.imageAlt': 'Wohngebäude im Kanton St. Gallen mit Bergkulisse',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.title': 'Einbürgerung in St. Gallen: Voraussetzungen und Ablauf',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.excerpt': 'Entdecken Sie die Anforderungen an Jahre, Integrationstests, Sprache und Gebühren für die ordentliche Einbürgerung im Kanton St. Gallen.',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.imageAlt': 'Landschaft des Kantons St. Gallen mit Hügeln und traditionellen Schweizerhäusern',
 };
 
 export default blogMetaChDe;

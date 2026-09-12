@@ -81842,6 +81842,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-canton-san-gallo-procedura': {
+    title: 'Naturalizzazione a San Gallo: requisiti e procedura',
+    description: 'Scopri i requisiti di anni, test d\'integrazione, lingua e tasse per la naturalizzazione ordinaria nel cantone San Gallo. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, gallo, requisiti, procedura',
+    ogTitle: 'Naturalizzazione a San Gallo: requisiti e procedura',
+    ogDescription: 'Scopri i requisiti di anni, test d\'integrazione, lingua e tasse per la naturalizzazione ordinaria nel cantone San Gallo.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-canton-san-gallo-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione a San Gallo: requisiti e procedura",
+      "description": "Scopri i requisiti di anni, test d'integrazione, lingua e tasse per la naturalizzazione ordinaria nel cantone San Gallo. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-canton-san-gallo-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio del cantone San Gallo con colline e case tradizionali svizzere"
+      },
+      "datePublished": "2026-09-12T08:05:35+00:00",
+      "dateModified": "2026-09-12T08:05:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-canton-san-gallo-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

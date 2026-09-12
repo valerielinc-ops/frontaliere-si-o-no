@@ -6304,6 +6304,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.title': 'Location Saint-Gall : loyers, caution et droits du locataire',
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.excerpt': 'Cadre légal fédéral uniforme, dépôt maximum de 3 mensualités, résiliation uniquement sur formulaire officiel, contestation dans les 30 jours auprès de l\'autorité de conciliation.',
     'blog.article.mercato-affitti-san-gallo-canoni-diritto.imageAlt': 'Immeuble résidentiel dans le canton de Saint-Gall avec montagnes en arrière-plan',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.title': 'Naturalisation à Saint-Gall : exigences et procédure',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.excerpt': 'Découvrez les conditions d\'années, de tests d\'intégration, de langue et de taxes pour la naturalisation ordinaire dans le canton de Saint-Gall.',
+    'blog.article.naturalizzazione-canton-san-gallo-procedura.imageAlt': 'Paysage du canton de Saint-Gall avec collines et maisons suisses traditionnelles',
 };
 
 export default blogMetaChFr;
