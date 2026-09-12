@@ -11651,6 +11651,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tilo-s10-bus-chiasso-melide.title': 'TILO changes: bus instead of the S10 Chiasso-Melide',
     'blog.article.tilo-s10-bus-chiasso-melide.excerpt': 'From 13 September 2026, the 4:11 TILO ride from Mendrisio to Chiasso will be replaced by a bus, with early departure, until 19 October 2026.',
     'blog.article.tilo-s10-bus-chiasso-melide.imageAlt': 'TILO bus at Mendrisio station at dawn, replacing the S10 train for cross-border workers',
+    'blog.article.avs-2030-riforma-previdenza.title': 'AVS 2030: the Swiss pension reform',
+    'blog.article.avs-2030-riforma-previdenza.excerpt': 'The AVS 2030 reform was presented in Bern. Extra income estimated at 600 million per year and increase in minimum age from 58 to 63 years. Divisions between parties.',
+    'blog.article.avs-2030-riforma-previdenza.imageAlt': 'Federal Palace in Bern discussing the OASI 2030 reform',
 };
 
 export default blogMetaEn;

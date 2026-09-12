@@ -11652,6 +11652,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tilo-s10-bus-chiasso-melide.title': 'Modifiche TILO: bus al posto della S10 Chiasso-Melide',
     'blog.article.tilo-s10-bus-chiasso-melide.excerpt': 'Dal 13 settembre 2026 la corsa TILO delle 4:11 da Mendrisio verso Chiasso sarà sostituita da un autobus, con partenza anticipata, fino al 19 ottobre 2026.',
     'blog.article.tilo-s10-bus-chiasso-melide.imageAlt': 'Autobus TILO alla stazione di Mendrisio all\'alba, sostituto del treno S10 per frontalieri',
+    'blog.article.avs-2030-riforma-previdenza.title': 'AVS 2030: la riforma della previdenza svizzera',
+    'blog.article.avs-2030-riforma-previdenza.excerpt': 'Presentata a Berna la riforma AVS 2030. Entrate extra stimate a 600 milioni annui e aumento dell\'età minima da 58 a 63 anni. Divisioni tra i partiti.',
+    'blog.article.avs-2030-riforma-previdenza.imageAlt': 'Palazzo federale a Berna dove si discute la riforma AVS 2030',
 };
 
 export default blogMetaIt;
