@@ -214,8 +214,17 @@ describe('il cablaggio del ramo DELIVERED non si scollega in silenzio', () => {
     // dall'assenza di PR aperte, che è ciò che sbagliava.
     expect(branch![1]).toMatch(/isDeliveredThisRun\(\{/);
     expect(branch![1]).toMatch(/mergedAt = mergedFixPrAt\(/);
-    expect(branch![1]).toMatch(/promotion = fixPromotion\(/);
     expect(branch![1]).toMatch(/promotedAt: promotion\.at/);
+  });
+
+  it('il rescue queue-managed scarta i marker della promozione precedente', () => {
+    const start = src.indexOf('for (const iss of stuckFix) {');
+    const end = src.indexOf('for (const iss of crawlerFix) {', start);
+    const queue = src.slice(start, end);
+    expect(queue).toMatch(/const rawOutcome = outcomeEntry\.outcome/);
+    expect(queue).toMatch(/const promotion = !hasPR && rawOutcome !== null/);
+    expect(queue).toMatch(/const outcome = outcomeForCurrentPromotion\(\{/);
+    expect(queue).toMatch(/promotedAt: promotion\.at/);
   });
 
   it('il gemello crawler riceve le stesse tre letture, o il buco si riapre da quel lato', () => {

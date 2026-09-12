@@ -69,6 +69,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: read
   pull-requests: write
   issues: write
   id-token: write
@@ -1199,16 +1200,27 @@ jobs:
         # marker prompt on main yet posted none). This backstop guarantees the
         # lessons-harvester always has a queryable marker: pr-created if this run
         # opened a PR on fix/issue-<N>, else a coarse no-pr-unspecified. It never
-        # overwrites the agent's own granular marker. Best-effort: never fails.
+        # overwrites a granular marker from the CURRENT run. Historical markers
+        # must not suppress telemetry for this run. Best-effort: never fails.
         if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
         run: |
           set -uo pipefail
-          HAS=$(gh issue view "$ISSUE" --json comments --jq '[.comments[].body | select(test("<!-- FIX_OUTCOME:"))] | length' 2>/dev/null || echo 0)
+          RUN_STARTED_AT=$(gh api "repos/$REPO/actions/runs/$GITHUB_RUN_ID" \
+            --jq '.run_started_at // .created_at' 2>/dev/null || true)
+          if [ -z "${RUN_STARTED_AT:-}" ]; then
+            echo "::warning::RUN_STARTED_AT non disponibile: backstop non emesso."
+            exit 0
+          fi
+          COMMENTS=$(gh issue view "$ISSUE" --json comments 2>/dev/null || echo '{"comments":[]}')
+          HAS=$(printf '%s\n' "$COMMENTS" | jq -r --arg started "$RUN_STARTED_AT" \
+            '[.comments[] | select((.createdAt // "") >= $started) | select((.body // "") | test("<!-- FIX_OUTCOME:"))] | length' \
+            2>/dev/null || echo 0)
           if [ "${HAS:-0}" != "0" ]; then
-            echo "FIX_OUTCOME marker already present (agent-posted) — no backstop needed."
+            echo "FIX_OUTCOME marker already present in this run — no backstop needed."
             exit 0
           fi
           PR=$(gh pr list --head "fix/issue-$ISSUE" --state open --json number,createdAt \
