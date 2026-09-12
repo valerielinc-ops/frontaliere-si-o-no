@@ -912,8 +912,7 @@
       "firstSeenAt": "2026-09-10T23:06:35.173Z",
       "previousSlugsByLocale": {
         "it": [
-          "backend-engineer-wallets-100-remote-worldwide-tether-ch",
-          "backend-ingegnere-wallets-100-remote-worldwide-tether-operations-dubai"
+          "backend-engineer-wallets-100-remote-worldwide-tether-ch"
         ],
         "de": [
           "backend-engineer-wallets-100-remote-worldwide-tether-ch"
@@ -923,8 +922,7 @@
         ]
       },
       "previousSlugs": [
-        "backend-engineer-wallets-100-remote-worldwide-tether-ch",
-        "backend-ingegnere-wallets-100-remote-worldwide-tether-operations-dubai"
+        "backend-engineer-wallets-100-remote-worldwide-tether-ch"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -992,13 +990,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "backend-engineer-wallets-100-remote-tether-ch",
-        "backend-ingegnere-wallets-100-remote-tether-operations-london"
+        "backend-engineer-wallets-100-remote-tether-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "backend-engineer-wallets-100-remote-tether-ch",
-          "backend-ingegnere-wallets-100-remote-tether-operations-london"
+          "backend-engineer-wallets-100-remote-tether-ch"
         ],
         "de": [
           "backend-engineer-wallets-100-remote-tether-ch"
@@ -3779,11 +3775,11 @@
     },
     {
       "id": "tether-c03accc3a117",
-      "slug": "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch",
+      "slug": "guida-tecnica-infrastruttura-gpu-100-remote-worldwide-tether-operations-tirane-tirane",
       "slugByLocale": {
         "en": "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch",
-        "it": "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch",
-        "de": "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch",
+        "it": "guida-tecnica-infrastruttura-gpu-100-remote-worldwide-tether-operations-tirane-tirane",
+        "de": "technischer-lead-gpu-infrastruktur-100-remote-weltweit-tether-operations-tirane-tirane",
         "fr": "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch"
       },
       "company": "Tether Operations",
@@ -3843,7 +3839,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T23:06:20.649Z"
+      "firstSeenAt": "2026-09-11T23:06:20.649Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch"
+        ],
+        "de": [
+          "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch"
+      ]
     }
   ]
 }

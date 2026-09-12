@@ -2853,12 +2853,12 @@
     },
     {
       "id": "vaudoise-9ac9bbe55f48",
-      "slug": "gestionnaire-administratif-m-w-d-100-vaudoise-assurances-lausanne",
+      "slug": "gestione-amministrativa-m-f-x-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-administratif-h-f-x-100-vaudoise-ch",
-        "it": "gestionnaire-administratif-m-w-d-100-vaudoise-assurances-lausanne",
-        "en": "gestionnaire-administratif-h-f-x-100-vaudoise-ch",
-        "de": "gestionnaire-administratif-h-f-x-100-vaudoise-ch"
+        "it": "gestione-amministrativa-m-f-x-100-vaudoise-assurances-lausanne",
+        "en": "administrative-manager-m-f-x-100-vaudoise-assurances-lausanne",
+        "de": "verwaltungsleiter-m-w-x-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2902,11 +2902,19 @@
       "jobCategory": "Amministrazione e segretariato",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-administratif-h-f-x-100-vaudoise-ch",
+          "gestionnaire-administratif-m-w-d-100-vaudoise-assurances-lausanne"
+        ],
+        "en": [
+          "gestionnaire-administratif-h-f-x-100-vaudoise-ch"
+        ],
+        "de": [
           "gestionnaire-administratif-h-f-x-100-vaudoise-ch"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-administratif-h-f-x-100-vaudoise-ch"
+        "gestionnaire-administratif-h-f-x-100-vaudoise-ch",
+        "gestionnaire-administratif-m-w-d-100-vaudoise-assurances-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

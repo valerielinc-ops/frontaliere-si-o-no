@@ -29472,10 +29472,10 @@
     },
     {
       "id": "hirslanden-b67a71b95c13",
-      "slug": "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf",
+      "slug": "fisioterapeutica-al-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
       "slugByLocale": {
         "de": "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf",
-        "it": "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf",
+        "it": "fisioterapeutica-al-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "en": "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf",
         "fr": "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf"
       },
@@ -29534,7 +29534,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T23:12:01.151Z"
+      "firstSeenAt": "2026-09-11T23:12:01.151Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+      ]
     },
     {
       "id": "hirslanden-35aac61d5ed0",

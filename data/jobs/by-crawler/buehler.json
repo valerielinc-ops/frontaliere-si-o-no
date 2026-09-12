@@ -5133,8 +5133,7 @@
       "previousSlugs": [
         "solution-architect-sap-pm-amp-bpt-buehler-uzwil",
         "solution-architect-sap-pm-amp-btp-buehler-uzwil",
-        "system-architect-sap-pm-amp-btp-buehler-uzwil",
-        "solution-architetto-sap-pm-bpt-buhler-group-uzwil"
+        "system-architect-sap-pm-amp-btp-buehler-uzwil"
       ],
       "firstSeenAt": "2026-07-02T21:32:07.730Z",
       "salaryMin": 60000,
@@ -6944,7 +6943,7 @@
       "slug": "engineering-intern-buehler-santa-ana-tlapaltitlan",
       "slugByLocale": {
         "it": "engineering-intern-buehler-santa-ana-tlapaltitlan",
-        "en": "internal-engineering-buhler-group-santa-ana-tlapaltitlan",
+        "en": "engineering-intern-buhler-group-santa-ana-tlapaltitlan",
         "de": "engineering-praktikant-buhler-group-santa-ana-tlapaltitlan",
         "fr": "engineering-stagiaire-buhler-group-santa-ana-tlapaltitlan"
       },
@@ -7004,11 +7003,11 @@
       "firstSeenAt": "2026-09-10T20:34:16.450Z",
       "previousSlugsByLocale": {
         "en": [
-          "engineering-intern-buhler-group-santa-ana-tlapaltitlan"
+          "internal-engineering-buhler-group-santa-ana-tlapaltitlan"
         ]
       },
       "previousSlugs": [
-        "engineering-intern-buhler-group-santa-ana-tlapaltitlan"
+        "internal-engineering-buhler-group-santa-ana-tlapaltitlan"
       ]
     },
     {
@@ -10486,12 +10485,12 @@
     },
     {
       "id": "buehler-5df579a36bc4",
-      "slug": "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau",
+      "slug": "funzionale-commissioning-engineer-azienda-proprietario-m-f-d-buhler-group-alzenau-1f5ad1",
       "slugByLocale": {
         "de": "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buehler-alzenau",
-        "it": "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau",
+        "it": "funzionale-commissioning-engineer-azienda-proprietario-m-f-d-buhler-group-alzenau-1f5ad1",
         "en": "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau",
-        "fr": "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau"
+        "fr": "ingenieur-de-mise-en-service-fonctionnel-proprietaire-de-l-entreprise-h-f-d-buhler-group-alzenau-1f5ad1"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -10537,11 +10536,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buehler-alzenau"
+          "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buehler-alzenau",
+          "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau"
+        ],
+        "fr": [
+          "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau"
         ]
       },
       "previousSlugs": [
-        "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buehler-alzenau"
+        "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buehler-alzenau",
+        "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -11193,13 +11197,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "area-sales-manager-milling-buhler-group-ikeja",
-        "area-sales-manager-milling-buehler-ikeja",
-        "responsabile-vendite-regionale-fresatura-buhler-group-ikeja"
+        "area-sales-manager-milling-buehler-ikeja"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "area-sales-manager-milling-buehler-ikeja",
-          "responsabile-vendite-regionale-fresatura-buhler-group-ikeja"
+          "area-sales-manager-milling-buehler-ikeja"
         ],
         "en": [
           "area-sales-manager-milling-buhler-group-ikeja"
@@ -12081,8 +12083,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "regional-sales-manager-lo-buehler-tangerang",
-          "responsabile-regionale-delle-vendite-lo-buhler-group-tangerang"
+          "regional-sales-manager-lo-buehler-tangerang"
         ],
         "en": [
           "regional-sales-manager-lo-buhler-group-tangerang"
@@ -12093,8 +12094,7 @@
       },
       "previousSlugs": [
         "regional-sales-manager-lo-buhler-group-tangerang",
-        "regional-sales-manager-lo-buehler-tangerang",
-        "responsabile-regionale-delle-vendite-lo-buhler-group-tangerang"
+        "regional-sales-manager-lo-buehler-tangerang"
       ],
       "firstSeenAt": "2026-09-10T19:18:22.540Z",
       "salaryMin": 110500,
@@ -12767,12 +12767,12 @@
     },
     {
       "id": "buehler-cfe17ab8fbe1",
-      "slug": "customer-service-intern-buehler-owatonna",
+      "slug": "servizio-clienti-tirocinante-buhler-group-owatonna",
       "slugByLocale": {
         "en": "customer-service-intern-buehler-owatonna",
-        "it": "customer-service-intern-buehler-owatonna",
-        "de": "customer-service-intern-buehler-owatonna",
-        "fr": "customer-service-intern-buehler-owatonna"
+        "it": "servizio-clienti-tirocinante-buhler-group-owatonna",
+        "de": "kundendienst-praktikant-buhler-group-owatonna",
+        "fr": "service-client-stagiaire-buhler-group-owatonna"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -12829,7 +12829,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T23:13:20.397Z"
+      "firstSeenAt": "2026-09-11T23:13:20.397Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-intern-buehler-owatonna"
+        ],
+        "de": [
+          "customer-service-intern-buehler-owatonna"
+        ],
+        "fr": [
+          "customer-service-intern-buehler-owatonna"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-intern-buehler-owatonna"
+      ]
     },
     {
       "id": "buehler-96bba09922b7",

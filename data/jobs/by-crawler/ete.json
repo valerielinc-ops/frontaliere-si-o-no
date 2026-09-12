@@ -2430,12 +2430,12 @@
     },
     {
       "id": "ete-db7ff58f1338",
-      "slug": "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-ete-ch",
+      "slug": "chauffeur-chauffeuse-kat-c-e-100-mosse-della-macchina-e-trasporti-speciali-100-emil-egger-ag-bassersdorf",
       "slugByLocale": {
         "de": "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-ete-ch",
-        "it": "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf",
-        "en": "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf",
-        "fr": "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf"
+        "it": "chauffeur-chauffeuse-kat-c-e-100-mosse-della-macchina-e-trasporti-speciali-100-emil-egger-ag-bassersdorf",
+        "en": "chauffeur-chauffeuse-kat-c-e-100-machine-moves-special-transports-100-emil-egger-ag-bassersdorf",
+        "fr": "chauffeur-chauffeuse-kat-c-e-100-deplacements-de-machines-et-transports-speciaux-100-emil-egger-ag-bassersdorf"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -2490,7 +2490,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T23:12:03.618Z"
+      "firstSeenAt": "2026-09-11T23:12:03.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf",
+          "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-ete-ch"
+        ],
+        "en": [
+          "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf"
+        ],
+        "fr": [
+          "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf",
+        "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-ete-ch"
+      ]
     },
     {
       "id": "ete-18e68a1594e4",

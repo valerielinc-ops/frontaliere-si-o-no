@@ -14346,15 +14346,13 @@
       "previousSlugs": [
         "montador-ajustador-i-sulzer-ch",
         "la-mia-vita-sulzer-jundiai",
-        "i-miei-amici-sulzer-jundiai",
-        "montador-ajustador-i-sulzer-jundiai"
+        "i-miei-amici-sulzer-jundiai"
       ],
       "previousSlugsByLocale": {
         "it": [
           "montador-ajustador-i-sulzer-ch",
           "la-mia-vita-sulzer-jundiai",
-          "i-miei-amici-sulzer-jundiai",
-          "montador-ajustador-i-sulzer-jundiai"
+          "i-miei-amici-sulzer-jundiai"
         ],
         "fr": [
           "montador-ajustador-i-sulzer-ch"
@@ -25719,13 +25717,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tuotekehitysinsinoori-koneensuunnittelu-ja-digitalisaatio-sulzer-ch",
-        "koneensuunnittelu-ja-digitalisaatio-sulzer-kotka"
+        "tuotekehitysinsinoori-koneensuunnittelu-ja-digitalisaatio-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tuotekehitysinsinoori-koneensuunnittelu-ja-digitalisaatio-sulzer-ch",
-          "koneensuunnittelu-ja-digitalisaatio-sulzer-kotka"
+          "tuotekehitysinsinoori-koneensuunnittelu-ja-digitalisaatio-sulzer-ch"
         ],
         "fr": [
           "tuotekehitysinsinoori-koneensuunnittelu-ja-digitalisaatio-sulzer-ch"
@@ -25877,13 +25873,11 @@
       "firstSeenAt": "2026-09-10T23:22:47.140Z",
       "previousSlugsByLocale": {
         "it": [
-          "quality-control-coordinator-sulzer-ch",
-          "quality-control-coordinatore-sulzer-burgos"
+          "quality-control-coordinator-sulzer-ch"
         ]
       },
       "previousSlugs": [
-        "quality-control-coordinator-sulzer-ch",
-        "quality-control-coordinatore-sulzer-burgos"
+        "quality-control-coordinator-sulzer-ch"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -26028,8 +26022,7 @@
       "firstSeenAt": "2026-09-10T23:22:45.618Z",
       "previousSlugsByLocale": {
         "it": [
-          "workplace-services-specialist-sulzer-ch",
-          "workplace-services-specialista-sulzer-polanco"
+          "workplace-services-specialist-sulzer-ch"
         ],
         "de": [
           "workplace-services-specialist-sulzer-ch"
@@ -26039,8 +26032,7 @@
         ]
       },
       "previousSlugs": [
-        "workplace-services-specialist-sulzer-ch",
-        "workplace-services-specialista-sulzer-polanco"
+        "workplace-services-specialist-sulzer-ch"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -26344,12 +26336,12 @@
     },
     {
       "id": "sulzer-6682518980cc",
-      "slug": "project-manager-sulzer-ch-3",
+      "slug": "responsabile-del-progetto-sulzer-cuautitlan-izcalli",
       "slugByLocale": {
         "en": "project-manager-sulzer-ch",
-        "it": "project-manager-sulzer-ch-3",
-        "de": "project-manager-sulzer-ch-3",
-        "fr": "project-manager-sulzer-ch-3"
+        "it": "responsabile-del-progetto-sulzer-cuautitlan-izcalli",
+        "de": "projektmanager-sulzer-cuautitlan-izcalli",
+        "fr": "gestionnaire-de-projet-sulzer-cuautitlan-izcalli"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -26407,11 +26399,19 @@
       "firstSeenAt": "2026-09-11T23:22:34.171Z",
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-sulzer-ch"
+          "project-manager-sulzer-ch",
+          "project-manager-sulzer-ch-3"
+        ],
+        "de": [
+          "project-manager-sulzer-ch-3"
+        ],
+        "fr": [
+          "project-manager-sulzer-ch-3"
         ]
       },
       "previousSlugs": [
-        "project-manager-sulzer-ch"
+        "project-manager-sulzer-ch",
+        "project-manager-sulzer-ch-3"
       ]
     },
     {
@@ -26480,12 +26480,12 @@
     },
     {
       "id": "sulzer-f2548ae81da1",
-      "slug": "cnc-machinist-sulzer-pasadena",
+      "slug": "macchinista-cnc-sulzer-pasadena",
       "slugByLocale": {
         "en": "cnc-machinist-sulzer-ch",
-        "it": "cnc-machinist-sulzer-pasadena",
-        "de": "cnc-machinist-sulzer-ch-2",
-        "fr": "cnc-machinist-sulzer-ch-2"
+        "it": "macchinista-cnc-sulzer-pasadena",
+        "de": "cnc-maschinist-sulzer-pasadena",
+        "fr": "machiniste-cnc-sulzer-pasadena"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -26529,12 +26529,20 @@
       "previousSlugsByLocale": {
         "it": [
           "cnc-machinist-sulzer-ch-2",
-          "cnc-machinist-sulzer-ch"
+          "cnc-machinist-sulzer-ch",
+          "cnc-machinist-sulzer-pasadena"
+        ],
+        "de": [
+          "cnc-machinist-sulzer-ch-2"
+        ],
+        "fr": [
+          "cnc-machinist-sulzer-ch-2"
         ]
       },
       "previousSlugs": [
         "cnc-machinist-sulzer-ch-2",
-        "cnc-machinist-sulzer-ch"
+        "cnc-machinist-sulzer-ch",
+        "cnc-machinist-sulzer-pasadena"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

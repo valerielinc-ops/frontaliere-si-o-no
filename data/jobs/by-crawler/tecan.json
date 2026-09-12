@@ -501,12 +501,12 @@
     },
     {
       "id": "tecan-cb408a555da4",
-      "slug": "mechanical-inspection-lead-tecan-united-states",
+      "slug": "piombo-di-ispezione-meccanica-tecan-united-states",
       "slugByLocale": {
         "en": "mechanical-inspection-lead-tecan-united-states",
-        "it": "mechanical-inspection-lead-tecan-united-states",
-        "de": "mechanical-inspection-lead-tecan-united-states",
-        "fr": "mechanical-inspection-lead-tecan-united-states"
+        "it": "piombo-di-ispezione-meccanica-tecan-united-states",
+        "de": "mechanische-inspektionsleitung-tecan-united-states",
+        "fr": "plomb-d-inspection-mecanique-tecan-united-states"
       },
       "company": "Tecan",
       "companyKey": "tecan",
@@ -562,7 +562,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T23:11:14.659Z"
+      "firstSeenAt": "2026-09-11T23:11:14.659Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-inspection-lead-tecan-united-states"
+        ],
+        "de": [
+          "mechanical-inspection-lead-tecan-united-states"
+        ],
+        "fr": [
+          "mechanical-inspection-lead-tecan-united-states"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-inspection-lead-tecan-united-states"
+      ]
     },
     {
       "id": "tecan-50aa227808ac",
@@ -1084,9 +1098,9 @@
       "slug": "associate-product-manager-tecan-mannedorf",
       "slugByLocale": {
         "en": "associate-product-manager-tecan-mannedorf",
-        "it": "associate-product-manager-tecan-mannedorf",
-        "de": "associate-product-manager-tecan-mannedorf",
-        "fr": "associate-product-manager-tecan-mannedorf"
+        "it": "responsabile-del-prodotto-associato-tecan-mannedorf",
+        "de": "assoziierter-produktmanager-tecan-mannedorf",
+        "fr": "gestionnaire-de-produits-associe-tecan-mannedorf"
       },
       "company": "Tecan",
       "companyKey": "tecan",
@@ -1134,12 +1148,6 @@
           "responsabile-del-prodotto-associato-tecan-mannedorf",
           "associate-customer-product-manager-tecan-mannedorf",
           "gestionnaire-de-produit-client-associe-tecan-mannedorf"
-        ],
-        "de": [
-          "assoziierter-produktmanager-tecan-mannedorf"
-        ],
-        "fr": [
-          "gestionnaire-de-produits-associe-tecan-mannedorf"
         ]
       },
       "previousSlugs": [
@@ -1408,7 +1416,7 @@
       "slugByLocale": {
         "en": "technical-writers-tecan-mannedorf",
         "de": "technical-writer-tecan-mannedorf",
-        "fr": "technical-writer-tecan-mannedorf",
+        "fr": "ecrivain-technique-tecan-mannedorf",
         "it": "tecnico-della-documentazione-tecan-mannedorf"
       },
       "company": "Tecan",
@@ -1471,7 +1479,7 @@
           "technical-writer-tecan-mannedorf"
         ],
         "fr": [
-          "ecrivain-technique-tecan-mannedorf"
+          "technical-writer-tecan-mannedorf"
         ]
       },
       "previousSlugs": [

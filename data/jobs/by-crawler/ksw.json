@@ -504,12 +504,12 @@
     },
     {
       "id": "ksw-ab995e1a1426",
-      "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-        "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
+        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -555,11 +555,19 @@
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+          "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
+          "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "fr": [
+          "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
+        "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -824,8 +832,6 @@
       "department": "Klinik für Gastroenterologie/Hepatologie",
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-ksw-ch",
-        "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
         "infirmiere-professionnelle-kantonsspital-winterthur-ksw-winterthur",
         "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
         "care-professional-acutegeriatry-kantonsspital-winterthur-ksw-winterthur",
@@ -840,7 +846,6 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-ksw-ch",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
           "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
           "care-professional-acutegeriatry-kantonsspital-winterthur-ksw-winterthur",
           "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
@@ -852,7 +857,6 @@
           "infirmiere-ou-infirmiere-specialiste-de-la-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
           "infirmiere-professionnelle-kantonsspital-winterthur-ksw-winterthur",
           "professionnel-de-soins-aiguite-kantonsspital-winterthur-ksw-winterthur"
         ],

@@ -1061,12 +1061,12 @@
     },
     {
       "id": "marriott-a44b3d5abcbf",
-      "slug": "event-manager-marriott-zurich",
+      "slug": "gestione-eventi-marriott-international-zurich-a2671d",
       "slugByLocale": {
         "en": "event-manager-marriott-zurich",
-        "it": "event-manager-marriott-zurich",
-        "de": "event-manager-marriott-zurich",
-        "fr": "event-manager-marriott-zurich"
+        "it": "gestione-eventi-marriott-international-zurich-a2671d",
+        "de": "veranstaltungsleiter-marriott-international-zurich-a2671d",
+        "fr": "gestionnaire-d-evenements-marriott-international-zurich-a2671d"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1132,7 +1132,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-11T23:21:31.025Z"
+      "firstSeenAt": "2026-09-11T23:21:31.025Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-manager-marriott-zurich"
+        ],
+        "de": [
+          "event-manager-marriott-zurich"
+        ],
+        "fr": [
+          "event-manager-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "event-manager-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-0783c94561c1",
@@ -1278,7 +1292,6 @@
       },
       "previousSlugs": [
         "cook-apprentice-marriott-geneva",
-        "cuocere-marriott-international-geneva",
         "commis-cuisine-langfristig-w-verbier-marriott-international-verbier",
         "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier",
         "commis-de-cuisine-inverno-26-27-w-verbier-marriott-international-verbier",
@@ -1301,8 +1314,7 @@
         "commissione-della-cucina-inverno-26-27-w-verbier-marriott-international-verbier",
         "apprentis-cuisinier-marriott-international-geneva",
         "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier",
-        "chef-de-rang-marriott-geneva",
-        "apparecchio-di-cottura-marriott-international-geneva"
+        "chef-de-rang-marriott-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1325,7 +1337,6 @@
           "chef-de-rang-marriott-geneva",
           "cook-apprentice-marriott-geneva",
           "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
-          "apparecchio-di-cottura-marriott-international-geneva",
           "commis-de-cuisine-winter-26-27-w-verbier-marriott-international-verbier"
         ],
         "fr": [

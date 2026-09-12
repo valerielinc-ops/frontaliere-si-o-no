@@ -13415,12 +13415,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-5c934a1859df",
-      "slug": "leitende-hebamme-w-m-d-soh-solothurner-spitaeler-olten",
+      "slug": "ostacolo-principale-m-f-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
         "de": "leitende-hebamme-w-m-d-soh-solothurner-spitaeler-olten",
-        "it": "leitende-hebamme-w-m-d-soh-solothurner-spitaeler-olten",
-        "en": "leitende-hebamme-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "leitende-hebamme-w-m-d-soh-solothurner-spitaeler-olten"
+        "it": "ostacolo-principale-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "en": "leading-midwife-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "grande-sage-femme-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13476,7 +13476,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T23:10:35.445Z"
+      "firstSeenAt": "2026-09-11T23:10:35.445Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-hebamme-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "en": [
+          "leitende-hebamme-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "fr": [
+          "leitende-hebamme-w-m-d-soh-solothurner-spitaeler-olten"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-hebamme-w-m-d-soh-solothurner-spitaeler-olten"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-3332e34f90b1",
