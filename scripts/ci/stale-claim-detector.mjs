@@ -82,6 +82,7 @@ const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 export const CLAIM_LABEL = 'agent:in-progress';
 export const CLAIM_OWNER_LABELS = Object.freeze({ local: 'agent:local', remote: 'agent:remote' });
+const CLAIM_SCAN_LABELS = [CLAIM_LABEL, ...Object.values(CLAIM_OWNER_LABELS)];
 const MARKER = '<!-- STALE-CLAIM-RELEASED -->';
 
 /** 2× il timeout-minutes di issue-fix.yml (360). Vedi l'intestazione. */
@@ -94,6 +95,18 @@ export function claimOwner(labels) {
     .map(([owner]) => owner);
   if (owners.length > 1) return 'contended';
   return owners[0] || (names.has(CLAIM_LABEL) ? 'unknown' : '');
+}
+
+export function hasClaimLabel(labels) {
+  const names = new Set((labels || []).map((label) => String(label?.name || label || '')));
+  return CLAIM_SCAN_LABELS.some((label) => names.has(label));
+}
+
+export function removeLabelArgs(labels) {
+  return [...new Set((Array.isArray(labels) ? labels : [])
+    .map((label) => String(label || ''))
+    .filter(Boolean))]
+    .flatMap((label) => ['--remove-label', label]);
 }
 
 function gh(args, { json = true, allowFail = false } = {}) {
@@ -124,10 +137,17 @@ function paginatedApiItems(apiPath) {
 }
 
 function loadClaimIssues() {
-  const items = paginatedApiItems(
-    `repos/${REPO}/issues?state=open&labels=${encodeURIComponent(CLAIM_LABEL)}&per_page=100`,
-  );
-  const issues = items.filter((item) => !item.pull_request);
+  // GitHub's `labels=` filter is AND/one-value, not OR. Read every possible
+  // owner marker and de-duplicate by issue number: a partial label write can
+  // leave only `agent:local` or `agent:remote`, and that issue must still be
+  // visible to the stale scan instead of blocking the fixer forever in silence.
+  const items = CLAIM_SCAN_LABELS.flatMap((label) => paginatedApiItems(
+    `repos/${REPO}/issues?state=open&labels=${encodeURIComponent(label)}&per_page=100`,
+  ));
+  const issues = [...new Map(items
+    .filter((item) => !item.pull_request)
+    .map((item) => [item.number, item]))
+    .values()];
   if (!issues.every((item) => Number.isInteger(item.number)
     && typeof item.title === 'string'
     && typeof item.updated_at === 'string'
@@ -235,7 +255,7 @@ export function selectStaleClaims(issues, referenced, nowMs, maxAgeHours = DEFAU
   const cutoff = nowMs - maxAgeHours * 3600 * 1000;
   return issues.filter((iss) => {
     if (!iss || !Number.isInteger(iss.number)) return false;
-    if (!(iss.labels || []).some((l) => l && l.name === CLAIM_LABEL)) return false;
+    if (!hasClaimLabel(iss.labels)) return false;
     // A local session has no remotely observable heartbeat. Releasing it by
     // age would recreate the duplicate-PR race this detector is meant to stop.
     // A contended claim is equally unsafe to mutate; leave both owner flags for
@@ -316,7 +336,7 @@ function main() {
 
     if (DRY) { console.log(`  [dry] -label ${CLAIM_LABEL} #${iss.number}`); }
     else {
-      gh(['issue', 'edit', String(iss.number), '--repo', REPO, '--remove-label', ...removeLabels],
+      gh(['issue', 'edit', String(iss.number), '--repo', REPO, ...removeLabelArgs(removeLabels)],
         { json: false, allowFail: true });
     }
   }
