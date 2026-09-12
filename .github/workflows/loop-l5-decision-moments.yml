@@ -77,7 +77,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --fuel data/fuel-prices.json --border data/border-wait-current.json --pharmacies data/pharmacies-ticino.json --duties data/pharmacy-duties-ticino.json --outcomes data/decision-moment-outcomes.json)
+          args=(--json --apply --report-dir "$REPORT_DIR" --fuel data/fuel-prices.json --border data/border-wait-current.json --pharmacies data/pharmacies-ticino.json --duties data/pharmacy-duties-ticino.json --outcomes data/decision-moment-outcomes.json --registry data/loop-fleet/loop-registry.json)
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else

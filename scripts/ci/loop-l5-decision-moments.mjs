@@ -10,6 +10,7 @@ import {
   appendJsonl,
   buildDecision,
   buildObservation,
+  validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L5';
@@ -18,8 +19,11 @@ export const DEFAULT_BORDER_PATH = path.join('data', 'border-wait-current.json')
 export const DEFAULT_PHARMACY_PATH = path.join('data', 'pharmacies-ticino.json');
 export const DEFAULT_DUTY_PATH = path.join('data', 'pharmacy-duties-ticino.json');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'decision-moment-outcomes.json');
+export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 100;
+
+const AUTONOMY_ORDER = Object.freeze({ A0: 0, A1: 1, A2: 2, A3: 3, A4: 4 });
 
 const SURFACES = [
   { key: 'calculator', path: '/calcola-stipendio/', label: 'calcolatore stipendio' },
@@ -56,6 +60,43 @@ function httpsUrl(value) {
   } catch {
     return false;
   }
+}
+
+function registryPolicy(registry) {
+  const validated = validateLoopRegistry(registry);
+  const policy = validated.loops.find((loop) => loop.loopId === LOOP_ID);
+  if (!policy) throw new TypeError(`loop-fleet contract: registry has no ${LOOP_ID} policy`);
+  return policy;
+}
+
+function applyRegistryPolicy(candidates, registry, issues) {
+  if (!registry) return { candidates, snapshot: null, valid: true };
+  let policy;
+  try {
+    policy = registryPolicy(registry);
+  } catch (error) {
+    issues.push(error.message);
+    return { candidates: [], snapshot: null, valid: false };
+  }
+  const accepted = [];
+  for (const candidate of candidates) {
+    const actionClass = candidate.actionClass || 'candidate';
+    if (!policy.actionClasses.includes(actionClass)) {
+      issues.push(`registry disallows ${LOOP_ID} action class ${actionClass}`);
+      continue;
+    }
+    if (!Object.hasOwn(AUTONOMY_ORDER, candidate.autonomy)
+        || AUTONOMY_ORDER[candidate.autonomy] > AUTONOMY_ORDER[policy.maxAutonomy]) {
+      issues.push(`registry disallows ${LOOP_ID} autonomy ${candidate.autonomy || 'missing'} (max ${policy.maxAutonomy})`);
+      continue;
+    }
+    accepted.push({ ...candidate, actionClass });
+  }
+  return {
+    candidates: accepted,
+    snapshot: { loopId: LOOP_ID, maxAutonomy: policy.maxAutonomy, actionClasses: policy.actionClasses },
+    valid: true,
+  };
 }
 
 function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], warnings = [], snapshot = null, candidates = [] }) {
@@ -131,6 +172,7 @@ function validateBorder(border, { now, maxAgeHours, issues, candidates }) {
   candidates.push(...SURFACES.filter((surface) => surface.key === 'border').map((surface) => ({
     surface: surface.key,
     landingPath: surface.path,
+    actionClass: 'candidate',
     action: 'reorder a sourced same-corridor bridge or CTA through a reviewed PR',
     autonomy: 'A2',
     reversible: true,
@@ -163,6 +205,7 @@ function validatePharmacies(pharmacies, { now, maxAgeHours, issues, candidates }
   candidates.push(...SURFACES.filter((surface) => surface.key === 'pharmacy').map((surface) => ({
     surface: surface.key,
     landingPath: surface.path,
+    actionClass: 'candidate',
     action: 'add a sourced freshness reminder or related tool bridge through a reviewed PR',
     autonomy: 'A2',
     reversible: true,
@@ -226,6 +269,7 @@ export function validateDecisionMoments({ fuel, border, pharmacies, duties, outc
   sourcePath = DEFAULT_FUEL_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
   minimumSample = MINIMUM_SAMPLE,
+  registry = null,
 } = {}) {
   const issues = [];
   const warnings = [];
@@ -236,6 +280,7 @@ export function validateDecisionMoments({ fuel, border, pharmacies, duties, outc
   const dutySnapshot = validateDuties(duties, { now, maxAgeHours, issues });
   const outcomeVerdict = validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, outcomePath });
   if (!outcomes) warnings.push('decision outcome join is missing; bridge candidates stay review-only');
+  const registryResult = applyRegistryPolicy(candidates, registry, issues);
   const snapshot = {
     source: 'decision-surfaces',
     sources: {
@@ -245,9 +290,10 @@ export function validateDecisionMoments({ fuel, border, pharmacies, duties, outc
       duties: dutySnapshot,
     },
     outcomes: outcomeVerdict.snapshot,
+    registry: registryResult.snapshot,
   };
   let quality = 'observed';
-  if (!fuelSnapshot.present || !borderSnapshot.present || !pharmacySnapshot.present || !dutySnapshot.present) quality = 'unmeasurable';
+  if (!registryResult.valid || !fuelSnapshot.present || !borderSnapshot.present || !pharmacySnapshot.present || !dutySnapshot.present) quality = 'unmeasurable';
   else if (outcomeVerdict.quality === 'stale') quality = 'stale';
   else if (outcomeVerdict.quality === 'zero') quality = 'zero';
   else if (issues.length || outcomeVerdict.quality !== 'observed') quality = 'partial';
@@ -261,7 +307,7 @@ export function validateDecisionMoments({ fuel, border, pharmacies, duties, outc
     issues,
     warnings,
     snapshot,
-    candidates: candidates.slice(0, SURFACES.length),
+    candidates: registryResult.candidates.slice(0, SURFACES.length),
   });
 }
 
@@ -322,6 +368,7 @@ function writeActions(reportDir, verdict, now) {
   const actions = [
     {
       autonomy: 'A3',
+      actionClass: 'candidate',
       action: 'label a stale or incomplete surface and suppress any unsupported freshness promise',
       reversible: true,
       publishedDataUntouched: true,
@@ -362,6 +409,7 @@ export async function runL5({
   pharmacyPath = DEFAULT_PHARMACY_PATH,
   dutyPath = DEFAULT_DUTY_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
+  registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample = MINIMUM_SAMPLE,
   issue = false,
@@ -378,6 +426,7 @@ export async function runL5({
       pharmacies: readJson(pharmacyPath, 'pharmacy source'),
       duties: readJson(dutyPath, 'pharmacy duty source'),
       outcomes: readOptionalJson(outcomePath),
+      registry: readJson(registryPath, 'loop registry'),
     }, { now, maxAgeHours, sourcePath: fuelPath, outcomePath, minimumSample });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: fuelPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
@@ -454,7 +503,7 @@ function parseArgs(argv) {
   if (!Number.isInteger(minimumSample) || minimumSample < 1) throw new Error('--minimum-sample must be a positive integer');
   return {
     json: argv.includes('--json'), issue: argv.includes('--issue'), apply: argv.includes('--apply'), strict: argv.includes('--strict'), dryRun: argv.includes('--dry-run'),
-    fuelPath: valueAfter('--fuel', DEFAULT_FUEL_PATH), borderPath: valueAfter('--border', DEFAULT_BORDER_PATH), pharmacyPath: valueAfter('--pharmacies', DEFAULT_PHARMACY_PATH), dutyPath: valueAfter('--duties', DEFAULT_DUTY_PATH), outcomePath: valueAfter('--outcomes', DEFAULT_OUTCOME_PATH), maxAgeHours, minimumSample,
+    fuelPath: valueAfter('--fuel', DEFAULT_FUEL_PATH), borderPath: valueAfter('--border', DEFAULT_BORDER_PATH), pharmacyPath: valueAfter('--pharmacies', DEFAULT_PHARMACY_PATH), dutyPath: valueAfter('--duties', DEFAULT_DUTY_PATH), outcomePath: valueAfter('--outcomes', DEFAULT_OUTCOME_PATH), registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH), maxAgeHours, minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP ? path.join(process.env.RUNNER_TEMP, 'loop-fleet-l5') : path.join(os.tmpdir(), 'loop-fleet-l5')),
   };
 }

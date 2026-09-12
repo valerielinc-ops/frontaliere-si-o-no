@@ -55,6 +55,15 @@ describe('L5 Decision Moments', () => {
     expect(verdict.candidates.map((candidate) => candidate.surface)).toEqual(['border', 'pharmacy']);
   });
 
+  it('keeps emitted candidates inside the validated registry policy', () => {
+    const registry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+    const verdict = validateDecisionMoments({ fuel: fuel(), border: border(), pharmacies: pharmacies(), duties: duties(), outcomes: outcomes() }, { now: NOW, registry });
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
+    expect(verdict.snapshot.registry).toMatchObject({ loopId: 'L5', maxAutonomy: 'A3' });
+    expect(verdict.candidates.every((candidate) => candidate.actionClass === 'candidate')).toBe(true);
+    expect(verdict.candidates.every((candidate) => ['A0', 'A1', 'A2', 'A3'].includes(candidate.autonomy))).toBe(true);
+  });
+
   it('keeps missing outcomes partial and metrics null', () => {
     const verdict = validate({}, null);
     expect(verdict.quality).toBe('partial');
