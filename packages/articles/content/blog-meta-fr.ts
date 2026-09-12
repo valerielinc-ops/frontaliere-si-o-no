@@ -11683,6 +11683,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.imprese-culturali-svizzera-2024.title': 'Culture en Suisse, records d\'entreprises mais baisse des emplois',
     'blog.article.imprese-culturali-svizzera-2024.excerpt': 'En 2024, les entreprises culturelles en Suisse atteignent 69\'441 en établissant un record, mais les emplois et la taille de l\'entreprise diminuent.',
     'blog.article.imprese-culturali-svizzera-2024.imageAlt': 'Entreprises culturelles en Suisse en 2024',
+    'blog.article.benzina-riserve-svizzera-frontalieri.title': 'Essence en Suisse : ouverture des réserves, effets sur les prix',
+    'blog.article.benzina-riserve-svizzera-frontalieri.excerpt': 'Stocks obligatoires ouverts pour l\'essence et le diesel. Du 8 au 20 septembre 2026 prélèvement jusqu\'à 30 000 m³. Fermo raffinerie Cressier et Rhin de bas niveau.',
+    'blog.article.benzina-riserve-svizzera-frontalieri.imageAlt': 'Voiture à une station-service à Mendrisio avec les Alpes en arrière-plan',
 };
 
 export default blogMetaFr;

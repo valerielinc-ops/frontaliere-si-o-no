@@ -11681,6 +11681,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.imprese-culturali-svizzera-2024.title': 'Culture in Switzerland, record number of companies but jobs fall',
     'blog.article.imprese-culturali-svizzera-2024.excerpt': 'In 2024, cultural enterprises in Switzerland reach 69,441, setting a record, but jobs and company size fall.',
     'blog.article.imprese-culturali-svizzera-2024.imageAlt': 'Cultural enterprises in Switzerland in 2024',
+    'blog.article.benzina-riserve-svizzera-frontalieri.title': 'Gasoline in Switzerland: reserves open, effects on prices',
+    'blog.article.benzina-riserve-svizzera-frontalieri.excerpt': 'Mandatory open stocks for petrol and diesel. From 8 to 20 September 2026 withdrawal up to 30,000 m³. Low-level Cressier and Reno refinery shutdown.',
+    'blog.article.benzina-riserve-svizzera-frontalieri.imageAlt': 'Car at a petrol station in Mendrisio with the Alps in the background',
 };
 
 export default blogMetaEn;

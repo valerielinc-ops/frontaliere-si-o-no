@@ -11680,6 +11680,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.imprese-culturali-svizzera-2024.title': 'Kultur in der Schweiz, Unternehmensrekord, aber sinkende Beschäftigung',
     'blog.article.imprese-culturali-svizzera-2024.excerpt': 'Im Jahr 2024 erreichten die Kulturunternehmen in der Schweiz mit 69\'441 einen Rekordstand, aber die Zahl der Arbeitsplätze und die Unternehmensgrösse gingen zurück.',
     'blog.article.imprese-culturali-svizzera-2024.imageAlt': 'Kulturunternehmen in der Schweiz im Jahr 2024',
+    'blog.article.benzina-riserve-svizzera-frontalieri.title': 'Benzin in der Schweiz: Reserven offen, Preiseffekte',
+    'blog.article.benzina-riserve-svizzera-frontalieri.excerpt': 'Offener Pflichtbestand für Benzin und Diesel. Vom 8. bis 20. September 2026 Entnahme bis 30.000 m³. Raffinerie Cressier und Reno auf niedrigem Niveau.',
+    'blog.article.benzina-riserve-svizzera-frontalieri.imageAlt': 'Auto an einer Tankstelle in Mendrisio mit den Alpen im Hintergrund',
 };
 
 export default blogMetaDe;
