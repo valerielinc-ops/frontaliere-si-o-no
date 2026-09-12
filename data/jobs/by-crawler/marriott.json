@@ -1989,7 +1989,7 @@
       "slug": "gestione-eventi-marriott-international-zurich",
       "slugByLocale": {
         "it": "gestione-eventi-marriott-international-zurich",
-        "en": "event-manager-marriott-zurich-ekq4c5",
+        "en": "event-manager-marriott-zurich",
         "de": "veranstaltungsleiter-marriott-international-zurich",
         "fr": "gestionnaire-d-evenements-marriott-international-zurich"
       },
@@ -2042,7 +2042,8 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "event-manager-marriott-zurich"
+        "event-manager-marriott-zurich",
+        "event-manager-marriott-zurich-ekq4c5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2055,7 +2056,8 @@
           "event-manager-marriott-zurich"
         ],
         "en": [
-          "event-manager-marriott-zurich"
+          "event-manager-marriott-zurich",
+          "event-manager-marriott-zurich-ekq4c5"
         ]
       },
       "firstSeenAt": "2026-07-21T22:51:52.276Z",

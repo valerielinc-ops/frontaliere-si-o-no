@@ -435,7 +435,7 @@
           "marie-sk-odowska-curie-doctoral-training-network-coupled-problems-for-decarbonization-in"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T12:03:38.693Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -450,7 +450,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "retranslationAttempts": 0
     },
     {
       "id": "eth-zurich-560ec7892cc4",

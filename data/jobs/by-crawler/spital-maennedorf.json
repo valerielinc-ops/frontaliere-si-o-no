@@ -1464,7 +1464,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "spital-maennedorf-3e33a879eb71",
@@ -1831,7 +1833,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "spital-maennedorf-839549d1c8f6",

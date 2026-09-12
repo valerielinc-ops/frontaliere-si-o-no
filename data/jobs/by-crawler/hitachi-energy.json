@@ -115,7 +115,7 @@
       },
       "slugByLocale": {
         "it": "photolithography-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg",
-        "en": "photolithography-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland-fo1a5l",
+        "en": "photolithography-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
         "de": "photolithography-process-ingenieur-80-100-f-m-d-hitachi-energy-lenzburg",
         "fr": "photolithography-process-ingenieur-80-100-f-m-d-hitachi-energy-lenzburg"
       },
@@ -146,7 +146,8 @@
         ],
         "en": [
           "junior-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
-          "photolithography-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland"
+          "photolithography-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
+          "photolithography-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland-fo1a5l"
         ],
         "de": [
           "junior-process-ingenieur-80-100-f-m-d-hitachi-energy-lenzburg",
@@ -162,7 +163,8 @@
         "junior-process-ingenieur-80-100-f-m-d-hitachi-energy-lenzburg",
         "photolithography-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
         "photolithography-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg-fo1a7j",
-        "photolithography-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland-fo1a7j"
+        "photolithography-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland-fo1a7j",
+        "photolithography-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland-fo1a5l"
       ]
     },
     {
@@ -1714,7 +1716,8 @@
         "produktionsbetrieb-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
         "technical-project-manager-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland"
       ],
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Territory Sales & Marketing Manager 80-100% (f/m/d)",
@@ -2370,7 +2373,8 @@
       },
       "previousSlugs": [
         "secondary-design-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Polymechaniker/in 80 - 100% (w/m/d)",
