@@ -22,6 +22,7 @@ function registry(overrides: Record<string, unknown> = {}) {
     states: LOOP_STATES,
     qualityStates: QUALITY_STATES,
     autonomyLevels: Object.fromEntries(AUTONOMY_LEVELS.map((level) => [level, level])),
+    actionAutonomy: { observe: 'A0', 'follow-up': 'A1' },
     loops: EXPECTED_LOOP_IDS.map((loopId) => ({
       loopId,
       goal: `Goal ${loopId}`,
