@@ -18865,6 +18865,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzeri-spesa-crescita-rallenta',
+    category: 'pratico',
+    date: '2026-09-12T02:13:17.588Z',
+    image: '/images/blog/svizzeri-spesa-crescita-rallenta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

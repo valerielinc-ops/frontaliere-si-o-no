@@ -6289,6 +6289,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.title': 'Frais de crèche et de garde dans le canton de Saint-Gall',
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.excerpt': 'Guide des frais de scolarité pour les crèches, les familles de jour et après l\'école dans le canton de Saint-Gall : tarifs sur les revenus, subventions municipales et allégements fiscaux.',
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.imageAlt': 'Espace de jeu lumineux dans une garderie pour enfants dans le canton de Saint-Gall',
+    'blog.article.svizzeri-spesa-crescita-rallenta.title': 'Les Suisses dépensent plus, mais la croissance ralentit',
+    'blog.article.svizzeri-spesa-crescita-rallenta.excerpt': 'En août, l\'indicateur de consommation calculé par PostFinance marque une augmentation de 0,8 %. Le rythme ralentit par rapport aux mois précédents.',
+    'blog.article.svizzeri-spesa-crescita-rallenta.imageAlt': 'Indicateurs de consommation en Suisse et paiements par carte',
 };
 
 export default blogMetaChFr;

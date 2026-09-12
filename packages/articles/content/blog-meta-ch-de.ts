@@ -6289,6 +6289,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.title': 'Kinderkrippen- und Betreuungskosten im Kanton St. Gallen',
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.excerpt': 'Leitfaden für Kindertages-, Tages- und Nachschulgebühren im Kanton St. Gallen: Einkommenstarife, Gemeindezuschüsse und Steuererleichterungen.',
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.imageAlt': 'Heller Spielbereich in einer Kindertagesstätte im Kanton St. Gallen',
+    'blog.article.svizzeri-spesa-crescita-rallenta.title': 'Schweizer geben mehr aus, aber das Wachstum verlangsamt sich',
+    'blog.article.svizzeri-spesa-crescita-rallenta.excerpt': 'Im August verzeichnet der von PostFinance berechnete Verbrauchsindikator ein Plus von 0,8%. Das Tempo verlangsamt sich im Vergleich zu den Vormonaten.',
+    'blog.article.svizzeri-spesa-crescita-rallenta.imageAlt': 'Konsumindikatoren in der Schweiz und Kartenzahlungen',
 };
 
 export default blogMetaChDe;

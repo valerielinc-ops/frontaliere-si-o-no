@@ -6289,6 +6289,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.title': 'Costi asili nido e custodia nel Canton San Gallo',
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.excerpt': 'Guida alle rette per nidi, famiglie diurne e doposcuola nel Cantone di San Gallo: tariffe su reddito, sussidi comunali e sgravi fiscali.',
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.imageAlt': 'Spazio giochi luminoso in una struttura di custodia per l\'infanzia nel Cantone di San Gallo',
+    'blog.article.svizzeri-spesa-crescita-rallenta.title': 'Svizzeri spendono di più, ma la crescita rallenta',
+    'blog.article.svizzeri-spesa-crescita-rallenta.excerpt': 'In agosto l\'indicatore dei consumi calcolato da PostFinance segna un incremento dello 0,8%. Il ritmo frena rispetto ai mesi precedenti.',
+    'blog.article.svizzeri-spesa-crescita-rallenta.imageAlt': 'Indicatori dei consumi in Svizzera e pagamenti con carta',
 };
 
 export default blogMetaChIt;

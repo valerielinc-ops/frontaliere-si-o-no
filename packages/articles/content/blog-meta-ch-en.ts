@@ -6289,6 +6289,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.title': 'Childcare and custody costs in the Canton of St. Gallen',
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.excerpt': 'Guide to fees for nurseries, day families and after-school in the Canton of St. Gallen: rates on income, municipal subsidies and tax reductions.',
     'blog.article.costi-nidi-servizi-infanzia-canton-sg.imageAlt': 'Bright play area in an early childcare education facility in Canton St. Gallen',
+    'blog.article.svizzeri-spesa-crescita-rallenta.title': 'Swiss spend more, but growth slows',
+    'blog.article.svizzeri-spesa-crescita-rallenta.excerpt': 'In August, the consumption indicator calculated by PostFinance shows an increase of 0.8%. The pace slows down compared to previous months.',
+    'blog.article.svizzeri-spesa-crescita-rallenta.imageAlt': 'Consumer spending indicators in Switzerland and card payments',
 };
 
 export default blogMetaChEn;
