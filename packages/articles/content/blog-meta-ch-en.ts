@@ -6310,6 +6310,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-vaud-riduzione.title': 'Vaud sick pay premiums: how to get the reduction',
     'blog.article.premi-cassa-malati-vaud-riduzione.excerpt': 'Deductibles, alternative models and cantonal subsidy requirements: a practical guide to LAMal awards in the Canton of Vaud.',
     'blog.article.premi-cassa-malati-vaud-riduzione.imageAlt': 'Swiss health insurance office with consultant and client',
+    'blog.article.assegni-familiari-giura-domanda.title': 'Family allowances Canton Jura: amounts and application',
+    'blog.article.assegni-familiari-giura-domanda.excerpt': 'Practical guide to family and training allowances in the Canton of Jura: requirements, monthly amounts and application procedure at the competent fund.',
+    'blog.article.assegni-familiari-giura-domanda.imageAlt': 'Swiss administrative office for family allowance applications',
 };
 
 export default blogMetaChEn;

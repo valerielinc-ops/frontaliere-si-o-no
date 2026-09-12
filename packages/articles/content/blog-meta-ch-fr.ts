@@ -6310,6 +6310,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-vaud-riduzione.title': 'Primes caisse-maladie Vaud : comment obtenir la réduction',
     'blog.article.premi-cassa-malati-vaud-riduzione.excerpt': 'Franchises, modèles alternatifs et conditions pour l\'allocation cantonale : guide pratique des prix LAMal dans le canton de Vaud.',
     'blog.article.premi-cassa-malati-vaud-riduzione.imageAlt': 'Bureau d\'assurance maladie suisse avec conseiller et client',
+    'blog.article.assegni-familiari-giura-domanda.title': 'Allocations familiales Canton du Jura : montants et demande',
+    'blog.article.assegni-familiari-giura-domanda.excerpt': 'Guide pratique des allocations familiales et de formation dans le canton du Jura : exigences, montants mensuels et procédure de demande auprès de la caisse compétente.',
+    'blog.article.assegni-familiari-giura-domanda.imageAlt': 'Bureau administratif suisse pour les demandes d\'allocations familiales',
 };
 
 export default blogMetaChFr;

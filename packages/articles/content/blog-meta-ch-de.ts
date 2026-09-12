@@ -6310,6 +6310,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-vaud-riduzione.title': 'Krankenkassenprämien Waadt: So erhalten Sie die Ermäßigung',
     'blog.article.premi-cassa-malati-vaud-riduzione.excerpt': 'Franchisen, alternative Modelle und Voraussetzungen für den Kantonsbeitrag: Praktischer Leitfaden zu den KVG-Prämien im Kanton Waadt.',
     'blog.article.premi-cassa-malati-vaud-riduzione.imageAlt': 'Schweizer Krankenversicherungsbüro mit Berater und Kunde',
+    'blog.article.assegni-familiari-giura-domanda.title': 'Familienzulagen Kanton Jura: Beträge und Antrag',
+    'blog.article.assegni-familiari-giura-domanda.excerpt': 'Praktischer Leitfaden für Familien- und Ausbildungszulagen im Kanton Jura: Voraussetzungen, monatliche Beträge und Antragsverfahren bei der zuständigen Kasse.',
+    'blog.article.assegni-familiari-giura-domanda.imageAlt': 'Schweizer Verwaltungsbüro für Familienzulagenanträge',
 };
 
 export default blogMetaChDe;

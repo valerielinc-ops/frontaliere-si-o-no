@@ -6310,6 +6310,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-vaud-riduzione.title': 'Premi cassa malati Vaud: come ottenere la riduzione',
     'blog.article.premi-cassa-malati-vaud-riduzione.excerpt': 'Franchigie, modelli alternativi e requisiti per il sussidio cantonale: guida pratica ai premi LAMal nel Canton Vaud.',
     'blog.article.premi-cassa-malati-vaud-riduzione.imageAlt': 'Ufficio assicurazione sanitaria in Svizzera con consulente e cliente',
+    'blog.article.assegni-familiari-giura-domanda.title': 'Assegni familiari Canton Giura: importi e domanda',
+    'blog.article.assegni-familiari-giura-domanda.excerpt': 'Guida pratica agli assegni familiari e di formazione nel Canton Giura: requisiti, importi mensili e procedura di domanda presso la cassa competente.',
+    'blog.article.assegni-familiari-giura-domanda.imageAlt': 'Ufficio amministrativo svizzero per le domande di assegni familiari',
 };
 
 export default blogMetaChIt;

@@ -81920,6 +81920,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegni-familiari-giura-domanda': {
+    title: 'Assegni familiari Canton Giura: importi e domanda',
+    description: 'Scopri come richiedere gli assegni familiari e di formazione nel Canton Giura. Requisiti, procedura di domanda e gestione tramite cassa di compensazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, canton, giura',
+    ogTitle: 'Assegni familiari Canton Giura: guida a importi e domanda',
+    ogDescription: 'Tutto ciò che devi sapere sugli assegni familiari e di formazione nel Canton Giura: chi ne ha diritto, come fare domanda e quali documenti presentare.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-giura-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari Canton Giura: importi e domanda",
+      "description": "Scopri come richiedere gli assegni familiari e di formazione nel Canton Giura. Requisiti, procedura di domanda e gestione tramite cassa di compensazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-giura-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero per le domande di assegni familiari"
+      },
+      "datePublished": "2026-09-12T21:27:07+00:00",
+      "dateModified": "2026-09-12T21:27:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-giura-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
