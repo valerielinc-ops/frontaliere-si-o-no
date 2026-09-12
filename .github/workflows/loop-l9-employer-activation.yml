@@ -1,0 +1,95 @@
+name: Loop L9 employer supply to paid activation
+
+on:
+  schedule:
+    - cron: '13 12 * * 1'
+  push:
+    branches: [main]
+    paths:
+      - 'data/employer-profiles.json'
+      - 'data/employer-funnel-outcomes.json'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l9-employer-activation.mjs'
+      - 'scripts/build-employer-profiles.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/loop-l9-employer-activation.yml'
+  pull_request:
+    paths:
+      - 'data/employer-profiles.json'
+      - 'data/employer-funnel-outcomes.json'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l9-employer-activation.mjs'
+      - 'scripts/build-employer-profiles.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/loop-l9-employer-activation.yml'
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: 'Create/update one deduplicated issue when paid activation is not measurable'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: loop-l9-employer-activation
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout employer inputs
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /data/employer-profiles.json
+            /data/employer-funnel-outcomes.json
+            /data/loop-fleet/loop-registry.json
+            /scripts/ci/loop-l9-employer-activation.mjs
+            /scripts/build-employer-profiles.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/github-issue-creator.mjs
+            /.github/workflows/loop-l9-employer-activation.yml
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Audit employer activation
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l9
+        run: |
+          set -o pipefail
+          mkdir -p "$REPORT_DIR"
+          args=(--json --apply --report-dir "$REPORT_DIR" --profiles data/employer-profiles.json --outcomes data/employer-funnel-outcomes.json)
+          if [ "$ISSUE_ENABLED" = "true" ]; then
+            args+=(--issue --strict)
+          else
+            args+=(--dry-run)
+          fi
+          set +e
+          node scripts/ci/loop-l9-employer-activation.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
+          run_code=${PIPESTATUS[0]}
+          set -e
+          if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
+            echo 'L9 finding persisted; no outreach, price or inventory mutation was performed.' | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ "$run_code" -ne 0 ]; then
+            exit "$run_code"
+          fi
+      - name: Upload L9 observation and actions
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: loop-l9-employer-activation-${{ github.run_id }}
+          path: ${{ runner.temp }}/loop-fleet-l9/
+          if-no-files-found: error
