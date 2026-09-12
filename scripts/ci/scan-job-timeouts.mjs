@@ -584,7 +584,11 @@ export async function main() {
     }
     emittedByTitle.set(title, {
       ...issue,
-      state: 'OPEN',
+      // `createGithubIssue` can return a persisted CLOSED issue when a stale
+      // build is observed inside the deploy-latency window. Preserve that
+      // authoritative state so the next same-title hit calls the creator again
+      // instead of commenting on a closed canonical.
+      state: issue.state || 'OPEN',
       persistedRunUrl: runUrl,
     });
   }

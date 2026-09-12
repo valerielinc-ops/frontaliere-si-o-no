@@ -117,6 +117,20 @@ describe('check-number-env-fallback — il gate che impedisce il rientro', () =>
     )).toEqual([]);
   });
 
+  it('non perde il raw assignment dopo una regex che contiene slash da commento', () => {
+    const source = String.raw`const commentLike = /\/\*|\/\//g;
+const limit = Number(process.env.LIMIT);
+items.slice(0, limit);`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
+  });
+
+  it('applica il parser raw solo a sorgenti JavaScript/TypeScript', () => {
+    const source = 'const limit = Number(process.env.LIMIT);\nitems.slice(0, limit);';
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.yml')).toEqual([]);
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.json')).toEqual([]);
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
+  });
+
   it('l albero corrente non contiene piu il costrutto', () => {
     expect(findViolations()).toEqual([]);
   }, 30_000);

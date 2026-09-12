@@ -219,6 +219,82 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
     expect(labels).not.toContain('crawler-transient');
   });
 
+  it('rifiuta la creazione quando il lookup delle issue non è affidabile (#8032)', async () => {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') throw new Error('GitHub rate limit');
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/100';
+      return '';
+    });
+
+    const res = await createGithubIssue({
+      title: 'CI Failure: Lookup safety',
+      description: 'the listing is unavailable',
+      priority: 2,
+      labels: ['Bug'],
+    } as any);
+
+    expect(res?.lookupFailed).toBe(true);
+    expect(res?.persisted).toBe(false);
+    expect(ghCalls().some((args) => args[0] === 'issue' && args[1] === 'create')).toBe(false);
+  });
+
+  it('non apre una issue se fallisce il lookup delle chiuse dopo un open vuoto (#8032)', async () => {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        const stateAt = args.indexOf('--state');
+        if (stateAt >= 0 && args[stateAt + 1] === 'closed') throw new Error('GitHub unavailable');
+        return '[]';
+      }
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/101';
+      return '';
+    });
+
+    const res = await createGithubIssue({
+      title: 'CI Failure: Closed lookup safety',
+      description: 'the closed listing is unavailable',
+      priority: 2,
+      labels: ['Bug'],
+    } as any);
+
+    expect(res?.lookupFailed).toBe(true);
+    expect(ghCalls().some((args) => args[0] === 'issue' && args[1] === 'create')).toBe(false);
+  });
+
+  it('mantiene la issue OPEN canonica collegata alle gemelle scartate (#8032)', async () => {
+    const older = {
+      number: 1001,
+      title: 'CI Failure: Duplicate lookup safety',
+      url: 'https://github.com/o/r/issues/1001',
+      state: 'OPEN',
+    };
+    const canonical = { ...older, number: 1002, url: 'https://github.com/o/r/issues/1002' };
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        const stateAt = args.indexOf('--state');
+        return stateAt >= 0 && args[stateAt + 1] === 'closed'
+          ? '[]'
+          : JSON.stringify([older, canonical]);
+      }
+      if (args[0] === 'issue' && args[1] === 'comment') return '';
+      return '';
+    });
+
+    const res = await createGithubIssue({
+      title: canonical.title,
+      description: 'same condition again',
+      priority: 2,
+      labels: ['Bug'],
+      reopenWithinHours: 0,
+    } as any);
+
+    const comment = ghCalls().find((args) => args[0] === 'issue' && args[1] === 'comment');
+    expect(res?.number).toBe(1002);
+    expect(comment?.[comment.indexOf('--body') + 1]).toContain('open-twin-links');
+    expect(comment?.[comment.indexOf('--body') + 1]).toContain('#1001');
+    expect(comment?.[comment.indexOf('--body') + 1]).toContain('#1002');
+    expect(ghCalls().some((args) => args[0] === 'issue' && args[1] === 'close')).toBe(false);
+  });
+
   it('explicit --consecutive-gate negative opts a crawler title OUT of the gate', async () => {
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] === 'issue' && args[1] === 'list') return '[]';
@@ -377,6 +453,7 @@ describe('reopenWithinHours + buildSha deploy-latency guard (#5539)', () => {
     expect(comment?.[comment.indexOf('--body') + 1]).toContain('precede la fix');
     expect(res?.number).toBe(50);
     expect((res as any)?.staleBuild).toBe(true);
+    expect((res as any)?.state).toBe('CLOSED');
     expect((res as any)?.persisted).toBe(true);
   });
 

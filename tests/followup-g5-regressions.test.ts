@@ -75,6 +75,26 @@ describe('G5 — follow-up detector regressions', () => {
     expect(isAggregateTitle('follow-up(#1): cleanup', headings)).toBe(true);
   });
 
+  it('condivide la grammatica per dash senza spazio, anni e quarto livello (#8030)', () => {
+    const noSpaceAfterDash = '## Item 1—Primo item\n### 2—Secondo item';
+    expect(countAggregateItems(noSpaceAfterDash)).toBe(2);
+    expect(preflightHasEnumeratedItems(noSpaceAfterDash)).toBe(true);
+    expect(harvestHasEnumeratedItems(noSpaceAfterDash)).toBe(true);
+    expect(reconcileHasEnumeratedItems(noSpaceAfterDash)).toBe(true);
+
+    const yearHeadings = '## 2026 — Retro\n### 2025—Retro';
+    expect(countAggregateItems(yearHeadings)).toBe(0);
+    expect(preflightHasEnumeratedItems(yearHeadings)).toBe(false);
+    expect(harvestHasEnumeratedItems(yearHeadings)).toBe(false);
+    expect(reconcileHasEnumeratedItems(yearHeadings)).toBe(false);
+
+    const levelFour = '#### 1. Primo item\n#### 2. Secondo item';
+    expect(countAggregateItems(levelFour)).toBe(0);
+    expect(preflightHasEnumeratedItems(levelFour)).toBe(false);
+    expect(harvestHasEnumeratedItems(levelFour)).toBe(false);
+    expect(reconcileHasEnumeratedItems(levelFour)).toBe(false);
+  });
+
   it('non lascia che un conteggio nel body sopprima gli item enumerati', () => {
     expect(isAggregate('follow-up(#1): cleanup', `${G5_BODY}\n1 item deferred`)).toBe(true);
   });

@@ -144,7 +144,7 @@ function isBoldTitleLead(rest, lines = [], start = 0) {
 
 export function hasEnumeratedItems(body) {
   const b = stripFencedBlocks(body);
-  const numberedSections = (b.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length;
+  const numberedSections = (b.match(/^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length;
   if (numberedSections >= 2) return true;
   const lines = b.split('\n');
   const orderedBoldItems = lines.reduce((count, line, index) => {
