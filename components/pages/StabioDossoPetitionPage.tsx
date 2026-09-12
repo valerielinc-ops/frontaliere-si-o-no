@@ -23,6 +23,7 @@ import {
 } from '@/services/authService';
 import {
   upsertNewsletterSubscriber,
+  requestConfirmationEmail,
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
 import { app } from '@/services/firebase';
@@ -198,6 +199,16 @@ export function StabioDossoPetitionPage() {
         consentPurpose: 'stabioPetition',
       });
       if (capture.optedOut) throw new Error('newsletter-opted-out');
+
+      // A new pending address receives the DOI message from the upsert; that
+      // confirmation link also returns a Firebase custom-auth session. An
+      // existing/previously confirmed address does not enter that DOI branch,
+      // so explicitly request the passwordless login link before showing the
+      // "check your email" state. Without this branch the visitor could be
+      // left waiting for an email that never enables the signing session.
+      if (capture.existed || capture.hadConfirmationProof) {
+        await requestConfirmationEmail(normalizedEmail, 'login');
+      }
 
       writeStorage(PENDING_EMAIL_KEY, normalizedEmail);
       setEmail(normalizedEmail);
