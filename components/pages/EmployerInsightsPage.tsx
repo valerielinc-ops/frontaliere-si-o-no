@@ -363,6 +363,7 @@ export function EmployerInsightsReport({ data, locale: localeProp }: { data: Emp
   const periodLabel = windowLabel(activeRange.window, locale);
   const updatedLabel = generatedDate(data.generatedAt, locale);
   const profileDescription = profileMetric.state === 'zero-observed' ? copy.profileZero : profileMetric.state === 'data-missing' ? copy.profileMissing : profileMetric.state === 'source-unavailable' ? copy.profileUnavailable : copy.profileObserved;
+  const profileDetail = profileMetric.state === 'observed' ? `${profileMetric.display} · ${profileDescription}` : profileDescription;
   const qualityUnavailable = qualityCount(activeRange.coverage);
   const qualityProofAvailable = eventDeduplication?.status === 'available';
   const qualityDeduplicationStatus = qualityProofAvailable
@@ -440,7 +441,7 @@ export function EmployerInsightsReport({ data, locale: localeProp }: { data: Emp
             <div className="mt-5 grid gap-4 border-t border-edge pt-5 sm:grid-cols-2">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.06em] text-muted">{copy.profileViews}</p>
-                <p className="mt-1 text-sm leading-relaxed text-subtle">{profileDescription}</p>
+                <p className="mt-1 text-sm leading-relaxed text-subtle">{profileDetail}</p>
               </div>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.06em] text-muted">{copy.applications}</p>
