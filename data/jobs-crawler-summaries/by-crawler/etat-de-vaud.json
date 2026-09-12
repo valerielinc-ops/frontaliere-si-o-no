@@ -1,7 +1,7 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-09-11T23:21:18.837Z",
+  "generatedAt": "2026-09-12T13:06:49.574Z",
   "total": 54,
   "discovered": null,
   "parsed": 51,
@@ -9,16 +9,18 @@
   "written": 54,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 32207,
-  "avgDurationMs": 32207,
+  "unchangedCount": 1,
+  "durationMs": 28157,
+  "avgDurationMs": 28157,
   "durationHistory": [
-    32207
+    28157
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5794",
       "slug": "responsabile-officina-rotante-agricolo-m-f-etat-de-vaud-administration-cantonale-vaudoise-orbe",
@@ -51,7 +53,7 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +62,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
