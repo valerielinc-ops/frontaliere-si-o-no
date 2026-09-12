@@ -873,7 +873,7 @@
       "title": "Lab Support QC - Raw & Startings (a) 80% -100%",
       "titleByLocale": {
         "it": "Supporto di laboratorio QC - Raw & A (a) 80% -100 %",
-        "en": "Lab Support QC - Raw & Startings (a) 80% -100%",
+        "en": "Lab Support QC - Raw & Startings (a) 80% -100 %",
         "de": "Lab Support QC - Raw & Startings (a) 80% -100%",
         "fr": "Lab Support QC - Raw & Starts (a) 80% -100 %"
       },
@@ -2660,12 +2660,24 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mes-specialist-100-a-bachem-bubendorf",
-        "mes-specialista-100-m-w-d-bachem-ag-bubendorf"
+        "mes-specialista-100-m-w-d-bachem-ag-bubendorf",
+        "specialista-avor-a-80-100-bachem-ag-bubendorf",
+        "specialist-avor-a-80-100-bachem-bubendorf",
+        "specialiste-avor-a-80-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mes-specialist-100-a-bachem-bubendorf",
-          "mes-specialista-100-m-w-d-bachem-ag-bubendorf"
+          "mes-specialista-100-m-w-d-bachem-ag-bubendorf",
+          "specialista-avor-a-80-100-bachem-ag-bubendorf",
+          "specialist-avor-a-80-100-bachem-bubendorf",
+          "specialiste-avor-a-80-100-bachem-ag-bubendorf"
+        ],
+        "de": [
+          "specialist-avor-a-80-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "specialiste-avor-a-80-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-07-29T12:06:08.035Z",
