@@ -37,7 +37,11 @@
 import { describe, it, expect } from 'vitest';
 import { readdirSync } from 'node:fs';
 import path from 'node:path';
-import { CONFIRMATION_LINK_PROOF, hasConfirmationProof } from '../services/subscriberConsent.mjs';
+import {
+  CONFIRMATION_LINK_PROOF,
+  hasConfirmationProof,
+  isNewsletterConfirmationEvent,
+} from '../services/subscriberConsent.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { classifySunset } from '../scripts/lib/subscriberSunset.mjs';
 import { classifyDormantWinback } from '../scripts/lib/dormantWinback.mjs';
@@ -593,6 +597,21 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
       expect(recoveredStatus('newsletter_subscribers', CONFIRMED_NO_STAMP, [confirmationEvent])).toBe('confirmed');
       expect(hasConsentEvidence(CONFIRMED_NO_STAMP, [{ event_type: 'confirm', source_channel: 'auth_google' }])).toBe(false);
       expect(recoveredStatus('newsletter_subscribers', CONFIRMED_NO_STAMP, [{ event_type: 'confirm', source_channel: 'auth_google' }])).toBe('pending');
+    });
+
+    it('accetta solo la forma canonica dell\'evento DOI server-owned', () => {
+      expect(isNewsletterConfirmationEvent({
+        event_type: 'confirm',
+        source_channel: CONFIRMATION_LINK_PROOF,
+      })).toBe(true);
+      expect(isNewsletterConfirmationEvent({
+        eventType: 'confirm',
+        sourceChannel: CONFIRMATION_LINK_PROOF,
+      })).toBe(false);
+      expect(isNewsletterConfirmationEvent({
+        event_type: 'CONFIRM',
+        source_channel: 'CONFIRMATION_LINK',
+      })).toBe(false);
     });
 
     it('the senders do NOT read events, and that is a decision with a number behind it', () => {
