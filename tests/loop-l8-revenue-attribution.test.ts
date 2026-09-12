@@ -47,7 +47,7 @@ function affiliate(overrides: Record<string, unknown> = {}) {
     generatedAt: '2026-09-12T11:00:00.000Z',
     amountFormat: 'decimal',
     period: { from: '2026-09-01', to: '2026-09-12' },
-    exposures: { web: 100, email: 20 },
+    exposures: { web: 100 },
     transactions: [
       {
         transactionId: 'approved-1',
@@ -98,7 +98,7 @@ describe('L8 Revenue & Attribution', () => {
       approvedNetChf: 250,
       pendingChf: 5,
       reversedChf: 2,
-      exposures: { web: 100, email: 20, relevant: 100 },
+      exposures: { web: 100, email: null, relevant: 100 },
     });
     expect(verdict.snapshot.commercial.byCurrency.CHF).toMatchObject({
       approved: 250,
@@ -115,6 +115,26 @@ describe('L8 Revenue & Attribution', () => {
     expect(verdict.quality).toBe('partial');
     expect(verdict.snapshot.history).toMatchObject({ validRows: 1, invalidRows: 1, distinctDates: 1 });
     expect(verdict.issues.join(' ')).toContain('duplicates');
+  });
+
+  it('does not accept null required monitor metrics as a fresh history row', () => {
+    const verdict = validateRevenueAttribution({
+      history: history(historyRow({ posthog: { clsP75Mobile: null, clsP75Desktop: 0.15 } })),
+      affiliate: affiliate(),
+    }, { now: NOW });
+    expect(verdict.quality).toBe('unmeasurable');
+    expect(verdict.snapshot.history.validRows).toBe(0);
+    expect(verdict.issues.join(' ')).toContain('clsP75Mobile is missing');
+  });
+
+  it('rejects dual web/email denominators when the money ledger has no channel attribution', () => {
+    const verdict = validateRevenueAttribution({
+      history: history(),
+      affiliate: affiliate({ exposures: { web: 100, email: 20 } }),
+    }, { now: NOW });
+    expect(verdict.quality).toBe('unmeasurable');
+    expect(verdict.snapshot.commercial.exposures.relevant).toBeNull();
+    expect(verdict.issues.join(' ')).toContain('both web and email exposures');
   });
 
   it('keeps missing commercial evidence unmeasurable instead of inferring zero revenue', () => {

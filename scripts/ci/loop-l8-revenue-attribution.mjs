@@ -154,10 +154,11 @@ function validateHistory(history, { now, maxAgeHours, sourcePath }) {
     }
     for (const [section, key] of REQUIRED_HISTORY_METRICS) {
       const value = row[section]?.[key];
-      checkMetric(value, `${prefix}.${section}.${key}`, issues, {
-        integer: key.endsWith('Impressions7d'),
-        max: key.startsWith('clsP75') ? 1 : null,
-      });
+    checkMetric(value, `${prefix}.${section}.${key}`, issues, {
+      integer: key.endsWith('Impressions7d'),
+      max: key.startsWith('clsP75') ? 1 : null,
+      nullable: false,
+    });
     }
     const ctr = gsc?.ctrByBucket;
     if (!ctr || typeof ctr !== 'object' || Array.isArray(ctr)) {
@@ -261,7 +262,14 @@ function validateAffiliateExport(raw, { now, maxAgeHours, sourcePath, minimumSam
     web: validExposure(web) ? Number(web) : null,
     email: validExposure(email) ? Number(email) : null,
   };
-  const relevant = exposures.web !== null ? exposures.web : exposures.email;
+  const ambiguousDenominator = exposures.web !== null && exposures.email !== null
+    && (exposures.web > 0 || exposures.email > 0);
+  if (ambiguousDenominator) {
+    issues.push('commercial export has both web and email exposures but no channel attribution for the approved-money numerator');
+  }
+  const relevant = ambiguousDenominator
+    ? null
+    : exposures.web !== null ? exposures.web : exposures.email;
   const report = reconcileAffiliateTransactions({
     rows: Array.isArray(parsed.rows) ? parsed.rows : [],
     exposures,
