@@ -18856,6 +18856,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'costi-nidi-servizi-infanzia-canton-sg',
+    category: 'pratico',
+    date: '2026-09-12T02:05:29.896Z',
+    image: '/images/blog/costi-nidi-servizi-infanzia-canton-sg.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

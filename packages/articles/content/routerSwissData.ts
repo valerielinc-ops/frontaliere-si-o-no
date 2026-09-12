@@ -2121,6 +2121,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'economiesuisse-silvan-wildhaber': { it: 'economiesuisse-silvan-wildhaber', en: 'economiesuisse-silvan-wildhaber-is-the-new-president', de: 'economiesuisse-silvan-wildhaber-wird-neuer-prasident', fr: 'economiesuisse-silvan-wildhaber-est-le-nouveau-president' },
  'finanze-ospedali-svizzera-2025': { it: 'finanze-ospedali-svizzera-2025', en: 'finances-hospitals-switzerland-2025', de: 'finanzen-krankenhaeuser-schweiz-2025', fr: 'finances-hopitaux-suisse-2025' },
  'bitcoin-suisse-taglio-posti-zugo': { it: 'bitcoin-suisse-taglio-posti-zugo', en: 'bitcoin-suisse-job-cuts-zug', de: 'bitcoin-suisse-stellenabbau-zug', fr: 'bitcoin-suisse-suppression-postes-zoug' },
+ 'costi-nidi-servizi-infanzia-canton-sg': { it: 'costi-nidi-servizi-infanzia-canton-sg', en: 'childcare-costs-daycare-canton-st-gallen', de: 'kita-kosten-kinderbetreuung-kanton-st-gallen', fr: 'frais-garde-enfants-creche-canton-saint-gall' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

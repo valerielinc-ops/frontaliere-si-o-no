@@ -6286,6 +6286,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bitcoin-suisse-taglio-posti-zugo.title': 'Bitcoin Suisse schneidet bis zu 60 Plätze in Zug ab',
     'blog.article.bitcoin-suisse-taglio-posti-zugo.excerpt': 'Der Kryptodienstleister Bitcoin Suisse startet in Zug eine Reorganisation, die den Abbau von maximal 60 Stellen von 120 Mitarbeitenden in der Schweiz vorsieht.',
     'blog.article.bitcoin-suisse-taglio-posti-zugo.imageAlt': 'Finanzdienstleister Büro in der Schweiz',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.title': 'Kinderkrippen- und Betreuungskosten im Kanton St. Gallen',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.excerpt': 'Leitfaden für Kindertages-, Tages- und Nachschulgebühren im Kanton St. Gallen: Einkommenstarife, Gemeindezuschüsse und Steuererleichterungen.',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.imageAlt': 'Heller Spielbereich in einer Kindertagesstätte im Kanton St. Gallen',
 };
 
 export default blogMetaChDe;

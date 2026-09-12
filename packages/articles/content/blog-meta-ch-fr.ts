@@ -6286,6 +6286,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bitcoin-suisse-taglio-posti-zugo.title': 'Bitcoin Suisse coupe jusqu\'à 60 places à Zoug',
     'blog.article.bitcoin-suisse-taglio-posti-zugo.excerpt': 'Le fournisseur de services crypto Bitcoin Suisse entame une réorganisation à Zoug qui prévoit la suppression d\'un maximum de 60 postes sur 120 employés en Suisse.',
     'blog.article.bitcoin-suisse-taglio-posti-zugo.imageAlt': 'Bureau de prestataire de services financiers en Suisse',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.title': 'Frais de crèche et de garde dans le canton de Saint-Gall',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.excerpt': 'Guide des frais de scolarité pour les crèches, les familles de jour et après l\'école dans le canton de Saint-Gall : tarifs sur les revenus, subventions municipales et allégements fiscaux.',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.imageAlt': 'Espace de jeu lumineux dans une garderie pour enfants dans le canton de Saint-Gall',
 };
 
 export default blogMetaChFr;
