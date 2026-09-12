@@ -277,10 +277,20 @@ export function createWorkdaySwissParser(config) {
     }
     console.log(`  📋 Listings found: ${listings.length}${strictSwiss ? ' (unfiltered — strict CH gate active)' : ' (Swiss facet)'}`);
 
+    const missingDetailUrlCount = listings.filter((listing) => (
+      normalizeSpace(listing.title || '').length >= 3
+      && !String(listing.url || '').trim()
+    )).length;
     const jobs = [];
     for (const listing of listings) {
       const title = normalizeSpace(listing.title || '');
       if (!title || title.length < 3) continue;
+
+      const detailUrl = String(listing.url || '').trim();
+      if (!detailUrl) {
+        console.log(`  ⏭️  Skipped listing without detail URL: ${title}`);
+        continue;
+      }
 
       // In strict mode (unfiltered board) never substitute the HQ city before
       // the location gate: an empty `locationRaw` carries no per-site Swiss
@@ -358,7 +368,8 @@ export function createWorkdaySwissParser(config) {
         continue;
       }
       const canton = inferredCanton || defaultCanton;
-      const publicUrl = listing.url || careerUrl || PUBLIC_BASE;
+      const publicUrl = detailUrl;
+      const employmentType = detectEmploymentType(listing.timeType || '', title);
 
       const detailDescription = detailInfo.jobDescription
         ? stripHtml(String(detailInfo.jobDescription))
@@ -408,8 +419,8 @@ export function createWorkdaySwissParser(config) {
         addressCountry: 'CH',
         country: 'CH',
         category: detectCategory(title),
-        contract: 'full-time',
-        employmentType: detectEmploymentType(listing.timeType || '', title),
+        contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+        employmentType,
         experienceLevel: detectExperienceLevel(title),
         sector,
         currency: 'CHF',
@@ -425,6 +436,7 @@ export function createWorkdaySwissParser(config) {
     }
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
+    jobs.missingDetailUrlCount = missingDetailUrlCount;
     return jobs;
   }
 

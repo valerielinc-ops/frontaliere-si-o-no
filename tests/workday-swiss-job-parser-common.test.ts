@@ -243,3 +243,67 @@ describe('createWorkdaySwissParser — detail location wins over an N Locations 
     expect(jobs[0].description).toContain('Detailed role description');
   });
 });
+
+describe('createWorkdaySwissParser — detail URL is required for vacancy identity', () => {
+  const ORIGINAL_FETCH = global.fetch;
+
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  it('drops a listing without externalPath instead of falling back to the career page', async () => {
+    const detailCalls: string[] = [];
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        return new Response(JSON.stringify({
+          total: 2,
+          jobPostings: [
+            {
+              title: 'Part-time Swiss role',
+              externalPath: '/job/Zurich/Part-time-Swiss-role_JR1',
+              locationsText: 'Zurich',
+              timeType: 'Part Time',
+              postedOn: 'Posted Today',
+              bulletFields: ['JR1'],
+            },
+            {
+              title: 'Listing without detail URL',
+              locationsText: 'Zurich',
+              postedOn: 'Posted Today',
+              bulletFields: ['JR2'],
+            },
+          ],
+        }), { status: 200 });
+      }
+      detailCalls.push(urlStr);
+      return new Response('', { status: 404 });
+    });
+
+    const parser = createWorkdaySwissParser({
+      companyKey: 'testco',
+      companyName: 'Test Co',
+      companyDomain: 'testco.com',
+      tenantHost: 'testco.wd3.myworkdayjobs.com',
+      sitePath: 'Test_Careers',
+      careerUrl: 'https://testco.com/careers',
+      defaultCanton: 'ZH',
+      defaultCity: 'Zürich',
+    });
+
+    const jobs = await parser.fetchAllJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      title: 'Part-time Swiss role',
+      contract: 'part-time',
+      employmentType: 'PART_TIME',
+    });
+    expect(jobs[0].url).toContain('/job/Zurich/Part-time-Swiss-role_JR1');
+    expect(jobs[0].url).not.toBe('https://testco.com/careers');
+    expect((jobs as any).missingDetailUrlCount).toBe(1);
+    expect(detailCalls).toHaveLength(1);
+    expect(detailCalls[0]).not.toContain('undefined');
+  });
+});
