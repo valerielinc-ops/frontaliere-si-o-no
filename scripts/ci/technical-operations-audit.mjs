@@ -146,7 +146,30 @@ function localReferenceExists(root, rawPath, workingDirectory = '.', exists = fs
   return exists(path.resolve(base, cleanPath));
 }
 
-function staticWorkingDirectory(root, rawWorkingDirectory) {
+function workspaceRelativePath(rawPath) {
+  if (typeof rawPath !== 'string' || !rawPath.trim()) return null;
+  const workspace = path.resolve('/__github-actions-workspace__');
+  const resolved = path.resolve(workspace, rawPath.trim());
+  const relative = path.relative(workspace, resolved);
+  if (!relative || relative.startsWith('..') || path.isAbsolute(relative)) return null;
+  return relative;
+}
+
+function checkoutPathAliases(job) {
+  const aliases = new Set();
+  if (!isRecord(job) || !Array.isArray(job.steps)) return aliases;
+  for (const rawStep of job.steps) {
+    if (!isRecord(rawStep) || typeof rawStep.uses !== 'string' || !/^actions\/checkout@/i.test(rawStep.uses)) continue;
+    const options = isRecord(rawStep.with) ? rawStep.with : {};
+    const repository = typeof options.repository === 'string' ? options.repository.trim() : null;
+    if (repository && repository !== '$' + '{{ github.repository }}') continue;
+    const alias = workspaceRelativePath(options.path);
+    if (alias) aliases.add(alias);
+  }
+  return aliases;
+}
+
+function staticWorkingDirectory(root, rawWorkingDirectory, checkoutAliases = new Set()) {
   const value = typeof rawWorkingDirectory === 'string' && rawWorkingDirectory.trim()
     ? rawWorkingDirectory.trim()
     : '.';
@@ -154,6 +177,13 @@ function staticWorkingDirectory(root, rawWorkingDirectory) {
   const resolved = path.resolve(root, value);
   const relative = path.relative(root, resolved);
   if (relative.startsWith('..') || path.isAbsolute(relative)) return null;
+  const alias = [...checkoutAliases]
+    .sort((left, right) => right.length - left.length)
+    .find((candidate) => relative === candidate || relative.startsWith(candidate + path.sep));
+  if (alias) {
+    const suffix = relative === alias ? '.' : relative.slice(alias.length + 1);
+    return path.resolve(root, suffix);
+  }
   return resolved;
 }
 
@@ -467,6 +497,7 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
       continue;
     }
 
+    const checkoutAliases = checkoutPathAliases(job);
     job.steps.forEach((rawStep, index) => {
       const stepLine = lineFor(source, typeof rawStep?.name === 'string' ? rawStep.name : '- name:');
       if (!isRecord(rawStep)) {
@@ -493,7 +524,7 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
           findings.push(finding(file, 'workflow.local-action', 'error', `local action non trovata: ${rawStep.uses}`, stepLine));
         }
         if (hasRun) {
-          const workingRoot = staticWorkingDirectory(root, rawStep['working-directory']);
+          const workingRoot = staticWorkingDirectory(root, rawStep['working-directory'], checkoutAliases);
           const dynamicDirectory = workingRoot === null
             || /\b(?:cd|pushd)\s+["']?\$(?:\{)?[A-Za-z_][A-Za-z0-9_]*(?:\})?|\bgit\s+clone\b/i.test(rawStep.run);
           for (const candidate of extractCommandPaths(rawStep.run)) {

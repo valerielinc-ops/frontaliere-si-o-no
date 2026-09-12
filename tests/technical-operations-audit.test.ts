@@ -189,6 +189,29 @@ describe('technical operations audit', () => {
     expect(findings.find((item: any) => item.rule === 'workflow.script-reference')?.severity).toBe('error');
   });
 
+  it('risolve gli script nella root del repository per un checkout locale con path', () => {
+    const source = [
+      'name: checkout-alias',
+      'on: [push]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: checkout',
+      '        uses: actions/checkout@v5',
+      '        with:',
+      '          path: build',
+      '      - name: run',
+      '        working-directory: build',
+      '        run: node scripts/tool.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/checkout-alias.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => candidate === '/repo/scripts/tool.mjs',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference')).toEqual([]);
+  });
+
   it('risolve le local action dalla root anche quando lo step dichiara working-directory', () => {
     const source = [
       'name: action-root',
