@@ -46,7 +46,15 @@ const REQUIRED_LOOP_FIELDS = [
   'maxAutonomy',
   'actionClasses',
   'guardrails',
+  'lifecycle',
 ];
+
+const LIFECYCLE_FIELDS = Object.freeze([
+  'candidateTtlHours',
+  'ownerSlaHours',
+  'postMergeVerificationHours',
+  'rollbackOwner',
+]);
 
 function fail(message) {
   throw new TypeError(`loop-fleet contract: ${message}`);
@@ -86,6 +94,19 @@ function requireTextArray(value, name) {
   return value;
 }
 
+function requireLifecycle(value, name) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) fail(`${name} must be an object`);
+  for (const key of Object.keys(value)) {
+    if (!LIFECYCLE_FIELDS.includes(key)) fail(`${name}.${key} is not a supported lifecycle field`);
+  }
+  return {
+    candidateTtlHours: requirePositiveInteger(value.candidateTtlHours, `${name}.candidateTtlHours`),
+    ownerSlaHours: requirePositiveInteger(value.ownerSlaHours, `${name}.ownerSlaHours`),
+    postMergeVerificationHours: requirePositiveInteger(value.postMergeVerificationHours, `${name}.postMergeVerificationHours`),
+    rollbackOwner: requireText(value.rollbackOwner, `${name}.rollbackOwner`),
+  };
+}
+
 function finiteOrNull(value, name) {
   if (value !== null && (!Number.isFinite(value) || typeof value !== 'number')) {
     fail(`${name} must be a finite number or null`);
@@ -107,6 +128,7 @@ export function validateLoopRegistry(registry) {
     fail('registry must declare every autonomy level A0-A4');
   }
   const loops = requireArray(registry.loops, 'registry loops');
+  const normalizedLoops = [];
   const ids = new Set();
   const declaredActionClasses = new Set();
   for (const loop of loops) {
@@ -126,11 +148,13 @@ export function validateLoopRegistry(registry) {
     if (!AUTONOMY_LEVELS.includes(loop.maxAutonomy)) fail(`${id}.maxAutonomy is not A0-A4`);
     requireTextArray(loop.actionClasses, `${id}.actionClasses`);
     requireTextArray(loop.guardrails, `${id}.guardrails`);
+    const lifecycle = requireLifecycle(loop.lifecycle, `${id}.lifecycle`);
     for (const actionClass of loop.actionClasses) {
       for (const part of actionClass.split('+').map((value) => value.trim()).filter(Boolean)) {
         declaredActionClasses.add(part);
       }
     }
+    normalizedLoops.push({ ...loop, lifecycle });
   }
   const actionAutonomyMap = registry.actionAutonomy;
   if (!actionAutonomyMap || typeof actionAutonomyMap !== 'object' || Array.isArray(actionAutonomyMap)) {
@@ -144,7 +168,7 @@ export function validateLoopRegistry(registry) {
   for (const actionClass of declaredActionClasses) {
     if (!Object.hasOwn(actionAutonomyMap, actionClass)) fail(`actionAutonomy is missing ${actionClass}`);
   }
-  return { ...registry, loops, actionAutonomy: { ...actionAutonomyMap } };
+  return { ...registry, loops: normalizedLoops, actionAutonomy: { ...actionAutonomyMap } };
 }
 
 export function actionClassParts(actionClass) {
@@ -195,6 +219,31 @@ export function validateActionClassAgainstPolicy(registry, loopId, actionClass) 
     requiredAutonomy,
     maxAutonomy: policy.maxAutonomy,
     policy,
+  };
+}
+
+export function validateDecisionLifecycle(registry, loopId, decision) {
+  const policy = findLoopPolicy(registry, loopId);
+  if (!decision || typeof decision !== 'object') fail('decision must be an object');
+  const startedAt = requireIso(decision.startedAt, `${loopId}.decision.startedAt`);
+  const expiresAt = requireIso(decision.expiresAt, `${loopId}.decision.expiresAt`);
+  const decidedAt = requireIso(decision.decidedAt, `${loopId}.decision.decidedAt`);
+  const startedMs = Date.parse(startedAt);
+  const decisionMs = Date.parse(decidedAt);
+  const expiresMs = Date.parse(expiresAt);
+  if (decisionMs < startedMs) fail(`${loopId}.decision.decidedAt cannot precede startedAt`);
+  if (expiresMs < startedMs) fail(`${loopId}.decision.expiresAt cannot precede startedAt`);
+  const ttlLimit = decisionMs + policy.lifecycle.candidateTtlHours * 3_600_000;
+  if (expiresMs > ttlLimit) {
+    fail(`${loopId}.decision.expiresAt exceeds candidate TTL of ${policy.lifecycle.candidateTtlHours} hours`);
+  }
+  return {
+    loopId,
+    startedAt,
+    decidedAt,
+    expiresAt,
+    lifecycle: policy.lifecycle,
+    withinCandidateTtl: true,
   };
 }
 

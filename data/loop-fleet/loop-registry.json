@@ -63,7 +63,13 @@
         "missing or stale data is never emitted as zero",
         "site and corpus communicate only over HTTP",
         "the last valid published surface remains untouched on failure"
-      ]
+      ],
+      "lifecycle": {
+        "candidateTtlHours": 2,
+        "ownerSlaHours": 4,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "CDO / Chief Trust"
+      }
     },
     {
       "loopId": "L1",
@@ -75,7 +81,13 @@
       "minimumSample": 100,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "issue", "pr", "suspend-canary"],
-      "guardrails": ["one anomaly is not a rollback", "Auto Ads stays enabled"]
+      "guardrails": ["one anomaly is not a rollback", "Auto Ads stays enabled"],
+      "lifecycle": {
+        "candidateTtlHours": 24,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "CTO / Reliability"
+      }
     },
     {
       "loopId": "L2",
@@ -87,7 +99,13 @@
       "minimumSample": 1000,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "candidate", "issue", "pr"],
-      "guardrails": ["no thin pages", "no keyword stuffing", "source required"]
+      "guardrails": ["no thin pages", "no keyword stuffing", "source required"],
+      "lifecycle": {
+        "candidateTtlHours": 168,
+        "ownerSlaHours": 48,
+        "postMergeVerificationHours": 48,
+        "rollbackOwner": "Chief Growth / SEO"
+      }
     },
     {
       "loopId": "L3",
@@ -99,7 +117,13 @@
       "minimumSample": 100,
       "maxAutonomy": "A4",
       "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr"],
-      "guardrails": ["handoff is not an application submission", "never invent apply events"]
+      "guardrails": ["handoff is not an application submission", "never invent apply events"],
+      "lifecycle": {
+        "candidateTtlHours": 24,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "CPO / Customer Value"
+      }
     },
     {
       "loopId": "L4",
@@ -111,7 +135,13 @@
       "minimumSample": 100,
       "maxAutonomy": "A4",
       "actionClasses": ["observe", "suppress", "defer", "issue"],
-      "guardrails": ["consent is purpose-specific", "idempotent delivery", "quiet hours"]
+      "guardrails": ["consent is purpose-specific", "idempotent delivery", "quiet hours"],
+      "lifecycle": {
+        "candidateTtlHours": 24,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "Chief Retention / CRM"
+      }
     },
     {
       "loopId": "L5",
@@ -123,7 +153,13 @@
       "minimumSample": 100,
       "maxAutonomy": "A3",
       "actionClasses": ["observe", "candidate", "canary", "stop", "stale-label", "issue", "recommend"],
-      "guardrails": ["no dark patterns", "no unsupported timing promise", "no invasive personalization"]
+      "guardrails": ["no dark patterns", "no unsupported timing promise", "no invasive personalization"],
+      "lifecycle": {
+        "candidateTtlHours": 168,
+        "ownerSlaHours": 48,
+        "postMergeVerificationHours": 48,
+        "rollbackOwner": "CPO / Customer Value"
+      }
     },
     {
       "loopId": "L6",
@@ -135,7 +171,13 @@
       "minimumSample": 1,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr", "lesson"],
-      "guardrails": ["model output is not the oracle", "source and locale must agree"]
+      "guardrails": ["model output is not the oracle", "source and locale must agree"],
+      "lifecycle": {
+        "candidateTtlHours": 24,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "Chief Trust / Accuracy"
+      }
     },
     {
       "loopId": "L7",
@@ -147,7 +189,13 @@
       "minimumSample": 200,
       "maxAutonomy": "A3",
       "actionClasses": ["observe", "candidate", "canary", "stop", "issue", "recommend"],
-      "guardrails": ["persistent assignment", "minimum sample", "explicit expiry", "no automatic price change"]
+      "guardrails": ["persistent assignment", "minimum sample", "explicit expiry", "no automatic price change"],
+      "lifecycle": {
+        "candidateTtlHours": 168,
+        "ownerSlaHours": 48,
+        "postMergeVerificationHours": 48,
+        "rollbackOwner": "CEO / Chief Mission"
+      }
     },
     {
       "loopId": "L8",
@@ -159,7 +207,13 @@
       "minimumSample": 100,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "reconcile", "issue", "recommend"],
-      "guardrails": ["missing export is unmeasurable", "approved differs from pending/reversed", "Auto Ads stays enabled"]
+      "guardrails": ["missing export is unmeasurable", "approved differs from pending/reversed", "Auto Ads stays enabled"],
+      "lifecycle": {
+        "candidateTtlHours": 168,
+        "ownerSlaHours": 48,
+        "postMergeVerificationHours": 48,
+        "rollbackOwner": "CRO / Monetization + CFO"
+      }
     },
     {
       "loopId": "L9",
@@ -171,7 +225,13 @@
       "minimumSample": 20,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "candidate", "pr", "draft-outreach"],
-      "guardrails": ["no real outreach without approval", "inventory is not revenue", "no automatic price change"]
+      "guardrails": ["no real outreach without approval", "inventory is not revenue", "no automatic price change"],
+      "lifecycle": {
+        "candidateTtlHours": 168,
+        "ownerSlaHours": 72,
+        "postMergeVerificationHours": 72,
+        "rollbackOwner": "CRO / Monetization"
+      }
     },
     {
       "loopId": "L10",
@@ -183,7 +243,13 @@
       "minimumSample": 1,
       "maxAutonomy": "A4",
       "actionClasses": ["observe", "route", "lock", "retry", "follow-up"],
-      "guardrails": ["one writer per artifact", "bounded queues", "never bypass a gate"]
+      "guardrails": ["one writer per artifact", "bounded queues", "never bypass a gate"],
+      "lifecycle": {
+        "candidateTtlHours": 24,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "COO / Fleet Controller"
+      }
     },
     {
       "loopId": "L11",
@@ -195,7 +261,13 @@
       "minimumSample": 1,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "issue", "pr", "block-proven-defect"],
-      "guardrails": ["ambiguous findings stay observe-only", "no error-to-warning downgrade", "no auto-merge of uncertain fixes"]
+      "guardrails": ["ambiguous findings stay observe-only", "no error-to-warning downgrade", "no auto-merge of uncertain fixes"],
+      "lifecycle": {
+        "candidateTtlHours": 72,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "Chief Operations Assurance"
+      }
     }
   ]
 }
