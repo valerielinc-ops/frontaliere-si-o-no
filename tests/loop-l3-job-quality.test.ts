@@ -109,6 +109,28 @@ describe('L3 Job Quality → Apply', () => {
     expect(verdict.issues.join(' ')).toContain('duplicate identity');
   });
 
+  it('rejects an inconsistent active total and never measures its outcome', async () => {
+    const inconsistent = summary({
+      total: 2,
+      written: 1,
+      newCount: 1,
+      updatedCount: 0,
+      unchangedCount: 0,
+    });
+    const verdict = validateJobSummaries([inconsistent], { outcomes: outcomes(), now: NOW });
+    expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
+    expect(verdict.issues.join(' ')).toContain('total (2) does not match');
+    const source = tempSource({ ...inconsistent.data }, outcomes());
+    const result = await runL3({
+      now: NOW,
+      summaryDir: source.summaryDir,
+      outcomePath: source.outcomePath,
+      logger: { log() {} },
+    });
+    expect(result.observation.numerator).toBeNull();
+    expect(result.observation.denominator).toBeNull();
+  });
+
   it('marks an all-stale source and never inverts the decision window for future outcomes', () => {
     const verdict = validateJobSummaries(
       [summary({ generatedAt: '2026-09-01T12:00:00.000Z' })],
