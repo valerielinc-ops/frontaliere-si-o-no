@@ -754,9 +754,7 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "director-bd-early-stage-csl-behring-ch",
-        "director-bd-early-stage-csl-behring-bern",
-        "direttore-bd-early-stage-csl-behring-bern",
-        "directeur-bd-premier-stade-csl-behring-bern"
+        "director-bd-early-stage-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -766,8 +764,7 @@
           "director-bd-early-stage-csl-behring-ch"
         ],
         "fr": [
-          "director-bd-early-stage-csl-behring-bern",
-          "directeur-bd-premier-stade-csl-behring-bern"
+          "director-bd-early-stage-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-08-18T22:12:14.685Z",
@@ -1816,7 +1813,7 @@
       "slugByLocale": {
         "it": "gestione-degli-affari-regolamentari-globali-csl-behring-bern",
         "en": "global-regulatory-affairs-manager-csl-behring-ch",
-        "de": "global-regulatory-affairs-manager-csl-behring-ch",
+        "de": "manager-fur-globale-regulatorische-angelegenheiten-csl-behring-bern",
         "fr": "directeur-des-affaires-reglementaires-mondiales-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -1867,6 +1864,9 @@
           "global-regulatory-affairs-manager-csl-behring-ch"
         ],
         "fr": [
+          "global-regulatory-affairs-manager-csl-behring-ch"
+        ],
+        "de": [
           "global-regulatory-affairs-manager-csl-behring-ch"
         ]
       },

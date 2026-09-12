@@ -713,9 +713,9 @@
     },
     {
       "id": "dormakaba-11900",
-      "slug": "configurable-materials-master-data-domain-lead-dormakaba-ch",
+      "slug": "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
       "slugByLocale": {
-        "it": "configurable-materials-master-data-domain-lead-dormakaba-ch",
+        "it": "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
         "en": "configurable-materials-master-data-domain-lead-dormakaba-ch",
         "de": "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang",
         "fr": "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang"
@@ -762,14 +762,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
         "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
-        "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
+        "configurable-materials-master-data-domain-lead-dormakaba-rumlang",
+        "configurable-materials-master-data-domain-lead-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
-          "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang"
+          "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
+          "configurable-materials-master-data-domain-lead-dormakaba-ch"
         ],
         "fr": [
           "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
