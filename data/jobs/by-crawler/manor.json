@@ -90,7 +90,6 @@
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-cde60d007987",
       "salaryMin": 51500,
       "salaryMax": 78100,
@@ -109,8 +108,7 @@
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-11T13:43:49.840Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-09-11T13:43:49.840Z"
     },
     {
       "title": "Mitarbeiter*in Kasse Kundendienst 60%",
@@ -284,7 +282,6 @@
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-ac697d1c702e",
       "salaryMin": 34300,
       "salaryMax": 52000,
@@ -303,8 +300,7 @@
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-11T13:43:49.840Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-09-11T13:43:49.840Z"
     },
     {
       "title": "Collaborateur/trice Visual Merchandising (Home) 55%",
@@ -576,7 +572,6 @@
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-14565c6a4999",
       "salaryMin": 33200,
       "salaryMax": 51000,
@@ -595,8 +590,7 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-11T13:43:49.840Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-09-11T13:43:49.840Z"
     },
     {
       "title": "Mitarbeiter*in Visual Merchandising 60%",
@@ -760,8 +754,8 @@
       "titleByLocale": {
         "it": "Lavoratori* in cassa 70%",
         "de": "Mitarbeiter* in Kasse 70%",
-        "en": "Employees* in cash register 70%",
-        "fr": "Employés* dans la caisse enregistreuse 70%"
+        "en": "70% Cashier",
+        "fr": "Caissier*ère 70%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -797,7 +791,7 @@
         "employees-in-cash-register-70-manor-ag-biel",
         "employes-dans-la-caisse-enregistreuse-70-manor-ag-biel"
       ],
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Collaborateur/trice caisse 70%",
@@ -903,7 +897,6 @@
       "previousSlugs": [
         "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf"
       ],
-      "needsRetranslation": true,
       "id": "manor-c2a8c6f8fdd0",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -922,8 +915,7 @@
       "addressLocality": "Hochdorf",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-11T13:43:49.840Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-09-11T13:43:49.840Z"
     },
     {
       "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
@@ -2392,7 +2384,6 @@
           "manor-collaborateur-trice-caisse-papeterie-60-vevey-collaborateurtrice-caisse-papeterie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:59:04.738Z",
       "crawledAt": "",
       "salaryMin": 43200,
@@ -2411,8 +2402,7 @@
       },
       "addressLocality": "Vevey",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaborateur/trice vente (Home & Ménage) 80%",
@@ -2725,7 +2715,6 @@
           "mitarbeiter-in-service-60-manor-ag-emmen-mitarbeiterin-service-60"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:46:26.073Z",
       "crawledAt": "",
       "salaryMin": 41400,
@@ -2744,8 +2733,7 @@
       },
       "addressLocality": "Emmen",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mitarbeiter*in Merchandising 80%",
@@ -2789,7 +2777,6 @@
           "manor-mitarbeiter-in-merchandising-80-solothurn"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:20:28.335Z",
       "crawledAt": "",
       "salaryMin": 54800,
@@ -2808,8 +2795,7 @@
       },
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mitarbeiter*in Verkauf 30%",
@@ -2845,7 +2831,6 @@
       },
       "sourceLang": "it",
       "id": "manor-f475c5556d4e",
-      "needsRetranslation": true,
       "previousSlugs": [
         "manor-mitarbeiter-in-verkauf-bijouterie-60-thun-mitarbeiterin-verkauf-bijouterie",
         "manor-mitarbeiter-in-verkauf-30-thun"
@@ -2877,8 +2862,7 @@
       },
       "addressLocality": "Thun",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Apprendista Polydesigner 3D 100%",
@@ -2910,7 +2894,7 @@
         "it": "Apprendista Polydesigner 3D 100%",
         "en": "Apprentice Polydesigner 3D 100%",
         "de": "Lernende/r Polydesigner 3D 100%",
-        "fr": "Apprenti Polydesigner 3D 100%"
+        "fr": "Apprenti Designer Polyvalent 3D à 100%"
       },
       "sourceLang": "it",
       "id": "manor-d048905d48ee",
@@ -2944,7 +2928,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Apprendista Polydesigner 3D 100%",
@@ -2976,7 +2960,7 @@
         "it": "Apprendista Polydesigner 3D 100%",
         "en": "I'm ready to help translate a job title to English. However, I don't see a specific title in your message to translate. Could you provide the job title that needs to be translated? Once you share it, I'll ensure all Italian words are fully translated to English and return only the translated title.",
         "de": "Lernende/r Polydesigner 3D 100%",
-        "fr": "Apprenti Polydesigner 3D 100%"
+        "fr": "Apprenti Polyconcepteur 3D 100%"
       },
       "sourceLang": "it",
       "id": "manor-cc500c59269d",
@@ -3002,7 +2986,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Collaborateur/trice vente (Accessoires) 40%",
@@ -3386,7 +3370,6 @@
           "manor-detailhandelsfachmann-frau-efz-100-emmen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:38:05.738Z",
       "crawledAt": "",
       "salaryMin": 69500,
@@ -3405,8 +3388,7 @@
       },
       "addressLocality": "Emmen",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mitarbeiter*in Merchandising 60-70%",
@@ -3450,7 +3432,6 @@
           "manor-mitarbeiter-in-merchandising-60-70-emmen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:38:05.738Z",
       "crawledAt": "",
       "salaryMin": 48700,
@@ -3469,8 +3450,7 @@
       },
       "addressLocality": "Emmen",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaborateur/trice supermarché (Pain & Pâtisserie) 50%",
@@ -3611,9 +3591,9 @@
       "descriptionIt": "Collaborateur/trice caisse (Home & Ménage) 70% presso Manor, con sede a Vevey, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice caisse (Home & Ménage) 70% presso Manor, con sede a Vevey, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice caisse (Home & Ménage) 70% at Manor, located in Vevey Collaborateurtrice caisse (Home, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice caisse (Home & Ménage) 70% bei Manor, gelegen in Vevey Collaborateurtrice caisse (Home, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice caisse (Home & Ménage) 70% chez Manor, situé à Vevey Collaborateurtrice caisse (Home, Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "It works with the company's number of caisse machines (Home & Ménage) 70% at Manor, based in Vevey, Canton Vaud, Switzerland. Manor is one of the leading Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurant Manora. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Es arbeitet mit der Anzahl der Caisse-Maschinen (Home & Ménage) 70% in Manor, mit Sitz in Vevey, Kanton Waadt, Schweiz. Manor ist eines der führenden Schweizer Kaufhäuser, mit einer breiten Palette von Produkten wie Mode, Schönheit, Zuhause, Essen und Restaurant Manora. Dieser Ort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Elle travaille avec le nombre de caisses de l'entreprise (Home & Ménage) 70% chez Manor, basée à Vevey, Canton Vaud, Suisse. Manor est l'un des grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, la nourriture et le restaurant Manora. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-09-04",
       "source": "company-website",
@@ -3625,9 +3605,9 @@
         "fr": "collaborateur-mere-caisse-maison-et-menage-70-manor-ag-vevey-collaborateurtrice-caisse-home"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice caisse (Home & Ménage) 70%",
-        "en": "Collaborateur/trice caisse (Home & Ménage) 70%",
-        "de": "Collaborateur/trice caisse (Home & Ménage) 70%",
+        "it": "Collaboratore/strato cassa (Home & Pulizia) 70%",
+        "en": "Checkout Associate (Home & Household) 70%",
+        "de": "Kassier/in (Home & Haushalt) 70%",
         "fr": "Collaborateur/couche caisse (Home & Ménage) 70%"
       },
       "sourceLang": "it",
@@ -3640,7 +3620,6 @@
           "manor-collaborateur-trice-caisse-home-menage-70-vevey"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:38:05.738Z",
       "crawledAt": "",
       "salaryMin": 50400,
@@ -4084,7 +4063,6 @@
           "manor-allocator-60-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:16:57.125Z",
       "crawledAt": "",
       "salaryMin": 44400,
@@ -4103,8 +4081,7 @@
       },
       "addressLocality": "Basel",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaborateur/trice supermarché (Fruits & Légumes) 100%",
@@ -4119,9 +4096,9 @@
       "descriptionIt": "Collaborateur/trice supermarché (Fruits & Légumes) 100% presso Manor, con sede a Vevey, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice supermarché (Fruits & Légumes) 100% presso Manor, con sede a Vevey, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice supermarché (Fruits & Légumes) 100% at Manor, located in Vevey Collaborateurtrice supermarché (Fruits, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice supermarché (Fruits & Légumes) 100% bei Manor, gelegen in Vevey Collaborateurtrice supermarché (Fruits, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice supermarché (Fruits & Légumes) 100% chez Manor, situé à Vevey Collaborateurtrice supermarché (Fruits, Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "It works with the company's best branded machine (Fruits & Légumes) in Manor, based in Vevey, Canton Vaud, Switzerland. Manor is one of the leading Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurant. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Es arbeitet mit der besten Markenmaschine (Fruits & Légumes) des Unternehmens in Manor, mit Sitz in Vevey, Kanton Waadt, Schweiz. Manor ist eines der führenden Schweizer Kaufhäuser, mit einer breiten Palette von Produkten wie Mode, Schönheit, Zuhause, Essen und Restaurant. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Il travaille avec la meilleure machine de marque de l'entreprise (Fruits & Légumes) à Manoir, basée à Vevey, Canton Vaud, Suisse. Manor est l'un des grands magasins suisses, avec une large gamme de produits, dont la mode, la beauté, la maison, la nourriture et le restaurant."
       },
       "postedDate": "2026-09-04",
       "source": "company-website",
@@ -4134,9 +4111,9 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice supermarché (Fruits & Légumes) 100%",
-        "en": "Collaborateur/trice supermarché (Fruits & Légumes) 100%",
-        "de": "Collaborateur/trice supermarché (Fruits & Légumes) 100%",
-        "fr": "Collaborateur/trice supermarché (Fruits & Légumes) 100%"
+        "en": "Supermarket Employee (Fruits & Vegetables) 100%",
+        "de": "Supermarkt-Mitarbeiter/in (Obst & Gemüse) 100%",
+        "fr": "Fonctionne avec le nombre de machines (Fluts & Légumes) 100%"
       },
       "sourceLang": "it",
       "id": "manor-f4a3ea1d0216",
@@ -4148,7 +4125,6 @@
           "manor-collaborateur-trice-supermarche-fruits-legumes-100-vevey"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:38:05.738Z",
       "crawledAt": "",
       "salaryMin": 72000,
@@ -4252,9 +4228,9 @@
       "descriptionIt": "Collaborateur/trice Caisse Etudiant 20% presso Manor, con sede a Marin Epagnier, Canton Neuchâtel, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice Caisse Etudiant 20% presso Manor, con sede a Marin Epagnier, Canton Neuchâtel, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice Caisse 20% at Manor, located in Marin Epagnier Collaborateurtrice Caisse, Canton of Neuchâtel, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice Caisse 20% bei Manor, gelegen in Marin Epagnier Collaborateurtrice Caisse, Kanton Neuenburg, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice Caisse 20% chez Manor, situé à Marin Epagnier Collaborateurtrice Caisse, Canton de Neuchâtel, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "It works with the company's company, the company's company, the company's company, and its subsidiary, the company, the company, and its subsidiary, the company. It is one of the leading Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurant Manora. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Es arbeitet mit dem Unternehmen, dem Unternehmen, dem Unternehmen und seiner Tochtergesellschaft, dem Unternehmen, dem Unternehmen und seiner Tochtergesellschaft, dem Unternehmen. Es ist eines der führenden Schweizer Kaufhäuser, mit einer breiten Palette von Produkten wie Mode, Schönheit, Zuhause, Essen und Restaurant Manora. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Elle travaille avec la société de la société, la société de la société, la société de la société, et sa filiale, la société, la société, et sa filiale, la société. Il est l'un des grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, la nourriture et le restaurant Manora. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-09-04",
       "source": "company-website",
@@ -4267,9 +4243,9 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice Caisse Etudiant 20%",
-        "en": "Collaborator/trice Caisse 20%",
-        "de": "Mitarbeiter/trice Caisse 20%",
-        "fr": "Collaborateur / Compagnie Caisse 20%"
+        "en": "Student Cashier 20%",
+        "de": "Student Kassier/in 20%",
+        "fr": "Tél.: +44 (0) 2 544 544 744"
       },
       "sourceLang": "it",
       "id": "manor-efd6ca10f0d7",
@@ -4305,7 +4281,8 @@
       },
       "addressLocality": "Marin Epagnier",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Collaborateur/trice Caisse (Supermarché) 20%",
@@ -4320,9 +4297,9 @@
       "descriptionIt": "Collaborateur/trice Caisse (Supermarché) 20% presso Manor, con sede a Marin Epagnier, Canton Neuchâtel, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice Caisse (Supermarché) 20% presso Manor, con sede a Marin Epagnier, Canton Neuchâtel, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice Caisse (Supermarché) 20% at Manor, located in Marin Epagnier Collaborateurtrice Caisse, Canton of Neuchâtel, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice Caisse (Supermarché) 20% bei Manor, gelegen in Marin Epagnier Collaborateurtrice Caisse, Kanton Neuenburg, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice Caisse (Supermarché) 20% chez Manor, situé à Marin Epagnier Collaborateurtrice Caisse, Canton de Neuchâtel, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "He works with the companyteur/trice Caisse (Supermarché) 20% at Manor, based in Marin Epagnier, Canton Neuchâtel, Switzerland. Manor is one of the leading Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurant Manora. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Er arbeitet mit dem companyteur/trice Caisse (Supermarché) 20% in Manor, mit Sitz in Marin Epagnier, Kanton Neuenburg, Schweiz. Manor ist eines der führenden Schweizer Kaufhäuser, mit einer breiten Palette von Produkten wie Mode, Schönheit, Zuhause, Essen und Restaurant Manora. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Il travaille avec la société acquéreur/trice Caisse (Supermarché) 20% chez Manor, basée à Marin Epagnier, Canton Neuchâtel, Suisse. Manor est l'un des grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, la nourriture et le restaurant Manora. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-09-04",
       "source": "company-website",
@@ -4335,9 +4312,9 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice Caisse (Supermarché) 20%",
-        "en": "Collaborateur/trice Caisse (Supermarché) 20%",
-        "de": "Kollaborateur/trice Caisse (Supermarché) 20%",
-        "fr": "Collaborateur/trice Caisse (Supermarché) 20%"
+        "en": "Cashier (Supermarket) 20%",
+        "de": "Kassierer/in (Supermarkt) 20%",
+        "fr": "Caissier/ière (Supermarché) 20%"
       },
       "sourceLang": "it",
       "id": "manor-c0f9ad13fe6c",
@@ -4368,7 +4345,8 @@
       },
       "addressLocality": "Marin Epagnier",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Collaborateur/trice caisse (Supermarché) 50%",
@@ -4383,9 +4361,9 @@
       "descriptionIt": "Collaborateur/trice caisse (Supermarché) 50% presso Manor, con sede a Vevey, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice caisse (Supermarché) 50% presso Manor, con sede a Vevey, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice caisse (Supermarché) 50% at Manor, located in Vevey Collaborateurtrice caisse (Supermarché), Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice caisse (Supermarché) 50% bei Manor, gelegen in Vevey Collaborateurtrice caisse (Supermarché), Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice caisse (Supermarché) 50% chez Manor, situé à Vevey Collaborateurtrice caisse (Supermarché), Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "Worked with the company's €225/caisier (Supermarche) at Manor, based in Vevey, Canton Vaud, Switzerland. Manor is one of the leading Swiss department stores, with a wide range of products including fashion, beauty, home, grocery and restaurant Manor. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Das Unternehmen arbeitete mit der 225 €/ca. 260 €/ca. im Herrenhaus in Vevey, Kanton Waadt, Schweiz. Das Herrenhaus ist eines der führenden Schweizer Kaufhäuser mit einer breiten Palette von Produkten, darunter Mode, Schönheit, Haus, Lebensmittelgeschäft und Restaurant Manor. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Travaillé avec la société 225/ca/suite (Supermarche) chez Manor, basée à Vevey, Canton Vaud, Suisse. Manor est l'un des grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, l'épicerie et le restaurant Manor. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-09-04",
       "source": "company-website",
@@ -4398,9 +4376,9 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice caisse (Supermarché) 50%",
-        "en": "Collaborateur/trice caisse (Supermarché) 50%",
-        "de": "Kollaborateur/trice caisse (Supermarché) 50%",
-        "fr": "Collaborateur/couche caisse (Supermarché) 50%"
+        "en": "Cashier (Supermarket) 50%",
+        "de": "Kassierer/in (Supermarkt) 50%",
+        "fr": "Caissier/ère (Supermarché) 50%"
       },
       "sourceLang": "it",
       "id": "manor-111438f90e4e",
@@ -4431,7 +4409,8 @@
       },
       "addressLocality": "Vevey",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Collaborateur/trice service clients 50%",
@@ -4588,9 +4567,9 @@
       "descriptionIt": "Collaborateur/trice Merchandising (Hardgoods) 50% presso Manor, con sede a Lausanne, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice Merchandising (Hardgoods) 50% presso Manor, con sede a Lausanne, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice Merchandising (Hardgoods) 50% at Manor, located in Lausanne Collaborateurtrice Merchandising (Hardgoods), Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice Merchandising (Hardgoods) 50% bei Manor, gelegen in Lausanne Collaborateurtrice Merchandising (Hardgoods), Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice Merchandising (Hardgoods) 50% chez Manor, situé à Lausanne Collaborateurtrice Merchandising (Hardgoods), Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "It works with the company of the company, the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of companies.",
+        "de": "Es arbeitet mit der Gesellschaft der Gesellschaft, die Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der\n\nGesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der\n\nUnternehmen der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaften.",
+        "fr": "Elle travaille avec la compagnie de la compagnie, la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie\n\nsociété de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société\n\nentreprise de la société de la société de la société de la société de la société de la société de la société de la société de sociétés."
       },
       "postedDate": "2026-09-03",
       "source": "company-website",
@@ -4603,9 +4582,9 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice Merchandising (Hardgoods) 50%",
-        "en": "Collaborateur/trice Merchandising (Hardgoods) 50%",
-        "de": "Collaborateur/trice Merchandising (Hardgoods) 50%",
-        "fr": "Collaborateur/trice Marchandises (marchandises) 50%"
+        "en": "Merchandising Associate (Hardgoods) 50%",
+        "de": "Merchandising-Mitarbeiter/in (Hardgoods) 50%",
+        "fr": "Partenaire de l'entreprise, Merchandising (Hardports) 50%"
       },
       "sourceLang": "it",
       "id": "manor-9f8cb0013391",
@@ -4617,7 +4596,6 @@
           "manor-collaborateur-trice-merchandising-hardgoods-50-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:46:32.358Z",
       "crawledAt": "",
       "salaryMin": 30300,
@@ -4651,9 +4629,9 @@
       "descriptionIt": "Collaborateur/trice Merchandising (Hardgoods) 50% presso Manor, con sede a Lausanne, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice Merchandising (Hardgoods) 50% presso Manor, con sede a Lausanne, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice Merchandising (Hardgoods) 50% at Manor, located in Lausanne, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice Merchandising (Hardgoods) 50% bei Manor, gelegen in Lausanne, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice Merchandising (Hardgoods) 50% chez Manor, situé à Lausanne, Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "It works with the company of the company, the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of the company of companies.",
+        "de": "Es arbeitet mit der Gesellschaft der Gesellschaft, die Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der\n\nGesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der\n\nUnternehmen der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaft der Gesellschaften.",
+        "fr": "Elle travaille avec la compagnie de la compagnie, la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie de la compagnie\n\nsociété de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société de la société\n\nentreprise de la société de la société de la société de la société de la société de la société de la société de la société de sociétés."
       },
       "postedDate": "2026-09-03",
       "source": "company-website",
@@ -4666,13 +4644,12 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice Merchandising (Hardgoods) 50%",
-        "en": "Collaborateur/trice Merchandising (Hardgoods) 50%",
-        "de": "Collaborateur/trice Merchandising (Hardgoods) 50%",
-        "fr": "Collaborateur/trice Marchandises (marchandises) 50%"
+        "en": "Merchandising Associate (Hardgoods) 50%",
+        "de": "Merchandising-Mitarbeiter/in (Hardgoods) 50%",
+        "fr": "Partenaire de l'entreprise, Merchandising (Hardports) 50%"
       },
       "sourceLang": "it",
       "id": "manor-40b2efd5938a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:16:57.125Z",
       "crawledAt": "",
       "salaryMin": 30300,
@@ -4777,9 +4754,9 @@
       "descriptionIt": "Collaborateur/trice vente (Confection Dames) 70% presso Manor, con sede a Genève, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice vente (Confection Dames) 70% presso Manor, con sede a Genève, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice vente (Confection Dames) 70% at Manor, located in Genève 1 Collaborateurtrice vente, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice vente (Confection Dames) 70% bei Manor, gelegen in Genève 1 Collaborateurtrice vente, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice vente (Confection Dames) 70% chez Manor, situé à Genève 1 Collaborateurtrice vente, Canton de Genève, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "It works with the company's heart and heart at the heart of Manor, located in Genève, Canton Geneva, Switzerland. Manor is one of the leading Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurant Manora. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Es arbeitet mit Herz und Herz des Unternehmens im Herzen von Manor, in Genève, Kanton Genf, Schweiz. Manor ist eines der führenden Schweizer Kaufhäuser, mit einer breiten Palette von Produkten wie Mode, Schönheit, Zuhause, Essen und Restaurant Manora. Dieser Ort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Elle travaille avec le cœur de l'entreprise au cœur du Manoir, situé à Genève, Canton Genève, Suisse. Manoir est l'un des grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, la nourriture et le restaurant Manora. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-09-02",
       "source": "company-website",
@@ -4792,9 +4769,9 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice vente (Confection Dames) 70%",
-        "en": "Collaborateur/trice vente (Confection Dames) 70%",
-        "de": "Collaborateur/trice vente (Confection Dames) 70%",
-        "fr": "Collaborateur/trice vente (Défense Dames) 70%"
+        "en": "Sales Associate (Women's Clothing) 70%",
+        "de": "Verkaufsberater/in (Damenbekleidung) 70%",
+        "fr": "Le nombre de salariés dans l'UE est estimé à environ 2 500."
       },
       "sourceLang": "it",
       "id": "manor-433e90dbeb7e",
@@ -4811,7 +4788,6 @@
           "manor-collaborateur-trice-vente-confection-dames-50-monthey-collaborateurtrice-vente-confection"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T23:18:02.364Z",
       "crawledAt": "",
       "salaryMin": 50400,
@@ -4845,9 +4821,9 @@
       "descriptionIt": "Collaborateur/trice caisse (Supermarché) 50% presso Manor, con sede a Vevey, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice caisse (Supermarché) 50% presso Manor, con sede a Vevey, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice caisse (Supermarché) 50% at Manor, located in Vevey, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice caisse (Supermarché) 50% bei Manor, gelegen in Vevey, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice caisse (Supermarché) 50% chez Manor, situé à Vevey, Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "Worked with the company's €225/caisier (Supermarche) at Manor, based in Vevey, Canton Vaud, Switzerland. Manor is one of the leading Swiss department stores, with a wide range of products including fashion, beauty, home, grocery and restaurant Manor. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Das Unternehmen arbeitete mit der 225 €/ca. 260 €/ca. im Herrenhaus in Vevey, Kanton Waadt, Schweiz. Das Herrenhaus ist eines der führenden Schweizer Kaufhäuser mit einer breiten Palette von Produkten, darunter Mode, Schönheit, Haus, Lebensmittelgeschäft und Restaurant Manor. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Travaillé avec la société 225/ca/suite (Supermarche) chez Manor, basée à Vevey, Canton Vaud, Suisse. Manor est l'un des grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, l'épicerie et le restaurant Manor. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-09-02",
       "source": "company-website",
@@ -4860,9 +4836,9 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice caisse (Supermarché) 50%",
-        "en": "Collaborateur/trice caisse (Supermarché) 50%",
-        "de": "Kollaborateur/trice caisse (Supermarché) 50%",
-        "fr": "Collaborateur/couche caisse (Supermarché) 50%"
+        "en": "Cashier (Supermarket) 50%",
+        "de": "Kassier/in (Supermarkt) 50%",
+        "fr": "6 millions d'euros pour la construction d'une nouvelle infrastructure pour la construction d'une nouvelle infrastructure."
       },
       "sourceLang": "it",
       "id": "manor-37f7b431d16e",
@@ -4885,7 +4861,8 @@
       },
       "addressLocality": "Vevey",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Mitarbeiter*in Supermarkt Epicerie 45%",
@@ -4900,9 +4877,9 @@
       "descriptionIt": "Mitarbeiter*in Supermarkt Epicerie 45% presso Manor, con sede a Sargans, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Mitarbeiter*in Supermarkt Epicerie 45% presso Manor, con sede a Sargans, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Supermarkt Epicerie 45% at Manor, located in Sargans Mitarbeiterin Supermarkt Epicerie, Canton of St. Gallen, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Supermarkt Epicerie 45% bei Manor, gelegen in Sargans Mitarbeiterin Supermarkt Epicerie, Kanton St. Gallen, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Supermarkt Epicerie 45% chez Manor, situé à Sargans Mitarbeiterin Supermarkt Epicerie, Canton de Saint-Gall, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "Mitarbeiter*in Supermarkt Epicerie 45% at Manor, based in Sargans, Canton San Gallo, Switzerland. Manor is one of the leading Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurants Manora. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Die Epicerie 45% im Manor mit Sitz in Sarnan, Kanton San Gallo, Schweiz. Das Manor ist eines der führenden Schweizer Kaufhäuser mit einer breiten Palette von Produkten wie Mode, Schönheit, Wohnen, Essen und Restaurants Manora. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Supermarkt Epicerie 45% chez Manor, basé à Sargans, Canton San Gallo, Suisse. Manor est l'un des grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, la nourriture et les restaurants Manora. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
       },
       "postedDate": "2026-09-01",
       "source": "company-website",
@@ -4914,10 +4891,10 @@
         "fr": "mitarbeiter-dans-supermarkt-epicerie-45-manor-ag-sargans"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Supermarkt Epicerie 45%",
-        "en": "Mitarbeiter*in Supermarkt Epicerie 45%",
+        "it": "Collaboratore/trice al supermercato Epicerie 45%",
+        "en": "Supermarket Grocery Store Employee 45%",
         "de": "Mitarbeiter*in im Supermarkt Epicerie 45%",
-        "fr": "Mitarbeiter* dans Supermarkt Epicerie 45%"
+        "fr": "Collaborateur*trice Supermarché Épicerie 45%"
       },
       "sourceLang": "it",
       "id": "manor-32e5a7eee5c2",
@@ -4948,7 +4925,8 @@
       },
       "addressLocality": "Sargans",
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Mitarbeiter*in Verkauf Bijouterie",
@@ -5035,9 +5013,9 @@
       "descriptionIt": "Assistant Product Manager 80% presso Manor, con sede a Basel, Canton Basilea Città, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Assistant Product Manager 80% presso Manor, con sede a Basel, Canton Basilea Città, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Assistant Product Manager 80% at Manor, located in Basel Assistant Product Manager, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Assistant Product Manager 80% bei Manor, gelegen in Basel Assistant Product Manager, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Assistant Product Manager 80% chez Manor, situé à Basel Assistant Product Manager, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "The company is one of the leading Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurant Manor. This location offers the opportunity to work in a dynamic and customer-oriented environment. It is located in the centre of the city, in the heart of the city.",
+        "de": "Das Unternehmen ist eines der führenden Schweizer Kaufhäuser mit einer breiten Palette von Produkten wie Mode, Schönheit, Zuhause, Essen und Restaurant Manor. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten. Es befindet sich im Zentrum der Stadt, im Herzen der Stadt.",
+        "fr": "L'entreprise est l'un des grands magasins suisses, avec une large gamme de produits, dont la mode, la beauté, la maison, la nourriture et le restaurant Manor. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client. Il est situé au centre de la ville, au cœur de la ville."
       },
       "postedDate": "2026-09-01",
       "source": "company-website",
@@ -5049,10 +5027,10 @@
         "fr": "assistant-gestionnaire-de-produits-80-manor-ag-basel-assistant-product-manager"
       },
       "titleByLocale": {
-        "it": "Assistant Product Manager 80%",
+        "it": "ASSISTANT PRODUCT-MANAGER",
         "en": "Assistant Product Manager 80%",
-        "de": "Assistent Product Manager 80%",
-        "fr": "Assistant Gestionnaire de produits 80%"
+        "de": "Assistent:in Produktmanager 80%",
+        "fr": "Assistant Chef de Produit 80%"
       },
       "sourceLang": "it",
       "id": "manor-1cc7321a9d3f",
@@ -5085,7 +5063,8 @@
       },
       "addressLocality": "Basel",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Mitarbeiter*in Supermarkt 60%",
@@ -5100,9 +5079,9 @@
       "descriptionIt": "Mitarbeiter*in Supermarkt 60% presso Manor, con sede a Sargans, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Mitarbeiter*in Supermarkt 60% presso Manor, con sede a Sargans, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Supermarkt 60% at Manor, located in Sargans Mitarbeiterin Supermarkt 60, Canton of St. Gallen, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Supermarkt 60% bei Manor, gelegen in Sargans Mitarbeiterin Supermarkt 60, Kanton St. Gallen, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Supermarkt 60% chez Manor, situé à Sargans Mitarbeiterin Supermarkt 60, Canton de Saint-Gall, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "Mitarbeiter*in Supermarkt 60% at Manor, based in Sargans, Canton San Gallo, Switzerland. Manor is one of the leading Swiss department stores chains, with a wide range of products including fashion, beauty, home, grocery and restaurant Manora. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "*in195 % im Herrenhaus mit Sitz in Sardinen, Kanton San Gallo, Schweiz. Manor ist eine der führenden Schweizer Kaufhäuserketten mit einer breiten Palette von Produkten wie Mode, Schönheit, Haus, Lebensmittelgeschäft und Restaurant Manora. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Supermarkt 60% chez Manor, basé à Sargans, Canton de San Gallo, Suisse. Manor est l'une des principales chaînes de grands magasins suisses, avec une large gamme de produits tels que la mode, la beauté, la maison, l'épicerie et le restaurant Manora. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-09-01",
       "source": "company-website",
@@ -5114,10 +5093,10 @@
         "fr": "manor-mitarbeiter-in-supermarkt-60-sargans-mitarbeiterin-supermarkt-60"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Supermarkt 60%",
-        "en": "Mitarbeiter*in Supermarkt 60%",
+        "it": "Collaboratore/trice al supermercato 60%",
+        "en": "Supermarket Employee 60%",
         "de": "Mitarbeiter*in im Supermarkt 60%",
-        "fr": "Mitarbeiter* en Supermarkt 60%"
+        "fr": "Employé*e Supermarché 60%"
       },
       "sourceLang": "it",
       "id": "manor-7206a1e64fb9",
@@ -5148,7 +5127,8 @@
       },
       "addressLocality": "Sargans",
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Mitarbeiter*in Verkauf 20%",
@@ -5163,9 +5143,9 @@
       "descriptionIt": "Mitarbeiter*in Verkauf 20% presso Manor, con sede a Zürich, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Mitarbeiter*in Verkauf 20% presso Manor, con sede a Zürich, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Verkauf 20% at Manor, located in Zürich Mitarbeiterin Verkauf 20, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Verkauf 20% bei Manor, gelegen in Zürich Mitarbeiterin Verkauf 20, Kanton Zürich, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Verkauf 20% chez Manor, situé à Zürich Mitarbeiterin Verkauf 20, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "Mitarbeiter*in Verkauf 20% at Manor, based in Zürich, Canton Zurich, Switzerland. Manor is one of the leading chains of Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurant Manor. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Mitarbeiter*in85 20% im Manor mit Sitz in Zürich, Kanton Zürich, Schweiz. Manor ist eine der führenden Ketten Schweizer Kaufhäuser mit einer breiten Palette von Produkten wie Mode, Schönheit, Wohnen, Essen und Restaurant Manor. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Verkauf 20% chez Manor, basé à Zurich, Canton de Zurich, Suisse. Manor est l'une des principales chaînes de grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, la nourriture et le restaurant Manor. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-09-01",
       "source": "company-website",
@@ -5177,10 +5157,10 @@
         "fr": "mitarbeiter-in-vente-20-manor-ag-zurich"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in vendita 20%",
+        "it": "Addetti alle vendite 20%",
         "de": "Mitarbeiter im Verkauf 20%",
-        "en": "Mitarbeiter*in Sales 20%",
-        "fr": "Mitarbeiter*in Vente 20%"
+        "en": "Sales Associate 20%",
+        "fr": "Employé*e de vente 20%"
       },
       "sourceLang": "it",
       "id": "manor-6c1fcc5d3bf1",
@@ -5211,7 +5191,8 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Mitarbeiter*in Visual Merchandising 70%",
@@ -5226,9 +5207,9 @@
       "descriptionIt": "Mitarbeiter*in Visual Merchandising 70% presso Manor, con sede a Chur, Canton Grigioni, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Mitarbeiter*in Visual Merchandising 70% presso Manor, con sede a Chur, Canton Grigioni, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Visual Merchandising 70% at Manor, located in Chur Mitarbeiterin Visual Merchandising, Canton of Graubünden, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Visual Merchandising 70% bei Manor, gelegen in Chur Mitarbeiterin Visual Merchandising, Kanton Graubünden, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Visual Merchandising 70% chez Manor, situé à Chur Mitarbeiterin Visual Merchandising, Canton de Grisons, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "Mitarbeiter*in Visual Merchandising 70% at Manor, based in Chur, Canton Grisons, Switzerland. Manor is one of the leading chains of Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurant Manora. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Mitarbeiter*in Visual Merchandising 70% im Manor mit Sitz in Chur, Kanton Graubünden, Schweiz. Manor ist eine der führenden Ketten der Schweizer Kaufhäuser, mit einer breiten Palette von Produkten wie Mode, Schönheit, Zuhause, Essen und Restaurant Manora. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Visual Merchandising 70% chez Manor, basée à Chur, Canton des Grisons, Suisse. Manor est l'une des principales chaînes de grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, la nourriture et le restaurant Manora. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-09-01",
       "source": "company-website",
@@ -5240,10 +5221,10 @@
         "fr": "mitarbeiter-en-marchandisation-visuelle-70-manor-ag-chur-mitarbeiterin-visual-merchandising"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Visual Merchandising 70%",
-        "en": "Mitarbeiter in Visual Merchandising 70%",
+        "it": "Dipendenti nella Merchandising Visuale 70%",
+        "en": "Visual Merchandising Assistant (70%)",
         "de": "Mitarbeiter in Visual Merchandising 70%",
-        "fr": "Mitarbeiter en marchandisation visuelle 70%"
+        "fr": "Employé*e Visual Merchandising 70%"
       },
       "sourceLang": "it",
       "id": "manor-42439cbd20f3",
@@ -5279,7 +5260,8 @@
       },
       "addressLocality": "Chur",
       "addressRegion": "GR",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Boucher/ère 100%",
@@ -5360,9 +5342,9 @@
       "descriptionIt": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Logistik 50% at Manor, located in Hochdorf Mitarbeiterin Logistik 50, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Logistik 50% bei Manor, gelegen in Hochdorf Mitarbeiterin Logistik 50, Kanton Luzern, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Logistik 50% chez Manor, situé à Hochdorf Mitarbeiterin Logistik 50, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "Mitarbeiter*in Logistic 100% at Manor, based in Hochdorf, Canton Lucerne, Switzerland. Manor is one of the leading chains of Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurants Manora. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Mitarbeiter*in Logistik 100% im Manor mit Sitz in Hochdorf, Kanton Luzern, Schweiz. Manor ist eine der führenden Ketten der Schweizer Kaufhäuser mit einer breiten Palette von Produkten wie Mode, Schönheit, Wohnen, Essen und Restaurants Manora. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Logistic 100% chez Manor, basé à Hochdorf, Canton de Lucerne, Suisse. Manor est l'une des principales chaînes de grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, la nourriture et les restaurants Manora. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-09-01",
       "source": "company-website",
@@ -5374,10 +5356,10 @@
         "fr": "manor-mitarbeiter-in-logistik-50-hochdorf-mitarbeiterin-logistik-50"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Logistik 100%",
-        "en": "Mitarbeiter*in Logistik 50%",
+        "it": "Collaboratore/tricein logistica 100%",
+        "en": "Logistics Employee 100%",
         "de": "Mitarbeiter*in Logistik 100%",
-        "fr": "Mitarbeiter*in Logistik 50%"
+        "fr": "Employé(e) Logistique 100%"
       },
       "sourceLang": "it",
       "id": "manor-9bf38258b0c3",
@@ -5419,7 +5401,8 @@
       "addressLocality": "Hochdorf",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "retranslationAttempts": 1
     },
     {
       "title": "Collaborateur/trice vente (Papeterie) 50%",
@@ -5497,9 +5480,9 @@
       "descriptionIt": "Collaborateur/trice Caisse (jouets) 100% presso Manor, con sede a Fribourg, Canton Friburgo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice Caisse (jouets) 100% presso Manor, con sede a Fribourg, Canton Friburgo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice Caisse (jouets) 100% at Manor, located in Fribourg Collaborateurtrice Caisse (jouets), Canton of Fribourg, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice Caisse (jouets) 100% bei Manor, gelegen in Fribourg Collaborateurtrice Caisse (jouets), Kanton Freiburg, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice Caisse (jouets) 100% chez Manor, situé à Fribourg Collaborateurtrice Caisse (jouets), Canton de Fribourg, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "Worked with the company's best department stores in the Swiss department store, Manor is one of the leading chains of Swiss department stores, with a wide range of products including fashion, beauty, home, grocery and restaurant products. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Manor ist mit den besten Kaufhäusern des Unternehmens im Schweizer Kaufhaus eine der führenden Ketten der Schweizer Kaufhäuser, mit einer breiten Palette von Produkten wie Mode, Schönheit, Haus-, Lebensmittel- und Restaurantprodukten. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Avec les meilleurs grands magasins de la société dans le grand magasin suisse, Manor est l'une des principales chaînes de grands magasins suisses, avec une large gamme de produits, dont la mode, la beauté, la maison, l'épicerie et les restaurants."
       },
       "postedDate": "2026-08-31",
       "source": "company-website",
@@ -5512,9 +5495,9 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice Caisse (jouets) 100%",
-        "en": "Collaborateur/trice Caisse (jouets) 100%",
-        "de": "Collaborateur/trice Caisse (jouets) 100%",
-        "fr": "Collaborateur/trice Caisse (jouets) 100%"
+        "en": "Cashier (Toys) 100%",
+        "de": "Kassierer/in (Spielwaren) 100%",
+        "fr": "Caissier/ère (Jouets) 100%"
       },
       "sourceLang": "it",
       "id": "manor-8dafdd00f271",
@@ -5526,7 +5509,6 @@
           "manor-collaborateur-trice-caisse-jouets-100-fribourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
       "salaryMin": 77500,
@@ -5560,9 +5542,9 @@
       "descriptionIt": "Collaborateur/trice Caisse (Home, Ménage) 100% presso Manor, con sede a Fribourg, Canton Friburgo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice Caisse (Home, Ménage) 100% presso Manor, con sede a Fribourg, Canton Friburgo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice Caisse (Home, Ménage) 100% at Manor, located in Fribourg Collaborateurtrice Caisse (Home,, Canton of Fribourg, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice Caisse (Home, Ménage) 100% bei Manor, gelegen in Fribourg Collaborateurtrice Caisse (Home,, Kanton Freiburg, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice Caisse (Home, Ménage) 100% chez Manor, situé à Fribourg Collaborateurtrice Caisse (Home,, Canton de Fribourg, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "Worked with the company's number one department store (Home, Ménage) 100% at Manor, based in Fribourg, Canton of Fribourg, Switzerland. Manor is one of the leading Swiss department stores, with a wide range of products including fashion, beauty, home, food and restaurant Manora. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Das Unternehmen hat mit dem Kaufhaus Home, Ménage 100% in Manor mit Sitz in Freiburg, Kanton Freiburg, Schweiz, gearbeitet. Manor ist eines der führenden Schweizer Kaufhäuser mit einer breiten Palette von Produkten wie Mode, Schönheit, Zuhause, Essen und Restaurant Manora. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Travaillant avec le grand magasin numéro un de l'entreprise (Home, Ménage) 100% chez Manor, basé à Fribourg, Canton de Fribourg, Suisse. Manor est l'un des grands magasins suisses, avec une large gamme de produits dont la mode, la beauté, la maison, la nourriture et le restaurant Manora. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-08-31",
       "source": "company-website",
@@ -5574,9 +5556,9 @@
         "fr": "manor-collaborateur-trice-caisse-home-menage-100-fribourg-collaborateurtrice-caisse-home"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice Caisse (Home, Ménage) 100%",
-        "en": "Collaborateur/trice Caisse (Home, Ménage) 100%",
-        "de": "Collaborateur/trice Caisse (Home, Ménage) 100%",
+        "it": "Collaboratore/trice Cassa (Casa, Pulizie) 100%",
+        "en": "Cashier (Home, Household) 100%",
+        "de": "Kassierer/in (Wohnen, Haushalt) 100%",
         "fr": "Collaborateur/trice Caisse (Maison, Ménage) 100%"
       },
       "sourceLang": "it",
@@ -5589,7 +5571,6 @@
           "manor-collaborateur-trice-caisse-home-menage-100-fribourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
       "salaryMin": 77500,
@@ -5623,9 +5604,9 @@
       "descriptionIt": "Collaborateur/trice Caisse (Jouets) 50% presso Manor, con sede a Fribourg, Canton Friburgo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
         "it": "Collaborateur/trice Caisse (Jouets) 50% presso Manor, con sede a Fribourg, Canton Friburgo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice Caisse (Jouets) 50% at Manor, located in Fribourg Collaborateurtrice Caisse (Jouets), Canton of Fribourg, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice Caisse (Jouets) 50% bei Manor, gelegen in Fribourg Collaborateurtrice Caisse (Jouets), Kanton Freiburg, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice Caisse (Jouets) 50% chez Manor, situé à Fribourg Collaborateurtrice Caisse (Jouets), Canton de Fribourg, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "en": "Partner of the company, the company, which is located in Fribourg, Canton Freiburg, Switzerland. Manor is one of the leading department stores in Switzerland, with a wide range of products including fashion, beauty, home, food and restaurant Manor. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
+        "de": "Partner des Unternehmens, des Unternehmens, mit Sitz in Freiburg, Kanton Freiburg, Schweiz. Manor ist eines der führenden Kaufhäuser in der Schweiz, mit einer breiten Palette von Produkten wie Mode, Schönheit, Zuhause, Essen und Restaurant Manor. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Partenaire de la société, la société, qui est située à Fribourg, Canton de Freiburg, Suisse. Manor est l'un des grands magasins en Suisse, avec une large gamme de produits dont la mode, la beauté, la maison, la nourriture et le restaurant Manor. Cet emplacement offre la possibilité de travailler dans un environnement dynamique et orienté client."
       },
       "postedDate": "2026-08-31",
       "source": "company-website",
@@ -5638,9 +5619,9 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice Caisse (Jouets) 50%",
-        "en": "Collaborateur/trice Caisse (Jouets) 50%",
-        "de": "Kollaborateur/trice Caisse (Jouets) 50%",
-        "fr": "Collaborateur/trice Caisse (Jouets) 50%"
+        "en": "Cashier (Toys) 50%",
+        "de": "Kassierer/in (Spielwaren) 50%",
+        "fr": "Partenaire de la Caisse (Jouets) 50%"
       },
       "sourceLang": "it",
       "id": "manor-553ef3f68318",
@@ -5652,7 +5633,6 @@
           "manor-collaborateur-trice-caisse-jouets-50-fribourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
       "salaryMin": 38800,
