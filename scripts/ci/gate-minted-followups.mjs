@@ -77,6 +77,7 @@ import {
   dailyBucketIdentity,
   dedupeDailyItems,
   dailyBucketInfo,
+  dailyBucketTargetRepository,
   hasFalsifiableAcceptance,
   hasDailyBucketRepositoryConsistency,
   hasStableItemIds,
@@ -169,7 +170,7 @@ export function partitionDailyBucketItems(body, opts = {}) {
       : 'reject';
     (falsifiable && admission !== 'reject' ? valid : demoted).push(item);
   }
-  const targetRepository = /^\s*-\s+Target repository\s*:\s*(.*?)\s*$/im.exec(head)?.[1]?.trim() || '';
+  const targetRepository = dailyBucketTargetRepository(head) || '';
   const deduped = dedupeDailyItems(valid, targetRepository);
   return {
     head,
@@ -187,15 +188,43 @@ export function rebuildDailyBody(head, valid) {
   return `${cleanHead}\n\n${items.replace(/^\s+/, '')}\n`;
 }
 
+/**
+ * Newly minted daily items historically omitted their per-item state because the
+ * prompt specified only the bucket state.  The lifecycle defaults those fresh
+ * items to `open`, but refuses to guess when a malformed/unknown State field is
+ * already present.
+ */
+function normalizeMissingDailyItemStates(body) {
+  const source = String(body || '');
+  const items = parseFollowupItems(source);
+  let normalized = source;
+  let offset = 0;
+  for (const item of items) {
+    if (item.state !== null) continue;
+    if (/^\s*-\s+State\s*:/im.test(item.raw)) return null;
+    const headingEnd = item.raw.indexOf('\n');
+    if (headingEnd < 0) return null;
+    const raw = `${item.raw.slice(0, headingEnd + 1)}- State: open\n${item.raw.slice(headingEnd + 1)}`;
+    const start = item.start + offset;
+    normalized = `${normalized.slice(0, start)}${raw}${normalized.slice(start + item.raw.length)}`;
+    offset += raw.length - item.raw.length;
+  }
+  return normalized;
+}
+
 /** Update only the bucket-level state line (never an item `State:` line). */
 export function setBucketState(body, state) {
-  const src = String(body || '');
+  const src = normalizeMissingDailyItemStates(body);
+  if (src === null) return null;
   const parsed = parseFollowupItems(src);
   const firstHeadingAt = parsed.length ? parsed[0].start : src.length;
   const head = src.slice(0, firstHeadingAt);
   const rest = src.slice(firstHeadingAt);
-  if (!/^-\s+State\s*:\s*(?:collecting|sealed)\s*$/im.test(head)) return null;
-  const nextHead = head.replace(/^(\s*-\s+State\s*:\s*)(?:collecting|sealed)(\s*)$/im, `$1${state}$2`);
+  const stateLine = /^([ \t]*)(-\s+)?State[ \t]*:[ \t]*(?:collecting|sealed)([ \t]*)$/im;
+  if (!stateLine.test(head)) return null;
+  const nextHead = head.replace(stateLine, (_, indent, bullet, trailing) => (
+    `${indent}${bullet || ''}State: ${state}${trailing}`
+  ));
   return `${nextHead}${rest}`;
 }
 
