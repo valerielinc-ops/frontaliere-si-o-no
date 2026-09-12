@@ -40,6 +40,7 @@
 # unchanged from the original — the caller passes them explicitly through
 # this workflow's declared workflow_call secrets (composite actions can't
 # do this; reusable workflows can).
+name: Crawler Group 23 logic (reusable workflow)
 on:
   workflow_call:
     inputs:

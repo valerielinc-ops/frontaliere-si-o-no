@@ -1356,8 +1356,12 @@ function normalizedCrawlerStep(step) {
   return copy;
 }
 
+function crawlerLogicWorkflowName(nn) {
+  return `Crawler Group ${nn} logic (reusable workflow)`;
+}
+
 function logicPreamble(existingText, nn) {
-  const bodyAt = existingText?.search(/^on:\s*$/m) ?? -1;
+  const bodyAt = existingText?.search(/^(?:name:\s*Crawler Group \d+ logic.*|on:)\s*$/m) ?? -1;
   if (bodyAt >= 0) return existingText.slice(0, bodyAt);
   return [
     `# Crawler Group ${nn} logic — generated source for corpus execution.`,
@@ -1448,6 +1452,7 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
   }
 
   const body = YAML.stringify({
+    name: crawlerLogicWorkflowName(nn),
     on: workflow.on,
     permissions: workflow.permissions,
     env: workflow.env,
@@ -1566,7 +1571,7 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
   const generatedKeys = Object.keys(generatedWorkflow).sort();
   const logicKeys = Object.keys(logicWorkflow).sort();
   if (JSON.stringify(generatedKeys) !== JSON.stringify(['concurrency', 'env', 'jobs', 'name', 'on', 'permissions']) ||
-      JSON.stringify(logicKeys) !== JSON.stringify(['env', 'jobs', 'on', 'permissions'])) {
+      JSON.stringify(logicKeys) !== JSON.stringify(['env', 'jobs', 'name', 'on', 'permissions'])) {
     throw new Error(`${fileName}: undeclared top-level workflow metadata`);
   }
   const generatedJobName = Object.keys(generatedWorkflow.jobs ?? {})[0] ?? '';
@@ -1574,6 +1579,7 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
   const generatedMembers = Object.values(generatedWorkflow.jobs ?? {})[0]?.steps
     ?.filter((step) => step?.background === true).length;
   if (!nn || generatedWorkflow.name !== `Crawler Group ${nn} (${generatedMembers} crawlers)` ||
+      logicWorkflow.name !== crawlerLogicWorkflowName(nn) ||
       JSON.stringify(generatedWorkflow.concurrency) !== JSON.stringify({
     group: `jobs-crawler-group-${nn}`,
     'cancel-in-progress': false,

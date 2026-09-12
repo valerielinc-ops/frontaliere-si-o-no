@@ -180,6 +180,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       const generated = results[index].content;
       const logic = fs.readFileSync(path.join(WORKFLOWS, `crawler-group-${group}-logic.yml`), 'utf8');
       expect(() => assertCrawlerLogicParity(generated, logic, `crawler-group-${group}-logic.yml`)).not.toThrow();
+      expect(YAML.parse(logic).name).toBe(`Crawler Group ${group} logic (reusable workflow)`);
 
       const job = jobFrom(logic);
       expect(YAML.parse(logic).on.workflow_call.inputs.generation_token)
