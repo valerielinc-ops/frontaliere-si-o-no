@@ -157,7 +157,7 @@ const NewsletterPopup: React.FC = () => {
  // Don't show if already subscribed
  if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return;
 
- // Don't show if user is signed in (auto-subscribed on signup)
+ // Don't show a duplicate popup during an authenticated session.
  if (user) return;
 
  // Don't show if dismissed recently
@@ -386,9 +386,13 @@ const NewsletterPopup: React.FC = () => {
  sourceComponent: 'NewsletterPopup',
  sourceRouteFamily: nav?.activeTab || 'web_app',
  locale: navigator.language || 'it-IT',
- isActive: false,
- status: 'pending',
- // The checkbox above rendered THIS string, in THIS locale, and it is
+        isActive: false,
+        status: 'pending',
+        // A deliberate form submit is allowed to start a fresh DOI cycle for
+        // an address that previously opted out; the confirmation link, not
+        // this typed address, lifts the old suppression.
+        reconsent: true,
+        // The checkbox above rendered THIS string, in THIS locale, and it is
  // the one stored — same function on both sides (#5712/#5718).
  ...consentProof('communicationsOptIn', 'email_checkbox', locale),
  // Set here and not by the register: this gate really does have a
@@ -399,7 +403,7 @@ const NewsletterPopup: React.FC = () => {
  'newsletter_upsert',
  );
 
- if (upsert.existed) {
+ if (upsert.existed && upsert.status !== 'pending') {
  setStatus('exists');
  return;
  }

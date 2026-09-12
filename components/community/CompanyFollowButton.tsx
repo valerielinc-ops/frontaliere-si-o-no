@@ -180,11 +180,12 @@ export default function CompanyFollowButton({
   /**
    * Anonymous submit. Reuses the site's ONE consent mechanism end to end:
    * `upsertNewsletterSubscriber` writes `status:'pending'` and auto-fires the
-   * confirmation email — but only for a genuinely NEW pending record. Following
-   * SaveSignInPromptModal's precedent, an address that already exists gets an
-   * explicit `purpose:'login'` link instead. Without that branch a returning
-   * visitor would tap "Segui", receive no email, and never be followed: silent
-   * failure, the exact defect class this feature keeps being audited for.
+   * confirmation email for a new DOI cycle. An address with valid proof gets
+   * an explicit `purpose:'login'` link instead; a proofless historical auth
+   * row remains on the fresh DOI path. Without either branch a returning
+   * visitor would tap "Segui", receive no email, and never be followed:
+   * silent failure, the exact defect class this feature keeps being audited
+   * for.
    */
   const handleCaptureSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
@@ -210,6 +211,10 @@ export default function CompanyFollowButton({
           sourceComponent: 'CompanyFollowButton',
           sourceRouteFamily: 'community',
           locale: typeof navigator !== 'undefined' ? navigator.language || 'it-IT' : 'it-IT',
+          // Following an employer is an explicit communications request. For
+          // a previous opt-out it starts a new DOI cycle; the email link, not
+          // this form, is what reactivates delivery.
+          reconsent: true,
           // #5712/#5718: the notice under this form renders the same string
           // in the same locale, so what is stored is what was read.
           ...consentProof('communicationsOptIn', 'email_submit', locale),
@@ -217,7 +222,13 @@ export default function CompanyFollowButton({
           // is an affirmative opt-in — only "was shown" is true. See the
           // `consentGiven` section of services/consentTexts.ts (#5712).
         });
-        if (upsert.existed) await requestConfirmationEmail(trimmed, 'login');
+        // A proofless historical auth row can be `pending` after this explicit
+        // re-consent form; in that case the upsert already requested the fresh
+        // DOI and a second login email would be redundant. A pending row with
+        // real proof still needs the access link because no DOI is sent.
+        if (upsert.status !== 'pending' || upsert.hadConfirmationProof) {
+          await requestConfirmationEmail(trimmed, 'login');
+        }
       }
       // Park the follow. It becomes an alert only after the confirmation link
       // lands (App.tsx → flushPendingCompanyFollows), never before.

@@ -5,14 +5,17 @@
  * Uses HMAC tokens for secure confirmation link verification.
  * Includes 1-hour cooldown to prevent spam.
  *
- * Suppression: transactional, so guarded only against a hard bounce or a filed
- * spam complaint (isTransactionalHardBlock, lib/emailSuppression.js). `pending`
- * is the normal state for this email and must never be blocked.
+ * Suppression: transactional, so guarded against a hard bounce or a filed spam
+ * complaint, plus the consent-state invariants for the DOI path: only a
+ * genuinely pending record without a confirmation stamp/proof or a binding
+ * opt-out may request it.
  */
 
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { isTransactionalHardBlock } from './lib/emailSuppression.js';
+import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
+import { hasConfirmationProof, hasConfirmationStamp } from './lib/subscriberConsent.js';
 import { normalizeLocale } from './emailI18n.js';
 import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
@@ -45,8 +48,13 @@ import {
 // lib/confirmationEmailContent.js: scripts/newsletter-confirmation-followups.mjs
 // composes requests #2 and #3 from the same module, and a Cloud Functions file
 // is not importable from a script. Re-exported so every existing importer of
-// this module — tests included — keeps working unchanged.
-export { buildNewsletterConfirmationEmailHtml } from './lib/confirmationEmailContent.js';
+// this module — tests included — keeps working unchanged. The login template
+// is exported alongside it for template-level tests and callers that need to
+// distinguish authentication mail from the double opt-in copy.
+export {
+ buildNewsletterConfirmationEmailHtml,
+ buildNewsletterLoginEmailHtml,
+} from './lib/confirmationEmailContent.js';
 
 const CONFIRMATION_COOLDOWN_MS = 60 * 60 * 1000; // 1 hour
 
@@ -79,11 +87,12 @@ export function generateConfirmationToken(email, secret, { policy, scheme, now }
 }
 
 export async function sendNewsletterConfirmationEmail({ email, locale, sourcePath, secret, db: injectedDb, purpose }) {
- // purpose 'login' → send the confirm link even to an already-confirmed
- // subscriber (used as a passwordless sign-in link; the confirm action is a
- // no-op for them but still mints a custom token for auto-login). The cooldown
- // guard below still applies to prevent abuse.
+ // purpose 'login' → send a passwordless access link even to an
+ // already-confirmed subscriber. The management action mints a custom token
+ // but does not change newsletter state; the cooldown guard still applies to
+ // prevent abuse.
  const isLoginLink = purpose === 'login';
+ const isResubscribeLink = purpose === 'resubscribe';
  if (!email || !email.includes('@')) {
  return { success: false, error: 'invalid_email' };
  }
@@ -117,21 +126,34 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  return { success: false, error: 'account_deleted' };
  }
 
- // NARROW hard-block guard: only a provably dead mailbox (hard bounce) or a
- // filed spam complaint. A double-opt-in confirmation is transactional — the
- // user asked for it seconds ago — so `unsubscribed` / `inactive` / `pending` /
- // soft-bounced addresses still get their email; `pending` in particular IS the
- // normal state here, and blocking it would break signup outright. Rationale +
- // exact set: isTransactionalHardBlock in lib/emailSuppression.js. No extra
- // Firestore read: this reads fields off the doc already fetched above, so the
- // guard adds no new failure path of its own.
+ // Keep the transactional send narrow, but do not let a direct caller turn a
+ // marketing record back into a DOI request. A confirmation email is valid
+ // only for a genuinely pending record with no confirmation stamp/proof and no
+ // binding opt-out. The login-link purpose is separate: it is an account
+ // access message, not a newsletter subscription request. `resubscribe` is a
+ // third, narrow case: the user has just typed the address into a fresh
+ // re-consent form, so an old confirmation stamp is expected, but the address
+ // stays pending until this new DOI link is clicked.
  if (isTransactionalHardBlock({ status: data?.status, bounceSeverity: data?.bounce_severity })) {
  console.warn(`[newsletterConfirmation] suppressed address, send skipped: status=${data?.status}`);
  return { success: false, error: 'address_suppressed' };
  }
 
- if (data.status === 'confirmed' && data.isActive && !isLoginLink) {
+ const status = String(data?.status || '').trim().toLowerCase();
+ if (!isLoginLink && !isResubscribeLink && isNewsletterOptOutBinding(data)) {
+ return { success: false, error: 'address_suppressed' };
+ }
+
+ if (!isLoginLink && !isResubscribeLink && (
+   (status === 'confirmed' && data?.isActive)
+   || hasConfirmationStamp(data)
+   || hasConfirmationProof(data)
+ )) {
  return { success: false, error: 'already_confirmed' };
+ }
+
+ if (!isLoginLink && status !== 'pending') {
+ return { success: false, error: 'confirmation_not_pending' };
  }
 
  const now = Date.now();
@@ -187,7 +209,15 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  // No auth token embedded in the URL — the confirm action's Cloud Function
  // response returns a fresh custom token for auto-login. This avoids the
  // Firebase custom token 1-hour expiry problem entirely.
- const finalUrl = confirmationConfirmUrl({ email: normalizedEmail, token, sourcePath });
+ const finalUrl = confirmationConfirmUrl({
+   email: normalizedEmail,
+   token,
+   sourcePath,
+   // A passwordless login link must never be able to revive an opt-out when
+   // an old link is opened later. The management handler uses this explicit
+   // mode to mint a session without changing newsletter state.
+   mode: isLoginLink ? 'login' : undefined,
+ });
 
  // Which of the three this is, decided from the SAME counter the cap reads and
  // the write below increments (#5692). This function normally sends request #1,
@@ -205,6 +235,7 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  confirmUrl: finalUrl,
  frame,
  firstSentAt: confirmationFirstSentAt(data),
+ login: isLoginLink,
  });
 
  const { sent, failed } = await sendEmailCascade([{

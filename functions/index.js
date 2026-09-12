@@ -534,6 +534,7 @@ export const newsletterManageSubscription = onRequest(
  const action = String(params.action || '').trim().toLowerCase();
  const email = String(params.email || '').trim().toLowerCase();
  const token = String(params.token || '').trim();
+ const mode = String(params.mode || '').trim().toLowerCase();
  const format = String(params.format || '').trim().toLowerCase();
  const enabled = params.enabled;
  const subscribed = params.subscribed;
@@ -607,6 +608,7 @@ export const newsletterManageSubscription = onRequest(
  action,
  email,
  token,
+ mode,
  secret: newsletterSecret,
  // The verb as a GATE, not as attribution (#5711): `resubscribe` and the
  // re-opt-in half of `toggle_newsletter_subscription` require a POST, so a
@@ -666,6 +668,7 @@ export const newsletterManageSubscription = onRequest(
  if (result.authToken) jsonBody.authToken = result.authToken;
  if (result.alreadyConfirmed != null) jsonBody.alreadyConfirmed = result.alreadyConfirmed;
  if (result.companyFollowFollowup) jsonBody.companyFollowFollowup = result.companyFollowFollowup;
+ if (result.loginOnly != null) jsonBody.loginOnly = result.loginOnly;
  res.status(result.status).type('json').json(jsonBody);
  } else {
  res.status(result.status).type('html').send(result.html);
@@ -731,7 +734,9 @@ export const newsletterSendConfirmation = onRequest(
  const email = String(req.body?.email || '').trim().toLowerCase();
  const locale = String(req.body?.locale || 'it').trim();
  const sourcePath = String(req.body?.sourcePath || '/').trim();
- const purpose = req.body?.purpose === 'login' ? 'login' : 'confirm';
+ const purpose = req.body?.purpose === 'login'
+   ? 'login'
+   : (req.body?.purpose === 'resubscribe' ? 'resubscribe' : 'confirm');
 
  if (!email || !email.includes('@')) {
  res.status(400).json({ success: false, error: 'invalid_email' });
@@ -742,12 +747,8 @@ export const newsletterSendConfirmation = onRequest(
  // subscriber (SaveSignInPromptModal / CompanyFollowButton call it when the
  // upsert reports `existed`). Stamping there would attach today's network to
  // a consent given months ago and dress a login up as an opt-in — the exact
- // fabrication this field exists to avoid. Only the double-opt-in branch,
- // which fires for a genuinely new `pending` subscriber, is stamped.
- if (purpose === 'confirm') {
- await stampConsentIp(req, email);
- }
-
+ // fabrication this field exists to avoid. The two DOI purposes are stamped
+ // only after the send gate accepts them below.
  try {
  const { newsletterSecret } = await getNewsletterSecrets();
  const result = await sendNewsletterConfirmationEmail({
@@ -757,6 +758,14 @@ export const newsletterSendConfirmation = onRequest(
  secret: newsletterSecret,
  purpose,
  });
+ // Stamp the network only after the server has accepted a real DOI request.
+ // A public endpoint must not let somebody POST an existing address and alter
+ // its consent evidence when the request is refused as already confirmed,
+ // opted out, expired, or otherwise ineligible. `resubscribe` is also a real
+ // DOI request, just one that deliberately renews a prior opt-out.
+ if (result.success && (purpose === 'confirm' || purpose === 'resubscribe')) {
+ await stampConsentIp(req, email);
+ }
  res.status(result.success ? 200 : 400).json(result);
  } catch (error) {
  console.error('[newsletterSendConfirmation] Error:', error);
@@ -766,11 +775,11 @@ export const newsletterSendConfirmation = onRequest(
 );
 
 // Post-signup welcome email (mirrors newsletterSendConfirmation).
-// FUNNEL-CRITICAL: this is the ONLY welcome touchpoint for pre-confirmed
-// subscribers — Google One Tap, social sign-in and the job-unlock gates, which
-// together are ~82% of all signups. Those paths never reach double opt-in, so
-// the `confirm` action in newsletterSubscriptionManagement.js (which covers the
-// remaining minority) never fires for them. Called from
+// FUNNEL-CRITICAL: this is the welcome touchpoint for explicitly pre-confirmed
+// contextual gates (plus legacy pre-confirmed rows). Generic authentication,
+// Google One Tap and social sign-in no longer write newsletter state by
+// themselves; the `confirm` action in newsletterSubscriptionManagement.js
+// covers the double-opt-in path. Called from
 // services/newsletterSubscribers.ts:upsertNewsletterSubscriber. If this endpoint
 // breaks, most new subscribers silently receive no welcome email at all.
 /**
@@ -857,12 +866,11 @@ export const newsletterSendWelcome = onRequest(
  return;
  }
 
- // The pre-confirmed branch: Google One Tap, social sign-in and the job
- // gates, ~82% of signups, which never reach a confirmation link and so have
- // no other server-side moment where their address is observable. Stamped
- // BEFORE the eligibility checks below, because a welcome email that is
- // skipped (already_sent, too_old, suppressed…) is still a real signup whose
- // consent needs a network of origin.
+ // The pre-confirmed branch: an explicit contextual gate that deliberately
+ // skips the confirmation link. Stamped BEFORE the eligibility checks below,
+ // because a welcome email that is skipped (already_sent, too_old,
+ // suppressed…) is still a real signup whose consent needs a network of
+ // origin. Generic authentication never reaches this endpoint.
  await stampConsentIp(req, email);
 
  try {

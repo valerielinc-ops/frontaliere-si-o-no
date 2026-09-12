@@ -599,7 +599,7 @@ const UserProfile: React.FC = () => {
  }
  });
 
- // Newsletter auto-subscribe is now handled in App.tsx (runs on any login, not just profile tab)
+ // Newsletter subscription is explicit and is not part of profile sync.
  }, [user?.uid]);
 
  // Merge Facebook Graph API profile data (age from birthday) into profile
@@ -624,16 +624,12 @@ const UserProfile: React.FC = () => {
  });
  }, [user?.uid]);
 
- // Google One Tap: prompt when user is not signed in
- //
- // A sign-in from here subscribes the visitor — App.tsx's listener writes the
- // document under `signInAutoSubscribe` — and this page renders no consent
- // notice. Declared rather than overlooked (#5739): that entry is Italian-only
- // and `displayed: false`, so any formula rendered beside this button would
- // differ from the stored one, and One Tap draws its own prompt in a
- // cross-origin iframe we cannot render into at all. Listed in
- // `SIGN_IN_SURFACES`, tests/consent-shown-at-signup.test.tsx; the `merge-update`
- // verdict in the same file covers only the preference write further down.
+ // Google One Tap: prompt when user is not signed in. Authentication here is
+ // access-only; newsletter consent is collected only by an explicit
+ // communications form or contextual gate. One Tap draws its own prompt in a
+ // cross-origin iframe, so it cannot be used to display a newsletter notice.
+ // Listed in `SIGN_IN_SURFACES`, tests/consent-shown-at-signup.test.tsx; the
+ // `merge-update` verdict in the same file covers only the preference write.
  useEffect(() => {
  if (user || authLoading) return;
  

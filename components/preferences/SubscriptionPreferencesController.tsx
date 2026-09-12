@@ -790,22 +790,11 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  // unsubscribed, which is the half of the problem #5711 is about.
  resubscribed_at: serverTimestamp(),
  resubscribedAt: serverTimestamp(),
- // The consent stamp, because THIS path earns it (#5686). It is reached
- // only from UserProfile with email = getAuthEmail(user): a signed-in
- // person flipping the switch on their own address — an affirmative act
- // by an identified human. So the send gate in
- // services/subscriberConsent.mjs may read it as proof, and without it
- // that gate drops these people as "never confirmed" the moment they opt
- // back in.
- //
- // `resubscribed_at` on the lines above is NOT that proof and must never
- // be promoted to it. The two answer different questions — "did they come
- // back?" and "did they ever consent?" — and only the second is evidence
- // of consent. (The resubscribe LINK that also writes `resubscribed_at`
- // is no longer a bare GET since #5720, but that changes who can press
- // it, not what the field means.)
- confirmed_at: serverTimestamp(),
- confirmedAt: serverTimestamp(),
+ // This toggle records an explicit re-opt-in, but it is NOT a double-opt-in
+ // confirmation. Do not mint `confirmed_at` here: a profile session can prove
+ // who is acting, not that the address completed the newsletter DOI. Existing
+ // confirmation proof remains intact and the sender gate will use it; a record
+ // without proof stays unmarketable until the real confirmation path runs.
  updated_at: serverTimestamp(),
  updatedAt: serverTimestamp(),
  },

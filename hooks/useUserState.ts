@@ -6,13 +6,11 @@
  * - User profile loading from localStorage (deferred to idle)
  * - Profile-to-simulation prefilling (via callback)
  * - Google One Tap (interaction-deferred, sessionStorage-gated)
- * - Chatbot auth wrappers (Google, Facebook, email-only)
  * - Admin privilege check
- * - Auto-subscribe to newsletter on auth sign-in
+ * - Chatbot auth wrappers (authentication only; newsletter consent is separate)
  */
 import { useState, useEffect, useCallback, type Dispatch, type SetStateAction, type MutableRefObject } from 'react';
 import { useAuth, getAuthEmail, promptOneTap, cancelOneTap, getUserPhotoURL, getUserDisplayName } from '@/services/authService';
-import { reportCaughtError } from '@/services/errorReporter';
 import { claimOneTapPrompt } from '@/services/oneTapPromptGate';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { ContactPrefill } from '@/components/pages/ContactPage';
@@ -20,7 +18,7 @@ import type { SimulationInputs } from '@/types';
 
 const ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com'];
 
-import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
+import { Analytics } from '@/services/analyticsProxy';
 
 export interface UserState {
  authUser: any;
@@ -40,7 +38,6 @@ export interface UserState {
 }
 
 export function useUserState(
- upsertNewsletterSubscriber: (email: string, source: 'signup' | 'chatbot_google' | 'chatbot_facebook' | 'chatbot_email', displayName?: string | null) => Promise<boolean>,
  setInputs: Dispatch<SetStateAction<SimulationInputs>>,
  urlHydrated: MutableRefObject<boolean>,
 ): UserState {
@@ -50,29 +47,6 @@ export function useUserState(
 
  const authEmail = authUser ? getAuthEmail(authUser) : null;
  const isPrivilegedAdmin = ADMIN_EMAIL_WHITELIST.includes(authEmail?.toLowerCase() ?? '');
-
- // Auto-subscribe to newsletter on auth sign-in.
- // Sibling of the same effect in App.tsx and carries the identical guard:
- // the localStorage flag alone is not one (the unsubscribe handler clears
- // it), so the recipient's real state decides. See #5672.
- useEffect(() => {
- if (!authEmail) return;
- let cancelled = false;
- (async () => {
- const [{ getFirestore }, { getApp }, { isNewsletterOptedOut, isNewsletterAccountDeleted }] = await Promise.all([
- import('firebase/firestore'),
- import('@/services/firebase'),
- import('@/services/newsletterSubscribers'),
- ]);
- if (cancelled) return;
- const db = getFirestore(await getApp() as any);
- if (localStorage.getItem('newsletter_subscribed') === 'true'
- && !(await isNewsletterAccountDeleted(db, authEmail))) return;
- if (cancelled || await isNewsletterOptedOut(db, authEmail)) return;
- await upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null);
- })().catch((e) => reportCaughtError(e, 'user.autoNewsletterSubscribe'));
- return () => { cancelled = true; };
- }, [authEmail]);
 
  // Load user profile for prefilling simulator inputs (deferred to idle)
  // Skipped when URL params already hydrated the inputs
@@ -107,44 +81,22 @@ export function useUserState(
 
  // Chatbot auth wrappers
  const chatbotGoogleSignIn = useCallback(async (): Promise<any | null> => {
- const user = await googleSignIn();
- const email = getAuthEmail(user);
- if (email) {
- try {
- await upsertNewsletterSubscriber(email, 'chatbot_google', user?.displayName || null);
- } catch (e) {
- console.warn('[Chatbot] newsletter upsert (google) failed:', e);
- reportCaughtError(e, 'user.chatbotGoogleNewsletter');
- }
- }
- return user;
- }, [googleSignIn, upsertNewsletterSubscriber]);
+ return googleSignIn();
+ }, [googleSignIn]);
 
  const chatbotFacebookSignIn = useCallback(async (): Promise<any | null> => {
- const user = await facebookSignIn();
- const email = getAuthEmail(user);
- if (email) {
- try {
- await upsertNewsletterSubscriber(email, 'chatbot_facebook', user?.displayName || null);
- } catch (e) {
- console.warn('[Chatbot] newsletter upsert (facebook) failed:', e);
- reportCaughtError(e, 'user.chatbotFacebookNewsletter');
- }
- }
- return user;
- }, [facebookSignIn, upsertNewsletterSubscriber]);
+ return facebookSignIn();
+ }, [facebookSignIn]);
 
  const chatbotContinueWithEmail = useCallback(async (email: string): Promise<boolean> => {
- const ok = await upsertNewsletterSubscriber(email, 'chatbot_email', null);
+ const ok = Boolean(email && email.includes('@'));
  if (ok) {
- Analytics.trackNewsletter('subscribe', email.split('@')[1] || 'unknown');
- unlockAchievement('newsletter_sub');
- Analytics.trackUIInteraction('chatbot', 'auth_gate', 'newsletter_email_subscribe', 'success');
+ Analytics.trackUIInteraction('chatbot', 'auth_gate', 'email_access', 'success');
  } else {
- Analytics.trackUIInteraction('chatbot', 'auth_gate', 'newsletter_email_subscribe', 'error');
+ Analytics.trackUIInteraction('chatbot', 'auth_gate', 'email_access', 'error');
  }
  return ok;
- }, [upsertNewsletterSubscriber]);
+ }, []);
 
  // Google One Tap: prompt automatically once auth state is resolved.
  // With auto_select: true, returning Google users are signed in silently.

@@ -70,6 +70,7 @@ import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIde
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
+import { evaluateJobAlertConsent } from '../functions/src/jobAlertBackfillCore.js';
 // localePathPrefix aliased to the local name this script has always used for
 // its locale-aware URL construction — the implementation is the canonical
 // shared helper (also used by send-newsletter.mjs, send-saved-jobs-digest.mjs).
@@ -1379,6 +1380,7 @@ async function processRetryQueue(db) {
 
   const retryEmails = [];
   const retryDocs = [];
+  const retryCandidates = [];
 
   for (const doc of snap.docs) {
     const data = doc.data();
@@ -1391,32 +1393,99 @@ async function processRetryQueue(db) {
       continue;
     }
 
-    // Per-user send-time (#3798): deliberately NO scheduledAt here. A retry
-    // means the first attempt already missed today's daily quota window — the
-    // recipient is already late, so send it the moment fresh quota is
-    // available rather than deferring it further to their preferred hour.
-    retryEmails.push({
-      payload: {
-        from: FROM_EMAIL,
-        to: [data.email],
-        subject: data.subject,
-        html: data.html,
-        tags: [{ name: 'type', value: 'job-alert-retry' }],
-      },
-      recipient: { email: data.email },
-      meta: {
-        type: 'job-alert-retry',
-        alertId: data.alertId,
-        rankingDeliveryId: data.rankingDeliveryId || null,
-        rankingVariant: data.rankingVariant || 'control',
-        rankingJobs: data.rankingJobs || [],
-      },
-    });
-    retryDocs.push({ ref: doc.ref, data });
+    const email = String(data.email || '').trim().toLowerCase();
+    const alertId = String(data.alertId || '').trim();
+    if (!email.includes('@') || !alertId || alertId.includes('/')) {
+      // A malformed/stale queue item has no safe Firestore target to
+      // re-validate and no valid recipient to send to.
+      await doc.ref.delete();
+      console.warn(`   ⚠️  Dropping malformed job-alert retry item ${doc.id}`);
+      continue;
+    }
+
+    retryCandidates.push({ doc, data, email, alertId });
+  }
+
+  // A retry stores rendered HTML, so it cannot rely on the eligibility checks
+  // that ran when the first attempt was built. Re-read the live alert and both
+  // subscriber documents before every retry: an opt-out, a deleted/paused
+  // alert, a provider suppression or the historical backfill-consent gate must
+  // stop the queued message too. Lookup failures leave the queue item intact
+  // and send nothing; fail-open here would turn a transient read error into a
+  // post-unsubscribe delivery.
+  const RETRY_LOOKUP_CHUNK_SIZE = 200;
+  let retrySuppressed = 0;
+  let retryConsentBlocked = 0;
+  let retryStale = 0;
+  for (let i = 0; i < retryCandidates.length; i += RETRY_LOOKUP_CHUNK_SIZE) {
+    const chunk = retryCandidates.slice(i, i + RETRY_LOOKUP_CHUNK_SIZE);
+    try {
+      const refs = chunk.flatMap(({ email, alertId }) => [
+        db.collection('job_alert_subscribers').doc(email).collection('alerts').doc(alertId),
+        db.collection('newsletter_subscribers').doc(email),
+        db.collection('job_alert_subscribers').doc(email),
+      ]);
+      const snaps = await db.getAll(...refs);
+      for (let j = 0; j < chunk.length; j += 1) {
+        const item = chunk[j];
+        const [alertSnap, newsletterSnap, jobAlertRootSnap] = snaps.slice(j * 3, j * 3 + 3);
+        const alert = alertSnap.exists ? alertSnap.data() || {} : null;
+        const newsletter = newsletterSnap.exists ? newsletterSnap.data() || {} : null;
+        const jobAlertRoot = jobAlertRootSnap.exists ? jobAlertRootSnap.data() || {} : null;
+
+        let discardReason = null;
+        if (!alert || alert.active !== true || alert.paused === true) {
+          discardReason = 'alert-not-live';
+          retryStale += 1;
+        } else if (isCrossChannelStop(newsletter) || isJobAlertExcluded(jobAlertRoot?.status)) {
+          discardReason = 'suppressed';
+          retrySuppressed += 1;
+        } else {
+          const consent = evaluateJobAlertConsent({ alert, subscriber: newsletter });
+          if (!consent.allowed) {
+            discardReason = consent.reason;
+            retryConsentBlocked += 1;
+          }
+        }
+
+        if (discardReason) {
+          await item.doc.ref.delete();
+          console.log(`   🧹 Dropped queued job-alert retry (${discardReason}) for ${item.email} / ${item.alertId}`);
+          continue;
+        }
+
+        // Per-user send-time (#3798): deliberately NO scheduledAt here. A retry
+        // means the first attempt already missed today's daily quota window —
+        // the recipient is already late, so send it the moment fresh quota is
+        // available rather than deferring it further to their preferred hour.
+        retryEmails.push({
+          payload: {
+            from: FROM_EMAIL,
+            to: [item.email],
+            subject: item.data.subject,
+            html: item.data.html,
+            tags: [{ name: 'type', value: 'job-alert-retry' }],
+          },
+          recipient: { email: item.email },
+          meta: {
+            type: 'job-alert-retry',
+            alertId: item.alertId,
+            rankingDeliveryId: item.data.rankingDeliveryId || null,
+            rankingVariant: item.data.rankingVariant || 'control',
+            rankingJobs: item.data.rankingJobs || [],
+          },
+        });
+        retryDocs.push({ ref: item.doc.ref, data: item.data });
+      }
+    } catch (err) {
+      console.warn(`   ⚠️  Retry consent lookup failed for ${chunk.length} queued email(s): ${err?.message || err}`);
+      // No candidate in this chunk is added to retryEmails, so the queue keeps
+      // them for a later run after the transient read failure clears.
+    }
   }
 
   if (retryEmails.length === 0) {
-    console.log('   🔄 Retry queue: all entries expired (max retries reached)');
+    console.log(`   🔄 Retry queue: no sendable entries (stale ${retryStale}, suppressed ${retrySuppressed}, consent-blocked ${retryConsentBlocked})`);
     return;
   }
 
@@ -1752,6 +1821,31 @@ async function main() {
     const before = alerts.length;
     alerts = alerts.filter((a) => !newsletterCooldownSet.has(a.email.toLowerCase()));
     console.log(`   📬 Newsletter cooldown (36h): ${before - alerts.length} alerts deferred (newsletter sent recently)`);
+  }
+
+  // Historical newsletter→job-alert backfills were created before the
+  // creation trigger became fail-closed. Do not let their `active` flag turn
+  // into authorization: a backfilled alert needs either an alert-specific
+  // proof or an affirmative job-alert consent on the newsletter record.
+  // Explicit alerts created by the user have no backfill marker and retain
+  // their own consent basis. Missing subscriber data also fails closed here —
+  // a transient read error must not make an inferred alert mailable.
+  const blockedBackfillReasons = {};
+  const beforeConsentFilter = alerts.length;
+  alerts = alerts.filter((alert) => {
+    const emailKey = String(alert.email || '').toLowerCase();
+    const verdict = evaluateJobAlertConsent({
+      alert,
+      subscriber: subscriberProfiles.get(emailKey) || null,
+    });
+    if (!verdict.allowed) {
+      blockedBackfillReasons[verdict.reason] = (blockedBackfillReasons[verdict.reason] || 0) + 1;
+      return false;
+    }
+    return true;
+  });
+  if (alerts.length !== beforeConsentFilter) {
+    console.log(`   🔐 Job-alert consent gate: ${beforeConsentFilter - alerts.length} inferred alert(s) skipped — ${JSON.stringify(blockedBackfillReasons)}`);
   }
 
   // 2b-bis. Bring back the alerts whose owner came back to the site (#5705,

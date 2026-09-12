@@ -303,6 +303,82 @@ export function hasAffirmativeJobAlertConsent(data) {
   return consentNamesJobAlerts(data.consent_text);
 }
 
+const BACKFILL_MARKER_FIELDS = Object.freeze(['backfilled_from', 'backfilledFrom']);
+const JOB_ALERT_PROOF_ACTS = Object.freeze([
+  'typed_email_submit',
+  'job_alert_activation_click',
+  'communications_banner_confirm_click',
+]);
+const JOB_ALERT_PROOF_ORIGINS = Object.freeze([
+  'backfill_upgraded_by_explicit_act',
+  'communications_consent_banner',
+]);
+
+function firstNonBlank(data, fields) {
+  if (!data || typeof data !== 'object') return null;
+  for (const field of fields) {
+    const value = data[field];
+    if (typeof value === 'string' && value.trim()) return value.trim();
+  }
+  return null;
+}
+
+/**
+ * True only for alerts manufactured from a newsletter subscriber profile.
+ * Explicit alerts created through the job-alert UI have no such marker and
+ * keep their own consent basis; the sender must not make newsletter consent a
+ * prerequisite for those alerts.
+ */
+export function isBackfilledJobAlert(data) {
+  return firstNonBlank(data, BACKFILL_MARKER_FIELDS) != null;
+}
+
+/**
+ * A proof written on an existing backfilled alert by an explicit activation or
+ * communications-banner act, or carried by a genuine alert-specific signup.
+ * A bare `consent_text` is not enough: it may describe another channel, and
+ * treating it as job-alert consent would recreate the original inference.
+ */
+export function hasStoredJobAlertConsent(data) {
+  if (!data || typeof data !== 'object') return false;
+  const text = firstNonBlank(data, ['consent_text', 'consentText']);
+  if (!text || data.consent_text_displayed !== true) return false;
+
+  const act = String(data.consent_act ?? data.consentAct ?? '').trim();
+  if (!JOB_ALERT_PROOF_ACTS.includes(act)) return false;
+
+  // A typed signup must name the job-alert channel. The two explicit upgrade
+  // paths carry a server-defined origin and the communications sentence points
+  // to the page that names every channel, including job alerts.
+  const origin = String(data.consent_origin ?? data.consentOrigin ?? '').trim();
+  return consentNamesJobAlerts(text) || JOB_ALERT_PROOF_ORIGINS.includes(origin);
+}
+
+/**
+ * Sender-side authorization for one alert. Suppression/opt-out is deliberately
+ * not handled here: every sender still applies its shared cross-channel and
+ * channel-local suppression predicates separately. This function answers only
+ * whether an alert has a valid consent basis for the job-alert channel.
+ *
+ * Backfilled alerts fail closed until either the newsletter record contains an
+ * affirmative, job-alert-scoped consent or the alert itself records a later
+ * explicit activation/banner act. This closes the gap between the creation
+ * trigger (which already refuses new unconsented backfills) and historical
+ * alerts that were created before that trigger was fixed.
+ */
+export function evaluateJobAlertConsent({ alert, subscriber }) {
+  if (!isBackfilledJobAlert(alert)) {
+    return { allowed: true, reason: 'explicit-alert' };
+  }
+  if (hasStoredJobAlertConsent(alert)) {
+    return { allowed: true, reason: 'alert-proof' };
+  }
+  if (hasAffirmativeJobAlertConsent(subscriber)) {
+    return { allowed: true, reason: 'subscriber-job-alert-proof' };
+  }
+  return { allowed: false, reason: 'backfill-without-job-alert-consent' };
+}
+
 /**
  * Pure eligibility check for one `newsletter_subscribers` doc. Pass
  * `personalization` (the `private/personalization` subdoc, if read) to also

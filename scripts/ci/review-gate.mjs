@@ -52,7 +52,7 @@ const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
 // li', e rende l'ordine delle alternative irrilevante. I caratteri validi nei
 // nomi file dopo l'estensione sono esclusi: altrimenti `foo.ts.bak` verrebbe
 // ancora letto come la citazione troncata `foo.ts`.
-const FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9_.@-]))(?:`?[:#]L?\d+(?:[-–]\d+)?)?/giu;
+const FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|rules|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9_.@-]))(?:`?[:#]L?\d+(?:[-–]\d+)?)?/giu;
 
 /**
  * Normalize a review citation without turning an unsafe/ambiguous path into a

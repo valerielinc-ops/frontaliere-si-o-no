@@ -147,7 +147,7 @@ const PdfDownloadGate: React.FC = () => {
         sourceCta: download.source,
         sourceComponent: 'PdfDownloadGate',
         locale: 'it',
-        // Deliberately NOT in CONFIRMED_NEWSLETTER_SOURCES → starts `pending`
+        // No status/activity is supplied here: a new address starts `pending`
         // and triggers the double opt-in confirmation email. The PDF download
         // is granted immediately regardless, same as the Offerwall gate.
         // The checkbox below renders this exact string; both sides come from
@@ -155,6 +155,9 @@ const PdfDownloadGate: React.FC = () => {
         // this component (`locale: 'it'` above).
         ...consentProof('communicationsOptIn', 'email_checkbox', 'it'),
         consentGiven: true,
+        // The visitor explicitly checked the communications box again. A
+        // prior opt-out still requires the fresh DOI link to take effect.
+        reconsent: true,
       });
       try { Analytics.trackUIInteraction('pdf_download_gate', 'form', 'subscribe', 'success'); } catch { /* no-op */ }
       setStatus('success');

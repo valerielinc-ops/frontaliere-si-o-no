@@ -14,8 +14,8 @@
  * ?action=confirm_newsletter auto-login (wired generically in App.tsx for
  * any sourcePath — including a magic link opened in a brand new tab); an
  * EXISTING address gets a login link sent explicitly (requestConfirmationEmail
- * purpose:'login'). All three methods also subscribe to the newsletter
- * (implicit consent, owner policy, same as the publisher gate).
+ * purpose:'login'). Social authentication is access-only and never creates or
+ * reactivates newsletter state.
  *
  * Purely presentational: parent (`JobBoard.tsx`) owns open/close state
  * reacts `authUser?.uid` becoming truthy close modal replay pending save —
@@ -131,13 +131,8 @@ export default function SaveSignInPromptModal({ locale, onDismiss }: SaveSignInP
           </div>
         ) : (
           <div className="space-y-4">
-            {/* No notice above the provider buttons here, and that is not an
-                oversight: this modal's own upsert covers the EMAIL branch only.
-                A social sign-in from here is recorded by the global auth
-                listener in App.tsx under `signInAutoSubscribe`, so rendering
-                `communicationsSignIn` would show one sentence and store
-                another — the exact drift `displayed` exists to expose. Moves to
-                a rendered notice when App.tsx is switched over (#5726). */}
+            {/* Social authentication is access-only. The email branch below
+                owns its explicit consent notice and newsletter request. */}
             <SocialSignInButtons locale={locale} errorContext="saveAuthPrompt" googleWidth={360} />
 
             <div className="flex items-center gap-3">

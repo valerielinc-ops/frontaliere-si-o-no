@@ -101,7 +101,7 @@ function stripComments(src: string): string {
  * would have declared such a file covered.
  */
 const CREATES_SUBSCRIBER =
-  /(upsert|capture)NewsletterSubscriber\s*\(|(addDoc|setDoc)\(\s*(collection|doc)\([^)]*'newsletter_subscribers'/;
+  /(?:upsert|capture)NewsletterSubscriber(?:Record)?\s*\(|(addDoc|setDoc)\(\s*(collection|doc)\([^)]*'newsletter_subscribers'/;
 
 type Verdict =
   /**
@@ -239,22 +239,10 @@ const VERDICTS: Record<string, Verdict> = {
 
   'App.tsx': {
     verdict: 'recorded-not-shown',
-    why: 'the auth listener fires AFTER a sign-in completes, from a component that renders no gate of its own; the win-back branch runs on an emailed link with no UI at all',
+    why: 'the only subscriber write here is the deliberate resubscribe button reached from an emailed link; it has no signup gate of its own',
     issue: '#5726 / #5712',
     onFire:
-      'good — but check WHICH key: a rendered notice here also fixes SaveSignInPromptModal\'s social branch, which currently has none',
-  },
-  'services/authService.ts': {
-    verdict: 'recorded-not-shown',
-    why: 'Google One Tap draws its own prompt in a cross-origin iframe; there is no surface of ours to render a notice into',
-    issue: '#5712',
-    onFire:
-      'STOP unless the notice is genuinely on screen BEFORE the One Tap prompt — a notice rendered after the credential is returned is not a disclosure at collection',
-  },
-  'hooks/useUserState.ts': {
-    verdict: 'unreachable',
-    why: 'calls the upsert wrapper it is handed as an argument; nothing imports the hook either',
-    issue: '#5712',
+      'good — keep the action explicit and preserve the separate resubscribe proof',
   },
 };
 
@@ -472,7 +460,6 @@ describe('every signup path is classified', () => {
     expect(paths.length).toBeGreaterThan(15);
     expect(paths).toContain('App.tsx');
     expect(paths).toContain('components/community/NewsletterPopup.tsx');
-    expect(paths).toContain('services/authService.ts');
   });
 
   it('no signup path is missing a verdict — a new one must declare one here', () => {
@@ -597,26 +584,20 @@ describe('the verdicts hold', () => {
  *
  * This is #5764's question asked of this file: what shape has the population
  * never contained? Not "a gate with the wrong notice" — that one is sampled ten
- * times over. It is "a gate that is not a gate by our own definition". Measured
- * on the tree that produced this block: twenty-two files open a federated
- * sign-in, five of them show the visitor NOTHING before the write, and not one
- * of the five was visible to any assertion in this file.
+ * times over. It is "a gate that is not a gate by our own definition". The
+ * five formerly silent surfaces remain enumerated here, but authentication no
+ * longer writes a newsletter record behind them.
  *
  * WHAT THIS BLOCK DOES NOT DO, and why that is the point. It does not demand a
- * notice on those five. The write for a provider click stores
- * `signInAutoSubscribe`/`chatbotSignIn`, and those are Italian-only,
- * `displayed: false` entries; rendering `communicationsSignIn` next to the
- * button would put one sentence on screen and keep another in the document,
- * which is worse than silence, because it manufactures a proof instead of
- * leaving one missing. `SaveSignInPromptModal` says exactly this at its own
- * provider buttons and has since #5712.
+ * notice on those five: authentication is now access-only there. The old
+ * `signInAutoSubscribe`/`chatbotSignIn` register entries remain pinned for
+ * historical records, but no live call site writes them. `SaveSignInPromptModal`
+ * says exactly this at its own provider buttons and has since #5712.
  *
- * So the rule enforced here is the one that IS available, and it is the one
- * nothing else guards: a surface may show nothing, but nothing may CLAIM to
- * have been shown. Flipping `signInAutoSubscribe` to `displayed: true` — the
- * tempting one-line "fix", and the one App.tsx's own `onFire` note warns about
- * — turns every silent screen below into a false record, and until now the
- * whole suite would have stayed green while it happened.
+ * So the rule enforced here is the one that IS available: a surface may show
+ * nothing, but nothing may CLAIM to have been shown. Flipping one of the
+ * historical entries to `displayed: true` would still be a false record, and
+ * this suite keeps that register invariant visible.
  */
 const OPENS_FEDERATED_SIGNIN =
   /<SocialSignInButtons|renderGoogleButton(WithReadiness)?\s*\(|signInWithLinkedIn\s*\(|promptOneTap\s*\(/;
@@ -630,11 +611,11 @@ type SignInSurface =
   | { consent: 'self'; why: string }
   /**
    * Renders a notice for its OWN email branch. The provider click beside it is
-   * written by the App.tsx listener under a `displayed: false` formula, so the
-   * document claims nothing about what that visitor read.
+   * an access-only authentication action, so the document claims nothing about
+   * what that visitor read.
    */
   | { consent: 'email-branch-only'; why: string }
-  /** Shows nothing at all before the write, which happens in App.tsx. */
+  /** Shows nothing at all before an access-only authentication action. */
   | { consent: 'none'; why: string; issue: string }
   /** Neither a gate nor a visitor surface. */
   | { consent: 'not-a-gate'; why: string };
@@ -642,7 +623,7 @@ type SignInSurface =
 const SIGN_IN_SURFACES: Record<string, SignInSurface> = {
   'App.tsx': {
     consent: 'not-a-gate',
-    why: 'this file IS the listener that writes; the only button it mounts itself is the admin re-auth, and its One Tap prompt is drawn by Google in a cross-origin iframe (see services/authService.ts above)',
+    why: 'this file derives account state; authentication is not a newsletter write, and its One Tap prompt is drawn by Google in a cross-origin iframe (see services/authService.ts above)',
   },
   'components/shared/SocialSignInButtons.tsx': {
     consent: 'not-a-gate',
@@ -690,22 +671,22 @@ const SIGN_IN_SURFACES: Record<string, SignInSurface> = {
   'components/pages/SubscribePage.tsx': {
     consent: 'none',
     issue: '#5739',
-    why: 'the paid-plan page: provider buttons, an email/password login and a checkout button, none of which writes a subscriber — the App.tsx listener does, under signInAutoSubscribe',
+    why: 'the paid-plan page: provider buttons, an email/password login and a checkout button; none of these writes a newsletter subscriber',
   },
   'components/pages/JournalistDashboardPage.tsx': {
     consent: 'none',
     issue: '#5739',
-    why: 'the press-room sign-in gate, same shape and same writer',
+    why: 'the press-room sign-in gate; authentication is access-only here',
   },
   'components/calculator/CalculatorPaywall.tsx': {
     consent: 'none',
     issue: '#5739',
-    why: 'the calculator paywall offers Google and LinkedIn and writes nothing itself',
+    why: 'the calculator paywall offers Google and LinkedIn and writes no newsletter record from authentication',
   },
   'components/shared/AiChatbot.tsx': {
     consent: 'none',
     issue: '#5739',
-    why: 'the assistant asks the visitor to sign in to continue the conversation; App.tsx writes it under chatbotSignIn, whose text says in so many words that no consent box was offered',
+    why: 'the assistant asks the visitor to sign in to continue the conversation; its auth gate is access-only',
   },
   'components/pages/UserProfile.tsx': {
     consent: 'none',
@@ -760,8 +741,8 @@ describe('every screen that opens a federated sign-in is classified (#5739)', ()
     expect(surfaces.length).toBeGreaterThan(15);
     expect(surfaces).toContain('components/shared/SocialSignInButtons.tsx');
     expect(surfaces).toContain('components/pages/SubscribePage.tsx');
-    // The listener's own keys have to exist, or every rule below is vacuous.
-    expect(AUTH_LISTENER_KEYS.length, 'App.tsx no longer stores an authentication formula').toBeGreaterThan(0);
+    // An auth formula here would reintroduce the silent subscription path.
+    expect(AUTH_LISTENER_KEYS, 'App.tsx must not store an authentication formula').toEqual([]);
   });
 
   it('no sign-in surface is missing a classification', () => {
@@ -849,8 +830,10 @@ describe('every screen that opens a federated sign-in is classified (#5739)', ()
     const withNotice = `<div><SocialSignInButtons locale={locale} />
       <ConsentNotice consentKey="communicationsSignIn" locale={locale} /></div>`;
 
-    it('passes a silent screen while the listener stores a displayed:false formula', () => {
-      // The position this repo is in, and the one it may stay in: a gap, stated.
+    it('passes a silent screen because authentication stores no formula', () => {
+      expect(falseProofViolations(silent, AUTH_LISTENER_KEYS)).toEqual([]);
+      // Historical register entries remain pinned for old documents, but no
+      // live auth listener uses them anymore.
       expect(falseProofViolations(silent, ['signInAutoSubscribe'])).toEqual([]);
       expect(falseProofViolations(silent, ['chatbotSignIn'])).toEqual([]);
     });

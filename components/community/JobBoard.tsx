@@ -6231,17 +6231,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ]);
  const firestore = getFirestore(await getApp());
  if (!firestore) return;
- // Fifth sibling of the auto-subscribe guard (App.tsx, hooks/useUserState.ts,
- // services/authService.ts, PublisherPublishPage) and the same reasoning
- // (#5672). Two of this function's four callers are social sign-in unlocks
- // that promote (`isActive`/`status: 'confirmed'` below when the source is
- // Google/Facebook), which is the ring exactly: open an old email → the
- // never-expiring `ac` code signs you in → unlock a job → subscribed again.
- // The other two land `pending` and so are never promoted, but the upsert
- // still records a `subscribe_completed` event on an opted-out document, and
- // that event is the signal a genuine re-subscription is recognised by. The
- // localStorage flag above cannot cover either case: the unsubscribe handler
- // deletes it.
+ // This is an explicit job-access gate, not a generic authentication hook.
+ // Two callers are social sign-in unlocks that promote
+ // (`isActive`/`status: 'confirmed'` below when the source is Google/Facebook)
+ // because the gate displays the communications notice before the click. The
+ // other two land `pending` and require the DOI link; none is triggered by a
+ // page visit or by a global auth listener.
  //
  // Returning here also skips `markNewsletterSubscribedLocally()` below, which
  // is intended: that flag is what grants offerwall access, and granting a
@@ -6252,9 +6247,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { isNewsletterOptedOut, isNewsletterAccountDeleted } = await import('@/services/newsletterSubscribers');
  if (localStorage.getItem('newsletter_subscribed') === 'true'
  && !(await isNewsletterAccountDeleted(firestore, email))) return;
- if (await isNewsletterOptedOut(firestore, email)) return;
  const normalizedSource = String(source || 'job_board_auth').toLowerCase();
  const isTrustedAuthSource = normalizedSource.includes('google') || normalizedSource.includes('facebook');
+ // Social sign-in is authentication, not renewed newsletter consent. An
+ // explicit email gate, however, may start a fresh DOI cycle after an opt-out;
+ // the confirmation link remains the only thing that lifts the suppression.
+ if (isTrustedAuthSource && await isNewsletterOptedOut(firestore, email)) return;
  const focusedJob = selectedJob || sortedJobs[0] || null;
  const jobContext = focusedJob
  ? {
@@ -6288,6 +6286,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  locationInterest: jobContext.location,
  sectorInterest: jobContext.category,
  locale: navigator.language || 'it-IT',
+ reconsent: !isTrustedAuthSource,
  isActive: isTrustedAuthSource,
  status: isTrustedAuthSource ? 'confirmed' : 'pending',
  // Two different acts, ONE sentence (#5678, #5712, #5765). Each of the two

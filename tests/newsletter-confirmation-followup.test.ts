@@ -70,7 +70,9 @@ import {
 } from '../functions/src/lib/confirmationFollowup.js';
 import {
   CONFIRMATION_FRAMES,
+  buildConfirmationRequestEmail,
   buildNewsletterConfirmationEmailHtml,
+  buildNewsletterLoginEmailHtml,
   confirmationEmailSubject,
   confirmationFrameForAttempt,
   confirmationReminderBanner,
@@ -814,6 +816,45 @@ describe('the words of a reminder: the confirmation email, re-framed and nothing
   });
 });
 
+describe('the words of a passwordless login link', () => {
+  it('uses an access-only document, never the double opt-in copy', () => {
+    const loginUrl = 'https://frontaliereticino.ch/?action=confirm_newsletter&mode=login&token=abc';
+    const html = buildNewsletterLoginEmailHtml(loginUrl, 'it');
+    const request = buildConfirmationRequestEmail({
+      locale: 'it',
+      confirmUrl: loginUrl,
+      login: true,
+    });
+
+    expect(html).toContain('Accedi a Frontaliere Ticino');
+    expect(html).toContain('non modifica la tua iscrizione alla newsletter');
+    expect(html).toContain('Accedi al sito');
+    expect(html).toContain('mode=login');
+    expect(html).not.toContain('Conferma la tua iscrizione');
+    expect(html).not.toContain('Cosa riceverai ogni settimana');
+    expect(request.subject).toBe('Accedi a Frontaliere Ticino – link di accesso');
+    expect(request.frame).toBe('login');
+    expect(request.tags).toContainEqual({ name: 'campaign_id', value: 'newsletter_login' });
+    expect(request.tags).toContainEqual({ name: 'type', value: 'transactional' });
+  });
+
+  it('escapes the access URL in both the button and fallback text', () => {
+    const html = buildNewsletterLoginEmailHtml('https://example.com/login?a=<b>', 'it');
+    expect(html).not.toContain('a=<b>');
+    expect(html).toContain('a=&lt;b&gt;');
+  });
+
+  it('has dedicated copy in every supported locale', () => {
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const html = buildNewsletterLoginEmailHtml('https://example.com/login', locale);
+      expect(html, locale).toContain(t(locale, 'loginTitle'));
+      expect(html, locale).toContain(t(locale, 'loginButton'));
+      expect(html, locale).not.toContain(t(locale, 'confirmTitle'));
+      expect(html, locale).not.toContain(t(locale, 'confirmWeeklyTitle'));
+    }
+  });
+});
+
 describe('confirmationReturnPath: the pathname a reminder link returns to (#5843)', () => {
   it('keeps the pathname and drops query and fragment', () => {
     expect(confirmationReturnPath({ source_page: '/it/lavoro?x=1#y' })).toBe('/it/lavoro');
@@ -1067,12 +1108,10 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
     expect(merged()).not.toHaveProperty('confirmation_cycle_started_at');
   });
 
-  it('asks a document that resolved to `pending` over an ACTIVE record — the send the old gate skipped', async () => {
-    // `existed` is `alreadyActive`, and the gate used to be
-    // `pending && !existed`. TaxCalendar's non-trusted branch passes
-    // `status: 'pending'` explicitly, and an explicit status beats the existing
-    // one — so this write produced a `pending` record that was never asked to
-    // confirm and had no way out of that state.
+  it('does not downgrade an ACTIVE record when a caller passes pending without visible consent', async () => {
+    // `existed` is `alreadyActive`, but that must not be confused with a
+    // request to replace a valid subscription. A client-side re-probe without
+    // a displayed consent notice cannot turn a confirmed row into pending.
     getDocMock.mockResolvedValue({
       exists: () => true,
       data: () => ({ email: 'active@example.com', status: 'confirmed', isActive: true, active: true, consent_text: 'formula di prova' }),
@@ -1085,11 +1124,39 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
       source: 'tax_calendar',
     });
 
-    expect(result.status).toBe('pending');
+    expect(result.status).toBe('confirmed');
     expect(result.existed).toBe(true);
-    // The confirmation request is awaited now: a failed `{success:false}` must
-    // not leave the caller claiming that an email was sent.
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('restarts DOI for a silent-auth record only after visible consent is supplied', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        email: 'silent-auth@example.com',
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        confirmed_at: daysAgo(10),
+        source_channel: 'auth_google',
+        consent_text_displayed: false,
+      }),
+    });
+
+    const result = await upsertNewsletterSubscriber({} as any, {
+      email: 'silent-auth@example.com',
+      status: 'pending',
+      isActive: false,
+      source: 'popup',
+      consentText: 'comunicazioni newsletter',
+      consentTextDisplayed: true,
+      consentAct: 'typed_email_submit',
+      consentMethod: 'email_submit',
+    });
+
+    expect(result.status).toBe('pending');
+    expect(result.hadConfirmationProof).toBe(false);
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 5000 });
     expect((fetchMock.mock.calls[0] as any[])[0]).toBe(`${FUNCTIONS_BASE}/newsletterSendConfirmation`);
   });
 

@@ -9,12 +9,11 @@
  *
  * The allowed cases below are the point of the whole thing. These are
  * TRANSACTIONAL emails the user asked for seconds ago — a PDF they submitted a
- * form to get, a double-opt-in confirmation they just triggered. Blocking an
- * `unsubscribed` / `inactive` / `pending` / soft-bounced address would break a
- * working lead-magnet funnel and would be wrong on the merits: a marketing
- * opt-out does not revoke a transactional request. Only a provably dead mailbox
- * (hard bounce) or a filed spam complaint is blocked, because re-mailing those
- * burns sender reputation across five free-tier ESPs / is a compliance hazard.
+ * form to get, or a double-opt-in confirmation for a genuinely pending record.
+ * The DOI path has its own consent-state guard: an opt-out, existing proof, or
+ * non-pending status cannot be turned into a new subscription request by a
+ * direct caller. Only a provably dead mailbox (hard bounce) or a filed spam
+ * complaint is blocked for the PDF and login-link transactional paths.
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
@@ -267,12 +266,56 @@ describe('sendNewsletterConfirmationEmail — narrow suppression guard', () => {
     expect(vi.mocked((await cascade()).sendEmailCascade)).toHaveBeenCalledTimes(1);
   });
 
+  it('refuses an opted-out record even when a caller asks for a DOI', async () => {
+    const { result } = await send({ status: 'unsubscribed' });
+    expect(result).toEqual({ success: false, error: 'address_suppressed' });
+    expect(vi.mocked((await cascade()).sendEmailCascade)).not.toHaveBeenCalled();
+  });
+
+  it('allows only the explicit re-consent DOI purpose to renew an opted-out pending cycle', async () => {
+    const { result } = await send({
+      status: 'pending',
+      isActive: false,
+      unsubscribed_at: '2026-09-10T00:00:00.000Z',
+      confirmed_at: '2026-09-01T00:00:00.000Z',
+      source_channel: 'auth_google',
+      consent_text_displayed: false,
+    }, 'resubscribe');
+    expect(result.success).toBe(true);
+    expect(vi.mocked((await cascade()).sendEmailCascade)).toHaveBeenCalledTimes(1);
+  });
+
   it.each<[string, Record<string, unknown>]>([
-    ['unsubscribed (re-signup via double opt-in)', { status: 'unsubscribed' }],
     ['inactive (sunset)', { status: 'inactive' }],
-    ['soft-bounced', { status: 'pending', bounce_severity: 'soft' }],
-  ])('still sends the confirmation when the subscriber is %s', async (_label, docData) => {
+    ['confirmed without active flag', { status: 'confirmed', isActive: false }],
+    ['expired', { status: 'expired' }],
+  ])('refuses a non-pending DOI record: %s', async (_label, docData) => {
     const { result } = await send(docData);
+    expect(result).toEqual({ success: false, error: 'confirmation_not_pending' });
+    expect(vi.mocked((await cascade()).sendEmailCascade)).not.toHaveBeenCalled();
+  });
+
+  it('refuses a pending record that already carries confirmation proof', async () => {
+    const { result } = await send({ status: 'pending', confirmed_at: '2026-09-07T18:18:41.277Z' });
+    expect(result).toEqual({ success: false, error: 'already_confirmed' });
+    expect(vi.mocked((await cascade()).sendEmailCascade)).not.toHaveBeenCalled();
+  });
+
+  it('does not re-send DOI to a pending silent-auth row carrying a legacy stamp', async () => {
+    const { result } = await send({
+      status: 'pending',
+      confirmed_at: '2026-09-07T18:18:41.277Z',
+      source: 'signup',
+      source_channel: 'auth_google',
+      consent_act: 'authentication',
+      consent_text_displayed: false,
+    });
+    expect(result).toEqual({ success: false, error: 'already_confirmed' });
+    expect(vi.mocked((await cascade()).sendEmailCascade)).not.toHaveBeenCalled();
+  });
+
+  it('still sends a pending confirmation after a soft bounce', async () => {
+    const { result } = await send({ status: 'pending', bounce_severity: 'soft' });
     expect(result.success).toBe(true);
     expect(vi.mocked((await cascade()).sendEmailCascade)).toHaveBeenCalledTimes(1);
   });
@@ -288,5 +331,15 @@ describe('sendNewsletterConfirmationEmail — narrow suppression guard', () => {
       'login',
     );
     expect(result).toEqual({ success: false, error: 'address_suppressed' });
+  });
+
+  it('sends login as a separately tagged access message without changing opt-out state', async () => {
+    const { result, db } = await send({ status: 'unsubscribed', isActive: false }, 'login');
+    expect(result.success).toBe(true);
+    expect(vi.mocked((await cascade()).sendEmailCascade)).toHaveBeenCalledTimes(1);
+    const [items] = vi.mocked((await cascade()).sendEmailCascade).mock.calls[0];
+    expect(items[0].payload.tags).toContainEqual({ name: 'campaign_id', value: 'newsletter_login' });
+    expect(items[0].payload.html).toContain('mode=login');
+    expect(db.writes.every((write) => write.status === undefined)).toBe(true);
   });
 });

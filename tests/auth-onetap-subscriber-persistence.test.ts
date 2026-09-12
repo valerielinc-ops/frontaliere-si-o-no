@@ -4,22 +4,16 @@ import { resolve } from 'node:path';
 
 const root = resolve(__dirname, '..');
 const source = readFileSync(resolve(root, 'services/authService.ts'), 'utf8');
+const orphanBackfill = readFileSync(
+  resolve(root, 'scripts/dev/backfill-onetap-orphan-subscribers.mjs'),
+  'utf8',
+);
 
 /**
- * Regression guard for the bug uncovered when ea096801e7 fixed the GSI
- * loader and One Tap actually started firing in production:
- *
- *   handleOneTapResponse() called signInWithCredential() but did not
- *   write a newsletter_subscribers/{email} document, so One Tap signups
- *   created Auth users that never received the newsletter (215 orphans
- *   accumulated, ~12/day starting 2026-04-21).
- *
- * The popup + redirect flows write the doc via the App.tsx auth listener
- * useEffect on `[authEmail]`. One Tap bypasses that listener (it is lazy
- * and `auth_redirect_provider` is not set), so the upsert must happen
- * directly inside handleOneTapResponse.
+ * Authentication is not newsletter consent. One Tap may enrich an existing
+ * profile, but it must not create or reactivate newsletter_subscribers/{email}.
  */
-describe('Google One Tap — subscriber persistence', () => {
+describe('Google One Tap — no newsletter side effect', () => {
   function sectionBetween(start: string, end: string): string {
     const a = source.indexOf(start);
     const b = source.indexOf(end, a + start.length);
@@ -27,57 +21,26 @@ describe('Google One Tap — subscriber persistence', () => {
     return source.slice(a, b);
   }
 
-  it('exports a persistOneTapSubscriber helper', () => {
-    expect(source).toMatch(/async function persistOneTapSubscriber\b/);
-  });
-
-  it('handleOneTapResponse calls saveUserProfileToFirestore + persistOneTapSubscriber', () => {
-    const handler = sectionBetween(
-      'async function handleOneTapResponse',
-      'async function handleOneTapResponse'.length > 0
-        ? '/**\n * Show Google One Tap prompt'
-        : '__never__',
-    );
-    expect(handler).toMatch(/saveUserProfileToFirestore\(result\.user,\s*'google'\)/);
-    expect(handler).toMatch(/persistOneTapSubscriber\(result\.user\)/);
-  });
-
-  it('persistOneTapSubscriber upserts via the shared newsletterSubscribers service', () => {
-    const helper = sectionBetween(
-      'async function persistOneTapSubscriber',
-      'async function handleOneTapResponse',
-    );
-    expect(helper).toMatch(/import\(['"]@\/services\/newsletterSubscribers['"]\)/);
-    expect(helper).toMatch(/upsertNewsletterSubscriber\(db,\s*\{/);
-    expect(helper).toMatch(/sourceChannel:\s*'auth_google'/);
-    expect(helper).toMatch(/sourceCta:\s*'one_tap'/);
-    expect(helper).toMatch(/sourceComponent:\s*'auth_one_tap'/);
-  });
-
-  it('persistOneTapSubscriber respects the local "newsletter_subscribed" flag to avoid double-writes', () => {
-    const helper = sectionBetween(
-      'async function persistOneTapSubscriber',
-      'async function handleOneTapResponse',
-    );
-    expect(helper).toMatch(/getItem\(['"]newsletter_subscribed['"]\)\s*===\s*['"]true['"]/);
-  });
-
-  it('persistOneTapSubscriber is best-effort (does not throw to break sign-in)', () => {
-    const helper = sectionBetween(
-      'async function persistOneTapSubscriber',
-      'async function handleOneTapResponse',
-    );
-    expect(helper).toMatch(/try\s*{[\s\S]*}\s*catch\s*\(err\)/);
-    expect(helper).toMatch(/reportCaughtError\(err,\s*['"]auth\.persistOneTapSubscriber['"]\)/);
-  });
-
-  it('handleOneTapResponse swallows persistOneTapSubscriber rejection so sign-in still succeeds', () => {
+  it('handleOneTapResponse only performs profile enrichment after auth', () => {
     const handler = sectionBetween(
       'async function handleOneTapResponse',
       '/**\n * Show Google One Tap prompt',
     );
-    // Both side-effect calls must be `.catch()`-ed off the await chain.
-    expect(handler).toMatch(/persistOneTapSubscriber\(result\.user\)\.catch\(/);
-    expect(handler).toMatch(/saveUserProfileToFirestore\(result\.user,\s*'google'\)\.catch\(/);
+    expect(handler).toMatch(/saveUserProfileToFirestore\(result\.user,\s*'google'\)/);
+    expect(handler).not.toMatch(/newsletterSubscribers|upsertNewsletterSubscriber|newsletter_subscribed/);
+  });
+
+  it('does not define a One Tap newsletter persistence helper', () => {
+    expect(source).not.toMatch(/persistOneTapSubscriber\b/);
+  });
+
+  it('does not write a newsletter record anywhere in the auth service', () => {
+    expect(source).not.toMatch(/upsertNewsletterSubscriber|newsletterSubscribers/);
+  });
+
+  it('keeps the historical orphan inventory report-only', () => {
+    expect(orphanBackfill).toMatch(/REPORT ONLY/);
+    expect(orphanBackfill).toMatch(/Refusing --apply/);
+    expect(orphanBackfill).not.toMatch(/batch\.set|\.set\(db\.collection|FieldValue\.serverTimestamp|Timestamp\.fromDate/);
   });
 });

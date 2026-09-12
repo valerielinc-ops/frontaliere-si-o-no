@@ -520,13 +520,11 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  import('@/services/firebase'),
  ]);
  const db = getFirestore(app);
- // Sixth sibling of the auto-subscribe guard (App.tsx, hooks/useUserState.ts,
- // services/authService.ts, PublisherPublishPage.tsx, JobBoard.tsx) and the
- // same reasoning (#5672): the post-filter in captureNewsletterSubscriber
- // refuses to promote an opted-out document, but it still runs to completion
- // and records a subscribe_completed event on the way out. Returning here
- // skips that write instead of relying on the post-filter alone.
- if (await isNewsletterOptedOut(db, email)) return;
+ // Social sign-in is an authentication path and must not touch an opt-out.
+ // The typed-email reminder is an explicit request for a fresh DOI cycle, so
+ // it deliberately reaches the reconsent branch below instead of being
+ // swallowed by this guard.
+ if (isTrustedAuthSource && await isNewsletterOptedOut(db, email)) return;
  await upsertNewsletterSubscriber(db, {
  email,
  name: null,
@@ -542,9 +540,12 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  sourceComponent: 'TaxCalendar',
  sourceRouteFamily: 'tax_calendar',
  locale: navigator.language || 'it-IT',
- isActive: isTrustedAuthSource,
- status: isTrustedAuthSource ? 'confirmed' : 'pending',
- // #5678/#5712/#5765. Two acts, ONE sentence and ONE notice: the panel
+   isActive: isTrustedAuthSource,
+   status: isTrustedAuthSource ? 'confirmed' : 'pending',
+   // Only the typed-email reminder is a deliberate re-consent act. Social
+   // sign-in remains an authentication path and must never lift an opt-out.
+   reconsent: !isTrustedAuthSource,
+   // #5678/#5712/#5765. Two acts, ONE sentence and ONE notice: the panel
  // below prints it once, under the email button, and it covers the
  // provider buttons too. Both entries named here carry that exact
  // sentence and differ only in `act`, so whichever way the person came

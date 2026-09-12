@@ -12,12 +12,6 @@ import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBou
 
 import { reportCaughtError } from '@/services/errorReporter';
 import { fetchCommitHash } from '@/services/buildInfo';
-// Gamification lazily loaded — all calls are fire-and-forget
-const unlockAchievement = (id: string) => {
- import('@/services/gamificationService').then(m => m.unlockAchievement(id)).catch(() => {});
-};
-
-
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 // Newsletter/community popups are NON-CRITICAL overlays. Use React.lazy (NOT
 // lazyRetry) + SilentErrorBoundary (see SafeLazy below) so a chunk-load failure
@@ -221,7 +215,6 @@ import {
  saveUserProfileToFirestore,
  consumeAuthJobContext,
 } from '@/services/authService';
-import type { AuthJobContext } from '@/services/authService';
 import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
 import { subscribeReaderEntitlement } from '@/services/readerEntitlement';
@@ -236,8 +229,8 @@ import {
  confirmNewsletterSubscription,
  clearNewsletterPendingLocally,
  isNewsletterOptedOut,
- isNewsletterAccountDeleted,
  unsubscribeNewsletterSubscriber,
+ resubscribeNewsletterFromCredential,
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
 // Icons used directly in App.tsx for tab navigation and UI chrome.
@@ -517,90 +510,6 @@ const App: React.FC = () => {
  const [linkedInCallbackProcessing, setLinkedInCallbackProcessing] = useState(false);
  const [linkedInCallbackError, setLinkedInCallbackError] = useState<string | null>(null);
 
- const upsertNewsletterSubscriber = useCallback(async (
- email: string,
- source: 'signup' | 'signup_linkedin' | 'chatbot_google' | 'chatbot_facebook' | 'chatbot_email',
- displayName?: string | null,
- jobContext?: AuthJobContext | null,
- ): Promise<boolean> => {
- // `deactivateLegacyDuplicates` used to run here (#5751 removed it).
- //
- // It queried `newsletter_subscribers` by the `email` FIELD and then kept only
- // the documents whose id was NOT the normalized address — legacy rows written
- // before the doc id became the email — to mark them merged and inactive. That
- // is a `list`, and `list` on this collection is now the admin panel's alone:
- // the same grant that let this sweep find a duplicate let anyone page all
- // 8.605 subscribers, which is the vulnerability being closed.
- //
- // There is no id-keyed replacement, and a `getDoc` on the normalized address
- // would not be one: the only document such a read can return is precisely the
- // one this code excluded. Finding a document whose id you do not know needs a
- // query, so reconciling any surviving duplicates belongs to the Admin SDK —
- // which is also what mails them (scripts/send-newsletter.mjs walks the
- // collection and never evaluates firestore.rules), so it is the side that can
- // both see and fix the state. The canonical document keeps being written by
- // `upsertNewsletterSubscriberRecord` below, exactly as before.
- try {
- const normalizedEmail = normalizeNewsletterEmail(email);
- if (!normalizedEmail || !normalizedEmail.includes('@')) return false;
- const [{ getFirestore }, { getApp }] = await Promise.all([
- import('firebase/firestore'),
- import('@/services/firebase'),
- ]);
- const db = getFirestore(await getApp());
-
- await upsertNewsletterSubscriberRecord(db, {
- email: normalizedEmail,
- name: displayName || null,
- preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
- source,
- sourceChannel:
- source === 'signup'
- ? 'auth_google'
- : source === 'signup_linkedin'
- ? 'auth_linkedin'
- : source === 'chatbot_google'
- ? 'auth_google'
- : source === 'chatbot_facebook'
- ? 'auth_facebook'
- : 'chatbot',
- sourcePage: window.location.pathname,
- sourceCta: source,
- sourceComponent: source.startsWith('chatbot') ? 'chatbot_auth' : 'app_auth',
- sourceRouteFamily: activeTab,
- locale: navigator.language || 'it-IT',
- isActive: true,
- // What this person was told, recorded with the write (#5678). These paths
- // are an authentication, not a subscription — the formulas say so in as
- // many words, and none of them sets `consentGiven`. See services/consentTexts.ts.
- ...consentProof(
- source.startsWith('chatbot') ? 'chatbotSignIn' : 'signInAutoSubscribe',
- source === 'signup_linkedin'
- ? 'linkedin_oauth'
- : source === 'chatbot_google'
- ? 'google_oauth'
- : source === 'chatbot_facebook'
- ? 'facebook_oauth'
- : source === 'chatbot_email'
- ? 'email_submit'
- // 'signup' fires from the shared auth listener for Google AND
- // Facebook, so the provider is not knowable here.
- : 'social_signin',
- ),
- ...(jobContext ? {
- jobContext: { slug: jobContext.slug, company: jobContext.company, location: jobContext.location, category: jobContext.category },
- locationInterest: jobContext.location,
- sectorInterest: jobContext.category,
- } : {}),
- });
-
- markNewsletterSubscribedLocally();
- return true;
- } catch {
- return false;
- }
- }, [activeTab]);
-
  // Load user profile for prefilling simulator inputs (deferred to idle)
  // Skipped when URL params already hydrated the inputs
  useEffect(() => {
@@ -778,9 +687,6 @@ const App: React.FC = () => {
  // Best-effort: save/update user profile in Firestore for personalization
  saveUserProfileToFirestore(user, 'linkedin').catch(() => {});
 
- // Subscribe to newsletter BEFORE navigating away — the auto-subscribe
- // effect won't fire because location.replace destroys React before re-render.
- // Also pass job context saved before the OAuth redirect for personalized job recs.
  const email = getAuthEmail(user);
  const savedJobCtx = consumeAuthJobContext();
 
@@ -799,11 +705,6 @@ const App: React.FC = () => {
  });
  }
 
- if (email) {
- try {
- await upsertNewsletterSubscriber(email, 'signup_linkedin', user.displayName || null, savedJobCtx);
- } catch { /* best-effort: auto-subscribe on next page load will retry */ }
- }
  }
 
  if (cancelled) return;
@@ -927,19 +828,23 @@ const App: React.FC = () => {
  // Handle newsletter confirmation link (FRO-33)
  if (action === 'confirm_newsletter') {
  const token = urlParams.get('token');
+ const loginMode = urlParams.get('mode') === 'login' ? 'login' : undefined;
  if (!token) return;
  (async () => {
  try {
- const result = await confirmNewsletterSubscription(email, token);
+ const result = await confirmNewsletterSubscription(email, token, loginMode);
  if (result.success) {
+ let followIntentApi: typeof import('@/services/companyFollowIntent') | null = null;
+ let localCompanyFollows: Array<{ email: string; sourceJobUrl?: string | null }> = [];
+ let localCompanyFollowPath = '';
+ let followupForUi: CompanyFollowFollowup | null = null;
+ let followupStillOpen = false;
+ if (!result.loginOnly) {
  clearNewsletterPendingLocally();
-
  // The confirmation response is the backend's authoritative signal that a
  // company follow still needs an explicit completion step. The local queue is
  // only an optimisation: a confirmation opened on another device has no
  // company payload here, so the server marker must still surface an action.
- let followIntentApi: typeof import('@/services/companyFollowIntent') | null = null;
- let localCompanyFollows: Array<{ email: string; sourceJobUrl?: string | null }> = [];
  try {
   followIntentApi = await import('@/services/companyFollowIntent');
   const normalizedEmail = normalizeNewsletterEmail(email);
@@ -950,11 +855,11 @@ const App: React.FC = () => {
   // queue chunk cannot be loaded.
   reportCaughtError(followIntentErr, 'app.companyFollowIntentRead');
  }
- const localCompanyFollowPath = safeCompanyFollowPath(localCompanyFollows[0]?.sourceJobUrl);
+ localCompanyFollowPath = safeCompanyFollowPath(localCompanyFollows[0]?.sourceJobUrl);
  const serverFollowup = result.companyFollowFollowup;
  const companyOnlyFollowup = serverFollowup?.newsletterActive === false
   || (!serverFollowup && localCompanyFollows.length > 0);
- const followupForUi: CompanyFollowFollowup | null = serverFollowup || localCompanyFollows.length > 0
+ followupForUi = serverFollowup || localCompanyFollows.length > 0
   ? {
    required: true,
    sourcePath: safeCompanyFollowPath(serverFollowup?.sourcePath) || localCompanyFollowPath,
@@ -963,7 +868,7 @@ const App: React.FC = () => {
     : {}),
   }
   : null;
- let followupStillOpen = Boolean(followupForUi);
+ followupStillOpen = Boolean(followupForUi);
 
  // A company-only confirmation is intentionally suppressed for the generic
  // newsletter. Do not leave a stale client flag claiming the broader signup
@@ -982,8 +887,9 @@ const App: React.FC = () => {
  if (followupForUi) {
   setCompanyFollowFollowup(followupForUi);
   setCompanyFollowRetry(null);
-  setShowNewsletterWelcome(false);
-  setUnsubscribeMsg(null);
+ setShowNewsletterWelcome(false);
+ setUnsubscribeMsg(null);
+ }
  }
 
  // Auto-login with the auth token returned by the Cloud Function
@@ -1004,7 +910,7 @@ const App: React.FC = () => {
  // consent arrives and a uid exists, so the parked intent becomes a real
  // alert here. A failed replay remains in the queue and installs an explicit
  // retry action; it is never silently discarded.
- if (confirmedUser?.uid && followIntentApi && localCompanyFollows.length > 0) {
+ if (confirmedUser?.uid && !result.loginOnly && followIntentApi && localCompanyFollows.length > 0) {
   const followIntentModule = followIntentApi;
   const runCompanyFollowFlush = async (): Promise<void> => {
    setCompanyFollowRetrying(true);
@@ -1043,7 +949,10 @@ const App: React.FC = () => {
   await runCompanyFollowFlush();
  }
 
- if (!followupStillOpen && result.alreadyConfirmed) {
+ if (result.loginOnly) {
+  // Login-only links authenticate the visitor but do not change newsletter
+  // state or grant a newsletter-local subscription flag.
+ } else if (!followupStillOpen && result.alreadyConfirmed) {
  setUnsubscribeMsg(t('newsletter.alreadyConfirmed'));
  } else if (!followupStillOpen) {
  setShowNewsletterWelcome(true);
@@ -1106,7 +1015,10 @@ const App: React.FC = () => {
  const signedInUser = await signInWithCustomAuthToken(legacyAuthToken);
  const signedInEmail = signedInUser ? getAuthEmail(signedInUser) : null;
  authenticated = !!signedInEmail && normalizeNewsletterEmail(signedInEmail) === normalizedEmail;
- } else if (!(action === 'unsubscribe' && urlParams.get('token'))) {
+ } else if (!(
+ (action === 'unsubscribe' || action === 'resubscribe')
+ && urlParams.get('token')
+ )) {
  // No credential of any kind — reject the action to prevent an
  // unauthorized unsubscribe. An unsubscribe link carrying only the `token`
  // email HMAC is NOT credential-less: it is the makeUnsubscribeUrl shape,
@@ -1193,7 +1105,10 @@ const App: React.FC = () => {
  window.history.replaceState({}, '', window.location.pathname);
  return;
  }
- } else if (codeForged || !autologinCode) {
+ } else if (
+ codeForged
+ || (!autologinCode && !(action === 'resubscribe' && urlParams.get('token')))
+ ) {
  // Resubscribe. No fall-through for a link whose code does not verify, or
  // for one carrying no `ac` at all: putting somebody BACK on a list from
  // an unproven credential is the #5672 resurrection, and the pre-#5685
@@ -1232,8 +1147,21 @@ const App: React.FC = () => {
  // executed here: everything it needs is authenticated and resolved by this
  // point, but NOTHING may be written until a person presses the button —
  // see the two call sites below and the toast that renders it.
+ // The token on an `unsubscribe` URL is scoped to leaving and can never be
+ // replayed as an opt-in credential. Only an explicit `action=resubscribe`
+ // URL carries a token that this writer may POST back to the management
+ // endpoint; an authenticated legacy fallback uses the session instead.
+ const resubscribeCredential = action === 'resubscribe' ? urlParams.get('token') : null;
  const performResubscribe = async (): Promise<void> => {
  try {
+ if (resubscribeCredential) {
+ const result = await resubscribeNewsletterFromCredential(normalizedEmail, resubscribeCredential);
+ if (!result.success) throw new Error(result.error || 'resubscribe_failed');
+ } else if (authenticated) {
+ // Legacy custom-token links do not carry an HMAC that the management
+ // endpoint can validate. They still arrive behind a verified session; keep
+ // this compatibility path for those archived links, while all current `ac`
+ // and scoped-token links use the server writer above.
  await upsertNewsletterSubscriberRecord(db, {
  email: normalizedEmail,
  name: null,
@@ -1241,13 +1169,11 @@ const App: React.FC = () => {
  source: 'resubscribe_link',
  locale: navigator.language || 'it-IT',
  isActive: true,
- // Names what actually happened: the link was opened AND the button on
- // the resulting page was pressed. Corporate anti-phishing scanners
- // fetch every link we send (35 hits, 25 inside 7 seconds, Microsoft
- // ranges — measured on this domain) and produce the first half only,
- // which is why the first half alone no longer reaches this write.
  ...consentProof('resubscribeLink', 'email_link_click_confirmed'),
  });
+ } else {
+ throw new Error('resubscribe_credential_missing');
+ }
  markNewsletterSubscribedLocally();
  setUnsubscribeMsg('Iscrizione riattivata con successo. Riceverai di nuovo la newsletter.');
  } catch {
@@ -1281,7 +1207,7 @@ const App: React.FC = () => {
  // Function's confirmation page; here it is also the fix for a dead end,
  // because the link it rendered carried no credential and always answered
  // "Link non valido".
- setPendingResubscribe(() => performResubscribe);
+ if (authenticated) setPendingResubscribe(() => performResubscribe);
  } else if (await isNewsletterOptedOut(db, normalizedEmail)) {
  // ── REVERSING a recorded opt-out does NOT happen on arrival (#5711) ──
  //
@@ -1333,45 +1259,14 @@ const App: React.FC = () => {
  })();
  }, []);
 
- // Auto-subscribe to newsletter on sign-in (if not already subscribed)
- // Uses getAuthEmail() to also check providerData (Facebook may not set user.email)
+ // Authentication is not newsletter consent. Newsletter subscriptions belong to
+ // an explicit form or a gate that renders the communications notice; this
+ // listener only derives account state and must not write the subscriber record.
  const authEmail = useMemo(() => authUser ? getAuthEmail(authUser) : null, [authUser]);
  const isPrivilegedAdmin = useMemo(() => ADMIN_EMAIL_WHITELIST.includes(authEmail?.toLowerCase() ?? ''), [authEmail]);
  useEffect(() => {
  if (activeTab === 'admin') eagerAuth();
  }, [activeTab]);
-
- useEffect(() => {
- if (!authEmail) return;
- const hasLocalSubscriptionFlag = localStorage.getItem('newsletter_subscribed') === 'true';
- let cancelled = false;
- (async () => {
- // The localStorage flag is NOT a guard for this: it is client-side,
- // clearable, and the unsubscribe handler above removes it — so it was
- // always absent for exactly the people it had to protect. Every link in
- // every email we ever sent carries the never-expiring `ac` autologin
- // code, so reading an old email signs the reader in and used to re-run
- // this effect straight back into `confirmed`/active (#5672, 186
- // resurrected opt-outs measured on 2026-08-12). Ask the recipient's real
- // state instead, and write nothing when they have opted out — not even a
- // no-op upsert, whose `subscribe_completed` event would forge the very
- // signal used to tell a genuine re-subscription from a resurrection.
- const [{ getFirestore }, { getApp }] = await Promise.all([
- import('firebase/firestore'),
- import('@/services/firebase'),
- ]);
- if (cancelled) return;
- const db = getFirestore(await getApp());
- // A stale local flag must not hide a new registration after account deletion
- // on another device. Keep the fast path for an ordinary active subscriber,
- // but reopen it when the server still carries the deletion tombstone.
- if (hasLocalSubscriptionFlag && !(await isNewsletterAccountDeleted(db, authEmail))) return;
- if (cancelled || await isNewsletterOptedOut(db, authEmail)) return;
- const savedJobCtx = consumeAuthJobContext();
- await upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null, savedJobCtx);
- })().catch((e) => reportCaughtError(e, 'app.autoNewsletterSubscribe'));
- return () => { cancelled = true; };
- }, [authEmail]);
 
  // ── Personalization feature flag (Firebase Remote Config) ──
  useEffect(() => {
@@ -1425,43 +1320,21 @@ const App: React.FC = () => {
  }, [activeTab, authLoading, authUser, isPrivilegedAdmin, locale]);
 
  const chatbotGoogleSignIn = async (): Promise<any | null> => {
- const user = await googleSignIn();
- const email = getAuthEmail(user);
- if (email) {
- try {
- await upsertNewsletterSubscriber(email, 'chatbot_google', user?.displayName || null);
- } catch (e) {
- // Never block chat auth flow on newsletter side-effects.
- console.warn('[Chatbot] newsletter upsert (google) failed:', e);
- reportCaughtError(e, 'app.chatbotNewsletterGoogle');
- }
- }
- return user;
+ return googleSignIn();
  };
 
  const chatbotFacebookSignIn = async (): Promise<any | null> => {
- const user = await facebookSignIn();
- const email = getAuthEmail(user);
- if (email) {
- try {
- await upsertNewsletterSubscriber(email, 'chatbot_facebook', user?.displayName || null);
- } catch (e) {
- // Never block chat auth flow on newsletter side-effects.
- console.warn('[Chatbot] newsletter upsert (facebook) failed:', e);
- reportCaughtError(e, 'app.chatbotNewsletterFacebook');
- }
- }
- return user;
+ return facebookSignIn();
  };
 
  const chatbotContinueWithEmail = async (email: string): Promise<boolean> => {
- const ok = await upsertNewsletterSubscriber(email, 'chatbot_email', null);
+ // The chatbot email gate grants access to the conversation only. It is not a
+ // newsletter form and must not create a subscriber record as a side effect.
+ const ok = Boolean(email && email.includes('@'));
  if (ok) {
- Analytics.trackNewsletter('subscribe', email.split('@')[1] || 'unknown');
- unlockAchievement('newsletter_sub');
- Analytics.trackUIInteraction('chatbot', 'auth_gate', 'newsletter_email_subscribe', 'success');
+ Analytics.trackUIInteraction('chatbot', 'auth_gate', 'email_access', 'success');
  } else {
- Analytics.trackUIInteraction('chatbot', 'auth_gate', 'newsletter_email_subscribe', 'error');
+ Analytics.trackUIInteraction('chatbot', 'auth_gate', 'email_access', 'error');
  }
  return ok;
  };

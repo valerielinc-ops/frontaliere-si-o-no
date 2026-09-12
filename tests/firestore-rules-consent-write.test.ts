@@ -163,6 +163,137 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
         ),
       );
     });
+
+  it('an unauthenticated client can create only a visibly-consented pending record', async () => {
+    const unauthed = testEnv.unauthenticatedContext();
+    await assertSucceeds(
+      setDoc(doc(unauthed.firestore(), 'newsletter_subscribers', 'pending-create@example.com'), {
+        email: 'pending-create@example.com',
+        status: 'pending',
+        isActive: false,
+        active: false,
+        consent_text: 'comunicazioni newsletter',
+        consent_text_displayed: true,
+        consent_act: 'typed_email_submit',
+        consent_method: 'email_submit',
+      }),
+    );
+  });
+
+  it('an unauthenticated client cannot create pending consent with an empty proof', async () => {
+    const unauthed = testEnv.unauthenticatedContext();
+    await assertFails(
+      setDoc(doc(unauthed.firestore(), 'newsletter_subscribers', 'empty-proof@example.com'), {
+        email: 'empty-proof@example.com',
+        status: 'pending',
+        isActive: false,
+        active: false,
+        consent_text: '',
+        consent_text_displayed: true,
+        consent_act: 'typed_email_submit',
+        consent_method: 'email_submit',
+      }),
+    );
+  });
+
+  it('an unauthenticated client cannot create a confirmed record', async () => {
+    const unauthed = testEnv.unauthenticatedContext();
+    await assertFails(
+      setDoc(doc(unauthed.firestore(), 'newsletter_subscribers', 'confirmed-create@example.com'), {
+        email: 'confirmed-create@example.com',
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        confirmed_at: '2026-09-12T00:00:00.000Z',
+        consent_text: 'comunicazioni newsletter',
+        consent_text_displayed: true,
+        consent_act: 'typed_email_submit',
+        consent_method: 'email_submit',
+      }),
+    );
+  });
+
+  it('an unauthenticated client can record an opt-out but cannot promote it back', async () => {
+    await testEnv.withSecurityRulesDisabled(async (context) => {
+      await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'optout@example.com'), {
+        email: 'optout@example.com',
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        confirmed_at: '2026-09-10T00:00:00.000Z',
+      });
+    });
+    const unauthed = testEnv.unauthenticatedContext();
+    const ref = doc(unauthed.firestore(), 'newsletter_subscribers', 'optout@example.com');
+    await assertSucceeds(setDoc(ref, {
+      status: 'unsubscribed',
+      isActive: false,
+      active: false,
+      unsubscribed_at: '2026-09-12T00:00:00.000Z',
+    }, { merge: true }));
+    await assertFails(setDoc(ref, {
+      status: 'confirmed',
+      isActive: true,
+      active: true,
+    }, { merge: true }));
+  });
+
+  it('a visible re-consent starts pending from a silent-auth row, not confirmed', async () => {
+    await testEnv.withSecurityRulesDisabled(async (context) => {
+      await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'silent-auth@example.com'), {
+        email: 'silent-auth@example.com',
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        confirmed_at: '2026-09-10T00:00:00.000Z',
+        source_channel: 'auth_google',
+        consent_text_displayed: false,
+      });
+    });
+    const unauthed = testEnv.unauthenticatedContext();
+    await assertSucceeds(setDoc(
+      doc(unauthed.firestore(), 'newsletter_subscribers', 'silent-auth@example.com'),
+      {
+        status: 'pending',
+        isActive: false,
+        active: false,
+        consent_text: 'comunicazioni newsletter',
+        consent_text_displayed: true,
+        consent_act: 'typed_email_submit',
+        consent_method: 'email_submit',
+      },
+      { merge: true },
+    ));
+  });
+
+  it('a verified owner may promote a pending record only with visible consent', async () => {
+    await testEnv.withSecurityRulesDisabled(async (context) => {
+      await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'owner@example.com'), {
+        email: 'owner@example.com',
+        status: 'pending',
+        isActive: false,
+        active: false,
+      });
+    });
+    const owner = testEnv.authenticatedContext('owner-uid', {
+      email: 'owner@example.com',
+      email_verified: true,
+    });
+    await assertSucceeds(setDoc(
+      doc(owner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      {
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        confirmed_at: '2026-09-12T00:00:00.000Z',
+        consent_text: 'comunicazioni newsletter',
+        consent_text_displayed: true,
+        consent_act: 'typed_email_submit',
+        consent_method: 'email_submit',
+      },
+      { merge: true },
+    ));
+  });
 });
 
 // Sanity check kept alongside the RED cases so this file self-documents that

@@ -119,6 +119,7 @@ import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from '
 import { FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
 import { isImmediateCompanyAlert, IMMEDIATE_FREQUENCY } from './lib/company-alert-routing.mjs';
 import { companyAlertQuarantineReason } from './lib/company-alert-routing.mjs';
+import { evaluateJobAlertConsent } from '../functions/src/jobAlertBackfillCore.js';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
  * `/aziende/` in services/companyAlertEmail.mjs.
@@ -1378,6 +1379,7 @@ async function main() {
   // `active`; missing/pending/unknown is DEFERRED, never fail-open.
   const emailsInScope = [...new Set(alerts.map((a) => String(a.email || '').toLowerCase()))];
   const consentByEmail = new Map();
+  const newsletterProfiles = new Map();
   const LOOKUP_CHUNK_SIZE = 200;
   for (let i = 0; i < emailsInScope.length; i += LOOKUP_CHUNK_SIZE) {
     const chunk = emailsInScope.slice(i, i + LOOKUP_CHUNK_SIZE);
@@ -1389,6 +1391,7 @@ async function main() {
       const snaps = await db.getAll(...refs);
       chunk.forEach((e, idx) => {
         const [nlDoc, jaDoc] = snaps.slice(idx * 2, idx * 2 + 2);
+        if (nlDoc?.exists) newsletterProfiles.set(e, nlDoc.data() || {});
         consentByEmail.set(e, classifyRecipientConsent(
           nlDoc && { exists: nlDoc.exists, data: nlDoc.data() || {} },
           jaDoc && { exists: jaDoc.exists, data: jaDoc.data() || {} },
@@ -1435,6 +1438,28 @@ async function main() {
     await persistDeferredDeliveryWrites(db, deferredDeliveryWrites, DRY_RUN);
     console.log('   No recipient has a verified sendable consent state — nothing to send.');
     return;
+  }
+
+  // The immediate sender must enforce the same consent boundary as the daily
+  // digest. A historical backfill can be switched to `immediate` by later
+  // writes, so filtering only the digest would leave a second delivery path.
+  // Missing newsletter data fails closed for inferred alerts.
+  const blockedBackfillReasons = {};
+  const beforeBackfillConsentFilter = alerts.length;
+  alerts = alerts.filter((alert) => {
+    const emailKey = String(alert.email || '').toLowerCase();
+    const verdict = evaluateJobAlertConsent({
+      alert,
+      subscriber: newsletterProfiles.get(emailKey) || null,
+    });
+    if (!verdict.allowed) {
+      blockedBackfillReasons[verdict.reason] = (blockedBackfillReasons[verdict.reason] || 0) + 1;
+      return false;
+    }
+    return true;
+  });
+  if (alerts.length !== beforeBackfillConsentFilter) {
+    console.log(`   🔐 Job-alert consent gate: ${beforeBackfillConsentFilter - alerts.length} inferred alert(s) skipped — ${JSON.stringify(blockedBackfillReasons)}`);
   }
 
   // ── ONE EMAIL PER RECIPIENT ──────────────────────────────────────────────
