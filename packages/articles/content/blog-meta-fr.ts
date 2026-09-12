@@ -11677,6 +11677,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.title': 'Vivre à Cucciago et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.excerpt': 'Découvrez les avantages et les inconvénients de vivre à Cucciago et de travailler au Tessin en tant que frontalier. Informations sur les transports, le coût de la vie et les taxes.',
     'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.imageAlt': 'Cucciago et son château',
+    'blog.article.assunzioni-alto-piemonte-settembre-2026.title': 'Alto Piemonte : 6 470 embauches prévues en septembre 2026',
+    'blog.article.assunzioni-alto-piemonte-settembre-2026.excerpt': 'Le marché du travail dans le Haut Piémont enregistre 6 470 contrats prévus pour septembre 2026, avec plus de 75 % de contrats à terme.',
+    'blog.article.assunzioni-alto-piemonte-settembre-2026.imageAlt': 'Previsions d\'emploi dans le Haut-Piemont pour septembre',
 };
 
 export default blogMetaFr;

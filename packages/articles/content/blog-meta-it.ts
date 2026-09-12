@@ -11676,6 +11676,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.title': 'Vivere a Cucciago e lavorare in Ticino da frontaliere',
     'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.excerpt': 'Scopri i vantaggi e gli svantaggi di vivere a Cucciago e lavorare in Ticino come frontaliere. Informazioni su trasporti, costo della vita e tasse.',
     'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.imageAlt': 'Cucciago e il suo castello',
+    'blog.article.assunzioni-alto-piemonte-settembre-2026.title': 'Alto Piemonte: 6.470 assunzioni previste a settembre 2026',
+    'blog.article.assunzioni-alto-piemonte-settembre-2026.excerpt': 'Il mercato del lavoro nell\'Alto Piemonte registra 6.470 contratti programmati per settembre 2026, con oltre il 75% di contratti a termine.',
+    'blog.article.assunzioni-alto-piemonte-settembre-2026.imageAlt': 'Previsioni assunzioni nell\'Alto Piemonte per settembre',
 };
 
 export default blogMetaIt;
