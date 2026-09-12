@@ -188,8 +188,31 @@ export function validateRedflagDocumentSections(document) {
   return value;
 }
 
+/**
+ * Indent the document for the multiline GitHub Actions prompt and enforce the
+ * byte budget on the value that is actually injected, not only on its raw
+ * unindented form.
+ *
+ * @param {string} document
+ * @param {string} [indent]
+ * @returns {string}
+ */
+export function indentAndValidateRedflagDocumentSections(document, indent = '            ') {
+  const value = validateRedflagDocumentSections(document);
+  const indented = value.split(/\r?\n/).map((line) => indent + line).join('\n');
+  const bytes = Buffer.byteLength(indented, 'utf8');
+  if (bytes > REDFLAG_DOC_SECTIONS_MAX_BYTES) {
+    throw new Error(
+      `Indented redflag document too large for the prompt: ${bytes} bytes > ${REDFLAG_DOC_SECTIONS_MAX_BYTES}-byte limit`,
+    );
+  }
+  return indented;
+}
+
 export function buildIssueFixAgentContract({ read } = {}) {
-  return buildDocumentSections(AGENTS_REQUIRED_SECTIONS, '# Issue-fix: contratto AGENTS.md vincolante', { read });
+  return validateRedflagDocumentSections(
+    buildDocumentSections(AGENTS_REQUIRED_SECTIONS, '# Issue-fix: contratto AGENTS.md vincolante', { read }),
+  );
 }
 
 const invokedDirectly = process.argv[1]

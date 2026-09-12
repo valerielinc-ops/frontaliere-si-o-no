@@ -107,8 +107,18 @@ const GLOBAL_ERROR_RE = /^error (?<code>TS\d+): (?<msg>.*)$/;
  * `packages/articles/content/`). `fs.existsSync` su un symlink segue il
  * target: se il target manca (worktree sparse), torna `false`.
  */
+const REQUIRED_FULL_CHECKOUT_ARTIFACTS = Object.freeze([
+  'data/blog-articles-data.ts',
+  'data/swiss-articles-data.ts',
+  'public/.nojekyll',
+]);
+
+function missingFullCheckoutArtifacts() {
+  return REQUIRED_FULL_CHECKOUT_ARTIFACTS.filter((relative) => !fs.existsSync(path.join(ROOT, relative)));
+}
+
 function isWorktreeIncomplete() {
-  return !fs.existsSync(path.join(ROOT, 'data', 'blog-articles-data.ts'));
+  return missingFullCheckoutArtifacts().length > 0;
 }
 
 function runTsc() {
@@ -232,8 +242,10 @@ if (unknown.length) {
   process.exit(2);
 }
 
+const missingArtifacts = missingFullCheckoutArtifacts();
 if (isWorktreeIncomplete()) {
-  console.error('✗ worktree incompleto: data/blog-articles-data.ts non risolve (worktree sparse, `data/` e `packages/articles/content/` non materializzati).');
+  console.error('✗ BLOCKED: worktree incompleto — typecheck baseline non misurabile in modo affidabile.');
+  console.error('  Artefatti mancanti: ' + missingArtifacts.join(', '));
   console.error('  È un problema di ambiente, non di codice: `tsc` produrrebbe decine di falsi TS2307 su moduli mancanti.');
   console.error('  Riproduci con un checkout PIENO (non un worktree sparse): npm run typecheck / typecheck:gate');
   process.exit(2);

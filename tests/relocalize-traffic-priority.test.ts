@@ -621,11 +621,37 @@ describe('eta della coda (#5653 item 2) — il conteggio da solo non basta', () 
       ['scripts/lib/translation-observability.mjs', new Set(['0-1d', '2-7d'])],
       ['scripts/audit-job-description-locale.mjs', new Set(['0-7d'])],
     ]);
+    const regexPrefixKeywords = new Set(['await', 'case', 'do', 'else', 'in', 'of', 'return', 'throw', 'typeof', 'void', 'yield']);
 
     function maskCode(source, stopAtBrace = false) {
+      let out = '';
+      let lastSignificantChar = '';
+      let lastIdentifier = '';
+      let currentIdentifier = '';
+      const identifierChar = /[A-Za-z0-9_$]/;
+      const emitCodeChar = (ch) => {
+        out += ch;
+        if (/\s/.test(ch)) {
+          currentIdentifier = '';
+          return;
+        }
+        if (identifierChar.test(ch)) {
+          currentIdentifier += ch;
+          lastIdentifier = currentIdentifier;
+        } else {
+          currentIdentifier = '';
+          lastIdentifier = '';
+        }
+        lastSignificantChar = ch;
+      };
+      const canStartRegex = () => {
+        if (!lastSignificantChar) return true;
+        if (/[([{=,:;!?&|+\-*%^~<>]/.test(lastSignificantChar)) return true;
+        return regexPrefixKeywords.has(lastIdentifier);
+      };
+
       let i = 0;
       let braces = 0;
-      let out = '';
       while (i < source.length) {
         const ch = source[i];
         const next = source[i + 1];
@@ -658,6 +684,51 @@ describe('eta della coda (#5653 item 2) — il conteggio da solo non basta', () 
           }
           continue;
         }
+        if (ch === '/' && canStartRegex()) {
+          let j = i + 1;
+          let inClass = false;
+          let escaped = false;
+          let closed = false;
+          while (j < source.length) {
+            const regexChar = source[j];
+            if (regexChar === '\n' || regexChar === '\r') break;
+            if (escaped) {
+              escaped = false;
+              j += 1;
+              continue;
+            }
+            if (regexChar === '\\') {
+              escaped = true;
+              j += 1;
+              continue;
+            }
+            if (regexChar === '[') {
+              inClass = true;
+              j += 1;
+              continue;
+            }
+            if (regexChar === ']' && inClass) {
+              inClass = false;
+              j += 1;
+              continue;
+            }
+            if (regexChar === '/' && !inClass) {
+              j += 1;
+              while (j < source.length && /[A-Za-z]/.test(source[j])) j += 1;
+              closed = true;
+              break;
+            }
+            j += 1;
+          }
+          if (closed) {
+            out += ' '.repeat(j - i);
+            lastSignificantChar = '/';
+            lastIdentifier = '';
+            currentIdentifier = '';
+            i = j;
+            continue;
+          }
+        }
         if (ch === '\'' || ch === '"') {
           const quote = ch;
           out += ch;
@@ -673,6 +744,9 @@ describe('eta della coda (#5653 item 2) — il conteggio da solo non basta', () 
               if (closed) break;
             }
           }
+          lastSignificantChar = quote;
+          lastIdentifier = '';
+          currentIdentifier = '';
           continue;
         }
         if (ch === '`') {
@@ -693,14 +767,24 @@ describe('eta della coda (#5653 item 2) — il conteggio da solo non basta', () 
               i += 1;
             }
           }
+          lastSignificantChar = '`';
+          lastIdentifier = '';
+          currentIdentifier = '';
           continue;
         }
         if (stopAtBrace && ch === '{') braces += 1;
-        out += ch;
+        emitCodeChar(ch);
         i += 1;
       }
       return { text: out, next: i };
     }
+
+    const regexFixture = 'const value = ' + String.fromCharCode(96)
+      + "$" + "{x.replace(/[{}]/g, '')}" + String.fromCharCode(96)
+      + "; const after = '0-1d';";
+    const maskedRegexFixture = maskCode(regexFixture).text;
+    expect(maskedRegexFixture).not.toContain('[{}]');
+    expect(maskedRegexFixture).toContain("'0-1d'");
 
     function walk(dir, files = []) {
       for (const entry of fs.readdirSync(dir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {

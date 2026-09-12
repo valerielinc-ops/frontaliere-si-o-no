@@ -69,6 +69,18 @@ interface LinkItem {
   label: string;
 }
 
+export function nonEmptyEmployerLabel(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
+export function localePathKey(locale: EmitLocale, pathname: string): string {
+  return locale + '\u001f' + String(pathname || '').trim();
+}
+
+function compareEmployerLabels(left: string, right: string): number {
+  return left.localeCompare(right, 'it') || (left < right ? -1 : left > right ? 1 : 0);
+}
+
 /** Build the injected block for one locale; '' when the locale has no links. */
 export function renderEmployerLinksBlock(locale: EmitLocale, items: readonly LinkItem[]): string {
   if (items.length === 0) return '';
@@ -93,12 +105,23 @@ export function buildEmployerLinkItems(
   profiles: readonly EmittedEmployerProfile[],
 ): Record<EmitLocale, LinkItem[]> {
   const byLocale: Record<EmitLocale, LinkItem[]> = { it: [], en: [], de: [], fr: [] };
+  const unique = new Map<string, { locale: EmitLocale; item: LinkItem }>();
   for (const p of profiles) {
-    if (!p.indexable) continue;
-    byLocale[p.locale].push({ href: p.path, label: p.label });
+    if (!p.indexable || !Object.hasOwn(byLocale, p.locale) || !nonEmptyEmployerLabel(p.label)) continue;
+    const href = String(p.path || '').trim();
+    if (!href) continue;
+    const item = { href, label: p.label.trim() };
+    const key = localePathKey(p.locale, href);
+    const previous = unique.get(key);
+    if (!previous || compareEmployerLabels(item.label, previous.item.label) < 0) {
+      unique.set(key, { locale: p.locale, item });
+    }
+  }
+  for (const { locale, item } of unique.values()) {
+    byLocale[locale].push(item);
   }
   for (const loc of Object.keys(byLocale) as EmitLocale[]) {
-    byLocale[loc].sort((a, b) => a.label.localeCompare(b.label));
+    byLocale[loc].sort((a, b) => compareEmployerLabels(a.label, b.label) || a.href.localeCompare(b.href, 'en'));
   }
   return byLocale;
 }

@@ -112,7 +112,8 @@ function run() {
     console.error('report senza finestra esplicita: nessuna bozza numerica generata');
     process.exit(1);
   }
-  const periodLabel = formatItalianPeriodLabel(`${report.window.from} → ${report.window.to}`);
+  const periodWindow = { ...report.window, inclusive: report.window.inclusive || '[from,to)' };
+  const periodLabel = formatItalianPeriodLabel(periodWindow, { strict: true });
   const contacts = loadJson(path.resolve(contactsPath), {});
 
   // Nessuna azienda esclusa: top `top` per metrica, sopra la soglia `min`.
@@ -141,7 +142,7 @@ function run() {
       company: e.name,
       metricValue: metric?.value,
       metricLabel: metric?.label,
-      periodLabel,
+      periodLabel: periodWindow,
       contactName: c.contactName,
       topRole: c.topRole,
     });

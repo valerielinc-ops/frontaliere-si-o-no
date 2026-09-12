@@ -4,6 +4,7 @@ import {
   isConnectionLevelFetchError,
   fetchWithRetry,
   httpFetchWithRetry,
+  markRetryExhaustedError,
   RETRYABLE_STATUS,
   transportErrorKind,
   TLS_ERROR_CODES,
@@ -155,6 +156,19 @@ describe('fetchWithRetry', () => {
     await expect(fetchWithRetry(vi.fn().mockRejectedValue(persistent), { retries: 0, retryBaseMs: 0 }))
       .rejects.toBe(persistent);
     expect((persistent as Error & { retryExhausted?: boolean }).retryExhausted).toBeUndefined();
+  });
+
+  it('marks a frozen terminal error through a descriptor-preserving clone', async () => {
+    const frozen = Object.freeze(Object.assign(new Error('HTTP 503'), { status: 503 }));
+    const marked = markRetryExhaustedError(frozen) as Error & { retryExhausted?: boolean; status?: number };
+    expect(marked).not.toBe(frozen);
+    expect(marked).toBeInstanceOf(Error);
+    expect(marked.message).toBe('HTTP 503');
+    expect(marked.status).toBe(503);
+    expect(marked.retryExhausted).toBe(true);
+
+    await expect(fetchWithRetry(vi.fn().mockRejectedValue(frozen), { retries: 0, retryBaseMs: 0 }))
+      .rejects.toMatchObject({ message: 'HTTP 503', retryExhausted: true });
   });
 
   it('supports a custom isTransient predicate', async () => {

@@ -1018,8 +1018,8 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
 // one hop further: `sitemap-salary-stats.xml` went 12 → 75 URLs past the
 // depth-4 cap (all 24 cantons × en/de/fr), and `/de/haeufige-fragen/`'s 103
 // entries went to depth 5 with it. Run 31342536200, issue #5428.
-export const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
- it: [
+export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: string; label: string }>>> = {
+ it: Object.freeze([
  { href: '/', label: 'Simulatore Fiscale' },
  { href: '/compara-servizi/', label: 'Confronta Servizi' },
  { href: PHARMACY_HUB_PATH.it, label: 'Farmacie e turni' },
@@ -1038,8 +1038,8 @@ export const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
  { href: '/privacy-policy/', label: 'Privacy Policy' },
- ],
- en: [
+ ]),
+ en: Object.freeze([
  { href: '/en/', label: 'Tax Simulator' },
  { href: '/en/service-comparison/', label: 'Compare Services' },
  { href: PHARMACY_HUB_PATH.en, label: 'Pharmacies and duties' },
@@ -1053,8 +1053,8 @@ export const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
  { href: '/about/', label: 'About Us' },
  { href: '/contact/', label: 'Contact Us' },
  { href: '/privacy-policy/', label: 'Privacy Policy' },
- ],
- de: [
+ ]),
+ de: Object.freeze([
  { href: '/de/', label: 'Steuersimulator' },
  { href: '/de/service-vergleich/', label: 'Dienste Vergleichen' },
  { href: PHARMACY_HUB_PATH.de, label: 'Apotheken und Notdienst' },
@@ -1068,8 +1068,8 @@ export const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
  { href: '/privacy-policy/', label: 'Privacy Policy' },
- ],
- fr: [
+ ]),
+ fr: Object.freeze([
  { href: '/fr/', label: 'Simulateur Fiscal' },
  { href: '/fr/comparaison-services/', label: 'Comparer les Services' },
  { href: PHARMACY_HUB_PATH.fr, label: 'Pharmacies et gardes' },
@@ -1083,8 +1083,9 @@ export const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
  { href: '/privacy-policy/', label: 'Privacy Policy' },
- ],
+ ]),
 };
+Object.freeze(NAV_LABELS);
 
 /** Marker id — makes {@link injectLocaleMainNav} idempotent across build phases. */
 const LOCALE_MAIN_NAV_ID = 'hp-locale-main-nav';
@@ -1105,7 +1106,7 @@ const LOCALE_MAIN_NAV_ARIA: Record<HpSeoLocale, string> = {
  * would trade a BFS fix for a UX regression on the same page.
  */
 function buildLocaleMainNavHtml(locale: HpSeoLocale): string {
-  const links = NAV_LABELS[locale] ?? NAV_LABELS.it;
+  const links = Object.hasOwn(NAV_LABELS, locale) ? NAV_LABELS[locale] : [];
   if (links.length === 0) return '';
   const label = LOCALE_MAIN_NAV_ARIA[locale] ?? LOCALE_MAIN_NAV_ARIA.it;
   const anchors = renderPillAnchors(links, 600);
@@ -3014,7 +3015,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  });
 
  // Navigation links for crawlers (top-level sections + contextual)
- const navLinks = NAV_LABELS[locale] ?? NAV_LABELS['it'];
+ const navLinks = Object.hasOwn(NAV_LABELS, locale)
+   ? NAV_LABELS[locale as HpSeoLocale]
+   : [];
  // Add contextual siblings: link to related pages in the same section
  const contextualLinks: { href: string; label: string }[] = [];
  if (canonicalPath.startsWith('/glossario-frontaliere/')) {

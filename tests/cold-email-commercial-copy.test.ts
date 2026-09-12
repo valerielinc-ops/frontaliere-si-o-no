@@ -8,13 +8,17 @@ import {
   compareOutreachTargets,
   selectOutreachMetric,
 } from '../scripts/generate-cold-emails.mjs';
+import {
+  calendarParts,
+  formatItalianPeriodLabel,
+} from '../scripts/lib/cold-email-sequence.mjs';
 
 type SequenceArgs = {
   company: string;
   candidates?: number;
   metricValue?: number | null;
   metricLabel?: string;
-  periodLabel: string;
+  periodLabel: string | { from: string; to: string; inclusive?: string; timezone?: string };
   contactName?: string;
   topRole?: string;
 };
@@ -24,9 +28,9 @@ const buildSequence = rawBuildSequence as unknown as (
 ) => ReturnType<typeof rawBuildSequence>;
 
 const PERIOD = 'negli ultimi 90 giorni';
-const HUMAN_REPORT_WINDOW = 'dal 12 giugno al 10 settembre 2026';
+const HUMAN_REPORT_WINDOW = 'dal 12 giugno fino al 9 settembre 2026';
 const RAW_ISO_PERIOD = '2026-06-10T00:00:00.000Z → 2026-09-08T00:00:00.000Z';
-const HUMAN_ISO_PERIOD = "dal 10 giugno all'8 settembre 2026";
+const HUMAN_ISO_PERIOD = "dal 10 giugno fino all'8 settembre 2026";
 
 describe('cold-email commercial copy', () => {
   it('selects raw apply clicks before the legacy proxy and labels the fallback', () => {
@@ -115,6 +119,27 @@ describe('cold-email commercial copy', () => {
     expect(t1.body).not.toContain(RAW_ISO_PERIOD);
   });
 
+  it('propagates the report timezone and exclusive end into readable copy', () => {
+    expect(formatItalianPeriodLabel({
+      from: '2026-06-12T00:00:00.000Z',
+      to: '2026-09-10T00:00:00.000Z',
+      timezone: 'UTC',
+      inclusive: '[from,to)',
+    }, { strict: true })).toBe(HUMAN_REPORT_WINDOW);
+  });
+
+  it('rejects malformed ranges in strict mode and never falls back to UTC without timezone data', () => {
+    expect(() => formatItalianPeriodLabel('2026-06-12 → not-a-date', { strict: true }))
+      .toThrow(/(?:valid from and to dates|ISO from and to dates)/);
+    expect(() => formatItalianPeriodLabel('12 giugno 2026 → 10 settembre 2026', { strict: true }))
+      .toThrow(/ISO from and to dates/);
+    expect(() => formatItalianPeriodLabel('2026-06-12T00:00:00.000Z', { strict: true }))
+      .toThrow(/explicit from\/to range/);
+    expect(calendarParts('2026-06-12T00:00:00.000Z', { requireTimeZone: false, timeZone: 'Invalid/Zone' })).toBeNull();
+    expect(() => calendarParts('2026-06-12T00:00:00.000Z', { requireTimeZone: true, timeZone: 'Invalid/Zone' }))
+      .toThrow(/Unable to resolve calendar date/);
+  });
+
   it('keeps the measurement window in the commercial message', () => {
     const sequence = buildSequence({
       company: 'Acme SA',
@@ -155,7 +180,12 @@ describe('cold-email commercial copy', () => {
       fs.writeFileSync(reportPath, JSON.stringify({
         source: 'posthog',
         days: 90,
-        window: { from: '2026-06-12T00:00:00.000Z', to: '2026-09-10T00:00:00.000Z' },
+        window: {
+          from: '2026-06-12T00:00:00.000Z',
+          to: '2026-09-10T00:00:00.000Z',
+          timezone: 'UTC',
+          inclusive: '[from,to)',
+        },
         employers: [{
           key: 'proxy-first',
           name: 'Proxy First SA',
