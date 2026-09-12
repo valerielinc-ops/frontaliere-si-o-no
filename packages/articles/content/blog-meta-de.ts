@@ -11671,6 +11671,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.voto-pecc-gran-consiglio-ticino.title': 'Abstimmung über den Pecc im Grossen Rat: die wirtschaftliche Wahl',
     'blog.article.voto-pecc-gran-consiglio-ticino.excerpt': 'Appell von Wirtschafts- und Umweltorganisationen an den Tessiner Grossen Rat zur Abstimmung über den kantonalen Energie- und Klimaplan.',
     'blog.article.voto-pecc-gran-consiglio-ticino.imageAlt': 'Castello di Bellinzona im Tessin',
+    'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.title': 'Wohnen in Cucciago und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Vor- und Nachteile, in Cucciago zu leben und im Tessin als Grenzgänger zu arbeiten. Informationen zu Transport, Lebenshaltungskosten und Steuern.',
+    'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.imageAlt': 'Cucciago und seine Burg',
 };
 
 export default blogMetaDe;
