@@ -58,12 +58,7 @@ on:
         default: ""
         type: string
       strict_localization:
-        description: Require localized job data (1=yes)
-        required: false
-        default: "1"
-        type: string
-      scan_start_id:
-        description: Optional source cursor for the Armani crawler (empty uses the default)
+        description: Require localized job data (empty uses the crawler default; 1=yes, 0=no)
         required: false
         default: ""
         type: string

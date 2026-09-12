@@ -63,7 +63,7 @@ describe('technical operations audit', () => {
       '      - name: run',
       '        run: |',
       '          # esempio non valutato: ${{ inputs.not_declared }}',
-      '          echo "${{ inputs.known }}"',
+      '          echo "${{ inputs.known }}" # esempio inline non valutato: ${{ inputs.not_declared }}',
     ].join('\n');
     const findings = auditWorkflowText('.github/workflows/comments.yml', source, { root: '/repo' });
     expect(findings.filter((item: any) => item.rule === 'workflow.input-reference')).toEqual([]);

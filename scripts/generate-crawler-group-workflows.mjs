@@ -116,9 +116,9 @@ const CRAWLER_RUNTIME_INPUTS = Object.freeze({
     type: 'string',
   },
   strict_localization: {
-    description: 'Require localized job data (1=yes)',
+    description: 'Require localized job data (empty uses the crawler default; 1=yes, 0=no)',
     required: false,
-    default: '1',
+    default: '',
     type: 'string',
   },
   scan_start_id: {
@@ -137,6 +137,12 @@ function normalizeCrawlerInputReferences(value) {
       .replaceAll('github.event.inputs.strict_localization', 'inputs.strict_localization')
       .replaceAll('github.event.inputs.scan_start_id', 'inputs.scan_start_id')
     : value;
+}
+
+function crawlerRuntimeInputsForGroup(members) {
+  const inputs = structuredClone(CRAWLER_RUNTIME_INPUTS);
+  if (!members.some((member) => member.slug === 'giorgio-armani')) delete inputs.scan_start_id;
+  return inputs;
 }
 const PORTABLE_CORPUS_DIR = path.join(REPO_ROOT, '.github/corpus-workflows');
 const PORTABLE_CONTRACT_PATH = path.join(PORTABLE_CORPUS_DIR, 'contract.json');
@@ -1043,6 +1049,7 @@ function npmScriptsForAnalyzer() {
 /** Build the YAML object (as a JS object, serialized via `yaml` lib) for one group workflow. */
 function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnoreScripts) {
   const groupName = `crawler-group-${String(groupIndex).padStart(2, '0')}`;
+  const runtimeInputs = crawlerRuntimeInputsForGroup(group.members);
 
   const steps = [];
 
@@ -1210,7 +1217,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
             required: true,
             type: 'string',
           },
-          ...structuredClone(CRAWLER_RUNTIME_INPUTS),
+          ...runtimeInputs,
         },
       },
     },
@@ -1809,8 +1816,12 @@ export function buildStandaloneCrossRepoWorkflow({
 
 function groupTrigger(logic) {
   const inputs = structuredClone(logic.on.workflow_call.inputs);
-  const runtimeInputs = structuredClone(CRAWLER_RUNTIME_INPUTS);
-  for (const input of Object.keys(runtimeInputs)) delete inputs[input];
+  const runtimeInputs = {};
+  for (const input of Object.keys(CRAWLER_RUNTIME_INPUTS)) {
+    if (!Object.hasOwn(inputs, input)) continue;
+    runtimeInputs[input] = inputs[input];
+    delete inputs[input];
+  }
   // Standalone corpus callers have exactly one supported caller: the site
   // orchestrator, which always passes the correlation token. Keep this input
   // required and without a default; the reusable site workflow remains
