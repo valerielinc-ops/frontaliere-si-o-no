@@ -81,18 +81,14 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "bauingenieur-in-fhgr-ch",
-          "bauingenieur-in-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ],
         "it": [
-          "bauingenieur-in-fhgr-ch",
-          "ingegnere-civile-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ]
       },
       "previousSlugs": [
-        "bauingenieur-in-fhgr-ch",
-        "bauingenieur-in-fachhochschule-graubunden-chur",
-        "ingegnere-civile-fachhochschule-graubunden-chur"
+        "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
       "salaryMin": 48500,
@@ -159,28 +155,26 @@
       "requirementsByLocale": {},
       "department": "Zentrale Dienste",
       "contractDuration": "permanent",
+      "previousSlugs": [
+        "projektleiter-in-verwaltungsdirektion-fhgr-ch",
+        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
-          "projektleiter-in-verwaltungsdirektion-fhgr-ch"
-        ],
         "it": [
           "projektleiter-in-verwaltungsdirektion-fhgr-ch",
-          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
-          "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur"
+          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
         ],
         "fr": [
           "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
+        ],
+        "de": [
+          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
+          "projektleiter-in-verwaltungsdirektion-fhgr-ch"
         ]
       },
-      "previousSlugs": [
-        "projektleiter-in-verwaltungsdirektion-fhgr-ch",
-        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
-        "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur"
-      ],
       "firstSeenAt": "2026-08-28T05:26:57.952Z",
       "salaryMin": 73000,
       "salaryMax": 135000,
@@ -252,18 +246,17 @@
         "assistente-hr-fachhochschule-graubunden-chur"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "hr-assistent-in-fachhochschule-graubunden-chur",
-          "hr-assistent-in-fhgr-ch"
-        ],
         "it": [
-          "hr-assistent-in-fhgr-ch",
-          "assistente-hr-fachhochschule-graubunden-chur"
+          "hr-assistent-in-fhgr-ch"
         ],
         "en": [
           "hr-assistent-in-fhgr-ch"
         ],
         "fr": [
+          "hr-assistent-in-fhgr-ch"
+        ],
+        "de": [
+          "hr-assistent-in-fachhochschule-graubunden-chur",
           "hr-assistent-in-fhgr-ch"
         ]
       },
@@ -285,12 +278,12 @@
     },
     {
       "id": "fhgr-30b6daabed80",
-      "slug": "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich",
+      "slug": "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
       "slugByLocale": {
-        "it": "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich",
-        "en": "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich",
         "de": "studienbetriebskoordinator-in-fhgr-ch",
-        "fr": "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
+        "it": "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
+        "en": "study-operations-coordinator-fachhochschule-graubunden-zurich",
+        "fr": "coordonnateur-des-operations-d-etude-fachhochschule-graubunden-zurich"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -335,6 +328,12 @@
       "previousSlugsByLocale": {
         "it": [
           "studienbetriebskoordinator-in-fhgr-ch",
+          "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
+        ],
+        "en": [
+          "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
+        ],
+        "fr": [
           "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
         ]
       },

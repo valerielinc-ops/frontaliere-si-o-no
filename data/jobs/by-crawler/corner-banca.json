@@ -114,8 +114,8 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
         "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "spontaner-ausbildungseinsatz-corner-banca-switzerland",
-        "fr": "apprentissage-spontane-corner-banca-switzerland"
+        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -164,19 +164,15 @@
       "crawledAt": "2026-09-11T23:26:01.002Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
-        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
-        "unsolicited-application-apprenticeship-corner-banca-switzerland",
         "spontaner-ausbildungseinsatz-corner-banca-switzerland",
         "apprentissage-spontane-corner-banca-switzerland"
       ],
       "previousSlugsByLocale": {
         "de": [
           "initiativbewerbung-lehre-corner-banca-switzerland",
-          "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
           "spontaner-ausbildungseinsatz-corner-banca-switzerland"
         ],
         "fr": [
-          "unsolicited-application-apprenticeship-corner-banca-switzerland",
           "apprentissage-spontane-corner-banca-switzerland"
         ]
       },
@@ -852,13 +848,11 @@
       "crawledAt": "2026-09-11T23:26:00.992Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-compliance-officer-ref-1111-corner-banca-lugano",
-          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+          "senior-compliance-officer-ref-1111-corner-banca-lugano"
         ]
       },
       "previousSlugs": [
-        "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+        "senior-compliance-officer-ref-1111-corner-banca-lugano"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:46:42.895Z",

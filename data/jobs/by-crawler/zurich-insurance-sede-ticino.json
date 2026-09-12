@@ -6,10 +6,10 @@
       "id": "zurich-insurance-sede-ticino-1371966657",
       "slug": "actuary-senior-data-scientist-non-life-eme-coe-m-f-d-zurich-insurance-sede-ticino-zurich",
       "slugByLocale": {
-        "it": "actuary-senior-data-scientist-non-life-eme-coe-m-f-d-zurich-insurance-sede-ticino-zurich",
         "en": "actuary-senior-data-scientist-non-life-eme-coe-m-f-d-zurich-insurance-sede-ticino-zurich",
+        "it": "actuary-senior-data-scientist-non-life-eme-coe-m-f-d-zurich-insurance-sede-ticino-zurich",
         "de": "actuary-senior-data-scientist-non-life-eme-coe-m-f-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "actuary-senior-data-scientist-non-life-eme-coe-m-f-d-zurich-insurance-sede-ticino-zurich"
+        "fr": "actuaire-et-chercheur-principal-en-donnees-eme-coe-h-f-d-zurich-insurance-sede-ticino-zurich-1371966657"
       },
       "slugDisambiguator": "1371966657",
       "company": "Zurich Insurance (sede Ticino)",
@@ -210,12 +210,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1371935457",
-      "slug": "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "ufficio-di-gestione-del-programma-m-f-d-zurich-insurance-sede-ticino-zurich-1371935457",
       "slugByLocale": {
-        "it": "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "en": "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich",
         "de": "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "it": "ufficio-di-gestione-del-programma-m-f-d-zurich-insurance-sede-ticino-zurich-1371935457",
+        "en": "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "fr": "bureau-de-gestion-du-programme-h-f-d-zurich-insurance-sede-ticino-zurich-1371935457"
       },
       "slugDisambiguator": "1371935457",
       "company": "Zurich Insurance (sede Ticino)",
@@ -270,7 +270,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T13:52:04.722Z"
+      "firstSeenAt": "2026-09-11T13:52:04.722Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1371876057",
