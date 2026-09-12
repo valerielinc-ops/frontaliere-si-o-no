@@ -49,11 +49,33 @@ function writeL1Evidence(dir: string) {
 describe('record-loop-fleet-evidence', () => {
   it('validates registry action classes and their autonomy ceiling', () => {
     expect(() => validateLoopRegistry(registry)).not.toThrow();
+    expect(registry.sourceCatalog['manifest-api-corpus']).toBeTruthy();
+    expect(registry.loops.every((loop: any) => loop.sourceRefs.length > 0)).toBe(true);
     expect(actionAutonomy('issue+suspend-canary', registry.actionAutonomy)).toBe('A2');
     expect(validateActionClassAgainstPolicy(registry, 'L1', 'issue+suspend-canary'))
       .toMatchObject({ requiredAutonomy: 'A2', maxAutonomy: 'A2' });
     expect(() => validateActionClassAgainstPolicy(registry, 'L1', 'issue+stop'))
       .toThrow(/not allowed by registry/);
+  });
+
+  it('fails closed when a loop provenance reference is missing or undeclared', () => {
+    const missing = {
+      ...registry,
+      loops: registry.loops.map((loop: any, index: number) => {
+        if (index !== 0) return loop;
+        const { sourceRefs, ...withoutSources } = loop;
+        return withoutSources;
+      }),
+    };
+    expect(() => validateLoopRegistry(missing)).toThrow(/sourceRefs missing/);
+
+    const undeclared = {
+      ...registry,
+      loops: registry.loops.map((loop: any, index: number) => index === 0
+        ? { ...loop, sourceRefs: ['not-in-catalog'] }
+        : loop),
+    };
+    expect(() => validateLoopRegistry(undeclared)).toThrow(/references undeclared/);
   });
 
   it('fails closed when the registry action map is incomplete or has stale entries', () => {
@@ -82,7 +104,7 @@ describe('record-loop-fleet-evidence', () => {
     expect(fs.readFileSync(path.join(dir, 'loop-decisions.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     expect(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8')))
-      .toMatchObject({ loopId: 'L1', quality: 'partial', ok: false, issueCount: 1, warningCount: 2 });
+      .toMatchObject({ loopId: 'L1', quality: 'partial', ok: false, issueCount: 1, warningCount: 2, sourceRefs: registry.loops.find((loop: any) => loop.loopId === 'L1').sourceRefs });
   });
 
   it('fails closed when a decision exceeds the registry TTL', () => {

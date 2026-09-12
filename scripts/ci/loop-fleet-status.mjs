@@ -167,6 +167,7 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       primaryMetric: policy.primaryMetric,
       maxAutonomy: policy.maxAutonomy,
       lifecycle: policy.lifecycle,
+      sourceRefs: policy.sourceRefs,
       candidateTtlHours: policy.lifecycle.candidateTtlHours,
       ownerSlaHours: policy.lifecycle.ownerSlaHours,
       postMergeVerificationHours: policy.lifecycle.postMergeVerificationHours,
@@ -201,17 +202,18 @@ function renderMarkdown(rows) {
   const lines = [
     '## Loop fleet status',
     '',
-    '| Loop | Owner | Ultimo run | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | TTL / SLA / verify | Next human action | Policy |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
+    '| Loop | Owner | Ultimo run | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | TTL / SLA / verify | Fonti dichiarate | Next human action | Policy |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ];
   for (const row of rows) {
     const run = row.lastRun ? `[${row.lastRun.conclusion}](${row.lastRun.url || '#'})` : 'n/d';
     const autonomy = `${row.actualAutonomy || 'n/d'} / ${row.maxAutonomy}`;
     const lifecycle = `${row.candidateTtlHours}h / ${row.ownerSlaHours}h / ${row.postMergeVerificationHours}h`;
+    const sources = row.sourceRefs.join(', ');
     const issue = row.issue || '—';
     const missingOutcome = row.missingOutcome || '—';
     const policy = row.evidenceComplete && row.policyCompliant ? 'ok' : 'incomplete';
-    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${lifecycle} | ${row.nextHumanAction} | ${policy} |`);
+    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${lifecycle} | ${sources} | ${row.nextHumanAction} | ${policy} |`);
   }
   lines.push('', 'Qualità o evidenza assente = `unmeasurable`; il report non sintetizza zeri.');
   return `${lines.join('\n')}\n`;

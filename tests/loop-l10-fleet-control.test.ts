@@ -23,11 +23,13 @@ function registry(overrides: Record<string, unknown> = {}) {
     qualityStates: QUALITY_STATES,
     autonomyLevels: Object.fromEntries(AUTONOMY_LEVELS.map((level) => [level, level])),
     actionAutonomy: { observe: 'A0', 'follow-up': 'A1' },
+    sourceCatalog: { 'test-source': 'Independent test source' },
     loops: EXPECTED_LOOP_IDS.map((loopId) => ({
       loopId,
       goal: `Goal ${loopId}`,
       owner: 'Operations',
       oracle: 'independent ledger',
+      sourceRefs: ['test-source'],
       cadence: 'daily',
       primaryMetric: 'verified_metric',
       minimumSample: 1,
