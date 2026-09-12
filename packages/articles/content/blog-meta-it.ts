@@ -11682,6 +11682,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.imprese-culturali-svizzera-2024.title': 'Cultura in Svizzera, record di imprese ma calano gli impieghi',
     'blog.article.imprese-culturali-svizzera-2024.excerpt': 'Nel 2024 le imprese culturali in Svizzera raggiungono quota 69\'441 stabilendo un record, ma calano i posti di lavoro e le dimensioni aziendali.',
     'blog.article.imprese-culturali-svizzera-2024.imageAlt': 'Imprese culturali in Svizzera nel 2024',
+    'blog.article.benzina-riserve-svizzera-frontalieri.title': 'Benzina in Svizzera: aperte le riserve, effetti sui prezzi',
+    'blog.article.benzina-riserve-svizzera-frontalieri.excerpt': 'Scorte obbligatorie aperte per benzina e diesel. Dal 8 al 20 settembre 2026 prelievo fino a 30.000 m³. Fermo raffineria Cressier e Reno a basso livello.',
+    'blog.article.benzina-riserve-svizzera-frontalieri.imageAlt': 'Auto a una stazione di servizio a Mendrisio con le Alpi sullo sfondo',
 };
 
 export default blogMetaIt;
