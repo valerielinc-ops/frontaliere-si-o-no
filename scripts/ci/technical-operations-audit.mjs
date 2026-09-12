@@ -177,10 +177,21 @@ function stepOutputKeys(run) {
 }
 
 function expressions(source) {
-  return [...String(source || '').matchAll(/\$\{\{([\s\S]*?)\}\}/g)].map((match) => ({
-    text: match[1],
-    offset: match.index ?? 0,
-  }));
+  const raw = String(source || '');
+  return [...raw.matchAll(/\$\{\{([\s\S]*?)\}\}/g)]
+    // The audit receives the raw YAML source for workflow-level input checks,
+    // and also receives multiline `run:` strings for job checks. An expression
+    // in a full-line YAML/shell comment is documentation, not an evaluated
+    // Actions expression; treating it as live creates a false error (for
+    // example a deliberately unsafe `${{ inputs.x }}` shown in a guard comment).
+    .filter((match) => {
+      const lineStart = raw.lastIndexOf('\n', match.index ?? 0) + 1;
+      return !/^\s*#/.test(raw.slice(lineStart, match.index ?? lineStart));
+    })
+    .map((match) => ({
+      text: match[1],
+      offset: match.index ?? 0,
+    }));
 }
 
 function validateInputs(triggers, file, source, findings) {
