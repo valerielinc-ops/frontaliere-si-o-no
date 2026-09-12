@@ -11679,6 +11679,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assunzioni-alto-piemonte-settembre-2026.title': 'Alto Piemonte: 6.470 assunzioni previste a settembre 2026',
     'blog.article.assunzioni-alto-piemonte-settembre-2026.excerpt': 'Il mercato del lavoro nell\'Alto Piemonte registra 6.470 contratti programmati per settembre 2026, con oltre il 75% di contratti a termine.',
     'blog.article.assunzioni-alto-piemonte-settembre-2026.imageAlt': 'Previsioni assunzioni nell\'Alto Piemonte per settembre',
+    'blog.article.imprese-culturali-svizzera-2024.title': 'Cultura in Svizzera, record di imprese ma calano gli impieghi',
+    'blog.article.imprese-culturali-svizzera-2024.excerpt': 'Nel 2024 le imprese culturali in Svizzera raggiungono quota 69\'441 stabilendo un record, ma calano i posti di lavoro e le dimensioni aziendali.',
+    'blog.article.imprese-culturali-svizzera-2024.imageAlt': 'Imprese culturali in Svizzera nel 2024',
 };
 
 export default blogMetaIt;

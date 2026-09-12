@@ -11680,6 +11680,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assunzioni-alto-piemonte-settembre-2026.title': 'Alto Piemonte : 6 470 embauches prévues en septembre 2026',
     'blog.article.assunzioni-alto-piemonte-settembre-2026.excerpt': 'Le marché du travail dans le Haut Piémont enregistre 6 470 contrats prévus pour septembre 2026, avec plus de 75 % de contrats à terme.',
     'blog.article.assunzioni-alto-piemonte-settembre-2026.imageAlt': 'Previsions d\'emploi dans le Haut-Piemont pour septembre',
+    'blog.article.imprese-culturali-svizzera-2024.title': 'Culture en Suisse, records d\'entreprises mais baisse des emplois',
+    'blog.article.imprese-culturali-svizzera-2024.excerpt': 'En 2024, les entreprises culturelles en Suisse atteignent 69\'441 en établissant un record, mais les emplois et la taille de l\'entreprise diminuent.',
+    'blog.article.imprese-culturali-svizzera-2024.imageAlt': 'Entreprises culturelles en Suisse en 2024',
 };
 
 export default blogMetaFr;
