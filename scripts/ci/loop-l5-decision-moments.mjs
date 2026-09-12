@@ -364,6 +364,11 @@ function writeReports(reportDir, verdict, observation, decision) {
 
 function writeActions(reportDir, verdict, now) {
   if (!reportDir || verdict.ok) return null;
+  const registry = verdict.snapshot?.registry;
+  if (!registry || !Object.hasOwn(AUTONOMY_ORDER, registry.maxAutonomy) || !Array.isArray(registry.actionClasses)) return null;
+  const allowed = (action) => registry.actionClasses.includes(action.actionClass || 'candidate')
+    && Object.hasOwn(AUTONOMY_ORDER, action.autonomy)
+    && AUTONOMY_ORDER[action.autonomy] <= AUTONOMY_ORDER[registry.maxAutonomy];
   const file = path.join(path.resolve(reportDir), 'l5-safe-actions.json');
   const actions = [
     {
@@ -374,7 +379,7 @@ function writeActions(reportDir, verdict, now) {
       publishedDataUntouched: true,
     },
     ...verdict.candidates,
-  ];
+  ].filter(allowed);
   fs.writeFileSync(file, `${JSON.stringify({ loopId: LOOP_ID, generatedAt: now.toISOString(), noDarkPatterns: true, actions }, null, 2)}\n`);
   return file;
 }
@@ -420,14 +425,14 @@ export async function runL5({
 } = {}) {
   let verdict;
   try {
+    const registry = readJson(registryPath, 'loop registry');
     verdict = validateDecisionMoments({
       fuel: readJson(fuelPath, 'fuel source'),
       border: readJson(borderPath, 'border source'),
       pharmacies: readJson(pharmacyPath, 'pharmacy source'),
       duties: readJson(dutyPath, 'pharmacy duty source'),
       outcomes: readOptionalJson(outcomePath),
-      registry: readJson(registryPath, 'loop registry'),
-    }, { now, maxAgeHours, sourcePath: fuelPath, outcomePath, minimumSample });
+    }, { now, maxAgeHours, sourcePath: fuelPath, outcomePath, minimumSample, registry });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: fuelPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
