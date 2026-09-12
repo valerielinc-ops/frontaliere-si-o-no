@@ -83,8 +83,7 @@
         "german-speaking-banking-spezialist-in-corporate-actions-pre-processing-avaloq-bioggio",
         "german-speaking-banking-specialist-in-corporate-actions-pre-processing-avaloq-bioggio",
         "german-speaking-banking-specialiste-in-corporate-actions-pre-processing-avaloq-bioggio"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "System Engineer (Database Administrator)",
@@ -265,8 +264,7 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-09-08T13:46:56.564Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-08T13:46:56.564Z"
     },
     {
       "title": "Integration Software Engineer - Platform Solution",
@@ -387,7 +385,8 @@
       },
       "streetAddress": "Via Industria 1",
       "firstSeenAt": "2026-09-01T14:18:46.369Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "German speaking Senior Project Manager",
@@ -794,7 +793,8 @@
       },
       "streetAddress": "Via Industria 1",
       "firstSeenAt": "2026-08-31T17:18:54.604Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Cloud Security Architect",
@@ -1869,7 +1869,8 @@
       },
       "previousSlugs": [
         "senior-technical-business-analyst-cash-operations-payments-avaloq-bioggio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Technical Leader IT – Infrastructure & Platform Delivery",
@@ -1898,7 +1899,7 @@
       "titleByLocale": {
         "it": "Leader Tecnico IT – Infrastrutture e Platform Delivery",
         "en": "Technical Leader IT – Infrastructure & Platform Delivery",
-        "de": "Technical Leader IT – Infrastructure & Platform Delivery",
+        "de": "Technischer Leiter IT – Infrastruktur & Plattformbereitstellung",
         "fr": "Leader technique IT – Infrastructure et livraison des plateformes"
       },
       "descriptionByLocale": {
@@ -1910,7 +1911,7 @@
       "slugByLocale": {
         "it": "leader-tecnico-it-infrastrutture-e-platform-delivery-avaloq-bioggio",
         "en": "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio",
-        "de": "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio",
+        "de": "technischer-leiter-it-infrastruktur-plattformbereitstellung-avaloq-bioggio",
         "fr": "leader-technique-it-infrastructure-et-livraison-des-plateformes-avaloq-bioggio"
       },
       "id": "avaloq-7731b5d0591f",
@@ -1947,8 +1948,7 @@
         "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio",
         "technischer-leiter-it-infrastruktur-plattformbereitstellung-avaloq-bioggio"
       ],
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "title": "System Engineer (Containerization)",
