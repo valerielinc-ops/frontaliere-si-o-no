@@ -48,8 +48,9 @@ on:
 # ogni run avrebbe invece una chiave propria.
 #
 # A limitare la parallelizzazione torna a essere un numero tarabile da un umano:
-# `FOLLOWUP_MAX_INFLIGHT_FIX` in `scripts/ci/followup-drainer.mjs` (default 1),
-# che conta le run in volo e promuove al massimo N. Il drainer clampa quel numero
+# `FOLLOWUP_MAX_INFLIGHT_FIX` in `scripts/ci/followup-drainer.mjs` (default 5),
+# cap misurato come stabile dalla flotta locale e bounded anche per il pool remoto.
+# Il drainer conta le run in volo e promuove al massimo N. Il drainer clampa quel numero
 # a `fixQueueDepth()`, che legge il `group:` qui sotto: finché la chiave è
 # per-issue il clamp non morde, e se qualcuno la rende di nuovo costante il cap
 # torna automaticamente a 1 invece di ricreare gli sfratti.
