@@ -11663,6 +11663,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.indice-rischio-geopolitico-ticino.title': 'Ticino measures geopolitical risk with a new index',
     'blog.article.indice-rischio-geopolitico-ticino.excerpt': 'A new 54-page document assesses global tensions and the impact on the Ticino economy, offering analysis and forecasts for businesses.',
     'blog.article.indice-rischio-geopolitico-ticino.imageAlt': 'View of Lugano and lake under cloudy sky',
+    'blog.article.guasto-ferrovia-melegnano-settembre.title': 'Railway failure in Melegnano: delays and variations',
+    'blog.article.guasto-ferrovia-melegnano-settembre.excerpt': 'A breakdown of the circulation systems in the Melegnano station causes average delays of about thirty minutes and inconvenience on the suburban lines S1 and S12.',
+    'blog.article.guasto-ferrovia-melegnano-settembre.imageAlt': 'Regional train stopped at railway station due to technical failure',
 };
 
 export default blogMetaEn;

@@ -89539,6 +89539,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guasto-ferrovia-melegnano-settembre': {
+    title: 'Guasto ferroviario a Melegnano: ritardi e variazioni',
+    description: 'Guasto agli impianti a Melegnano sulla linea Saronno-Lodi: ritardi medi di 30 minuti e variazioni sulle linee S1 e S12. Scopri tutte le modifiche.',
+    keywords: 'frontalieri, ticino, svizzera, italia, guasto, ferroviario, melegnano, ritardi',
+    ogTitle: 'Guasto alla linea ferroviaria a Melegnano: ritardi e modifiche',
+    ogDescription: 'Un guasto agli impianti di circolazione a Melegnano causa ritardi e variazioni di percorso sulle linee suburbane S1 e S12 della direttrice Saronno-Lodi.',
+    canonicalPath: '/articoli-frontaliere/guasto-ferrovia-melegnano-settembre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guasto ferroviario a Melegnano: ritardi e variazioni",
+      "description": "Guasto agli impianti a Melegnano sulla linea Saronno-Lodi: ritardi medi di 30 minuti e variazioni sulle linee S1 e S12. Scopri tutte le modifiche.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guasto-ferrovia-melegnano-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno regionale fermo in stazione a causa di un guasto tecnico"
+      },
+      "datePublished": "2026-09-12T01:27:53+00:00",
+      "dateModified": "2026-09-12T01:27:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guasto-ferrovia-melegnano-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
