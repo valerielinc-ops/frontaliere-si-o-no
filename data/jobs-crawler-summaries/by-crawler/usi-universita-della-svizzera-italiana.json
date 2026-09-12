@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-09-11T23:21:55.141Z",
-  "total": 20,
+  "generatedAt": "2026-09-12T13:07:16.563Z",
+  "total": 19,
   "newCount": 0,
   "updatedCount": 19,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 67010,
-  "avgDurationMs": 67010,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 53516,
+  "avgDurationMs": 53516,
   "durationHistory": [
-    67010
+    53516
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -626,8 +626,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-giuridico/serv-giuridico-collaboratrice-tore-senior.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/serv-giuridico/serv-giuridico-collaboratrice-tore-senior.pdf",
@@ -669,5 +668,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

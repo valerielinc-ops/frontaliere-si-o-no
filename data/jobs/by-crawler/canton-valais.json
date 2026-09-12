@@ -1,6 +1,6 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-09-11T23:21:59.203Z",
+  "assembledAt": "2026-09-12T13:07:31.478Z",
   "jobs": [
     {
       "id": "canton-valais-58eb3bee7649",
@@ -33,7 +33,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101842&publication=2635",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:52.464Z",
+      "crawledAt": "2026-09-12T13:07:25.151Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-apprenti-mecanicien-ou-une-apprentie-mecanicienne-cfc-option-vehicule-legers-canton"
+        "un-apprenti-mecanicien-ou-une-apprentie-mecanicienne-cfc-option-vehicule-legers-canton",
+        "un-apprendista-meccanico-cfc-opzione-veicolo-leggero-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-apprenti-mecanicien-ou-une-apprentie-mecanicienne-cfc-option-vehicule-legers-canton"
+          "un-apprenti-mecanicien-ou-une-apprentie-mecanicienne-cfc-option-vehicule-legers-canton",
+          "un-apprendista-meccanico-cfc-opzione-veicolo-leggero-canton-du-valais-sion"
         ],
         "en": [
           "un-apprenti-mecanicien-ou-une-apprentie-mecanicienne-cfc-option-vehicule-legers-canton"
@@ -110,7 +112,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108394&publication=2635",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:51.763Z",
+      "crawledAt": "2026-09-12T13:07:24.564Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -147,11 +149,13 @@
         ]
       },
       "previousSlugs": [
-        "des-places-de-stage-de-maturite-professionnelle-economie-mp-e-canton-valais-ch"
+        "des-places-de-stage-de-maturite-professionnelle-economie-mp-e-canton-valais-ch",
+        "posti-di-tirocinio-di-maturita-professionale-economia-mp-e-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "des-places-de-stage-de-maturite-professionnelle-economie-mp-e-canton-valais-ch"
+          "des-places-de-stage-de-maturite-professionnelle-economie-mp-e-canton-valais-ch",
+          "posti-di-tirocinio-di-maturita-professionale-economia-mp-e-canton-du-valais-sion"
         ],
         "en": [
           "des-places-de-stage-de-maturite-professionnelle-economie-mp-e-canton-valais-ch"
@@ -161,6 +165,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:43.212Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -206,7 +211,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111211&publication=2635",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:45.716Z",
+      "crawledAt": "2026-09-12T13:07:20.561Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -250,11 +255,13 @@
       },
       "previousSlugs": [
         "un-apprenti-assistant-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-valais-ch",
-        "un-apprenti-assistent-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-du-valais-sion"
+        "un-apprenti-assistent-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-du-valais-sion",
+        "un-apprendista-assistente-socio-educativo-a-cfc-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-apprenti-assistant-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-valais-ch"
+          "un-apprenti-assistant-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-valais-ch",
+          "un-apprendista-assistente-socio-educativo-a-cfc-canton-du-valais-sion"
         ],
         "en": [
           "un-apprenti-assistant-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-valais-ch"
@@ -264,6 +271,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:43.821Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -309,7 +317,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107357&publication=2635",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:45.028Z",
+      "crawledAt": "2026-09-12T13:07:19.981Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -327,11 +335,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "des-apprentis-employes-de-commerce-ou-apprenties-employees-de-commerce-cfc-canton-valais"
+        "des-apprentis-employes-de-commerce-ou-apprenties-employees-de-commerce-cfc-canton-valais",
+        "apprendisti-commerciali-efz-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "des-apprentis-employes-de-commerce-ou-apprenties-employees-de-commerce-cfc-canton-valais"
+          "des-apprentis-employes-de-commerce-ou-apprenties-employees-de-commerce-cfc-canton-valais",
+          "apprendisti-commerciali-efz-canton-du-valais-sion"
         ],
         "en": [
           "des-apprentis-employes-de-commerce-ou-apprenties-employees-de-commerce-cfc-canton-valais"
@@ -341,6 +351,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:37.922Z",
+      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 87500,
       "salarySource": "estimated",
@@ -386,7 +397,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114608&publication=2636",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:38.694Z",
+      "crawledAt": "2026-09-12T13:07:15.665Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -405,11 +416,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "un-assistant-social-ou-une-assistante-sociale-80-100-canton-valais-ch",
-        "a-social-worker-80-100-canton-du-valais-sierre"
+        "a-social-worker-80-100-canton-du-valais-sierre",
+        "un-lavoratore-sociale-80-100-canton-du-valais-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-assistant-social-ou-une-assistante-sociale-80-100-canton-valais-ch"
+          "un-assistant-social-ou-une-assistante-sociale-80-100-canton-valais-ch",
+          "un-lavoratore-sociale-80-100-canton-du-valais-sierre"
         ],
         "en": [
           "a-social-worker-80-100-canton-du-valais-sierre"
@@ -461,7 +474,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112779&publication=2636",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:37.914Z",
+      "crawledAt": "2026-09-12T13:07:15.001Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -479,11 +492,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ou-une-specialiste-scientifique-sij-canton-valais-ch"
+        "un-ou-une-specialiste-scientifique-sij-canton-valais-ch",
+        "uno-specialista-scientifico-sij-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-specialiste-scientifique-sij-canton-valais-ch"
+          "un-ou-une-specialiste-scientifique-sij-canton-valais-ch",
+          "uno-specialista-scientifico-sij-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-specialiste-scientifique-sij-canton-valais-ch"
@@ -538,7 +553,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100301&publication=2636",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:21:37.184Z",
+      "crawledAt": "2026-09-12T13:07:14.400Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -561,7 +576,8 @@
         "administrative-employee-80-canton-du-valais-sion",
         "administrative-r-mitarbeiter-in-80-canton-valais-ch",
         "administration-employe-80-canton-du-valais-sion",
-        "wirtschaftliche-r-collaboratore-trice-40-50-canton-du-valais-sion"
+        "wirtschaftliche-r-collaboratore-trice-40-50-canton-du-valais-sion",
+        "dipendente-economico-40-50-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -570,7 +586,8 @@
           "administrative-employee-80-canton-du-valais-sion",
           "administrative-r-mitarbeiter-in-80-canton-valais-ch",
           "administration-employe-80-canton-du-valais-sion",
-          "wirtschaftliche-r-collaboratore-trice-40-50-canton-du-valais-sion"
+          "wirtschaftliche-r-collaboratore-trice-40-50-canton-du-valais-sion",
+          "dipendente-economico-40-50-canton-du-valais-sion"
         ],
         "en": [
           "administrative-employee-80-canton-du-valais-sion",
@@ -630,7 +647,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109453&publication=2636",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:36.463Z",
+      "crawledAt": "2026-09-12T13:07:13.826Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -652,7 +669,8 @@
         "un-collaboratore-agro-scientifico-80-canton-du-valais-sion",
         "an-agro-scientific-collaborator-80-canton-du-valais-sion",
         "ein-agrowissenschaftlicher-mitarbeiter-80-canton-du-valais-sion",
-        "un-collaborateur-ou-une-collaboratrice-agro-scientifique-80-canton-valais-ch"
+        "un-collaborateur-ou-une-collaboratrice-agro-scientifique-80-canton-valais-ch",
+        "un-collaboratore-scientifico-80-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -660,7 +678,8 @@
           "un-collaboratore-agro-scientifico-80-canton-du-valais-sion",
           "an-agro-scientific-collaborator-80-canton-du-valais-sion",
           "ein-agrowissenschaftlicher-mitarbeiter-80-canton-du-valais-sion",
-          "un-collaborateur-ou-une-collaboratrice-agro-scientifique-80-canton-valais-ch"
+          "un-collaborateur-ou-une-collaboratrice-agro-scientifique-80-canton-valais-ch",
+          "un-collaboratore-scientifico-80-100-canton-du-valais-sion"
         ],
         "en": [
           "un-collaborateur-ou-une-collaboratrice-scientifique-80-100-canton-valais-ch",
@@ -675,6 +694,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:26:04.041Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -720,7 +740,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101510&publication=2636",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:35.726Z",
+      "crawledAt": "2026-09-12T13:07:13.212Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -738,11 +758,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-directeur-ou-une-directrice-des-travaux-un-dessinateur-ou-une-dessinatrice-en-genie"
+        "un-directeur-ou-une-directrice-des-travaux-un-dessinateur-ou-une-dessinatrice-en-genie",
+        "direttore-delle-opere-drawer-in-ingegneria-civile-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-directeur-ou-une-directrice-des-travaux-un-dessinateur-ou-une-dessinatrice-en-genie"
+          "un-directeur-ou-une-directrice-des-travaux-un-dessinateur-ou-une-dessinatrice-en-genie",
+          "direttore-delle-opere-drawer-in-ingegneria-civile-100-canton-du-valais-sion"
         ],
         "en": [
           "un-directeur-ou-une-directrice-des-travaux-un-dessinateur-ou-une-dessinatrice-en-genie"
@@ -797,7 +819,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100580&publication=2636",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:34.999Z",
+      "crawledAt": "2026-09-12T13:07:12.598Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -815,11 +837,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-80-canton-valais-ch"
+        "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-80-canton-valais-ch",
+        "un-ingegnere-dei-miglioramenti-strutturali-80-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-80-canton-valais-ch"
+          "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-80-canton-valais-ch",
+          "un-ingegnere-dei-miglioramenti-strutturali-80-canton-du-valais-sion"
         ],
         "en": [
           "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-80-canton-valais-ch"
@@ -874,7 +898,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20515?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:34.285Z",
+      "crawledAt": "2026-09-12T13:07:12.013Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -893,12 +917,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-du-chef-de-service-80-100-canton",
-        "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-du-chef-de-service-80-100-canton-du-valais-sion"
+        "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-du-chef-de-service-80-100-canton-du-valais-sion",
+        "un-vice-e-o-vice-e-vice-capo-del-servizio-80-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-du-chef-de-service-80-100-canton",
-          "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-du-chef-de-service-80-100-canton-du-valais-sion"
+          "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-du-chef-de-service-80-100-canton-du-valais-sion",
+          "un-vice-e-o-vice-e-vice-capo-del-servizio-80-100-canton-du-valais-sion"
         ],
         "en": [
           "un-adjoint-et-remplacant-ou-une-adjointe-et-remplacante-du-chef-de-service-80-100-canton"
@@ -953,7 +979,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20495?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:33.602Z",
+      "crawledAt": "2026-09-12T13:07:11.447Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1017,7 +1043,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101498&publication=2637",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:32.592Z",
+      "crawledAt": "2026-09-12T13:07:10.655Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1035,11 +1061,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ou-une-specialiste-en-sante-et-securite-au-travail-ssp-80-100-canton-valais-ch"
+        "un-ou-une-specialiste-en-sante-et-securite-au-travail-ssp-80-100-canton-valais-ch",
+        "uno-specialista-per-la-salute-e-la-sicurezza-sul-lavoro-oss-80-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-specialiste-en-sante-et-securite-au-travail-ssp-80-100-canton-valais-ch"
+          "un-ou-une-specialiste-en-sante-et-securite-au-travail-ssp-80-100-canton-valais-ch",
+          "uno-specialista-per-la-salute-e-la-sicurezza-sul-lavoro-oss-80-100-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-specialiste-en-sante-et-securite-au-travail-ssp-80-100-canton-valais-ch"
@@ -1094,7 +1122,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113843&publication=2637",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:31.871Z",
+      "crawledAt": "2026-09-12T13:07:10.060Z",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1112,11 +1140,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ou-une-stagiaire-juridique-100-canton-valais-ch"
+        "un-ou-une-stagiaire-juridique-100-canton-valais-ch",
+        "uno-o-uno-studente-legale-100-canton-du-valais-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-stagiaire-juridique-100-canton-valais-ch"
+          "un-ou-une-stagiaire-juridique-100-canton-valais-ch",
+          "uno-o-uno-studente-legale-100-canton-du-valais-monthey"
         ],
         "en": [
           "un-ou-une-stagiaire-juridique-100-canton-valais-ch"
@@ -1126,6 +1156,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:50.858Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -1171,7 +1202,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112661&publication=2637",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:31.123Z",
+      "crawledAt": "2026-09-12T13:07:09.448Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1189,11 +1220,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch"
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch",
+        "collaboratore-specializzato-o-collaboratore-specializzato-50-60-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch"
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch",
+          "collaboratore-specializzato-o-collaboratore-specializzato-50-60-canton-du-valais-sion"
         ],
         "en": [
           "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch"
@@ -1248,7 +1281,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=106436&publication=2637",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:21:30.390Z",
+      "crawledAt": "2026-09-12T13:07:08.827Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1266,11 +1299,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-landerwerb-70-100-canton-valais-ch"
+        "fachspezialist-in-landerwerb-70-100-canton-valais-ch",
+        "acquisizione-di-terreni-specialistici-70-100-canton-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-landerwerb-70-100-canton-valais-ch"
+          "fachspezialist-in-landerwerb-70-100-canton-valais-ch",
+          "acquisizione-di-terreni-specialistici-70-100-canton-du-valais-brig"
         ],
         "en": [
           "fachspezialist-in-landerwerb-70-100-canton-valais-ch"
@@ -1298,34 +1333,34 @@
       "id": "canton-valais-8a2f8b1405e5",
       "slug": "esecutivi-nel-nostro-servizio-di-riabilitazione-e-servizio-medico-regionale-mrs-psicologi-canton-du-valais-sion",
       "slugByLocale": {
-        "fr": "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical",
         "it": "esecutivi-nel-nostro-servizio-di-riabilitazione-e-servizio-medico-regionale-mrs-psicologi-canton-du-valais-sion",
         "en": "executives-in-our-rehabilitation-service-and-regional-medical-service-mrs-psychologists-canton-du-valais-sion",
-        "de": "fuhrungskrafte-in-unserem-rehabilitation-service-und-regional-medical-service-mrs-psychologen-canton-du-valais-sion"
+        "de": "fuhrungskrafte-in-unserem-rehabilitation-service-und-regional-medical-service-mrs-psychologen-canton-du-valais-sion",
+        "fr": "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Des cadres au Des sein de notre service de réadaptation et de notre service médical régional (SMR) - Des psychologues",
       "titleByLocale": {
-        "fr": "Des cadres au Des sein de notre service de réadaptation et de notre service médical régional (SMR) - Des psychologues",
         "it": "Esecutivi nel nostro Servizio di Riabilitazione e Servizio Medico Regionale (MRS) Psicologi",
         "en": "Executives in our Rehabilitation Service and Regional Medical Service (MRS) Psychologists",
-        "de": "Führungskräfte in unserem Rehabilitation Service und Regional Medical Service (MRS) Psychologen"
+        "de": "Führungskräfte in unserem Rehabilitation Service und Regional Medical Service (MRS) Psychologen",
+        "fr": "Des cadres au Des sein de notre service de réadaptation et de notre service médical régional (SMR) - Des psychologues"
       },
       "description": "L’Office cantonal AI du Valais est le centre de compétence cantonal de l’Assurance Invalidité Suisse avec plus de 190 collaboratrices et collaborateurs de différents domaines. Il est responsable en Valais pour les prestations d’assurance individuelles pour les personnes atteintes dans leur santé. Nous recherchons pour une entrée en fonction à convenir :\n\n• - Des cadres au sein de notre service de réadaptation et de notre service médical régional (SMR)\n• - Des psychologues Le détail des offres d’emploi ci-dessus se trouve sur notre site Internet : www.aivs.ch – Rubrique « Jobs ».\n\nNotre offre:\n•  Un travail intéressant et exigeant\n•  Une formation approfondie ainsi que des possibilités de formation continue\n•  Des conditions de travail modernes et attrayantes Nous nous réjouissons de recevoir votre dossier de candidature complet sous format PDF par e-mail: candidatures@vs.oai.ch jusqu’au mercredi 30 septembre 2026.",
       "descriptionByLocale": {
-        "fr": "L’Office cantonal AI du Valais est le centre de compétence cantonal de l’Assurance Invalidité Suisse avec plus de 190 collaboratrices et collaborateurs de différents domaines. Il est responsable en Valais pour les prestations d’assurance individuelles pour les personnes atteintes dans leur santé. Nous recherchons pour une entrée en fonction à convenir :\n\n• - Des cadres au sein de notre service de réadaptation et de notre service médical régional (SMR)\n• - Des psychologues Le détail des offres d’emploi ci-dessus se trouve sur notre site Internet : www.aivs.ch – Rubrique « Jobs ».\n\nNotre offre:\n•  Un travail intéressant et exigeant\n•  Une formation approfondie ainsi que des possibilités de formation continue\n•  Des conditions de travail modernes et attrayantes Nous nous réjouissons de recevoir votre dossier de candidature complet sous format PDF par e-mail: candidatures@vs.oai.ch jusqu’au mercredi 30 septembre 2026.",
         "it": "L'ufficio cantonale dell'AI in Vallese è il centro cantonale di competenza dell'Assicurazione Svizzera con oltre 190 collaboratori e collaboratori in vari campi. Egli è responsabile in Vallese per le prestazioni individuali di assicurazione per le persone colpite dalla loro salute. Stiamo cercando un ingresso in ufficio per concordare:\n\n• - Manager del nostro servizio di riabilitazione e del nostro servizio medico regionale (SMR)\n• Dettagli delle offerte di lavoro di cui sopra possono essere trovate sul nostro sito web: www.aivs.ch – Jobs.\n\nLa nostra offerta:\n• Lavoro interessante e impegnativo\n• Opportunità di formazione e di formazione continua\n• Condizioni di lavoro moderne e attraenti Non vediamo l'ora di ricevere la tua applicazione completa in formato PDF via e-mail: candidatures@vs.oai.ch fino a mercoledì 30 settembre 2026.",
         "en": "The cantonal AI office in Valais is the cantonal centre of competence of the Swiss Invalidity Insurance with more than 190 collaborators and collaborators in various fields. He is responsible in Valais for individual insurance benefits for people affected by their health. We are looking for an entry into office to agree:\n\n• - Managers in our rehabilitation service and our regional medical service (SMR)\n• Psychologists Details of the above job offers can be found on our website: www.aivs.ch – Jobs.\n\nOur offer:\n• Interesting and demanding work\n• In-depth training and continuing training opportunities\n• Modern and attractive working conditions We look forward to receiving your complete application in PDF format by e-mail: candidatures@vs.oai.ch until Wednesday 30 September 2026.",
-        "de": "Das kantonale KI-Büro im Wallis ist das kantonale Kompetenzzentrum der Schweizer Invaliditätsversicherung mit mehr als 190 Mitarbeitern und Mitarbeitern in verschiedenen Bereichen. Er ist im Wallis für individuelle Versicherungsleistungen für Menschen verantwortlich, die von ihrer Gesundheit betroffen sind. Wir suchen einen Amtsantritt, um zu vereinbaren:\n\n• - Manager in unserem Rehabilitationsdienst und unserem regionalen medizinischen Dienst (SMR)\n• Psychologen Details zu den oben genannten Stellenangeboten finden Sie auf unserer Website: www.aivs.ch – Jobs.\n\nUnser Angebot:\n• Interessante und anspruchsvolle Arbeit\n• vertiefte Aus- und Weiterbildungsmöglichkeiten\n• Moderne und attraktive Arbeitsbedingungen Wir freuen uns auf Ihre vollständige Bewerbung im PDF-Format per E-Mail: candidatures@vs.oai.ch bis Mittwoch, den 30. September 2026."
+        "de": "Das kantonale KI-Büro im Wallis ist das kantonale Kompetenzzentrum der Schweizer Invaliditätsversicherung mit mehr als 190 Mitarbeitern und Mitarbeitern in verschiedenen Bereichen. Er ist im Wallis für individuelle Versicherungsleistungen für Menschen verantwortlich, die von ihrer Gesundheit betroffen sind. Wir suchen einen Amtsantritt, um zu vereinbaren:\n\n• - Manager in unserem Rehabilitationsdienst und unserem regionalen medizinischen Dienst (SMR)\n• Psychologen Details zu den oben genannten Stellenangeboten finden Sie auf unserer Website: www.aivs.ch – Jobs.\n\nUnser Angebot:\n• Interessante und anspruchsvolle Arbeit\n• vertiefte Aus- und Weiterbildungsmöglichkeiten\n• Moderne und attraktive Arbeitsbedingungen Wir freuen uns auf Ihre vollständige Bewerbung im PDF-Format per E-Mail: candidatures@vs.oai.ch bis Mittwoch, den 30. September 2026.",
+        "fr": "L’Office cantonal AI du Valais est le centre de compétence cantonal de l’Assurance Invalidité Suisse avec plus de 190 collaboratrices et collaborateurs de différents domaines. Il est responsable en Valais pour les prestations d’assurance individuelles pour les personnes atteintes dans leur santé. Nous recherchons pour une entrée en fonction à convenir :\n\n• - Des cadres au sein de notre service de réadaptation et de notre service médical régional (SMR)\n• - Des psychologues Le détail des offres d’emploi ci-dessus se trouve sur notre site Internet : www.aivs.ch – Rubrique « Jobs ».\n\nNotre offre:\n•  Un travail intéressant et exigeant\n•  Une formation approfondie ainsi que des possibilités de formation continue\n•  Des conditions de travail modernes et attrayantes Nous nous réjouissons de recevoir votre dossier de candidature complet sous format PDF par e-mail: candidatures@vs.oai.ch jusqu’au mercredi 30 septembre 2026."
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20555?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:21:29.564Z",
+      "crawledAt": "2026-09-12T13:07:08.174Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1342,6 +1377,23 @@
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20555?language=fr",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical",
+        "esecutivi-nel-nostro-servizio-di-riabilitazione-e-servizio-medico-regionale-mrs-psicologi-canton-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical",
+          "esecutivi-nel-nostro-servizio-di-riabilitazione-e-servizio-medico-regionale-mrs-psicologi-canton-du-valais-sion"
+        ],
+        "en": [
+          "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical"
+        ],
+        "de": [
+          "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical"
+        ]
+      },
+      "firstSeenAt": "2026-09-11T13:52:56.842Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1354,22 +1406,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-11T13:52:56.842Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical"
-        ],
-        "en": [
-          "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical"
-        ],
-        "de": [
-          "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical"
-        ]
-      },
-      "previousSlugs": [
-        "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical"
-      ]
+      }
     },
     {
       "id": "canton-valais-b0464c16722b",
@@ -1499,7 +1536,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "canton-valais-f5a38f364cb0",
@@ -1579,7 +1616,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "canton-valais-8d8ea93af44c",
@@ -1688,7 +1726,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "canton-valais-a38463d1944d",
@@ -1704,7 +1743,7 @@
       "companyDomain": "vs.ch",
       "title": "Strassenmeister/in (100%)",
       "titleByLocale": {
-        "it": "Roadmaster (100%)",
+        "it": "Strassenmeister/in (100%)",
         "en": "Road Maintenance Manager (100%)",
         "de": "Strassenmeister/in (100%)",
         "fr": "Chef de la Maintenance Routière (100%)"
@@ -1791,7 +1830,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "canton-valais-4914395c3c9a",
@@ -1894,7 +1934,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "canton-valais-02f236b0239b",
@@ -2003,7 +2044,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "canton-valais-c033373a85c4",
@@ -2019,7 +2061,7 @@
       "companyDomain": "vs.ch",
       "title": "Jurist/in (80%)",
       "titleByLocale": {
-        "it": "Avvocato (80%)",
+        "it": "Jurist/in (80%)",
         "en": "Lawyer (80%)",
         "de": "Jurist/in (80%)",
         "fr": "Juriste (80%)"
@@ -2081,7 +2123,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "canton-valais-f7855aa0bf81",
@@ -2192,7 +2235,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "canton-valais-17b8dcb7934e",
@@ -2297,7 +2341,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "canton-valais-7542aea8083c",
@@ -2403,7 +2448,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
