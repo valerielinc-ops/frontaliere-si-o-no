@@ -64618,17 +64618,17 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-vivere-courmayeur-e-lavorare-vallese-da-frontaliere': {
-    title: 'Frontaliere Ticino: lavorare in Vallese da Courmayeur',
-    description: 'Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, vallese, courmayeur, informazioni',
+    title: 'Courmayeur: lavorare in Vallese vivendo in Valle d’Aosta',
+    description: 'Come valutare un pendolarismo tra Courmayeur e il Vallese: percorsi, residenza e verifiche da fare prima di accettare un lavoro.',
+    keywords: 'frontalieri, valle d’Aosta, courmayeur, vallese, valais, lavoro transfrontaliero',
     ogTitle: 'Vivere a Courmayeur e lavorare in Vallese da frontaliere: cosa fare e dove andare.',
     ogDescription: 'Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata.',
     canonicalPath: '/articoli-frontaliere/vivere-courmayeur-e-lavorare-vallese-da-frontaliere',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontaliere Ticino: lavorare in Vallese da Courmayeur",
-      "description": "Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "headline": "Courmayeur: lavorare in Vallese vivendo in Valle d’Aosta",
+      "description": "Come valutare un pendolarismo tra Courmayeur e il Vallese: percorsi, residenza e verifiche da fare prima di accettare un lavoro.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
