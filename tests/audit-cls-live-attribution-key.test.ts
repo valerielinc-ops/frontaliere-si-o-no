@@ -125,6 +125,7 @@ describe('PSI provider failures — gate inconclusive, not CLS regression', () =
     expect(isInconclusivePsiError({ error: 'PSI 429 for https://example.test' })).toBe(true);
     expect(isInconclusivePsiError('PSI 400 for https://example.test')).toBe(false);
     expect(isInconclusivePsiError('PSI network error for https://example.test')).toBe(false);
+    expect(isInconclusivePsiError('PSI 400 for target (keyed PSI request was rejected with PSI 403 for target)')).toBe(false);
   });
 
   it('fails open only when every target is rejected by auth or quota', () => {

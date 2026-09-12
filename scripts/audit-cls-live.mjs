@@ -240,7 +240,9 @@ export function isInconclusivePsiError(error) {
   const message = typeof error === 'string'
     ? error
     : error?.message || error?.error || '';
-  return /\bPSI (?:401|403|429)\b/.test(String(message));
+  const statuses = [...String(message).matchAll(/\bPSI\s+(\d{3})\b/g)]
+    .map((match) => Number(match[1]));
+  return statuses.length > 0 && statuses.every((status) => [401, 403, 429].includes(status));
 }
 
 export function shouldFailOpenForPsiErrors(errors = []) {
