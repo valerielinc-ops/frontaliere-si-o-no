@@ -2,17 +2,22 @@
  * Firestore storage contract for employer-insights snapshots.
  *
  * A company report can contain hundreds of ads. Firestore rejects a document
- * above 1 MiB, so the company root stores metadata and every ad lives in the
- * `ads` subcollection. The public function reassembles the same JSON shape for
- * the token-gated report.
+ * above 1 MiB, so the company root stores metadata and every ad lives in a
+ * window-specific subcollection. The public function reassembles the same JSON
+ * shape for the token-gated report.
  */
 
 import { createHash } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
 import { commitInChunks } from './firestore-batch.mjs';
+import {
+  EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION,
+  employerInsightsWindowAdsSubcollection,
+  isEmployerInsightsWindowAdsSubcollection,
+} from '../../functions/src/lib/employerInsightsStorage.js';
 
 export const EMPLOYER_INSIGHTS_COLLECTION = 'employer_insights';
-export const EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION = 'ads';
+export { EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION };
 
 function stableAdIdentity(ad) {
   return String(ad?.jobId || ad?.slug || ad?.path || ad?.title || '').trim();
@@ -25,12 +30,33 @@ export function employerInsightsAdId(ad) {
   return `ad_${createHash('sha256').update(identity).digest('hex').slice(0, 32)}`;
 }
 
-/** Data written to the company root; the potentially large `ads` array is removed. */
+/**
+ * Data written to the company root; potentially large ad arrays are removed
+ * from both the primary window and every additional window.
+ */
 export function employerInsightsRootData(document, updatedAt = FieldValue.serverTimestamp()) {
-  const { ads: _ads, ...root } = document || {};
+  const { ads: _ads, additionalWindows: rawAdditionalWindows, ...root } = document || {};
   const ads = Array.isArray(document?.ads) ? document.ads : [];
+  const additionalWindows = {};
+  for (const [windowKey, summary] of Object.entries(rawAdditionalWindows || {})) {
+    if (!summary || typeof summary !== 'object' || Array.isArray(summary)) {
+      additionalWindows[windowKey] = summary;
+      continue;
+    }
+    const { ads: _windowAds, ...windowSummary } = summary;
+    const windowAds = Array.isArray(summary.ads) ? summary.ads : null;
+    if (windowAds) {
+      windowSummary.adsStorage = {
+        type: 'subcollection',
+        collection: employerInsightsWindowAdsSubcollection(windowKey),
+        count: windowAds.length,
+      };
+    }
+    additionalWindows[windowKey] = windowSummary;
+  }
   return {
     ...root,
+    ...(Object.keys(additionalWindows).length ? { additionalWindows } : {}),
     adsStorage: {
       type: 'subcollection',
       collection: EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION,
@@ -43,6 +69,19 @@ export function employerInsightsRootData(document, updatedAt = FieldValue.server
 function adEntries(document) {
   const ads = Array.isArray(document?.ads) ? document.ads : [];
   return ads.map((ad) => ({ id: employerInsightsAdId(ad), data: ad }));
+}
+
+function additionalWindowAds(document) {
+  const result = new Map();
+  for (const [windowKey, summary] of Object.entries(document?.additionalWindows || {})) {
+    if (!summary || typeof summary !== 'object' || Array.isArray(summary)) continue;
+    const collectionName = employerInsightsWindowAdsSubcollection(windowKey);
+    if (result.has(collectionName)) {
+      throw new Error(`duplicate employer insights window shard: ${collectionName}`);
+    }
+    result.set(collectionName, new Map(adEntries(summary).map(({ id, data }) => [id, data])));
+  }
+  return result;
 }
 
 function asDataMap(snapshot) {
@@ -60,17 +99,46 @@ export async function readEmployerInsightsSnapshot(db) {
   const rootSnapshot = await collection.get();
   const roots = new Map();
   const ads = new Map();
+  const windowAds = new Map();
 
   for (const doc of rootSnapshot.docs || []) {
-    roots.set(doc.id, doc.data() || {});
-    const adCollection = doc.ref?.collection?.(EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION);
-    if (!adCollection) continue;
-    const adSnapshot = await adCollection.get();
-    const adMap = asDataMap(adSnapshot);
-    if (adMap.size > 0) ads.set(doc.id, adMap);
+    const root = doc.data() || {};
+    roots.set(doc.id, root);
+    const collectionNames = new Set([EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION]);
+    for (const summary of Object.values(root.additionalWindows || {})) {
+      const storedCollection = summary?.adsStorage?.collection;
+      if (summary?.adsStorage?.type === 'subcollection' && isEmployerInsightsWindowAdsSubcollection(storedCollection)) {
+        collectionNames.add(storedCollection);
+      }
+    }
+    // A failed write can leave window shards behind before its root pointer is
+    // committed. Enumerate the safe, known shard names so rollback can remove
+    // those orphans even when the old root has no window metadata yet.
+    if (typeof doc.ref?.listCollections === 'function') {
+      const subcollections = await doc.ref.listCollections();
+      for (const subcollection of subcollections || []) {
+        if (subcollection.id === EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION
+          || isEmployerInsightsWindowAdsSubcollection(subcollection.id)) {
+          collectionNames.add(subcollection.id);
+        }
+      }
+    }
+    for (const collectionName of collectionNames) {
+      const adCollection = doc.ref?.collection?.(collectionName);
+      if (!adCollection) continue;
+      const adSnapshot = await adCollection.get();
+      const adMap = asDataMap(adSnapshot);
+      if (adMap.size === 0) continue;
+      if (collectionName === EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION) {
+        ads.set(doc.id, adMap);
+        continue;
+      }
+      if (!windowAds.has(doc.id)) windowAds.set(doc.id, new Map());
+      windowAds.get(doc.id).set(collectionName, adMap);
+    }
   }
 
-  return { roots, ads };
+  return { roots, ads, windowAds };
 }
 
 function writeOperationItems(collection, documents, existing) {
@@ -82,6 +150,8 @@ function writeOperationItems(collection, documents, existing) {
     const adRef = rootRef.collection(EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION);
     const desiredAds = new Map(adEntries(document).map(({ id, data }) => [id, data]));
     const currentAds = existing.ads.get(companyKey) || new Map();
+    const desiredWindowAds = additionalWindowAds(document);
+    const currentWindowAds = existing.windowAds?.get(companyKey) || new Map();
 
     // Shards are written before the root pointer, so a reader never sees a new
     // root announcing ads that do not exist yet.
@@ -90,6 +160,21 @@ function writeOperationItems(collection, documents, existing) {
     }
     for (const id of currentAds.keys()) {
       if (!desiredAds.has(id)) items.push({ operation: 'delete-ad', ref: adRef.doc(id) });
+    }
+    for (const [collectionName, desired] of desiredWindowAds) {
+      const windowAdRef = rootRef.collection(collectionName);
+      const current = currentWindowAds.get(collectionName) || new Map();
+      for (const [id, data] of desired) {
+        items.push({ operation: 'set-ad', ref: windowAdRef.doc(id), data });
+      }
+      for (const id of current.keys()) {
+        if (!desired.has(id)) items.push({ operation: 'delete-ad', ref: windowAdRef.doc(id) });
+      }
+    }
+    for (const [collectionName, current] of currentWindowAds) {
+      if (desiredWindowAds.has(collectionName)) continue;
+      const windowAdRef = rootRef.collection(collectionName);
+      for (const id of current.keys()) items.push({ operation: 'delete-ad', ref: windowAdRef.doc(id) });
     }
     items.push({
       operation: 'set-root',
@@ -164,6 +249,24 @@ export async function restoreEmployerInsightsSnapshot(db, before) {
   for (const [companyKey, previousAds] of before.ads) {
     const adRef = collection.doc(companyKey).collection(EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION);
     for (const [id, data] of previousAds) items.push({ operation: 'set-ad', ref: adRef.doc(id), data });
+  }
+
+  for (const [companyKey, currentWindows] of after.windowAds || []) {
+    const previousWindows = before.windowAds?.get(companyKey) || new Map();
+    for (const [collectionName, currentAds] of currentWindows) {
+      const previousAds = previousWindows.get(collectionName) || new Map();
+      const adRef = collection.doc(companyKey).collection(collectionName);
+      for (const id of currentAds.keys()) {
+        if (!previousAds.has(id)) items.push({ operation: 'delete-ad', ref: adRef.doc(id) });
+      }
+    }
+  }
+
+  for (const [companyKey, previousWindows] of before.windowAds || []) {
+    for (const [collectionName, previousAds] of previousWindows) {
+      const adRef = collection.doc(companyKey).collection(collectionName);
+      for (const [id, data] of previousAds) items.push({ operation: 'set-ad', ref: adRef.doc(id), data });
+    }
   }
 
   for (const companyKey of after.roots.keys()) {

@@ -77,4 +77,11 @@ describe('employer insights refresh rollback', () => {
     expect(REFRESH_WORKFLOW_SOURCE).toContain('rollbackResult.committed');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('rollback status:');
   });
+
+  it('verifies additional-window shards after the root write', () => {
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('employerInsightsWindowAdsSubcollection');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('after.windowAds');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('storedSummary.adsStorage');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('storedAdsForWindow.size');
+  });
 });
