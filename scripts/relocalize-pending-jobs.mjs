@@ -1450,8 +1450,13 @@ function invalidateCacheForIncompleteJobs(companyKey, incompleteJobs) {
 
 export function filterPendingForCompany(pendingJobs, companyKeyFilter) {
   if (!companyKeyFilter) return [...pendingJobs];
+  const normalizedFilter = normalizeCompanyKeyAlias(companyKeyFilter);
+  if (!normalizedFilter) return [];
   return pendingJobs.filter((job) => (
-    canonicalCompanyKeyForJob(job) === companyKeyFilter
+    canonicalCompanyKeyForJob(job) === canonicalCompanyKeyForJob({
+      company: job?.company,
+      companyKey: normalizedFilter,
+    })
   ));
 }
 
