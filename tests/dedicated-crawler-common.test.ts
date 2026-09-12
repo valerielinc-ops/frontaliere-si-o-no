@@ -3,7 +3,85 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { canonicalizeCompanyDefinition, legacyTruncatedCompanyKey, normalizeCompanyKey } from '../scripts/lib/company-key.mjs';
 import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
+
+describe('normalizeCompanyKey', () => {
+  it('keeps short normalized keys stable', async () => {
+    const { normalizeCompanyKey } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    expect(normalizeCompanyKey('Crédit Agricole')).toBe('credit-agricole');
+  });
+
+  it('disambiguates long keys with a digest of the complete normalized value', async () => {
+    const { normalizeCompanyKey } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    const first = normalizeCompanyKey(`${'x'.repeat(63)} one`);
+    const second = normalizeCompanyKey(`${'x'.repeat(63)} two`);
+
+    expect(first).not.toBe(second);
+    expect(first.length).toBeLessThanOrEqual(64);
+    expect(second.length).toBeLessThanOrEqual(64);
+    expect(first).not.toMatch(/-$/);
+    expect(second).not.toMatch(/-$/);
+    expect(first).toMatch(/^[a-z0-9-]+$/);
+    expect(second).toMatch(/^[a-z0-9-]+$/);
+  });
+});
+
+describe('legacy company-key migration', () => {
+  it('derives the digest from the full name and migrates a historical truncated key', async () => {
+    const firstName = `${'x'.repeat(63)} one`;
+    const secondName = `${'x'.repeat(63)} two`;
+    const firstLegacyKey = legacyTruncatedCompanyKey(firstName);
+    const secondLegacyKey = legacyTruncatedCompanyKey(secondName);
+    const firstCanonicalKey = normalizeCompanyKey(firstName);
+    const secondCanonicalKey = normalizeCompanyKey(secondName);
+
+    expect(firstLegacyKey).toHaveLength(64);
+    expect(secondLegacyKey).toBe(firstLegacyKey);
+    expect(firstCanonicalKey).not.toBe(firstLegacyKey);
+    expect(secondCanonicalKey).not.toBe(firstLegacyKey);
+
+    const first = canonicalizeCompanyDefinition({ name: firstName, key: firstLegacyKey });
+    const second = canonicalizeCompanyDefinition({ name: secondName, key: secondLegacyKey });
+    expect(first.key).toBe(firstCanonicalKey);
+    expect(second.key).toBe(secondCanonicalKey);
+    expect(first.companyKeyAliases).toContain(firstLegacyKey);
+    expect(second.companyKeyAliases).toContain(secondLegacyKey);
+
+    const { __testables } = await import('../scripts/lib/shared-jobs-crawler.mjs');
+    const resolver = __testables.buildCompanyKeyResolver([first, second], {});
+    // A colliding old cut is not assigned arbitrarily. The full company name
+    // still makes each persisted job migrate to its own digest key.
+    expect(resolver.resolve(firstLegacyKey)).toBe(firstLegacyKey);
+    expect(resolver.resolveRecord({ company: firstName, companyKey: firstLegacyKey })).toBe(firstCanonicalKey);
+    expect(resolver.resolveRecord({ company: secondName, companyKey: secondLegacyKey })).toBe(secondCanonicalKey);
+
+    const migrated = __testables.migrateCompanyJobKeys([
+      { company: firstName, companyKey: firstLegacyKey },
+      { company: secondName, companyKey: secondLegacyKey },
+    ], resolver);
+    expect(migrated.map((job) => job.companyKey)).toEqual([firstCanonicalKey, secondCanonicalKey]);
+  });
+
+  it('resolves an existing adapter registered under the historical alias', async () => {
+    const name = `${'y'.repeat(63)} legacy adapter`;
+    const legacyKey = legacyTruncatedCompanyKey(name);
+    const canonicalKey = normalizeCompanyKey(name);
+    const adapter = { enabled: true, crawlerModes: ['html'] };
+    const { __testables } = await import('../scripts/lib/shared-jobs-crawler.mjs');
+
+    __testables.setCompanyAdaptersForTests(new Map([[legacyKey, adapter]]));
+    try {
+      expect(__testables.getCompanyAdapter({
+        name,
+        key: canonicalKey,
+        companyKeyAliases: [legacyKey],
+      })).toBe(adapter);
+    } finally {
+      __testables.setCompanyAdaptersForTests(new Map());
+    }
+  });
+});
 
 describe('normalizeContract — workload percentage-range classification (#3482)', () => {
   it('classifies a range title by its upper bound, not the first number found', () => {

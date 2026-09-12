@@ -56,7 +56,9 @@ import {
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 import {
   resolveHookRepository,
-  resolveHookTargetCwd,
+  describeHookTargetCwdFailure,
+  resolveGitWorktreeRoot,
+  resolveHookTargetCwdDetails,
   resolveGatedHeadRef,
 } from './lib/hook-target-cwd.mjs';
 import {
@@ -151,6 +153,7 @@ async function main() {
   let toolName = '';
   let toolInput = {};
   let targetCwd;
+  let targetCwdResolution;
   try {
     const chunks = [];
     for await (const chunk of process.stdin) {
@@ -168,10 +171,12 @@ async function main() {
           toolInput.command ??
           payload?.command ??
           '';
-        targetCwd = resolveHookTargetCwd(payload, command);
+        targetCwdResolution = resolveHookTargetCwdDetails(payload, command);
+        targetCwd = targetCwdResolution.cwd;
       } catch {
         command = raw; // raw text fallback — grep for gh pr create
-        targetCwd = resolveHookTargetCwd(undefined, command);
+        targetCwdResolution = resolveHookTargetCwdDetails(undefined, command);
+        targetCwd = targetCwdResolution.cwd;
       }
     }
   } catch {
@@ -215,6 +220,35 @@ async function main() {
     // No local sibling checker for the explicit target means there is no
     // repository-correct analysis to run; do not inspect the site's branch.
     process.exit(0);
+  }
+
+  // A literal command cwd is a stronger signal than the tracked payload cwd.
+  // If it points outside Git, falling back to `gateTarget.repo` below can make
+  // the checker analyze a plausible but unrelated tree and silently allow the
+  // PR when the checker itself fails. Relative `cd`s are also rejected when
+  // they resolve to another worktree, because a shared main checkout is not
+  // evidence for the branch being proposed.
+  if (targetCwdResolution?.error) {
+    const detail = describeHookTargetCwdFailure(targetCwdResolution);
+    process.stderr.write(
+      `\n🚫 sibling-check-gate: cwd non risolvibile — ${detail ?? 'segnale ambiguo'}.\n` +
+        'Sweep sibling NON ESEGUITO: il gate non può verificare una directory diversa da quella proposta.\n' +
+        'Rimedio: usa una repository Git valida e, per un worktree diverso, un percorso assoluto nel `cd`.\n\n',
+    );
+    process.exit(EXIT_BLOCK);
+  }
+
+  // A payload cwd without a literal `cd` is still useful, but only when it is
+  // actually a repository. Do this check before resolveGatedHeadRef: that
+  // function intentionally falls back to the gate repository for a branch ref,
+  // which must not turn an invalid cwd into a successful sibling sweep.
+  if (targetCwd && !resolveGitWorktreeRoot(targetCwd)) {
+    process.stderr.write(
+      `\n🚫 sibling-check-gate: cwd ${targetCwd} non appartiene a una repository Git.\n` +
+        'Sweep sibling NON ESEGUITO: nessun file è stato verificato.\n' +
+        'Rimedio: esegui `gh pr create` da un checkout/worktree Git valido.\n\n',
+    );
+    process.exit(EXIT_BLOCK);
   }
 
   // Run check-sibling-patterns.mjs --json to get the structured candidate list.

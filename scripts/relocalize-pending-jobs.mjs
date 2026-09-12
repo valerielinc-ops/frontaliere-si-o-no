@@ -45,7 +45,9 @@ import {
   captureLostSlugs,
   DEFAULT_PREV_SLUG_CAP,
   normalizeForLengthComparison,
+  normalizeCompanyKey,
 } from './lib/dedicated-crawler-common.mjs';
+import { legacyTruncatedCompanyKey, normalizeCompanyKeyAlias } from './lib/company-key.mjs';
 import { collectMissingAssembledBridges } from './scatter-jobs-to-slices.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import {
@@ -164,6 +166,20 @@ function parseCompanyKey() {
 }
 
 const COMPANY_KEY_FILTER = parseCompanyKey();
+
+/**
+ * Migrate a job's pre-digest key when its full company name is present.
+ * Preserve explicit aliases for records whose key is not the historical cut;
+ * those may intentionally differ from the display name (group/company aliases).
+ */
+export function canonicalCompanyKeyForJob(job = {}) {
+  const explicitKey = normalizeCompanyKeyAlias(job?.companyKey || '');
+  const companyName = String(job?.company || '').trim();
+  const legacyKey = legacyTruncatedCompanyKey(companyName);
+  const legacyKeyForms = new Set([legacyKey, normalizeCompanyKey(legacyKey)].filter(Boolean));
+  if (explicitKey && legacyKeyForms.has(explicitKey)) return normalizeCompanyKey(companyName);
+  return explicitKey || normalizeCompanyKey(companyName);
+}
 
 function parseShadowPreflightV2Options() {
   const args = process.argv.slice(2);
@@ -448,7 +464,7 @@ export function jobLocaleSignature(job) {
 export function snapshotCompanySignatures(jobs, companyKey) {
   const m = new Map();
   for (const j of jobs) {
-    if (normalizeCompanyKey(j.companyKey || j.company || '') !== companyKey) continue;
+    if (canonicalCompanyKeyForJob(j) !== companyKey) continue;
     if (j.slug) m.set(j.slug, jobLocaleSignature(j));
   }
   return m;
@@ -458,7 +474,7 @@ export function snapshotCompanySignatures(jobs, companyKey) {
 export function changedSlugsSince(snapshot, jobs, companyKey) {
   const changed = new Set();
   for (const j of jobs) {
-    if (normalizeCompanyKey(j.companyKey || j.company || '') !== companyKey) continue;
+    if (canonicalCompanyKeyForJob(j) !== companyKey) continue;
     if (!j.slug) continue;
     const before = snapshot.get(j.slug);
     if (before === undefined || before !== jobLocaleSignature(j)) changed.add(j.slug);
@@ -855,19 +871,6 @@ export function isIncomplete(job) {
 }
 
 /**
- * Normalize a company key for matching.
- */
-function normalizeCompanyKey(value = '') {
-  return String(value || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-
-/**
  * Sort jobs by priority: needsRetranslation first, then by datePosted (most recent first).
  */
 function sortByPriority(a, b) {
@@ -1005,24 +1008,39 @@ async function runSharedCrawler(companyKeys, maxJobs) {
 }
 
 /**
- * Read the shared crawler's company-level coverage observation.
+ * Read the shared crawler's company-level coverage observations.
  *
- * `localizationCoveredCompanyKeys` includes sterile visits where the crawler
- * reached a company but had no consumable candidate. That is the observation
- * needed by the company-skip ledger and by the artifact; `cleared` must never
- * be used as its proxy.
+ * A sterile visit and effective work have different meanings for the
+ * company-skip ledger. The legacy combined field is accepted only for older
+ * crawler results; current results use `localizationSterileCompanyKeys` and
+ * `localizationAttemptedCompanyKeys` explicitly.
  */
-export function servedCompanyKeysFromCrawlerResult(crawlerResult) {
+export function companyCoverageFromCrawlerResult(crawlerResult) {
+  const hasExplicitSterileKeys = Array.isArray(crawlerResult?.localizationSterileCompanyKeys);
   const coveredCompanyKeys = crawlerResult?.localizationCoveredCompanyKeys;
   const attemptedCompanyKeys = crawlerResult?.localizationAttemptedCompanyKeys;
-  const companyKeys = Array.isArray(coveredCompanyKeys) && coveredCompanyKeys.length > 0
-    ? coveredCompanyKeys
-    : (Array.isArray(attemptedCompanyKeys) ? attemptedCompanyKeys : []);
-  return new Set(
-    companyKeys
-      .map((companyKey) => normalizeCompanyKey(companyKey).slice(0, 64))
+  const normalizeCompanyKeys = (companyKeys) => new Set(
+    (Array.isArray(companyKeys) ? companyKeys : [])
+      .map((companyKey) => normalizeCompanyKey(companyKey))
       .filter(Boolean),
   );
+  const sterile = normalizeCompanyKeys(
+    hasExplicitSterileKeys ? crawlerResult.localizationSterileCompanyKeys : coveredCompanyKeys,
+  );
+  const effective = normalizeCompanyKeys(attemptedCompanyKeys);
+  const legacyCovered = normalizeCompanyKeys(coveredCompanyKeys);
+  const served = hasExplicitSterileKeys
+    ? new Set([...sterile, ...effective])
+    : (legacyCovered.size > 0 ? legacyCovered : effective);
+  return { sterile, effective, served };
+}
+
+export function servedCompanyKeysFromCrawlerResult(crawlerResult) {
+  return companyCoverageFromCrawlerResult(crawlerResult).served;
+}
+
+export function sterileCompanyKeysFromCrawlerResult(crawlerResult) {
+  return companyCoverageFromCrawlerResult(crawlerResult).sterile;
 }
 
 /**
@@ -1083,7 +1101,7 @@ export function buildAssembledJobIndex(assembledJobs, companyKey) {
   };
   const inScope = [];
   for (const job of assembledJobs) {
-    const jobKey = normalizeCompanyKey(job.companyKey || job.company || '');
+    const jobKey = canonicalCompanyKeyForJob(job);
     if (jobKey !== companyKey) continue;
     inScope.push(job);
   }
@@ -1432,8 +1450,13 @@ function invalidateCacheForIncompleteJobs(companyKey, incompleteJobs) {
 
 export function filterPendingForCompany(pendingJobs, companyKeyFilter) {
   if (!companyKeyFilter) return [...pendingJobs];
+  const normalizedFilter = normalizeCompanyKeyAlias(companyKeyFilter);
+  if (!normalizedFilter) return [];
   return pendingJobs.filter((job) => (
-    normalizeCompanyKey(job.companyKey || job.company || '') === companyKeyFilter
+    canonicalCompanyKeyForJob(job) === canonicalCompanyKeyForJob({
+      company: job?.company,
+      companyKey: normalizedFilter,
+    })
   ));
 }
 
@@ -1533,7 +1556,7 @@ export async function runRelocalization(phase) {
         if (outcome === 'reset' || outcome === 'cleared') fileChanged = true;
         if (outcome === 'cleared') {
           directCleared++;
-          const companyKey = normalizeCompanyKey(job.companyKey || job.company || '');
+          const companyKey = canonicalCompanyKeyForJob(job);
           if (companyKey) directClearedCompanyKeys.add(companyKey);
         }
         else if (outcome === 'reset') directReset++;
@@ -1648,7 +1671,7 @@ export async function runRelocalization(phase) {
   // Fast-path: clear flags for jobs that are already complete (no AI call needed).
   const preCleared = clearRetranslationFlags(jobs, {
     onCleared: (job) => {
-      const companyKey = normalizeCompanyKey(job.companyKey || job.company || '');
+      const companyKey = canonicalCompanyKeyForJob(job);
       if (companyKey) preClearedCompanyKeys.add(companyKey);
     },
   });
@@ -1731,7 +1754,7 @@ export async function runRelocalization(phase) {
   const cappedPending = pending.slice(0, effectiveMax);
   const companyJobCounts = new Map();
   for (const job of cappedPending) {
-    const key = normalizeCompanyKey(job.companyKey || job.company || '');
+    const key = canonicalCompanyKeyForJob(job);
     if (!key) {
       continue;
     }
@@ -1755,7 +1778,7 @@ export async function runRelocalization(phase) {
   // cambia solo sul re-crawl, che e' la semantica dichiarata.
   const companyPendingJobs = new Map();
   for (const job of pending) {
-    const key = normalizeCompanyKey(job.companyKey || job.company || '');
+    const key = canonicalCompanyKeyForJob(job);
     if (!key) {
       continue;
     }
@@ -1809,7 +1832,7 @@ export async function runRelocalization(phase) {
     orderedPending,
     capWindow: cappedPending,
     capWindowCompanyKeys: cappedPending.map((job) => {
-      const key = normalizeCompanyKey(job.companyKey || job.company || '');
+    const key = canonicalCompanyKeyForJob(job);
       return key || null;
     }),
     companyBudgets: [...companyJobCounts].map(([companyKey, count]) => ({ companyKey, jobs: count })),
@@ -1960,7 +1983,7 @@ export async function runRelocalization(phase) {
     let invalidated = 0;
     for (const companyKey of executionKeys) {
       const companyIncomplete = cappedPending.filter(j =>
-        normalizeCompanyKey(j.companyKey || j.company || '') === normalizeCompanyKey(companyKey));
+        canonicalCompanyKeyForJob(j) === normalizeCompanyKey(companyKey));
       companyIncompleteByKey.set(companyKey, companyIncomplete);
       invalidated += invalidateCacheForIncompleteJobs(companyKey, companyIncomplete);
     }
@@ -2020,9 +2043,12 @@ export async function runRelocalization(phase) {
       // al crawler.
       const companyStartedMs = LEGACY_CLOCK.now();
       let servedCompanyKeys = new Set();
+      let sterileCompanyKeys = new Set();
       try {
         const crawlerResult = await runSharedCrawler(executionKeys, companyJobCount);
-        servedCompanyKeys = servedCompanyKeysFromCrawlerResult(crawlerResult);
+        const coverage = companyCoverageFromCrawlerResult(crawlerResult);
+        servedCompanyKeys = coverage.served;
+        sterileCompanyKeys = coverage.sterile;
       } finally {
         if (armHandle) armHandle.restore();
       }
@@ -2035,7 +2061,7 @@ export async function runRelocalization(phase) {
       if (Array.isArray(currentJobs)) {
         const cleared = clearRetranslationFlags(currentJobs, {
           onCleared: (job) => {
-            const clearedKey = normalizeCompanyKey(job.companyKey || job.company || '');
+            const clearedKey = canonicalCompanyKeyForJob(job);
             if (clearedInExecution.has(clearedKey)) {
               clearedByCompany.set(clearedKey, (clearedByCompany.get(clearedKey) || 0) + 1);
             }
@@ -2064,7 +2090,7 @@ export async function runRelocalization(phase) {
           // Diagnose: how many jobs for this company are still incomplete after crawler ran?
           if (Array.isArray(currentJobs)) {
             const companyJobs = currentJobs.filter(j =>
-              normalizeCompanyKey(j.companyKey || j.company || '') === normalizeCompanyKey(companyKey));
+              canonicalCompanyKeyForJob(j) === normalizeCompanyKey(companyKey));
             const companyIncomplete = companyJobs.filter(j => needsTranslation(j));
             if (companyIncomplete.length > 0) {
               console.log(`   🔬 ${companyKey}: ${companyIncomplete.length}/${companyJobs.length} still pending after crawler`);
@@ -2103,7 +2129,9 @@ export async function runRelocalization(phase) {
         // `cleared` e' il delta per azienda: le traduzioni che hanno superato
         // il gate. Anche con un'invocazione aggregata resta una riga per azienda,
         // con il gruppo esplicito per rendere leggibile il costo condiviso.
-        const companyWasServed = servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64));
+        const normalizedCompanyKey = normalizeCompanyKey(companyKey);
+        const companyWasServed = servedCompanyKeys.has(normalizedCompanyKey);
+        const companyWasSterile = sterileCompanyKeys.has(normalizedCompanyKey);
         const row = {
           arm: thinkingArm ?? null,
           companyKey,
@@ -2125,7 +2153,7 @@ export async function runRelocalization(phase) {
         // budget dell'invocazione. Non chiamarla sterile se non e' stata mai
         // servita: il suo lavoro resta pending e deve poter rientrare nella
         // prossima finestra senza accumulare falsi salti.
-        if (companyWasServed) {
+        if (companyWasSterile || (companyWasServed && companyCleared > 0)) {
           const entry = nextCompanySkipEntry(companySkipState.companies[companyKey], {
             cleared: companyCleared,
             runCounter: companySkipRun,
@@ -2133,6 +2161,8 @@ export async function runRelocalization(phase) {
           });
           if (entry) companySkipState.companies[companyKey] = entry;
           else delete companySkipState.companies[companyKey];
+        } else if (companyWasServed) {
+          console.log(`   🔬 ${companyKey}: lavoro effettivo osservato; contatore sterile invariato`);
         } else {
           console.log(`   ⏭️  ${companyKey}: invocazione aggregata esaurita prima di servirla; contatore sterile invariato`);
         }
@@ -2185,7 +2215,7 @@ export async function runRelocalization(phase) {
     // Only retry companies that had at least one success (partial failure)
     const retryCompanies = new Map();
     for (const j of retryPending) {
-      const k = normalizeCompanyKey(j.companyKey || j.company || '');
+      const k = canonicalCompanyKeyForJob(j);
       // `cascadeCompanyKeys`, non `companyJobCounts`: senza questo il retry pass
     // ripescherebbe proprio le aziende appena saltate — i loro job sono ancora
     // pending per definizione — e rispenderebbe il tempo che il salto libera.
@@ -2271,7 +2301,7 @@ export async function runRelocalization(phase) {
                 elapsedMs: retryElapsedMs * (retryCompanies.get(companyKey) || 0) / count,
                 attempted: retryAttemptedByCompany.get(companyKey).size,
                 cleared: 0,
-                companyServed: retryServedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64)),
+                companyServed: retryServedCompanyKeys.has(normalizeCompanyKey(companyKey)),
                 ...(retryKeys.length > 1 ? { invocationCompanyKeys: [...retryKeys] } : {}),
               };
               retryRowsByCompany.set(companyKey, row);
@@ -2282,7 +2312,7 @@ export async function runRelocalization(phase) {
             const clearedByCompany = new Map();
             const cleared = clearRetranslationFlags(afterRetry, {
               onCleared: (job) => {
-                const clearedKey = normalizeCompanyKey(job.companyKey || job.company || '');
+                const clearedKey = canonicalCompanyKeyForJob(job);
                 if (retryKeys.includes(clearedKey)) {
                   clearedByCompany.set(clearedKey, (clearedByCompany.get(clearedKey) || 0) + 1);
                 }

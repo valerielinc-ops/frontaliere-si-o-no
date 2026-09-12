@@ -10,6 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { registrableDomain as registrableDomainOf } from './lib/prospector/registrable.mjs';
+import { canonicalizeCompanyDefinition, normalizeCompanyKey } from './lib/company-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,17 +53,6 @@ function registrableDomain(host = '') {
   return h ? registrableDomainOf(h) : '';
 }
 
-function normalizeCompanyKey(input = '') {
-  return String(input || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 64);
-}
-
 function parseCompanySourcesFromTsx(tsxSource) {
   const objects = tsxSource.match(/\{[^{}]*name:\s*'[^']+'[^{}]*\}/g) || [];
   const parsed = [];
@@ -87,6 +77,7 @@ function loadKnownCompanies() {
   const extra = Array.isArray(extraRaw)
     ? extraRaw
       .map((row) => ({
+        key: normalizeSpace(row?.key || ''),
         name: normalizeSpace(row?.name || ''),
         website: normalizeSpace(row?.website || ''),
         host: normalizeHost(row?.website || ''),
@@ -94,10 +85,7 @@ function loadKnownCompanies() {
       .filter((row) => row.name && row.host)
     : [];
 
-  const all = [...base, ...extra].map((c) => ({
-    ...c,
-    key: normalizeCompanyKey(c.name),
-  }));
+  const all = [...base, ...extra].map((c) => canonicalizeCompanyDefinition(c));
   const byKey = new Map();
   for (const c of all) {
     if (!c.key) continue;
@@ -123,6 +111,15 @@ function buildResolver(knownCompanies, configAliases = {}) {
   for (const c of knownCompanies) {
     add(c.key, c.key);
     add(c.name, c.key);
+    for (const alias of c.companyKeyAliases || []) {
+      // An explicit legacy alias can be the canonical key of a separate
+      // source entry sharing the same host (for example Medacta's old short
+      // key). Keep that direct canonical key unambiguous; runtime resolution
+      // still uses the full company name for the migrated entry.
+      const normalizedAlias = normalizeCompanyKey(alias);
+      if (knownCanonical.has(normalizedAlias) && normalizedAlias !== c.key) continue;
+      add(alias, c.key);
+    }
     add(c.host, c.key);
     add(registrableDomain(c.host), c.key);
   }
