@@ -155,7 +155,7 @@ jobs:
           # La CI corrente deve essere DAVVERO rossa adesso: fra il trigger e qui
           # un re-run puo' aver rimesso verde, e allora non c'e' niente da fixare.
           if ! rollup=$(gh api "repos/$REPO/commits/$head_sha/check-runs?per_page=100" \
-            --jq '[.check_runs[] | select(.conclusion=="failure") | .name] | sort | join(", ")' 2>/dev/null); then
+            --jq '[.check_runs[] | select(.conclusion=="failure") | .name] | sort | @json' 2>/dev/null); then
             echo "::error::Check-runs HEAD illeggibili: impossibile verificare quale rosso redcheck dovrebbe riparare."
             exit 1
           fi

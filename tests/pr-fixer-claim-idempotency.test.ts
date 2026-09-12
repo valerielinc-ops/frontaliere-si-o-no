@@ -2,11 +2,14 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import {
   claimStatusFromOutcome,
+  activeClaimsForArbitration,
   latestPrFixClaims,
   parsePrFixClaim,
   prFixClaimDecision,
   prFixClaimDedupeKey,
   prFixClaimKey,
+  normalizedSignal,
+  runIsFinished,
 } from '../scripts/ci/pr-fixer-claim.mjs';
 
 const HEAD = 'a'.repeat(40);
@@ -65,6 +68,27 @@ describe('persisted PR fixer claims (#8362, #8363)', () => {
     expect(prFixClaimKey({ ...base, verdictKey: '' })).toBe('');
   });
 
+  it('keeps failed-check names with commas distinct from a check list', () => {
+    const singleCheck = prFixClaimDedupeKey({
+      workflow: 'redcheck',
+      prNumber: '8363',
+      headSha: HEAD,
+      eventKey: 'tests-run:1',
+      verdictKey: 'failed-checks:lint, type',
+    });
+    const twoChecks = prFixClaimDedupeKey({
+      workflow: 'redcheck',
+      prNumber: '8363',
+      headSha: HEAD,
+      eventKey: 'tests-run:1',
+      verdictKey: 'failed-checks:lint,type',
+    });
+    const jsonChecks = normalizedSignal('failed-checks:["type","lint"]');
+
+    expect(singleCheck).not.toBe(twoChecks);
+    expect(jsonChecks).toBe('failed-checks:["lint","type"]');
+  });
+
   it('rejects a forged or malformed persisted marker', () => {
     expect(parsePrFixClaim('<!-- PR_FIX_CLAIM: {"version":1} -->')).toBeNull();
     expect(parsePrFixClaim('ordinary PR comment')).toBeNull();
@@ -116,6 +140,23 @@ describe('persisted PR fixer claims (#8362, #8363)', () => {
     })).toMatchObject({ allowed: false, reason: 'same-pr-head-claim-active' });
   });
 
+  it('lets a new claim arbitrate past a finished retryable runner', () => {
+    const old = claim({ token: 'old', runId: 'old-run' });
+    const newcomer = claim({ token: 'new', runId: 'new-run' });
+
+    expect(activeClaimsForArbitration([old, newcomer], {
+      nowSec: 200,
+      activeRunStates: {
+        'old-run': { status: 'completed', conclusion: 'failure' },
+        'new-run': { status: 'in_progress', conclusion: null },
+      },
+    }).map((item) => item.token)).toEqual(['new']);
+  });
+
+  it('treats startup failure as a retryable runner conclusion', () => {
+    expect(runIsFinished({ status: 'completed', conclusion: 'startup_failure' })).toBe(true);
+  });
+
   it('keeps the latest state per token and does not mix a new HEAD or verdict', () => {
     const first = claim();
     const finalized = claim({ state: 'completed' });
@@ -154,6 +195,11 @@ describe('persisted PR fixer claims (#8362, #8363)', () => {
       claudeOutcome: 'failure',
       executionText: '{"is_error":true,"api_error_status":429}',
     })).toBe('failed-transient');
+    expect(claimStatusFromOutcome({
+      proceed: true,
+      claudeOutcome: 'failure',
+      executionText: '{"is_error":true,"status_code":500}',
+    })).toBe('failed-transient');
     expect(claimStatusFromOutcome({ proceed: true, claudeOutcome: 'failure' }))
       .toBe('failed-terminal');
     expect(claimStatusFromOutcome({ proceed: true, claudeOutcome: 'success' }))
@@ -184,5 +230,9 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
     expect(redcheck).toContain('claim_error');
     expect(redcheck).toContain('MAX_ROUNDS=2');
     expect(redcheck).toContain('CLAIM_ACTION: finalize');
+  });
+
+  it('serializes the redcheck failure set without comma ambiguity', () => {
+    expect(redcheck).toMatch(/\.check_runs\[\].*\.name\] \| sort \| @json/u);
   });
 });

@@ -37,15 +37,21 @@ function normalized(value) {
   return String(value ?? '').trim().replace(/\s+/gu, ' ');
 }
 
-function normalizedSignal(value) {
+export function normalizedSignal(value) {
   const signal = normalized(value);
   if (!signal.startsWith('failed-checks:')) return signal;
-  const checks = signal.slice('failed-checks:'.length)
-    .split(',')
-    .map((check) => normalized(check))
-    .filter(Boolean)
-    .sort();
-  return `failed-checks:${checks.join(',')}`;
+  const payload = signal.slice('failed-checks:'.length).trim();
+  try {
+    const parsed = JSON.parse(payload);
+    if (Array.isArray(parsed)) {
+      const checks = [...new Set(parsed.map((check) => normalized(check)).filter(Boolean))].sort();
+      return `failed-checks:${JSON.stringify(checks)}`;
+    }
+  } catch {
+    // Legacy scalar signals are retained verbatim: commas can be part of a
+    // check name, so splitting them would make distinct verdicts collide.
+  }
+  return `failed-checks:${payload}`;
 }
 
 function validContext({ workflow, prNumber, headSha, eventKey, verdictKey } = {}) {
@@ -200,14 +206,28 @@ export function latestPrFixClaims(comments = [], { key = '', dedupeKey = '' } = 
   return [...latest.values()];
 }
 
-function runIsFinished(state) {
+export function runIsFinished(state) {
   if (!state || typeof state !== 'object') return false;
   // A successful runner may have posted its verdict but not yet finalized the
   // claim because the comments API was eventually consistent. Releasing that
   // claim merely because the runner is completed would permit a duplicate.
   // Only outcomes that prove an interrupted/unsuccessful attempt are
   // retryable; an unreadable or successful state remains fail-closed until TTL.
-  return ['cancelled', 'failure', 'timed_out', 'action_required', 'skipped'].includes(state.conclusion);
+  return ['cancelled', 'failure', 'startup_failure', 'timed_out', 'action_required', 'skipped'].includes(state.conclusion);
+}
+
+/**
+ * Pick only claims that can still win the post-write arbitration. A runner
+ * that already ended with a retryable infrastructure outcome must not keep
+ * the slot reserved until its TTL while the retry it just admitted is posted.
+ */
+export function activeClaimsForArbitration(claims = [], { nowSec = Math.floor(Date.now() / 1000), activeRunStates = {} } = {}) {
+  return (claims || []).filter((claim) => {
+    if (claim?.state !== 'active' || Number(claim.expiresAt) <= Number(nowSec)) return false;
+    const runId = String(claim.runId || '');
+    if (!runId) return true;
+    return !runIsFinished(activeRunStates?.[runId]);
+  });
 }
 
 /**
@@ -250,7 +270,9 @@ export function prFixClaimDecision({ key, dedupeKey, claims = [], nowSec = Math.
 export function claimStatusFromOutcome({ proceed, claudeOutcome = '', executionText = '' } = {}) {
   if (proceed !== true && proceed !== 'true') return 'released';
   const text = String(executionText || '');
-  const transient = /(?:api_error_status|status_code|http_status|status)"?\s*:\s*"?429\b|\bHTTP\s*429\b|\b(?:overloaded|server_error|internal server error)\b/iu.test(text);
+  const transientStatus = /(?:api[_-]?error[_-]?status|status[_-]?code|http[_-]?status|status)["']?\s*[:=]\s*["']?(?:429|5\d{2})\b/iu.test(text);
+  const transientText = /\b(?:HTTP|status(?:\s+code)?)\s*[:=]?\s*(?:429|5\d{2})\b|\b(?:overloaded|server_error|internal server error)\b/iu.test(text);
+  const transient = transientStatus || transientText;
   // An empty/skipped action means an earlier setup step stopped the Claude
   // path after the claim was acquired. It is not a verdict and must not make
   // the same contribution permanently consumed.
@@ -415,9 +437,12 @@ function acquireClaim(base, repo) {
   const after = process.env.DRY_RUN === '1'
     ? [...comments, dryComment(event, comments.length + 1)]
     : readComments(repo, base.prNumber);
-  const active = latestForDedupe(after, base.dedupeKey)
-    .filter((claim) => claim.state === 'active' && Number(claim.expiresAt) > nowSec);
-  const terminal = latestForDedupe(after, base.dedupeKey)
+  const afterClaims = latestForDedupe(after, base.dedupeKey);
+  const active = activeClaimsForArbitration(afterClaims, {
+    nowSec,
+    activeRunStates: activeRunStates(repo, afterClaims, nowSec),
+  });
+  const terminal = afterClaims
     .some((claim) => claim.state === 'completed' || claim.state === 'failed-terminal');
   const own = latestPrFixClaims(after, { key: base.key }).find((claim) => claim.token === claimToken);
   const winner = active[0];
