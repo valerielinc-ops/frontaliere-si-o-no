@@ -71,6 +71,7 @@ jobs:
           REPORT_ISSUE: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.report_issue == true }}
         run: |
           set +e
+          set -o pipefail
           ARGS=(--report "$RUNNER_TEMP/technical-operations-audit.json")
           if [ "$REPORT_ISSUE" = "true" ]; then
             ARGS+=(--issue --strict)

@@ -131,19 +131,19 @@ function inputDefinitions(triggers) {
   return inputs;
 }
 
-function localReferenceExists(root, rawPath, workingDirectory = '.') {
+function localReferenceExists(root, rawPath, workingDirectory = '.', exists = fs.existsSync) {
   if (rawPath.includes('${{')) return true;
   const cleanPath = rawPath.replace(/[),;:'"`]+$/g, '');
   const base = path.resolve(root, workingDirectory);
   if (cleanPath.startsWith('./.github/workflows/')) {
-    return fs.existsSync(path.resolve(base, cleanPath.slice(2)));
+    return exists(path.resolve(base, cleanPath.slice(2)));
   }
   if (cleanPath.startsWith('./.github/actions/')) {
     const actionRoot = path.resolve(base, cleanPath.slice(2));
-    return fs.existsSync(path.join(actionRoot, 'action.yml'))
-      || fs.existsSync(path.join(actionRoot, 'action.yaml'));
+    return exists(path.join(actionRoot, 'action.yml'))
+      || exists(path.join(actionRoot, 'action.yaml'));
   }
-  return fs.existsSync(path.resolve(base, cleanPath));
+  return exists(path.resolve(base, cleanPath));
 }
 
 function staticWorkingDirectory(root, rawWorkingDirectory) {
@@ -421,7 +421,7 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
     }
     if (reusable && typeof job.uses === 'string' && job.uses.startsWith('./')) {
       const local = job.uses.split('@', 1)[0];
-      if (!localReferenceExists(root, local, '.')) findings.push(finding(file, 'workflow.local-reusable-workflow', 'error', `reusable workflow locale non trovato: ${local}`, lineFor(source, local)));
+      if (!localReferenceExists(root, local, '.', exists)) findings.push(finding(file, 'workflow.local-reusable-workflow', 'error', `reusable workflow locale non trovato: ${local}`, lineFor(source, local)));
     }
     if (reusable) {
       if (job.steps !== undefined) findings.push(finding(file, 'workflow.reusable-job-steps', 'error', `job ${jobName} usa un reusable workflow e non può avere steps`, lineFor(source, 'steps:')));
@@ -454,7 +454,7 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
           if (rawStep.background !== true) findings.push(finding(file, 'workflow.background-value', 'error', '`background` deve essere true letterale', stepLine));
           if (!hasRun || hasUses) findings.push(finding(file, 'workflow.background-executor', 'error', '`background` è ammesso solo su uno step run', stepLine));
         }
-        if (hasUses && rawStep.uses.startsWith('./') && !localReferenceExists(root, rawStep.uses, rawStep['working-directory'] || '.')) {
+        if (hasUses && rawStep.uses.startsWith('./') && !localReferenceExists(root, rawStep.uses, '.', exists)) {
           findings.push(finding(file, 'workflow.local-action', 'error', `local action non trovata: ${rawStep.uses}`, stepLine));
         }
         if (hasRun) {

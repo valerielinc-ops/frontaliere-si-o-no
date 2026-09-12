@@ -155,6 +155,25 @@ describe('technical operations audit', () => {
     expect(findings.find((item: any) => item.rule === 'workflow.script-reference')?.severity).toBe('error');
   });
 
+  it('risolve le local action dalla root anche quando lo step dichiara working-directory', () => {
+    const source = [
+      'name: action-root',
+      'on: [push]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: action',
+      '        uses: ./.github/actions/local-check',
+      '        working-directory: subdir',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/action-root.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => candidate === '/repo/.github/actions/local-check/action.yml',
+    });
+    expect(findings.map((item: any) => item.rule)).not.toContain('workflow.local-action');
+  });
+
   it('scansiona l’inventario reale e non può passare con uno scan vuoto', () => {
     const report = auditWorkflowFiles(process.cwd());
     expect(report.filesScanned).toBeGreaterThanOrEqual(200);
