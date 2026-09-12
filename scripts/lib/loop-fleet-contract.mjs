@@ -132,6 +132,7 @@ export function buildObservation({
   minimumSample,
   actionClass = 'observe',
   quality = 'unmeasurable',
+  allowNumeratorExceedDenominator = false,
   recordedAt = new Date().toISOString(),
 }) {
   requireText(loopId, 'loopId');
@@ -159,7 +160,8 @@ export function buildObservation({
   }
   if (denominator !== null && denominator < 0) fail('denominator cannot be negative');
   if (numerator !== null && numerator < 0) fail('numerator cannot be negative');
-  if (numerator !== null && denominator !== null && numerator > denominator) {
+  if (!allowNumeratorExceedDenominator
+      && numerator !== null && denominator !== null && numerator > denominator) {
     fail('numerator cannot exceed denominator');
   }
   return {
