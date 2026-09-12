@@ -6307,6 +6307,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-canton-san-gallo-procedura.title': 'Naturalisation à Saint-Gall : exigences et procédure',
     'blog.article.naturalizzazione-canton-san-gallo-procedura.excerpt': 'Découvrez les conditions d\'années, de tests d\'intégration, de langue et de taxes pour la naturalisation ordinaire dans le canton de Saint-Gall.',
     'blog.article.naturalizzazione-canton-san-gallo-procedura.imageAlt': 'Paysage du canton de Saint-Gall avec collines et maisons suisses traditionnelles',
+    'blog.article.premi-cassa-malati-vaud-riduzione.title': 'Primes caisse-maladie Vaud : comment obtenir la réduction',
+    'blog.article.premi-cassa-malati-vaud-riduzione.excerpt': 'Franchises, modèles alternatifs et conditions pour l\'allocation cantonale : guide pratique des prix LAMal dans le canton de Vaud.',
+    'blog.article.premi-cassa-malati-vaud-riduzione.imageAlt': 'Bureau d\'assurance maladie suisse avec conseiller et client',
 };
 
 export default blogMetaChFr;

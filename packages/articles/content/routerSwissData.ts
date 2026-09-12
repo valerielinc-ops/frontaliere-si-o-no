@@ -2128,6 +2128,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'giovani-ticino-demografia-ustat': { it: 'giovani-ticino-demografia-ustat', en: 'ticino-youth-demographics-ustat', de: 'junge-menschen-tessin-demografie-ustat', fr: 'jeunes-tessin-demographie-ustat' },
  'mercato-affitti-san-gallo-canoni-diritto': { it: 'mercato-affitti-san-gallo-canoni-diritto', en: 'st-gallen-rental-market-rents-tenancy-law', de: 'st-gallen-mietmarkt-mieten-mietrecht', fr: 'marche-locatif-saint-gall-loyers-droit-bail' },
  'naturalizzazione-canton-san-gallo-procedura': { it: 'naturalizzazione-canton-san-gallo-procedura', en: 'naturalisation-canton-saint-gallen-procedure', de: 'einbuergerung-kanton-sankt-gallen-verfahren', fr: 'naturalisation-canton-saint-gallie-procedure' },
+ 'premi-cassa-malati-vaud-riduzione': { it: 'premi-cassa-malati-vaud-riduzione', en: 'vaud-health-insurance-premiums-reduction', de: 'waadt-krankenkassen-praemien-ermaessigung', fr: 'primes-assurance-maladie-vaud-reduction' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

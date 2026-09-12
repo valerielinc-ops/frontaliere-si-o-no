@@ -81881,6 +81881,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-vaud-riduzione': {
+    title: 'Premi cassa malati Vaud: come ottenere la riduzione',
+    description: 'Franchigie, modelli alternativi e requisiti per la riduzione premi LAMal nel Canton Vaud. Guida pratica con procedura passo passo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, vaud',
+    ogTitle: 'Premi cassa malati Vaud: guida alla riduzione',
+    ogDescription: 'Scopri come funzionano i premi LAMal nel Canton Vaud, quali franchigie scegliere e come ottenere il sussidio cantonale per redditi bassi. Guida pratica con requisiti e procedura.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-vaud-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati Vaud: come ottenere la riduzione",
+      "description": "Franchigie, modelli alternativi e requisiti per la riduzione premi LAMal nel Canton Vaud. Guida pratica con procedura passo passo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-vaud-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio assicurazione sanitaria in Svizzera con consulente e cliente"
+      },
+      "datePublished": "2026-09-12T20:12:56+00:00",
+      "dateModified": "2026-09-12T20:12:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-vaud-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

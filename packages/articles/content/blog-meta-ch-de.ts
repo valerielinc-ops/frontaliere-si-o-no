@@ -6307,6 +6307,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-canton-san-gallo-procedura.title': 'Einbürgerung in St. Gallen: Voraussetzungen und Ablauf',
     'blog.article.naturalizzazione-canton-san-gallo-procedura.excerpt': 'Entdecken Sie die Anforderungen an Jahre, Integrationstests, Sprache und Gebühren für die ordentliche Einbürgerung im Kanton St. Gallen.',
     'blog.article.naturalizzazione-canton-san-gallo-procedura.imageAlt': 'Landschaft des Kantons St. Gallen mit Hügeln und traditionellen Schweizerhäusern',
+    'blog.article.premi-cassa-malati-vaud-riduzione.title': 'Krankenkassenprämien Waadt: So erhalten Sie die Ermäßigung',
+    'blog.article.premi-cassa-malati-vaud-riduzione.excerpt': 'Franchisen, alternative Modelle und Voraussetzungen für den Kantonsbeitrag: Praktischer Leitfaden zu den KVG-Prämien im Kanton Waadt.',
+    'blog.article.premi-cassa-malati-vaud-riduzione.imageAlt': 'Schweizer Krankenversicherungsbüro mit Berater und Kunde',
 };
 
 export default blogMetaChDe;
