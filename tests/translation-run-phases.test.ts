@@ -1,7 +1,13 @@
 import fs from 'node:fs';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { summarizeRunPhases } from '../scripts/lib/translation-observability.mjs';
-import { RUN_PHASES_PATH, readRunPhases, recordRunPhase } from '../scripts/lib/translate-run-clock.mjs';
+import {
+  MARKER_PATH,
+  RUN_PHASES_PATH,
+  readRunPhases,
+  recordRunPhase,
+  resolveRunStartMs,
+} from '../scripts/lib/translate-run-clock.mjs';
 
 /**
  * The cascade's deadline is measured from the run start published by the FIRST
@@ -157,5 +163,30 @@ describe('the phase sidecar', () => {
   it('caps the sidecar, because the report it feeds is hard-capped at 1 MiB', () => {
     for (let index = 0; index < 40; index += 1) recordRunPhase({ name: `phase-${index}` });
     expect(readRunPhases()).toHaveLength(32);
+  });
+});
+
+describe('the run-start marker', () => {
+  const originalRequired = process.env.TRANSLATE_RUN_CLOCK_REQUIRED;
+
+  beforeEach(() => fs.rmSync(MARKER_PATH, { force: true }));
+  afterEach(() => {
+    fs.rmSync(MARKER_PATH, { force: true });
+    if (originalRequired === undefined) delete process.env.TRANSLATE_RUN_CLOCK_REQUIRED;
+    else process.env.TRANSLATE_RUN_CLOCK_REQUIRED = originalRequired;
+  });
+
+  it('fails closed when the workflow requires a missing marker', () => {
+    process.env.TRANSLATE_RUN_CLOCK_REQUIRED = '1';
+    expect(() => resolveRunStartMs()).toThrow(
+      'translate-pending run-start marker missing; refusing to restart the elapsed budget',
+    );
+  });
+
+  it('returns the published marker when the workflow clock is available', () => {
+    const startMs = 1_757_654_321_000;
+    fs.writeFileSync(MARKER_PATH, String(startMs), 'utf-8');
+    process.env.TRANSLATE_RUN_CLOCK_REQUIRED = '1';
+    expect(resolveRunStartMs()).toBe(startMs);
   });
 });

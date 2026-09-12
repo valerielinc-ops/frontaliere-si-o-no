@@ -3198,7 +3198,7 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
           cacheUpdated = true;
           if (job.needsRetranslation) { delete job.needsRetranslation; changed = true; }
         } else {
-          if (job.localeMismatchSuppressed && !sourceChangedSinceSuppression(job)) {
+          if (job.localeMismatchSuppressed && !sourceChangedSinceSuppression(job, baseDesc)) {
             skipAiSuppressedCount += 1;
             continue;
           }
