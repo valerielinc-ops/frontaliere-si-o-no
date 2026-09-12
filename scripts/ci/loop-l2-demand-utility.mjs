@@ -236,6 +236,10 @@ export async function runL2({
     verdict = baseVerdict({ sourcePath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
   const measurable = verdict.quality === 'observed' || verdict.quality === 'zero';
+  const generatedAt = finiteDate(verdict.snapshot?.generatedAt);
+  const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
+    ? generatedAt.toISOString()
+    : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
     goal: 'Demand to Utility',
@@ -244,7 +248,7 @@ export async function runL2({
     hypothesis: 'Existing demand becomes useful only when a reviewed, sourced next action is measured on the same eligible landing cohort.',
     sourceSnapshot: verdict.snapshot || { source: 'gsc-orphan-query-clusters', path: sourcePath },
     observationWindow: {
-      start: verdict.snapshot?.generatedAt || now.toISOString(),
+      start: observationStart,
       end: now.toISOString(),
       timezone: 'UTC',
     },

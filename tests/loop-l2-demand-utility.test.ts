@@ -65,6 +65,14 @@ describe('L2 Demand → Utility', () => {
     expect(verdict.candidates).toHaveLength(1);
   });
 
+  it('keeps a future timestamp from inverting the decision window', async () => {
+    const input = tempFile(snapshot({ generatedAt: '2026-09-12T18:00:00.000Z' }));
+    const result = await runL2({ now: NOW, sourcePath: input.file, logger: { log() {} } });
+    expect(result.verdict.quality).toBe('stale');
+    expect(result.decision.startedAt).toBe(NOW.toISOString());
+    expect(Date.parse(result.decision.expiresAt)).toBeGreaterThan(Date.parse(result.decision.startedAt));
+  });
+
   it('sorts and caps candidates deterministically', () => {
     const clusters = Array.from({ length: MAX_CANDIDATES + 4 }, (_, index) => cluster({
       clusterId: `cluster-${index}`,
