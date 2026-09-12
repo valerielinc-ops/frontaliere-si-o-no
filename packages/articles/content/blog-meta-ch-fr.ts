@@ -6295,6 +6295,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-siccita-faldeg-acque.title': 'Sécheresse en Suisse : 80 % des eaux souterraines à risque',
     'blog.article.svizzera-siccita-faldeg-acque.excerpt': 'La SCNAT avertit : les sources s\'assèchent dans le Jura et les Alpes. Une surveillance et une renaturalisation sont nécessaires pour protéger les eaux souterraines.',
     'blog.article.svizzera-siccita-faldeg-acque.imageAlt': 'Rivière alpine suisse au niveau d\'eau bas, illustrant l\'impact de la sécheresse sur les nappes phréatiques.',
+    'blog.article.stagionali-turismo-spese-alloggio.title': 'Saisonnières dans le tourisme : frais d\'hébergement au premier plan',
+    'blog.article.stagionali-turismo-spese-alloggio.excerpt': 'Une étude de l\'Université de Lausanne commandée par l\'Office fédéral du logement analyse les difficultés de logement des travailleurs saisonniers.',
+    'blog.article.stagionali-turismo-spese-alloggio.imageAlt': 'Travailleurs saisonniers dans le tourisme suisse et logement',
 };
 
 export default blogMetaChFr;

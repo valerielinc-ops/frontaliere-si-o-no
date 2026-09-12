@@ -6295,6 +6295,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-siccita-faldeg-acque.title': 'Siccità in Svizzera: a rischio l\'80% delle acque sotterranee',
     'blog.article.svizzera-siccita-faldeg-acque.excerpt': 'La SCNAT avverte: le sorgenti si prosciugano nel Giura e nelle Alpi. Serve monitoraggio e rinaturalizzazione per proteggere le falde.',
     'blog.article.svizzera-siccita-faldeg-acque.imageAlt': 'Fiume alpino svizzero con livello dell\'acqua basso, illustrando le conseguenze della siccità sulle falde acquifere.',
+    'blog.article.stagionali-turismo-spese-alloggio.title': 'Stagionali nel turismo: spese di alloggio in primo piano',
+    'blog.article.stagionali-turismo-spese-alloggio.excerpt': 'Uno studio dell\'Universita di Losanna commissionato dall\'Ufficio federale delle abitazioni analizza le difficolta abitative dei lavoratori stagionali.',
+    'blog.article.stagionali-turismo-spese-alloggio.imageAlt': 'Lavoratori stagionali nel turismo svizzero e problemi di alloggio',
 };
 
 export default blogMetaChIt;

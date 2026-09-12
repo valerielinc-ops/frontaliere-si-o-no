@@ -6295,6 +6295,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-siccita-faldeg-acque.title': 'Dürre in der Schweiz: 80 % des Grundwassers gefährdet',
     'blog.article.svizzera-siccita-faldeg-acque.excerpt': 'SCNAT warnt: Quellen trocknen im Jura und in den Alpen aus. Überwachung und Renaturierung sind notwendig, um das Grundwasser zu schützen.',
     'blog.article.svizzera-siccita-faldeg-acque.imageAlt': 'Schweizerischer Alpenfluss mit niedrigem Wasserstand, der die Auswirkungen der Dürre auf Grundwasserreserven zeigt.',
+    'blog.article.stagionali-turismo-spese-alloggio.title': 'Saisonal im Tourismus: Unterkunftskosten im Vordergrund',
+    'blog.article.stagionali-turismo-spese-alloggio.excerpt': 'Eine Studie der Universität Lausanne im Auftrag des Bundesamtes für Wohnungswesen analysiert die Wohnungsnot der Saisonarbeiter.',
+    'blog.article.stagionali-turismo-spese-alloggio.imageAlt': 'Saisonarbeitskräfte im Schweizer Tourismus und Wohnungsfragen',
 };
 
 export default blogMetaChDe;

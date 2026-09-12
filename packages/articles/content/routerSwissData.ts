@@ -2124,6 +2124,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'costi-nidi-servizi-infanzia-canton-sg': { it: 'costi-nidi-servizi-infanzia-canton-sg', en: 'childcare-costs-daycare-canton-st-gallen', de: 'kita-kosten-kinderbetreuung-kanton-st-gallen', fr: 'frais-garde-enfants-creche-canton-saint-gall' },
  'svizzeri-spesa-crescita-rallenta': { it: 'svizzeri-spesa-crescita-rallenta', en: 'swiss-spending-growth-slows', de: 'schweizer-konsumwachstum-verlangsamt-sich', fr: 'depenses-suisses-croissance-ralentit' },
  'svizzera-siccita-faldeg-acque': { it: 'svizzera-siccita-faldeg-acque', en: 'switzerland-drought-groundwater-risk', de: 'schweiz-duerre-grundwasser-gefahr', fr: 'suisse-secheresse-eaux-souterraines' },
+ 'stagionali-turismo-spese-alloggio': { it: 'stagionali-turismo-spese-alloggio', en: 'seasonal-workers-tourism-housing-costs', de: 'saisonarbeitskraefte-tourismus-wohngeschaefte', fr: 'travailleurs-saisonniers-tourisme-logement' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
