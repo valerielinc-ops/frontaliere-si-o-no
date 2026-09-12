@@ -87,6 +87,21 @@ function countIssue(summary, field, list, issues, warnings, prefix) {
   }
 }
 
+function validateActivePartition(summary, prefix, issues) {
+  const counts = [summary.newCount, summary.updatedCount, summary.unchangedCount];
+  if (!integer(summary.total) || !counts.every(integer)) return;
+  // `total`/`written` describe the active slice. Removed jobs belong to the
+  // previous slice, so the active partition is new+updated+unchanged;
+  // subtracting removedCount here would count the same deletion twice.
+  const activeTotal = counts.reduce((sum, count) => sum + count, 0);
+  if (activeTotal !== summary.total) {
+    issues.push(`${prefix}.total (${summary.total}) does not match newCount + updatedCount + unchangedCount (${activeTotal}); removedCount is a previous-slice delta`);
+  }
+  if (summary.written !== undefined && integer(summary.written) && summary.written !== summary.total) {
+    issues.push(`${prefix}.written (${summary.written}) does not match total (${summary.total})`);
+  }
+}
+
 function jobIssues(job, prefix, now) {
   const issues = [];
   if (!job || typeof job !== 'object' || Array.isArray(job)) {
@@ -245,19 +260,7 @@ export function validateJobSummaries(summaries, {
     if (summary.written !== undefined && !integer(summary.written)) {
       issues.push(`${prefix}.written is not a non-negative integer`);
     }
-    const declaredCounts = [summary.newCount, summary.updatedCount, summary.unchangedCount];
-    if (integer(summary.total) && declaredCounts.every(integer)) {
-      // `total`/`written` describe the active slice. Removed jobs belong to
-      // the previous slice, so the active partition is new+updated+unchanged;
-      // subtracting removedCount here would count the same deletion twice.
-      const activeTotal = declaredCounts.reduce((sum, count) => sum + count, 0);
-      if (activeTotal !== summary.total) {
-        issues.push(`${prefix}.total (${summary.total}) does not match newCount + updatedCount + unchangedCount (${activeTotal}); removedCount is a previous-slice delta`);
-      }
-      if (summary.written !== undefined && integer(summary.written) && summary.written !== summary.total) {
-        issues.push(`${prefix}.written (${summary.written}) does not match total (${summary.total})`);
-      }
-    }
+    validateActivePartition(summary, prefix, issues);
     for (const section of ['newJobs', 'updatedJobs', 'unchangedJobs']) {
       for (const [index, job] of (summary[section] || []).entries()) {
         jobsInspected += 1;
@@ -309,13 +312,16 @@ export function validateJobSummaries(summaries, {
     warningCount: warnings.length,
   };
 
+  const hasActionableIssues = issues.length > 0;
   let quality = 'observed';
   if (summaryCount === 0 || malformedSummaries === summaryCount) quality = 'unmeasurable';
   else if (staleSummaries === summaryCount) quality = 'stale';
-  else if (issues.length > 0) quality = outcomeVerdict.quality === 'stale' && freshSummaries === 0 ? 'stale' : 'partial';
+  else if (hasActionableIssues) quality = outcomeVerdict.quality === 'stale' && freshSummaries === 0 ? 'stale' : 'partial';
   else if (outcomeVerdict.quality === 'zero') quality = 'zero';
   else if (staleSummaries > 0 || invalidJobs > 0 || outcomeVerdict.quality !== 'observed') quality = outcomeVerdict.quality === 'stale' && freshSummaries === 0 ? 'stale' : 'partial';
-  const ok = quality === 'observed' && issues.length === 0;
+  // A measured observation requires both an observed quality and a clean
+  // verdict. Never let a later outcome export mask a malformed summary.
+  const ok = quality === 'observed' && !hasActionableIssues;
   return baseVerdict({
     sourcePath,
     now,
