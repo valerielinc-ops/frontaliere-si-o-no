@@ -93,8 +93,10 @@ function asDataMap(snapshot) {
 /**
  * Read roots and ad shards. Older snapshots have no subcollection and remain
  * valid; this is also the complete rollback baseline for a migration run.
+ * `discoverOrphans` is reserved for rollback, where an unreferenced window
+ * shard must be found even if its root pointer was never committed.
  */
-export async function readEmployerInsightsSnapshot(db) {
+export async function readEmployerInsightsSnapshot(db, { discoverOrphans = false } = {}) {
   const collection = db.collection(EMPLOYER_INSIGHTS_COLLECTION);
   const rootSnapshot = await collection.get();
   const roots = new Map();
@@ -114,7 +116,7 @@ export async function readEmployerInsightsSnapshot(db) {
     // A failed write can leave window shards behind before its root pointer is
     // committed. Enumerate the safe, known shard names so rollback can remove
     // those orphans even when the old root has no window metadata yet.
-    if (typeof doc.ref?.listCollections === 'function') {
+    if (discoverOrphans && typeof doc.ref?.listCollections === 'function') {
       const subcollections = await doc.ref.listCollections();
       for (const subcollection of subcollections || []) {
         if (subcollection.id === EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION
@@ -232,7 +234,7 @@ export async function writeEmployerInsightsDocuments(db, documents, { before } =
  * precise progress if the rollback itself encounters an outage.
  */
 export async function restoreEmployerInsightsSnapshot(db, before) {
-  const after = await readEmployerInsightsSnapshot(db);
+  const after = await readEmployerInsightsSnapshot(db, { discoverOrphans: true });
   const collection = db.collection(EMPLOYER_INSIGHTS_COLLECTION);
   const items = [];
 
