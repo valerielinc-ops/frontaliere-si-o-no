@@ -1,7 +1,7 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-09-11T23:19:18.333Z",
+  "generatedAt": "2026-09-12T13:03:55.962Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,10 +12,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8802,
-  "avgDurationMs": 8802,
+  "durationMs": 6815,
+  "avgDurationMs": 6815,
   "durationHistory": [
-    8802
+    6815
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.apgsga.ch/publication/lernende-kaufmann-frau-efz-zuerich/xkgzq2jrdlmqx2722bonikgyocy76s5eicpvnct0j0w7bqclfmapniklq34qxcsh",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:19:10.083Z",
+      "crawledAt": "2026-09-12T13:03:48.406Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -68,7 +68,7 @@
       "url": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:19:10.831Z",
+      "crawledAt": "2026-09-12T13:03:49.168Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,6 @@
       "featured": false,
       "postedDate": "2026-07-28",
       "applyUrl": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-30T22:32:51.344Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {

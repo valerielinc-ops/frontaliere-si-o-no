@@ -1,38 +1,38 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-09-11T23:18:22.527Z",
-  "total": 7,
+  "generatedAt": "2026-09-12T13:03:02.940Z",
+  "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
-  "written": 7,
+  "written": 5,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
-  "unchangedCount": 2,
-  "durationMs": 12664,
-  "avgDurationMs": 12664,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 10966,
+  "avgDurationMs": 10966,
   "durationHistory": [
-    12664
+    10966
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "wagerenhof-ec9d0587da9b",
-      "slug": "diplomierte-pflegefachperson-per-den-nachtdienst-80-100-stiftung-wagerenhof-uster",
+      "slug": "diplomierte-pflegefachperson-fur-den-nachtdienst-80-100-wagerenhof-uster",
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Diplomierte Pflegefachperson für den Nachtdienst (80-100%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-554&cHash=23a52bc913e6c8713584f230f50acaae",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:18:07.111Z",
+      "crawledAt": "2026-09-12T13:02:48.843Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -48,11 +48,11 @@
       "postedDate": "2026-09-11",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-554&cHash=23a52bc913e6c8713584f230f50acaae",
       "firstSeenAt": "2026-09-11T13:40:35.202Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -63,13 +63,13 @@
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Fachexpertin / Fachexperte Pflege (80-100%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-528&cHash=88e33377daaa77f070b8fff50c44a193",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:18:08.073Z",
+      "crawledAt": "2026-09-12T13:02:49.695Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,11 +85,11 @@
       "postedDate": "2026-09-11",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-528&cHash=88e33377daaa77f070b8fff50c44a193",
       "firstSeenAt": "2026-09-11T13:40:36.319Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -106,7 +106,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-553&cHash=a2a3a487ecc923603804f903b0b2b65e",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:18:09.031Z",
+      "crawledAt": "2026-09-12T13:02:50.567Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -143,7 +143,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-535&cHash=35a4cedfc1091d73415c31e6ac0d32d9",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:18:11.076Z",
+      "crawledAt": "2026-09-12T13:02:52.382Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-552&cHash=f8b3edefd6a343428bf4c62e27f072c5",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:18:10.139Z",
+      "crawledAt": "2026-09-12T13:02:51.424Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -206,49 +206,6 @@
     }
   ],
   "removedJobs": [
-    {
-      "id": "wagerenhof-e6df1f3c792b",
-      "slug": "collaboratore-trice-in-wascherei-100-stiftung-wagerenhof-uster",
-      "company": "Stiftung Wagerenhof",
-      "companyKey": "wagerenhof",
-      "companyDomain": "wagerenhof.ch",
-      "title": "Mitarbeiterin/Mitarbeiter Wäscherei und Näherei 100%",
-      "needsRetranslation": false,
-      "location": "Uster",
-      "canton": "ZH",
-      "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-544&cHash=b0621d763eca6fa19183259e3a65d94d",
-      "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:11:16.029Z",
-      "addressLocality": "Uster",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8610",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sociale / Educazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-544&cHash=b0621d763eca6fa19183259e3a65d94d",
-      "firstSeenAt": "2026-08-31T17:12:37.741Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "id": "wagerenhof-d85633d5218d",
       "slug": "specialista-supporto-professionale-fabe-70-100-stiftung-wagerenhof-uster",
@@ -331,5 +288,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
