@@ -8,6 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   AUTONOMY_ORDER,
+  actionAutonomy,
   buildDecision,
   buildObservation,
   validateLoopRegistry,
@@ -65,14 +66,15 @@ function registryPolicy(registry) {
   const validated = validateLoopRegistry(registry);
   const policy = validated.loops.find((loop) => loop.loopId === LOOP_ID);
   if (!policy) throw new TypeError(`loop-fleet contract: registry has no ${LOOP_ID} policy`);
-  return policy;
+  return { policy, actionAutonomy: validated.actionAutonomy };
 }
 
 function applyRegistryPolicy(candidates, registry, issues) {
   if (!registry) return { candidates, snapshot: null, valid: true };
   let policy;
+  let actionAutonomyMap;
   try {
-    policy = registryPolicy(registry);
+    ({ policy, actionAutonomy: actionAutonomyMap } = registryPolicy(registry));
   } catch (error) {
     issues.push(error.message);
     return { candidates: [], snapshot: null, valid: false };
@@ -84,16 +86,27 @@ function applyRegistryPolicy(candidates, registry, issues) {
       issues.push(`registry disallows ${LOOP_ID} action class ${actionClass}`);
       continue;
     }
-    if (!Object.hasOwn(AUTONOMY_ORDER, candidate.autonomy)
-        || AUTONOMY_ORDER[candidate.autonomy] > AUTONOMY_ORDER[policy.maxAutonomy]) {
-      issues.push(`registry disallows ${LOOP_ID} autonomy ${candidate.autonomy || 'missing'} (max ${policy.maxAutonomy})`);
+    let requiredAutonomy;
+    try {
+      requiredAutonomy = actionAutonomy(actionClass, actionAutonomyMap);
+    } catch (error) {
+      issues.push(error.message);
       continue;
     }
-    accepted.push({ ...candidate, actionClass });
+    if (AUTONOMY_ORDER[requiredAutonomy] > AUTONOMY_ORDER[policy.maxAutonomy]) {
+      issues.push(`registry disallows ${LOOP_ID} autonomy ${requiredAutonomy} (max ${policy.maxAutonomy})`);
+      continue;
+    }
+    accepted.push({ ...candidate, actionClass, autonomy: requiredAutonomy });
   }
   return {
     candidates: accepted,
-    snapshot: { loopId: LOOP_ID, maxAutonomy: policy.maxAutonomy, actionClasses: policy.actionClasses },
+    snapshot: {
+      loopId: LOOP_ID,
+      maxAutonomy: policy.maxAutonomy,
+      actionClasses: policy.actionClasses,
+      actionAutonomy: actionAutonomyMap,
+    },
     valid: true,
   };
 }
@@ -360,15 +373,25 @@ function writeReports(reportDir, verdict, observation, decision) {
 function writeActions(reportDir, verdict, now) {
   if (!reportDir || verdict.ok) return null;
   const registry = verdict.snapshot?.registry;
-  if (!registry || !Object.hasOwn(AUTONOMY_ORDER, registry.maxAutonomy) || !Array.isArray(registry.actionClasses)) return null;
-  const allowed = (action) => registry.actionClasses.includes(action.actionClass || 'candidate')
-    && Object.hasOwn(AUTONOMY_ORDER, action.autonomy)
-    && AUTONOMY_ORDER[action.autonomy] <= AUTONOMY_ORDER[registry.maxAutonomy];
+  if (!registry || !Object.hasOwn(AUTONOMY_ORDER, registry.maxAutonomy)
+      || !Array.isArray(registry.actionClasses) || !registry.actionAutonomy) return null;
+  const allowed = (action) => {
+    const actionClass = action.actionClass || 'candidate';
+    if (!registry.actionClasses.includes(actionClass)) return false;
+    let requiredAutonomy;
+    try {
+      requiredAutonomy = actionAutonomy(actionClass, registry.actionAutonomy);
+    } catch {
+      return false;
+    }
+    return action.autonomy === requiredAutonomy
+      && AUTONOMY_ORDER[requiredAutonomy] <= AUTONOMY_ORDER[registry.maxAutonomy];
+  };
   const file = path.join(path.resolve(reportDir), 'l5-safe-actions.json');
   const actions = [
     {
-      autonomy: 'A3',
-      actionClass: 'candidate',
+      autonomy: registry.actionAutonomy['stale-label'],
+      actionClass: 'stale-label',
       action: 'label a stale or incomplete surface and suppress any unsupported freshness promise',
       reversible: true,
       publishedDataUntouched: true,

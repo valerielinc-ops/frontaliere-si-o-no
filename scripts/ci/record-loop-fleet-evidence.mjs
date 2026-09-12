@@ -248,7 +248,7 @@ export function recordLoopEvidence({
   const quality = result?.quality || observed?.quality || 'unmeasurable';
   const actionClass = decided?.actionClass || observed?.actionClass || 'issue';
   const autonomy = (() => {
-    try { return actionAutonomy(actionClass); } catch { return null; }
+    try { return actionAutonomy(actionClass, registry.actionAutonomy); } catch { return null; }
   })();
   const health = {
     recordType: 'health',

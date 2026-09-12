@@ -173,10 +173,13 @@ describe('L7 Experiment Allocator', () => {
       logger: { log() {} },
     });
     expect(result.actionsWritten).toBe(true);
-    expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l7-actions.json'), 'utf8'))).toMatchObject({
+    const actions = JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l7-actions.json'), 'utf8'));
+    expect(actions).toMatchObject({
       appliesToTraffic: false,
       noAutomaticPriceChange: true,
     });
+    expect(actions.actions.find((action: { actionClass: string }) => action.actionClass === 'candidate'))
+      .toMatchObject({ autonomy: 'A1' });
   });
 
   it('persists a separate result after a deduplicated issue succeeds', async () => {
