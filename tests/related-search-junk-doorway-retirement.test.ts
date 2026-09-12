@@ -286,6 +286,14 @@ describe('junkRetirementWrites — the flat sibling is withdrawn too (issue #775
     ]);
   });
 
+  it('lowercases the path before deriving both filesystem halves', () => {
+    const writes = junkRetirementWrites('/CERCA-LAVORO-TICINO/RICERCA-COOKIE-BERN/', HTML);
+    expect(writes.map((w) => w.rel)).toEqual([
+      'cerca-lavoro-ticino/ricerca-cookie-bern/index.html',
+      'cerca-lavoro-ticino/ricerca-cookie-bern.html',
+    ]);
+  });
+
   it('never produces a `.html` dotfile for an empty path', () => {
     // `dist/.html` would be served for the DIRECTORY URL as
     // application/octet-stream, masking the real index.html.
@@ -512,6 +520,35 @@ describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record
     fs.rmSync(collisionRoot, { recursive: true, force: true });
   });
 
+  it('persists the current version as a string and keeps writer-format collisions fatal', () => {
+    const writerRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-current-writer-'));
+    const dist = path.join(writerRoot, 'dist');
+    const retired = 'cerca-lavoro-svizzera/ricerca-cookie-bern/index.html';
+    const live = 'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html';
+    try {
+      for (const rel of [retired, live]) {
+        fs.mkdirSync(path.dirname(path.join(dist, rel)), { recursive: true });
+        fs.writeFileSync(path.join(dist, rel), `<html>${rel}</html>`);
+      }
+      saveToCache(writerRoot, dist, 'current-writer', [retired, live], [], [], [], [], [retired]);
+      const manifestPath = path.join(
+        writerRoot,
+        '.cache',
+        'related-search-clusters',
+        'current-writer',
+        'manifest.json',
+      );
+      const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+      expect(manifest.version).toBe('v11');
+      manifest.files.push(retired);
+      fs.writeFileSync(manifestPath, JSON.stringify(manifest));
+
+      expect(() => loadPreviouslyEmittedClusterKeys(writerRoot)).toThrow(/issue #7752/);
+    } finally {
+      fs.rmSync(writerRoot, { recursive: true, force: true });
+    }
+  });
+
   it('quarantines a collision in a historical manifest without blocking the build', () => {
     const historicalRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-historical-collision-'));
     const historicalDir = path.join(historicalRoot, '.cache', 'related-search-clusters', 'historical');
@@ -532,6 +569,22 @@ describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record
 
     expect(loadPreviouslyEmittedClusterKeys(historicalRoot)).toEqual(new Set());
     fs.rmSync(historicalRoot, { recursive: true, force: true });
+  });
+
+  it('does not quarantine a non-collision error from a historical manifest', () => {
+    const malformedRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-historical-malformed-'));
+    const malformedDir = path.join(malformedRoot, '.cache', 'related-search-clusters', 'malformed');
+    fs.mkdirSync(malformedDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(malformedDir, 'manifest.json'),
+      JSON.stringify({ version: 'v10', files: [42, 42], retiredFiles: [42] }),
+    );
+
+    try {
+      expect(() => loadPreviouslyEmittedClusterKeys(malformedRoot)).toThrow(TypeError);
+    } finally {
+      fs.rmSync(malformedRoot, { recursive: true, force: true });
+    }
   });
 
   it('does not count a WITHDRAWAL document as evidence of publication', () => {
