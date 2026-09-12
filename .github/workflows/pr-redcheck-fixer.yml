@@ -45,6 +45,7 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  actions: read
   id-token: write
 
 jobs:
@@ -69,6 +70,8 @@ jobs:
       actionable: ${{ steps.pre.outputs.actionable }}
       pr_number: ${{ steps.pre.outputs.pr_number }}
       head_ref: ${{ steps.pre.outputs.head_ref }}
+      head_sha: ${{ steps.pre.outputs.head_sha }}
+      failed_check_key: ${{ steps.pre.outputs.failed_check_key }}
       failed_run_id: ${{ steps.pre.outputs.failed_run_id }}
     steps:
       - name: PR actionable, and is the red still the HEAD's?
@@ -151,8 +154,11 @@ jobs:
 
           # La CI corrente deve essere DAVVERO rossa adesso: fra il trigger e qui
           # un re-run puo' aver rimesso verde, e allora non c'e' niente da fixare.
-          rollup=$(gh api "repos/$REPO/commits/$head_sha/check-runs?per_page=100" \
-            --jq '[.check_runs[] | select(.conclusion=="failure") | .name] | join(", ")' 2>/dev/null || echo "")
+          if ! rollup=$(gh api "repos/$REPO/commits/$head_sha/check-runs?per_page=100" \
+            --jq '[.check_runs[] | select(.conclusion=="failure") | .name] | sort | @json' 2>/dev/null); then
+            echo "::error::Check-runs HEAD illeggibili: impossibile verificare quale rosso redcheck dovrebbe riparare."
+            exit 1
+          fi
           if [ -z "$rollup" ]; then
             skip "Nessun check in stato failure sulla HEAD adesso → gia' rientrato, skip (no-op)."
           fi
@@ -170,6 +176,8 @@ jobs:
             echo "actionable=true"
             echo "pr_number=$PR"
             echo "head_ref=$head_ref"
+            echo "head_sha=$head_sha"
+            echo "failed_check_key=$rollup"
             echo "failed_run_id=$RUN_ID"
           } >> "$GITHUB_OUTPUT"
 
@@ -195,6 +203,33 @@ jobs:
         # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
         timeout-minutes: 15
 
+      - name: Claim redcheck PR + HEAD + failed check (zero-Claude)
+        id: claim
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: acquire
+          CLAIM_KIND: redcheck
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          HEAD_SHA: ${{ needs.preflight.outputs.head_sha }}
+          EVENT_KEY: tests-run:${{ needs.preflight.outputs.failed_run_id }}
+          VERDICT_KEY: failed-checks:${{ needs.preflight.outputs.failed_check_key }}
+          CHECK_FAILURE_KEY: ${{ needs.preflight.outputs.failed_check_key }}
+          CLAIM_TTL_SEC: '3600'
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: node scripts/ci/pr-fixer-claim.mjs --claim
+
+      - name: Fail closed when redcheck claim is unreadable
+        if: steps.claim.outputs.claim_error == 'true'
+        run: |
+          echo "::error::Claim redcheck PR+HEAD+failed-check illeggibile o non verificabile → nessun fixer Claude."
+          exit 1
+
+      - name: Skip already-consumed redcheck failure (zero-Claude)
+        if: steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_error != 'true'
+        run: echo "Rosso già acquisito per questa PR+HEAD+failed-check → nessun secondo round Claude."
+
       # Profilassi workflow-validation drift (anti-401): la GitHub App del reviewer
       # esige che `.github/workflows/pr-review-loop.yml` sul branch sia BYTE-IDENTICO
       # a `main`. Se `main` ha aggiornato un workflow di review DOPO il branch, la
@@ -205,6 +240,7 @@ jobs:
       # viaggia poi sul push del fix dell'agent. Su conflitto → abort + warning
       # (nessuna regressione: il branch resta com'era, comportamento pre-fix).
       - name: Align review workflows (merge origin/main, anti-401 drift)
+        if: steps.claim.outputs.claim_allowed == 'true'
         run: |
           set -uo pipefail
           git config user.name "Valerie Linc"
@@ -231,15 +267,18 @@ jobs:
           fi
 
       - name: Setup Node.js
+        if: steps.claim.outputs.claim_allowed == 'true'
         uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: npm
 
       - name: Install dependencies
+        if: steps.claim.outputs.claim_allowed == 'true'
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.claim.outputs.claim_allowed == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -251,6 +290,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config (GITHUB_PAT)
+        if: steps.claim.outputs.claim_allowed == 'true'
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
@@ -259,6 +299,7 @@ jobs:
       # push re-triggers pr-review-loop just like the PAT (no GITHUB_TOKEN
       # anti-recursion). Falls back to env.GITHUB_PAT (#2861/#2899).
       - name: Mint App token (primary identity, PAT fallback)
+        if: steps.claim.outputs.claim_allowed == 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -273,7 +314,7 @@ jobs:
       # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT (e' la cosa rotta). Scatta solo se
       # NESSUN token usabile (né App né PAT).
       - name: Alert token-down (dedup, zero-Claude)
-        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        if: steps.claim.outputs.claim_allowed == 'true' && env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -309,6 +350,7 @@ jobs:
       # variabile assente o diversa da 'true' → si ricade sul solo GITHUB_PAT.
       - name: Round cap + capability guard + tier
         id: guard
+        if: steps.claim.outputs.claim_allowed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -319,8 +361,11 @@ jobs:
           MAX_ROUNDS=2
 
           # Round corrente = numero di marker già presenti.
-          comments=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
-            --jq '[.[] | .body] | join("\n")' 2>/dev/null || echo "")
+          if ! comments=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '[.[] | .body] | join("\n")' 2>/dev/null); then
+            echo "::error::Commenti PR illeggibili: impossibile verificare il round cap redcheck."
+            exit 1
+          fi
           ROUND=$(printf '%s' "$comments" | grep -oE 'REDCHECK_FIX_ROUND: [0-9]+' \
             | grep -oE '[0-9]+' | sort -rn | head -1 || true)
           ROUND=${ROUND:-0}
@@ -396,13 +441,16 @@ jobs:
 
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
           # run muore, il round è comunque contato → l'anti-loop tiene).
-          gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDCHECK_FIX_ROUND: %s -->\n_❌-check-fixer round %s/%s avviato (auto)._' "$NEXT" "$NEXT" "$MAX_ROUNDS")" \
-            2>/dev/null || true
+          if ! gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDCHECK_FIX_ROUND: %s -->\n_❌-check-fixer round %s/%s avviato (auto)._' "$NEXT" "$NEXT" "$MAX_ROUNDS")" \
+            2>/dev/null; then
+            echo "::error::Marker REDCHECK_FIX_ROUND non persistito: stop fail-closed prima di Claude."
+            exit 1
+          fi
           echo "proceed=true" >> "$GITHUB_OUTPUT"
           echo "round=$NEXT"  >> "$GITHUB_OUTPUT"
 
       - name: Configure git identity
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         run: |
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
@@ -412,7 +460,7 @@ jobs:
       # re-review non partirebbe (anti-ricorsione); il fix verrebbe comunque
       # committato. Esposto come remote authenticato.
       - name: Configure push remote (App token / PAT)
-        if: steps.guard.outputs.proceed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '')
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '')
         env:
           PUSH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
@@ -434,7 +482,7 @@ jobs:
       # gonfiato nel loop-health-report #1951).
       - name: Record base SHA (pre-Claude)
         id: base
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -456,7 +504,7 @@ jobs:
       # riepilogo si leggono come fallimenti e mandano la diagnosi fuori strada.
       - name: Collect failing check context (zero-Claude)
         id: ctx
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -499,11 +547,11 @@ jobs:
           sed -n '1,25p' "$OUT/failing.txt"
 
       - name: Setup Headroom compression proxy
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         uses: ./.github/actions/setup-headroom
 
       - name: Install deterministic PR body gate
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         run: |
           set -euo pipefail
           gate_dir="$RUNNER_TEMP/pr-body-gate-bin"
@@ -514,7 +562,7 @@ jobs:
 
       - name: Pre-flight — Claude quota telemetry (Codex primary)
         id: quota
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -524,7 +572,7 @@ jobs:
 
       - name: Run Claude ❌-check-fix
         id: claude_review
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         # Tetto sullo step, stessa ragione del Checkout qui sopra: senza, l'unico
         # limite era il cap del job e la run moriva `cancelled`, che NON fa
         # scattare nessun `if: failure()` e si vede solo dallo scan periodico
@@ -622,12 +670,12 @@ jobs:
             - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
             - Una sola passata: diagnostica, fixa, valida, committa, pusha, aggiorna il body, STOP.
       - name: Claude usage metrics
-        if: always() && steps.guard.outputs.proceed == 'true' && steps.claude_review.outputs.claude_used == 'true'
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claude_review.outputs.claude_used == 'true'
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "pr-redcheck-fixer"
 
       # Un 429 prima del primo turno non deve consumare il round anti-loop.
       - name: Refund round on Claude quota 429 (zero-Claude)
-        if: always() && steps.guard.outputs.proceed == 'true'
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -664,7 +712,7 @@ jobs:
       # step non hanno continue-on-error. Mai fa-passare un gate: il round non ha
       # gate, è telemetria di colore (cfr. #2288, disambigua intenzionale vs crash).
       - name: Classify outcome (work-done, not CLI exit)
-        if: always() && steps.guard.outputs.proceed == 'true'
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -694,3 +742,23 @@ jobs:
           fi
           echo "Nessun push ma Claude terminato pulito ('$CLAUDE_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
           exit 0
+
+      - name: Finalize redcheck PR + HEAD + failed check claim
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: finalize
+          CLAIM_KIND: redcheck
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          HEAD_SHA: ${{ needs.preflight.outputs.head_sha }}
+          EVENT_KEY: tests-run:${{ needs.preflight.outputs.failed_run_id }}
+          VERDICT_KEY: failed-checks:${{ needs.preflight.outputs.failed_check_key }}
+          CHECK_FAILURE_KEY: ${{ needs.preflight.outputs.failed_check_key }}
+          CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
+          PROCEED: ${{ steps.guard.outputs.proceed }}
+          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
+          EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: node scripts/ci/pr-fixer-claim.mjs --claim
