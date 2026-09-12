@@ -11685,6 +11685,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.benzina-riserve-svizzera-frontalieri.title': 'Benzina in Svizzera: aperte le riserve, effetti sui prezzi',
     'blog.article.benzina-riserve-svizzera-frontalieri.excerpt': 'Scorte obbligatorie aperte per benzina e diesel. Dal 8 al 20 settembre 2026 prelievo fino a 30.000 m³. Fermo raffineria Cressier e Reno a basso livello.',
     'blog.article.benzina-riserve-svizzera-frontalieri.imageAlt': 'Auto a una stazione di servizio a Mendrisio con le Alpi sullo sfondo',
+    'blog.article.bollettino-frontaliere-2026-09-12.title': 'Bollettino del frontaliere – 12 settembre 2026: 1802 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-09-12.excerpt': 'I numeri di oggi, 12 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-12.imageAlt': 'I numeri del giorno per i frontalieri – 12 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-12.seoDescription': 'Bollettino frontalieri del 12 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-12.ogDescription': 'I numeri del 12 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;

@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 12 Sep 2026 08:27:30 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 09:07:30 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -17,6 +17,62 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Bulletin du frontalier – 12 septembre 2026 : 1 802 nouvelles offres d&apos;emploi hier</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/bulletin-frontalier-2026-09-12/</link>
+      <description><![CDATA[Les chiffres du jour, 12 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.]]></description>
+      <content:encoded><![CDATA[Bonjour — nous sommes samedi 12 septembre 2026. Voici le bulletin quotidien pour celles et ceux qui vivent d'un côté de la frontière et travaillent de l'autre : quatre chiffres mesurés aujourd'hui par notre suivi — files aux douanes, essence, taux de change et emploi — chacun avec le lien vers sa page en direct.
+
+## Attentes aux douanes ce matin
+
+Ça roule ce matin : sur 141 passages surveillés, 130 ne signalent aucune file et l'attente la plus longue n'est que de **8 minutes** (Chiasso-Brogeda).
+
+| Douane | Attente | État |
+|---|---|---|
+| Chiasso-Brogeda | 8 min | ralenti |
+| Chiasso-Strada | 2 min | fluide |
+| Basel – Weil am Rhein, Autostrada A2/A5 | 1 min | fluide |
+| Basel – Weil am Rhein, Freiburgerstrasse | 1 min | fluide |
+| Büsingen am Hochrhein – Schaffhausen, Felsgasse | 1 min | fluide |
+
+Le trafic change d'heure en heure — l'état en direct de chaque douane est sur la [page du temps d'attente](/fr/temps-attente-douane/).
+## Essence : où elle coûte le moins cher aujourd’hui
+
+Sur 518 communes frontalières suivies, faire le plein revient aujourd'hui moins cher en Suisse dans 107 cas et en Italie dans 32.
+
+| Commune (IT) | Sans plomb, prix minimum |
+|---|---|
+| Livigno (SO) | 1,548 €/L |
+| Veduggio con Colzano (MB) | 1,849 €/L |
+| Arcisate (VA) | 1,854 €/L |
+| Aprica (SO) | 1,919 €/L |
+| Gera Lario (CO) | 1,999 €/L |
+
+📊 **Le bon côté pour un plein.** À **Livigno** (SO), l'écart vaut aujourd'hui **25,25 € sur un plein de 50 litres** (1,548 €/L en Italie contre 2,053 €/L à la station suisse la plus proche).
+
+La station suisse la moins chère aujourd'hui est **Alpina Tankstelle** (1,45 CHF/L, ≈ 1,534 €/L), près de Curon Venosta (BZ).
+
+Les prix commune par commune, mis à jour chaque jour : [prix de l'essence à la frontière, aujourd'hui](/fr/prix-essence-suisse/aujourd-hui/).
+## Taux de change franc–euro
+
+Un franc vaut **1,0607 €** (clôture du 2026-09-11). Par rapport à la veille il perd 0,0009 € ; sur sept jours, la variation est de -0,0031 €.
+
+💡 Quand on gagne en francs et qu'on dépense en euros, le taux fait partie du salaire : sur 4 000 CHF, un centime de variation vaut 40 € par mois. Le [calculateur de salaire net](/fr/calculer-salaire/) et le [comparatif des services de change](/fr/comparaison-services/taux-change-chf-eur/) font le calcul pour votre cas.
+## Emploi : les chiffres d’hier
+
+Hier, **1 802 nouvelles offres d'emploi** en Suisse sont arrivées sur notre job board ; 8 955 sur les sept derniers jours. Au total, **29 227** annonces sont actives, de 837 entreprises.
+
+Filtrez par canton, secteur et ville : [trouver un emploi au Tessin et en Suisse](/fr/trouver-emploi-tessin/).
+
+## Comment naît ce bulletin
+
+Aucun des chiffres ci-dessus ne vient d’un flux d’agence — c’est notre propre suivi : files échantillonnées plusieurs fois par heure à chaque passage frontalier suisse, prix des carburants dans les communes frontalières italiennes et aux stations suisses proches, série officielle quotidienne CHF/EUR et crawlers de notre job board. Le bulletin sort tôt chaque matin, avant les trajets pendulaires ; les chiffres sont un instantané au moment de la publication, les pages liées restent en direct toute la journée.]]></content:encoded>
+      <pubDate>Sat, 12 Sep 2026 09:07:30 GMT</pubDate>
+      <dc:creator><![CDATA[Samuele Valente]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/bollettino-frontaliere-2026-09-12</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-09-12.webp" medium="image"/>
+    </item>
     <item>
       <title>Essence en Suisse : ouverture des réserves, effets sur les prix</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/essence-reserves-suisse-frontaliers/</link>
@@ -2900,98 +2956,6 @@ Pour plus d'informations et pour utiliser des outils utiles, visitez le [calcola
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/disoccupazione-stabile-ticino-agosto-2024</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/disoccupazione-stabile-ticino-agosto-2024.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Vivre à Saint-Christophe et travailler en Valais comme frontalier</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/vivre-a-saint-christophe-travailler-dans-le-valais-frontalier/</link>
-      <description><![CDATA[Découvrez les connexions, les temps de trajet, le coût de la vie et les avantages de vivre à Saint-Christophe et de travailler en Valais.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Vivre à Saint-Christophe et travailler en Valais est un choix avantageux pour les frontaliers.
-- Les temps de trajet varient selon le moyen de transport.
-- Le coût de la vie est inférieur à celui de nombreuses autres zones du Tessin.
-
-## Faits clés
-- **Quoi**: Vivre à Saint-Christophe et travailler en Valais.
-- Quand: Actuellement.
-- Où: Saint-Christophe, Valais.
-- Qui: Frontaliers.
-- Montant: Non encore spécifié.
-
-Vivre à Saint-Christophe et travailler en Valais est un choix avantageux pour de nombreux frontaliers. Cette combinaison offre une série d'avantages, notamment des temps de trajet raisonnables et un coût de la vie inférieur à celui de nombreuses autres zones du Tessin. Cependant, il est important de considérer divers aspects avant de prendre une décision définitive.
-
-### Connexions et Temps de Trajet
-
-Les connexions entre Saint-Christophe et le Valais sont bien développées, avec plusieurs options de transport disponibles. Les temps de trajet varient selon le moyen de transport choisi. Par exemple, en voiture, le trajet peut prendre environ 30 à 40 minutes, tandis qu'avec les transports publics, le temps peut augmenter légèrement.
-
-### Coût de la Vie
-
-Le coût de la vie à Saint-Christophe est généralement inférieur à celui de nombreuses autres zones du Tessin. Cela peut représenter un avantage significatif pour les frontaliers, qui peuvent économiser sur le loyer, les dépenses quotidiennes et autres besoins. Cependant, il est important de faire une évaluation précise des dépenses pour éviter les surprises.
-
-### Zones Recommandées
-
-Saint-Christophe offre plusieurs zones résidentielles qui peuvent convenir aux frontaliers. Il est conseillé de choisir une zone proche des principaux moyens de transport pour réduire les temps de trajet et améliorer la qualité de vie.
-
-### Avantages et Inconvénients du Déménagement
-
-Vivre à Saint-Christophe et travailler en Valais présente à la fois des avantages et des inconvénients. Parmi les avantages, on trouve les temps de trajet raisonnables et le coût de la vie inférieur. Cependant, il est important de considérer également les inconvénients, tels que la nécessité de s'adapter à un nouvel environnement et les éventuelles difficultés liées au pendularisme.
-
-### Que Considérer Avant de Déménager
-
-Avant de déménager, il est essentiel de faire une évaluation précise de ses besoins et des conditions offertes par Saint-Christophe. Il est important de considérer des aspects tels que les connexions de transport, le coût de la vie, les opportunités d'emploi et les infrastructures disponibles.
-
-### Conclusion
-
-Vivre à Saint-Christophe et travailler en Valais peut être un choix avantageux pour les frontaliers. Cependant, il est important de faire une évaluation précise de ses besoins et des conditions offertes par cette combinaison. Avec une planification adéquate, il est possible de profiter des avantages offerts par ce choix et d'améliorer sa qualité de vie.
-## Analyse Pratique
-
-Vivre à Saint-Christophe et travailler en Valais offre une série d'avantages pratiques pour les frontaliers. Cependant, il est important de considérer également les inconvénients et les implications pratiques de ce choix.
-
-### Implications Fiscales
-
-Les frontaliers qui vivent à Saint-Christophe et travaillent en Valais doivent considérer les implications fiscales de ce choix. L'impôt à la source sur le revenu du travail est retenu uniquement en Suisse, tandis que l'Italie évite la double imposition avec le crédit d'impôt. Il est important de connaître les taux d'imposition et les cotisations suisses, qui incluent AVS/AI/IPG, AD/AC, LAINF et LPP.
-
-### Assurance Maladie
-
-Les frontaliers ont le droit d'option pour l'assurance maladie (LAMal) en Suisse. Les franchises pour les adultes varient entre CHF 300 et CHF 2500. Il est important de connaître les options disponibles et de choisir celle qui convient le mieux à ses besoins.
-
-### Scénarios Pratiques
-
-Un frontalier qui se trouve dans une situation similaire pourrait devoir affronter diverses défis pratiques. Par exemple, il pourrait devoir gérer les temps de trajet et les frais de transport, ainsi que s'adapter à un nouvel environnement de travail. Il est important de planifier adéquatement pour affronter ces défis et améliorer sa qualité de vie.
-
-### Comparaison Avant et Après
-
-Avant de déménager, il est important de faire une comparaison entre la situation actuelle et celle future. Cela inclut une évaluation des frais de transport, du coût de la vie et des opportunités de travail. Avec une planification adéquate, il est possible d'améliorer sa qualité de vie et de profiter des avantages offerts par ce choix.
-
-## Outils utiles pour la planification
-Pour estimer votre stratégie retraite, utilisez le [planificateur retraite](nav:pension) et le [simulateur 3e pilier](nav:pillar3).
-## Action : Que Faire Concrètement
-
-Pour les frontaliers qui envisagent de vivre à Saint-Christophe et de travailler en Valais, il est important de suivre une série d'étapes concrètes pour garantir une transition fluide.
-
-### Procédure Étape par Étape
-
-1. **Évaluation des Besoins** : Tout d'abord, il est important de faire une évaluation précise de ses besoins et des conditions offertes par Saint-Christophe.
-2. Recherche des Zones Résidentielles : Choisir une zone résidentielle proche des principaux moyens de transport pour réduire les temps de trajet.
-3. Planification Fiscale : Connaître les taux d'imposition et les cotisations suisses pour éviter les surprises.
-4. Assurance Maladie : Choisir l'option d'assurance maladie la plus adaptée à ses besoins.
-5. Gestion des Temps de Trajet : Planifier adéquatement les temps de trajet et les frais de transport.
-
-### Délais et Documents Nécessaires
-
-Il est important de connaître les délais et les documents nécessaires pour le déménagement. Par exemple, il est nécessaire d'avoir le permis de séjour et de travailler en Suisse, ainsi que de connaître les taux d'imposition et les cotisations suisses.
-
-### Outils et Ressources Utiles
-
-Pour les frontaliers qui envisagent de vivre à Saint-Christophe et de travailler en Valais, une série d'outils et de ressources utiles sont disponibles. Par exemple, il est possible d'utiliser le calculateur fiscal pour connaître les taux d'imposition et les cotisations suisses, ainsi que de consulter les guides pratiques pour le déménagement.
-
-### Conclusion
-
-Vivre à Saint-Christophe et travailler en Valais peut être un choix avantageux pour les frontaliers. Cependant, il est important de suivre une série d'étapes concrètes pour garantir une transition fluide et améliorer sa qualité de vie. Avec une planification adéquate, il est possible de profiter des avantages offerts par ce choix et de relever les défis pratiques avec succès.]]></content:encoded>
-      <pubDate>Mon, 07 Sep 2026 08:09:12 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/vivere-saint-christophe-lavorare-vallese-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-saint-christophe-lavorare-vallese-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>
