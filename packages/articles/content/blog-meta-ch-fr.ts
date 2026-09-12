@@ -6277,6 +6277,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asib-richiesta-aumenti-bancari.title': 'Banques suisses : l\'ASIB demande des augmentations salariales de 2,5%',
     'blog.article.asib-richiesta-aumenti-bancari.excerpt': 'L\'ASIB demande une augmentation de 2,5% de la masse salariale et 2000 francs de plus pour les revenus jusqu\'à 120\'000 francs pour les négociations 2026/2027.',
     'blog.article.asib-richiesta-aumenti-bancari.imageAlt': 'Bureaux bancaires à Lugano avec vue sur le lac',
+    'blog.article.economiesuisse-silvan-wildhaber.title': 'Economiesuisse : Silvan Wildhaber est le nouveau président',
+    'blog.article.economiesuisse-silvan-wildhaber.excerpt': 'Passage de la présidence à Economiesuisse : Silvan Wildhaber succède à Christoph Mäder avec un soutien total aux accords bilatéraux III.',
+    'blog.article.economiesuisse-silvan-wildhaber.imageAlt': 'Palais fédéral à Berne accueillant la journée de l\'économie',
 };
 
 export default blogMetaChFr;

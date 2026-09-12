@@ -6277,6 +6277,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asib-richiesta-aumenti-bancari.title': 'Swiss banks: ASIB calls for 2.5% wage increases',
     'blog.article.asib-richiesta-aumenti-bancari.excerpt': 'The ASIB requires an increase of 2.5% in the wage bill and 2000 francs more for incomes up to 120,000francs for the 2026/2027 negotiations.',
     'blog.article.asib-richiesta-aumenti-bancari.imageAlt': 'Bank offices in Lugano with lake view',
+    'blog.article.economiesuisse-silvan-wildhaber.title': 'Economiesuisse: Silvan Wildhaber is the new president',
+    'blog.article.economiesuisse-silvan-wildhaber.excerpt': 'Passage of presidency to Economiesuisse: Silvan Wildhaber succeeds Christoph Mäder with full support for bilateral agreements III.',
+    'blog.article.economiesuisse-silvan-wildhaber.imageAlt': 'Federal Palace in Bern hosting the Economiesuisse economic day',
 };
 
 export default blogMetaChEn;
