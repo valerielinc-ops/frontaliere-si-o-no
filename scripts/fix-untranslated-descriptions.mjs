@@ -17,7 +17,8 @@
  * Env:
  *   UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS — run-wide wall-clock deadline
  *     measured from the translate-pending run marker (default 300*60*1000).
- *     Standalone runs without a marker fall back to this process's start time.
+ *     Standalone runs without a marker use this process's start time; the
+ *     workflow fails closed if its marker is missing.
  */
 
 import fs from 'node:fs';
@@ -27,7 +28,7 @@ import { fileURLToPath } from 'node:url';
 import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
 import { isAcceptableTranslation, MIN_TRANSLATION_CHARS } from './lib/translation-quality.mjs';
-import { readRunStartMs } from './lib/translate-run-clock.mjs';
+import { resolveRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -47,10 +48,10 @@ const MAX = (() => {
   return idx !== -1 && process.argv[idx + 1] ? Number(process.argv[idx + 1]) : Infinity;
 })();
 // Run-wide deadline measured from the shared translate-pending start marker.
-// Standalone invocations have no marker, so they get the same budget from now.
+// Standalone invocations keep a local fallback; the workflow requires the marker.
 const DESCRIPTION_FIX_DEADLINE_MS = Number(process.env.UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS)
   || 300 * 60 * 1000;
-const RUN_START_MS = readRunStartMs() ?? Date.now();
+const RUN_START_MS = resolveRunStartMs();
 const SLICE = (() => {
   const idx = process.argv.indexOf('--slice');
   if (idx === -1 || !process.argv[idx + 1]) return null;

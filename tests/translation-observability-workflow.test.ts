@@ -9,6 +9,8 @@ const portableWorkflow = fs.readFileSync(path.resolve('.github/corpus-workflows/
 const portableContract = JSON.parse(fs.readFileSync(path.resolve('.github/corpus-workflows/contract.json'), 'utf8'));
 const titleFixScript = fs.readFileSync(path.resolve('scripts/fix-untranslated-titles.mjs'), 'utf8');
 const descriptionFixScript = fs.readFileSync(path.resolve('scripts/fix-untranslated-descriptions.mjs'), 'utf8');
+const cascadeScript = fs.readFileSync(path.resolve('scripts/relocalize-pending-jobs.mjs'), 'utf8');
+const mopupScript = fs.readFileSync(path.resolve('scripts/local-mt-mopup.mjs'), 'utf8');
 const commitHelper = fs.readFileSync(path.resolve('scripts/lib/git-commit-data.sh'), 'utf8');
 const UPLOAD_ARTIFACT_V7_SHA = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
 
@@ -136,6 +138,20 @@ describe('translation observability workflow', () => {
 
     for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
       const steps = parseTranslationSteps(document);
+      const parsed: any = YAML.parse(document);
+      expect(parsed.env, `${label}: shared clock must be required`).toMatchObject({
+        TRANSLATE_RUN_CLOCK_REQUIRED: '1',
+      });
+      const clock = steps.find((step) => step.name === 'Initialize translation run clock');
+      expect(clock, `${label}: run clock initializer missing`).toMatchObject({
+        if: 'inputs.skip_translate != true',
+      });
+      expect(clock?.run, `${label}: initializer must verify the marker`)
+        .toContain('markRunStart(Date.now())');
+      expect(clock?.run).toContain('readRunStartMs()');
+      expect(clock).not.toHaveProperty('continue-on-error');
+      expect(steps.findIndex((step) => step.name === 'Initialize translation run clock'))
+        .toBeLessThan(steps.findIndex((step) => step.name === 'Phase 2a: Local MT bulk translate (Argos)'));
       const mopup = steps.find((step) => step.name === 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
       const titleFix = steps.find((step) => step.name === 'Phase 2d: Fix untranslated titles (free cascade)');
       const titleCommit = steps.find((step) => step.name === 'Commit title fixes');
@@ -160,8 +176,8 @@ describe('translation observability workflow', () => {
       });
     }
 
-    expect(titleFixScript).toContain("import { readRunStartMs } from './lib/translate-run-clock.mjs';");
-    expect(titleFixScript).toMatch(/const RUN_START_MS = readRunStartMs\(\) \?\? Date\.now\(\);/);
+    expect(titleFixScript).toContain("import { resolveRunStartMs } from './lib/translate-run-clock.mjs';");
+    expect(titleFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);
     expect(titleFixScript).toContain('Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS)');
 
     const loop = titleFixScript.slice(titleFixScript.indexOf('for (const file of files)'));
@@ -172,8 +188,8 @@ describe('translation observability workflow', () => {
     expect(persisted).toBeGreaterThanOrEqual(0);
     expect(stopAfterPersist).toBeGreaterThan(persisted);
 
-    expect(descriptionFixScript).toContain("import { readRunStartMs } from './lib/translate-run-clock.mjs';");
-    expect(descriptionFixScript).toMatch(/const RUN_START_MS = readRunStartMs\(\) \?\? Date\.now\(\);/);
+    expect(descriptionFixScript).toContain("import { resolveRunStartMs } from './lib/translate-run-clock.mjs';");
+    expect(descriptionFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);
     expect(descriptionFixScript).toContain('Number(process.env.UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS)');
     const descriptionLoop = descriptionFixScript.slice(descriptionFixScript.indexOf('for (const file of files)'));
     expect(descriptionLoop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(3);
@@ -182,6 +198,12 @@ describe('translation observability workflow', () => {
     const descriptionStopAfterPersist = descriptionLoop.indexOf('if (deadlineReached) break;', descriptionPersisted);
     expect(descriptionPersisted).toBeGreaterThanOrEqual(0);
     expect(descriptionStopAfterPersist).toBeGreaterThan(descriptionPersisted);
+
+    for (const [label, script] of [['cascade', cascadeScript], ['local-MT mop-up', mopupScript]]) {
+      expect(script, `${label}: shared run-clock resolver missing`).toContain('resolveRunStartMs');
+      expect(script, `${label}: budget must resolve through the shared clock`)
+        .toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);
+    }
   });
 
   it('remains parseable and leaves the translation engine/dispatch commands unchanged', () => {

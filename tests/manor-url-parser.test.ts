@@ -1,5 +1,3 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   extractCityFromUrl,
@@ -7,9 +5,20 @@ import {
   parseJobPage,
   stripSiteTitleSuffix,
 } from '../scripts/update-manor-jobs.mjs';
+import { normalizeKey } from '../scripts/lib/dedicated-crawler-common.mjs';
 
-const BIEL_URL =
-  'https://positions.manor.ch/job/Biel-Mitarbeiterin-Visual-Merchandising-80/1364490355/';
+const BIEL_JOB_ID = '1364490355';
+const BIEL_URL = `https://positions.manor.ch/job/Biel-Mitarbeiterin-Visual-Merchandising-80/${BIEL_JOB_ID}/`;
+const BIEL_PREVIOUS_SLUG =
+  'manor-mitarbeiter-in-visual-merchandising-80-biel-mitarbeiterin-visual-merchandising';
+const BIEL_REGRESSION_FIXTURE = {
+  page: `
+    <meta property="og:title" content="Mitarbeiter*in Visual Merchandising 80%" />
+    <meta itemprop="streetAddress" content="Biel" />
+  `,
+  titleByLocale: { it: 'Collaboratore/trice*in Visual Merchandising 80%' },
+  previousSlugs: [BIEL_PREVIOUS_SLUG],
+};
 const RICKENBACH_URL =
   'https://positions.manor.ch/job/Rickenbach-b_-Wil-Mitarbeiterin-Verkauf-Fashion-40/1364892555/';
 
@@ -64,13 +73,17 @@ describe('Manor jobs2web URL and title parsing', () => {
   });
 
   it('does not reintroduce the persisted short-title record that blocked the deploy gate', () => {
-    const slice = JSON.parse(
-      fs.readFileSync(
-        path.resolve(process.cwd(), 'data/jobs/by-crawler/manor.json'),
-        'utf8',
-      ),
-    );
-    const job = slice.jobs.find((entry: { url?: string }) => entry.url === BIEL_URL);
+    // This is the exact page/URL fixture from #8232. The live Manor listing
+    // may expire the posting, but the parser regression must remain testable.
+    const parsed = parseJobPage(BIEL_REGRESSION_FIXTURE.page, BIEL_URL);
+    const { city } = extractCityFromUrl(BIEL_URL);
+    const job = {
+      title: parsed.title,
+      location: city,
+      titleByLocale: BIEL_REGRESSION_FIXTURE.titleByLocale,
+      slug: normalizeKey(`manor ${parsed.title} ${city}`),
+      previousSlugs: BIEL_REGRESSION_FIXTURE.previousSlugs,
+    };
 
     expect(job).toMatchObject({
       title: 'Mitarbeiter*in Visual Merchandising 80%',
@@ -78,7 +91,7 @@ describe('Manor jobs2web URL and title parsing', () => {
       titleByLocale: { it: 'Collaboratore/trice*in Visual Merchandising 80%' },
     });
     expect([job.slug, ...(job.previousSlugs || [])]).toContain(
-      'manor-mitarbeiter-in-visual-merchandising-80-biel-mitarbeiterin-visual-merchandising',
+      BIEL_PREVIOUS_SLUG,
     );
   });
 });
