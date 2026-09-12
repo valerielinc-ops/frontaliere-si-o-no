@@ -17,18 +17,20 @@ export interface JobAlertEligibility {
  * decision before they render or emit an impression.
  */
 export function resolveJobAlertEligibility(
-  alerts: Pick<JobAlert, 'active' | 'keywords'>[],
+  alerts: Pick<JobAlert, 'active' | 'keywords' | 'specificCompanyKey'>[],
   keyword: string,
   maxAlerts: number,
 ): JobAlertEligibility {
   const target = normalizeKeyword(keyword);
-  const activeAlerts = alerts.filter((alert) => Boolean(alert.active));
-  const alreadySubscribed = Boolean(target) && alerts.some((alert) => (
-    Boolean(alert.active)
-    && (alert.keywords || []).some((candidate) => normalizeKeyword(candidate) === target)
+  // Company pins have a separate cap (`MAX_COMPANY_ALERTS_PER_USER`) in
+  // `createAlert`; they must not consume a category-alert slot or satisfy a
+  // category match just because their document also carries legacy keywords.
+  const categoryAlerts = alerts.filter((alert) => Boolean(alert.active) && !alert.specificCompanyKey);
+  const alreadySubscribed = Boolean(target) && categoryAlerts.some((alert) => (
+    (alert.keywords || []).some((candidate) => normalizeKeyword(candidate) === target)
   ));
   if (alreadySubscribed) return { eligible: false, reason: 'already_subscribed' };
-  if (activeAlerts.length >= maxAlerts) return { eligible: false, reason: 'quota_full' };
+  if (categoryAlerts.length >= maxAlerts) return { eligible: false, reason: 'quota_full' };
   return { eligible: true, reason: null };
 }
 

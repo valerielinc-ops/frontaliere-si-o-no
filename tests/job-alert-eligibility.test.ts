@@ -1,9 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { resolveJobAlertEligibility } from '../services/jobAlertEligibility';
 
-const alert = (keywords: string[], active = true) => ({
+const alert = (keywords: string[], active = true, specificCompanyKey: string | null = null) => ({
   active,
   keywords,
+  specificCompanyKey,
 });
 
 describe('job-alert CTA eligibility', () => {
@@ -44,6 +45,14 @@ describe('job-alert CTA eligibility', () => {
       [alert(['uno'], false), alert(['due'], false), alert(['tre'], false)],
       'altro',
       3,
+    )).toEqual({ eligible: true, reason: null });
+  });
+
+  it('does not count or match a company pin against the category-alert quota', () => {
+    expect(resolveJobAlertEligibility(
+      [alert(['Tecnologia'], true, 'coop')],
+      'Tecnologia',
+      1,
     )).toEqual({ eligible: true, reason: null });
   });
 });
