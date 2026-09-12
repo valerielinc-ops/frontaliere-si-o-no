@@ -187,6 +187,11 @@ describe('canonicalJobHost', () => {
     expect(canonicalJobHost('med-ipersonal.ch:8080')).toBe('med-ipersonal.ch:8080');
   });
 
+  it.each(['%2F', '%40', '%3A', '%5C'])('does not decode an authority delimiter %s into a trusted host', (encoded) => {
+    const raw = `evil.com${encoded}med-ipersonal.ch`;
+    expect(canonicalJobHost(raw)).toBe(raw.toLowerCase());
+  });
+
   it('keeps the raw spelling when the host cannot be mapped', () => {
     // `domainToASCII` answers '' on an unmappable host. That is a rejection,
     // not a canonical form: collapsing to '' would make two unrelated bad
@@ -213,6 +218,10 @@ describe('canonicalJobHost', () => {
 });
 
 describe('IDN hosts across the host normalisers', () => {
+  it('normalises a bare host with a backslash separator before extracting the registrable name', () => {
+    expect(normalizeHost('evil.com\\med-ipersonal.ch')).toBe('evil.com');
+  });
+
   it('claims a scheme-less IDN row instead of dropping it for its alphabet', () => {
     // The authority shape was ASCII-only, so a scheme-less unicode host looked
     // like a bare path, stayed untouched and answered '' — the #7758 drop, in

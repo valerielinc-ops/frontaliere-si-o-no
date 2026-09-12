@@ -48,13 +48,12 @@ export function isGuggerbachJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === GUGGERBACH_KEY ||
     key.startsWith('guggerbach-') ||
     company.includes('bistro guggerzyt') ||
-    url.includes('guggerbach.ch')
+    isTrustedDomain(job?.url || '')
   );
 }
 
@@ -133,16 +132,20 @@ export async function fetchAllGuggerbachJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let missingLocation = 0;
   for (const listing of listings) {
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    // Required structured-data geography must come from the vacancy source.
+    // Missing, foreign or non-specific values are not replaced with an HQ.
+    if (!geography) {
+      missingLocation += 1;
+      continue;
+    }
     // TODO: Extract fields from each listing.
     // Adapt these field names to match the actual API response.
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
-    // Required structured-data geography must come from the vacancy source.
-    // Missing, foreign or non-specific values are not replaced with an HQ.
-    if (!geography) continue;
     const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
@@ -198,6 +201,10 @@ export async function fetchAllGuggerbachJobs() {
     };
 
     jobs.push(job);
+  }
+
+  if (listings.length > 0 && missingLocation === listings.length) {
+    throw new Error(`Bistro Guggerzyt: all ${listings.length} listings lack a usable Swiss location`);
   }
 
   console.log(`\n📋 Total Bistro Guggerzyt jobs discovered: ${jobs.length}`);

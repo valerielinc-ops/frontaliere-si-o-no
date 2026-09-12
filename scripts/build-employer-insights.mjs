@@ -145,11 +145,12 @@ function toIso(value) {
 
 function inWindow(timestamp, window) {
   const iso = toIso(timestamp);
-  if (!iso) return true;
-  const from = Date.parse(window.from);
-  const to = Date.parse(window.to);
+  if (!iso) return false;
+  const from = Date.parse(window?.from);
+  const to = Date.parse(window?.to);
   const time = Date.parse(iso);
-  return Number.isFinite(time) && time >= from && time < to;
+  return Number.isFinite(from) && Number.isFinite(to)
+    && Number.isFinite(time) && time >= from && time < to;
 }
 
 function weekStart(timestamp) {
@@ -363,7 +364,7 @@ function normalizeEventRow(source) {
   return {
     emissionId: normalizeText(read(['emissionId', 'emission_id', 'actionId', 'action_id'], 15)),
     event: eventName,
-    timestamp: Array.isArray(source) ? null : toIso(read(['timestamp', 'occurredAt', 'createdAt'], undefined)),
+    timestamp: toIso(read(['timestamp', 'occurredAt', 'createdAt'], 16)),
     week: normalizeWeek(read(['week', 'wk'], 2)),
     path: normalizeText(read(['path', '$pathname', 'pathname'], 3)),
     jobSlug: normalizeText(read(['jobSlug', 'job_slug', 'slug'], 4)),
@@ -645,12 +646,17 @@ function addResidual(residuals, reason, amount) {
 export function aggregateEmployerEvents(inputRows = [], { catalog, window, source = 'posthog' } = {}) {
   catalog ||= buildIdentityCatalog();
   const effectiveWindow = window || { from: '1970-01-01T00:00:00.000Z', to: '9999-01-01T00:00:00.000Z' };
-  const windowRows = inputRows
-    .map(normalizeEventRow)
-    .filter((row) => inWindow(row.timestamp, effectiveWindow));
+  const normalizedRows = inputRows.map(normalizeEventRow);
+  const invalidTimestampRows = normalizedRows.filter((row) => !row.timestamp);
+  const windowRows = normalizedRows
+    .filter((row) => row.timestamp && inWindow(row.timestamp, effectiveWindow));
   const deduped = collapseTechnicalDuplicates(windowRows);
+  const invalidTimestampDeduped = collapseTechnicalDuplicates(invalidTimestampRows);
   const states = new Map();
   const residuals = residualLedger();
+  for (const sourceRow of invalidTimestampDeduped.rows) {
+    addResidual(residuals, 'invalid_timestamp', Math.max(0, numberOr(sourceRow.observed, 1)));
+  }
   let attributed = 0;
   let eventRowsAttributed = 0;
 
@@ -706,22 +712,24 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
   }
 
   const residualTotal = Object.values(residuals).reduce((sum, value) => sum + value, 0);
+  const rawObserved = deduped.rawObserved + invalidTimestampDeduped.rawObserved;
+  const observed = deduped.observed + invalidTimestampDeduped.observed;
   const coverage = {
     source,
-    status: deduped.observed > 0 ? 'observed' : 'zero_observed',
-    rawObserved: deduped.rawObserved,
-    observed: deduped.observed,
+    status: observed > 0 ? 'observed' : 'zero_observed',
+    rawObserved,
+    observed,
     attributed,
     residuals,
     residualTotal,
-    technicalDuplicatesRemoved: deduped.removed,
-    dedupUnavailable: deduped.dedupUnavailable,
+    technicalDuplicatesRemoved: deduped.removed + invalidTimestampDeduped.removed,
+    dedupUnavailable: deduped.dedupUnavailable + invalidTimestampDeduped.dedupUnavailable,
     deduplication: {
       key: 'emission_id',
-      status: deduped.dedupUnavailable > 0 ? 'dedup non disponibile' : 'available',
-      unavailableCount: deduped.dedupUnavailable,
+      status: (deduped.dedupUnavailable + invalidTimestampDeduped.dedupUnavailable) > 0 ? 'dedup non disponibile' : 'available',
+      unavailableCount: deduped.dedupUnavailable + invalidTimestampDeduped.dedupUnavailable,
     },
-    invariant: attributed + residualTotal === deduped.observed,
+    invariant: attributed + residualTotal === observed,
     attributedRows: eventRowsAttributed,
   };
   return { states, coverage, dedupedRows: deduped.rows };
@@ -757,7 +765,12 @@ export function aggregateApplicationEvidence(records = [], { window, catalog } =
     }
     if (id) seenIds.add(id);
     const createdAt = toIso(source?.createdAt || source?.submittedAt);
-    if (createdAt && !inWindow(createdAt, window)) continue;
+    if (!createdAt) {
+      evidence.observed += 1;
+      addResidual(evidence.residuals, 'invalid_timestamp', 1);
+      continue;
+    }
+    if (!inWindow(createdAt, window)) continue;
     evidence.observed += 1;
     const jobIdResult = resolveJobById(catalog, source?.jobId || source?.publisherJobId);
     const slugResult = !jobIdResult ? resolveUnique(catalog.jobAliasToIds, source?.jobSlug || source?.slug) : null;
@@ -1234,7 +1247,7 @@ function eventSelect(window, cursor = null) {
       countIf(event IN ('$pageview', 'pageview')) AS views,
       countIf(event = 'job_apply' OR (event = 'select_content' AND properties.content_type IN ('job_board_apply','job_board_apply_header_logo','job_board_apply_header_title'))) AS clicks,
       coalesce(toString(properties.emission_id), '') AS emission_id,
-      toString(timestamp) AS cursor_timestamp,
+      toString(timestamp) AS timestamp,
       ${cursorSelect}
     FROM events
     WHERE timestamp >= toDateTime('${from}') AND timestamp < toDateTime('${to}')${cursorFilter}
@@ -1541,10 +1554,12 @@ function ga4SettledExclusiveEnd(now = new Date()) {
   return new Date(end).toISOString();
 }
 
-async function loadApplicationRecords() {
-  const db = await getFirestoreDb();
+export async function loadApplicationRecords(db = null) {
+  const firestore = db || await getFirestoreDb();
   const records = [];
-  let query = db.collection('applications').select('jobId', 'jobSlug', 'createdAt', 'forwardedAt');
+  let query = firestore.collection('applications')
+    .select('jobId', 'jobSlug', 'createdAt', 'forwardedAt')
+    .orderBy('__name__');
   while (true) {
     const snapshot = await query.limit(500).get();
     for (const doc of snapshot.docs) records.push({ id: doc.id, ...doc.data() });
