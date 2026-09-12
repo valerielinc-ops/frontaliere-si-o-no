@@ -26,6 +26,7 @@ export const DEFAULT_MAX_AGE_HOURS = 240;
 export const MINIMUM_SAMPLE = 20;
 export const MAX_CANDIDATES = 25;
 const CLOCK_SKEW_HOURS = 5 / 60;
+const MAX_CROSS_SOURCE_SKEW_HOURS = 24;
 
 function object(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -97,6 +98,7 @@ function emptyProfileSnapshot(sourcePath) {
 function emptyOutcomeSnapshot(sourcePath) {
   return {
     path: sourcePath,
+    missing: true,
     generatedAt: null,
     ageHours: null,
     eligibleEmployerAccounts: null,
@@ -288,13 +290,18 @@ export function validateEmployerProfiles(source, {
   };
 }
 
-function outcomeValue(outcomes, name, aliases = []) {
+function outcomeValue(outcomes, name, aliases = [], issues = []) {
   const metrics = object(outcomes.metrics) ? outcomes.metrics : {};
+  const found = [];
   for (const key of [name, ...aliases]) {
-    if (outcomes[key] !== undefined && outcomes[key] !== null) return outcomes[key];
-    if (metrics[key] !== undefined && metrics[key] !== null) return metrics[key];
+    if (outcomes[key] !== undefined && outcomes[key] !== null) found.push([`top-level.${key}`, outcomes[key]]);
+    if (metrics[key] !== undefined && metrics[key] !== null) found.push([`metrics.${key}`, metrics[key]]);
   }
-  return null;
+  const distinct = [...new Set(found.map(([, value]) => JSON.stringify(value)))];
+  if (distinct.length > 1) {
+    issues.push(`outcomes.${name} has conflicting duplicate representations (${found.map(([source]) => source).join(', ')})`);
+  }
+  return found[0]?.[1] ?? null;
 }
 
 /** Validate the independent employer funnel/subscription ledger. */
@@ -304,6 +311,8 @@ export function validateEmployerFunnelOutcomes(outcomes, {
   sourcePath = DEFAULT_OUTCOME_PATH,
   minimumSample = MINIMUM_SAMPLE,
   profileCount = null,
+  profileGeneratedAt = null,
+  profileSourcePath = DEFAULT_PROFILES_PATH,
 } = {}) {
   if (!object(outcomes)) {
     return {
@@ -318,22 +327,42 @@ export function validateEmployerFunnelOutcomes(outcomes, {
   const generatedAt = finiteDate(outcomes.generatedAt || outcomes._meta?.generatedAt);
   if (!generatedAt) issues.push('employer funnel outcomes generatedAt is missing or invalid');
   const values = {
-    eligibleEmployerAccounts: outcomeValue(outcomes, 'eligibleEmployerAccounts'),
-    profileViewAccounts: outcomeValue(outcomes, 'profileViewAccounts', ['employerProfileViewAccounts']),
-    leadAccounts: outcomeValue(outcomes, 'leadAccounts', ['employerLeadAccounts']),
-    checkoutStartAccounts: outcomeValue(outcomes, 'checkoutStartAccounts', ['employerCheckoutStartAccounts']),
-    paidActivations: outcomeValue(outcomes, 'paidActivations', ['paidActivationAccounts']),
-    activeSubscriptions: outcomeValue(outcomes, 'activeSubscriptions'),
-    attachedJobs: outcomeValue(outcomes, 'attachedJobs'),
-    renewals: outcomeValue(outcomes, 'renewals'),
-    freeProfiles: outcomeValue(outcomes, 'freeProfiles'),
-    sponsoredProfiles: outcomeValue(outcomes, 'sponsoredProfiles'),
+    eligibleEmployerAccounts: outcomeValue(outcomes, 'eligibleEmployerAccounts', [], issues),
+    profileViewAccounts: outcomeValue(outcomes, 'profileViewAccounts', ['employerProfileViewAccounts'], issues),
+    leadAccounts: outcomeValue(outcomes, 'leadAccounts', ['employerLeadAccounts'], issues),
+    checkoutStartAccounts: outcomeValue(outcomes, 'checkoutStartAccounts', ['employerCheckoutStartAccounts'], issues),
+    paidActivations: outcomeValue(outcomes, 'paidActivations', ['paidActivationAccounts'], issues),
+    activeSubscriptions: outcomeValue(outcomes, 'activeSubscriptions', [], issues),
+    attachedJobs: outcomeValue(outcomes, 'attachedJobs', [], issues),
+    renewals: outcomeValue(outcomes, 'renewals', [], issues),
+    freeProfiles: outcomeValue(outcomes, 'freeProfiles', [], issues),
+    sponsoredProfiles: outcomeValue(outcomes, 'sponsoredProfiles', [], issues),
   };
   for (const [name, value] of Object.entries(values)) {
     if (!integer(value)) issues.push(`outcomes.${name} is missing or not a non-negative integer`);
   }
-  const mrrRecognizedChf = outcomeValue(outcomes, 'mrrRecognizedChf', ['recognizedMrrChf']);
+  const mrrRecognizedChf = outcomeValue(outcomes, 'mrrRecognizedChf', ['recognizedMrrChf'], issues);
   if (!finiteNumber(mrrRecognizedChf)) issues.push('outcomes.mrrRecognizedChf is missing or not a non-negative number');
+
+  const inventoryScope = outcomes.inventoryScope;
+  if (!object(inventoryScope)) {
+    issues.push('outcomes.inventoryScope is missing; the paid ledger scope is not attested to the profile inventory');
+  } else {
+    if (!text(inventoryScope.cohortKey)) issues.push('outcomes.inventoryScope.cohortKey is missing');
+    if (!text(inventoryScope.profileSource)) issues.push('outcomes.inventoryScope.profileSource is missing');
+    else if (inventoryScope.profileSource !== profileSourcePath) {
+      issues.push(`outcomes.inventoryScope.profileSource does not match ${profileSourcePath}`);
+    }
+    if (!integer(inventoryScope.profileCount)) issues.push('outcomes.inventoryScope.profileCount is missing or invalid');
+    else if (integer(profileCount) && inventoryScope.profileCount !== profileCount) {
+      issues.push(`outcomes.inventoryScope.profileCount ${inventoryScope.profileCount} differs from profile inventory ${profileCount}`);
+    }
+    const scopedProfileGeneratedAt = finiteDate(inventoryScope.profileGeneratedAt);
+    if (!scopedProfileGeneratedAt) issues.push('outcomes.inventoryScope.profileGeneratedAt is missing or invalid');
+    else if (profileGeneratedAt && scopedProfileGeneratedAt.toISOString() !== profileGeneratedAt) {
+      issues.push('outcomes.inventoryScope.profileGeneratedAt does not match the profile snapshot');
+    }
+  }
 
   const orderedRelations = [
     ['profileViewAccounts', 'eligibleEmployerAccounts'],
@@ -371,6 +400,12 @@ export function validateEmployerFunnelOutcomes(outcomes, {
     ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
     ...Object.fromEntries(Object.entries(values).map(([name, value]) => [name, integer(value) ? value : null])),
     mrrRecognizedChf: finiteNumber(mrrRecognizedChf) ? mrrRecognizedChf : null,
+    inventoryScope: object(inventoryScope) ? {
+      cohortKey: text(inventoryScope.cohortKey) ? inventoryScope.cohortKey : null,
+      profileSource: text(inventoryScope.profileSource) ? inventoryScope.profileSource : null,
+      profileCount: integer(inventoryScope.profileCount) ? inventoryScope.profileCount : null,
+      profileGeneratedAt: finiteDate(inventoryScope.profileGeneratedAt)?.toISOString() || null,
+    } : null,
   };
   let quality = 'observed';
   if (!generatedAt || Object.values(values).some((value) => !integer(value)) || !finiteNumber(mrrRecognizedChf)) quality = 'partial';
@@ -394,13 +429,24 @@ export function validateEmployerActivation({ profiles, outcomes = null }, {
     sourcePath: outcomePath,
     minimumSample,
     profileCount: profileVerdict.snapshot?.profileCount,
+    profileGeneratedAt: profileVerdict.snapshot?.generatedAt,
+    profileSourcePath: sourcePath,
   });
   const issues = [...profileVerdict.issues, ...outcomeVerdict.issues];
   const warnings = [...profileVerdict.warnings, ...outcomeVerdict.warnings];
+  const profileGeneratedAt = finiteDate(profileVerdict.snapshot?.generatedAt);
+  const outcomeGeneratedAt = finiteDate(outcomeVerdict.snapshot?.generatedAt);
+  const crossSourceSkewHours = profileGeneratedAt && outcomeGeneratedAt
+    ? Math.abs(hoursBetween(profileGeneratedAt, outcomeGeneratedAt))
+    : null;
+  if (crossSourceSkewHours !== null && crossSourceSkewHours > MAX_CROSS_SOURCE_SKEW_HOURS) {
+    issues.push(`profile/outcome snapshots are ${crossSourceSkewHours.toFixed(1)}h apart (max ${MAX_CROSS_SOURCE_SKEW_HOURS}h)`);
+  }
   const snapshot = {
     source: 'employer-profile-inventory-plus-funnel-ledger',
     profiles: profileVerdict.snapshot,
     outcomes: outcomeVerdict.snapshot,
+    crossSourceSkewHours: crossSourceSkewHours === null ? null : Number(crossSourceSkewHours.toFixed(3)),
   };
   let quality = 'observed';
   if (profileVerdict.quality === 'unmeasurable' || outcomeVerdict.quality === 'unmeasurable') quality = 'unmeasurable';
@@ -521,6 +567,9 @@ function writeResult(reportDir, { verdict, issued, actionsWritten }) {
     candidateCount: verdict.candidates.length,
     issued,
     actionsWritten,
+    outcomeLedgerMissing: verdict.snapshot?.outcomes?.missing === true,
+    profileInventoryComplete: verdict.snapshot?.profiles?.validProfileCount > 0
+      && verdict.snapshot?.profiles?.invalidProfileCount === 0,
   }, null, 2)}\n`);
   return file;
 }

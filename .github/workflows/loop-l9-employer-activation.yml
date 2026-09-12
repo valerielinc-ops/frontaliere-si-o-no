@@ -75,7 +75,7 @@ jobs:
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else
-            args+=(--dry-run)
+            args+=(--dry-run --strict)
           fi
           set +e
           node scripts/ci/loop-l9-employer-activation.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
@@ -83,6 +83,8 @@ jobs:
           set -e
           if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
             echo 'L9 finding persisted; no outreach, price or inventory mutation was performed.' | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ "$run_code" -ne 0 ] && jq -e '(.ok == false and .quality == "unmeasurable" and .outcomeLedgerMissing == true and .profileInventoryComplete == true and .issueCount == 1)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
+            echo 'L9 outcome ledger is not published yet; paid activation remains explicitly unmeasurable.' | tee -a "$GITHUB_STEP_SUMMARY"
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi

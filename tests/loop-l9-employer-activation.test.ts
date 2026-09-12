@@ -46,6 +46,12 @@ function profiles(...entries: Record<string, unknown>[]) {
 function outcomes(overrides: Record<string, unknown> = {}) {
   return {
     generatedAt: '2026-09-12T11:30:00.000Z',
+    inventoryScope: {
+      cohortKey: 'employer-profiles-v1',
+      profileSource: 'data/employer-profiles.json',
+      profileCount: 1,
+      profileGeneratedAt: '2026-09-12T11:00:00.000Z',
+    },
     eligibleEmployerAccounts: 100,
     profileViewAccounts: 80,
     leadAccounts: 40,
@@ -103,6 +109,26 @@ describe('L9 Employer Supply → Paid Activation', () => {
     expect(verdict.issues.join(' ')).toContain('outcomes.checkoutStartAccounts exceeds outcomes.leadAccounts');
   });
 
+  it('rejects a paid ledger without an attested profile scope', () => {
+    const { inventoryScope: _ignored, ...withoutScope } = outcomes();
+    const verdict = validateEmployerActivation({ profiles: profiles(), outcomes: withoutScope }, { now: NOW });
+    expect(verdict.quality).toBe('partial');
+    expect(verdict.issues.join(' ')).toContain('inventoryScope is missing');
+  });
+
+  it('rejects a stale cross-source join and conflicting metric copies', () => {
+    const verdict = validateEmployerActivation({
+      profiles: profiles(),
+      outcomes: outcomes({
+        generatedAt: '2026-09-10T11:30:00.000Z',
+        metrics: { paidActivations: 11 },
+      }),
+    }, { now: NOW });
+    expect(verdict.quality).toBe('partial');
+    expect(verdict.issues.join(' ')).toContain('profile/outcome snapshots are');
+    expect(verdict.issues.join(' ')).toContain('conflicting duplicate representations');
+  });
+
   it('keeps stale employer evidence out of the paid metric', async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l9-test-'));
     const profilesPath = writeJson(dir, 'profiles.json', profiles({
@@ -142,7 +168,7 @@ describe('L9 Employer Supply → Paid Activation', () => {
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l9-actions.json'), 'utf8')))
       .toMatchObject({ realOutreachSent: false, inventoryUntouched: true, pricesUntouched: true });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l9-result.json'), 'utf8')))
-      .toMatchObject({ ok: false, issued: true, actionsWritten: true });
+      .toMatchObject({ ok: false, issued: true, actionsWritten: true, outcomeLedgerMissing: true, profileInventoryComplete: true });
   });
 
   it('does not persist a result when issue creation fails', async () => {
