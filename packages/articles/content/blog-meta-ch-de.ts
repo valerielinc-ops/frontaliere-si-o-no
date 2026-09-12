@@ -6301,6 +6301,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.giovani-ticino-demografia-ustat.title': 'Jugendliche im Tessin: Demografische Analyse und USTAT-Ströme',
     'blog.article.giovani-ticino-demografia-ustat.excerpt': 'Demografische USTAT-Analyse der Jugendlichen im Tessin: Negativer interkantonaler Saldo gegenüber anderen Kantonen, der jedoch durch Neuankömmlinge aus dem Ausland ausgeglichen wird.',
     'blog.article.giovani-ticino-demografia-ustat.imageAlt': 'Junge Menschen im Tessin und Migrationsströme laut Ustat-Daten',
+    'blog.article.mercato-affitti-san-gallo-canoni-diritto.title': 'Mieten St. Gallen: Mieten, Kaution und Mieterrechte',
+    'blog.article.mercato-affitti-san-gallo-canoni-diritto.excerpt': 'Einheitlicher bundesrechtlicher Rahmen, max. 3 Monatsraten Kaution, Kündigung nur auf amtlichem Formular, Beschwerde innert 30 Tagen bei der Schlichtungsbehörde.',
+    'blog.article.mercato-affitti-san-gallo-canoni-diritto.imageAlt': 'Wohngebäude im Kanton St. Gallen mit Bergkulisse',
 };
 
 export default blogMetaChDe;

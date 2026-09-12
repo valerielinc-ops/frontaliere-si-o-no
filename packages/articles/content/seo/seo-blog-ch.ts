@@ -81803,6 +81803,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-affitti-san-gallo-canoni-diritto': {
+    title: 'Affitti San Gallo: canoni, deposito e diritti dell\'inquilino',
+    description: 'Guida pratica al mercato affitti Canton San Gallo: canoni medi per zona, deposito max 3 mensilità, disdetta su modulo ufficiale, contestazione canone entro 30',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, gallo, canoni, deposito',
+    ogTitle: 'Affitti Canton San Gallo: canoni, deposito e diritti inquilino',
+    ogDescription: 'Tutto su affitti nel Canton San Gallo: quadro legale federale, deposito massimo 3 pigioni, disdetta solo su modulo ufficiale, come contestare il canone iniziale entro 30 giorni. Dati pratici per inquilini e locatori.',
+    canonicalPath: '/articoli-svizzera/mercato-affitti-san-gallo-canoni-diritto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti San Gallo: canoni, deposito e diritti dell'inquilino",
+      "description": "Guida pratica al mercato affitti Canton San Gallo: canoni medi per zona, deposito max 3 mensilità, disdetta su modulo ufficiale, contestazione canone entro 30",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-affitti-san-gallo-canoni-diritto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzina residenziale nel Canton San Gallo con montagne sullo sfondo"
+      },
+      "datePublished": "2026-09-12T06:53:39+00:00",
+      "dateModified": "2026-09-12T06:53:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-affitti-san-gallo-canoni-diritto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
