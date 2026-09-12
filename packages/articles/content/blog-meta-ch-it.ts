@@ -6292,6 +6292,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzeri-spesa-crescita-rallenta.title': 'Svizzeri spendono di più, ma la crescita rallenta',
     'blog.article.svizzeri-spesa-crescita-rallenta.excerpt': 'In agosto l\'indicatore dei consumi calcolato da PostFinance segna un incremento dello 0,8%. Il ritmo frena rispetto ai mesi precedenti.',
     'blog.article.svizzeri-spesa-crescita-rallenta.imageAlt': 'Indicatori dei consumi in Svizzera e pagamenti con carta',
+    'blog.article.svizzera-siccita-faldeg-acque.title': 'Siccità in Svizzera: a rischio l\'80% delle acque sotterranee',
+    'blog.article.svizzera-siccita-faldeg-acque.excerpt': 'La SCNAT avverte: le sorgenti si prosciugano nel Giura e nelle Alpi. Serve monitoraggio e rinaturalizzazione per proteggere le falde.',
+    'blog.article.svizzera-siccita-faldeg-acque.imageAlt': 'Fiume alpino svizzero con livello dell\'acqua basso, illustrando le conseguenze della siccità sulle falde acquifere.',
 };
 
 export default blogMetaChIt;

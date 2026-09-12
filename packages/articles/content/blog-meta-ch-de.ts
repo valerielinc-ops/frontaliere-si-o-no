@@ -6292,6 +6292,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzeri-spesa-crescita-rallenta.title': 'Schweizer geben mehr aus, aber das Wachstum verlangsamt sich',
     'blog.article.svizzeri-spesa-crescita-rallenta.excerpt': 'Im August verzeichnet der von PostFinance berechnete Verbrauchsindikator ein Plus von 0,8%. Das Tempo verlangsamt sich im Vergleich zu den Vormonaten.',
     'blog.article.svizzeri-spesa-crescita-rallenta.imageAlt': 'Konsumindikatoren in der Schweiz und Kartenzahlungen',
+    'blog.article.svizzera-siccita-faldeg-acque.title': 'Dürre in der Schweiz: 80 % des Grundwassers gefährdet',
+    'blog.article.svizzera-siccita-faldeg-acque.excerpt': 'SCNAT warnt: Quellen trocknen im Jura und in den Alpen aus. Überwachung und Renaturierung sind notwendig, um das Grundwasser zu schützen.',
+    'blog.article.svizzera-siccita-faldeg-acque.imageAlt': 'Schweizerischer Alpenfluss mit niedrigem Wasserstand, der die Auswirkungen der Dürre auf Grundwasserreserven zeigt.',
 };
 
 export default blogMetaChDe;

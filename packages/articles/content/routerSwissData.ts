@@ -2123,6 +2123,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bitcoin-suisse-taglio-posti-zugo': { it: 'bitcoin-suisse-taglio-posti-zugo', en: 'bitcoin-suisse-job-cuts-zug', de: 'bitcoin-suisse-stellenabbau-zug', fr: 'bitcoin-suisse-suppression-postes-zoug' },
  'costi-nidi-servizi-infanzia-canton-sg': { it: 'costi-nidi-servizi-infanzia-canton-sg', en: 'childcare-costs-daycare-canton-st-gallen', de: 'kita-kosten-kinderbetreuung-kanton-st-gallen', fr: 'frais-garde-enfants-creche-canton-saint-gall' },
  'svizzeri-spesa-crescita-rallenta': { it: 'svizzeri-spesa-crescita-rallenta', en: 'swiss-spending-growth-slows', de: 'schweizer-konsumwachstum-verlangsamt-sich', fr: 'depenses-suisses-croissance-ralentit' },
+ 'svizzera-siccita-faldeg-acque': { it: 'svizzera-siccita-faldeg-acque', en: 'switzerland-drought-groundwater-risk', de: 'schweiz-duerre-grundwasser-gefahr', fr: 'suisse-secheresse-eaux-souterraines' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

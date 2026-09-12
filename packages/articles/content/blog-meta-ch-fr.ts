@@ -6292,6 +6292,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzeri-spesa-crescita-rallenta.title': 'Les Suisses dépensent plus, mais la croissance ralentit',
     'blog.article.svizzeri-spesa-crescita-rallenta.excerpt': 'En août, l\'indicateur de consommation calculé par PostFinance marque une augmentation de 0,8 %. Le rythme ralentit par rapport aux mois précédents.',
     'blog.article.svizzeri-spesa-crescita-rallenta.imageAlt': 'Indicateurs de consommation en Suisse et paiements par carte',
+    'blog.article.svizzera-siccita-faldeg-acque.title': 'Sécheresse en Suisse : 80 % des eaux souterraines à risque',
+    'blog.article.svizzera-siccita-faldeg-acque.excerpt': 'La SCNAT avertit : les sources s\'assèchent dans le Jura et les Alpes. Une surveillance et une renaturalisation sont nécessaires pour protéger les eaux souterraines.',
+    'blog.article.svizzera-siccita-faldeg-acque.imageAlt': 'Rivière alpine suisse au niveau d\'eau bas, illustrant l\'impact de la sécheresse sur les nappes phréatiques.',
 };
 
 export default blogMetaChFr;
