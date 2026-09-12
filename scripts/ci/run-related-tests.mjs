@@ -290,12 +290,12 @@ const candidates = [...new Set(changed.filter((file) =>
     && (sourceRe.test(file) || githubAssetRe.test(file) || testFixtureRe.test(file))
     && !alwaysExcludedTests.has(file)))];
 const forceFull = changedStatus !== 'complete';
+requireFullCheckoutForVerdict();
 if (candidates.length === 0 && !forceFull) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
   if (selectionOnly) writeAssembleDecision([]);
   process.exit(0);
 }
-requireFullCheckoutForVerdict();
 
 function changedAssetsFromDiff() {
   const refs = [...new Set([
