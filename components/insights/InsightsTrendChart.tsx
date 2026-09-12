@@ -16,7 +16,12 @@ function dateFromWeek(week: string): Date | null {
   const match = String(week || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (!match) return null;
   const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]), 12));
-  return Number.isNaN(date.getTime()) ? null : date;
+  return Number.isNaN(date.getTime())
+    || date.getUTCFullYear() !== Number(match[1])
+    || date.getUTCMonth() !== Number(match[2]) - 1
+    || date.getUTCDate() !== Number(match[3])
+    ? null
+    : date;
 }
 
 function formatWeek(week: string, locale: Locale): string {
@@ -44,13 +49,14 @@ function chartCopy(locale: Locale): {
   stable: string;
   chartLabel: string;
   noSeries: string;
+  clicksUnavailable: string;
 } {
   if (locale === 'en') {
     return {
       views: 'Ad views', clicks: 'Apply clicks',
       recordedViews: 'recorded ad views', recordedClicks: 'apply clicks',
       latest: 'latest week', growing: 'growing', declining: 'declining', stable: 'stable',
-      chartLabel: 'Weekly employer insights', noSeries: 'Not enough weekly observations for a chart.',
+      chartLabel: 'Weekly employer insights', noSeries: 'Not enough weekly observations for a chart.', clicksUnavailable: 'Weekly apply clicks are not included in this snapshot.',
     };
   }
   if (locale === 'de') {
@@ -58,7 +64,7 @@ function chartCopy(locale: Locale): {
       views: 'Anzeigenaufrufe', clicks: 'Bewerbungsklicks',
       recordedViews: 'erfasste Anzeigenaufrufe', recordedClicks: 'Bewerbungsklicks',
       latest: 'letzte Woche', growing: 'steigend', declining: 'sinkend', stable: 'stabil',
-      chartLabel: 'Wöchentliche Arbeitgeber-Insights', noSeries: 'Für ein Diagramm gibt es zu wenige Wochenwerte.',
+      chartLabel: 'Wöchentliche Arbeitgeber-Insights', noSeries: 'Für ein Diagramm gibt es zu wenige Wochenwerte.', clicksUnavailable: 'Wöchentliche Bewerbungsklicks sind in diesem Snapshot nicht enthalten.',
     };
   }
   if (locale === 'fr') {
@@ -66,14 +72,14 @@ function chartCopy(locale: Locale): {
       views: 'Vues des offres', clicks: 'Clics pour postuler',
       recordedViews: 'vues d’offres enregistrées', recordedClicks: 'clics pour postuler',
       latest: 'dernière semaine', growing: 'en hausse', declining: 'en baisse', stable: 'stable',
-      chartLabel: 'Insights entreprises hebdomadaires', noSeries: 'Il n’y a pas assez de semaines observées pour afficher un graphique.',
+      chartLabel: 'Insights entreprises hebdomadaires', noSeries: 'Il n’y a pas assez de semaines observées pour afficher un graphique.', clicksUnavailable: 'Les clics hebdomadaires ne sont pas inclus dans ce snapshot.',
     };
   }
   return {
     views: 'Visualizzazioni annunci', clicks: 'Click per candidarsi',
     recordedViews: 'visualizzazioni annuncio registrate', recordedClicks: 'click per candidarsi',
     latest: 'ultima settimana', growing: 'in crescita', declining: 'in calo', stable: 'stabile',
-    chartLabel: 'Andamento settimanale degli insights azienda', noSeries: 'Non ci sono abbastanza settimane osservate per il grafico.',
+    chartLabel: 'Andamento settimanale degli insights azienda', noSeries: 'Non ci sono abbastanza settimane osservate per il grafico.', clicksUnavailable: 'I click settimanali non sono presenti in questo snapshot.',
   };
 }
 
@@ -95,7 +101,7 @@ export function InsightsTrendChart({ trend, locale = 'it' }: InsightsTrendChartP
     return <p className="rounded-xl border border-edge bg-surface-alt px-4 py-5 text-sm text-subtle">{copy.noSeries}</p>;
   }
 
-  const hasClicks = points.some((point) => typeof point.applyClicks === 'number');
+  const hasClicks = points.some((point) => hasFiniteMetric(point.applyClicks));
   const maxViews = Math.max(...points.map((point) => finiteMetric(point.views)), 1);
   const maxClicks = Math.max(...points.map((point) => finiteMetric(point.applyClicks)), 1);
   const width = 760;
@@ -138,6 +144,7 @@ export function InsightsTrendChart({ trend, locale = 'it' }: InsightsTrendChartP
           </span>
         )}
       </div>
+      {!hasClicks && <p className="mb-3 text-xs text-muted">{copy.clicksUnavailable}</p>}
       <svg
         viewBox={`0 0 ${width} ${height}`}
         className="h-64 w-full overflow-visible sm:h-72"
@@ -154,16 +161,12 @@ export function InsightsTrendChart({ trend, locale = 'it' }: InsightsTrendChartP
         </defs>
         {[0, 0.5, 1].map((ratio) => {
           const yPos = top + chartHeight * ratio;
+          const tickValue = maxViews * (1 - ratio);
           return (
-            <line
-              key={ratio}
-              x1={left}
-              x2={width - right}
-              y1={yPos}
-              y2={yPos}
-              stroke="var(--color-chart-grid)"
-              strokeWidth="1"
-            />
+            <g key={ratio}>
+              <line x1={left} x2={width - right} y1={yPos} y2={yPos} stroke="var(--color-chart-grid)" strokeWidth="1" />
+              <text x={left - 10} y={yPos} textAnchor="end" dominantBaseline="middle" style={{ fill: 'var(--color-chart-tick)', fontSize: '11px' }}>{formatNumber(Math.round(tickValue), locale)}</text>
+            </g>
           );
         })}
         <path
@@ -233,6 +236,9 @@ export function InsightsTrendChart({ trend, locale = 'it' }: InsightsTrendChartP
           </text>
         ))}
       </svg>
+      <ol className="sr-only">
+        {points.map((point) => <li key={`summary-${point.week}`}>{`${formatWeek(point.week, locale)}: ${formatNumber(finiteMetric(point.views), locale)} ${copy.recordedViews}${hasFiniteMetric(point.applyClicks) ? `; ${formatNumber(finiteMetric(point.applyClicks), locale)} ${copy.recordedClicks}` : ''}`}</li>)}
+      </ol>
       <p className="sr-only">{summary}</p>
     </div>
   );
