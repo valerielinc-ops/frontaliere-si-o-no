@@ -44,6 +44,7 @@ import {
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
+  MIN_TPL_DESC_LENGTH,
   parseTplListingState,
   parseTplDetailPage,
   buildTplDescription,
@@ -174,12 +175,33 @@ export async function fetchTplSourceSnapshot(options = {}) {
       console.warn(`  ⚠️ TPL capitolato extraction failed for "${detail.title}": ${pdf.error}`);
     }
     if (pdf.warning) console.warn(`  ⚠️ ${pdf.warning}`);
+    const pdfText = pdf.thin ? '' : String(pdf.rawText || pdf.text || '');
     const { description, warnings } = buildTplDescription(
       detail.title,
-      pdf.thin ? '' : (pdf.rawText || pdf.text || ''),
+      pdfText,
       detail.body,
     );
     for (const warning of warnings) console.warn(`  ⚠️ ${warning}`);
+
+    // The detail page's inline block is only the application boilerplate. A
+    // failed, image-only, or otherwise thin capitolato must never be turned
+    // into a publishable row: localizeExistingOnly would otherwise materialise
+    // it before the shared quality gate can reject the generic fallback. Throw
+    // before the complete snapshot is written so the prior slice is retained.
+    const contentProblems = [];
+    if (!detail.capitolatoUrl) contentProblems.push('no validated capitolato PDF URL');
+    if (pdf.error) contentProblems.push(`PDF extraction failed: ${pdf.error}`);
+    else if (pdf.thin) contentProblems.push('PDF has no usable text layer');
+    else if (!pdfText.trim()) contentProblems.push('PDF extraction returned no text');
+    if (description.length < MIN_TPL_DESC_LENGTH) {
+      contentProblems.push(`description is ${description.length} chars (< ${MIN_TPL_DESC_LENGTH})`);
+    }
+    if (contentProblems.length > 0) {
+      throw new Error(
+        `TPL detail failed the authoritative PDF content gate for ${detail.capitolatoUrl || listedJob.url}: `
+        + contentProblems.join('; '),
+      );
+    }
     jobs.push({ ...listedJob, ...detail, body: description, pageBody: detail.body });
   }
 

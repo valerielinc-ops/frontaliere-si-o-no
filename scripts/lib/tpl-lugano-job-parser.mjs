@@ -186,11 +186,11 @@ export function parseTplDetailPage(html = '', expectedTitle = '') {
  */
 export function extractTplCapitolatoUrl(html = '') {
   const match = String(html || '').match(
-    /<a\b[^>]*href\s*=\s*"([^"]*\/repository\/pdf\/[^\"]*)"/i,
+    /<a\b[^>]*href\s*=\s*(['"])([^'"]*\/repository\/pdf\/[^'"]*)\1/i,
   );
   if (!match) return '';
   try {
-    const parsed = new URL(match[1].replace(/&amp;/g, '&'), TPL_ORIGIN);
+    const parsed = new URL(match[2].replace(/&amp;/g, '&'), TPL_ORIGIN);
     if (parsed.protocol !== 'https:') return '';
     if (parsed.hostname.toLowerCase() !== TPL_HOST) return '';
     if (!/\.pdf$/i.test(parsed.pathname)) return '';

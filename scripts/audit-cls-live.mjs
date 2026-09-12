@@ -445,6 +445,7 @@ async function run() {
 
   const hardRegressions = results.filter((r) => r.verdict.state === 'hard_regression');
   const softRegressions = results.filter((r) => r.verdict.state === 'soft_regression');
+  const hasBlockingPsiErrors = errors.some((error) => !isInconclusivePsiError(error));
   const allPsiProviderErrors =
     results.length === 0 && errors.length > 0 && shouldFailOpenForPsiErrors(errors);
 
@@ -504,7 +505,9 @@ async function run() {
     });
   await writeAuditReport({
     audit: 'cls-live',
-    passed: hardRegressions.length === 0 && (results.length > 0 || allPsiProviderErrors),
+    passed: hardRegressions.length === 0
+      && !hasBlockingPsiErrors
+      && (results.length > 0 || allPsiProviderErrors),
     threshold: { metric: 'cls', value: HARD_CLS_THRESHOLD, comparator: '<=' },
     baselineFile: 'data/cls-baseline.json',
     offenders: offendersForReport,
@@ -533,10 +536,11 @@ async function run() {
   }
 
   // Exit policy:
-  //   0 — no hard regression (soft regressions are warning only)
-  //   1 — at least one hard regression OR all PSI calls errored for a reason
-  //       that isn't an inconclusive auth/quota response
+  //   0 — no hard regression and no blocking PSI error; an all-provider
+  //       auth/quota outage is inconclusive and therefore passes open
+  //   1 — at least one hard regression OR any non-inconclusive PSI error
   if (hardRegressions.length > 0) process.exit(1);
+  if (hasBlockingPsiErrors) process.exit(1);
   if (results.length === 0 && errors.length > 0) {
     // These responses contain zero CLS signal. Blocking the deploy gate on a
     // third-party auth/quota response is a false "Validation Failure", not a

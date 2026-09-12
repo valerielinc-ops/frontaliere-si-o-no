@@ -216,6 +216,8 @@ describe('parseTplDetailPage', () => {
 
   it('rejects a capitolato URL outside the TPL PDF path', () => {
     expect(extractTplCapitolatoUrl('<a href="https://attacker.example/repository/pdf/ad.pdf">PDF</a>')).toBe('');
+    expect(extractTplCapitolatoUrl("<a href = '/repository/pdf/ad.pdf'>PDF</a>"))
+      .toBe('https://www.tplsa.ch/repository/pdf/ad.pdf');
     expect(extractTplCapitolatoUrl('<a href="https://www.tplsa.ch/repository/pdf/ad.pdf#page=2">PDF</a>'))
       .toBe('https://www.tplsa.ch/repository/pdf/ad.pdf');
   });
@@ -288,6 +290,40 @@ describe('TPL source snapshot and adapter boundary', () => {
     });
     expect(calls).toBe(1);
     expect(buildTplAdapterSeedFields([])).toEqual({ seedUrls: [], seedDetailUrls: [], seedMetaByUrl: {} });
+  });
+
+  it('fails closed when the capitolato is missing, thin, failed, or too short', async () => {
+    const fetchImpl = (async (input: string | URL | Request) => sourceResponse(
+      String(input).includes('tpl-lavora-con-noi') ? LISTING_WITH_JOBS_HTML : DETAIL_HTML,
+    )) as typeof fetch;
+
+    const cases = [
+      {
+        label: 'failed PDF',
+        extractPdfImpl: async () => ({ text: '', rawText: '', thin: false, error: 'HTTP 503 while fetching PDF' }),
+      },
+      {
+        label: 'image-only PDF',
+        extractPdfImpl: async () => ({ text: '', rawText: '1 / 1', thin: true, totalPages: 1 }),
+      },
+      {
+        label: 'short PDF',
+        extractPdfImpl: async () => ({ text: 'Titolo breve', rawText: 'Titolo breve', thin: false, totalPages: 1 }),
+      },
+    ];
+
+    for (const testCase of cases) {
+      await expect(fetchTplSourceSnapshot({ fetchImpl, extractPdfImpl: testCase.extractPdfImpl, timeoutMs: 100 }))
+        .rejects.toThrow(/authoritative PDF content gate/);
+    }
+
+    const missingPdfFetch = (async (input: string | URL | Request) => sourceResponse(
+      String(input).includes('tpl-lavora-con-noi')
+        ? LISTING_WITH_JOBS_HTML
+        : DETAIL_HTML.replace('class="btn btn-candidati" href = "/repository/pdf/863388487-BandoSpecialistaRisorseUmane.pdf"', 'class="btn btn-candidati" href = "/2/50/candidati/?idhr=748"'),
+    )) as typeof fetch;
+    await expect(fetchTplSourceSnapshot({ fetchImpl: missingPdfFetch, timeoutMs: 100 }))
+      .rejects.toThrow(/no validated capitolato PDF URL/);
   });
 
   it('throws on unrecognised empty listings and HTTP-200 ghost details', async () => {
