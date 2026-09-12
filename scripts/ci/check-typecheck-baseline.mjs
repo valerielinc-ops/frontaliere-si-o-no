@@ -139,8 +139,18 @@ const GLOBAL_ERROR_RE = /^error (?<code>TS\d+): (?<msg>.*)$/;
  * modalità degradata qui sotto (ed è l'unica cosa che paga la scansione di
  * `git ls-files`, che su un checkout pieno non viene mai eseguita).
  */
+const REQUIRED_FULL_CHECKOUT_ARTIFACTS = Object.freeze([
+  'data/blog-articles-data.ts',
+  'data/swiss-articles-data.ts',
+  'public/.nojekyll',
+]);
+
+function missingFullCheckoutArtifacts() {
+  return REQUIRED_FULL_CHECKOUT_ARTIFACTS.filter((relative) => !fs.existsSync(path.join(ROOT, relative)));
+}
+
 function isWorktreeIncomplete() {
-  return !fs.existsSync(path.join(ROOT, 'data', 'blog-articles-data.ts'));
+  return missingFullCheckoutArtifacts().length > 0;
 }
 
 function runTsc() {
@@ -268,7 +278,9 @@ if (unknown.length) {
   process.exit(2);
 }
 
+const jsonOutput = args.includes('--json');
 const sparse = isWorktreeIncomplete();
+const missingArtifacts = sparse ? missingFullCheckoutArtifacts() : [];
 
 // La modalità degradata è per il LOCALE. In CI resta l'abort di sempre: il job
 // `vitest (unit + integration)` gira su un checkout sparse anche lui, ma con i
@@ -279,7 +291,8 @@ const sparse = isWorktreeIncomplete();
 // nella misura degradata — cioè un gate abbassato senza che nessuno l'abbia
 // deciso (non-negotiable #1). Meglio rosso e visibile.
 if (sparse && process.env.GITHUB_ACTIONS === 'true') {
-  console.error('✗ worktree incompleto in CI: data/blog-articles-data.ts non risolve.');
+  console.error('✗ worktree incompleto in CI: un artefatto sentinella non risolve.');
+  console.error(`  Artefatti sentinella mancanti: ${missingArtifacts.join(', ')}`);
   console.error('  Qui il checkout DEVE essere completo per i target dei symlink: la modalità degradata di #7677');
   console.error('  è per il locale, non per il check che governa l’auto-merge.');
   console.error('  Guarda il profilo sparse del job in .github/workflows/tests.yml: mancano i carve-out');
@@ -287,18 +300,31 @@ if (sparse && process.env.GITHUB_ACTIONS === 'true') {
   process.exit(2);
 }
 
-const missingTracked = sparse ? trackedButAbsent(ROOT) : new Set();
-
 if (sparse && args.includes('--write-baseline')) {
   console.error('✗ --write-baseline è vietato in un worktree sparse: la baseline registrerebbe ~126 falsi TS2307');
   console.error('  su moduli non materializzati, cementandoli nel ratchet (issue #6061 item 2).');
+  console.error(`  Artefatti sentinella mancanti: ${missingArtifacts.join(', ')}`);
   console.error('  Il blocco NON scade da solo: verifica qui e ora se vale ancora, con');
   console.error('    git config core.sparseCheckout      # `true` = worktree sparse');
   console.error('    ls -l data/blog-articles-data.ts    # il symlink deve risolvere a un file leggibile');
-  console.error('  Se il target risolve, il worktree è pieno e il comando torna lecito. Altrimenti rigenerala');
+  console.error('    ls -l data/swiss-articles-data.ts   # anche questo symlink deve risolvere');
+  console.error('    ls -l public/.nojekyll               # sentinella del checkout completo');
+  console.error('  Solo se tutti gli artefatti risolvono, il worktree è pieno e il comando torna lecito.');
+  console.error('  Altrimenti rigenerala');
   console.error('  da un checkout pieno (o lascia che lo faccia la CI): il GATE, invece, gira anche di qua —');
   console.error('    node scripts/ci/check-typecheck-baseline.mjs');
   process.exit(2);
+}
+
+let missingTracked = new Set();
+if (sparse) {
+  try {
+    missingTracked = trackedButAbsent(ROOT);
+  } catch (error) {
+    console.error(`✗ impossibile determinare i file tracciati non materializzati: ${error instanceof Error ? error.message : String(error)}`);
+    console.error('  La misura sparse non è affidabile senza il manifest del working tree; nessun risultato viene accettato.');
+    process.exit(2);
+  }
 }
 
 const output = runTsc();
@@ -309,24 +335,32 @@ let environmentErrors = [];
 let downstreamErrors = [];
 
 if (sparse) {
-  const paths = tsconfigPaths(fs.readFileSync(path.join(ROOT, 'tsconfig.json'), 'utf8'));
+  const tsconfigText = readSiteText('tsconfig.json');
+  const paths = tsconfigPaths(tsconfigText ?? '{}');
   const split = classifySparseErrors(parsed.errors, missingTracked, { paths });
   errors = split.measured;
   environmentErrors = split.environment;
   downstreamErrors = split.downstream;
-  console.log(
+  const report = jsonOutput ? console.error : console.log;
+  report(
     `⚠️ worktree sparse: misura DEGRADATA — ${missingTracked.size} file tracciati non materializzati, ` +
       `${environmentErrors.length} errori TS2307 verso di loro esclusi dalla misura, ` +
       `${downstreamErrors.length} errori sulla stessa riga di un import rotto.`,
   );
-  console.log('   Il verdetto vale sulle REGRESSIONI per-file; i cali qui non provano niente e non stringono il ratchet.');
-  console.log('   La misura autorevole su quei file resta quella della CI, dove il checkout è pieno.');
+  report('   Il verdetto vale sulle REGRESSIONI per-file; i cali qui non provano niente e non stringono il ratchet.');
+  report('   La misura autorevole su quei file resta quella della CI, dove il checkout è pieno.');
   for (const e of downstreamErrors.filter((e) => !e.file.startsWith('tests/')).slice(0, 10)) {
-    console.log(`   ~ ${e.file}(${e.line}): ${e.code}: ${e.msg}`);
+    report(`   ~ ${e.file}(${e.line}): ${e.code}: ${e.msg}`);
   }
 }
 
 const current = tally(errors);
+
+if (sparse && !jsonOutput && !args.includes('--list')) {
+  console.log(`   Errori misurati per file (${Object.keys(current.blocking).length} file bloccanti):`);
+  for (const [file, count] of Object.entries(current.blocking)) console.log(`     ${file}: ${count}`);
+  console.log(`   Errori advisory sotto tests/: ${current.advisoryTotal}`);
+}
 
 if (skipped) {
   console.error(`✗ ${skipped} righe con «error TS» non riconosciute dal parser: la misura non è affidabile.`);

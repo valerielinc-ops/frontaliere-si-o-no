@@ -8,12 +8,10 @@
  * sparse, il typecheck non girava MAI in locale: solo in CI, cioè mai prima di
  * aprire una PR.
  *
- * Questi casi fissano il contratto della modalità degradata. Sono sulle
- * funzioni pure perché il verdetto end-to-end richiede un `tsc` su tutto il
- * programma (~40s) e un worktree senza `packages/articles/content` — la
- * verifica e2e è stata fatta a mano sulla PR, simulando lo sparse: worktree
- * simulato pulito → exit 0, stessa simulazione con una regressione piantata a
- * `services/router.ts:4056` → exit 1 su quel file, `--write-baseline` → exit 2.
+ * Questi casi fissano il contratto della modalità degradata sulle funzioni
+ * pure. Il verdetto end-to-end richiede un `tsc` su tutto il programma (~40s)
+ * e un worktree senza `packages/articles/content`; il test mantiene quindi
+ * deterministica la classificazione che decide cosa il gate può misurare.
  */
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
