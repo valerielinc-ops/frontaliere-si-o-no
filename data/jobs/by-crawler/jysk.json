@@ -316,17 +316,21 @@
         "it": "store-manager-apprendista-a-80-100-per-la-region-bern-jysk-zollikofen-6h1y7j",
         "en": "store-manager-trainee-a-80-100-fur-die-region-bern-jysk-zollikofen-6h1y7j",
         "de": "store-manager-trainee-a-80-100-fur-die-region-bern-jysk-zollikofen-6h1y7j",
-        "fr": "store-manager-apprenti-a-80-100-fur-die-region-bern-jysk-zollikofen-6h1y7j"
+        "fr": "stagiaire-de-magasin-a-80-100-pour-la-region-de-berne-jysk-zollikofen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "store-manager-trainee-a-80-100-fur-die-region-bern-jysk-zollikofen"
+        ],
+        "fr": [
+          "store-manager-apprenti-a-80-100-fur-die-region-bern-jysk-zollikofen-6h1y7j"
         ]
       },
       "previousSlugs": [
-        "store-manager-trainee-a-80-100-fur-die-region-bern-jysk-zollikofen"
+        "store-manager-trainee-a-80-100-fur-die-region-bern-jysk-zollikofen",
+        "store-manager-apprenti-a-80-100-fur-die-region-bern-jysk-zollikofen-6h1y7j"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

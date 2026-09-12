@@ -8739,8 +8739,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-engineering-emmi-ch",
-          "responsabile-di-progetto-engineering-emmi-dagmersellen"
+          "projektleiter-in-engineering-emmi-ch"
         ],
         "en": [
           "projektleiter-in-engineering-emmi-ch"
@@ -8750,8 +8749,7 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-engineering-emmi-ch",
-        "responsabile-di-progetto-engineering-emmi-dagmersellen"
+        "projektleiter-in-engineering-emmi-ch"
       ],
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -8953,12 +8951,12 @@
     },
     {
       "id": "emmi-040baee2a7e3",
-      "slug": "collaboratore-trice-reinigung-emmi-emmen",
+      "slug": "pulizia-del-personale-emmi-emmen-luzern",
       "slugByLocale": {
         "de": "mitarbeiter-in-reinigung-emmi-ch",
-        "it": "collaboratore-trice-reinigung-emmi-emmen",
-        "en": "mitarbeiter-in-reinigung-emmi-emmen",
-        "fr": "mitarbeiter-in-reinigung-emmi-emmen"
+        "it": "pulizia-del-personale-emmi-emmen-luzern",
+        "en": "staff-cleaning-emmi-emmen-luzern",
+        "fr": "nettoyage-du-personnel-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -9011,11 +9009,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-emmi-ch"
+          "mitarbeiter-in-reinigung-emmi-ch",
+          "collaboratore-trice-reinigung-emmi-emmen"
+        ],
+        "en": [
+          "mitarbeiter-in-reinigung-emmi-emmen"
+        ],
+        "fr": [
+          "mitarbeiter-in-reinigung-emmi-emmen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-emmi-ch"
+        "mitarbeiter-in-reinigung-emmi-ch",
+        "collaboratore-trice-reinigung-emmi-emmen",
+        "mitarbeiter-in-reinigung-emmi-emmen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

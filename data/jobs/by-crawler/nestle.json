@@ -1633,10 +1633,10 @@
     },
     {
       "id": "nestle-1436193833",
-      "slug": "pilot-plant-technician-nestle-ch",
+      "slug": "impianto-pilota-tecnico-nestle-konolfingen",
       "slugByLocale": {
         "de": "pilot-plant-technician-nestle-ch",
-        "it": "pilot-plant-technician-nestle-ch",
+        "it": "impianto-pilota-tecnico-nestle-konolfingen",
         "en": "pilot-plant-technician-nestle-ch",
         "fr": "pilot-plant-technician-nestle-ch"
       },
@@ -1693,7 +1693,15 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-11T23:22:22.593Z"
+      "firstSeenAt": "2026-09-11T23:22:22.593Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pilot-plant-technician-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pilot-plant-technician-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1281784801",
@@ -3503,7 +3511,6 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-quality-specialist-nestle-ch",
-          "senior-quality-specialista-nestle-orbe-ch",
           "senior-quality-specialista-nestle-orbe-ch-ca0gfo",
           "senior-qualitat-spezialist-nestle-orbe-ch",
           "senior-qualite-specialiste-nestle-orbe-ch",
@@ -3518,7 +3525,6 @@
       },
       "previousSlugs": [
         "senior-quality-specialist-nestle-ch",
-        "senior-quality-specialista-nestle-orbe-ch",
         "senior-quality-specialista-nestle-orbe-ch-ca0gfo",
         "senior-qualitat-spezialist-nestle-orbe-ch",
         "senior-qualite-specialiste-nestle-orbe-ch",

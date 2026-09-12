@@ -771,12 +771,12 @@
     },
     {
       "id": "kanton-zuerich-a79e70189a2d",
-      "slug": "jurist-in-rechtsdienst-befristet-per-1-jahr-kantonale-verwaltung-zurich-winterthur",
+      "slug": "servizio-giuridico-limitato-a-1-anno-kantonale-verwaltung-zurich-winterthur",
       "slugByLocale": {
         "de": "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur",
-        "it": "jurist-in-rechtsdienst-befristet-per-1-jahr-kantonale-verwaltung-zurich-winterthur",
-        "en": "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur",
-        "fr": "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur"
+        "it": "servizio-giuridico-limitato-a-1-anno-kantonale-verwaltung-zurich-winterthur",
+        "en": "legal-service-limited-to-1-year-kantonale-verwaltung-zurich-winterthur",
+        "fr": "service-juridique-limite-a-1-an-kantonale-verwaltung-zurich-winterthur"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -828,20 +828,24 @@
           "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur",
           "jurist-in-rechtsdienst-befristet-per-1-jahr-kantonale-verwaltung-zurich-winterthur-b4s82y",
           "lawyer-legal-service-limited-to-1-year-kantonale-verwaltung-zurich-winterthur",
-          "service-juridique-limite-a-1-an-kantonale-verwaltung-zurich-winterthur"
+          "service-juridique-limite-a-1-an-kantonale-verwaltung-zurich-winterthur",
+          "jurist-in-rechtsdienst-befristet-per-1-jahr-kantonale-verwaltung-zurich-winterthur"
         ],
         "en": [
-          "lawyer-legal-service-limited-to-1-year-kantonale-verwaltung-zurich-winterthur"
+          "lawyer-legal-service-limited-to-1-year-kantonale-verwaltung-zurich-winterthur",
+          "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur"
         ],
         "fr": [
-          "service-juridique-limite-a-1-an-kantonale-verwaltung-zurich-winterthur"
+          "service-juridique-limite-a-1-an-kantonale-verwaltung-zurich-winterthur",
+          "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur"
         ]
       },
       "previousSlugs": [
         "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur",
         "jurist-in-rechtsdienst-befristet-per-1-jahr-kantonale-verwaltung-zurich-winterthur-b4s82y",
         "lawyer-legal-service-limited-to-1-year-kantonale-verwaltung-zurich-winterthur",
-        "service-juridique-limite-a-1-an-kantonale-verwaltung-zurich-winterthur"
+        "service-juridique-limite-a-1-an-kantonale-verwaltung-zurich-winterthur",
+        "jurist-in-rechtsdienst-befristet-per-1-jahr-kantonale-verwaltung-zurich-winterthur"
       ],
       "salaryMin": 85000,
       "salaryMax": 145000,
@@ -2498,7 +2502,6 @@
       "previousSlugs": [
         "verwaltungssekretar-in-kanton-zuerich-horgen",
         "verwaltungssekretar-in-kantonale-verwaltung-zurich-horgen",
-        "segretario-amministrativo-kantonale-verwaltung-zurich-horgen",
         "segretario-amministrativo-kantonale-verwaltung-zurich-bulach",
         "administrative-secretary-kantonale-verwaltung-zurich-bulach",
         "verwaltungssekretar-in-kanton-zuerich-bulach",
@@ -2509,7 +2512,6 @@
         "it": [
           "verwaltungssekretar-in-kanton-zuerich-horgen",
           "verwaltungssekretar-in-kantonale-verwaltung-zurich-horgen",
-          "segretario-amministrativo-kantonale-verwaltung-zurich-horgen",
           "segretario-amministrativo-kantonale-verwaltung-zurich-bulach",
           "administrative-secretary-kantonale-verwaltung-zurich-bulach",
           "verwaltungssekretar-in-kanton-zuerich-bulach",
@@ -10241,8 +10243,7 @@
         "construction-project-administrator-in-kantonale-verwaltung-zurich-zurich",
         "administrateur-de-projet-de-construction-in-kantonale-verwaltung-zurich-zurich",
         "baupro-ektadministrator-in-kantonale-verwaltung-zurich",
-        "bauprojektadministrator-in-kantonale-verwaltung-zurich",
-        "amministratore-di-progetto-kantonale-verwaltung-zurich-zurich"
+        "bauprojektadministrator-in-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10253,8 +10254,7 @@
           "construction-project-administrator-in-kantonale-verwaltung-zurich-zurich",
           "administrateur-de-projet-de-construction-in-kantonale-verwaltung-zurich-zurich",
           "baupro-ektadministrator-in-kantonale-verwaltung-zurich",
-          "bauprojektadministrator-in-kantonale-verwaltung-zurich",
-          "amministratore-di-progetto-kantonale-verwaltung-zurich-zurich"
+          "bauprojektadministrator-in-kantonale-verwaltung-zurich"
         ],
         "en": [
           "bauprojektadministrator-in-kantonale-verwaltung-zurich-zurich",
@@ -10453,7 +10453,6 @@
       "previousSlugs": [
         "schulsozialarbeiter-in-primarschule-horgen-kanton-zuerich-horgen",
         "schulsozialarbeiter-in-primarschule-horgen-kantonale-verwaltung-zurich-horgen",
-        "scuola-social-workers-scuola-primaria-horgen-kantonale-verwaltung-zurich-horgen",
         "scolastica-sociale-scuola-primaria-horgen-kantonale-verwaltung-zurich-horgen",
         "school-social-worker-primary-school-horgen-kantonale-verwaltung-zurich-horgen",
         "travailleur-social-scolaire-ecole-primaire-horgen-kantonale-verwaltung-zurich-horgen",
@@ -10472,7 +10471,6 @@
         "it": [
           "schulsozialarbeiter-in-primarschule-horgen-kanton-zuerich-horgen",
           "schulsozialarbeiter-in-primarschule-horgen-kantonale-verwaltung-zurich-horgen",
-          "scuola-social-workers-scuola-primaria-horgen-kantonale-verwaltung-zurich-horgen",
           "scolastica-sociale-scuola-primaria-horgen-kantonale-verwaltung-zurich-horgen",
           "school-social-worker-primary-school-horgen-kantonale-verwaltung-zurich-horgen",
           "travailleur-social-scolaire-ecole-primaire-horgen-kantonale-verwaltung-zurich-horgen",
@@ -10652,7 +10650,6 @@
       "previousSlugs": [
         "aushilfe-schadensupport-aussendienst-kanton-zuerich-8050-zurich",
         "aushilfe-schadensupport-aussendienst-kantonale-verwaltung-zurich-8050-zurich",
-        "aiuti-per-i-servizi-esterni-kantonale-verwaltung-zurich-8050-zurich",
         "aiuti-all-innovazione-kantonale-verwaltung-zurich-8050-zurich",
         "aid-innendienst-kantonale-verwaltung-zurich-8050-zurich",
         "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich",
@@ -10663,7 +10660,6 @@
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-schadensupport-aussendienst-kanton-zuerich-8050-zurich",
-          "aiuti-per-i-servizi-esterni-kantonale-verwaltung-zurich-8050-zurich",
           "aiuti-all-innovazione-kantonale-verwaltung-zurich-8050-zurich",
           "aid-innendienst-kantonale-verwaltung-zurich-8050-zurich",
           "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich",
@@ -14096,7 +14092,6 @@
       "previousSlugs": [
         "facharbeiter-in-strassenunterhalt-markierung-kanton-zuerich-pfaffikon",
         "facharbeiter-in-strassenunterhalt-markierung-kantonale-verwaltung-zurich-pfaffikon",
-        "marchio-di-manutenzione-stradale-specializzato-kantonale-verwaltung-zurich-pfaffikon",
         "lavoratori-qualificati-in-manutenzione-stradale-marcatura-kantonale-verwaltung-zurich-pfaffikon",
         "skilled-workers-in-road-maintenance-marking-kantonale-verwaltung-zurich-pfaffikon",
         "travailleurs-qualifies-en-marquage-d-entretien-routier-kantonale-verwaltung-zurich-pfaffikon"
@@ -14105,7 +14100,6 @@
         "it": [
           "facharbeiter-in-strassenunterhalt-markierung-kanton-zuerich-pfaffikon",
           "facharbeiter-in-strassenunterhalt-markierung-kantonale-verwaltung-zurich-pfaffikon",
-          "marchio-di-manutenzione-stradale-specializzato-kantonale-verwaltung-zurich-pfaffikon",
           "lavoratori-qualificati-in-manutenzione-stradale-marcatura-kantonale-verwaltung-zurich-pfaffikon",
           "skilled-workers-in-road-maintenance-marking-kantonale-verwaltung-zurich-pfaffikon",
           "travailleurs-qualifies-en-marquage-d-entretien-routier-kantonale-verwaltung-zurich-pfaffikon"
@@ -14595,16 +14589,14 @@
         "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
         "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf",
         "assistenti-temporanei-temporanei-kantonale-verwaltung-zurich-regensdorf",
-        "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
-        "assistenti-temporanei-kantonale-verwaltung-zurich-regensdorf"
+        "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
           "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf",
           "assistenti-temporanei-temporanei-kantonale-verwaltung-zurich-regensdorf",
-          "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
-          "assistenti-temporanei-kantonale-verwaltung-zurich-regensdorf"
+          "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-03T13:47:00.841Z",

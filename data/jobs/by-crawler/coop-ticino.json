@@ -121,7 +121,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-ristorante-st-gallen-sankt-gallen-0em2io",
-        "en": "associate-gastronomie-coop-ristorante-st-gallen-sankt-gallen-0em2io",
+        "en": "associate-gastronomie-coop-genossenschaft-st-gallen",
         "de": "mitarbeiter-in-gastronomie-coop-ristorante-st-gallen-sankt-gallen-0em2io",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-st-gallen-sankt-gallen-0em2io"
       },
@@ -140,11 +140,19 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "associate-gastronomie-coop-ristorante-st-gallen-sankt-gallen-0em2io"
+        ]
+      },
+      "previousSlugs": [
+        "associate-gastronomie-coop-ristorante-st-gallen-sankt-gallen-0em2io"
+      ]
     },
     {
       "id": "company-tkh4c7",
-      "slug": "brand-manager-m-w-d-partnerschaften-60-90-coop-basel-stadt",
+      "slug": "brand-manager-partnership-m-f-d-60-90-coop-genossenschaft-basel",
       "company": "Coop Genossenschaft",
       "title": "Brand Manager (w/m/d) Partnerschaften; 60-90%",
       "location": "Basel",
@@ -180,10 +188,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "brand-manager-m-w-d-partnerschaften-60-90-coop-basel-stadt-tkh4c7",
-        "en": "brand-manager-m-w-d-partnerschaften-60-90-coop-basel-stadt-tkh4c7",
+        "it": "brand-manager-partnership-m-f-d-60-90-coop-genossenschaft-basel",
+        "en": "brand-manager-m-f-d-partnerships-60-90-coop-genossenschaft-basel",
         "de": "brand-manager-m-w-d-partnerschaften-60-90-coop-basel-stadt-tkh4c7",
-        "fr": "brand-manager-m-w-d-partnerschaften-60-90-coop-basel-stadt-tkh4c7"
+        "fr": "partenariats-de-brand-manager-h-f-d-60-90-coop-genossenschaft-basel"
       },
       "needsRetranslation": true,
       "addressLocality": "Basel",
@@ -201,11 +209,27 @@
           "maxValue": 116600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "brand-manager-m-w-d-partnerschaften-60-90-coop-basel-stadt-tkh4c7",
+          "brand-manager-m-w-d-partnerschaften-60-90-coop-basel-stadt"
+        ],
+        "en": [
+          "brand-manager-m-w-d-partnerschaften-60-90-coop-basel-stadt-tkh4c7"
+        ],
+        "fr": [
+          "brand-manager-m-w-d-partnerschaften-60-90-coop-basel-stadt-tkh4c7"
+        ]
+      },
+      "previousSlugs": [
+        "brand-manager-m-w-d-partnerschaften-60-90-coop-basel-stadt-tkh4c7",
+        "brand-manager-m-w-d-partnerschaften-60-90-coop-basel-stadt"
+      ]
     },
     {
       "id": "company-m5q2gn",
-      "slug": "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-vaud",
+      "slug": "ristorante-partner-m-f-d-coop-genossenschaft-la-tour-de-peilz",
       "company": "Coop Genossenschaft",
       "title": "Collaboratrice/Collaborateur Restaurant (f/h/d)",
       "location": "La Tour-de-Peilz",
@@ -253,9 +277,9 @@
         ]
       },
       "slugByLocale": {
-        "it": "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-vaud-m5q2gn",
-        "en": "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-vaud-m5q2gn",
-        "de": "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-vaud-m5q2gn",
+        "it": "ristorante-partner-m-f-d-coop-genossenschaft-la-tour-de-peilz",
+        "en": "partner-restaurant-m-f-d-coop-genossenschaft-la-tour-de-peilz",
+        "de": "partnerrestaurant-m-w-d-coop-genossenschaft-la-tour-de-peilz",
         "fr": "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-vaud-m5q2gn"
       },
       "addressLocality": "La Tour-de-Peilz",
@@ -273,11 +297,27 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-vaud-m5q2gn",
+          "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-vaud"
+        ],
+        "en": [
+          "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-vaud-m5q2gn"
+        ],
+        "de": [
+          "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-vaud-m5q2gn"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-vaud-m5q2gn",
+        "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-vaud"
+      ]
     },
     {
       "id": "company-fia8ik",
-      "slug": "cuisiniere-cuisinier-m-w-d-coop-ristorante-orbe-vaud",
+      "slug": "cucina-cucina-m-f-d-coop-genossenschaft-orbe",
       "company": "Coop Genossenschaft",
       "title": "Cuisinière/Cuisinier (f/h/d)",
       "location": "Orbe",
@@ -325,9 +365,9 @@
         ]
       },
       "slugByLocale": {
-        "it": "cuisiniere-cuisinier-m-w-d-coop-ristorante-orbe-vaud-fia8ik",
-        "en": "cuisiniere-cuisinier-m-w-d-coop-ristorante-orbe-vaud-fia8ik",
-        "de": "cuisiniere-cuisinier-m-w-d-coop-ristorante-orbe-vaud-fia8ik",
+        "it": "cucina-cucina-m-f-d-coop-genossenschaft-orbe",
+        "en": "cook-kitchen-m-f-d-coop-genossenschaft-orbe",
+        "de": "koch-kuche-m-w-d-coop-genossenschaft-orbe",
         "fr": "cuisiniere-cuisinier-m-w-d-coop-ristorante-orbe-vaud-fia8ik"
       },
       "addressLocality": "Orbe",
@@ -345,11 +385,27 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisiniere-cuisinier-m-w-d-coop-ristorante-orbe-vaud-fia8ik",
+          "cuisiniere-cuisinier-m-w-d-coop-ristorante-orbe-vaud"
+        ],
+        "en": [
+          "cuisiniere-cuisinier-m-w-d-coop-ristorante-orbe-vaud-fia8ik"
+        ],
+        "de": [
+          "cuisiniere-cuisinier-m-w-d-coop-ristorante-orbe-vaud-fia8ik"
+        ]
+      },
+      "previousSlugs": [
+        "cuisiniere-cuisinier-m-w-d-coop-ristorante-orbe-vaud-fia8ik",
+        "cuisiniere-cuisinier-m-w-d-coop-ristorante-orbe-vaud"
+      ]
     },
     {
       "id": "company-1dftq8",
-      "slug": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud",
+      "slug": "collaboratore-partner-restaurant-student-post-m-f-d-coop-genossenschaft-lausanne",
       "company": "Coop Genossenschaft",
       "title": "Collaboratrice / Collaborateur Restaurant - Poste pour étudiant·e (f/h/d)",
       "location": "Lausanne",
@@ -397,9 +453,9 @@
         ]
       },
       "slugByLocale": {
-        "it": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud-1dftq8",
-        "en": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud-1dftq8",
-        "de": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud-1dftq8",
+        "it": "collaboratore-partner-restaurant-student-post-m-f-d-coop-genossenschaft-lausanne",
+        "en": "collaborator-partner-restaurant-student-post-m-f-d-coop-genossenschaft-lausanne",
+        "de": "mitarbeiter-partnerrestaurant-student-post-m-w-d-coop-genossenschaft-lausanne",
         "fr": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud-1dftq8"
       },
       "addressLocality": "Lausanne",
@@ -417,7 +473,23 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud-1dftq8",
+          "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud"
+        ],
+        "en": [
+          "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud-1dftq8"
+        ],
+        "de": [
+          "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud-1dftq8"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud-1dftq8",
+        "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud"
+      ]
     },
     {
       "id": "company-nmtbz9",
@@ -468,7 +540,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-ristorante-basel-stadt-nmtbz9",
-        "en": "associate-gastronomie-coop-ristorante-basel-stadt-nmtbz9",
+        "en": "associate-gastronomie-coop-genossenschaft-basel",
         "de": "mitarbeiter-in-gastronomie-coop-ristorante-basel-stadt-nmtbz9",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-basel-stadt-nmtbz9"
       },
@@ -487,11 +559,19 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "associate-gastronomie-coop-ristorante-basel-stadt-nmtbz9"
+        ]
+      },
+      "previousSlugs": [
+        "associate-gastronomie-coop-ristorante-basel-stadt-nmtbz9"
+      ]
     },
     {
       "id": "company-utcqmv",
-      "slug": "kochin-koch-m-w-d-coop-ristorante-bachenbulach-zurich",
+      "slug": "chef-chef-m-f-d-coop-genossenschaft-bachenbulach",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Bachenbülach",
@@ -536,10 +616,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-ristorante-bachenbulach-zurich-utcqmv",
+        "it": "chef-chef-m-f-d-coop-genossenschaft-bachenbulach",
         "en": "kochin-koch-m-w-d-coop-ristorante-bachenbulach-zurich-utcqmv",
         "de": "kochin-koch-m-w-d-coop-ristorante-bachenbulach-zurich-utcqmv",
-        "fr": "kochin-koch-m-w-d-coop-ristorante-bachenbulach-zurich-utcqmv"
+        "fr": "chef-chef-h-f-d-coop-genossenschaft-bachenbulach"
       },
       "needsRetranslation": true,
       "addressLocality": "Bachenbülach",
@@ -557,11 +637,24 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-m-w-d-coop-ristorante-bachenbulach-zurich-utcqmv",
+          "kochin-koch-m-w-d-coop-ristorante-bachenbulach-zurich"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-bachenbulach-zurich-utcqmv"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-m-w-d-coop-ristorante-bachenbulach-zurich-utcqmv",
+        "kochin-koch-m-w-d-coop-ristorante-bachenbulach-zurich"
+      ]
     },
     {
       "id": "company-wjljuc",
-      "slug": "magaziner-in-verkauf-coop-oberwil-basel-landschaft",
+      "slug": "vendite-magazine-coop-genossenschaft-oberwil",
       "company": "Coop Genossenschaft",
       "title": "Magaziner:in Verkauf",
       "location": "Oberwil",
@@ -607,10 +700,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "magaziner-in-vendita-coop-oberwil-basel-landschaft-wjljuc",
-        "en": "magaziner-in-sales-coop-oberwil-basel-landschaft-wjljuc",
+        "it": "vendite-magazine-coop-genossenschaft-oberwil",
+        "en": "warehouse-sales-coop-genossenschaft-oberwil",
         "de": "magaziner-in-verkauf-coop-oberwil-basel-landschaft-wjljuc",
-        "fr": "magaziner-in-vente-coop-oberwil-basel-landschaft-wjljuc"
+        "fr": "ventes-de-magasin-coop-genossenschaft-oberwil"
       },
       "addressLocality": "Oberwil",
       "sourceLang": "de",
@@ -627,7 +720,25 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "magaziner-in-vendita-coop-oberwil-basel-landschaft-wjljuc",
+          "magaziner-in-verkauf-coop-oberwil-basel-landschaft"
+        ],
+        "en": [
+          "magaziner-in-sales-coop-oberwil-basel-landschaft-wjljuc"
+        ],
+        "fr": [
+          "magaziner-in-vente-coop-oberwil-basel-landschaft-wjljuc"
+        ]
+      },
+      "previousSlugs": [
+        "magaziner-in-vendita-coop-oberwil-basel-landschaft-wjljuc",
+        "magaziner-in-verkauf-coop-oberwil-basel-landschaft",
+        "magaziner-in-sales-coop-oberwil-basel-landschaft-wjljuc",
+        "magaziner-in-vente-coop-oberwil-basel-landschaft-wjljuc"
+      ]
     },
     {
       "id": "company-3fcf8g",
@@ -678,7 +789,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-ristorante-schafisheim-aargau-3fcf8g",
-        "en": "associate-gastronomie-coop-ristorante-schafisheim-aargau-3fcf8g",
+        "en": "associate-gastronomie-coop-genossenschaft-schafisheim",
         "de": "mitarbeiter-in-gastronomie-coop-ristorante-schafisheim-aargau-3fcf8g",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-schafisheim-aargau-3fcf8g"
       },
@@ -697,7 +808,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "associate-gastronomie-coop-ristorante-schafisheim-aargau-3fcf8g"
+        ]
+      },
+      "previousSlugs": [
+        "associate-gastronomie-coop-ristorante-schafisheim-aargau-3fcf8g"
+      ]
     },
     {
       "id": "company-sm4mdk",
@@ -2484,13 +2603,11 @@
         "verkaufer-in-kassen-services-coop-zurich-72e571",
         "verkaufer-in-kassen-services-coop-zurich-2-2",
         "verkaufer-in-kassen-services-coop-zurich-3-2",
-        "vendita-cassa-servizi-coop-genossenschaft-zurich",
         "verkaufer-in-kassen-services-coop-zurich-bom167",
         "venditore-in-cassa-servizi-coop-genossenschaft-zurich-28104b",
         "seller-in-cash-registers-services-coop-genossenschaft-zurich-58c965",
         "seller-in-cash-registers-services-coop-genossenschaft-zurich-28104b",
         "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-58c965",
-        "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-zurich",
         "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-28104b",
         "cashier-service-assistant-coop-genossenschaft-zurich-44sdb4",
         "sales-assistant-cashier-services-coop-genossenschaft-zurich",
@@ -3674,7 +3791,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-aarberg",
-        "en": "kochin-koch-m-w-d-coop-ristorante-aarberg-bern-zdaoxi",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-aarberg-bern",
         "de": "kochin-koch-m-w-d-coop-ristorante-aarberg-bern-zdaoxi",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-aarberg"
       },
@@ -3697,7 +3814,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "chef-chef-m-f-d-coop-genossenschaft-aarberg",
           "chef-chef-m-f-d-coop-ristorante-aarberg-bern",
           "kochin-koch-m-w-d-coop-genossenschaft-aarberg-bern-qqpaf2",
           "chef-chef-h-f-d-coop-genossenschaft-aarberg",
@@ -3706,18 +3822,17 @@
           "kochin-koch-m-w-d-coop-ristorante-aarberg-bern"
         ],
         "en": [
-          "chef-chef-m-f-d-coop-ristorante-aarberg-bern"
+          "chef-chef-m-f-d-coop-ristorante-aarberg-bern",
+          "kochin-koch-m-w-d-coop-ristorante-aarberg-bern-zdaoxi"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-genossenschaft-aarberg-bern-qqpaf2"
         ],
         "fr": [
-          "chef-chef-h-f-d-coop-genossenschaft-aarberg",
           "kochin-koch-m-w-d-coop-ristorante-aarberg-bern-zdaoxi"
         ]
       },
       "previousSlugs": [
-        "chef-chef-m-f-d-coop-genossenschaft-aarberg",
         "chef-chef-m-f-d-coop-ristorante-aarberg-bern",
         "kochin-koch-m-w-d-coop-genossenschaft-aarberg-bern-qqpaf2",
         "chef-chef-h-f-d-coop-genossenschaft-aarberg",
@@ -4399,7 +4514,7 @@
       },
       "slugByLocale": {
         "it": "chauffeur-cat-ce-coop-genossenschaft-chur",
-        "en": "chauffeur-in-kat-ce-coop-chur-graubunden-8f6iag",
+        "en": "chauffeur-cat-ce-coop-genossenschaft-chur-graubunden",
         "de": "chauffeur-in-kat-ce-coop-chur-graubunden-8f6iag",
         "fr": "chauffeur-in-kat-ce-coop-chur-graubunden-8f6iag"
       },
@@ -4429,7 +4544,8 @@
           "chauffeur-in-kat-ce-coop-genossenschaft-chur-graubunden"
         ],
         "en": [
-          "driver-cat-ce-coop-genossenschaft-chur"
+          "driver-cat-ce-coop-genossenschaft-chur",
+          "chauffeur-in-kat-ce-coop-chur-graubunden-8f6iag"
         ],
         "de": [
           "chauffeur-in-kat-ce-coop-genossenschaft-chur-graubunden-v0q9d4"
@@ -8132,7 +8248,6 @@
           "boucher-specialiste-de-la-viande-coop-genossenschaft-unterentfelden-57dxi6",
           "butcher-meat-specialist-coop-genossenschaft-unterentfelden",
           "butcher-meat-specialist-coop-genossenschaft-unterentfelden-57dxi6",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-unterentfelden-aargau",
           "macellaio-specialista-della-carne-coop-genossenschaft-unterentfelden"
         ],
         "en": [
@@ -8159,7 +8274,6 @@
         "boucher-specialiste-de-la-viande-coop-genossenschaft-unterentfelden-57dxi6",
         "butcher-meat-specialist-coop-genossenschaft-unterentfelden",
         "butcher-meat-specialist-coop-genossenschaft-unterentfelden-57dxi6",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-unterentfelden-aargau",
         "macellaio-specialista-della-carne-coop-genossenschaft-unterentfelden"
       ],
       "salaryMin": 62000,
@@ -9508,7 +9622,6 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-coop-uetendorf-bern-b4duyg",
-          "verkaufer-in-frischprodukte-coop-uetendorf-bern",
           "verkaufer-in-frischprodukte-coop-uetendorf-bern-od5p8s",
           "vendeur-produits-frais-coop-genossenschaft-uetendorf",
           "vendeur-de-produits-frais-coop-genossenschaft-riehen"
@@ -9526,7 +9639,6 @@
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-uetendorf-bern-b4duyg",
-        "verkaufer-in-frischprodukte-coop-uetendorf-bern",
         "verkaufer-in-frischprodukte-coop-uetendorf-bern-od5p8s",
         "vendeur-produits-frais-coop-genossenschaft-uetendorf",
         "vendeur-de-produits-frais-coop-genossenschaft-riehen"
@@ -9874,7 +9986,6 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-coop-interlaken-bern-j41h6h",
-          "verkaufer-in-frischprodukte-coop-interlaken-bern",
           "verkaufer-in-frischprodukte-coop-interlaken-bern-razdof",
           "vendeur-produits-frais-coop-genossenschaft-interlaken"
         ],
@@ -9891,7 +10002,6 @@
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-interlaken-bern-j41h6h",
-        "verkaufer-in-frischprodukte-coop-interlaken-bern",
         "verkaufer-in-frischprodukte-coop-interlaken-bern-razdof",
         "vendeur-produits-frais-coop-genossenschaft-interlaken"
       ],
@@ -10053,7 +10163,6 @@
         "it": [
           "verkaufer-in-food-coop-grenchen-solothurn-jvj9u0",
           "seller-in-food-coop-genossenschaft-grenchen-2apn1d",
-          "verkaufer-in-food-coop-grenchen-solothurn",
           "seller-in-food-coop-genossenschaft-grenchen"
         ],
         "en": [
@@ -10066,7 +10175,6 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-grenchen-solothurn-jvj9u0",
         "seller-in-food-coop-genossenschaft-grenchen-2apn1d",
-        "verkaufer-in-food-coop-grenchen-solothurn",
         "seller-in-food-coop-genossenschaft-grenchen"
       ],
       "salaryMin": 68500,
@@ -11906,7 +12014,6 @@
         "it": [
           "verkaufer-in-food-frische-insel-coop-st-gallen-sankt-gallen-6g94bb",
           "venditore-in-food-fresh-island-coop-genossenschaft-st-gallen",
-          "verkaufer-in-food-frische-insel-coop-st-gallen-sankt-gallen",
           "venditore-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
           "seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
           "verkaufer-in-food-frische-insel-coop-genossenschaft-st-gallen-sankt-gallen-d9anta",
@@ -11930,7 +12037,6 @@
       "previousSlugs": [
         "verkaufer-in-food-frische-insel-coop-st-gallen-sankt-gallen-6g94bb",
         "venditore-in-food-fresh-island-coop-genossenschaft-st-gallen",
-        "verkaufer-in-food-frische-insel-coop-st-gallen-sankt-gallen",
         "venditore-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
         "seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
         "verkaufer-in-food-frische-insel-coop-genossenschaft-st-gallen-sankt-gallen-d9anta",
@@ -12012,7 +12118,6 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-bulach-zurich-bdw0mp",
-          "verkaufer-in-food-coop-bulach-zurich",
           "venditore-in-food-coop-genossenschaft-bulach-zurich",
           "seller-in-food-coop-genossenschaft-bulach-zurich",
           "verkaufer-in-food-coop-genossenschaft-bulach-zurich-351y10",
@@ -12036,7 +12141,6 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-bulach-zurich-bdw0mp",
-        "verkaufer-in-food-coop-bulach-zurich",
         "venditore-in-food-coop-genossenschaft-bulach-zurich",
         "seller-in-food-coop-genossenschaft-bulach-zurich",
         "verkaufer-in-food-coop-genossenschaft-bulach-zurich-351y10",
@@ -12150,7 +12254,6 @@
         "boucher-bouchere-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-feuerthalen",
         "boucher-specialiste-de-la-viande-coop-genossenschaft-feuerthalen-50jcnz",
         "butcher-meat-specialist-coop-genossenschaft-feuerthalen-50jcnz",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-feuerthalen-zurich",
         "macellaio-specialista-della-carne-coop-genossenschaft-regensdorf",
         "macellaio-specialista-della-carne-coop-genossenschaft-sarnen",
         "macellaio-specialista-della-carne-coop-genossenschaft-wettingen",
@@ -177913,8 +178016,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen-74b0yk",
-          "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen"
+          "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen-74b0yk"
         ],
         "en": [
           "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen-74b0yk",
@@ -177930,8 +178032,7 @@
       },
       "previousSlugs": [
         "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen-74b0yk",
-        "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-genossenschaft-sankt-gallen-74b0yk",
-        "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen"
+        "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-genossenschaft-sankt-gallen-74b0yk"
       ],
       "sourceLang": "de",
       "needsRetranslation": true,
@@ -178008,8 +178109,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau-42zfwa",
-          "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau"
+          "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau-42zfwa"
         ],
         "en": [
           "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau-42zfwa",
@@ -178025,8 +178125,7 @@
       },
       "previousSlugs": [
         "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau-42zfwa",
-        "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-genossenschaft-gossau-42zfwa",
-        "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau"
+        "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-genossenschaft-gossau-42zfwa"
       ],
       "sourceLang": "de",
       "needsRetranslation": true,

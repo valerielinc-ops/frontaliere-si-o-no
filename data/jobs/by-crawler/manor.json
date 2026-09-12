@@ -381,9 +381,9 @@
       "slug": "manor-collaborateur-trice-supermarche-boulangerie-20-sion",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supermarche-boulangerie-20-sion",
-        "en": "manor-collaborateur-trice-supermarche-boulangerie-20-sion",
-        "de": "manor-collaborateur-trice-supermarche-boulangerie-20-sion",
-        "fr": "manor-collaborateur-trice-supermarche-boulangerie-20-sion"
+        "en": "supermarche-co-operator-boulangerie-20-manor-ag-sion",
+        "de": "supermarche-kooperator-boulangerie-20-manor-ag-sion",
+        "fr": "cooperateur-supermarche-boulangerie-20-manor-ag-sion"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice supermarché (Boulangerie) 20%",
@@ -944,7 +944,7 @@
       "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf",
-        "en": "staff-logistics-commentation-100-manor-ag-hochdorf-868d93",
+        "en": "mitarbeiter-in-logistik-kommetteerung-100-manor-ag-hochdorf",
         "de": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf",
         "fr": "commentaires-du-personnel-sur-la-logistique-100-manor-ag-hochdorf-868d93"
       },
@@ -974,7 +974,15 @@
       "addressLocality": "Hochdorf",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-10T23:16:57.125Z"
+      "firstSeenAt": "2026-09-10T23:16:57.125Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "staff-logistics-commentation-100-manor-ag-hochdorf-868d93"
+        ]
+      },
+      "previousSlugs": [
+        "staff-logistics-commentation-100-manor-ag-hochdorf-868d93"
+      ]
     },
     {
       "title": "Collaborateur/trice Visual Merchandising (Non Food) 80%",
@@ -1237,7 +1245,7 @@
       "slug": "manor-mitarbeiter-in-visual-merchandising-60-basel",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-visual-merchandising-60-basel",
-        "en": "employees-in-visual-merchandising-60-manor-ag-basel",
+        "en": "manor-mitarbeiter-in-visual-merchandising-60-basel-mitarbeiterin-visual-merchandising",
         "de": "manor-mitarbeiter-in-visual-merchandising-60-basel-mitarbeiterin-visual-merchandising",
         "fr": "mitarbeiter-en-marchandisation-visuelle-60-manor-ag-basel-mitarbeiterin-visual-merchandising"
       },
@@ -1254,11 +1262,12 @@
           "manor-mitarbeiter-in-visual-merchandising-60-basel-mitarbeiterin-visual-merchandising"
         ],
         "en": [
-          "manor-mitarbeiter-in-visual-merchandising-60-basel-mitarbeiterin-visual-merchandising"
+          "employees-in-visual-merchandising-60-manor-ag-basel"
         ]
       },
       "previousSlugs": [
-        "manor-mitarbeiter-in-visual-merchandising-60-basel-mitarbeiterin-visual-merchandising"
+        "manor-mitarbeiter-in-visual-merchandising-60-basel-mitarbeiterin-visual-merchandising",
+        "employees-in-visual-merchandising-60-manor-ag-basel"
       ],
       "firstSeenAt": "2026-09-09T13:59:04.738Z",
       "crawledAt": "",
@@ -2107,7 +2116,7 @@
       "slug": "manor-mitarbeiter-in-visual-merchandising-100-thun",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-visual-merchandising-100-thun",
-        "en": "employee-visual-merchandising-100-manor-ag-thun",
+        "en": "manor-mitarbeiter-in-visual-merchandising-100-thun-mitarbeiterin-visual-merchandising",
         "de": "manor-mitarbeiter-in-visual-merchandising-100-thun-mitarbeiterin-visual-merchandising",
         "fr": "mitarbeiter-dans-le-commerce-visuel-100-manor-ag-thun"
       },
@@ -2127,11 +2136,12 @@
           "manor-mitarbeiter-in-visual-merchandising-100-thun-mitarbeiterin-visual-merchandising"
         ],
         "en": [
-          "manor-mitarbeiter-in-visual-merchandising-100-thun-mitarbeiterin-visual-merchandising"
+          "employee-visual-merchandising-100-manor-ag-thun"
         ]
       },
       "previousSlugs": [
-        "manor-mitarbeiter-in-visual-merchandising-100-thun-mitarbeiterin-visual-merchandising"
+        "manor-mitarbeiter-in-visual-merchandising-100-thun-mitarbeiterin-visual-merchandising",
+        "employee-visual-merchandising-100-manor-ag-thun"
       ],
       "firstSeenAt": "2026-09-09T13:59:04.738Z",
       "crawledAt": "",
@@ -2486,7 +2496,7 @@
       "slug": "manor-mitarbeiter-in-visual-merchandising-50-thun",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-visual-merchandising-50-thun",
-        "en": "employees-in-visual-merchandising-50-manor-ag-thun",
+        "en": "manor-mitarbeiter-in-visual-merchandising-50-thun-mitarbeiterin-visual-merchandising",
         "de": "manor-mitarbeiter-in-visual-merchandising-50-thun-mitarbeiterin-visual-merchandising",
         "fr": "mitarbeiter-en-marchandisation-visuelle-50-manor-ag-thun-mitarbeiterin-visual-merchandising"
       },
@@ -2503,11 +2513,12 @@
           "manor-mitarbeiter-in-visual-merchandising-50-thun-mitarbeiterin-visual-merchandising"
         ],
         "en": [
-          "manor-mitarbeiter-in-visual-merchandising-50-thun-mitarbeiterin-visual-merchandising"
+          "employees-in-visual-merchandising-50-manor-ag-thun"
         ]
       },
       "previousSlugs": [
-        "manor-mitarbeiter-in-visual-merchandising-50-thun-mitarbeiterin-visual-merchandising"
+        "manor-mitarbeiter-in-visual-merchandising-50-thun-mitarbeiterin-visual-merchandising",
+        "employees-in-visual-merchandising-50-manor-ag-thun"
       ],
       "firstSeenAt": "2026-09-09T13:59:04.738Z",
       "crawledAt": "",
@@ -3808,14 +3819,12 @@
       "id": "manor-69bae95c9640",
       "previousSlugs": [
         "manor-process-automation-specialist-100-basel",
-        "manor-process-automation-specialist-100-basel-process-automation-specialist",
-        "process-automation-specialista-100-manor-ag-basel"
+        "manor-process-automation-specialist-100-basel-process-automation-specialist"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-process-automation-specialist-100-basel",
-          "manor-process-automation-specialist-100-basel-process-automation-specialist",
-          "process-automation-specialista-100-manor-ag-basel"
+          "manor-process-automation-specialist-100-basel-process-automation-specialist"
         ],
         "fr": [
           "manor-process-automation-specialist-100-basel-process-automation-specialist"
@@ -4702,7 +4711,7 @@
         "it": "allocazione-60-manor-ag-basel",
         "en": "allocator-60-manor-ag-basel",
         "de": "allokator-60-manor-ag-basel",
-        "fr": "allocateur-60-manor-ag-basel"
+        "fr": "manor-allocator-60-basel"
       },
       "titleByLocale": {
         "it": "Allocazione 60%",
@@ -4721,12 +4730,13 @@
           "manor-allocator-60-basel"
         ],
         "fr": [
-          "manor-allocator-60-basel"
+          "allocateur-60-manor-ag-basel"
         ]
       },
       "previousSlugs": [
         "manor-allocator-60-basel-2",
-        "manor-allocator-60-basel"
+        "manor-allocator-60-basel",
+        "allocateur-60-manor-ag-basel"
       ],
       "id": "manor-47756f142ab8",
       "salaryMin": 44400,

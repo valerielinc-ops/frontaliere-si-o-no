@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "progettista-edile-m-f-pemsa-bulle",
-        "en": "progettista-edile-m-f-pemsa-bulle",
-        "de": "progettista-edile-m-f-pemsa-bulle",
-        "fr": "progettista-edile-m-f-pemsa-bulle"
+        "en": "construction-designer-m-f-pemsa-bulle",
+        "de": "bauingenieur-m-w-pemsa-bulle",
+        "fr": "designer-de-construction-h-f-pemsa-bulle"
       },
       "id": "pemsa-fafaff3a304b",
       "needsRetranslation": true,
@@ -98,9 +98,9 @@
       },
       "slugByLocale": {
         "it": "piastrellista-pemsa-romont-fr",
-        "en": "piastrellista-pemsa-romont-fr",
-        "de": "piastrellista-pemsa-romont-fr",
-        "fr": "piastrellista-pemsa-romont-fr"
+        "en": "tiles-pemsa-romont-fr",
+        "de": "fliesen-pemsa-romont-fr",
+        "fr": "carreaux-pemsa-romont-fr"
       },
       "id": "pemsa-a8442deb7e8e",
       "needsRetranslation": true,
@@ -157,9 +157,9 @@
       },
       "slugByLocale": {
         "it": "consulente-in-sicurezza-elettrica-m-f-pemsa-neuchatel",
-        "en": "consulente-in-sicurezza-elettrica-m-f-pemsa-neuchatel",
-        "de": "consulente-in-sicurezza-elettrica-m-f-pemsa-neuchatel",
-        "fr": "consulente-in-sicurezza-elettrica-m-f-pemsa-neuchatel"
+        "en": "electric-safety-consultant-m-f-pemsa-neuchatel",
+        "de": "elektrischer-sicherheitsberater-m-w-pemsa-neuchatel",
+        "fr": "consultant-en-securite-electrique-h-f-pemsa-neuchatel"
       },
       "id": "pemsa-2d4fb9d29e75",
       "needsRetranslation": true,
@@ -216,9 +216,9 @@
       },
       "slugByLocale": {
         "it": "caposquadra-per-l-installazione-di-cavi-elettrici-pemsa-bulle",
-        "en": "caposquadra-per-l-installazione-di-cavi-elettrici-pemsa-bulle",
-        "de": "caposquadra-per-l-installazione-di-cavi-elettrici-pemsa-bulle",
-        "fr": "caposquadra-per-l-installazione-di-cavi-elettrici-pemsa-bulle"
+        "en": "panel-for-the-installation-of-electric-cables-pemsa-bulle",
+        "de": "panel-fur-die-installation-von-elektrischen-kabeln-pemsa-bulle",
+        "fr": "panneau-pour-l-installation-de-cables-electriques-pemsa-bulle"
       },
       "id": "pemsa-9e12294d6f85",
       "needsRetranslation": true,
@@ -1648,7 +1648,7 @@
         "it": "costruttore-stradale-pemsa-lugano",
         "en": "road-construction-pemsa-lugano",
         "de": "stra-enbau-pemsa-lugano",
-        "fr": "fabricant-de-routes-pemsa-lugano"
+        "fr": "construction-routiere-pemsa-lugano"
       },
       "id": "pemsa-840d48820668",
       "salaryMin": 61000,
@@ -1668,11 +1668,11 @@
       "firstSeenAt": "2026-09-10T23:15:16.093Z",
       "previousSlugsByLocale": {
         "fr": [
-          "construction-routiere-pemsa-lugano"
+          "fabricant-de-routes-pemsa-lugano"
         ]
       },
       "previousSlugs": [
-        "construction-routiere-pemsa-lugano"
+        "fabricant-de-routes-pemsa-lugano"
       ]
     },
     {
@@ -6084,8 +6084,6 @@
       },
       "previousSlugs": [
         "comptabilite-pemsa-bellinzona",
-        "accounting-pemsa-bellinzona",
-        "buchfuhrung-pemsa-bellinzona",
         "accountant-pemsa-bellinzona",
         "buchhalter-pemsa-bellinzona"
       ],

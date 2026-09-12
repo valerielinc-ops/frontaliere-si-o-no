@@ -20238,15 +20238,11 @@
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-in-ausbildung-denner",
-          "filialleiter-in-ausbildung-denner-chur",
           "filialleiter-in-in-ausbildung-denner-chur-45ccef"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
-        "branch-manager-in-training-denner-ag-chur",
-        "directeur-de-branche-en-formation-denner-ag-chur",
-        "filialleiter-in-ausbildung-denner-chur",
         "filialleiter-in-in-ausbildung-denner-chur-45ccef"
       ],
       "salaryMin": 68500,
@@ -20330,15 +20326,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-landquart"
+          "stv-filialleiter-in-denner"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner",
-        "deputy-branch-manager-denner-ag-landquart",
-        "directeur-adjoint-de-la-succursale-denner-ag-landquart",
-        "stv-filialleiter-in-denner-landquart"
+        "stv-filialleiter-in-denner"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -20420,15 +20412,11 @@
       "crawledAt": "2026-09-11T23:07:42.140Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-winterthur"
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-winterthur",
-        "vendeur-denner-ag-winterthur",
-        "verkaufer-in-denner-winterthur"
+        "verkaufer-in-denner"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -20549,11 +20537,11 @@
     },
     {
       "id": "denner-48f99214f14f",
-      "slug": "vendeur-vendeuse-denner",
+      "slug": "venditore-venditore-denner-payerne",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "venditore-venditore-denner-payerne",
+        "en": "seller-seller-denner-payerne",
+        "de": "verkaufer-verkaufer-denner-payerne",
         "fr": "vendeur-vendeuse-denner-payerne"
       },
       "company": "Denner",
@@ -20613,11 +20601,19 @@
       "crawledAt": "2026-09-11T23:07:41.643Z",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-denner-3"
+          "vendeur-vendeuse-denner-3",
+          "vendeur-vendeuse-denner"
+        ],
+        "en": [
+          "vendeur-vendeuse-denner"
+        ],
+        "de": [
+          "vendeur-vendeuse-denner"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-denner-3"
+        "vendeur-vendeuse-denner-3",
+        "vendeur-vendeuse-denner"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,

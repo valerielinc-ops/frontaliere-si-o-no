@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mobiliar-5e4f78b5d3fa",
-      "slug": "pricing-spezialist-aktuar-produktmanagement-mobilitat-w-m-d-mobiliar-ch",
+      "slug": "mobilita-della-gestione-dei-prodotti-attuaria-specialistica-dei-prezzi-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "pricing-spezialist-aktuar-produktmanagement-mobilitat-w-m-d-mobiliar-ch",
-        "it": "pricing-spezialist-aktuar-produktmanagement-mobilitat-w-m-d-mobiliar-ch",
-        "en": "pricing-spezialist-aktuar-produktmanagement-mobilitat-w-m-d-mobiliar-ch",
-        "fr": "pricing-spezialist-aktuar-produktmanagement-mobilitat-w-m-d-mobiliar-ch"
+        "it": "mobilita-della-gestione-dei-prodotti-attuaria-specialistica-dei-prezzi-m-f-d-die-mobiliar-bern",
+        "en": "pricing-specialist-actuary-product-management-mobility-m-f-d-die-mobiliar-bern",
+        "fr": "tarification-specialiste-actuaire-gestion-de-produits-mobilite-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -86,7 +86,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-11T23:06:40.824Z"
+      "firstSeenAt": "2026-09-11T23:06:40.824Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pricing-spezialist-aktuar-produktmanagement-mobilitat-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "pricing-spezialist-aktuar-produktmanagement-mobilitat-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "pricing-spezialist-aktuar-produktmanagement-mobilitat-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pricing-spezialist-aktuar-produktmanagement-mobilitat-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-f263d8c45f7a",
@@ -414,16 +428,14 @@
       "sfJobId": "1163186555",
       "previousSlugsByLocale": {
         "it": [
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar",
-          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-schwyz-standort-muotathal-die-mobiliar-muotathal"
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar"
         ],
         "de": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar"
         ]
       },
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar",
-        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-schwyz-standort-muotathal-die-mobiliar-muotathal"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

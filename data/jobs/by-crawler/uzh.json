@@ -898,7 +898,6 @@
         "dental-hygienist-in-with-x-ray-authorization-universitat-zurich-zurich",
         "dentalhygieniker-in-mit-rontgenberechtigung-uzh-zurich",
         "hygieniste-dentaire-avec-autorisation-de-radiographie-universitat-zurich-zurich",
-        "assistente-dentale-in-con-autorizzazione-a-raggi-x-universitat-zurich-zurich",
         "dentalassistent-in-mit-rontgenberechtigung-universitat-zurich-zurich-oob05s"
       ],
       "previousSlugsByLocale": {
@@ -908,7 +907,6 @@
           "dental-hygienist-in-with-x-ray-authorization-universitat-zurich-zurich",
           "dentalhygieniker-in-mit-rontgenberechtigung-uzh-zurich",
           "hygieniste-dentaire-avec-autorisation-de-radiographie-universitat-zurich-zurich",
-          "assistente-dentale-in-con-autorizzazione-a-raggi-x-universitat-zurich-zurich",
           "dentalassistent-in-mit-rontgenberechtigung-universitat-zurich-zurich-oob05s"
         ],
         "en": [
@@ -5976,7 +5974,6 @@
         "teaching-and-research-assistant-universitat-zurich-zurich",
         "research-assistant-uzh-zurich",
         "teaching-and-ricerca-assistant-universitat-zurich-zurich",
-        "ricerca-assistant-universitat-zurich-zurich",
         "assistente-dentista-dentista-assistito-universitat-zurich-zurich",
         "assistant-dentist-assistant-dentist-universitat-zurich-zurich",
         "assistenzzahnarzt-assistenzzahnarztin-uzh-zurich",
@@ -5989,7 +5986,6 @@
           "teaching-and-research-assistant-universitat-zurich-zurich",
           "research-assistant-uzh-zurich",
           "teaching-and-ricerca-assistant-universitat-zurich-zurich",
-          "ricerca-assistant-universitat-zurich-zurich",
           "assistente-dentista-dentista-assistito-universitat-zurich-zurich",
           "assistant-dentist-assistant-dentist-universitat-zurich-zurich",
           "assistenzzahnarzt-assistenzzahnarztin-uzh-zurich",
@@ -9061,13 +9057,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-in-business-administration-management-amp-economics-br-with-a-focus-on-social",
-        "phd-position-in-business-administration-management-economics-universitat-zurich-zurich"
+        "phd-position-in-business-administration-management-amp-economics-br-with-a-focus-on-social"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-in-business-administration-management-amp-economics-br-with-a-focus-on-social",
-          "phd-position-in-business-administration-management-economics-universitat-zurich-zurich"
+          "phd-position-in-business-administration-management-amp-economics-br-with-a-focus-on-social"
         ],
         "de": [
           "phd-position-in-business-administration-management-amp-economics-br-with-a-focus-on-social"
@@ -9563,12 +9557,12 @@
     },
     {
       "id": "uzh-f9bbd0e5a131",
-      "slug": "hochschulpraktikant-in-health-data-analyst-uzh-zurich",
+      "slug": "stage-universitario-analista-dei-dati-sanitari-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "hochschulpraktikant-in-health-data-analyst-uzh-zurich",
-        "it": "hochschulpraktikant-in-health-data-analyst-uzh-zurich",
-        "en": "hochschulpraktikant-in-health-data-analyst-uzh-zurich",
-        "fr": "hochschulpraktikant-in-health-data-analyst-uzh-zurich"
+        "it": "stage-universitario-analista-dei-dati-sanitari-universitat-zurich-zurich",
+        "en": "university-intern-health-data-analyst-universitat-zurich-zurich",
+        "fr": "stagiaire-universitaire-analyste-des-donnees-sur-la-sante-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9625,7 +9619,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T23:04:40.016Z"
+      "firstSeenAt": "2026-09-11T23:04:40.016Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-in-health-data-analyst-uzh-zurich"
+        ],
+        "en": [
+          "hochschulpraktikant-in-health-data-analyst-uzh-zurich"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-health-data-analyst-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-in-health-data-analyst-uzh-zurich"
+      ]
     }
   ]
 }

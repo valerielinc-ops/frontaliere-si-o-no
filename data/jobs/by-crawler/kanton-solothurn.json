@@ -1872,7 +1872,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikant-in-100-kanton-solothurn-olten",
-        "interno-in-100-kanton-solothurn-olten",
         "assistenza-scolastica-50-65-kanton-solothurn-olten",
         "school-assistance-50-65-kanton-solothurn-olten",
         "schulhilfe-50-65-kanton-solothurn-olten",
@@ -1881,7 +1880,6 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-100-kanton-solothurn-olten",
-          "interno-in-100-kanton-solothurn-olten",
           "assistenza-scolastica-50-65-kanton-solothurn-olten",
           "school-assistance-50-65-kanton-solothurn-olten",
           "schulhilfe-50-65-kanton-solothurn-olten",
@@ -2487,12 +2485,12 @@
     },
     {
       "id": "kanton-solothurn-a9d07a3b8a17",
-      "slug": "teamleiter-in-finanzen-e-controlling-80-100-kanton-solothurn",
+      "slug": "team-leader-finance-e-controlling-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "teamleiter-in-finanzen-und-controlling-80-100-kanton-solothurn-solothurn",
-        "it": "teamleiter-in-finanzen-e-controlling-80-100-kanton-solothurn",
-        "en": "teamleiter-in-finanzen-und-controlling-80-100-kanton-solothurn-solothurn",
-        "fr": "teamleiter-in-finanzen-und-controlling-80-100-kanton-solothurn-solothurn"
+        "it": "team-leader-finance-e-controlling-80-100-kanton-solothurn-solothurn",
+        "en": "team-leader-finance-and-controlling-80-100-kanton-solothurn-solothurn",
+        "fr": "chef-d-equipe-finances-et-controle-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2538,11 +2536,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "teamleiter-in-finanzen-und-controlling-80-100-kanton-solothurn-solothurn",
+          "teamleiter-in-finanzen-e-controlling-80-100-kanton-solothurn"
+        ],
+        "en": [
+          "teamleiter-in-finanzen-und-controlling-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
           "teamleiter-in-finanzen-und-controlling-80-100-kanton-solothurn-solothurn"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-finanzen-und-controlling-80-100-kanton-solothurn-solothurn"
+        "teamleiter-in-finanzen-und-controlling-80-100-kanton-solothurn-solothurn",
+        "teamleiter-in-finanzen-e-controlling-80-100-kanton-solothurn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

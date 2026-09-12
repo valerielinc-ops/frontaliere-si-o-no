@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "apleona-schweiz-ag-8840a3d871b7",
-      "slug": "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027",
+      "slug": "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-0c0945",
       "slugByLocale": {
         "de": "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027",
-        "it": "apprendistato-come-kauffrau-kaufmann-cfc-specializzazione-treuhand-immobilien-per-1-august-2027-apleona-schweiz-ag-st-gallen",
-        "en": "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027",
-        "fr": "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
+        "it": "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-0c0945",
+        "en": "apprenticeship-as-a-merchant-merchant-efz-specialization-treuhand-real-estate-as-of-1-august-2027-apleona-schweiz-ag-st",
+        "fr": "apprentissage-en-tant-que-marchand-marchand-efz-specialisation-treuhand-immobilier-a-partir-de-1-aout-2027-0c0945"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -64,7 +64,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T23:21:19.055Z"
+      "firstSeenAt": "2026-09-11T23:21:19.055Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-kauffrau-kaufmann-cfc-specializzazione-treuhand-immobilien-per-1-august-2027-apleona-schweiz-ag-st-gallen",
+          "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
+        ],
+        "fr": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
+        ]
+      },
+      "previousSlugs": [
+        "apprendistato-come-kauffrau-kaufmann-cfc-specializzazione-treuhand-immobilien-per-1-august-2027-apleona-schweiz-ag-st-gallen",
+        "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-a73063427430",
@@ -127,11 +143,9 @@
           "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
         ],
         "en": [
-          "apprenticeship-as-a-merchant-merchant-efz-specialization-treuhand-real-estate-as-of-1-august-2027-apleona-schweiz-ag",
           "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
         ],
         "fr": [
-          "apprentissage-en-tant-que-marchand-marchand-efz-specialisation-treuhand-immobilier-a-partir-de-1-aout-2027-apleona",
           "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
         ]
       },

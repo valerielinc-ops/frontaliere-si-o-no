@@ -1316,7 +1316,7 @@
     },
     {
       "id": "company-4hcnhq",
-      "slug": "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell-4hcnhq",
+      "slug": "chip-di-produzione-specializzati-fresh-food-beverage-group-bischofszell",
       "company": "Fresh Food & Beverage Group",
       "title": "Fachmitarbeiter Produktion Chips",
       "location": "Bischofszell",
@@ -1385,19 +1385,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell-4hcnhq",
-        "en": "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell-4hcnhq",
+        "it": "chip-di-produzione-specializzati-fresh-food-beverage-group-bischofszell",
+        "en": "specialist-production-chips-fresh-food-beverage-group-bischofszell",
         "de": "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell-4hcnhq",
-        "fr": "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell-4hcnhq"
+        "fr": "puces-de-production-specialisees-fresh-food-beverage-group-bischofszell"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell"
+          "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell",
+          "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell-4hcnhq"
+        ],
+        "en": [
+          "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell-4hcnhq"
+        ],
+        "fr": [
+          "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell-4hcnhq"
         ]
       },
       "previousSlugs": [
-        "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell"
+        "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell",
+        "fachmitarbeiter-produktion-chips-fresh-food-beverage-group-bischofszell-4hcnhq"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1418,7 +1426,7 @@
     },
     {
       "id": "company-3vkauj",
-      "slug": "produktingenieur-in-fresh-food-beverage-group-bischofszell-3vkauj",
+      "slug": "ingegnere-del-prodotto-fresh-food-beverage-group-bischofszell",
       "company": "Fresh Food & Beverage Group",
       "title": "Produktingenieur*in",
       "location": "Bischofszell",
@@ -1490,19 +1498,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "produktingenieur-in-fresh-food-beverage-group-bischofszell-3vkauj",
-        "en": "produktingenieur-in-fresh-food-beverage-group-bischofszell-3vkauj",
+        "it": "ingegnere-del-prodotto-fresh-food-beverage-group-bischofszell",
+        "en": "product-engineer-fresh-food-beverage-group-bischofszell",
         "de": "produktingenieur-in-fresh-food-beverage-group-bischofszell-3vkauj",
-        "fr": "produktingenieur-in-fresh-food-beverage-group-bischofszell-3vkauj"
+        "fr": "ingenieur-produit-fresh-food-beverage-group-bischofszell"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "produktingenieur-in-fresh-food-beverage-group-bischofszell"
+          "produktingenieur-in-fresh-food-beverage-group-bischofszell",
+          "produktingenieur-in-fresh-food-beverage-group-bischofszell-3vkauj"
+        ],
+        "en": [
+          "produktingenieur-in-fresh-food-beverage-group-bischofszell-3vkauj"
+        ],
+        "fr": [
+          "produktingenieur-in-fresh-food-beverage-group-bischofszell-3vkauj"
         ]
       },
       "previousSlugs": [
-        "produktingenieur-in-fresh-food-beverage-group-bischofszell"
+        "produktingenieur-in-fresh-food-beverage-group-bischofszell",
+        "produktingenieur-in-fresh-food-beverage-group-bischofszell-3vkauj"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1523,7 +1539,7 @@
     },
     {
       "id": "company-wgps8q",
-      "slug": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-wgps8q",
+      "slug": "collaboratore-multiuso-m-f-d-societe-cooperative-migros-vaud-lausanne",
       "company": "Société coopérative Migros Vaud",
       "title": "Collaborateur polyvalent (H/F/D)",
       "location": "Lausanne",
@@ -1586,9 +1602,9 @@
         ]
       },
       "slugByLocale": {
-        "it": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-wgps8q",
-        "en": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-wgps8q",
-        "de": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-wgps8q",
+        "it": "collaboratore-multiuso-m-f-d-societe-cooperative-migros-vaud-lausanne",
+        "en": "multipurpose-collaborator-m-f-d-societe-cooperative-migros-vaud-lausanne",
+        "de": "mehrzweck-mitarbeiter-m-w-d-societe-cooperative-migros-vaud-lausanne",
         "fr": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-wgps8q"
       },
       "sourceLang": "fr",
@@ -1598,13 +1614,16 @@
           "collaboratore-multiuso-m-f-d-societe-cooperative-migros-vaud-lausanne",
           "multipurpose-collaborator-m-f-d-societe-cooperative-migros-vaud-lausanne",
           "mehrzweck-mitarbeiter-m-w-d-societe-cooperative-migros-vaud-lausanne",
-          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-jhgteo"
+          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-jhgteo",
+          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-wgps8q"
         ],
         "en": [
-          "multipurpose-collaborator-m-f-d-societe-cooperative-migros-vaud-lausanne"
+          "multipurpose-collaborator-m-f-d-societe-cooperative-migros-vaud-lausanne",
+          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-wgps8q"
         ],
         "de": [
-          "mehrzweck-mitarbeiter-m-w-d-societe-cooperative-migros-vaud-lausanne"
+          "mehrzweck-mitarbeiter-m-w-d-societe-cooperative-migros-vaud-lausanne",
+          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-wgps8q"
         ],
         "fr": [
           "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-jhgteo"
@@ -1615,7 +1634,8 @@
         "collaboratore-multiuso-m-f-d-societe-cooperative-migros-vaud-lausanne",
         "multipurpose-collaborator-m-f-d-societe-cooperative-migros-vaud-lausanne",
         "mehrzweck-mitarbeiter-m-w-d-societe-cooperative-migros-vaud-lausanne",
-        "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-jhgteo"
+        "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-jhgteo",
+        "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-wgps8q"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -5101,7 +5121,7 @@
     },
     {
       "id": "company-vw3v7i",
-      "slug": "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck-vw3v7i",
+      "slug": "venditore-genossenschaft-migros-ostschweiz-rheineck",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Verkäufer*in",
       "location": "Rheineck",
@@ -5162,19 +5182,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck-vw3v7i",
-        "en": "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck-vw3v7i",
+        "it": "venditore-genossenschaft-migros-ostschweiz-rheineck",
+        "en": "seller-genossenschaft-migros-ostschweiz-rheineck",
         "de": "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck-vw3v7i",
-        "fr": "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck-vw3v7i"
+        "fr": "vendeur-genossenschaft-migros-ostschweiz-rheineck"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck"
+          "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck",
+          "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck-vw3v7i"
+        ],
+        "en": [
+          "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck-vw3v7i"
+        ],
+        "fr": [
+          "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck-vw3v7i"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck"
+        "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck",
+        "verkaufer-in-genossenschaft-migros-ostschweiz-rheineck-vw3v7i"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

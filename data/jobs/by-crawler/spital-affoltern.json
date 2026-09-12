@@ -743,12 +743,12 @@
     },
     {
       "id": "spital-affoltern-9137a164b21b",
-      "slug": "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-affoltern-am-albis",
+      "slug": "station-manager-station-manager-age-psychiatry-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "de": "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-affoltern-am-albis",
-        "it": "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-affoltern-am-albis",
+        "it": "station-manager-station-manager-age-psychiatry-spital-affoltern-ag-affoltern-am-albis",
         "en": "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-affoltern-am-albis",
-        "fr": "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-affoltern-am-albis"
+        "fr": "gestionnaire-de-station-gestionnaire-de-station-psychiatrie-de-l-age-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -792,20 +792,16 @@
         "de": []
       },
       "previousSlugs": [
-        "gestionnaire-de-station-gestionnaire-de-station-psychiatrie-de-l-age-spital-affoltern-ag-affoltern-am-albis",
-        "station-manager-station-manager-age-psychiatry-spital-affoltern-ag-affoltern-am-albis",
-        "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-ag-affoltern-am-albis"
+        "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-ag-affoltern-am-albis",
+        "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "station-manager-station-manager-age-psychiatry-spital-affoltern-ag-affoltern-am-albis"
-        ],
-        "en": [
-          "station-manager-station-manager-age-psychiatry-spital-affoltern-ag-affoltern-am-albis"
+          "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-affoltern-am-albis"
         ],
         "fr": [
-          "gestionnaire-de-station-gestionnaire-de-station-psychiatrie-de-l-age-spital-affoltern-ag-affoltern-am-albis",
-          "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-ag-affoltern-am-albis"
+          "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-ag-affoltern-am-albis",
+          "stationsleiterin-stationsleiter-alterspsychiatrie-spital-affoltern-affoltern-am-albis"
         ]
       },
       "salaryMin": 91500,
