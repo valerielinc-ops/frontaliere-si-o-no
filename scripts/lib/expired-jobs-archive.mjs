@@ -18,6 +18,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { compareExpiredAt } from './compare-expired-at.mjs';
@@ -88,6 +89,29 @@ export function isParsableExpiredAt(value) {
   return typeof value === 'string' && value !== '' && Number.isFinite(Date.parse(value));
 }
 
+const DETERMINISTIC_EXPIRED_AT_EPOCH = Date.parse('2025-01-01T00:00:00.000Z');
+const DETERMINISTIC_EXPIRED_AT_SPAN = 365 * 24 * 60 * 60 * 1000;
+
+/**
+ * Derive a repeatable fallback timestamp for a legacy entry with no usable
+ * expiry date. Stable identity fields are preferred; the hash only spreads
+ * otherwise indistinguishable records across one fixed historical year.
+ */
+export function deterministicExpiredAt(entry = {}) {
+  const identity = [entry.id, entry.url, entry.slug, entry.firstSeenAt]
+    .find((value) => value != null && String(value).trim() !== '');
+  const seed = identity != null
+    ? String(identity)
+    : JSON.stringify({
+        companyKey: entry.companyKey || '',
+        title: entry.title || '',
+        location: entry.location || '',
+      });
+  const hash = createHash('sha1').update(seed).digest('hex').slice(0, 12);
+  const offset = Number.parseInt(hash, 16) % DETERMINISTIC_EXPIRED_AT_SPAN;
+  return new Date(DETERMINISTIC_EXPIRED_AT_EPOCH + offset).toISOString();
+}
+
 /**
  * Give every entry read back from disk an `expiredAt` the downstream sort can
  * order, BEFORE it reaches one of the two `slice(0, EXPIRED_JOBS_CAP)` cuts
@@ -102,34 +126,35 @@ export function isParsableExpiredAt(value) {
  * comparator is not the defect: the defect is that the value reaches it at
  * all, so it is repaired at the ingress instead.
  *
- * The repair stamps the run timestamp, which is what `buildExpiredEntry`
- * would have written had the entry been archived now. That errs toward
- * KEEPING the record (the whole point of the archive is the soft landing)
- * rather than toward faking an old date that the cap would drop anyway. It is
- * idempotent: once written the value parses, so a second pass leaves it alone
- * and the relative order stops moving.
+ * The repair stamps a deterministic timestamp derived from the entry identity
+ * (or an explicitly supplied `now` for a controlled backfill). That keeps the
+ * relative order stable when a deploy pipeline reads the same legacy input
+ * again, including when the entry sits near the aggregate cap.
  *
  * Mutates in place — every caller hands over entries it just parsed from JSON.
  *
  * @param {object[]} entries
  * @param {object} [opts]
- * @param {string} [opts.now] - Timestamp to stamp (default: now)
+ * @param {string} [opts.now] - Explicit timestamp for a controlled backfill;
+ *   production callers use the deterministic identity-derived fallback.
  * @param {string} [opts.source] - Label for the log line
  * @returns {number} repaired count
  */
 export function normalizeExpiredAtEntries(entries, opts = {}) {
   if (!Array.isArray(entries)) return 0;
-  const now = opts.now || new Date().toISOString();
+  const explicitNow = isParsableExpiredAt(opts.now) ? opts.now : '';
   const source = opts.source || 'expired-archive-normalize';
   let repaired = 0;
+  const stamped = new Set();
   for (const entry of entries) {
     if (!entry || typeof entry !== 'object') continue;
     if (isParsableExpiredAt(entry.expiredAt)) continue;
-    entry.expiredAt = now;
+    entry.expiredAt = explicitNow || deterministicExpiredAt(entry);
+    stamped.add(entry.expiredAt);
     repaired += 1;
   }
   if (repaired > 0) {
-    console.log(`  🩹 ${source}: ${repaired} expired entries had no parsable expiredAt → stamped ${now}`);
+    console.log(`  🩹 ${source}: ${repaired} expired entries had no parsable expiredAt → stamped ${[...stamped].join(', ')}`);
   }
   return repaired;
 }

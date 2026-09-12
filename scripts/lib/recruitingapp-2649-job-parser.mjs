@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { fetch as undiciFetch } from 'undici';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import {
@@ -298,14 +298,16 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
     const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'de');
-    const jobSlug = slugify(`${title} recruitingapp-2649 ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const slugDisambiguator = urlHash.slice(0, 8);
+    const jobSlug = appendSlugDisambiguator(slugify(`${title} recruitingapp-2649 ch`), slugDisambiguator);
 
     const job = {
       // ── Required fields ──
       id: `recruitingapp-2649-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
+      slugDisambiguator,
       company: RECRUITINGAPP_2649_COMPANY_NAME,
       companyKey: RECRUITINGAPP_2649_KEY,
       companyDomain: RECRUITINGAPP_2649_COMPANY_DOMAIN,

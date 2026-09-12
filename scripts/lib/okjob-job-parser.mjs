@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
@@ -213,14 +213,16 @@ export async function fetchAllOkjobJobs(runtime = {}) {
     const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'fr');
-    const jobSlug = slugify(`${title} okjob ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const slugDisambiguator = urlHash.slice(0, 8);
+    const jobSlug = appendSlugDisambiguator(slugify(`${title} okjob ch`), slugDisambiguator);
 
     const job = {
       // ── Required fields ──
       id: `okjob-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
+      slugDisambiguator,
       company: OKJOB_COMPANY_NAME,
       companyKey: OKJOB_KEY,
       companyDomain: OKJOB_COMPANY_DOMAIN,

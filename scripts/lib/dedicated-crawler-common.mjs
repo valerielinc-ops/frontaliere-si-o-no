@@ -23,6 +23,7 @@ import {
   titleLooksUntranslatedFromSource,
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { MAX_SLUG_LENGTH } from './regenerate-slugs-helpers.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
 import { WORKDAY_HOST_RE, workdayReqFromLeaf, UMANTIS_HOST_RE, UMANTIS_VACANCY_PATH_RE } from './job-url-key.mjs';
 import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
@@ -5971,16 +5972,16 @@ export function stableSlugHash(job) {
  *
  * @param {string} slug — Base slug (without disambiguator)
  * @param {string} disambiguator — Suffix string (e.g. from stableSlugHash or UUID prefix)
- * @param {number} [maxLen=120] — Max total slug length
+ * @param {number} [maxLen=MAX_SLUG_LENGTH] — Max total slug length shared with the canonical builder
  * @returns {string} Slug with disambiguator appended, or base slug if no disambiguator
  */
-export function appendSlugDisambiguator(slug, disambiguator, maxLen = 120) {
+export function appendSlugDisambiguator(slug, disambiguator, maxLen = MAX_SLUG_LENGTH) {
   const base = String(slug || '').trim();
   const d = String(disambiguator || '').trim();
   if (!d) return base;
   if (!base) return d;
   const maxBase = Math.max(0, maxLen - d.length - 1);
-  const trimmed = base.slice(0, maxBase).replace(/-+$/, '');
+  const trimmed = truncateSlugAtWordBoundary(base, maxBase).replace(/-+$/, '');
   return trimmed ? `${trimmed}-${d}` : d;
 }
 
@@ -6698,6 +6699,11 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     // Apply isSlugStable to each locale in slugByLocale — prevent slug churn
     // from minor title wording changes (e.g. "per la Ricerca" → "di ricerca")
     if (old.slugByLocale && fresh.slugByLocale) {
+      const oldDisambiguator = String(old.slugDisambiguator || '').trim();
+      const freshDisambiguator = String(fresh.slugDisambiguator || '').trim();
+      const disambiguatorChanged = Boolean(
+        freshDisambiguator && freshDisambiguator !== oldDisambiguator,
+      );
       for (const locale of LOCALES) {
         const oldSlug = old.slugByLocale[locale];
         const newSlug = fresh.slugByLocale[locale];
@@ -6718,7 +6724,10 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
         }
 
         if (oldSlug && newSlug && oldSlug !== newSlug) {
-          const stable = isSlugStable(oldSlug, newSlug, {
+          // A disambiguator retrofit is an intentional identity migration.
+          // The generic token-containment rule would otherwise call
+          // `base-slug` and `base-slug-hash` stable and keep the collision.
+          const stable = !disambiguatorChanged && isSlugStable(oldSlug, newSlug, {
             existingLocation: old.addressLocality || old.location || '',
             newLocation: fresh.addressLocality || fresh.location || '',
           });
@@ -6771,7 +6780,15 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     // never be merged into one slug even when their title-token Jaccard score
     // exceeds the 0.80 threshold.
     if (old.slug && fresh.slug && old.slug !== fresh.slug) {
-      const stable = isSlugStable(old.slug, fresh.slug, {
+      const oldDisambiguator = String(old.slugDisambiguator || '').trim();
+      const freshDisambiguator = String(fresh.slugDisambiguator || '').trim();
+      const disambiguatorChanged = Boolean(
+        freshDisambiguator && freshDisambiguator !== oldDisambiguator,
+      );
+      // A newly persisted disambiguator deliberately changes the active route;
+      // capture the old base slug below even when its tokens are contained in
+      // the suffixed replacement.
+      const stable = !disambiguatorChanged && isSlugStable(old.slug, fresh.slug, {
         existingLocation: old.addressLocality || old.location || '',
         newLocation: fresh.addressLocality || fresh.location || '',
       });

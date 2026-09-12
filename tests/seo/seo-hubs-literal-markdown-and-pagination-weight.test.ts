@@ -157,7 +157,7 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(html).not.toContain('class="thp"');
   });
 
-  it('buildThinCantonHubHtml ships the full ladder on page-1 only, compact window after (#7662)', () => {
+  it('buildThinCantonHubHtml keeps the BFS ladder on page 1 and a compact window after (#8016)', () => {
     const totalPages = 400;
     const mk = (page: number) => buildThinCantonHubHtml({
       locale: 'it', hub: 'tutti', canton: 'argovia', cantonLabel: 'Argovia',
@@ -171,9 +171,8 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
 
     const laddered = (html: string) =>
       new Set([...html.matchAll(/cerca-lavoro-argovia\/tutti\/page-(\d+)\//g)].map((m) => Number(m[1])));
-    // page-1 keeps every page-N anchor — load-bearing for BFS-depth closure.
+    // Page-1 keeps every page-N anchor — it is the shallow BFS bridge.
     expect(laddered(first).size).toBe(totalPages - 1);
-    // page-N > 1 keeps only the compact window: 1 / current +/- 1 / last.
     // 200 is page-200's own canonical/og:url, not a ladder anchor (the current
     // page renders as a bare <strong>, so the ladder itself links 199/201/400
     // plus the basePath for page-1).
@@ -181,6 +180,28 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(inner).toContain('<a href="/cerca-lavoro-argovia/tutti/page-199/" rel="prev">199</a>');
     expect(inner).toContain('<a href="/cerca-lavoro-argovia/tutti/page-201/" rel="next">201</a>');
     expect(inner).toContain('/cerca-lavoro-argovia/tutti/');
-    expect(Buffer.byteLength(inner)).toBeLessThan(Buffer.byteLength(first) / 2);
+    const pagination = (html: string) => html.match(/<nav class="s-ay7Grc"[\s\S]*?<\/nav>/)?.[0] ?? '';
+    expect(Buffer.byteLength(pagination(inner))).toBeLessThan(2000);
+    expect(Buffer.byteLength(pagination(first))).toBeGreaterThan(Buffer.byteLength(pagination(inner)));
+  });
+
+  it('keeps head and body prev/next URLs identical on page 2', () => {
+    const basePath = '/cerca-lavoro-argovia/tutti/';
+    const html = buildThinCantonHubHtml({
+      locale: 'it', hub: 'tutti', canton: 'argovia', cantonLabel: 'Argovia',
+      basePath, totalItems: 40000,
+      items: [{ href: '/cerca-lavoro-argovia/x/', label: 'Ruolo', sub: 'Aarau' }],
+      hasSpaBundle: false, entryJs: '', entryCss: '', dateStamp: '2026-09-06',
+      page: 2, totalPages: 400,
+    });
+    const headPrev = html.match(/<link rel="prev" href="([^"]+)">/)?.[1];
+    const bodyPrev = html.match(/<a href="([^"]+)" rel="prev">1<\/a>/)?.[1];
+    const headNext = html.match(/<link rel="next" href="([^"]+)">/)?.[1];
+    const bodyNext = html.match(/<a href="([^"]+)" rel="next">3<\/a>/)?.[1];
+
+    expect(headPrev).toBe(`https://frontaliereticino.ch${basePath}`);
+    expect(bodyPrev).toBe(basePath);
+    expect(headNext).toBe(`https://frontaliereticino.ch${basePath}page-3/`);
+    expect(bodyNext).toBe(`${basePath}page-3/`);
   });
 });

@@ -436,15 +436,13 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
       throw new Error(`expired archive ${file} is not valid JSON: ${error.message}`, { cause: error });
     }
     if (!Array.isArray(jobs)) throw new Error(`expired archive ${file} is not a JSON array`);
-    return { file, filePath, jobs };
+    return { file, filePath, jobs, originalJobs: structuredClone(jobs) };
   });
   const beforeAudit = auditExpiredArchiveRouteOverlaps(slices);
-  let filesChanged = 0;
   let collapsed = 0;
   let repaired = 0;
   let capRefused = 0;
   const report = [];
-  const pendingWrites = [];
 
   for (const slice of slices) {
     const result = collapseDuplicateRouteEntries(slice.jobs, { source: `expired-sweep/${slice.file}` });
@@ -454,11 +452,10 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
       { source: `expired-sweep/${slice.file}` },
     );
     const changed = result.collapsed > 0 || repairedInSlice > 0;
-    if (changed) {
-      filesChanged += 1;
-      if (apply) pendingWrites.push(slice);
-    }
-    slice.jobs = result.entries;
+    // A cap refusal returns a sorted view containing the original entries.
+    // Do not substitute that view for the candidate when nothing was actually
+    // repaired: the refusal is an explicit "leave this component untouched".
+    slice.candidateJobs = changed ? result.entries : slice.jobs;
     collapsed += result.collapsed;
     repaired += repairedInSlice;
     capRefused += result.capRefused;
@@ -471,26 +468,92 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
     });
   }
 
+  // The per-file collapse above cannot see two grouped-commit slices that
+  // claim the same company route. Tag each candidate with its source file,
+  // collapse only when the audit still finds a cross-slice collision, and then
+  // return a merged survivor to the file that owned its newest payload.
+  const candidateSlices = slices.map((slice) => ({ file: slice.file, jobs: slice.candidateJobs }));
+  const candidateAudit = auditExpiredArchiveRouteOverlaps(candidateSlices);
+  let crossSliceCollapsed = 0;
+  let crossSliceCapRefused = 0;
+  let finalJobsByFile = new Map(slices.map((slice) => [slice.file, slice.candidateJobs]));
+  if (candidateAudit.crossSliceDuplicateRoutes.length > 0) {
+    const taggedEntries = slices.flatMap((slice) => slice.candidateJobs.map((job) => ({
+      ...structuredClone(job),
+      __sweepSourceFile: slice.file,
+    })));
+    const crossResult = collapseDuplicateRouteEntries(taggedEntries, {
+      source: 'expired-sweep/cross-slice',
+    });
+    assertRoutesPreserved(taggedEntries, crossResult.entries, 'expired-sweep/cross-slice');
+    crossSliceCapRefused = crossResult.capRefused;
+    if (crossSliceCapRefused > 0) {
+      // A global result can contain both a safe component and a component
+      // refused by the legacy route cap. Do not adopt its sorted output: that
+      // would silently reorder or rewrite the refused component while the
+      // report says it was left untouched. The next run can retry the safe
+      // component after the cap is resolved, while this run stays fail-closed.
+      crossSliceCollapsed = 0;
+    } else if (crossResult.collapsed > 0) {
+      crossSliceCollapsed = crossResult.collapsed;
+      finalJobsByFile = new Map(slices.map((slice) => [slice.file, []]));
+      for (const entry of crossResult.entries) {
+        const sourceFile = entry.__sweepSourceFile;
+        if (!finalJobsByFile.has(sourceFile)) {
+          throw new Error(`expired archive sweep lost source file marker for ${sourceFile}`);
+        }
+        const { __sweepSourceFile: _sourceFile, ...cleanEntry } = entry;
+        finalJobsByFile.get(sourceFile).push(cleanEntry);
+      }
+    }
+  }
+  collapsed += crossSliceCollapsed;
+  capRefused += crossSliceCapRefused;
+
+  const changedFiles = new Set();
+  for (const slice of slices) {
+    const finalJobs = finalJobsByFile.get(slice.file) || [];
+    const changed = JSON.stringify(slice.originalJobs) !== JSON.stringify(finalJobs);
+    if (changed) changedFiles.add(slice.file);
+    // Make the audit below represent exactly what an apply would persist. An
+    // unchanged file retains its original ordering and object identity rather
+    // than an unpersisted sorted candidate.
+    slice.jobs = changed ? finalJobs : slice.originalJobs;
+    const entryReport = report.find((item) => item.file === slice.file);
+    if (entryReport) entryReport.changed = changed;
+  }
+
   const afterAudit = auditExpiredArchiveRouteOverlaps(slices);
-  if (afterAudit.crossSliceDuplicateRoutes.length > 0) {
+  const overlapKey = (overlap) => `${overlap.companyKey}::${overlap.route}`;
+  const beforeOverlapKeys = new Set(beforeAudit.crossSliceDuplicateRoutes.map(overlapKey));
+  const introducedOverlaps = afterAudit.crossSliceDuplicateRoutes.filter(
+    (overlap) => !beforeOverlapKeys.has(overlapKey(overlap)),
+  );
+  const touchedExistingOverlaps = afterAudit.crossSliceDuplicateRoutes.filter(
+    (overlap) => beforeOverlapKeys.has(overlapKey(overlap))
+      && overlap.files.some((file) => changedFiles.has(file)),
+  );
+  if (apply && (introducedOverlaps.length > 0 || touchedExistingOverlaps.length > 0)) {
     throw new Error(
       `expired archive sweep left ${afterAudit.crossSliceDuplicateRoutes.length} cross-slice route overlap(s)`,
     );
   }
   if (apply) {
-    for (const slice of pendingWrites) {
+    for (const slice of slices) {
+      if (!changedFiles.has(slice.file)) continue;
       activeRollbackJournal?.capture(slice.filePath);
       writeJsonAtomic(slice.filePath, slice.jobs);
     }
   }
   return {
     filesScanned: slices.length,
-    filesChanged,
+    filesChanged: changedFiles.size,
     collapsed,
     repaired,
     capRefused,
     crossSliceDuplicatesBefore: beforeAudit.crossSliceDuplicateRoutes.length,
     crossSliceDuplicatesAfter: afterAudit.crossSliceDuplicateRoutes.length,
+    crossSliceCollapsed,
     retiredArchiveFiles: beforeAudit.retiredArchiveFiles,
     report,
   };

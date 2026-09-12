@@ -5,6 +5,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import {
   archiveRemovedJobsToSlice,
+  deterministicExpiredAt,
   isParsableExpiredAt,
   normalizeExpiredAtEntries,
   // @ts-expect-error — .mjs module without type declarations
@@ -59,6 +60,16 @@ describe('expiredAt parsability — normalization at ingress', () => {
     expect(reordered).toEqual(order);
   });
 
+  it('derives the fallback from entry identity, not the wall clock', () => {
+    const first = [{ slug: 'a', expiredAt: 'not-a-date' }, { slug: 'b' }];
+    const second = structuredClone(first);
+    normalizeExpiredAtEntries(first, { source: 'test' });
+    normalizeExpiredAtEntries(second, { source: 'test' });
+    expect(first).toEqual(second);
+    expect(deterministicExpiredAt({ slug: 'a' })).toBe(first[0].expiredAt);
+    expect(deterministicExpiredAt({ slug: 'b' })).toBe(second[1].expiredAt);
+  });
+
   it('tolerates a non-array and non-object members', () => {
     expect(normalizeExpiredAtEntries(null as never)).toBe(0);
     expect(normalizeExpiredAtEntries([null, 'x', 42] as never[])).toBe(0);
@@ -111,6 +122,15 @@ describe('archiveRemovedJobsToSlice — repairs the slice it reads back', () => 
 });
 
 describe('assemble ingress repair — persists the repaired source slice', () => {
+  it('keeps the source-slice repair wired to the atomic writer', () => {
+    const source = fs.readFileSync(
+      path.resolve(__dirname, '..', 'scripts', 'assemble-jobs-dataset.mjs'),
+      'utf8',
+    );
+    expect(source).toContain("writeJsonAtomic as writeJson");
+    expect(source).toContain('if (repaired > 0) writeJson(slicePath, entries);');
+  });
+
   it('writes the normalized value back before the aggregate cap can cut it', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'assemble-expired-repair-'));
     const slicePath = path.join(dir, 'acme.json');

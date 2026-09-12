@@ -11,7 +11,6 @@ import { stripMarkdownPlain } from '@/build-plugins/shared/stripMarkdownPlain';
 import {
  advanceMarkdownFence,
  markdownFenceFor,
- normalizeArticleMarkdown,
  type MarkdownFence,
 } from '@/packages/articles/engine/shared/normalizeArticleMarkdown';
 import { isFaqQuestionHeading } from '@/build-plugins/shared/faqQuestionPrefixes';
@@ -24,6 +23,7 @@ import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverrid
 import { getAuthorBySlug } from '@/data/authors';
 import { resolveArticleProvenance } from '@/services/articleProvenance';
 import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, AD_ELIGIBLE_MIN_WORDS, AD_ELIGIBLE_MIN_CHARS, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
+import { collectArticleBodySegments, countArticleBodyChars, countArticleBodyWords } from '@/services/articleBodySegments';
 import { isAdStraddleBlock, isListBlock, isTableBlock, LIST_ITEM_RE, TABLE_SEPARATOR_RE } from '@/services/adPlacement';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
 
@@ -442,7 +442,7 @@ export type H2BoundaryOutcome = 'emitted' | 'deferred' | 'skipped';
  * property of THIS function, and asserting it through the whole component would
  * drown it in i18n/router/Suspense setup.
  *
- * `text` is normalized by `collectBodyParts` before the production call. The
+ * `text` is normalized by `collectArticleBodySegments` before the production call. The
  * optional shared ID set lets consecutive body segments use the same anchor
  * namespace.
  *
@@ -917,20 +917,8 @@ import type { Article } from '@/data/blog-articles-data';
 /** Average Italian reading speed ≈ 230 wpm. Strip HTML/markdown, count words, clamp 2–30 min. */
 const WORDS_PER_MINUTE = 230;
 
-/** Collect all bodyN translations for an article (body1, body2, … up to body20). */
-function collectBodyParts(articleId: string, t: (key: string) => string): string[] {
- const parts: string[] = [];
- for (let i = 1; i <= 20; i++) {
- const key = `blog.article.${articleId}.body${i}`;
- const val = t(key);
- if (val === key) break;
- parts.push(normalizeArticleMarkdown(val));
- }
- return parts;
-}
-
 export function estimateReadingMinutes(articleId: string, t: (key: string) => string): number {
- const raw = collectBodyParts(articleId, t).join(' ');
+ const raw = collectArticleBodySegments(articleId, t).join(' ');
  // If body translations aren't loaded yet, t() returns the key string — use a default
  if (raw.startsWith('blog.article.')) return 5;
  // Strip HTML tags and markdown-style formatting, then count words
@@ -1457,7 +1445,7 @@ function BlogArticles({
  // static HTML. Costs one request, only for an article the bundle lacks,
  // and returns [] on every failure — in which case nothing is merged and
  // the render is exactly what it is today.
- if (collectBodyParts(selectedArticle, translate).length === 0) {
+ if (collectArticleBodySegments(selectedArticle, translate).length === 0) {
  const route = section === 'svizzera'
  ? { activeTab: 'blog' as const, blogSection: 'svizzera' as const, swissArticle: selectedArticle }
  : { activeTab: 'blog' as const, blogArticle: selectedArticle as BlogArticleId };
@@ -1604,7 +1592,7 @@ function BlogArticles({
  // Skip injection if translations aren't loaded yet
  if (title.startsWith('blog.article.')) return;
  const canonicalUrl = `https://frontaliereticino.ch${buildPath(buildArticleRoute(article.id))}`;
- const articleBodyText = collectBodyParts(article.id, t).join(' ');
+ const articleBodyText = collectArticleBodySegments(article.id, t).join(' ');
  const articleBodyWordCount = articleBodyText.split(/\s+/).filter(Boolean).length;
  const wordCount = articleBodyWordCount || estimateReadingMinutes(article.id, t) * 200;
  // Author matches the visible byline (#3520): a named Person when the
@@ -1688,7 +1676,7 @@ function BlogArticles({
  try { return JSON.parse(el.textContent || '')?.['@type'] === 'FAQPage'; } catch { return false; }
  });
  if (!hasStaticFaqPage && EVERGREEN_CATEGORIES.has(article.category)) {
- const bodyTexts = collectBodyParts(article.id, t);
+ const bodyTexts = collectArticleBodySegments(article.id, t);
  const faqPairs = extractFaqPairs(bodyTexts.join('\n\n'));
  if (faqPairs.length >= 2) {
  const faqSchema = {
@@ -1817,7 +1805,7 @@ function BlogArticles({
  const title = t(`blog.article.${articleId}.title`);
  const excerpt = t(`blog.article.${articleId}.excerpt`);
  // Concatenate all body sections
- const body = collectBodyParts(articleId, t).join(' ');
+ const body = collectArticleBodySegments(articleId, t).join(' ');
  const contextText = `${articleId} ${title} ${excerpt} ${body}`;
 
  const cluster: SeoCluster =
@@ -2106,12 +2094,11 @@ function BlogArticles({
  );
  }
 
- const bodySegments = collectBodyParts(article.id, t);
+ const bodySegments = collectArticleBodySegments(article.id, t);
  const usedHeadingIds = new Set<string>();
  const presentSegments = bodySegments;
- const combinedBody = presentSegments.join(' ');
- const bodyWordCount = combinedBody.split(/\s+/).filter(Boolean).length;
- const bodyCharCount = combinedBody.trim().length;
+ const bodyWordCount = countArticleBodyWords(presentSegments);
+ const bodyCharCount = countArticleBodyChars(presentSegments);
  // Single quality threshold for all ad formats (FRO-287):
  // The shared word/character floor ensures AdSense policy compliance
  // and avoids thin-content penalties. Articles below this threshold
