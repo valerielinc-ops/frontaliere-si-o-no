@@ -28,6 +28,7 @@ import {
   detectLang,
   mergeLocaleTextMap,
   captureLostSlugs,
+  appendSlugDisambiguator,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   isTsmgTargetLocation,
@@ -129,13 +130,7 @@ function buildJob(job) {
   // survives across all pipeline stages (hardenJobLocaleFields, regenerate-slugs).
   // Backwards-compatible with existing TSMG slugs that already have this suffix.
   const disambiguator = String(job.id || '').trim().slice(0, 8).toLowerCase() || '';
-  const appendDisambiguator = (base) => {
-    if (!disambiguator || !base) return base || '';
-    const maxBase = Math.max(0, 120 - disambiguator.length - 1);
-    const trimmed = base.slice(0, maxBase).replace(/-+$/, '');
-    return trimmed ? `${trimmed}-${disambiguator}` : disambiguator;
-  };
-  const slug = appendDisambiguator(localized.it.slug);
+  const slug = appendSlugDisambiguator(localized.it.slug, disambiguator);
   return {
     title: localized.it.title,
     slug,
@@ -173,10 +168,10 @@ function buildJob(job) {
       fr: localized.fr.description,
     },
     slugByLocale: {
-      it: appendDisambiguator(localized.it.slug),
-      en: appendDisambiguator(localized.en.slug),
-      de: appendDisambiguator(localized.de.slug),
-      fr: appendDisambiguator(localized.fr.slug),
+      it: appendSlugDisambiguator(localized.it.slug, disambiguator),
+      en: appendSlugDisambiguator(localized.en.slug, disambiguator),
+      de: appendSlugDisambiguator(localized.de.slug, disambiguator),
+      fr: appendSlugDisambiguator(localized.fr.slug, disambiguator),
     },
   };
 }

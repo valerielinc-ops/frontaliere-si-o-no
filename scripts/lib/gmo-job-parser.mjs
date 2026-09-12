@@ -11,7 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
@@ -159,14 +159,16 @@ export async function fetchAllGmoJobs() {
     const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'fr');
-    const jobSlug = slugify(`${title} gmo ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const slugDisambiguator = urlHash.slice(0, 8);
+    const jobSlug = appendSlugDisambiguator(slugify(`${title} gmo ch`), slugDisambiguator);
 
     const job = {
       // ── Required fields ──
       id: `gmo-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
+      slugDisambiguator,
       company: GMO_COMPANY_NAME,
       companyKey: GMO_KEY,
       companyDomain: GMO_COMPANY_DOMAIN,

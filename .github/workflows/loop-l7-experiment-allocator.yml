@@ -1,0 +1,92 @@
+name: Loop L7 experiment allocator
+
+on:
+  schedule:
+    - cron: '47 9 * * 1'
+  push:
+    branches: [main]
+    paths:
+      - 'data/experimental-candidates.json'
+      - 'data/experiment-outcomes.json'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l7-experiment-allocator.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/loop-l7-experiment-allocator.yml'
+  pull_request:
+    paths:
+      - 'data/experimental-candidates.json'
+      - 'data/experiment-outcomes.json'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l7-experiment-allocator.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/loop-l7-experiment-allocator.yml'
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: 'Create/update one deduplicated issue when allocation evidence is not trustworthy'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: loop-l7-experiment-allocator
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout experiment inputs
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /data/experimental-candidates.json
+            /data/experiment-outcomes.json
+            /data/loop-fleet/loop-registry.json
+            /scripts/ci/loop-l7-experiment-allocator.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/github-issue-creator.mjs
+            /.github/workflows/loop-l7-experiment-allocator.yml
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Audit experiment allocation
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l7
+        run: |
+          set -o pipefail
+          mkdir -p "$REPORT_DIR"
+          args=(--json --apply --report-dir "$REPORT_DIR" --candidates data/experimental-candidates.json --outcomes data/experiment-outcomes.json)
+          if [ "$ISSUE_ENABLED" = "true" ]; then
+            args+=(--issue --strict)
+          else
+            args+=(--dry-run)
+          fi
+          set +e
+          node scripts/ci/loop-l7-experiment-allocator.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
+          run_code=${PIPESTATUS[0]}
+          set -e
+          if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l7-result.json" >/dev/null 2>&1; then
+            echo 'L7 finding persisted as a deduplicated issue; allocation recommendations remain runner-local.' | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ "$run_code" -ne 0 ]; then
+            exit "$run_code"
+          fi
+      - name: Upload L7 observation and actions
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: loop-l7-experiment-allocator-${{ github.run_id }}
+          path: ${{ runner.temp }}/loop-fleet-l7/
+          if-no-files-found: error

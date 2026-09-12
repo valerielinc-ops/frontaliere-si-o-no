@@ -11,6 +11,7 @@ import {
   importantFindings,
   logClassification,
   CODEX_REVIEW_MARKER,
+  normalizeReviewBody,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
 
@@ -828,6 +829,36 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 
 describe('review gate: citazioni e conferme', () => {
   const bot = (body: string) => ({ user: { type: 'Bot', login: 'claude[bot]' }, body, commit_id: 'c'.repeat(40) });
+
+  it('decodifica i separatori newline serializzati dalla review automation', async () => {
+    const escaped = [
+      CODEX_REVIEW_MARKER,
+      '## Findings (Important: 0, Nit: 0)',
+      'Fix di `src/changed.mjs:L12`: ok.',
+      '## LGTM',
+    ].join('\\n');
+
+    expect(normalizeReviewBody(escaped)).toContain('\n## Findings');
+    expect(normalizeReviewBody(escaped)).toContain('\nFix di');
+
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[
+        historicalImportantReview,
+        {
+          ...approvingBotReview,
+          body: escaped,
+          commit_id: HEAD_SHA,
+        },
+      ]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
+  });
 
   it('keeps findingKey() and citationConfirmed() as direct moved-anchor contracts', () => {
     const citation = { path: 'scripts/ci/review-gate.mjs', line: 431 };

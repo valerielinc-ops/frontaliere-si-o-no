@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {
   extractDetailFields,
@@ -336,14 +336,16 @@ export async function fetchAllAccorJobs(runtime = {}) {
     const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'fr');
-    const jobSlug = slugify(`${title} accor ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const slugDisambiguator = urlHash.slice(0, 8);
+    const jobSlug = appendSlugDisambiguator(slugify(`${title} accor ch`), slugDisambiguator);
 
     const job = {
       // ── Required fields ──
       id: `accor-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
+      slugDisambiguator,
       company: ACCOR_COMPANY_NAME,
       companyKey: ACCOR_KEY,
       companyDomain: ACCOR_COMPANY_DOMAIN,

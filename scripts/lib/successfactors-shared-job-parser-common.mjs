@@ -143,7 +143,11 @@ export function parseCsbSearchResults(html) {
     // A row link's anchor text can be the SF cookie-consent / search widget
     // rather than a posting title on some CSB skins — discard the row.
     if (isSuccessFactorsWidgetText(title)) continue;
-    const titleForLocationGuard = stripSuccessFactorsMoreLocations(title) || title;
+    // The title is only a comparison guard. A multi-office marker in a title
+    // is not a discarded office from the location field, so do not emit the
+    // location-loss warning while preparing this value.
+    const titleForLocationGuard = stripSuccessFactorsMoreLocations(title, { warn: false }) || title;
+    const canApplyTitleLocationGuard = titleForLocationGuard.length > 3;
 
     // Preferred: dedicated `<td class="colLocation hidden-phone">` cell or
     // `<span class="jobLocation">…</span>` directly. This avoids picking up
@@ -169,9 +173,12 @@ export function parseCsbSearchResults(html) {
     const cellRe = /<td[^>]*>([\s\S]*?)<\/td>/gi;
     let cellMatch;
     while ((cellMatch = cellRe.exec(rowHtml)) !== null) {
-      cells.push(
-        stripSuccessFactorsMoreLocations(decodeEntities(normalizeSpace(stripHtml(cellMatch[1])))),
-      );
+      const raw = decodeEntities(normalizeSpace(stripHtml(cellMatch[1])));
+      // Normalize every cell silently first. If the heuristic elects this
+      // cell as the location below, strip it again with the warning enabled;
+      // title/department/date cells must never produce discarded-office
+      // telemetry.
+      cells.push({ raw, text: stripSuccessFactorsMoreLocations(raw, { warn: false }) });
     }
 
     // Fallback: heuristic — find the cell that looks like a location ("City,
@@ -179,12 +186,16 @@ export function parseCsbSearchResults(html) {
     // with the equally stripped title to avoid electing a title cell.
     let postedDate = '';
     for (const cell of cells) {
-      if (!location && /,\s*[A-Z]{2}(?:,|$)/.test(cell) && !cell.includes(titleForLocationGuard)) {
-        location = cell;
+      if (
+        !location
+        && /,\s*[A-Z]{2}(?:,|$)/.test(cell.text)
+        && (!canApplyTitleLocationGuard || !cell.text.includes(titleForLocationGuard))
+      ) {
+        location = stripSuccessFactorsMoreLocations(cell.raw);
         continue;
       }
       // ISO-ish date in the cell?
-      const dm = cell.match(/(\d{4}-\d{2}-\d{2})/) || cell.match(/(\d{1,2}[.\/-]\d{1,2}[.\/-]\d{4})/);
+      const dm = cell.text.match(/(\d{4}-\d{2}-\d{2})/) || cell.text.match(/(\d{1,2}[.\/-]\d{1,2}[.\/-]\d{4})/);
       if (!postedDate && dm) postedDate = parseLooseDate(dm[1]);
     }
 
