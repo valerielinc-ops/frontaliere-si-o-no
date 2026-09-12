@@ -593,14 +593,40 @@ export function citationConfirmed(
   }));
 }
 
-function findingConfirmed(finding, confirmations, openFindings = [finding]) {
+function findingConfirmed(
+  finding,
+  confirmations,
+  openFindings = [finding],
+  { repositoryPaths = null } = {},
+) {
   if (finding.citations.length === 0) {
     const bodyAnchor = prBodyAnchor(finding.line);
     return confirmations.some((confirmation) => confirmation.key === findingKey(finding)
       || (bodyAnchor !== null && confirmation.bodyAnchor === bodyAnchor));
   }
+  const preciseCitations = finding.citations.filter((citation) => citation.line !== null);
+  const preciseAnchorsConfirmed = preciseCitations.length > 0
+    && preciseCitations.every((citation) => citationConfirmed(
+      citation,
+      confirmations,
+      finding,
+      openFindings,
+    ))
+    && (!Array.isArray(repositoryPaths) || preciseCitations.every((citation) =>
+      resolveCitedPath(citation, repositoryPaths).status === 'resolved'));
   return finding.citations.every((citation) => {
     const isBareCompanion = citation.line === null && citation.path.includes('/');
+    // Review prose often uses illustrative paths that are not repository
+    // files. Once every precise repository anchor is confirmed, a bare path
+    // with no HEAD-tree match is context rather than a second edit target.
+    // Keep the default strict when the tree is unavailable, and never apply
+    // this exception to precise or resolvable paths.
+    const isUnresolvableBareContext = isBareCompanion
+      && preciseAnchorsConfirmed
+      && Array.isArray(repositoryPaths)
+      && resolveCitedPath(citation, repositoryPaths).status === 'non-risolubile'
+      && resolveCitedPath(citation, repositoryPaths).candidates.length === 0;
+    if (isUnresolvableBareContext) return true;
     const otherAnchorsConfirmed = isBareCompanion
       && finding.citations
         .filter((other) => other !== citation)
@@ -622,7 +648,11 @@ function findingConfirmed(finding, confirmations, openFindings = [finding]) {
  */
 export function historicalImportantFindings(
   reviews,
-  { includeLatest = false, citationExtractor = extractFileCitations } = {},
+  {
+    includeLatest = false,
+    citationExtractor = extractFileCitations,
+    repositoryPaths = null,
+  } = {},
 ) {
   const bots = reviewerList(reviews).filter((review) =>
     review?.user?.type === 'Bot' && REVIEWER_LOGIN_RE.test(review.user.login || ''),
@@ -636,7 +666,7 @@ export function historicalImportantFindings(
     const openFindings = [...open.values()].map(({ finding }) => finding);
     for (const [key, entry] of open.entries()) {
       if (entry.reviewIndex >= index) continue;
-      if (findingConfirmed(entry.finding, confirmations, openFindings)) {
+      if (findingConfirmed(entry.finding, confirmations, openFindings, { repositoryPaths })) {
         open.delete(key);
       }
     }
@@ -796,13 +826,6 @@ function fetchRepositoryTreePaths(repo, sha) {
     console.log(`review-gate: tree non recuperabile (${String(error).slice(0, 160)}).`);
     return null;
   }
-}
-
-function fetchRepositoryPaths(repo, pr) {
-  const base = String(gh([
-    'api', `repos/${repo}/pulls/${pr}`, '--jq', '.base.sha',
-  ], { json: false })).trim();
-  return fetchRepositoryTreePaths(repo, base);
 }
 
 function fetchRepositoryHeadPaths(repo, pr) {
@@ -1039,6 +1062,7 @@ export async function classifyAndMintReview(body, {
   mutate = true,
   reviewCommit,
   headSha,
+  repositoryPaths: suppliedRepositoryPaths,
 } = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || ''))) {
     throw new Error('repo o PR number non valido');
@@ -1063,8 +1087,10 @@ export async function classifyAndMintReview(body, {
   }
 
   const changed = fetchPrFiles(Number(pr), gh, repo);
-  const repositoryPaths = changed.complete === true && changed.files.length > 0
-    ? fetchRepositoryPaths(repo, pr)
+  const repositoryPaths = suppliedRepositoryPaths !== undefined
+    ? suppliedRepositoryPaths
+    : changed.complete === true && changed.files.length > 0
+      ? fetchRepositoryHeadPaths(repo, pr)
     : null;
   const classification = classifyReview(body, {
     files: changed.files,
@@ -1098,6 +1124,7 @@ export async function runReviewGate({
   reviews,
   codexEvidence,
   codexEvidenceFile,
+  repositoryPaths,
   fingerprintFn = fingerprint,
   changedPathsFn = changedPathsBetween,
   classifyAndMintReviewFn = classifyAndMintReview,
@@ -1143,7 +1170,9 @@ export async function runReviewGate({
       staleFindings: staleCarry.findings,
     };
   }
-  const historical = historicalImportantFindings(reviewHistory);
+  const historical = historicalImportantFindings(reviewHistory, {
+    repositoryPaths: repositoryPaths ?? null,
+  });
   const effectiveBody = reviewBodyWithHistoricalFindings(body, historical);
   const findings = importantFindings(effectiveBody);
   const reviewCommit = String(latest.commit_id || '');
@@ -1154,12 +1183,14 @@ export async function runReviewGate({
   // the gate correctly blocks on the changed contribution.
   const applies = reviewAppliesToHead(reviewCommit, headSha, fingerprintFn);
   if (findings.length > 0 && applies) {
-    classification = await classifyAndMintReviewFn(effectiveBody, {
+    const classificationOptions = {
       repo,
       pr,
       prUrl: prUrl || process.env.PR_URL,
       mutate,
-    });
+    };
+    if (repositoryPaths !== undefined) classificationOptions.repositoryPaths = repositoryPaths;
+    classification = await classifyAndMintReviewFn(effectiveBody, classificationOptions);
   } else if (findings.length > 0 && !applies) {
     classification = {
       ...emptyClassification(findings),
@@ -1206,12 +1237,14 @@ async function main() {
   const repo = process.env.REPO || process.env.GITHUB_REPOSITORY || '';
   const pr = process.env.PR_NUMBER || '';
   const headSha = process.env.HEAD_SHA || '';
+  const repositoryPaths = fetchRepositoryHeadPaths(repo, pr);
   const result = await runReviewGate({
     repo,
     pr,
     headSha,
     runUrl: process.env.RUN_URL,
     prUrl: process.env.PR_URL,
+    repositoryPaths,
   });
   writeApproved(result.approved);
   if (!result.approved) {

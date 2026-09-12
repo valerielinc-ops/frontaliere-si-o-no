@@ -1,0 +1,93 @@
+name: Technical operations supervisor
+
+# L11 della flotta: osserva OGNI workflow del repository, compresi quelli che
+# non hanno "loop" nel nome, e controlla riferimenti tecnici e contratti di
+# estrazione dati. Il report non riscrive codice o dati: con --issue consegna le
+# prove al normale ciclo issue → PR → review → merge.
+
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      report_issue:
+        description: 'Persisti il report come issue deduplicata'
+        required: false
+        type: boolean
+        default: false
+  pull_request:
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+concurrency:
+  group: technical-operations-supervisor-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout workflow inventory
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+            !/data/jobs-snapshots-history/
+            !/data/orphan-enriched-data/
+            !/data/all-known-job-slugs/
+            !/public/data/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install audit dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Audit all workflows and extraction contracts
+        id: audit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          REPORT_ISSUE: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.report_issue == true }}
+        run: |
+          set +e
+          set -o pipefail
+          ARGS=(--report "$RUNNER_TEMP/technical-operations-audit.json")
+          if [ "$REPORT_ISSUE" = "true" ]; then
+            ARGS+=(--issue --strict)
+          fi
+          node scripts/ci/technical-operations-audit.mjs "${ARGS[@]}" | tee -a "$GITHUB_STEP_SUMMARY"
+          STATUS=$?
+          set -e
+          if [ "$STATUS" -ne 0 ] && [ "$(grep -E '^issue_reported=' "$GITHUB_OUTPUT" | tail -1 | cut -d= -f2-)" != "true" ]; then
+            echo "Audit con errori non persistito: il supervisore deve restare rosso." >&2
+            exit "$STATUS"
+          fi
+
+      - name: Upload complete audit report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: technical-operations-audit-${{ github.run_id }}
+          path: ${{ runner.temp }}/technical-operations-audit.json
+          if-no-files-found: error
