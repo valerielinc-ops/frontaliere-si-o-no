@@ -50,13 +50,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt",
-        "sales-associate-m-f-dal-26-al-27-aprile-all-80-fusalp-zermatt"
+        "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt",
-          "sales-associate-m-f-dal-26-al-27-aprile-all-80-fusalp-zermatt"
+          "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
         ],
         "de": [
           "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
@@ -129,13 +127,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes",
-        "sales-associate-m-f-dal-26-al-27-marzo-al-100-fusalp-val-de-bagnes"
+        "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes",
-          "sales-associate-m-f-dal-26-al-27-marzo-al-100-fusalp-val-de-bagnes"
+          "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes"
         ],
         "de": [
           "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes"
@@ -271,13 +267,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-store-manager-m-w-dec-26-to-april-27-100-fusalp-saanen",
-        "assistant-store-manager-m-f-dal-26-al-27-aprile-al-100-fusalp-saanen"
+        "assistant-store-manager-m-w-dec-26-to-april-27-100-fusalp-saanen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-store-manager-m-w-dec-26-to-april-27-100-fusalp-saanen",
-          "assistant-store-manager-m-f-dal-26-al-27-aprile-al-100-fusalp-saanen"
+          "assistant-store-manager-m-w-dec-26-to-april-27-100-fusalp-saanen"
         ]
       },
       "firstSeenAt": "2026-08-31T17:09:40.027Z",
@@ -344,13 +338,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz",
-        "sales-associate-m-f-dal-26-al-27-aprile-al-100-fusalp-st-moritz"
+        "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz",
-          "sales-associate-m-f-dal-26-al-27-aprile-al-100-fusalp-st-moritz"
+          "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz"
         ],
         "de": [
           "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz"
@@ -377,12 +369,12 @@
     },
     {
       "id": "fusalp-3744771338a4",
-      "slug": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
+      "slug": "store-manager-m-f-contratto-permanente-100-1-novembre-2026-fusalp-saanen",
       "slugByLocale": {
-        "it": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
         "en": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
+        "it": "store-manager-m-f-contratto-permanente-100-1-novembre-2026-fusalp-saanen",
         "de": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
-        "fr": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
+        "fr": "manager-store-h-f-contrat-a-duree-indeterminee-100-1er-novembre-2026-fusalp-saanen"
       },
       "company": "Fusalp",
       "companyKey": "fusalp",
@@ -436,16 +428,27 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-11T13:39:22.216Z"
+      "firstSeenAt": "2026-09-11T13:39:22.216Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
+        ],
+        "fr": [
+          "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
+        ]
+      },
+      "previousSlugs": [
+        "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
+      ]
     },
     {
       "id": "fusalp-5577407b4e47",
-      "slug": "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana",
+      "slug": "sales-associate-m-f-4-mesi-100-contratto-a-tempo-determinato-fusalp-crans-montana",
       "slugByLocale": {
-        "it": "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana",
         "en": "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana",
-        "de": "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana",
-        "fr": "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana"
+        "it": "sales-associate-m-f-4-mesi-100-contratto-a-tempo-determinato-fusalp-crans-montana",
+        "de": "verkaufsverbindung-m-w-4-monate-100-befristeter-vertrag-fusalp-crans-montana",
+        "fr": "ventes-associees-h-f-4-mois-100-contrat-a-duree-determinee-fusalp-crans-montana"
       },
       "company": "Fusalp",
       "companyKey": "fusalp",
@@ -499,7 +502,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-11T13:39:21.213Z"
+      "firstSeenAt": "2026-09-11T13:39:21.213Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana"
+        ],
+        "de": [
+          "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana"
+        ],
+        "fr": [
+          "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "sales-associate-m-w-4-month-100-fixed-term-contract-fusalp-crans-montana"
+      ]
     }
   ]
 }

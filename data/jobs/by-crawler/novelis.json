@@ -51,13 +51,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-09-11T23:11:14.173Z",
       "previousSlugs": [
-        "plant-hr-manager-f-m-d-novelis-ch",
-        "plant-risorse-umane-manager-f-m-d-novelis-sierre"
+        "plant-hr-manager-f-m-d-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "plant-hr-manager-f-m-d-novelis-ch",
-          "plant-risorse-umane-manager-f-m-d-novelis-sierre"
+          "plant-hr-manager-f-m-d-novelis-ch"
         ],
         "de": [
           "plant-hr-manager-f-m-d-novelis-ch"
@@ -130,13 +128,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-09-11T23:11:13.394Z",
       "previousSlugs": [
-        "it-solutions-lead-m-w-d-novelis-ch",
-        "soluzioni-it-piombo-m-w-d-novelis-ticino"
+        "it-solutions-lead-m-w-d-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-solutions-lead-m-w-d-novelis-ch",
-          "soluzioni-it-piombo-m-w-d-novelis-ticino"
+          "it-solutions-lead-m-w-d-novelis-ch"
         ],
         "de": [
           "it-solutions-lead-m-w-d-novelis-ch"
@@ -209,13 +205,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-09-11T23:11:12.486Z",
       "previousSlugs": [
-        "internship-m-f-d-internal-communications-40-60-novelis-ch",
-        "internship-m-f-d-comunicazioni-interne-40-60-novelis-kusnacht"
+        "internship-m-f-d-internal-communications-40-60-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-m-f-d-internal-communications-40-60-novelis-ch",
-          "internship-m-f-d-comunicazioni-interne-40-60-novelis-kusnacht"
+          "internship-m-f-d-internal-communications-40-60-novelis-ch"
         ],
         "de": [
           "internship-m-f-d-internal-communications-40-60-novelis-ch"
@@ -288,13 +282,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-09-11T23:11:11.897Z",
       "previousSlugs": [
-        "senior-predictive-maintenance-engineer-m-f-d-novelis-ch",
-        "senior-predictive-maintenance-ingegnere-m-f-d-novelis-kusnacht-de-rp-koblenz-de-nw-plettenberg-de-nw-voerde-de-bw"
+        "senior-predictive-maintenance-engineer-m-f-d-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-predictive-maintenance-engineer-m-f-d-novelis-ch",
-          "senior-predictive-maintenance-ingegnere-m-f-d-novelis-kusnacht-de-rp-koblenz-de-nw-plettenberg-de-nw-voerde-de-bw"
+          "senior-predictive-maintenance-engineer-m-f-d-novelis-ch"
         ],
         "de": [
           "senior-predictive-maintenance-engineer-m-f-d-novelis-ch"
@@ -386,8 +378,8 @@
       "id": "novelis-1dcd261f1a3d",
       "slug": "supply-chain-network-planner-m-f-d-automotive-novelis-ch",
       "slugByLocale": {
-        "it": "supply-chain-network-planner-m-f-d-automotive-novelis-ch",
         "en": "supply-chain-network-planner-m-f-d-automotive-novelis-ch",
+        "it": "supply-chain-network-planner-m-f-d-automotive-novelis-ch",
         "de": "lieferkette-network-planner-m-f-d-automotive-novelis-kusnacht",
         "fr": "chaine-d-approvisionnement-network-planner-m-f-d-automotive-novelis-kusnacht"
       },
@@ -448,12 +440,12 @@
     },
     {
       "id": "novelis-e21475897488",
-      "slug": "mecanicien-operateur-rectifiage-filtrage-novelis-ch",
+      "slug": "mechanic-operator-grinding-filter-novelis-sierre",
       "slugByLocale": {
-        "it": "mecanicien-operateur-rectifiage-filtrage-novelis-ch",
-        "en": "mecanicien-operateur-rectifiage-filtrage-novelis-ch",
-        "de": "mecanicien-operateur-rectifiage-filtrage-novelis-ch",
-        "fr": "mecanicien-operateur-rectifiage-filtrage-novelis-ch"
+        "fr": "mecanicien-operateur-rectifiage-filtrage-novelis-ch",
+        "it": "mechanic-operator-grinding-filter-novelis-sierre",
+        "en": "mechanic-operator-grinding-filtering-novelis-sierre",
+        "de": "mechaniker-bediener-grinding-filtering-novelis-sierre"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -507,16 +499,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T13:36:16.518Z"
+      "firstSeenAt": "2026-09-11T13:36:16.518Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-operateur-rectifiage-filtrage-novelis-ch"
+        ],
+        "en": [
+          "mecanicien-operateur-rectifiage-filtrage-novelis-ch"
+        ],
+        "de": [
+          "mecanicien-operateur-rectifiage-filtrage-novelis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-operateur-rectifiage-filtrage-novelis-ch"
+      ]
     },
     {
       "id": "novelis-2a377a843625",
-      "slug": "metallurgy-modeling-scientist-novelis-ch",
+      "slug": "scienziato-di-modellazione-della-metallurgia-novelis-sierre",
       "slugByLocale": {
-        "it": "metallurgy-modeling-scientist-novelis-ch",
         "en": "metallurgy-modeling-scientist-novelis-ch",
-        "de": "metallurgy-modeling-scientist-novelis-ch",
-        "fr": "metallurgy-modeling-scientist-novelis-ch"
+        "it": "scienziato-di-modellazione-della-metallurgia-novelis-sierre",
+        "de": "metallurgie-modellierung-wissenschaftler-novelis-sierre",
+        "fr": "chercheur-en-modelisation-metallurgique-novelis-sierre"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -570,7 +576,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T13:36:15.707Z"
+      "firstSeenAt": "2026-09-11T13:36:15.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallurgy-modeling-scientist-novelis-ch"
+        ],
+        "de": [
+          "metallurgy-modeling-scientist-novelis-ch"
+        ],
+        "fr": [
+          "metallurgy-modeling-scientist-novelis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "metallurgy-modeling-scientist-novelis-ch"
+      ]
     }
   ]
 }

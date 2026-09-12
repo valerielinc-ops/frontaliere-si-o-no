@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "suchtfachstelle-zuerich-00660b78150c",
-      "slug": "fachperson-per-psychotherapie-e-suchtberatung-60-80-suchtfachstelle-zurich",
+      "slug": "psicoterapia-e-addizione-professional-60-80-suchtfachstelle-zurich-zurich",
       "slugByLocale": {
-        "it": "fachperson-per-psychotherapie-e-suchtberatung-60-80-suchtfachstelle-zurich",
-        "en": "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zurich-zurich",
         "de": "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zuerich",
-        "fr": "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zurich-zurich"
+        "it": "psicoterapia-e-addizione-professional-60-80-suchtfachstelle-zurich-zurich",
+        "en": "psychotherapy-and-addiction-counselling-professional-60-80-suchtfachstelle-zurich-zurich",
+        "fr": "psychotherapie-et-conseils-en-toxicomanie-60-80-suchtfachstelle-zurich-zurich"
       },
       "company": "Suchtfachstelle Zürich",
       "companyKey": "suchtfachstelle-zuerich",
@@ -54,11 +54,18 @@
         "it": [
           "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zuerich",
           "fachperson-per-psychotherapie-e-suchtberatung-60-80-suchtfachstelle-zurich"
+        ],
+        "en": [
+          "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zurich-zurich"
+        ],
+        "fr": [
+          "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zuerich",
-        "fachperson-per-psychotherapie-e-suchtberatung-60-80-suchtfachstelle-zurich"
+        "fachperson-per-psychotherapie-e-suchtberatung-60-80-suchtfachstelle-zurich",
+        "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zurich-zurich"
       ],
       "salaryMin": 73200,
       "salaryMax": 102400,
