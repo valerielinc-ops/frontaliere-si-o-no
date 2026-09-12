@@ -3,10 +3,12 @@ import { beforeEach, describe, it, expect, vi } from 'vitest';
 import {
   RECRUITINGAPP_2677_KEY,
   RECRUITINGAPP_2677_COMPANY_NAME,
+  MAX_INTRO_BLOCKS,
   assertCompleteRecruitingapp2677Snapshot,
   fetchAllRecruitingapp2677Jobs,
   isRecruitingapp2677Job,
   isTrustedDomain,
+  stableLocationCandidatesKey,
 } from '../scripts/lib/recruitingapp-2677-job-parser.mjs';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -81,6 +83,20 @@ describe('E-Recruiting LLB-Gruppe Stellen crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(RECRUITINGAPP_2677_KEY).toBe('recruitingapp-2677');
     expect(RECRUITINGAPP_2677_COMPANY_NAME).toBe('E-Recruiting LLB-Gruppe Stellen');
+  });
+
+  it('bounds intro materialization and canonicalizes location candidates', () => {
+    expect(MAX_INTRO_BLOCKS).toBeGreaterThanOrEqual(1);
+    const first = [
+      { location: 'Vaduz', addressLocality: 'Vaduz', addressCountry: 'LI' },
+      { location: 'Zürich', addressLocality: 'Zürich', addressCountry: 'CH' },
+    ];
+    const reordered = [
+      { location: 'Zu\u0308rich', addressLocality: 'Zu\u0308rich', addressCountry: 'CH' },
+      first[0],
+      first[0],
+    ];
+    expect(stableLocationCandidatesKey(first)).toBe(stableLocationCandidatesKey(reordered));
   });
 
   // ── isCompanyJob ──

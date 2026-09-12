@@ -8,6 +8,7 @@ import {
   REQUIRED_SECTIONS,
   buildRedflagDocumentSections,
   extractSectionByHeading,
+  indentAndValidateRedflagDocumentSections,
 } from '../scripts/ci/redflag-doc-sections.mjs';
 
 const ROOT = process.cwd();
@@ -172,6 +173,12 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
     } finally {
       rmSync(fixtureRoot, { recursive: true, force: true });
     }
+  });
+
+  it('bounds the indented prompt value after adding the per-line indent', () => {
+    const document = 'x'.repeat(16_380);
+    expect(() => indentAndValidateRedflagDocumentSections(document)).toThrow(/Indented redflag document too large/);
+    expect(indentAndValidateRedflagDocumentSections('ok', '  ')).toBe('  ok');
   });
 
   it('extracts by heading and fails when a required heading disappears', () => {

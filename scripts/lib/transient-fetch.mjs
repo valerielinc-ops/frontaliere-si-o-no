@@ -189,6 +189,42 @@ export function isConnectionLevelFetchError(err) {
 }
 
 /**
+ * Mark a terminal retry error without assuming third-party errors are
+ * extensible. Frozen errors are cloned with their prototype and own property
+ * descriptors intact, so callers still receive an Error-shaped value with the
+ * original message/stack/cause and a reliable marker.
+ */
+export function markRetryExhaustedError(error) {
+  if (!error || (typeof error !== 'object' && typeof error !== 'function')) return error;
+  try {
+    error.retryExhausted = true;
+    if (error.retryExhausted === true) return error;
+  } catch {
+    // Fall through to a descriptor-preserving replacement.
+  }
+
+  const replacement = Object.create(Object.getPrototypeOf(error));
+  for (const key of Reflect.ownKeys(error)) {
+    if (key === 'retryExhausted') continue;
+    const descriptor = Object.getOwnPropertyDescriptor(error, key);
+    if (!descriptor) continue;
+    try {
+      Object.defineProperty(replacement, key, descriptor);
+    } catch {
+      // A hostile exotic error may expose an uncopyable own property; the
+      // terminal marker and normal Error fields are still preserved below.
+    }
+  }
+  Object.defineProperty(replacement, 'retryExhausted', {
+    configurable: true,
+    enumerable: true,
+    value: true,
+    writable: true,
+  });
+  return replacement;
+}
+
+/**
  * Run an async fetch operation with exponential backoff + jitter on transient
  * failures (429/5xx, network errors, timeouts). 4xx and other persistent
  * errors fail fast. Defaults: 3 retries → backoff 1s/2s/4s (+ jitter).
@@ -224,15 +260,7 @@ export async function fetchWithRetry(attemptFn, opts = {}) {
       const retryable = transient(err);
       if (!retryable) throw err;
       if (attempt >= maxRetries) {
-        if (err && (typeof err === 'object' || typeof err === 'function')) {
-          try {
-            err.retryExhausted = true;
-          } catch {
-            // A frozen third-party error remains fail-closed for callers that
-            // require this marker; it is still rethrown unchanged below.
-          }
-        }
-        throw err;
+        throw markRetryExhaustedError(err);
       }
       const delay = baseMs * 2 ** attempt;
       const jitter = Math.floor(Math.random() * baseMs);

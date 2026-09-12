@@ -16,6 +16,22 @@ import path from 'node:path';
  * @param {string} key
  * @returns {string}
  */
+export function normalizeCrawlerKey(key) {
+  const raw = String(key ?? '').trim().normalize('NFKC');
+  if (!raw || raw === '.' || raw === '..' || raw.includes('/') || raw.includes('\\') || raw.includes('\0')) {
+    throw new TypeError('crawler key must be a non-empty path-safe identifier');
+  }
+  const normalized = raw
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, '-')
+    .replace(/-{2,}/g, '-')
+    .replace(/^[-_]+|[-_]+$/g, '');
+  if (!normalized) throw new TypeError('crawler key must contain an alphanumeric character');
+  return normalized;
+}
+
 export function crawlerScratchPathFor(key) {
-  return path.join(os.tmpdir(), `frontaliere-jobs-scratch-${key}.json`);
+  return path.join(os.tmpdir(), `frontaliere-jobs-scratch-${normalizeCrawlerKey(key)}.json`);
 }

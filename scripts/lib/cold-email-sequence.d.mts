@@ -14,15 +14,25 @@ export interface ColdEmailTouch {
   body: string;
 }
 
+export interface PeriodWindow {
+  from: string;
+  to: string;
+  inclusive?: '[from,to)' | '[from,to]' | '(from,to)' | '(from,to]';
+  timezone?: string;
+}
+
+export type PeriodLabel = string | PeriodWindow;
+
 export interface BuildSequenceArgs {
   company?: string;
   metricValue?: number | null;
   metricLabel?: 'click per candidarsi' | 'segnali di interesse';
-  periodLabel: string;
+  periodLabel: PeriodLabel;
   contactName?: string;
   topRole?: string;
 }
 
 export function buildSequence(args: BuildSequenceArgs): ColdEmailTouch[];
 export function bodyToHtml(body: string): string;
-export function formatItalianPeriodLabel(periodLabel: string): string;
+export function calendarParts(value: string, options?: { requireTimeZone?: boolean; timeZone?: string }): { year: number; month: number; day: number } | null;
+export function formatItalianPeriodLabel(periodLabel: PeriodLabel, options?: { strict?: boolean }): string;

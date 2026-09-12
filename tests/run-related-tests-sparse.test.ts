@@ -1,5 +1,7 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 
@@ -19,6 +21,25 @@ import { describe, it, expect } from 'vitest';
  */
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = fs.readFileSync(path.join(ROOT, 'scripts/ci/run-related-tests.mjs'), 'utf-8');
+const RUNNER = path.join(ROOT, 'scripts/ci/run-related-tests.mjs');
+
+function runFromMissingCheckout(args = [], extraEnv = {}) {
+  const checkout = fs.mkdtempSync(path.join(os.tmpdir(), 'run-related-tests-'));
+  try {
+    fs.writeFileSync(path.join(checkout, 'changed-paths.txt'), 'README.md\n');
+    const env = { ...process.env };
+    delete env.GITHUB_ACTIONS;
+    delete env.VITEST_RELATED_DRY_RUN;
+    delete env.GITHUB_OUTPUT;
+    return spawnSync(process.execPath, [RUNNER, ...args], {
+      cwd: checkout,
+      env: { ...env, ...extraEnv },
+      encoding: 'utf8',
+    });
+  } finally {
+    fs.rmSync(checkout, { recursive: true, force: true });
+  }
+}
 
 describe('run-related-tests — il selettore sopravvive a un worktree sparse', () => {
   it('tollera solo ENOENT, e rilancia qualunque altro errore di lettura', () => {
@@ -43,6 +64,10 @@ describe('run-related-tests — il selettore sopravvive a un worktree sparse', (
     // può fare, quindi va detta a voce, sopra l'elenco dei test scelti.
     expect(SRC).toMatch(/unreadable\.length > 0/);
     expect(SRC).toContain('the selection may be incomplete');
+    expect(SRC).toContain('process.exit(2)');
+    expect(SRC).toContain('requires a full checkout');
+    expect(SRC).toContain('data/blog-articles-data.ts');
+    expect(SRC).toContain('public/.nojekyll');
   });
 
   it('su un checkout completo il comportamento è invariato', () => {
@@ -50,5 +75,25 @@ describe('run-related-tests — il selettore sopravvive a un worktree sparse', (
     // l'albero è intero, nessun file è illeggibile e il runner seleziona
     // esattamente quello che selezionava prima.
     expect(SRC).toMatch(/const unreadable = \[\];/);
+  });
+
+  it('blocca una run reale anche quando la diff non produce candidati', () => {
+    const result = runFromMissingCheckout();
+
+    expect(result.status).toBe(2);
+    expect(result.stderr).toContain('BLOCKED: related-test verdict requires a full checkout');
+    expect(result.stderr).toContain('data/blog-articles-data.ts');
+    expect(result.stdout).not.toContain('No existing source/test files in the diff');
+  });
+
+  it.each([
+    ['--select-only', ['--select-only'], {}],
+    ['dry-run locale', [], { VITEST_RELATED_DRY_RUN: 'true' }],
+  ])('mantiene esente l’ispezione %s', (_label, args, env) => {
+    const result = runFromMissingCheckout(args, env);
+
+    expect(result.status).toBe(0);
+    expect(result.stdout).toContain('No existing source/test files in the diff');
+    expect(result.stderr).not.toContain('BLOCKED: related-test verdict requires a full checkout');
   });
 });

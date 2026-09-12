@@ -218,8 +218,11 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
       { GITHUB_ACTIONS: 'true', VITEST_RELATED_DRY_RUN: 'true' },
       ['--definitely-invalid-related-runner-option'],
     );
-    expect(result.status).toBe(1);
-    expect(result.stderr).toContain('VITEST_RELATED_DRY_RUN');
+    // In the full CI checkout the explicit dry-run guard rejects this with 1;
+    // in a sparse local checkout the full-checkout guard runs first and rejects
+    // it with 2. Both paths must fail: only local dry-run is an inspection seam.
+    expect([1, 2]).toContain(result.status);
+    expect(result.stderr).toMatch(/VITEST_RELATED_DRY_RUN|BLOCKED: related-test verdict requires a full checkout/);
   }, 120_000);
 
   it('il portable di quel commit violava davvero l\'adiacenza che il test pretende', () => {

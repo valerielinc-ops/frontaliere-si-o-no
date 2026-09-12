@@ -15,5 +15,6 @@ export {
   OUTREACH_METRIC_LABELS,
   buildSequence,
   bodyToHtml,
+  calendarParts,
   formatItalianPeriodLabel,
 } from '../../functions/src/coldEmailSequence.js';
