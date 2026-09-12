@@ -6274,6 +6274,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-giura.title': 'Permesso di dimora B in Giura: requisiti, documenti e rinnovo',
     'blog.article.permesso-dimora-b-canton-giura.excerpt': 'Scopri i requisiti, i documenti da produrre e la procedura di rinnovo del permesso B nel Cantone Giura, con indicazioni pratiche per chi vive in Svizzera.',
     'blog.article.permesso-dimora-b-canton-giura.imageAlt': 'Ufficio cantonale della migrazione in Giura, edificio tipico svizzero con insegne ufficiali.',
+    'blog.article.asib-richiesta-aumenti-bancari.title': 'Banche svizzere: ASIB chiede aumenti salariali del 2,5%',
+    'blog.article.asib-richiesta-aumenti-bancari.excerpt': 'L\'ASIB richiede un incremento del 2,5% della massa salariale e 2000 franchi in più per i redditi fino a 120\'000 franchi per i negoziati 2026/2027.',
+    'blog.article.asib-richiesta-aumenti-bancari.imageAlt': 'Uffici bancari a Lugano con vista lago',
 };
 
 export default blogMetaChIt;

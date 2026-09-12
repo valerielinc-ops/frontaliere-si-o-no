@@ -18820,6 +18820,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'asib-richiesta-aumenti-bancari',
+    category: 'novita',
+    date: '2026-09-12T00:08:33.419Z',
+    image: '/images/blog/asib-richiesta-aumenti-bancari.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

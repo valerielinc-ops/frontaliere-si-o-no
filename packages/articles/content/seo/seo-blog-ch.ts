@@ -81452,6 +81452,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asib-richiesta-aumenti-bancari': {
+    title: 'Banche svizzere: ASIB chiede aumenti salariali del 2,5%',
+    description: 'L\'ASIB richiede un incremento del 2,5% della massa salariale e 2000 franchi in più per i redditi fino a 120\'000 franchi per i negoziati 2026/2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, svizzere, asib, chiede',
+    ogTitle: 'Banche svizzere: ASIB chiede aumenti salariali del 2,5%',
+    ogDescription: 'L\'ASIB richiede un incremento del 2,5% della massa salariale e 2000 franchi in più per i redditi fino a 120\'000 franchi per i negoziati 2026/2027.',
+    canonicalPath: '/articoli-svizzera/asib-richiesta-aumenti-bancari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banche svizzere: ASIB chiede aumenti salariali del 2,5%",
+      "description": "L'ASIB richiede un incremento del 2,5% della massa salariale e 2000 franchi in più per i redditi fino a 120'000 franchi per i negoziati 2026/2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asib-richiesta-aumenti-bancari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici bancari a Lugano con vista lago"
+      },
+      "datePublished": "2026-09-12T00:08:33+00:00",
+      "dateModified": "2026-09-12T00:08:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asib-richiesta-aumenti-bancari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

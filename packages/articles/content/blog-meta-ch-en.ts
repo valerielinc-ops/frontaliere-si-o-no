@@ -6274,6 +6274,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-giura.title': 'Residence permit B in Jura: requirements, documents and renewal',
     'blog.article.permesso-dimora-b-canton-giura.excerpt': 'Discover the requirements, the documents to be produced and the procedure for renewing the B permit in the Canton of Jura, with practical instructions for those living in Switzerland.',
     'blog.article.permesso-dimora-b-canton-giura.imageAlt': 'Cantonal migration office in Jura, Swiss building with official signs.',
+    'blog.article.asib-richiesta-aumenti-bancari.title': 'Swiss banks: ASIB calls for 2.5% wage increases',
+    'blog.article.asib-richiesta-aumenti-bancari.excerpt': 'The ASIB requires an increase of 2.5% in the wage bill and 2000 francs more for incomes up to 120,000francs for the 2026/2027 negotiations.',
+    'blog.article.asib-richiesta-aumenti-bancari.imageAlt': 'Bank offices in Lugano with lake view',
 };
 
 export default blogMetaChEn;
