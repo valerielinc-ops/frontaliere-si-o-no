@@ -97,6 +97,8 @@ describe('L0 Data Truth & Freshness', () => {
     });
     expect(result).toMatchObject({ issued: true, quarantined: true, verdict: { quality: 'stale' } });
     expect(issues).toHaveLength(1);
+    expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l0-result.json'), 'utf8')))
+      .toMatchObject({ loopId: 'L0', issued: true, quarantined: true, quality: 'stale' });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l0-quarantine.json'), 'utf8')))
       .toMatchObject({ previousSurfaceUntouched: true });
   });

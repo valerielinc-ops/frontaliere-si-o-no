@@ -7,7 +7,6 @@ import { pathToFileURL } from 'node:url';
 import { ARTICLES_API_BASE } from '../lib/articles-api-base.mjs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
-  appendJsonl,
   buildDecision,
   buildObservation,
 } from '../lib/loop-fleet-contract.mjs';
@@ -155,10 +154,6 @@ function writeReports(reportDir, verdict, observation, decision) {
   for (const [name, content] of files) {
     fs.writeFileSync(path.join(dir, name), typeof content === 'string' ? content : `${JSON.stringify(content, null, 2)}\n`);
   }
-  const observations = process.env.LOOP_FLEET_OBSERVATIONS_FILE;
-  const decisions = process.env.LOOP_FLEET_DECISIONS_FILE;
-  if (observations) appendJsonl(observations, observation);
-  if (decisions) appendJsonl(decisions, decision);
   return files.map(([name]) => path.join(dir, name));
 }
 
@@ -175,6 +170,20 @@ function issueBody(verdict, decision) {
     '',
     'Comando di verifica: `node scripts/ci/loop-l0-data-truth.mjs --json --dry-run`',
   ].join('\n');
+}
+
+function writeResult(reportDir, { verdict, issued, quarantined }) {
+  if (!reportDir) return null;
+  const file = path.join(path.resolve(reportDir), 'l0-result.json');
+  fs.writeFileSync(file, `${JSON.stringify({
+    loopId: LOOP_ID,
+    ok: verdict.ok,
+    quality: verdict.quality,
+    issueCount: verdict.issues.length,
+    issued,
+    quarantined,
+  }, null, 2)}\n`);
+  return file;
 }
 
 export async function runL0({
@@ -263,6 +272,8 @@ export async function runL0({
     });
     issued = true;
   }
+  const resultFile = writeResult(reportDir, { verdict, issued, quarantined });
+  if (resultFile) files.push(resultFile);
   logger.log(`[L0] ${verdict.ok ? 'OK' : 'NOT MEASURABLE'} — ${verdict.reason}`);
   return { verdict, observation, decision, files, issued, quarantined };
 }
