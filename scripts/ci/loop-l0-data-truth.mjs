@@ -202,6 +202,10 @@ export async function runL0({
     });
   }
   const measurable = verdict.quality !== 'unmeasurable' && verdict.quality !== 'partial' && verdict.quality !== 'missing';
+  const generatedAt = finiteDate(verdict.manifest?.generatedAt);
+  const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
+    ? generatedAt.toISOString()
+    : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
     goal: 'Data Truth & Freshness',
@@ -209,7 +213,7 @@ export async function runL0({
     oracle: 'independent corpus manifest and HTTP contract',
     hypothesis: 'A complete, fresh manifest is required before downstream data decisions.',
     sourceSnapshot: verdict.manifest || { source: 'corpus-api', url, commit: null },
-    observationWindow: { start: verdict.manifest?.generatedAt || now.toISOString(), end: now.toISOString(), timezone: 'UTC' },
+    observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'published-corpus-manifest',
     numerator: measurable ? (verdict.ok ? 1 : 0) : null,
     denominator: measurable ? 1 : null,
@@ -268,6 +272,10 @@ function parseArgs(argv) {
     const index = argv.indexOf(name);
     return index === -1 ? fallback : argv[index + 1] || fallback;
   };
+  const maxAgeHours = Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS));
+  if (!Number.isFinite(maxAgeHours) || maxAgeHours <= 0) {
+    throw new Error('--max-age-hours must be a finite positive number');
+  }
   return {
     json: argv.includes('--json'),
     issue: argv.includes('--issue'),
@@ -275,7 +283,7 @@ function parseArgs(argv) {
     strict: argv.includes('--strict'),
     dryRun: argv.includes('--dry-run'),
     url: valueAfter('--url', `${ARTICLES_API_BASE}/manifest.json`),
-    maxAgeHours: Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS)),
+    maxAgeHours,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP ? path.join(process.env.RUNNER_TEMP, 'loop-fleet-l0') : null),
   };
 }

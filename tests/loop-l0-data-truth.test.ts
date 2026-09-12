@@ -40,6 +40,23 @@ describe('L0 Data Truth & Freshness', () => {
     expect(result.reason).toMatch(/old/);
   });
 
+  it('keeps a future timestamp from inverting the decision window', async () => {
+    const result = await runL0({
+      now: NOW,
+      fetchImpl: async () => ({
+        ok: true,
+        text: async () => JSON.stringify({
+          ...GOOD,
+          generatedAt: '2026-09-12T18:00:00.000Z',
+        }),
+      }),
+      logger: { log: () => {} },
+    });
+    expect(result.verdict.ok).toBe(false);
+    expect(result.decision.startedAt).toBe(NOW.toISOString());
+    expect(Date.parse(result.decision.expiresAt)).toBeGreaterThan(Date.parse(result.decision.startedAt));
+  });
+
   it('zero esplicito e schema parziale sono stati distinti', () => {
     const zero = validateManifest({ ...GOOD, counts: { ...GOOD.counts, articles: 0 } }, { now: NOW });
     expect(zero).toMatchObject({ ok: false, quality: 'zero' });
