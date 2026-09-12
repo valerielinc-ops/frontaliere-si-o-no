@@ -11668,6 +11668,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guasto-ferrovia-melegnano-settembre.title': 'Panne ferroviaire à Melegnano : retards et variations',
     'blog.article.guasto-ferrovia-melegnano-settembre.excerpt': 'Une défaillance des systèmes de circulation dans la gare de Melegnano provoque des retards moyens d\'environ trente minutes et des désagréments sur les lignes de banlieue S1 et S12.',
     'blog.article.guasto-ferrovia-melegnano-settembre.imageAlt': 'Train régional arrêté en gare en raison d\'une panne technique',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.title': 'Trafic marchandises dans les Alpes : le train recule et les camions grandissent',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.excerpt': 'L\'Office fédéral des transports enregistre une croissance du transport routier deux fois supérieure à celle du transport ferroviaire le long des Alpes.',
+    'blog.article.traffico-merci-alpi-ferrovia-camion.imageAlt': 'Trafic de marchandises et de camions le long des cols alpins en Suisse',
 };
 
 export default blogMetaFr;

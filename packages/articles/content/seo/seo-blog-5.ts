@@ -89578,6 +89578,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-merci-alpi-ferrovia-camion': {
+    title: 'Traffico merci sulle Alpi: il treno arretra e i camion crescono',
+    description: 'L\'Ufficio federale dei trasporti segnala una crescita del 7% per i camion e del 3,1% per i treni. Tutti i dati sul trasporto merci transalpino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, merci, sulle, alpi',
+    ogTitle: 'Traffico merci sulle Alpi: il trasporto su gomma supera la ferrovia',
+    ogDescription: 'I dati semestrali dell\'UFT mostrano una crescita del 7% per i camion contro il 3,1% dei treni. Quota ferroviaria al 68% a causa dei cantieri in Germania.',
+    canonicalPath: '/articoli-frontaliere/traffico-merci-alpi-ferrovia-camion',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico merci sulle Alpi: il treno arretra e i camion crescono",
+      "description": "L'Ufficio federale dei trasporti segnala una crescita del 7% per i camion e del 3,1% per i treni. Tutti i dati sul trasporto merci transalpino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-merci-alpi-ferrovia-camion.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico di merci e autocarri lungo i valichi alpini in Svizzera"
+      },
+      "datePublished": "2026-09-12T02:10:13+00:00",
+      "dateModified": "2026-09-12T02:10:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-merci-alpi-ferrovia-camion/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
