@@ -37,6 +37,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isGitGrepNoMatch } from './lib/git-grep.mjs';
+import { isRegexLiteralStart } from '../lib/inline-comment-marker.mjs';
 
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
@@ -52,6 +53,9 @@ const GLOBS = ['scripts/**', 'build-plugins/**', 'services/**', 'tests/**', 'fun
 
 const NUMBER_ENV_FALLBACK_PATTERN = /Number\(\s*process\s*\.\s*env\s*(?:\.\s*[A-Za-z_$][A-Za-z0-9_$]*|\[\s*(?:'[^']*'|"[^"]*")\s*\])\s*\|\|/;
 
+const GATE_SOURCE_PATH_RE = /\.(?:mjs|cjs|js|ts|tsx|ya?ml)$/;
+const JAVASCRIPT_SOURCE_PATH_RE = /\.(?:mjs|cjs|js|ts|tsx)$/;
+
 /** A raw env number is only dangerous when it controls a bounded operation. */
 const RAW_NUMBER_ENV_ASSIGNMENT_RE =
   /\bconst\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*Number\(\s*process\s*\.\s*env\s*(?:\.\s*[A-Za-z_$][A-Za-z0-9_$]*|\[\s*(?:'[^']*'|"[^"]*")\s*\])\s*\)(?!\s*(?:\|\||\?\?))/g;
@@ -65,10 +69,21 @@ function stripCommentsForNumberEnvGate(source) {
   let block = false;
   let line = false;
   let quote = '';
+  let regex = false;
+  let regexClass = false;
 
   for (let i = 0; i < source.length; i++) {
     const c = source[i];
     const next = source[i + 1];
+
+    if (regex) {
+      out += c;
+      if (c === '\\' && i + 1 < source.length) out += source[++i];
+      else if (c === '[') regexClass = true;
+      else if (c === ']') regexClass = false;
+      else if (c === '/' && !regexClass) regex = false;
+      continue;
+    }
 
     if (line) {
       if (c === '\n') {
@@ -98,7 +113,11 @@ function stripCommentsForNumberEnvGate(source) {
       continue;
     }
 
-    if (c === '/' && next === '/') {
+    if (c === '/' && next !== '/' && next !== '*' && isRegexLiteralStart(source, i)) {
+      regex = true;
+      regexClass = false;
+      out += c;
+    } else if (c === '/' && next === '/') {
       line = true;
       out += '  ';
       i++;
@@ -168,6 +187,7 @@ function containingNumericEnvBlock(source, index) {
  * the positive rule and its false-positive boundary.
  */
 export function findRawNumberEnvBoundViolations(source, file = '<fixture>') {
+  if (!JAVASCRIPT_SOURCE_PATH_RE.test(String(file))) return [];
   const code = stripCommentsForNumberEnvGate(String(source ?? ''));
   const violations = [];
   let match;
@@ -271,13 +291,13 @@ export function findViolations() {
     const m = hit.match(/^([^:]+):(\d+):(.*)$/);
     if (!m) continue;
     const [, file, lineno, content] = m;
-    rawCandidateFiles.add(file);
     // `.yml` incluso: lo script inline di `actions/github-script` e' JavaScript
     // eseguito, con lo stesso identico guasto (misurato:
     // `.github/workflows/job-title-locale-audit.yml` calcolava la soglia di
     // allarme con questo costrutto). Escluderlo avrebbe lasciato fuori dal
     // gate una meta' del reporting.
-    if (!/\.(mjs|cjs|js|ts|tsx|ya?ml)$/.test(file)) continue;
+    if (!GATE_SOURCE_PATH_RE.test(file)) continue;
+    rawCandidateFiles.add(file);
     // Stessa esenzione di check-client-lookbehind: un test PUO' scrivere
     // l'antipattern, e' il suo mestiere documentarlo.
     if (file.includes('.test.') || file.includes('.spec.')) continue;
@@ -291,6 +311,7 @@ export function findViolations() {
   for (const file of rawCandidateFiles) {
     if (file.includes('.test.') || file.includes('.spec.')) continue;
     if (file === 'scripts/ci/check-number-env-fallback.mjs') continue;
+    if (!JAVASCRIPT_SOURCE_PATH_RE.test(file)) continue;
     const source = readFileSync(file, 'utf8');
     violations.push(...findRawNumberEnvBoundViolations(source, file));
   }
