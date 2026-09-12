@@ -199,6 +199,10 @@ export async function runL1({
   const measurable = verdict.quality === 'observed' || verdict.quality === 'zero';
   const numerator = measurable ? verdict.snapshot.errorFreeUsefulSessions : null;
   const denominator = measurable ? verdict.snapshot.usefulSessions : null;
+  const generatedAt = finiteDate(verdict.snapshot?.generatedAt);
+  const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
+    ? generatedAt.toISOString()
+    : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
     goal: 'Reliability & UX',
@@ -207,7 +211,7 @@ export async function runL1({
     hypothesis: 'A complete, fresh useful-session export is required before reliability changes are proposed.',
     sourceSnapshot: verdict.snapshot || { source: 'error-ux-telemetry', path: sourcePath },
     observationWindow: {
-      start: verdict.snapshot?.generatedAt || now.toISOString(),
+      start: observationStart,
       end: now.toISOString(),
       timezone: 'UTC',
     },

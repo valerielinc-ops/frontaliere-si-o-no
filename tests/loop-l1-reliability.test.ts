@@ -50,6 +50,18 @@ describe('L1 Reliability & UX', () => {
     expect(verdict.issues.join(' ')).toContain('old');
   });
 
+  it('keeps a future timestamp from inverting the decision window', async () => {
+    const input = tempFile({
+      generatedAt: '2026-09-12T18:00:00.000Z',
+      usefulSessions: 200,
+      errorFreeUsefulSessions: 194,
+    });
+    const result = await runL1({ now: NOW, sourcePath: input.file, logger: { log() {} } });
+    expect(result.verdict.quality).toBe('stale');
+    expect(result.decision.startedAt).toBe(NOW.toISOString());
+    expect(Date.parse(result.decision.expiresAt)).toBeGreaterThan(Date.parse(result.decision.startedAt));
+  });
+
   it('requires the configured minimum sample', () => {
     const verdict = validateTelemetry({
       generatedAt: NOW.toISOString(),
