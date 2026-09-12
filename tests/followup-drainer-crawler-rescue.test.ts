@@ -21,11 +21,27 @@ import { describe, it, expect } from 'vitest';
 import {
   crawlerFixDecision,
   CRAWLER_MAX_ATTEMPTS,
+  outcomeForCurrentPromotion,
   recoverableFixDecision,
 } from '../scripts/ci/followup-drainer.mjs';
 
 // Una issue crawler "vecchia" secondo ORPHAN_MIN_AGE_MIN (30min) di default.
 const OLD = 45;
+const CURRENT_MARKER = { promotedAt: 1_000, outcomeAt: 2_000 };
+
+describe('outcomeForCurrentPromotion — marker persistenti', () => {
+  it('scarta un verdetto precedente alla promozione corrente', () => {
+    expect(outcomeForCurrentPromotion({ outcome: 'max-turns', outcomeAt: 1_000, promotedAt: 2_000 })).toBeNull();
+  });
+
+  it('mantiene un verdetto successivo alla promozione corrente', () => {
+    expect(outcomeForCurrentPromotion({ outcome: 'max-turns', ...CURRENT_MARKER })).toBe('max-turns');
+  });
+
+  it('fallisce chiuso quando una delle due date manca', () => {
+    expect(outcomeForCurrentPromotion({ outcome: 'max-turns', outcomeAt: 1_000 })).toBeNull();
+  });
+});
 
 describe('crawlerFixDecision — run cancellata dalla coda (nessun verdetto)', () => {
   it('RI-ARMA una crawler vecchia senza PR e senza marker, consumando un tentativo', () => {
@@ -65,9 +81,9 @@ describe('crawlerFixDecision — max-turns agisce SUBITO (nessuna regressione)',
   it('parka al primo max-turns, senza aspettare la soglia orfano', () => {
     // Un marker FIX_OUTCOME prova che la run è TERMINATA: qui la guardia d'età
     // non serve, e agire subito preserva il timing del park che c'era prima.
-    const fresh = crawlerFixDecision({ outcome: 'max-turns', ageMin: 0.5, attempt: 0 });
+    const fresh = crawlerFixDecision({ outcome: 'max-turns', ageMin: 0.5, attempt: 0, ...CURRENT_MARKER });
     expect(fresh.action).toBe('park-max-turns');
-    const old = crawlerFixDecision({ outcome: 'max-turns', ageMin: OLD, attempt: 2 });
+    const old = crawlerFixDecision({ outcome: 'max-turns', ageMin: OLD, attempt: 2, ...CURRENT_MARKER });
     expect(old.action).toBe('park-max-turns');
     // Il park per verdetto non consuma un tentativo.
     expect(old.nextAttempt).toBe(2);
@@ -80,21 +96,21 @@ describe('crawlerFixDecision — max-turns agisce SUBITO (nessuna regressione)',
     // stesso file: la path queue-managed manda `outcome === 'max-turns'` alla
     // DECOMPOSE-ROUTE, i crawler no — e `needs-human` non ha altra uscita che
     // lo sweep settimanale (7 delle 28 misurate il 2026-09-04).
-    const d = crawlerFixDecision({ outcome: 'max-turns', ageMin: 0.5, attempt: 1, decomposeEligible: true });
+    const d = crawlerFixDecision({ outcome: 'max-turns', ageMin: 0.5, attempt: 1, decomposeEligible: true, ...CURRENT_MARKER });
     expect(d.action).toBe('decompose');
     expect(d.nextAttempt).toBe(1); // nessun tentativo consumato
     // Il default resta il park: chi non passa il flag non cambia comportamento.
-    expect(crawlerFixDecision({ outcome: 'max-turns', ageMin: OLD, attempt: 0 }).action).toBe('park-max-turns');
+    expect(crawlerFixDecision({ outcome: 'max-turns', ageMin: OLD, attempt: 0, ...CURRENT_MARKER }).action).toBe('park-max-turns');
     // E un verdetto FERMO non diventa uno scorporo per il solo fatto di essere
     // eleggibile: è fermo, non troppo grande.
     for (const outcome of ['no-root-cause', 'already-fixed']) {
-      expect(crawlerFixDecision({ outcome, ageMin: OLD, attempt: 0, decomposeEligible: true }).action, outcome).toBe('park-verdict');
+      expect(crawlerFixDecision({ outcome, ageMin: OLD, attempt: 0, decomposeEligible: true, ...CURRENT_MARKER }).action, outcome).toBe('park-verdict');
     }
   });
 
   it('parka anche i verdetti non-ri-tentabili (abort pulita del fixer)', () => {
     for (const outcome of ['no-root-cause', 'blocked-admin-settings', 'already-fixed']) {
-      expect(crawlerFixDecision({ outcome, ageMin: OLD, attempt: 0 }).action).toBe('park-verdict');
+      expect(crawlerFixDecision({ outcome, ageMin: OLD, attempt: 0, ...CURRENT_MARKER }).action).toBe('park-verdict');
     }
   });
 });
@@ -146,9 +162,21 @@ describe('recoverableFixDecision — checkpoint WIP del fixer', () => {
   });
 
   it('il crawler collega il branch recuperabile al ramo bounded', () => {
-    const d = crawlerFixDecision({ outcome: 'max-turns', ageMin: 1, hasBranchWork: true, attempt: 0 });
+    const d = crawlerFixDecision({ outcome: 'max-turns', ageMin: 1, hasBranchWork: true, attempt: 0, ...CURRENT_MARKER });
     expect(d.action).toBe('requeue');
     expect(d.nextAttempt).toBe(1);
+  });
+
+  it('non recupera un branch WIP con un max-turns storico dopo una nuova promozione', () => {
+    const d = crawlerFixDecision({
+      outcome: 'max-turns',
+      outcomeAt: 1_000,
+      promotedAt: 2_000,
+      ageMin: 1,
+      hasBranchWork: true,
+      attempt: 0,
+    });
+    expect(d.action).toBe('settling');
   });
 });
 
@@ -178,7 +206,7 @@ describe('crawlerFixDecision — il bound del ri-arma', () => {
 
 describe('crawlerFixDecision — quota esaurita: nessun tentativo consumato', () => {
   it('HOLD finché la finestra 429 è aperta (la issue resta il beacon)', () => {
-    const d = crawlerFixDecision({ outcome: 'rate-limited', ageMin: OLD, attempt: 1, quotaBackoffActive: true });
+    const d = crawlerFixDecision({ outcome: 'rate-limited', ageMin: OLD, attempt: 1, quotaBackoffActive: true, ...CURRENT_MARKER });
     expect(d.action).toBe('hold-quota');
     expect(d.nextAttempt).toBe(1); // invariato
   });
@@ -186,7 +214,7 @@ describe('crawlerFixDecision — quota esaurita: nessun tentativo consumato', ()
   it('ri-accoda a finestra chiusa SENZA consumare un tentativo', () => {
     // La run è morta prima di leggere la issue (0 turni, $0): la issue è
     // intatta, un tentativo si consuma quando l'agent PROVA.
-    const d = crawlerFixDecision({ outcome: 'rate-limited', ageMin: OLD, attempt: 2, quotaBackoffActive: false });
+    const d = crawlerFixDecision({ outcome: 'rate-limited', ageMin: OLD, attempt: 2, quotaBackoffActive: false, ...CURRENT_MARKER });
     expect(d.action).toBe('requeue-zero-work');
     expect(d.nextAttempt).toBe(2); // invariato: NON porta al park
   });
@@ -195,7 +223,7 @@ describe('crawlerFixDecision — quota esaurita: nessun tentativo consumato', ()
 describe('crawlerFixDecision — esiti transienti', () => {
   it('tratta overlap-skip / pr-already-open come ri-tentabili (la PR bloccante può mergiare)', () => {
     for (const outcome of ['overlap-skip', 'pr-already-open']) {
-      const d = crawlerFixDecision({ outcome, ageMin: OLD, attempt: 0 });
+      const d = crawlerFixDecision({ outcome, ageMin: OLD, attempt: 0, ...CURRENT_MARKER });
       expect(d.action).toBe('requeue');
       expect(d.nextAttempt).toBe(1);
     }

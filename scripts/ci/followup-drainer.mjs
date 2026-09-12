@@ -880,6 +880,15 @@ export function isDeliveredThisRun({ outcome, outcomeAt, mergedAt, promotedAt } 
   return true;
 }
 
+/** Un verdetto persistente appartiene alla promozione corrente? Pura → testabile.
+ * Senza entrambe le date la relazione non è dimostrabile: fail-closed, perché
+ * un marker vecchio non deve parkare o recuperare una run appena riarmata. */
+export function outcomeForCurrentPromotion({ outcome = null, outcomeAt = null, promotedAt = null } = {}) {
+  if (!outcome) return null;
+  if (!Number.isFinite(outcomeAt) || !Number.isFinite(promotedAt)) return null;
+  return outcomeAt >= promotedAt ? outcome : null;
+}
+
 // --- WORKFLOW-SCOPE PRE-FLIGHT (escalation #1724) ---------------------------
 // `fix-outcome:blocked-workflows-scope` ricorre 13×/14gg: ogni occorrenza è una
 // follow-up DISTINTA il cui fix tocca file `.github/workflows/**`, che il token
@@ -2478,7 +2487,7 @@ function recoverableFixBranch(num) {
   const branch = `fix/issue-${num}`;
   try {
     const comparison = gh([
-      'api', `repos/${REPO}/compare/main...${branch}`,
+      'api', `repos/${REPO}/compare/main...${encodeURIComponent(branch)}`,
       '--jq', '{ahead_by: .ahead_by}',
     ]);
     const aheadBy = Number(comparison?.ahead_by);
@@ -2696,13 +2705,14 @@ export function crawlerFixDecision({
 } = {}) {
   const keep = (action, reason) => ({ action, nextAttempt: attempt, reason });
   if (hasPR) return keep('skip', 'ha una PR fix aperta');
+  const currentOutcome = outcomeForCurrentPromotion({ outcome, outcomeAt, promotedAt });
   const recoverable = recoverableFixDecision({
-    outcome,
+    outcome: currentOutcome,
     // Un branch già presente non basta da solo: con outcome null una
     // promozione fresca può stare ancora lavorando sullo stesso checkpoint.
     // Il crawler può cedere il beacon solo dopo la finestra di settling/orfano;
     // `max-turns` è invece un esito terminale già osservabile.
-    hasBranchWork: hasBranchWork && (outcome === 'max-turns' || ageMin >= orphanMinAgeMin),
+    hasBranchWork: hasBranchWork && (currentOutcome === 'max-turns' || ageMin >= orphanMinAgeMin),
     attempt,
     maxAttempts,
     quotaBackoffActive,
@@ -2717,20 +2727,20 @@ export function crawlerFixDecision({
   // con verdetto `max-turns` ed eleggibili allo scorporo). Il park resta per
   // le ineleggibili — `from-decompose`/`decomposed:1`, dove il secondo livello
   // di scorporo è escluso su misura (VISION.md D5).
-  if (outcome === 'max-turns') {
+  if (currentOutcome === 'max-turns') {
     return decomposeEligible
       ? keep('decompose', 'error_max_turns: too-large deterministico → scorporo (stessa strada della path queue-managed)')
       : keep('park-max-turns', 'error_max_turns (deterministico: stesso cap, stesso esito), non eleggibile allo scorporo');
   }
-  if (outcome && ZERO_WORK.has(outcome)) {
+  if (currentOutcome && ZERO_WORK.has(currentOutcome)) {
     // La run è morta prima di leggere la issue (429): 0 turni, $0, issue INTATTA
     // → ri-accoda SENZA consumare un tentativo. Finestra ancora aperta → non
     // toccare nulla: la issue resta il beacon del backoff per i tick successivi.
     return quotaBackoffActive
-      ? keep('hold-quota', `${outcome}, finestra quota ancora aperta`)
-      : keep('requeue-zero-work', `${outcome}, finestra quota chiusa (tentativo NON consumato)`);
+      ? keep('hold-quota', `${currentOutcome}, finestra quota ancora aperta`)
+      : keep('requeue-zero-work', `${currentOutcome}, finestra quota chiusa (tentativo NON consumato)`);
   }
-  if (outcome && NON_RETRYABLE.has(outcome)) return keep('park-verdict', `verdetto non-ri-tentabile: ${outcome}`);
+  if (currentOutcome && NON_RETRYABLE.has(currentOutcome)) return keep('park-verdict', `verdetto non-ri-tentabile: ${currentOutcome}`);
   // Gemello del ramo DELIVERED del rescue queue-managed: `hasPR` sopra guarda
   // solo le PR APERTE, quindi al merge una run riuscita ricadeva nel ramo
   // finale «nessun verdetto (run cancellata-in-coda / crashata / mai partita)»
@@ -2739,14 +2749,14 @@ export function crawlerFixDecision({
   // critico: i crawler non passano né dal parked-retry né dall'age-out, quindi
   // `park-attempts` sotto è la loro UNICA uscita, e un `pr-created` stantio che
   // rendesse gratuita ogni run morta successiva gliela toglierebbe del tutto.
-  if (isDeliveredThisRun({ outcome, outcomeAt, mergedAt, promotedAt })) {
-    return keep('requeue-delivered', `${outcome}, PR fix mergiata in questo ciclo (tentativo NON consumato)`);
+  if (isDeliveredThisRun({ outcome: currentOutcome, outcomeAt, mergedAt, promotedAt })) {
+    return keep('requeue-delivered', `${currentOutcome}, PR fix mergiata in questo ciclo (tentativo NON consumato)`);
   }
-  if (isSettlingPromotion({ outcome: outcome ?? null, ageMin, settleMin })) return keep('settling', 'promozione fresca, run non ancora visibile');
+  if (isSettlingPromotion({ outcome: currentOutcome, ageMin, settleMin })) return keep('settling', 'promozione fresca, run non ancora visibile');
   if (ageMin < orphanMinAgeMin) return keep('skip', `senza verdetto ma giovane (${Math.round(ageMin)}min < ${orphanMinAgeMin}min)`);
   const nextAttempt = attempt + 1;
-  const reason = outcome
-    ? `esito transiente ${outcome}, nessuna PR`
+  const reason = currentOutcome
+    ? `esito transiente ${currentOutcome}, nessuna PR`
     : 'nessun verdetto (run cancellata-in-coda / crashata / mai partita)';
   return nextAttempt >= maxAttempts
     ? { action: 'park-attempts', nextAttempt, reason: `${reason}, tentativo ${nextAttempt}/${maxAttempts}` }
@@ -3765,29 +3775,38 @@ export function runDrain() {
   for (const iss of crawlerFix) {
     const hasPR = hasFixPR(iss.number);
     const entry = hasPR ? { outcome: null, at: null } : latestFixOutcomeEntry(iss.number);
-    const outcome = entry.outcome;
+    const rawOutcome = entry.outcome;
     const ageMin = minutesSince(iss.updatedAt);
+    // La promotione va letta anche per i verdetti non DELIVERED: un vecchio
+    // `max-turns` persistente non deve prevalere su un nuovo riarmo.
+    const promotion = !hasPR && rawOutcome !== null
+      ? fixPromotion(iss.number)
+      : { at: null, byDrainer: false };
+    const outcome = outcomeForCurrentPromotion({
+      outcome: rawOutcome,
+      outcomeAt: entry.at,
+      promotedAt: promotion.at,
+    });
     const recoverableBranch = (outcome === 'max-turns'
       || (outcome === null && ageMin >= ORPHAN_MIN_AGE_MIN))
       ? recoverableFixBranch(iss.number)
       : null;
     const attempt = attemptOf(iss);
     const prevAttemptLabel = attempt ? `fu-attempt:${attempt}` : null;
-    // Le due letture extra servono SOLO a qualificare il ramo DELIVERED, che e'
-    // raro: calcolarle solo li' tiene il costo gh del pass invariato su tutti
-    // gli altri esiti.
-    const delivered = outcome !== null && DELIVERED.has(outcome);
+    // La seconda lettura (`fixPromotion`) è necessaria per scartare marker
+    // persistenti anche quando l'esito è un verdetto terminale, non solo per
+    // qualificare il ramo DELIVERED.
+    const delivered = rawOutcome !== null && DELIVERED.has(rawOutcome);
     const mergedAt = delivered ? mergedFixPrAt(iss.number) : null;
-    const promotion = delivered ? fixPromotion(iss.number) : { at: null, byDrainer: false };
     // Gemello del warning del rescue queue-managed: stessa causa (writer
     // concorrente di `agent:fix`), stesso fail-closed, stesso bisogno di non
     // essere silenzioso.
-    if (isConcurrentRepromotion({ outcome, outcomeAt: entry.at, mergedAt, promotion })) {
-      console.log(`::warning::#${iss.number}: consegna reale (${outcome} + merge) letta come run morta — \`${LBL_FIX}\` ri-applicata da un writer concorrente (triage-sweep / recycle-stale-prs) DOPO il merge → tentativo consumato (fail-closed)`);
+    if (isConcurrentRepromotion({ outcome: rawOutcome, outcomeAt: entry.at, mergedAt, promotion })) {
+      console.log(`::warning::#${iss.number}: consegna reale (${rawOutcome} + merge) letta come run morta — \`${LBL_FIX}\` ri-applicata da un writer concorrente (triage-sweep / recycle-stale-prs) DOPO il merge → tentativo consumato (fail-closed)`);
     }
     const d = crawlerFixDecision({
       outcome,
-      outcomeAt: entry.at,
+      outcomeAt: outcome === null ? null : entry.at,
       mergedAt,
       promotedAt: promotion.at,
       ageMin,
