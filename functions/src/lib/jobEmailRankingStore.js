@@ -244,16 +244,23 @@ export async function recordJobEmailRankingClick(db, {
     expires_at: retentionDate(occurred),
   };
 
+  // The alert mirror is optional. Probe it outside the transaction so clicks
+  // on the same alert do not contend with the send path merely to decide
+  // whether an embedded mirror should be updated.
+  let alertSnapshot = null;
+  if (alertRef) {
+    try {
+      alertSnapshot = await alertRef.get();
+    } catch (error) {
+      console.warn('⚠️ Job-email ranking alert mirror probe failed:', error?.message || error);
+    }
+  }
+
   let recorded = false;
   try {
     await db.runTransaction(async (transaction) => {
       const existing = await transaction.get(eventRef);
       if (existing.exists) return;
-      // Firestore requires every transaction read to happen before its first
-      // write.  The alert can be gone by the time a recipient clicks an old
-      // email, so probe it first and keep the durable event/stats writes even
-      // when the optional embedded mirror no longer exists.
-      const alertSnapshot = alertRef ? await transaction.get(alertRef) : null;
       transaction.create(eventRef, eventData);
       transaction.set(statsRef, {
         surface: click.surface,
@@ -270,20 +277,27 @@ export async function recordJobEmailRankingClick(db, {
         },
         expires_at: retentionDate(occurred),
       }, { merge: true });
-      if (alertRef && alertSnapshot?.exists) {
-        const alertUpdate = buildEmbeddedRankingUpdate({
-          jobId: click.jobId,
-          day,
-          eventType: 'click',
-          variant: click.variant,
-          FieldValue,
-        });
-        // buildEmbeddedRankingUpdate returns field-path keys for update()/batch.update().
-        // `set(..., { merge: true })` would persist those dots literally.
-        transaction.update(alertRef, alertUpdate);
-      }
       recorded = true;
     });
+
+    if (recorded && alertRef && alertSnapshot?.exists) {
+      const alertUpdate = buildEmbeddedRankingUpdate({
+        jobId: click.jobId,
+        day,
+        eventType: 'click',
+        variant: click.variant,
+        FieldValue,
+      });
+      // buildEmbeddedRankingUpdate returns field-path keys for update()/batch.update().
+      // `set(..., { merge: true })` would persist those dots literally. This
+      // best-effort mirror is deliberately outside the durable transaction:
+      // an alert deleted after the probe must not discard the click aggregate.
+      try {
+        await alertRef.update(alertUpdate);
+      } catch (error) {
+        console.warn('⚠️ Job-email ranking alert mirror update failed:', error?.message || error);
+      }
+    }
   } catch (error) {
     // Ranking analytics must never turn a provider webhook into a retry storm
     // or block the ordinary subscriber engagement update.
