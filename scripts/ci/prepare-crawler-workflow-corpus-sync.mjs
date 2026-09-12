@@ -48,6 +48,31 @@ export const CORPUS_OBSERVER_FILES = [
   },
 ];
 
+const CANONICAL_TRANSPORT_MANIFEST_KEYS = 'baseline,mode,path,sitePath';
+const COUPLING_SNAPSHOT_SITE_PATH =
+  '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs';
+
+// The corpus-side observer records this derived graph in the shared manifest.
+// Keep this exception narrow: transport must remain strict for every other
+// mapping so an unrelated corpus change cannot hide in the sync PR.
+function hasValidCouplingSnapshot(value) {
+  return Array.isArray(value) && value.every((coupling) => (
+    coupling && typeof coupling === 'object' && !Array.isArray(coupling)
+    && typeof coupling.path === 'string'
+    && typeof coupling.mode === 'string'
+    && (coupling.unreadable === undefined || typeof coupling.unreadable === 'string')
+    && Object.keys(coupling).every((key) => ['path', 'mode', 'unreadable'].includes(key))
+  ));
+}
+
+function hasValidTransportManifestKeys(entry) {
+  const keys = Object.keys(entry).sort().join(',');
+  if (keys === CANONICAL_TRANSPORT_MANIFEST_KEYS) return true;
+  return entry.sitePath === COUPLING_SNAPSHOT_SITE_PATH
+    && keys === 'baseline,couplingSnapshot,mode,path,sitePath'
+    && hasValidCouplingSnapshot(entry.couplingSnapshot);
+}
+
 function sha16(content) {
   return crypto.createHash('sha256').update(content).digest('hex').slice(0, 16);
 }
@@ -105,12 +130,19 @@ export function assertCrawlerManifestDelta({ baseManifest, currentManifest } = {
   }
   for (const [sitePath, destination] of expectedMappings()) {
     const current = currentOwned.get(sitePath);
-    if (!current || current.path !== destination || current.mode !== 'identical') {
+    if (!current || current.path !== destination || current.mode !== 'identical' ||
+        !hasValidTransportManifestKeys(current)) {
       throw new Error(`owned crawler manifest entry missing or malformed: ${sitePath}`);
     }
     const baseIndex = (expected.files ?? []).findIndex((entry) => entry.sitePath === sitePath);
-    if (baseIndex >= 0) expected.files[baseIndex].baseline = structuredClone(current.baseline);
-    else expected.files.push(structuredClone(current));
+    if (baseIndex >= 0) {
+      expected.files[baseIndex].baseline = structuredClone(current.baseline);
+      if (Object.hasOwn(current, 'couplingSnapshot')) {
+        expected.files[baseIndex].couplingSnapshot = structuredClone(current.couplingSnapshot);
+      }
+    } else {
+      expected.files.push(structuredClone(current));
+    }
   }
   if (JSON.stringify(currentManifest) !== JSON.stringify(expected)) {
     throw new Error('crawler transport changed loop-sync manifest outside its owned baselines');
@@ -165,9 +197,8 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
   for (const entry of manifest.files ?? []) {
     const destination = mappings.get(entry.sitePath);
     if (!destination) continue;
-    const keys = Object.keys(entry).sort().join(',');
     if (entry.path !== destination || entry.mode !== 'identical' ||
-        keys !== 'baseline,mode,path,sitePath' || observed.has(entry.sitePath)) {
+        !hasValidTransportManifestKeys(entry) || observed.has(entry.sitePath)) {
       throw new Error(`invalid or duplicate crawler transport mapping: ${entry.sitePath}`);
     }
     observed.add(entry.sitePath);

@@ -1471,6 +1471,16 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(countInLogic()).toBe(0);
     expect(removed.contract.artifacts.flatMap((artifact: any) => artifact.members)).not.toContain(target);
 
+    const couplingSnapshot = [
+      { path: 'generator/data/crawler-cross-repo-contract.json', mode: 'identical' },
+    ];
+    const manifestWithCoupling = JSON.parse(fs.readFileSync(corpusManifestPath, 'utf8'));
+    const coupledObserver = manifestWithCoupling.files.find((entry: any) => (
+      entry.sitePath === '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs'
+    ));
+    coupledObserver.couplingSnapshot = couplingSnapshot;
+    fs.writeFileSync(corpusManifestPath, `${JSON.stringify(manifestWithCoupling, null, 2)}\n`);
+
     const added = render(sourceManifest);
     expect(countInLogic()).toBe(1);
     expect(added.contract.artifacts.flatMap((artifact: any) => artifact.members)
@@ -1486,6 +1496,9 @@ describe('cross-repo crawler execution artifacts', () => {
         .toBe(fs.readFileSync(path.join(portableDir, observer.source), 'utf8'));
     }
     const transportedManifest = JSON.parse(fs.readFileSync(corpusManifestPath, 'utf8'));
+    expect(transportedManifest.files.find((entry: any) => (
+      entry.sitePath === '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs'
+    )).couplingSnapshot).toEqual(couplingSnapshot);
     const baselines = transportedManifest.files.map((entry: any) => entry.baseline);
     expect(baselines).toHaveLength(CRAWLER_WORKFLOW_FILES.length + CORPUS_OBSERVER_FILES.length + 1);
     expect(baselines.every((baseline: any) => baseline.site === baseline.corpus && baseline.site.length === 16))
@@ -1549,6 +1562,16 @@ describe('cross-repo crawler execution artifacts', () => {
       },
     );
     expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest: allowed })).not.toThrow();
+
+    const withCouplingSnapshot = structuredClone(allowed);
+    const coupledObserver = withCouplingSnapshot.files.find((entry: any) => (
+      entry.sitePath === '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs'
+    ));
+    coupledObserver.couplingSnapshot = [
+      { path: 'generator/data/crawler-cross-repo-contract.json', mode: 'identical' },
+    ];
+    expect(() => assertCrawlerManifestDelta({ baseManifest: allowed, currentManifest: withCouplingSnapshot }))
+      .not.toThrow();
 
     const contaminated = structuredClone(allowed);
     contaminated.files[0].reason = 'silently changed by transport branch';
