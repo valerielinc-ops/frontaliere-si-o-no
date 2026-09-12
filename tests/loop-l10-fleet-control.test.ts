@@ -34,6 +34,12 @@ function registry(overrides: Record<string, unknown> = {}) {
       maxAutonomy: 'A4',
       actionClasses: ['observe', 'follow-up'],
       guardrails: ['never bypass a gate'],
+      lifecycle: {
+        candidateTtlHours: 24,
+        ownerSlaHours: 24,
+        postMergeVerificationHours: 24,
+        rollbackOwner: 'Operations',
+      },
     })),
     ...overrides,
   };

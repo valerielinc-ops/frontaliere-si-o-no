@@ -26,7 +26,7 @@ describe('loop fleet status', () => {
     const rows = buildStatusRows(
       registry,
       { L0: run(10) },
-      { L0: { evidence: { quality: 'observed', evidenceComplete: true, policyCompliant: true, decision: 'observing', actionClass: 'observe', requiredAutonomy: 'A0', health: { issueCount: 0, warningCount: 0 } }, error: null } },
+      { L0: { evidence: { quality: 'observed', evidenceComplete: true, lifecycleCompliant: true, policyCompliant: true, decision: 'observing', actionClass: 'observe', requiredAutonomy: 'A0', health: { issueCount: 0, warningCount: 0 } }, error: null } },
     );
     expect(rows).toHaveLength(12);
     expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
@@ -35,6 +35,7 @@ describe('loop fleet status', () => {
       requiredAutonomy: 'A0',
       actualAutonomy: 'A0',
       policyCompliant: true,
+      lifecycleCompliant: true,
       issue: null,
       missingOutcome: null,
     });
@@ -47,6 +48,20 @@ describe('loop fleet status', () => {
     });
   });
 
+  it('marks pre-lifecycle evidence incomplete during migration', () => {
+    const rows = buildStatusRows(
+      registry,
+      { L0: run(11) },
+      { L0: { evidence: { quality: 'observed', evidenceComplete: true, policyCompliant: true, decision: 'observing', actionClass: 'observe', requiredAutonomy: 'A0', health: { issueCount: 0, warningCount: 0 } }, error: null } },
+    );
+    expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
+      policyCompliant: false,
+      lifecycleCompliant: false,
+      evidenceError: 'canonical lifecycle evidence is missing or noncompliant',
+      issue: 'canonical lifecycle evidence is missing or noncompliant',
+    });
+  });
+
   it('preserves registry owner, metric and autonomy ceiling in every row', () => {
     const rows = buildStatusRows(registry, {}, {});
     for (const policy of registry.loops) {
@@ -54,6 +69,10 @@ describe('loop fleet status', () => {
         owner: policy.owner,
         primaryMetric: policy.primaryMetric,
         maxAutonomy: policy.maxAutonomy,
+        lifecycle: policy.lifecycle,
+        candidateTtlHours: policy.lifecycle.candidateTtlHours,
+        ownerSlaHours: policy.lifecycle.ownerSlaHours,
+        postMergeVerificationHours: policy.lifecycle.postMergeVerificationHours,
       });
     }
   });

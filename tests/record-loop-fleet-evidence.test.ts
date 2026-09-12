@@ -31,6 +31,8 @@ function writeL1Evidence(dir: string) {
     loopId: 'L1',
     actionClass: 'issue+suspend-canary',
     decision: 'candidate',
+    startedAt: NOW.toISOString(),
+    expiresAt: new Date(NOW.getTime() + 24 * 3_600_000).toISOString(),
     decidedAt: NOW.toISOString(),
   });
   writeJson(dir, 'l1-result.json', {
@@ -81,6 +83,35 @@ describe('record-loop-fleet-evidence', () => {
     expect(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8')))
       .toMatchObject({ loopId: 'L1', quality: 'partial', ok: false, issueCount: 1, warningCount: 2 });
+  });
+
+  it('fails closed when a decision exceeds the registry TTL', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-ttl-'));
+    writeL1Evidence(dir);
+    const decision = JSON.parse(fs.readFileSync(path.join(dir, 'l1-decision.json'), 'utf8'));
+    decision.expiresAt = new Date(NOW.getTime() + 25 * 3_600_000).toISOString();
+    fs.writeFileSync(path.join(dir, 'l1-decision.json'), `${JSON.stringify(decision)}\n`);
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary.policyCompliant).toBe(false);
+    expect(result.summary.written).toMatchObject({ observation: true, decision: true, health: true });
+    expect(result.policyErrors.join(' ')).toMatch(/exceeds candidate TTL/);
+    expect(result.health.lifecycleCompliant).toBe(false);
+  });
+
+  it('starts the TTL at decision time when the observation source is older', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-old-source-'));
+    writeL1Evidence(dir);
+    const decision = JSON.parse(fs.readFileSync(path.join(dir, 'l1-decision.json'), 'utf8'));
+    decision.startedAt = new Date(NOW.getTime() - 24 * 3_600_000).toISOString();
+    decision.expiresAt = new Date(NOW.getTime() + 24 * 3_600_000).toISOString();
+    fs.writeFileSync(path.join(dir, 'l1-decision.json'), `${JSON.stringify(decision)}\n`);
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary.policyCompliant).toBe(true);
+    expect(result.health.lifecycleCompliant).toBe(true);
   });
 
   it('derives L11 observation and decision from the technical audit report', () => {

@@ -20,6 +20,7 @@ import {
   buildObservation,
   findLoopPolicy,
   validateActionClassAgainstPolicy,
+  validateDecisionLifecycle,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -115,6 +116,14 @@ function validateRecord(record, type, loopId) {
 function policyCheck(registry, loopId, record) {
   try {
     return { ok: true, value: validateActionClassAgainstPolicy(registry, loopId, record.actionClass) };
+  } catch (error) {
+    return { ok: false, error: error.message };
+  }
+}
+
+function lifecycleCheck(registry, loopId, record) {
+  try {
+    return { ok: true, value: validateDecisionLifecycle(registry, loopId, record) };
   } catch (error) {
     return { ok: false, error: error.message };
   }
@@ -243,7 +252,10 @@ export function recordLoopEvidence({
   const decided = evidenceComplete && !evidenceError ? withExecution(decision, 'decision', loopId, context) : null;
   const observationPolicy = observed ? policyCheck(registry, loopId, observed) : { ok: false, error: evidenceError };
   const decisionPolicy = decided ? policyCheck(registry, loopId, decided) : { ok: false, error: evidenceError };
-  const policyErrors = [observationPolicy, decisionPolicy].filter((check) => !check.ok).map((check) => check.error);
+  const decisionLifecycle = decided ? lifecycleCheck(registry, loopId, decided) : { ok: false, error: evidenceError };
+  const policyErrors = [observationPolicy, decisionPolicy, decisionLifecycle]
+    .filter((check) => !check.ok)
+    .map((check) => check.error);
   const policyCompliant = policyErrors.length === 0;
   const quality = result?.quality || observed?.quality || 'unmeasurable';
   const actionClass = decided?.actionClass || observed?.actionClass || 'issue';
@@ -261,6 +273,8 @@ export function recordLoopEvidence({
     ok: Boolean(result?.ok ?? (quality === 'observed')) && evidenceComplete && policyCompliant,
     evidenceComplete,
     policyCompliant,
+    lifecycleCompliant: decisionLifecycle.ok,
+    lifecycle: policy.lifecycle,
     policyErrors,
     decision: decided?.decision || null,
     actionClass,
@@ -298,6 +312,8 @@ export function recordLoopEvidence({
     actionClass,
     requiredAutonomy: autonomy,
     maxAutonomy: policy.maxAutonomy,
+    lifecycle: policy.lifecycle,
+    lifecycleCompliant: decisionLifecycle.ok,
     ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl'],
     written,
   };
