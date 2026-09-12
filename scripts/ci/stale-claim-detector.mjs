@@ -33,8 +33,8 @@
  *
  * Quindi la condizione è doppia: claim presente **E** nessuna PR aperta che lo
  * giustifichi. E l'estrazione dei riferimenti è deliberatamente GENEROSA
- * (branch `fix/issue-N`, `(#N)` nel titolo, `Closes/Fixes/Resolves #N` e
- * `Addresses ... #N` nel body): sovra-riconoscere una PR significa NON rilasciare, cioè sbagliare
+ * (branch `fix/issue-N`, riferimenti `(#N #M)` nel titolo, `Closes/Fixes/Resolves #N`,
+ * `Addresses ... #N` e `Ref(s) #N` nel body): sovra-riconoscere una PR significa NON rilasciare, cioè sbagliare
  * verso il lato sicuro. I due errori non costano uguale — un lock lasciato un
  * giro in più costa una latenza, un lock tolto troppo presto costa due PR in
  * conflitto e la quota per produrle.
@@ -163,15 +163,16 @@ function loadOpenPrs() {
  * I numeri di issue che una PR aperta sta già lavorando — cioè i claim che
  * NON vanno toccati.
  *
- * Quattro canali, tutti quelli con cui il ciclo lega una PR alla sua issue:
+ * Cinque canali, tutti quelli con cui il ciclo lega una PR alla sua issue:
  *   - `headRefName` `fix/issue-N`, il nome DETERMINISTICO che `issue-fix.yml`
  *     dà al branch (ed è il canale più affidabile: esiste anche prima che il
  *     body sia scritto bene);
- *   - `(#N)` nel titolo, la convenzione delle PR del fixer;
+ *   - `(#N)` o `(#N #M)` nel titolo, la convenzione delle PR del fixer;
  *   - `Closes/Fixes/Resolves #N` nel body;
  *   - `Addresses ... #N` nel body, la forma non-closing usata dalle PR
  *     aggregate: dice comunque che la PR sta lavorando quella issue e quindi
  *     il claim non va rilasciato finché la PR resta aperta.
+ *   - `Ref(s) #N` nel body, la forma non-closing usata dalle PR aggregate.
  *
  * Puro → testabile, e generoso di proposito: ogni match in più è una PR che
  * consideriamo viva, quindi un claim che NON rilasciamo.
@@ -184,14 +185,17 @@ export function referencedIssueNumbers(prs) {
     const branch = String(pr.headRefName || '');
     const mBranch = /^fix\/issue-(\d+)$/.exec(branch);
     if (mBranch) out.add(Number(mBranch[1]));
-    for (const m of String(pr.title || '').matchAll(/\(#(\d+)\)/g)) out.add(Number(m[1]));
+    for (const group of String(pr.title || '').matchAll(/\(([^)\n]*#[^)\n]*)\)/g)) {
+      for (const m of group[1].matchAll(/#(\d+)/g)) out.add(Number(m[1]));
+    }
+    const body = String(pr.body || '');
     // Italian forms (issue #567 twin sweep, see followup-resolution-match.mjs
     // CLOSE_KW_LIST): `chiud[eo]`/`risolv[eo]`/`super[ae]` plus the same
     // bridge words ("anche", "la"/"le", "issue") between verb and `#N`. This
     // detector is deliberately generous — an extra match means a claim is
     // NOT released — so under-recognizing an Italian "Chiude anche #N" body
     // is the unsafe direction: it would let a live claim look orphaned.
-    for (const m of String(pr.body || '').matchAll(
+    for (const m of body.matchAll(
       /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|chiud[eo]|risolv[eo]|super[ae])\b[:\s]+(?:anche\s+)?(?:l[ae]\s+)?(?:issue\s+)?#(\d+)/gi,
     )) {
       out.add(Number(m[1]));
@@ -199,8 +203,16 @@ export function referencedIssueNumbers(prs) {
     // `Addresses item 1 e item 2 di #8039` is deliberately broader than a
     // closing keyword: an aggregate PR can reference the source issue several
     // words after `Addresses` and must still protect its in-flight claim.
-    for (const m of String(pr.body || '').matchAll(/\baddresses?\b[^\n#]{0,160}#(\d+)/gi)) {
+    for (const m of body.matchAll(/\baddresses?\b[^\n#]{0,160}#(\d+)/gi)) {
       out.add(Number(m[1]));
+    }
+    // Aggregate follow-up PRs also use `Ref #N`/`Refs #N` when the source issue
+    // must stay open. Scan only lines that declare that keyword, keeping the
+    // same conservative bias: an extra match protects a claim rather than
+    // releasing a live one.
+    for (const line of body.split('\n')) {
+      if (!/\brefs?\b/i.test(line)) continue;
+      for (const m of line.matchAll(/#(\d+)/g)) out.add(Number(m[1]));
     }
   }
   return out;

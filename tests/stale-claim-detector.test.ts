@@ -131,13 +131,18 @@ describe('selectStaleClaims', () => {
   });
 });
 
-describe('referencedIssueNumbers — i quattro canali con cui una PR dice "sto su #N"', () => {
+describe('referencedIssueNumbers — i cinque canali con cui una PR dice "sto su #N"', () => {
   it('il branch deterministico fix/issue-N è riconosciuto', () => {
     expect([...referencedIssueNumbers([{ headRefName: 'fix/issue-4248' }])]).toEqual([4248]);
   });
 
   it('(#N) nel titolo è riconosciuto', () => {
     expect([...referencedIssueNumbers([{ title: 'Qualcosa di utile (#1234)' }])]).toEqual([1234]);
+  });
+
+  it('titolo aggregato e Ref(s) nel body proteggono tutti i riferimenti', () => {
+    const prs = [{ title: 'fix follow-up (#1 #2, #3)' }, { body: 'Ref #4\nRefs #5 #6' }];
+    expect([...referencedIssueNumbers(prs)].sort((a, b) => a - b)).toEqual([1, 2, 3, 4, 5, 6]);
   });
 
   it('Closes/Fixes/Resolves #N nel body sono riconosciuti, in ogni forma e caso', () => {
