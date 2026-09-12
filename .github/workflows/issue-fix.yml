@@ -1133,7 +1133,8 @@ jobs:
           ISSUE: ${{ github.event.issue.number }}
         run: |
           set -uo pipefail
-          PR=$(gh pr list --repo "$REPO" --head "fix/issue-$ISSUE" --state open --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          PR=$(gh pr list --repo "$REPO" --head "fix/issue-$ISSUE" --state open --json number,createdAt \
+            --jq 'sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
           if [ -z "${PR:-}" ]; then
             echo "provenance: nessuna PR aperta su fix/issue-$ISSUE da marcare."
             exit 0
@@ -1210,7 +1211,8 @@ jobs:
             echo "FIX_OUTCOME marker already present (agent-posted) — no backstop needed."
             exit 0
           fi
-          PR=$(gh pr list --head "fix/issue-$ISSUE" --state open --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          PR=$(gh pr list --head "fix/issue-$ISSUE" --state open --json number,createdAt \
+            --jq 'sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
           if [ -n "${PR:-}" ]; then OUT=pr-created; else OUT=no-pr-unspecified; fi
           echo "FIX_OUTCOME issue=$ISSUE outcome=$OUT (deterministic backstop)"
           gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")" || true
@@ -1240,8 +1242,8 @@ jobs:
         run: |
           set -uo pipefail
           # PR aperta o gia' mergiata sul branch di questa issue (head esatto).
-          PR_STATE=$(gh pr list --head "fix/issue-$ISSUE" --state all --json number,state \
-            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | .[0].number // empty' 2>/dev/null || true)
+          PR_STATE=$(gh pr list --head "fix/issue-$ISSUE" --state all --json number,state,createdAt \
+            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
           echo "issue=$ISSUE pr(head fix/issue-$ISSUE, open|merged)=${PR_STATE:-<none>} claude=$CLAUDE_OUTCOME"
           if [ -n "${PR_STATE:-}" ]; then
             echo "✓ PR #$PR_STATE esiste (open/merged) per la issue → run SUCCESS. Job verde anche se la CLI e' uscita '$CLAUDE_OUTCOME' (false-failure: lavoro consegnato)."
