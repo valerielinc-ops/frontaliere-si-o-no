@@ -11662,6 +11662,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.indice-rischio-geopolitico-ticino.title': 'Tessin misst das geopolitische Risiko mit einem neuen Index',
     'blog.article.indice-rischio-geopolitico-ticino.excerpt': 'Ein neues 54-seitiges Dokument bewertet die globalen Spannungen und Auswirkungen auf die Tessiner Wirtschaft und bietet Analysen und Prognosen für Unternehmen.',
     'blog.article.indice-rischio-geopolitico-ticino.imageAlt': 'Blick auf Lugano und den See bei bewölktem Himmel',
+    'blog.article.guasto-ferrovia-melegnano-settembre.title': 'Bahnausfall in Melegnano: Verspätungen und Änderungen',
+    'blog.article.guasto-ferrovia-melegnano-settembre.excerpt': 'Ein Ausfall der Verkehrssysteme im Bahnhof Melegnano verursacht durchschnittliche Verzögerungen von etwa dreißig Minuten und Unannehmlichkeiten auf den S-Bahnlinien S1 und S12.',
+    'blog.article.guasto-ferrovia-melegnano-settembre.imageAlt': 'Regionalzug wegen technischen Defekts am Bahnhof angehalten',
 };
 
 export default blogMetaDe;

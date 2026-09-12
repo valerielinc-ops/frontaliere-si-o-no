@@ -11664,6 +11664,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.indice-rischio-geopolitico-ticino.title': 'Ticino misura il rischio geopolitico con un nuovo indice',
     'blog.article.indice-rischio-geopolitico-ticino.excerpt': 'Un nuovo documento di 54 pagine valuta le tensioni globali e l\'impatto sull\'economia ticinese, offrendo analisi e previsioni per le imprese.',
     'blog.article.indice-rischio-geopolitico-ticino.imageAlt': 'Panorama di Lugano e del lago con cielo nuvoloso',
+    'blog.article.guasto-ferrovia-melegnano-settembre.title': 'Guasto ferroviario a Melegnano: ritardi e variazioni',
+    'blog.article.guasto-ferrovia-melegnano-settembre.excerpt': 'Un guasto agli impianti di circolazione nella stazione di Melegnano provoca ritardi medi di circa trenta minuti e disagi sulle linee suburbane S1 e S12.',
+    'blog.article.guasto-ferrovia-melegnano-settembre.imageAlt': 'Treno regionale fermo in stazione a causa di un guasto tecnico',
 };
 
 export default blogMetaIt;

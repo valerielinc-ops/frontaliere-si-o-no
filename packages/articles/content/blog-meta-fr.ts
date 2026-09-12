@@ -11665,6 +11665,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.indice-rischio-geopolitico-ticino.title': 'Le Tessin mesure le risque géopolitique avec un nouvel indice',
     'blog.article.indice-rischio-geopolitico-ticino.excerpt': 'Un nouveau document de 54 pages évalue les tensions mondiales et l\'impact sur l\'économie tessinoise, offrant des analyses et des prévisions pour les entreprises.',
     'blog.article.indice-rischio-geopolitico-ticino.imageAlt': 'Vue de Lugano et du lac sous un ciel nuageux',
+    'blog.article.guasto-ferrovia-melegnano-settembre.title': 'Panne ferroviaire à Melegnano : retards et variations',
+    'blog.article.guasto-ferrovia-melegnano-settembre.excerpt': 'Une défaillance des systèmes de circulation dans la gare de Melegnano provoque des retards moyens d\'environ trente minutes et des désagréments sur les lignes de banlieue S1 et S12.',
+    'blog.article.guasto-ferrovia-melegnano-settembre.imageAlt': 'Train régional arrêté en gare en raison d\'une panne technique',
 };
 
 export default blogMetaFr;

@@ -34815,6 +34815,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'guasto-ferrovia-melegnano-settembre',
+ category: 'pratico',
+ date: '2026-09-12T01:27:53.765Z',
+ image: '/images/blog/guasto-ferrovia-melegnano-settembre.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
