@@ -89461,6 +89461,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-laveno-mombello-ticino': {
+    title: 'Frontalieri a Laveno-Mombello: guida e fisco in Ticino',
+    description: 'Vivere a Laveno-Mombello e fare il frontaliere in Ticino: guida su imposte alla fonte, franchigie IRPEF, contributi AVS e gestione dei valichi di confine.',
+    keywords: 'frontalieri, ticino, svizzera, italia, laveno-mombello, fisco, vivere, lavorare',
+    ogTitle: 'Frontalieri Laveno-Mombello: fisco e guida per il Ticino',
+    ogDescription: 'Tutto su collegamenti, imposte alla fonte e previdenza svizzera per chi risiede a Laveno-Mombello e lavora nel Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-laveno-mombello-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri a Laveno-Mombello: guida e fisco in Ticino",
+      "description": "Vivere a Laveno-Mombello e fare il frontaliere in Ticino: guida su imposte alla fonte, franchigie IRPEF, contributi AVS e gestione dei valichi di confine.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-laveno-mombello-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Lago Maggiore vicino a Laveno-Mombello per frontalieri in Ticino"
+      },
+      "datePublished": "2026-09-12T01:10:28+00:00",
+      "dateModified": "2026-09-12T01:10:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-laveno-mombello-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -11657,6 +11657,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-pigra-lavorare-ticino-frontaliere.title': 'Living in Pigra, working in Ticino: the guide',
     'blog.article.vivere-pigra-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times and cost of living for border crossers who choose Pigra to live and work in Ticino.',
     'blog.article.vivere-pigra-lavorare-ticino-frontaliere.imageAlt': 'View of Pigra and Lake Lugano with the alpine panorama of Ticino.',
+    'blog.article.frontaliere-laveno-mombello-ticino.title': 'Frontier workers in Laveno-Mombello: driving and tax in Ticino',
+    'blog.article.frontaliere-laveno-mombello-ticino.excerpt': 'Living in Laveno-Mombello and working in Ticino: connections, taxes at source, deductibles and pension for frontier workers.',
+    'blog.article.frontaliere-laveno-mombello-ticino.imageAlt': 'View of Lake Maggiore near Laveno-Mombello for cross-border workers in Ticino',
 };
 
 export default blogMetaEn;

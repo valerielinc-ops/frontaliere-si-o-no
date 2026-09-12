@@ -11658,6 +11658,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-pigra-lavorare-ticino-frontaliere.title': 'Vivere a Pigra, lavorare in Ticino: la guida',
     'blog.article.vivere-pigra-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza e il costo della vita per i frontalieri che scelgono Pigra per vivere e lavorare in Ticino.',
     'blog.article.vivere-pigra-lavorare-ticino-frontaliere.imageAlt': 'Vista di Pigra e del Lago di Lugano con il panorama alpino del Ticino.',
+    'blog.article.frontaliere-laveno-mombello-ticino.title': 'Frontalieri a Laveno-Mombello: guida e fisco in Ticino',
+    'blog.article.frontaliere-laveno-mombello-ticino.excerpt': 'Vivere a Laveno-Mombello e lavorare in Ticino: collegamenti, imposte alla fonte, franchigie e previdenza per i lavoratori frontalieri.',
+    'blog.article.frontaliere-laveno-mombello-ticino.imageAlt': 'Veduta del Lago Maggiore vicino a Laveno-Mombello per frontalieri in Ticino',
 };
 
 export default blogMetaIt;
