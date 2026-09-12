@@ -259,6 +259,9 @@ export async function recordJobEmailRankingClick(db, {
   let recorded = false;
   try {
     await db.runTransaction(async (transaction) => {
+      // Firestore may invoke the callback again after an optimistic conflict.
+      // The result must describe this attempt, not a previously aborted one.
+      recorded = false;
       const existing = await transaction.get(eventRef);
       if (existing.exists) return;
       transaction.create(eventRef, eventData);
