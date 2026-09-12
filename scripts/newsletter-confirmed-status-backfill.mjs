@@ -25,7 +25,8 @@
  *      celebrate it.
  *   2. «Ricostruisci lo stato vero dagli EVENTI, non dallo status.» The
  *      selection criterion is PROOF, never the word being repaired: the
- *      `confirm` event in `newsletter_subscribers/{email}/events`, or the flat
+ *      server-owned `confirm` + `confirmation_link` event in
+ *      `newsletter_subscribers/{email}/events`, or the flat
  *      `confirmed_at`/`confirmedAt` stamp, whichever exists. Both are records
  *      of a click the recipient made (see subscriberConsent.js); neither is an
  *      inference from a signup form.
@@ -39,14 +40,14 @@
  * is careful rather than short: closing the `pending` backlog on the word alone
  * would have hit 848 valid consents against 866 genuine ghosts. The word is
  * wrong in BOTH directions — 392 documents say `confirmed` with no stamp and no
- * `confirm` event behind them, put there by a recovery procedure that DEDUCED
+ * server-owned confirmation-link event behind them, put there by a recovery procedure that DEDUCED
  * consent from the signup origin. This script does not touch those either: it
  * only ever moves a document TOWARDS the state its own evidence already
  * supports, and it has no branch that writes `pending` over anything.
  *
  * ── THE TWO SOURCES, AND WHY BOTH ARE READ ─────────────────────────────────
  *
- * The flat stamp and the `confirm` event coincided exactly when this was
+ * The flat stamp and the server-owned confirmation-link event coincided exactly when this was
  * written: zero `pending` documents carried the event without the stamp. That
  * is a measurement, not an invariant — the stamp is overwritten by later
  * `.set({merge:true})` calls and the event subcollection is append-only, so the
@@ -119,7 +120,11 @@
  *   node scripts/newsletter-confirmed-status-backfill.mjs --show-emails
  */
 import { pathToFileURL } from 'node:url';
-import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
+import {
+  CONFIRMATION_LINK_PROOF,
+  hasConfirmationProof,
+  isNewsletterConfirmationEvent,
+} from '../services/subscriberConsent.mjs';
 import { isNewsletterOptOutBinding } from '../functions/src/lib/newsletterOptOut.js';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 
@@ -192,7 +197,7 @@ export function maskEmail(email) {
  */
 export function hasConfirmEvent(events) {
   if (!Array.isArray(events)) return false;
-  return events.some((e) => norm(e?.event_type) === CONFIRM_EVENT_TYPE);
+  return events.some((e) => isNewsletterConfirmationEvent(e));
 }
 
 /**
@@ -356,9 +361,12 @@ export async function applyConfirmedStatusBackfill(db, items, opts = {}) {
  * answer for.
  *
  * Bounded twice over: only `pending` documents reach it, only those without a
- * stamp, and each read is `where(event_type == 'confirm').limit(1)` — the
- * question is "is there one", never "give me the log". A small pool keeps the
- * round trips overlapping without opening hundreds of streams at once.
+ * stamp, and each read is filtered to the automatically indexed
+ * `source_channel == 'confirmation_link'` — the question is "is there one DOI
+ * event", never "give me the whole log". Filtering the event type in memory
+ * excludes historical auth/signup `confirm` events without requiring a new
+ * composite index. A small pool keeps the round trips overlapping without
+ * opening hundreds of streams at once.
  *
  * @param {Array<{id: string, data: Record<string, any>, ref: any}>} docs
  * @param {{concurrency?: number}} [opts]
@@ -375,8 +383,7 @@ async function fetchConfirmEvents(docs, { concurrency = 16 } = {}) {
       const doc = targets[cursor++];
       const snap = await doc.ref
         .collection(EVENTS_SUBCOLLECTION)
-        .where('event_type', '==', CONFIRM_EVENT_TYPE)
-        .limit(1)
+        .where('source_channel', '==', CONFIRMATION_LINK_PROOF)
         .get();
       byId.set(doc.id, snap.docs.map((e) => e.data()));
     }
