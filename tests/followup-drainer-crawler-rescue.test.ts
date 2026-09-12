@@ -13,7 +13,7 @@
  * Questi test fissano il contratto di `crawlerFixDecision`:
  *   - nessun verdetto + vecchia  → RI-ARMA (la run non ha prodotto alcun
  *     verdetto: non c'è niente da cui dedurre che il fix sia impossibile);
- *   - `max-turns`                → PARK (comportamento pre-esistente, non regredito);
+ *   - `max-turns`                → PARK senza checkpoint, RI-ARMA con WIP recuperabile;
  *   - oltre il tetto di tentativi → PARK con `needs-human` (bound del ri-arma).
  */
 
@@ -21,6 +21,7 @@ import { describe, it, expect } from 'vitest';
 import {
   crawlerFixDecision,
   CRAWLER_MAX_ATTEMPTS,
+  recoverableFixDecision,
 } from '../scripts/ci/followup-drainer.mjs';
 
 // Una issue crawler "vecchia" secondo ORPHAN_MIN_AGE_MIN (30min) di default.
@@ -95,6 +96,59 @@ describe('crawlerFixDecision — max-turns agisce SUBITO (nessuna regressione)',
     for (const outcome of ['no-root-cause', 'blocked-admin-settings', 'already-fixed']) {
       expect(crawlerFixDecision({ outcome, ageMin: OLD, attempt: 0 }).action).toBe('park-verdict');
     }
+  });
+});
+
+describe('recoverableFixDecision — checkpoint WIP del fixer', () => {
+  it('ri-accoda un max-turns che ha lasciato un branch avanti a main', () => {
+    const d = recoverableFixDecision({
+      outcome: 'max-turns',
+      hasBranchWork: true,
+      attempt: 0,
+      maxAttempts: CRAWLER_MAX_ATTEMPTS,
+    });
+    expect(d.action).toBe('requeue');
+    expect(d.nextAttempt).toBe(1);
+    expect(d.reason).toMatch(/checkpoint WIP recuperabile/i);
+  });
+
+  it('parka il checkpoint quando il tentativo successivo raggiunge il tetto', () => {
+    const d = recoverableFixDecision({
+      outcome: null,
+      hasBranchWork: true,
+      attempt: CRAWLER_MAX_ATTEMPTS - 1,
+      maxAttempts: CRAWLER_MAX_ATTEMPTS,
+    });
+    expect(d.action).toBe('park-attempts');
+    expect(d.nextAttempt).toBe(CRAWLER_MAX_ATTEMPTS);
+  });
+
+  it('non fa prevalere un checkpoint su un verdetto non-ri-tentabile', () => {
+    const d = recoverableFixDecision({ outcome: 'no-root-cause', hasBranchWork: true, attempt: 0 });
+    expect(d.action).toBe('none');
+    expect(d.nextAttempt).toBe(0);
+  });
+
+  it('mantiene il beacon durante il backoff quota senza consumare tentativi', () => {
+    const d = recoverableFixDecision({
+      outcome: 'max-turns',
+      hasBranchWork: true,
+      attempt: 1,
+      quotaBackoffActive: true,
+    });
+    expect(d.action).toBe('hold-quota');
+    expect(d.nextAttempt).toBe(1);
+  });
+
+  it('il crawler non cede un branch a una promozione fresca senza verdetto', () => {
+    const d = crawlerFixDecision({ outcome: null, ageMin: 1, hasBranchWork: true, attempt: 0 });
+    expect(d.action).toBe('settling');
+  });
+
+  it('il crawler collega il branch recuperabile al ramo bounded', () => {
+    const d = crawlerFixDecision({ outcome: 'max-turns', ageMin: 1, hasBranchWork: true, attempt: 0 });
+    expect(d.action).toBe('requeue');
+    expect(d.nextAttempt).toBe(1);
   });
 });
 

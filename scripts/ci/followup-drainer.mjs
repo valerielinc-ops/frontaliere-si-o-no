@@ -61,6 +61,7 @@ import {
 import {
   isBackoffActive,
   latestFixOutcomeEntryFromComments,
+  latestFixRunOutcomeEntryFromComments,
   latestFixOutcomeFromComments,
   maxQuotaResetsAt,
 } from './claude-rate-limit.mjs';
@@ -88,6 +89,7 @@ export {
   detectRemoteConfigScoped,
   matchSecretsScopedShape,
   latestFixOutcomeEntryFromComments,
+  latestFixRunOutcomeEntryFromComments,
   latestFixOutcomeFromComments,
 };
 
@@ -2463,11 +2465,65 @@ function hasFixPREver(num) {
   } catch { return true; }
 }
 
+/**
+ * Un checkpoint WIP remoto è lavoro recuperabile finché il branch canonico
+ * contiene commit che non sono in `main`. La query live evita di fidarsi di un
+ * vecchio commento `RECOVERABLE_BRANCH` dopo un merge o una cancellazione del
+ * branch. Fail-safe: errore GitHub → nessun override del rescue bounded.
+ *
+ * @param {number} num
+ * @returns {{branch: string, aheadBy: number}|null}
+ */
+function recoverableFixBranch(num) {
+  const branch = `fix/issue-${num}`;
+  try {
+    const comparison = gh([
+      'api', `repos/${REPO}/compare/main...${branch}`,
+      '--jq', '{ahead_by: .ahead_by}',
+    ]);
+    const aheadBy = Number(comparison?.ahead_by);
+    return Number.isSafeInteger(aheadBy) && aheadBy > 0 ? { branch, aheadBy } : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Decide how to handle a stale fixer run that left a non-empty WIP branch.
+ * The branch is explicitly resumable, so `max-turns` must not route an
+ * already-partial fix straight to a terminal park (especially for a
+ * `from-decompose` issue). The retry still consumes the normal bounded attempt;
+ * an active quota backoff keeps the issue as beacon without mutating it.
+ * Pura → testabile.
+ *
+ * @param {{outcome?: string|null, hasBranchWork?: boolean, attempt?: number,
+ *          maxAttempts?: number, quotaBackoffActive?: boolean}} args
+ * @returns {{action: 'none'|'hold-quota'|'requeue'|'park-attempts', nextAttempt: number, reason: string}}
+ */
+export function recoverableFixDecision({
+  outcome = null,
+  hasBranchWork = false,
+  attempt = 0,
+  maxAttempts = MAX_ATTEMPTS,
+  quotaBackoffActive = false,
+} = {}) {
+  const none = { action: 'none', nextAttempt: attempt, reason: 'nessun checkpoint WIP live' };
+  if (!hasBranchWork || (outcome !== null && outcome !== 'max-turns')) return none;
+  if (quotaBackoffActive) {
+    return { action: 'hold-quota', nextAttempt: attempt, reason: 'checkpoint WIP presente, ma la finestra quota è ancora aperta' };
+  }
+  const nextAttempt = attempt + 1;
+  const reason = `checkpoint WIP recuperabile (${outcome || 'nessun verdetto'}), ${nextAttempt}/${maxAttempts}`;
+  return nextAttempt >= maxAttempts
+    ? { action: 'park-attempts', nextAttempt, reason }
+    : { action: 'requeue', nextAttempt, reason };
+}
+
 /** Ultimo verdetto FIX_OUTCOME della issue CON il suo timestamp
  * (`{outcome, at}`). Stessa sorgente di `latestFixOutcome`, forma che serve a
  * `isDeliveredThisRun` per scopare il marker alla run corrente. */
 function latestFixOutcomeEntry(num) {
-  return latestFixOutcomeEntryFromComments(issueComments(num) || []);
+  return latestFixRunOutcomeEntryFromComments(issueComments(num) || []);
 }
 
 /** ULTIMA promozione (`agent:fix` aggiunta) di questa issue con la sua
@@ -2618,6 +2674,7 @@ export const CRAWLER_MAX_ATTEMPTS = intFromEnv('FOLLOWUP_CRAWLER_MAX_ATTEMPTS', 
  *     partita → ri-arma con tentativo consumato, park al tetto.
  *
  * @param {{outcome: string|null, ageMin: number, attempt?: number, hasPR?: boolean,
+ *          hasBranchWork?: boolean,
  *          quotaBackoffActive?: boolean, settleMin?: number, orphanMinAgeMin?: number,
  *          maxAttempts?: number, decomposeEligible?: boolean}} args
  * @returns {{action: 'skip'|'settling'|'hold-quota'|'requeue'|'requeue-zero-work'|'decompose'|'park-max-turns'|'park-verdict'|'park-attempts', nextAttempt: number, reason: string}}
@@ -2627,6 +2684,7 @@ export function crawlerFixDecision({
   ageMin,
   attempt = 0,
   hasPR = false,
+  hasBranchWork = false,
   outcomeAt = null,
   mergedAt = null,
   promotedAt = null,
@@ -2638,6 +2696,18 @@ export function crawlerFixDecision({
 } = {}) {
   const keep = (action, reason) => ({ action, nextAttempt: attempt, reason });
   if (hasPR) return keep('skip', 'ha una PR fix aperta');
+  const recoverable = recoverableFixDecision({
+    outcome,
+    // Un branch già presente non basta da solo: con outcome null una
+    // promozione fresca può stare ancora lavorando sullo stesso checkpoint.
+    // Il crawler può cedere il beacon solo dopo la finestra di settling/orfano;
+    // `max-turns` è invece un esito terminale già osservabile.
+    hasBranchWork: hasBranchWork && (outcome === 'max-turns' || ageMin >= orphanMinAgeMin),
+    attempt,
+    maxAttempts,
+    quotaBackoffActive,
+  });
+  if (recoverable.action !== 'none') return recoverable;
   // `max-turns` = troppo grande per una run, non un verdetto fermo. La path
   // queue-managed di questo stesso file lo manda alla DECOMPOSE-ROUTE; qui,
   // per l'unica categoria che `isQueueManaged` esclude, il park era
@@ -3528,6 +3598,41 @@ export function runDrain() {
     const outcome = outcomeEntry.outcome;
     if (isSettlingPromotion({ outcome, ageMin, settleMin: SETTLE_MIN })) { settlingPromotions++; continue; } // registrazione run
     if (ageMin < ORPHAN_MIN_AGE_MIN) continue; // fix finito senza PR ma non ancora orfano → non bloccare il drain
+    // Un branch `fix/issue-N` avanti a main è un checkpoint WIP reale, non una
+    // run vuota. Prima del checkpoint deterministico questo lavoro restava
+    // invisibile; ora il rescue deve riaccodarlo in modo resume-aware anche se
+    // il vecchio marker è `max-turns` e l'issue è già `from-decompose`.
+    const recoverable = outcome === null || outcome === 'max-turns'
+      ? recoverableFixBranch(iss.number)
+      : null;
+    const recoverableDecision = recoverableFixDecision({
+      outcome,
+      hasBranchWork: recoverable !== null,
+      attempt: attemptOf(iss),
+      quotaBackoffActive: quotaBlocksPromotions,
+    });
+    if (recoverableDecision.action === 'hold-quota') {
+      console.log(`HOLD #${iss.number} (${recoverableDecision.reason}, branch ${recoverable?.branch} ahead=${recoverable?.aheadBy}) → resta agent:fix come beacon`);
+      continue;
+    }
+    if (recoverableDecision.action === 'requeue' || recoverableDecision.action === 'park-attempts') {
+      const previousAttempt = attemptOf(iss);
+      const previousLabel = previousAttempt ? `fu-attempt:${previousAttempt}` : null;
+      if (recoverableDecision.action === 'park-attempts') {
+        console.log(`PARK #${iss.number} (${recoverableDecision.reason}, branch ${recoverable?.branch} ahead=${recoverable?.aheadBy}) → fu-parked + needs-human`);
+        edit(iss.number, {
+          add: [LBL_PARKED, 'needs-human', `fu-attempt:${recoverableDecision.nextAttempt}`],
+          remove: [LBL_FIX, LBL_QUEUED, previousLabel].filter(Boolean),
+        });
+      } else {
+        console.log(`RE-QUEUE #${iss.number} (${recoverableDecision.reason}, branch ${recoverable?.branch} ahead=${recoverable?.aheadBy}) → resume-aware retry`);
+        edit(iss.number, {
+          add: [LBL_QUEUED, `fu-attempt:${recoverableDecision.nextAttempt}`],
+          remove: [LBL_FIX, previousLabel].filter(Boolean),
+        });
+      }
+      continue;
+    }
     // vecchio + nessuna PR → orfano. Ma «nessuna PR» ha due cause diverse:
     // (a) run morta/crashata (nessun verdetto) → ri-tentabile; (b) ABORT pulita
     // del fixer con verdetto deterministico-non-ri-tentabile (no-root-cause,
@@ -3661,6 +3766,11 @@ export function runDrain() {
     const hasPR = hasFixPR(iss.number);
     const entry = hasPR ? { outcome: null, at: null } : latestFixOutcomeEntry(iss.number);
     const outcome = entry.outcome;
+    const ageMin = minutesSince(iss.updatedAt);
+    const recoverableBranch = (outcome === 'max-turns'
+      || (outcome === null && ageMin >= ORPHAN_MIN_AGE_MIN))
+      ? recoverableFixBranch(iss.number)
+      : null;
     const attempt = attemptOf(iss);
     const prevAttemptLabel = attempt ? `fu-attempt:${attempt}` : null;
     // Le due letture extra servono SOLO a qualificare il ramo DELIVERED, che e'
@@ -3680,9 +3790,10 @@ export function runDrain() {
       outcomeAt: entry.at,
       mergedAt,
       promotedAt: promotion.at,
-      ageMin: minutesSince(iss.updatedAt),
+      ageMin,
       attempt,
       hasPR,
+      hasBranchWork: recoverableBranch !== null,
       quotaBackoffActive: quotaBlocksPromotions,
       decomposeEligible: DECOMPOSE_ENABLED && isDecomposeEligible(iss),
     });
