@@ -1,5 +1,5 @@
 {
-  "run": 30,
+  "run": 31,
   "companies": {
     "postfinance": {
       "sterile": 1,
@@ -21,18 +21,9 @@
       "sterile": 1,
       "signature": "d9f0e22ece3feccf"
     },
-    "interdiscount": {
-      "sterile": 1,
-      "signature": "825ef319b720e06f"
-    },
-    "c-and-a-schweiz": {
-      "sterile": 1,
-      "signature": "c4dd21cb0b542968"
-    },
     "banca-cler": {
-      "sterile": 0,
-      "signature": "d70bcc7e9b0b25ed",
-      "skipUntilRun": 31
+      "sterile": 1,
+      "signature": "d70bcc7e9b0b25ed"
     }
   }
 }
