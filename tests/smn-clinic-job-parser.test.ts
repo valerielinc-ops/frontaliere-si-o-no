@@ -5,6 +5,7 @@ import {
   extractPostingDepartmentLabels,
   classifyZeroMatchRun,
   fetchOutcomeForZeroMatch,
+  buildSmnClinicFetchResult,
   suggestDirectoryLabels,
 } from '../scripts/lib/smn-clinic-job-parser.mjs';
 import {
@@ -316,5 +317,19 @@ describe('fetchOutcomeForZeroMatch (slice lastFetchOutcome, issue #7897)', () =>
 
   it('omits the field for an unknown verdict rather than inventing one', () => {
     expect(fetchOutcomeForZeroMatch(undefined as unknown as 'matched')).toBeNull();
+  });
+});
+
+describe('buildSmnClinicFetchResult (metadata survives array transforms, issue #8069)', () => {
+  it('keeps the verdict outside the jobs array', () => {
+    const result = buildSmnClinicFetchResult([
+      { id: 'job-1' },
+      { id: 'job-2' },
+    ], 'selector_miss');
+    const filteredJobs = result.jobs.filter((job) => job.id === 'job-2');
+
+    expect(filteredJobs).toEqual([{ id: 'job-2' }]);
+    expect(result.fetchOutcome).toBe('selector_miss');
+    expect(filteredJobs.fetchOutcome).toBeUndefined();
   });
 });
