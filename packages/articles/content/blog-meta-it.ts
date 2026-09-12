@@ -11670,6 +11670,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-merci-alpi-ferrovia-camion.title': 'Traffico merci sulle Alpi: il treno arretra e i camion crescono',
     'blog.article.traffico-merci-alpi-ferrovia-camion.excerpt': 'L\'Ufficio federale dei trasporti registra una crescita del trasporto su gomma pari al doppio di quello ferroviario lungo le Alpi.',
     'blog.article.traffico-merci-alpi-ferrovia-camion.imageAlt': 'Traffico di merci e autocarri lungo i valichi alpini in Svizzera',
+    'blog.article.voto-pecc-gran-consiglio-ticino.title': 'Voto sul Pecc in Gran Consiglio: la scelta economica',
+    'blog.article.voto-pecc-gran-consiglio-ticino.excerpt': 'Appello di organizzazioni economiche e ambientaliste al Gran Consiglio ticinese per il voto sul Piano energetico e climatico cantonale.',
+    'blog.article.voto-pecc-gran-consiglio-ticino.imageAlt': 'Castello di Bellinzona in Ticino',
 };
 
 export default blogMetaIt;

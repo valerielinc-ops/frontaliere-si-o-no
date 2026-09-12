@@ -11668,6 +11668,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-merci-alpi-ferrovia-camion.title': 'Güterverkehr in den Alpen: Zug fährt zurück und Lastwagen wachsen',
     'blog.article.traffico-merci-alpi-ferrovia-camion.excerpt': 'Das Bundesamt für Verkehr verzeichnet ein Wachstum des Straßenverkehrs, das doppelt so hoch ist wie das der Eisenbahn entlang der Alpen.',
     'blog.article.traffico-merci-alpi-ferrovia-camion.imageAlt': 'Güter- und Lastwagenverkehr an den Alpenübergängen in der Schweiz',
+    'blog.article.voto-pecc-gran-consiglio-ticino.title': 'Abstimmung über den Pecc im Grossen Rat: die wirtschaftliche Wahl',
+    'blog.article.voto-pecc-gran-consiglio-ticino.excerpt': 'Appell von Wirtschafts- und Umweltorganisationen an den Tessiner Grossen Rat zur Abstimmung über den kantonalen Energie- und Klimaplan.',
+    'blog.article.voto-pecc-gran-consiglio-ticino.imageAlt': 'Castello di Bellinzona im Tessin',
 };
 
 export default blogMetaDe;

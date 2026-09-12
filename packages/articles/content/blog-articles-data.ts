@@ -34833,6 +34833,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'voto-pecc-gran-consiglio-ticino',
+ category: 'novita',
+ date: '2026-09-12T02:18:52.839Z',
+ image: '/images/blog/voto-pecc-gran-consiglio-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

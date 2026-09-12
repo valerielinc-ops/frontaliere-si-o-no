@@ -11669,6 +11669,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-merci-alpi-ferrovia-camion.title': 'Freight traffic in the Alps: the train goes backwards and the trucks grow',
     'blog.article.traffico-merci-alpi-ferrovia-camion.excerpt': 'The Federal Office of Transport records a growth in road transport equal to twice that of rail transport along the Alps.',
     'blog.article.traffico-merci-alpi-ferrovia-camion.imageAlt': 'Goods and truck traffic along alpine passes in Switzerland',
+    'blog.article.voto-pecc-gran-consiglio-ticino.title': 'Vote on Pecc in the Grand Council: the economic choice',
+    'blog.article.voto-pecc-gran-consiglio-ticino.excerpt': 'Appeal of economic and environmental organizations to the Grand Council of Ticino for the vote on the Cantonal Energy and Climate Plan.',
+    'blog.article.voto-pecc-gran-consiglio-ticino.imageAlt': 'Bellinzona castle in Ticino',
 };
 
 export default blogMetaEn;

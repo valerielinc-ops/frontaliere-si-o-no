@@ -11671,6 +11671,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-merci-alpi-ferrovia-camion.title': 'Trafic marchandises dans les Alpes : le train recule et les camions grandissent',
     'blog.article.traffico-merci-alpi-ferrovia-camion.excerpt': 'L\'Office fédéral des transports enregistre une croissance du transport routier deux fois supérieure à celle du transport ferroviaire le long des Alpes.',
     'blog.article.traffico-merci-alpi-ferrovia-camion.imageAlt': 'Trafic de marchandises et de camions le long des cols alpins en Suisse',
+    'blog.article.voto-pecc-gran-consiglio-ticino.title': 'Vote sur le Pecc au Grand Conseil : le choix économique',
+    'blog.article.voto-pecc-gran-consiglio-ticino.excerpt': 'Appel des organisations économiques et environnementales au Grand Conseil tessinois pour le vote sur le Plan énergétique et climatique cantonal.',
+    'blog.article.voto-pecc-gran-consiglio-ticino.imageAlt': 'Chateau de Bellinzone au Tessin',
 };
 
 export default blogMetaFr;
