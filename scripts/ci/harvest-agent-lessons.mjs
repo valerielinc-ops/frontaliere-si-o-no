@@ -934,8 +934,8 @@ export function examplesSinceFix(examples, cutoffMs) {
 
 function formatExamples(c) {
   return (c.examples || [])
-    .map((e) => e.pr || e.issue)
-    .filter(Boolean)
+    .map((e) => [e?.pr, e?.issue].find((value) => value !== null && value !== undefined && value !== ''))
+    .filter((value) => value !== undefined)
     .map((value) => `#${value}`)
     .join(', ') || '—';
 }
