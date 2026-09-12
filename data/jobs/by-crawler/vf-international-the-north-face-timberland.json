@@ -320,7 +320,7 @@
       "slugByLocale": {
         "it": "gestione-dei-contenuti-e-commerce-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
         "en": "manager-e-commerce-content-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-932uun",
-        "de": "manager-e-commerce-content-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-932uun",
+        "de": "manager-e-commerce-inhalt-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
         "fr": "gestionnaire-contenu-du-commerce-electronique-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
       },
       "sourceLang": "en",
@@ -330,6 +330,9 @@
           "manager-e-commerce-content-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-932uun"
         ],
         "fr": [
+          "manager-e-commerce-content-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-932uun"
+        ],
+        "de": [
           "manager-e-commerce-content-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-932uun"
         ]
       },
@@ -528,7 +531,7 @@
     },
     {
       "id": "company-z6bjfs",
-      "slug": "associate-inventory-planner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-z6bjfs",
+      "slug": "collaboratore-inventory-planner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
       "company": "VF International (The North Face, Timberland)",
       "title": "Associate, Inventory Planner",
       "location": "EMEA · CHE · Stabio · VF Campus VF1",
@@ -579,7 +582,7 @@
       "crawledAt": "2026-09-12T12:58:32.001Z",
       "firstSeenAt": "2026-09-07T15:03:50.184Z",
       "slugByLocale": {
-        "it": "associate-inventory-planner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-z6bjfs",
+        "it": "collaboratore-inventory-planner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
         "en": "associate-inventory-planner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-z6bjfs",
         "de": "associate-inventarplaner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
         "fr": "associe-planificateur-d-inventaire-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
@@ -587,11 +590,13 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "associate-inventory-planner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+          "associate-inventory-planner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+          "associate-inventory-planner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-z6bjfs"
         ]
       },
       "previousSlugs": [
-        "associate-inventory-planner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+        "associate-inventory-planner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+        "associate-inventory-planner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-z6bjfs"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
