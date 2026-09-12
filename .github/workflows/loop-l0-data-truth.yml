@@ -73,7 +73,7 @@ jobs:
           node scripts/ci/loop-l0-data-truth.mjs "${args[@]}" | tee "$REPORT_DIR/stdout.json" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Upload L0 observation and decision
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: loop-l0-data-truth-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l0/
