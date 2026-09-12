@@ -67,6 +67,18 @@ describe('technical operations audit', () => {
     ].join('\n');
     const findings = auditWorkflowText('.github/workflows/comments.yml', source, { root: '/repo' });
     expect(findings.filter((item: any) => item.rule === 'workflow.input-reference')).toEqual([]);
+
+    const literalHash = auditWorkflowText('.github/workflows/literal-hash.yml', [
+      'name: literal-hash',
+      'on: [push]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: run',
+      '        run: echo jobs#all ${{ inputs.not_declared }}',
+    ].join('\n'), { root: '/repo' });
+    expect(literalHash.filter((item: any) => item.rule === 'workflow.input-reference')).toHaveLength(1);
   });
 
   it('segnala riferimenti, step executor, concurrency e scrittura dati senza check', () => {

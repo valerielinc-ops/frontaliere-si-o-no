@@ -195,7 +195,10 @@ function expressionIsInComment(source, offset) {
       doubleQuoted = !doubleQuoted;
       continue;
     }
-    if (!singleQuoted && !doubleQuoted && char === '#') return true;
+    if (!singleQuoted && !doubleQuoted && char === '#') {
+      const previous = i === lineStart ? '' : source[i - 1];
+      if (previous === '' || /\s/u.test(previous) || ';|&(){}<>'.includes(previous)) return true;
+    }
   }
   return false;
 }
