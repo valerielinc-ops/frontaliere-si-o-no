@@ -273,14 +273,13 @@ const OfferwallNewsletterGate: React.FC = () => {
 
   // Grant access when the visitor signs in via the social buttons while the gate
   // is open. Google sign-in/One Tap completes in-page → `user` flips here → we
-  // grant the Offerwall reward immediately. (Auth providers auto-subscribe to the
-  // newsletter — same as NewsletterPopup — so no extra subscribe call is needed.)
+  // grant the Offerwall reward immediately. Newsletter subscription is handled
+  // only by the explicit email branch below.
   // The LinkedIn flow redirects away and returns logged-in: the gate is gone by
   // then, but offerwallHasAccess()'s active Firebase Auth key suppresses the
   // Offerwall on the returning pageview, so access is granted there too.
   useEffect(() => {
     if (open && user) {
-      markNewsletterSubscribedLocally();
       try { Analytics.trackUIInteraction('offerwall_gate', 'social', 'access_granted', String(activeLocale)); } catch { /* no-op */ }
       settle(true);
     }
@@ -315,7 +314,7 @@ const OfferwallNewsletterGate: React.FC = () => {
         sourceCta: 'offerwall_custom_choice',
         sourceComponent: 'OfferwallNewsletterGate',
         locale: activeLocale,
-        // Deliberately NOT in CONFIRMED_NEWSLETTER_SOURCES → starts `pending`
+        // No status/activity is supplied here: a new address starts `pending`
         // and triggers the double opt-in confirmation email. Page access (the
         // Offerwall reward) is granted immediately regardless.
         // Same string the checkbox rendered, same locale, one function
@@ -323,6 +322,9 @@ const OfferwallNewsletterGate: React.FC = () => {
         // the newsletter, which was never all the visitor would receive.
         ...consentProof('communicationsOptIn', 'email_checkbox', activeLocale),
         consentGiven: true,
+        // Re-entering the address and checking this box starts a new DOI
+        // cycle; it never bypasses an existing opt-out.
+        reconsent: true,
       });
       markNewsletterSubscribedLocally();
       try { Analytics.trackUIInteraction('offerwall_gate', 'form', 'subscribe', 'success'); } catch { /* no-op */ }
@@ -371,10 +373,9 @@ const OfferwallNewsletterGate: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <p className="text-sm text-muted">{copy.body}</p>
 
-            {/* Same social row as the newsletter popup: a Google sign-in completes
-                in-page (One Tap / GIS) and LinkedIn redirects; either way the
-                visitor ends up authenticated (and auto-subscribed), which the
-                grant-on-auth effect above turns into the Offerwall reward. */}
+            {/* Social sign-in authenticates the visitor; the grant-on-auth effect
+                above turns that explicit access action into the Offerwall reward.
+                It does not subscribe the address to the newsletter. */}
             <SocialSignInButtons
               locale={activeLocale}
               errorContext="offerwallGate"

@@ -78,7 +78,6 @@
           "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T22:34:47.887Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -165,7 +164,6 @@
           "mecanicien-d-entreprise-in-heineken-switzerland-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:54:58.821Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -280,7 +278,7 @@
       "title": "Sales & Market Analyst (w/m/d)",
       "titleByLocale": {
         "it": "Sales & Market Analista (w/m/d)",
-        "en": "Sales & Market Analyst (w/m/d)",
+        "en": "Sales & Market Analyst (m/f/d)",
         "de": "Sales & Market Analyst (w/m/d)",
         "fr": "Sales & Market Analyste (w/m/d)"
       },
@@ -388,6 +386,11 @@
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
       "crawledAt": "2026-09-11T23:26:14.250Z",
+      "previousSlugs": [
+        "specialist-warehouse-m-w-d-heineken-ch-luzern",
+        "specialist-warehouse-m-w-d-heineken-ch-belp",
+        "specialista-warehouse-m-w-d-heineken-switzerland-luzern"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "specialist-warehouse-m-w-d-heineken-ch-belp",
@@ -405,12 +408,6 @@
           "specialist-warehouse-m-w-d-heineken-ch-luzern"
         ]
       },
-      "previousSlugs": [
-        "specialist-warehouse-m-w-d-heineken-ch-luzern",
-        "specialist-warehouse-m-w-d-heineken-ch-belp",
-        "specialista-warehouse-m-w-d-heineken-switzerland-luzern"
-      ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T23:43:35.597Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -563,7 +560,6 @@
           "specialist-business-applications-operations-m-w-d-heineken-ch-luzern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T23:43:19.344Z",
       "salaryMin": 74500,
       "salaryMax": 127000,

@@ -268,9 +268,12 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  jobContext: newsletterJobContext,
  locationInterest: newsletterJobContext.location,
  sectorInterest: newsletterJobContext.category,
- isActive: false,
- status: 'pending',
- // #5678: record the formula in force at this gate. `pending`, so the text
+        isActive: false,
+        status: 'pending',
+        // Email access is an explicit communications form. If this address
+        // opted out before, the new DOI link must be clicked first.
+        reconsent: true,
+        // #5678: record the formula in force at this gate. `pending`, so the text
  // states that the subscription waits for the confirmation link.
  // #5712/#5718: the notice under the unlock form is the stored string.
  ...consentProof('communicationsOptIn', 'email_submit', locale),

@@ -81452,6 +81452,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asib-richiesta-aumenti-bancari': {
+    title: 'Banche svizzere: ASIB chiede aumenti salariali del 2,5%',
+    description: 'L\'ASIB richiede un incremento del 2,5% della massa salariale e 2000 franchi in più per i redditi fino a 120\'000 franchi per i negoziati 2026/2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, svizzere, asib, chiede',
+    ogTitle: 'Banche svizzere: ASIB chiede aumenti salariali del 2,5%',
+    ogDescription: 'L\'ASIB richiede un incremento del 2,5% della massa salariale e 2000 franchi in più per i redditi fino a 120\'000 franchi per i negoziati 2026/2027.',
+    canonicalPath: '/articoli-svizzera/asib-richiesta-aumenti-bancari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banche svizzere: ASIB chiede aumenti salariali del 2,5%",
+      "description": "L'ASIB richiede un incremento del 2,5% della massa salariale e 2000 franchi in più per i redditi fino a 120'000 franchi per i negoziati 2026/2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asib-richiesta-aumenti-bancari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici bancari a Lugano con vista lago"
+      },
+      "datePublished": "2026-09-12T00:08:33+00:00",
+      "dateModified": "2026-09-12T00:08:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asib-richiesta-aumenti-bancari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-economiesuisse-silvan-wildhaber': {
+    title: 'Economiesuisse: Silvan Wildhaber è il nuovo presidente',
+    description: 'Passaggio di presidenza a Economiesuisse a Berna: Silvan Wildhaber succede a Christoph Mäder con focus su accordi bilaterali III e libero scambio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, economiesuisse, silvan, wildhaber, nuovo',
+    ogTitle: 'Economiesuisse: Silvan Wildhaber nuovo presidente',
+    ogDescription: 'Cambio al vertice di Economiesuisse a Berna: Silvan Wildhaber succede a Christoph Mäder puntando con decisione sugli accordi bilaterali III e sul commercio internazionale.',
+    canonicalPath: '/articoli-svizzera/economiesuisse-silvan-wildhaber/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Economiesuisse: Silvan Wildhaber è il nuovo presidente",
+      "description": "Passaggio di presidenza a Economiesuisse a Berna: Silvan Wildhaber succede a Christoph Mäder con focus su accordi bilaterali III e libero scambio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/economiesuisse-silvan-wildhaber.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna sede della giornata dell'economia di Economiesuisse"
+      },
+      "datePublished": "2026-09-12T00:43:56+00:00",
+      "dateModified": "2026-09-12T00:43:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economiesuisse-silvan-wildhaber/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-finanze-ospedali-svizzera-2025': {
+    title: 'Ospedali svizzeri: finanze in lieve miglioramento',
+    description: 'Analisi della situazione finanziaria degli ospedali svizzeri. Oltre l\'80% delle strutture per cure acute è sotto il margine necessario. Scopri i dettagli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedali, svizzeri, finanze, lieve',
+    ogTitle: 'Ospedali svizzeri: migliorano le finanze ma la situazione resta difficile',
+    ogDescription: 'Analisi della situazione finanziaria degli ospedali in Svizzera secondo i dati di H+ e SpitalBenchmark. Oltre l\'80% delle strutture sotto il margine.',
+    canonicalPath: '/articoli-svizzera/finanze-ospedali-svizzera-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedali svizzeri: finanze in lieve miglioramento",
+      "description": "Analisi della situazione finanziaria degli ospedali svizzeri. Oltre l'80% delle strutture per cure acute è sotto il margine necessario. Scopri i dettagli.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finanze-ospedali-svizzera-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Struttura ospedaliera svizzera con panorama urbano"
+      },
+      "datePublished": "2026-09-12T01:14:48+00:00",
+      "dateModified": "2026-09-12T01:14:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finanze-ospedali-svizzera-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bitcoin-suisse-taglio-posti-zugo': {
+    title: 'Bitcoin Suisse taglia fino a 60 posti a Zugo | Frontaliere Ticino',
+    description: 'Bitcoin Suisse riduce il personale in Svizzera: fino a 60 posti a rischio su 120 dipendenti. Consultazione aperta fino al 20 settembre. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, bitcoin, suisse, taglia, fino',
+    ogTitle: 'Bitcoin Suisse taglia fino a 60 posti a Zugo',
+    ogDescription: 'Il fornitore di servizi cripto Bitcoin Suisse avvia una riorganizzazione globale che comporta il taglio fino a 60 posti di lavoro in Svizzera. Consultazione aperta fino al 20 settembre.',
+    canonicalPath: '/articoli-svizzera/bitcoin-suisse-taglio-posti-zugo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bitcoin Suisse taglia fino a 60 posti a Zugo",
+      "description": "Bitcoin Suisse riduce il personale in Svizzera: fino a 60 posti a rischio su 120 dipendenti. Consultazione aperta fino al 20 settembre. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bitcoin-suisse-taglio-posti-zugo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede di un fornitore di servizi finanziari in Svizzera"
+      },
+      "datePublished": "2026-09-12T01:23:23+00:00",
+      "dateModified": "2026-09-12T01:23:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bitcoin-suisse-taglio-posti-zugo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-costi-nidi-servizi-infanzia-canton-sg': {
+    title: 'Costi asili nido e custodia nel Canton San Gallo',
+    description: 'Scopri i costi degli asili nido e della custodia bambini nel Canton San Gallo: rette in base al reddito, sussidi comunali e deduzioni fiscali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, costi, asili, nido, custodia',
+    ogTitle: 'Asili nido e custodia bambini Canton San Gallo: costi',
+    ogDescription: 'Tutte le informazioni sulle rette per asili nido e servizi per l\'infanzia nel Cantone di San Gallo: agevolazioni comunali, fasce di reddito e detrazioni fiscali per le famiglie.',
+    canonicalPath: '/articoli-svizzera/costi-nidi-servizi-infanzia-canton-sg/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costi asili nido e custodia nel Canton San Gallo",
+      "description": "Scopri i costi degli asili nido e della custodia bambini nel Canton San Gallo: rette in base al reddito, sussidi comunali e deduzioni fiscali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-nidi-servizi-infanzia-canton-sg.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Spazio giochi luminoso in una struttura di custodia per l'infanzia nel Cantone di San Gallo"
+      },
+      "datePublished": "2026-09-12T02:05:29+00:00",
+      "dateModified": "2026-09-12T02:05:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costi-nidi-servizi-infanzia-canton-sg/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzeri-spesa-crescita-rallenta': {
+    title: 'Svizzeri spendono di più, ma la crescita rallenta',
+    description: 'L\'indicatore dei consumi PostFinance sale dello 0,8% in agosto, rallentando rispetto a luglio e giugno. Scopri i dettagli sui settori di spesa. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, spendono, crescita, rallenta',
+    ogTitle: 'Svizzeri spendono di più, ma la crescita rallenta in agosto',
+    ogDescription: 'L\'indicatore dei consumi di PostFinance segna +0,8% in agosto rispetto all\'anno precedente, rallentando la corsa rispetto a luglio e giugno.',
+    canonicalPath: '/articoli-svizzera/svizzeri-spesa-crescita-rallenta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzeri spendono di più, ma la crescita rallenta",
+      "description": "L'indicatore dei consumi PostFinance sale dello 0,8% in agosto, rallentando rispetto a luglio e giugno. Scopri i dettagli sui settori di spesa. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzeri-spesa-crescita-rallenta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Indicatori dei consumi in Svizzera e pagamenti con carta"
+      },
+      "datePublished": "2026-09-12T02:13:17+00:00",
+      "dateModified": "2026-09-12T02:13:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzeri-spesa-crescita-rallenta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-siccita-faldeg-acque': {
+    title: 'Siccità in Svizzera: a rischio l\'80% delle acque sotterranee',
+    description: 'La siccità minaccia l\'80% dell\'acqua potabile svizzera. La SCNAT avverte sul rischio per le falde nel Giura e nelle Alpi e propone misure di rinaturalizzazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, rischio, acque, sotterranee',
+    ogTitle: 'Siccità in Svizzera: a rischio l\'80% delle acque sotterranee',
+    ogDescription: 'L\'80% dell\'acqua potabile svizzera viene da fonti sotterranee. La SCNAT avverte: le falde si abbassano e le sorgenti si prosciugano, soprattutto nel Giura e nelle Alpi. Ecco le misure proposte da esperti per garantire la resilienza idrica del Paese.',
+    canonicalPath: '/articoli-svizzera/svizzera-siccita-faldeg-acque/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità in Svizzera: a rischio l'80% delle acque sotterranee",
+      "description": "La siccità minaccia l'80% dell'acqua potabile svizzera. La SCNAT avverte sul rischio per le falde nel Giura e nelle Alpi e propone misure di rinaturalizzazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-siccita-faldeg-acque.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fiume alpino svizzero con livello dell'acqua basso, illustrando le conseguenze della siccità sulle falde acquifere."
+      },
+      "datePublished": "2026-09-12T02:50:23+00:00",
+      "dateModified": "2026-09-12T02:50:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-siccita-faldeg-acque/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

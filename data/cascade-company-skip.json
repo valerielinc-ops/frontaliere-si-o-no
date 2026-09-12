@@ -1,5 +1,5 @@
 {
-  "run": 25,
+  "run": 26,
   "companies": {
     "postfinance": {
       "sterile": 1,
@@ -36,11 +36,6 @@
     "ffs-officine-ferrovie-federali": {
       "sterile": 1,
       "signature": "f27cebbc78000cc9"
-    },
-    "migros-ticino": {
-      "sterile": 0,
-      "signature": "90e473f33488da21",
-      "skipUntilRun": 24
     },
     "grand-hotel-des-bains-kempinski": {
       "sterile": 1,

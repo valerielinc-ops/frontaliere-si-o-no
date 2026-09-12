@@ -55,7 +55,7 @@ import {
   TRAFFIC_SOURCE_PATH,
 } from './lib/job-traffic-priority.mjs';
 import { logCascadeSummary } from './lib/free-translate.mjs';
-import { markRunStart, readRunStartMs, recordRunPhase } from './lib/translate-run-clock.mjs';
+import { markRunStart, recordRunPhase, resolveRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
 import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
@@ -249,9 +249,9 @@ const TIME_BUDGET_MS = 320 * 60 * 1000;
 // under the Argos-first ordering the local-MT BULK pass (Phase 2a) runs before
 // this cascade and seeds the marker, so the cascade's 250min deadline correctly
 // counts the time Phase 2a already spent — keeping Phase 2a + cascade + mop-up
-// inside the 350min timeout. Falls back to now() when no marker exists
-// (cascade-first / standalone), identical to the prior behaviour.
-const RUN_START_MS = readRunStartMs() ?? Date.now();
+// inside the 350min timeout. Standalone invocations keep a local fallback;
+// the workflow fails closed when its marker is missing.
+const RUN_START_MS = resolveRunStartMs();
 // Run-wide deadline for the slow HTTP/ONNX cascade. Default 250min (cascade-first
 // era: the cascade IS the primary translator). Under Argos-first the fast
 // CTranslate2 bulk (Phase 2a) + the Argos mop-up (Phase 2c) already cover the
@@ -285,24 +285,29 @@ function readJson(filePath) {
   }
 }
 
+/**
+ * Drop only expired armed entries. A legacy/manual entry with an expired
+ * `skipUntilRun` and a non-zero `sterile` counter is not equivalent to an
+ * armed entry: deleting it would silently erase accumulated observations.
+ */
+export function pruneExpiredCompanySkipEntries(stored, run) {
+  const companies = {};
+  for (const [key, entry] of Object.entries(stored || {})) {
+    const expired = entry?.skipUntilRun && Number(entry.skipUntilRun) < run;
+    if (expired && entry?.sterile === 0) continue;
+    companies[key] = entry;
+  }
+  return companies;
+}
+
 /** Ledger del salto per azienda sterile — vedi COMPANY_SKIP_STATE_PATH. */
 function readCompanySkipState() {
   const raw = readJson(COMPANY_SKIP_STATE_PATH);
   const run = Number(raw?.run) || 0;
   const stored = (raw && typeof raw.companies === 'object' && raw.companies) || {};
-  // Pota le voci con un salto gia' scaduto. E' esattamente equivalente a
-  // tenerle — `shouldSkipCompany` le ignora e `nextCompanySkipEntry` riparte
-  // comunque da `sterile: 1`, perche' una voce scaduta porta `sterile: 0` — ma
-  // senza la potatura il file cresce con lo storico di ogni azienda mai
-  // osservata e non torna mai indietro, e il rewrite completo per azienda
-  // diventa il caso peggiore proprio nelle run lunghe che questa regola vuole
-  // accorciare.
-  const companies = {};
-  for (const [key, entry] of Object.entries(stored)) {
-    if (entry?.skipUntilRun && Number(entry.skipUntilRun) < run) continue;
-    companies[key] = entry;
-  }
-  return { run, companies };
+  // Entries written by nextCompanySkipEntry have sterile === 0 when armed;
+  // preserve anything else so legacy/manual state cannot lose its counter.
+  return { run, companies: pruneExpiredCompanySkipEntries(stored, run) };
 }
 
 function writeCompanySkipState(state) {
@@ -585,6 +590,20 @@ export function nextCompanySkipEntry(entry, {
 }
 
 /**
+ * Internal pre-clears are progress, not a source re-crawl. Forget the sterile
+ * observation for affected companies so a smaller pending set cannot look like
+ * a changed source signature on the next run (issue #8068 item 5).
+ */
+export function resetCompanySkipStateForClearedCompanies(state, companyKeys = []) {
+  if (!state?.companies || typeof state.companies !== 'object') return state;
+  for (const companyKey of companyKeys) {
+    const key = normalizeCompanyKey(companyKey);
+    if (key) delete state.companies[key];
+  }
+  return state;
+}
+
+/**
  * Return why a cascade pass must stop, with the run-wide cascade deadline
  * taking precedence over the general workflow time-budget guard.
  */
@@ -599,6 +618,34 @@ export function cascadeStopReason({
   if (nowMs >= runStartMs + cascadeDeadlineMs) return 'cascade deadline';
   if (nowMs - passStartMs >= timeBudgetMs * timeBudgetFraction) return 'time budget';
   return null;
+}
+
+/**
+ * Choose the initial cascade stop reason only after checking the run-wide clock.
+ * This keeps an all-skipped window from masking a deadline reached between the
+ * window snapshot and the classification (issue #8068 item 4).
+ */
+export function initialCascadeStopReason({
+  windowStopReason,
+  allCompaniesSkipped = false,
+  nowMs,
+  runStartMs,
+  cascadeDeadlineMs,
+  passStartMs,
+  timeBudgetMs,
+  timeBudgetFraction,
+}) {
+  if (windowStopReason === 'cascade deadline') return 'cascade deadline';
+  const stopReason = cascadeStopReason({
+    nowMs,
+    runStartMs,
+    cascadeDeadlineMs,
+    passStartMs,
+    timeBudgetMs,
+    timeBudgetFraction,
+  });
+  if (stopReason) return stopReason;
+  return allCompaniesSkipped ? 'all companies skipped' : 'queue exhausted';
 }
 
 export function computeCascadeWindow({ nowMs, runStartMs, deadlineMs }) {
@@ -1412,6 +1459,7 @@ export async function runRelocalization(phase) {
   // sync paths below, which run on jobs actually translated this run.
   let directCleared = 0;
   let directReset = 0;
+  const directClearedCompanyKeys = new Set();
   if (fs.existsSync(BY_CRAWLER_DIR)) {
     for (const file of listSliceFileNames(BY_CRAWLER_DIR)) {
       const filePath = path.join(BY_CRAWLER_DIR, file);
@@ -1421,7 +1469,11 @@ export async function runRelocalization(phase) {
       for (const job of crawlerData.jobs) {
         const outcome = reconcileRetranslationState(job, { attempted: false });
         if (outcome === 'reset' || outcome === 'cleared') fileChanged = true;
-        if (outcome === 'cleared') directCleared++;
+        if (outcome === 'cleared') {
+          directCleared++;
+          const companyKey = normalizeCompanyKey(job.companyKey || job.company || '');
+          if (companyKey) directClearedCompanyKeys.add(companyKey);
+        }
         else if (outcome === 'reset') directReset++;
       }
       if (fileChanged) {
@@ -1435,6 +1487,9 @@ export async function runRelocalization(phase) {
   if (directReset > 0) {
     console.log(`♻️  Lifted give-up on ${directReset} re-crawled job(s) (source changed)`);
   }
+
+  const companySkipState = readCompanySkipState();
+  const preClearedCompanyKeys = new Set();
 
   // Find all jobs needing translation (flagged or incomplete)
   let pending = jobs.filter(needsTranslation);
@@ -1452,6 +1507,7 @@ export async function runRelocalization(phase) {
   const incompleteCount = pending.length - flaggedCount;
 
   if (pending.length === 0) {
+    resetCompanySkipStateForClearedCompanies(companySkipState, directClearedCompanyKeys);
     emitTranslationShadowPreflightV2(() => ({
       dryRun: false,
       notAttemptedReason: 'legacy_no_pending_before_execution_plan',
@@ -1471,6 +1527,7 @@ export async function runRelocalization(phase) {
         trafficSource: TRAFFIC_SOURCE_PATH,
       },
     }));
+    if (directClearedCompanyKeys.size > 0) writeCompanySkipState(companySkipState);
     console.log('✅ All jobs have complete locale coverage. Nothing to re-localize.');
     return;
   }
@@ -1527,7 +1584,12 @@ export async function runRelocalization(phase) {
   }
 
   // Fast-path: clear flags for jobs that are already complete (no AI call needed).
-  const preCleared = clearRetranslationFlags(jobs);
+  const preCleared = clearRetranslationFlags(jobs, {
+    onCleared: (job) => {
+      const companyKey = normalizeCompanyKey(job.companyKey || job.company || '');
+      if (companyKey) preClearedCompanyKeys.add(companyKey);
+    },
+  });
   if (preCleared > 0) {
     writeJsonAtomic(DATA_JOBS_PATH, jobs, { compact: true });
     console.log(`⚡ Pre-cleared ${preCleared} flags for already-complete jobs in assembled dataset`);
@@ -1537,6 +1599,10 @@ export async function runRelocalization(phase) {
     const stillPendingJobs = jobs.filter(needsTranslation);
     const filteredStillPendingJobs = filterPendingForCompany(stillPendingJobs, COMPANY_KEY_FILTER);
     if (filteredStillPendingJobs.length === 0) {
+      resetCompanySkipStateForClearedCompanies(companySkipState, [
+        ...directClearedCompanyKeys,
+        ...preClearedCompanyKeys,
+      ]);
       emitTranslationShadowPreflightV2(() => ({
         dryRun: false,
         notAttemptedReason: 'legacy_preclear_emptied_execution_plan',
@@ -1571,6 +1637,9 @@ export async function runRelocalization(phase) {
           trafficSource: TRAFFIC_SOURCE_PATH,
         },
       }));
+      if (directClearedCompanyKeys.size > 0 || preClearedCompanyKeys.size > 0) {
+        writeCompanySkipState(companySkipState);
+      }
       console.log('✅ All jobs complete after pre-clear. Nothing left to translate.');
       return;
     }
@@ -1645,7 +1714,13 @@ export async function runRelocalization(phase) {
   // Il tempo liberato non resta inutilizzato: un'azienda saltata non
   // incrementa `totalProcessed`, quindi la finestra scorre piu' in basso
   // nell'ordine per traffico prima della deadline.
-  const companySkipState = readCompanySkipState();
+  // A pre-clear is internal progress, not a source re-crawl. Forget the
+  // affected sterile observations so a smaller pending set cannot trigger the
+  // signature-based early rearm on its own (issue #8068 item 5).
+  resetCompanySkipStateForClearedCompanies(companySkipState, [
+    ...directClearedCompanyKeys,
+    ...preClearedCompanyKeys,
+  ]);
   companySkipState.run = Number(companySkipState.run || 0) + 1;
   const companySkipRun = companySkipState.run;
   const companySignatures = new Map();
@@ -1745,7 +1820,16 @@ export async function runRelocalization(phase) {
   // Why the stop reason is hoisted: it is the difference between "the cascade ran
   // out of companies" and "the cascade was never given a window", and only the
   // second is a problem with the run rather than with the queue.
-  let cascadeStop = window.stopReason === 'cascade deadline' ? 'cascade deadline' : 'queue exhausted';
+  let cascadeStop = initialCascadeStopReason({
+    windowStopReason: window.stopReason,
+    allCompaniesSkipped: cascadeCompanyKeys.length === 0 && companyKeys.length > 0,
+    nowMs: LEGACY_CLOCK.now(),
+    runStartMs: RUN_START_MS,
+    cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+    passStartMs: startTime,
+    timeBudgetMs: TIME_BUDGET_MS,
+    timeBudgetFraction: 1,
+  });
   // Ogni azienda della finestra e' saltata (workspace#24). Va detto per nome:
   // il guardrail di coda vuota sopra legge `companyKeys`, la lista PIENA,
   // quindi non scatta, il ciclo gira zero volte e la run finirebbe con
@@ -1753,9 +1837,8 @@ export async function runRelocalization(phase) {
   // indistinguibile da uno stallo, con la regola che produce un falso allarme
   // proprio quando funziona. Nessun `return`: il mop-up a valle e' un
   // meccanismo diverso e puo' ancora liberare job.
-  if (cascadeStop !== 'cascade deadline' && cascadeCompanyKeys.length === 0 && companyKeys.length > 0) {
+  if (cascadeStop === 'all companies skipped') {
     console.log(`\n⏭️  Tutte le ${companyKeys.length} aziende della finestra sono saltate: nessuna e' eleggibile in questa run.`);
-    cascadeStop = 'all companies skipped';
   }
 
   // A/B sul thinking di claude-cli/haiku. Spento di default: si accende con

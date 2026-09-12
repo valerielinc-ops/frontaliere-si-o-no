@@ -2117,6 +2117,21 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-b-jura-requisiti-rinnovo': { it: 'permesso-b-jura-requisiti-rinnovo', en: 'permit-b-jura-requirements-renewal', de: 'aufenthaltsbewilligung-b-jura-anforderungen-verlaengerung', fr: 'permis-b-jura-exigences-renouvellement' },
  'commissione-ue-approva-accordi-svizzera': { it: 'commissione-ue-approva-accordi-svizzera', en: 'eu-committee-approves-swiss-agreements', de: 'eu-kommission-genehmigt-schweiz-abkommen', fr: 'commission-ue-approuve-accords-suisse' },
  'permesso-dimora-b-canton-giura': { it: 'permesso-dimora-b-canton-giura', en: 'residence-permit-b-jura', de: 'aufenthaltsbewilligung-b-jura', fr: 'permis-dimora-b-jura' },
+ 'asib-richiesta-aumenti-bancari': { it: 'asib-richiesta-aumenti-bancari', en: 'asib-bank-salary-demands', de: 'asib-bank-gehaltsforderungen', fr: 'asib-demandes-salaires-banques' },
+ 'economiesuisse-silvan-wildhaber': { it: 'economiesuisse-silvan-wildhaber', en: 'economiesuisse-silvan-wildhaber-is-the-new-president', de: 'economiesuisse-silvan-wildhaber-wird-neuer-prasident', fr: 'economiesuisse-silvan-wildhaber-est-le-nouveau-president' },
+ 'finanze-ospedali-svizzera-2025': { it: 'finanze-ospedali-svizzera-2025', en: 'finances-hospitals-switzerland-2025', de: 'finanzen-krankenhaeuser-schweiz-2025', fr: 'finances-hopitaux-suisse-2025' },
+ 'bitcoin-suisse-taglio-posti-zugo': { it: 'bitcoin-suisse-taglio-posti-zugo', en: 'bitcoin-suisse-job-cuts-zug', de: 'bitcoin-suisse-stellenabbau-zug', fr: 'bitcoin-suisse-suppression-postes-zoug' },
+ 'costi-nidi-servizi-infanzia-canton-sg': { it: 'costi-nidi-servizi-infanzia-canton-sg', en: 'childcare-costs-daycare-canton-st-gallen', de: 'kita-kosten-kinderbetreuung-kanton-st-gallen', fr: 'frais-garde-enfants-creche-canton-saint-gall' },
+ 'svizzeri-spesa-crescita-rallenta': { it: 'svizzeri-spesa-crescita-rallenta', en: 'swiss-spending-growth-slows', de: 'schweizer-konsumwachstum-verlangsamt-sich', fr: 'depenses-suisses-croissance-ralentit' },
+ 'svizzera-siccita-faldeg-acque': { it: 'svizzera-siccita-faldeg-acque', en: 'switzerland-drought-groundwater-risk', de: 'schweiz-duerre-grundwasser-gefahr', fr: 'suisse-secheresse-eaux-souterraines' },
+};
+
+/** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
+export type SwissSlugFallbackReason = {
+  source: 'it-slug';
+  reason: string;
+};
+export const SWISS_SLUG_FALLBACK_REASONS: Record<string, Partial<Record<ArticleLocale, SwissSlugFallbackReason>>> = {
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

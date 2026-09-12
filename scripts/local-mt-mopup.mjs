@@ -34,9 +34,8 @@
  * (scripts/lib/translate-run-clock.mjs). Mirroring the cascade's own elapsed-aware
  * budget, this prevents a cascade that overflowed its 250min gate + a fresh full
  * mop-up + commit/scatter/slug/deploy from approaching the 350min job timeout and
- * losing uncommitted incremental writes. When no run-start marker exists (local
- * run / cascade skipped) the reference falls back to this process's own start, so
- * standalone behaviour is unchanged (bounded purely by LOCAL_MT_TIME_BUDGET_MS).
+ * losing uncommitted incremental writes. Standalone runs without a marker use
+ * this process's own start; the workflow requires the marker before any phase.
  *
  * Usage:
  *   node scripts/local-mt-mopup.mjs [--max-jobs N] [--dry-run]
@@ -56,7 +55,7 @@ import { fileURLToPath } from 'node:url';
 
 import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-jobs.mjs';
 import { titleLooksUntranslated } from './lib/job-locale-utils.mjs';
-import { readRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
+import { resolveRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens } from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
@@ -81,7 +80,11 @@ const MIN_DESC_CHARS = 120;
  * one-line PR on the site that reaches the corpus through the `identical`
  * mirror — no admin rights on the corpus repo, and the same one line reverts it.
  */
-const LANG_AWARE_OVERWRITE = String(process.env.LOCAL_MT_LANG_AWARE_OVERWRITE || '0') === '1';
+export function languageAwareOverwriteEnabled(value) {
+  return String(value || '0') === '1';
+}
+
+const LANG_AWARE_OVERWRITE = languageAwareOverwriteEnabled(process.env.LOCAL_MT_LANG_AWARE_OVERWRITE);
 
 const PYTHON = process.env.LOCAL_MT_PYTHON || 'python3';
 // Per-step ceiling: a fresh budget measured from THIS process's start.
@@ -91,10 +94,9 @@ const STATIC_TIME_BUDGET_MS = Number(process.env.LOCAL_MT_TIME_BUDGET_MS) || 280
 // 350min job timeout for commit/scatter/slug/deploy.
 const MOPUP_DEADLINE_MS = Number(process.env.LOCAL_MT_MOPUP_DEADLINE_MS) || 320 * 60 * 1000;
 // Effective budget is ELAPSED-AWARE (#2212): the smaller of the per-step ceiling
-// and the time LEFT until the run-wide deadline. Falls back to this process's own
-// start when no run-start marker exists (local run / cascade skipped), so the
-// standalone budget stays exactly LOCAL_MT_TIME_BUDGET_MS.
-const RUN_START_MS = readRunStartMs() ?? Date.now();
+// and the time LEFT until the run-wide deadline. Standalone invocations keep a
+// local fallback; the workflow fails closed when its marker is missing.
+const RUN_START_MS = resolveRunStartMs();
 // When this pass IS the first translation step of the run, RUN_START_MS is its own
 // start and the recorded phase begins at 0 — which is the truth we want to see.
 const PHASE_START_MS = Date.now();
@@ -512,6 +514,22 @@ export function classifyMopupWrite({
   return { ...base, incoming, decision: 'write' };
 }
 
+/**
+ * Apply the rollout switch only to the language-aware repair arm. A normal
+ * fill of a missing slot is always eligible; an existing non-empty title is
+ * eligible only when classifyMopupWrite() has proved both that the stored
+ * value is in the wrong language and that the candidate is not. This keeps
+ * the flag from becoming a blanket overwrite switch (#1235).
+ */
+export function shouldApplyMopupWrite({
+  decision,
+  languageDriven = false,
+  langAwareOverwrite = false,
+}) {
+  if (decision !== 'write') return false;
+  return !languageDriven || langAwareOverwrite;
+}
+
 function normalizeCompanyKey(value = '') {
   return String(value || '')
     .trim()
@@ -529,7 +547,7 @@ async function main() {
   // their elapsed-aware deadlines to the TRUE whole-job start, keeping the total
   // under the 350min timeout. No-op when a marker already exists (cascade-first, or
   // this being the Phase 2c pass after the cascade seeded it). Uses this process's
-  // start (RUN_START_MS falls back to now() when no marker exists yet).
+  // start (RUN_START_MS falls back locally when no marker exists yet).
   markRunStart(RUN_START_MS);
 
   // Elapsed-aware early-out (#2212): if the cascade already consumed the run-wide
@@ -733,6 +751,7 @@ async function main() {
   const langWriteReasons = {};
   const langSkipReasons = {};
   let shadowWithheld = 0;
+  let languageFieldsRewritten = 0;
 
   for (const [file, edits] of byFile) {
     if (!budgetOk()) {
@@ -777,17 +796,24 @@ async function main() {
         const bucket = decision === 'write' ? langWriteReasons : langSkipReasons;
         bucket[reason] = (bucket[reason] || 0) + 1;
       }
-      if (decision !== 'write') continue;
       // Shadow arm: with the switch off, a language-driven write is counted and
       // withheld. The corpus is untouched and the log still reports the volume.
-      if (languageDriven && !LANG_AWARE_OVERWRITE) {
-        shadowWithheld++;
+      // Missing fields remain eligible regardless of the rollout switch.
+      if (!shouldApplyMopupWrite({
+        decision,
+        languageDriven,
+        langAwareOverwrite: LANG_AWARE_OVERWRITE,
+      })) {
+        if (decision === 'write' && languageDriven) {
+          shadowWithheld++;
+        }
         continue;
       }
 
       job[bag][locale] = incoming;
       fileChanged = true;
       fieldsFilled++;
+      if (languageDriven) languageFieldsRewritten++;
       touchedJobs.add(jobIdx);
     }
 
@@ -835,7 +861,7 @@ async function main() {
   const langWrites = Object.values(langWriteReasons).reduce((a, b) => a + b, 0);
   const langSkips = Object.values(langSkipReasons).reduce((a, b) => a + b, 0);
   console.log(`\n🌍 [local-mt] Language arm — LOCAL_MT_LANG_AWARE_OVERWRITE=${LANG_AWARE_OVERWRITE ? '1 (ENFORCING, writes applied)' : '0 (SHADOW, writes withheld)'}`);
-  console.log(`   ${langWrites} wrong-language slots with a target-language candidate${LANG_AWARE_OVERWRITE ? ' → overwritten' : ` → WITHHELD (${shadowWithheld} not written)`}`);
+  console.log(`   ${langWrites} wrong-language slots with a target-language candidate${LANG_AWARE_OVERWRITE ? ` → ${languageFieldsRewritten} actually overwritten` : ` → WITHHELD (${shadowWithheld} not written)`}`);
   for (const [reason, n] of sorted(langWriteReasons)) console.log(`      existing was ${reason.padEnd(22)} ${String(n).padStart(6)}`);
   console.log(`   ${langSkips} wrong-language slots whose candidate was ALSO wrong-language → still rejected`);
   for (const [reason, n] of sorted(langSkipReasons)) console.log(`      candidate was ${reason.padEnd(21)} ${String(n).padStart(6)}`);

@@ -129,9 +129,12 @@ const SubscriptionCTA: React.FC = () => {
  sourceComponent: 'SubscriptionCTA',
  sourceRouteFamily: 'calculator',
  locale: navigator.language || 'it-IT',
- isActive: false,
- status: 'pending',
- // Shown by the ConsentNotice on the checkbox below, in this same
+        isActive: false,
+        status: 'pending',
+        // The checked form is an explicit request for a new DOI cycle after a
+        // previous opt-out; it is not proof that the address is confirmed.
+        reconsent: true,
+        // Shown by the ConsentNotice on the checkbox below, in this same
  // locale, and stored from the same function (#5712/#5718).
  ...consentProof('communicationsOptIn', 'email_checkbox', locale),
  consentGiven: true,
@@ -140,7 +143,7 @@ const SubscriptionCTA: React.FC = () => {
  'newsletter_upsert',
  );
 
- if (upsert.existed) {
+ if (upsert.existed && upsert.status !== 'pending') {
  setStatus('exists');
  return;
  }
