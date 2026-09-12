@@ -295,6 +295,7 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
     if (!publicUrl) {
       throw new Error('recruitingapp-2649: source vacancy has no canonical Umantis identity');
     }
+    const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} recruitingapp-2649 ch`);
@@ -327,8 +328,8 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',

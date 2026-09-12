@@ -1791,7 +1791,7 @@ export const forwardPublisherApplication = onDocumentCreated(
 // the existing account-deletion tombstone instead of creating a new document;
 // only the write that clears that tombstone is eligible for the new Auth user.
 export const syncNewsletterSubscriberAuth = onDocumentWritten(
- { region: 'europe-west6', memory: '256MiB', document: 'newsletter_subscribers/{email}' },
+ { region: 'europe-west6', memory: '256MiB', retry: true, document: 'newsletter_subscribers/{email}' },
  async (event) => {
  const emailId = event.params.email;
  if (emailId === '_meta_') return;
@@ -1824,7 +1824,7 @@ export const syncNewsletterSubscriberAuth = onDocumentWritten(
 // cascade-deletes the now-permanently-unreachable users/{uid} + savedJobs,
 // plus tombstones email-keyed newsletter / job-alert subscriber docs (client
 // rules deny delete on newsletter_subscribers, so the profile wipe cannot).
-export const cleanupUserDataOnAccountDelete = functionsV1.auth.user().onDelete(async (user) => {
+export const cleanupUserDataOnAccountDelete = functionsV1.runWith({ failurePolicy: true }).auth.user().onDelete(async (user) => {
  try {
  const result = await cleanupUserDataForDeletedAccount({ uid: user.uid, email: user.email });
  console.log(`[cleanupUserDataOnAccountDelete] uid=${user.uid} deletedSavedJobs=${result.deletedSavedJobs} tombstonedNewsletter=${result.tombstonedNewsletter} tombstonedJobAlert=${result.tombstonedJobAlert}`);

@@ -523,6 +523,16 @@ describe('profile delete path no longer pretends client newsletter delete is the
     expect(indexSrc).toMatch(/cleanupUserDataForDeletedAccount\(\{\s*uid:\s*user\.uid,\s*email:\s*user\.email\s*\}\)/);
   });
 
+  it('configures retries for both tombstone triggers before rethrowing failures', () => {
+    const sync = indexSrc.slice(
+      indexSrc.indexOf('export const syncNewsletterSubscriberAuth'),
+      indexSrc.indexOf('// v1 (not v2/identity\'s beforeUserDeleted)'),
+    );
+    const cleanup = indexSrc.slice(indexSrc.indexOf('export const cleanupUserDataOnAccountDelete'));
+    expect(sync).toMatch(/retry:\s*true/);
+    expect(cleanup).toMatch(/functionsV1\.runWith\(\{\s*failurePolicy:\s*true\s*\}\)\.auth\.user\(\)\.onDelete/);
+  });
+
   it('only runs the write trigger for a tombstone when the marker is actually cleared', () => {
     expect(indexSrc).toMatch(/const clearedAccountDeletion = wasAccountDeleted && !isAccountDeletedTombstone\(after\.data\(\)\)/);
     expect(indexSrc).toMatch(/if \(isNewDocument && isAccountDeletedTombstone\(after\.data\(\)\)\) return/);

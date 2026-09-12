@@ -188,6 +188,7 @@ export async function fetchAllArdianJobs() {
     const location = normalizeSpace(rawLocation) || 'Zurich';
     const canton = inferSwissTargetCanton(location) || 'ZH';
     const publicUrl = listing.url || CAREER_URL;
+    const employmentType = detectEmploymentType(listing.timeType || '', title);
 
     // Workday listing endpoint never returns the body — fetch detail.
     const detailDescription = await fetchWorkdayJobDescriptionText(
@@ -239,8 +240,8 @@ export async function fetchAllArdianJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || '', title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Finanza / Private Equity',
       currency: 'CHF',

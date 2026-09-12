@@ -221,6 +221,28 @@ describe('standard crawler authoritative-empty policy', () => {
     );
   });
 
+  it('keeps the existing slice when missing detail URLs exceed the source-loss quota', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'missing-detail-url-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Missing Detail URL Test',
+        root,
+        fetchJobs: async () => ({
+          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+          missingDetailUrlCount: 1,
+        }),
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
+    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(mocks.writeSummaryCrawlerSlice).not.toHaveBeenCalled();
+  });
+
   it('does not claim an authoritative empty snapshot on a run that published jobs', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'authoritative-empty-root-'));
     try {

@@ -210,6 +210,7 @@ export async function fetchAllOkjobJobs(runtime = {}) {
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
     const publicUrl = listing.url;
+    const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'fr');
     const jobSlug = slugify(`${title} okjob ch`);
@@ -242,8 +243,8 @@ export async function fetchAllOkjobJobs(runtime = {}) {
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',

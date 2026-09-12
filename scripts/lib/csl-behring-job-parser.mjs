@@ -277,6 +277,7 @@ export async function fetchAllCslBehringJobs() {
     const location = cleaned || 'Bern';
     const canton = inferSwissTargetCanton(location) || 'BE';
     const publicUrl = listing.url || CAREER_URL;
+    const employmentType = detectEmploymentType(listing.timeType || '', title);
 
     // Workday listing endpoint never returns the body; reuse the detail
     // response already fetched for the authoritative location fields.
@@ -332,8 +333,8 @@ export async function fetchAllCslBehringJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || '', title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Biotech / Farmaceutico',
       currency: 'CHF',

@@ -867,6 +867,14 @@ export function normalizeCrawlerFetchResult(fetchResult) {
   return { jobs: undefined, metadata: {} };
 }
 
+// A source-specific parser may report how many otherwise-valid listings it
+// discarded because it could not derive a per-vacancy detail URL. Once that
+// loss exceeds 40% of the existing slice, keep the old slice: the ordinary
+// anti-shrink guard only reacts to the resulting job count and deliberately
+// allows a 40%-retained large slice through, which would make this failure
+// mode silently archive live pages.
+export const MISSING_DETAIL_URL_MAX_RATIO = 0.4;
+
 /**
  * Restore the active slug identity of jobs already present in a crawler slice.
  *
@@ -1008,6 +1016,24 @@ export async function runStandardCrawlerPipeline(config) {
   // Set before every early return below, so a soft-exit slice written by the
   // exit guard carries the same evidence a published one would.
   counts.parsed = Array.isArray(parsedJobs) ? parsedJobs.length : 0;
+
+  const missingDetailUrlCount = Number(fetchMetadata?.missingDetailUrlCount);
+  const missingDetailUrlRatio = companyExisting.length > 0 && Number.isFinite(missingDetailUrlCount)
+    ? missingDetailUrlCount / companyExisting.length
+    : 0;
+  if (
+    companyExisting.length > 0
+    && Number.isFinite(missingDetailUrlCount)
+    && missingDetailUrlCount > 0
+    && missingDetailUrlRatio > MISSING_DETAIL_URL_MAX_RATIO
+  ) {
+    console.warn(
+      `\n⚠️ ${companyLabel}: ${missingDetailUrlCount}/${companyExisting.length} valid listings `
+      + `(${Math.round(missingDetailUrlRatio * 100)}%) lost their detail URL `
+      + `(limit ${MISSING_DETAIL_URL_MAX_RATIO * 100}%). Keeping existing jobs.`,
+    );
+    return;
+  }
 
   // Only source-specific crawlers with an explicit completeness proof may
   // retire every unmatched record immediately. Validation runs before the

@@ -310,7 +310,7 @@ jobs:
       # The second half stays because `audit` is `continue-on-error: true` and
       # can fail without turning the job red, which `failure()` alone misses.
       - name: Report audit crash to GitHub Issues
-        if: failure() || steps.audit.outcome != 'success'
+        if: ${{ !cancelled() && (failure() || steps.audit.outcome != 'success') }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
