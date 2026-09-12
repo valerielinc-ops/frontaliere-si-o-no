@@ -43,7 +43,6 @@ import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 import type { SimulationInputs } from '@/types';
 
 describe('useUserState', () => {
-  const mockUpsertNewsletter = vi.fn(() => Promise.resolve(true));
   const mockSetInputs = vi.fn();
   const mockUrlHydrated = { current: false };
 
@@ -56,7 +55,7 @@ describe('useUserState', () => {
 
   const renderUserState = () =>
     renderHook(() =>
-      useUserState(mockUpsertNewsletter, mockSetInputs, mockUrlHydrated),
+      useUserState(mockSetInputs, mockUrlHydrated),
     );
 
   it('returns correct initial state', () => {
@@ -84,8 +83,7 @@ describe('useUserState', () => {
   });
 
   describe('chatbotContinueWithEmail', () => {
-    it('subscribes to newsletter and tracks analytics on success', async () => {
-      mockUpsertNewsletter.mockResolvedValueOnce(true);
+    it('grants access and tracks analytics without newsletter write', async () => {
       const { result } = renderUserState();
 
       let ok: boolean;
@@ -94,24 +92,27 @@ describe('useUserState', () => {
       });
 
       expect(ok!).toBe(true);
-      expect(mockUpsertNewsletter).toHaveBeenCalledWith('test@example.com', 'chatbot_email', null);
-      expect(Analytics.trackNewsletter).toHaveBeenCalledWith('subscribe', 'example.com');
-      expect(unlockAchievement).toHaveBeenCalledWith('newsletter_sub');
+      expect(Analytics.trackUIInteraction).toHaveBeenCalledWith(
+        'chatbot', 'auth_gate', 'email_access', 'success',
+      );
+      expect(Analytics.trackNewsletter).not.toHaveBeenCalled();
+      expect(unlockAchievement).not.toHaveBeenCalled();
     });
 
-    it('tracks error on newsletter failure', async () => {
-      mockUpsertNewsletter.mockResolvedValueOnce(false);
+    it('rejects an invalid email without newsletter write', async () => {
       const { result } = renderUserState();
 
       let ok: boolean;
       await act(async () => {
-        ok = await result.current.chatbotContinueWithEmail('fail@test.com');
+        ok = await result.current.chatbotContinueWithEmail('');
       });
 
       expect(ok!).toBe(false);
       expect(Analytics.trackUIInteraction).toHaveBeenCalledWith(
-        'chatbot', 'auth_gate', 'newsletter_email_subscribe', 'error',
+        'chatbot', 'auth_gate', 'email_access', 'error',
       );
+      expect(Analytics.trackNewsletter).not.toHaveBeenCalled();
+      expect(unlockAchievement).not.toHaveBeenCalled();
     });
   });
 

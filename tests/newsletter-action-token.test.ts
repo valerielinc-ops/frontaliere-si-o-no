@@ -329,6 +329,63 @@ describe('the confirm window', () => {
     });
     expect(result.status).toBe(200);
   });
+
+  it('does not let a stale confirmation link revive an opted-out address', async () => {
+    const db = createFakeDb({
+      'newsletter_subscribers/recipient@example.com': {
+        status: 'unsubscribed',
+        isActive: false,
+        unsubscribed_at: new Date().toISOString(),
+      },
+    });
+    const result = await handleSubscriptionManagement({
+      action: 'confirm',
+      email: EMAIL,
+      token: generateConfirmationToken(EMAIL, SECRET)!,
+      secret: SECRET,
+      locale: 'it',
+      db: db as never,
+    });
+    expect(result.status).toBe(409);
+    expect(db.docs['newsletter_subscribers/recipient@example.com']).toMatchObject({
+      status: 'unsubscribed',
+      isActive: false,
+    });
+    expect(db.events).toHaveLength(0);
+  });
+
+  it('login mode never revives or confirms an opted-out address', async () => {
+    const db = createFakeDb({
+      'newsletter_subscribers/recipient@example.com': {
+        status: 'unsubscribed',
+        isActive: false,
+        unsubscribed_at: new Date().toISOString(),
+      },
+    });
+    const result = await handleSubscriptionManagement({
+      action: 'confirm',
+      mode: 'login',
+      email: EMAIL,
+      token: generateConfirmationToken(EMAIL, SECRET)!,
+      secret: SECRET,
+      locale: 'it',
+      db: db as never,
+    });
+    // Local tests may not have IAM signBlob, so authentication can fail before
+    // the response is rendered; either outcome must leave the subscription
+    // untouched. In production a successful mint returns 200/loginOnly.
+    expect([200, 500]).toContain(result.status);
+    expect(db.docs['newsletter_subscribers/recipient@example.com']).toMatchObject({
+      status: 'unsubscribed',
+      isActive: false,
+    });
+    expect(db.events).toHaveLength(0);
+    if (result.status === 200) {
+      expect(result.loginOnly).toBe(true);
+      expect(result.html).toContain('Accesso effettuato');
+      expect(result.html).not.toContain('Iscrizione riattivata');
+    }
+  });
 });
 
 describe('backward compatibility', () => {

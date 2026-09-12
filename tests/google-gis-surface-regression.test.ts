@@ -38,6 +38,7 @@ describe('Google GIS surfaces', () => {
     expect(socialButtonsSource).toContain('renderGoogleButtonWithReadiness');
     expect(socialButtonsSource).toContain('const [googleButtonReady, setGoogleButtonReady] = useState(false);');
     expect(socialButtonsSource).toContain('signInWithLinkedIn');
+    expect(socialButtonsSource).toContain('click_listener: onAuthIntent');
     expect(subscriptionCtaSource).toContain('SocialSignInButtons');
     // LeadMagnetCTA keeps the inlined readiness pattern for its compact variant
     // (different sizing); the full variant uses the shared component.
