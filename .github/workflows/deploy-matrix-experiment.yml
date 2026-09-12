@@ -38,6 +38,10 @@ on:
         type: boolean
         required: false
         default: false
+      retention_probe:
+        description: 'Investigation-only: release exactly one jobsSeo retention candidate and label its corpus-release gcFreed measurement'
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -157,6 +161,7 @@ jobs:
       FAST_BUILD: ${{ github.event.inputs.fast_build == 'true' && '1' || '' }}
       SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+      JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -277,6 +282,7 @@ jobs:
     env:
       SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+      JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
