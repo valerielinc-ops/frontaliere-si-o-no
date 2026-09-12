@@ -53,6 +53,14 @@ describe('L2 Demand → Utility', () => {
     expect(verdict.snapshot.outcomes).toBeNull();
   });
 
+  it('does not manufacture a 0/0 outcome from an empty cluster list', async () => {
+    const input = tempFile({ generatedAt: NOW.toISOString(), clusters: [] });
+    const result = await runL2({ now: NOW, sourcePath: input.file, logger: { log() {} } });
+    expect(result.verdict.quality).toBe('zero');
+    expect(result.observation.numerator).toBeNull();
+    expect(result.observation.denominator).toBeNull();
+  });
+
   it('rejects a cluster whose clicks exceed impressions', () => {
     const verdict = validateDemandSnapshot(snapshot({ clusters: [cluster({ totalClicks: 1201 })] }), { now: NOW });
     expect(verdict.ok).toBe(false);

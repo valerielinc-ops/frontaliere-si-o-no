@@ -248,7 +248,10 @@ export async function runL2({
   } catch (error) {
     verdict = baseVerdict({ sourcePath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
-  const measurable = verdict.quality === 'observed' || verdict.quality === 'zero';
+  // `zero` is a quality state, not proof of a zero outcome. Keep the metric
+  // non-measurable until the explicit outcome join and sample gate are valid;
+  // an empty cluster list must never manufacture a 0/0 observation.
+  const measurable = verdict.quality === 'observed';
   const generatedAt = finiteDate(verdict.snapshot?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
     ? generatedAt.toISOString()
