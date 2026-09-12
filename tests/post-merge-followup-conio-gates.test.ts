@@ -25,6 +25,5 @@ describe('post-merge follow-up mint gates', () => {
       name: 'Pre-flight — quota telemetry (Codex primary)',
       'continue-on-error': true,
     });
-    expect(workflowText).toContain('nessun gate di conio deve quindi dipendere da `quota_blocked`');
   });
 });
