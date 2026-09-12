@@ -24,6 +24,7 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  actions: read
   id-token: write
 
 jobs:
@@ -324,6 +325,32 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
+      - name: Claim redflag PR + HEAD + review verdict (zero-Claude)
+        id: claim
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: acquire
+          CLAIM_KIND: redflag
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          EVENT_KEY: review:${{ github.event.review.id }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          CLAIM_TTL_SEC: '3600'
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: node scripts/ci/pr-fixer-claim.mjs --claim
+
+      - name: Fail closed when redflag claim is unreadable
+        if: steps.claim.outputs.claim_error == 'true'
+        run: |
+          echo "::error::Claim redflag PR+HEAD+verdict illeggibile o non verificabile → nessun fixer Claude."
+          exit 1
+
+      - name: Skip already-consumed redflag verdict (zero-Claude)
+        if: steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_error != 'true'
+        run: echo "Verdetto 🔴 già acquisito per questa PR+HEAD → nessun secondo round Claude."
+
       # ── Round cap + capability guard (deterministico, prima di Claude) ────
       # Conta i marker `<!-- REDFLAG_FIX_ROUND: N -->` già sulla PR. A N>=2 →
       # escalation a needs-human, STOP senza Claude. Altrimenti incrementa.
@@ -353,6 +380,7 @@ jobs:
       # variabile assente o diversa da 'true' → si ricade sul solo GITHUB_PAT.
       - name: Round cap + capability guard + tier
         id: guard
+        if: steps.claim.outputs.claim_allowed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -363,8 +391,11 @@ jobs:
           MAX_ROUNDS=2
 
           # Round corrente = numero di marker già presenti.
-          comments=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
-            --jq '[.[] | .body] | join("\n")' 2>/dev/null || echo "")
+          if ! comments=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '[.[] | .body] | join("\n")' 2>/dev/null); then
+            echo "::error::Commenti PR illeggibili: impossibile verificare il round cap redflag."
+            exit 1
+          fi
           ROUND=$(printf '%s' "$comments" | grep -oE 'REDFLAG_FIX_ROUND: [0-9]+' \
             | grep -oE '[0-9]+' | sort -rn | head -1 || true)
           ROUND=${ROUND:-0}
@@ -440,13 +471,16 @@ jobs:
 
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
           # run muore, il round è comunque contato → l'anti-loop tiene).
-          gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_FIX_ROUND: %s -->\n_🔴-fixer round %s/%s avviato (auto)._' "$NEXT" "$NEXT" "$MAX_ROUNDS")" \
-            2>/dev/null || true
+          if ! gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_FIX_ROUND: %s -->\n_🔴-fixer round %s/%s avviato (auto)._' "$NEXT" "$NEXT" "$MAX_ROUNDS")" \
+            2>/dev/null; then
+            echo "::error::Marker REDFLAG_FIX_ROUND non persistito: stop fail-closed prima di Claude."
+            exit 1
+          fi
           echo "proceed=true" >> "$GITHUB_OUTPUT"
           echo "round=$NEXT"  >> "$GITHUB_OUTPUT"
 
       - name: Configure git identity
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         run: |
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
@@ -456,7 +490,7 @@ jobs:
       # re-review non partirebbe (anti-ricorsione); il fix verrebbe comunque
       # committato. Esposto come remote authenticato.
       - name: Configure push remote (App token / PAT)
-        if: steps.guard.outputs.proceed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '')
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '')
         env:
           PUSH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
@@ -478,7 +512,7 @@ jobs:
       # gonfiato nel loop-health-report #1951).
       - name: Record base SHA (pre-Claude)
         id: base
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -504,7 +538,7 @@ jobs:
       # bundle con una sola `Read`.
       - name: Collect PR + review context (zero-Claude)
         id: ctx
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -614,11 +648,11 @@ jobs:
           ls -la "$OUT"
 
       - name: Setup Headroom compression proxy
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         uses: ./.github/actions/setup-headroom
 
       - name: Install deterministic PR body gate
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         run: |
           set -euo pipefail
           gate_dir="$RUNNER_TEMP/pr-body-gate-bin"
@@ -629,7 +663,7 @@ jobs:
 
       - name: Pre-flight — Claude quota telemetry (Codex primary)
         id: quota
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -646,7 +680,7 @@ jobs:
         # sulle ultime run) e una coda per gli step `if: always()`.
         timeout-minutes: 30
         id: claude_review
-        if: steps.guard.outputs.proceed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         # Non far fallire il job sull'exit non-zero della action: lo `Classify
         # outcome` finale decide il colore in base al LAVORO reale (commit pushato),
         # non al subtype della CLI. Un error_max_turns DOPO un push valido non è un
@@ -730,12 +764,12 @@ jobs:
             - Una sola passata: applica, valida, committa, pusha, aggiorna body, STOP.
 
       - name: Claude usage metrics
-        if: always() && steps.guard.outputs.proceed == 'true' && steps.claude_review.outputs.claude_used == 'true'
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claude_review.outputs.claude_used == 'true'
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "pr-redflag-fixer"
 
       # Un 429 prima del primo turno non deve consumare il round anti-loop.
       - name: Refund round on Claude quota 429 (zero-Claude)
-        if: always() && steps.guard.outputs.proceed == 'true'
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -772,7 +806,7 @@ jobs:
       # step non hanno continue-on-error. Mai fa-passare un gate: il round non ha
       # gate, è telemetria di colore (cfr. #2288, disambigua intenzionale vs crash).
       - name: Classify outcome (work-done, not CLI exit)
-        if: always() && steps.guard.outputs.proceed == 'true'
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -802,3 +836,22 @@ jobs:
           fi
           echo "Nessun push ma Claude terminato pulito ('$CLAUDE_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
           exit 0
+
+      - name: Finalize redflag PR + HEAD + review claim
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: finalize
+          CLAIM_KIND: redflag
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          EVENT_KEY: review:${{ github.event.review.id }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
+          PROCEED: ${{ steps.guard.outputs.proceed }}
+          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
+          EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: node scripts/ci/pr-fixer-claim.mjs --claim
