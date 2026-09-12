@@ -157,7 +157,7 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(html).not.toContain('class="thp"');
   });
 
-  it('buildThinCantonHubHtml keeps a compact window on page 1 and page N (#8016)', () => {
+  it('buildThinCantonHubHtml keeps the BFS ladder on page 1 and a compact window after (#8016)', () => {
     const totalPages = 400;
     const mk = (page: number) => buildThinCantonHubHtml({
       locale: 'it', hub: 'tutti', canton: 'argovia', cantonLabel: 'Argovia',
@@ -171,8 +171,8 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
 
     const laddered = (html: string) =>
       new Set([...html.matchAll(/cerca-lavoro-argovia\/tutti\/page-(\d+)\//g)].map((m) => Number(m[1])));
-    // Both page-1 and page-N keep only the compact window: 1 / current +/- 1 / last.
-    expect([...laddered(first)].sort((a, b) => a - b)).toEqual([2, 400]);
+    // Page-1 keeps every page-N anchor — it is the shallow BFS bridge.
+    expect(laddered(first).size).toBe(totalPages - 1);
     // 200 is page-200's own canonical/og:url, not a ladder anchor (the current
     // page renders as a bare <strong>, so the ladder itself links 199/201/400
     // plus the basePath for page-1).
@@ -181,8 +181,8 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(inner).toContain('<a href="/cerca-lavoro-argovia/tutti/page-201/" rel="next">201</a>');
     expect(inner).toContain('/cerca-lavoro-argovia/tutti/');
     const pagination = (html: string) => html.match(/<nav class="s-ay7Grc"[\s\S]*?<\/nav>/)?.[0] ?? '';
-    expect(Buffer.byteLength(pagination(first))).toBeLessThan(2000);
     expect(Buffer.byteLength(pagination(inner))).toBeLessThan(2000);
+    expect(Buffer.byteLength(pagination(first))).toBeGreaterThan(Buffer.byteLength(pagination(inner)));
   });
 
   it('keeps head and body prev/next URLs identical on page 2', () => {

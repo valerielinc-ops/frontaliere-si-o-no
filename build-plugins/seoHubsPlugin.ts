@@ -1693,36 +1693,46 @@ export function buildThinCantonHubHtml(args: {
     : '';
   const pageTitle = `${CANTON_HUB_LABELS[locale][hub]} ${cantonLabel}${pageSuffix} | Frontaliere`;
 
-  // Pagination stays bounded on every page, including page 1. The old page-1
-  // exception emitted one anchor per page and made the largest canton hubs
-  // grow O(totalPages) even though page-N already had the compact navigator.
-  // The permanent BFS-depth redesign is tracked separately in #7803; this
-  // follow-up closes the thin-hub page-weight residue with one shared window.
+  // BFS-depth closure: page 1 is the shallow bridge for the `tutti` archive.
+  // Linking every page-N from page 1 keeps each linked job leaf within the
+  // audit's four-hop budget (home → canton → tutti/page-N → job). The full
+  // ladder is emitted on page 1 only; page-N > 1 keeps the compact navigator
+  // so the archive is O(totalPages), not O(totalPages²).
   //
-  // CSS classes `.thp` (page link) / `.thc` (current page) replace what was
-  // ~250 B of inline styles per anchor with ~12 B class refs. On a 400-page
-  // hub this saves ~90 KB per emitted page (× 4 locales × ~30 paginated
-  // cantons ≈ 200 MB dist). Same pattern as the `.hp/.hc` fix landed in
-  // `renderPagination` on 2026-05-18 for the master-hub regression on
-  // `/cerca-lavoro-ticino/tutti/page-387/`.
+  // The permanent O(√totalPages) redistribution is tracked separately in
+  // #7803/#4209. Until that depth redesign also changes the parent hub and
+  // sitemap contracts, removing page-1's bridge would bury middle-page job
+  // leaves beyond the enforced BFS depth.
+  //
+  // Page numbers use the compact, bare-anchor form already used by the
+  // master-hub renderer. Keep the measurement/revert decision in the PR
+  // evidence rather than relying on an unmeasured per-page estimate here.
   let paginationHtml = '';
   if (totalPages > 1) {
     const paginationLabel = locale === 'en' ? 'Browse all pages'
       : locale === 'de' ? 'Alle Seiten durchsuchen'
       : locale === 'fr' ? 'Parcourir toutes les pages'
       : 'Sfoglia tutte le pagine';
-    // Bare page number (was `${pageWord}&nbsp;${p}`). The compact window keeps
-    // the first, last and adjacent pages while dropping the O(totalPages)
-    // page-1 ladder. The `<details><summary>` + `<nav aria-label>` retain the
-    // browse context and the prev/next chain remains explicit.
+    // Bare page number (was `${pageWord}&nbsp;${p}`). The full page-1 ladder
+    // is the load-bearing BFS bridge; page-N > 1 uses the first, last and
+    // adjacent pages. The `<details><summary>` + `<nav aria-label>` retain
+    // the browse context and the prev/next chain remains explicit.
     const anchors: string[] = [];
-    const windowPages = new Set<number>([1, totalPages, page - 1, page, page + 1]);
-    for (const p of [...windowPages].filter((p) => p >= 1 && p <= totalPages).sort((a, b) => a - b)) {
-      const href = p === 1 ? basePath : paginatedPath(basePath, p);
-      if (p === page) anchors.push(`<strong>${p}</strong>`);
-      else {
-        const rel = p === page - 1 ? ' rel="prev"' : p === page + 1 ? ' rel="next"' : '';
-        anchors.push(`<a href="${href}"${rel}>${p}</a>`);
+    if (page === 1) {
+      for (let p = 1; p <= totalPages; p++) {
+        const href = p === 1 ? basePath : paginatedPath(basePath, p);
+        if (p === page) anchors.push(`<strong>${p}</strong>`);
+        else anchors.push(`<a href="${href}">${p}</a>`);
+      }
+    } else {
+      const windowPages = new Set<number>([1, totalPages, page - 1, page, page + 1]);
+      for (const p of [...windowPages].filter((p) => p >= 1 && p <= totalPages).sort((a, b) => a - b)) {
+        const href = p === 1 ? basePath : paginatedPath(basePath, p);
+        if (p === page) anchors.push(`<strong>${p}</strong>`);
+        else {
+          const rel = p === page - 1 ? ' rel="prev"' : p === page + 1 ? ' rel="next"' : '';
+          anchors.push(`<a href="${href}"${rel}>${p}</a>`);
+        }
       }
     }
     // Always-open <details> so the BFS walker (and crawlers) see every <a>
@@ -1730,7 +1740,7 @@ export function buildThinCantonHubHtml(args: {
     // are still parsed by Googlebot, but the audit walker reads raw HTML
     // and would still discover them either way — `open` is for UX so the
     // ladder is visible on first paint.
-    const summaryCount = anchors.length;
+    const summaryCount = page === 1 ? totalPages : anchors.length;
     paginationHtml = `<nav class="s-ay7Grc" aria-label="${esc(paginationLabel)}"><details class="s-Ery2Xe" open><summary class="s-goeAUL">${esc(paginationLabel)} (${summaryCount})</summary><div class="s-6_t7LY hpl">${anchors.join('')}</div></details></nav>`;
   }
 
