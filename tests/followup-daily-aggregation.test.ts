@@ -279,6 +279,30 @@ describe('daily follow-up identity and dedup', () => {
 });
 
 describe('daily item parsing and lifecycle', () => {
+  it('recupera il formato shorthand del triage e apre gli item senza State', () => {
+    const shorthand = [
+      'State: collecting',
+      '',
+      '## Origine',
+      '- PR: #8101',
+      '',
+      '## Item',
+      item(`FU-${DAY}-001`)
+        .replace('- State: open\n', '')
+        .replace('- Target file:', '- Target repository: owner/repo\n- Target file:'),
+      '',
+    ].join('\n');
+    const title = dailyBucketTitle(DAY, 'owner/repo', 1);
+    expect(bucketState(shorthand)).toBe('collecting');
+    expect(dailyKeyFromBucketBody(shorthand)).toBe(DAY);
+    expect(hasDailyBucketRepositoryConsistency(shorthand, 'owner/repo')).toBe(true);
+
+    const decision = decideDailyMintGate({ title, body: shorthand }, { triageComplete: true });
+    expect(decision).toMatchObject({ action: 'seal', reason: 'daily-bucket-sealed' });
+    expect(bucketState(decision.body || '')).toBe('sealed');
+    expect(selectFirstOpenItem(decision.body || '')?.id).toBe(`FU-${DAY}-001`);
+  });
+
   it('segnala una fence Markdown non terminata e blocca sealing, queue, reconcile e close', () => {
     const unterminated = body(item(`FU-${DAY}-001`)).replace(
       '- Acceptance token: `firstGuard()`',

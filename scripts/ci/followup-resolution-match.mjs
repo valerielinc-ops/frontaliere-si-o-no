@@ -556,6 +556,24 @@ function fieldValuesOutsideMarkdownProtection(text, field) {
   return values;
 }
 
+/**
+ * Read bucket-header fields in both forms emitted by the triage prompt:
+ * `- Field: value` (canonical) and `Field: value` (legacy/Claude shorthand).
+ * Item fields remain strict bullet fields; only the slice before the first item
+ * may use the shorthand, so quoted/fenced content cannot become metadata.
+ */
+function headerFieldValuesOutsideMarkdownProtection(text, field) {
+  const escaped = String(field).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`^\\s*(?:-\\s+)?${escaped}\\s*:\\s*(.*?)\\s*$`, 'i');
+  const values = [];
+  for (const record of markdownRecords(text)) {
+    if (record.protected) continue;
+    const match = re.exec(record.line);
+    if (match) values.push(match[1].trim());
+  }
+  return values;
+}
+
 function stateFieldValuesOutsideMarkdownProtection(text) {
   return fieldValuesOutsideMarkdownProtection(text, 'State').map((value) => value.toLowerCase());
 }
@@ -825,11 +843,22 @@ export function dailyKeyFromBucketBody(body) {
   const source = String(body || '');
   const firstItem = parseFollowupItems(source)[0];
   const head = source.slice(0, firstItem?.start ?? source.length);
-  const values = fieldValuesOutsideMarkdownProtection(head, 'Daily key');
+  const values = headerFieldValuesOutsideMarkdownProtection(head, 'Daily key');
   const keys = values
     .map((value) => /^(\d{4}-\d{2}-\d{2})\b/.exec(value)?.[1] || null)
     .filter(Boolean);
-  return keys.length === 1 && values.length === 1 ? keys[0] : null;
+  if (keys.length === 1 && values.length === 1) return keys[0];
+  if (values.length) return null;
+
+  // The prompt has historically required the stable date in every item ID but
+  // did not always print a separate `Daily key` header.  Recover that form only
+  // when every parsed item carries one valid, identical date; mixed/malformed
+  // IDs remain fail-closed.
+  const itemKeys = parseFollowupItems(source).map((item) => followupItemDailyKey(item.id));
+  const uniqueKeys = [...new Set(itemKeys)];
+  return itemKeys.length > 0 && itemKeys.every(Boolean) && uniqueKeys.length === 1
+    ? uniqueKeys[0]
+    : null;
 }
 
 function normalizeRepositoryPart(value) {
@@ -841,8 +870,20 @@ export function dailyBucketTargetRepository(body) {
   const source = String(body || '');
   const firstItem = parseFollowupItems(source)[0];
   const head = source.slice(0, firstItem?.start ?? source.length);
-  const values = fieldValuesOutsideMarkdownProtection(head, 'Target repository');
-  return values.length === 1 ? values[0].trim() : null;
+  const values = headerFieldValuesOutsideMarkdownProtection(head, 'Target repository');
+  if (values.length === 1) return values[0].trim();
+  if (values.length) return null;
+
+  // A bucket without a header is still safe to inspect when every item declares
+  // exactly one same target repository.  Never infer an owner from only a subset
+  // of items: that would let a mixed bucket cross the site/corpus boundary.
+  const itemRepositories = parseFollowupItems(source).map((item) => {
+    const declared = fieldValuesOutsideMarkdownProtection(item.text, 'Target repository');
+    return declared.length === 1 ? declared[0].trim() : null;
+  });
+  const normalized = [...new Set(itemRepositories.filter(Boolean).map(normalizeRepositoryPart))];
+  if (!itemRepositories.length || itemRepositories.some((value) => !value) || normalized.length !== 1) return null;
+  return itemRepositories[0];
 }
 
 /** Require title/header/item repository declarations to agree when present. */
@@ -880,7 +921,7 @@ export function bucketState(body) {
   // The bucket state belongs to the Batch header. Do not mistake a quoted
   // `- State: collecting` inside an item's Original text/code fence for it.
   const head = source.slice(0, firstItem?.start ?? source.length);
-  const values = stateFieldValuesOutsideMarkdownProtection(head);
+  const values = headerFieldValuesOutsideMarkdownProtection(head, 'State').map((value) => value.toLowerCase());
   if (values.length !== 1 || !/^(collecting|sealed)$/i.test(values[0])) return null;
   return values[0].toLowerCase();
 }
