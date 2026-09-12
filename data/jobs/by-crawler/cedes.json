@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-09-11T23:06:56.634Z",
+  "assembledAt": "2026-09-12T12:55:21.196Z",
   "jobs": [
     {
       "id": "cedes-697abaeca835",
@@ -12,7 +12,7 @@
         "fr": "developpement-des-entreprises-reseau-professionnel-ea-cedes-ag-landquart"
       },
       "company": "CEDES AG",
-      "companyKey": "cedes",
+      "companyKey": "cedes-ag",
       "companyDomain": "cedes.com",
       "title": "Business Development EA Professional Network",
       "titleByLocale": {
@@ -43,7 +43,7 @@
       "url": "https://www.cedes.com/en/career/jobs/business-development-ea-professional-network/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:52.433Z",
+      "crawledAt": "2026-09-12T12:55:14.956Z",
       "previousSlugs": [
         "business-development-ea-professional-network-cedes-landquart",
         "sviluppo-aziendale-ea-rete-professionale-cedes-ag-landquart"
@@ -86,7 +86,7 @@
         "fr": "electronique-acheteur-principal-cedes-ag-landquart"
       },
       "company": "CEDES AG",
-      "companyKey": "cedes",
+      "companyKey": "cedes-ag",
       "companyDomain": "cedes.com",
       "title": "Lead Buyer Electronics",
       "titleByLocale": {
@@ -117,7 +117,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:52.027Z",
+      "crawledAt": "2026-09-12T12:55:14.654Z",
       "previousSlugs": [
         "lead-buyer-electronics-cedes-landquart",
         "elettronica-degli-acquirenti-di-piombo-cedes-ag-landquart"
@@ -160,7 +160,7 @@
         "fr": "software-test-engineer-80-100-cedes-landquart"
       },
       "company": "CEDES AG",
-      "companyKey": "cedes",
+      "companyKey": "cedes-ag",
       "companyDomain": "cedes.com",
       "title": "Software Test Engineer (80 – 100%)",
       "titleByLocale": {
@@ -191,7 +191,7 @@
       "url": "https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:51.574Z",
+      "crawledAt": "2026-09-12T12:55:14.343Z",
       "firstSeenAt": "2026-07-15T22:20:19.070Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -218,7 +218,7 @@
         "fr": "candidatures-non-sollicitees-cedes-ag-landquart"
       },
       "company": "CEDES AG",
-      "companyKey": "cedes",
+      "companyKey": "cedes-ag",
       "companyDomain": "cedes.com",
       "title": "Unsolicited applications",
       "titleByLocale": {
@@ -249,7 +249,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:51.130Z",
+      "crawledAt": "2026-09-12T12:55:14.031Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart",
@@ -271,6 +271,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
