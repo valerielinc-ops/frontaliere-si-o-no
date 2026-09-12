@@ -435,8 +435,8 @@ function writeActions(reportDir, verdict, now) {
   const file = path.join(path.resolve(reportDir), 'l8-safe-actions.json');
   const actions = [
     {
-      autonomy: 'A4',
-      action: 'quarantine invalid commercial rows in the runner workspace and preserve the published monitor snapshot',
+      autonomy: 'A2',
+      action: 'prepare a runner-local quarantine report for invalid commercial rows and preserve the published monitor snapshot',
       reversible: true,
       externalMutation: false,
       autoAdsUntouched: true,
