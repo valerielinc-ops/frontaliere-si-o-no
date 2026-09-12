@@ -261,6 +261,9 @@ describe('il checkpoint WIP parcheggiato viene salvato prima dell age-out', () =
     expect(ageOutAt).toBeGreaterThanOrEqual(0);
     const preAgeOut = run.slice(0, ageOutAt);
     expect(preAgeOut).toMatch(/const parkedForWip = listIssues\(LBL_PARKED\)/);
+    expect(preAgeOut).toMatch(/const parkedWipOrder = rotateForScan\(parkedForWip/);
+    expect(preAgeOut).toMatch(/PARKED_WIP_MAX_PER_RUN/);
+    expect(preAgeOut).toMatch(/budget\.take\(`#\$\{iss\.number\} \(parked-wip\)/);
     expect(preAgeOut).toMatch(/isRecoverableQueueManaged/);
     expect(preAgeOut).toMatch(/const recoverable = recoverableFixBranch\(iss\.number\)/);
     expect(preAgeOut).toMatch(/recoverable\?\.state === 'unknown'/);
