@@ -4,9 +4,11 @@ import {
   slugMatchesTitle,
   isLikelyUntranslated,
   buildSlug,
+  MAX_SLUG_LENGTH,
   shortJobHash,
   slugify,
 } from '../scripts/lib/regenerate-slugs-helpers.mjs';
+import { appendSlugDisambiguator } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('regenerate-slugs-helpers — slugMatchesTitle', () => {
   // Regression: the original Jaccard threshold (0.5 on whole-slug overlap)
@@ -99,5 +101,12 @@ describe('regenerate-slugs-helpers — buildSlug + slugify', () => {
   it('appends a disambiguator tail without exceeding MAX_SLUG_LENGTH', () => {
     const slug = buildSlug('Product Manager', 'Acme', 'Lugano', 'abc123');
     expect(slug.endsWith('-abc123')).toBe(true);
+    expect(slug.length).toBeLessThanOrEqual(MAX_SLUG_LENGTH);
+  });
+
+  it('shares the canonical length cap with dedicated crawler disambiguation', () => {
+    const slug = appendSlugDisambiguator('long-title '.repeat(40), 'abcdef12');
+    expect(slug.length).toBeLessThanOrEqual(MAX_SLUG_LENGTH);
+    expect(slug).toMatch(/-abcdef12$/);
   });
 });

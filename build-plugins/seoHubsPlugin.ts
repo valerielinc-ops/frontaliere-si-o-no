@@ -1693,13 +1693,11 @@ export function buildThinCantonHubHtml(args: {
     : '';
   const pageTitle = `${CANTON_HUB_LABELS[locale][hub]} ${cantonLabel}${pageSuffix} | Frontaliere`;
 
-  // BFS-depth closure (2026-05-12): full pagination ladder for the `tutti`
-  // hub. Linking every page-N from page-1 (and every other page) brings
-  // every linked job leaf to BFS depth ≤ 4 from `/` (home → TI hub →
-  // canton hub → tutti/page-N → job-detail). Cap omitted on purpose —
-  // every page in totalPages MUST be linked so the BFS audit can find
-  // it. Pages are wrapped in <details> when the ladder grows past 10
-  // entries so the mobile fold stays clear (CLAUDE.md #15/#16).
+  // Pagination stays bounded on every page, including page 1. The old page-1
+  // exception emitted one anchor per page and made the largest canton hubs
+  // grow O(totalPages) even though page-N already had the compact navigator.
+  // The permanent BFS-depth redesign is tracked separately in #7803; this
+  // follow-up closes the thin-hub page-weight residue with one shared window.
   //
   // CSS classes `.thp` (page link) / `.thc` (current page) replace what was
   // ~250 B of inline styles per anchor with ~12 B class refs. On a 400-page
@@ -1713,53 +1711,18 @@ export function buildThinCantonHubHtml(args: {
       : locale === 'de' ? 'Alle Seiten durchsuchen'
       : locale === 'fr' ? 'Parcourir toutes les pages'
       : 'Sfoglia tutte le pagine';
-    // Bare page number (was `${pageWord}&nbsp;${p}`). Same page-weight
-    // byte-shave as the master-hub `renderPagination` flat ladder: the full
-    // page-N link set is kept intact (load-bearing for BFS-depth) but the
-    // repeated per-anchor word prefix is dropped so a growing canton archive
-    // can't drift its /tutti/page-N/ HTML over the 215 KB audit:page-weight
-    // budget. The `<details><summary>` + `<nav aria-label>` give the "browse
-    // by page" context. CLAUDE.md #6: fixed in lockstep with renderPagination.
-    //
-    // The full ladder ships on page-1 ONLY (issue #7662). It is O(totalPages)
-    // bytes, so emitting it on all `totalPages` pages made this archive
-    // O(totalPages²) HTML: at the TI canton's ~3 300 pages the ladder alone
-    // was ~219 KB and put 885 `/cerca-lavoro-ticino/tutti/page-N/` files at
-    // 282-284 KB against the 260 KB audit:page-weight budget (post-deploy
-    // runs 34011291194 / 34017536548 / 34024281159 / 34031601306).
-    // BFS-depth is unchanged BY CONSTRUCTION: `depthOf` in
-    // scripts/audit-bfs-depth.mjs (and `bfsReachableFromHome` in
-    // scripts/audit-orphan-pages-in-sitemaps.mjs) is a shortest-path map, and
-    // `basePath` (page-1) is the only entry point the canton landing links,
-    // so every page-N already took its minimum depth `depth(page-1) + 1` from
-    // page-1's ladder. A ladder on page-K (K > 1) could only ever offer
-    // `depth(page-K) + 1 ≥ depth(page-1) + 2` — it never lowered a depth, so
-    // dropping it never raises one, and job leaves stay at `depth(page-1) + 2`
-    // (= 4 from `/`, the audit's MAX_DEPTH).
-    // Page-N > 1 keeps a compact window (prev / 1 / current±1 / last / next),
-    // the same shape `renderPagination` uses on the master hubs, so humans and
-    // the prev/next chain still navigate the archive.
+    // Bare page number (was `${pageWord}&nbsp;${p}`). The compact window keeps
+    // the first, last and adjacent pages while dropping the O(totalPages)
+    // page-1 ladder. The `<details><summary>` + `<nav aria-label>` retain the
+    // browse context and the prev/next chain remains explicit.
     const anchors: string[] = [];
-    if (page === 1) {
-      // Per-anchor `class="thp"`/`class="thc"` dropped for the container rule
-      // `.hpl a` / `.hpl strong` (public/assets/seo-static.css): 13 B × every
-      // anchor is ~43 KB on the TI ladder, and page-1 now carries the whole
-      // O(totalPages) cost by itself. Same byte-shave lineage as the
-      // inline-style→class and word-prefix drops recorded above.
-      for (let p = 1; p <= totalPages; p++) {
-        const href = p === 1 ? basePath : paginatedPath(basePath, p);
-        if (p === page) anchors.push(`<strong>${p}</strong>`);
-        else anchors.push(`<a href="${href}">${p}</a>`);
-      }
-    } else {
-      const windowPages = new Set<number>([1, totalPages, page - 1, page, page + 1]);
-      for (const p of [...windowPages].filter((p) => p >= 1 && p <= totalPages).sort((a, b) => a - b)) {
-        const href = p === 1 ? basePath : paginatedPath(basePath, p);
-        if (p === page) anchors.push(`<strong>${p}</strong>`);
-        else {
-          const rel = p === page - 1 ? ' rel="prev"' : p === page + 1 ? ' rel="next"' : '';
-          anchors.push(`<a href="${href}"${rel}>${p}</a>`);
-        }
+    const windowPages = new Set<number>([1, totalPages, page - 1, page, page + 1]);
+    for (const p of [...windowPages].filter((p) => p >= 1 && p <= totalPages).sort((a, b) => a - b)) {
+      const href = p === 1 ? basePath : paginatedPath(basePath, p);
+      if (p === page) anchors.push(`<strong>${p}</strong>`);
+      else {
+        const rel = p === page - 1 ? ' rel="prev"' : p === page + 1 ? ' rel="next"' : '';
+        anchors.push(`<a href="${href}"${rel}>${p}</a>`);
       }
     }
     // Always-open <details> so the BFS walker (and crawlers) see every <a>
@@ -1767,9 +1730,19 @@ export function buildThinCantonHubHtml(args: {
     // are still parsed by Googlebot, but the audit walker reads raw HTML
     // and would still discover them either way — `open` is for UX so the
     // ladder is visible on first paint.
-    const summaryCount = page === 1 ? totalPages : anchors.length;
+    const summaryCount = anchors.length;
     paginationHtml = `<nav class="s-ay7Grc" aria-label="${esc(paginationLabel)}"><details class="s-Ery2Xe" open><summary class="s-goeAUL">${esc(paginationLabel)} (${summaryCount})</summary><div class="s-6_t7LY hpl">${anchors.join('')}</div></details></nav>`;
   }
+
+  // Keep the machine-readable head signal in lockstep with the visible
+  // compact window. Both sides use `paginatedPath`, so page 2 points back to
+  // `basePath` rather than inventing a `/page-1/` URL.
+  const prevLink = page > 1
+    ? `\n    <link rel="prev" href="${BASE_URL}${paginatedPath(basePath, page - 1)}">`
+    : '';
+  const nextLink = page < totalPages
+    ? `\n    <link rel="next" href="${BASE_URL}${paginatedPath(basePath, page + 1)}">`
+    : '';
 
   // Engaging card layout: aziende → entity card with logo, settori → emoji
   // bubble, tutti → compact plain link (unchanged — already dense by design).
@@ -1907,7 +1880,7 @@ export function buildThinCantonHubHtml(args: {
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:alt" content="${esc(pageTitle)}">
-    <link rel="canonical" href="${canonicalUrl}">
+    <link rel="canonical" href="${canonicalUrl}">${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>${collectionLd ? `\n    <script type="application/ld+json">${collectionLd}</script>` : ''}
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${ADSENSE_SNIPPET}

@@ -258,7 +258,7 @@ describe('issue #6759 reconciliation', () => {
     }
   });
 
-  it('fails closed when a route overlap remains across expired slices', () => {
+  it('converges a route overlap across expired slices without losing history', () => {
     const dir = mkdtempSync(join(tmpdir(), 'expired-cross-slice-overlap-'));
     const first = [{
       slug: 'first',
@@ -279,11 +279,32 @@ describe('issue #6759 reconciliation', () => {
     writeFileSync(firstFile, JSON.stringify(first));
     writeFileSync(secondFile, JSON.stringify(second));
     try {
-      expect(() => sweepExpiredArchiveSlices({ dir, apply: true })).toThrow(
-        'expired archive sweep left 1 cross-slice route overlap(s)',
-      );
+      const dryRun = sweepExpiredArchiveSlices({ dir, apply: false });
+      expect(dryRun).toMatchObject({
+        crossSliceDuplicatesBefore: 1,
+        crossSliceDuplicatesAfter: 0,
+        crossSliceCollapsed: 1,
+        filesChanged: 2,
+      });
       expect(JSON.parse(readFileSync(firstFile, 'utf8'))).toEqual(first);
       expect(JSON.parse(readFileSync(secondFile, 'utf8'))).toEqual(second);
+
+      const report = sweepExpiredArchiveSlices({ dir, apply: true });
+      expect(report).toMatchObject({
+        crossSliceDuplicatesBefore: 1,
+        crossSliceDuplicatesAfter: 0,
+        crossSliceCollapsed: 1,
+        filesChanged: 2,
+      });
+      const writtenFirst = JSON.parse(readFileSync(firstFile, 'utf8'));
+      const writtenSecond = JSON.parse(readFileSync(secondFile, 'utf8'));
+      expect(writtenFirst).toHaveLength(1);
+      expect(writtenSecond).toEqual([]);
+      expect([...localeRouteKeys(writtenFirst[0])]).toEqual(expect.arrayContaining([
+        'it:first',
+        'it:second',
+        'de:shared-route',
+      ]));
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
@@ -346,6 +367,43 @@ describe('issue #6759 reconciliation', () => {
     expect(result.entries).toHaveLength(2);
     const served = new Set(result.entries.flatMap((e) => [...localeRouteKeys(e)]));
     for (const route of requiredRoutes) expect(served.has(route), route).toBe(true);
+  });
+
+  it('leaves a cap-refused sweep slice unchanged, including its order', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'expired-cap-refusal-'));
+    const entries = [
+      {
+        slug: 'deep-a',
+        companyKey: 'acme',
+        expiredAt: '2026-08-01T00:00:00.000Z',
+        slugByLocale: { it: 'deep-a' },
+        previousSlugs: ['shared-history-slug', ...Array.from({ length: 90 }, (_, i) => `legacy-a-${i}`)],
+        previousSlugsByLocale: {},
+      },
+      {
+        slug: 'deep-b',
+        companyKey: 'acme',
+        expiredAt: '2026-09-01T00:00:00.000Z',
+        slugByLocale: { it: 'deep-b' },
+        previousSlugs: ['shared-history-slug', ...Array.from({ length: 90 }, (_, i) => `legacy-b-${i}`)],
+        previousSlugsByLocale: {},
+      },
+    ];
+    const file = join(dir, 'cap-refused.json');
+    const serialized = JSON.stringify(entries);
+    writeFileSync(file, serialized);
+    try {
+      const dryRun = sweepExpiredArchiveSlices({ dir, apply: false });
+      expect(dryRun).toMatchObject({ filesChanged: 0, collapsed: 0, capRefused: 1 });
+      expect(dryRun.report[0]).toMatchObject({ changed: false, capRefused: 1 });
+      expect(readFileSync(file, 'utf8')).toBe(serialized);
+
+      const apply = sweepExpiredArchiveSlices({ dir, apply: true });
+      expect(apply).toMatchObject({ filesChanged: 0, collapsed: 0, capRefused: 1 });
+      expect(readFileSync(file, 'utf8')).toBe(serialized);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 
   it('types the legacy-cap refusal, so its message is not the contract', () => {
