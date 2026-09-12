@@ -23,11 +23,11 @@ interface TopAdsChartProps {
   locale?: Locale;
 }
 
-function chartCopy(locale: Locale): { listLabel: string; views: string } {
-  if (locale === 'en') return { listLabel: 'Most viewed ads', views: 'views' };
-  if (locale === 'de') return { listLabel: 'Am häufigsten aufgerufene Anzeigen', views: 'Aufrufe' };
-  if (locale === 'fr') return { listLabel: 'Offres les plus consultées', views: 'vues' };
-  return { listLabel: 'Annunci più visti', views: 'visualizzazioni' };
+function chartCopy(locale: Locale): { listLabel: string; views: string; clicks: string; rate: string } {
+  if (locale === 'en') return { listLabel: 'Most viewed ads', views: 'views', clicks: 'clicks', rate: 'interest rate' };
+  if (locale === 'de') return { listLabel: 'Am häufigsten aufgerufene Anzeigen', views: 'Aufrufe', clicks: 'Klicks', rate: 'Interesse' };
+  if (locale === 'fr') return { listLabel: 'Offres les plus consultées', views: 'vues', clicks: 'clics', rate: 'taux d’intérêt' };
+  return { listLabel: 'Annunci più visti', views: 'visualizzazioni', clicks: 'click', rate: 'tasso di interesse' };
 }
 
 export function TopAdsChart({ ads, limit = 10, locale = 'it' }: TopAdsChartProps): React.ReactElement | null {
@@ -44,26 +44,42 @@ export function TopAdsChart({ ads, limit = 10, locale = 'it' }: TopAdsChartProps
       <ul className="space-y-3" aria-label={copy.listLabel}>
         {rows.map((ad, i) => {
           const pct = Math.max((ad.views / max) * 100, 2); // floor so tiny bars stay visible
+          const clickCount = typeof ad.applyClicks === 'number' && Number.isFinite(ad.applyClicks) ? Math.max(ad.applyClicks, 0) : null;
+          const rate = ad.views > 0 && clickCount != null ? clickCount / ad.views : null;
           return (
-            <li key={ad.slug || ad.path || i} className="group">
-              <div className="flex items-baseline justify-between gap-3 mb-1">
-                <span className="text-sm font-medium text-body truncate">{ad.title}</span>
-                <span className="text-sm font-bold text-strong tabular-nums shrink-0">
-                  {nf.format(ad.views)}
+            <li key={ad.slug || ad.path || i} className="group rounded-xl border border-edge bg-surface-raised px-3 py-3 sm:px-4">
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent-subtle text-xs font-semibold text-accent" aria-hidden="true">
+                  {i + 1}
                 </span>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-start justify-between gap-3">
+                    <span className="line-clamp-2 text-sm font-semibold leading-snug text-body">{ad.title}</span>
+                    <span className="shrink-0 text-right text-sm font-bold text-strong tabular-nums">
+                      {nf.format(ad.views)}
+                      <span className="ml-1 text-xs font-normal text-muted">{copy.views}</span>
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div
-                className="h-3 w-full rounded-full bg-surface-alt overflow-hidden"
-                role="img"
-                aria-label={`${ad.title}: ${nf.format(ad.views)} ${copy.views}`}
-              >
+              <div className="mt-3 pl-10">
                 <div
-                  className="h-full rounded-full bg-accent transition-[width] duration-1000 ease-out"
-                  style={{
-                    width: inView ? `${pct}%` : '0%',
-                    transitionDelay: `${i * 70}ms`,
-                  }}
-                />
+                  className="h-2.5 w-full overflow-hidden rounded-full bg-surface-alt"
+                  role="img"
+                  aria-label={`${ad.title}: ${nf.format(ad.views)} ${copy.views}`}
+                >
+                  <div
+                    className="h-full rounded-full bg-accent transition-[width] duration-1000 ease-out"
+                    style={{
+                      width: inView ? `${pct}%` : '0%',
+                      transitionDelay: `${i * 70}ms`,
+                    }}
+                  />
+                </div>
+                <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
+                  {clickCount != null && <span className="tabular-nums">{nf.format(clickCount)} {copy.clicks}</span>}
+                  {rate != null && <span className="tabular-nums">{new Intl.NumberFormat(locale === 'it' ? 'it-IT' : locale, { style: 'percent', maximumFractionDigits: 1 }).format(rate)} {copy.rate}</span>}
+                </div>
               </div>
             </li>
           );

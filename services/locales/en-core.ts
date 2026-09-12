@@ -2800,9 +2800,12 @@ Rules:
  'consultingCta.article.body': '30 minutes with a cross-border tax expert to clarify your specific case — €49, limited slots.',
  'consultingCta.article.button': 'Book a consultation',
 
+ 'whatsNew.v3964.title': 'More useful employer reports',
+ 'whatsNew.v3964.employerInsights.title': 'A trend you can actually read',
+ 'whatsNew.v3964.employerInsights.desc': 'Private reports now offer 30- or 90-day periods, a views-and-clicks chart, the ads drawing the most attention, and a clear distinction between aggregated observations, unique people and unmeasured applications.',
  'whatsNew.v3963.title': 'Clearer employer insights',
  'whatsNew.v3963.employerInsights.title': 'Application clicks and verifiable data',
- 'whatsNew.v3963.employerInsights.desc': 'Private employer reports now distinguish views, apply clicks, associated users and recorded applications, while always showing the data window and source.',
+ 'whatsNew.v3963.employerInsights.desc': 'Private employer reports now distinguish views, apply clicks, ad attention and recorded applications, while always showing the data window and source.',
 
  // v3.71.0 — calculator boost
  'whatsNew.v3962.title': 'A clearer fuel comparison',

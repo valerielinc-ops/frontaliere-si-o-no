@@ -2803,9 +2803,12 @@ Regeln:
  'consultingCta.article.body': '30 Minuten mit einem Grenzgänger-Steuerexperten, um deinen konkreten Fall zu klären — €49, begrenzte Plätze.',
  'consultingCta.article.button': 'Beratung buchen',
 
+ 'whatsNew.v3964.title': 'Nützlichere Arbeitgeberberichte',
+ 'whatsNew.v3964.employerInsights.title': 'Ein Verlauf, den man lesen kann',
+ 'whatsNew.v3964.employerInsights.desc': 'Private Berichte bieten jetzt Zeiträume von 30 oder 90 Tagen, ein Diagramm für Aufrufe und Klicks, die Anzeigen mit der grössten Aufmerksamkeit sowie eine klare Trennung zwischen aggregierten Beobachtungen, eindeutigen Personen und nicht gemessenen Bewerbungen.',
  'whatsNew.v3963.title': 'Klarere Arbeitgeber-Insights',
  'whatsNew.v3963.employerInsights.title': 'Bewerbungsklicks und überprüfbare Daten',
- 'whatsNew.v3963.employerInsights.desc': 'Private Arbeitgeberberichte unterscheiden jetzt Aufrufe, Bewerbungsklicks, zugeordnete Nutzer und erfasste Bewerbungen und zeigen immer Zeitraum und Datenquelle an.',
+ 'whatsNew.v3963.employerInsights.desc': 'Private Arbeitgeberberichte unterscheiden jetzt Aufrufe, Bewerbungsklicks, Anzeigenaufmerksamkeit und erfasste Bewerbungen und zeigen immer Zeitraum und Datenquelle an.',
 
  // v3.71.0 — Rechner-Upgrade
  'whatsNew.v3962.title': 'Klarerer Kraftstoffvergleich',

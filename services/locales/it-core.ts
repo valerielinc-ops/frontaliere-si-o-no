@@ -2890,9 +2890,12 @@ Regole:
  'consultingCta.article.body': '30 minuti con un esperto di fiscalità frontaliera per chiarire il tuo caso specifico — €49, slot limitati.',
  'consultingCta.article.button': 'Prenota una consulenza',
 
+ 'whatsNew.v3964.title': 'Report aziende più utili',
+ 'whatsNew.v3964.employerInsights.title': 'Un andamento che si può leggere',
+ 'whatsNew.v3964.employerInsights.desc': 'I report privati offrono periodi da 30 o 90 giorni, un grafico di visualizzazioni e click, gli annunci che attirano più attenzione e una distinzione chiara tra osservazioni aggregate, persone uniche e candidature non misurate.',
  'whatsNew.v3963.title': 'Insights aziende più chiari',
  'whatsNew.v3963.employerInsights.title': 'Click candidatura e dati verificabili',
- 'whatsNew.v3963.employerInsights.desc': 'I report privati per le aziende distinguono visualizzazioni, click per candidarsi, utenti associati e candidature registrate, indicando sempre finestra e sorgente del dato.',
+ 'whatsNew.v3963.employerInsights.desc': 'I report privati per le aziende distinguono visualizzazioni, click per candidarsi, attenzione sugli annunci e candidature registrate, indicando sempre finestra e sorgente del dato.',
 
  // v3.71.0 — potenziamento calcolatore
  'whatsNew.v3962.title': 'Confronto carburanti più utile',
