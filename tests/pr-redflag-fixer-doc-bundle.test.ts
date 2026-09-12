@@ -199,6 +199,22 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
     );
   });
 
+  it('recognizes setext headings and stops at the next setext boundary', () => {
+    const fixture = [
+      '# Document',
+      '',
+      'Privacy',
+      '-------',
+      'binding content',
+      '',
+      'Next section',
+      '-------',
+      'after',
+    ].join('\n');
+
+    expect(extractSectionByHeading(fixture, '## Privacy')).toBe('binding content');
+  });
+
   it('fails closed on an unclosed fence instead of swallowing the rest of the document', () => {
     expect(() => extractSectionByHeading('## Severity\n```\nnot finished', '## Severity')).toThrow(
       /Unclosed fenced code block/,
