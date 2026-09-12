@@ -11684,6 +11684,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.benzina-riserve-svizzera-frontalieri.title': 'Gasoline in Switzerland: reserves open, effects on prices',
     'blog.article.benzina-riserve-svizzera-frontalieri.excerpt': 'Mandatory open stocks for petrol and diesel. From 8 to 20 September 2026 withdrawal up to 30,000 m³. Low-level Cressier and Reno refinery shutdown.',
     'blog.article.benzina-riserve-svizzera-frontalieri.imageAlt': 'Car at a petrol station in Mendrisio with the Alps in the background',
+    'blog.article.bollettino-frontaliere-2026-09-12.title': 'Cross-border daily brief – September 12, 2026: 1\'802 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-09-12.excerpt': 'Today\'s numbers, September 12, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-12.imageAlt': 'The day\'s numbers for cross-border commuters – September 12, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-12.seoDescription': 'Cross-border brief, September 12, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-12.ogDescription': 'The numbers for September 12, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;
