@@ -159,6 +159,7 @@ jobs:
           import {
             EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION,
             employerInsightsAdId,
+            employerInsightsWindowAdsSubcollection,
             readEmployerInsightsSnapshot,
             restoreEmployerInsightsSnapshot,
             writeEmployerInsightsDocuments,
@@ -176,7 +177,7 @@ jobs:
           async function rollback() {
             let result = { attempted: 0, committed: 0 };
             try {
-              result = await restoreEmployerInsightsSnapshot(db, before);
+              result = await restoreEmployerInsightsSnapshot(db, before, { expectedDocuments: expected });
             } catch (error) {
               const committed = Number.isInteger(error?.committedItems) ? error.committedItems : result.committed;
               const attempted = Number.isInteger(error?.attemptedItems) ? error.attemptedItems : result.attempted;
@@ -198,6 +199,21 @@ jobs:
               const stored = after.roots.get(document.companyKey);
               const storedAds = after.ads.get(document.companyKey) || new Map();
               const expectedAdIds = document.ads.map((ad) => employerInsightsAdId(ad));
+              const storedWindowAds = after.windowAds.get(document.companyKey) || new Map();
+              const missingWindowAds = Object.entries(document.additionalWindows || {}).some(([windowKey, summary]) => {
+                const expectedWindowAds = Array.isArray(summary?.ads) ? summary.ads : null;
+                if (!expectedWindowAds) return false;
+                const storedSummary = stored?.additionalWindows?.[windowKey];
+                const collectionName = employerInsightsWindowAdsSubcollection(windowKey);
+                const storedAdsForWindow = storedWindowAds.get(collectionName) || new Map();
+                const expectedWindowAdIds = expectedWindowAds.map((ad) => employerInsightsAdId(ad));
+                return !storedSummary
+                  || storedSummary.adsStorage?.type !== 'subcollection'
+                  || storedSummary.adsStorage?.collection !== collectionName
+                  || storedSummary.adsStorage?.count !== expectedWindowAds.length
+                  || expectedWindowAdIds.some((id) => !storedAdsForWindow.has(id))
+                  || storedAdsForWindow.size !== expectedWindowAds.length;
+              });
               return !stored
                 || stored.source !== expectedSource
                 || stored.provenance?.snapshotId !== document.provenance?.snapshotId
@@ -208,7 +224,8 @@ jobs:
                 || stored.adsStorage?.collection !== EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION
                 || stored.adsStorage?.count !== document.ads.length
                 || expectedAdIds.some((id) => !storedAds.has(id))
-                || storedAds.size !== document.ads.length;
+                || storedAds.size !== document.ads.length
+                || missingWindowAds;
             }).map((document) => document.companyKey);
             if (missing.length) throw new Error(`post-write verification missing ${missing.length} validated documents`);
             console.log(`Committed and verified ${written} employer_insights roots plus ad shards; existing collection count is ${after.roots.size}.`);
