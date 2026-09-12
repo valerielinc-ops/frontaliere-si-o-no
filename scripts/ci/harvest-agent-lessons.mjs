@@ -492,6 +492,10 @@ function stripFencedBlocks(text) {
   return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
 }
 
+function maskInlineCodeSpans(text) {
+  return String(text || '').replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
+}
+
 export function hasEnumeratedItems(body) {
   const b = stripFencedBlocks(body);
   const numberedSections = (b.match(/^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length;
@@ -526,7 +530,7 @@ function isBoldTitleLead(rest, lines = [], start = 0) {
 export function isAvoidableAlreadyFixed(title, labels, body = '') {
   const names = Array.isArray(labels) ? labels : [];
   if (!names.includes('follow-up')) return false; // out of the gate's scope
-  const t = String(title || '');
+  const t = maskInlineCodeSpans(stripFencedBlocks(title));
   const m = t.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
   // An explicit count is authoritative once present — no keyword fallback
   // needed (and none applied), else a single-item title containing an
