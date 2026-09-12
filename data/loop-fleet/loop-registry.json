@@ -75,7 +75,7 @@
       "primaryMetric": "valid_application_handoff_per_1000_qualified_job_sessions",
       "minimumSample": 100,
       "maxAutonomy": "A4",
-      "actionClasses": ["observe", "quarantine", "issue", "pr"],
+      "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr"],
       "guardrails": ["handoff is not an application submission", "never invent apply events"]
     },
     {
