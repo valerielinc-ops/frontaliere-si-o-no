@@ -32,6 +32,37 @@ export const QUALITY_STATES = Object.freeze([
 
 export const AUTONOMY_LEVELS = Object.freeze(['A0', 'A1', 'A2', 'A3', 'A4']);
 
+export const AUTONOMY_ORDER = Object.freeze({ A0: 0, A1: 1, A2: 2, A3: 3, A4: 4 });
+
+// Composite action classes (for example `candidate+issue`) are used in the
+// observation and decision ledgers. Keep their safety ceiling in one place so
+// every workflow applies the same interpretation of the registry.
+export const ACTION_AUTONOMY = Object.freeze({
+  observe: 'A0',
+  issue: 'A1',
+  candidate: 'A1',
+  recommend: 'A1',
+  'draft-outreach': 'A1',
+  'follow-up': 'A1',
+  lesson: 'A1',
+  pr: 'A2',
+  reconcile: 'A2',
+  canary: 'A3',
+  stop: 'A3',
+  // These are runner-local recommendations/holds in the current fleet, not
+  // live exposure changes. A real canary remains A3.
+  'suspend-canary': 'A2',
+  'stale-label': 'A3',
+  quarantine: 'A2',
+  'block-publication': 'A4',
+  'block-proven-defect': 'A4',
+  suppress: 'A4',
+  defer: 'A4',
+  route: 'A4',
+  lock: 'A4',
+  retry: 'A4',
+});
+
 const NON_MEASURABLE_QUALITY = new Set(['missing', 'partial', 'unmeasurable']);
 const REQUIRED_LOOP_FIELDS = [
   'loopId',
@@ -73,6 +104,17 @@ function requireArray(value, name) {
   return value;
 }
 
+function requireTextArray(value, name) {
+  requireArray(value, name);
+  const seen = new Set();
+  for (const item of value) {
+    const text = requireText(item, `${name} item`);
+    if (seen.has(text)) fail(`${name} contains duplicate ${text}`);
+    seen.add(text);
+  }
+  return value;
+}
+
 function finiteOrNull(value, name) {
   if (value !== null && (!Number.isFinite(value) || typeof value !== 'number')) {
     fail(`${name} must be a finite number or null`);
@@ -110,10 +152,55 @@ export function validateLoopRegistry(registry) {
     requireText(loop.primaryMetric, `${id}.primaryMetric`);
     requirePositiveInteger(loop.minimumSample, `${id}.minimumSample`);
     if (!AUTONOMY_LEVELS.includes(loop.maxAutonomy)) fail(`${id}.maxAutonomy is not A0-A4`);
-    requireArray(loop.actionClasses, `${id}.actionClasses`);
-    requireArray(loop.guardrails, `${id}.guardrails`);
+    requireTextArray(loop.actionClasses, `${id}.actionClasses`);
+    requireTextArray(loop.guardrails, `${id}.guardrails`);
   }
   return { ...registry, loops };
+}
+
+export function actionClassParts(actionClass) {
+  const value = requireText(actionClass, 'actionClass');
+  const parts = value.split('+').map((part) => part.trim()).filter(Boolean);
+  if (parts.length === 0) fail('actionClass must contain at least one class');
+  return [...new Set(parts)];
+}
+
+export function actionAutonomy(actionClass) {
+  const parts = actionClassParts(actionClass);
+  const unknown = parts.filter((part) => !Object.hasOwn(ACTION_AUTONOMY, part));
+  if (unknown.length) fail(`actionClass has no autonomy mapping: ${unknown.join(', ')}`);
+  return parts.reduce((highest, part) => {
+    const level = ACTION_AUTONOMY[part];
+    return AUTONOMY_ORDER[level] > AUTONOMY_ORDER[highest] ? level : highest;
+  }, 'A0');
+}
+
+export function findLoopPolicy(registry, loopId) {
+  const validated = validateLoopRegistry(registry);
+  const policy = validated.loops.find((loop) => loop.loopId === loopId);
+  if (!policy) fail(`registry has no policy for ${requireText(loopId, 'loopId')}`);
+  return policy;
+}
+
+export function validateActionClassAgainstPolicy(registry, loopId, actionClass) {
+  const policy = findLoopPolicy(registry, loopId);
+  const parts = actionClassParts(actionClass);
+  const unsupported = parts.filter((part) => !policy.actionClasses.includes(part));
+  if (unsupported.length) {
+    fail(`${loopId} actionClass ${actionClass} is not allowed by registry: ${unsupported.join(', ')}`);
+  }
+  const requiredAutonomy = actionAutonomy(actionClass);
+  if (AUTONOMY_ORDER[requiredAutonomy] > AUTONOMY_ORDER[policy.maxAutonomy]) {
+    fail(`${loopId} actionClass ${actionClass} requires ${requiredAutonomy}, registry maximum is ${policy.maxAutonomy}`);
+  }
+  return {
+    loopId,
+    actionClass,
+    actionClasses: parts,
+    requiredAutonomy,
+    maxAutonomy: policy.maxAutonomy,
+    policy,
+  };
 }
 
 export function buildObservation({

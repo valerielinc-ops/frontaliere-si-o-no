@@ -9,6 +9,7 @@ on:
       - 'data/gsc-orphan-queries-clusters.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l2-demand-utility.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l2-demand-utility.yml'
@@ -17,6 +18,7 @@ on:
       - 'data/gsc-orphan-queries-clusters.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l2-demand-utility.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l2-demand-utility.yml'
@@ -49,6 +51,7 @@ jobs:
             /data/gsc-orphan-queries-clusters.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l2-demand-utility.mjs
+            /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l2-demand-utility.yml
@@ -80,10 +83,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
+      - name: Record canonical L2 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l2
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L2 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L2 observation and candidates
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: loop-l2-demand-utility-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l2/
+          retention-days: 90
           if-no-files-found: error

@@ -9,6 +9,7 @@ on:
       - 'data/error-triage-baseline.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l1-reliability.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l1-reliability.yml'
@@ -17,6 +18,7 @@ on:
       - 'data/error-triage-baseline.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l1-reliability.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l1-reliability.yml'
@@ -49,6 +51,7 @@ jobs:
             /data/error-triage-baseline.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l1-reliability.mjs
+            /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l1-reliability.yml
@@ -80,10 +83,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
+      - name: Record canonical L1 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l1
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L1 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L1 observation and decision
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: loop-l1-reliability-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l1/
+          retention-days: 90
           if-no-files-found: error

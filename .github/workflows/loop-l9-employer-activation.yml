@@ -10,6 +10,7 @@ on:
       - 'data/employer-funnel-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l9-employer-activation.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/build-employer-profiles.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -20,6 +21,7 @@ on:
       - 'data/employer-funnel-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l9-employer-activation.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/build-employer-profiles.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -54,6 +56,7 @@ jobs:
             /data/employer-funnel-outcomes.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l9-employer-activation.mjs
+            /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/build-employer-profiles.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/github-issue-creator.mjs
@@ -88,10 +91,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
+      - name: Record canonical L9 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l9
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L9 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L9 observation and actions
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: loop-l9-employer-activation-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l9/
+          retention-days: 90
           if-no-files-found: error

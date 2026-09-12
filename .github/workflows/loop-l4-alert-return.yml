@@ -11,6 +11,7 @@ on:
       - 'data/alert-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l4-alert-return.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l4-alert-return.yml'
@@ -21,6 +22,7 @@ on:
       - 'data/alert-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l4-alert-return.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l4-alert-return.yml'
@@ -55,6 +57,7 @@ jobs:
             /data/alert-outcomes.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l4-alert-return.mjs
+            /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l4-alert-return.yml
@@ -86,10 +89,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
+      - name: Record canonical L4 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l4
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L4 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L4 observation and actions
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: loop-l4-alert-return-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l4/
+          retention-days: 90
           if-no-files-found: error

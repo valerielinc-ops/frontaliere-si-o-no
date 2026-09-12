@@ -8,6 +8,7 @@ on:
     paths:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l0-data-truth.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/articles-api-base.mjs'
       - '.github/workflows/loop-l0-data-truth.yml'
@@ -15,6 +16,7 @@ on:
     paths:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l0-data-truth.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/articles-api-base.mjs'
       - '.github/workflows/loop-l0-data-truth.yml'
@@ -59,8 +61,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l0
-          LOOP_FLEET_OBSERVATIONS_FILE: ${{ runner.temp }}/loop-fleet-l0/observations.jsonl
-          LOOP_FLEET_DECISIONS_FILE: ${{ runner.temp }}/loop-fleet-l0/decisions.jsonl
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
@@ -71,10 +71,16 @@ jobs:
             args+=(--dry-run)
           fi
           node scripts/ci/loop-l0-data-truth.mjs "${args[@]}" | tee "$REPORT_DIR/stdout.json" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Record canonical L0 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l0
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L0 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L0 observation and decision
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: loop-l0-data-truth-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l0/
+          retention-days: 90
           if-no-files-found: error

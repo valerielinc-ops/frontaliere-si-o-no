@@ -1,0 +1,56 @@
+name: Loop fleet status
+
+# Read-only roll-up of the latest run and immutable evidence artifact for each
+# loop. It has no issue, contents or deployment write permission.
+on:
+  schedule:
+    - cron: '27 7 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-fleet-status.mjs'
+      - '.github/workflows/loop-fleet-status.yml'
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: loop-fleet-status
+  cancel-in-progress: true
+
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout status contract
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /data/loop-fleet/loop-registry.json
+            /scripts/ci/loop-fleet-status.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /.github/workflows/loop-fleet-status.yml
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Build read-only fleet status
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-status
+        run: node scripts/ci/loop-fleet-status.mjs --registry data/loop-fleet/loop-registry.json --out-dir "$REPORT_DIR" --strict
+      - name: Upload fleet status
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: loop-fleet-status-${{ github.run_id }}
+          path: ${{ runner.temp }}/loop-fleet-status/
+          retention-days: 90
+          if-no-files-found: error

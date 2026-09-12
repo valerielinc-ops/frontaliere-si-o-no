@@ -7,7 +7,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
-  appendJsonl,
+  AUTONOMY_ORDER,
   buildDecision,
   buildObservation,
   validateLoopRegistry,
@@ -23,7 +23,6 @@ export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-regis
 export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 100;
 
-const AUTONOMY_ORDER = Object.freeze({ A0: 0, A1: 1, A2: 2, A3: 3, A4: 4 });
 
 const SURFACES = [
   { key: 'calculator', path: '/calcola-stipendio/', label: 'calcolatore stipendio' },
@@ -355,10 +354,6 @@ function writeReports(reportDir, verdict, observation, decision) {
     ['l5-report.md', reportMarkdown(verdict, observation, decision)],
   ];
   for (const [name, content] of files) fs.writeFileSync(path.join(dir, name), typeof content === 'string' ? content : `${JSON.stringify(content, null, 2)}\n`);
-  const observations = process.env.LOOP_FLEET_OBSERVATIONS_FILE;
-  const decisions = process.env.LOOP_FLEET_DECISIONS_FILE;
-  if (observations) appendJsonl(observations, observation);
-  if (decisions) appendJsonl(decisions, decision);
   return files.map(([name]) => path.join(dir, name));
 }
 

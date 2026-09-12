@@ -10,6 +10,7 @@ on:
       - 'data/quota-history.jsonl'
       - 'data/loop-health-history.jsonl'
       - 'scripts/ci/loop-l10-fleet-control.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -21,6 +22,7 @@ on:
       - 'data/quota-history.jsonl'
       - 'data/loop-health-history.jsonl'
       - 'scripts/ci/loop-l10-fleet-control.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -56,6 +58,7 @@ jobs:
             /data/quota-history.jsonl
             /data/loop-health-history.jsonl
             /scripts/ci/loop-l10-fleet-control.mjs
+            /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l10-fleet-control.yml
@@ -87,10 +90,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
+      - name: Record canonical L10 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l10
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L10 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L10 observation and actions
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: loop-l10-fleet-control-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l10/
+          retention-days: 90
           if-no-files-found: error

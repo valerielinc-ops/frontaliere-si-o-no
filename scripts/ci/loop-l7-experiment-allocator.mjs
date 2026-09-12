@@ -7,14 +7,17 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
-  appendJsonl,
   buildDecision,
   buildObservation,
+  findLoopPolicy,
+  validateActionClassAgainstPolicy,
+  validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L7';
 export const DEFAULT_CANDIDATES_PATH = path.join('data', 'experimental-candidates.json');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'experiment-outcomes.json');
+export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 192;
 export const MINIMUM_SAMPLE = 200;
 export const MAX_CANDIDATES = 50;
@@ -66,7 +69,8 @@ function candidateAction(candidate, rowIssues = []) {
     locale: LOCALES.has(candidate.locale) ? candidate.locale : null,
     sources: Array.isArray(candidate.sources) ? candidate.sources.slice(0, 10) : [],
     issueCodes: rowIssues,
-    autonomy: 'A3',
+    actionClass: 'candidate',
+    autonomy: 'A1',
     action: 'candidate-only: register persistent assignment, bounded exposure, guardrails and expiry before any canary',
     reversible: true,
     appliesToTraffic: false,
@@ -241,11 +245,19 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   sourcePath = DEFAULT_CANDIDATES_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
   minimumSample = MINIMUM_SAMPLE,
+  loopRegistry = null,
 } = {}) {
   const candidateVerdict = validateCandidateRegistry(registry, { now, maxAgeHours, sourcePath });
   const outcomeVerdict = validateOutcomes(outcomes, { now, maxAgeHours, sourcePath: outcomePath, minimumSample });
   const issues = [...candidateVerdict.issues, ...outcomeVerdict.issues];
   const warnings = [...candidateVerdict.warnings];
+  if (loopRegistry) {
+    try {
+      validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate+stop+issue');
+    } catch (error) {
+      issues.push(`registry policy is not compatible with L7 actions: ${error.message}`);
+    }
+  }
   if (!outcomes) warnings.push('no independent assignment/exposure/outcome ledger is available; no canary is authorized');
   const snapshot = {
     source: 'experimental-candidates',
@@ -314,10 +326,6 @@ function writeReports(reportDir, verdict, observation, decision) {
     ['l7-report.md', reportMarkdown(verdict, observation, decision)],
   ];
   for (const [name, content] of files) fs.writeFileSync(path.join(dir, name), typeof content === 'string' ? content : `${JSON.stringify(content, null, 2)}\n`);
-  const observations = process.env.LOOP_FLEET_OBSERVATIONS_FILE;
-  const decisions = process.env.LOOP_FLEET_DECISIONS_FILE;
-  if (observations) appendJsonl(observations, observation);
-  if (decisions) appendJsonl(decisions, decision);
   return files.map(([name]) => path.join(dir, name));
 }
 
@@ -385,6 +393,7 @@ export async function runL7({
   now = new Date(),
   candidatesPath = DEFAULT_CANDIDATES_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
+  registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample = MINIMUM_SAMPLE,
   issue = false,
@@ -395,10 +404,12 @@ export async function runL7({
 } = {}) {
   let verdict;
   try {
+    const loopRegistry = validateLoopRegistry(readJson(registryPath, 'loop registry'));
+    findLoopPolicy(loopRegistry, LOOP_ID);
     verdict = validateExperimentAllocator({
       registry: readJson(candidatesPath, 'experimental candidates'),
       outcomes: readOptionalJson(outcomePath),
-    }, { now, maxAgeHours, sourcePath: candidatesPath, outcomePath, minimumSample });
+    }, { now, maxAgeHours, sourcePath: candidatesPath, outcomePath, minimumSample, loopRegistry });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: candidatesPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
@@ -480,6 +491,7 @@ function parseArgs(argv) {
     dryRun: argv.includes('--dry-run'),
     candidatesPath: valueAfter('--candidates', DEFAULT_CANDIDATES_PATH),
     outcomePath: valueAfter('--outcomes', DEFAULT_OUTCOME_PATH),
+    registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP ? path.join(process.env.RUNNER_TEMP, 'loop-fleet-l7') : path.join(os.tmpdir(), 'loop-fleet-l7')),

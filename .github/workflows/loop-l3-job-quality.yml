@@ -10,6 +10,7 @@ on:
       - 'data/job-apply-outcome-baseline.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l3-job-quality.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l3-job-quality.yml'
@@ -19,6 +20,7 @@ on:
       - 'data/job-apply-outcome-baseline.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l3-job-quality.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l3-job-quality.yml'
@@ -52,6 +54,7 @@ jobs:
             /data/job-apply-outcome-baseline.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l3-job-quality.mjs
+            /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l3-job-quality.yml
@@ -83,10 +86,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
+      - name: Record canonical L3 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l3
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L3 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L3 observation and actions
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: loop-l3-job-quality-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l3/
+          retention-days: 90
           if-no-files-found: error
