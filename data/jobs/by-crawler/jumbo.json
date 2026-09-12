@@ -16653,7 +16653,7 @@
         "fr": "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
         "it": "chef-capo-dipartimento-giardino-m-f-d-jumbo-crissier",
         "en": "chef-head-of-department-garden-m-f-d-jumbo-crissier",
-        "de": "chef-chef-de-ray-garden-m-w-d-jumbo-crissier"
+        "de": "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16706,7 +16706,8 @@
       "previousSlugs": [
         "chef-head-of-department-garden-m-f-d-jumbo-crissier",
         "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier",
-        "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
+        "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
+        "chef-chef-de-ray-garden-m-w-d-jumbo-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16718,8 +16719,8 @@
           "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
         ],
         "de": [
-          "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier",
-          "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
+          "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
+          "chef-chef-de-ray-garden-m-w-d-jumbo-crissier"
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:55.396Z",
@@ -17755,12 +17756,12 @@
     },
     {
       "id": "jumbo-a2f0c422-f59",
-      "slug": "verkaufsberater-in-garten-jumbo-laupen",
+      "slug": "vendite-advisor-garden-jumbo-laupen-596bca",
       "slugByLocale": {
         "de": "verkaufsberater-in-garten-jumbo-laupen",
-        "it": "verkaufsberater-in-garten-jumbo-laupen",
-        "en": "verkaufsberater-in-garten-jumbo-laupen",
-        "fr": "verkaufsberater-in-garten-jumbo-laupen"
+        "it": "vendite-advisor-garden-jumbo-laupen-596bca",
+        "en": "sales-advisor-garden-jumbo-laupen-596bca",
+        "fr": "conseiller-en-ventes-jardin-jumbo-laupen-596bca"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17831,7 +17832,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-12T12:59:58.560Z"
+      "firstSeenAt": "2026-09-12T12:59:58.560Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garten-jumbo-laupen"
+        ],
+        "en": [
+          "verkaufsberater-in-garten-jumbo-laupen"
+        ],
+        "fr": [
+          "verkaufsberater-in-garten-jumbo-laupen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garten-jumbo-laupen"
+      ]
     },
     {
       "id": "jumbo-6659df97-bda",

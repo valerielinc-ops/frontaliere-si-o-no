@@ -36,9 +36,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-rimessa-tpl-lugano",
-        "en": "addetto-a-rimessa-tpl-trasporti-pubblici-luganesi-lugano",
-        "de": "addetto-a-rimessa-tpl-trasporti-pubblici-luganesi-lugano",
-        "fr": "addetto-a-rimessa-tpl-trasporti-pubblici-luganesi-lugano"
+        "en": "associate-rimessa-tpl-trasporti-pubblici-luganesi-lugano",
+        "de": "mitarbeiter-in-rimessa-tpl-trasporti-pubblici-luganesi-lugano",
+        "fr": "prepose-e-rimessa-tpl-trasporti-pubblici-luganesi-lugano"
       },
       "_targetScope": {
         "canton": "TI",
@@ -49,6 +49,15 @@
       "id": "tpl-trasporti-pubblici-luganesi-38d6a2d08982",
       "previousSlugsByLocale": {
         "it": [
+          "addetto-a-rimessa-tpl-trasporti-pubblici-luganesi-lugano"
+        ],
+        "en": [
+          "addetto-a-rimessa-tpl-trasporti-pubblici-luganesi-lugano"
+        ],
+        "de": [
+          "addetto-a-rimessa-tpl-trasporti-pubblici-luganesi-lugano"
+        ],
+        "fr": [
           "addetto-a-rimessa-tpl-trasporti-pubblici-luganesi-lugano"
         ]
       },

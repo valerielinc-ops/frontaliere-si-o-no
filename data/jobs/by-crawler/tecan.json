@@ -178,13 +178,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "application-engineer-tecan-singapore",
-        "application-ingegnere-tecan-singapore"
+        "application-engineer-tecan-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-engineer-tecan-singapore",
-          "application-ingegnere-tecan-singapore"
+          "application-engineer-tecan-singapore"
         ],
         "de": [
           "application-engineer-tecan-singapore"
@@ -258,13 +256,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechanical-inspection-lead-tecan-united-states",
-        "piombo-di-ispezione-meccanica-tecan-united-states"
+        "mechanical-inspection-lead-tecan-united-states"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechanical-inspection-lead-tecan-united-states",
-          "piombo-di-ispezione-meccanica-tecan-united-states"
+          "mechanical-inspection-lead-tecan-united-states"
         ],
         "de": [
           "mechanical-inspection-lead-tecan-united-states"
@@ -355,10 +351,10 @@
     },
     {
       "id": "tecan-31a84e6119a8",
-      "slug": "manufacturing-engineer-tecan-austria",
+      "slug": "manufacturing-ingegnere-tecan-austria",
       "slugByLocale": {
         "en": "manufacturing-engineer-tecan-austria",
-        "it": "manufacturing-engineer-tecan-austria",
+        "it": "manufacturing-ingegnere-tecan-austria",
         "de": "manufacturing-engineer-tecan-austria",
         "fr": "manufacturing-engineer-tecan-austria"
       },
@@ -416,16 +412,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-12T13:03:07.836Z"
+      "firstSeenAt": "2026-09-12T13:03:07.836Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-engineer-tecan-austria"
+        ]
+      },
+      "previousSlugs": [
+        "manufacturing-engineer-tecan-austria"
+      ]
     },
     {
       "id": "tecan-6096cf839d2b",
-      "slug": "project-manager-operations-design-transfer-tecan-austria",
+      "slug": "trasferimento-di-progettazione-delle-operazioni-di-project-manager-tecan-austria",
       "slugByLocale": {
         "en": "project-manager-operations-design-transfer-tecan-austria",
-        "it": "project-manager-operations-design-transfer-tecan-austria",
+        "it": "trasferimento-di-progettazione-delle-operazioni-di-project-manager-tecan-austria",
         "de": "project-manager-operations-design-transfer-tecan-austria",
-        "fr": "project-manager-operations-design-transfer-tecan-austria"
+        "fr": "gestionnaire-de-projet-conception-des-operations-transfert-tecan-austria"
       },
       "company": "Tecan",
       "companyKey": "tecan",
@@ -481,7 +485,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-12T13:03:07.107Z"
+      "firstSeenAt": "2026-09-12T13:03:07.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-operations-design-transfer-tecan-austria"
+        ],
+        "fr": [
+          "project-manager-operations-design-transfer-tecan-austria"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-operations-design-transfer-tecan-austria"
+      ]
     },
     {
       "id": "tecan-f1e527196bc9",
@@ -533,8 +548,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "technical-writer-tecan-mannedorf",
-          "technical-writers-tecan-mannedorf"
+          "technical-writer-tecan-mannedorf"
         ],
         "it": [
           "technical-writer-tecan-mannedorf",
@@ -548,8 +562,7 @@
           "redacteur-technique-tecan-mannedorf",
           "scrittore-tecnico-tecan-mannedorf",
           "technischer-redakteur-tecan-mannedorf",
-          "auteurs-techniques-tecan-mannedorf",
-          "tecnico-della-documentazione-tecan-mannedorf"
+          "auteurs-techniques-tecan-mannedorf"
         ],
         "fr": [
           "technical-writer-tecan-mannedorf"
@@ -567,9 +580,7 @@
         "redacteur-technique-tecan-mannedorf",
         "scrittore-tecnico-tecan-mannedorf",
         "technischer-redakteur-tecan-mannedorf",
-        "auteurs-techniques-tecan-mannedorf",
-        "technical-writers-tecan-mannedorf",
-        "tecnico-della-documentazione-tecan-mannedorf"
+        "auteurs-techniques-tecan-mannedorf"
       ],
       "firstSeenAt": "2026-09-11T23:11:07.392Z",
       "salaryMin": 83000,
@@ -700,13 +711,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ehs-specialist-tecan-mannedorf",
-        "ehs-specialista-tecan-mannedorf"
+        "ehs-specialist-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ehs-specialist-tecan-mannedorf",
-          "ehs-specialista-tecan-mannedorf"
+          "ehs-specialist-tecan-mannedorf"
         ],
         "fr": [
           "ehs-specialist-tecan-mannedorf"
@@ -777,13 +786,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-information-security-tecan-mannedorf",
-        "responsabile-information-security-tecan-mannedorf"
+        "head-of-information-security-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-information-security-tecan-mannedorf",
-          "responsabile-information-security-tecan-mannedorf"
+          "head-of-information-security-tecan-mannedorf"
         ]
       },
       "firstSeenAt": "2026-09-01T23:13:47.205Z",
@@ -851,14 +858,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "custom-assembly-logistics-integration-specialist-labwerx-tecan-mannedorf",
-        "custom-assembly-logistik-integration-spezialist-labwerx-tecan-mannedorf",
-        "custom-assembly-logistica-integration-specialista-labwerx-tecan-mannedorf"
+        "custom-assembly-logistik-integration-spezialist-labwerx-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "custom-assembly-logistics-integration-specialist-labwerx-tecan-mannedorf",
-          "custom-assembly-logistik-integration-spezialist-labwerx-tecan-mannedorf",
-          "custom-assembly-logistica-integration-specialista-labwerx-tecan-mannedorf"
+          "custom-assembly-logistik-integration-spezialist-labwerx-tecan-mannedorf"
         ],
         "fr": [
           "custom-assembly-logistics-integration-specialist-labwerx-tecan-mannedorf"
@@ -937,8 +942,7 @@
         "ingenieur-de-production-electronique-tecan-mannedorf",
         "ingegneri-di-produzione-elettronica-tecan-mannedorf",
         "produktionsingenieur-elektronik-tecan-mannedorf",
-        "production-ingenieur-tecan-mannedorf",
-        "ingegnere-di-produzione-tecan-mannedorf"
+        "production-ingenieur-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -948,8 +952,7 @@
           "production-ingenieur-electronics-tecan-mannedorf",
           "ingenieur-de-production-electronique-tecan-mannedorf",
           "ingegneri-di-produzione-elettronica-tecan-mannedorf",
-          "produktionsingenieur-elektronik-tecan-mannedorf",
-          "ingegnere-di-produzione-tecan-mannedorf"
+          "produktionsingenieur-elektronik-tecan-mannedorf"
         ],
         "de": [
           "produktionstechnik-tecan-mannedorf",
@@ -1020,13 +1023,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-key-account-products-tecan-mannedorf",
-        "prodotti-principali-dell-account-tecan-mannedorf"
+        "senior-manager-key-account-products-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-key-account-products-tecan-mannedorf",
-          "prodotti-principali-dell-account-tecan-mannedorf"
+          "senior-manager-key-account-products-tecan-mannedorf"
         ],
         "fr": [
           "senior-manager-key-account-products-tecan-mannedorf"
@@ -1097,13 +1098,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "regional-channel-sales-distributors-manager-emea-tecan-mannedorf",
-        "responsabile-vendite-e-distributori-di-canale-regionale-emea-tecan-mannedorf"
+        "regional-channel-sales-distributors-manager-emea-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regional-channel-sales-distributors-manager-emea-tecan-mannedorf",
-          "responsabile-vendite-e-distributori-di-canale-regionale-emea-tecan-mannedorf"
+          "regional-channel-sales-distributors-manager-emea-tecan-mannedorf"
         ]
       },
       "firstSeenAt": "2026-09-10T23:09:30.182Z",
@@ -1235,13 +1234,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-trade-compliance-manager-tecan-mannedorf",
-        "conformita-alle-disposizioni-in-materia-di-commercio-globale-tecan-mannedorf"
+        "global-trade-compliance-manager-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-trade-compliance-manager-tecan-mannedorf",
-          "conformita-alle-disposizioni-in-materia-di-commercio-globale-tecan-mannedorf"
+          "global-trade-compliance-manager-tecan-mannedorf"
         ],
         "de": [
           "global-trade-compliance-manager-tecan-mannedorf"
@@ -1314,15 +1311,13 @@
       "previousSlugs": [
         "associate-customer-product-manager-tecan-mannedorf",
         "gestionnaire-de-produit-client-associe-tecan-mannedorf",
-        "associate-product-manager-tecan-mannedorf",
-        "responsabile-del-prodotto-associato-tecan-mannedorf"
+        "associate-product-manager-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-customer-product-manager-tecan-mannedorf",
           "gestionnaire-de-produit-client-associe-tecan-mannedorf",
-          "associate-product-manager-tecan-mannedorf",
-          "responsabile-del-prodotto-associato-tecan-mannedorf"
+          "associate-product-manager-tecan-mannedorf"
         ]
       },
       "firstSeenAt": "2026-09-11T23:11:09.713Z",
@@ -1391,18 +1386,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf",
-          "head-software-product-management-tecan-mannedorf"
+          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf"
         ],
         "it": [
-          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf",
-          "gestione-del-prodotto-del-software-di-testa-tecan-mannedorf"
+          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf"
         ]
       },
       "previousSlugs": [
-        "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf",
-        "head-software-product-management-tecan-mannedorf",
-        "gestione-del-prodotto-del-software-di-testa-tecan-mannedorf"
+        "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf"
       ],
       "firstSeenAt": "2026-08-04T11:54:53.348Z",
       "salaryMin": 121500,
@@ -1468,13 +1459,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trainee-in-marketing-tecan-mannedorf",
-        "apprendista-in-marketing-tecan-mannedorf"
+        "trainee-in-marketing-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-in-marketing-tecan-mannedorf",
-          "apprendista-in-marketing-tecan-mannedorf"
+          "trainee-in-marketing-tecan-mannedorf"
         ]
       },
       "firstSeenAt": "2026-07-06T22:18:00.757Z",
@@ -1499,7 +1488,7 @@
         "it": "responsabile-della-fornitura-tecan-mannedorf",
         "en": "supply-manager-tecan-mannedorf",
         "de": "versorgungsmanager-tecan-mannedorf",
-        "fr": "responsable-de-l-approvisionnement-tecan-mannedorf"
+        "fr": "gestionnaire-des-approvisionnements-tecan-mannedorf"
       },
       "company": "Tecan",
       "companyKey": "tecan",
@@ -1546,8 +1535,6 @@
         "projektmanager-tecan-mannedorf",
         "gestionnaire-de-projet-tecan-mannedorf",
         "supply-manager-tecan-mannedorf",
-        "gestionnaire-des-approvisionnements-tecan-mannedorf",
-        "responsabile-della-fornitura-tecan-mannedorf",
         "responsable-de-l-approvisionnement-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
@@ -1556,8 +1543,7 @@
           "project-manager-tecan-mannedorf",
           "projektmanager-tecan-mannedorf",
           "gestionnaire-de-projet-tecan-mannedorf",
-          "supply-manager-tecan-mannedorf",
-          "responsabile-della-fornitura-tecan-mannedorf"
+          "supply-manager-tecan-mannedorf"
         ],
         "en": [
           "project-manager-tecan-mannedorf"
@@ -1569,7 +1555,6 @@
         "fr": [
           "gestionnaire-de-projet-tecan-mannedorf",
           "supply-manager-tecan-mannedorf",
-          "gestionnaire-des-approvisionnements-tecan-mannedorf",
           "responsable-de-l-approvisionnement-tecan-mannedorf"
         ]
       },
@@ -1637,13 +1622,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-hr-bp-hr-project-specialist-tecan-mannedorf",
-        "junior-risorse-umane-bp-risorse-umane-project-specialista-tecan-mannedorf"
+        "junior-hr-bp-hr-project-specialist-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-hr-bp-hr-project-specialist-tecan-mannedorf",
-          "junior-risorse-umane-bp-risorse-umane-project-specialista-tecan-mannedorf"
+          "junior-hr-bp-hr-project-specialist-tecan-mannedorf"
         ]
       },
       "firstSeenAt": "2026-09-10T23:09:30.715Z",
@@ -1806,14 +1789,12 @@
       "previousSlugs": [
         "production-engineer-electronics-tecan-mannedorf",
         "ingegneri-di-produzione-elettronica-tecan-mannedorf",
-        "production-ingenieur-electronics-tecan-mannedorf",
-        "ingegnere-di-produzione-elettronica-tecan-mannedorf"
+        "production-ingenieur-electronics-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "production-engineer-electronics-tecan-mannedorf",
-          "ingegneri-di-produzione-elettronica-tecan-mannedorf",
-          "ingegnere-di-produzione-elettronica-tecan-mannedorf"
+          "ingegneri-di-produzione-elettronica-tecan-mannedorf"
         ],
         "de": [
           "production-ingenieur-electronics-tecan-mannedorf"

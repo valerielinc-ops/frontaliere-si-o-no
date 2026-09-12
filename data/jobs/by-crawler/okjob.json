@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "okjob-a711b243ee1f",
-      "slug": "automatiker-in-elektromechaniker-in-100-m-w-d-ok-job-sa-succursale-di-mendrisio-bienne",
+      "slug": "automatico-elettromeccanico-100-m-f-d-ok-job-sa-succursale-di-mendrisio-2501-bienne",
       "slugByLocale": {
         "de": "automatiker-in-elektromechaniker-in-100-m-w-d-okjob-ch",
-        "it": "automatiker-in-elektromechaniker-in-100-m-w-d-ok-job-sa-succursale-di-mendrisio-bienne",
-        "en": "automatiker-in-elektromechaniker-in-100-m-w-d-ok-job-sa-succursale-di-mendrisio-bienne",
-        "fr": "automatiker-in-elektromechaniker-in-100-m-w-d-ok-job-sa-succursale-di-mendrisio-bienne"
+        "it": "automatico-elettromeccanico-100-m-f-d-ok-job-sa-succursale-di-mendrisio-2501-bienne",
+        "en": "automatic-electromechanic-100-m-f-d-ok-job-sa-succursale-di-mendrisio-2501-bienne",
+        "fr": "automatique-electromecanique-100-h-f-d-ok-job-sa-succursale-di-mendrisio-2501-bienne"
       },
       "company": "OK Job SA, succursale di Mendrisio",
       "companyKey": "okjob",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-elektromechaniker-in-100-m-w-d-okjob-ch"
+          "automatiker-in-elektromechaniker-in-100-m-w-d-okjob-ch",
+          "automatiker-in-elektromechaniker-in-100-m-w-d-ok-job-sa-succursale-di-mendrisio-bienne"
+        ],
+        "en": [
+          "automatiker-in-elektromechaniker-in-100-m-w-d-ok-job-sa-succursale-di-mendrisio-bienne"
+        ],
+        "fr": [
+          "automatiker-in-elektromechaniker-in-100-m-w-d-ok-job-sa-succursale-di-mendrisio-bienne"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-elektromechaniker-in-100-m-w-d-okjob-ch"
+        "automatiker-in-elektromechaniker-in-100-m-w-d-okjob-ch",
+        "automatiker-in-elektromechaniker-in-100-m-w-d-ok-job-sa-succursale-di-mendrisio-bienne"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
