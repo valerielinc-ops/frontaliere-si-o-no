@@ -11,9 +11,10 @@ name: Follow-up drainer (queue → agent:fix, no-Claude)
 on:
   schedule:
     - cron: '*/20 * * * *' # drena la coda ~ogni 20min
-  workflow_run:
-    workflows: ['Issue fix (Claude → PR)'] # appena un fix finisce, promuovi il prossimo
-    types: [completed]
+  # Non usare workflow_run come fan-out: ogni fine di issue-fix può produrre un
+  # burst di run concorrenti, e GitHub conserva una sola pending per il gruppo
+  # concurrency (cancellando le altre). Il cron è il trigger durevole; il tick
+  # successivo rilegge tutto lo stato e non perde mai una promozione.
   workflow_dispatch:
 
 # Una sola run drainer alla volta, nello stesso mutex repo-scoped dei writer daily:
@@ -57,9 +58,8 @@ jobs:
       # del job, il che cambia l'esito da `cancelled` a `failure`: un job
       # `cancelled` non fa mai scattare gli `if: failure()` — è esattamente il
       # buco che scan-job-timeouts.mjs esiste per tappare — mentre un `failure`
-      # si diagnostica da solo. Il tick successivo (cron 20min + workflow_run a
-      # ogni fine di issue-fix) recupera comunque: questo job è ridondante di
-      # proposito, un run perso non perde lavoro.
+      # si diagnostica da solo. Il tick successivo del cron recupera comunque:
+      # questo job è ridondante di proposito, un run perso non perde lavoro.
       #
       # NIENTE `filter: blob:none` qui, ed è una scelta MISURATA, non una svista:
       # con `fetch-depth: 1` il fetch è già bulk e il partial clone è un
@@ -201,6 +201,9 @@ jobs:
           FAIRNESS_PEER_REPO: nanakokyobashi-rgb/frontaliere-articles
           FAIRNESS_HOURS_UTC: '7'
           FAIRNESS_PEER_QUEUE_MIN: '10'
+          # issue-fix usa Codex come provider primario e Claude come fallback.
+          # Un beacon Claude non deve quindi congelare la coda del drainer.
+          FOLLOWUP_CODEX_FALLBACK_MODE: '1'
           FOLLOWUP_NO_AUTOCLOSE: '1'
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then

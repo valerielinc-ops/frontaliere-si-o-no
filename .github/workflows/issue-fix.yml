@@ -318,14 +318,15 @@ jobs:
       - name: Pre-flight — in-progress claim gate (zero-Claude, mutex)
         id: claim
         if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
-        # PROCEED-SAFE, same contract as `preflight`/`scope_guard` above: the script is
-        # total (catches its own throws → emits in_flight=false), continue-on-error is
-        # belt-and-suspenders so an infra fault never strands the issue.
-        continue-on-error: true
+        # FAIL-CLOSED: the script emits `in_flight=true` on a GitHub/API/parse
+        # fault. A runner failure is also allowed to fail this job rather than
+        # letting an unreadable mutex reach the fixer.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CLAIM_ACTION: acquire
+          CLAIM_OWNER: remote
         # STRUCTURAL fix per #4788/#4793: due sessioni (una interattiva locale, una questo
         # fixer autonomo) hanno lavorato la STESSA issue in parallelo → due PR competitive,
         # merge in conflitto. L'unica difesa esistente era un controllo prompt-level DENTRO
@@ -1119,6 +1120,30 @@ jobs:
             echo "::warning::wip-salvage: push di $BRANCH fallito — il lavoro resta solo nel container e andrà perso."
           fi
 
+      - name: Mark autonomous PR provenance (zero-Claude)
+        # `fix/*` identifies the deterministic fixer path. Persist the same
+        # provenance label explicitly so downstream reviewer/fixer jobs do not
+        # have to guess from the owner author alone. The local `/fix-issue`
+        # command applies this label after its own PR creation.
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          set -uo pipefail
+          PR=$(gh pr list --repo "$REPO" --head "fix/issue-$ISSUE" --state open --json number,createdAt \
+            --jq 'sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
+          if [ -z "${PR:-}" ]; then
+            echo "provenance: nessuna PR aperta su fix/issue-$ISSUE da marcare."
+            exit 0
+          fi
+          gh label create agent:autofix --repo "$REPO" --color 1d76db \
+            --description 'PR prodotta dal loop autonomo issue-fix' --force >/dev/null 2>&1 || true
+          gh pr edit "$PR" --repo "$REPO" --add-label agent:autofix
+          echo "provenance: PR #$PR marcata agent:autofix."
+
       - name: Claude usage metrics
         # Run only when the Claude fallback actually ran and produced an execution file.
         if: always() && steps.claude_review.outputs.claude_used == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
@@ -1186,7 +1211,8 @@ jobs:
             echo "FIX_OUTCOME marker already present (agent-posted) — no backstop needed."
             exit 0
           fi
-          PR=$(gh pr list --head "fix/issue-$ISSUE" --state open --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          PR=$(gh pr list --head "fix/issue-$ISSUE" --state open --json number,createdAt \
+            --jq 'sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
           if [ -n "${PR:-}" ]; then OUT=pr-created; else OUT=no-pr-unspecified; fi
           echo "FIX_OUTCOME issue=$ISSUE outcome=$OUT (deterministic backstop)"
           gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")" || true
@@ -1216,8 +1242,8 @@ jobs:
         run: |
           set -uo pipefail
           # PR aperta o gia' mergiata sul branch di questa issue (head esatto).
-          PR_STATE=$(gh pr list --head "fix/issue-$ISSUE" --state all --json number,state \
-            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | .[0].number // empty' 2>/dev/null || true)
+          PR_STATE=$(gh pr list --head "fix/issue-$ISSUE" --state all --json number,state,createdAt \
+            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
           echo "issue=$ISSUE pr(head fix/issue-$ISSUE, open|merged)=${PR_STATE:-<none>} claude=$CLAUDE_OUTCOME"
           if [ -n "${PR_STATE:-}" ]; then
             echo "✓ PR #$PR_STATE esiste (open/merged) per la issue → run SUCCESS. Job verde anche se la CLI e' uscita '$CLAUDE_OUTCOME' (false-failure: lavoro consegnato)."
@@ -1248,15 +1274,15 @@ jobs:
         # Symmetric to the claim step above: runs on EVERY terminal path (success,
         # blocked-workflows-scope, already-resolved, error_max_turns, infra fail) so a
         # dead/failed run never leaves `agent:in-progress` stuck forever. Gated on
-        # `steps.claim.outcome != 'skipped'` (this run must have actually executed the
-        # claim step — i.e. wasn't itself short-circuited by an earlier gate) AND
-        # `in_flight != 'true'` (this run was the one that ADDED the label, not a run
-        # that saw it already there and deferred to someone else's claim). Never removes
-        # a claim this run didn't set.
-        if: always() && steps.claim.outcome != 'skipped' && steps.claim.outputs.in_flight != 'true'
+        # `claim_acquired=true` is stronger than `in_flight=false`: it proves
+        # this run wrote and re-read the remote-owned claim. Never remove a
+        # local claim, a contended claim, or a claim that this run did not own.
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE: ${{ github.event.issue.number }}
-        run: |
-          gh issue edit "$ISSUE" --remove-label agent:in-progress 2>/dev/null || true
-          echo "Released agent:in-progress claim on issue #$ISSUE (best-effort)."
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CLAIM_ACTION: release
+          CLAIM_OWNER: remote
+        run: node scripts/ci/claim-issue-in-flight.mjs

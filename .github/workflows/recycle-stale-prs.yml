@@ -136,8 +136,16 @@ jobs:
           NOW=$(date -u +%s)
           MAXAGE=$(( ${MAX_AGE_HOURS:-24} * 3600 ))
 
-          prs=$(gh pr list --repo "$REPO" --state open --label stale-review --limit 50 \
-            --json number,title,body,createdAt,author)
+          # `gh pr list --limit 50` troncava in silenzio le PR più vecchie,
+          # proprio quelle eleggibili al recycle. Leggi tutte le pagine e
+          # filtra `stale-review` sul payload REST; una lettura incompleta è un
+          # errore, non una lista vuota da trattare come scan riuscito.
+          if ! prs=$(gh api --paginate "repos/$REPO/pulls?state=open&per_page=100" \
+            --jq '.[] | select(any(.labels[]?.name; . == "stale-review")) | {number, title, body, createdAt: .created_at, headRefName: .head.ref, labels: [.labels[] | {name}]}' \
+            | jq -s '.'); then
+            echo "::error::Query PR stale-review fallita o non valida: recycle non eseguito." >&2
+            exit 1
+          fi
           COUNT=$(printf '%s' "$prs" | jq 'length')
           echo "stale-review PRs aperte: $COUNT"
 
@@ -146,6 +154,17 @@ jobs:
             TITLE=$(printf '%s' "$pr" | jq -r '.title')
             BODY=$(printf '%s' "$pr" | jq -r '.body // ""')
             CREATED=$(printf '%s' "$pr" | jq -r '.createdAt')
+            BRANCH=$(printf '%s' "$pr" | jq -r '.headRefName // ""')
+            HAS_AUTOFIX=$(printf '%s' "$pr" | jq -r 'if any(.labels[]?.name; . == "agent:autofix") then "true" else "false" end')
+
+            # Questo workflow chiude e ri-accoda: può farlo solo il loop
+            # autonomo. Il precedente filtro `stale-review` da solo includeva
+            # anche PR umane etichettate manualmente. `fix/*` mantiene la
+            # compatibilità con le PR storiche; le altre richiedono il segnale
+            # esplicito agent:autofix.
+            if [ "$HAS_AUTOFIX" != "true" ] && ! printf '%s' "$BRANCH" | grep -q '^fix/'; then
+              echo "PR #$N non autonoma (branch '$BRANCH', senza agent:autofix) — skip recycle"; continue
+            fi
 
             # Gate 1: PR aperta da >MAXAGE.
             CS=$(date -u -d "$CREATED" +%s 2>/dev/null || echo "$NOW")
