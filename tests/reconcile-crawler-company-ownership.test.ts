@@ -406,6 +406,73 @@ describe('issue #6759 reconciliation', () => {
     }
   });
 
+  it('does not adopt a mixed cross-slice result when one component hits the cap', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'expired-mixed-cap-refusal-'));
+    const capEntries = [
+      {
+        slug: 'deep-a',
+        companyKey: 'same-company',
+        expiredAt: '2026-09-01T00:00:00.000Z',
+        slugByLocale: { it: 'deep-a' },
+        previousSlugs: ['cap-route', ...Array.from({ length: 90 }, (_, i) => `legacy-a-${i}`)],
+        previousSlugsByLocale: {},
+      },
+      {
+        slug: 'deep-b',
+        companyKey: 'same-company',
+        expiredAt: '2026-09-04T00:00:00.000Z',
+        slugByLocale: { it: 'deep-b' },
+        previousSlugs: ['cap-route', ...Array.from({ length: 90 }, (_, i) => `legacy-b-${i}`)],
+        previousSlugsByLocale: {},
+      },
+    ];
+    const safeEntries = [
+      {
+        slug: 'safe-a',
+        companyKey: 'same-company',
+        expiredAt: '2026-09-03T00:00:00.000Z',
+        slugByLocale: { it: 'safe-a' },
+        previousSlugsByLocale: { de: ['safe-route'] },
+      },
+      {
+        slug: 'safe-b',
+        companyKey: 'same-company',
+        expiredAt: '2026-09-02T00:00:00.000Z',
+        slugByLocale: { it: 'safe-b' },
+        previousSlugsByLocale: { de: ['safe-route'] },
+      },
+    ];
+    const files = [
+      [join(dir, 'cap-a.json'), [capEntries[0]]],
+      [join(dir, 'cap-b.json'), [capEntries[1]]],
+      [join(dir, 'safe-a.json'), [safeEntries[0]]],
+      [join(dir, 'safe-b.json'), [safeEntries[1]]],
+    ] as const;
+    const serialized = new Map<string, string>();
+    for (const [file, entries] of files) {
+      const value = JSON.stringify(entries);
+      serialized.set(file, value);
+      writeFileSync(file, value);
+    }
+    try {
+      const dryRun = sweepExpiredArchiveSlices({ dir, apply: false });
+      expect(dryRun).toMatchObject({
+        filesChanged: 0,
+        crossSliceCollapsed: 0,
+        capRefused: 1,
+      });
+      const apply = sweepExpiredArchiveSlices({ dir, apply: true });
+      expect(apply).toMatchObject({
+        filesChanged: 0,
+        crossSliceCollapsed: 0,
+        capRefused: 1,
+      });
+      for (const [file, value] of serialized) expect(readFileSync(file, 'utf8')).toBe(value);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('types the legacy-cap refusal, so its message is not the contract', () => {
     // `collapseDuplicateRouteEntries` assorbe SOLO il rifiuto del cap e rilancia
     // tutto il resto. Finche' quella distinzione si faceva con una regex sul

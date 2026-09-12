@@ -486,9 +486,16 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
       source: 'expired-sweep/cross-slice',
     });
     assertRoutesPreserved(taggedEntries, crossResult.entries, 'expired-sweep/cross-slice');
-    crossSliceCollapsed = crossResult.collapsed;
     crossSliceCapRefused = crossResult.capRefused;
-    if (crossSliceCollapsed > 0) {
+    if (crossSliceCapRefused > 0) {
+      // A global result can contain both a safe component and a component
+      // refused by the legacy route cap. Do not adopt its sorted output: that
+      // would silently reorder or rewrite the refused component while the
+      // report says it was left untouched. The next run can retry the safe
+      // component after the cap is resolved, while this run stays fail-closed.
+      crossSliceCollapsed = 0;
+    } else if (crossResult.collapsed > 0) {
+      crossSliceCollapsed = crossResult.collapsed;
       finalJobsByFile = new Map(slices.map((slice) => [slice.file, []]));
       for (const entry of crossResult.entries) {
         const sourceFile = entry.__sweepSourceFile;
