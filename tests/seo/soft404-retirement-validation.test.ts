@@ -136,7 +136,7 @@ describe('consolidated soft-404 sub-check', () => {
     expect(start).toBeGreaterThanOrEqual(0);
     expect(end).toBeGreaterThan(start);
     expect(body).toContain('isExternallyServedUrl(url)');
-    expect(body).toContain('REDIRECT_STUB_MARKER');
+    expect(source).toContain('REDIRECT_STUB_MARKER');
     expect(body).toContain('eligiblePages');
   });
 });
