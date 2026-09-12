@@ -1094,6 +1094,17 @@ export async function captureNewsletterSubscriber(
  || explicitInputStatus === 'confirmed'
  || input.consentGiven === true;
  const isAccountDeletionReRegistrationRequest = isAccountDeletionReRegistration(input, existingData);
+ const hasExistingConfirmationStamp = Boolean(existingData?.confirmed_at || existingData?.confirmedAt);
+ // A contextual social gate may legitimately confirm an old malformed row, but
+ // only after it has displayed the communications notice and explicitly asked
+ // for the confirmed state. Keep the evidence in the same payload as the
+ // promotion so firestore.rules can validate both new creates and these repairs.
+ const needsConfirmedStamp = subscriptionState.status === 'confirmed'
+ && (!wasConfirmed || (
+  isExplicitConsentRequest
+  && input.consentTextDisplayed === true
+  && !hasExistingConfirmationStamp
+  ));
  // Firestore rules keep consent corrections owner-only once a confirmed row
  // exists. An access-only email gate may still call this shared upsert to
  // decide whether it needs a login link, but it must not turn that login into
@@ -1242,6 +1253,10 @@ export async function captureNewsletterSubscriber(
   subscribed_at: serverTimestamp(),
   created_at: serverTimestamp(),
  }),
+ ...(needsConfirmedStamp ? {
+  confirmed_at: serverTimestamp(),
+  confirmedAt: serverTimestamp(),
+ } : {}),
  updatedAt: serverTimestamp(),
  updated_at: serverTimestamp(),
  } as Record<string, any>;
@@ -1258,11 +1273,6 @@ export async function captureNewsletterSubscriber(
  mergedData.confirmed_at = deleteField();
  mergedData.confirmedAt = deleteField();
  }
- }
-
- if (subscriptionState.status === 'confirmed' && !wasConfirmed) {
- mergedData.confirmed_at = serverTimestamp();
- mergedData.confirmedAt = serverTimestamp();
  }
 
  if (subscriptionState.status === 'unsubscribed') {

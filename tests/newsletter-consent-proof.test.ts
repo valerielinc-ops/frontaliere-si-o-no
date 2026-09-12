@@ -92,7 +92,40 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
     });
 
     expect(result.id).toBe('new@example.com');
-    expect(payloadOf().consent_text).toBe(CONSENT_TEXTS.signInAutoSubscribe.text);
+    expect(payloadOf()).toMatchObject({
+      consent_text: CONSENT_TEXTS.signInAutoSubscribe.text,
+      confirmed_at: '__server_timestamp__',
+      confirmedAt: '__server_timestamp__',
+    });
+  });
+
+  it('stamps an explicitly displayed confirmed gate when repairing an old row without proof', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        email: 'old-gate@example.com',
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        consent_text_displayed: false,
+      }),
+    });
+
+    await captureNewsletterSubscriber({} as any, {
+      email: 'old-gate@example.com',
+      source: 'job_board_auth',
+      status: 'confirmed',
+      isActive: true,
+      ...consentProof('communicationsSignIn', 'google_oauth', 'it'),
+    });
+
+    expect(payloadOf()).toMatchObject({
+      status: 'confirmed',
+      isActive: true,
+      confirmed_at: '__server_timestamp__',
+      confirmedAt: '__server_timestamp__',
+      consent_text_displayed: true,
+    });
   });
 
   it('does NOT break the 8.505 documents that already lack one', async () => {

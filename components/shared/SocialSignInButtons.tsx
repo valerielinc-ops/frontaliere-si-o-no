@@ -121,6 +121,7 @@ export default function SocialSignInButtons({
       try {
         const ready = await renderGoogleButtonWithReadiness(googleButtonRef.current, {
           theme: 'outline', size: 'large', text: 'continue_with', width: googleWidth, locale,
+          click_listener: onAuthIntent,
         });
         if (!cancelled) setGoogleButtonReady(ready);
       } catch (error) {
@@ -132,7 +133,7 @@ export default function SocialSignInButtons({
     };
     void mount();
     return () => { cancelled = true; };
-  }, [user, locale, googleWidth, errorContext, mountEnabled]);
+  }, [user, locale, googleWidth, errorContext, mountEnabled, onAuthIntent]);
 
   if (user) return null;
 
@@ -145,7 +146,6 @@ export default function SocialSignInButtons({
       {/* Google Identity rendered button (falls back to a plain button if GIS is slow/blocked) */}
       <div
         ref={googleButtonRef}
-        onClick={onAuthIntent}
         className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl"
       />
       {!googleButtonReady && (

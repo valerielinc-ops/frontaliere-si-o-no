@@ -1239,6 +1239,7 @@ interface OneTapButtonOptions {
  logo_alignment?: 'left' | 'center';
  width?: number;
  locale?: string;
+ click_listener?: () => void;
 }
 
 let oneTapInitialized = false;
