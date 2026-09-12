@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { spawnSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import {
   freeTranslate,
   getCascadeStats,
@@ -27,7 +28,7 @@ vi.mock('@/scripts/lib/mymemory-translate.mjs', () => ({
  * passthrough E deve lasciar passare intatto tutto il resto. Il verso positivo
  * da solo si soddisfa rifiutando tutto.
  *
- * Le asserzioni guardano la RAGIONE (il bucket `tierPassthroughs`, la riga di
+ * Le asserzioni guardano la RAGIONE (i bucket `tierPassthroughs`/`tierPassthroughChunks`, la riga di
  * `logCascadeSummary`), non solo il valore di ritorno. `freeTranslate` rende ''
  * per DUE motivi diversi — «ho rifiutato una non-traduzione» e «i motori sono
  * giu'» — e sul solo valore di ritorno sono indistinguibili: l'ultimo caso di
@@ -309,6 +310,7 @@ function statsSnapshot() {
   return {
     hits: s.tierHits.myMemory || 0,
     passthroughs: s.tierPassthroughs.myMemory || 0,
+    chunks: s.tierPassthroughChunks.myMemory || 0,
   };
 }
 
@@ -343,6 +345,7 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     // come hit. Senza questa riga il caso resterebbe verde anche con la guardia
     // rimossa dal giorno in cui i motori sono giu'.
     expect(after.passthroughs - before.passthroughs).toBe(1);
+    expect(after.chunks - before.chunks).toBe(0);
     expect(after.hits - before.hits).toBe(0);
   });
 
@@ -355,6 +358,7 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
 
     expect(out).toBe('');
     expect(statsSnapshot().passthroughs - before.passthroughs).toBe(1);
+    expect(statsSnapshot().chunks - before.chunks).toBe(0);
   });
 
   it('conta il passthrough anche sul ramo a CHUNK, che e\' quello dei body lunghi', async () => {
@@ -379,7 +383,8 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     const after = statsSnapshot();
 
     expect(out).toBe('');
-    expect(after.passthroughs - before.passthroughs).toBe(1);
+    expect(after.passthroughs - before.passthroughs).toBe(0);
+    expect(after.chunks - before.chunks).toBeGreaterThan(0);
     expect(after.hits - before.hits).toBe(0);
   });
 
@@ -399,7 +404,8 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
 
     expect(calls).toBeGreaterThan(1);
     expect(out).toBe('');
-    expect(after.passthroughs - before.passthroughs).toBe(1);
+    expect(after.passthroughs - before.passthroughs).toBe(0);
+    expect(after.chunks - before.chunks).toBeGreaterThan(0);
     expect(after.hits - before.hits).toBe(0);
   });
 
@@ -415,6 +421,15 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     const summary = lines.join('\n');
     expect(summary).toMatch(/Tier passthrough/);
     expect(summary).toMatch(/myMemory=\d+/);
+    expect(summary).toMatch(/Tier passthrough \(chunk/);
+  });
+
+  it('documenta la soglia dei chunk con la misura del corpus che la sostiene (#1320/FU-025)', () => {
+    const source = readFileSync(new URL('../scripts/lib/free-translate.mjs', import.meta.url), 'utf8');
+    expect(source).toContain('const MIN_SUBSTANTIVE_PASSTHROUGH_WORDS = 8;');
+    expect(source).toContain("blog-body:    15'476 file, 46'524 campi, 48'298 chunk");
+    expect(source).toContain("blog-body-ch:  8'388 file, 25'164 campi, 25'589 chunk");
+    expect(source).toContain("totale:       23'864 file, 71'688 campi, 73'887 chunk");
   });
 
   // ── IL VERSO INVERSO: cio' che NON deve cambiare ───────────────────────────
