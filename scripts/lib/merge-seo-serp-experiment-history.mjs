@@ -4,7 +4,17 @@ import { execFileSync } from 'node:child_process';
 export const MAX_SERP_HISTORY_SNAPSHOTS = 260;
 
 function snapshotKey(snapshot) {
-  return [snapshot?.createdAt, snapshot?.variant, snapshot?.period].join('|');
+  const rawCreatedAt = String(snapshot?.createdAt ?? '');
+  const timestamp = Date.parse(rawCreatedAt);
+  return JSON.stringify({
+    ...snapshot,
+    createdAt: Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : rawCreatedAt,
+  });
+}
+
+function snapshotTimestamp(snapshot) {
+  const timestamp = Date.parse(String(snapshot?.createdAt ?? ''));
+  return Number.isFinite(timestamp) ? timestamp : null;
 }
 
 export function mergeSeoSerpHistory(current, incoming) {
@@ -16,8 +26,11 @@ export function mergeSeoSerpHistory(current, incoming) {
     ...(current ?? {}),
     ...(incoming ?? {}),
     snapshots: [...snapshots.values()]
-      .sort((a, b) => String(a.createdAt ?? '').localeCompare(String(b.createdAt ?? '')))
-      .slice(-MAX_SERP_HISTORY_SNAPSHOTS),
+      .map((snapshot) => ({ snapshot, timestamp: snapshotTimestamp(snapshot) }))
+      .filter((entry) => entry.timestamp !== null)
+      .sort((a, b) => a.timestamp - b.timestamp || snapshotKey(a.snapshot).localeCompare(snapshotKey(b.snapshot)))
+      .slice(-MAX_SERP_HISTORY_SNAPSHOTS)
+      .map((entry) => entry.snapshot),
   };
 }
 
