@@ -1203,6 +1203,7 @@ const SEO_SECTION_TITLE_KEY_MAP: Record<string, string> = {
  dashboard: 'profile.title',
  gamification: 'gamification.title',
  privacy: 'consent.privacyLink',
+ petition: 'petition.hero.title',
 };
 
 const SEO_SECTION_DESCRIPTION_KEY_MAP: Record<string, string> = {
@@ -1288,6 +1289,7 @@ const SEO_SECTION_DESCRIPTION_KEY_MAP: Record<string, string> = {
  dashboard: 'seo.dashboard.description',
  gamification: 'seo.gamification.description',
  privacy: 'seo.privacy.description',
+ petition: 'seo.petition.description',
 };
 
 function translateIfExists(key: string | undefined, cantonCode?: string): string | null {

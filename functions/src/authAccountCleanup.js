@@ -34,6 +34,17 @@ const DELETE_PAGE_SIZE = 450;
 export const ACCOUNT_DELETED_STATUS = 'account_deleted';
 
 /**
+ * Petition signatures are keyed by Auth uid, so account deletion must remove
+ * the private signature as well. The aggregate counter is intentionally kept:
+ * it is a public historical petition metric, not account data.
+ */
+export async function cleanupPetitionSignatureForDeletedUser(uid, injectedDb) {
+  const db = injectedDb || admin.firestore();
+  await db.collection('petition_signatures').doc(uid).delete();
+  return { deletedPetitionSignature: true };
+}
+
+/**
  * @param {Record<string, unknown>|null|undefined} data
  * @returns {boolean}
  */
@@ -108,7 +119,7 @@ export async function tombstoneEmailKeyedSubscribers(rawEmail, db) {
 /**
  * @param {{uid: string, email?: string|null}} user
  * @param {import('firebase-admin/firestore').Firestore} [injectedDb]
- * @returns {Promise<{deletedSavedJobs: number, tombstonedNewsletter: boolean, tombstonedJobAlert: boolean}>}
+ * @returns {Promise<{deletedSavedJobs: number, tombstonedNewsletter: boolean, tombstonedJobAlert: boolean, deletedPetitionSignature: boolean}>}
  */
 export async function cleanupUserDataForDeletedAccount(user, injectedDb) {
  const db = injectedDb || admin.firestore();
@@ -118,5 +129,6 @@ export async function cleanupUserDataForDeletedAccount(user, injectedDb) {
  // deletion so a savedJobs failure can never leave the old email lifecycle
  // without an address-level cleanup marker.
  const saved = await cleanupSavedJobsForDeletedUser(uid, db);
- return { ...saved, ...subscribers };
+ const petition = await cleanupPetitionSignatureForDeletedUser(uid, db);
+ return { ...saved, ...subscribers, ...petition };
 }

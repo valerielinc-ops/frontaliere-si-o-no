@@ -34887,6 +34887,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'dosso-dogana-stabio-gaggiolo-traffico-frontalieri',
+ category: 'novita',
+ date: '2026-09-12T21:09:02.036Z',
+ image: '/images/places/mendrisio.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

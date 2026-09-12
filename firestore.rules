@@ -604,6 +604,17 @@ service cloud.firestore {
       }
     }
 
+    // Petition signatures and the aggregate counter are server-owned. The
+    // signing Cloud Function uses Admin SDK and re-checks newsletter consent;
+    // no browser can forge a signature or inflate the count.
+    match /petition_signatures/{uid} {
+      allow read, write: if false;
+    }
+
+    match /petition_meta/{petitionId} {
+      allow read, write: if false;
+    }
+
     // Fuel prices — public read only (writes via Admin SDK from CI)
     match /fuelPrices/{docId} {
       allow read: if true;
