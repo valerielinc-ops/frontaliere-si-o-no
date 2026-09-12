@@ -3,6 +3,11 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  JOBS_SEO_RETENTION_PROBE_ENV,
+  parseJobsSeoRetentionProbe,
+  shouldReleaseJobsSeoRetentionCandidate,
+} from '../build-plugins/shared/jobsSeoRetentionProbe';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PLUGIN_DIR = path.resolve(__dirname, '..', 'build-plugins');
@@ -180,5 +185,43 @@ describe('corpus retention discipline (#5330)', () => {
     const peak = all.find(({ source }) => declaredPluginNames(source).includes(PEAK_PLUGIN));
     expect(peak, `no build-plugins source declares ${PEAK_PLUGIN}`).toBeTruthy();
     expect(CALLS_LOAD.test(stripComments(peak!.source))).toBe(false);
+  });
+
+  it('releases function-scoped editorial partitions after their last reader', () => {
+    const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
+    const checkpoint = source.indexOf("'jobsSeoPages: after corpus-release'");
+    const nextPhase = source.indexOf('/* ── Per-canton city hubs');
+
+    expect(checkpoint, 'jobsSeo corpus-release checkpoint disappeared').toBeGreaterThan(-1);
+    expect(nextPhase, 'the editorial phase boundary disappeared').toBeGreaterThan(-1);
+
+    for (const [partition, release] of [
+      ['careClusterPartition', 'releaseCareClusterPartition'],
+      ['locationPartition', 'releaseLocationPartition'],
+    ] as const) {
+      const lastReader = source.lastIndexOf(`partition: ${partition}`);
+      const releaseCall = source.indexOf(`${release}();`);
+
+      expect(lastReader, `${partition} has no visible builder reader`).toBeGreaterThan(-1);
+      expect(releaseCall, `${partition} is not released`).toBeGreaterThan(lastReader);
+      expect(releaseCall, `${partition} release moved past the next phase`).toBeLessThan(nextPhase);
+      expect(releaseCall, `${partition} release moved past the checkpoint`).toBeLessThan(checkpoint);
+    }
+  });
+
+  it('keeps the retention probe opt-in and limited to one candidate', () => {
+    const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
+
+    expect(source).toContain('process.env[JOBS_SEO_RETENTION_PROBE_ENV]');
+    expect(source).toContain('candidate=${retentionProbeCandidate}');
+    expect(parseJobsSeoRetentionProbe(undefined)).toBeNull();
+    expect(parseJobsSeoRetentionProbe('careClusterPartition')).toBe('careClusterPartition');
+    expect(parseJobsSeoRetentionProbe(' locationPartition ')).toBe('locationPartition');
+    expect(() => parseJobsSeoRetentionProbe('careClusterPartition,locationPartition'))
+      .toThrow(JOBS_SEO_RETENTION_PROBE_ENV);
+
+    expect(shouldReleaseJobsSeoRetentionCandidate(null, 'careClusterPartition')).toBe(true);
+    expect(shouldReleaseJobsSeoRetentionCandidate('careClusterPartition', 'careClusterPartition')).toBe(true);
+    expect(shouldReleaseJobsSeoRetentionCandidate('careClusterPartition', 'locationPartition')).toBe(false);
   });
 });

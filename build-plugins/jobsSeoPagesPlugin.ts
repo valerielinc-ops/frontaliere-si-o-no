@@ -141,6 +141,11 @@ import {
  type LocationPartition,
 } from './jobEditorialLanding';
 import {
+ JOBS_SEO_RETENTION_PROBE_ENV,
+ parseJobsSeoRetentionProbe,
+ shouldReleaseJobsSeoRetentionCandidate,
+} from './shared/jobsSeoRetentionProbe';
+import {
  CITY_HUB_KEYS,
  CITY_HUB_SLUG,
  CITY_HUB_DISPLAY_NAME,
@@ -708,6 +713,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // emitting a literal "undefined" segment in a sector-hub canonical URL —
  // see assertSectorHubTablesComplete() doc comment in ./jobSectorLanding.
  assertSectorHubTablesComplete();
+ const retentionProbeCandidate = parseJobsSeoRetentionProbe(process.env[JOBS_SEO_RETENTION_PROBE_ENV]);
  const distDir = np.resolve(rootDir, 'dist');
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
 
@@ -4802,6 +4808,23 @@ ${companyFollowHtml}
  validJobs,
  editorialLocationsForPartition,
  );
+ // These partitions are function-scoped because every editorial builder in
+ // the phase shares them. Their last readers are in the editorial block
+ // immediately below; retaining them through the rest of closeBundle keeps
+ // several arrays of validJobs objects alive even after the editorial pages
+ // are complete. The default release is byte-neutral: only the indexes are
+ // emptied, never the source job fields used by later phases.
+ const releaseCareClusterPartition = (): void => {
+ (careClusterPartition.nursing as unknown as unknown[]).length = 0;
+ for (const jobs of Object.values(careClusterPartition.byCluster)) {
+ (jobs as unknown as unknown[]).length = 0;
+ }
+ };
+ const releaseLocationPartition = (): void => {
+ (locationPartition.byLocation as unknown as Map<unknown, unknown>).clear();
+ (locationPartition.byLocationType as unknown as Map<unknown, unknown>).clear();
+ (locationPartition.byLocationSector as unknown as Map<unknown, unknown>).clear();
+ };
  let editorialEntries = '';
  {
  const editorialSitemapEntries: string[] = [];
@@ -6737,6 +6760,17 @@ ${staticAnalyticsHtml}
 
  editorialEntries = editorialSitemapEntries.join('\n');
 
+ }
+
+ // Last readers of the editorial partitions are above. Release them before
+ // the canton-hub phase so later phases do not carry their job-bearing graph.
+ // JOBS_SEO_RETENTION_PROBE is intentionally opt-in: a probe run releases
+ // exactly one candidate, while the default build releases both.
+ if (shouldReleaseJobsSeoRetentionCandidate(retentionProbeCandidate, 'careClusterPartition')) {
+ releaseCareClusterPartition();
+ }
+ if (shouldReleaseJobsSeoRetentionCandidate(retentionProbeCandidate, 'locationPartition')) {
+ releaseLocationPartition();
  }
 
  /* ── Per-canton city hubs (Phase 3.1) ────────────────────────
@@ -13918,7 +13952,10 @@ ${staticAnalyticsHtml}
  // verifica dichiarata («il rilascio libera davvero?») e sempre-vero il
  // revert-trigger. Cosi' invece gcFreed AL checkpoint E' la misura del
  // rilascio.
- logBuildMem('jobsSeoPages: after corpus-release', collector);
+ const corpusReleaseLabel = retentionProbeCandidate === null
+ ? 'jobsSeoPages: after corpus-release'
+ : `jobsSeoPages: after corpus-release candidate=${retentionProbeCandidate}`;
+ logBuildMem(corpusReleaseLabel, collector);
 
  /* ── Self-healing: cover any tracking paths not yet written ──── */
  // Safety net: any tracking path that wasn't covered by active, soft-landing,
