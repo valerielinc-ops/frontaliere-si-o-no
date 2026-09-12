@@ -2996,6 +2996,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'supporto': 'Supporto',
  'consulenza': 'Consulenza',
  'servizi-partner': 'Servizi Partner',
+ 'petizione-dosso-stabio': 'Petizione dosso Stabio',
+ 'stabio-speed-bump-petition': 'Stabio speed-bump petition',
+ 'petition-geschwindigkeitsrampe-stabio': 'Petition Verkehrsschwelle Stabio',
+ 'petition-dos-d-ane-stabio': 'Pétition dos-d’âne Stabio',
  };
  const segments = canonicalPath.split('/').filter(Boolean);
  const HOME_LABEL: Record<string, string> = { it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' };
@@ -5188,6 +5192,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ...comparatorSlugs, ...guideSlugs, ...fiscoSlugs, ...statsSlugs, ...blogSlugs, ...vitaSlugs,
  'calcola-stipendio', 'calculate-salary', 'gehalt-berechnen', 'calculer-salaire',
  'dialetto-ticinese', 'mappa-del-sito', 'supporto',
+ 'petizione-dosso-stabio', 'stabio-speed-bump-petition',
+ 'petition-geschwindigkeitsrampe-stabio', 'petition-dos-d-ane-stabio',
  ];
  const isContentPage = contentSlugs.some(s => firstSeg === s || canonicalPath.startsWith(`/${s}/`) || canonicalPath.startsWith(`/${locale}/${s}/`));
  const speakableLd = isContentPage

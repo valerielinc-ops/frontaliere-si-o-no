@@ -216,6 +216,11 @@ const VERDICTS: Record<string, Verdict> = {
     notices: 1,
     why: 'one gate, one notice under its email button, covering the provider buttons above it (#5765)',
   },
+  'components/pages/StabioDossoPetitionPage.tsx': {
+    verdict: 'shown',
+    notices: 1,
+    why: 'the petition gate displays the communications notice once before either the email or provider branch writes its consent-backed newsletter record',
+  },
 
   'components/pages/UserProfile.tsx': {
     verdict: 'merge-update',
@@ -641,6 +646,10 @@ const SIGN_IN_SURFACES: Record<string, SignInSurface> = {
   'components/pages/PublisherPublishPage.tsx': {
     consent: 'self',
     why: 'the publish gate writes communicationsSignIn and renders it',
+  },
+  'components/pages/StabioDossoPetitionPage.tsx': {
+    consent: 'self',
+    why: 'the petition page writes the authenticated provider branch itself, after the same visible communications notice and checkbox gate',
   },
 
   'components/community/NewsletterPopup.tsx': { consent: 'email-branch-only', why: 'checkbox form' },

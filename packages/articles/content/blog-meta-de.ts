@@ -11688,6 +11688,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-12.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 12. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-12.seoDescription': 'Grenzgänger-Bulletin vom 12. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-12.ogDescription': 'Die Zahlen vom 12. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.title': 'Verkehrsschwelle Stabio-Gaggiolo: Stau und Ärger der Grenzgänger',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.excerpt': 'Meldungen zur Verkehrsschwelle direkt hinter dem Zoll Gaggiolo sprechen von mehr als zehn zusätzlichen Minuten täglich. Offizielle Zählungen zeigen einen bereits stark belasteten Übergang.',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.imageAlt': 'Autoschlange zwischen dem Zoll Gaggiolo und Stabio nach der Verkehrsschwelle',
 };
 
 export default blogMetaDe;

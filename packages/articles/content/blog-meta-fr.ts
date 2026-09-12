@@ -11691,6 +11691,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-12.imageAlt': 'Les chiffres du jour pour les frontaliers – 12 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-12.seoDescription': 'Bulletin du frontalier du 12 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-12.ogDescription': 'Les chiffres du 12 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.title': 'Ralentisseur Stabio-Gaggiolo : files et colère des frontaliers',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.excerpt': 'Les signalements sur le ralentisseur juste après la douane de Gaggiolo parlent de plus de dix minutes supplémentaires chaque jour. Les comptages officiels montrent un passage déjà sous pression.',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.imageAlt': 'File de voitures entre la douane de Gaggiolo et Stabio après le ralentisseur',
 };
 
 export default blogMetaFr;
