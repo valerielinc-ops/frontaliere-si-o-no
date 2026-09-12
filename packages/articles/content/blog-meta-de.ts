@@ -11653,6 +11653,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.avs-2030-riforma-previdenza.title': 'AHV 2030: Die Schweizer Vorsorgereform',
     'blog.article.avs-2030-riforma-previdenza.excerpt': 'Die AHV-Reform 2030 wurde in Bern vorgestellt. Geschätzte zusätzliche Einnahmen von 600 Millionen pro Jahr und Anhebung des Mindestalters von 58 auf 63 Jahre. Spaltungen zwischen den Parteien.',
     'blog.article.avs-2030-riforma-previdenza.imageAlt': 'Bundeshaus in Bern bei der Diskussion zur AHV 2030 Reform',
+    'blog.article.vivere-pigra-lavorare-ticino-frontaliere.title': 'Leben in Pigra, Arbeiten im Tessin: Der Guide',
+    'blog.article.vivere-pigra-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten und die Lebenshaltungskosten für Grenzgänger, die sich für Pigra entscheiden, um im Tessin zu leben und zu arbeiten.',
+    'blog.article.vivere-pigra-lavorare-ticino-frontaliere.imageAlt': 'Blick auf Pigra und den Luganersee mit dem alpinen Panorama des Tessins.',
 };
 
 export default blogMetaDe;

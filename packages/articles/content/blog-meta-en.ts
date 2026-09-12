@@ -11654,6 +11654,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.avs-2030-riforma-previdenza.title': 'AVS 2030: the Swiss pension reform',
     'blog.article.avs-2030-riforma-previdenza.excerpt': 'The AVS 2030 reform was presented in Bern. Extra income estimated at 600 million per year and increase in minimum age from 58 to 63 years. Divisions between parties.',
     'blog.article.avs-2030-riforma-previdenza.imageAlt': 'Federal Palace in Bern discussing the OASI 2030 reform',
+    'blog.article.vivere-pigra-lavorare-ticino-frontaliere.title': 'Living in Pigra, working in Ticino: the guide',
+    'blog.article.vivere-pigra-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times and cost of living for border crossers who choose Pigra to live and work in Ticino.',
+    'blog.article.vivere-pigra-lavorare-ticino-frontaliere.imageAlt': 'View of Pigra and Lake Lugano with the alpine panorama of Ticino.',
 };
 
 export default blogMetaEn;
