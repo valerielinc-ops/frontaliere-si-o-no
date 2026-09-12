@@ -550,9 +550,6 @@ jobs:
       # `if: always()` perche' il gate deve girare anche se lo step Claude e' finito in
       # timeout DOPO aver creato una issue; `continue-on-error` perche' un guasto qui non
       # deve poter far cadere il triage (la issue resta intatta, e' il verso sicuro).
-      # #8036: dopo #8284 la quota è telemetria e Codex è il provider primario;
-      # nessun gate di conio deve quindi dipendere da `quota_blocked`. I due
-      # repository restano intenzionalmente simmetrici su `always()`.
       - name: Gate sul conio — demota gli item senza condizione di accettazione (zero-Claude)
         if: always()
         continue-on-error: true
