@@ -6292,6 +6292,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzeri-spesa-crescita-rallenta.title': 'Swiss spend more, but growth slows',
     'blog.article.svizzeri-spesa-crescita-rallenta.excerpt': 'In August, the consumption indicator calculated by PostFinance shows an increase of 0.8%. The pace slows down compared to previous months.',
     'blog.article.svizzeri-spesa-crescita-rallenta.imageAlt': 'Consumer spending indicators in Switzerland and card payments',
+    'blog.article.svizzera-siccita-faldeg-acque.title': 'Drought in Switzerland: 80% of groundwater at risk',
+    'blog.article.svizzera-siccita-faldeg-acque.excerpt': 'SCNAT warns: springs dry up in the Jura and the Alps. Monitoring and renaturalization are needed to protect the groundwater.',
+    'blog.article.svizzera-siccita-faldeg-acque.imageAlt': 'Swiss alpine river with low water levels, illustrating the impact of drought on groundwater reserves.',
 };
 
 export default blogMetaChEn;
