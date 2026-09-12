@@ -10,9 +10,11 @@
  *
  * Design (vedi AUTONOMOUS-LOOP-DESIGN): i follow-up non ricevono più `agent:fix`
  * diretto da triage ma `agent:fix-queued`. Questo drainer (cron ~20min +
- * workflow_run dopo issue-fix) promuove UNO alla volta a `agent:fix`, e SOLO
- * quando lo slot issue-fix è libero → la run promossa è l'unica pending → non
- * viene mai cancellata. Starvation eliminata per costruzione.
+ * dispatch manuale) promuove UNO alla volta a `agent:fix`, e SOLO quando lo
+ * slot issue-fix è libero → la run promossa è l'unica pending → non viene mai
+ * cancellata. Il cron è il trigger automatico durevole: il fan-out
+ * `workflow_run` è stato rimosso perché creava burst concorrenti che GitHub
+ * cancellava sul gruppo serializzato. Starvation eliminata per costruzione.
  *
  * Termina autonomamente (no human): un follow-up promosso che non produce PR
  * (run cancellata/error_max_turns) viene rilevato come orfano e RI-ACCODATO con
@@ -519,9 +521,10 @@ let unparkLabelEnsured = false;
 const AGEOUT_COMMENT_SCAN_MAX = intFromEnv('FOLLOWUP_AGEOUT_COMMENT_SCAN_MAX', 25);
 // Periodo della finestra rotante (vedi `scanWindowOffset`). 20 minuti = la
 // cadenza del cron di `followup-drainer.yml`, così un tick del cron corrisponde
-// a uno spostamento della finestra. Le run extra innescate da `workflow_run`
-// cadono nello stesso bucket e riusano lo stesso offset: è voluto, altrimenti
-// una raffica di fine-fix sfoglierebbe il pool senza che passi tempo vero.
+// a uno spostamento della finestra. Eventuali dispatch manuali nello stesso
+// periodo cadono nello stesso bucket e riusano lo stesso offset: è voluto,
+// altrimenti una raffica di retry sfoglierebbe il pool senza che passi tempo
+// vero.
 const SCAN_ROTATION_PERIOD_MS = intFromEnv('FOLLOWUP_SCAN_ROTATION_MS', 20 * 60_000);
 
 // Esiti FIX_OUTCOME (contratto ISSUES.md: il fixer chiude ogni run con
