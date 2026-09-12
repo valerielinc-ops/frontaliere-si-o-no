@@ -17,6 +17,32 @@ describe('classifyMopupWrite() — the mop-up rejection chain, made observable',
     expect(shouldApplyMopupWrite({ decision: out.decision, langAwareOverwrite: false })).toBe(true);
   });
 
+  it('separa la sorgente grezza dal testo normalizzato usato per il confronto', () => {
+    const sourceTitle = 'Mitarbeiter*in Dispensation';
+    const job = {
+      sourceLang: 'de',
+      title: sourceTitle,
+      titleByLocale: { de: sourceTitle },
+    };
+    const out = classifyMopupWrite({
+      job,
+      locale: 'it',
+      field: 'title',
+      rawText: 'Dispensazione',
+    });
+
+    expect(out.sourceText).toBe(sourceTitle);
+    expect(out.normalizedSourceText).toBe('Mitarbeiter Dispensation');
+    expect(out.decision).toBe('write');
+
+    // Il write loop aggiorna solo la locale target: il titolo sorgente
+    // indicizzato resta invariato anche quando il confronto usa la forma
+    // normalizzata.
+    job.titleByLocale.it = out.incoming;
+    expect(job.title).toBe(sourceTitle);
+    expect(job.titleByLocale.de).toBe(sourceTitle);
+  });
+
   it('rejects an output that is just a copy of the source', () => {
     const job = { sourceLang: 'de', title: 'Metzger 60-100%', titleByLocale: { de: 'Metzger 60-100%' } };
     const out = classifyMopupWrite({ job, locale: 'it', field: 'title', rawText: 'Metzger 60-100%' });

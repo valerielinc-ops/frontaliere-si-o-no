@@ -489,6 +489,13 @@ describe('latestCompletedRunByName / latestCompletedConclusionByName (#242)', ()
     expect(latestCompletedRunByName([], 'test')).toBeNull();
   });
 
+  it('preserva `skipped` per un nome generico, ma lo esclude per Vitest', () => {
+    const skipped = [named('test', 'skipped', '2026-08-10T08:30:00Z')];
+    expect(latestCompletedConclusionByName(skipped, 'test')).toBe('skipped');
+    expect(latestCompletedRunByName(skipped, 'test', { excludeSkipped: true })).toBeNull();
+    expect(latestCompletedVitestConclusion([vitest('skipped', '2026-08-10T08:30:00Z')])).toBe('');
+  });
+
   it('input non-array → null/`\'\'`, mai un throw dentro il gate di merge', () => {
     expect(latestCompletedRunByName(undefined, 'test')).toBeNull();
     expect(latestCompletedConclusionByName(null, 'test')).toBe('');
