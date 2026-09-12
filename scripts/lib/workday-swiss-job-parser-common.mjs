@@ -277,17 +277,19 @@ export function createWorkdaySwissParser(config) {
     }
     console.log(`  📋 Listings found: ${listings.length}${strictSwiss ? ' (unfiltered — strict CH gate active)' : ' (Swiss facet)'}`);
 
-    const missingDetailUrlCount = listings.filter((listing) => (
-      normalizeSpace(listing.title || '').length >= 3
-      && !String(listing.url || '').trim()
-    )).length;
     const jobs = [];
+    let missingDetailUrlCount = 0;
     for (const listing of listings) {
       const title = normalizeSpace(listing.title || '');
       if (!title || title.length < 3) continue;
 
+      // Count URL loss only after the same listing-level foreign-location gate
+      // used below. Ambiguous locations stay conservative; detail-only
+      // geography cannot be checked once the detail URL is missing.
+      const listingRawLocation = listing.locationRaw || (strictSwiss ? '' : defaultCity);
       const detailUrl = String(listing.url || '').trim();
       if (!detailUrl) {
+        if (!isLocationExplicitlyForeign(listingRawLocation)) missingDetailUrlCount += 1;
         console.log(`  ⏭️  Skipped listing without detail URL: ${title}`);
         continue;
       }
@@ -315,7 +317,6 @@ export function createWorkdaySwissParser(config) {
       const detailIsForeignOnly = detailLocations.length > 0
         && !detailLocation
         && detailLocations.some((value) => isLocationExplicitlyForeign(value));
-      const listingRawLocation = listing.locationRaw || (strictSwiss ? '' : defaultCity);
       if (detailIsForeignOnly) {
         console.log(`  ⏭️  Skipped foreign detail location: ${detailLocations.join(' | ')} — ${title}`);
         continue;

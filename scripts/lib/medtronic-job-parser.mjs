@@ -207,6 +207,7 @@ export async function fetchAllMedtronicJobs() {
     const location = cleaned || 'Tolochenaz';
     const canton = inferSwissTargetCanton(location) || 'VD';
     const publicUrl = listing.url || CAREER_URL;
+    const employmentType = detectEmploymentType(listing.timeType || '', title);
 
     // Workday listing endpoint never returns the body — fetch detail.
     const detailDescription = await fetchWorkdayJobDescriptionText(
@@ -258,8 +259,8 @@ export async function fetchAllMedtronicJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || '', title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Medtech / Dispositivi medici',
       currency: 'CHF',

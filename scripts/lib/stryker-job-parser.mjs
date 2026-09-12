@@ -195,6 +195,7 @@ export async function fetchAllStrykerJobs() {
     const location = cleanedLocation && !/\d+\s+location/i.test(cleanedLocation) ? cleanedLocation : 'Selzach';
     const canton = inferSwissTargetCanton(location) || 'SO';
     const publicUrl = listing.url || CAREER_URL;
+    const employmentType = detectEmploymentType(listing.timeType || '', title);
 
     // Workday listing endpoint NEVER returns the job body — fetch detail.
     const detailDescription = await fetchWorkdayJobDescriptionText(
@@ -246,8 +247,8 @@ export async function fetchAllStrykerJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || '', title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Medtech / Dispositivi medici',
       currency: 'CHF',

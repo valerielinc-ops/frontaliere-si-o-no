@@ -7,7 +7,7 @@ const source = fs.readFileSync(
   'utf8',
 );
 
-const SPEC_BACKED_PARSERS = [
+const CONTRACT_ALIGNED_PARSERS = [
   'sta',
   'stellentreff',
   'stellenpartner',
@@ -18,6 +18,13 @@ const SPEC_BACKED_PARSERS = [
   'gmo',
   'michaelpage',
   'recruitingapp-2649',
+  'abbott',
+  'alcon',
+  'ardian',
+  'csl-behring',
+  'medtronic',
+  'rituals-cosmetics',
+  'stryker',
 ];
 
 describe('scaffold-crawler — generated contract follows employmentType', () => {
@@ -32,15 +39,15 @@ describe('scaffold-crawler — generated contract follows employmentType', () =>
     expect(generatedJob).not.toContain("contract: 'full-time'");
   });
 
-  it('keeps all ten spec-backed parser emissions aligned with the template', () => {
-    for (const parser of SPEC_BACKED_PARSERS) {
+  it('keeps every contract-aligned parser emission tied to employmentType', () => {
+    for (const parser of CONTRACT_ALIGNED_PARSERS) {
       const parserSource = fs.readFileSync(
         path.resolve(__dirname, `../scripts/lib/${parser}-job-parser.mjs`),
         'utf8',
       );
 
-      expect(parserSource, parser).toContain(
-        'const employmentType = detectEmploymentType(listing.timeType || title);',
+      expect(parserSource, parser).toMatch(
+        /const employmentType = detectEmploymentType\(listing\.timeType \|\| (?:title|''\s*,\s*title)\);/,
       );
       expect(parserSource, parser).toContain(
         "contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',",

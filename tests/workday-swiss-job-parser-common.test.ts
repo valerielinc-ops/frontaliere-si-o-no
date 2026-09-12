@@ -274,6 +274,12 @@ describe('createWorkdaySwissParser — detail URL is required for vacancy identi
               postedOn: 'Posted Today',
               bulletFields: ['JR2'],
             },
+            {
+              title: 'Foreign listing without detail URL',
+              locationsText: 'Frankfurt, Germany',
+              postedOn: 'Posted Today',
+              bulletFields: ['JR3'],
+            },
           ],
         }), { status: 200 });
       }
