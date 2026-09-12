@@ -81569,6 +81569,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bitcoin-suisse-taglio-posti-zugo': {
+    title: 'Bitcoin Suisse taglia fino a 60 posti a Zugo | Frontaliere Ticino',
+    description: 'Bitcoin Suisse riduce il personale in Svizzera: fino a 60 posti a rischio su 120 dipendenti. Consultazione aperta fino al 20 settembre. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, bitcoin, suisse, taglia, fino',
+    ogTitle: 'Bitcoin Suisse taglia fino a 60 posti a Zugo',
+    ogDescription: 'Il fornitore di servizi cripto Bitcoin Suisse avvia una riorganizzazione globale che comporta il taglio fino a 60 posti di lavoro in Svizzera. Consultazione aperta fino al 20 settembre.',
+    canonicalPath: '/articoli-svizzera/bitcoin-suisse-taglio-posti-zugo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bitcoin Suisse taglia fino a 60 posti a Zugo",
+      "description": "Bitcoin Suisse riduce il personale in Svizzera: fino a 60 posti a rischio su 120 dipendenti. Consultazione aperta fino al 20 settembre. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bitcoin-suisse-taglio-posti-zugo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede di un fornitore di servizi finanziari in Svizzera"
+      },
+      "datePublished": "2026-09-12T01:23:23+00:00",
+      "dateModified": "2026-09-12T01:23:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bitcoin-suisse-taglio-posti-zugo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

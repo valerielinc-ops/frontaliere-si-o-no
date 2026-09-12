@@ -6283,6 +6283,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.finanze-ospedali-svizzera-2025.title': 'Hôpitaux suisses : des finances en légère amélioration',
     'blog.article.finanze-ospedali-svizzera-2025.excerpt': 'Situation financière en légère amélioration pour les hôpitaux suisses, mais plus de 80 % des structures restent en deçà de la marge nécessaire.',
     'blog.article.finanze-ospedali-svizzera-2025.imageAlt': 'Bâtiment hospitalier suisse avec un panorama urbain',
+    'blog.article.bitcoin-suisse-taglio-posti-zugo.title': 'Bitcoin Suisse coupe jusqu\'à 60 places à Zoug',
+    'blog.article.bitcoin-suisse-taglio-posti-zugo.excerpt': 'Le fournisseur de services crypto Bitcoin Suisse entame une réorganisation à Zoug qui prévoit la suppression d\'un maximum de 60 postes sur 120 employés en Suisse.',
+    'blog.article.bitcoin-suisse-taglio-posti-zugo.imageAlt': 'Bureau de prestataire de services financiers en Suisse',
 };
 
 export default blogMetaChFr;

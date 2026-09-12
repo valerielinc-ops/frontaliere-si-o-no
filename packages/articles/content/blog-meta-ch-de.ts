@@ -6283,6 +6283,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.finanze-ospedali-svizzera-2025.title': 'Schweizer Spitäler: Finanzen leicht verbessert',
     'blog.article.finanze-ospedali-svizzera-2025.excerpt': 'Die finanzielle Situation der Schweizer Spitäler verbessert sich leicht, aber mehr als 80% der Einrichtungen bleiben unter der notwendigen Marge.',
     'blog.article.finanze-ospedali-svizzera-2025.imageAlt': 'Schweizer Krankenhausgebäude mit einem Stadtpanorama',
+    'blog.article.bitcoin-suisse-taglio-posti-zugo.title': 'Bitcoin Suisse schneidet bis zu 60 Plätze in Zug ab',
+    'blog.article.bitcoin-suisse-taglio-posti-zugo.excerpt': 'Der Kryptodienstleister Bitcoin Suisse startet in Zug eine Reorganisation, die den Abbau von maximal 60 Stellen von 120 Mitarbeitenden in der Schweiz vorsieht.',
+    'blog.article.bitcoin-suisse-taglio-posti-zugo.imageAlt': 'Finanzdienstleister Büro in der Schweiz',
 };
 
 export default blogMetaChDe;

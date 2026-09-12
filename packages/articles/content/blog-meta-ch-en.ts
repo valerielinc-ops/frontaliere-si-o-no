@@ -6283,6 +6283,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.finanze-ospedali-svizzera-2025.title': 'Swiss hospitals: slightly improving finances',
     'blog.article.finanze-ospedali-svizzera-2025.excerpt': 'Financial situation in slight improvement for Swiss hospitals, but more than 80% of the facilities remain below the necessary margin.',
     'blog.article.finanze-ospedali-svizzera-2025.imageAlt': 'Swiss hospital building with an urban panorama',
+    'blog.article.bitcoin-suisse-taglio-posti-zugo.title': 'Bitcoin Suisse cuts up to 60 seats in Zug',
+    'blog.article.bitcoin-suisse-taglio-posti-zugo.excerpt': 'Crypto service provider Bitcoin Suisse launches a reorganization in Zug that involves cutting a maximum of 60 jobs out of 120 employees in Switzerland.',
+    'blog.article.bitcoin-suisse-taglio-posti-zugo.imageAlt': 'Financial service provider office in Switzerland',
 };
 
 export default blogMetaChEn;
