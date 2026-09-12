@@ -2936,13 +2936,14 @@
           "stv-stationsleiter-in-akutgeriatrie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-07-01T22:41:06.191Z"
+      "firstSeenAt": "2026-07-01T22:41:06.191Z",
+      "retranslationAttempts": 0
     },
     {
       "id": "10088297",
@@ -3819,7 +3820,7 @@
       "crawledAt": "2026-09-11T23:17:54.602Z",
       "slug": "professionisti-professionisti-industria-alberghiera-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522",
+        "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
         "it": "professionisti-professionisti-industria-alberghiera-kantonsspital-graubunden-chur",
         "en": "professionals-professionals-hotel-industry-kantonsspital-graubunden-chur",
         "fr": "professionnels-professionnels-industrie-hoteliere-kantonsspital-graubunden-chur"

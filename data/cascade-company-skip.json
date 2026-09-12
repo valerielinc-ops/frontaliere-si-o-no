@@ -1,5 +1,5 @@
 {
-  "run": 27,
+  "run": 28,
   "companies": {
     "postfinance": {
       "sterile": 1,
@@ -46,8 +46,9 @@
       "signature": "c4dd21cb0b542968"
     },
     "banca-cler": {
-      "sterile": 1,
-      "signature": "d70bcc7e9b0b25ed"
+      "sterile": 0,
+      "signature": "d70bcc7e9b0b25ed",
+      "skipUntilRun": 31
     }
   }
 }

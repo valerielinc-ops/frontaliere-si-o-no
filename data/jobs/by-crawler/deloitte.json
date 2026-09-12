@@ -4235,7 +4235,7 @@
       "title": "Manager – Treuhand / Business Tax – Tax & Legal",
       "titleByLocale": {
         "it": "Manager – Treuhand / Fiscalità Aziendale – Fiscalità e Legale",
-        "en": "Manager – Treuhand / Business Tax – Tax & Legal",
+        "en": "Manager – Trust / Business Tax – Tax & Legal",
         "de": "Manager – Treuhand / Business Tax – Tax & Legal",
         "fr": "Gestionnaire – Treuhand / Fiscalité des entreprises – Fiscalité et juridique"
       },
@@ -4297,8 +4297,7 @@
           "maxValue": 209000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "deloitte-c48f299c7959",

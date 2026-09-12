@@ -198,7 +198,9 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Global Wealth Management – Private Banker (Lugano)",
@@ -224,7 +226,7 @@
         "it": "Global Wealth Management – Private Banker (Lugano)",
         "en": "Global Wealth Management.",
         "de": "Global Wealth Management.",
-        "fr": "Global Wealth Management – Private Banker (Lugano)"
+        "fr": "Gestion mondiale de patrimoine – banquier privé (Lugano)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",

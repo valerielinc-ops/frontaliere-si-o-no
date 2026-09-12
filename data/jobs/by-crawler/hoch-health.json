@@ -7831,11 +7831,13 @@
       "previousSlugs": [
         "ergebnis-controller-in-100-hoch-health-st-gallen",
         "resultat-controleur-en-100-hoch-health-ostschweiz-st-gallen",
-        "result-controller-in-100-hoch-health-ostschweiz-st-gallen"
+        "result-controller-in-100-hoch-health-ostschweiz-st-gallen",
+        "risultato-controller-in-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergebnis-controller-in-100-hoch-health-st-gallen"
+          "ergebnis-controller-in-100-hoch-health-st-gallen",
+          "risultato-controller-in-100-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "ergebnis-controller-in-100-hoch-health-st-gallen",
@@ -7847,7 +7849,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2011,
-      "retranslationAttempts": 8,
+      "retranslationAttempts": 9,
       "firstSeenAt": "2026-08-24T22:09:28.890Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7861,8 +7863,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hoch-health-b57f7d9a8f40",

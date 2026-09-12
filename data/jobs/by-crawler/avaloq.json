@@ -385,7 +385,8 @@
       },
       "streetAddress": "Via Industria 1",
       "firstSeenAt": "2026-09-01T14:18:46.369Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Senior IT Project Manager",
@@ -988,7 +989,9 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-08-31T17:18:54.604Z"
+      "firstSeenAt": "2026-08-31T17:18:54.604Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Corporate Real Estate Manager",
@@ -1792,7 +1795,8 @@
       },
       "previousSlugs": [
         "senior-technical-business-analyst-cash-operations-payments-avaloq-bioggio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Project Manager – PMO & Governance (12-month fixed term contract)",
