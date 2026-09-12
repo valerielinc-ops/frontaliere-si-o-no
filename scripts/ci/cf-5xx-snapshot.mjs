@@ -257,7 +257,7 @@ export function checkUrlClean(history, url, {
   const all = (history || []).filter((s) => s && s.ts);
   const top50 = all.filter((s) => Number(s.topN) === TOP_PATHS);
   if (top50.length < snapshots) {
-    return { ok: false, reason: `storia top-50 troppo corta: ${top50.length} snapshot su ${snapshots} richiesti`, checked: top50.length, lastSeenAt: null };
+    return { ok: false, reason: `storia troppo corta: ${top50.length} snapshot top-50 su ${snapshots} richiesti`, checked: top50.length, lastSeenAt: null };
   }
   const ageDays = (now - Date.parse(top50[top50.length - 1].ts)) / 86_400_000;
   if (!(ageDays <= staleAfterDays)) {
