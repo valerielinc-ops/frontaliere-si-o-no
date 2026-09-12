@@ -10,6 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { registrableDomain as registrableDomainOf } from './lib/prospector/registrable.mjs';
+import { normalizeCompanyKey } from './lib/company-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -50,17 +51,6 @@ function normalizeHost(raw = '') {
 function registrableDomain(host = '') {
   const h = normalizeHost(host);
   return h ? registrableDomainOf(h) : '';
-}
-
-function normalizeCompanyKey(input = '') {
-  return String(input || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 64);
 }
 
 function parseCompanySourcesFromTsx(tsxSource) {

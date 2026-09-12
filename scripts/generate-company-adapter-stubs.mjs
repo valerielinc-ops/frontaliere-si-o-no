@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { normalizeCompanyKey } from './lib/company-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -11,17 +12,6 @@ const EXTRA = path.resolve(ROOT, 'data', 'ticino-companies-extra.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters');
 const REGISTRY_PATH = path.resolve(ADAPTERS_DIR, 'registry.json');
 const META_PATH = path.resolve(ADAPTERS_DIR, '_meta.json');
-
-function slugify(input = '') {
-  return String(input || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 64);
-}
 
 function normalizeHost(rawUrl = '') {
   try {
@@ -38,7 +28,7 @@ function parseTsxCompanies(tsxSource) {
     const name = raw.match(/name:\s*'([^']+)'/)?.[1];
     const website = raw.match(/website:\s*'([^']+)'/)?.[1];
     if (!name || !website) continue;
-    out.push({ key: slugify(name), name, website });
+    out.push({ key: normalizeCompanyKey(name), name, website });
   }
   return out;
 }
@@ -50,7 +40,7 @@ function loadExtra() {
     if (!Array.isArray(arr)) return [];
     return arr
       .filter((x) => x && typeof x === 'object' && x.name && x.website)
-      .map((x) => ({ key: slugify(x.name), name: String(x.name), website: String(x.website) }));
+      .map((x) => ({ key: normalizeCompanyKey(x.name), name: String(x.name), website: String(x.website) }));
   } catch {
     return [];
   }
@@ -135,4 +125,3 @@ writeJson(META_PATH, {
 });
 
 console.log(`✅ Adapter stubs generated: total=${Object.keys(registryOut).length}, created=${created}, updated=${updated}`);
-

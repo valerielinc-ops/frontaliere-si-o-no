@@ -5,6 +5,27 @@ import path from 'path';
 import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
 
+describe('normalizeCompanyKey', () => {
+  it('keeps short normalized keys stable', async () => {
+    const { normalizeCompanyKey } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    expect(normalizeCompanyKey('Crédit Agricole')).toBe('credit-agricole');
+  });
+
+  it('disambiguates long keys with a digest of the complete normalized value', async () => {
+    const { normalizeCompanyKey } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    const first = normalizeCompanyKey(`${'x'.repeat(63)} one`);
+    const second = normalizeCompanyKey(`${'x'.repeat(63)} two`);
+
+    expect(first).not.toBe(second);
+    expect(first.length).toBeLessThanOrEqual(64);
+    expect(second.length).toBeLessThanOrEqual(64);
+    expect(first).not.toMatch(/-$/);
+    expect(second).not.toMatch(/-$/);
+    expect(first).toMatch(/^[a-z0-9-]+$/);
+    expect(second).toMatch(/^[a-z0-9-]+$/);
+  });
+});
+
 describe('normalizeContract — workload percentage-range classification (#3482)', () => {
   it('classifies a range title by its upper bound, not the first number found', () => {
     expect(normalizeContract('', '70% - 100%', '')).toBe('full-time');

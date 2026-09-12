@@ -1,21 +1,11 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import { normalizeCompanyKey } from './lib/company-key.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const COMPANIES_TSX = path.resolve(ROOT, 'components', 'vita', 'TicinoCompanies.tsx');
 const EXTRA = path.resolve(ROOT, 'data', 'ticino-companies-extra.json');
-
-function slugify(input = '') {
-  return String(input || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 64);
-}
 
 function parseTsxCompanies(tsxSource) {
   const objects = tsxSource.match(/\{[^{}]*name:\s*'[^']+'[^{}]*\}/g) || [];
@@ -24,7 +14,7 @@ function parseTsxCompanies(tsxSource) {
     const name = raw.match(/name:\s*'([^']+)'/)?.[1];
     const website = raw.match(/website:\s*'([^']+)'/)?.[1];
     if (!name || !website) continue;
-    out.push({ key: slugify(name), name, website });
+    out.push({ key: normalizeCompanyKey(name), name, website });
   }
   return out;
 }
@@ -35,7 +25,7 @@ function loadExtra() {
   if (!Array.isArray(arr)) return [];
   return arr
     .filter((x) => x && typeof x === 'object' && x.name && x.website)
-    .map((x) => ({ key: slugify(x.name), name: x.name, website: x.website }));
+    .map((x) => ({ key: normalizeCompanyKey(x.name), name: x.name, website: x.website }));
 }
 
 const tsx = fs.readFileSync(COMPANIES_TSX, 'utf8');

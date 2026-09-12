@@ -5540,7 +5540,7 @@ async function main() {
   const extraCompanies = loadExtraCompanies();
   const companies = dedupeAndSortCompanies([...companiesFromMap, ...extraCompanies]).map((c) => ({
     ...c,
-    key: c.key || normalizeKey(c.name || '').slice(0, 64),
+    key: normalizeCompanyKey(c.key || c.name || ''),
   }));
   if (companies.length === 0) {
     throw new Error('No company websites found in TicinoCompanies.tsx');
@@ -5548,11 +5548,11 @@ async function main() {
   const { selected: configuredCompanies, dropped: droppedCompanies } = applyCompanySelection(companies, crawlerConfig);
   const requestedCompanyKeys = String(process.env.JOBS_CRAWLER_COMPANY_KEYS || process.env.JOBS_CRAWLER_COMPANY_KEY || '')
     .split(',')
-    .map((x) => normalizeKey(x || '').slice(0, 64))
+    .map((x) => normalizeCompanyKey(x || ''))
     .filter(Boolean);
   const excludedCompanyKeys = String(process.env.JOBS_CRAWLER_EXCLUDE_COMPANY_KEYS || process.env.JOBS_CRAWLER_EXCLUDE_COMPANY_KEY || '')
     .split(',')
-    .map((x) => normalizeKey(x || '').slice(0, 64))
+    .map((x) => normalizeCompanyKey(x || ''))
     .filter(Boolean);
   const requestedSet = new Set(requestedCompanyKeys);
   const excludedSet = new Set(excludedCompanyKeys);
@@ -5584,13 +5584,13 @@ async function main() {
   }
   const scopedCompanyKeysForRun = new Set(
     requestedCompanyKeys
-      .map((k) => normalizeCompanyKey(k).slice(0, 64))
+      .map((k) => normalizeCompanyKey(k))
       .filter(Boolean)
   );
   const hasScopedCompanyKeysForRun = scopedCompanyKeysForRun.size > 0;
   const isInScopedCompaniesForRun = (job) => {
     if (!hasScopedCompanyKeysForRun) return true;
-    const key = normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64);
+    const key = normalizeCompanyKey(String(job?.companyKey || job?.company || ''));
     return scopedCompanyKeysForRun.has(key);
   };
   const geoScopeFingerprint = (job) =>
@@ -5612,6 +5612,9 @@ async function main() {
   let browserFallbackAttemptsTotal = 0;
   let browserFallbackHitsTotal = 0;
   const localizationAttemptedCompanyKeys = new Set();
+  const localizationSterileCompanyKeys = new Set();
+  // Compatibility observation for callers that have not yet moved to the
+  // two explicit categories below. It is always their union.
   const localizationCoveredCompanyKeys = new Set();
 
   if (localizeExistingOnly) {
@@ -5827,12 +5830,12 @@ async function main() {
     ) {
       const mergedCompanyKeys = new Set(
         merged
-          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64))
+          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')))
           .filter(Boolean),
       );
       const queuedCompanyKeys = new Set(
         queue
-          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64))
+          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')))
           .filter(Boolean),
       );
       // A requested company present in the assembled dataset but with no
@@ -5842,6 +5845,7 @@ async function main() {
       // unmarked so their pending work is retried.
       for (const companyKey of scopedCompanyKeysForRun) {
         if (mergedCompanyKeys.has(companyKey) && !queuedCompanyKeys.has(companyKey)) {
+          localizationSterileCompanyKeys.add(companyKey);
           localizationCoveredCompanyKeys.add(companyKey);
         }
       }
@@ -5917,7 +5921,7 @@ async function main() {
             }
             const localizationCompanyKey = normalizeCompanyKey(
               String(job?.companyKey || job?.company || ''),
-            ).slice(0, 64);
+            );
             if (localizationCompanyKey) {
               localizationAttemptedCompanyKeys.add(localizationCompanyKey);
               localizationCoveredCompanyKeys.add(localizationCompanyKey);
@@ -6260,6 +6264,7 @@ async function main() {
   console.log('✅ Jobs crawler completed');
   return {
     localizationAttemptedCompanyKeys: [...localizationAttemptedCompanyKeys],
+    localizationSterileCompanyKeys: [...localizationSterileCompanyKeys],
     localizationCoveredCompanyKeys: [...localizationCoveredCompanyKeys],
   };
 }

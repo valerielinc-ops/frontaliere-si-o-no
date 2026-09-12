@@ -38,6 +38,7 @@ import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 import { intFromEnv } from './int-from-env.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
+import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -120,16 +121,6 @@ export function sanitizeAiOutput(text) {
   // Step 3 — strip NUL and DEL
   s = s.replace(/[\u0000\u007f]/g, '');
   return s;
-}
-
-export function normalizeKey(value = '') {
-  return String(value || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
 }
 
 const GERMAN_SLUG_WORDS =
@@ -6056,7 +6047,7 @@ export function isLegacyRouteCapRefusal(error) {
     || error?.code === LEGACY_ROUTE_CAP_ERROR_CODE;
 }
 
-export function normalizeCompanyKey(input) { return normalizeKey(input).slice(0, 64); }
+export { normalizeKey, normalizeCompanyKey };
 
 export function dateOnly(input) {
   const d = new Date(input || Date.now());

@@ -45,6 +45,7 @@ import {
   captureLostSlugs,
   DEFAULT_PREV_SLUG_CAP,
   normalizeForLengthComparison,
+  normalizeCompanyKey,
 } from './lib/dedicated-crawler-common.mjs';
 import { collectMissingAssembledBridges } from './scatter-jobs-to-slices.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
@@ -855,19 +856,6 @@ export function isIncomplete(job) {
 }
 
 /**
- * Normalize a company key for matching.
- */
-function normalizeCompanyKey(value = '') {
-  return String(value || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-
-/**
  * Sort jobs by priority: needsRetranslation first, then by datePosted (most recent first).
  */
 function sortByPriority(a, b) {
@@ -1005,24 +993,39 @@ async function runSharedCrawler(companyKeys, maxJobs) {
 }
 
 /**
- * Read the shared crawler's company-level coverage observation.
+ * Read the shared crawler's company-level coverage observations.
  *
- * `localizationCoveredCompanyKeys` includes sterile visits where the crawler
- * reached a company but had no consumable candidate. That is the observation
- * needed by the company-skip ledger and by the artifact; `cleared` must never
- * be used as its proxy.
+ * A sterile visit and effective work have different meanings for the
+ * company-skip ledger. The legacy combined field is accepted only for older
+ * crawler results; current results use `localizationSterileCompanyKeys` and
+ * `localizationAttemptedCompanyKeys` explicitly.
  */
-export function servedCompanyKeysFromCrawlerResult(crawlerResult) {
+export function companyCoverageFromCrawlerResult(crawlerResult) {
+  const hasExplicitSterileKeys = Array.isArray(crawlerResult?.localizationSterileCompanyKeys);
   const coveredCompanyKeys = crawlerResult?.localizationCoveredCompanyKeys;
   const attemptedCompanyKeys = crawlerResult?.localizationAttemptedCompanyKeys;
-  const companyKeys = Array.isArray(coveredCompanyKeys) && coveredCompanyKeys.length > 0
-    ? coveredCompanyKeys
-    : (Array.isArray(attemptedCompanyKeys) ? attemptedCompanyKeys : []);
-  return new Set(
-    companyKeys
-      .map((companyKey) => normalizeCompanyKey(companyKey).slice(0, 64))
+  const normalizeCompanyKeys = (companyKeys) => new Set(
+    (Array.isArray(companyKeys) ? companyKeys : [])
+      .map((companyKey) => normalizeCompanyKey(companyKey))
       .filter(Boolean),
   );
+  const sterile = normalizeCompanyKeys(
+    hasExplicitSterileKeys ? crawlerResult.localizationSterileCompanyKeys : coveredCompanyKeys,
+  );
+  const effective = normalizeCompanyKeys(attemptedCompanyKeys);
+  const legacyCovered = normalizeCompanyKeys(coveredCompanyKeys);
+  const served = hasExplicitSterileKeys
+    ? new Set([...sterile, ...effective])
+    : (legacyCovered.size > 0 ? legacyCovered : effective);
+  return { sterile, effective, served };
+}
+
+export function servedCompanyKeysFromCrawlerResult(crawlerResult) {
+  return companyCoverageFromCrawlerResult(crawlerResult).served;
+}
+
+export function sterileCompanyKeysFromCrawlerResult(crawlerResult) {
+  return companyCoverageFromCrawlerResult(crawlerResult).sterile;
 }
 
 /**
@@ -2020,9 +2023,12 @@ export async function runRelocalization(phase) {
       // al crawler.
       const companyStartedMs = LEGACY_CLOCK.now();
       let servedCompanyKeys = new Set();
+      let sterileCompanyKeys = new Set();
       try {
         const crawlerResult = await runSharedCrawler(executionKeys, companyJobCount);
-        servedCompanyKeys = servedCompanyKeysFromCrawlerResult(crawlerResult);
+        const coverage = companyCoverageFromCrawlerResult(crawlerResult);
+        servedCompanyKeys = coverage.served;
+        sterileCompanyKeys = coverage.sterile;
       } finally {
         if (armHandle) armHandle.restore();
       }
@@ -2103,7 +2109,9 @@ export async function runRelocalization(phase) {
         // `cleared` e' il delta per azienda: le traduzioni che hanno superato
         // il gate. Anche con un'invocazione aggregata resta una riga per azienda,
         // con il gruppo esplicito per rendere leggibile il costo condiviso.
-        const companyWasServed = servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64));
+        const normalizedCompanyKey = normalizeCompanyKey(companyKey);
+        const companyWasServed = servedCompanyKeys.has(normalizedCompanyKey);
+        const companyWasSterile = sterileCompanyKeys.has(normalizedCompanyKey);
         const row = {
           arm: thinkingArm ?? null,
           companyKey,
@@ -2125,7 +2133,7 @@ export async function runRelocalization(phase) {
         // budget dell'invocazione. Non chiamarla sterile se non e' stata mai
         // servita: il suo lavoro resta pending e deve poter rientrare nella
         // prossima finestra senza accumulare falsi salti.
-        if (companyWasServed) {
+        if (companyWasSterile || (companyWasServed && companyCleared > 0)) {
           const entry = nextCompanySkipEntry(companySkipState.companies[companyKey], {
             cleared: companyCleared,
             runCounter: companySkipRun,
@@ -2133,6 +2141,8 @@ export async function runRelocalization(phase) {
           });
           if (entry) companySkipState.companies[companyKey] = entry;
           else delete companySkipState.companies[companyKey];
+        } else if (companyWasServed) {
+          console.log(`   🔬 ${companyKey}: lavoro effettivo osservato; contatore sterile invariato`);
         } else {
           console.log(`   ⏭️  ${companyKey}: invocazione aggregata esaurita prima di servirla; contatore sterile invariato`);
         }
@@ -2271,7 +2281,7 @@ export async function runRelocalization(phase) {
                 elapsedMs: retryElapsedMs * (retryCompanies.get(companyKey) || 0) / count,
                 attempted: retryAttemptedByCompany.get(companyKey).size,
                 cleared: 0,
-                companyServed: retryServedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64)),
+                companyServed: retryServedCompanyKeys.has(normalizeCompanyKey(companyKey)),
                 ...(retryKeys.length > 1 ? { invocationCompanyKeys: [...retryKeys] } : {}),
               };
               retryRowsByCompany.set(companyKey, row);

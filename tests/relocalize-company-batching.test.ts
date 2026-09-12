@@ -186,13 +186,16 @@ describe('relocalize company invocation batching', () => {
       .mockImplementationOnce(async () => {
         crawlerCompanyKeys = process.env.JOBS_CRAWLER_COMPANY_KEYS || '';
         return {
-          localizationAttemptedCompanyKeys: [],
-          localizationCoveredCompanyKeys: ['served-company'],
+          localizationSterileCompanyKeys: ['served-company'],
+          localizationAttemptedCompanyKeys: ['unserved-company'],
         };
       })
       .mockImplementationOnce(async () => {
         crawlerCompanyKeys = process.env.JOBS_CRAWLER_COMPANY_KEYS || '';
-        return { localizationAttemptedCompanyKeys: [] };
+        return {
+          localizationSterileCompanyKeys: [],
+          localizationAttemptedCompanyKeys: [],
+        };
       });
 
     vi.resetModules();
@@ -233,7 +236,9 @@ describe('relocalize company invocation batching', () => {
     ].sort());
     expect(rowsByCompany['served-company'].companyServed).toBe(true);
     expect(rowsByCompany['served-company'].cleared).toBe(0);
-    expect(rowsByCompany['unserved-company'].companyServed).toBe(false);
+    // Effective work is visible in the artifact, but it must not advance the
+    // sterile ledger when no flags were cleared.
+    expect(rowsByCompany['unserved-company'].companyServed).toBe(true);
 
     // A singleton with no crawler coverage is also unserved: cardinality alone
     // must never advance its ledger entry.
