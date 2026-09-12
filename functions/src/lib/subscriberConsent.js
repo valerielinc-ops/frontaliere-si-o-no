@@ -30,6 +30,35 @@ function readField(row, ...fields) {
 }
 
 /**
+ * Server-owned provenance written by the DOI confirmation endpoint.
+ *
+ * A silent authentication row may already carry `confirmed_at`, but that
+ * timestamp was not a newsletter act. This marker is the durable distinction
+ * for the exceptional case where the recipient later clicks a real DOI link
+ * while the old authentication state is still on the document. It is written
+ * by the Admin SDK path only; browser writes are guarded in firestore.rules.
+ */
+export const CONFIRMATION_LINK_PROOF = 'confirmation_link';
+
+/**
+ * Whether an append-only event is the server-recorded double-opt-in click.
+ *
+ * Historical client-side signup/authentication writers also used
+ * `event_type: 'confirm'` when a row became active. The event type alone is
+ * therefore not consent evidence. The confirmation endpoint is the only
+ * writer allowed to use this source channel for the event, so both fields are
+ * required here and every recovery/export reader shares the same fail-closed
+ * interpretation.
+ *
+ * @param {Record<string, unknown> | null | undefined} event
+ * @returns {boolean}
+ */
+export function isNewsletterConfirmationEvent(event) {
+  return event?.event_type === 'confirm'
+    && event?.source_channel === CONFIRMATION_LINK_PROOF;
+}
+
+/**
  * Whether the row carries the durable confirmation timestamp.
  *
  * This is intentionally weaker than `hasConfirmationProof`: a transactional
@@ -68,7 +97,10 @@ export function hasConfirmationStamp(row) {
  *
  * The stamp is a durable record, not an inference from the signup form. For
  * authentication provenance, the displayed notice is part of that proof;
- * status alone — and a silent authentication timestamp — are NOT proof. The
+ * status alone — and a silent authentication timestamp — are NOT proof. A
+ * server-owned `confirmed_via: 'confirmation_link'` marker is the other
+ * allowed route: it records the recipient's later DOI click without claiming
+ * that the old authentication flow displayed a newsletter notice. The
  * distinction is the whole of #5677, and both directions were measured on production
  * (2026-08-12, 8.617 docs; re-measured 2026-08-13 on 8.670):
  *
@@ -108,6 +140,7 @@ export function hasConfirmationProof(row) {
   const act = String(readField(row, 'consent_act', 'consentAct') || '').trim().toLowerCase();
   const source = String(readField(row, 'source') || '').trim().toLowerCase();
   const sourceChannel = String(readField(row, 'source_channel', 'sourceChannel') || '').trim().toLowerCase();
+  const confirmedVia = String(readField(row, 'confirmed_via', 'confirmedVia') || '').trim().toLowerCase();
   const authenticationPath =
     act === 'authentication'
     || sourceChannel.startsWith('auth_')
@@ -115,7 +148,11 @@ export function hasConfirmationProof(row) {
     || source.startsWith('chatbot')
     || source.includes('auth');
 
-  if (authenticationPath && readField(row, 'consent_text_displayed', 'consentTextDisplayed') !== true) {
+  if (
+    authenticationPath
+    && confirmedVia !== CONFIRMATION_LINK_PROOF
+    && readField(row, 'consent_text_displayed', 'consentTextDisplayed') !== true
+  ) {
     return false;
   }
   return true;

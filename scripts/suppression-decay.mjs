@@ -233,7 +233,7 @@ async function scanCollection(name, nowMs) {
  *
  * The `events` subcollection is read only here, for the ≤LIMIT docs actually
  * being written, not during the 15k-doc scan: consent evidence can live in a
- * `confirm` event, and skipping that read would demote genuinely-confirmed
+ * server-owned confirmation-link event, and skipping that read would demote genuinely-confirmed
  * subscribers to `pending`. Bounded by the run cap, so the extra reads are a
  * couple hundred at worst.
  *

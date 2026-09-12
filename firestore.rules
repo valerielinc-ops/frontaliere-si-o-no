@@ -96,10 +96,21 @@ service cloud.firestore {
         'confirmation_sent_at', 'confirmationSentAt',
         'confirmation_first_sent_at', 'confirmationFirstSentAt',
         'confirmation_expired_at', 'confirmationExpiredAt',
+        'confirmed_via', 'confirmedVia',
         'bounce_severity', 'bounce_reason', 'complained_at', 'complaint_at',
         'last_complained_at', 'suppressed_at', 'drip_started_at',
         'drip_last_step', 'drip_last_sent_at', 'drip_completed',
         'welcome_sent_at', 'welcome_trigger', 'autologin_revoked_before',
+      ]);
+    }
+
+    // Only the Admin-SDK DOI handler may deposit this provenance. It is kept
+    // separate from `newsletterStateFieldsTouched()` because several public
+    // transition clauses deliberately change state while preserving all other
+    // fields from the existing document.
+    function confirmationProvenanceFieldsTouched(newData, oldData) {
+      return newData.diff(oldData).affectedKeys().hasAny([
+        'confirmed_via', 'confirmedVia',
       ]);
     }
 
@@ -135,7 +146,7 @@ service cloud.firestore {
         && hasVisibleNewsletterConsent(request.resource.data)
         && !request.resource.data.keys().hasAny([
           'confirmed_at', 'confirmedAt', 'resubscribed_at', 'resubscribedAt',
-          'unsubscribed_at', 'unsubscribedAt',
+          'unsubscribed_at', 'unsubscribedAt', 'confirmed_via', 'confirmedVia',
         ]);
     }
 
@@ -146,7 +157,8 @@ service cloud.firestore {
         && request.resource.data.isActive == true
         && request.resource.data.active == true
         && request.resource.data.keys().hasAny(['confirmed_at', 'confirmedAt'])
-        && hasVisibleNewsletterConsent(request.resource.data);
+        && hasVisibleNewsletterConsent(request.resource.data)
+        && !request.resource.data.keys().hasAny(['confirmed_via', 'confirmedVia']);
     }
 
     function isAnonymousOptOutTransition() {
@@ -155,7 +167,8 @@ service cloud.firestore {
         && request.resource.data.isActive == false
         && request.resource.data.active == false
         && request.resource.data.keys().hasAny(['unsubscribed_at', 'unsubscribedAt'])
-        && !consentFieldsTouched(request.resource.data, resource.data);
+        && !consentFieldsTouched(request.resource.data, resource.data)
+        && !confirmationProvenanceFieldsTouched(request.resource.data, resource.data);
     }
 
     // A typed re-consent may start a NEW DOI cycle, but it may never promote
@@ -169,6 +182,7 @@ service cloud.firestore {
         && request.resource.data.isActive == false
         && request.resource.data.active == false
         && hasVisibleNewsletterConsent(request.resource.data)
+        && !confirmationProvenanceFieldsTouched(request.resource.data, resource.data)
         && (
           !resource.data.keys().hasAny(['status'])
           || resource.data.status == 'pending'
@@ -204,7 +218,8 @@ service cloud.firestore {
         && request.resource.data.isActive == true
         && request.resource.data.active == true
         && request.resource.data.keys().hasAny(['confirmed_at', 'confirmedAt'])
-        && hasVisibleNewsletterConsent(request.resource.data);
+        && hasVisibleNewsletterConsent(request.resource.data)
+        && !confirmationProvenanceFieldsTouched(request.resource.data, resource.data);
     }
 
     // Keep the old owner self-service behavior for profile metadata and
@@ -226,7 +241,8 @@ service cloud.firestore {
         && request.resource.data.isActive == true
         && request.resource.data.active == true
         && request.resource.data.source_channel == 'resubscribe_link'
-        && request.resource.data.keys().hasAny(['resubscribed_at', 'resubscribedAt']);
+        && request.resource.data.keys().hasAny(['resubscribed_at', 'resubscribedAt'])
+        && !confirmationProvenanceFieldsTouched(request.resource.data, resource.data);
     }
 
     // The in-app preference toggle is an explicit re-opt-in, not a DOI click.
@@ -240,7 +256,8 @@ service cloud.firestore {
         && request.resource.data.active == true
         && request.resource.data.keys().hasAny(['resubscribed_at', 'resubscribedAt'])
         && resource.data.keys().hasAny(['confirmed_at', 'confirmedAt'])
-        && !consentFieldsTouched(request.resource.data, resource.data);
+        && !consentFieldsTouched(request.resource.data, resource.data)
+        && !confirmationProvenanceFieldsTouched(request.resource.data, resource.data);
     }
 
     // Social proof counter — public increment (#5792).
@@ -334,6 +351,7 @@ service cloud.firestore {
             'confirmed_at', 'confirmedAt',
             'unsubscribed_at', 'unsubscribedAt',
             'resubscribed_at', 'resubscribedAt',
+            'confirmed_via', 'confirmedVia',
           ]));
 
       // Field guard (#6378, phase 4 of #5928): `write: if true` let anyone who
@@ -376,10 +394,18 @@ service cloud.firestore {
       // CREATE-ONLY: all eight client writers are addDoc — an append. Nothing
       // in the tree updates or deletes an event document, so `write` was
       // strictly wider than the code needs. An engagement log that can be
-      // rewritten after the fact is also not much of a log.
+      // rewritten after the fact is also not much of a log. The one event
+      // shape that proves a DOI click is Admin-SDK-only: a browser may record
+      // engagement and signup events, but it cannot forge `confirm` from the
+      // `confirmation_link` channel and later be treated as consent by a
+      // recovery job.
       match /events/{eventId} {
         allow read: if false;
-        allow create: if true;
+        allow create: if !(
+          request.resource.data.keys().hasAll(['event_type', 'source_channel'])
+          && request.resource.data.event_type == 'confirm'
+          && request.resource.data.source_channel == 'confirmation_link'
+        );
         allow update, delete: if false;
       }
 

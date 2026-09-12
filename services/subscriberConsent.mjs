@@ -13,4 +13,8 @@
  * the two call sites. The reasoning, the production measurements and the
  * `pending`-with-a-stamp trap now live in the canonical file.
  */
-export { hasConfirmationProof } from '../functions/src/lib/subscriberConsent.js';
+export {
+  CONFIRMATION_LINK_PROOF,
+  hasConfirmationProof,
+  isNewsletterConfirmationEvent,
+} from '../functions/src/lib/subscriberConsent.js';

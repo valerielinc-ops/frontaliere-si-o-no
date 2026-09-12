@@ -37,7 +37,11 @@
 import { describe, it, expect } from 'vitest';
 import { readdirSync } from 'node:fs';
 import path from 'node:path';
-import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
+import {
+  CONFIRMATION_LINK_PROOF,
+  hasConfirmationProof,
+  isNewsletterConfirmationEvent,
+} from '../services/subscriberConsent.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { classifySunset } from '../scripts/lib/subscriberSunset.mjs';
 import { classifyDormantWinback } from '../scripts/lib/dormantWinback.mjs';
@@ -413,6 +417,21 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
     })).toBe(false);
   });
 
+  it('accepts a server-recorded DOI click without pretending auth displayed the notice', () => {
+    const authThenDoi = {
+      status: 'confirmed',
+      isActive: true,
+      confirmed_at: STAMP,
+      source_channel: 'auth_google',
+      consent_act: 'authentication',
+      consent_text_displayed: false,
+      confirmed_via: CONFIRMATION_LINK_PROOF,
+    };
+    expect(hasConfirmationProof(authThenDoi)).toBe(true);
+    expect(hasConfirmationProof({ ...authThenDoi, confirmed_via: 'authentication' })).toBe(false);
+    expect(hasConfirmationProof({ ...authThenDoi, confirmedVia: CONFIRMATION_LINK_PROOF, confirmed_via: undefined })).toBe(true);
+  });
+
   /**
    * THE REVIEW FINDING ON #5686, and the fork it opened.
    *
@@ -573,8 +592,26 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
      * of a click rather than a deduction from a form.
      */
     it('an explicit confirm event is period evidence, on the path that can read events', () => {
-      expect(hasConsentEvidence(CONFIRMED_NO_STAMP, [{ event_type: 'confirm' }])).toBe(true);
-      expect(recoveredStatus('newsletter_subscribers', CONFIRMED_NO_STAMP, [{ event_type: 'confirm' }])).toBe('confirmed');
+      const confirmationEvent = { event_type: 'confirm', source_channel: 'confirmation_link' };
+      expect(hasConsentEvidence(CONFIRMED_NO_STAMP, [confirmationEvent])).toBe(true);
+      expect(recoveredStatus('newsletter_subscribers', CONFIRMED_NO_STAMP, [confirmationEvent])).toBe('confirmed');
+      expect(hasConsentEvidence(CONFIRMED_NO_STAMP, [{ event_type: 'confirm', source_channel: 'auth_google' }])).toBe(false);
+      expect(recoveredStatus('newsletter_subscribers', CONFIRMED_NO_STAMP, [{ event_type: 'confirm', source_channel: 'auth_google' }])).toBe('pending');
+    });
+
+    it('accetta solo la forma canonica dell\'evento DOI server-owned', () => {
+      expect(isNewsletterConfirmationEvent({
+        event_type: 'confirm',
+        source_channel: CONFIRMATION_LINK_PROOF,
+      })).toBe(true);
+      expect(isNewsletterConfirmationEvent({
+        eventType: 'confirm',
+        sourceChannel: CONFIRMATION_LINK_PROOF,
+      })).toBe(false);
+      expect(isNewsletterConfirmationEvent({
+        event_type: 'CONFIRM',
+        source_channel: 'CONFIRMATION_LINK',
+      })).toBe(false);
     });
 
     it('the senders do NOT read events, and that is a decision with a number behind it', () => {

@@ -198,6 +198,8 @@ describe('handleSubscriptionManagement — confirm action', () => {
     const doc = db.docs['newsletter_subscribers/pending@example.com'];
     expect(doc.status).toBe('confirmed');
     expect(doc.isActive).toBe(true);
+    expect(doc.confirmed_via).toBe('confirmation_link');
+    expect(doc.confirmedVia).toBe('confirmation_link');
   });
 
   // #5681 — the confirm event previously recorded no IP/UA at all, unlike
@@ -234,6 +236,7 @@ describe('handleSubscriptionManagement — confirm action', () => {
       (e: any) => e.collection.includes('/events') && e.event_type === 'confirm',
     );
     expect(confirmEvent).toBeTruthy();
+    expect(confirmEvent.source_channel).toBe('confirmation_link');
     expect(confirmEvent.metadata).toBeTruthy();
     expect(confirmEvent.metadata.ip).toBe('203.0.113.0');
     expect(confirmEvent.metadata.user_agent).toBe('Mozilla/5.0 TestAgent');
@@ -264,6 +267,48 @@ describe('handleSubscriptionManagement — confirm action', () => {
 
     expect(result.status).toBe(200);
     expect(result.html).toContain('confirmed@example.com');
+  });
+
+  it('records a DOI proof when a legacy silent-auth row is already marked confirmed', { timeout: 60000 }, async () => {
+    const { handleSubscriptionManagement } = await import(
+      '../functions/src/newsletterSubscriptionManagement.js'
+    );
+    const { generateConfirmationToken } = await import(
+      '../functions/src/newsletterConfirmationEmail.js'
+    );
+
+    const secret = 'test-secret-legacy-auth';
+    const email = 'legacy-auth-confirm@example.com';
+    const token = generateConfirmationToken(email, secret);
+    const db = createFakeDb();
+    db.docs[`newsletter_subscribers/${email}`] = {
+      status: 'confirmed',
+      isActive: true,
+      active: true,
+      confirmed_at: '2026-09-01T00:00:00.000Z',
+      source_channel: 'auth_google',
+      consent_act: 'authentication',
+      consent_text_displayed: false,
+    };
+
+    const result = await handleSubscriptionManagement({
+      action: 'confirm',
+      email,
+      token,
+      secret,
+      locale: 'it',
+      db,
+    });
+
+    expect(result.status).toBe(200);
+    expect(db.docs[`newsletter_subscribers/${email}`]).toMatchObject({
+      status: 'confirmed',
+      confirmed_via: 'confirmation_link',
+      confirmedVia: 'confirmation_link',
+    });
+    expect(db.events.filter((event: any) => (
+      event.event_type === 'confirm' && event.source_channel === 'confirmation_link'
+    ))).toHaveLength(1);
   });
 
   it('rejects confirm with invalid HMAC token', async () => {

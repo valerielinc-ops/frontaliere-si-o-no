@@ -1328,14 +1328,19 @@ describe('repairing the 843: proof selects, and nothing else does', () => {
     // append-only one, so it must be sufficient by itself, without a stamp.
     expect(confirmationProofSource({ data: { confirmed_at: daysAgo(3) } })).toBe('flat');
     expect(confirmationProofSource({ data: { confirmedAt: daysAgo(3) } })).toBe('flat');
-    expect(confirmationProofSource({ data: {}, events: [{ event_type: 'confirm' }] })).toBe('event');
-    expect(confirmationProofSource({ data: { confirmed_at: daysAgo(3) }, events: [{ event_type: 'confirm' }] })).toBe('both');
+    const confirmationEvent = { event_type: 'confirm', source_channel: 'confirmation_link' };
+    expect(confirmationProofSource({ data: {}, events: [confirmationEvent] })).toBe('event');
+    expect(confirmationProofSource({ data: { confirmed_at: daysAgo(3) }, events: [confirmationEvent] })).toBe('both');
+    expect(confirmationProofSource({ data: {}, events: [{ event_type: 'confirm', source_channel: 'auth_google' }] })).toBeNull();
     expect(confirmationProofSource({ data: { status: 'pending' } })).toBeNull();
 
-    // The event is matched on its type and nothing else — `confirmation_email_sent`
-    // is the record of US writing to them, the exact opposite of consent.
+    // The event needs the server-owned source as well as its type —
+    // `confirmation_email_sent` is the record of US writing to them, the exact
+    // opposite of consent, and historical auth `confirm` events are not DOI.
     expect(hasConfirmEvent([{ event_type: 'confirmation_email_sent' }])).toBe(false);
-    expect(hasConfirmEvent([{ event_type: 'CONFIRM' }])).toBe(true);
+    expect(hasConfirmEvent([{ event_type: 'confirm', source_channel: 'confirmation_link' }])).toBe(true);
+    expect(hasConfirmEvent([{ event_type: 'CONFIRM', source_channel: 'CONFIRMATION_LINK' }])).toBe(false);
+    expect(hasConfirmEvent([{ event_type: 'CONFIRM', source_channel: 'auth_google' }])).toBe(false);
     expect(hasConfirmEvent(undefined)).toBe(false);
   });
 
@@ -1343,7 +1348,7 @@ describe('repairing the 843: proof selects, and nothing else does', () => {
     // Zero of these existed when this was written. The count is reported by the
     // run precisely so a non-zero is noticed rather than assumed away.
     const plan = planConfirmedStatusBackfill([
-      { id: 'evt@example.com', ref: strictRef('evt@example.com'), data: { status: 'pending' }, events: [{ event_type: 'confirm' }] },
+      { id: 'evt@example.com', ref: strictRef('evt@example.com'), data: { status: 'pending' }, events: [{ event_type: 'confirm', source_channel: 'confirmation_link' }] },
       reProbeDoc('flat@example.com'),
     ]);
 

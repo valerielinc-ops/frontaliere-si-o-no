@@ -45,6 +45,10 @@ import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 import { forensicsFields } from './lib/requestForensics.js';
 import { isNewsletterOptOutBinding, toEpochMillis } from './lib/newsletterOptOut.js';
 import { isTransactionalHardBlock } from './lib/emailSuppression.js';
+import {
+ CONFIRMATION_LINK_PROOF,
+ hasConfirmationProof,
+} from './lib/subscriberConsent.js';
 import { isAccountDeletedTombstone } from './authAccountCleanup.js';
 import {
  verifyAutologinCode,
@@ -1503,6 +1507,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
    || (subscriberData.company_follow_followup_pending === undefined
     && subscriberData.source_channel === 'company_follow_button');
   const companyFollowOnly = subscriberData.company_follow_only === true;
+  const confirmationProofRecorded = hasConfirmationProof(subscriberData);
   let alreadyConfirmed = false;
 
   if (subscriberDoc.exists && (
@@ -1514,8 +1519,14 @@ export async function handleSubscriptionManagement({ action, email, token, local
    alreadyConfirmed = true;
   }
 
-  if (!alreadyConfirmed) {
-  const confirmationFields = companyFollowOnly
+  // A valid DOI click is still meaningful when an old silent-auth writer has
+  // already set `status: 'confirmed'`: the status is not proof, and the bulk
+  // senders deliberately do not read every `events` subcollection. Persist
+  // the server-owned provenance on the root so the click becomes durable for
+  // every sender, while keeping the already-confirmed state unchanged.
+  if (!alreadyConfirmed || !confirmationProofRecorded) {
+  const applyCompanyFollowState = companyFollowOnly && !alreadyConfirmed;
+  const confirmationFields = applyCompanyFollowState
    ? {
     email: normalizedEmail,
     // A company-follow address has not opted into the other newsletter
@@ -1527,6 +1538,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
     company_follow_confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
     confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
     confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+    confirmed_via: CONFIRMATION_LINK_PROOF,
+    confirmedVia: CONFIRMATION_LINK_PROOF,
     company_follow_followup_pending: true,
     account_deleted_at: admin.firestore.FieldValue.delete(),
     updated_at: admin.firestore.FieldValue.serverTimestamp(),
@@ -1534,17 +1547,25 @@ export async function handleSubscriptionManagement({ action, email, token, local
    }
    : {
     email: normalizedEmail,
-    status: 'confirmed',
-    isActive: true,
-    active: true,
+    ...(alreadyConfirmed ? {} : {
+     status: 'confirmed',
+     isActive: true,
+     active: true,
+    }),
     confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
     confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
-    account_deleted_at: admin.firestore.FieldValue.delete(),
+    confirmed_via: CONFIRMATION_LINK_PROOF,
+    confirmedVia: CONFIRMATION_LINK_PROOF,
+    ...(alreadyConfirmed ? {} : {
+     account_deleted_at: admin.firestore.FieldValue.delete(),
+    }),
     // A double opt-in confirmation click IS the explicit act that lifts an
     // earlier opt-out. The original opt-out stamps remain as evidence; the
     // newer re-opt-in stamp is what the shared predicate compares.
-    resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
-    resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
+    ...(alreadyConfirmed ? {} : {
+     resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+     resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
+    }),
     updated_at: admin.firestore.FieldValue.serverTimestamp(),
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
    };
@@ -1573,7 +1594,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // way, and the nightly cron / presigned-link endpoint remain as fallback
  // sends. Lazy import to keep this action's cold-start path unchanged when
  // the subscriber was already confirmed (the common re-click case).
- if (!companyFollowOnly) {
+ if (!companyFollowOnly && !alreadyConfirmed) {
   try {
    const { sendNewsletterWelcomeEmail } = await import('./newsletterWelcomeEmail.js');
    await sendNewsletterWelcomeEmail({ email: normalizedEmail, locale: lang, db, trigger: 'confirm' });
