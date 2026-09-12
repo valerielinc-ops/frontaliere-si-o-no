@@ -197,6 +197,7 @@ export function rebuildDailyBody(head, valid) {
 function normalizeMissingDailyItemStates(body) {
   const source = String(body || '');
   const items = parseFollowupItems(source);
+  // Only fresh items without live state receive the collecting default.
   let normalized = source;
   let offset = 0;
   for (const item of items) {
