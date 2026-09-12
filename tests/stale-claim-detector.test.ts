@@ -19,21 +19,45 @@
  * test che cambia risposta a seconda di quando gira.
  */
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   selectStaleClaims,
   referencedIssueNumbers,
   DEFAULT_STALE_CLAIM_HOURS,
+  claimOwner,
 } from '../scripts/ci/stale-claim-detector.mjs';
 
 const NOW = Date.parse('2026-08-08T12:00:00Z');
 const hoursAgo = (h: number) => new Date(NOW - h * 3600 * 1000).toISOString();
 const CLAIM = [{ name: 'agent:in-progress' }];
+const LOCAL_CLAIM = [{ name: 'agent:in-progress' }, { name: 'agent:local' }];
+const REMOTE_CLAIM = [{ name: 'agent:in-progress' }, { name: 'agent:remote' }];
+const CONTENDED_CLAIM = [...LOCAL_CLAIM, { name: 'agent:remote' }];
+const SOURCE = readFileSync(new URL('../scripts/ci/stale-claim-detector.mjs', import.meta.url), 'utf8');
 const nums = (xs: { number: number }[]) => xs.map((x) => x.number);
 
 describe('selectStaleClaims', () => {
   it('un claim vecchio senza PR aperta è stale', () => {
     const issues = [{ number: 4248, labels: CLAIM, updatedAt: hoursAgo(30) }];
     expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([4248]);
+  });
+
+  it('un claim locale vecchio NON viene rilasciato automaticamente', () => {
+    const issues = [{ number: 4248, labels: LOCAL_CLAIM, updatedAt: hoursAgo(30) }];
+    expect(claimOwner(LOCAL_CLAIM)).toBe('local');
+    expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([]);
+  });
+
+  it('un claim remoto vecchio resta liberabile dal detector', () => {
+    const issues = [{ number: 4248, labels: REMOTE_CLAIM, updatedAt: hoursAgo(30) }];
+    expect(claimOwner(REMOTE_CLAIM)).toBe('remote');
+    expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([4248]);
+  });
+
+  it('un claim con due owner è conteso e non viene mutato', () => {
+    const issues = [{ number: 4248, labels: CONTENDED_CLAIM, updatedAt: hoursAgo(30) }];
+    expect(claimOwner(CONTENDED_CLAIM)).toBe('contended');
+    expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([]);
   });
 
   it('un claim vecchio CON una PR aperta NON è stale — è la trappola del punto 6', () => {
@@ -107,7 +131,7 @@ describe('selectStaleClaims', () => {
   });
 });
 
-describe('referencedIssueNumbers — i tre canali con cui una PR dice "sto su #N"', () => {
+describe('referencedIssueNumbers — i cinque canali con cui una PR dice "sto su #N"', () => {
   it('il branch deterministico fix/issue-N è riconosciuto', () => {
     expect([...referencedIssueNumbers([{ headRefName: 'fix/issue-4248' }])]).toEqual([4248]);
   });
@@ -116,9 +140,19 @@ describe('referencedIssueNumbers — i tre canali con cui una PR dice "sto su #N
     expect([...referencedIssueNumbers([{ title: 'Qualcosa di utile (#1234)' }])]).toEqual([1234]);
   });
 
+  it('titolo aggregato e Ref(s) nel body proteggono tutti i riferimenti', () => {
+    const prs = [{ title: 'fix follow-up (#1 #2, #3)' }, { body: 'Ref #4\nRefs #5 #6' }];
+    expect([...referencedIssueNumbers(prs)].sort((a, b) => a - b)).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+
   it('Closes/Fixes/Resolves #N nel body sono riconosciuti, in ogni forma e caso', () => {
     const prs = [{ body: 'Closes #1\nfixes #2\nRESOLVED: #3\nFixed #4' }];
     expect([...referencedIssueNumbers(prs)].sort((a, b) => a - b)).toEqual([1, 2, 3, 4]);
+  });
+
+  it('Addresses ... #N nelle PR aggregate protegge il claim anche senza chiudere la issue', () => {
+    const prs = [{ body: 'Addresses item 1 e item 2 di #8039\nAddresses #12' }];
+    expect([...referencedIssueNumbers(prs)].sort((a, b) => a - b)).toEqual([12, 8039]);
   });
 
   it('un branch che somiglia ma non combacia NON conta', () => {
@@ -142,5 +176,15 @@ describe('referencedIssueNumbers — i tre canali con cui una PR dice "sto su #N
   it('input non-array o entry nulle → Set vuoto, niente eccezioni', () => {
     expect(referencedIssueNumbers(undefined as unknown as []).size).toBe(0);
     expect(referencedIssueNumbers([null, undefined] as unknown as []).size).toBe(0);
+  });
+});
+
+describe('lettura produzione', () => {
+  it('usa REST paginato per entrambe le liste e non un cap silenzioso', () => {
+    expect(SOURCE).toContain("['api', apiPath, '--paginate', '--slurp']");
+    expect(SOURCE).toContain('issue claim response missing required fields');
+    expect(SOURCE).toContain('open PR response missing required fields');
+    expect(SOURCE).not.toContain("['issue', 'list'");
+    expect(SOURCE).not.toContain("['pr', 'list'");
   });
 });

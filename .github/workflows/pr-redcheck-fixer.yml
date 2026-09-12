@@ -115,6 +115,7 @@ jobs:
           author=$(printf '%s' "$pr" | jq -r '.user.login')
           head_ref=$(printf '%s' "$pr" | jq -r '.head.ref')
           head_sha=$(printf '%s' "$pr" | jq -r '.head.sha')
+          has_autofix=$(printf '%s' "$pr" | jq -r 'any(.labels[]?.name; . == "agent:autofix")')
 
           if [ "$state" != "open" ]; then
             skip "PR #$PR non piu' OPEN (state=$state) → gia' risolta, skip (no-op)."
@@ -123,14 +124,21 @@ jobs:
             skip "PR #$PR e' draft → fuori scope (come ogni altro strato), skip (no-op)."
           fi
 
-          # Scope: solo PR autonome. Identico al gemello, e per lo stesso motivo:
-          # un fixer che riscrive la PR di una persona e' fuori mandato.
+          # Scope: solo PR autonome. `fix/*` e autore Bot restano compatibilità
+          # retroattive; `agent:autofix` rende esplicita la provenienza delle PR
+          # locali/aggregate che usano un altro branch.
           case "$head_ref" in
             fix/*) autonomous=true ;;
-            *) [ "$author_type" = "Bot" ] && autonomous=true || autonomous=false ;;
+            *)
+              if [ "$author_type" = "Bot" ] || [ "$has_autofix" = "true" ]; then
+                autonomous=true
+              else
+                autonomous=false
+              fi
+              ;;
           esac
           if [ "$autonomous" != "true" ]; then
-            skip "PR #$PR e' di un umano ($author, head '$head_ref') → fuori scope per design, skip (no-op)."
+            skip "PR #$PR e' di un umano ($author, head '$head_ref') senza label agent:autofix → fuori scope per design, skip (no-op)."
           fi
 
           # Il rosso deve essere quello della HEAD CORRENTE. Un rosso su un SHA
