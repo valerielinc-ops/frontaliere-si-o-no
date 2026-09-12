@@ -6,6 +6,12 @@ on:
   schedule:
     - cron: '27 7 * * *'
   workflow_dispatch:
+    inputs:
+      strict:
+        description: 'Fallire se manca una prova o un run completato (gate manuale)'
+        required: false
+        default: false
+        type: boolean
   push:
     branches: [main]
     paths:
@@ -45,7 +51,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-status
-        run: node scripts/ci/loop-fleet-status.mjs --registry data/loop-fleet/loop-registry.json --out-dir "$REPORT_DIR" --strict
+        run: node scripts/ci/loop-fleet-status.mjs --registry data/loop-fleet/loop-registry.json --out-dir "$REPORT_DIR" ${{ inputs.strict && '--strict' || '' }}
       - name: Upload fleet status
         if: always()
         uses: actions/upload-artifact@v6
