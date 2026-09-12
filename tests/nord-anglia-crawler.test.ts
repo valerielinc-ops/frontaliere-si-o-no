@@ -316,6 +316,20 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
       }]);
     });
 
+    it('repairs vendor bare ampersands without changing CDATA content', () => {
+      const feed = validRssItem({
+        link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-Teacher/1/?feed=one&source=two</link>',
+        description: '<description><![CDATA[Research & Development in Aubonne.]]></description>',
+      });
+
+      expect(parseNordAngliaRss(feed)).toEqual([{
+        title: 'Teacher of Biology (Aubonne, CH)',
+        link: 'https://careers.nordangliaeducation.com/job/Aubonne-Teacher/1/?feed=one&source=two',
+        description: 'Research & Development in Aubonne.',
+        pubDate: 'Mon, 01 Apr 2026 12:00:00 +0000',
+      }]);
+    });
+
     it.each([
       '<rss><channel><item><title>Teacher</title></description></item></channel></rss>',
       '<rss><channel><item><title>Teacher</title></item>',
