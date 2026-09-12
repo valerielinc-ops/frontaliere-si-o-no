@@ -221,7 +221,9 @@ describe('prospector location and identity contract', () => {
     const [job] = await fetchAllAccorJobs({ fetchImpl: fixtureFetch });
 
     expect(job.id).toBe(`accor-${createHash('sha1').update(JOB_URL).digest('hex').slice(0, 12)}`);
-    expect(job.slug).toBe('sales-executive-accor-ch');
+    const slugDisambiguator = createHash('sha1').update(JOB_URL).digest('hex').slice(0, 8);
+    expect(job.slug).toBe(`sales-executive-accor-ch-${slugDisambiguator}`);
+    expect(job.slugDisambiguator).toBe(slugDisambiguator);
     expect(job).toMatchObject({ url: JOB_URL, location: 'Chiasso', canton: 'TI' });
     for (const seed of [SEED_URL, SECOND_SEED_URL]) {
       expect(politeFetch).toHaveBeenCalledWith(seed, expect.objectContaining({

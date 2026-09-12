@@ -3,6 +3,8 @@ import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { articleBodyCounts } from '../scripts/audit-longform-ad-density.mjs';
+import { collectArticleBodySegments, countArticleBodyChars, countArticleBodyWords } from '../services/articleBodySegments';
 
 const ROOT = path.resolve(__dirname, '..');
 const SCRIPT = path.join(ROOT, 'scripts/audit-longform-ad-density.mjs');
@@ -57,6 +59,36 @@ describe('audit-longform-ad-density.mjs', () => {
     try {
       const output = execFileSync('node', ['--import', 'tsx', SCRIPT, '--body-dir', bodyDir], { cwd: ROOT, encoding: 'utf8' });
       expect(output).toContain('longform articles: 0');
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('confronta observer e renderer sugli stessi segmenti, incluso body4', () => {
+    const fixtureRoot = mkdtempSync(path.join(os.tmpdir(), 'longform-ad-density-segments-'));
+    const bodyDir = path.join(fixtureRoot, 'it');
+    mkdirSync(bodyDir);
+    const id = 'fixture-four-segments';
+    const bodies = [words(4), '## Uno\n\n' + words(5), words(6), '## Quattro\n\n' + words(7)];
+    const source = [
+      'export default {',
+      ...bodies.map((body, index) => `  'blog.article.${id}.body${index + 1}': '${escapeTsString(body)}',`),
+      '};',
+    ].join('\n');
+    const filePath = path.join(bodyDir, `${id}.ts`);
+    writeFileSync(filePath, source);
+
+    try {
+      const observer = articleBodyCounts(filePath, id);
+      const renderer = collectArticleBodySegments(id, (key) => {
+        const match = key.match(/\.body(\d+)$/);
+        return match ? bodies[Number(match[1]) - 1] ?? key : key;
+      });
+
+      expect(observer.segments).toEqual(renderer);
+      expect(observer.segments).toHaveLength(4);
+      expect(observer.wordCount).toBe(countArticleBodyWords(renderer));
+      expect(observer.charCount).toBe(countArticleBodyChars(renderer));
     } finally {
       rmSync(fixtureRoot, { recursive: true, force: true });
     }

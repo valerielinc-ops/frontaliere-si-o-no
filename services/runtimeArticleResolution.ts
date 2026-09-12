@@ -536,7 +536,7 @@ export async function fetchArticleBodyParts(path: string): Promise<string[]> {
 
 /**
  * Publish a recovered body under the same `blog.article.<id>.bodyN` keys the
- * bundled chunks use, so every existing call site (`collectBodyParts`,
+ * bundled chunks use, so every existing call site (`collectArticleBodySegments`,
  * `estimateReadingMinutes`, the JSON-LD builder) works unchanged.
  *
  * `mergeArticleMetaOverlay` never overwrites a key that is already present, so

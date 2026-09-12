@@ -167,7 +167,10 @@ export function mergePreviousSlugsCapped(oldSlugs, newSlugs, { jobId, source, ca
  * carried forward, and is fail-closed on duplicate IDs. Fresh jobs are
  * untouched. Existing history is restored verbatim so an intermediate
  * hardening pass cannot turn a transient derived slug into a permanent
- * redirect.
+ * redirect. The one deliberate exception is a fresh, different
+ * `slugDisambiguator`: that field is the parser's explicit request to migrate
+ * a collision-prone live route, so the new route stays active and the old one
+ * remains in the merged history as a redirect.
  *
  * @param {object[]} existingJobs
  * @param {object[]} currentJobs
@@ -194,7 +197,13 @@ export function restoreExistingSlugIdentity(existingJobs = [], currentJobs = [],
 
     const next = { ...job };
     const oldSlug = String(old.slug || '').trim();
-    if (oldSlug && oldSlug !== String(next.slug || '').trim()) {
+    const oldDisambiguator = String(old.slugDisambiguator || '').trim();
+    const nextDisambiguator = String(next.slugDisambiguator || '').trim();
+    const disambiguatorMigration = Boolean(
+      nextDisambiguator && nextDisambiguator !== oldDisambiguator,
+    );
+
+    if (!disambiguatorMigration && oldSlug && oldSlug !== String(next.slug || '').trim()) {
       next.slug = oldSlug;
       restored++;
       recordSlugMutation({
@@ -202,7 +211,7 @@ export function restoreExistingSlugIdentity(existingJobs = [], currentJobs = [],
         reason: `active slug reverted to the published value (was ${String(job.slug || '') || '<empty>'})`,
       });
     }
-    if (old.slugByLocale && typeof old.slugByLocale === 'object') {
+    if (!disambiguatorMigration && old.slugByLocale && typeof old.slugByLocale === 'object') {
       const currentByLocale = next.slugByLocale && typeof next.slugByLocale === 'object'
         ? next.slugByLocale
         : {};
@@ -229,17 +238,58 @@ export function restoreExistingSlugIdentity(existingJobs = [], currentJobs = [],
       next.slugByLocale = restoredByLocale;
     }
 
-    if (Array.isArray(old.previousSlugs)) next.previousSlugs = [...old.previousSlugs];
-    else delete next.previousSlugs;
-    if (old.previousSlugsByLocale && typeof old.previousSlugsByLocale === 'object') {
-      next.previousSlugsByLocale = Object.fromEntries(
-        Object.entries(old.previousSlugsByLocale).map(([locale, slugs]) => [
-          locale,
-          Array.isArray(slugs) ? [...slugs] : slugs,
-        ]),
-      );
+    if (disambiguatorMigration) {
+      // `mergePreserveLocaleData` normally records the old route before this
+      // optional restore step. Keep that capture, merge any legacy history
+      // from disk, and add the old active locale routes defensively so the
+      // migration remains redirect-safe even if an intermediate hardener
+      // omitted one of them.
+      const previous = new Set([
+        ...(Array.isArray(old.previousSlugs) ? old.previousSlugs : []),
+        ...(Array.isArray(next.previousSlugs) ? next.previousSlugs : []),
+      ].filter(Boolean));
+      if (oldSlug && oldSlug !== String(next.slug || '').trim()) previous.add(oldSlug);
+      if (previous.size > 0) next.previousSlugs = [...previous];
+      else delete next.previousSlugs;
+
+      const previousByLocale = {};
+      const addLocaleHistory = (locale, slugs) => {
+        if (!Array.isArray(slugs)) return;
+        const bucket = previousByLocale[locale] || (previousByLocale[locale] = []);
+        for (const slug of slugs) {
+          if (slug && !bucket.includes(slug)) bucket.push(slug);
+        }
+      };
+      if (old.previousSlugsByLocale && typeof old.previousSlugsByLocale === 'object') {
+        for (const [locale, slugs] of Object.entries(old.previousSlugsByLocale)) {
+          addLocaleHistory(locale, slugs);
+        }
+      }
+      if (next.previousSlugsByLocale && typeof next.previousSlugsByLocale === 'object') {
+        for (const [locale, slugs] of Object.entries(next.previousSlugsByLocale)) {
+          addLocaleHistory(locale, slugs);
+        }
+      }
+      if (old.slugByLocale && typeof old.slugByLocale === 'object') {
+        for (const [locale, slug] of Object.entries(old.slugByLocale)) {
+          if (slug && slug !== next.slugByLocale?.[locale]) addLocaleHistory(locale, [slug]);
+        }
+      }
+      if (Object.keys(previousByLocale).length > 0) next.previousSlugsByLocale = previousByLocale;
+      else delete next.previousSlugsByLocale;
     } else {
-      delete next.previousSlugsByLocale;
+      if (Array.isArray(old.previousSlugs)) next.previousSlugs = [...old.previousSlugs];
+      else delete next.previousSlugs;
+      if (old.previousSlugsByLocale && typeof old.previousSlugsByLocale === 'object') {
+        next.previousSlugsByLocale = Object.fromEntries(
+          Object.entries(old.previousSlugsByLocale).map(([locale, slugs]) => [
+            locale,
+            Array.isArray(slugs) ? [...slugs] : slugs,
+          ]),
+        );
+      } else {
+        delete next.previousSlugsByLocale;
+      }
     }
     return next;
   });
