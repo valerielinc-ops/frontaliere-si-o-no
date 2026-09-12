@@ -590,6 +590,7 @@ describe('generatori del body PR — keyword di chiusura', () => {
       ['follow-up(#1): 3 items — x', ''],
       ['follow-up(#1): cleanup', '## 1. first\n## 2. second'],
       ['follow-up(#1): cleanup', '## Item 1—first\n### 2—second'],
+      ['follow-up(#1): cleanup', '1. **`file.mjs`**\n2. **`second.mjs`**'],
       ['follow-up(#1): cleanup', '## 2026 — Retro\n### 2025—Retro'],
       ['follow-up(#1): cleanup', '#### 1. first\n#### 2. second'],
       ['follow-up(#1): 1 item deferred — batch backfill', ''],

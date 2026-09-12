@@ -289,6 +289,9 @@ jobs:
                 }
                 return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
               }
+              function maskInlineCodeSpans(text) {
+                return String(text || '').replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
+              }
               function isBoldTitleLead(rest, lines = [], start = 0) {
                 const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
                 let candidate = String(rest || '');
@@ -315,12 +318,12 @@ jobs:
                 }
                 return ordered >= 2 || bullets >= 2;
               }
-              const title = String(t || '');
+              const title = maskInlineCodeSpans(stripFencedBlocks(t));
               const m = title.match(/\b(\d+)\s+items?\s+deferred\b/i);
               if (m) return Number(m[1]) >= 2;
-              const bodyText = stripFencedBlocks(b);
+              const bodyText = maskInlineCodeSpans(stripFencedBlocks(b));
               if (/\b(?:sweep|batch|bulk)\b/i.test(title + '\n' + bodyText)) return true;
-              return hasEnumeratedItems(bodyText);
+              return hasEnumeratedItems(b);
             };
             // Strip code-formatted text first: GitHub does NOT honour a closing
             // keyword inside a fenced block or inline `code` span, so neither should
