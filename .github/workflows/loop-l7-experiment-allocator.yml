@@ -10,6 +10,7 @@ on:
       - 'data/experiment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l7-experiment-allocator.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l7-experiment-allocator.yml'
@@ -19,6 +20,7 @@ on:
       - 'data/experiment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l7-experiment-allocator.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l7-experiment-allocator.yml'
@@ -52,6 +54,7 @@ jobs:
             /data/experiment-outcomes.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l7-experiment-allocator.mjs
+            /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l7-experiment-allocator.yml
@@ -68,7 +71,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --candidates data/experimental-candidates.json --outcomes data/experiment-outcomes.json)
+          args=(--json --apply --report-dir "$REPORT_DIR" --candidates data/experimental-candidates.json --outcomes data/experiment-outcomes.json --registry data/loop-fleet/loop-registry.json)
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else
@@ -83,10 +86,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
+      - name: Record canonical L7 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l7
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L7 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L7 observation and actions
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: loop-l7-experiment-allocator-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l7/
+          retention-days: 90
           if-no-files-found: error

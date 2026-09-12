@@ -8,6 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   appendJsonl,
+  AUTONOMY_ORDER,
   buildDecision,
   buildObservation,
   validateLoopRegistry,
@@ -23,7 +24,6 @@ export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-regis
 export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 100;
 
-const AUTONOMY_ORDER = Object.freeze({ A0: 0, A1: 1, A2: 2, A3: 3, A4: 4 });
 
 const SURFACES = [
   { key: 'calculator', path: '/calcola-stipendio/', label: 'calcolatore stipendio' },

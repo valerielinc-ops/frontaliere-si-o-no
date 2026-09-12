@@ -234,7 +234,7 @@ export async function runL1({
     primaryMetric: 'error_free_useful_session_rate',
     guardrails: ['one anomaly is not a rollback', 'Auto Ads stays enabled'],
     minimumSample,
-    actionClass: verdict.ok ? 'observe' : 'issue+hold',
+    actionClass: verdict.ok ? 'observe' : 'issue+suspend-canary',
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
@@ -248,7 +248,7 @@ export async function runL1({
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.ok ? 'observe' : 'issue+hold',
+    actionClass: verdict.ok ? 'observe' : 'issue+suspend-canary',
     rollbackPlan: 'remove the runner-local hold marker; leave the user path and Auto Ads unchanged',
     startedAt: observation.observationWindow.start,
     expiresAt: new Date(now.getTime() + 24 * 3_600_000).toISOString(),

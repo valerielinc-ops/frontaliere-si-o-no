@@ -99,7 +99,7 @@
       "primaryMetric": "next_useful_action_per_1000_completions",
       "minimumSample": 100,
       "maxAutonomy": "A3",
-      "actionClasses": ["observe", "candidate", "canary", "issue"],
+      "actionClasses": ["observe", "candidate", "canary", "stop", "stale-label", "issue", "recommend"],
       "guardrails": ["no dark patterns", "no unsupported timing promise", "no invasive personalization"]
     },
     {
@@ -111,7 +111,7 @@
       "primaryMetric": "confirmed_defect_rate",
       "minimumSample": 1,
       "maxAutonomy": "A2",
-      "actionClasses": ["observe", "quarantine", "issue", "pr", "lesson"],
+      "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr", "lesson"],
       "guardrails": ["model output is not the oracle", "source and locale must agree"]
     },
     {
@@ -123,7 +123,7 @@
       "primaryMetric": "registered_outcome_per_eligible_cohort",
       "minimumSample": 200,
       "maxAutonomy": "A3",
-      "actionClasses": ["observe", "canary", "stop", "recommend"],
+      "actionClasses": ["observe", "candidate", "canary", "stop", "issue", "recommend"],
       "guardrails": ["persistent assignment", "minimum sample", "explicit expiry", "no automatic price change"]
     },
     {

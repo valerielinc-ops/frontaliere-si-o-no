@@ -51,6 +51,7 @@ jobs:
             !/data/orphan-enriched-data/
             !/data/all-known-job-slugs/
             !/public/data/
+            /scripts/ci/record-loop-fleet-evidence.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -84,10 +85,25 @@ jobs:
             exit "$STATUS"
           fi
 
+      - name: Record canonical L11 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L11 --report-dir "$REPORT_DIR" --report "$REPORT_DIR/technical-operations-audit.json" --registry data/loop-fleet/loop-registry.json
+
       - name: Upload complete audit report
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: technical-operations-audit-${{ github.run_id }}
-          path: ${{ runner.temp }}/technical-operations-audit.json
+          path: |
+            ${{ runner.temp }}/technical-operations-audit.json
+            ${{ runner.temp }}/l11-observation.json
+            ${{ runner.temp }}/l11-decision.json
+            ${{ runner.temp }}/l11-result.json
+            ${{ runner.temp }}/loop-observations.jsonl
+            ${{ runner.temp }}/loop-decisions.jsonl
+            ${{ runner.temp }}/loop-health-history.jsonl
+            ${{ runner.temp }}/loop-fleet-evidence.json
+          retention-days: 90
           if-no-files-found: error
