@@ -234,3 +234,24 @@ describe('il cablaggio del ramo DELIVERED non si scollega in silenzio', () => {
     expect(crawler).toMatch(/promotedAt: promotion\.at/);
   });
 });
+
+describe('il checkpoint WIP parcheggiato viene salvato prima dell age-out', () => {
+  const src = readFileSync(new URL('../scripts/ci/followup-drainer.mjs', import.meta.url), 'utf8');
+
+  it('ri-accoda i parked con branch live e difende anche la chiusura', () => {
+    const run = src.slice(src.indexOf('export function runDrain()'));
+    const ageOutAt = run.indexOf('// --- AGE-OUT CLOSE:');
+    expect(ageOutAt).toBeGreaterThanOrEqual(0);
+    const preAgeOut = run.slice(0, ageOutAt);
+    expect(preAgeOut).toMatch(/const parkedForWip = listIssues\(LBL_PARKED\)/);
+    expect(preAgeOut).toMatch(/const recoverable = recoverableFixBranch\(iss\.number\)/);
+    expect(preAgeOut).toMatch(/RE-QUEUE PARKED-WIP/);
+    expect(preAgeOut).toMatch(/add = \[LBL_QUEUED/);
+    expect(preAgeOut).toMatch(/remove = \[LBL_PARKED, 'needs-human'/);
+
+    const parentAt = run.indexOf('// --- PARENT-CLOSE:');
+    const ageOut = run.slice(ageOutAt, parentAt);
+    expect(ageOut).toMatch(/const liveWip = recoverableFixBranch\(iss\.number\)/);
+    expect(ageOut).toMatch(/AGE-OUT skip #\$\{iss\.number\}: checkpoint WIP live/);
+  });
+});
