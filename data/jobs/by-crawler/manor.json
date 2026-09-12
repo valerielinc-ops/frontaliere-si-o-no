@@ -36,7 +36,6 @@
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-7d49ec1c3644",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -388,13 +387,12 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice supermarché (Boulangerie) 20%",
-        "en": "Supermarché Collaborateur/trice (Boulangerie) 20%",
-        "de": "Supermarché Collaborateur/trice (Boulangerie) 20%",
-        "fr": "Supermarché Collaborateur/trice (Boulangerie) 20%"
+        "en": "Supermarché co-operator (Boulangerie) 20%",
+        "de": "Supermarché-Kooperator (Boulangerie) 20%",
+        "fr": "Coopérateur Supermarché (Boulangerie) 20%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-f41920ec19e9",
       "salaryMin": 13100,
       "salaryMax": 16500,
@@ -761,8 +759,8 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse 70%",
         "de": "Mitarbeiter* in Kasse 70%",
-        "en": "Mitarbeiter*in Kasse 70%",
-        "fr": "Mitarbeiter*in Kasse 70%"
+        "en": "Mitarbeiter* in Kasse 70%",
+        "fr": "Mitarbeiter* à Kasse 70%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -953,8 +951,8 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik Kommissionierung 100%",
         "de": "Mitarbeiter*in Logistik Kommetterung 100%",
-        "en": "Mitarbeiter*in Logistik Kommissionierung 100%",
-        "fr": "Mitarbeiter*in Logistik Kommissionierung 100%"
+        "en": "Mitarbeiter*in Logistik Kommetteerung 100%",
+        "fr": "Mitarbeiter*in Logistik Kommetteerung 100%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -1592,7 +1590,7 @@
         "it": "Apprentissage Gestionnaire du Commerce de Detail CFC 100%",
         "en": "Apprentisage Management of the COMCOMM097 de MCC 100%",
         "de": "Lehrlingswesen des COMCOMM097 de MCC 100%",
-        "fr": "Apprentissage Gestionnaire du Commerce de Detail CFC 100%"
+        "fr": "Apprentissage Gestionnaire du Commerce de Détail CFC 100%"
       },
       "sourceLang": "it",
       "id": "manor-7105b513ea7f",
@@ -1686,7 +1684,6 @@
       },
       "firstSeenAt": "2026-09-09T13:59:04.738Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 30300,
       "salaryMax": 45800,
       "currency": "CHF",
@@ -1878,7 +1875,6 @@
       },
       "firstSeenAt": "2026-09-09T13:59:04.738Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 27000,
       "salaryMax": 33800,
       "currency": "CHF",
@@ -1927,7 +1923,7 @@
         "it": "Collaboratore/trice Kundendienst 40%",
         "de": "Mitarbeiter/in Kundendienst 40%",
         "en": "Mitarbeiter/in Kundendienst 40%",
-        "fr": "Mitarbeiter/in Kundendienst 40%"
+        "fr": "Mitarbeiter/à Kundendienst 40%"
       },
       "sourceLang": "it",
       "id": "manor-14f4016f78f9",
@@ -4750,8 +4746,7 @@
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-10T23:16:57.125Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-10T23:16:57.125Z"
     },
     {
       "title": "Collaborateur/trice vente (Confection Dames) 70%",
@@ -8719,15 +8714,33 @@
       "id": "manor-bc35a6d6042d",
       "previousSlugs": [
         "manor-collaborateur-trice-service-manora-50-sion-collaborateurtrice-service-manora",
-        "manor-collaborateur-trice-service-manora-60-sierre"
+        "manor-collaborateur-trice-service-manora-60-sierre",
+        "manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service",
+        "servizio-collaboratore-manora-100-manor-ag-geneve-1-collaborateurtrice-service",
+        "service-collaborator-manora-100-manor-ag-geneve-1-collaborateurtrice-service",
+        "manor-collaborateur-trice-service-manora-70-geneve-1-collaborateurtrice-service",
+        "collaboratore-di-servizi-manora-70-manor-ag-geneve-1-collaborateurtrice-service",
+        "service-collaborator-manora-70-manor-ag-geneve-1-collaborateurtrice-service"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-service-manora-50-sion-collaborateurtrice-service-manora",
-          "manor-collaborateur-trice-service-manora-60-sierre"
+          "manor-collaborateur-trice-service-manora-60-sierre",
+          "manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service",
+          "servizio-collaboratore-manora-100-manor-ag-geneve-1-collaborateurtrice-service",
+          "service-collaborator-manora-100-manor-ag-geneve-1-collaborateurtrice-service",
+          "manor-collaborateur-trice-service-manora-70-geneve-1-collaborateurtrice-service",
+          "collaboratore-di-servizi-manora-70-manor-ag-geneve-1-collaborateurtrice-service",
+          "service-collaborator-manora-70-manor-ag-geneve-1-collaborateurtrice-service"
         ],
         "fr": [
-          "manor-collaborateur-trice-service-manora-50-sion-collaborateurtrice-service-manora"
+          "manor-collaborateur-trice-service-manora-50-sion-collaborateurtrice-service-manora",
+          "manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service",
+          "manor-collaborateur-trice-service-manora-70-geneve-1-collaborateurtrice-service"
+        ],
+        "en": [
+          "service-collaborator-manora-100-manor-ag-geneve-1-collaborateurtrice-service",
+          "service-collaborator-manora-70-manor-ag-geneve-1-collaborateurtrice-service"
         ]
       },
       "needsRetranslation": true,

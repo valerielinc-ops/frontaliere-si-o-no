@@ -5691,8 +5691,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "clienia-ag-b89c7cc223cf",
@@ -7324,18 +7323,34 @@
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-50-90-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-50-90-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-50-90-clienia-ag-pfaffikon",
+          "infermiera-laureata-80-90-clienia-ag-pfaffikon",
+          "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
+          "infirmiere-diplomee-80-90-clienia-ag-pfaffikon",
+          "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh",
+          "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh",
+          "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
         ],
         "en": [
           "diplomierte-pflegefachperson-50-90-clienia-ag-pfaffikon"
         ],
         "fr": [
-          "diplomierte-pflegefachperson-50-90-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-50-90-clienia-ag-pfaffikon",
+          "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
+        ],
+        "de": [
+          "diplomierte-pflegefachperson-80-90-clienia-ag-zurich"
         ]
       },
       "previousSlugs": [
         "diplomierte-pflegefachperson-50-90-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-50-90-clienia-ag-pfaffikon"
+        "diplomierte-pflegefachperson-50-90-clienia-ag-pfaffikon",
+        "infermiera-laureata-80-90-clienia-ag-pfaffikon",
+        "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
+        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon",
+        "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh",
+        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh",
+        "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
       ],
       "salaryMin": 82400,
       "salaryMax": 115200,
