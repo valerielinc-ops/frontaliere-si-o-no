@@ -205,6 +205,43 @@ export function createObserverCompensatedClock(now = Date.now) {
 
 const LEGACY_CLOCK = createObserverCompensatedClock();
 
+function writeThinkingArtifacts({
+  enabled,
+  salt,
+  cascadeStop,
+  companiesQueued,
+  rows,
+  failedCompanyKeys,
+}) {
+  if (!enabled) return;
+  const summary = summarizeThinkingAb(rows);
+  const companiesProcessed = new Set(rows.map((row) => row.companyKey)).size;
+  // L'artefatto vive nel RUNNER_TEMP e viene caricato dal workflow: non
+  // committarlo, sarebbe un file di dati riscritto a ogni run. Il flush viene
+  // richiamato dal finally e dai signal handler, così non dipende dal fondo
+  // del ciclo per-azienda.
+  const outDir = process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp';
+  const outPath = path.join(outDir, 'translation-thinking-ab.json');
+  const cascadeOutPath = path.join(outDir, 'translation-cascade-companies.json');
+  try {
+    const artifact = {
+      salt,
+      generatedAt: new Date(LEGACY_CLOCK.now()).toISOString(),
+      cascadeStop,
+      companiesQueued,
+      companiesProcessed,
+      companiesFailed: failedCompanyKeys.size,
+      summary,
+      rows,
+    };
+    writeJsonAtomic(outPath, artifact);
+    writeJsonAtomic(cascadeOutPath, artifact);
+    console.log(`   📄 righe scritte in ${outPath} e ${cascadeOutPath}`);
+  } catch (err) {
+    console.log(`   ⚠️  impossibile scrivere l'artefatto A/B: ${err.message}`);
+  }
+}
+
 function emitTranslationShadowPreflightV2(inputFactory) {
   if (!SHADOW_PREFLIGHT_V2.outputPath) return null;
   return LEGACY_CLOCK.measureObserver(() => {
@@ -1436,6 +1473,31 @@ async function main() {
 }
 
 export async function runRelocalization(phase) {
+  const thinkingAb = isThinkingAbEnabled(process.env);
+  const thinkingSalt = runSalt(process.env);
+  const thinkingRows = [];
+  const failedCompanyKeys = new Set();
+  let companiesQueued = 0;
+  let cascadeStop = phase?.stopReason || 'nothing to relocalize';
+  const flushThinkingArtifacts = () => writeThinkingArtifacts({
+    enabled: thinkingAb,
+    salt: thinkingSalt,
+    cascadeStop,
+    companiesQueued,
+    rows: thinkingRows,
+    failedCompanyKeys,
+  });
+  const onTermination = (signal) => {
+    cascadeStop = 'runner terminated';
+    flushThinkingArtifacts();
+    process.exit(signal === 'SIGINT' ? 130 : 143);
+  };
+  if (thinkingAb) {
+    process.once('SIGINT', onTermination);
+    process.once('SIGTERM', onTermination);
+  }
+
+  try {
   console.log('🔍 Scanning for jobs needing translation...\n');
 
   if (!fs.existsSync(DATA_JOBS_PATH)) {
@@ -1792,8 +1854,11 @@ export async function runRelocalization(phase) {
     // Not the same as an empty queue: there WAS pending work, it just carried no
     // usable company key. The default reason would have called this idle.
     phase.stopReason = 'no valid company keys';
+    cascadeStop = phase.stopReason;
     return;
   }
+
+  companiesQueued = companyKeys.length;
 
   console.log(`\n🔄 Re-localizing up to ${effectiveMax} jobs across ${cascadeCompanyKeys.length} companies (incremental save)...`);
 
@@ -1820,7 +1885,7 @@ export async function runRelocalization(phase) {
   // Why the stop reason is hoisted: it is the difference between "the cascade ran
   // out of companies" and "the cascade was never given a window", and only the
   // second is a problem with the run rather than with the queue.
-  let cascadeStop = initialCascadeStopReason({
+  cascadeStop = initialCascadeStopReason({
     windowStopReason: window.stopReason,
     allCompaniesSkipped: cascadeCompanyKeys.length === 0 && companyKeys.length > 0,
     nowMs: LEGACY_CLOCK.now(),
@@ -1844,9 +1909,6 @@ export async function runRelocalization(phase) {
   // A/B sul thinking di claude-cli/haiku. Spento di default: si accende con
   // TRANSLATION_THINKING_AB=1. Vedi scripts/lib/thinking-ab.mjs: il braccio si
   // assegna per invocazione e il sale include l'id della run.
-  const thinkingAb = isThinkingAbEnabled(process.env);
-  const thinkingSalt = runSalt(process.env);
-  const thinkingRows = [];
   const companyExecutionGroups = buildCompanyExecutionGroups(cascadeCompanyKeys, companyJobCounts);
   if (thinkingAb) {
     console.log(`\n🧪 A/B thinking attivo (sale ${thinkingSalt}): ogni invocazione va a un braccio, con righe attribuibili per azienda.`);
@@ -2087,6 +2149,7 @@ export async function runRelocalization(phase) {
 
     } catch (err) {
       cascadeStop = 'company failure';
+      for (const companyKey of executionKeys) failedCompanyKeys.add(companyKey);
       consecutiveFailures++;
       console.error(`   ❌ ${executionLabel} failed: ${err.message}`);
       console.log(`   💾 Progress saved: ${totalFixed} jobs translated before failure`);
@@ -2252,6 +2315,7 @@ export async function runRelocalization(phase) {
             }
           }
         } catch {
+          for (const companyKey of retryKeys) failedCompanyKeys.add(companyKey);
           console.log(`   ⚠️  ${retryLabel} retry failed — will be picked up by next scheduled run`);
         }
       }
@@ -2317,36 +2381,25 @@ export async function runRelocalization(phase) {
 
   if (thinkingAb) {
     const summary = summarizeThinkingAb(thinkingRows);
-    const companiesProcessed = new Set(thinkingRows.map((row) => row.companyKey)).size;
     console.log(`\n🧪 A/B thinking — ${summary.rows} aziende, sale ${thinkingSalt}`);
     for (const [arm, a] of Object.entries(summary.arms)) {
       const ms = a.msPerJob === null ? 'n/d' : `${Math.round(a.msPerJob / 1000)}s/job`;
       const acc = a.acceptRate === null ? 'n/d' : `${(a.acceptRate * 100).toFixed(1)}%`;
       console.log(`   ${arm.padEnd(12)} ${String(a.companies).padStart(3)} aziende (${a.servedCompanies} servite, ${a.unservedCompanies} non servite), ${String(a.jobs).padStart(4)} job, ${ms.padStart(8)}, accettate ${acc} (${a.cleared}/${a.attempted})`);
     }
-    // L'artefatto vive nel RUNNER_TEMP e viene caricato dal workflow: non
-    // committarlo, sarebbe un file di dati riscritto a ogni run.
-    const outDir = process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp';
-    const outPath = path.join(outDir, 'translation-thinking-ab.json');
-    const cascadeOutPath = path.join(outDir, 'translation-cascade-companies.json');
-    try {
-      const artifact = {
-        salt: thinkingSalt,
-        generatedAt: new Date().toISOString(),
-        cascadeStop,
-        companiesQueued: companyKeys.length,
-        companiesProcessed,
-        summary,
-        rows: thinkingRows,
-      };
-      writeJsonAtomic(outPath, artifact);
-      writeJsonAtomic(cascadeOutPath, artifact);
-      console.log(`   📄 righe scritte in ${outPath} e ${cascadeOutPath}`);
-    } catch (err) {
-      console.log(`   ⚠️  impossibile scrivere l'artefatto A/B: ${err.message}`);
-    }
   }
   console.log('✅ Re-localization complete.');
+  } catch (error) {
+    cascadeStop = 'failed';
+    if (phase) phase.stopReason = cascadeStop;
+    throw error;
+  } finally {
+    if (thinkingAb) {
+      flushThinkingArtifacts();
+      process.off('SIGINT', onTermination);
+      process.off('SIGTERM', onTermination);
+    }
+  }
 }
 
 // Only run the pipeline when invoked directly (`node scripts/relocalize-pending-jobs.mjs`).
