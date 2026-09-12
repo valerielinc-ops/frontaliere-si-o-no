@@ -34797,6 +34797,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-laveno-mombello-ticino',
+ category: 'pratico',
+ date: '2026-09-12T01:10:28.373Z',
+ image: '/images/blog/frontaliere-laveno-mombello-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

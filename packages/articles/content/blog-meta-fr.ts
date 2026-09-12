@@ -11659,6 +11659,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-pigra-lavorare-ticino-frontaliere.title': 'Vivre à Pigra, travailler au Tessin : le guide',
     'blog.article.vivere-pigra-lavorare-ticino-frontaliere.excerpt': 'Découvrez les connexions, les temps de trajet et le coût de la vie pour les frontaliers qui choisissent Pigra pour vivre et travailler au Tessin.',
     'blog.article.vivere-pigra-lavorare-ticino-frontaliere.imageAlt': 'Vue de Pigra et du lac de Lugano avec le panorama alpin du Tessin.',
+    'blog.article.frontaliere-laveno-mombello-ticino.title': 'Frontaliers à Laveno-Mombello : guide et fiscalité au Tessin',
+    'blog.article.frontaliere-laveno-mombello-ticino.excerpt': 'Vivre à Laveno-Mombello et travailler au Tessin : liens, impôts à la source, franchises et prévoyance pour les travailleurs frontaliers.',
+    'blog.article.frontaliere-laveno-mombello-ticino.imageAlt': 'Vue du lac Majeur près de Laveno-Mombello pour les frontaliers au Tessin',
 };
 
 export default blogMetaFr;
