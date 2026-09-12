@@ -147,6 +147,7 @@ import {
   getCrawlerElapsedMs,
 } from '../jobs-url-helper.mjs';
 import { CRAWLER_FETCH_OUTCOMES } from './crawler-fetch-outcome.mjs';
+import { normalizeDetailDrop, detailDropSummaryFields } from './crawler-detail-drop.mjs';
 import {
   writeJobsCrawlerSlice,
   writeJobsCrawlerSliceVerified,
@@ -951,7 +952,7 @@ export async function runStandardCrawlerPipeline(config) {
   // the exit-guard slice carries it too — the zero-match soft exit below is
   // precisely the run whose cause matters most. Parsers that don't set
   // `.fetchOutcome` leave it null: unchanged behaviour.
-  const counts = { discovered: null, parsed: null, lastFetchOutcome: null };
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null, detailDrop: null };
   registerCrawlerSummaryGuard(companyKey, companyLabel, counts);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${companyLabel} — Standard Crawler Pipeline`);
@@ -1016,6 +1017,9 @@ export async function runStandardCrawlerPipeline(config) {
   // Set before every early return below, so a soft-exit slice written by the
   // exit guard carries the same evidence a published one would.
   counts.parsed = Array.isArray(parsedJobs) ? parsedJobs.length : 0;
+  // Coop-family enrichers attach the non-fatal drop observation to the array.
+  // Keep it in the mutable guard counters so early exits preserve the signal.
+  counts.detailDrop = normalizeDetailDrop(parsedJobs?.detailDrop);
 
   const missingDetailUrlCount = Number(fetchMetadata?.missingDetailUrlCount);
   const missingDetailUrlRatio = companyExisting.length > 0 && Number.isFinite(missingDetailUrlCount)
@@ -1194,6 +1198,7 @@ export async function runStandardCrawlerPipeline(config) {
     parsed: counts.parsed,
     lastFetchOutcome: counts.lastFetchOutcome,
     written: sliceJobs.length,
+    ...detailDropSummaryFields(counts.detailDrop),
     // Per-run proof, not a per-slug guess: true only when this run's parser
     // returned zero jobs AND its own `validateAuthoritativeSnapshot` proved
     // the source explicitly says so (e.g. an "attualmente non ci sono

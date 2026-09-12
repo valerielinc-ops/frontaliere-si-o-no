@@ -67,6 +67,7 @@ import { absoluteJobUrl } from './lib/job-url-host.mjs';
 import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
+import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -100,6 +101,7 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
       // Post-parser count (#7707): an aborted run that had already parsed jobs
       // must not leave a slice that reads as a geographic filter-empty.
       const parsed = counts && Number.isFinite(counts.parsed) ? counts.parsed : null;
+      const detailDropFields = detailDropSummaryFields(counts?.detailDrop);
       // Fetch verdict (#7897). The soft exit on a zero-job run is exactly the
       // slice whose cause matters most — a `selector_miss` reaches the monitor
       // only through here, because the pipeline returns before ever writing a
@@ -107,6 +109,7 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
       // one case that never needed instrumenting.
       const lastFetchOutcome = normalizeFetchOutcome(counts ? counts.lastFetchOutcome : null);
       writeSummaryCrawlerSlice({
+        ...detailDropFields,
         key,
         label: label || key,
         generatedAt: new Date().toISOString(),
