@@ -321,7 +321,7 @@ function writeActions(reportDir, verdict, now) {
   const file = path.join(path.resolve(reportDir), 'l5-safe-actions.json');
   const actions = [
     {
-      autonomy: 'A4',
+      autonomy: 'A3',
       action: 'label a stale or incomplete surface and suppress any unsupported freshness promise',
       reversible: true,
       publishedDataUntouched: true,

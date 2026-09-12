@@ -92,7 +92,7 @@ describe('L5 Decision Moments', () => {
     expect(result.actionsWritten).toBe(true);
     const actions = JSON.parse(fs.readFileSync(path.join(reportDir, 'l5-safe-actions.json'), 'utf8'));
     expect(actions).toMatchObject({ noDarkPatterns: true });
-    expect(actions.actions[0]).toMatchObject({ autonomy: 'A4', publishedDataUntouched: true });
+    expect(actions.actions[0]).toMatchObject({ autonomy: 'A3', publishedDataUntouched: true });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l5-result.json'), 'utf8'))).toMatchObject({ ok: false, issued: true, actionsWritten: true });
     expect(issues).toHaveLength(1);
   });
