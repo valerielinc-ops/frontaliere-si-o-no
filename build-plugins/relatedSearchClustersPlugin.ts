@@ -897,6 +897,7 @@ export function loadPreviouslyEmittedClusterKeys(rootDir: string): Set<string> {
     try {
       assertNoRestoredRetirementCollision(manifest.files, manifest.retiredFiles);
     } catch (err) {
+      if (!(err instanceof RestoredRetirementCollisionError)) throw err;
       if (manifest.version === CACHE_VERSION) throw err;
       console.warn(
         `[related-search-clusters] ignoring collision in historical retirement manifest ${manifestPath}:`,
@@ -2027,6 +2028,13 @@ function assertManifestRetirementsDisjointFromPlan(
  * deliberately not flagged: that is the half-tagged pair of issue #7751, whose
  * documented behaviour is to re-plan the landing, not to fail the build.
  */
+class RestoredRetirementCollisionError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'RestoredRetirementCollisionError';
+  }
+}
+
 function assertNoRestoredRetirementCollision(
   files: ReadonlyArray<string>,
   retiredFiles: ReadonlyArray<string>,
@@ -2042,7 +2050,7 @@ function assertNoRestoredRetirementCollision(
   }
   if (collisions.size > 0) {
     const list = Array.from(collisions).sort();
-    throw new Error(
+    throw new RestoredRetirementCollisionError(
       `[related-search-clusters] restored manifest has ${list.length} landing path(s) that are BOTH a junk-doorway ` +
       `withdrawal and a live cluster page (issue #7752) — rebuild with a cache MISS to re-derive it:\n  ${list.join('\n  ')}`,
     );
@@ -2138,7 +2146,7 @@ function normalizeJunkRetirementPath(retiredPath: string): string | null {
   // grammar as the publication-evidence parser. This rejects arbitrary
   // external data before it can become a second dist write.
   if (!clusterKeyFromAnyPath(normalized)) return null;
-  return normalized;
+  return normalized.toLowerCase();
 }
 
 export function junkRetirementWrites(

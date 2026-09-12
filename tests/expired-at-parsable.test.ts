@@ -22,6 +22,11 @@ import { compareExpiredAt } from '../scripts/lib/compare-expired-at.mjs';
  * observers that keep both halves of that claim honest.
  */
 describe('expiredAt parsability — normalization at ingress', () => {
+  it('uses code-unit order when both expiredAt values are unparseable', () => {
+    expect(compareExpiredAt('ä', 'z')).toBeGreaterThan(0);
+    expect(compareExpiredAt('z', 'ä')).toBeLessThan(0);
+  });
+
   it('classifies the values the sort cannot order', () => {
     expect(isParsableExpiredAt('2026-09-06T10:00:00.000Z')).toBe(true);
     expect(isParsableExpiredAt(undefined)).toBe(false);

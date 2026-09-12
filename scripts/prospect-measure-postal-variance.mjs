@@ -25,6 +25,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import {
   collectSpecListingRows,
@@ -32,6 +33,7 @@ import {
   fetchRuntimePage,
 } from './lib/prospector/spec-crawler.mjs';
 import { extractRuntimeDetailFields } from './lib/prospector/detail-extract.mjs';
+import { resolveDetailOrListingSwissGeography } from './lib/prospector/location-evidence.mjs';
 import {
   aggregatePostalVariance,
   detailReferenceTruth,
@@ -40,8 +42,16 @@ import {
 } from './lib/prospector/postal-variance.mjs';
 
 const CRAWLERS_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
-const REPORT_JSON = path.join(PROSPECTOR_DIR, 'postal-variance.json');
-const REPORT_MD = path.join(PROSPECTOR_DIR, 'postal-variance.md');
+const REPORT_JSON = process.env.PROSPECT_POSTAL_VARIANCE_JSON
+  || path.join(PROSPECTOR_DIR, 'postal-variance.json');
+const REPORT_MD = process.env.PROSPECT_POSTAL_VARIANCE_MD
+  || path.join(PROSPECTOR_DIR, 'postal-variance.md');
+
+// One host with zero source-backed rows is already a hard content-loss signal:
+// its employer page has no trustworthy vacancy left to render. The report uses
+// this threshold to decide whether prose-only rows need a non-indexable
+// retention path, instead of silently treating an empty host as acceptable.
+export const SOURCE_BACKED_EMPTY_HOST_THRESHOLD = 1;
 
 // The three hosts #7464 names as the reason the rule could not be written:
 // physioswiss carries the association's NPA on every page, and the two Umantis
@@ -99,16 +109,30 @@ function sampleKeys() {
  * @param {{ body?: string, url?: string }} page
  * @returns {{ truth: string, accepted: boolean, source: string }}
  */
-function detailTruth(spec, page) {
+function hasSourceBackedGeography(detail = {}, listing = {}) {
+  try {
+    return Boolean(resolveDetailOrListingSwissGeography(detail, listing).geography);
+  } catch {
+    return false;
+  }
+}
+
+function detailTruth(spec, page, listing = {}) {
   try {
     const detail = extractRuntimeDetailFields(spec, page.body || '', page.url || '');
     const reference = detailReferenceTruth(detail);
     return {
       ...reference,
+      guardGeography: hasSourceBackedGeography(detail, listing),
       source: reference.accepted ? 'detail-source-backed' : 'detail-unresolved',
     };
   } catch {
-    return { truth: '', accepted: false, source: 'detail-unavailable' };
+    return {
+      truth: '',
+      accepted: false,
+      guardGeography: hasSourceBackedGeography({}, listing),
+      source: 'detail-unavailable',
+    };
   }
 }
 
@@ -121,12 +145,65 @@ function detailTruth(spec, page) {
  * @param {any[]} mentions
  * @returns {any[]}
  */
-function storedPostalMentions(mentions = []) {
+export function storedPostalMentions(mentions = []) {
   return mentions.map((mention) => {
     if (mention?.locality && mention?.postalCode) return { ...mention };
     const [postalCode, ...locality] = String(mention?.key || '').split(' ');
     return { ...mention, postalCode, locality: locality.join(' ') };
   });
+}
+
+/**
+ * Measure the exact geography guard that `runSpecInProduction()` applies to a
+ * sampled listing/detail pair. A zero-after-guard host is the threshold that
+ * would justify retaining prose-only rows as non-indexable, so it is reported
+ * separately from the NPA precision/recall experiment.
+ *
+ * @param {Array<{ guardGeography?: boolean, listingGeography?: boolean }>} pages
+ */
+export function summarizeSourceBackedDropImpact(pages = []) {
+  const observed = pages.filter((page) => typeof page?.guardGeography === 'boolean');
+  const sampledRows = observed.length;
+  const rowsAfterGuard = observed.filter((page) => page.guardGeography).length;
+  const rowsDroppedByGuard = sampledRows - rowsAfterGuard;
+  const rowsWithListingGeography = observed.filter((page) => page.listingGeography === true).length;
+  return {
+    sampledRows,
+    rowsBeforeGuard: sampledRows,
+    rowsWithListingGeography,
+    rowsAfterGuard,
+    rowsDroppedByGuard,
+    dropRate: sampledRows ? rowsDroppedByGuard / sampledRows : null,
+    hostFallsToZero: sampledRows > 0 && rowsAfterGuard === 0,
+  };
+}
+
+/** @param {Record<string, any>} byHost */
+export function aggregateSourceBackedDropImpact(byHost = {}) {
+  const totals = {
+    hosts: 0,
+    sampledRows: 0,
+    rowsBeforeGuard: 0,
+    rowsWithListingGeography: 0,
+    rowsAfterGuard: 0,
+    rowsDroppedByGuard: 0,
+    hostsFallingToZero: 0,
+  };
+  for (const host of Object.values(byHost)) {
+    const impact = host?.sourceBackedGeography;
+    if (!impact || !Number.isFinite(impact.sampledRows) || impact.sampledRows <= 0) continue;
+    totals.hosts += 1;
+    totals.sampledRows += impact.sampledRows;
+    totals.rowsBeforeGuard += impact.rowsBeforeGuard;
+    totals.rowsWithListingGeography += impact.rowsWithListingGeography;
+    totals.rowsAfterGuard += impact.rowsAfterGuard;
+    totals.rowsDroppedByGuard += impact.rowsDroppedByGuard;
+    if (impact.hostFallsToZero) totals.hostsFallingToZero += 1;
+  }
+  return {
+    ...totals,
+    dropRate: totals.sampledRows ? totals.rowsDroppedByGuard / totals.sampledRows : null,
+  };
 }
 
 function storedPostalMentionFields(mentions = []) {
@@ -152,21 +229,30 @@ async function measureHost(key, pagesPerHost) {
     const sample = rows.slice(0, pagesPerHost);
     const pages = [];
     for (const row of sample) {
+      const listingGeography = hasSourceBackedGeography({}, row);
       let page;
       try {
         page = await fetchRuntimePage(row.url, urlPolicy, runtime);
       } catch (error) {
-        pages.push({ url: row.url, error: String(error?.message || error) });
+        pages.push({
+          url: row.url,
+          listingGeography,
+          guardGeography: listingGeography,
+          guardSource: 'listing-fallback',
+          error: String(error?.message || error),
+        });
         continue;
       }
       pages.push({
         url: page.url || row.url,
-        ...detailTruth(spec, page),
+        listingGeography,
+        ...detailTruth(spec, page, row),
         mentions: freeTextPostalMentions(page.body || ''),
       });
     }
     const fetched = pages.filter((p) => Array.isArray(p.mentions));
     const summary = summarizeHostPostalVariance(pages);
+    const sourceBackedGeography = summarizeSourceBackedDropImpact(pages);
     return {
       companyKey: key,
       companyHost: spec.companyHost || '',
@@ -174,6 +260,7 @@ async function measureHost(key, pagesPerHost) {
       listingRows: rows.length,
       fetched: fetched.length,
       errors: pages.filter((p) => p.error).map((p) => ({ url: p.url, error: p.error })),
+      sourceBackedGeography,
       ...summary,
       // Keep the raw pairs next to the verdict: a rate nobody can trace back to
       // the pages it came from is not evidence the child issue can act on.
@@ -181,6 +268,8 @@ async function measureHost(key, pagesPerHost) {
         ...page,
         truthAcceptedByResolver: Boolean(fetched[index]?.accepted),
         truthSource: fetched[index]?.source || 'detail-unavailable',
+        listingGeography: Boolean(fetched[index]?.listingGeography),
+        guardGeography: Boolean(fetched[index]?.guardGeography),
         allMentions: (fetched[index]?.mentions || [])
           .map((m) => ({
             key: m.key,
@@ -225,6 +314,10 @@ async function refreshHostReference(host) {
       pages.push({
         url: existing.url,
         ...reference,
+        listingGeography: existing.listingGeography,
+        guardGeography: Boolean(reference.guardGeography
+          || existing.guardGeography
+          || existing.listingGeography),
         mentions: storedPostalMentions(existing.allMentions || []),
       });
     }
@@ -236,11 +329,14 @@ async function refreshHostReference(host) {
     ...host,
     fetched,
     errors,
+    sourceBackedGeography: summarizeSourceBackedDropImpact(pages),
     ...summary,
     perPage: summary.perPage.map((page, index) => ({
       ...page,
       truthAcceptedByResolver: Boolean(pages[index]?.accepted),
       truthSource: pages[index]?.source || 'detail-unavailable',
+      listingGeography: pages[index]?.listingGeography ?? null,
+      guardGeography: pages[index]?.guardGeography ?? null,
       allMentions: storedPostalMentionFields(pages[index]?.mentions || []),
     })),
   };
@@ -262,6 +358,7 @@ async function refreshReferenceReport(existing) {
     generatedAt: new Date().toISOString(),
     truthSource: 'localita source-backed del dettaglio, senza fallback al listing',
     totals: aggregatePostalVariance(byHost),
+    sourceBackedGeography: aggregateSourceBackedDropImpact(byHost),
     hosts,
   };
 }
@@ -299,6 +396,14 @@ function readingNotes(report) {
   notes.push(`- Un NPA di boilerplate — presente su tutte le pagine campionate — esiste su ${withConstant} host`
     + ` su ${report.hosts.length}: dove c'è, il criterio lo esclude correttamente (colonna «NPA costanti»),`
     + ' e questo è il pezzo di ipotesi che la misura conferma.');
+  const impact = report.sourceBackedGeography;
+  if (!impact) {
+    notes.push('- Impatto della guardia geografica non presente nel report: la soglia non è stata misurata; eseguire una nuova misura.');
+  } else if (impact.hostsFallingToZero >= SOURCE_BACKED_EMPTY_HOST_THRESHOLD) {
+    notes.push(`- Soglia di tutela superata: ${impact.hostsFallingToZero} host passano a zero righe dopo la guardia; la riga prose-only va conservata come non indicizzabile.`);
+  } else {
+    notes.push(`- Soglia di tutela: almeno ${SOURCE_BACKED_EMPTY_HOST_THRESHOLD} host a zero dopo la guardia; il campione ne osserva ${impact.hostsFallingToZero}, quindi non richiede ancora una retention prose-only.`);
+  }
   return notes;
 }
 
@@ -323,6 +428,13 @@ function renderMarkdown(report) {
       + ` (hit ${report.totals.baseline.hits}, miss ${report.totals.baseline.misses}, nessuna previsione ${report.totals.baseline.noPrediction})`,
     `- pagine su cui il criterio ha una risposta univoca: ${report.totals.ambiguity.one}/${report.totals.pages}`
       + ` (nessun NPA variabile ${report.totals.ambiguity.none}, ambiguo ${report.totals.ambiguity.several})`,
+    ...(report.sourceBackedGeography ? [
+      `- guardia geografica: ${report.sourceBackedGeography.rowsAfterGuard}/${report.sourceBackedGeography.rowsBeforeGuard} righe restano source-backed, `
+        + `${report.sourceBackedGeography.rowsDroppedByGuard} scartate (${pct(report.sourceBackedGeography.dropRate)}); `
+        + `${report.sourceBackedGeography.hostsFallingToZero} host passano a zero`,
+    ] : [
+      '- guardia geografica: non misurata in questo report storico',
+    ]),
     '',
     '## Lettura',
     '',
@@ -330,14 +442,17 @@ function renderMarkdown(report) {
     '',
     '## Per host',
     '',
-    '| host | pagine | NPA costanti (boilerplate) | NPA variabili | risposta univoca | verità note | precision | recall | baseline precision |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- | --- |',
+    '| host | pagine | dopo guardia / campione | scartate | NPA costanti (boilerplate) | NPA variabili | risposta univoca | verità note | precision | recall | baseline precision |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ];
   for (const host of report.hosts) {
+    const impact = host.sourceBackedGeography;
     lines.push([
       '',
       `\`${host.companyKey}\``,
       host.pages,
+      impact ? `${impact.rowsAfterGuard}/${impact.rowsBeforeGuard}` : 'n/d',
+      impact ? impact.rowsDroppedByGuard : 'n/d',
       host.constant.length ? host.constant.map((k) => `\`${k}\``).join('<br>') : '—',
       host.variable.length ? host.variable.map((k) => `\`${k}\``).join('<br>') : '—',
       `${host.ambiguity.one}/${host.pages}`,
@@ -420,6 +535,7 @@ async function main() {
     truthSource: 'localita source-backed del dettaglio, senza fallback al listing',
     pagesPerHost,
     totals: aggregatePostalVariance(byHost),
+    sourceBackedGeography: aggregateSourceBackedDropImpact(byHost),
     hosts,
     skipped,
   };
@@ -437,7 +553,11 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(`[postal-variance] ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+const isDirectRun = process.argv[1]
+  && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
+if (isDirectRun) {
+  main().catch((error) => {
+    console.error(`[postal-variance] ${error?.stack || error}`);
+    process.exitCode = 1;
+  });
+}

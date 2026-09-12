@@ -1,18 +1,22 @@
 import { spawnSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
+import { buildJunkRetirementHtml, junkRetirementWrites } from '../../build-plugins/relatedSearchClustersPlugin';
 
 const REPO_ROOT = resolve(__dirname, '..', '..');
 const SOFT404_SCRIPT = join(REPO_ROOT, 'scripts', 'validate-soft404.mjs');
 const CONSOLIDATED_SCRIPT = join(REPO_ROOT, 'scripts', 'validate-sitemap-pages.mjs');
 const tempRoots: string[] = [];
 
-const urlset = (loc: string) =>
-  `<?xml version="1.0" encoding="UTF-8"?>\n` +
-  `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">` +
-  `<url><loc>${loc}</loc></url></urlset>\n`;
+const urlset = (loc: string | string[]) => {
+  const locs = Array.isArray(loc) ? loc : [loc];
+  return `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">` +
+    locs.map((entry) => `<url><loc>${entry}</loc></url>`).join('') +
+    '</urlset>\n';
+};
 
 function fixture(): string {
   const root = mkdtempSync(join(tmpdir(), 'soft404-validation-'));
@@ -38,7 +42,28 @@ afterEach(() => {
 });
 
 describe('soft-404 page retirement validation', () => {
-  it('does not fail when every sitemap URL is served by an external shard', () => {
+  it('skips external shard hosts when a local sitemap URL is also present', () => {
+    const root = fixture();
+    const localUrl = 'https://frontaliereticino.ch/eventi/local/';
+    writeFileSync(
+      join(root, 'dist', 'sitemap-eventi.xml'),
+      urlset([
+        'https://frontaliereticino.ch/articoli-frontaliere/guida-frontaliere/',
+        'https://www.frontaliereticino.ch/articoli-frontaliere/guida-frontaliere/',
+        'https://origin-articoli-it.frontaliereticino.ch/articoli-frontaliere/guida-frontaliere/',
+        localUrl,
+      ]),
+    );
+    mkdirSync(join(root, 'dist', 'eventi', 'local'), { recursive: true });
+    writeFileSync(join(root, 'dist', 'eventi', 'local', 'index.html'), healthyHtml());
+
+    const result = run(root, SOFT404_SCRIPT);
+
+    expect(result.status).toBe(0);
+    expect(result.stdout + result.stderr).toContain('3 sitemap URL(s) skipped');
+  });
+
+  it('fails when every discovered sitemap URL is served by an external shard', () => {
     const root = fixture();
     writeFileSync(
       join(root, 'dist', 'sitemap-eventi.xml'),
@@ -47,8 +72,8 @@ describe('soft-404 page retirement validation', () => {
 
     const result = run(root, SOFT404_SCRIPT);
 
-    expect(result.status).toBe(0);
-    expect(result.stdout + result.stderr).toContain('served from an external shard');
+    expect(result.status).toBe(1);
+    expect(result.stdout + result.stderr).toContain('Empty soft-404 population');
   });
 
   it('resolves a flat HTML page when the directory index is absent', () => {
@@ -64,6 +89,27 @@ describe('soft-404 page retirement validation', () => {
 
     expect(result.status).toBe(0);
     expect(result.stdout).toContain('Checked 1 pages');
+  });
+
+  it('passes a minimal noindex retirement bridge served through its flat fallback', () => {
+    const root = fixture();
+    const retirementPath = '/cerca-lavoro-svizzera/ricerca-cookie-bern/';
+    const [, flat] = junkRetirementWrites(retirementPath, buildJunkRetirementHtml('it'));
+    writeFileSync(
+      join(root, 'dist', 'sitemap-eventi.xml'),
+      urlset(`https://frontaliereticino.ch${retirementPath}`),
+    );
+    const flatPath = join(root, 'dist', flat.rel);
+    mkdirSync(dirname(flatPath), { recursive: true });
+    writeFileSync(flatPath, flat.html);
+
+    const result = run(root, SOFT404_SCRIPT);
+    const output = result.stdout + result.stderr;
+
+    expect(result.status).toBe(0);
+    expect(output).toContain('Checked 1 pages');
+    expect(output).not.toContain('Sitemap URL has noindex');
+    expect(output).not.toContain('Thin content');
   });
 
   it('does not print a green verdict after warn-only population failure', () => {
@@ -90,6 +136,7 @@ describe('consolidated soft-404 sub-check', () => {
     expect(start).toBeGreaterThanOrEqual(0);
     expect(end).toBeGreaterThan(start);
     expect(body).toContain('isExternallyServedUrl(url)');
+    expect(body).toContain('REDIRECT_STUB_MARKER');
     expect(body).toContain('eligiblePages');
   });
 });
