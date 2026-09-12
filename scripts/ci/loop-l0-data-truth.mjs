@@ -7,7 +7,6 @@ import { pathToFileURL } from 'node:url';
 import { ARTICLES_API_BASE } from '../lib/articles-api-base.mjs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
-  appendJsonl,
   buildDecision,
   buildObservation,
 } from '../lib/loop-fleet-contract.mjs';
@@ -155,10 +154,6 @@ function writeReports(reportDir, verdict, observation, decision) {
   for (const [name, content] of files) {
     fs.writeFileSync(path.join(dir, name), typeof content === 'string' ? content : `${JSON.stringify(content, null, 2)}\n`);
   }
-  const observations = process.env.LOOP_FLEET_OBSERVATIONS_FILE;
-  const decisions = process.env.LOOP_FLEET_DECISIONS_FILE;
-  if (observations) appendJsonl(observations, observation);
-  if (decisions) appendJsonl(decisions, decision);
   return files.map(([name]) => path.join(dir, name));
 }
 
