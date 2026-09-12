@@ -2362,7 +2362,7 @@
       },
       "slugByLocale": {
         "it": "it-business-analista-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqq",
-        "en": "it-business-analyst-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqq",
+        "en": "business-analysis-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "it-business-analyst-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqq",
         "fr": "it-business-analyste-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqq"
       },
@@ -2371,10 +2371,14 @@
       "previousSlugsByLocale": {
         "it": [
           "it-business-analyst-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "en": [
+          "it-business-analyst-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqq"
         ]
       },
       "previousSlugs": [
-        "it-business-analyst-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "it-business-analyst-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "it-business-analyst-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqq"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

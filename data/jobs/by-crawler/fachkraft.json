@@ -1043,7 +1043,6 @@
       "previousSlugs": [
         "zimmermann-zimmerin-mit-handwerklichem-geschick-pfaffikon-zurich-fachkraft-ch",
         "zimmermann-zimmerin-mit-handwerklichem-geschick-fachkraft-ch",
-        "zimmermann-con-artigianato-fachkraft-ch-gmbh-pfaffikon-zurich",
         "pittore-con-l-artigianato-fachkraft-ch-gmbh-pfaffikon-zurich",
         "painter-with-craftsmanship-fachkraft-ch-gmbh-pfaffikon-zurich",
         "maler-in-mit-handwerklichem-geschick-fachkraft-ch",
@@ -1054,7 +1053,6 @@
         "it": [
           "zimmermann-zimmerin-mit-handwerklichem-geschick-pfaffikon-zurich-fachkraft-ch",
           "zimmermann-zimmerin-mit-handwerklichem-geschick-fachkraft-ch",
-          "zimmermann-con-artigianato-fachkraft-ch-gmbh-pfaffikon-zurich",
           "pittore-con-l-artigianato-fachkraft-ch-gmbh-pfaffikon-zurich",
           "painter-with-craftsmanship-fachkraft-ch-gmbh-pfaffikon-zurich",
           "maler-in-mit-handwerklichem-geschick-fachkraft-ch",
@@ -7349,7 +7347,6 @@
         "zimmermann-zimmerin-per-fassadenbau-fachkraft-ch-gmbh-lugano-ce4aaj",
         "zimmermann-room-for-facade-construction-fachkraft-ch-gmbh-lugano",
         "zimmermann-salle-pour-la-construction-de-facade-fachkraft-ch-gmbh-lugano",
-        "zimmermann-zimmerin-per-fassadenbau-fachkraft-ch-gmbh-lugano",
         "zimmermann-camera-per-la-costruzione-della-facciata-fachkraft-ch-gmbh-willisau-luzern",
         "zimmermann-room-for-facade-construction-fachkraft-ch-gmbh-willisau-luzern",
         "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-fachkraft-ch",
@@ -7363,7 +7360,6 @@
           "zimmermann-zimmerin-per-fassadenbau-fachkraft-ch-gmbh-lugano-ce4aaj",
           "zimmermann-room-for-facade-construction-fachkraft-ch-gmbh-lugano",
           "zimmermann-salle-pour-la-construction-de-facade-fachkraft-ch-gmbh-lugano",
-          "zimmermann-zimmerin-per-fassadenbau-fachkraft-ch-gmbh-lugano",
           "zimmermann-camera-per-la-costruzione-della-facciata-fachkraft-ch-gmbh-willisau-luzern",
           "zimmermann-room-for-facade-construction-fachkraft-ch-gmbh-willisau-luzern",
           "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-fachkraft-ch",
@@ -12743,8 +12739,8 @@
       "slugByLocale": {
         "de": "spengler-in-fur-energetische-sanierungen-langenthal-bern-fachkraft-ch",
         "it": "spengler-in-per-energetische-sanierungen-fachkraft-ch-gmbh-langenthal",
-        "en": "spengler-in-fur-energetische-sanierungen-langenthal-bern-fachkraft-ch",
-        "fr": "spengler-in-fur-energetische-sanierungen-langenthal-bern-fachkraft-ch"
+        "en": "roofer-for-energy-retrofits-fachkraft-ch-gmbh-langenthal-bern",
+        "fr": "tolier-ere-pour-renovations-energetiques-fachkraft-ch-gmbh-langenthal-bern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -12789,6 +12785,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "spengler-in-fur-energetische-sanierungen-langenthal-bern-fachkraft-ch"
+        ],
+        "en": [
+          "spengler-in-fur-energetische-sanierungen-langenthal-bern-fachkraft-ch"
+        ],
+        "fr": [
           "spengler-in-fur-energetische-sanierungen-langenthal-bern-fachkraft-ch"
         ]
       },
@@ -17966,8 +17968,6 @@
         "schreiner-in-projektleiter-in-fensterbau-fachkraft-ch",
         "schreiner-in-projektleiter-in-fensterbau-luzern-luzern-fachkraft-ch",
         "schreiner-in-responsabile-di-progetto-fensterbau-fachkraft-ch-gmbh-lugano-ik83sa",
-        "schreiner-in-project-manager-fensterbau-fachkraft-ch-gmbh-lugano",
-        "schreiner-in-chef-de-projet-fensterbau-fachkraft-ch-gmbh-lugano",
         "schreiner-in-projektleiter-in-mit-arbeitsvorbereitungsfokus-luzern-luzern-fachkraft-ch",
         "schreiner-in-responsabile-di-progetto-con-arbeitsvorbereitungsfokus-fachkraft-ch-gm-wpgamg",
         "schreiner-in-8211-projektleiter-in-mit-arbeitsvorbereitungsfokus-luzern-luzern-fachkraft",
@@ -17988,7 +17988,6 @@
         "schreiner-in-projektleiter-in-mit-arbeitsvorbereitungsfokus-fachkraft-ch",
         "schreiner-in-chef-de-projet-mit-kalkulationserfahrung-fachkraft-ch-gmbh-lugano",
         "schreiner-in-chef-de-projet-mit-arbeitsvorbereitungsfokus-fachkraft-ch-gmbh-lugano",
-        "schreiner-in-responsabile-di-progetto-fensterbau-fachkraft-ch-gmbh-lugano",
         "schreiner-in-projektleiter-in-mit-fuhrungskompetenz-entlebuch-luzern-fachkraft-ch",
         "schreiner-in-responsabile-di-progetto-con-fuhrungskompetenz-fachkraft-ch-gmbh-lugan-c9ocnz",
         "schreiner-in-8211-projektleiter-in-mit-fuhrungskompetenz-entlebuch-luzern-fachkraft-ch",
@@ -18014,7 +18013,6 @@
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-responsabile-di-progetto-con-arbeitsvorbereitungsfokus-fachkraft-ch-gmbh-lugano",
-          "schreiner-in-responsabile-di-progetto-fensterbau-fachkraft-ch-gmbh-lugano",
           "schreiner-in-projektleiter-in-mit-fuhrungskompetenz-entlebuch-luzern-fachkraft-ch",
           "schreiner-in-responsabile-di-progetto-con-fuhrungskompetenz-fachkraft-ch-gmbh-lugan-c9ocnz",
           "schreiner-in-8211-projektleiter-in-mit-fuhrungskompetenz-entlebuch-luzern-fachkraft-ch",
@@ -21214,7 +21212,6 @@
         "charpentier-avec-experience-de-montage-fachkraft-ch-gmbh-zofingen-aargau",
         "schreiner-in-con-montageerfahrung-fachkraft-ch-gmbh-zofingen",
         "schreiner-in-mit-montageerfahrung-fachkraft-ch-gmbh-zofingen",
-        "schreiner-in-con-montageerfahrung-per-renovationen-fachkraft-ch-gmbh-lugano",
         "schreiner-in-per-renovationen-e-oberflachenbehandlungen-fachkraft-ch-gmbh-lugano",
         "carpenter-for-renovations-and-surface-treatments-fachkraft-ch-gmbh-weinfelden-thurgau",
         "schreiner-in-fur-renovationen-und-oberflachenbehandlungen-fachkraft-ch",
@@ -21235,7 +21232,6 @@
           "charpentier-avec-experience-de-montage-fachkraft-ch-gmbh-zofingen-aargau",
           "schreiner-in-con-montageerfahrung-fachkraft-ch-gmbh-zofingen",
           "schreiner-in-mit-montageerfahrung-fachkraft-ch-gmbh-zofingen",
-          "schreiner-in-con-montageerfahrung-per-renovationen-fachkraft-ch-gmbh-lugano",
           "schreiner-in-per-renovationen-e-oberflachenbehandlungen-fachkraft-ch-gmbh-lugano",
           "carpenter-for-renovations-and-surface-treatments-fachkraft-ch-gmbh-weinfelden-thurgau",
           "schreiner-in-fur-renovationen-und-oberflachenbehandlungen-fachkraft-ch",
@@ -22973,7 +22969,6 @@
         "carpenter-auxiliary-worker-with-assembly-and-service-experience-fachkraft-ch-gmbh-sursee-luzern",
         "schreiner-in-hilfsarbeiter-in-mit-montage-und-serviceerfahrung-fachkraft-ch",
         "charpentier-ouvrier-auxiliaire-avec-experience-de-montage-et-de-service-fachkraft-ch-gmbh-sursee-luzern",
-        "schreiner-in-con-montage-e-serviceerfahrung-fachkraft-ch-gmbh-lugano",
         "polymechaniker-in-mit-montage-und-justiererfahrung-luzern-luzern-fachkraft-ch",
         "polymechaniker-in-con-montage-e-justiererfahrung-fachkraft-ch-gmbh-lugano-229wrl",
         "polymechanic-with-assembly-and-adjustment-experience-fachkraft-ch-gmbh-lugano",
@@ -22999,7 +22994,6 @@
           "schreiner-in-hilfsarbeiter-in-con-montage-e-serviceerfahrung-fachkraft-ch-gmbh-lugano",
           "schreiner-in-mit-montage-und-serviceerfahrung-luzern-luzern-fachkraft-ch",
           "schreiner-in-hilfsarbeiter-in-mit-montage-und-serviceerfahrung-sursee-luzern-fachkraft-ch",
-          "schreiner-in-con-montage-e-serviceerfahrung-fachkraft-ch-gmbh-lugano",
           "polymechaniker-in-mit-montage-und-justiererfahrung-luzern-luzern-fachkraft-ch",
           "polymechaniker-in-con-montage-e-justiererfahrung-fachkraft-ch-gmbh-lugano-229wrl",
           "polymechanic-with-assembly-and-adjustment-experience-fachkraft-ch-gmbh-lugano",
@@ -25905,7 +25899,6 @@
         "charpentier-avec-experience-de-montage-fachkraft-ch-gmbh-winterthur-zurich",
         "schreiner-in-con-montageerfahrung-fachkraft-ch-gmbh-winterthur",
         "schreiner-in-mit-montageerfahrung-fachkraft-ch-gmbh-winterthur",
-        "falegname-con-esperienza-nel-montaggio-in-vetro-fachkraft-ch-gmbh-winterthur-zurich",
         "charpentier-avec-experience-dans-l-assemblage-de-verre-fachkraft-ch-gmbh-baden-aargau",
         "schreiner-in-con-erfahrung-in-glasmontage-fachkraft-ch-gmbh-baden",
         "carpenter-con-esperienza-nella-posa-del-pavimento-fachkraft-ch-gmbh-baden-aargau",
@@ -25930,7 +25923,6 @@
           "charpentier-avec-experience-de-montage-fachkraft-ch-gmbh-winterthur-zurich",
           "schreiner-in-con-montageerfahrung-fachkraft-ch-gmbh-winterthur",
           "schreiner-in-mit-montageerfahrung-fachkraft-ch-gmbh-winterthur",
-          "falegname-con-esperienza-nel-montaggio-in-vetro-fachkraft-ch-gmbh-winterthur-zurich",
           "charpentier-avec-experience-dans-l-assemblage-de-verre-fachkraft-ch-gmbh-baden-aargau",
           "schreiner-in-con-erfahrung-in-glasmontage-fachkraft-ch-gmbh-baden",
           "carpenter-con-esperienza-nella-posa-del-pavimento-fachkraft-ch-gmbh-baden-aargau",
@@ -43590,9 +43582,9 @@
       "slug": "schreiner-in-cfc-con-berufsbildner-weiterbildung-fachkraft-ch-gmbh-affoltern-am-albis",
       "slugByLocale": {
         "it": "schreiner-in-cfc-con-berufsbildner-weiterbildung-fachkraft-ch-gmbh-affoltern-am-albis",
-        "en": "schreiner-in-efz-mit-berufsbildner-weiterbildung-affoltern-am-albis-zurich-fachkraft-ch",
+        "en": "carpenter-woodworker-with-training-instructor-further-education-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
         "de": "schreiner-in-efz-mit-berufsbildner-weiterbildung-affoltern-am-albis-zurich-fachkraft-ch",
-        "fr": "schreiner-in-efz-mit-berufsbildner-weiterbildung-affoltern-am-albis-zurich-fachkraft-ch"
+        "fr": "menuisier-ere-cfc-avec-formation-de-formateur-trice-fachkraft-ch-gmbh-affoltern-am-albis-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -43635,6 +43627,12 @@
       "firstSeenAt": "2026-09-10T23:34:46.993Z",
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-efz-mit-berufsbildner-weiterbildung-affoltern-am-albis-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "schreiner-in-efz-mit-berufsbildner-weiterbildung-affoltern-am-albis-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "schreiner-in-efz-mit-berufsbildner-weiterbildung-affoltern-am-albis-zurich-fachkraft-ch"
         ]
       },
@@ -44196,8 +44194,8 @@
       "slugByLocale": {
         "de": "schreiner-in-efz-fur-modernen-innenausbau-luzern-luzern-fachkraft-ch",
         "it": "schreiner-in-cfc-per-modernen-innenausbau-fachkraft-ch-gmbh-luzern",
-        "en": "schreiner-in-efz-fur-modernen-innenausbau-luzern-luzern-fachkraft-ch",
-        "fr": "schreiner-in-efz-fur-modernen-innenausbau-luzern-luzern-fachkraft-ch"
+        "en": "carpenter-cabinetmaker-efz-for-modern-interior-finishing-fachkraft-ch-gmbh-luzern-luzern",
+        "fr": "menuisier-ere-cfc-pour-amenagement-interieur-moderne-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -44241,6 +44239,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-efz-fur-modernen-innenausbau-luzern-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "schreiner-in-efz-fur-modernen-innenausbau-luzern-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "schreiner-in-efz-fur-modernen-innenausbau-luzern-luzern-fachkraft-ch"
         ]
       },
@@ -49860,8 +49864,8 @@
       "slugByLocale": {
         "de": "schreiner-in-8211-projektleiter-in-fur-fensterbau-und-cad-planung-willisau-luzern",
         "it": "schreiner-in-responsabile-di-progetto-per-fensterbau-e-cad-planung-fachkraft-ch-gmbh-willisau",
-        "en": "schreiner-in-8211-projektleiter-in-fur-fensterbau-und-cad-planung-willisau-luzern",
-        "fr": "schreiner-in-8211-projektleiter-in-fur-fensterbau-und-cad-planung-willisau-luzern"
+        "en": "carpenter-joiner-project-manager-for-window-construction-and-cad-planning-fachkraft-ch-gmbh-willisau-luzern",
+        "fr": "menuisier-ere-chef-fe-de-projet-pour-la-fabrication-de-fenetres-et-la-planification-cad-fachkraft-ch-gmbh-willisau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -49906,6 +49910,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-8211-projektleiter-in-fur-fensterbau-und-cad-planung-willisau-luzern"
+        ],
+        "en": [
+          "schreiner-in-8211-projektleiter-in-fur-fensterbau-und-cad-planung-willisau-luzern"
+        ],
+        "fr": [
           "schreiner-in-8211-projektleiter-in-fur-fensterbau-und-cad-planung-willisau-luzern"
         ]
       },
@@ -70023,7 +70033,6 @@
       "previousSlugs": [
         "polymechaniker-in-mit-cnc-dreh-und-fraszentren-sursee-luzern-fachkraft-ch",
         "polymechaniker-in-con-cnc-dreh-e-fraszentren-fachkraft-ch-gmbh-sursee",
-        "polimeccanica-con-centri-di-tornitura-e-fresatura-cnc-fachkraft-ch-gmbh-sursee-luzern",
         "polimeccanica-centri-di-tornitura-e-fresatura-cnc-con-partecipazione-cip-fachkraft-ch-gmbh-luzern-luzern",
         "polymechanic-in-cnc-turning-and-milling-centers-with-cvp-participation-fachkraft-ch-gmbh-luzern-luzern",
         "polymechaniker-in-cnc-dreh-und-fraszentren-mit-kvp-mitwirkung-luzern-luzern-fachkraft-ch",
@@ -70034,7 +70043,6 @@
         "it": [
           "polymechaniker-in-mit-cnc-dreh-und-fraszentren-sursee-luzern-fachkraft-ch",
           "polymechaniker-in-con-cnc-dreh-e-fraszentren-fachkraft-ch-gmbh-sursee",
-          "polimeccanica-con-centri-di-tornitura-e-fresatura-cnc-fachkraft-ch-gmbh-sursee-luzern",
           "polimeccanica-centri-di-tornitura-e-fresatura-cnc-con-partecipazione-cip-fachkraft-ch-gmbh-luzern-luzern",
           "polymechanic-in-cnc-turning-and-milling-centers-with-cvp-participation-fachkraft-ch-gmbh-luzern-luzern",
           "polymechaniker-in-cnc-dreh-und-fraszentren-mit-kvp-mitwirkung-luzern-luzern-fachkraft-ch",
@@ -73050,7 +73058,6 @@
         "de": [
           "polymechaniker-in-fur-maschinenbau-mit-montage-und-inbetriebnahme-zofingen-aargau",
           "polymechaniker-in-montage-maschinenbau-fachkraft-ch",
-          "polymechaniker-in-fur-maschinenbau-mit-montage-und-inbetriebnahme-fachkraft-ch",
           "polymechaniker-in-montage-mit-erfahrung-in-maschinenbau-fachkraft-ch"
         ],
         "it": [
@@ -73063,7 +73070,6 @@
           "polymechaniker-in-montage-maschinenbau-fachkraft-ch",
           "polymechanic-assembly-mechanical-engineering-fachkraft-ch-gmbh-lugano",
           "polymecanique-assemblage-ingenierie-mecanique-fachkraft-ch-gmbh-lugano",
-          "polymechaniker-in-per-maschinenbau-con-montage-e-inbetriebnahme-fachkraft-ch-gmbh-lugano",
           "polymechaniker-in-montage-mit-erfahrung-in-maschinenbau-luzern-luzern-fachkraft-ch",
           "polymechaniker-in-8211-montage-mit-erfahrung-in-maschinenbau-luzern-luzern-fachkraft-ch",
           "polymechaniker-in-montage-mit-erfahrung-im-maschinenbau-fachkraft-ch-geolca",
@@ -73098,7 +73104,6 @@
         "polymechaniker-in-montage-maschinenbau-fachkraft-ch",
         "polymechanic-assembly-mechanical-engineering-fachkraft-ch-gmbh-lugano",
         "polymecanique-assemblage-ingenierie-mecanique-fachkraft-ch-gmbh-lugano",
-        "polymechaniker-in-per-maschinenbau-con-montage-e-inbetriebnahme-fachkraft-ch-gmbh-lugano",
         "polymechaniker-in-montage-mit-erfahrung-in-maschinenbau-luzern-luzern-fachkraft-ch",
         "polymechaniker-in-8211-montage-mit-erfahrung-in-maschinenbau-luzern-luzern-fachkraft-ch",
         "polymechaniker-in-montage-mit-erfahrung-im-maschinenbau-fachkraft-ch-geolca",
@@ -86088,7 +86093,6 @@
         "polymechaniker-in-8211-instandhaltung-mit-verantwortung-dielsdorf-zurich-fachkraft-ch",
         "polymecanique-entretien-avec-responsabilite-fachkraft-ch-gmbh-dielsdorf-zurich",
         "polymechaniker-in-instandhaltung-mit-verantwortung-dielsdorf-zurich-fachkraft-ch",
-        "polimeccanico-manutenzione-con-responsabilita-fachkraft-ch-gmbh-luzern-luzern",
         "polymecanique-responsable-des-installations-de-production-fachkraft-ch-gmbh-luzern-luzern",
         "polymechaniker-in-mit-verantwortung-fur-produktionsanlagen-luzern-luzern-fachkraft-ch",
         "polymechaniker-in-con-verantwortung-per-produktionsanlagen-fachkraft-ch-gmbh-lugano-hbb7do",
@@ -86113,7 +86117,6 @@
           "polymechaniker-in-8211-instandhaltung-mit-verantwortung-dielsdorf-zurich-fachkraft-ch",
           "polymecanique-entretien-avec-responsabilite-fachkraft-ch-gmbh-dielsdorf-zurich",
           "polymechaniker-in-instandhaltung-mit-verantwortung-dielsdorf-zurich-fachkraft-ch",
-          "polimeccanico-manutenzione-con-responsabilita-fachkraft-ch-gmbh-luzern-luzern",
           "polymecanique-responsable-des-installations-de-production-fachkraft-ch-gmbh-luzern-luzern",
           "polymechaniker-in-mit-verantwortung-fur-produktionsanlagen-luzern-luzern-fachkraft-ch",
           "polymechaniker-in-con-verantwortung-per-produktionsanlagen-fachkraft-ch-gmbh-lugano-hbb7do",
@@ -87388,7 +87391,6 @@
         "polymecanique-entretien-avec-travail-d-equipe-et-optimisation-des-processus-fachkraft-ch-gmbh-lugano",
         "polymechaniker-in-8211-instandhaltung-mit-teamarbeit-und-prozessoptimierung-schaffhausen",
         "polymechaniker-in-instandhaltung-mit-prozessoptimierung-fachkraft-ch",
-        "polimeccanica-manutenzione-con-ottimizzazione-dei-processi-fachkraft-ch-gmbh-wil-sg-st-gallen",
         "cicli-circolari-di-cnc-in-polimeccanica-con-ottimizzazione-del-processo-fachkraft-ch-gmbh-wil-sg-st-gallen",
         "polymechanic-in-cnc-circular-loops-with-process-optimization-fachkraft-ch-gmbh-wil-sg-st-gallen",
         "polymechaniker-in-cnc-rundschleifen-mit-prozessoptimierung-fachkraft-ch",
@@ -87410,7 +87412,6 @@
           "polymecanique-entretien-avec-travail-d-equipe-et-optimisation-des-processus-fachkraft-ch-gmbh-lugano",
           "polymechaniker-in-8211-instandhaltung-mit-teamarbeit-und-prozessoptimierung-schaffhausen",
           "polymechaniker-in-instandhaltung-mit-prozessoptimierung-fachkraft-ch",
-          "polimeccanica-manutenzione-con-ottimizzazione-dei-processi-fachkraft-ch-gmbh-wil-sg-st-gallen",
           "cicli-circolari-di-cnc-in-polimeccanica-con-ottimizzazione-del-processo-fachkraft-ch-gmbh-wil-sg-st-gallen",
           "polymechanic-in-cnc-circular-loops-with-process-optimization-fachkraft-ch-gmbh-wil-sg-st-gallen",
           "polymechaniker-in-cnc-rundschleifen-mit-prozessoptimierung-fachkraft-ch",
@@ -104331,7 +104332,7 @@
       "slug": "polymechanic-cnc-manufacturing-turning-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
       "slugByLocale": {
         "it": "polymechanic-cnc-manufacturing-turning-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-        "en": "polymechaniker-in-cnc-fertigung-drehen-fachkraft-ch",
+        "en": "polymechanic-cnc-production-turning-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "de": "polymechaniker-in-cnc-fertigung-drehen-fachkraft-ch",
         "fr": "polymecanique-fabrication-de-cnc-turning-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
       },
@@ -104393,7 +104394,8 @@
           "polymechaniker-in-cnc-fertigung-drehen-fachkraft-ch"
         ],
         "en": [
-          "polymechanic-cnc-manufacturing-cnc-turning-fachkraft-ch-gmbh-lugano"
+          "polymechanic-cnc-manufacturing-cnc-turning-fachkraft-ch-gmbh-lugano",
+          "polymechaniker-in-cnc-fertigung-drehen-fachkraft-ch"
         ],
         "de": [
           "polymechaniker-in-cnc-fertigung-cnc-drehen-fachkraft-ch",
@@ -122796,7 +122798,6 @@
       "previousSlugsByLocale": {
         "de": [
           "metallbauer-in-mit-entwicklungsmoglichkeiten-luzern-luzern-fachkraft-ch",
-          "metallbauer-in-mit-entwicklungsmoglichkeiten-fachkraft-ch",
           "automatikmonteur-in-mit-entwicklungsmoglichkeiten-fachkraft-ch"
         ],
         "it": [
@@ -122805,7 +122806,6 @@
           "metallbauer-in-mit-entwicklungsmoglichkeiten-fachkraft-ch-gmbh-lugano-x3b894",
           "metalworker-with-development-opportunities-fachkraft-ch-gmbh-lugano",
           "metaux-avec-des-possibilites-de-developpement-fachkraft-ch-gmbh-lugano",
-          "metallbauer-in-mit-entwicklungsmoglichkeiten-fachkraft-ch-gmbh-lugano",
           "automatikmonteur-in-mit-entwicklungsmoglichkeiten-fachkraft-ch-gmbh-lugano",
           "automatikmonteur-in-mit-entwicklungsmoglichkeiten-fachkraft-ch",
           "automatikmonteur-in-mit-entwicklungsmoglichkeiten-luzern-luzern-fachkraft-ch",
@@ -122827,7 +122827,6 @@
         "metallbauer-in-mit-entwicklungsmoglichkeiten-fachkraft-ch-gmbh-lugano-x3b894",
         "metalworker-with-development-opportunities-fachkraft-ch-gmbh-lugano",
         "metaux-avec-des-possibilites-de-developpement-fachkraft-ch-gmbh-lugano",
-        "metallbauer-in-mit-entwicklungsmoglichkeiten-fachkraft-ch-gmbh-lugano",
         "automatikmonteur-in-mit-entwicklungsmoglichkeiten-fachkraft-ch-gmbh-lugano",
         "automatikmonteur-in-mit-entwicklungsmoglichkeiten-fachkraft-ch",
         "automatikmonteur-in-mit-entwicklungsmoglichkeiten-luzern-luzern-fachkraft-ch",
@@ -151415,7 +151414,6 @@
         "maler-in-con-erfahrung-per-sanierungen-e-kundenmalerei-fachkraft-ch-gmbh-lugano-2oa99q",
         "painter-with-experience-for-renovations-and-customer-painting-fachkraft-ch-gmbh-lugano",
         "peintre-avec-experience-pour-la-renovation-et-la-peinture-client-fachkraft-ch-gmbh-lugano",
-        "maler-in-per-kundenmalerei-con-erfahrung-fachkraft-ch-gmbh-lugano",
         "pittore-con-esperienza-nella-pittura-dei-clienti-fachkraft-ch-gmbh-winterthur-zurich",
         "painter-with-experience-in-customer-painting-fachkraft-ch-gmbh-winterthur-zurich",
         "maler-in-mit-erfahrung-in-kundenmalerei-fachkraft-ch",
@@ -151435,7 +151433,6 @@
           "maler-in-con-erfahrung-per-sanierungen-e-kundenmalerei-fachkraft-ch-gmbh-lugano-2oa99q",
           "painter-with-experience-for-renovations-and-customer-painting-fachkraft-ch-gmbh-lugano",
           "peintre-avec-experience-pour-la-renovation-et-la-peinture-client-fachkraft-ch-gmbh-lugano",
-          "maler-in-per-kundenmalerei-con-erfahrung-fachkraft-ch-gmbh-lugano",
           "pittore-con-esperienza-nella-pittura-dei-clienti-fachkraft-ch-gmbh-winterthur-zurich",
           "painter-with-experience-in-customer-painting-fachkraft-ch-gmbh-winterthur-zurich",
           "maler-in-mit-erfahrung-in-kundenmalerei-fachkraft-ch",
@@ -162630,7 +162627,6 @@
         "logistiker-in-per-lagerlogistik-con-sap-kenntnissen-fachkraft-ch-gmbh-lugano-4suuks",
         "logistics-specialist-for-warehouse-logistics-with-sap-knowledge-fachkraft-ch-gmbh-lugano",
         "specialiste-logistique-pour-la-logistique-d-entrepot-avec-connaissances-sap-fachkraft-ch-gmbh-lugano",
-        "logistiker-in-cfc-con-sap-kenntnissen-per-lagerlogistik-fachkraft-ch-gmbh-lugano",
         "logistiker-in-mit-sap-kenntnissen-luzern-luzern-fachkraft-ch",
         "logistiker-in-con-sap-kenntnissen-fachkraft-ch-gmbh-lugano-l7cx6q",
         "logistician-with-sap-knowledge-fachkraft-ch-gmbh-lugano",
@@ -162656,7 +162652,6 @@
           "logistiker-in-per-lagerlogistik-con-sap-kenntnissen-fachkraft-ch-gmbh-lugano-4suuks",
           "logistics-specialist-for-warehouse-logistics-with-sap-knowledge-fachkraft-ch-gmbh-lugano",
           "specialiste-logistique-pour-la-logistique-d-entrepot-avec-connaissances-sap-fachkraft-ch-gmbh-lugano",
-          "logistiker-in-cfc-con-sap-kenntnissen-per-lagerlogistik-fachkraft-ch-gmbh-lugano",
           "logistiker-in-mit-sap-kenntnissen-luzern-luzern-fachkraft-ch",
           "logistiker-in-con-sap-kenntnissen-fachkraft-ch-gmbh-lugano-l7cx6q",
           "logistician-with-sap-knowledge-fachkraft-ch-gmbh-lugano",
@@ -212234,7 +212229,6 @@
         "installatore-trice-elettrico-a-in-con-hoher-eigenverantwortung-fachkraft-ch-gmbh-luzern",
         "electrical-installer-mit-hoher-eigenverantwortung-fachkraft-ch-gmbh-luzern",
         "installateur-trice-electricien-ne-mit-hoher-eigenverantwortung-fachkraft-ch-gmbh-luzern",
-        "installatore-elettrico-ad-alta-responsabilita-personale-fachkraft-ch-gmbh-luzern-luzern",
         "logistiker-in-con-hoher-eigenverantwortung-fachkraft-ch-gmbh-lugano",
         "logistician-with-high-personal-responsibility-fachkraft-ch-gmbh-luzern-luzern",
         "logistiker-in-mit-hoher-eigenverantwortung-fachkraft-ch",
@@ -212257,7 +212251,6 @@
           "installateur-trice-electricien-ne-mit-hoher-eigenverantwortung-fachkraft-ch-gmbh-lugano",
           "installatore-trice-elettrico-a-in-con-hoher-eigenverantwortung-fachkraft-ch-gmbh-lugano",
           "installatore-trice-elettrico-a-in-con-hoher-eigenverantwortung-fachkraft-ch-gmbh-luzern",
-          "installatore-elettrico-ad-alta-responsabilita-personale-fachkraft-ch-gmbh-luzern-luzern",
           "logistiker-in-con-hoher-eigenverantwortung-fachkraft-ch-gmbh-lugano",
           "logistician-with-high-personal-responsibility-fachkraft-ch-gmbh-luzern-luzern",
           "logistiker-in-mit-hoher-eigenverantwortung-fachkraft-ch",
@@ -222243,14 +222236,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektroinstallateur-in-fur-service-lenzburg-aargau-fachkraft-ch",
         "elektroinstallateur-in-service-fachkraft-ch",
         "elektroinstallateur-in-service-fachkraft-ch-gmbh-lugano",
         "elektroinstallateur-in-service-frauenfeld-thurgau-fachkraft-ch",
         "schreinerpraktiker-in-per-montage-e-service-fachkraft-ch-gmbh-frauenfeld-thurgau",
         "schreinerpraktiker-in-fur-montage-und-service-fachkraft-ch-gmbh-frauenfeld",
         "schreinerpraktiker-in-fur-montage-und-service-frauenfeld-thurgau-fachkraft-ch",
-        "elektroinstallateur-in-fur-service-fachkraft-ch",
         "elektroinstallateur-in-mit-service-und-reparaturerfahrung-willisau-luzern-fachkraft-ch",
         "installatore-trice-elettrico-a-in-con-service-e-reparaturerfahrung-fachkraft-ch-gmb-6llad9",
         "electrical-installer-mit-service-und-reparaturerfahrung-fachkraft-ch-gmbh-lugano",
@@ -222276,7 +222267,6 @@
         "it": [
           "schreinerpraktiker-in-fur-montage-und-service-fachkraft-ch-gmbh-frauenfeld",
           "schreinerpraktiker-in-fur-montage-und-service-frauenfeld-thurgau-fachkraft-ch",
-          "elektroinstallateur-in-fur-service-fachkraft-ch",
           "elektroinstallateur-in-mit-service-und-reparaturerfahrung-willisau-luzern-fachkraft-ch",
           "installatore-trice-elettrico-a-in-con-service-e-reparaturerfahrung-fachkraft-ch-gmb-6llad9",
           "electrical-installer-mit-service-und-reparaturerfahrung-fachkraft-ch-gmbh-lugano",
@@ -229819,7 +229809,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch",
-        "elektroinstallateur-in-als-servicetechniker-in-fachkraft-ch",
         "elektroinstallateur-in-als-servicetechniker-fachkraft-ch",
         "elektroinstallateur-in-als-servicetechniker-fachkraft-ch-gmbh-lugano",
         "elektroinstallateur-in-als-servicetechniker-langenthal-bern-fachkraft-ch"
@@ -229827,7 +229816,6 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch",
-          "elektroinstallateur-in-als-servicetechniker-in-fachkraft-ch",
           "elektroinstallateur-in-als-servicetechniker-fachkraft-ch",
           "elektroinstallateur-in-als-servicetechniker-fachkraft-ch-gmbh-lugano",
           "elektroinstallateur-in-als-servicetechniker-langenthal-bern-fachkraft-ch"
@@ -239251,7 +239239,6 @@
         "de": [
           "automatikmonteur-in-mit-schwerpunkt-montage-und-elektrotechnikbischoff-s-dietikon-zurich",
           "automatikmonteur-in-mit-montage-und-anlagenumbauten-fachkraft-ch",
-          "automatikmonteur-in-mit-schwerpunkt-montage-und-elektrotechnikbischoff-s-fachkraft-ch",
           "polymechaniker-in-8211-montage-mit-elektrisch-technischem-fokus-dietikon-zurich-fachkraft"
         ],
         "it": [
@@ -239263,7 +239250,6 @@
           "automatikmonteur-in-con-montage-e-anlagenumbauten-fachkraft-ch-gmbh-lugano-auxidn",
           "automatic-fitter-with-assembly-and-plant-conversions-fachkraft-ch-gmbh-lugano",
           "installation-automatique-avec-montage-et-conversions-d-usine-fachkraft-ch-gmbh-lugano",
-          "automatikmonteur-in-con-schwerpunkt-montage-e-elektrotechnikbischoff-s-fachkraft-ch-gmbh-lugano",
           "polymechaniker-in-montage-con-elektrisch-technischem-fokus-fachkraft-ch-gmbh-dietikon",
           "polymechanic-assemblaggio-con-compiti-di-gestione-fachkraft-ch-gmbh-dietikon-zurich",
           "polymechanic-assembly-with-management-tasks-fachkraft-ch-gmbh-dietikon-zurich",
@@ -239303,7 +239289,6 @@
         "automatikmonteur-in-con-montage-e-anlagenumbauten-fachkraft-ch-gmbh-lugano-auxidn",
         "automatic-fitter-with-assembly-and-plant-conversions-fachkraft-ch-gmbh-lugano",
         "installation-automatique-avec-montage-et-conversions-d-usine-fachkraft-ch-gmbh-lugano",
-        "automatikmonteur-in-con-schwerpunkt-montage-e-elektrotechnikbischoff-s-fachkraft-ch-gmbh-lugano",
         "polymechaniker-in-montage-con-elektrisch-technischem-fokus-fachkraft-ch-gmbh-dietikon",
         "polymechanic-assemblaggio-con-compiti-di-gestione-fachkraft-ch-gmbh-dietikon-zurich",
         "polymechanic-assembly-with-management-tasks-fachkraft-ch-gmbh-dietikon-zurich",
@@ -239557,7 +239542,6 @@
         "automatikmonteur-in-mit-erfahrung-im-steuerungs-und-schaltanlagenbau-bulach-zurich",
         "automatikmonteur-in-con-erfahrung-im-steuerungs-e-schaltanlagenbau-fachkraft-ch-gmbh-bulach-zurich",
         "automatikmonteur-in-mit-erfahrung-im-steuerungs-und-schaltanlagenbau-fachkraft-ch-gmbh-bulach",
-        "fitter-automatico-con-esperienza-nel-controllo-e-nella-costruzione-di-interruttori-fachkraft-ch-gmbh-bulach-zurich",
         "fitter-automatico-con-un-esperienza-di-settore-approfondita-fachkraft-ch-gmbh-bulach-zurich",
         "automatic-fitter-with-in-depth-industry-experience-fachkraft-ch-gmbh-bulach-zurich",
         "automatikmonteur-in-mit-fundierter-branchenerfahrung-fachkraft-ch",
@@ -239568,7 +239552,6 @@
         "it": [
           "automatikmonteur-in-mit-erfahrung-im-steuerungs-und-schaltanlagenbau-bulach-zurich",
           "automatikmonteur-in-con-erfahrung-im-steuerungs-e-schaltanlagenbau-fachkraft-ch-gmbh-bulach-zurich",
-          "fitter-automatico-con-esperienza-nel-controllo-e-nella-costruzione-di-interruttori-fachkraft-ch-gmbh-bulach-zurich",
           "fitter-automatico-con-un-esperienza-di-settore-approfondita-fachkraft-ch-gmbh-bulach-zurich",
           "automatic-fitter-with-in-depth-industry-experience-fachkraft-ch-gmbh-bulach-zurich",
           "automatikmonteur-in-mit-fundierter-branchenerfahrung-fachkraft-ch",
@@ -240874,7 +240857,6 @@
       "previousSlugs": [
         "automatikmonteur-in-fur-montagen-und-inbetriebnahmen-luzern-luzern-fachkraft-ch",
         "automatikmonteur-in-per-montagen-e-inbetriebnahmen-fachkraft-ch-gmbh-luzern",
-        "fitter-automatico-per-montaggio-e-messa-in-servizio-fachkraft-ch-gmbh-luzern-luzern",
         "automatiker-in-per-schaltschrankmontage-e-inbetriebnahme-fachkraft-ch-gmbh-lugano",
         "automatic-operator-for-switchgear-cabinet-assembly-and-commissioning-fachkraft-ch-gmbh-luzern-luzern",
         "automatiker-in-fur-schaltschrankmontage-und-inbetriebnahme-fachkraft-ch",
@@ -240888,7 +240870,6 @@
         "it": [
           "automatikmonteur-in-fur-montagen-und-inbetriebnahmen-luzern-luzern-fachkraft-ch",
           "automatikmonteur-in-per-montagen-e-inbetriebnahmen-fachkraft-ch-gmbh-luzern",
-          "fitter-automatico-per-montaggio-e-messa-in-servizio-fachkraft-ch-gmbh-luzern-luzern",
           "automatiker-in-per-schaltschrankmontage-e-inbetriebnahme-fachkraft-ch-gmbh-lugano",
           "automatic-operator-for-switchgear-cabinet-assembly-and-commissioning-fachkraft-ch-gmbh-luzern-luzern",
           "automatiker-in-fur-schaltschrankmontage-und-inbetriebnahme-fachkraft-ch",
@@ -243514,7 +243495,6 @@
       "previousSlugs": [
         "automatiker-in-mit-schwerpunkt-schaltschrankbau-sursee-luzern-fachkraft-ch",
         "automatiker-in-mit-schwerpunkt-schaltschrankbau-fachkraft-ch",
-        "automatico-con-un-focus-sulla-costruzione-dell-armadio-fachkraft-ch-gmbh-sursee-luzern",
         "automatico-con-un-focus-sulla-costruzione-dell-armadio-fachkraft-ch-gmbh-winterthur-zurich",
         "automatician-with-a-focus-on-cabinet-construction-fachkraft-ch-gmbh-winterthur-zurich",
         "automatiker-in-mit-schwerpunkt-schaltschrankbau-winterthur-zurich-fachkraft-ch",
@@ -243526,7 +243506,6 @@
         "it": [
           "automatiker-in-mit-schwerpunkt-schaltschrankbau-sursee-luzern-fachkraft-ch",
           "automatiker-in-mit-schwerpunkt-schaltschrankbau-fachkraft-ch",
-          "automatico-con-un-focus-sulla-costruzione-dell-armadio-fachkraft-ch-gmbh-sursee-luzern",
           "automatico-con-un-focus-sulla-costruzione-dell-armadio-fachkraft-ch-gmbh-winterthur-zurich",
           "automatician-with-a-focus-on-cabinet-construction-fachkraft-ch-gmbh-winterthur-zurich",
           "automatiker-in-mit-schwerpunkt-schaltschrankbau-winterthur-zurich-fachkraft-ch",
@@ -246800,7 +246779,6 @@
         "automatikmonteur-in-con-erfahrung-in-montage-e-inbetriebnahme-fachkraft-ch-gmbh-lug-lt5nz5",
         "automatic-fitter-with-experience-in-assembly-and-commissioning-fachkraft-ch-gmbh-lugano",
         "monteur-automatique-avec-experience-de-montage-et-de-mise-en-service-fachkraft-ch-gmbh-lugano",
-        "automatiker-in-con-erfahrung-in-montage-e-inbetriebnahme-fachkraft-ch-gmbh-lugano",
         "automatiker-in-con-erfahrung-im-maschinenaufbau-e-inbetriebnahme-fachkraft-ch-gmbh-lugano",
         "automatician-with-experience-in-machine-construction-and-commissioning-fachkraft-ch-gmbh-luzern-luzern",
         "automatiker-in-mit-erfahrung-im-maschinenaufbau-und-inbetriebnahme-fachkraft-ch",
@@ -246823,7 +246801,6 @@
           "automatikmonteur-in-con-erfahrung-in-montage-e-inbetriebnahme-fachkraft-ch-gmbh-lug-lt5nz5",
           "automatic-fitter-with-experience-in-assembly-and-commissioning-fachkraft-ch-gmbh-lugano",
           "monteur-automatique-avec-experience-de-montage-et-de-mise-en-service-fachkraft-ch-gmbh-lugano",
-          "automatiker-in-con-erfahrung-in-montage-e-inbetriebnahme-fachkraft-ch-gmbh-lugano",
           "automatiker-in-con-erfahrung-im-maschinenaufbau-e-inbetriebnahme-fachkraft-ch-gmbh-lugano",
           "automatician-with-experience-in-machine-construction-and-commissioning-fachkraft-ch-gmbh-luzern-luzern",
           "automatiker-in-mit-erfahrung-im-maschinenaufbau-und-inbetriebnahme-fachkraft-ch",

@@ -92179,10 +92179,10 @@
     },
     {
       "id": "roche-8111989805ca",
-      "slug": "content-creation-subchapter-lead-medical-roche-ch-2",
+      "slug": "contenuti-creazione-subchapter-piombo-medical-roche-petaling-jaya",
       "slugByLocale": {
         "en": "content-creation-subchapter-lead-medical-roche-ch",
-        "it": "content-creation-subchapter-lead-medical-roche-ch-2",
+        "it": "contenuti-creazione-subchapter-piombo-medical-roche-petaling-jaya",
         "de": "content-creation-subchapter-lead-medical-roche-ch-2",
         "fr": "sous-chapitre-creation-de-contenu-responsable-medical-roche-petaling-jaya"
       },
@@ -92240,11 +92240,13 @@
       "firstSeenAt": "2026-09-11T13:34:35.132Z",
       "previousSlugsByLocale": {
         "it": [
-          "content-creation-subchapter-lead-medical-roche-ch"
+          "content-creation-subchapter-lead-medical-roche-ch",
+          "content-creation-subchapter-lead-medical-roche-ch-2"
         ]
       },
       "previousSlugs": [
-        "content-creation-subchapter-lead-medical-roche-ch"
+        "content-creation-subchapter-lead-medical-roche-ch",
+        "content-creation-subchapter-lead-medical-roche-ch-2"
       ]
     },
     {
@@ -93483,10 +93485,10 @@
     },
     {
       "id": "roche-217bd435f5b5",
-      "slug": "business-operations-associate-marketing-roche-ch",
+      "slug": "operazioni-commerciali-associate-marketing-roche-petaling-jaya",
       "slugByLocale": {
         "en": "business-operations-associate-marketing-roche-ch",
-        "it": "business-operations-associate-marketing-roche-ch",
+        "it": "operazioni-commerciali-associate-marketing-roche-petaling-jaya",
         "de": "business-operations-associate-marketing-roche-ch",
         "fr": "associe-aux-operations-commerciales-marketing-roche-petaling-jaya"
       },
@@ -93542,7 +93544,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-11T13:34:14.548Z"
+      "firstSeenAt": "2026-09-11T13:34:14.548Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-operations-associate-marketing-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-operations-associate-marketing-roche-ch"
+      ]
     },
     {
       "id": "roche-f53e8662ba0c",

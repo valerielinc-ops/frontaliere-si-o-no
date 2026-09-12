@@ -614,7 +614,7 @@
       "slugByLocale": {
         "it": "vendita-al-dettaglio-e-servizio-professionale-m-f-x-galaxus-lausanne",
         "en": "retail-sales-service-professional-m-w-d-galaxus-lausanne-hnli8x",
-        "de": "retail-sales-service-professional-m-w-d-galaxus-lausanne-hnli8x",
+        "de": "einzelhandelsvertrieb-dienstleistungsfach-m-w-x-galaxus-lausanne",
         "fr": "retail-sales-service-professional-m-w-d-galaxus-lausanne-hnli8x"
       },
       "requirementsByLocale": {
@@ -636,6 +636,9 @@
       "previousSlugsByLocale": {
         "it": [
           "retail-sales-service-professional-m-w-d-galaxus-lausanne",
+          "retail-sales-service-professional-m-w-d-galaxus-lausanne-hnli8x"
+        ],
+        "de": [
           "retail-sales-service-professional-m-w-d-galaxus-lausanne-hnli8x"
         ]
       },
@@ -722,7 +725,7 @@
       "slugByLocale": {
         "it": "vendita-al-dettaglio-e-servizio-professionale-m-f-x-galaxus-lausanne-412a4d",
         "en": "retail-sales-service-professional-m-w-d-galaxus-lausanne-nbotjs",
-        "de": "retail-sales-service-professional-m-w-d-galaxus-lausanne-nbotjs",
+        "de": "einzelhandelsfachperson-verkauf-service-f-h-x-galaxus-lausanne",
         "fr": "retail-sales-service-professional-m-w-d-galaxus-lausanne-nbotjs"
       },
       "requirementsByLocale": {
@@ -744,6 +747,9 @@
       "previousSlugsByLocale": {
         "it": [
           "retail-sales-service-professional-m-w-d-galaxus-lausanne-2",
+          "retail-sales-service-professional-m-w-d-galaxus-lausanne-nbotjs"
+        ],
+        "de": [
           "retail-sales-service-professional-m-w-d-galaxus-lausanne-nbotjs"
         ]
       },
@@ -2296,7 +2302,7 @@
         "it": "senior-cyber-security-ingegnere-alle-migros-bank-wallisellen-glez5j",
         "en": "senior-cyber-security-engineer-alle-migros-bank-wallisellen-glez5j",
         "de": "senior-cyber-security-ingenieur-alle-migros-bank-wallisellen-glez5j",
-        "fr": "senior-cyber-security-ingenieur-alle-migros-bank-wallisellen-glez5j"
+        "fr": "ingenieur-principal-de-la-cybersecurite-tous-migros-bank-wallisellen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -2312,10 +2318,14 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-cyber-security-engineer-alle-migros-bank-wallisellen"
+        ],
+        "fr": [
+          "senior-cyber-security-ingenieur-alle-migros-bank-wallisellen-glez5j"
         ]
       },
       "previousSlugs": [
-        "senior-cyber-security-engineer-alle-migros-bank-wallisellen"
+        "senior-cyber-security-engineer-alle-migros-bank-wallisellen",
+        "senior-cyber-security-ingenieur-alle-migros-bank-wallisellen-glez5j"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -3148,7 +3158,7 @@
     },
     {
       "id": "company-f9rfho",
-      "slug": "teamleader-software-engineering-galaxus-abos-m-w-d-galaxus-zurich-f9rfho",
+      "slug": "team-leader-ingegneria-del-software-galaxus-abos-galaxus-zurich",
       "company": "Galaxus",
       "title": "Teamleader Software Engineering - Galaxus Abos (w/m/d)",
       "location": "Zürich",
@@ -3213,7 +3223,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "teamleader-software-engineering-galaxus-abos-m-w-d-galaxus-zurich-f9rfho",
+        "it": "team-leader-ingegneria-del-software-galaxus-abos-galaxus-zurich",
         "en": "teamleader-software-engineering-galaxus-abos-m-w-d-galaxus-zurich-f9rfho",
         "de": "teamleader-software-engineering-galaxus-abos-m-w-d-galaxus-zurich-f9rfho",
         "fr": "genie-logiciel-teamleader-galaxus-abos-h-f-d-galaxus-zurich"
@@ -3235,11 +3245,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "teamleader-software-engineering-galaxus-abos-m-w-d-galaxus-zurich"
+          "teamleader-software-engineering-galaxus-abos-m-w-d-galaxus-zurich",
+          "teamleader-software-engineering-galaxus-abos-m-w-d-galaxus-zurich-f9rfho"
         ]
       },
       "previousSlugs": [
-        "teamleader-software-engineering-galaxus-abos-m-w-d-galaxus-zurich"
+        "teamleader-software-engineering-galaxus-abos-m-w-d-galaxus-zurich",
+        "teamleader-software-engineering-galaxus-abos-m-w-d-galaxus-zurich-f9rfho"
       ],
       "salarySource": "estimated",
       "baseSalary": {

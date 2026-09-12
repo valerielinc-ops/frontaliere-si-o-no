@@ -1153,12 +1153,12 @@
     },
     {
       "id": "endress-hauser-d6fc299fe3cf",
-      "slug": "schnuppertag-automatiker-in-endress-hauser-reinach",
+      "slug": "giornata-di-prova-per-operatore-trice-automatico-a-endress-hauser-reinach",
       "slugByLocale": {
-        "it": "schnuppertag-automatiker-in-endress-hauser-reinach",
-        "en": "schnuppertag-automatiker-in-endress-hauser-reinach",
+        "it": "giornata-di-prova-per-operatore-trice-automatico-a-endress-hauser-reinach",
+        "en": "taster-day-automation-technician-endress-hauser-reinach",
         "de": "schnuppertag-automatiker-in-endress-hauser-reinach",
-        "fr": "schnuppertag-automatiker-in-endress-hauser-reinach"
+        "fr": "journee-d-essai-de-l-automaticien-ne-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1213,16 +1213,30 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schnuppertag-automatiker-in-endress-hauser-reinach"
+        ],
+        "en": [
+          "schnuppertag-automatiker-in-endress-hauser-reinach"
+        ],
+        "fr": [
+          "schnuppertag-automatiker-in-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "schnuppertag-automatiker-in-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-65a105c06d6b",
-      "slug": "schnuppertag-kauffrau-kaufmann-endress-hauser-reinach",
+      "slug": "giornata-di-prova-impiegata-impiegato-di-commercio-endress-hauser-reinach",
       "slugByLocale": {
-        "it": "schnuppertag-kauffrau-kaufmann-endress-hauser-reinach",
-        "en": "schnuppertag-kauffrau-kaufmann-endress-hauser-reinach",
+        "it": "giornata-di-prova-impiegata-impiegato-di-commercio-endress-hauser-reinach",
+        "en": "taster-day-businesswoman-businessman-endress-hauser-reinach",
         "de": "schnuppertag-kauffrau-kaufmann-endress-hauser-reinach",
-        "fr": "schnuppertag-kauffrau-kaufmann-endress-hauser-reinach"
+        "fr": "journee-decouverte-employe-e-de-commerce-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1270,7 +1284,8 @@
         "lernende-r-kauffrau-kaufmann-efz-endress-hauser-reinach",
         "apprenti-e-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach",
         "lernende-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach-2",
-        "lernende-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach"
+        "lernende-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach",
+        "schnuppertag-kauffrau-kaufmann-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1279,16 +1294,19 @@
           "lernende-r-kauffrau-kaufmann-efz-endress-hauser-reinach",
           "apprenti-e-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach",
           "lernende-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach-2",
-          "lernende-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach"
+          "lernende-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach",
+          "schnuppertag-kauffrau-kaufmann-endress-hauser-reinach"
         ],
         "en": [
-          "apprentice-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach"
+          "apprentice-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach",
+          "schnuppertag-kauffrau-kaufmann-endress-hauser-reinach"
         ],
         "de": [
           "lernende-r-kauffrau-kaufmann-efz-endress-hauser-reinach"
         ],
         "fr": [
-          "apprenti-e-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach"
+          "apprenti-e-r-kauffrau-kaufmann-efz-2027-endress-hauser-reinach",
+          "schnuppertag-kauffrau-kaufmann-endress-hauser-reinach"
         ]
       },
       "firstSeenAt": "2026-08-13T10:23:19.598Z",
