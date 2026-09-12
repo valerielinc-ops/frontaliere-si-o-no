@@ -15,6 +15,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
+import { positiveIntFromEnv } from '../lib/int-from-env.mjs';
 
 export const PR_FIX_CLAIM_MARKER = '<!-- PR_FIX_CLAIM:';
 export const PR_FIX_CLAIM_STATES = Object.freeze([
@@ -399,8 +400,7 @@ function acquireClaim(base, repo) {
   });
   if (!decision.allowed || decision.error) return output({ ...base, ...decision });
 
-  const ttlRaw = Number(process.env.CLAIM_TTL_SEC || 2 * 60 * 60);
-  const ttlSec = Number.isFinite(ttlRaw) && ttlRaw > 0 ? Math.floor(ttlRaw) : 2 * 60 * 60;
+  const ttlSec = positiveIntFromEnv('CLAIM_TTL_SEC', 2 * 60 * 60);
   const claimToken = process.env.CLAIM_TOKEN || token();
   const event = {
     version: 1,
