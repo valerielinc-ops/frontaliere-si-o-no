@@ -141,9 +141,11 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
     const evidence = evidenceResult.evidence;
     const health = evidence?.health || {};
     const quality = text(evidence?.quality) || 'unmeasurable';
+    const lifecycleCompliant = evidence?.lifecycleCompliant === true;
     const issueCount = Number.isInteger(health.issueCount) ? health.issueCount : null;
     const warningCount = Number.isInteger(health.warningCount) ? health.warningCount : null;
-    const evidenceError = evidenceResult.error || runResult.error || null;
+    const evidenceError = evidenceResult.error || runResult.error
+      || (evidence && !lifecycleCompliant ? 'canonical lifecycle evidence is missing or noncompliant' : null);
     const issue = evidenceError
       || (issueCount !== null && issueCount > 0 ? `${issueCount} issue(s) recorded` : null)
       || (warningCount !== null && warningCount > 0 ? `${warningCount} warning(s) recorded` : null)
@@ -164,6 +166,10 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       cadence: policy.cadence,
       primaryMetric: policy.primaryMetric,
       maxAutonomy: policy.maxAutonomy,
+      lifecycle: policy.lifecycle,
+      candidateTtlHours: policy.lifecycle.candidateTtlHours,
+      ownerSlaHours: policy.lifecycle.ownerSlaHours,
+      postMergeVerificationHours: policy.lifecycle.postMergeVerificationHours,
       lastRun: runResult.run ? {
         id: runResult.run.databaseId || null,
         conclusion: runResult.run.conclusion || runResult.run.status || 'unknown',
@@ -177,8 +183,9 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       actionClass: text(evidence?.actionClass) || null,
       requiredAutonomy: actualAutonomy,
       actualAutonomy,
-      policyCompliant: evidence?.policyCompliant === true,
+      policyCompliant: evidence?.policyCompliant === true && lifecycleCompliant,
       evidenceComplete: evidence?.evidenceComplete === true,
+      lifecycleCompliant,
       evidenceError,
       issue,
       missingOutcome,
@@ -194,16 +201,17 @@ function renderMarkdown(rows) {
   const lines = [
     '## Loop fleet status',
     '',
-    '| Loop | Owner | Ultimo run | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | Next human action | Policy |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
+    '| Loop | Owner | Ultimo run | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | TTL / SLA / verify | Next human action | Policy |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ];
   for (const row of rows) {
     const run = row.lastRun ? `[${row.lastRun.conclusion}](${row.lastRun.url || '#'})` : 'n/d';
     const autonomy = `${row.actualAutonomy || 'n/d'} / ${row.maxAutonomy}`;
+    const lifecycle = `${row.candidateTtlHours}h / ${row.ownerSlaHours}h / ${row.postMergeVerificationHours}h`;
     const issue = row.issue || '—';
     const missingOutcome = row.missingOutcome || '—';
     const policy = row.evidenceComplete && row.policyCompliant ? 'ok' : 'incomplete';
-    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${row.nextHumanAction} | ${policy} |`);
+    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${lifecycle} | ${row.nextHumanAction} | ${policy} |`);
   }
   lines.push('', 'Qualità o evidenza assente = `unmeasurable`; il report non sintetizza zeri.');
   return `${lines.join('\n')}\n`;
