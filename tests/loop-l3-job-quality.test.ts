@@ -80,6 +80,19 @@ describe('L3 Job Quality → Apply', () => {
     expect(verdict.snapshot.outcomes.eligibleJobSessions).toBeNull();
   });
 
+  it('does not manufacture a zero handoff rate from an empty outcome cohort', async () => {
+    const source = tempSource(summary().data, outcomes({ eligibleJobSessions: 0, validHandoffs: 0, applications: 0 }));
+    const result = await runL3({
+      now: NOW,
+      summaryDir: source.summaryDir,
+      outcomePath: source.outcomePath,
+      logger: { log() {} },
+    });
+    expect(result.verdict.quality).toBe('zero');
+    expect(result.observation.numerator).toBeNull();
+    expect(result.observation.denominator).toBeNull();
+  });
+
   it('quarantines a missing apply URL as a candidate', () => {
     const verdict = validateJobSummaries([summary({ newJobs: [job({ applyUrl: undefined })] })], { outcomes: outcomes(), now: NOW });
     expect(verdict.quality).toBe('partial');

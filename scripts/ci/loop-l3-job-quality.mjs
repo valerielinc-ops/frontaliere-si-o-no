@@ -299,8 +299,8 @@ export function validateJobSummaries(summaries, {
   let quality = 'observed';
   if (summaryCount === 0 || malformedSummaries === summaryCount) quality = 'unmeasurable';
   else if (staleSummaries === summaryCount) quality = 'stale';
+  else if (outcomeVerdict.quality === 'zero' && staleSummaries === 0 && invalidJobs === 0) quality = 'zero';
   else if (staleSummaries > 0 || invalidJobs > 0 || outcomeVerdict.quality !== 'observed') quality = outcomeVerdict.quality === 'stale' && freshSummaries === 0 ? 'stale' : 'partial';
-  else if (outcomeVerdict.quality === 'zero') quality = 'zero';
   const ok = quality === 'observed' && issues.length === 0;
   return baseVerdict({
     sourcePath,
@@ -471,7 +471,9 @@ export async function runL3({
   } catch (error) {
     verdict = baseVerdict({ sourcePath: summaryDir, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
-  const measurable = verdict.quality === 'observed' || verdict.quality === 'zero';
+  // A zero-sized outcome cohort is not evidence of a zero handoff rate. Keep
+  // metrics null until the observed outcome sample is complete and usable.
+  const measurable = verdict.quality === 'observed';
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
     ? generatedAt.toISOString()
