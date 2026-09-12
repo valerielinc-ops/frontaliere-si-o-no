@@ -878,13 +878,25 @@ jobs:
 
       - name: Install deterministic PR body gate
         if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
         run: |
           set -euo pipefail
           gate_dir="$RUNNER_TEMP/pr-body-gate-bin"
           mkdir -p "$gate_dir"
+          status_file="$RUNNER_TEMP/pr-body-gate-status"
+          : > "$status_file"
+          baseline_file="$RUNNER_TEMP/pr-body-gate-existing-prs"
+          : > "$baseline_file"
+          gh pr list --repo "$REPO" --head "fix/issue-$ISSUE" --state all \
+            --json number --jq '.[].number' > "$baseline_file"
           ln -sf "$GITHUB_WORKSPACE/scripts/gh-pr-body-check.mjs" "$gate_dir/gh"
           echo "$gate_dir" >> "$GITHUB_PATH"
           echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
+          echo "PR_BODY_GATE_STATUS_FILE=$status_file" >> "$GITHUB_ENV"
+          echo "PR_BODY_GATE_BASELINE_FILE=$baseline_file" >> "$GITHUB_ENV"
 
       - name: Run Claude fix
         # Tetto sullo step (classe #7310). Il cap del job è 360min e in pratica
@@ -1120,6 +1132,58 @@ jobs:
           else
             echo "::warning::wip-salvage: push di $BRANCH fallito — il lavoro resta solo nel container e andrà perso."
           fi
+
+      - name: Verify best-effort PR writes (zero-Claude)
+        # Il wrapper mantiene best-effort il lavoro già eseguito, ma registra
+        # una scrittura remota fallita. In quel caso il job non può classificare
+        # un'assenza di PR come terminale legittimo: verifica il branch e fallisce
+        # se la consegna non esiste.
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
+        run: |
+          set -euo pipefail
+          BRANCH="fix/issue-$ISSUE"
+          status_file="${PR_BODY_GATE_STATUS_FILE:-}"
+          baseline_file="${PR_BODY_GATE_BASELINE_FILE:-}"
+          claude_outcome="${CLAUDE_OUTCOME:-}"
+          if [ -z "$status_file" ] || [ ! -s "$status_file" ]; then
+            if [ "$claude_outcome" = "failure" ]; then
+              echo "::error::gh-pr-body-check ha fallito senza poter registrare lo stato della delivery."
+              exit 1
+            fi
+            exit 0
+          fi
+          if ! grep -Fxq 'best-effort-failed' "$status_file"; then
+            exit 0
+          fi
+          if [ -z "$baseline_file" ] || [ ! -r "$baseline_file" ]; then
+            echo "::error::baseline delle PR sul branch $BRANCH non disponibile: delivery non verificabile."
+            exit 1
+          fi
+
+          CANDIDATES=$(gh pr list --repo "$REPO" --head "$BRANCH" --state all --json number,state,createdAt \
+            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | sort_by(.createdAt) | reverse | .[].number') || {
+            echo "::error::gh pr list non ha potuto verificare la consegna su $BRANCH."
+            exit 1
+          }
+          PR=$(while IFS= read -r candidate; do
+            [ -z "$candidate" ] && continue
+            if grep -Fxq "$candidate" "$baseline_file"; then
+              continue
+            fi
+            printf '%s\n' "$candidate"
+            break
+          done <<< "$CANDIDATES")
+          if [ -n "${PR:-}" ]; then
+            echo "best-effort PR write verificata: nuova #$PR su $BRANCH."
+            exit 0
+          fi
+          echo "::error::gh-pr-body-check ha registrato una scrittura remota fallita e non esiste una nuova PR su $BRANCH."
+          exit 1
 
       - name: Mark autonomous PR provenance (zero-Claude)
         # `fix/*` identifies the deterministic fixer path. Persist the same

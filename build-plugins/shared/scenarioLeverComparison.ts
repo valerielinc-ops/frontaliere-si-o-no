@@ -96,6 +96,14 @@ const scenarioKey = (s: SalaryHubScenario): string =>
  */
 const netCache = new Map<string, number>();
 
+const sameSalaryFamily = (first: SalaryHubScenario, second: SalaryHubScenario): boolean =>
+  first.frontierType === second.frontierType &&
+  first.maritalStatus === second.maritalStatus &&
+  first.children === second.children &&
+  first.distanceZone === second.distanceZone;
+
+const incompleteSalaryFamiliesWarned = new Set<string>();
+
 function netItalianResident(scenario: SalaryHubScenario): number {
   const key = scenarioKey(scenario);
   const cached = netCache.get(key);
@@ -681,9 +689,28 @@ function stepComparisonVariation(
   copy: LeverCopy,
   allScenarios: readonly SalaryHubScenario[],
 ): number | null {
-  const siblings = allScenarios.filter(
-    (s) => s.frontierType === scenario.frontierType && s.maritalStatus === scenario.maritalStatus && s.children === scenario.children && s.distanceZone === scenario.distanceZone,
+  const siblings = allScenarios.filter((s) => sameSalaryFamily(s, scenario));
+  const missingSalaryLevels = SALARY_LEVELS.filter(
+    (salary) => !siblings.some((sibling) => sibling.salary === salary),
   );
+  if (missingSalaryLevels.length > 0) {
+    const familyKey = [
+      scenario.frontierType,
+      scenario.maritalStatus,
+      scenario.children,
+      scenario.distanceZone,
+    ].join('|');
+    if (!incompleteSalaryFamiliesWarned.has(familyKey)) {
+      incompleteSalaryFamiliesWarned.add(familyKey);
+      // eslint-disable-next-line no-console
+      console.warn(
+        '[scenario-levers] famiglia salariale incompleta per ' + familyKey +
+        ': attesi ' + SALARY_LEVELS.length + ' livelli, mancanti ' +
+        missingSalaryLevels.join(', ') + '; confronto col gradino omesso',
+      );
+    }
+    return null;
+  }
   const ratios: number[] = [];
   for (const sibling of siblings) {
     const levers = buildLevers(sibling, copy);
