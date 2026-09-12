@@ -11678,6 +11678,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assunzioni-alto-piemonte-settembre-2026.title': 'Alto Piemonte: 6,470 hires expected in September 2026',
     'blog.article.assunzioni-alto-piemonte-settembre-2026.excerpt': 'The labour market in Upper Piedmont has 6,470 contracts scheduled for September 2026, with more than 75% of forward contracts.',
     'blog.article.assunzioni-alto-piemonte-settembre-2026.imageAlt': 'Employment forecasts in Upper Piedmont for September',
+    'blog.article.imprese-culturali-svizzera-2024.title': 'Culture in Switzerland, record number of companies but jobs fall',
+    'blog.article.imprese-culturali-svizzera-2024.excerpt': 'In 2024, cultural enterprises in Switzerland reach 69,441, setting a record, but jobs and company size fall.',
+    'blog.article.imprese-culturali-svizzera-2024.imageAlt': 'Cultural enterprises in Switzerland in 2024',
 };
 
 export default blogMetaEn;

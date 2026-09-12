@@ -11677,6 +11677,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assunzioni-alto-piemonte-settembre-2026.title': 'Oberpiemont: 6.470 Einstellungen im September 2026 geplant',
     'blog.article.assunzioni-alto-piemonte-settembre-2026.excerpt': 'Der Arbeitsmarkt im Oberen Piemont verzeichnet 6.470 Verträge, die für September 2026 geplant sind, mit mehr als 75% befristeten Verträgen.',
     'blog.article.assunzioni-alto-piemonte-settembre-2026.imageAlt': 'Beschaeftigungsprognosen im oberen Piemont fuer September',
+    'blog.article.imprese-culturali-svizzera-2024.title': 'Kultur in der Schweiz, Unternehmensrekord, aber sinkende Beschäftigung',
+    'blog.article.imprese-culturali-svizzera-2024.excerpt': 'Im Jahr 2024 erreichten die Kulturunternehmen in der Schweiz mit 69\'441 einen Rekordstand, aber die Zahl der Arbeitsplätze und die Unternehmensgrösse gingen zurück.',
+    'blog.article.imprese-culturali-svizzera-2024.imageAlt': 'Kulturunternehmen in der Schweiz im Jahr 2024',
 };
 
 export default blogMetaDe;
