@@ -401,20 +401,6 @@
       "pensum": "60 - 80%",
       "pensumMin": 60,
       "pensumMax": 80,
-      "previousSlugs": [
-        "fachperson-gesundheit-fage-cfc-60-80-per-unsere-lips-regionalspital-surselva-ilanz",
-        "professionnels-de-la-sante-fage-efz-60-80-pour-notre-lips-regionalspital-surselva-ilanz",
-        "fachperson-gesundheit-fage-efz-60-80-fur-unsere-lips-rss-surselva-ch",
-        "health-professional-fage-efz-60-80-for-our-lips-regionalspital-surselva-ilanz",
-        "fachperson-gesundheit-fage-efz-60-80-imc-awr-rss-surselva-ch",
-        "fachperson-gesundheit-cfc-imc-awr-40-60-regionalspital-surselva-ilanz",
-        "health-professional-efz-imc-awr-40-60-regionalspital-surselva-ilanz",
-        "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch",
-        "professionnels-de-la-sante-efz-imc-awr-40-60-regionalspital-surselva-ilanz",
-        "fachperson-gesundheit-efz-imc-awr-40-60-regionalspital-surselva-ilanz",
-        "fachperson-gesundheit-efz-imc-awr-60-80-rss-surselva-ch",
-        "professionista-fage-efz-60-80-per-il-nostro-lips-regionalspital-surselva-ilanz"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-fage-cfc-60-80-per-unsere-lips-regionalspital-surselva-ilanz",
@@ -448,7 +434,20 @@
           "professionnels-de-la-sante-fage-efz-60-80-pour-notre-lips-regionalspital-surselva-ilanz"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "fachperson-gesundheit-fage-cfc-60-80-per-unsere-lips-regionalspital-surselva-ilanz",
+        "professionnels-de-la-sante-fage-efz-60-80-pour-notre-lips-regionalspital-surselva-ilanz",
+        "fachperson-gesundheit-fage-efz-60-80-fur-unsere-lips-rss-surselva-ch",
+        "health-professional-fage-efz-60-80-for-our-lips-regionalspital-surselva-ilanz",
+        "fachperson-gesundheit-fage-efz-60-80-imc-awr-rss-surselva-ch",
+        "fachperson-gesundheit-cfc-imc-awr-40-60-regionalspital-surselva-ilanz",
+        "health-professional-efz-imc-awr-40-60-regionalspital-surselva-ilanz",
+        "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch",
+        "professionnels-de-la-sante-efz-imc-awr-40-60-regionalspital-surselva-ilanz",
+        "fachperson-gesundheit-efz-imc-awr-40-60-regionalspital-surselva-ilanz",
+        "fachperson-gesundheit-efz-imc-awr-60-80-rss-surselva-ch",
+        "professionista-fage-efz-60-80-per-il-nostro-lips-regionalspital-surselva-ilanz"
+      ],
       "firstSeenAt": "2026-09-10T23:03:37.323Z",
       "salaryMin": 65200,
       "salaryMax": 91200,
@@ -712,7 +711,6 @@
           "dipl-pflegefachperson-hf-fur-unsere-lips-80-100-regionalspital-surselva-ilanz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-15T15:14:31.495Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -931,7 +929,7 @@
       "title": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert SSS Emergency Care 100%",
-        "en": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
+        "en": "Dipl. Expert / Expert HF Emergency Care 100%",
         "de": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
         "fr": "Dipl. Expert / Expert HF Soins d'urgence 100%"
       },
@@ -988,7 +986,6 @@
           "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:58:28.867Z",
       "salaryMin": 81500,
       "salaryMax": 114000,

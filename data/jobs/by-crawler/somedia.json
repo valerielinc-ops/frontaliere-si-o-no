@@ -90,7 +90,6 @@
           "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:04:21.105Z",
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -122,7 +121,7 @@
       "title": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
       "titleByLocale": {
         "it": "Apprendistato come Impiegato/a EFZ Marketing & Comunicazione 2027",
-        "en": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
+        "en": "Apprenticeship as a businessman/woman EFZ Marketing & Communication 2027",
         "de": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
         "fr": "Alternance en tant que Commercial/e EFZ Marketing & Communication 2027"
       },
@@ -194,7 +193,6 @@
           "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-09T23:08:48.087Z",
       "salaryMin": 46500,
       "salaryMax": 70500,
@@ -226,7 +224,7 @@
       "title": "Redaktor/in Video (40%)",
       "titleByLocale": {
         "it": "Video Editoriale (40%)",
-        "en": "Redaktor/in Video (40%)",
+        "en": "Editorial Video (40%)",
         "de": "Redaktor/in Video (40%)",
         "fr": "Éditeur/en vidéo (40%)"
       },
@@ -337,7 +335,7 @@
       "title": "Sales Manager/in Aussendienst (80-100%)",
       "titleByLocale": {
         "it": "Sales Manager Field Service (80-100%)",
-        "en": "Sales Manager/in Aussendienst (80-100%)",
+        "en": "Sales Manager Field Service (80-100%)",
         "de": "Sales Manager/in Aussendienst (80-100%)",
         "fr": "Directeur des ventes Service mobile (80-100 %)"
       },
@@ -389,18 +387,17 @@
         "identifier": "",
         "hiringOrganization": "Somedia Promotion AG"
       },
-      "previousSlugs": [
-        "sales-manager-in-aussendienst-80-100-somedia-ch",
-        "sales-manager-field-service-80-100-somedia-ag-glarus"
-      ],
+      "firstSeenAt": "2026-09-10T23:15:11.091Z",
       "previousSlugsByLocale": {
         "it": [
           "sales-manager-in-aussendienst-80-100-somedia-ch",
           "sales-manager-field-service-80-100-somedia-ag-glarus"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-10T23:15:11.091Z",
+      "previousSlugs": [
+        "sales-manager-in-aussendienst-80-100-somedia-ch",
+        "sales-manager-field-service-80-100-somedia-ag-glarus"
+      ],
       "salaryMin": 100000,
       "salaryMax": 152000,
       "salarySource": "estimated",

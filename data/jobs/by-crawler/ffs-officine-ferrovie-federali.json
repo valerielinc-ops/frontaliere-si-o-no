@@ -546,15 +546,20 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/landschaftsgaertner-in-maurer-in-oder-strassenbauer-in-fuer-den-bereich-kabel-tiefbau/b17fb3d4-984c-4768-904a-cb1ae637a75f",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-11T23:20:51.215Z",
-      "previousSlugs": [
-        "landschaftsgartner-in-maurer-in-oder-strassenbauer-in-fur-den-bereich-kabel-tiefbau-ffs-officine-ferrovie-federali-muttenz"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "landschaftsgartner-in-maurer-in-oder-strassenbauer-in-fur-den-bereich-kabel-tiefbau-ffs-officine-ferrovie-federali-muttenz"
+          "landschaftsgartner-in-maurer-in-oder-strassenbauer-in-fur-den-bereich-kabel-tiefbau-ffs-officine-ferrovie-federali-muttenz",
+          "giardiniere-paesaggista-muratore-o-costruttore-stradale-nel-campo-dell-ingegneria-civile-dei-cavi-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "landscape-gardener-bricklayer-or-road-builder-for-the-field-of-cable-civil-engineering-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "paysagiste-maconnerie-ou-constructeur-de-routes-dans-le-domaine-du-genie-civil-des-cables-ffs-officine-ferrovie-federali-rapperswil-sg"
         ]
       },
-      "firstSeenAt": "2026-09-11T13:44:32.181Z",
+      "previousSlugs": [
+        "landschaftsgartner-in-maurer-in-oder-strassenbauer-in-fur-den-bereich-kabel-tiefbau-ffs-officine-ferrovie-federali-muttenz",
+        "giardiniere-paesaggista-muratore-o-costruttore-stradale-nel-campo-dell-ingegneria-civile-dei-cavi-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "landscape-gardener-bricklayer-or-road-builder-for-the-field-of-cable-civil-engineering-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "paysagiste-maconnerie-ou-constructeur-de-routes-dans-le-domaine-du-genie-civil-des-cables-ffs-officine-ferrovie-federali-rapperswil-sg"
+      ],
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -569,7 +574,8 @@
         }
       },
       "addressRegion": "BL",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-11T13:44:32.181Z"
     },
     {
       "id": "sbb-5241b16931d0",
@@ -693,7 +699,7 @@
       "title": "Product Architect (m/w/d)",
       "titleByLocale": {
         "it": "Architetto di prodotto (m/f/d)",
-        "en": "Product Architect (m/w/d)",
+        "en": "Product Architect (m/f/d)",
         "de": "Product Architect (m/w/d)",
         "fr": "Architecte de produits (h/f/d)"
       },
@@ -747,7 +753,6 @@
           "product-architect-m-w-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:20:44.469Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -2077,7 +2082,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Betriebskoordinator: in 80 - 100 %",
       "titleByLocale": {
-        "it": "Betriebskoordinator: in 80 - 100 %",
+        "it": "Coordinatore operativo: 80 - 100 %",
         "en": "Operational coordinator: 80 - 100 %",
         "de": "Betriebskoordinator: in 80 - 100 %",
         "fr": "Coordinateur des opérations : à 80 - 100 %"
@@ -2169,8 +2174,7 @@
         }
       },
       "addressRegion": "NW",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-f645d53bb042",
@@ -2860,7 +2864,7 @@
       "title": "Product Manager Cloud Foundation (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile prodotto Cloud Foundation (m/f/d)",
-        "en": "Product Manager Cloud Foundation (m/w/d)",
+        "en": "Product Manager Cloud Foundation (m/f/d)",
         "de": "Product Manager Cloud Foundation (m/w/d)",
         "fr": "Chef de produit Cloud Foundation (h/f/d)"
       },
@@ -3001,11 +3005,28 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-11T23:23:02.752Z",
       "previousSlugs": [
-        "quereinstieg-lokfuhrer-in-rangier-luzern-ffs-officine-ferrovie-federali-luzern"
+        "quereinstieg-lokfuhrer-in-rangier-luzern-ffs-officine-ferrovie-federali-luzern",
+        "ingresso-trasversale-specialista-di-manovra-nel-traffico-merci-lucerna-o-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz",
+        "transverse-entry-shunting-specialist-in-freight-traffic-lucerne-or-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz",
+        "quereinstieg-rangierspezialist-in-guterverkehr-luzern-oder-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz",
+        "entree-laterale-d-un-specialiste-de-man-uvre-pour-le-transport-de-marchandises-a-lucerne-ou-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinstieg-lokfuhrer-in-rangier-luzern-ffs-officine-ferrovie-federali-luzern"
+          "quereinstieg-lokfuhrer-in-rangier-luzern-ffs-officine-ferrovie-federali-luzern",
+          "ingresso-trasversale-specialista-di-manovra-nel-traffico-merci-lucerna-o-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz",
+          "transverse-entry-shunting-specialist-in-freight-traffic-lucerne-or-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz",
+          "quereinstieg-rangierspezialist-in-guterverkehr-luzern-oder-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz",
+          "entree-laterale-d-un-specialiste-de-man-uvre-pour-le-transport-de-marchandises-a-lucerne-ou-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz"
+        ],
+        "en": [
+          "transverse-entry-shunting-specialist-in-freight-traffic-lucerne-or-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz"
+        ],
+        "de": [
+          "quereinstieg-rangierspezialist-in-guterverkehr-luzern-oder-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz"
+        ],
+        "fr": [
+          "entree-laterale-d-un-specialiste-de-man-uvre-pour-le-transport-de-marchandises-a-lucerne-ou-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz"
         ]
       },
       "firstSeenAt": "2026-09-04T13:46:15.836Z",
@@ -3446,7 +3467,7 @@
       "title": "Operative:r Asset Manager:in Daten",
       "titleByLocale": {
         "it": "Dati del Gestore Operativo degli Asset",
-        "en": "Operative:r Asset Manager:in Daten",
+        "en": "Operational:r Asset Manager Data",
         "de": "Operative:r Asset Manager:in Daten",
         "fr": "Données du gestionnaire d'actifs opérationnel"
       },
@@ -3508,8 +3529,7 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-50e3fcd0d418",
@@ -6377,7 +6397,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "SAP Enterprise Architect (m/w/d)",
       "titleByLocale": {
-        "it": "SAP Enterprise Architect (m/w/d)",
+        "it": "SAP Enterprise Architect (m/f/d)",
         "en": "SAP Enterprise Architect (m/f/d)",
         "de": "SAP Enterprise Architect (m/w/d)",
         "fr": "Architecte d'entreprise SAP (h/f/d)"
@@ -6418,7 +6438,6 @@
           "sap-enterprise-architect-m-w-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:48:33.449Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -8596,12 +8615,29 @@
       "crawledAt": "2026-09-11T23:23:08.761Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-zurich",
-        "cambio-carriera-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-zurich"
+        "cambio-carriera-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-zurich",
+        "ingresso-trasversale-specialista-di-manovra-nel-trasporto-merci-ffs-officine-ferrovie-federali-zurich",
+        "lateral-entry-shunting-specialistin-freight-transport-ffs-officine-ferrovie-federali-zurich",
+        "quereinstieg-rangierspezialist-in-guterverkehr-ffs-officine-ferrovie-federali-zurich",
+        "acces-transversal-specialiste-des-man-uvres-dans-le-transport-de-marchandises-ffs-officine-ferrovie-federali-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-zurich",
-          "cambio-carriera-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-zurich"
+          "cambio-carriera-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-zurich",
+          "ingresso-trasversale-specialista-di-manovra-nel-trasporto-merci-ffs-officine-ferrovie-federali-zurich",
+          "lateral-entry-shunting-specialistin-freight-transport-ffs-officine-ferrovie-federali-zurich",
+          "quereinstieg-rangierspezialist-in-guterverkehr-ffs-officine-ferrovie-federali-zurich",
+          "acces-transversal-specialiste-des-man-uvres-dans-le-transport-de-marchandises-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "en": [
+          "lateral-entry-shunting-specialistin-freight-transport-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "de": [
+          "quereinstieg-rangierspezialist-in-guterverkehr-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "fr": [
+          "acces-transversal-specialiste-des-man-uvres-dans-le-transport-de-marchandises-ffs-officine-ferrovie-federali-zurich"
         ]
       },
       "firstSeenAt": "2026-08-17T21:52:13.630Z",
