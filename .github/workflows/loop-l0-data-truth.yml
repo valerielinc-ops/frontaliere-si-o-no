@@ -1,0 +1,80 @@
+name: Loop L0 data truth
+
+on:
+  schedule:
+    - cron: '7 */2 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l0-data-truth.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/articles-api-base.mjs'
+      - '.github/workflows/loop-l0-data-truth.yml'
+  pull_request:
+    paths:
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l0-data-truth.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/articles-api-base.mjs'
+      - '.github/workflows/loop-l0-data-truth.yml'
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: 'Create/update one deduplicated issue when the manifest is unusable'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: loop-l0-data-truth
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/
+            /data/loop-fleet/
+            !/packages/articles/content/
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Audit corpus manifest
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l0
+          LOOP_FLEET_OBSERVATIONS_FILE: ${{ runner.temp }}/loop-fleet-l0/observations.jsonl
+          LOOP_FLEET_DECISIONS_FILE: ${{ runner.temp }}/loop-fleet-l0/decisions.jsonl
+        run: |
+          set -o pipefail
+          mkdir -p "$REPORT_DIR"
+          args=(--json --strict --apply --report-dir "$REPORT_DIR")
+          if [ "$ISSUE_ENABLED" = "true" ]; then
+            args+=(--issue)
+          else
+            args+=(--dry-run)
+          fi
+          node scripts/ci/loop-l0-data-truth.mjs "${args[@]}" | tee "$REPORT_DIR/stdout.json" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Upload L0 observation and decision
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: loop-l0-data-truth-${{ github.run_id }}
+          path: ${{ runner.temp }}/loop-fleet-l0/
+          if-no-files-found: error
