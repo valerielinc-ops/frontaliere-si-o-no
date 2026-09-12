@@ -1,0 +1,70 @@
+name: Translation Scheduler v2 (shadow)
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      enable_generation:
+        description: 'Enable the zero-cost provider for this observed run'
+        required: false
+        default: false
+        type: boolean
+      max_units:
+        description: 'Maximum translation units for this run'
+        required: false
+        default: '25'
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: translation-scheduler-v2-shadow
+  cancel-in-progress: false
+
+jobs:
+  shadow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      TRANSLATION_SHADOW_ENABLE_GENERATION: ${{ vars.TRANSLATION_SHADOW_ENABLE_GENERATION || '0' }}
+      TRANSLATION_SHADOW_MAX_JOBS: '250'
+      TRANSLATION_SHADOW_MAX_UNITS: ${{ inputs.max_units || '25' }}
+      TRANSLATION_SHADOW_REPORT_PATH: ${{ runner.temp }}/translation-scheduler-v2-report.json
+    steps:
+      - name: Check out source data and runtime
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run bounded scheduler shadow cycle
+        run: |
+          if [ "${{ inputs.enable_generation }}" = "true" ]; then
+            export TRANSLATION_SHADOW_ENABLE_GENERATION=1
+          fi
+          node scripts/translation-schedule-run-v2.mjs --shadow --report "$TRANSLATION_SHADOW_REPORT_PATH"
+
+      # The runner can only commit to refs/heads/translation-state-v2. This
+      # assertion makes an accidental main-worktree write a hard failure.
+      - name: Assert main worktree is unchanged
+        run: |
+          git diff --exit-code -- .
+          git diff --cached --exit-code -- .
+
+      - name: Upload scheduler metrics
+        uses: actions/upload-artifact@v7
+        with:
+          name: translation-scheduler-v2-shadow
+          path: ${{ env.TRANSLATION_SHADOW_REPORT_PATH }}
+          if-no-files-found: error
+          retention-days: 14
