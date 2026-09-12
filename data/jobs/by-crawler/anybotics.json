@@ -111,21 +111,6 @@
       "applyUrl": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "solution-architect-power-utilities-anybotics-ch",
-        "solution-architetto-power-utilities-anybotics-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "solution-architect-power-utilities-anybotics-ch",
-          "solution-architetto-power-utilities-anybotics-zurich"
-        ],
-        "fr": [
-          "solution-architect-power-utilities-anybotics-ch"
-        ]
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-10T23:05:23.420Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -139,7 +124,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-09-10T23:05:23.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-architect-power-utilities-anybotics-ch",
+          "solution-architetto-power-utilities-anybotics-zurich"
+        ],
+        "fr": [
+          "solution-architect-power-utilities-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "solution-architect-power-utilities-anybotics-ch",
+        "solution-architetto-power-utilities-anybotics-zurich"
+      ]
     },
     {
       "id": "anybotics-c480824429fa",
@@ -215,7 +214,6 @@
           "software-engineering-internship-anybotics-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T11:50:16.522Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -366,7 +364,6 @@
           "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T12:59:44.319Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -445,7 +442,6 @@
           "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:18:39.094Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -829,16 +825,7 @@
       "applyUrl": "https://jobs.lever.co/anybotics/f687dc6d-d6d4-4111-a564-ae3369cca6b4",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:32:26.383Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "key-account-manager-oil-gas-anybotics-ch"
-        ]
-      },
-      "previousSlugs": [
-        "key-account-manager-oil-gas-anybotics-ch"
-      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -852,7 +839,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-oil-gas-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-oil-gas-anybotics-ch"
+      ]
     },
     {
       "id": "anybotics-5839d064a74b",
@@ -994,7 +989,6 @@
           "senior-field-engineer-industrial-robotics-anybotics-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:36:58.675Z",
       "salaryMin": 113500,
       "salaryMax": 172000,

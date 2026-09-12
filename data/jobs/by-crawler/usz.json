@@ -224,7 +224,6 @@
           "spezialpflege-nachdiplomstudium-nds-intensivpflege-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:18:26.536Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -872,7 +871,6 @@
           "soins-professionnels-de-medecine-interne-aigue-40-100-universitatsspital-zurich-usz-campus"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:18:26.520Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1319,7 +1317,7 @@
       "title": "Spezialpflege: Expertin / Experte (w/m/d) Intensivpflege 40-100%",
       "titleByLocale": {
         "it": "Cure speciali: Esperto (p/m/d) Cure intensive 40- 100%",
-        "en": "Spezialpflege: Expertin / Experte (w/m/d) Intensivpflege 40-100%",
+        "en": "Special care: Expert (m/f/d) Intensive care 40-100 %",
         "de": "Spezialpflege: Expertin / Experte (w/m/d) Intensivpflege 40-100%",
         "fr": "Soins spéciaux: Expert (m/m/j) Soins intensifs 40- 100%"
       },
@@ -1399,7 +1397,6 @@
           "soins-speciaux-expert-expert-f-m-d-soins-de-salle-de-recuperation-60-100-universitatsspital-zurich-usz-campus"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:18:26.493Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1522,7 +1519,7 @@
       "title": "Spezialpflege: Dipl. Expertin / Dipl. Experte NDS (w/m/d) Notfallpflege und Schockraum 40-100%",
       "titleByLocale": {
         "it": "Assistenza speciale: Dipl. Expertin / Dipl. Expert NDS (m/f/d) Cure di emergenza e sala shock 40-100 %",
-        "en": "Spezialpflege: Dipl. Expertin / Dipl. Experte NDS (w/m/d) Notfallpflege und Schockraum 40-100%",
+        "en": "Special care: Dipl. Expertin / Dipl. Expert NDS (m/f/d) Emergency care and shock room 40-100 %",
         "de": "Spezialpflege: Dipl. Expertin / Dipl. Experte NDS (w/m/d) Notfallpflege und Schockraum 40-100%",
         "fr": "Soins spécialisés : Dipl. Expertin / Dipl. Experte NDS (w/m/d) Soins d'urgence et salle de choc 40-100%"
       },
@@ -1570,7 +1567,6 @@
           "spezialpflege-dipl-expertin-dipl-experte-nds-w-m-d-notfallpflege-und-schockraum-40-100-usz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:18:26.467Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1771,7 +1767,7 @@
       "companyDomain": "usz.ch",
       "title": "Spezialpflege: Nachdiplomstudium NDS Notfallpflege",
       "titleByLocale": {
-        "it": "Spezialpflege: Nachdiplomstudium NDS Notfallpflege",
+        "it": "Cura specialistica: Postgraduate NDS Emergency Care",
         "en": "Specialized Care: Postgraduate Study NDS Emergency Care",
         "de": "Spezialpflege: Nachdiplomstudium NDS Notfallpflege",
         "fr": "Soins Spécialisés : Études Postgrades NDS Soins d'Urgence"
@@ -1829,7 +1825,6 @@
           "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:18:26.453Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2002,7 +1997,6 @@
           "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:18:26.443Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2068,18 +2062,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialpflege-pflegefachperson-fur-die-neurochirurgische-imc-60-100-usz-ch",
-        "spezialpflege-pflegefachperson-per-la-neurochirurgische-imc-60-100-universitatsspital-zurich-usz-campus"
+        "spezialpflege-pflegefachperson-per-la-neurochirurgische-imc-60-100-universitatsspital-zurich-usz-campus",
+        "spezialpflege-pflegefachperson-per-la-neurochirurgische-intensivstation-60-100-universitatsspital-zurich-usz-campus",
+        "special-care-nurse-for-the-neurosurgical-intensive-care-unit-60-100-universitatsspital-zurich-usz-campus",
+        "spezialpflege-pflegefachperson-fur-die-neurochirurgische-intensivstation-60-100-usz-ch",
+        "soins-speciaux-infirmiere-pour-l-unite-de-soins-intensifs-neurochirurgicaux-60-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-pflegefachperson-fur-die-neurochirurgische-imc-60-100-usz-ch",
-          "spezialpflege-pflegefachperson-per-la-neurochirurgische-imc-60-100-universitatsspital-zurich-usz-campus"
+          "spezialpflege-pflegefachperson-per-la-neurochirurgische-imc-60-100-universitatsspital-zurich-usz-campus",
+          "spezialpflege-pflegefachperson-per-la-neurochirurgische-intensivstation-60-100-universitatsspital-zurich-usz-campus",
+          "special-care-nurse-for-the-neurosurgical-intensive-care-unit-60-100-universitatsspital-zurich-usz-campus",
+          "spezialpflege-pflegefachperson-fur-die-neurochirurgische-intensivstation-60-100-usz-ch",
+          "soins-speciaux-infirmiere-pour-l-unite-de-soins-intensifs-neurochirurgicaux-60-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
-          "spezialpflege-pflegefachperson-fur-die-neurochirurgische-imc-60-100-usz-ch"
+          "spezialpflege-pflegefachperson-fur-die-neurochirurgische-imc-60-100-usz-ch",
+          "special-care-nurse-for-the-neurosurgical-intensive-care-unit-60-100-universitatsspital-zurich-usz-campus"
         ],
         "fr": [
-          "spezialpflege-pflegefachperson-fur-die-neurochirurgische-imc-60-100-usz-ch"
+          "spezialpflege-pflegefachperson-fur-die-neurochirurgische-imc-60-100-usz-ch",
+          "soins-speciaux-infirmiere-pour-l-unite-de-soins-intensifs-neurochirurgicaux-60-100-universitatsspital-zurich-usz-campus"
+        ],
+        "de": [
+          "spezialpflege-pflegefachperson-fur-die-neurochirurgische-intensivstation-60-100-usz-ch"
         ]
       },
       "firstSeenAt": "2026-05-17T11:18:26.437Z",
@@ -2223,18 +2230,31 @@
       "previousSlugs": [
         "radiologiefachperson-neuroradiologie-80-100-usz-ch",
         "specialista-di-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-campus",
-        "specialista-in-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-campus"
+        "specialista-in-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-campus",
+        "radiologia-specializzata-radiologia-interventistica-80-100-universitatsspital-zurich-usz-campus",
+        "radiology-specialist-interventional-radiology-80-100-universitatsspital-zurich-usz-campus",
+        "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch",
+        "radiologie-interventionnelle-specialisee-80-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachperson-neuroradiologie-80-100-usz-ch",
-          "specialista-in-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-campus"
+          "specialista-in-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-campus",
+          "radiologia-specializzata-radiologia-interventistica-80-100-universitatsspital-zurich-usz-campus",
+          "radiology-specialist-interventional-radiology-80-100-universitatsspital-zurich-usz-campus",
+          "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch",
+          "radiologie-interventionnelle-specialisee-80-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
-          "radiologiefachperson-neuroradiologie-80-100-usz-ch"
+          "radiologiefachperson-neuroradiologie-80-100-usz-ch",
+          "radiology-specialist-interventional-radiology-80-100-universitatsspital-zurich-usz-campus"
         ],
         "fr": [
-          "radiologiefachperson-neuroradiologie-80-100-usz-ch"
+          "radiologiefachperson-neuroradiologie-80-100-usz-ch",
+          "radiologie-interventionnelle-specialisee-80-100-universitatsspital-zurich-usz-campus"
+        ],
+        "de": [
+          "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch"
         ]
       },
       "firstSeenAt": "2026-05-17T11:18:26.399Z",
@@ -3754,7 +3774,6 @@
           "mitarbeiter-in-abendreinigung-50-70-universitatsspital-zurich-usz-campus"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T16:01:06.544Z",
       "salaryMin": 51500,
       "salaryMax": 78100,
@@ -4037,7 +4056,7 @@
       "title": "Spezialpflege: Expertin / Experte Intensivpflege (w/m/d) Schwerpunkt Brandverletzungen 40-100%",
       "titleByLocale": {
         "it": "Infermiere/a Specializzato/a in Terapia Intensiva - Focus ustioni (w/m/d) 40-100%",
-        "en": "Spezialpflege: Expertin / Experte Intensivpflege (w/m/d) Schwerpunkt Brandverletzungen 40-100%",
+        "en": "Special care: expert / expert intensive care (m/f/d) focus on fire injuries 40-100 %",
         "de": "Spezialpflege: Expertin / Experte Intensivpflege (w/m/d) Schwerpunkt Brandverletzungen 40-100%",
         "fr": "Infirmier/ère spécialisé(e) en soins intensifs - Focus brûlures (h/f/d) 40-100%"
       },
@@ -4086,7 +4105,6 @@
           "spezialpflege-expertin-experte-intensivpflege-w-m-d-schwerpunkt-brandverletzungen-40-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-05T12:53:39.004Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4164,7 +4182,6 @@
           "mta-fur-das-interdisziplinare-zentrum-fur-schwindel-und-neurologische-sehstorungen-80-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-08T13:58:03.092Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4522,7 +4539,6 @@
           "assistenzarztin-assistenzarzt-w-m-d-fur-die-internistische-imc-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-09T23:25:00.625Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4604,7 +4620,6 @@
           "techn-sterilisationsassisten-in-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T13:06:45.449Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4996,7 +5011,6 @@
           "pflegefachperson-dialyse-am-standort-campus-und-circle-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-23T23:19:35.418Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5119,7 +5133,7 @@
         "it": "FaGe stazione E East 3 (chirurgia viscerale e trapianto) 80-100 %",
         "en": "FaGe bed station E East 3 (visceral and transplantation surgery) 80-100 %",
         "de": "FaGe Bettenstation E Ost 3 (Viszeral- und Transplantationschirurgie) 80-100%",
-        "fr": "FaGe Bettenstation E Ost 3 (Viszeral- und Transplantationschirurgie) 80-100%"
+        "fr": "Station-lit FaGe E Est 3 (chirurgie des viscéraux et transplantations) 80-100 %"
       },
       "description": "Auf der Bettenstation Ost E3 erwartet dich ein vielseitiges und anspruchsvolles Arbeitsumfeld im Akutbereich mit Schwerpunkt Viszeral- und Transplantationschirurgie. Du begleitest Patient:innen vor und nach komplexen viszeralchirurgischen Eingriffen sowie Organtransplantationen und arbeitest in einem engagierten, interprofessionellen Team auf universitärem Niveau. Freu dich auf eine abwechslungsreiche Tätigkeit, in der du dein Fachwissen vertiefen, Verantwortung übernehmen und dich kontinuierlich weiterentwickeln kannst.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Verantwortung für die umfassende Pflege (zusammen mit dipl. Pflegefachpersonen) von Patient:innen mit schweren internistischen Krankheitsbilder insbesondere nach Organtransplantationen von Niere, Leber, Pankreas und Lunge\n\n• Aufgaben im Bereich Administration und Logistik\n\n• Mitarbeit an stationsspezifischen Jahreszielen\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachperson Gesundheit im Akutbereich\n\n• Gute Deutschkenntnisse\n\n• Engagierte, motivierte und freundliche Persönlichkeit\n\n• Flexibilität bezüglich Schichtbetrieb\n\nWir bieten:\nDu suchst Action und liebst komplexe Situationen? Dann bist du in unserer Akutabteilung genau am richtigen Ort. Wir führen dich gezielt in deine Aufgaben ein und begleiten dich professionell bei deiner täglichen Arbeit – mit viel Raum für Entwicklung. Wir freuen uns auf dich!",
       "descriptionByLocale": {
@@ -5164,7 +5178,6 @@
           "fage-bettenstation-e-ost-3-viszeral-und-transplantationschirurgie-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-23T23:19:35.390Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6270,7 +6283,6 @@
           "study-nurse-fur-klinische-studien-am-comprehensive-cancer-center-zurich-50-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T11:35:35.441Z",
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -6347,7 +6359,6 @@
           "fachperson-gesundheit-efz-palliative-care-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-17T11:33:29.237Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6520,7 +6531,6 @@
           "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T12:36:00.192Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6702,7 +6712,6 @@
           "coordinateur-de-departement-pour-la-clinique-de-neurologie-80-100-universitatsspital-zurich-usz-campus"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T12:36:00.157Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7239,7 +7248,7 @@
       "titleByLocale": {
         "it": "Fellow post-dottorato in medicina di genere (f/m/d) 80-100%",
         "en": "Postdoctoral Fellow in Gender Medicine (f/m/d) 80-100%",
-        "de": "Postdoctoral Fellow in Gender Medicine (f/m/d) 80-100%",
+        "de": "Postdoktorandin in Gendermedizin (m/w/d) 80-100%",
         "fr": "Fellow postdoctoral en médecine du genre (f/m/j) 80-100%"
       },
       "description": "The Chair for Gender Medicine at the University Hospital Zurich and University of Zurich invites applications for an experienced and highly motivated postdoctoral researcher to help further develop an interdisciplinary research program in Gender Medicine.<br/><br/>We are looking for an outstanding postdoctoral researcher with a strong quantitative profile and broad experience in data science, epidemiology, public/global health or related fields. The successful candidate will play a central role in shaping an ambitious research agenda at the intersection of Gender Medicine, population health, clinical evidence generation and data analytics.<br/>The University Hospital of Zurich is one of the largest hospitals in Switzerland. Our more than 8, 600 employees and around 700 trainees work every day for the well-being of our patients.\n\nAufgaben:\nYou will lead and develop a portfolio of interdisciplinary research projects that investigate sex- and gender-related gaps and potential solutions in biomedical research, clinical evidence, disease burden, health outcomes and health policy.\n\nResponsibilities include:\n• Develop high-impact research on sex- and gender-sensitive medicine, clinical evidence gaps, global disease burden patterns, and opportunities for research prioritization and health equity\n\n• Build and apply large-scale, reproducible data pipelines\n\n• Use advanced quantitative methods, potentially including epidemiology, biostatistics, causal inference, machine learning, natural language processing, large language models, bibliometrics/scientometrics and real-world evidence methods\n\n• Translate research findings into peer-reviewed publications, policy briefs, reports, conference presentations and stakeholder-facing outputs\n\n• Contribute to competitive grant applications and help establish a sustainable externally funded research program\n\n• Coordinate interdisciplinary collaborations within UZH, USZ and national and international partner networks across medicine, public health, data science, social science and policy\n\n• Mentor and supervise doctoral, medical, master's and research students\n\n• Contribute to teaching activities in Gender Medicine, public health, data science or related areas\n\n• Support open, transparent and reproducible science, including documentation, code sharing and responsible data governance\n\nAnforderungen:\nWe are looking for a candidate with scientific independence, intellectual curiosity and the ability to connect disciplines.\n\nThe ideal candidate will have:\n• A PhD, MD-PhD or equivalent doctoral degree in medicine, epidemiology, public health, global health, data science, computational social science, health economics, social sciences or a related quantitative health field\n\n• Postdoctoral or equivalent research experience, or an emerging profile demonstrating readiness to lead research projects\n\n• A strong publication record, including first-author publications or preprints in relevant fields\n\n• Excellent quantitative and data-science skills, including proficiency in R and Python and experience with reproducible research workflows\n\n• Experience working with large, complex or heterogeneous datasets, such as population health data, clinical data, registry data, bibliometric data, administrative data, survey data, or global health datasets\n\n• Strong interest in sex- and gender-sensitive medicine, health equity, public/global health and the translation of research into clinical and policy impact\n\n• Experience with grant writing, project coordination, stakeholder engagement or team leadership is highly desirable\n\n• Excellent written and oral communication skills in English. German language skills are an asset but not required\n\n• Ability to work independently while contributing to a collaborative, interdisciplinary and clinically embedded research environment\n\nWir bieten:\nWe offer a unique opportunity to help shape the research agenda of the Chair for Gender Medicine in Switzerland and to work at the interface of a leading university and one of Europe's major university hospitals.\n\nYou will join a young, dynamic and growing team with strong links to clinical medicine, public health, data science and international research networks. The position offers excellent opportunities to develop an independent academic profile, build a competitive grant portfolio, publish high-impact research and contribute to the transformation of medicine toward more precise, equitable and evidence-based care.\n\nUZH and USZ offer an outstanding research environment, access to interdisciplinary collaborations, career development opportunities, mentoring, teaching opportunities and attractive employment conditions. Employees benefit from flexible working models, continuing education, family-friendly policies and the vibrant scientific environment of Zurich.\nSalary and employment conditions follow USZ regulations and are commensurate with qualifications and experience.\n\nAbout the Institution\nThe Chair for Gender Medicine aims to advance sex- and gender-sensitive medicine through cutting-edge research, clinical translation, education and international collaboration. Our work integrates biomedical science, clinical medicine, public and global health, data science and science policy to better understand how biological sex and sociocultural gender shape health, disease, research priorities, medical evidence and patient care.\n\nPlease submit your application through the USZ job portal. Applications should include:\n• Cover letter describing your motivation, relevant experience and fit for the position\n\n• Curriculum vitae, including publication list\n\n• Research statement outlining your previous work and ideas for future research in Gender Medicine\n\n• Names and contact information of two to three academic references\n\n• Copies of relevant diplomas and certificates",
@@ -7287,7 +7296,6 @@
           "postdoctoral-fellow-in-gender-medicine-f-m-d-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T22:26:32.344Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8099,7 +8107,6 @@
           "assistenzarztin-assistenzarzt-w-m-d-fur-arbeits-und-umweltmedizin-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:43:16.540Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8179,7 +8186,6 @@
           "leitende-oberarztin-leitender-oberarzt-w-m-d-endoskopie-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:58:13.273Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -8491,7 +8497,6 @@
           "assistenzarztin-assistenzarzt-w-m-d-curriculum-hausarztmedizin-track-3-50-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:23:27.335Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8857,7 +8862,7 @@
       "companyDomain": "usz.ch",
       "title": "BMA Immunhämatologielabor 80-100%",
       "titleByLocale": {
-        "it": "BMA Immunhämatologielabor 80-100%",
+        "it": "BMA Immunohematology Laboratory 80-100 %",
         "en": "BMA Immunohematology Laboratory 80-100 %",
         "de": "BMA Immunhämatologielabor 80-100%",
         "fr": "Laboratoire d'immunohématologie BMA 80-100 %"
@@ -8907,7 +8912,6 @@
           "bma-immunhamatologielabor-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:34:31.217Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9222,7 +9226,6 @@
           "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-gefasschirurgie-a-weiterbildungsstatte-80"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T22:19:15.217Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9379,7 +9382,6 @@
           "dentalassistent-in-mutterschaftsvertretung-an-der-klinik-fur-mund-kiefer-und"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T22:19:15.202Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9769,7 +9771,6 @@
           "lehrstelle-als-logistiker-in-efz-2027-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:32:24.721Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -9849,7 +9850,6 @@
           "lehrstelle-als-fachmann-fachfrau-betreuung-kind-efz-w-m-d-2027-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:32:24.718Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -9929,7 +9929,6 @@
           "lehrstelle-als-koch-kochin-efz-w-m-d-2027-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:32:24.714Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10009,7 +10008,6 @@
           "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-w-m-d-2027-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:32:24.710Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10040,7 +10038,7 @@
       "title": "Data Engineer Medical Data Products 80-100%",
       "titleByLocale": {
         "it": "Data Ingegnere Medical Data Products 80-100%",
-        "en": "Data Engineer Medical Data Products 80-100%",
+        "en": "Data Engineer Medical Data Products 80-100 %",
         "de": "Data Ingenieur Medical Data Products 80-100%",
         "fr": "Data Ingénieur Medical Data Products 80-100%"
       },
@@ -10499,7 +10497,6 @@
           "verwaltungsassistent-in-fur-die-klinik-fur-medizinische-onkologie-und-hamatologie-80-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:56:52.906Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10583,7 +10580,6 @@
           "specialiste-clinique-a-la-clinique-de-chirurgie-cardiaque-universitatsspital-zurich-usz-campus"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T22:08:31.238Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10614,7 +10610,7 @@
       "title": "Fachspezialist: in Servicecenter Supply Chain Management 80-100%",
       "titleByLocale": {
         "it": "Specialista: in Servicecenter Supply Chain Management 80-100 %",
-        "en": "Fachspezialist: in Servicecenter Supply Chain Management 80-100%",
+        "en": "Specialist: in Servicecenter Supply Chain Management 80-100 %",
         "de": "Fachspezialist: in Servicecenter Lieferkette Management 80-100%",
         "fr": "Spécialiste: en Servicecenter Supply Chain Management 80-100 %"
       },
@@ -10970,7 +10966,6 @@
           "fachperson-gesundheit-cfc-hamato-onkologie-60-100-universitatsspital-zurich-usz-campus"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:50:38.954Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -11080,7 +11075,7 @@
       "title": "Spezialpflege: Expertin / Experte Anästhesiepflege (w/m/d) AUFN B OP 80 - 100%",
       "titleByLocale": {
         "it": "Cura speciale: Esperto: Cura dell'anestesia interna 80 - 100% AUFN B OP",
-        "en": "Spezialpflege: Expertin / Experte Anästhesiepflege (w/m/d) AUFN B OP 80 - 100%",
+        "en": "Special care: expert / expert anesthesia care (m/f/d) Aufn B OP 80 - 100%",
         "de": "Spezialpflege: Expertin / Experte Anästhesiepflege (w/m/d) AUFN B OP 80 - 100%",
         "fr": "Soins spéciaux: Expert: Soins d'anesthésie intérieure 80 - 100% AUFN B OP"
       },
@@ -11135,7 +11130,6 @@
         "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-aufn-b-op-80-100-usz-ch",
         "cura-speciale-esperto-cura-dell-anestesia-interna-80-100-aufn-b-op-universitatsspital-zurich-usz-campus"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T10:13:02.090Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -11243,7 +11237,7 @@
       "title": "Spezialpflege: Expertin / Experte Anästhesiepflege (w/m/d) F/D-OP 60 - 100%",
       "titleByLocale": {
         "it": "Cura speciale: esperto / esperto anestesia cura (m/f/d) F/D-OP 60 - 100%",
-        "en": "Spezialpflege: Expertin / Experte Anästhesiepflege (w/m/d) F/D-OP 60 - 100%",
+        "en": "Special care: expert / expert anesthesia care (m/f/d) F/D-OP 60 - 100%",
         "de": "Spezialpflege: Expertin / Experte Anästhesiepflege (w/m/d) F/D-OP 60 - 100%",
         "fr": "Soins spéciaux: soins d'anesthésie expert / expert (h/f/d) F/D-OP 60 - 100%"
       },
@@ -11292,7 +11286,6 @@
           "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-f-d-op-60-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:50:38.923Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -11935,7 +11928,6 @@
           "data-platform-engineer-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:38:49.772Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -12650,7 +12642,6 @@
           "fachperson-gesundheit-pflegehelfer-in-oder-pflegeassistent-in-fur-die-augenklinik-80-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:27:03.275Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13230,7 +13221,6 @@
           "pflegefachperson-psychiatrie-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:27:03.189Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13555,7 +13545,6 @@
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-w-m-d-2027-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T00:55:16.419Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -13720,7 +13709,6 @@
           "personnel-en-assurance-des-couts-standard-80-100-universitatsspital-zurich-usz-stettbach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T23:32:54.562Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14129,7 +14117,6 @@
           "oberarztin-oberarzt-w-m-d-bereich-akute-kardiologie-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:51:39.332Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -14363,22 +14350,36 @@
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-neuroradiologie-80-100-usz-ch",
         "assistenzarztin-assistenzarzt-m-w-d-klinik-per-neuroradiologie-80-100-universitatsspital-zurich-usz-campus",
-        "assistente-medico-m-f-d-clinica-per-neuroradiologia-80-100-universitatsspital-zurich-usz-campus"
+        "assistente-medico-m-f-d-clinica-per-neuroradiologia-80-100-universitatsspital-zurich-usz-campus",
+        "assistente-medico-m-f-d-clinica-per-immunologia-80-100-universitatsspital-zurich-usz-campus",
+        "assistant-physician-m-f-d-clinic-for-immunology-80-100-universitatsspital-zurich-usz-campus",
+        "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch",
+        "medecin-adjoint-h-f-d-clinique-d-immunologie-80-100-universitatsspital-zurich-usz-campus",
+        "assistenzarztin-assistenzarzt-m-w-d-klinik-per-immunologie-80-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-neuroradiologie-80-100-usz-ch",
           "assistenzarztin-assistenzarzt-m-w-d-klinik-per-neuroradiologie-80-100-universitatsspital-zurich-usz-campus",
-          "assistente-medico-m-f-d-clinica-per-neuroradiologia-80-100-universitatsspital-zurich-usz-campus"
+          "assistente-medico-m-f-d-clinica-per-neuroradiologia-80-100-universitatsspital-zurich-usz-campus",
+          "assistente-medico-m-f-d-clinica-per-immunologia-80-100-universitatsspital-zurich-usz-campus",
+          "assistant-physician-m-f-d-clinic-for-immunology-80-100-universitatsspital-zurich-usz-campus",
+          "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch",
+          "medecin-adjoint-h-f-d-clinique-d-immunologie-80-100-universitatsspital-zurich-usz-campus",
+          "assistenzarztin-assistenzarzt-m-w-d-klinik-per-immunologie-80-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
-          "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-neuroradiologie-80-100-usz-ch"
+          "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-neuroradiologie-80-100-usz-ch",
+          "assistant-physician-m-f-d-clinic-for-immunology-80-100-universitatsspital-zurich-usz-campus"
         ],
         "fr": [
-          "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-neuroradiologie-80-100-usz-ch"
+          "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-neuroradiologie-80-100-usz-ch",
+          "medecin-adjoint-h-f-d-clinique-d-immunologie-80-100-universitatsspital-zurich-usz-campus"
+        ],
+        "de": [
+          "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:51:39.307Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14458,7 +14459,6 @@
           "mitarbeiter-in-gastronomie-stettbach-50-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:35:16.316Z",
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -14647,7 +14647,6 @@
           "collaborateur-trice-versorgungslogistik-80-100-universitatsspital-zurich-usz-campus"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:35:16.311Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -15496,7 +15495,7 @@
         "it": "Infermiera clinica (m/f/d) Dipartimento di chirurgia viscerale e trapianto 80-100 %",
         "en": "Clinical Nurse (m/f/d) Department of Visceral and Transplantation Surgery 80-100 %",
         "de": "Clinical Nurse (w/m/d) Departement Viszeral- und Transplantationschirurgie 80-100%",
-        "fr": "Clinical Nurse (w/m/d) Departement Viszeral- und Transplantationschirurgie 80-100%"
+        "fr": "Infirmière clinique (h/f/d) Département de chirurgie viscérale et de transplantation 80-100 %"
       },
       "description": "Das Departement für Viszeral- und Transplantationschirurgie des Universitätsspitals Zürich zählt zu den führenden nationalen und internationalen akademischen Zentren und bietet das gesamte Spektrum der Abdominalchirurgie – von der Grundversorgung bis zur hochspezialisierten Behandlung. Wir garantieren unseren Patient:innen eine qualitativ hochwertige Versorgung nach neuesten internationalen Standards. Als Clinical Nurse erwartet Sie ein anspruchsvolles und innovatives Arbeitsumfeld, in dem Sie Ihre klinische Expertise aktiv in den Behandlungsprozess einbringen. Gemeinsam mit einem engagierten interprofessionellen Team gestalten Sie die Weiterentwicklung der klinischen Praxis und leisten einen wichtigen Beitrag zur Behandlungsqualität und Patientenversorgung auf universitärem Niveau.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Koordination, Organisation und Planung der ambulanten Behandlung von Patient:innen des Departements für Viszeral- und Transplantationschirurgie. Dazu gehören die Begleitung von Sprechstunden, das Veranlassen von Verordnungen sowie die Organisation von Überweisungen an Rehabilitationskliniken und externe Spitäler\n\n• Primäre Ansprechperson innerhalb der Klinik und des Verantwortungsbereiches (Team) für Patient:innen, Angehörige, interne und externe Zuweiser sowie interne und externe Dienstleister (Röntgeninstitute, Laborinstitute etc.)\n\n• Planung, Koordination und Anmeldung von Untersuchungen durch USZ-interne und externe Dienste (Radiologie, Labor etc.)\n\n• Einholen von relevanten Informationen bei Hausärzten, Spitälern etc.\n\n• Planung eines operativen Eingriffs bzw. stationären Aufenthaltes in Zusammenarbeit mit der stationären Disposition\n\n• Unterstützung bei der Kostensicherung inkl. Selbstzahlern und internationalen Patient:innen\n\nAnforderungen:\n• Ausbildung als Pflegefachperson HF/FH mit Berufserfahrung - idealerweise im Bereich der Viszeralchirurgie\n\n• Kenntnisse im Schweizer Gesundheits- und Abrechnungssystem\n\n• Weiterbildungen in Case Management o.Ä. von Vorteil\n\n• Gute mündliche und schriftliche Deutsch- und Englischkenntnisse, weitere Fremdsprachen von Vorteil\n\n• Organisationsgeschick\n\n• Fähigkeit, komplexe Situationen lösungsorientiert anzugehen\n\n• Versiert in MS-Office Anwendungen\n\nWir bieten:\nDas breite Aufgabengebiet bietet Ihnen die Möglichkeit, sich in vielen Feldern einzubringen und damit sowohl die Klinik wie auch sich selbst weiterzuentwickeln. Wenn Sie in einem dynamischen, interessanten medizinischen Umfeld mitarbeiten wollen, in dem Sie gefordert und gefördert werden, freuen wir uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -15545,7 +15544,6 @@
           "clinical-nurse-w-m-d-departement-viszeral-und-transplantationschirurgie-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:57:28.417Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15781,7 +15779,7 @@
         "it": "Clinical Nurse Specialista (w/m/d) Departement per Viszeral- e Transplantationschirurgie 80-100%",
         "en": "Clinical Nurse Specialist (m/f/d) Department of Visceral and Transplantation Surgery 80-100 %",
         "de": "Clinical Nurse Spezialist (w/m/d) Departement für Viszeral- und Transplantationschirurgie 80-100%",
-        "fr": "Clinical Nurse Specialist (w/m/d) Departement für Viszeral- und Transplantationschirurgie 80-100%"
+        "fr": "Infirmière clinique spécialiste (h/f/d) Département de chirurgie viscérale et de transplantation 80-100 %"
       },
       "description": "Das Departement für Viszeral- und Transplantationschirurgie des Universitätsspitals Zürich zählt zu den führenden nationalen und internationalen akademischen Zentren und bietet das gesamte Spektrum der Abdominalchirurgie – von der Grundversorgung bis zur hochspezialisierten Behandlung. Wir garantieren unseren Patient:innen eine qualitativ hochwertige Versorgung nach neuesten internationalen Standards. Als Clinical Nurse Specialist erwartet Sie ein anspruchsvolles und innovatives Arbeitsumfeld, in dem Sie Ihre klinische Expertise aktiv in den Behandlungsprozess einbringen. Gemeinsam mit einem engagierten interprofessionellen Team gestalten Sie die Weiterentwicklung der klinischen Praxis und leisten einen wichtigen Beitrag zur Behandlungsqualität und Patientenversorgung auf universitärem Niveau.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\nKlinische Praxis als Clinical Nurse Specialist mit erweiterter medizinischer Verantwortung:\n• Verantwortung für die Koordination der stationären Behandlung von Patient:innen inklusive Visiten, Verordnung notwendiger Untersuchungen (z.B. Radiologie, Konsile, Labor gemäss geltenden SOP und in Rücksprache mit den verantwortlichen Kaderärzten), Überweisungen zur Rehabilitation und in andere Spitäler\n\n• Selbständige Erhebung der Anamnese und Status sowie Vorstellung von Patient:innen an Rapporten\n\n• Coaching und Instruktion von Patient:innen (perioperative Adhärenz, Symptommanagement)\n\n• Tägliche Visite mit selbständiger körperlicher Untersuchung und Kommunikation der erhobenen Befunde\n\n• Erstellung und Anpassung von Verordnungen im KISIM (Neuverordnungen werden immer in Auftrag und Überprüfung von Fachärzten ausgeführt)\n\n• Selbständige Durchführung einfacher chirurgischer Wundversorgungen (z.B. Hautnähte, nicht aber die selbständige Durchführung von Operationen)\n\n• Selbständige Entfernung von Abdominal- und Thoraxdrainagen nach vorgängiger Fallbesprechung\n\n• Teaching neuer Assistenzärzt:innen in den Stationsaufgaben (inkl. KISIM)\n\nAdministration/Koordination:\n• Kommunikation mit internen und externen Zuweisern (Fachärzten, Spitex, Spitälern, Rehakliniken, Schnittstellenmanagement)\n\n• Controlling des Austrittsmanagements, Vergabe der Anschlusstermine und Erfassen des Austrittsberichtes und Überweisungsschreibens\n\n• Unterstützung bei der Kostensicherung inkl. Selbstzahlern und internationalen Patient:innen\n\nAnforderungen:\n• Abgeschlossener MScN mit klinischer Erfahrung und guten Kenntnissen des Clinical Assessments\n\n• Vertiefte medizinische Kenntnisse (z.B. Viszeral- und Transplantationschirurgie, Pharmakotherapie, perioperatives Management)\n\n• Interesse an wissenschaftlichen Projekten mitzuarbeiten\n\n• Bereitschaft zur Gestaltung und Entwicklung der Stelle sowie aktiver Anstoss von Veränderungsprozessen und aktive Beteiligung an Qualitätsverbesserungsprozessen\n\n• Vobildfunktion gegenüber Pflegefachpersonen sowie Assistenzärzt:innen\n\nWir bieten:\nDas breite Aufgabengebiet bietet Ihnen die Möglichkeit, sich in vielen Feldern einzubringen und damit sowohl die Klinik wie auch sich selbst weiterzuentwickeln. Wenn Sie in einem dynamischen, interessanten medizinischen Umfeld mitarbeiten wollen, in dem Sie gefordert und gefördert werden, freuen wir uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -15828,7 +15826,6 @@
           "clinical-nurse-specialist-w-m-d-departement-fur-viszeral-und-transplantationschirurgie-80"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:57:28.409Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16094,7 +16091,7 @@
         "it": "Ufficio di gestione del progetto Epic 60-80 %",
         "en": "Project Management Office Epic 60-80 %",
         "de": "Projekt Management Office Epic 60-80%",
-        "fr": "Projekt Management Office Epic 60-80%"
+        "fr": "Bureau de gestion de projet Epic 60-80 %"
       },
       "description": "Im Rahmen des zKIS-/EPIC-Programms gestaltest du die Einführung eines neuen Klinikinformationssystems am Universitätsspital Zürich aktiv mit. Das Projekt ist eine der zentralen Digitalisierungsinitiativen des USZ und trägt dazu bei, klinische Prozesse zu vereinheitlichen, die Zusammenarbeit zu verbessern und den Arbeitsalltag der Mitarbeitenden nachhaltig zu unterstützen.<br/>Dabei erwartet dich ein dynamisches Umfeld mit hoher Wirkung, in dem du aktiv mitgestaltest, Verantwortung übernimmst und gemeinsam mit einem interdisziplinären Team eine zukunftsweisende Lösung für das USZ realisierst.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du stellst den reibungslosen administrativen Ablauf im Projekt sicher und unterstützt damit das gesamte Projektteam\n\n• Du organisierst eigenständig das Projekt-Backoffice und koordinierst die operative Projektunterstützung\n\n• Du planst und koordinierst Termine, Raumbuchungen sowie Reisen und Veranstaltungen\n\n• Du unterstützt die Organisation von Schulungen sowie weiteren projektbezogenen Planungs- und Koordinationsaufgaben\n\n• Du erstellst Protokolle, Dokumentationen und Unterlagen zur Unterstützung der Projektleitung\n\n• Bei Bedarf unterstützt du beim Aufbau und der Koordination zusätzlicher Backoffice-Ressourcen\n\nAnforderungen:\n• Du arbeitest sehr strukturiert, zuverlässig und behältst auch in komplexen organisatorischen Situationen den Überblick\n\n• Du hast Freude an organisatorischen und koordinativen Aufgaben in einem dynamischen Projektumfeld\n\n• Du bist dienstleistungsorientiert und unterstützt Teams proaktiv im Projektalltag\n\n• Du bist in der Lage, mehrere Aufgaben gleichzeitig zu koordinieren und Prioritäten richtig zu setzen. Dabei verwendest du Tools wie Excel, SharePoint, Teams, Outlook etc. souverän.\n\n• Du kommunizierst klar und arbeitest gerne mit unterschiedlichen Stakeholdern zusammen\n\n• Du bringst idealerweise Erfahrung in administrativen, organisatorischen oder projektunterstützenden Rollen mit\n\n• Du bist flexibel, belastbar und arbeitest dich schnell in neue Tools und Prozesse ein\n\nWir bieten:\nDu erhältst die Möglichkeit, dich in einem komplexen Transformationsprojekt fachlich und persönlich weiterzuentwickeln und übernimmst Verantwortung mit direkter Wirkung auf den digitalen Wandel im Spitalalltag. Dich erwartet ein engagiertes Team, das gemeinsam an einer zukunftsorientierten Lösung für das USZ arbeitet.",
       "descriptionByLocale": {
@@ -16138,7 +16135,6 @@
           "projekt-management-office-epic-60-80-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:57:28.400Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -16297,7 +16293,6 @@
           "teilprojektleitende-r-technologie-epic-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:57:28.394Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -16616,7 +16611,6 @@
           "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:24:12.882Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16647,7 +16641,7 @@
       "title": "Spezialpflege: Dipl. Expertin / Dipl. Experte NDS Notfallpflege (w/m/d) mit Schwerpunkt Gipsversorgung 80-100%",
       "titleByLocale": {
         "it": "Cura speciale: Dipl. Expertin / Dipl. Expert NDS Emergency Care (m/f/d) con focus sulla fornitura di gesso 80-100 %",
-        "en": "Spezialpflege: Dipl. Expertin / Dipl. Experte NDS Notfallpflege (w/m/d) mit Schwerpunkt Gipsversorgung 80-100%",
+        "en": "Special care: Dipl. Expertin / Dipl. Expert NDS Emergency Care (m/f/d) with focus on plaster supply 80-100 %",
         "de": "Spezialpflege: Dipl. Expertin / Dipl. Experte NDS Notfallpflege (w/m/d) mit Schwerpunkt Gipsversorgung 80-100%",
         "fr": "Soins spéciaux: Dipl. Expertin / Dipl. Expert NDS Emergency Care (h/f/d) avec un accent sur l'approvisionnement en plâtre 80-100 %"
       },
@@ -16682,12 +16676,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt",
-        "cura-speciale-dipl-expertin-dipl-expert-nds-emergency-care-m-f-d-con-focus-sulla-fornitura-di-gesso-80-100-25a23a"
+        "cura-speciale-dipl-expertin-dipl-expert-nds-emergency-care-m-f-d-con-focus-sulla-fornitura-di-gesso-80-100-25a23a",
+        "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsverso",
+        "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsversorgung-80-100-universitatsspita"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt",
-          "cura-speciale-dipl-expertin-dipl-expert-nds-emergency-care-m-f-d-con-focus-sulla-fornitura-di-gesso-80-100-25a23a"
+          "cura-speciale-dipl-expertin-dipl-expert-nds-emergency-care-m-f-d-con-focus-sulla-fornitura-di-gesso-80-100-25a23a",
+          "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsverso",
+          "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsversorgung-80-100-universitatsspita"
         ],
         "en": [
           "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt"
@@ -16696,7 +16694,6 @@
           "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:24:12.880Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16859,7 +16856,6 @@
           "assistenzarztin-assistenzarzt-w-m-d-fur-das-institut-fur-notfallmedizin-80-100-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:24:12.878Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17020,7 +17016,6 @@
           "study-nurse-w-m-d-nephrologie-60-usz-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:24:12.873Z",
       "salaryMin": 44100,
       "salaryMax": 66900,
@@ -17131,17 +17126,17 @@
       "companyDomain": "usz.ch",
       "title": "Abteilungsleitung Pflege Infektiologie/Innere Medizin/Angiologie 80-100%",
       "titleByLocale": {
-        "it": "Abteilungsleitung Pflege Infektiologie/Innere Medizin/Angiologie 80-100%",
-        "en": "Abteilungsleitung Pflege Infektiologie/Innere Medizin/Angiologie 80-100%",
         "de": "Abteilungsleitung Pflege Infektiologie/Innere Medizin/Angiologie 80-100%",
-        "fr": "Abteilungsleitung Pflege Infektiologie/Innere Medizin/Angiologie 80-100%"
+        "it": "Responsabile Infettiviologia/Medicina Interna/Angiologia 80-100 %",
+        "en": "Head of Department Care Infectiology/Internal Medicine/Angiology 80-100 %",
+        "fr": "Chef du département Soins Infectiologie/Médecine interne/Angiologie 80-100 %"
       },
       "description": "Dich erwartet eine abwechslungsreiche Führungsaufgabe: Du leitest eine 18-Betten-Abteilung mit infektiologischem Schwerpunkt und einem breiten internistischen und angiologischen Patientenspektrum. Gemeinsam mit deinem Team sorgst du für eine qualitativ hochwertige und patientenzentrierte Versorgung.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Pflegequalität sichern : Gemeinsam mit dem Shared-Governance-Team schaffst du Rahmenbedingungen für eine qualitativ hochwertige, ganzheitliche und patientenorientierte Pflege.\n\n• Team entwickeln : Du führst ein engagiertes Team von rund 30 Mitarbeitenden nach modernen Führungsprinzipien und unterstützt sie in ihrer fachlichen, persönlichen und sozialen Weiterentwicklung.\n\n• Ressourcen steuern : Du planst und koordinierst personelle, materielle und infrastrukturelle Ressourcen für eine sichere und effiziente Patientenversorgung.\n\n• Prozesse gestalten : Du entwickelst Arbeitsabläufe und Organisationsstrukturen im Sinne einer zeitgemässen Pflege und des Bezugspflegekonzepts weiter.\n\n• Interdisziplinär zusammenarbeiten : Du arbeitest eng und auf Augenhöhe mit dem ärztlichen Dienst, Therapien, Hotellerie und weiteren Schnittstellen zusammen.\n\nAnforderungen:\n• Dipl. Pflegefachfrau / Pflegefachmann HF oder FH mit abgeschlossener Weiterbildung im Management oder Interesse an einem MAS mit Schwerpunkt Leadership\n\n• Mehrjährige Führungserfahrung sowie Freude daran, eine werte- und menschenorientierte Führungskultur aktiv mitzugestalten\n\n• Begeisterungsfähigkeit, Verantwortungsbewusstsein und Freude an der Arbeit mit Menschen\n\n• Kommunikationsstärke, Integrität und die Fähigkeit, ein respektvolles und unterstützendes Miteinander zu fördern\n\n• Hohe Dienstleistungsorientierung und Anspruch an eine bestmögliche Patientenversorgung\n\nWir bieten:\nDich erwartet eine vielseitige Abteilung mit klarem infektiologischem Schwerpunkt und einem breiten internistisch-angiologischen Patientenspektrum. Das Umfeld ist fachlich spannend, abwechslungsreich und bietet Entwicklungsmöglichkeiten für Mitarbeitende auf unterschiedlichen Erfahrungsstufen.\n\nAls Abteilungsleitung übernimmst du Verantwortung für ein motiviertes Team und gestaltest die Weiterentwicklung der Abteilung aktiv mit. Dabei legen wir grossen Wert auf offene Kommunikation, eine wertschätzende Führungskultur, starken Teamzusammenhalt und eine Dienstplanung, die die Bedürfnisse der Mitarbeitenden berücksichtigt.",
       "descriptionByLocale": {
-        "it": "Dich erwartet eine abwechslungsreiche Führungsaufgabe: Du leitest eine 18-Betten-Abteilung mit infektiologischem Schwerpunkt und einem breiten internistischen und angiologischen Patientenspektrum. Gemeinsam mit deinem Team sorgst du für eine qualitativ hochwertige und patientenzentrierte Versorgung.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Pflegequalität sichern : Gemeinsam mit dem Shared-Governance-Team schaffst du Rahmenbedingungen für eine qualitativ hochwertige, ganzheitliche und patientenorientierte Pflege.\n\n• Team entwickeln : Du führst ein engagiertes Team von rund 30 Mitarbeitenden nach modernen Führungsprinzipien und unterstützt sie in ihrer fachlichen, persönlichen und sozialen Weiterentwicklung.\n\n• Ressourcen steuern : Du planst und koordinierst personelle, materielle und infrastrukturelle Ressourcen für eine sichere und effiziente Patientenversorgung.\n\n• Prozesse gestalten : Du entwickelst Arbeitsabläufe und Organisationsstrukturen im Sinne einer zeitgemässen Pflege und des Bezugspflegekonzepts weiter.\n\n• Interdisziplinär zusammenarbeiten : Du arbeitest eng und auf Augenhöhe mit dem ärztlichen Dienst, Therapien, Hotellerie und weiteren Schnittstellen zusammen.\n\nAnforderungen:\n• Dipl. Pflegefachfrau / Pflegefachmann HF oder FH mit abgeschlossener Weiterbildung im Management oder Interesse an einem MAS mit Schwerpunkt Leadership\n\n• Mehrjährige Führungserfahrung sowie Freude daran, eine werte- und menschenorientierte Führungskultur aktiv mitzugestalten\n\n• Begeisterungsfähigkeit, Verantwortungsbewusstsein und Freude an der Arbeit mit Menschen\n\n• Kommunikationsstärke, Integrität und die Fähigkeit, ein respektvolles und unterstützendes Miteinander zu fördern\n\n• Hohe Dienstleistungsorientierung und Anspruch an eine bestmögliche Patientenversorgung\n\nWir bieten:\nDich erwartet eine vielseitige Abteilung mit klarem infektiologischem Schwerpunkt und einem breiten internistisch-angiologischen Patientenspektrum. Das Umfeld ist fachlich spannend, abwechslungsreich und bietet Entwicklungsmöglichkeiten für Mitarbeitende auf unterschiedlichen Erfahrungsstufen.\n\nAls Abteilungsleitung übernimmst du Verantwortung für ein motiviertes Team und gestaltest die Weiterentwicklung der Abteilung aktiv mit. Dabei legen wir grossen Wert auf offene Kommunikation, eine wertschätzende Führungskultur, starken Teamzusammenhalt und eine Dienstplanung, die die Bedürfnisse der Mitarbeitenden berücksichtigt.",
-        "en": "Dich erwartet eine abwechslungsreiche Führungsaufgabe: Du leitest eine 18-Betten-Abteilung mit infektiologischem Schwerpunkt und einem breiten internistischen und angiologischen Patientenspektrum. Gemeinsam mit deinem Team sorgst du für eine qualitativ hochwertige und patientenzentrierte Versorgung.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Pflegequalität sichern : Gemeinsam mit dem Shared-Governance-Team schaffst du Rahmenbedingungen für eine qualitativ hochwertige, ganzheitliche und patientenorientierte Pflege.\n\n• Team entwickeln : Du führst ein engagiertes Team von rund 30 Mitarbeitenden nach modernen Führungsprinzipien und unterstützt sie in ihrer fachlichen, persönlichen und sozialen Weiterentwicklung.\n\n• Ressourcen steuern : Du planst und koordinierst personelle, materielle und infrastrukturelle Ressourcen für eine sichere und effiziente Patientenversorgung.\n\n• Prozesse gestalten : Du entwickelst Arbeitsabläufe und Organisationsstrukturen im Sinne einer zeitgemässen Pflege und des Bezugspflegekonzepts weiter.\n\n• Interdisziplinär zusammenarbeiten : Du arbeitest eng und auf Augenhöhe mit dem ärztlichen Dienst, Therapien, Hotellerie und weiteren Schnittstellen zusammen.\n\nAnforderungen:\n• Dipl. Pflegefachfrau / Pflegefachmann HF oder FH mit abgeschlossener Weiterbildung im Management oder Interesse an einem MAS mit Schwerpunkt Leadership\n\n• Mehrjährige Führungserfahrung sowie Freude daran, eine werte- und menschenorientierte Führungskultur aktiv mitzugestalten\n\n• Begeisterungsfähigkeit, Verantwortungsbewusstsein und Freude an der Arbeit mit Menschen\n\n• Kommunikationsstärke, Integrität und die Fähigkeit, ein respektvolles und unterstützendes Miteinander zu fördern\n\n• Hohe Dienstleistungsorientierung und Anspruch an eine bestmögliche Patientenversorgung\n\nWir bieten:\nDich erwartet eine vielseitige Abteilung mit klarem infektiologischem Schwerpunkt und einem breiten internistisch-angiologischen Patientenspektrum. Das Umfeld ist fachlich spannend, abwechslungsreich und bietet Entwicklungsmöglichkeiten für Mitarbeitende auf unterschiedlichen Erfahrungsstufen.\n\nAls Abteilungsleitung übernimmst du Verantwortung für ein motiviertes Team und gestaltest die Weiterentwicklung der Abteilung aktiv mit. Dabei legen wir grossen Wert auf offene Kommunikation, eine wertschätzende Führungskultur, starken Teamzusammenhalt und eine Dienstplanung, die die Bedürfnisse der Mitarbeitenden berücksichtigt.",
         "de": "Dich erwartet eine abwechslungsreiche Führungsaufgabe: Du leitest eine 18-Betten-Abteilung mit infektiologischem Schwerpunkt und einem breiten internistischen und angiologischen Patientenspektrum. Gemeinsam mit deinem Team sorgst du für eine qualitativ hochwertige und patientenzentrierte Versorgung.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Pflegequalität sichern : Gemeinsam mit dem Shared-Governance-Team schaffst du Rahmenbedingungen für eine qualitativ hochwertige, ganzheitliche und patientenorientierte Pflege.\n\n• Team entwickeln : Du führst ein engagiertes Team von rund 30 Mitarbeitenden nach modernen Führungsprinzipien und unterstützt sie in ihrer fachlichen, persönlichen und sozialen Weiterentwicklung.\n\n• Ressourcen steuern : Du planst und koordinierst personelle, materielle und infrastrukturelle Ressourcen für eine sichere und effiziente Patientenversorgung.\n\n• Prozesse gestalten : Du entwickelst Arbeitsabläufe und Organisationsstrukturen im Sinne einer zeitgemässen Pflege und des Bezugspflegekonzepts weiter.\n\n• Interdisziplinär zusammenarbeiten : Du arbeitest eng und auf Augenhöhe mit dem ärztlichen Dienst, Therapien, Hotellerie und weiteren Schnittstellen zusammen.\n\nAnforderungen:\n• Dipl. Pflegefachfrau / Pflegefachmann HF oder FH mit abgeschlossener Weiterbildung im Management oder Interesse an einem MAS mit Schwerpunkt Leadership\n\n• Mehrjährige Führungserfahrung sowie Freude daran, eine werte- und menschenorientierte Führungskultur aktiv mitzugestalten\n\n• Begeisterungsfähigkeit, Verantwortungsbewusstsein und Freude an der Arbeit mit Menschen\n\n• Kommunikationsstärke, Integrität und die Fähigkeit, ein respektvolles und unterstützendes Miteinander zu fördern\n\n• Hohe Dienstleistungsorientierung und Anspruch an eine bestmögliche Patientenversorgung\n\nWir bieten:\nDich erwartet eine vielseitige Abteilung mit klarem infektiologischem Schwerpunkt und einem breiten internistisch-angiologischen Patientenspektrum. Das Umfeld ist fachlich spannend, abwechslungsreich und bietet Entwicklungsmöglichkeiten für Mitarbeitende auf unterschiedlichen Erfahrungsstufen.\n\nAls Abteilungsleitung übernimmst du Verantwortung für ein motiviertes Team und gestaltest die Weiterentwicklung der Abteilung aktiv mit. Dabei legen wir grossen Wert auf offene Kommunikation, eine wertschätzende Führungskultur, starken Teamzusammenhalt und eine Dienstplanung, die die Bedürfnisse der Mitarbeitenden berücksichtigt.",
-        "fr": "Dich erwartet eine abwechslungsreiche Führungsaufgabe: Du leitest eine 18-Betten-Abteilung mit infektiologischem Schwerpunkt und einem breiten internistischen und angiologischen Patientenspektrum. Gemeinsam mit deinem Team sorgst du für eine qualitativ hochwertige und patientenzentrierte Versorgung.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Pflegequalität sichern : Gemeinsam mit dem Shared-Governance-Team schaffst du Rahmenbedingungen für eine qualitativ hochwertige, ganzheitliche und patientenorientierte Pflege.\n\n• Team entwickeln : Du führst ein engagiertes Team von rund 30 Mitarbeitenden nach modernen Führungsprinzipien und unterstützt sie in ihrer fachlichen, persönlichen und sozialen Weiterentwicklung.\n\n• Ressourcen steuern : Du planst und koordinierst personelle, materielle und infrastrukturelle Ressourcen für eine sichere und effiziente Patientenversorgung.\n\n• Prozesse gestalten : Du entwickelst Arbeitsabläufe und Organisationsstrukturen im Sinne einer zeitgemässen Pflege und des Bezugspflegekonzepts weiter.\n\n• Interdisziplinär zusammenarbeiten : Du arbeitest eng und auf Augenhöhe mit dem ärztlichen Dienst, Therapien, Hotellerie und weiteren Schnittstellen zusammen.\n\nAnforderungen:\n• Dipl. Pflegefachfrau / Pflegefachmann HF oder FH mit abgeschlossener Weiterbildung im Management oder Interesse an einem MAS mit Schwerpunkt Leadership\n\n• Mehrjährige Führungserfahrung sowie Freude daran, eine werte- und menschenorientierte Führungskultur aktiv mitzugestalten\n\n• Begeisterungsfähigkeit, Verantwortungsbewusstsein und Freude an der Arbeit mit Menschen\n\n• Kommunikationsstärke, Integrität und die Fähigkeit, ein respektvolles und unterstützendes Miteinander zu fördern\n\n• Hohe Dienstleistungsorientierung und Anspruch an eine bestmögliche Patientenversorgung\n\nWir bieten:\nDich erwartet eine vielseitige Abteilung mit klarem infektiologischem Schwerpunkt und einem breiten internistisch-angiologischen Patientenspektrum. Das Umfeld ist fachlich spannend, abwechslungsreich und bietet Entwicklungsmöglichkeiten für Mitarbeitende auf unterschiedlichen Erfahrungsstufen.\n\nAls Abteilungsleitung übernimmst du Verantwortung für ein motiviertes Team und gestaltest die Weiterentwicklung der Abteilung aktiv mit. Dabei legen wir grossen Wert auf offene Kommunikation, eine wertschätzende Führungskultur, starken Teamzusammenhalt und eine Dienstplanung, die die Bedürfnisse der Mitarbeitenden berücksichtigt."
+        "it": "Un vario compito di leadership vi aspetta: guidi un reparto di 18 letti con un focus su infettiologia e una vasta gamma di pazienti interni e angiologici. Assieme al vostro team, siete in grado di fornire cure di alta qualità e paziente. I nostri oltre 8.600 dipendenti e circa 700 tirocinanti lavorano ogni giorno per il benessere dei nostri pazienti.\n\nCompiti:\n• Assicurare la qualità della cura: Insieme al team di governance condiviso, si crea un quadro per la cura di alta qualità, olistica e orientata al paziente.\n\n• Sviluppare il team: Lei guida un team dedicato di circa 30 dipendenti secondo i principi di gestione moderni e li sostiene nel loro sviluppo professionale, personale e sociale.\n\n• Risorse di controllo: pianificare e coordinare risorse umane, materiali e infrastrutturali per una cura sicura ed efficiente del paziente.\n\n• Processi di progettazione: Si sviluppano processi di lavoro e strutture organizzative nel senso di una cura contemporanea e il concetto di cura di riferimento.\n\n• Cooperazione interdisciplinare: Lei lavora a stretto contatto con il servizio medico, le terapie, l'industria alberghiera e altre interfacce.\n\nRequisiti\n• Dipl. Specialista infermieristico HF o FH con formazione completa nella gestione o interessato a un MAS con un focus sulla leadership\n\n• Diversi anni di esperienza di leadership e piacere nella formazione attiva di una cultura di leadership orientata al valore e alla gente\n\n• Entusiasmo, responsabilità e gioia nel lavorare con le persone\n\n• Resistenza alla comunicazione, integrità e capacità di favorire l'interazione rispettosa e solidale\n\n• Alto orientamento al servizio e domanda per la migliore cura possibile del paziente\n\nOffriamo:\nCi si può aspettare un reparto versatile con un focus infettivo chiaro e una vasta gamma di pazienti internisti-angiologici. L'ambiente è tecnicamente emozionante, vario e offre opportunità di sviluppo per i dipendenti a diversi livelli di esperienza.\n\nCome capo del dipartimento, si assume la responsabilità di un team motivato e forma attivamente l'ulteriore sviluppo del dipartimento. Alleghiamo grande importanza per aprire la comunicazione, una cultura di leadership apprezzata, una forte coesione del team e la pianificazione del servizio che tiene conto delle esigenze dei dipendenti.",
+        "en": "A varied leadership task awaits you: You lead an 18-bed department with a focus on infectiology and a broad range of internal and angiological patients. Together with your team, you provide high-quality and patient-centered care.<br/ >The University Hospital Zurich is one of the largest hospitals in Switzerland. Our more than 8,600 employees and around 700 trainees work every day for the well-being of our patients.\n\nTasks:\n• Ensure quality of care: Together with the shared governance team, you create a framework for high-quality, holistic and patient-oriented care.\n\n• Developing the team: You lead a dedicated team of around 30 employees according to modern management principles and support them in their professional, personal and social development.\n\n• Control resources: You plan and coordinate human, material and infrastructural resources for safe and efficient patient care.\n\n• Designing processes : You develop work processes and organizational structures in the sense of a contemporary care and the reference care concept.\n\n• Interdisciplinary cooperation: You work closely and at eye level with the medical service, therapies, hotel industry and other interfaces.\n\nRequirements\n• Dipl. Nursing specialist HF or FH with completed training in management or interested in an MAS with a focus on leadership\n\n• Several years of leadership experience and pleasure in actively shaping a value- and people-oriented leadership culture\n\n• Enthusiasm, responsibility and joy in working with people\n\n• Communication strength, integrity and the ability to foster respectful and supportive interaction\n\n• High service orientation and demand for the best possible patient care\n\nWe offer:\nYou can expect a versatile department with a clear infectiological focus and a broad range of internist-angiological patients. The environment is technically exciting, varied and offers development opportunities for employees at different levels of experience.\n\nAs head of the department, you take responsibility for a motivated team and actively shape the further development of the department. We attach great importance to open communication, an appreciative leadership culture, strong team cohesion and service planning that takes into account the needs of employees.",
+        "fr": "Une tâche de leadership variée vous attend : vous dirigez un département de 18 lits avec un accent sur l'infectiologie et un large éventail de patients internes et angiologiques. Avec votre équipe, vous offrez des soins de qualité et axés sur le patient.<br/ >L'hôpital universitaire de Zurich est l'un des plus grands hôpitaux de Suisse. Nos plus de 8 600 employés et quelque 700 stagiaires travaillent chaque jour pour le bien-être de nos patients.\n\nTâches :\n• Assurer la qualité des soins : Avec l'équipe de gouvernance partagée, vous créez un cadre pour des soins de qualité, holistiques et axés sur le patient.\n\n• Développement de l'équipe : Vous dirigez une équipe dédiée d'environ 30 employés selon des principes de gestion modernes et les accompagnez dans leur développement professionnel, personnel et social.\n\n• Ressources de contrôle : Vous planifiez et coordonnez les ressources humaines, matérielles et infrastructurelles pour des soins sécuritaires et efficaces aux patients.\n\n• Processus de conception : Vous développez des processus de travail et des structures organisationnelles dans le sens d'un soin contemporain et du concept de soins de référence.\n\n• Coopération interdisciplinaire : Vous travaillez en étroite collaboration avec le service médical, les thérapies, l'industrie hôtelière et d'autres interfaces.\n\nExigences\n• Dipl. Spécialiste des soins infirmiers HF ou FH avec une formation complète en gestion ou intéressé par un MAS avec un accent sur le leadership\n\n• Plusieurs années d'expérience en leadership et de plaisir à façonner activement une culture de leadership axée sur la valeur et les gens\n\n• L'enthousiasme, la responsabilité et la joie de travailler avec les gens\n\n• La force de communication, l'intégrité et la capacité de favoriser une interaction respectueuse et solidaire\n\n• Orientation et demande élevées de soins aux patients\n\nNous offrons:\nVous pouvez vous attendre à un département polyvalent avec une orientation infectiologique claire et un large éventail de patients internistes-angiologiques. L'environnement est techniquement passionnant, varié et offre des possibilités de perfectionnement aux employés à différents niveaux d'expérience.\n\nEn tant que chef du département, vous assumez la responsabilité d'une équipe motivée et façonnez activement le développement du département. Nous attachons une grande importance à la communication ouverte, à une culture de leadership reconnaissante, à une solide cohésion d'équipe et à une planification des services qui tiennent compte des besoins des employés."
       },
       "location": "Campus",
       "canton": "ZH",
@@ -17165,8 +17160,6 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50664",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-11T13:54:06.648Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -17179,7 +17172,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-11T13:54:06.648Z"
     },
     {
       "id": "usz-7194672034ca",
@@ -17195,17 +17189,17 @@
       "companyDomain": "usz.ch",
       "title": "Abteilungskoordinator:in für die Bettenstation Neurologie 80-100%",
       "titleByLocale": {
-        "it": "Abteilungskoordinator:in per la Bettenstation Neurologie 80-100%",
-        "en": "Abteilungskoordinator:in für die Bettenstation Neurologie 80-100%",
         "de": "Abteilungskoordinator:in für die Bettenstation Neurologie 80-100%",
-        "fr": "Abteilungskoordinator:in für die Bettenstation Neurologie 80-100%"
+        "it": "Coordinatore del Dipartimento per la Stazione del Letto Neurologia 80-100 %",
+        "en": "Department Coordinator for the Bed Station Neurology 80-100 %",
+        "fr": "Coordonnateur de département pour la neurologie de Bed Station 80-100 %"
       },
       "description": "Du behältst den Überblick, wenn es rund läuft und erst recht, wenn es herausfordernd wird? Kommunikation ist deine Stärke und du möchtest aktiv dazu beitragen, den Pflegealltag spürbar zu entlasten? Dann bist du bei uns genau richtig.<br/>Zur Verstärkung unseres Teams auf der Neurologie suchen wir eine engagierte, verantwortungsbewusste Persönlichkeit für die Abteilungskoordination.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du bist die zentrale Drehscheibe unserer Abteilung und sorgst für einen reibungslosen Ablauf im Alltag.\n\n• Du koordinierst Abläufe, planst vorausschauend und behältst auch in einem dynamischen Umfeld den Überblick.\n\n• Du kommunizierst professionell mit Patient:innen, Angehörigen sowie internen und externen Ansprechpersonen.\n\n• Auch in anspruchsvollen Situationen bleibst du ruhig, setzt Prioritäten und findest pragmatische Lösungen.\n\n• Du empfängst unsere Patient:innen herzlich und sorgst für ein angenehmes Ankommen sowie eine wertschätzende Verabschiedung.\n\n• Du unterstützt dein Team bei Bedarf durch die Übernahme pflegerischer Aufgaben und förderst damit eine gute Zusammenarbeit.\n\nAnforderungen:\n• Du hast eine abgeschlossene Ausbildung als Medizinische Praxisassistent:in, Fachperson Gesundheit oder Pharmaassistent:in.\n\n• Du organisierst gerne, arbeitest strukturiert und behältst auch bei mehreren Aufgaben gleichzeitig den Überblick.\n\n• Du kommunizierst offen, freundlich und professionell.\n\n• Du verfügst über sehr gute Deutschkenntnisse in Wort und Schrift.\n\n• Der Umgang mit digitalen Arbeitsmitteln und administrativen Systemen ist für dich selbstverständlich.\n\n• Du arbeitest gerne im Team, übernimmst Verantwortung und bringst deine Ideen aktiv ein.\n\nWir bieten:\nBei uns erwartet dich eine vielseitige Aufgabe in einem anspruchsvollen universitären Umfeld. Gemeinsam engagieren wir uns täglich für eine hochwertige Patientenversorgung und eine gute interprofessionelle Zusammenarbeit.\nDu wirst Teil eines motivierten Teams, das sich gegenseitig unterstützt und aufeinander zählt. Zudem bieten wir dir ein breites Lern- und Entwicklungsumfeld mit vielfältigen Möglichkeiten, dich fachlich und persönlich weiterzuentwickeln und deine Ideen einzubringen.\nMöchtest du in einem spannenden spitzenmedizinischen Umfeld mitarbeiten, Verantwortung übernehmen und etwas bewegen? Dann freuen wir uns auf deine Bewerbung.",
       "descriptionByLocale": {
-        "it": "Du behältst den Überblick, wenn es rund läuft und erst recht, wenn es herausfordernd wird? Kommunikation ist deine Stärke und du möchtest aktiv dazu beitragen, den Pflegealltag spürbar zu entlasten? Dann bist du bei uns genau richtig.<br/>Zur Verstärkung unseres Teams auf der Neurologie suchen wir eine engagierte, verantwortungsbewusste Persönlichkeit für die Abteilungskoordination.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du bist die zentrale Drehscheibe unserer Abteilung und sorgst für einen reibungslosen Ablauf im Alltag.\n\n• Du koordinierst Abläufe, planst vorausschauend und behältst auch in einem dynamischen Umfeld den Überblick.\n\n• Du kommunizierst professionell mit Patient:innen, Angehörigen sowie internen und externen Ansprechpersonen.\n\n• Auch in anspruchsvollen Situationen bleibst du ruhig, setzt Prioritäten und findest pragmatische Lösungen.\n\n• Du empfängst unsere Patient:innen herzlich und sorgst für ein angenehmes Ankommen sowie eine wertschätzende Verabschiedung.\n\n• Du unterstützt dein Team bei Bedarf durch die Übernahme pflegerischer Aufgaben und förderst damit eine gute Zusammenarbeit.\n\nAnforderungen:\n• Du hast eine abgeschlossene Ausbildung als Medizinische Praxisassistent:in, Fachperson Gesundheit oder Pharmaassistent:in.\n\n• Du organisierst gerne, arbeitest strukturiert und behältst auch bei mehreren Aufgaben gleichzeitig den Überblick.\n\n• Du kommunizierst offen, freundlich und professionell.\n\n• Du verfügst über sehr gute Deutschkenntnisse in Wort und Schrift.\n\n• Der Umgang mit digitalen Arbeitsmitteln und administrativen Systemen ist für dich selbstverständlich.\n\n• Du arbeitest gerne im Team, übernimmst Verantwortung und bringst deine Ideen aktiv ein.\n\nWir bieten:\nBei uns erwartet dich eine vielseitige Aufgabe in einem anspruchsvollen universitären Umfeld. Gemeinsam engagieren wir uns täglich für eine hochwertige Patientenversorgung und eine gute interprofessionelle Zusammenarbeit.\nDu wirst Teil eines motivierten Teams, das sich gegenseitig unterstützt und aufeinander zählt. Zudem bieten wir dir ein breites Lern- und Entwicklungsumfeld mit vielfältigen Möglichkeiten, dich fachlich und persönlich weiterzuentwickeln und deine Ideen einzubringen.\nMöchtest du in einem spannenden spitzenmedizinischen Umfeld mitarbeiten, Verantwortung übernehmen und etwas bewegen? Dann freuen wir uns auf deine Bewerbung.",
-        "en": "Du behältst den Überblick, wenn es rund läuft und erst recht, wenn es herausfordernd wird? Kommunikation ist deine Stärke und du möchtest aktiv dazu beitragen, den Pflegealltag spürbar zu entlasten? Dann bist du bei uns genau richtig.<br/>Zur Verstärkung unseres Teams auf der Neurologie suchen wir eine engagierte, verantwortungsbewusste Persönlichkeit für die Abteilungskoordination.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du bist die zentrale Drehscheibe unserer Abteilung und sorgst für einen reibungslosen Ablauf im Alltag.\n\n• Du koordinierst Abläufe, planst vorausschauend und behältst auch in einem dynamischen Umfeld den Überblick.\n\n• Du kommunizierst professionell mit Patient:innen, Angehörigen sowie internen und externen Ansprechpersonen.\n\n• Auch in anspruchsvollen Situationen bleibst du ruhig, setzt Prioritäten und findest pragmatische Lösungen.\n\n• Du empfängst unsere Patient:innen herzlich und sorgst für ein angenehmes Ankommen sowie eine wertschätzende Verabschiedung.\n\n• Du unterstützt dein Team bei Bedarf durch die Übernahme pflegerischer Aufgaben und förderst damit eine gute Zusammenarbeit.\n\nAnforderungen:\n• Du hast eine abgeschlossene Ausbildung als Medizinische Praxisassistent:in, Fachperson Gesundheit oder Pharmaassistent:in.\n\n• Du organisierst gerne, arbeitest strukturiert und behältst auch bei mehreren Aufgaben gleichzeitig den Überblick.\n\n• Du kommunizierst offen, freundlich und professionell.\n\n• Du verfügst über sehr gute Deutschkenntnisse in Wort und Schrift.\n\n• Der Umgang mit digitalen Arbeitsmitteln und administrativen Systemen ist für dich selbstverständlich.\n\n• Du arbeitest gerne im Team, übernimmst Verantwortung und bringst deine Ideen aktiv ein.\n\nWir bieten:\nBei uns erwartet dich eine vielseitige Aufgabe in einem anspruchsvollen universitären Umfeld. Gemeinsam engagieren wir uns täglich für eine hochwertige Patientenversorgung und eine gute interprofessionelle Zusammenarbeit.\nDu wirst Teil eines motivierten Teams, das sich gegenseitig unterstützt und aufeinander zählt. Zudem bieten wir dir ein breites Lern- und Entwicklungsumfeld mit vielfältigen Möglichkeiten, dich fachlich und persönlich weiterzuentwickeln und deine Ideen einzubringen.\nMöchtest du in einem spannenden spitzenmedizinischen Umfeld mitarbeiten, Verantwortung übernehmen und etwas bewegen? Dann freuen wir uns auf deine Bewerbung.",
         "de": "Du behältst den Überblick, wenn es rund läuft und erst recht, wenn es herausfordernd wird? Kommunikation ist deine Stärke und du möchtest aktiv dazu beitragen, den Pflegealltag spürbar zu entlasten? Dann bist du bei uns genau richtig.<br/>Zur Verstärkung unseres Teams auf der Neurologie suchen wir eine engagierte, verantwortungsbewusste Persönlichkeit für die Abteilungskoordination.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du bist die zentrale Drehscheibe unserer Abteilung und sorgst für einen reibungslosen Ablauf im Alltag.\n\n• Du koordinierst Abläufe, planst vorausschauend und behältst auch in einem dynamischen Umfeld den Überblick.\n\n• Du kommunizierst professionell mit Patient:innen, Angehörigen sowie internen und externen Ansprechpersonen.\n\n• Auch in anspruchsvollen Situationen bleibst du ruhig, setzt Prioritäten und findest pragmatische Lösungen.\n\n• Du empfängst unsere Patient:innen herzlich und sorgst für ein angenehmes Ankommen sowie eine wertschätzende Verabschiedung.\n\n• Du unterstützt dein Team bei Bedarf durch die Übernahme pflegerischer Aufgaben und förderst damit eine gute Zusammenarbeit.\n\nAnforderungen:\n• Du hast eine abgeschlossene Ausbildung als Medizinische Praxisassistent:in, Fachperson Gesundheit oder Pharmaassistent:in.\n\n• Du organisierst gerne, arbeitest strukturiert und behältst auch bei mehreren Aufgaben gleichzeitig den Überblick.\n\n• Du kommunizierst offen, freundlich und professionell.\n\n• Du verfügst über sehr gute Deutschkenntnisse in Wort und Schrift.\n\n• Der Umgang mit digitalen Arbeitsmitteln und administrativen Systemen ist für dich selbstverständlich.\n\n• Du arbeitest gerne im Team, übernimmst Verantwortung und bringst deine Ideen aktiv ein.\n\nWir bieten:\nBei uns erwartet dich eine vielseitige Aufgabe in einem anspruchsvollen universitären Umfeld. Gemeinsam engagieren wir uns täglich für eine hochwertige Patientenversorgung und eine gute interprofessionelle Zusammenarbeit.\nDu wirst Teil eines motivierten Teams, das sich gegenseitig unterstützt und aufeinander zählt. Zudem bieten wir dir ein breites Lern- und Entwicklungsumfeld mit vielfältigen Möglichkeiten, dich fachlich und persönlich weiterzuentwickeln und deine Ideen einzubringen.\nMöchtest du in einem spannenden spitzenmedizinischen Umfeld mitarbeiten, Verantwortung übernehmen und etwas bewegen? Dann freuen wir uns auf deine Bewerbung.",
-        "fr": "Du behältst den Überblick, wenn es rund läuft und erst recht, wenn es herausfordernd wird? Kommunikation ist deine Stärke und du möchtest aktiv dazu beitragen, den Pflegealltag spürbar zu entlasten? Dann bist du bei uns genau richtig.<br/>Zur Verstärkung unseres Teams auf der Neurologie suchen wir eine engagierte, verantwortungsbewusste Persönlichkeit für die Abteilungskoordination.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du bist die zentrale Drehscheibe unserer Abteilung und sorgst für einen reibungslosen Ablauf im Alltag.\n\n• Du koordinierst Abläufe, planst vorausschauend und behältst auch in einem dynamischen Umfeld den Überblick.\n\n• Du kommunizierst professionell mit Patient:innen, Angehörigen sowie internen und externen Ansprechpersonen.\n\n• Auch in anspruchsvollen Situationen bleibst du ruhig, setzt Prioritäten und findest pragmatische Lösungen.\n\n• Du empfängst unsere Patient:innen herzlich und sorgst für ein angenehmes Ankommen sowie eine wertschätzende Verabschiedung.\n\n• Du unterstützt dein Team bei Bedarf durch die Übernahme pflegerischer Aufgaben und förderst damit eine gute Zusammenarbeit.\n\nAnforderungen:\n• Du hast eine abgeschlossene Ausbildung als Medizinische Praxisassistent:in, Fachperson Gesundheit oder Pharmaassistent:in.\n\n• Du organisierst gerne, arbeitest strukturiert und behältst auch bei mehreren Aufgaben gleichzeitig den Überblick.\n\n• Du kommunizierst offen, freundlich und professionell.\n\n• Du verfügst über sehr gute Deutschkenntnisse in Wort und Schrift.\n\n• Der Umgang mit digitalen Arbeitsmitteln und administrativen Systemen ist für dich selbstverständlich.\n\n• Du arbeitest gerne im Team, übernimmst Verantwortung und bringst deine Ideen aktiv ein.\n\nWir bieten:\nBei uns erwartet dich eine vielseitige Aufgabe in einem anspruchsvollen universitären Umfeld. Gemeinsam engagieren wir uns täglich für eine hochwertige Patientenversorgung und eine gute interprofessionelle Zusammenarbeit.\nDu wirst Teil eines motivierten Teams, das sich gegenseitig unterstützt und aufeinander zählt. Zudem bieten wir dir ein breites Lern- und Entwicklungsumfeld mit vielfältigen Möglichkeiten, dich fachlich und persönlich weiterzuentwickeln und deine Ideen einzubringen.\nMöchtest du in einem spannenden spitzenmedizinischen Umfeld mitarbeiten, Verantwortung übernehmen und etwas bewegen? Dann freuen wir uns auf deine Bewerbung."
+        "it": "Si tiene traccia quando funziona senza problemi e soprattutto quando diventa impegnativo? La comunicazione è la vostra forza e volete contribuire attivamente a alleviare il peso della cura quotidiana? Per rafforzare il nostro team in neurologia, stiamo cercando una personalità impegnata e responsabile del coordinamento dipartimentale. I nostri oltre 8.600 dipendenti e circa 700 tirocinanti lavorano ogni giorno per il benessere dei nostri pazienti.\n\nCompiti:\n• Siete il centro centrale del nostro dipartimento e assicuratevi una routine quotidiana regolare.\n\n• Coordinate i processi, pianificate e tenete una panoramica anche in un ambiente dinamico.\n\n• Si comunica professionalmente con il paziente: i parenti e i contatti interni ed esterni.\n\n• Anche in situazioni difficili, rimani calmo, impostare le priorità e trovare soluzioni pragmatiche.\n\n• Ricevete calorosamente i nostri pazienti e assicurate un piacevole arrivo e un addio apprezzativo.\n\n• Sostiene il vostro team, se necessario, assumendo i compiti di allattamento e quindi promuovere una buona cooperazione.\n\nRequisiti\n• Hai completato la formazione come assistente di pratica medica:in, specialista sanitario o assistente farmaceutico:in.\n\n• Ti piace organizzare, lavorare in modo strutturato e tenere traccia di diversi compiti allo stesso tempo.\n\n• Si comunica apertamente, amichevole e professionalmente.\n\n• Hai una buona conoscenza del tedesco in parola e nella scrittura.\n\n• La gestione di apparecchiature di lavoro digitali e sistemi amministrativi è una questione naturalmente per voi.\n\n• Ti piace lavorare in un team, assumerti la responsabilità e contribuire attivamente alle tue idee.\n\nOffriamo:\nCon noi, ci si può aspettare un compito versatile in un ambiente universitario impegnativo. Insieme ci impegniamo ogni giorno ad una cura del paziente di alta qualità e ad una buona cooperazione interprofessionale.\nSi diventa parte di un team motivato che si sostiene l'un l'altro e conta l'altro. Inoltre, vi offriamo un ampio ambiente di apprendimento e sviluppo con numerose opportunità per svilupparsi professionalmente e personalmente e per contribuire alle vostre idee.\nVuoi lavorare in un ambiente medico emozionante, assumerti la responsabilità e fare la differenza? Attendiamo con ansia la vostra applicazione.",
+        "en": "You keep track when it runs smoothly and especially when it becomes challenging? Communication is your strength and you want to actively contribute to relieving the burden of everyday care? Then you are exactly right with us.<br/ >To strengthen our team in neurology, we are looking for a committed, responsible personality for departmental coordination.<br/ >The University Hospital Zurich is one of the largest hospitals in Switzerland. Our more than 8,600 employees and around 700 trainees work every day for the well-being of our patients.\n\nTasks:\n• You are the central hub of our department and ensure a smooth daily routine.\n\n• You coordinate processes, plan ahead and keep an overview even in a dynamic environment.\n\n• You communicate professionally with the patient: your relatives and internal and external contacts.\n\n• Even in challenging situations, you remain calm, set priorities and find pragmatic solutions.\n\n• You receive our patients warmly and ensure a pleasant arrival and an appreciative farewell.\n\n• You support your team if necessary by taking on nursing tasks and thus promote good cooperation.\n\nRequirements\n• You have completed training as a medical practice assistant:in, health specialist or pharmaceutical assistant:in.\n\n• You like to organize, work in a structured way and keep track of several tasks at the same time.\n\n• You communicate openly, friendly and professionally.\n\n• You have very good knowledge of German in word and writing.\n\n• The handling of digital work equipment and administrative systems is a matter of course for you.\n\n• You like to work in a team, take responsibility and actively contribute your ideas.\n\nWe offer:\nWith us, you can expect a versatile task in a challenging university environment. Together we are committed every day to high-quality patient care and good interprofessional cooperation.\nYou become part of a motivated team that supports each other and counts on each other. In addition, we offer you a broad learning and development environment with numerous opportunities to develop yourself professionally and personally and to contribute your ideas.\nDo you want to work in an exciting medical environment, take responsibility and make a difference? We look forward to your application.",
+        "fr": "Vous gardez la trace quand il fonctionne en douceur et surtout quand il devient difficile? La communication est votre force et vous voulez contribuer activement à alléger le fardeau des soins quotidiens? Alors vous avez exactement raison avec nous.<br/ >Pour renforcer notre équipe en neurologie, nous recherchons une personnalité engagée et responsable pour la coordination départementale.<br/ >L'hôpital universitaire de Zurich est l'un des plus grands hôpitaux de Suisse. Nos plus de 8 600 employés et quelque 700 stagiaires travaillent chaque jour pour le bien-être de nos patients.\n\nTâches :\n• Vous êtes le centre central de notre département et vous assurez une routine quotidienne fluide.\n\n• Vous coordonnez les processus, planifiez-les et gardez un aperçu même dans un environnement dynamique.\n\n• Vous communiquez professionnellement avec le patient : vos proches et vos contacts internes et externes.\n\n• Même dans des situations difficiles, vous restez calme, fixez des priorités et trouvez des solutions pragmatiques.\n\n• Vous recevez nos patients chaleureusement et assurez une arrivée agréable et un adieu reconnaissant.\n\n• Vous soutenez votre équipe si nécessaire en assumant des tâches de soins infirmiers et en favorisant ainsi une bonne coopération.\n\nExigences\n• Vous avez suivi une formation d'assistant à la pratique médicale:in, spécialiste de la santé ou assistant pharmaceutique:in.\n\n• Vous aimez organiser, travailler de manière structurée et suivre plusieurs tâches en même temps.\n\n• Vous communiquez ouvertement, amicalement et professionnellement.\n\n• Vous avez une très bonne connaissance de l'allemand en paroles et en écriture.\n\n• La manipulation des équipements de travail numériques et des systèmes administratifs est bien sûr une question pour vous.\n\n• Vous aimez travailler en équipe, prendre des responsabilités et contribuer activement à vos idées.\n\nNous offrons:\nAvec nous, vous pouvez vous attendre à une tâche polyvalente dans un environnement universitaire difficile. Ensemble, nous nous engageons tous les jours à fournir des soins de qualité aux patients et une bonne coopération interprofessionnelle.\nVous devenez membre d'une équipe motivée qui se soutient mutuellement et compte l'un sur l'autre. En outre, nous vous offrons un vaste environnement d'apprentissage et de développement avec de nombreuses occasions de vous développer professionnellement et personnellement et de contribuer à vos idées.\nVoulez-vous travailler dans un environnement médical passionnant, prendre des responsabilités et faire une différence? Nous attendons avec impatience votre candidature."
       },
       "location": "Campus",
       "canton": "ZH",
@@ -17229,18 +17223,16 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50926",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "abteilungskoordinator-in-fur-die-bettenstation-neurologie-80-100-usz-ch",
-        "abteilungskoordinator-in-per-la-bettenstation-neurologie-80-100-universitatsspital-zurich-usz-campus"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungskoordinator-in-fur-die-bettenstation-neurologie-80-100-usz-ch",
           "abteilungskoordinator-in-per-la-bettenstation-neurologie-80-100-universitatsspital-zurich-usz-campus"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-11T13:54:06.646Z",
+      "previousSlugs": [
+        "abteilungskoordinator-in-fur-die-bettenstation-neurologie-80-100-usz-ch",
+        "abteilungskoordinator-in-per-la-bettenstation-neurologie-80-100-universitatsspital-zurich-usz-campus"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -17253,7 +17245,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-11T13:54:06.646Z"
     },
     {
       "id": "usz-72d5592bf300",
@@ -17269,17 +17262,17 @@
       "companyDomain": "usz.ch",
       "title": "Direktionssekretär:in für die Klinik für Kardiologie 80-100%",
       "titleByLocale": {
-        "it": "Direktionssekretär:in per la Klinik per Kardiologie 80-100%",
-        "en": "Direktionssekretär:in für die Klinik für Kardiologie 80-100%",
         "de": "Direktionssekretär:in für die Klinik für Kardiologie 80-100%",
-        "fr": "Direktionssekretär:in für die Klinik für Kardiologie 80-100%"
+        "it": "Direzione Segretario della Clinica di Cardiologia 80-100 %",
+        "en": "Directorate Secretary for the Clinic of Cardiology 80-100 %",
+        "fr": "Secrétaire de la Direction de la Clinique de cardiologie 80-100 %"
       },
       "description": "Die Klinik für Kardiologie zeichnet sich durch ein breites ambulantes und stationäres Leistungsspektrum aus, in dem die interdisziplinäre Zusammenarbeit auf Augenhöhe gelebt wird.<br/>Wir bieten dir eine vielseitige Aufgabe in einer fortschrittlichen Arbeitsumgebung, die von hoher Qualität, Selbständigkeit, Flexibilität und Verantwortungsbewusstsein geprägt ist. Dabei hast du die Möglichkeit, in einem dynamischen Umfeld deine Arbeitsabläufe zielorientiert und eigenständig zu gestalten. Ein motiviertes und engagiertes Team unterstützt dich in deiner Funktion und bei deinen Aufgaben tatkräftig.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du unterstützt die Klinikdirektion proaktiv im Tagesgeschäft sowie in sämtlichen administrativen und organisatorischen Belangen\n\n• Du bist die erste Anlaufstelle für interne und externe Anspruchsgruppen und repräsentierst die Klinik professionell und dienstleistungsorientiert\n\n• Du bist die Visitenkarte unserer Klinik und verantwortest die administrative Betreuung unserer Patientinnen und Patienten\n\n• Du führst vielfältige und abwechslungsreiche Sekretariats- und Administrationsaufgaben selbstständig und zuverlässig aus\n\n• Du übernimmst die Triage und Bearbeitung eingehender E-Mails, Postsendungen und Telefonanrufe und sorgst für einen effizienten Informationsfluss\n\n• Du koordinierst und organisierst Termine, Sitzungen, Anlässe und weitere Aktivitäten und bereitest die entsprechenden Unterlagen vor\n\n• Du bearbeitest die HR-relevanten Anliegen der Klinik und fungierst als wichtige Schnittstelle zum HR-Management\n\n• Du arbeitest Hand in Hand mit unserer Direktionsassistentin und übernimmst bei Abwesenheiten und Ferien deren Stellvertretung\n\nAnforderungen:\n• Du verfügst über einen EFZ-Abschluss als Kauffrau/Kaufmann oder über eine medizinische Grundausbildung mit Erfahrung in der Administration\n\n• Du strebst eine Weiterbildung als Direktionsassistent*in an, befindest dich bereits in der Weiterbildung oder hast diese erfolgreich abgeschlossen\n\n• Idealerweise bringst du bereits Erfahrung aus einem Spitalbetrieb oder einer vergleichbaren Position mit\n\n• Du bleibst auch in hektischen Situationen ruhig und behältst den Überblick\n\n• Mitdenken, proaktives Handeln und eigenständige Entscheidungen gehören für dich selbstverständlich dazu\n\n• Du überzeugst durch Organisationstalent sowie ein hohes Mass an Verantwortungsbewusstsein, Flexibilität und Belastbarkeit\n\n• Du kommunizierst und korrespondierst stilsicher auf Deutsch und verfügst zudem über gute Englischkenntnisse\n\n• Du bist versiert im Umgang mit den gängigen MS-Office-Programmen",
       "descriptionByLocale": {
-        "it": "Die Klinik für Kardiologie zeichnet sich durch ein breites ambulantes und stationäres Leistungsspektrum aus, in dem die interdisziplinäre Zusammenarbeit auf Augenhöhe gelebt wird.<br/>Wir bieten dir eine vielseitige Aufgabe in einer fortschrittlichen Arbeitsumgebung, die von hoher Qualität, Selbständigkeit, Flexibilität und Verantwortungsbewusstsein geprägt ist. Dabei hast du die Möglichkeit, in einem dynamischen Umfeld deine Arbeitsabläufe zielorientiert und eigenständig zu gestalten. Ein motiviertes und engagiertes Team unterstützt dich in deiner Funktion und bei deinen Aufgaben tatkräftig.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du unterstützt die Klinikdirektion proaktiv im Tagesgeschäft sowie in sämtlichen administrativen und organisatorischen Belangen\n\n• Du bist die erste Anlaufstelle für interne und externe Anspruchsgruppen und repräsentierst die Klinik professionell und dienstleistungsorientiert\n\n• Du bist die Visitenkarte unserer Klinik und verantwortest die administrative Betreuung unserer Patientinnen und Patienten\n\n• Du führst vielfältige und abwechslungsreiche Sekretariats- und Administrationsaufgaben selbstständig und zuverlässig aus\n\n• Du übernimmst die Triage und Bearbeitung eingehender E-Mails, Postsendungen und Telefonanrufe und sorgst für einen effizienten Informationsfluss\n\n• Du koordinierst und organisierst Termine, Sitzungen, Anlässe und weitere Aktivitäten und bereitest die entsprechenden Unterlagen vor\n\n• Du bearbeitest die HR-relevanten Anliegen der Klinik und fungierst als wichtige Schnittstelle zum HR-Management\n\n• Du arbeitest Hand in Hand mit unserer Direktionsassistentin und übernimmst bei Abwesenheiten und Ferien deren Stellvertretung\n\nAnforderungen:\n• Du verfügst über einen EFZ-Abschluss als Kauffrau/Kaufmann oder über eine medizinische Grundausbildung mit Erfahrung in der Administration\n\n• Du strebst eine Weiterbildung als Direktionsassistent*in an, befindest dich bereits in der Weiterbildung oder hast diese erfolgreich abgeschlossen\n\n• Idealerweise bringst du bereits Erfahrung aus einem Spitalbetrieb oder einer vergleichbaren Position mit\n\n• Du bleibst auch in hektischen Situationen ruhig und behältst den Überblick\n\n• Mitdenken, proaktives Handeln und eigenständige Entscheidungen gehören für dich selbstverständlich dazu\n\n• Du überzeugst durch Organisationstalent sowie ein hohes Mass an Verantwortungsbewusstsein, Flexibilität und Belastbarkeit\n\n• Du kommunizierst und korrespondierst stilsicher auf Deutsch und verfügst zudem über gute Englischkenntnisse\n\n• Du bist versiert im Umgang mit den gängigen MS-Office-Programmen",
-        "en": "Die Klinik für Kardiologie zeichnet sich durch ein breites ambulantes und stationäres Leistungsspektrum aus, in dem die interdisziplinäre Zusammenarbeit auf Augenhöhe gelebt wird.<br/>Wir bieten dir eine vielseitige Aufgabe in einer fortschrittlichen Arbeitsumgebung, die von hoher Qualität, Selbständigkeit, Flexibilität und Verantwortungsbewusstsein geprägt ist. Dabei hast du die Möglichkeit, in einem dynamischen Umfeld deine Arbeitsabläufe zielorientiert und eigenständig zu gestalten. Ein motiviertes und engagiertes Team unterstützt dich in deiner Funktion und bei deinen Aufgaben tatkräftig.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du unterstützt die Klinikdirektion proaktiv im Tagesgeschäft sowie in sämtlichen administrativen und organisatorischen Belangen\n\n• Du bist die erste Anlaufstelle für interne und externe Anspruchsgruppen und repräsentierst die Klinik professionell und dienstleistungsorientiert\n\n• Du bist die Visitenkarte unserer Klinik und verantwortest die administrative Betreuung unserer Patientinnen und Patienten\n\n• Du führst vielfältige und abwechslungsreiche Sekretariats- und Administrationsaufgaben selbstständig und zuverlässig aus\n\n• Du übernimmst die Triage und Bearbeitung eingehender E-Mails, Postsendungen und Telefonanrufe und sorgst für einen effizienten Informationsfluss\n\n• Du koordinierst und organisierst Termine, Sitzungen, Anlässe und weitere Aktivitäten und bereitest die entsprechenden Unterlagen vor\n\n• Du bearbeitest die HR-relevanten Anliegen der Klinik und fungierst als wichtige Schnittstelle zum HR-Management\n\n• Du arbeitest Hand in Hand mit unserer Direktionsassistentin und übernimmst bei Abwesenheiten und Ferien deren Stellvertretung\n\nAnforderungen:\n• Du verfügst über einen EFZ-Abschluss als Kauffrau/Kaufmann oder über eine medizinische Grundausbildung mit Erfahrung in der Administration\n\n• Du strebst eine Weiterbildung als Direktionsassistent*in an, befindest dich bereits in der Weiterbildung oder hast diese erfolgreich abgeschlossen\n\n• Idealerweise bringst du bereits Erfahrung aus einem Spitalbetrieb oder einer vergleichbaren Position mit\n\n• Du bleibst auch in hektischen Situationen ruhig und behältst den Überblick\n\n• Mitdenken, proaktives Handeln und eigenständige Entscheidungen gehören für dich selbstverständlich dazu\n\n• Du überzeugst durch Organisationstalent sowie ein hohes Mass an Verantwortungsbewusstsein, Flexibilität und Belastbarkeit\n\n• Du kommunizierst und korrespondierst stilsicher auf Deutsch und verfügst zudem über gute Englischkenntnisse\n\n• Du bist versiert im Umgang mit den gängigen MS-Office-Programmen",
         "de": "Die Klinik für Kardiologie zeichnet sich durch ein breites ambulantes und stationäres Leistungsspektrum aus, in dem die interdisziplinäre Zusammenarbeit auf Augenhöhe gelebt wird.<br/>Wir bieten dir eine vielseitige Aufgabe in einer fortschrittlichen Arbeitsumgebung, die von hoher Qualität, Selbständigkeit, Flexibilität und Verantwortungsbewusstsein geprägt ist. Dabei hast du die Möglichkeit, in einem dynamischen Umfeld deine Arbeitsabläufe zielorientiert und eigenständig zu gestalten. Ein motiviertes und engagiertes Team unterstützt dich in deiner Funktion und bei deinen Aufgaben tatkräftig.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du unterstützt die Klinikdirektion proaktiv im Tagesgeschäft sowie in sämtlichen administrativen und organisatorischen Belangen\n\n• Du bist die erste Anlaufstelle für interne und externe Anspruchsgruppen und repräsentierst die Klinik professionell und dienstleistungsorientiert\n\n• Du bist die Visitenkarte unserer Klinik und verantwortest die administrative Betreuung unserer Patientinnen und Patienten\n\n• Du führst vielfältige und abwechslungsreiche Sekretariats- und Administrationsaufgaben selbstständig und zuverlässig aus\n\n• Du übernimmst die Triage und Bearbeitung eingehender E-Mails, Postsendungen und Telefonanrufe und sorgst für einen effizienten Informationsfluss\n\n• Du koordinierst und organisierst Termine, Sitzungen, Anlässe und weitere Aktivitäten und bereitest die entsprechenden Unterlagen vor\n\n• Du bearbeitest die HR-relevanten Anliegen der Klinik und fungierst als wichtige Schnittstelle zum HR-Management\n\n• Du arbeitest Hand in Hand mit unserer Direktionsassistentin und übernimmst bei Abwesenheiten und Ferien deren Stellvertretung\n\nAnforderungen:\n• Du verfügst über einen EFZ-Abschluss als Kauffrau/Kaufmann oder über eine medizinische Grundausbildung mit Erfahrung in der Administration\n\n• Du strebst eine Weiterbildung als Direktionsassistent*in an, befindest dich bereits in der Weiterbildung oder hast diese erfolgreich abgeschlossen\n\n• Idealerweise bringst du bereits Erfahrung aus einem Spitalbetrieb oder einer vergleichbaren Position mit\n\n• Du bleibst auch in hektischen Situationen ruhig und behältst den Überblick\n\n• Mitdenken, proaktives Handeln und eigenständige Entscheidungen gehören für dich selbstverständlich dazu\n\n• Du überzeugst durch Organisationstalent sowie ein hohes Mass an Verantwortungsbewusstsein, Flexibilität und Belastbarkeit\n\n• Du kommunizierst und korrespondierst stilsicher auf Deutsch und verfügst zudem über gute Englischkenntnisse\n\n• Du bist versiert im Umgang mit den gängigen MS-Office-Programmen",
-        "fr": "Die Klinik für Kardiologie zeichnet sich durch ein breites ambulantes und stationäres Leistungsspektrum aus, in dem die interdisziplinäre Zusammenarbeit auf Augenhöhe gelebt wird.<br/>Wir bieten dir eine vielseitige Aufgabe in einer fortschrittlichen Arbeitsumgebung, die von hoher Qualität, Selbständigkeit, Flexibilität und Verantwortungsbewusstsein geprägt ist. Dabei hast du die Möglichkeit, in einem dynamischen Umfeld deine Arbeitsabläufe zielorientiert und eigenständig zu gestalten. Ein motiviertes und engagiertes Team unterstützt dich in deiner Funktion und bei deinen Aufgaben tatkräftig.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du unterstützt die Klinikdirektion proaktiv im Tagesgeschäft sowie in sämtlichen administrativen und organisatorischen Belangen\n\n• Du bist die erste Anlaufstelle für interne und externe Anspruchsgruppen und repräsentierst die Klinik professionell und dienstleistungsorientiert\n\n• Du bist die Visitenkarte unserer Klinik und verantwortest die administrative Betreuung unserer Patientinnen und Patienten\n\n• Du führst vielfältige und abwechslungsreiche Sekretariats- und Administrationsaufgaben selbstständig und zuverlässig aus\n\n• Du übernimmst die Triage und Bearbeitung eingehender E-Mails, Postsendungen und Telefonanrufe und sorgst für einen effizienten Informationsfluss\n\n• Du koordinierst und organisierst Termine, Sitzungen, Anlässe und weitere Aktivitäten und bereitest die entsprechenden Unterlagen vor\n\n• Du bearbeitest die HR-relevanten Anliegen der Klinik und fungierst als wichtige Schnittstelle zum HR-Management\n\n• Du arbeitest Hand in Hand mit unserer Direktionsassistentin und übernimmst bei Abwesenheiten und Ferien deren Stellvertretung\n\nAnforderungen:\n• Du verfügst über einen EFZ-Abschluss als Kauffrau/Kaufmann oder über eine medizinische Grundausbildung mit Erfahrung in der Administration\n\n• Du strebst eine Weiterbildung als Direktionsassistent*in an, befindest dich bereits in der Weiterbildung oder hast diese erfolgreich abgeschlossen\n\n• Idealerweise bringst du bereits Erfahrung aus einem Spitalbetrieb oder einer vergleichbaren Position mit\n\n• Du bleibst auch in hektischen Situationen ruhig und behältst den Überblick\n\n• Mitdenken, proaktives Handeln und eigenständige Entscheidungen gehören für dich selbstverständlich dazu\n\n• Du überzeugst durch Organisationstalent sowie ein hohes Mass an Verantwortungsbewusstsein, Flexibilität und Belastbarkeit\n\n• Du kommunizierst und korrespondierst stilsicher auf Deutsch und verfügst zudem über gute Englischkenntnisse\n\n• Du bist versiert im Umgang mit den gängigen MS-Office-Programmen"
+        "it": "La Clinica di Cardiologia è caratterizzata da una vasta gamma di servizi ambulatoriale e stazionario, in cui la cooperazione interdisciplinare è vissuta a livello degli occhi. > Vi offriamo un compito versatile in un ambiente di lavoro avanzato caratterizzato da alta qualità, indipendenza, flessibilità e un senso di responsabilità. In un ambiente dinamico, avete l'opportunità di progettare i vostri flussi di lavoro in modo orientato all'obiettivo e indipendente. Un team motivato e impegnato vi sostiene attivamente nella vostra funzione e nei vostri compiti. I nostri oltre 8.600 dipendenti e circa 700 tirocinanti lavorano ogni giorno per il benessere dei nostri pazienti.\n\nCompiti:\n• Sostieni proattivamente la direzione clinica nel business quotidiano e in tutte le questioni amministrative e organizzative\n\n• Sei il primo punto di contatto per gli stakeholder interni ed esterni e rappresenti la clinica professionalmente e orientata al servizio\n\n• Tu sei il biglietto da visita della nostra clinica e sei responsabile della cura amministrativa dei nostri pazienti\n\n• Esegui diversi e diversi compiti di segreteria e di amministrazione in modo indipendente e affidabile\n\n• Gestisci il triage e la gestione delle email in arrivo, delle mail e delle telefonate e garantisci un flusso efficiente di informazioni\n\n• Coordinate e organizzate appuntamenti, incontri, eventi e altre attività e preparate i documenti pertinenti\n\n• Si lavora sulle preoccupazioni HR-relevant della clinica e agire come un'interfaccia importante per la gestione delle risorse umane\n\n• Lavorate fianco a fianco con il nostro assistente direttore e assumete i loro deputati in caso di assenze e vacanze\n\nRequisiti\n• Hai una laurea in EFZ come donna d'affari o una formazione medica di base con esperienza nell'amministrazione\n\n• Si sta puntando per un'ulteriore istruzione come assistente di direzione, sono già in ulteriore istruzione o hanno completato con successo\n\n• Idealmente, hai già esperienza da un ospedale o posizione paragonabile\n\n• Rimani calmo anche in situazioni frenetiche e tieni la panoramica\n\n• Pensare, agire in modo proattivo e prendere decisioni indipendenti è una questione naturalmente per voi\n\n• Convinci con talento organizzativo così come un alto grado di responsabilità, flessibilità e resilienza\n\n• Comunichi e corrisponda alla moda in tedesco e hai anche una buona conoscenza dell'inglese\n\n• Siete ben diversificati nel trattare con i programmi di MS Office comuni",
+        "en": "The Clinic of Cardiology is characterized by a broad range of outpatient and stationary services, in which the interdisciplinary cooperation is lived at eye level. <br/>We offer you a versatile task in an advanced working environment characterized by high quality, independence, flexibility and a sense of responsibility. In a dynamic environment, you have the opportunity to design your workflows in a goal-oriented and independent manner. A motivated and committed team supports you actively in your function and in your tasks.<br/ >The University Hospital Zurich is one of the largest hospitals in Switzerland. Our more than 8,600 employees and around 700 trainees work every day for the well-being of our patients.\n\nTasks:\n• You proactively support the clinic directorate in day-to-day business as well as in all administrative and organizational matters\n\n• You are the first point of contact for internal and external stakeholders and represent the clinic professionally and service-oriented\n\n• You are the business card of our clinic and are responsible for the administrative care of our patients\n\n• You perform diverse and varied secretarial and administrative tasks independently and reliably\n\n• You handle the triage and handling of incoming emails, mail and phone calls and ensure an efficient flow of information\n\n• You coordinate and organize appointments, meetings, events and other activities and prepare the relevant documents\n\n• You work on the HR-relevant concerns of the clinic and act as an important interface to HR management\n\n• You work hand in hand with our assistant director and take over their deputies in case of absences and holidays\n\nRequirements\n• You have an EFZ degree as a businesswoman or a basic medical education with experience in administration\n\n• You are aiming for further education as a directorate assistant, are already in further education or have successfully completed it\n\n• Ideally, you already have experience from a hospital or comparable position\n\n• You stay calm even in hectic situations and keep the overview\n\n• Thinking, acting proactively and making independent decisions are a matter of course for you\n\n• You convince with organizational talent as well as a high degree of responsibility, flexibility and resilience\n\n• You communicate and correspond stylishly in German and also have good knowledge of English\n\n• You are well-versed in dealing with the common MS Office programs",
+        "fr": "La Clinique de cardiologie est caractérisée par un large éventail de services ambulatoires et fixes, dans lesquels la coopération interdisciplinaire est vécue au niveau des yeux. <br/> Nous vous offrons une tâche polyvalente dans un environnement de travail avancé caractérisé par une haute qualité, indépendance, flexibilité et un sens des responsabilités. Dans un environnement dynamique, vous avez l'occasion de concevoir vos workflows de manière orientée vers l'objectif et indépendante. Une équipe motivée et engagée vous accompagne activement dans vos fonctions et dans vos tâches.<br/ >L'hôpital universitaire de Zurich est l'un des plus grands hôpitaux de Suisse. Nos plus de 8 600 employés et quelque 700 stagiaires travaillent chaque jour pour le bien-être de nos patients.\n\nTâches :\n• Vous soutenez proactivement la direction des cliniques dans les affaires courantes ainsi que dans toutes les questions administratives et organisationnelles\n\n• Vous êtes le premier point de contact pour les intervenants internes et externes et représentez la clinique professionnellement et axée sur le service\n\n• Vous êtes la carte de visite de notre clinique et êtes responsable des soins administratifs de nos patients\n\n• Vous effectuez des tâches de secrétariat et d'administration variées de façon indépendante et fiable\n\n• Vous gérez le triage et le traitement des courriels, des courriels et des appels téléphoniques entrants et vous assurez un flux d'information efficace\n\n• Vous coordonnez et organisez les rendez-vous, réunions, événements et autres activités et préparez les documents pertinents\n\n• Vous travaillez sur les préoccupations liées aux RH de la clinique et agissez comme une interface importante avec la gestion des RH\n\n• Vous travaillez main dans la main avec notre directeur adjoint et prenez leurs adjoints en cas d'absences et de vacances\n\nExigences\n• Vous avez un diplôme EFZ en tant que femme d'affaires ou une formation médicale de base avec une expérience en administration\n\n• Vous visez la formation continue en tant qu'assistant de direction, vous êtes déjà en formation continue ou avez réussi\n\n• Idéalement, vous avez déjà de l'expérience d'un hôpital ou d'un poste comparable\n\n• Vous restez calme même dans des situations agitées et gardez l'aperçu\n\n• Penser, agir de manière proactive et prendre des décisions indépendantes sont bien sûr une question pour vous\n\n• Vous convainquez avec le talent organisationnel ainsi qu'un haut degré de responsabilité, de flexibilité et de résilience\n\n• Vous communiquez et correspondez élégamment en allemand et avez également une bonne connaissance de l'anglais\n\n• Vous êtes bien placé pour gérer les programmes communs du MS Office"
       },
       "location": "Campus",
       "canton": "ZH",
@@ -17303,18 +17296,16 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50927",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "direktionssekretar-in-fur-die-klinik-fur-kardiologie-80-100-usz-ch",
-        "direktionssekretar-in-per-la-klinik-per-kardiologie-80-100-universitatsspital-zurich-usz-campus"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "direktionssekretar-in-fur-die-klinik-fur-kardiologie-80-100-usz-ch",
           "direktionssekretar-in-per-la-klinik-per-kardiologie-80-100-universitatsspital-zurich-usz-campus"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-11T13:54:06.643Z",
+      "previousSlugs": [
+        "direktionssekretar-in-fur-die-klinik-fur-kardiologie-80-100-usz-ch",
+        "direktionssekretar-in-per-la-klinik-per-kardiologie-80-100-universitatsspital-zurich-usz-campus"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -17327,7 +17318,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-11T13:54:06.643Z"
     },
     {
       "id": "usz-4317da7af401",
@@ -17343,17 +17335,17 @@
       "companyDomain": "usz.ch",
       "title": "Assistent:in Klinikmanagement für die Klinik für Kardiologie 60-100%",
       "titleByLocale": {
-        "it": "Assistent:in Klinikmanagement per la Klinik per Kardiologie 60-100%",
-        "en": "Assistent:in Klinikmanagement für die Klinik für Kardiologie 60-100%",
         "de": "Assistent:in Klinikmanagement für die Klinik für Kardiologie 60-100%",
-        "fr": "Assistent:in Klinikmanagement für die Klinik für Kardiologie 60-100%"
+        "it": "Assistente Gestione Clinica per la Clinica di Cardiologia 60-100 %",
+        "en": "Assistant Clinical Management for the Clinic of Cardiology 60-100 %",
+        "fr": "Assistant de gestion clinique pour la clinique de cardiologie 60-100 %"
       },
       "description": "Die Klinik für Kardiologie steht für hochspezialisierte Herzmedizin, interprofessionelle Zusammenarbeit, Forschung und Innovation. In diesem dynamischen Umfeld erhältst du die Möglichkeit, Verantwortung zu übernehmen, dich fachlich weiterzuentwickeln und die Abläufe der Klinik aktiv mitzugestalten.<br/><br/>Dich erwartet eine vielseitige Funktion mit Einblick in die Steuerung und Weiterentwicklung einer universitären Klinik. Du arbeitest an einer zentralen Schnittstelle zwischen Klinikmanagement, Ärzteschaft und weiteren internen Bereichen und kannst deine organisatorischen und betriebswirtschaftlichen Fähigkeiten aktiv einbringen.<br/><br/>Dein Arbeitsplatz befindet sich am USZ Campus im Herzen von Zürich, in unmittelbarer Nähe zur Universität Zürich und zur ETH Zürich.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du unterstützt das Klinikmanagement bei betriebswirtschaftlichen, organisatorischen und administrativen Fragestellungen und übernimmst eigenverantwortlich definierte Aufgabenbereiche\n\n• Du verantwortest die Bewirtschaftung und Überwachung des Drittgeschäfts sowie der Drittmittelprojekte der Klinik für Kardiologie am USZ und an der UZH\n\n• Du übernimmst das Personalmanagement der drittmittelfinanzierten Mitarbeitenden der Klinik für Kardiologie\n\n• Du bist für Weiterverrechnungen und Fakturierungen im Drittmittelmanagement zuständig\n\n• Du arbeitest aktiv an Projekten zur Weiterentwicklung und Optimierung von Strukturen, Prozessen und Abläufen innerhalb der Klinik mit und übernimmst eigenständig Teilprojekte\n\n• Du wirkst bei Finanz- und HR-Analysen, Auswertungen, Reportings und Controlling-Aufgaben mit und bereitest relevante Entscheidungsgrundlagen für das Klinikmanagement auf\n\n• Du unterstützt das Klinikmanagement im operativen Tagesgeschäft, insbesondere bei Ferienabwesenheiten und sonstigen Abwesenheiten\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und idealerweise über eine Weiterbildung im Bereich Betriebswirtschaft oder strebst eine solche an\n\n• Du bringst Berufserfahrung in einer Assistenzfunktion mit, vorzugsweise in einem anspruchsvollen und dynamischen Umfeld\n\n• Du arbeitest selbstständig, proaktiv und verantwortungsbewusst und überzeugst mit ausgeprägtem Organisationsgeschick. Auch bei vielfältigen Aufgaben und unterschiedlichen Anspruchsgruppen behältst du den Überblick\n\n• Diskretion, Teamorientierung und vernetztes Denken zeichnen dich ebenso aus wie eine zuverlässige und lösungsorientierte Arbeitsweise\n\n• Du verfügst über sehr gute Deutsch- und gute Englischkenntnisse sowie über sehr gute MS-Office-Kenntnisse, insbesondere in Excel und PowerPoint\n\n• Erfahrung im Gesundheitswesen ist von Vorteil",
       "descriptionByLocale": {
-        "it": "Die Klinik für Kardiologie steht für hochspezialisierte Herzmedizin, interprofessionelle Zusammenarbeit, Forschung und Innovation. In diesem dynamischen Umfeld erhältst du die Möglichkeit, Verantwortung zu übernehmen, dich fachlich weiterzuentwickeln und die Abläufe der Klinik aktiv mitzugestalten.<br/><br/>Dich erwartet eine vielseitige Funktion mit Einblick in die Steuerung und Weiterentwicklung einer universitären Klinik. Du arbeitest an einer zentralen Schnittstelle zwischen Klinikmanagement, Ärzteschaft und weiteren internen Bereichen und kannst deine organisatorischen und betriebswirtschaftlichen Fähigkeiten aktiv einbringen.<br/><br/>Dein Arbeitsplatz befindet sich am USZ Campus im Herzen von Zürich, in unmittelbarer Nähe zur Universität Zürich und zur ETH Zürich.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du unterstützt das Klinikmanagement bei betriebswirtschaftlichen, organisatorischen und administrativen Fragestellungen und übernimmst eigenverantwortlich definierte Aufgabenbereiche\n\n• Du verantwortest die Bewirtschaftung und Überwachung des Drittgeschäfts sowie der Drittmittelprojekte der Klinik für Kardiologie am USZ und an der UZH\n\n• Du übernimmst das Personalmanagement der drittmittelfinanzierten Mitarbeitenden der Klinik für Kardiologie\n\n• Du bist für Weiterverrechnungen und Fakturierungen im Drittmittelmanagement zuständig\n\n• Du arbeitest aktiv an Projekten zur Weiterentwicklung und Optimierung von Strukturen, Prozessen und Abläufen innerhalb der Klinik mit und übernimmst eigenständig Teilprojekte\n\n• Du wirkst bei Finanz- und HR-Analysen, Auswertungen, Reportings und Controlling-Aufgaben mit und bereitest relevante Entscheidungsgrundlagen für das Klinikmanagement auf\n\n• Du unterstützt das Klinikmanagement im operativen Tagesgeschäft, insbesondere bei Ferienabwesenheiten und sonstigen Abwesenheiten\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und idealerweise über eine Weiterbildung im Bereich Betriebswirtschaft oder strebst eine solche an\n\n• Du bringst Berufserfahrung in einer Assistenzfunktion mit, vorzugsweise in einem anspruchsvollen und dynamischen Umfeld\n\n• Du arbeitest selbstständig, proaktiv und verantwortungsbewusst und überzeugst mit ausgeprägtem Organisationsgeschick. Auch bei vielfältigen Aufgaben und unterschiedlichen Anspruchsgruppen behältst du den Überblick\n\n• Diskretion, Teamorientierung und vernetztes Denken zeichnen dich ebenso aus wie eine zuverlässige und lösungsorientierte Arbeitsweise\n\n• Du verfügst über sehr gute Deutsch- und gute Englischkenntnisse sowie über sehr gute MS-Office-Kenntnisse, insbesondere in Excel und PowerPoint\n\n• Erfahrung im Gesundheitswesen ist von Vorteil",
-        "en": "Die Klinik für Kardiologie steht für hochspezialisierte Herzmedizin, interprofessionelle Zusammenarbeit, Forschung und Innovation. In diesem dynamischen Umfeld erhältst du die Möglichkeit, Verantwortung zu übernehmen, dich fachlich weiterzuentwickeln und die Abläufe der Klinik aktiv mitzugestalten.<br/><br/>Dich erwartet eine vielseitige Funktion mit Einblick in die Steuerung und Weiterentwicklung einer universitären Klinik. Du arbeitest an einer zentralen Schnittstelle zwischen Klinikmanagement, Ärzteschaft und weiteren internen Bereichen und kannst deine organisatorischen und betriebswirtschaftlichen Fähigkeiten aktiv einbringen.<br/><br/>Dein Arbeitsplatz befindet sich am USZ Campus im Herzen von Zürich, in unmittelbarer Nähe zur Universität Zürich und zur ETH Zürich.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du unterstützt das Klinikmanagement bei betriebswirtschaftlichen, organisatorischen und administrativen Fragestellungen und übernimmst eigenverantwortlich definierte Aufgabenbereiche\n\n• Du verantwortest die Bewirtschaftung und Überwachung des Drittgeschäfts sowie der Drittmittelprojekte der Klinik für Kardiologie am USZ und an der UZH\n\n• Du übernimmst das Personalmanagement der drittmittelfinanzierten Mitarbeitenden der Klinik für Kardiologie\n\n• Du bist für Weiterverrechnungen und Fakturierungen im Drittmittelmanagement zuständig\n\n• Du arbeitest aktiv an Projekten zur Weiterentwicklung und Optimierung von Strukturen, Prozessen und Abläufen innerhalb der Klinik mit und übernimmst eigenständig Teilprojekte\n\n• Du wirkst bei Finanz- und HR-Analysen, Auswertungen, Reportings und Controlling-Aufgaben mit und bereitest relevante Entscheidungsgrundlagen für das Klinikmanagement auf\n\n• Du unterstützt das Klinikmanagement im operativen Tagesgeschäft, insbesondere bei Ferienabwesenheiten und sonstigen Abwesenheiten\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und idealerweise über eine Weiterbildung im Bereich Betriebswirtschaft oder strebst eine solche an\n\n• Du bringst Berufserfahrung in einer Assistenzfunktion mit, vorzugsweise in einem anspruchsvollen und dynamischen Umfeld\n\n• Du arbeitest selbstständig, proaktiv und verantwortungsbewusst und überzeugst mit ausgeprägtem Organisationsgeschick. Auch bei vielfältigen Aufgaben und unterschiedlichen Anspruchsgruppen behältst du den Überblick\n\n• Diskretion, Teamorientierung und vernetztes Denken zeichnen dich ebenso aus wie eine zuverlässige und lösungsorientierte Arbeitsweise\n\n• Du verfügst über sehr gute Deutsch- und gute Englischkenntnisse sowie über sehr gute MS-Office-Kenntnisse, insbesondere in Excel und PowerPoint\n\n• Erfahrung im Gesundheitswesen ist von Vorteil",
         "de": "Die Klinik für Kardiologie steht für hochspezialisierte Herzmedizin, interprofessionelle Zusammenarbeit, Forschung und Innovation. In diesem dynamischen Umfeld erhältst du die Möglichkeit, Verantwortung zu übernehmen, dich fachlich weiterzuentwickeln und die Abläufe der Klinik aktiv mitzugestalten.<br/><br/>Dich erwartet eine vielseitige Funktion mit Einblick in die Steuerung und Weiterentwicklung einer universitären Klinik. Du arbeitest an einer zentralen Schnittstelle zwischen Klinikmanagement, Ärzteschaft und weiteren internen Bereichen und kannst deine organisatorischen und betriebswirtschaftlichen Fähigkeiten aktiv einbringen.<br/><br/>Dein Arbeitsplatz befindet sich am USZ Campus im Herzen von Zürich, in unmittelbarer Nähe zur Universität Zürich und zur ETH Zürich.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du unterstützt das Klinikmanagement bei betriebswirtschaftlichen, organisatorischen und administrativen Fragestellungen und übernimmst eigenverantwortlich definierte Aufgabenbereiche\n\n• Du verantwortest die Bewirtschaftung und Überwachung des Drittgeschäfts sowie der Drittmittelprojekte der Klinik für Kardiologie am USZ und an der UZH\n\n• Du übernimmst das Personalmanagement der drittmittelfinanzierten Mitarbeitenden der Klinik für Kardiologie\n\n• Du bist für Weiterverrechnungen und Fakturierungen im Drittmittelmanagement zuständig\n\n• Du arbeitest aktiv an Projekten zur Weiterentwicklung und Optimierung von Strukturen, Prozessen und Abläufen innerhalb der Klinik mit und übernimmst eigenständig Teilprojekte\n\n• Du wirkst bei Finanz- und HR-Analysen, Auswertungen, Reportings und Controlling-Aufgaben mit und bereitest relevante Entscheidungsgrundlagen für das Klinikmanagement auf\n\n• Du unterstützt das Klinikmanagement im operativen Tagesgeschäft, insbesondere bei Ferienabwesenheiten und sonstigen Abwesenheiten\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und idealerweise über eine Weiterbildung im Bereich Betriebswirtschaft oder strebst eine solche an\n\n• Du bringst Berufserfahrung in einer Assistenzfunktion mit, vorzugsweise in einem anspruchsvollen und dynamischen Umfeld\n\n• Du arbeitest selbstständig, proaktiv und verantwortungsbewusst und überzeugst mit ausgeprägtem Organisationsgeschick. Auch bei vielfältigen Aufgaben und unterschiedlichen Anspruchsgruppen behältst du den Überblick\n\n• Diskretion, Teamorientierung und vernetztes Denken zeichnen dich ebenso aus wie eine zuverlässige und lösungsorientierte Arbeitsweise\n\n• Du verfügst über sehr gute Deutsch- und gute Englischkenntnisse sowie über sehr gute MS-Office-Kenntnisse, insbesondere in Excel und PowerPoint\n\n• Erfahrung im Gesundheitswesen ist von Vorteil",
-        "fr": "Die Klinik für Kardiologie steht für hochspezialisierte Herzmedizin, interprofessionelle Zusammenarbeit, Forschung und Innovation. In diesem dynamischen Umfeld erhältst du die Möglichkeit, Verantwortung zu übernehmen, dich fachlich weiterzuentwickeln und die Abläufe der Klinik aktiv mitzugestalten.<br/><br/>Dich erwartet eine vielseitige Funktion mit Einblick in die Steuerung und Weiterentwicklung einer universitären Klinik. Du arbeitest an einer zentralen Schnittstelle zwischen Klinikmanagement, Ärzteschaft und weiteren internen Bereichen und kannst deine organisatorischen und betriebswirtschaftlichen Fähigkeiten aktiv einbringen.<br/><br/>Dein Arbeitsplatz befindet sich am USZ Campus im Herzen von Zürich, in unmittelbarer Nähe zur Universität Zürich und zur ETH Zürich.<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Du unterstützt das Klinikmanagement bei betriebswirtschaftlichen, organisatorischen und administrativen Fragestellungen und übernimmst eigenverantwortlich definierte Aufgabenbereiche\n\n• Du verantwortest die Bewirtschaftung und Überwachung des Drittgeschäfts sowie der Drittmittelprojekte der Klinik für Kardiologie am USZ und an der UZH\n\n• Du übernimmst das Personalmanagement der drittmittelfinanzierten Mitarbeitenden der Klinik für Kardiologie\n\n• Du bist für Weiterverrechnungen und Fakturierungen im Drittmittelmanagement zuständig\n\n• Du arbeitest aktiv an Projekten zur Weiterentwicklung und Optimierung von Strukturen, Prozessen und Abläufen innerhalb der Klinik mit und übernimmst eigenständig Teilprojekte\n\n• Du wirkst bei Finanz- und HR-Analysen, Auswertungen, Reportings und Controlling-Aufgaben mit und bereitest relevante Entscheidungsgrundlagen für das Klinikmanagement auf\n\n• Du unterstützt das Klinikmanagement im operativen Tagesgeschäft, insbesondere bei Ferienabwesenheiten und sonstigen Abwesenheiten\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und idealerweise über eine Weiterbildung im Bereich Betriebswirtschaft oder strebst eine solche an\n\n• Du bringst Berufserfahrung in einer Assistenzfunktion mit, vorzugsweise in einem anspruchsvollen und dynamischen Umfeld\n\n• Du arbeitest selbstständig, proaktiv und verantwortungsbewusst und überzeugst mit ausgeprägtem Organisationsgeschick. Auch bei vielfältigen Aufgaben und unterschiedlichen Anspruchsgruppen behältst du den Überblick\n\n• Diskretion, Teamorientierung und vernetztes Denken zeichnen dich ebenso aus wie eine zuverlässige und lösungsorientierte Arbeitsweise\n\n• Du verfügst über sehr gute Deutsch- und gute Englischkenntnisse sowie über sehr gute MS-Office-Kenntnisse, insbesondere in Excel und PowerPoint\n\n• Erfahrung im Gesundheitswesen ist von Vorteil"
+        "it": "La Clinica di Cardiologia è sinonimo di medicina del cuore altamente specializzata, cooperazione interprofessionale, ricerca e innovazione. In questo ambiente dinamico, si avrà la possibilità di assumersi la responsabilità, sviluppare professionalmente e attivamente modellare i processi della clinica. > > Vi aspettate una funzione versatile con una visione del controllo e un ulteriore sviluppo di una clinica universitaria. Si lavora in un'interfaccia centrale tra la gestione clinica, la professione medica e altre aree interne e può contribuire attivamente le vostre capacità organizzative e aziendali. <br/> <br/ > Il vostro posto di lavoro si trova nel campus USZ nel cuore di Zurigo, vicino all'Università di Zurigo e all'ETH di Zurigo. I nostri oltre 8.600 dipendenti e circa 700 tirocinanti lavorano ogni giorno per il benessere dei nostri pazienti.\n\nCompiti:\n• Lei sostiene la gestione clinica in questioni aziendali, organizzative e amministrative e assume compiti auto-responsabili definiti\n\n• Sei responsabile della gestione e del monitoraggio del business di terzi e dei progetti finanziati da terzi della Clinica di Cardiologia presso USZ e UZH\n\n• Si assume la gestione del personale dei dipendenti di terzi della Clinica di Cardiologia\n\n• Sei responsabile dell'inoltro e della fatturazione nella gestione dei fondi di terze parti\n\n• Si lavora attivamente su progetti per l'ulteriore sviluppo e ottimizzazione di strutture, processi e processi all'interno della clinica e prendere in autonomia sottoprogetti\n\n• Contribuisci ad analisi, valutazioni, reportistica e controllo finanziario e prepari basi decisionali rilevanti per la gestione clinica\n\n• Sosteni la gestione clinica nelle operazioni quotidiane, soprattutto nel caso di assenze di vacanza e altre assenze\n\nRequisiti\n• Avete una formazione di base commerciale completata e idealmente un'ulteriore formazione nel campo dell'amministrazione aziendale o stanno lottando per tale\n\n• Porti esperienza professionale in un ruolo di assistente, preferibilmente in un ambiente esigente e dinamico\n\n• Lavori in modo indipendente, proattivo e responsabile e convinci con forti capacità organizzative. Anche con una varietà di compiti e diversi gruppi di stakeholder, si mantiene una panoramica\n\n• Discrezione, orientamento del team e pensiero in rete ti contraddistinguono così come un metodo di lavoro affidabile e orientato alla soluzione\n\n• Hai ottime competenze in tedesco e inglese, così come le ottime competenze di MS Office, soprattutto in Excel e PowerPoint\n\n• L'esperienza sanitaria è benefica",
+        "en": "The Clinic of Cardiology stands for highly specialized heart medicine, interprofessional cooperation, research and innovation. In this dynamic environment, you will have the opportunity to take on responsibility, develop professionally and actively shape the processes of the clinic. <br/><br/ >You expect a versatile function with insight into the control and further development of a university clinic. You work at a central interface between clinic management, the medical profession and other internal areas and can actively contribute your organizational and business skills. <br/><br/ >Your workplace is located at the USZ campus in the heart of Zurich, close to the University of Zurich and ETH Zurich.<br/ >The University Hospital Zurich is one of the largest hospitals in Switzerland. Our more than 8,600 employees and around 700 trainees work every day for the well-being of our patients.\n\nTasks:\n• You support the clinic management in business, organizational and administrative issues and assume self-responsible defined tasks\n\n• You are responsible for managing and monitoring the third-party business as well as the third-party funded projects of the Clinic of Cardiology at USZ and UZH\n\n• You take over the personnel management of the third-party-funded employees of the Clinic of Cardiology\n\n• You are responsible for forwarding and invoicing in third-party fund management\n\n• You actively work on projects for the further development and optimization of structures, processes and processes within the clinic and independently take over subprojects\n\n• You contribute to financial and HR analyses, evaluations, reporting and controlling tasks and prepare relevant decision bases for clinic management\n\n• You support clinic management in day-to-day operations, especially in the case of holiday absences and other absences\n\nRequirements\n• You have a completed commercial basic education and ideally a further education in the field of business administration or are striving for such a\n\n• You bring professional experience in an assistant role, preferably in a demanding and dynamic environment\n\n• You work independently, proactively and responsibly and convince with strong organizational skills. Even with a variety of tasks and different stakeholder groups, you keep an overview\n\n• Discretion, team orientation and networked thinking distinguish you as well as a reliable and solution-oriented working method\n\n• You have very good German and English skills as well as very good MS Office skills, especially in Excel and PowerPoint\n\n• Healthcare experience is beneficial",
+        "fr": "La Clinique de cardiologie est synonyme de médecine cardiaque hautement spécialisée, de coopération interprofessionnelle, de recherche et d'innovation. Dans cet environnement dynamique, vous aurez l'occasion d'assumer vos responsabilités, de développer professionnellement et activement les processus de la clinique. <br/><br/ > Vous attendez une fonction polyvalente avec un aperçu du contrôle et le développement ultérieur d'une clinique universitaire. Vous travaillez à une interface centrale entre la gestion des cliniques, la profession médicale et d'autres domaines internes et pouvez contribuer activement à vos compétences organisationnelles et commerciales. <br/><br/ >Votre lieu de travail est situé sur le campus USZ au cœur de Zurich, près de l'Université de Zurich et de l'ETH Zurich.<br/ >L'hôpital universitaire Zurich est l'un des plus grands hôpitaux de Suisse. Nos plus de 8 600 employés et quelque 700 stagiaires travaillent chaque jour pour le bien-être de nos patients.\n\nTâches :\n• Vous soutenez la gestion de la clinique en matière d'affaires, d'organisation et d'administration et assumez des tâches auto-responsables définies\n\n• Vous êtes responsable de la gestion et du suivi des activités de tiers ainsi que des projets financés par des tiers de la Clinique de cardiologie de l'USZ et de l'UZH\n\n• Vous prenez en charge la gestion du personnel des employés financés par des tiers de la Clinique de cardiologie\n\n• Vous êtes responsable de la transmission et de la facturation dans la gestion de fonds tiers\n\n• Vous travaillez activement sur des projets pour le développement et l'optimisation des structures, des processus et des processus au sein de la clinique et prenez en charge indépendamment les sous-projets\n\n• Vous contribuez aux analyses financières et aux RH, aux évaluations, aux rapports et au contrôle des tâches et préparez des bases de décision pertinentes pour la gestion des cliniques\n\n• Vous soutenez la gestion des cliniques dans les opérations quotidiennes, en particulier en cas d'absences de vacances et autres absences\n\nExigences\n• Vous disposez d'une formation de base commerciale et, idéalement, d'une formation complémentaire dans le domaine de l'administration des entreprises ou vous vous efforcez d'obtenir une telle formation.\n\n• Vous apportez une expérience professionnelle dans un rôle d'assistant, de préférence dans un environnement exigeant et dynamique\n\n• Vous travaillez de façon indépendante, proactive et responsable et vous convainquez avec de solides compétences organisationnelles. Même avec une variété de tâches et différents groupes d'intervenants, vous gardez un aperçu\n\n• La discrétion, l'orientation de l'équipe et la pensée en réseau vous distinguent ainsi qu'une méthode de travail fiable et orientée vers la solution\n\n• Vous avez de très bonnes compétences en allemand et anglais ainsi que de très bonnes compétences MS Office, en particulier dans Excel et PowerPoint\n\n• L'expérience en santé est bénéfique"
       },
       "location": "Campus",
       "canton": "ZH",
@@ -17377,18 +17369,24 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50928",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistent-in-klinikmanagement-fur-die-klinik-fur-kardiologie-60-100-usz-ch",
-        "assistent-in-klinikmanagement-per-la-klinik-per-kardiologie-60-100-universitatsspital-zurich-usz-campus"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-klinikmanagement-fur-die-klinik-fur-kardiologie-60-100-usz-ch",
           "assistent-in-klinikmanagement-per-la-klinik-per-kardiologie-60-100-universitatsspital-zurich-usz-campus"
+        ],
+        "de": [
+          "assistent-in-klinikmanagement-30-50-usz-ch"
+        ],
+        "fr": [
+          "assistent-in-klinikmanagement-30-50-universitatsspital-zurich-usz-campus"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-11T13:54:06.641Z",
+      "previousSlugs": [
+        "assistent-in-klinikmanagement-fur-die-klinik-fur-kardiologie-60-100-usz-ch",
+        "assistent-in-klinikmanagement-per-la-klinik-per-kardiologie-60-100-universitatsspital-zurich-usz-campus",
+        "assistent-in-klinikmanagement-30-50-usz-ch",
+        "assistent-in-klinikmanagement-30-50-universitatsspital-zurich-usz-campus"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -17401,7 +17399,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-11T13:54:06.641Z"
     },
     {
       "id": "usz-004b01ff0d98",
@@ -17417,17 +17416,17 @@
       "companyDomain": "usz.ch",
       "title": "Institutsmanager:in Institut für Diagnostische und Interventionelle Radiologie 80-90%",
       "titleByLocale": {
-        "it": "Institutsmanager:in Institut per Diagnostische e Interventionelle Radiologie 80-90%",
-        "en": "Institutsmanager:in Institut für Diagnostische und Interventionelle Radiologie 80-90%",
         "de": "Institutsmanager:in Institut für Diagnostische und Interventionelle Radiologie 80-90%",
-        "fr": "Institutsmanager:in Institut für Diagnostische und Interventionelle Radiologie 80-90%"
+        "it": "Institute Manager Institute for Diagnostic and Interventional Radiology 80-90 %",
+        "en": "Institute Manager Institute for Diagnostic and Interventional Radiology 80-90 %",
+        "fr": "Directeur d'institut Institut de radiologie diagnostique et interventionnelle 80-90 %"
       },
       "description": "Übernehme eine zentrale Rolle in der strategischen und betriebswirtschaftlichen Weiterentwicklung unseres Instituts. Mit deinem Engagement optimierst du Prozesse, steuerst Projekte und schaffst die Grundlage für eine effiziente und zukunftsorientierte Organisation. <br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\nBetriebswirtschaftliche Führung und Entwicklung / Projektmanagement:\n\n• Mitgestaltung der strategischen und operativen Ausrichtung des Instituts für Diagnostische und Interventionelle Radiologie in Absprache mit der Institutsleitung\n\n• Entwicklung und Umsetzung innovativer Lösungen zur Optimierung der betrieblichen Abläufe\n\n• Optimierung von Prozessen sowie Strukturen und Leitung von Projekten zur Weiterentwicklung des Instituts\n\nFinanzmanagement und Controlling:\n• Erstellung, Überwachung und Analyse detaillierter Budgets (Medizintechnik, IT, Mobiliar) in enger Zusammenarbeit mit der Leiterin Betriebswirtschaft des Querschnitts\n\n• Aufbereitung, Controlling und Analyse umfassender Leistungskennzahlen (finanziell, personell, infrastrukturell)\n\n• Definition und Umsetzung von Massnahmen zur Ergebnisverbesserung\n\n• Verantwortung für die Leistungserfassung und das Leistungscontrolling im ambulanten und stationären Bereich mittels RIS (Radiologie-Informationssystem). Dazu gehört die Pflege der RIS-Basisdaten sowie die Erstellung und Bereitstellung sämtlicher RIS-Statistikauswertungen\n\nPersonalführung und -entwicklung:\n• Führung und Entwicklung des administrativen Personals\n\n• Sicherstellung einer effizienten Personalplanung und -entwicklung\n\n• Enge Zusammenarbeit mit den Institutsleiterinnen bei Personalangelegenheiten\n\n• Controlling der Arbeitszeiten und Feriensaldi aller Mitarbeitenden\n\nAnforderungen:\n• Abgeschlossenes Betriebswirtschaftsstudium (FH oder Universität) sowie fundierte Kenntnisse im CH-Gesundheitswesen\n\n• Berufserfahrung im Bereich Controlling und/oder Spitalfinanzierung sowie Projektmanagement\n\n• Interesse an der Mitgestaltung der Kernaufgaben des Instituts in Behandlung, Forschung und Lehre\n\n• Verhandlungssichere Persönlichkeit mit ausgeprägter Kommunikations- und Teamfähigkeit sowie der Fähigkeit, komplexe Zusammenhänge schnell zu erfassen\n\n• Strukturierte, zuverlässige Arbeitsweise und die Fähigkeit, Projekte selbständig voranzutreiben, sowie sich flexibel an veränderte Rahmenbedingungen anzupassen\n\nWir bieten:\nIn dieser vielseitigen und verantwortungsvollen Aufgabe arbeitest du in einer international renommierten Arbeitsumgebung, die von Innovation und hoher Qualität geprägt ist. Dabei hast du die Möglichkeit, deine Arbeitsabläufe zielorientiert und eigenständig zu gestalten. Als Mitglied der Institutsleitung bist du ein:e wichtige:r Sparring-Partner:in für den Institutsdirektor und das Institutskader. Die Zusammenarbeit ist von grossem Vertrauen geprägt, das wir auch unserem zukünftigen Institutsmitglied bieten. Wenn du in einem hochtechnologischen Umfeld mitarbeiten willst, in welchem du gefordert und gefördert wirst, dann freuen wir uns auf deine Bewerbung.",
       "descriptionByLocale": {
-        "it": "Übernehme eine zentrale Rolle in der strategischen und betriebswirtschaftlichen Weiterentwicklung unseres Instituts. Mit deinem Engagement optimierst du Prozesse, steuerst Projekte und schaffst die Grundlage für eine effiziente und zukunftsorientierte Organisation. <br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\nBetriebswirtschaftliche Führung und Entwicklung / Projektmanagement:\n\n• Mitgestaltung der strategischen und operativen Ausrichtung des Instituts für Diagnostische und Interventionelle Radiologie in Absprache mit der Institutsleitung\n\n• Entwicklung und Umsetzung innovativer Lösungen zur Optimierung der betrieblichen Abläufe\n\n• Optimierung von Prozessen sowie Strukturen und Leitung von Projekten zur Weiterentwicklung des Instituts\n\nFinanzmanagement und Controlling:\n• Erstellung, Überwachung und Analyse detaillierter Budgets (Medizintechnik, IT, Mobiliar) in enger Zusammenarbeit mit der Leiterin Betriebswirtschaft des Querschnitts\n\n• Aufbereitung, Controlling und Analyse umfassender Leistungskennzahlen (finanziell, personell, infrastrukturell)\n\n• Definition und Umsetzung von Massnahmen zur Ergebnisverbesserung\n\n• Verantwortung für die Leistungserfassung und das Leistungscontrolling im ambulanten und stationären Bereich mittels RIS (Radiologie-Informationssystem). Dazu gehört die Pflege der RIS-Basisdaten sowie die Erstellung und Bereitstellung sämtlicher RIS-Statistikauswertungen\n\nPersonalführung und -entwicklung:\n• Führung und Entwicklung des administrativen Personals\n\n• Sicherstellung einer effizienten Personalplanung und -entwicklung\n\n• Enge Zusammenarbeit mit den Institutsleiterinnen bei Personalangelegenheiten\n\n• Controlling der Arbeitszeiten und Feriensaldi aller Mitarbeitenden\n\nAnforderungen:\n• Abgeschlossenes Betriebswirtschaftsstudium (FH oder Universität) sowie fundierte Kenntnisse im CH-Gesundheitswesen\n\n• Berufserfahrung im Bereich Controlling und/oder Spitalfinanzierung sowie Projektmanagement\n\n• Interesse an der Mitgestaltung der Kernaufgaben des Instituts in Behandlung, Forschung und Lehre\n\n• Verhandlungssichere Persönlichkeit mit ausgeprägter Kommunikations- und Teamfähigkeit sowie der Fähigkeit, komplexe Zusammenhänge schnell zu erfassen\n\n• Strukturierte, zuverlässige Arbeitsweise und die Fähigkeit, Projekte selbständig voranzutreiben, sowie sich flexibel an veränderte Rahmenbedingungen anzupassen\n\nWir bieten:\nIn dieser vielseitigen und verantwortungsvollen Aufgabe arbeitest du in einer international renommierten Arbeitsumgebung, die von Innovation und hoher Qualität geprägt ist. Dabei hast du die Möglichkeit, deine Arbeitsabläufe zielorientiert und eigenständig zu gestalten. Als Mitglied der Institutsleitung bist du ein:e wichtige:r Sparring-Partner:in für den Institutsdirektor und das Institutskader. Die Zusammenarbeit ist von grossem Vertrauen geprägt, das wir auch unserem zukünftigen Institutsmitglied bieten. Wenn du in einem hochtechnologischen Umfeld mitarbeiten willst, in welchem du gefordert und gefördert wirst, dann freuen wir uns auf deine Bewerbung.",
-        "en": "Übernehme eine zentrale Rolle in der strategischen und betriebswirtschaftlichen Weiterentwicklung unseres Instituts. Mit deinem Engagement optimierst du Prozesse, steuerst Projekte und schaffst die Grundlage für eine effiziente und zukunftsorientierte Organisation. <br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\nBetriebswirtschaftliche Führung und Entwicklung / Projektmanagement:\n\n• Mitgestaltung der strategischen und operativen Ausrichtung des Instituts für Diagnostische und Interventionelle Radiologie in Absprache mit der Institutsleitung\n\n• Entwicklung und Umsetzung innovativer Lösungen zur Optimierung der betrieblichen Abläufe\n\n• Optimierung von Prozessen sowie Strukturen und Leitung von Projekten zur Weiterentwicklung des Instituts\n\nFinanzmanagement und Controlling:\n• Erstellung, Überwachung und Analyse detaillierter Budgets (Medizintechnik, IT, Mobiliar) in enger Zusammenarbeit mit der Leiterin Betriebswirtschaft des Querschnitts\n\n• Aufbereitung, Controlling und Analyse umfassender Leistungskennzahlen (finanziell, personell, infrastrukturell)\n\n• Definition und Umsetzung von Massnahmen zur Ergebnisverbesserung\n\n• Verantwortung für die Leistungserfassung und das Leistungscontrolling im ambulanten und stationären Bereich mittels RIS (Radiologie-Informationssystem). Dazu gehört die Pflege der RIS-Basisdaten sowie die Erstellung und Bereitstellung sämtlicher RIS-Statistikauswertungen\n\nPersonalführung und -entwicklung:\n• Führung und Entwicklung des administrativen Personals\n\n• Sicherstellung einer effizienten Personalplanung und -entwicklung\n\n• Enge Zusammenarbeit mit den Institutsleiterinnen bei Personalangelegenheiten\n\n• Controlling der Arbeitszeiten und Feriensaldi aller Mitarbeitenden\n\nAnforderungen:\n• Abgeschlossenes Betriebswirtschaftsstudium (FH oder Universität) sowie fundierte Kenntnisse im CH-Gesundheitswesen\n\n• Berufserfahrung im Bereich Controlling und/oder Spitalfinanzierung sowie Projektmanagement\n\n• Interesse an der Mitgestaltung der Kernaufgaben des Instituts in Behandlung, Forschung und Lehre\n\n• Verhandlungssichere Persönlichkeit mit ausgeprägter Kommunikations- und Teamfähigkeit sowie der Fähigkeit, komplexe Zusammenhänge schnell zu erfassen\n\n• Strukturierte, zuverlässige Arbeitsweise und die Fähigkeit, Projekte selbständig voranzutreiben, sowie sich flexibel an veränderte Rahmenbedingungen anzupassen\n\nWir bieten:\nIn dieser vielseitigen und verantwortungsvollen Aufgabe arbeitest du in einer international renommierten Arbeitsumgebung, die von Innovation und hoher Qualität geprägt ist. Dabei hast du die Möglichkeit, deine Arbeitsabläufe zielorientiert und eigenständig zu gestalten. Als Mitglied der Institutsleitung bist du ein:e wichtige:r Sparring-Partner:in für den Institutsdirektor und das Institutskader. Die Zusammenarbeit ist von grossem Vertrauen geprägt, das wir auch unserem zukünftigen Institutsmitglied bieten. Wenn du in einem hochtechnologischen Umfeld mitarbeiten willst, in welchem du gefordert und gefördert wirst, dann freuen wir uns auf deine Bewerbung.",
         "de": "Übernehme eine zentrale Rolle in der strategischen und betriebswirtschaftlichen Weiterentwicklung unseres Instituts. Mit deinem Engagement optimierst du Prozesse, steuerst Projekte und schaffst die Grundlage für eine effiziente und zukunftsorientierte Organisation. <br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\nBetriebswirtschaftliche Führung und Entwicklung / Projektmanagement:\n\n• Mitgestaltung der strategischen und operativen Ausrichtung des Instituts für Diagnostische und Interventionelle Radiologie in Absprache mit der Institutsleitung\n\n• Entwicklung und Umsetzung innovativer Lösungen zur Optimierung der betrieblichen Abläufe\n\n• Optimierung von Prozessen sowie Strukturen und Leitung von Projekten zur Weiterentwicklung des Instituts\n\nFinanzmanagement und Controlling:\n• Erstellung, Überwachung und Analyse detaillierter Budgets (Medizintechnik, IT, Mobiliar) in enger Zusammenarbeit mit der Leiterin Betriebswirtschaft des Querschnitts\n\n• Aufbereitung, Controlling und Analyse umfassender Leistungskennzahlen (finanziell, personell, infrastrukturell)\n\n• Definition und Umsetzung von Massnahmen zur Ergebnisverbesserung\n\n• Verantwortung für die Leistungserfassung und das Leistungscontrolling im ambulanten und stationären Bereich mittels RIS (Radiologie-Informationssystem). Dazu gehört die Pflege der RIS-Basisdaten sowie die Erstellung und Bereitstellung sämtlicher RIS-Statistikauswertungen\n\nPersonalführung und -entwicklung:\n• Führung und Entwicklung des administrativen Personals\n\n• Sicherstellung einer effizienten Personalplanung und -entwicklung\n\n• Enge Zusammenarbeit mit den Institutsleiterinnen bei Personalangelegenheiten\n\n• Controlling der Arbeitszeiten und Feriensaldi aller Mitarbeitenden\n\nAnforderungen:\n• Abgeschlossenes Betriebswirtschaftsstudium (FH oder Universität) sowie fundierte Kenntnisse im CH-Gesundheitswesen\n\n• Berufserfahrung im Bereich Controlling und/oder Spitalfinanzierung sowie Projektmanagement\n\n• Interesse an der Mitgestaltung der Kernaufgaben des Instituts in Behandlung, Forschung und Lehre\n\n• Verhandlungssichere Persönlichkeit mit ausgeprägter Kommunikations- und Teamfähigkeit sowie der Fähigkeit, komplexe Zusammenhänge schnell zu erfassen\n\n• Strukturierte, zuverlässige Arbeitsweise und die Fähigkeit, Projekte selbständig voranzutreiben, sowie sich flexibel an veränderte Rahmenbedingungen anzupassen\n\nWir bieten:\nIn dieser vielseitigen und verantwortungsvollen Aufgabe arbeitest du in einer international renommierten Arbeitsumgebung, die von Innovation und hoher Qualität geprägt ist. Dabei hast du die Möglichkeit, deine Arbeitsabläufe zielorientiert und eigenständig zu gestalten. Als Mitglied der Institutsleitung bist du ein:e wichtige:r Sparring-Partner:in für den Institutsdirektor und das Institutskader. Die Zusammenarbeit ist von grossem Vertrauen geprägt, das wir auch unserem zukünftigen Institutsmitglied bieten. Wenn du in einem hochtechnologischen Umfeld mitarbeiten willst, in welchem du gefordert und gefördert wirst, dann freuen wir uns auf deine Bewerbung.",
-        "fr": "Übernehme eine zentrale Rolle in der strategischen und betriebswirtschaftlichen Weiterentwicklung unseres Instituts. Mit deinem Engagement optimierst du Prozesse, steuerst Projekte und schaffst die Grundlage für eine effiziente und zukunftsorientierte Organisation. <br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\nBetriebswirtschaftliche Führung und Entwicklung / Projektmanagement:\n\n• Mitgestaltung der strategischen und operativen Ausrichtung des Instituts für Diagnostische und Interventionelle Radiologie in Absprache mit der Institutsleitung\n\n• Entwicklung und Umsetzung innovativer Lösungen zur Optimierung der betrieblichen Abläufe\n\n• Optimierung von Prozessen sowie Strukturen und Leitung von Projekten zur Weiterentwicklung des Instituts\n\nFinanzmanagement und Controlling:\n• Erstellung, Überwachung und Analyse detaillierter Budgets (Medizintechnik, IT, Mobiliar) in enger Zusammenarbeit mit der Leiterin Betriebswirtschaft des Querschnitts\n\n• Aufbereitung, Controlling und Analyse umfassender Leistungskennzahlen (finanziell, personell, infrastrukturell)\n\n• Definition und Umsetzung von Massnahmen zur Ergebnisverbesserung\n\n• Verantwortung für die Leistungserfassung und das Leistungscontrolling im ambulanten und stationären Bereich mittels RIS (Radiologie-Informationssystem). Dazu gehört die Pflege der RIS-Basisdaten sowie die Erstellung und Bereitstellung sämtlicher RIS-Statistikauswertungen\n\nPersonalführung und -entwicklung:\n• Führung und Entwicklung des administrativen Personals\n\n• Sicherstellung einer effizienten Personalplanung und -entwicklung\n\n• Enge Zusammenarbeit mit den Institutsleiterinnen bei Personalangelegenheiten\n\n• Controlling der Arbeitszeiten und Feriensaldi aller Mitarbeitenden\n\nAnforderungen:\n• Abgeschlossenes Betriebswirtschaftsstudium (FH oder Universität) sowie fundierte Kenntnisse im CH-Gesundheitswesen\n\n• Berufserfahrung im Bereich Controlling und/oder Spitalfinanzierung sowie Projektmanagement\n\n• Interesse an der Mitgestaltung der Kernaufgaben des Instituts in Behandlung, Forschung und Lehre\n\n• Verhandlungssichere Persönlichkeit mit ausgeprägter Kommunikations- und Teamfähigkeit sowie der Fähigkeit, komplexe Zusammenhänge schnell zu erfassen\n\n• Strukturierte, zuverlässige Arbeitsweise und die Fähigkeit, Projekte selbständig voranzutreiben, sowie sich flexibel an veränderte Rahmenbedingungen anzupassen\n\nWir bieten:\nIn dieser vielseitigen und verantwortungsvollen Aufgabe arbeitest du in einer international renommierten Arbeitsumgebung, die von Innovation und hoher Qualität geprägt ist. Dabei hast du die Möglichkeit, deine Arbeitsabläufe zielorientiert und eigenständig zu gestalten. Als Mitglied der Institutsleitung bist du ein:e wichtige:r Sparring-Partner:in für den Institutsdirektor und das Institutskader. Die Zusammenarbeit ist von grossem Vertrauen geprägt, das wir auch unserem zukünftigen Institutsmitglied bieten. Wenn du in einem hochtechnologischen Umfeld mitarbeiten willst, in welchem du gefordert und gefördert wirst, dann freuen wir uns auf deine Bewerbung."
+        "it": "Assumere un ruolo centrale nello sviluppo strategico e commerciale del nostro istituto. Con il vostro impegno, ottimizzare i processi, gestire i progetti e creare la base per un'organizzazione efficiente e orientata al futuro. > L'Ospedale Universitario di Zurigo è uno dei più grandi ospedali in Svizzera. I nostri oltre 8.600 dipendenti e circa 700 tirocinanti lavorano ogni giorno per il benessere dei nostri pazienti.\n\nCompiti:\nGestione aziendale e sviluppo / Project Management:\n\n• Co-design dell'orientamento strategico e operativo dell'Istituto di Radiologia Diagnostica e Intervenzionale in consultazione con la direzione dell'istituto\n\n• Sviluppo e realizzazione di soluzioni innovative per ottimizzare i processi operativi\n\n• Ottimizzazione dei processi, delle strutture e della gestione dei progetti per l'ulteriore sviluppo dell'istituto\n\nGestione finanziaria e controllo:\n• Preparazione, monitoraggio e analisi dei bilanci dettagliati (tecnologia medica, IT, mobili) in stretta collaborazione con il capo dell'amministrazione aziendale della sezione trasversale\n\n• Preparazione, controllo e analisi di indicatori di performance completi (finanziari, personale, infrastruttura)\n\n• Definizione e attuazione di misure volte a migliorare i risultati\n\n• Responsabilità per la registrazione delle prestazioni e il controllo delle prestazioni nell'area ambulatoria e stazionaria tramite RIS (Radiology Information System). Ciò include il mantenimento dei dati di base RIS e la preparazione e la fornitura di tutte le valutazioni statistiche RIS.\n\nGestione e sviluppo delle risorse umane:\n• Gestione e sviluppo del personale amministrativo\n\n• Garantire una pianificazione e uno sviluppo efficiente del personale\n\n• Una stretta collaborazione con i direttori degli istituti in materia di personale\n\n• Controllo dell'orario di lavoro e dell'equilibrio delle vacanze di tutti i dipendenti\n\nRequisiti\n• Studi aziendali completi (FH o università) e conoscenza approfondita del sistema sanitario CH\n\n• Esperienza professionale nel controllo e/o nel finanziamento ospedaliero e nella gestione dei progetti\n\n• Interessato a definire i compiti fondamentali dell'istituto nel trattamento, nella ricerca e nell'insegnamento\n\n• Negoziare la personalità con una forte comunicazione e abilità di squadra, nonché la capacità di cogliere rapidamente relazioni complesse\n\n• Metodi di lavoro strutturati e affidabili e la capacità di guidare progetti in avanti in modo indipendente e adattarsi in modo flessibile alle mutevoli condizioni quadro\n\nOffriamo:\nIn questo compito versatile e responsabile, si lavora in un ambiente di lavoro di fama internazionale caratterizzato da innovazione e alta qualità. Avete l'opportunità di progettare i vostri processi di lavoro orientati verso l'obiettivo e indipendentemente. Come membro della direzione dell'istituto, sei un partner importante per il direttore dell'istituto e la squadra dell'istituto. La cooperazione è caratterizzata da grande fiducia, che offriamo anche al nostro futuro membro dell'istituto. Se vuoi lavorare in un ambiente high-tech in cui sei sfidato e supportato, allora non vediamo l'ora della tua applicazione.",
+        "en": "Take on a central role in the strategic and business development of our institute. With your commitment, you optimize processes, manage projects and create the basis for an efficient and future-oriented organization. <br/>The University Hospital Zurich is one of the largest hospitals in Switzerland. Our more than 8,600 employees and around 700 trainees work every day for the well-being of our patients.\n\nTasks:\nBusiness Management and Development / Project Management:\n\n• Co-design of the strategic and operational orientation of the Institute of Diagnostic and Interventional Radiology in consultation with the institute management\n\n• Development and implementation of innovative solutions to optimize operational processes\n\n• Optimization of processes as well as structures and management of projects for the further development of the institute\n\nFinancial Management and Controlling:\n• Preparation, monitoring and analysis of detailed budgets (medical technology, IT, furniture) in close cooperation with the head of business administration of the cross-section\n\n• Preparation, controlling and analysis of comprehensive performance indicators (financial, personnel, infrastructure)\n\n• Definition and implementation of measures to improve results\n\n• Responsibility for performance recording and performance controlling in the ambulatory and stationary area by means of RIS (Radiology Information System). This includes the maintenance of the RIS basic data and the preparation and provision of all RIS statistical evaluations.\n\nHR management and development:\n• Management and development of administrative staff\n\n• Ensuring efficient personnel planning and development\n\n• Close cooperation with institute directors on personnel matters\n\n• Controlling the working hours and holiday balance of all employees\n\nRequirements\n• Completed business studies (FH or university) as well as in-depth knowledge in the CH health care system\n\n• Professional experience in controlling and/or hospital financing as well as project management\n\n• Interested in shaping the core tasks of the institute in treatment, research and teaching\n\n• Negotiating personality with strong communication and team skills as well as the ability to quickly grasp complex relationships\n\n• Structured, reliable working methods and the ability to drive forward projects independently and adapt flexibly to changing framework conditions\n\nWe offer:\nIn this versatile and responsible task, you work in an internationally renowned working environment characterized by innovation and high quality. You have the opportunity to design your work processes goal-oriented and independently. As a member of the institute management, you are an important sparring partner for the institute director and the institute squad. The cooperation is characterised by great trust, which we also offer our future institute member. If you want to work in a high-tech environment in which you are challenged and supported, then we look forward to your application.",
+        "fr": "Jouer un rôle central dans le développement stratégique et commercial de notre institut. Avec votre engagement, vous optimisez les processus, gérez les projets et créez la base d'une organisation efficace et tournée vers l'avenir. <br/> L'hôpital universitaire de Zurich est l'un des plus grands hôpitaux de Suisse. Nos plus de 8 600 employés et quelque 700 stagiaires travaillent chaque jour pour le bien-être de nos patients.\n\nTâches :\nGestion et développement d'entreprise / Gestion de projet :\n\n• Co-conception de l'orientation stratégique et opérationnelle de l'Institut de radiologie diagnostique et interventionnelle en consultation avec la direction de l'Institut\n\n• Développement et mise en œuvre de solutions innovantes pour optimiser les processus opérationnels\n\n• Optimisation des processus ainsi que des structures et de la gestion des projets en vue du développement de l'Institut\n\nGestion et contrôle financiers :\n• Préparation, suivi et analyse de budgets détaillés (technologie médicale, informatique, mobilier) en étroite collaboration avec le chef de l'administration commerciale de la section transversale\n\n• Élaboration, contrôle et analyse d'indicateurs de performance complets (financier, personnel, infrastructure)\n\n• Définition et mise en œuvre de mesures visant à améliorer les résultats\n\n• Responsabilité de l'enregistrement des performances et du contrôle des performances dans la zone ambulatoire et stationnaire au moyen de RIS (Radiology Information System). Cela comprend la tenue à jour des données de base RIS ainsi que la préparation et la fourniture de toutes les évaluations statistiques RIS.\n\nGestion et développement des ressources humaines :\n• Gestion et perfectionnement du personnel administratif\n\n• Assurer une planification et un perfectionnement efficaces du personnel\n\n• Coopération étroite avec les directeurs des instituts en matière de personnel\n\n• Contrôler le temps de travail et le solde des jours fériés de tous les salariés\n\nExigences\n• Études d'affaires terminées (FH ou université) ainsi que connaissances approfondies dans le système de soins de santé de CH\n\n• Expérience professionnelle dans le contrôle et/ou le financement des hôpitaux ainsi que dans la gestion de projets\n\n• Intéressé à façonner les tâches de base de l'institut dans le traitement, la recherche et l'enseignement\n\n• Négocier la personnalité avec de solides compétences en communication et en équipe ainsi que la capacité de saisir rapidement des relations complexes\n\n• Méthodes de travail structurées et fiables et aptitude à faire avancer les projets de manière indépendante et à s'adapter de manière flexible aux conditions-cadres changeantes\n\nNous offrons:\nDans cette tâche polyvalente et responsable, vous travaillez dans un environnement de travail de renommée internationale caractérisé par l'innovation et la qualité. Vous avez la possibilité de concevoir vos processus de travail orientés vers l'objectif et indépendamment. En tant que membre de la direction de l'institut, vous êtes un partenaire important pour le directeur de l'institut et l'équipe de l'institut. La coopération se caractérise par une grande confiance, que nous offrons également à notre futur membre de l'institut. Si vous voulez travailler dans un environnement de haute technologie dans lequel vous êtes défié et soutenu, alors nous attendons avec impatience votre application."
       },
       "location": "Campus",
       "canton": "ZH",
@@ -17451,16 +17450,16 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50736",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "institutsmanager-in-institut-fur-diagnostische-und-interventionelle-radiologie-80-90-usz"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "institutsmanager-in-institut-fur-diagnostische-und-interventionelle-radiologie-80-90-usz"
+          "institutsmanager-in-institut-fur-diagnostische-und-interventionelle-radiologie-80-90-usz",
+          "institutsmanager-in-institut-per-diagnostische-e-interventionelle-radiologie-80-90-universitatsspital-zurich-usz-rolle"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-11T13:54:06.622Z",
+      "previousSlugs": [
+        "institutsmanager-in-institut-fur-diagnostische-und-interventionelle-radiologie-80-90-usz",
+        "institutsmanager-in-institut-per-diagnostische-e-interventionelle-radiologie-80-90-universitatsspital-zurich-usz-rolle"
+      ],
       "salaryMin": 66200,
       "salaryMax": 100400,
       "salarySource": "estimated",
@@ -17473,7 +17472,8 @@
           "maxValue": 100400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-11T13:54:06.622Z"
     }
   ]
 }

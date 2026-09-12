@@ -258,7 +258,6 @@
           "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-kjff-bfgs-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -431,7 +430,6 @@
           "diplomierte-pflegefachperson-hf-fh-fur-ein-jahr-stationar-mit-option-fur-die-ambulante"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -714,7 +712,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF / FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau HF / FH",
+        "it": "Dipl. Infermieristica professionale HF / FH",
         "en": "Dipl. Nursing professional HF / FH",
         "de": "Dipl. Pflegefachmann/-frau HF / FH",
         "fr": "Dipl. Soins infirmiers professionnels HF / FH"
@@ -772,7 +770,6 @@
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-14T11:12:04.932Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1205,21 +1202,35 @@
       "previousSlugs": [
         "oberarzt-arztin-in-der-pneumologie-stgag-ch",
         "responsabile-della-posizione-medica-responsabile-della-posizione-medica-gastroenterologia-spital-thurgau-stgag-kantonssp",
-        "primario-in-pneumologia-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "primario-in-pneumologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "primario-a-neurologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "senior-physician-neurology-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "oberarzt-arztin-neurologie-stgag-ch",
+        "neurologie-chez-le-medecin-principal-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "specialista-dell-educazione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-arztin-in-der-pneumologie-stgag-ch",
-          "primario-in-pneumologia-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "primario-in-pneumologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "primario-a-neurologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "senior-physician-neurology-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "oberarzt-arztin-neurologie-stgag-ch",
+          "neurologie-chez-le-medecin-principal-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "specialista-dell-educazione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
-          "oberarzt-arztin-in-der-pneumologie-stgag-ch"
+          "oberarzt-arztin-in-der-pneumologie-stgag-ch",
+          "senior-physician-neurology-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "fr": [
-          "oberarzt-arztin-in-der-pneumologie-stgag-ch"
+          "oberarzt-arztin-in-der-pneumologie-stgag-ch",
+          "neurologie-chez-le-medecin-principal-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        ],
+        "de": [
+          "oberarzt-arztin-neurologie-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -1407,7 +1418,6 @@
           "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-marz-2027-zag-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1853,7 +1863,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF/FH Medizin",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau HF/FH Medizin",
+        "it": "Dipl. Infermieristica HF/FH Medizin",
         "en": "Registered Nurse HF/FH Medicine",
         "de": "Dipl. Pflegefachmann/-frau HF/FH Medizin",
         "fr": "Infirmier/infirmière Dipl. HF/FH Médecine"
@@ -1921,7 +1931,6 @@
           "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2375,7 +2384,7 @@
       "title": "Dipl. Pflegefachmann/-frau Palliativstation",
       "titleByLocale": {
         "it": "Infermiere/a Dipl. Palliativ",
-        "en": "Dipl. Pflegefachmann/-frau Palliativstation",
+        "en": "Dipl. Care specialist/woman palliative care unit",
         "de": "Dipl. Pflegefachmann/-frau Palliativstation",
         "fr": "Infirmier/infirmière Diplômé(e) en Soins Palliatifs"
       },
@@ -2432,7 +2441,6 @@
           "dipl-pflegefachmann-frau-palliativstation-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2462,7 +2470,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau HF/FH",
+        "it": "Dipl. Infermieristica professionale HF/FH",
         "en": "Registered Nurse Diploma HF/FH",
         "de": "Dipl. Pflegefachmann/-frau HF/FH",
         "fr": "Infirmier/ère Diplômé/e HF/FH"
@@ -2576,7 +2584,6 @@
           "dipl-specialiste-des-soins-infirmiers-psychiatrie-generale-et-aigue-spital-thurgau-stgag-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-30T00:37:33.432Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2868,7 +2875,6 @@
           "unterassistenten-in-urologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2985,7 +2991,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau im Pool",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau im Pool",
+        "it": "Dipl. Professionista in piscina",
         "en": "Professional health EFZ in the Springerpool",
         "de": "Dipl. Pflegefachmann/-frau im Pool",
         "fr": "Santé professionnelle EFZ dans le Springerpool"
@@ -3056,7 +3062,6 @@
           "sante-professionnelle-efz-dans-le-springerpool-spital-thurgau-stgag-diessenhofen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -3087,7 +3092,7 @@
       "title": "Dipl. Experten/-in Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Esperto/-a Dipl. in Assistenza d'Emergenza NDS HF",
-        "en": "Dipl. Experten/-in Notfallpflege NDS HF",
+        "en": "Dipl. Expert Emergency Care NDS HF",
         "de": "Dipl. Experten/-in Notfallpflege NDS HF",
         "fr": "Spécialiste Dipl. en Soins d'Urgence NDS HF"
       },
@@ -3142,7 +3147,6 @@
           "dipl-experten-in-notfallpflege-nds-hf-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -3540,7 +3544,7 @@
         "it": "Neuropsicologo/a",
         "en": "Neuropsychologist",
         "de": "Neuropsychologen/-in",
-        "fr": "Neuropsychologen/-in"
+        "fr": "Neuropsychologues"
       },
       "description": "Neuropsychologen/-in — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Psychologie\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026",
       "descriptionByLocale": {
@@ -3608,7 +3612,6 @@
           "neuropsychologues-spital-thurgau-stgag-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-12T12:03:26.832Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -3689,7 +3692,6 @@
           "dipl-pflegefachmann-frau-stroke-unit-und-medizin-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -3719,7 +3721,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau Medizin",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau Medizin",
+        "it": "Dipl. Infermieristica professionale / medicina femminile",
         "en": "Dipl. Nursing professional/woman medicine",
         "de": "Dipl. Pflegefachmann/-frau Medizin",
         "fr": "Dipl. Médecine des infirmières et des femmes"
@@ -3786,7 +3788,6 @@
           "dipl-pflegefachmann-frau-medizin-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -3953,7 +3954,6 @@
           "oberarzt-arztin-gefasschirurgie-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -4141,7 +4141,6 @@
         "medizinische-praxisassistenten-in-mpa-fur-medizinische-diagnostik-stgag-ch",
         "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-per-medizinische-diagnostik-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4317,7 +4316,6 @@
           "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-generalist-bzgs"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4672,7 +4670,6 @@
           "apprentissage-en-tant-que-pharmacie-specialisee-efz-spital-thurgau-stgag-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:06:19.081Z",
       "salaryMin": 46500,
       "salaryMax": 70500,
@@ -4756,7 +4753,6 @@
           "lehrstelle-als-kauffrau-mann-efz-stgag-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:06:19.082Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
@@ -4842,7 +4838,6 @@
           "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:06:19.085Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
@@ -4930,7 +4925,6 @@
           "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-stgag-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:06:19.085Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
@@ -4960,7 +4954,7 @@
       "companyDomain": "stgag.ch",
       "title": "Pflegefachmann/-frau Dialyse",
       "titleByLocale": {
-        "it": "Pflegefachmann/-frau Dialyse",
+        "it": "Dialisi professionale medica",
         "en": "Medical professional dialysis",
         "de": "Pflegefachmann/-frau Dialyse",
         "fr": "Dialyse des professionnels de la santé"
@@ -5022,7 +5016,6 @@
           "pflegefachmann-frau-dialyse-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:06:19.085Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -5140,7 +5133,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF / FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau HF / FH",
+        "it": "Dipl. Infermieristica professionale HF / FH",
         "en": "Dipl. Nursing professional HF / FH",
         "de": "Dipl. Pflegefachmann/-frau HF / FH",
         "fr": "Dipl. Soins infirmiers professionnels HF / FH"
@@ -5205,7 +5198,6 @@
           "dipl-soins-infirmiers-professionnels-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-192037"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-02T22:38:11.533Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -5551,7 +5543,6 @@
           "leitender-arzt-leitende-arztin-pathologie-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-15T15:32:02.557Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -5582,7 +5573,7 @@
       "title": "Dipl. Pflegefachmann/-frau Forensik",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale forense",
-        "en": "Dipl. Pflegefachmann/-frau Forensik",
+        "en": "Dipl. Nursing professional forensics",
         "de": "Dipl. Pflegefachmann/-frau Forensik",
         "fr": "Dipl. Services de médecine légale"
       },
@@ -5634,7 +5625,6 @@
           "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:09:24.685Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -5748,7 +5738,7 @@
       "title": "Dipl. Experten/-in Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Esperto/a in cure infermieristiche d'emergenza NDS HF",
-        "en": "Dipl. Experten/-in Notfallpflege NDS HF",
+        "en": "Dipl. Expert Emergency Care NDS HF",
         "de": "Dipl. Experten/-in Notfallpflege NDS HF",
         "fr": "Expert(e) en soins d'urgence NDS HF"
       },
@@ -5818,7 +5808,6 @@
           "formation-complementaire-pour-pour-le-dipl-experts-en-anesthesiologie-nds-hf-spital-thurgau-stgag-kantonsspital"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-05T12:41:25.058Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -5934,7 +5923,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Radiologiefachfrau/-mann HF",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau/-mann HF",
+        "it": "Dipl. Specialista di radiologia HF",
         "en": "Dipl. Radiology specialist",
         "de": "Dipl. Radiologiefachfrau/-mann HF",
         "fr": "Dipl. Spécialiste de radiologie"
@@ -6026,7 +6015,6 @@
           "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen-9a9ff8"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-03T15:20:05.617Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -6211,7 +6199,6 @@
           "dipl-pflegefachperson-hf-fh-fur-die-interdisziplinare-chirurgie-stgag-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T13:21:56.217Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -6533,7 +6520,7 @@
       "title": "Vorpraktikant/-in Physio-/Ergotherapie",
       "titleByLocale": {
         "it": "Tirocinante in Fisioterapia/Ergoterapia",
-        "en": "Vorpraktikant/-in Physio-/Ergotherapie",
+        "en": "Pre-practical physio/occupational therapy",
         "de": "Vorpraktikant/-in Physio-/Ergotherapie",
         "fr": "Stagiaire en physiothérapie/ergothérapie"
       },
@@ -6610,7 +6597,6 @@
           "stagiaire-en-physiotherapie-ergotherapie-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.131Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -6774,7 +6760,6 @@
           "dipl-pflegefachmann-frau-hf-fh-mit-der-zusatzfunktion-als-berufsbildner-in-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -6805,7 +6790,7 @@
       "title": "Ergotherapeuten/-in",
       "titleByLocale": {
         "it": "Terapista occupazionale",
-        "en": "Ergotherapeuten/-in",
+        "en": "occupational therapists",
         "de": "Ergotherapeuten/-in",
         "fr": "ergothérapeutes"
       },
@@ -6902,7 +6887,6 @@
         "ergotherapeuten-in-stgag-munsterlingen",
         "terapista-occupazionale-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -7016,7 +7000,7 @@
       "title": "Dipl. Pflegefachmann/-frau Rehabilitation",
       "titleByLocale": {
         "it": "Dipl. Infermieristica riabilitazione specialistica",
-        "en": "Dipl. Pflegefachmann/-frau Rehabilitation",
+        "en": "Dipl. Nurse professional rehabilitation",
         "de": "Dipl. Pflegefachmann/-frau Rehabilitation",
         "fr": "Dipl. Réadaptation professionnelle des soins infirmiers"
       },
@@ -7069,7 +7053,6 @@
           "dipl-pflegefachmann-frau-rehabilitation-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:26:54.981Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -7259,7 +7242,6 @@
           "pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz-"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -7379,7 +7361,7 @@
       "title": "Dipl. Pflegefachmann/-frau Forensik",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale forense",
-        "en": "Dipl. Pflegefachmann/-frau Forensik",
+        "en": "Dipl. Nursing professional forensics",
         "de": "Dipl. Pflegefachmann/-frau Forensik",
         "fr": "Spécialiste certifié en sciences infirmières et médico-légales"
       },
@@ -7472,7 +7454,6 @@
           "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-18T22:46:00.094Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -7571,7 +7552,6 @@
           "medecin-principal-selon-la-qualification-oa-mbf-gastroenterologie-spital-thurgau-stgag-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -7842,7 +7822,6 @@
         "sub-assistant-spital-thurgau-stgag-diessenhofen",
         "sous-assistant-spital-thurgau-stgag-diessenhofen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:26:54.983Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8008,7 +7987,6 @@
           "med-praxisassistenten-in-frauenklinik-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:35:54.422Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -8090,7 +8068,6 @@
           "praktikanten-in-fachmatura-gesundheit-fmg-september-2027-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:09:21.429Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
@@ -8186,7 +8163,6 @@
           "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:09:21.430Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
@@ -8359,7 +8335,6 @@
           "lehrstelle-als-assistent-in-gesundheit-und-soziales-2-jahre-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:09:21.434Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
@@ -8515,7 +8490,6 @@
           "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:05:31.452Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -8598,7 +8572,6 @@
         "psychologe-in-stgag-ch-r134o1",
         "psychologe-in-stgag-munsterlingen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:05:31.454Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -8680,7 +8653,6 @@
           "mpa-sottosegretario-medico-radiologia-radio-oncologia-spital-thurgau-stgag-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T22:09:32.781Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -8756,7 +8728,6 @@
           "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-15T09:37:39.661Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -8787,7 +8758,7 @@
       "title": "Dipl. Pflegefachmann/-frau Floating-Pool (Mo-Fr)",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale/donna Piscina galleggiante (Mo-Fr)",
-        "en": "Dipl. Pflegefachmann/-frau Floating-Pool (Mo-Fr)",
+        "en": "Dipl. Nursing professional / -woman Floating-Pool (Mo-Fr)",
         "de": "Dipl. Pflegefachmann/-frau Floating-Pool (Mo-Fr)",
         "fr": "Dipl. Pool flottant (Mo-Fr)"
       },
@@ -8838,7 +8809,6 @@
           "dipl-pflegefachmann-frau-floating-pool-mo-fr-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T11:10:11.094Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -9274,7 +9244,6 @@
           "lehrstelle-als-medizinproduktetechnologe-in-efz-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:06:19.081Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
@@ -9360,7 +9329,6 @@
           "lehrstelle-als-koch-kochin-efz-stgag-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:06:19.081Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
@@ -9631,7 +9599,6 @@
           "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T23:32:59.243Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -9734,7 +9701,6 @@
         "internship-long-term-care-spital-thurgau-stgag-diessenhofen",
         "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:26:54.979Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
@@ -9939,7 +9905,7 @@
       "title": "Dipl. Pflegefachmann/-frau Rehabilitation im Springerpool",
       "titleByLocale": {
         "it": "Infermiere/i diplomato/i in riabilitazione nel pool Springer",
-        "en": "Dipl. Pflegefachmann/-frau Rehabilitation im Springerpool",
+        "en": "Dipl. Nursing professional/woman Rehabilitation in Springerpool",
         "de": "Dipl. Pflegefachmann/-frau Rehabilitation im Springerpool",
         "fr": "Infirmier/Infirmière diplômé(e) en réadaptation dans le pool Springer"
       },
@@ -10000,7 +9966,6 @@
           "dipl-soins-infirmiers-professionnels-readaptation-des-femmes-a-springerpool-spital-thurgau-stgag-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:26:54.981Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -10093,7 +10058,6 @@
           "technicien-ne-de-la-sante-efz-spital-thurgau-stgag-diessenhofen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:26:54.981Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -10126,7 +10090,7 @@
         "it": "Medico specialista in radiologia con specializzazione in radiologia addominale (OA o OA mbF)",
         "en": "Specialist in Radiology with a focus on abdominal radiology (Senior Physician or Senior Physician with special functions)",
         "de": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF)",
-        "fr": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF)"
+        "fr": "Spécialiste en radiologie avec un accent sur la radiologie abdominale (OA ou OA mbF)"
       },
       "description": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF) — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Ärztliches Personal\n• Bereich: Team Radiologie Plus (Kantonsspital Münsterlingen)\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet",
       "descriptionByLocale": {
@@ -10190,7 +10154,6 @@
           "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-spital-thurgau-stgag-kantonsspital"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -10435,7 +10398,7 @@
       "title": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion in der Fachverantwortung",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert Intensive Care NDS HF con funzione aggiuntiva nella responsabilità professionale",
-        "en": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion in der Fachverantwortung",
+        "en": "Dipl. Expert / Expert Intensive Care NDS HF with additional function in professional responsibility",
         "de": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion in der Fachverantwortung",
         "fr": "Dipl. Expert / Expert soins intensifs NDS HF avec une fonction supplémentaire en responsabilité professionnelle"
       },
@@ -10507,7 +10470,6 @@
           "dipl-expert-expert-soins-intensifs-nds-hf-avec-fonction-supplementaire-mise-en-uvre-etude-ficus-70-100-spital-thurgau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T10:01:19.121Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -10872,7 +10834,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Radiologiefachfrau/-mann HF",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau/-mann HF",
+        "it": "Dipl. Specialista di radiologia HF",
         "en": "Dipl. Radiology specialist HF",
         "de": "Dipl. Radiologiefachfrau/-mann HF",
         "fr": "Dipl. Spécialiste de radiologie HF"
@@ -10929,7 +10891,6 @@
           "dipl-radiologiefachfrau-mann-hf-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:35:32.436Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -11025,7 +10986,6 @@
           "arztsekretar-in-orthopadie-stgag-munsterlingen-r134ks"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T21:36:42.565Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -11334,7 +11294,6 @@
           "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T10:41:21.767Z",
       "salaryMin": 48500,
       "salaryMax": 89500,
@@ -11576,7 +11535,6 @@
           "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-ch-r134mf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:08:02.305Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -11660,7 +11618,6 @@
           "projektleiter-in-drittmarkt-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:36:03.729Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -11691,7 +11648,7 @@
       "title": "Dipl. Pflegefachmann/-frau Psychotherapie (Station PT5)",
       "titleByLocale": {
         "it": "Dipl. Infermieristica in Psicoterapia (Reparto PT5)",
-        "en": "Dipl. Pflegefachmann/-frau Psychotherapie (Station PT5)",
+        "en": "Dipl. Nursing specialist psychotherapy (station PT5)",
         "de": "Dipl. Pflegefachmann/-frau Psychotherapie (Station PT5)",
         "fr": "Dipl. Psychothérapie spécialisée en soins infirmiers (station PT5)"
       },
@@ -11753,7 +11710,6 @@
           "dipl-pflegefachmann-frau-psychotherapie-station-pt5-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-02T12:27:30.964Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -11783,7 +11739,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau",
+        "it": "Dipl. Infermieristica professionale/donna",
         "en": "Dipl. Nursing professional/woman",
         "de": "Dipl. Pflegefachmann/-frau",
         "fr": "Spécialiste diplômé en soins infirmiers"
@@ -11848,7 +11804,6 @@
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T14:47:16.696Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -12011,7 +11966,6 @@
           "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -12280,7 +12234,6 @@
           "mitarbeiter-in-hotellerie-services-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:08:10.318Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -12405,7 +12358,7 @@
         "it": "Amministrazione Paziente – Fatturazione Ambulatoriale",
         "en": "Patient Administration – Outpatient Invoicing",
         "de": "Sachbearbeiter/-in Patientenadministration – ambulante Fakturierung",
-        "fr": "Sachbearbeiter/-in Patientenadministration – ambulante Fakturierung"
+        "fr": "Administration du patient – Facturation externe"
       },
       "description": "Sachbearbeiter/-in Patientenadministration – ambulante Fakturierung — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.11.2026",
       "descriptionByLocale": {
@@ -12468,7 +12421,6 @@
           "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen-r134jq"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:24:15.114Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -12631,7 +12583,6 @@
           "arztsekretar-in-medizinische-diagnostik-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:40:14.562Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -12745,7 +12696,7 @@
       "title": "Dipl. Pflegefachmann/-frau Alkoholentzug & Therapie",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale / donna Alcohol ritiro & terapia",
-        "en": "Dipl. Pflegefachmann/-frau Alkoholentzug & Therapie",
+        "en": "Dipl. Nursing professional / woman Alcohol withdrawal & therapy",
         "de": "Dipl. Pflegefachmann/-frau Alkoholentzug & Therapie",
         "fr": "Dipl. Professionnels des soins infirmiers / femme Retrait d'alcool & thérapie"
       },
@@ -12798,7 +12749,6 @@
           "dipl-pflegefachmann-frau-alkoholentzug-therapie-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:09:46.097Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -12965,7 +12915,6 @@
           "med-praxisassistenten-in-klinik-fur-kinder-und-jugendliche-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:33:23.125Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13047,7 +12996,6 @@
           "arztsekretar-in-urologie-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T23:00:23.948Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13129,7 +13077,6 @@
           "chefarzt-arztin-medizinische-onkologie-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:33:23.126Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -13229,7 +13176,6 @@
           "logistiker-in-efz-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:33:23.127Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13563,7 +13509,6 @@
           "dipl-biomedizinische-r-analytiker-in-hf-zytologie-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:37:24.642Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13647,7 +13592,6 @@
           "pharmaassistent-in-oder-laborant-in-zytostatika-und-qualitatskontrolle-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:37:24.643Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -14081,7 +14025,6 @@
           "fachperson-gesundheit-efz-im-chirurgie-pool-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:09:24.666Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -14625,7 +14568,6 @@
           "medecins-adjoints-psychiatrie-et-psychotherapie-spital-thurgau-stgag-munsterlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:26:54.977Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
