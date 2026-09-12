@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-09-11T23:26:48.818Z",
+  "assembledAt": "2026-09-12T13:18:41.800Z",
   "jobs": [
     {
       "id": "heineken-ch-5b1f13bcfca3",
@@ -48,7 +48,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162611&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:26:45.230Z",
+      "crawledAt": "2026-09-12T13:18:38.222Z",
       "previousSlugs": [
         "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
         "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-chur",
@@ -79,6 +79,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:34:47.887Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -140,7 +141,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=163082&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:26:37.633Z",
+      "crawledAt": "2026-09-12T13:18:29.938Z",
       "previousSlugs": [
         "betriebsmechaniker-in-heineken-ch-chur",
         "betriebsmechaniker-in-heineken-switzerland-chur",
@@ -165,6 +166,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:54:58.821Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "currency": "CHF",
@@ -226,7 +228,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164139&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:26:29.299Z",
+      "crawledAt": "2026-09-12T13:18:22.854Z",
       "previousSlugs": [
         "chauffeur-c-e-m-w-arosa-heineken-ch-arosa",
         "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa",
@@ -278,7 +280,7 @@
       "title": "Sales & Market Analyst (w/m/d)",
       "titleByLocale": {
         "it": "Sales & Market Analista (w/m/d)",
-        "en": "Sales & Market Analyst (m/f/d)",
+        "en": "Sales & Market Analyst (w/m/d)",
         "de": "Sales & Market Analyst (w/m/d)",
         "fr": "Sales & Market Analyste (w/m/d)"
       },
@@ -308,7 +310,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:26:22.933Z",
+      "crawledAt": "2026-09-12T13:18:14.642Z",
       "previousSlugs": [
         "sales-market-analyst-w-m-d-heineken-ch-luzern",
         "sales-market-analista-w-m-d-heineken-switzerland-luzern"
@@ -385,12 +387,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164840&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:26:14.250Z",
-      "previousSlugs": [
-        "specialist-warehouse-m-w-d-heineken-ch-luzern",
-        "specialist-warehouse-m-w-d-heineken-ch-belp",
-        "specialista-warehouse-m-w-d-heineken-switzerland-luzern"
-      ],
+      "crawledAt": "2026-09-12T13:18:06.873Z",
       "previousSlugsByLocale": {
         "de": [
           "specialist-warehouse-m-w-d-heineken-ch-belp",
@@ -401,14 +398,20 @@
           "specialist-warehouse-m-w-d-heineken-ch-belp",
           "specialista-warehouse-m-w-d-heineken-switzerland-luzern"
         ],
-        "fr": [
+        "en": [
           "specialist-warehouse-m-w-d-heineken-ch-luzern"
         ],
-        "en": [
+        "fr": [
           "specialist-warehouse-m-w-d-heineken-ch-luzern"
         ]
       },
+      "previousSlugs": [
+        "specialist-warehouse-m-w-d-heineken-ch-luzern",
+        "specialist-warehouse-m-w-d-heineken-ch-belp",
+        "specialista-warehouse-m-w-d-heineken-switzerland-luzern"
+      ],
       "firstSeenAt": "2026-09-07T23:43:35.597Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -470,7 +473,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164842&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:26:06.196Z",
+      "crawledAt": "2026-09-12T13:17:58.849Z",
       "previousSlugs": [
         "truck-driver-m-w-d-heineken-ch-belp",
         "driver-per-il-camion-m-f-d-heineken-switzerland-belp"
@@ -546,7 +549,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164826&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:25:57.761Z",
+      "crawledAt": "2026-09-12T13:17:50.913Z",
       "previousSlugs": [
         "specialist-business-applications-operations-m-w-d-heineken-ch-luzern",
         "specialista-business-applications-operations-m-w-d-heineken-switzerland-luzern"
@@ -561,6 +564,7 @@
         ]
       },
       "firstSeenAt": "2026-09-07T23:43:19.344Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "currency": "CHF",
@@ -622,7 +626,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162606&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:25:50.145Z",
+      "crawledAt": "2026-09-12T13:17:43.012Z",
       "previousSlugs": [
         "chauffeur-c-e-m-w-davos-heineken-ch-davos",
         "chauffeur-c-e-m-f-davos-heineken-switzerland-davos"
@@ -701,7 +705,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162775&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:25:41.725Z",
+      "crawledAt": "2026-09-12T13:17:35.024Z",
       "previousSlugs": [
         "chauffeur-c-e-m-w-chur-heineken-ch-chur",
         "chauffeur-c-e-m-f-chur-heineken-switzerland-chur"
@@ -780,7 +784,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=127858&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:25:33.883Z",
+      "crawledAt": "2026-09-12T13:17:27.758Z",
       "previousSlugs": [
         "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
         "autista-c-e-heineken-switzerland-luzern",
