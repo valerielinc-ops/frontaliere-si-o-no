@@ -1,6 +1,11 @@
 import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
-import { classifyMopupWrite, missingSlots } from '../scripts/local-mt-mopup.mjs';
+import {
+  classifyMopupWrite,
+  languageAwareOverwriteEnabled,
+  missingSlots,
+  shouldApplyMopupWrite,
+} from '../scripts/local-mt-mopup.mjs';
 import { stratifyByCompany, companyKey } from '../scripts/research/argos-reject-audit.mjs';
 
 describe('classifyMopupWrite() — the mop-up rejection chain, made observable', () => {
@@ -9,6 +14,7 @@ describe('classifyMopupWrite() — the mop-up rejection chain, made observable',
     const out = classifyMopupWrite({ job, locale: 'it', field: 'title', rawText: 'Macellaio 60-100%' });
     expect(out.decision).toBe('write');
     expect(out.incoming).toBe('Macellaio 60-100%');
+    expect(shouldApplyMopupWrite({ decision: out.decision, langAwareOverwrite: false })).toBe(true);
   });
 
   it('rejects an output that is just a copy of the source', () => {
@@ -90,6 +96,33 @@ describe('classifyMopupWrite() — language arm (workspace issue 16)', () => {
     expect(out.languageDriven).toBe(true);
   });
 
+  it('the rollout flag gates only a predicate-approved existing-title repair', () => {
+    const job = wrongLanguageSlot();
+    const approved = classifyMopupWrite({
+      job, locale: 'it', field: 'title', rawText: 'Macellaio 60-100%',
+    });
+    expect(approved.languageDriven).toBe(true);
+    expect(shouldApplyMopupWrite({
+      decision: approved.decision,
+      languageDriven: approved.languageDriven,
+      langAwareOverwrite: false,
+    })).toBe(false);
+    expect(shouldApplyMopupWrite({
+      decision: approved.decision,
+      languageDriven: approved.languageDriven,
+      langAwareOverwrite: true,
+    })).toBe(true);
+
+    const rejected = classifyMopupWrite({
+      job, locale: 'it', field: 'title', rawText: 'Metzger Aushilfe 60-100%',
+    });
+    expect(shouldApplyMopupWrite({
+      decision: rejected.decision,
+      languageDriven: rejected.languageDriven,
+      langAwareOverwrite: true,
+    })).toBe(false);
+  });
+
   it('falls back to the pre-issue-16 behaviour when langAware is off', () => {
     const job = wrongLanguageSlot();
     const out = classifyMopupWrite({
@@ -125,12 +158,11 @@ describe('classifyMopupWrite() — language arm (workspace issue 16)', () => {
 // the wiring.
 describe('LOCAL_MT_LANG_AWARE_OVERWRITE default', () => {
   it('is OFF unless the repo variable is exactly "1"', () => {
-    const read = (v?: string) => String(v || '0') === '1';
-    expect(read(undefined)).toBe(false);
-    expect(read('')).toBe(false);
-    expect(read('0')).toBe(false);
-    expect(read('true')).toBe(false);
-    expect(read('1')).toBe(true);
+    expect(languageAwareOverwriteEnabled(undefined)).toBe(false);
+    expect(languageAwareOverwriteEnabled('')).toBe(false);
+    expect(languageAwareOverwriteEnabled('0')).toBe(false);
+    expect(languageAwareOverwriteEnabled('true')).toBe(false);
+    expect(languageAwareOverwriteEnabled('1')).toBe(true);
   });
 
   it('is wired into both live mop-up phases with an OFF default', () => {

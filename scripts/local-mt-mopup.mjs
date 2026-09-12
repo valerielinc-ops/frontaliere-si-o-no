@@ -80,7 +80,11 @@ const MIN_DESC_CHARS = 120;
  * one-line PR on the site that reaches the corpus through the `identical`
  * mirror — no admin rights on the corpus repo, and the same one line reverts it.
  */
-const LANG_AWARE_OVERWRITE = String(process.env.LOCAL_MT_LANG_AWARE_OVERWRITE || '0') === '1';
+export function languageAwareOverwriteEnabled(value) {
+  return String(value || '0') === '1';
+}
+
+const LANG_AWARE_OVERWRITE = languageAwareOverwriteEnabled(process.env.LOCAL_MT_LANG_AWARE_OVERWRITE);
 
 const PYTHON = process.env.LOCAL_MT_PYTHON || 'python3';
 // Per-step ceiling: a fresh budget measured from THIS process's start.
@@ -510,6 +514,22 @@ export function classifyMopupWrite({
   return { ...base, incoming, decision: 'write' };
 }
 
+/**
+ * Apply the rollout switch only to the language-aware repair arm. A normal
+ * fill of a missing slot is always eligible; an existing non-empty title is
+ * eligible only when classifyMopupWrite() has proved both that the stored
+ * value is in the wrong language and that the candidate is not. This keeps
+ * the flag from becoming a blanket overwrite switch (#1235).
+ */
+export function shouldApplyMopupWrite({
+  decision,
+  languageDriven = false,
+  langAwareOverwrite = false,
+}) {
+  if (decision !== 'write') return false;
+  return !languageDriven || langAwareOverwrite;
+}
+
 function normalizeCompanyKey(value = '') {
   return String(value || '')
     .trim()
@@ -731,6 +751,7 @@ async function main() {
   const langWriteReasons = {};
   const langSkipReasons = {};
   let shadowWithheld = 0;
+  let languageFieldsRewritten = 0;
 
   for (const [file, edits] of byFile) {
     if (!budgetOk()) {
@@ -775,17 +796,24 @@ async function main() {
         const bucket = decision === 'write' ? langWriteReasons : langSkipReasons;
         bucket[reason] = (bucket[reason] || 0) + 1;
       }
-      if (decision !== 'write') continue;
       // Shadow arm: with the switch off, a language-driven write is counted and
       // withheld. The corpus is untouched and the log still reports the volume.
-      if (languageDriven && !LANG_AWARE_OVERWRITE) {
-        shadowWithheld++;
+      // Missing fields remain eligible regardless of the rollout switch.
+      if (!shouldApplyMopupWrite({
+        decision,
+        languageDriven,
+        langAwareOverwrite: LANG_AWARE_OVERWRITE,
+      })) {
+        if (decision === 'write' && languageDriven) {
+          shadowWithheld++;
+        }
         continue;
       }
 
       job[bag][locale] = incoming;
       fileChanged = true;
       fieldsFilled++;
+      if (languageDriven) languageFieldsRewritten++;
       touchedJobs.add(jobIdx);
     }
 
@@ -833,7 +861,7 @@ async function main() {
   const langWrites = Object.values(langWriteReasons).reduce((a, b) => a + b, 0);
   const langSkips = Object.values(langSkipReasons).reduce((a, b) => a + b, 0);
   console.log(`\n🌍 [local-mt] Language arm — LOCAL_MT_LANG_AWARE_OVERWRITE=${LANG_AWARE_OVERWRITE ? '1 (ENFORCING, writes applied)' : '0 (SHADOW, writes withheld)'}`);
-  console.log(`   ${langWrites} wrong-language slots with a target-language candidate${LANG_AWARE_OVERWRITE ? ' → overwritten' : ` → WITHHELD (${shadowWithheld} not written)`}`);
+  console.log(`   ${langWrites} wrong-language slots with a target-language candidate${LANG_AWARE_OVERWRITE ? ` → ${languageFieldsRewritten} actually overwritten` : ` → WITHHELD (${shadowWithheld} not written)`}`);
   for (const [reason, n] of sorted(langWriteReasons)) console.log(`      existing was ${reason.padEnd(22)} ${String(n).padStart(6)}`);
   console.log(`   ${langSkips} wrong-language slots whose candidate was ALSO wrong-language → still rejected`);
   for (const [reason, n] of sorted(langSkipReasons)) console.log(`      candidate was ${reason.padEnd(21)} ${String(n).padStart(6)}`);
