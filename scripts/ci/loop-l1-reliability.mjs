@@ -155,6 +155,19 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
+function writeResult(reportDir, { verdict, issued, held }) {
+  if (!reportDir) return null;
+  const file = path.join(path.resolve(reportDir), 'l1-result.json');
+  fs.writeFileSync(file, `${JSON.stringify({
+    loopId: LOOP_ID,
+    ok: verdict.ok,
+    quality: verdict.quality,
+    issued,
+    held,
+  }, null, 2)}\n`);
+  return file;
+}
+
 function issueBody(verdict, decision) {
   return [
     'L1 non può prendere una decisione affidabile sul percorso utile: il telemetria export non contiene una coorte completa e fresca.',
@@ -265,8 +278,16 @@ export async function runL1({
     });
     issued = true;
   }
+  const resultFile = writeResult(reportDir, { verdict, issued, held });
   logger.log(`[L1] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
-  return { verdict, observation, decision, files, issued, held };
+  return {
+    verdict,
+    observation,
+    decision,
+    files: resultFile ? [...files, resultFile] : files,
+    issued,
+    held,
+  };
 }
 
 function parseArgs(argv) {
