@@ -200,6 +200,30 @@ describe('sibling-check-gate hook — cwd forwarding (2026-08-25 incident)', () 
     expect(res.stderr).toMatch(/NON ESEGUITO/);
   });
 
+  it('blocks a literal cd to an existing non-repository before --head can fall back to the gate repo', () => {
+    const outsideAnyRepo = mkdtempSync(join(tmpdir(), 'sibling-gate-literal-cd-'));
+    createdDirs.push(outsideAnyRepo);
+    const res = runGate(
+      `cd "${outsideAnyRepo}" && gh pr create --head main --title x --body "y"`,
+      { cwd: ambientRepo },
+    );
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/cwd non risolvibile|non appartiene a una repository Git/i);
+    expect(res.stderr).toMatch(/NON ESEGUITO/);
+  });
+
+  it('blocks a relative cd that points at a different nested worktree', () => {
+    const foreign = join(ambientRepo, 'foreign-worktree');
+    mkdirSync(foreign);
+    execFileSync('git', ['init', '-q', foreign], { stdio: 'ignore' });
+    const res = runGate(
+      'cd foreign-worktree && gh pr create --title x --body "y"',
+      { cwd: ambientRepo },
+    );
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/worktree diverso/i);
+  });
+
   it('falls back to the ambient directory (today\'s pre-fix behaviour) when the payload carries no cwd at all', () => {
     // No `cwd` field in the payload → resolveHookTargetCwd returns undefined
     // → the check script inherits spawnSync's own cwd (ambientRepo, a

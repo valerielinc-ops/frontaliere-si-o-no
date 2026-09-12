@@ -96,6 +96,11 @@ import {
   addPreviousSlugForLocale,
   captureLostSlugs,
 } from './dedicated-crawler-common.mjs';
+import {
+  canonicalizeCompanyDefinition,
+  companyKeyAliasesFor,
+  normalizeCompanyKeyAlias,
+} from './company-key.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 // The cache's size bound lives in ONE module because two writers must agree on
 // it: this file at persist time, and scripts/ci/merge-ai-cache.mjs when git
@@ -573,6 +578,110 @@ function readJson(filePath, fallback = null) {
   }
 }
 
+function companyKeyReferenceForms(value) {
+  return [...new Set([
+    normalizeCompanyKeyAlias(value),
+    normalizeCompanyKey(value),
+  ].filter(Boolean))];
+}
+
+function companyKeyCandidates(company = {}) {
+  return [...new Set([
+    company?.key,
+    ...(Array.isArray(company?.companyKeyAliases) ? company.companyKeyAliases : []),
+    company?.name,
+  ].flatMap((value) => companyKeyReferenceForms(value)))];
+}
+
+/**
+ * Resolve canonical company keys while the crawler migrates pre-digest data.
+ * Ambiguous historical cuts are intentionally left unresolved: the job's full
+ * company name is used first when available, and a caller can still request
+ * the unambiguous digest key explicitly.
+ */
+function buildCompanyKeyResolver(companies = [], crawlerConfig = {}) {
+  const knownCanonical = new Set(
+    companies.map((company) => normalizeCompanyKey(company?.name || company?.key || '')).filter(Boolean),
+  );
+  const aliasTargets = new Map();
+  const add = (aliasRaw, canonicalRaw) => {
+    const canonical = normalizeCompanyKey(canonicalRaw);
+    if (!canonical || !knownCanonical.has(canonical)) return;
+    for (const alias of companyKeyReferenceForms(aliasRaw)) {
+      const targets = aliasTargets.get(alias) || new Set();
+      targets.add(canonical);
+      aliasTargets.set(alias, targets);
+    }
+  };
+
+  for (const company of companies) {
+    const canonical = normalizeCompanyKey(company?.name || company?.key || '');
+    if (!canonical) continue;
+    add(company.key, canonical);
+    add(company.name, canonical);
+    for (const alias of [
+      ...(Array.isArray(company?.companyKeyAliases) ? company.companyKeyAliases : []),
+      ...companyKeyAliasesFor(company?.name || '', company?.key || ''),
+    ]) {
+      add(alias, canonical);
+    }
+  }
+
+  for (const [alias, rawCanonical] of Object.entries(crawlerConfig?.companyKeyAliases || {})) {
+    const normalizedTarget = normalizeCompanyKey(rawCanonical);
+    const targetSet = aliasTargets.get(normalizedTarget);
+    const canonical = knownCanonical.has(normalizedTarget)
+      ? normalizedTarget
+      : targetSet?.size === 1 ? [...targetSet][0] : '';
+    if (canonical) add(alias, canonical);
+  }
+
+  const resolved = new Map();
+  for (const [alias, targets] of aliasTargets) {
+    if (targets.size === 1) resolved.set(alias, [...targets][0]);
+  }
+
+  const resolve = (raw) => {
+    for (const reference of companyKeyReferenceForms(raw)) {
+      if (resolved.has(reference)) return resolved.get(reference);
+    }
+    // Keep an ambiguous historical 64-char cut intact so it cannot be
+    // mistaken for a different canonical key. A full company name is longer
+    // than this only when it is intentionally digested below.
+    const unresolvedAlias = normalizeCompanyKeyAlias(raw);
+    if (unresolvedAlias.length === 64 && unresolvedAlias.endsWith('-')) {
+      return unresolvedAlias;
+    }
+    return normalizeCompanyKey(raw);
+  };
+  const resolveRecord = (record = {}) => {
+    const name = String(record?.company || record?.companyName || '').trim();
+    const explicitKey = String(record?.companyKey || record?.key || '').trim();
+    const normalizedName = normalizeCompanyKey(name);
+    // A known full name wins over a stale explicit key. This is the critical
+    // path for jobs carrying the old 64-char cut plus their full company name.
+    if (normalizedName && resolved.has(normalizedName)) return resolved.get(normalizedName);
+    return resolve(explicitKey || name);
+  };
+  const aliasesForCompany = (company = {}) => [...new Set([
+    ...companyKeyCandidates(company),
+    ...companyKeyAliasesFor(company?.name || '', company?.key || '')
+      .flatMap((value) => companyKeyReferenceForms(value)),
+  ])];
+
+  return { resolve, resolveRecord, aliasesForCompany };
+}
+
+function migrateCompanyJobKeys(jobs, companyKeyResolver) {
+  if (!Array.isArray(jobs) || !companyKeyResolver?.resolveRecord) return jobs;
+  return jobs.map((job) => {
+    if (!job || typeof job !== 'object' || !String(job.companyKey || '').trim()) return job;
+    const canonical = companyKeyResolver.resolveRecord(job);
+    if (!canonical || canonical === String(job.companyKey).trim()) return job;
+    return { ...job, companyKey: canonical };
+  });
+}
+
 /**
  * Read existing jobs from per-crawler slices when data/jobs.json is absent.
  * In CI, data/jobs.json is gitignored and doesn't exist, but per-crawler slices
@@ -582,11 +691,12 @@ function readJson(filePath, fallback = null) {
 function readExistingJobsFromSlices(scopedKeys) {
   if (!fs.existsSync(BY_CRAWLER_DIR)) return [];
   const files = listSliceFileNames(BY_CRAWLER_DIR);
+  const scopedKeySet = scopedKeys && scopedKeys.length > 0 ? new Set(scopedKeys) : null;
   const jobs = [];
   for (const file of files) {
     const key = file.replace(/\.json$/, '');
     // When running a scoped crawler, only load that crawler's slice
-    if (scopedKeys && scopedKeys.length > 0 && !scopedKeys.includes(key)) continue;
+    if (scopedKeySet && !scopedKeySet.has(key)) continue;
     const data = readJson(path.join(BY_CRAWLER_DIR, file), null);
     if (data && Array.isArray(data.jobs)) {
       jobs.push(...data.jobs);
@@ -628,6 +738,9 @@ function loadCompanyAdapters() {
     const authoritativeLegacyCompanyAliases = Array.isArray(parsed.authoritativeLegacyCompanyAliases)
       ? parsed.authoritativeLegacyCompanyAliases.map((alias) => normalizeCompanyKey(String(alias || ''))).filter(Boolean)
       : [];
+    const companyKeyAliases = Array.isArray(parsed.companyKeyAliases)
+      ? parsed.companyKeyAliases.map((alias) => normalizeCompanyKeyAlias(String(alias || ''))).filter(Boolean)
+      : [];
     const seedMetaByUrl = {};
     if (parsed.seedMetaByUrl && typeof parsed.seedMetaByUrl === 'object') {
       for (const [rawUrl, rawMeta] of Object.entries(parsed.seedMetaByUrl)) {
@@ -642,7 +755,7 @@ function loadCompanyAdapters() {
     }
     const priority = Number.isFinite(Number(parsed.priority)) ? Number(parsed.priority) : 0;
     const userAgent = typeof parsed.userAgent === 'string' ? parsed.userAgent.trim() : '';
-    out.set(key, {
+    const adapter = {
       enabled,
       crawlerModes,
       seedUrls,
@@ -651,19 +764,23 @@ function loadCompanyAdapters() {
       authoritativeDetailSnapshot,
       authoritativeLifecycleDomains: authoritativeDetailSnapshot ? authoritativeLifecycleDomains : undefined,
       authoritativeLegacyCompanyAliases: authoritativeDetailSnapshot ? authoritativeLegacyCompanyAliases : undefined,
+      companyKeyAliases,
       priority,
       userAgent: userAgent || undefined,
-    });
+    };
+    out.set(key, adapter);
+    for (const alias of companyKeyAliases) {
+      if (alias && !out.has(alias)) out.set(alias, adapter);
+    }
   }
   return out;
 }
 
 function getCompanyAdapter(company) {
   if (!company || !(companyAdaptersGlobal instanceof Map) || companyAdaptersGlobal.size === 0) return null;
-  const byKey = normalizeCompanyKey(company.key || '');
-  if (byKey && companyAdaptersGlobal.has(byKey)) return companyAdaptersGlobal.get(byKey);
-  const byName = normalizeCompanyKey(company.name || '');
-  if (byName && companyAdaptersGlobal.has(byName)) return companyAdaptersGlobal.get(byName);
+  for (const key of companyKeyCandidates(company)) {
+    if (companyAdaptersGlobal.has(key)) return companyAdaptersGlobal.get(key);
+  }
   return null;
 }
 
@@ -2518,9 +2635,18 @@ function parseCompanySourcesFromTsx(tsxSource) {
 function dedupeAndSortCompanies(inputCompanies) {
   const byHost = new Map();
   for (const c of inputCompanies) {
-    const host = hostOf(c.website);
+    const normalizedCompany = canonicalizeCompanyDefinition(c);
+    const host = hostOf(normalizedCompany.website);
     const prev = byHost.get(host);
-    if (!prev || c.employees > prev.employees) byHost.set(host, c);
+    const preferred = !prev || normalizedCompany.employees > prev.employees ? normalizedCompany : prev;
+    const aliases = [...new Set([
+      ...(prev?.companyKeyAliases || []),
+      ...(normalizedCompany.companyKeyAliases || []),
+    ])].filter((alias) => alias && alias !== preferred.key);
+    byHost.set(host, {
+      ...preferred,
+      ...(aliases.length > 0 ? { companyKeyAliases: aliases } : {}),
+    });
   }
   return [...byHost.values()]
     .sort((a, b) => b.employees - a.employees);
@@ -4499,6 +4625,12 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
 const GRACE_PERIOD_MAX_MISSES = 2;
 
 function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}) {
+  const resolveCompanyKey = typeof options.resolveCompanyKey === 'function'
+    ? options.resolveCompanyKey
+    : normalizeCompanyKey;
+  const resolveJobCompanyKey = typeof options.resolveJobCompanyKey === 'function'
+    ? options.resolveJobCompanyKey
+    : (job) => resolveCompanyKey(String(job?.companyKey || job?.company || ''));
   const activeResults = (results || [])
     .filter((r) => (r?.processedCandidates || 0) > 0 || (r?.scrapedJobPages || 0) > 0 || (r?.discardedCount || 0) > 0);
   const activeDomains = new Set();
@@ -4508,7 +4640,7 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
     const companyDomain = normalizeHost(result?.companyDomain || '');
     if (companyDomain) activeDomains.add(companyDomain);
 
-    const companyKey = normalizeCompanyKey(result?.companyKey || '');
+    const companyKey = resolveJobCompanyKey(result);
     const lifecycleDomains = Array.isArray(result?.authoritativeLifecycleDomains)
       ? result.authoritativeLifecycleDomains.map((domain) => normalizeHost(domain)).filter(Boolean)
       : [];
@@ -4533,7 +4665,7 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
   if (activeDomains.size === 0) return { prunedExisting: existingJobs, removed: 0 };
   const scopeCompanyKeys = new Set(
     (Array.isArray(options.scopeCompanyKeys) ? options.scopeCompanyKeys : [])
-      .map((k) => normalizeCompanyKey(k))
+      .map((k) => resolveCompanyKey(k))
       .filter(Boolean)
   );
   const hasScopedCompanyKeys = scopeCompanyKeys.size > 0;
@@ -4552,8 +4684,10 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
   for (const job of existingJobs || []) {
     const domain = normalizeHost(hostOf(job?.url || ''));
     if (job?.source === 'Company Careers Crawler' && domain && activeDomains.has(domain)) {
-      const explicitKey = normalizeCompanyKey(String(job?.companyKey || ''));
-      const legacyCompany = normalizeCompanyKey(String(job?.company || ''));
+      const explicitKey = String(job?.companyKey || '').trim()
+        ? resolveJobCompanyKey(job)
+        : '';
+      const legacyCompany = resolveCompanyKey(String(job?.company || ''));
       const legacyAliases = authoritativeLegacyAliasesByCompanyKey.get(singleScopedCompanyKey);
       const key = explicitKey
         || (singleScopedCompanyKey && legacyAliases?.has(legacyCompany) ? singleScopedCompanyKey : '')
@@ -4658,12 +4792,14 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
     result.authoritativeDetailFingerprintsByDomain = fingerprintsByDomain;
   }
   const defaultModes = ['workday', 'greenhouse', 'lever', 'smartrecruiters', 'generic_ats', 'teaser_api', 'jsonld', 'html'];
-  const companyModeConfig =
-    crawlerConfig?.companyCrawlerMode?.[normalizeCompanyKey(String(company.name || ''))] ??
-    crawlerConfig?.companyCrawlerMode?.[normalizeCompanyKey(String(company.key || ''))] ??
-    crawlerConfig?.companyCrawlerMode?.[String(company.name || '').toLowerCase()] ??
-    crawlerConfig?.companyCrawlerMode?.[String(company.key || '').toLowerCase()] ??
-    null;
+  const companyModeKeys = [...new Set([
+    ...companyKeyCandidates(company),
+    String(company.name || '').toLowerCase(),
+    String(company.key || '').toLowerCase(),
+  ].filter(Boolean))];
+  const companyModeConfig = companyModeKeys
+    .map((key) => crawlerConfig?.companyCrawlerMode?.[key])
+    .find((value) => Array.isArray(value) && value.length > 0) || null;
   const adapterModes =
     Array.isArray(adapter?.crawlerModes) && adapter.crawlerModes.length > 0
       ? adapter.crawlerModes.map((m) => normalizeSpace(String(m || '')).toLowerCase()).filter(Boolean)
@@ -4696,7 +4832,8 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
     }
   };
 
-  const companyKeyNormalized = normalizeCompanyKey(String(company?.key || company?.name || ''));
+  // The full name is authoritative during the historical-key migration.
+  const companyKeyNormalized = normalizeCompanyKey(String(company?.name || company?.key || ''));
   const companyHostNormalized = normalizeHost(hostOf(String(company?.website || '')));
   const isVfCompany =
     companyKeyNormalized.includes('vf-international-the-north-face-timberland') ||
@@ -5204,6 +5341,7 @@ function loadCrawlerConfig(inputCfg = null) {
       byName: {},
     },
     companyCrawlerMode: {},
+    companyKeyAliases: {},
     minQualityScore: clampNum(process.env.JOBS_MIN_QUALITY_SCORE, 4, 10, 6),
     minDescriptionChars: clampNum(process.env.JOBS_MIN_DESCRIPTION_CHARS, 80, 1200, 220),
     aiLocalizationEnabled: String(process.env.JOBS_AI_LOCALIZATION_ENABLED || '1') !== '0',
@@ -5237,6 +5375,9 @@ function loadCrawlerConfig(inputCfg = null) {
   };
   cfg.companyCrawlerMode = (cfg.companyCrawlerMode && typeof cfg.companyCrawlerMode === 'object')
     ? cfg.companyCrawlerMode
+    : {};
+  cfg.companyKeyAliases = (cfg.companyKeyAliases && typeof cfg.companyKeyAliases === 'object')
+    ? cfg.companyKeyAliases
     : {};
   cfg.contentReuse = {
     ...defaults.contentReuse,
@@ -5366,6 +5507,12 @@ function mergeCrawlerConfig(baseCfg, overrideCfg) {
         ...(baseCfg.companyPriority?.byName || {}),
         ...((overrideCfg.companyPriority?.byName && typeof overrideCfg.companyPriority.byName === 'object') ? overrideCfg.companyPriority.byName : {}),
       },
+    },
+    companyKeyAliases: {
+      ...(baseCfg.companyKeyAliases || {}),
+      ...((overrideCfg.companyKeyAliases && typeof overrideCfg.companyKeyAliases === 'object')
+        ? overrideCfg.companyKeyAliases
+        : {}),
     },
     sourceSeeds: {
       ...(baseCfg.sourceSeeds || {}),
@@ -5538,24 +5685,32 @@ async function main() {
   const tsx = fs.readFileSync(COMPANIES_TSX, 'utf-8');
   const companiesFromMap = parseCompanySourcesFromTsx(tsx);
   const extraCompanies = loadExtraCompanies();
-  const companies = dedupeAndSortCompanies([...companiesFromMap, ...extraCompanies]).map((c) => ({
-    ...c,
-    key: c.key || normalizeKey(c.name || '').slice(0, 64),
-  }));
+  const companies = dedupeAndSortCompanies([...companiesFromMap, ...extraCompanies])
+    .map((company) => canonicalizeCompanyDefinition(company));
   if (companies.length === 0) {
     throw new Error('No company websites found in TicinoCompanies.tsx');
   }
+  const companyKeyResolver = buildCompanyKeyResolver(companies, crawlerConfig);
   const { selected: configuredCompanies, dropped: droppedCompanies } = applyCompanySelection(companies, crawlerConfig);
-  const requestedCompanyKeys = String(process.env.JOBS_CRAWLER_COMPANY_KEYS || process.env.JOBS_CRAWLER_COMPANY_KEY || '')
+  const requestedCompanyKeyInputs = String(process.env.JOBS_CRAWLER_COMPANY_KEYS || process.env.JOBS_CRAWLER_COMPANY_KEY || '')
     .split(',')
-    .map((x) => normalizeKey(x || '').slice(0, 64))
+    .map((x) => normalizeCompanyKeyAlias(x || ''))
     .filter(Boolean);
-  const excludedCompanyKeys = String(process.env.JOBS_CRAWLER_EXCLUDE_COMPANY_KEYS || process.env.JOBS_CRAWLER_EXCLUDE_COMPANY_KEY || '')
+  const requestedCompanyKeys = [...new Set(requestedCompanyKeyInputs.map(companyKeyResolver.resolve).filter(Boolean))];
+  const excludedCompanyKeyInputs = String(process.env.JOBS_CRAWLER_EXCLUDE_COMPANY_KEYS || process.env.JOBS_CRAWLER_EXCLUDE_COMPANY_KEY || '')
     .split(',')
-    .map((x) => normalizeKey(x || '').slice(0, 64))
+    .map((x) => normalizeCompanyKeyAlias(x || ''))
     .filter(Boolean);
+  const excludedCompanyKeys = [...new Set(excludedCompanyKeyInputs.map(companyKeyResolver.resolve).filter(Boolean))];
   const requestedSet = new Set(requestedCompanyKeys);
   const excludedSet = new Set(excludedCompanyKeys);
+  const requestedCompanyKeyAliases = new Set([
+    ...requestedCompanyKeyInputs,
+    ...requestedCompanyKeys,
+    ...configuredCompanies
+      .filter((company) => requestedSet.has(company.key))
+      .flatMap((company) => companyKeyResolver.aliasesForCompany(company)),
+  ]);
   const selectedByKey = requestedSet.size > 0
     ? configuredCompanies.filter((c) => requestedSet.has(c.key))
     : configuredCompanies;
@@ -5584,13 +5739,13 @@ async function main() {
   }
   const scopedCompanyKeysForRun = new Set(
     requestedCompanyKeys
-      .map((k) => normalizeCompanyKey(k).slice(0, 64))
+      .map((k) => normalizeCompanyKey(k))
       .filter(Boolean)
   );
   const hasScopedCompanyKeysForRun = scopedCompanyKeysForRun.size > 0;
   const isInScopedCompaniesForRun = (job) => {
     if (!hasScopedCompanyKeysForRun) return true;
-    const key = normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64);
+    const key = companyKeyResolver.resolveRecord(job);
     return scopedCompanyKeysForRun.has(key);
   };
   const geoScopeFingerprint = (job) =>
@@ -5612,6 +5767,9 @@ async function main() {
   let browserFallbackAttemptsTotal = 0;
   let browserFallbackHitsTotal = 0;
   const localizationAttemptedCompanyKeys = new Set();
+  const localizationSterileCompanyKeys = new Set();
+  // Compatibility observation for callers that have not yet moved to the
+  // two explicit categories below. It is always their union.
   const localizationCoveredCompanyKeys = new Set();
 
   if (localizeExistingOnly) {
@@ -5621,7 +5779,7 @@ async function main() {
     // Fall back to per-crawler slices when data/jobs.json is absent (CI environment)
     let _preloadedJobs = readJson(DATA_JOBS, null);
     if (_preloadedJobs === null) {
-      _preloadedJobs = readExistingJobsFromSlices(requestedCompanyKeys);
+      _preloadedJobs = readExistingJobsFromSlices([...requestedCompanyKeyAliases]);
       if (_preloadedJobs.length > 0) {
         console.log(`📂 data/jobs.json absent — loaded ${_preloadedJobs.length} jobs from per-crawler slices for URL skip-optimization`);
       }
@@ -5637,7 +5795,12 @@ async function main() {
       (company) => processCompany(company, hintsRegex, crawlerConfig, knownJobUrls),
       MAX_CONCURRENCY
     );
-    incomingJobs = results.flatMap((r) => r.extractedJobs);
+    incomingJobs = results.flatMap((r) => r.extractedJobs).map((job) => {
+      const companyKey = companyKeyResolver.resolveRecord(job);
+      return companyKey && companyKey !== String(job?.companyKey || '').trim()
+        ? { ...job, companyKey }
+        : job;
+    });
     if (incomingJobs.length > 0 && crawlerConfig.aiLocalizationEnabled) {
       console.log(`🌐 AI localization deferred: processing ${incomingJobs.length} extracted jobs after merge/dedup`);
     }
@@ -5717,7 +5880,7 @@ async function main() {
   // existingJobs=[] causes mergeAndDeduplicate to lose all translated titles/slugs.
   let existingJobs = readJson(DATA_JOBS, null);
   if (existingJobs === null) {
-    existingJobs = readExistingJobsFromSlices(requestedCompanyKeys);
+    existingJobs = readExistingJobsFromSlices([...requestedCompanyKeyAliases]);
     if (existingJobs.length > 0) {
       console.log(`📂 data/jobs.json absent — loaded ${existingJobs.length} existing jobs from per-crawler slices`);
     } else {
@@ -5727,13 +5890,18 @@ async function main() {
   if (!Array.isArray(existingJobs)) {
     throw new Error(`${DATA_JOBS} must contain an array`);
   }
+  existingJobs = migrateCompanyJobKeys(existingJobs, companyKeyResolver);
   const beforeSnapshot = snapshotJobSlugs(existingJobs);
 
   const skipStalePrune =
     localizeExistingOnly || String(process.env.JOBS_CRAWLER_SKIP_STALE_PRUNE || '0') === '1';
   const { prunedExisting, removed: prunedStaleCrawlerJobs } = skipStalePrune
     ? { prunedExisting: existingJobs, removed: 0 }
-    : pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, { scopeCompanyKeys: requestedCompanyKeys });
+    : pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, {
+      scopeCompanyKeys: requestedCompanyKeys,
+      resolveCompanyKey: companyKeyResolver.resolve,
+      resolveJobCompanyKey: companyKeyResolver.resolveRecord,
+    });
   if (!skipStalePrune && prunedStaleCrawlerJobs > 0) {
     console.log(`🧽 Pruned stale crawler jobs from active domains: ${prunedStaleCrawlerJobs}`);
   }
@@ -5746,6 +5914,8 @@ async function main() {
     minDescriptionChars: crawlerConfig.minDescriptionChars,
   }, {
     scopeCompanyKeys: requestedCompanyKeys,
+    resolveCompanyKey: companyKeyResolver.resolve,
+    resolveJobCompanyKey: companyKeyResolver.resolveRecord,
     contentReuse: crawlerConfig.contentReuse,
     localizeExistingOnly: localizeExistingOnly,
   });
@@ -5827,12 +5997,12 @@ async function main() {
     ) {
       const mergedCompanyKeys = new Set(
         merged
-          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64))
+          .map((job) => companyKeyResolver.resolveRecord(job))
           .filter(Boolean),
       );
       const queuedCompanyKeys = new Set(
         queue
-          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64))
+          .map((job) => companyKeyResolver.resolveRecord(job))
           .filter(Boolean),
       );
       // A requested company present in the assembled dataset but with no
@@ -5842,6 +6012,7 @@ async function main() {
       // unmarked so their pending work is retried.
       for (const companyKey of scopedCompanyKeysForRun) {
         if (mergedCompanyKeys.has(companyKey) && !queuedCompanyKeys.has(companyKey)) {
+          localizationSterileCompanyKeys.add(companyKey);
           localizationCoveredCompanyKeys.add(companyKey);
         }
       }
@@ -5915,9 +6086,7 @@ async function main() {
             if (shouldForceLocalizationForJob(job)) {
               console.log(`🔁 Backfill forced localization ${index + 1}/${selectedQueue.length}: ${job.slug || job.id || 'unknown'}`);
             }
-            const localizationCompanyKey = normalizeCompanyKey(
-              String(job?.companyKey || job?.company || ''),
-            ).slice(0, 64);
+            const localizationCompanyKey = companyKeyResolver.resolveRecord(job);
             if (localizationCompanyKey) {
               localizationAttemptedCompanyKeys.add(localizationCompanyKey);
               localizationCoveredCompanyKeys.add(localizationCompanyKey);
@@ -6260,6 +6429,7 @@ async function main() {
   console.log('✅ Jobs crawler completed');
   return {
     localizationAttemptedCompanyKeys: [...localizationAttemptedCompanyKeys],
+    localizationSterileCompanyKeys: [...localizationSterileCompanyKeys],
     localizationCoveredCompanyKeys: [...localizationCoveredCompanyKeys],
   };
 }
@@ -6276,7 +6446,10 @@ export const __testables = {
   aiValidateJobDetailPage,
   fetchWithTimeout,
   buildKnownJobUrlsSet,
+  buildCompanyKeyResolver,
+  migrateCompanyJobKeys,
   pruneStaleCrawlerJobs,
+  getCompanyAdapter,
   absoluteLinks,
   absoluteSameHostLinks,
   // Canton mis-tagging guard: the JSON-LD → job mapper and the
