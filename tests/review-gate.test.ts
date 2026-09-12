@@ -890,6 +890,26 @@ describe('review gate: citazioni e conferme', () => {
     expect(remaining[0].citations).toHaveLength(3);
   });
 
+  it('ignora i path-esempio nudi assenti dal tree dopo la conferma dell’anchor preciso', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`src/changed.mjs:L12`: 🔴 Important: the root fallback accepts `scripts/foo.mjs` even when `subdir/scripts/foo.mjs` is missing.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `src/changed.mjs:L12`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([opened, confirmed], {
+      includeLatest: true,
+      repositoryPaths: ['src/changed.mjs'],
+    })).toHaveLength(0);
+  });
+
   it('closes a unique bare companion path when the follow-up confirms its fix line', () => {
     const opened = bot([
       '## Findings (Important: 1, Nit: 0)',
