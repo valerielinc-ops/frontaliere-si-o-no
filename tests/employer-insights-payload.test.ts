@@ -254,28 +254,27 @@ describe('employer insights payload UI', () => {
     expect(html).not.toContain('timezone non disponibile');
   });
 
-  it('says a count is not proven unique when the payload carries no deduplication proof', () => {
+  it('keeps observed counts without exposing a technical uniqueness box', () => {
     const { coverage, ...withoutProof } = basePayload;
     const html = render(withoutProof);
 
-    // The measured traffic is kept — dropping it would delete real events...
     expect(html).toContain('>701<');
-    // ...but it is not presented as a proven count of distinct acts.
-    expect(html).toContain('unicità non provata');
-    expect(html).toContain('La sorgente non dimostra che gli eventi siano azioni uniche');
-    expect(html).not.toContain('conteggio osservato');
+    expect(html).toContain('Cosa misura il report, come leggere un click e dove si ferma il dato.');
+    expect(html).not.toContain('unicità non provata');
+    expect(html).not.toContain('Unicità delle osservazioni');
+    expect(html).not.toContain('La sorgente non dimostra che gli eventi siano azioni uniche');
   });
 
-  it('reports how many units could not be deduplicated', () => {
+  it('does not surface a technical deduplication counter in the report', () => {
     const html = render({
       ...basePayload,
       coverage: { deduplication: { key: 'emission_id', status: 'dedup non disponibile', unavailableCount: 412 } },
     });
 
     expect(html).toContain('>701<');
-    expect(html).toContain('unicità non provata');
-    expect(html).toContain('eventi tecnici non hanno una prova di unicità');
-    expect(html).toContain('412');
+    expect(html).not.toContain('unicità non provata');
+    expect(html).not.toContain('eventi tecnici non hanno una prova di unicità');
+    expect(html).not.toContain('412');
   });
 
   it('treats a payload source literally, even when it matches the UI fallback text', () => {
