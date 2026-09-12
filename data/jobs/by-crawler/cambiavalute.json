@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-09-11T23:23:08.713Z",
+  "assembledAt": "2026-09-12T13:18:33.476Z",
   "jobs": [
     {
       "id": "company-fooban",
@@ -27,7 +27,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-11T23:23:04.082Z",
+      "crawledAt": "2026-09-12T13:18:31.129Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
@@ -37,7 +37,7 @@
       },
       "titleByLocale": {
         "it": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
-        "en": "Sales, Marketing & Customer Support Assistant (German Market)",
+        "en": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
         "de": "Sales, Marketing & Customer Support Assistant (Deutscher Markt)",
         "fr": "Assistant de vente, marketing et support à la clientèle (marché allemand)"
       },
@@ -88,7 +88,8 @@
           "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-lugano"
         ]
       },
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "company-a24znt",
@@ -115,7 +116,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-11T23:23:04.082Z",
+      "crawledAt": "2026-09-12T13:18:31.129Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
@@ -125,7 +126,7 @@
       },
       "titleByLocale": {
         "it": "Sales, Marketing & Customer support assistant (Mercato Francese)",
-        "en": "Sales, Marketing & Customer Support Assistant (French Market)",
+        "en": "Sales, Marketing & Customer support assistant (Mercato Francese)",
         "de": "Vertriebs-, Marketing- & Kundenservice-Assistent (Französischer Markt)",
         "fr": "Assistant Commercial, Marketing & Support Client (Marché Français)"
       },
@@ -180,7 +181,8 @@
           "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-lugano"
         ]
       },
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     }
   ]
 }
