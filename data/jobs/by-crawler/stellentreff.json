@@ -458,7 +458,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.393Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2198,19 +2197,34 @@
       "previousSlugs": [
         "zimmermann-zimmerin-fur-fassadenbau-lenzburg-aargau-stellentreff-ch",
         "zimmermann-zimmerin-per-fassadenbau-stellentreff-ag-lenzburg",
-        "carpenter-per-la-costruzione-della-facciata-stellentreff-ag-lenzburg-aargau"
+        "carpenter-per-la-costruzione-della-facciata-stellentreff-ag-lenzburg-aargau",
+        "carpenter-per-la-costruzione-della-facciata-stellentreff-ag-willisau-luzern",
+        "carpenter-for-facade-construction-stellentreff-ag-willisau-luzern",
+        "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-stellentreff-ch",
+        "charpentier-pour-la-construction-de-facades-stellentreff-ag-willisau-luzern",
+        "zimmermann-zimmerin-per-fassadenbau-stellentreff-ag-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zimmermann-zimmerin-fur-fassadenbau-lenzburg-aargau-stellentreff-ch",
           "zimmermann-zimmerin-per-fassadenbau-stellentreff-ag-lenzburg",
-          "carpenter-per-la-costruzione-della-facciata-stellentreff-ag-lenzburg-aargau"
+          "carpenter-per-la-costruzione-della-facciata-stellentreff-ag-lenzburg-aargau",
+          "carpenter-per-la-costruzione-della-facciata-stellentreff-ag-willisau-luzern",
+          "carpenter-for-facade-construction-stellentreff-ag-willisau-luzern",
+          "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-stellentreff-ch",
+          "charpentier-pour-la-construction-de-facades-stellentreff-ag-willisau-luzern",
+          "zimmermann-zimmerin-per-fassadenbau-stellentreff-ag-willisau"
         ],
         "en": [
-          "zimmermann-zimmerin-fur-fassadenbau-lenzburg-aargau-stellentreff-ch"
+          "zimmermann-zimmerin-fur-fassadenbau-lenzburg-aargau-stellentreff-ch",
+          "carpenter-for-facade-construction-stellentreff-ag-willisau-luzern"
         ],
         "fr": [
-          "zimmermann-zimmerin-fur-fassadenbau-lenzburg-aargau-stellentreff-ch"
+          "zimmermann-zimmerin-fur-fassadenbau-lenzburg-aargau-stellentreff-ch",
+          "charpentier-pour-la-construction-de-facades-stellentreff-ag-willisau-luzern"
+        ],
+        "de": [
+          "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.388Z",
@@ -5559,9 +5573,9 @@
       "description": "Die Montage von Rohwagenkästen nach technischer Zeichnung zählt zu deinen Hauptaufgaben. Dabei arbeitest du in einem technischen Umfeld mit abwechslungsreichen Tätigkeiten. Für unseren Auftraggeber suchen wir eine/n",
       "descriptionByLocale": {
         "de": "Die Montage von Rohwagenkästen nach technischer Zeichnung zählt zu deinen Hauptaufgaben. Dabei arbeitest du in einem technischen Umfeld mit abwechslungsreichen Tätigkeiten. Für unseren Auftraggeber suchen wir eine/n",
-        "it": "Die Montage von Rohwagenkästen nach technischer Zeichnung zählt zu deinen Hauptaufgaben. Dabei arbeitest du in einem technischen Umfeld mit abwechslungsreichen Tätigkeiten. Für unseren Auftraggeber suchen wir eine/n",
-        "en": "Die Montage von Rohwagenkästen nach technischer Zeichnung zählt zu deinen Hauptaufgaben. Dabei arbeitest du in einem technischen Umfeld mit abwechslungsreichen Tätigkeiten. Für unseren Auftraggeber suchen wir eine/n",
-        "fr": "Die Montage von Rohwagenkästen nach technischer Zeichnung zählt zu deinen Hauptaufgaben. Dabei arbeitest du in einem technischen Umfeld mit abwechslungsreichen Tätigkeiten. Für unseren Auftraggeber suchen wir eine/n"
+        "it": "L'installazione di corpi auto grezzi secondo disegno tecnico è uno dei vostri compiti principali. Lavori in un ambiente tecnico con varie attività. Per il nostro cliente stiamo cercando un",
+        "en": "The installation of raw car bodies according to technical drawing is one of your main tasks. You work in a technical environment with varied activities. For our client we are looking for a",
+        "fr": "L'installation de carrosseries brutes selon le dessin technique est l'une de vos tâches principales. Vous travaillez dans un environnement technique avec des activités variées. Pour notre client, nous cherchons"
       },
       "location": "Weinfelden, Thurgau",
       "canton": "TG",
@@ -5608,7 +5622,6 @@
         "saldatori-in-alluminio-obiettivo-impiego-permanente-stellentreff-ag-weinfelden-thurgau"
       ],
       "firstSeenAt": "2026-09-08T14:02:01.371Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -9894,7 +9907,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.352Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -11257,7 +11269,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.346Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -11882,19 +11893,24 @@
       "previousSlugs": [
         "schreiner-in-fur-fensterherstellung-hochdorf-luzern-stellentreff-ch",
         "schreiner-in-per-fensterherstellung-stellentreff-ag-hochdorf",
-        "carpentiere-per-la-produzione-di-finestre-stellentreff-ag-hochdorf-luzern"
+        "carpentiere-per-la-produzione-di-finestre-stellentreff-ag-hochdorf-luzern",
+        "schreiner-in-con-fuhrungserfahrung-per-fassadenbauprojekte-stellentreff-ag-hochdorf",
+        "schreiner-in-mit-fuhrungserfahrung-fur-fassadenbauprojekte-hochdorf-luzern-stellentreff-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-fur-fensterherstellung-hochdorf-luzern-stellentreff-ch",
           "schreiner-in-per-fensterherstellung-stellentreff-ag-hochdorf",
-          "carpentiere-per-la-produzione-di-finestre-stellentreff-ag-hochdorf-luzern"
+          "carpentiere-per-la-produzione-di-finestre-stellentreff-ag-hochdorf-luzern",
+          "schreiner-in-con-fuhrungserfahrung-per-fassadenbauprojekte-stellentreff-ag-hochdorf",
+          "schreiner-in-mit-fuhrungserfahrung-fur-fassadenbauprojekte-hochdorf-luzern-stellentreff-ch"
         ],
         "en": [
           "schreiner-in-fur-fensterherstellung-hochdorf-luzern-stellentreff-ch"
         ],
         "fr": [
-          "schreiner-in-fur-fensterherstellung-hochdorf-luzern-stellentreff-ch"
+          "schreiner-in-fur-fensterherstellung-hochdorf-luzern-stellentreff-ch",
+          "schreiner-in-mit-fuhrungserfahrung-fur-fassadenbauprojekte-hochdorf-luzern-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.345Z",
@@ -15190,20 +15206,37 @@
         "schreiner-in-8211-projektleiter-in-mit-projektmanagement-entlebuch-luzern-stellentreff-ch",
         "schreiner-in-project-manager-mit-projektmanagement-stellentreff-ag-entlebuch",
         "schreiner-in-chef-de-projet-mit-projektmanagement-stellentreff-ag-entlebuch",
-        "schreiner-in-responsabile-di-progetto-con-projektmanagement-stellentreff-ag-entlebuch"
+        "schreiner-in-responsabile-di-progetto-con-projektmanagement-stellentreff-ag-entlebuch",
+        "schreiner-in-responsabile-di-progetto-con-fuhrungskompetenz-stellentreff-ag-entlebuch",
+        "schreiner-in-project-manager-mit-fuhrungskompetenz-stellentreff-ag-entlebuch-luzern",
+        "schreiner-in-8211-projektleiter-in-mit-fuhrungskompetenz-entlebuch-luzern-stellentreff-ch",
+        "schreiner-in-chef-de-projet-mit-fuhrungskompetenz-stellentreff-ag-entlebuch-luzern",
+        "schreiner-in-project-manager-mit-fuhrungskompetenz-stellentreff-ag-entlebuch",
+        "schreiner-in-chef-de-projet-mit-fuhrungskompetenz-stellentreff-ag-entlebuch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-8211-projektleiter-in-mit-projektmanagement-entlebuch-luzern-stellentreff-ch",
-          "schreiner-in-responsabile-di-progetto-con-projektmanagement-stellentreff-ag-entlebuch"
+          "schreiner-in-responsabile-di-progetto-con-projektmanagement-stellentreff-ag-entlebuch",
+          "schreiner-in-responsabile-di-progetto-con-fuhrungskompetenz-stellentreff-ag-entlebuch",
+          "schreiner-in-project-manager-mit-fuhrungskompetenz-stellentreff-ag-entlebuch-luzern",
+          "schreiner-in-8211-projektleiter-in-mit-fuhrungskompetenz-entlebuch-luzern-stellentreff-ch",
+          "schreiner-in-chef-de-projet-mit-fuhrungskompetenz-stellentreff-ag-entlebuch-luzern",
+          "schreiner-in-project-manager-mit-fuhrungskompetenz-stellentreff-ag-entlebuch",
+          "schreiner-in-chef-de-projet-mit-fuhrungskompetenz-stellentreff-ag-entlebuch"
         ],
         "en": [
           "schreiner-in-8211-projektleiter-in-mit-projektmanagement-entlebuch-luzern-stellentreff-ch",
-          "schreiner-in-project-manager-mit-projektmanagement-stellentreff-ag-entlebuch"
+          "schreiner-in-project-manager-mit-projektmanagement-stellentreff-ag-entlebuch",
+          "schreiner-in-project-manager-mit-fuhrungskompetenz-stellentreff-ag-entlebuch-luzern"
         ],
         "fr": [
           "schreiner-in-8211-projektleiter-in-mit-projektmanagement-entlebuch-luzern-stellentreff-ch",
-          "schreiner-in-chef-de-projet-mit-projektmanagement-stellentreff-ag-entlebuch"
+          "schreiner-in-chef-de-projet-mit-projektmanagement-stellentreff-ag-entlebuch",
+          "schreiner-in-chef-de-projet-mit-fuhrungskompetenz-stellentreff-ag-entlebuch-luzern"
+        ],
+        "de": [
+          "schreiner-in-8211-projektleiter-in-mit-fuhrungskompetenz-entlebuch-luzern-stellentreff-ch"
         ]
       },
       "needsRetranslation": true,
@@ -16359,12 +16392,18 @@
         "schreiner-in-8211-projektleiter-in-fur-fassadenprojekte-hochdorf-luzern-stellentreff-ch",
         "schreiner-in-project-manager-fur-fassadenprojekte-stellentreff-ag-hochdorf",
         "schreiner-in-chef-de-projet-fur-fassadenprojekte-stellentreff-ag-hochdorf",
-        "schreiner-in-responsabile-di-progetto-per-fassadenprojekte-stellentreff-ag-hochdorf"
+        "schreiner-in-responsabile-di-progetto-per-fassadenprojekte-stellentreff-ag-hochdorf",
+        "schreiner-in-responsabile-di-progetto-con-kompetenz-in-fassadenprojekten-stellentreff-ag-hochdorf",
+        "schreiner-in-projektleiter-in-mit-kompetenz-in-fassadenprojekten-stellentreff-ag-hochdorf",
+        "schreiner-in-8211-projektleiter-in-mit-kompetenz-in-fassadenprojekten-hochdorf-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-8211-projektleiter-in-fur-fassadenprojekte-hochdorf-luzern-stellentreff-ch",
-          "schreiner-in-responsabile-di-progetto-per-fassadenprojekte-stellentreff-ag-hochdorf"
+          "schreiner-in-responsabile-di-progetto-per-fassadenprojekte-stellentreff-ag-hochdorf",
+          "schreiner-in-responsabile-di-progetto-con-kompetenz-in-fassadenprojekten-stellentreff-ag-hochdorf",
+          "schreiner-in-projektleiter-in-mit-kompetenz-in-fassadenprojekten-stellentreff-ag-hochdorf",
+          "schreiner-in-8211-projektleiter-in-mit-kompetenz-in-fassadenprojekten-hochdorf-luzern"
         ],
         "en": [
           "schreiner-in-8211-projektleiter-in-fur-fassadenprojekte-hochdorf-luzern-stellentreff-ch",
@@ -16372,7 +16411,11 @@
         ],
         "fr": [
           "schreiner-in-8211-projektleiter-in-fur-fassadenprojekte-hochdorf-luzern-stellentreff-ch",
-          "schreiner-in-chef-de-projet-fur-fassadenprojekte-stellentreff-ag-hochdorf"
+          "schreiner-in-chef-de-projet-fur-fassadenprojekte-stellentreff-ag-hochdorf",
+          "schreiner-in-projektleiter-in-mit-kompetenz-in-fassadenprojekten-stellentreff-ag-hochdorf"
+        ],
+        "de": [
+          "schreiner-in-8211-projektleiter-in-mit-kompetenz-in-fassadenprojekten-hochdorf-luzern"
         ]
       },
       "needsRetranslation": true,
@@ -18656,7 +18699,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.320Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -19377,7 +19419,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.316Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -19618,7 +19659,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:28:50.021Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -19699,7 +19739,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.313Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -19780,7 +19819,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.314Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -20619,7 +20657,7 @@
         "it": "Meccanico di produzione con idraulica e pneumatica",
         "en": "Production mechanic with hydraulics and pneumatics",
         "de": "Produktionsmechaniker/in mit Hydraulik und Pneumatik",
-        "fr": "Produktionsmechaniker/in mit Hydraulik und Pneumatik"
+        "fr": "Mécanicien de production avec hydraulique et pneumatique"
       },
       "description": "Tätigkeiten Störungsbehebungen an unseren Produktionsanlagen Wartungs- und Unterhaltsaufgaben Betreeung der haustechnischen Installationen Piketteinsätze \n• Anforderungen Abgeschlossebe Lehre im Mechanischen Bereich Mehrjährige Berufserfahrung von Vorteil Kenntnisse in Hydraulik und Pneumatik Teamfähig, selbständig und zuverlässig Angebot Super Lohn Dynamisches Umfeld Vielseitige Arbeit Weiterbildungsmöglichkeiten",
       "descriptionByLocale": {
@@ -20672,7 +20710,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.309Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -20704,7 +20741,7 @@
         "it": "Meccanico di produzione con capacità idrauliche e pneumatiche",
         "en": "Production mechanic with hydraulic and pneumatic skills",
         "de": "Produktionsmechaniker/in mit Hydraulik- und Pneumatikkenntnissen",
-        "fr": "Produktionsmechaniker/in mit Hydraulik- und Pneumatikkenntnissen"
+        "fr": "Mécanicien de production avec des compétences hydrauliques et pneumatiques"
       },
       "description": "Tätigkeiten Selbständige Montage sowie mechanische Arbeiten Instandhaltung und Servicearbeiten Spedition von Standartmaschinen Begleitung Neuentwicklung und und Sonderprojekte Telefonsupport und Schulungen via Fernsupport \n• Anforderungen Technische Grundausbildung Erfahrung mit Steuerungen, Hydraulik und Pneumatik Durchhaltevermögen Deutsch in Wort und Schrift Angebot Top Lohn Dynamisches Team Spannende Projekte Viel Eigenverantwortung",
       "descriptionByLocale": {
@@ -20753,7 +20790,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.310Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -21054,19 +21090,36 @@
       "previousSlugs": [
         "produktionsmechaniker-in-fur-wartung-und-instandhaltung-sursee-luzern-stellentreff-ch",
         "produktionsmechaniker-in-per-wartung-e-instandhaltung-stellentreff-ag-sursee",
-        "meccanica-di-produzione-per-manutenzione-stellentreff-ag-sursee-luzern"
+        "meccanica-di-produzione-per-manutenzione-stellentreff-ag-sursee-luzern",
+        "meccanico-di-produzione-responsabile-della-manutenzione-tecnica-stellentreff-ag-sursee-luzern",
+        "production-mechanic-with-responsibility-for-technical-maintenance-stellentreff-ag-sursee-luzern",
+        "produktionsmechaniker-in-mit-verantwortung-fur-technischen-unterhalt-sursee-luzern",
+        "mecanicien-de-production-charge-de-la-maintenance-technique-stellentreff-ag-sursee-luzern",
+        "produktionsmechaniker-in-con-verantwortung-per-technischen-unterhalt-stellentreff-ag-sursee",
+        "produktionsmechaniker-in-mit-verantwortung-fur-technischen-unterhalt-stellentreff-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsmechaniker-in-fur-wartung-und-instandhaltung-sursee-luzern-stellentreff-ch",
           "produktionsmechaniker-in-per-wartung-e-instandhaltung-stellentreff-ag-sursee",
-          "meccanica-di-produzione-per-manutenzione-stellentreff-ag-sursee-luzern"
+          "meccanica-di-produzione-per-manutenzione-stellentreff-ag-sursee-luzern",
+          "meccanico-di-produzione-responsabile-della-manutenzione-tecnica-stellentreff-ag-sursee-luzern",
+          "production-mechanic-with-responsibility-for-technical-maintenance-stellentreff-ag-sursee-luzern",
+          "produktionsmechaniker-in-mit-verantwortung-fur-technischen-unterhalt-sursee-luzern",
+          "mecanicien-de-production-charge-de-la-maintenance-technique-stellentreff-ag-sursee-luzern",
+          "produktionsmechaniker-in-con-verantwortung-per-technischen-unterhalt-stellentreff-ag-sursee",
+          "produktionsmechaniker-in-mit-verantwortung-fur-technischen-unterhalt-stellentreff-ag-sursee"
         ],
         "en": [
-          "produktionsmechaniker-in-fur-wartung-und-instandhaltung-sursee-luzern-stellentreff-ch"
+          "produktionsmechaniker-in-fur-wartung-und-instandhaltung-sursee-luzern-stellentreff-ch",
+          "production-mechanic-with-responsibility-for-technical-maintenance-stellentreff-ag-sursee-luzern"
         ],
         "fr": [
-          "produktionsmechaniker-in-fur-wartung-und-instandhaltung-sursee-luzern-stellentreff-ch"
+          "produktionsmechaniker-in-fur-wartung-und-instandhaltung-sursee-luzern-stellentreff-ch",
+          "mecanicien-de-production-charge-de-la-maintenance-technique-stellentreff-ag-sursee-luzern"
+        ],
+        "de": [
+          "produktionsmechaniker-in-mit-verantwortung-fur-technischen-unterhalt-sursee-luzern"
         ]
       },
       "firstSeenAt": "2026-09-11T14:04:57.311Z",
@@ -21101,7 +21154,7 @@
         "it": "Operatore di punzonatrice laser meccanica di produzione, piegatrice e sistema di getto d'acqua",
         "en": "Production mechanic laser punching machine operator, bending machine and water jet system",
         "de": "Produktionsmechaniker/in Maschinenoperateur Laser-Stanz, Biegmaschine und Wasserstrahlanlage",
-        "fr": "Produktionsmechaniker/in Maschinenoperateur Laser-Stanz, Biegmaschine und Wasserstrahlanlage"
+        "fr": "Machine de poinçonnage laser mécanique de production, machine de flexion et système de jet d'eau"
       },
       "description": "Tätigkeiten Selbstständiges Abarbeiten von Aufträgen auf Laser-, Laser-Stanz-, Biege- und Wasserstrahlanlagen Mithilfe bei Terminüberwachung, Auftragskoordination sowie Planung und Einsatz der Maschinen und Ressourcen Stellvertretung der AVOR bei Abwesenheiten, inkl. Erstellung, Verwaltung und Archivierung von Maschinenprogrammen \n• Anforderungen Technische Grundausbildung. Mehrjährige Berufserfahrung in der maschinellen Blechbearbeitung und in der AVOR Erfahrung im Umgang mit Laseranlagen und deren Programmierung. CAD-Grundkenntnisse. Staplerausweis. Gute Deutschkenntnisse in Wort und Schrift. Angebot Unser Auftraggeber bietet Ihnen eine sehr abwechslungsreiche und interessante Aufgabe in einem spannenden Umfeld. Eine Umgebung, die sie begeistern wird!",
       "descriptionByLocale": {
@@ -21150,7 +21203,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.308Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -21582,7 +21634,7 @@
       "title": "Produktionsmechaniker/in CNC-Fertigung mit CAM-Software TopSolid",
       "titleByLocale": {
         "it": "Produzione meccanica CNC con software CAM TopSolid",
-        "en": "Produktionsmechaniker/in CNC-Fertigung mit CAM-Software TopSolid",
+        "en": "Production mechanic CNC production with CAM software TopSolid",
         "de": "Produktionsmechaniker/in CNC-Fertigung mit CAM-Software TopSolid",
         "fr": "Production mécanique CNC avec logiciel CAM TopSolid"
       },
@@ -21615,7 +21667,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-11T14:04:57.308Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "produktionsmechaniker-in-cnc-fertigung-mit-cam-software-topsolid-luzern-luzern"
@@ -21814,7 +21865,7 @@
         "it": "Meccanico di produzione – versatili impianti interni",
         "en": "Production mechanic – versatile in-house installations",
         "de": "Produktionsmechaniker/in – vielseitige Inhouse Montagen",
-        "fr": "Produktionsmechaniker/in – vielseitige Inhouse Montagen"
+        "fr": "Mécanicien de production – installations internes polyvalentes"
       },
       "description": "Tätigkeiten Montieren nach Zeichnung von Standard- und diversen Spezial-Elektromagneten Ausführen von Vormontage-Arbeiten (Lager einpressen/verkeilen und Anker mit Achsen verkleben) Einrichten der pneumatischen und hydraulischen Pressen Ausführen von Endmontage-Arbeiten (Stecker montieren, löten und Endprüfungen durchführen) \n• Anforderungen Lehre als Produktionsmechaniker/in EFZ abgeschlossen Fundierte Branchenerfahrung in der Montage Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Freude und Interesse am Beruf Angebot Abwechslungsreiche \n• Aufgaben Gleitende Arbeitszeit ohne Schichtbetrieb Flexibles Ferienmodell Selbstständiges Arbeiten in einem kleinen Team",
       "descriptionByLocale": {
@@ -21861,7 +21912,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.306Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -21893,7 +21943,7 @@
         "it": "Meccanico di produzione – produzione convenzionale in un team collaborativo",
         "en": "Production mechanic – conventional production in a collaborative team",
         "de": "Produktionsmechaniker/in – Konventionelle Fertigung in kollegialem Team",
-        "fr": "Produktionsmechaniker/in – Konventionelle Fertigung in kollegialem Team"
+        "fr": "Mécanicien de production – production conventionnelle dans une équipe collaborative"
       },
       "description": "Tätigkeiten Konventionelles Drehen Bearbeiten von Grossteilen Bedienen von Maschinen Reparaturen und Werkzeugwechsel \n• Anforderungen Mechanischer Hintergrund Erfahrung im konventionellen Bereich Mehrjährige Berufserfahrung vielseitig einsetzbar Angebot \n• Wir bieten Ihnen eine interessante, abwechslungsreiche Aufgabe in einem dynamischen Betrieb. Hohe Selbständigkeit, Eigenverantwortung und attraktive Anstellungsbedingungen gehören dazu.",
       "descriptionByLocale": {
@@ -21942,7 +21992,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.304Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -21974,7 +22023,7 @@
         "it": "Meccanico di produzione – assemblaggio (assemblaggi) – grande squadra – Obiettivo impiego permanente",
         "en": "Production mechanic – assembly (assemblies) – great team – Target permanent employment",
         "de": "Produktionsmechaniker/in – Montage (Baugruppen) – tolles Team – Ziel Festanstellung",
-        "fr": "Produktionsmechaniker/in – Montage (Baugruppen) – tolles Team – Ziel Festanstellung"
+        "fr": "Mécanicien de production – assemblage (ensembles) – grande équipe – Cible emploi permanent"
       },
       "description": "Tätigkeiten Baugruppen und Fertigprodukten gemäss Arbeitsauftrag und Zeichnung montieren und prüfen Fertigprodukte selbständig prüfen Endkontrolle resp. prüfen der Produkte auf Bestellkonformität gemäss Prüfprotokollen Mechanische Anpassungen an Einzelteilen (sofern nötig) Aktives und flexibles Handeln, damit Aufträge terminlich und qualitativ richtig abgeliefert resp. ausgeliefert werden Beim Optimieren von Prozessen und Vorrichtungen für ein rationelleres Arbeiten unterstützen Fertigungsaufträge bereitstellen (teilweise selbständiges Zurüsten) Mitarbeiten in Qualitäts- und Leanprojekten Aktive Unterstützung sowie selbständige Umsetzung von KVP-\n• Aufgaben \n• Anforderungen Abgeschlossene Lehre als Polymechaniker mit Fachrichtung Montage oder langjährige Erfahrung im industriellen Umfeld im Zusammenbau von komplexeren Baugruppen Erfahrung in der Montage von Baugruppen Teamfähig, initiativ, kommunikativ Gelegentlich weltweite Serviceeinsätze Angebot Es erwartet Sie ein dynamisches Umfeld, ein vielseitiges Tätigkeitsgebiet, ein sehr guter Stundenlohn und die Chance auf eine Festanstellung.",
       "descriptionByLocale": {
@@ -22027,7 +22076,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.305Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -22139,7 +22187,7 @@
         "it": "Meccanico di produzione – Produzione CNC con Siemens NX CAM",
         "en": "Production mechanic – CNC manufacturing with Siemens NX CAM",
         "de": "Produktionsmechaniker/in – CNC Fertigung mit Siemens NX CAM",
-        "fr": "Produktionsmechaniker/in – CNC Fertigung mit Siemens NX CAM"
+        "fr": "Mécanicien de production – fabrication CNC avec Siemens NX CAM"
       },
       "description": "Tätigkeiten Selbstständige Organisation und Verwaltung der Werkzeuge für die 5-Achsen-Fräsmaschinen Einrichten und Bedienen von 5-Achsen-CNC-Fräsmaschinen mit Roboterunterstützung Effiziente Durchführung und Abarbeitung von Fräsaufträgen \n• Anforderungen Abgeschlossene Ausbildung als Polymechaniker/in oder Produktionsmechaniker/in mit Schwerpunkt Fräsen Hohes Qualitätsbewusstsein und ein verantwortungsvoller Arbeitsstil Teamfähigkeit und eigenständiges Arbeiten sind selbstverständlich Angebot Umfassende Einarbeitung sowie Schulung im Umgang mit Siemens NX CAM Flexible und attraktive Arbeitszeitmodelle Moderne Arbeitsumgebung in neuen Räumlichkeiten mit zeitgemässer Infrastruktur",
       "descriptionByLocale": {
@@ -22188,7 +22236,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.301Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -22220,7 +22267,7 @@
         "it": "Meccanico di produzione – CNC/produzione convenzionale",
         "en": "Production mechanic – CNC/conventional manufacturing",
         "de": "Produktionsmechaniker/in – CNC-/konventionelle Fertigung",
-        "fr": "Produktionsmechaniker/in – CNC-/konventionelle Fertigung"
+        "fr": "Mécanicien de production – CNC / fabrication conventionnelle"
       },
       "description": "Tätigkeiten Fertigung von Einzelteilen und Kleinserien auf CNC und konventionell gesteuerten Fräs- und Drehmaschinen Zu Ihren \n• Aufgaben gehört das Programmieren und Einrichten der Maschinen sowie das Bearbeiten und kontrollieren der Werkstücke \n• Anforderungen Ausbildung als Produktionsmechaniker Vielseitige und langjährige Berufspraxis Effiziente und selbständige Arbeitsweise Aufgestellte Persönlichkeit Teamplayer Angebot Es erwartet Sie eine sehr selbständige Tätigkeit in einem dynamischen, abwechslungsreichen Umfeld. Sie profitieren von einem attraktiven Arbeitsplatz und interessanten Anstellungsbedingungen.",
       "descriptionByLocale": {
@@ -22269,7 +22316,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.301Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -22301,7 +22347,7 @@
         "it": "Meccanico di produzione – produzione CNC (Mastercam)",
         "en": "Production mechanic – CNC production (Mastercam)",
         "de": "Produktionsmechaniker/in – CNC-Fertigung (Mastercam)",
-        "fr": "Produktionsmechaniker/in – CNC-Fertigung (Mastercam)"
+        "fr": "Mécanicien de production – Production CNC (Mastercam)"
       },
       "description": "Tätigkeiten Allgemeine CNC-Dreh- und Fräsarbeiten Einrichten der CNC-Maschinen Erstellen und optimieren von CNC-Programmen mit Mastercam Termin- und Qualitätsverantwortung \n• Anforderungen Abgeschlossene Berufslehre als Polymechaniker/in EFZ oder Produktionsmechaniker/in EFZ Selbständigkeit, Flexibilität, Zuverlässigkeit und Teamfähigkeit Erfahrung in der CNC-Technik Angebot Abwechslungsreiche und verantwortungsvolle Tätigkeit Kollegiales Team Arbeitszeiten im Gleitzeitmodell mit Blockzeiten",
       "descriptionByLocale": {
@@ -22348,7 +22394,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.301Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -24318,19 +24363,34 @@
       "previousSlugs": [
         "polymechaniker-in-mit-cnc-dreh-und-fraszentren-sursee-luzern-stellentreff-ch",
         "polymechaniker-in-con-cnc-dreh-e-fraszentren-stellentreff-ag-sursee",
-        "meccanica-con-centri-di-tornitura-e-fresatura-cnc-stellentreff-ag-sursee-luzern"
+        "meccanica-con-centri-di-tornitura-e-fresatura-cnc-stellentreff-ag-sursee-luzern",
+        "polimeccanica-centri-di-tornitura-e-fresatura-cnc-con-partecipazione-cip-stellentreff-ag-luzern-luzern",
+        "polymechanics-cnc-turning-and-milling-centers-with-cip-participation-stellentreff-ag-luzern-luzern",
+        "polymechaniker-in-cnc-dreh-und-fraszentren-mit-kvp-mitwirkung-luzern-luzern-stellentreff",
+        "centres-de-tournage-et-de-fraisage-cnc-en-polymecanique-avec-participation-cip-stellentreff-ag-luzern-luzern",
+        "polymechaniker-in-cnc-dreh-e-fraszentren-con-kvp-mitwirkung-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-mit-cnc-dreh-und-fraszentren-sursee-luzern-stellentreff-ch",
           "polymechaniker-in-con-cnc-dreh-e-fraszentren-stellentreff-ag-sursee",
-          "meccanica-con-centri-di-tornitura-e-fresatura-cnc-stellentreff-ag-sursee-luzern"
+          "meccanica-con-centri-di-tornitura-e-fresatura-cnc-stellentreff-ag-sursee-luzern",
+          "polimeccanica-centri-di-tornitura-e-fresatura-cnc-con-partecipazione-cip-stellentreff-ag-luzern-luzern",
+          "polymechanics-cnc-turning-and-milling-centers-with-cip-participation-stellentreff-ag-luzern-luzern",
+          "polymechaniker-in-cnc-dreh-und-fraszentren-mit-kvp-mitwirkung-luzern-luzern-stellentreff",
+          "centres-de-tournage-et-de-fraisage-cnc-en-polymecanique-avec-participation-cip-stellentreff-ag-luzern-luzern",
+          "polymechaniker-in-cnc-dreh-e-fraszentren-con-kvp-mitwirkung-stellentreff-ag-luzern"
         ],
         "en": [
-          "polymechaniker-in-mit-cnc-dreh-und-fraszentren-sursee-luzern-stellentreff-ch"
+          "polymechaniker-in-mit-cnc-dreh-und-fraszentren-sursee-luzern-stellentreff-ch",
+          "polymechanics-cnc-turning-and-milling-centers-with-cip-participation-stellentreff-ag-luzern-luzern"
         ],
         "fr": [
-          "polymechaniker-in-mit-cnc-dreh-und-fraszentren-sursee-luzern-stellentreff-ch"
+          "polymechaniker-in-mit-cnc-dreh-und-fraszentren-sursee-luzern-stellentreff-ch",
+          "centres-de-tournage-et-de-fraisage-cnc-en-polymecanique-avec-participation-cip-stellentreff-ag-luzern-luzern"
+        ],
+        "de": [
+          "polymechaniker-in-cnc-dreh-und-fraszentren-mit-kvp-mitwirkung-luzern-luzern-stellentreff"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.292Z",
@@ -24363,7 +24423,7 @@
       "title": "Polymechaniker/in mit CAM-Software TopSolid",
       "titleByLocale": {
         "it": "Polymechanic con il software CAM TopSolid",
-        "en": "Polymechaniker/in mit CAM-Software TopSolid",
+        "en": "Polymechanic with CAM software TopSolid",
         "de": "Polymechaniker/in mit CAM-Software TopSolid",
         "fr": "Polymécanique avec logiciel CAM TopSolid"
       },
@@ -24396,7 +24456,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-11T14:04:57.295Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-mit-cam-software-topsolid-luzern-luzern-stellentreff-ch"
@@ -25526,7 +25585,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.289Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -25847,7 +25905,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.288Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -26087,7 +26144,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.287Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -26743,7 +26799,7 @@
       "title": "Polymechaniker/in Allrounder in Kleinbterieb",
       "titleByLocale": {
         "it": "Polymechanic Allrounder in Kleinbeerieb",
-        "en": "Polymechaniker/in Allrounder in Kleinbterieb",
+        "en": "Polymechanic Allrounder in Kleinbeerieb",
         "de": "Polymechaniker/in Allrounder in Kleinbterieb",
         "fr": "Polymécanique Allrounder à Kleinbeerieb"
       },
@@ -26789,7 +26845,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.283Z",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -26868,7 +26923,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T14:04:57.288Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -28066,7 +28120,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.277Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -29959,7 +30012,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.267Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -32891,7 +32943,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.247Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -33496,19 +33547,34 @@
       "previousSlugs": [
         "metallbauer-in-mit-service-und-montageerfahrung-sursee-luzern-stellentreff-ch",
         "metallbauer-in-con-service-e-montageerfahrung-stellentreff-ag-sursee",
-        "lavoratori-di-metallo-con-esperienza-di-servizio-e-montaggio-stellentreff-ag-sursee-luzern"
+        "lavoratori-di-metallo-con-esperienza-di-servizio-e-montaggio-stellentreff-ag-sursee-luzern",
+        "lavoratori-con-esperienza-nella-saldatura-tig-e-tig-stellentreff-ag-sursee-luzern",
+        "metalworkers-with-experience-in-tig-and-tig-welding-stellentreff-ag-sursee-luzern",
+        "metallbauer-in-mit-erfahrung-im-wig-und-tig-schwei-en-sursee-luzern-stellentreff-ch",
+        "metaux-avec-une-experience-en-soudage-tig-et-tig-stellentreff-ag-sursee-luzern",
+        "metallbauer-in-con-erfahrung-im-wig-e-tig-schwei-en-stellentreff-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-in-mit-service-und-montageerfahrung-sursee-luzern-stellentreff-ch",
           "metallbauer-in-con-service-e-montageerfahrung-stellentreff-ag-sursee",
-          "lavoratori-di-metallo-con-esperienza-di-servizio-e-montaggio-stellentreff-ag-sursee-luzern"
+          "lavoratori-di-metallo-con-esperienza-di-servizio-e-montaggio-stellentreff-ag-sursee-luzern",
+          "lavoratori-con-esperienza-nella-saldatura-tig-e-tig-stellentreff-ag-sursee-luzern",
+          "metalworkers-with-experience-in-tig-and-tig-welding-stellentreff-ag-sursee-luzern",
+          "metallbauer-in-mit-erfahrung-im-wig-und-tig-schwei-en-sursee-luzern-stellentreff-ch",
+          "metaux-avec-une-experience-en-soudage-tig-et-tig-stellentreff-ag-sursee-luzern",
+          "metallbauer-in-con-erfahrung-im-wig-e-tig-schwei-en-stellentreff-ag-sursee"
         ],
         "en": [
-          "metallbauer-in-mit-service-und-montageerfahrung-sursee-luzern-stellentreff-ch"
+          "metallbauer-in-mit-service-und-montageerfahrung-sursee-luzern-stellentreff-ch",
+          "metalworkers-with-experience-in-tig-and-tig-welding-stellentreff-ag-sursee-luzern"
         ],
         "fr": [
-          "metallbauer-in-mit-service-und-montageerfahrung-sursee-luzern-stellentreff-ch"
+          "metallbauer-in-mit-service-und-montageerfahrung-sursee-luzern-stellentreff-ch",
+          "metaux-avec-une-experience-en-soudage-tig-et-tig-stellentreff-ag-sursee-luzern"
+        ],
+        "de": [
+          "metallbauer-in-mit-erfahrung-im-wig-und-tig-schwei-en-sursee-luzern-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.245Z",
@@ -34637,7 +34703,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.238Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -35518,7 +35583,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.235Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -35919,7 +35983,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.234Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -36721,7 +36784,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.231Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -37988,7 +38050,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.226Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -38055,25 +38116,41 @@
         "metallbauer-in-responsabile-di-progetto-per-fassadenprojekte-stellentreff-ag-hochdorf",
         "metallbauer-in-project-manager-fur-fassadenprojekte-stellentreff-ag-hochdorf",
         "metallbauer-in-chef-de-projet-fur-fassadenprojekte-stellentreff-ag-hochdorf",
-        "metallbauer-project-manager-per-i-progetti-facade-stellentreff-ag-hochdorf-luzern"
+        "metallbauer-project-manager-per-i-progetti-facade-stellentreff-ag-hochdorf-luzern",
+        "metallbauer-project-manager-per-progetti-di-facciata-con-responsabilita-tecnica-e-commerciale-stellentreff-ag-hochdorf",
+        "metallbauer-project-manager-for-facade-projects-with-technical-and-commercial-responsibility-stellentreff-ag-hochdorf",
+        "metallbauer-in-8211-projektleiter-in-fur-fassadenprojekte-mit-technischer-und",
+        "metallbauer-responsable-de-projet-pour-les-projets-de-facade-avec-responsabilite-technique-et-commerciale-stellentreff",
+        "metallbauer-in-responsabile-di-progetto-per-fassadenprojekte-con-technischer-e-kommerzieller-verantwortung-stellentreff-ag-hochdorf",
+        "metallbauer-in-projektleiter-in-fur-fassadenprojekte-mit-technischer-und-kommerzieller-verantwortung-stellentreff-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-in-8211-projektleiter-in-fur-fassadenprojekte-hochdorf-luzern-stellentreff-ch",
           "metallbauer-in-responsabile-di-progetto-per-fassadenprojekte-stellentreff-ag-hochdorf",
-          "metallbauer-project-manager-per-i-progetti-facade-stellentreff-ag-hochdorf-luzern"
+          "metallbauer-project-manager-per-i-progetti-facade-stellentreff-ag-hochdorf-luzern",
+          "metallbauer-project-manager-per-progetti-di-facciata-con-responsabilita-tecnica-e-commerciale-stellentreff-ag-hochdorf",
+          "metallbauer-project-manager-for-facade-projects-with-technical-and-commercial-responsibility-stellentreff-ag-hochdorf",
+          "metallbauer-in-8211-projektleiter-in-fur-fassadenprojekte-mit-technischer-und",
+          "metallbauer-responsable-de-projet-pour-les-projets-de-facade-avec-responsabilite-technique-et-commerciale-stellentreff",
+          "metallbauer-in-responsabile-di-progetto-per-fassadenprojekte-con-technischer-e-kommerzieller-verantwortung-stellentreff-ag-hochdorf",
+          "metallbauer-in-projektleiter-in-fur-fassadenprojekte-mit-technischer-und-kommerzieller-verantwortung-stellentreff-ag"
         ],
         "en": [
           "metallbauer-in-8211-projektleiter-in-fur-fassadenprojekte-hochdorf-luzern-stellentreff-ch",
-          "metallbauer-in-project-manager-fur-fassadenprojekte-stellentreff-ag-hochdorf"
+          "metallbauer-in-project-manager-fur-fassadenprojekte-stellentreff-ag-hochdorf",
+          "metallbauer-project-manager-for-facade-projects-with-technical-and-commercial-responsibility-stellentreff-ag-hochdorf"
         ],
         "fr": [
           "metallbauer-in-8211-projektleiter-in-fur-fassadenprojekte-hochdorf-luzern-stellentreff-ch",
-          "metallbauer-in-chef-de-projet-fur-fassadenprojekte-stellentreff-ag-hochdorf"
+          "metallbauer-in-chef-de-projet-fur-fassadenprojekte-stellentreff-ag-hochdorf",
+          "metallbauer-responsable-de-projet-pour-les-projets-de-facade-avec-responsabilite-technique-et-commerciale-stellentreff"
+        ],
+        "de": [
+          "metallbauer-in-8211-projektleiter-in-fur-fassadenprojekte-mit-technischer-und"
         ]
       },
       "firstSeenAt": "2026-09-11T14:04:57.229Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -38618,7 +38695,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.222Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -39882,7 +39958,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.215Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -40856,7 +40931,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.209Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -40937,7 +41011,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.209Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -41897,7 +41970,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.203Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -42241,7 +42313,7 @@
       "companyDomain": "stellentreff.ch",
       "title": "Maler/in mit tollem Lohn",
       "titleByLocale": {
-        "it": "Maler/in mit tollem Lohn",
+        "it": "Pittori con grande ricompensa",
         "en": "Painter with great reward",
         "de": "Maler/in mit tollem Lohn",
         "fr": "Peintre avec grande récompense"
@@ -42291,7 +42363,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T14:09:49.418Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -42636,7 +42707,7 @@
       "companyDomain": "stellentreff.ch",
       "title": "Maler/in in kollegialem Team",
       "titleByLocale": {
-        "it": "Maler/in in kollegialem Team",
+        "it": "Pittore in una squadra collegiale",
         "en": "Painter in a collegial team",
         "de": "Maler/in in kollegialem Team",
         "fr": "Peintre dans une équipe collégiale"
@@ -42686,7 +42757,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.195Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -48045,7 +48115,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.173Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -48124,7 +48193,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.173Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -48188,18 +48256,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-8211-kundenmalerei-winterthur-zurich-stellentreff-ch",
-        "pittore-pittura-del-cliente-stellentreff-ag-winterthur-zurich"
+        "pittore-pittura-del-cliente-stellentreff-ag-winterthur-zurich",
+        "pittore-con-esperienza-nella-pittura-cliente-stellentreff-ag-winterthur-zurich",
+        "painter-with-experience-in-client-painting-stellentreff-ag-winterthur-zurich",
+        "maler-in-mit-erfahrung-in-kundenmalerei-winterthur-zurich-stellentreff-ch",
+        "peintre-avec-experience-en-peinture-client-stellentreff-ag-winterthur-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-8211-kundenmalerei-winterthur-zurich-stellentreff-ch",
-          "pittore-pittura-del-cliente-stellentreff-ag-winterthur-zurich"
+          "pittore-pittura-del-cliente-stellentreff-ag-winterthur-zurich",
+          "pittore-con-esperienza-nella-pittura-cliente-stellentreff-ag-winterthur-zurich",
+          "painter-with-experience-in-client-painting-stellentreff-ag-winterthur-zurich",
+          "maler-in-mit-erfahrung-in-kundenmalerei-winterthur-zurich-stellentreff-ch",
+          "peintre-avec-experience-en-peinture-client-stellentreff-ag-winterthur-zurich"
         ],
         "en": [
-          "maler-in-8211-kundenmalerei-winterthur-zurich-stellentreff-ch"
+          "maler-in-8211-kundenmalerei-winterthur-zurich-stellentreff-ch",
+          "painter-with-experience-in-client-painting-stellentreff-ag-winterthur-zurich"
         ],
         "fr": [
-          "maler-in-8211-kundenmalerei-winterthur-zurich-stellentreff-ch"
+          "maler-in-8211-kundenmalerei-winterthur-zurich-stellentreff-ch",
+          "peintre-avec-experience-en-peinture-client-stellentreff-ag-winterthur-zurich"
+        ],
+        "de": [
+          "maler-in-mit-erfahrung-in-kundenmalerei-winterthur-zurich-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-10T23:28:49.886Z",
@@ -48287,7 +48368,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.172Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -48372,7 +48452,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.172Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -49496,7 +49575,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.167Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -50086,7 +50164,7 @@
       "title": "Logistiker/in Allrounder mit Staplerkenntnissen",
       "titleByLocale": {
         "it": "Logistica Tuttofare con la conoscenza del carrello elevatore",
-        "en": "Logistiker/in Allrounder mit Staplerkenntnissen",
+        "en": "Logistics All-rounder with forklift knowledge",
         "de": "Logistiker/in Allrounder mit Staplerkenntnissen",
         "fr": "Logistique Tout autour avec des connaissances de chariot élévateur"
       },
@@ -50137,7 +50215,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.164Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -51407,7 +51484,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.159Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -51646,7 +51722,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.158Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -55372,7 +55447,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.142Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -56227,19 +56301,27 @@
       "previousSlugs": [
         "gipser-in-fur-fassadenisolationen-winterthur-zurich-stellentreff-ch",
         "gipser-in-per-fassadenisolationen-stellentreff-ag-winterthur",
-        "plaster-per-isolamento-facciale-stellentreff-ag-winterthur-zurich"
+        "plaster-per-isolamento-facciale-stellentreff-ag-winterthur-zurich",
+        "pianure-per-isolamento-facciale-stellentreff-ag-winterthur-zurich",
+        "plasters-for-facade-insulations-stellentreff-ag-winterthur-zurich",
+        "plaques-isolantes-pour-facades-stellentreff-ag-winterthur-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gipser-in-fur-fassadenisolationen-winterthur-zurich-stellentreff-ch",
           "gipser-in-per-fassadenisolationen-stellentreff-ag-winterthur",
-          "plaster-per-isolamento-facciale-stellentreff-ag-winterthur-zurich"
+          "plaster-per-isolamento-facciale-stellentreff-ag-winterthur-zurich",
+          "pianure-per-isolamento-facciale-stellentreff-ag-winterthur-zurich",
+          "plasters-for-facade-insulations-stellentreff-ag-winterthur-zurich",
+          "plaques-isolantes-pour-facades-stellentreff-ag-winterthur-zurich"
         ],
         "en": [
-          "gipser-in-fur-fassadenisolationen-winterthur-zurich-stellentreff-ch"
+          "gipser-in-fur-fassadenisolationen-winterthur-zurich-stellentreff-ch",
+          "plasters-for-facade-insulations-stellentreff-ag-winterthur-zurich"
         ],
         "fr": [
-          "gipser-in-fur-fassadenisolationen-winterthur-zurich-stellentreff-ch"
+          "gipser-in-fur-fassadenisolationen-winterthur-zurich-stellentreff-ch",
+          "plaques-isolantes-pour-facades-stellentreff-ag-winterthur-zurich"
         ]
       },
       "firstSeenAt": "2026-09-11T14:04:57.133Z",
@@ -56416,7 +56498,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T14:04:57.133Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -57212,7 +57293,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.131Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -57613,7 +57693,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T14:09:49.351Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -57774,7 +57853,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.128Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -57855,7 +57933,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.129Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -58336,7 +58413,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.127Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -61613,7 +61689,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.111Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -61723,7 +61798,7 @@
       "title": "Gärtner/in – Friedhofsgärtner/in",
       "titleByLocale": {
         "it": "Giardinieri – Giardinieri del cimitero",
-        "en": "Gärtner/in – Friedhofsgärtner/in",
+        "en": "Gardeners – Cemetery Gardeners",
         "de": "Gärtner/in – Friedhofsgärtner/in",
         "fr": "Jardiniers – Cimetière Jardiniers"
       },
@@ -61772,7 +61847,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.110Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -61933,7 +62007,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T14:04:57.107Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -62252,7 +62325,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.107Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -63238,7 +63310,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.100Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -63821,7 +63892,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.098Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -64401,7 +64471,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.092Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -66496,7 +66565,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.080Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -66581,7 +66649,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.081Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -66654,7 +66721,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:26:53.979Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -66818,7 +66884,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.080Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -66898,7 +66963,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.080Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -66983,8 +67047,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stellentreff-cbd0ed2930c0",
@@ -67048,7 +67111,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.079Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -67213,7 +67275,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.079Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -67471,7 +67532,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.077Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -68110,7 +68170,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.069Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -68510,7 +68569,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.068Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -70101,7 +70159,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.060Z",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -70289,7 +70346,7 @@
       "title": "Automatikmonteur/in mit Elektrotechnik und Software-Kompetenz",
       "titleByLocale": {
         "it": "Fitter automatico con ingegneria elettrica e competenze software",
-        "en": "Automatikmonteur/in mit Elektrotechnik und Software-Kompetenz",
+        "en": "Automatic fitter with electrical engineering and software expertise",
         "de": "Automatikmonteur/in mit Elektrotechnik und Software-Kompetenz",
         "fr": "Installation automatique avec génie électrique et expertise logicielle"
       },
@@ -70341,7 +70398,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.058Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -70564,19 +70620,44 @@
       "previousSlugs": [
         "automatikmonteur-in-fur-montagen-und-inbetriebnahmen-luzern-luzern-stellentreff-ch",
         "automatikmonteur-in-per-montagen-e-inbetriebnahmen-stellentreff-ag-luzern",
-        "fitter-automatico-per-montaggio-e-messa-in-servizio-stellentreff-ag-luzern-luzern"
+        "fitter-automatico-per-montaggio-e-messa-in-servizio-stellentreff-ag-luzern-luzern",
+        "montaggio-automatico-dell-armadio-del-commutatore-e-messa-in-servizio-stellentreff-ag-luzern-luzern",
+        "automatic-switchgear-cabinet-assembly-and-commissioning-stellentreff-ag-luzern-luzern",
+        "automatiker-in-fur-schaltschrankmontage-und-inbetriebnahme-luzern-luzern-stellentreff-ch",
+        "montage-et-mise-en-service-automatiques-d-armoires-de-commutation-stellentreff-ag-luzern-luzern",
+        "automatiker-in-per-schaltschrankmontage-e-inbetriebnahme-stellentreff-ag-luzern",
+        "operatore-automatico-per-assemblaggio-interruttore-stellentreff-ag-luzern-luzern",
+        "automatic-operator-for-switchgear-assembly-stellentreff-ag-luzern-luzern",
+        "automatiker-in-fur-schaltanlagenbau-mit-montageeinsatz-luzern-luzern-stellentreff-ch",
+        "operateur-automatique-pour-l-ensemble-de-commutation-stellentreff-ag-luzern-luzern",
+        "automatiker-in-per-schaltanlagenbau-con-montageeinsatz-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatikmonteur-in-fur-montagen-und-inbetriebnahmen-luzern-luzern-stellentreff-ch",
           "automatikmonteur-in-per-montagen-e-inbetriebnahmen-stellentreff-ag-luzern",
-          "fitter-automatico-per-montaggio-e-messa-in-servizio-stellentreff-ag-luzern-luzern"
+          "fitter-automatico-per-montaggio-e-messa-in-servizio-stellentreff-ag-luzern-luzern",
+          "montaggio-automatico-dell-armadio-del-commutatore-e-messa-in-servizio-stellentreff-ag-luzern-luzern",
+          "automatic-switchgear-cabinet-assembly-and-commissioning-stellentreff-ag-luzern-luzern",
+          "automatiker-in-fur-schaltschrankmontage-und-inbetriebnahme-luzern-luzern-stellentreff-ch",
+          "montage-et-mise-en-service-automatiques-d-armoires-de-commutation-stellentreff-ag-luzern-luzern",
+          "automatiker-in-per-schaltschrankmontage-e-inbetriebnahme-stellentreff-ag-luzern",
+          "operatore-automatico-per-assemblaggio-interruttore-stellentreff-ag-luzern-luzern",
+          "automatic-operator-for-switchgear-assembly-stellentreff-ag-luzern-luzern",
+          "automatiker-in-fur-schaltanlagenbau-mit-montageeinsatz-luzern-luzern-stellentreff-ch",
+          "operateur-automatique-pour-l-ensemble-de-commutation-stellentreff-ag-luzern-luzern",
+          "automatiker-in-per-schaltanlagenbau-con-montageeinsatz-stellentreff-ag-luzern"
         ],
         "en": [
-          "automatikmonteur-in-fur-montagen-und-inbetriebnahmen-luzern-luzern-stellentreff-ch"
+          "automatikmonteur-in-fur-montagen-und-inbetriebnahmen-luzern-luzern-stellentreff-ch",
+          "automatic-switchgear-cabinet-assembly-and-commissioning-stellentreff-ag-luzern-luzern"
         ],
         "fr": [
-          "automatikmonteur-in-fur-montagen-und-inbetriebnahmen-luzern-luzern-stellentreff-ch"
+          "automatikmonteur-in-fur-montagen-und-inbetriebnahmen-luzern-luzern-stellentreff-ch",
+          "montage-et-mise-en-service-automatiques-d-armoires-de-commutation-stellentreff-ag-luzern-luzern"
+        ],
+        "de": [
+          "automatiker-in-fur-schaltschrankmontage-und-inbetriebnahme-luzern-luzern-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.054Z",
@@ -71082,7 +71163,7 @@
       "title": "Automatiker/in mit Schwerpunkt Steuerungstechnik und Prozessautomation",
       "titleByLocale": {
         "it": "Automatico con focus sulla tecnologia di controllo e l'automazione dei processi",
-        "en": "Automatiker/in mit Schwerpunkt Steuerungstechnik und Prozessautomation",
+        "en": "Automatician with focus on control technology and process automation",
         "de": "Automatiker/in mit Schwerpunkt Steuerungstechnik und Prozessautomation",
         "fr": "Automatique avec accent sur la technologie de contrôle et l'automatisation des processus"
       },
@@ -71134,7 +71215,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.052Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -72118,7 +72198,7 @@
       "title": "Automatiker/in mit CNC-Expertise und Automatisierung",
       "titleByLocale": {
         "it": "Automatico con competenze e automazione CNC",
-        "en": "Automatiker/in mit CNC-Expertise und Automatisierung",
+        "en": "Automatics with CNC expertise and automation",
         "de": "Automatiker/in mit CNC-Expertise und Automatisierung",
         "fr": "Automatique avec expertise CNC et automatisation"
       },
@@ -72169,7 +72249,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.048Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -73399,7 +73478,7 @@
       "title": "Automatiker/in (Betriebsunterhalt )",
       "titleByLocale": {
         "it": "Automatico (manutenzione operativa)",
-        "en": "Automatiker/in (Betriebsunterhalt )",
+        "en": "Automatic (operating maintenance)",
         "de": "Automatiker/in (Betriebsunterhalt )",
         "fr": "Automatique (entretien de fonctionnement)"
       },
@@ -73448,7 +73527,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.039Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -73529,7 +73607,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.039Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -75446,7 +75523,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.030Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -75687,7 +75763,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.029Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -76039,7 +76114,7 @@
       "title": "Allrounder/in Ausbaugewerbe mit vielseitiger Erfahrung",
       "titleByLocale": {
         "it": "Industria di espansione a tutto tondo con esperienza versatile",
-        "en": "Allrounder/in Ausbaugewerbe mit vielseitiger Erfahrung",
+        "en": "All-rounder expansion industry with versatile experience",
         "de": "Allrounder/in Ausbaugewerbe mit vielseitiger Erfahrung",
         "fr": "Industrie d'expansion polyvalente avec une expérience polyvalente"
       },
@@ -76092,7 +76167,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.025Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",

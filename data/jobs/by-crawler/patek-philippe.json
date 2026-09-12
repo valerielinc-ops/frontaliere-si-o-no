@@ -298,7 +298,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:08.354Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -395,7 +394,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T09:16:31.812Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -475,7 +473,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:11:25.604Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -631,7 +628,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-03T13:35:00.365Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -963,7 +959,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:06:51.259Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1068,7 +1063,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:14.719Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1157,8 +1151,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "patek-philippe-39e490920670",
@@ -1232,8 +1225,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "patek-philippe-fca151180e18",
