@@ -1,6 +1,10 @@
 {
   "basel-weil-am-rhein-autostrada-a2-a5": {
-    "morning": "1-2 min"
+    "morning": "1-2 min",
+    "evening": "0-2 min"
+  },
+  "basel-weil-am-rhein-hiltalingerstrasse": {
+    "evening": "1-2 min"
   },
   "chiasso-brogeda": {
     "morning": "0-5 min",
@@ -37,7 +41,7 @@
   },
   "moillesulaz": {
     "morning": "2-3 min",
-    "evening": "0-2 min"
+    "evening": "0-3 min"
   },
   "passo-dello-spluga": {
     "morning": "0-2 min"
