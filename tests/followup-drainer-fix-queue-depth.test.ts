@@ -4,15 +4,15 @@
  *
  * ## Il difetto che questo file impedisce di ricreare
  *
- * `issue-fix.yml` ha `concurrency: { group: issue-fix, cancel-in-progress:
- * false }`. Il gruppo è COSTANTE, quindi GitHub tiene una sola run pending per
- * gruppo e ogni nuova pending SFRATTA (`cancelled`) la precedente: la
- * profondità è 1, non N. L'header di quel workflow lo dice già per esteso, e
- * indica il drainer come l'unico posto che può garantire l'invariante «una sola
- * pending alla volta».
+ * Prima della fix `issue-fix.yml` aveva `concurrency: { group: issue-fix,
+ * cancel-in-progress: false }`. Il gruppo COSTANTE teneva una sola run pending
+ * e ogni nuova pending SFRATTAVA (`cancelled`) la precedente: la profondità era
+ * 1, non N. Oggi il workflow è per-issue; questo test impedisce che torni
+ * costante e riapra il problema.
  *
- * Il 2026-09-04 alle 09:05Z il cap del drainer è passato da 1 a 3 (#7300). Da
- * quel momento il drain promuove fino a 3 `agent:fix` nello stesso tick: la
+ * Il 2026-09-04 alle 09:05Z il cap del drainer è passato da 1 a 3 (#7300), poi
+ * a 5 dopo la misura della flotta locale. Da quel momento il drain promuove
+ * fino al cap `agent:fix` nello stesso tick: la
  * prima parte, le altre muoiono `cancelled` prima di eseguire un solo step.
  * Una run sfrattata non posa nessun commento `FIX_OUTCOME`, e siccome
  * `on: issues:[labeled]` è one-shot l'evento è consumato e niente ri-arma la

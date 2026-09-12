@@ -1,11 +1,10 @@
 name: Follow-up drainer (queue → agent:fix, no-Claude)
 
-# Drena la coda dei follow-up `agent:fix-queued` UNO alla volta, promuovendo a
-# `agent:fix` solo quando lo slot issue-fix è libero → la run promossa è l'unica
-# pending → mai cancellata-in-coda. Fix della starvation osservata 2026-06-04
-# (slot concurrency globale issue-fix + cancel:false → 60% fix-run follow-up
-# cancellate, ~20 issue stuck). Rescue+park degli agent:fix orfani (run morta,
-# nessuna PR) per terminazione autonoma senza intervento umano.
+# Drena la coda dei follow-up `agent:fix-queued` riempiendo fino a 5 slot per
+# issue diverse. La chiave per-issue di `issue-fix.yml` serializza solo gli
+# eventi dello stesso numero, quindi le run distinte non si sfrattano a vicenda.
+# Rescue+park degli agent:fix orfani (run morta, nessuna PR) per terminazione
+# autonoma senza intervento umano.
 # ZERO Claude: tutto deterministico (scripts/ci/followup-drainer.mjs + gh).
 
 on:
@@ -190,7 +189,9 @@ jobs:
           # l'App slug è allowlistato in #2881). Senza token → exit warning (inerte).
           GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          FOLLOWUP_MAX_INFLIGHT_FIX: '3'
+          # Cinque issue diverse in parallelo: il workflow issue-fix è per-issue
+          # e il cap resta bounded per non contendere la flotta locale/quota Codex.
+          FOLLOWUP_MAX_INFLIGHT_FIX: '5'
           # Fairness di quota (2026-08-21): la quota Claude è condivisa coi run
           # del corpus, e il beacon peer è a senso unico (il corpus cede al
           # sito). Misurato: il sito consuma ogni finestra di reset e il corpus

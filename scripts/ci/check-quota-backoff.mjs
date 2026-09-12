@@ -14,8 +14,8 @@
  * precedente**. Erano deterministicamente prevedibili — il payload del 429
  * dichiara `resetsAt`, l'epoch esatto in cui la quota torna — eppure il loop
  * continuava a promuovere una issue dopo l'altra ogni ~5 minuti contro un muro
- * noto, ognuna bruciando lo slot serializzato `concurrency: issue-fix` e
- * ritardando tutta la coda.
+ * noto, ognuna bruciando uno slot del pool bounded `issue-fix` e ritardando
+ * tutta la coda.
  *
  * ## Come funziona il beacon (nessuno store esterno)
  *
@@ -29,8 +29,8 @@
  * La ricerca è bounded per costo: solo issue toccate nelle ultime
  * `QUOTA_BEACON_LOOKBACK_H` ore (un beacon è fresco per definizione), ordinate
  * dalla più recente, cap `QUOTA_BEACON_MAX_ISSUES` letture `gh issue view`. In
- * regime normale la coda tiene 1-2 issue con quelle label, quindi il gate costa
- * 2 list + ≤1 view.
+ * regime normale il pool bounded tiene poche issue con quelle label, quindi il
+ * gate costa 2 list + ≤1 view senza dipendere dal numero di slot attivi.
  *
  * Output (GITHUB_OUTPUT): `quota_blocked=true|false`,
  * `codex_fallback=true|false`, `resets_at=<epoch|''>`.
@@ -154,9 +154,9 @@ export function quotaFallbackDecision({ resetsAt = null, nowSec, codexFallbackMo
 // campiona — taglia via le issue piu' VECCHIE, in silenzio. Sul drainer e'
 // successo davvero (107 `fu-parked` contro `--limit 100`: 7 issue invisibili a
 // ogni passo). Qui le label sono stati di routing che il ciclo tiene
-// serializzati, quindi il tetto non morde oggi; ma e' lo stesso costrutto, e
-// una coda che si gonfia mentre il drain e' fermo e' esattamente lo scenario in
-// cui questo file viene consultato.
+// bounded dal drainer, quindi il tetto non morde oggi; ma e' lo stesso
+// costrutto, e una coda che si gonfia mentre il drain e' fermo e' esattamente
+// lo scenario in cui questo file viene consultato.
 const ISSUE_LIST_LIMIT = intFromEnv('FOLLOWUP_ISSUE_LIST_LIMIT', 300);
 
 function listIssues(label) {
@@ -247,7 +247,7 @@ function main() {
       '',
       `⏳ **Pre-flight quota (zero-Claude)**: la quota Claude condivisa è esaurita fino alle **${when}**.`,
       'Non lancio la run Claude: morirebbe su HTTP 429 al primo turno senza leggere',
-      'la issue (0 turni, $0), occupando lo slot serializzato e ritardando la coda.',
+      'la issue (0 turni, $0), occupando uno slot del pool e ritardando la coda.',
       '',
       '**Nessun tentativo consumato** (`fu-attempt` invariato): la issue torna in',
       `\`${LBL_REQUEUE}\` e riparte da sola appena la finestra si chiude.`,

@@ -10,9 +10,8 @@
  * limite teorico lontano.
  *
  * Dal 2026-09-04 il tetto è `FOLLOWUP_MAX_INFLIGHT_FIX` e il drain riempie gli
- * slot liberi invece di promuovere sempre uno solo. Il default è 1 (2026-09-06:
- * tre fixer paralleli consumano troppi token); `=3` ripristina il parallelismo
- * precedente.
+ * slot liberi invece di promuovere sempre uno solo. Il default è 5: è il massimo
+ * misurato come stabile dalla flotta locale; `=3` resta un override più prudente.
  *
  * Quel tetto è rimasto nominale fino al 2026-09-05: `issue-fix.yml` serializzava
  * su un `concurrency` group COSTANTE, che tiene una sola pending e sfratta ogni
@@ -104,16 +103,16 @@ beforeEach(() => {
 });
 
 describe('cap delle run issue-fix in volo', () => {
-  it('col default promuove fino a 1 quando lo slot è vuoto e la coda è lunga', async () => {
+  it('col default promuove fino a 5 quando gli slot sono vuoti e la coda è lunga', async () => {
     execFileSync.mockImplementation(makeDispatch(0, 5));
     const lines = await runDrainCapturingLogs();
-    expect(promotions(lines)).toHaveLength(1);
+    expect(promotions(lines)).toHaveLength(5);
   });
 
-  it('con 1 run già viva ne promuove 0: conta gli slot LIBERI', async () => {
+  it('con 1 run già viva ne promuove 4: conta gli slot LIBERI', async () => {
     execFileSync.mockImplementation(makeDispatch(1, 5));
     const lines = await runDrainCapturingLogs();
-    expect(promotions(lines)).toHaveLength(0);
+    expect(promotions(lines)).toHaveLength(4);
   });
 
   it('col gruppo per-issue il clamp non morde: nessuna riga di clamp nei log', async () => {
@@ -126,10 +125,10 @@ describe('cap delle run issue-fix in volo', () => {
   });
 
   it('a cap raggiunto non promuove niente e lo dice col numero', async () => {
-    execFileSync.mockImplementation(makeDispatch(1, 5));
+    execFileSync.mockImplementation(makeDispatch(5, 5));
     const lines = await runDrainCapturingLogs();
     expect(promotions(lines)).toHaveLength(0);
-    expect(lines.some((l) => l.includes('in-flight=1/1'))).toBe(true);
+    expect(lines.some((l) => l.includes('in-flight=5/5'))).toBe(true);
   });
 
   it('non promuove più candidati di quanti ne abbia in coda', async () => {
@@ -164,7 +163,7 @@ describe('cap delle run issue-fix in volo', () => {
     process.env.FOLLOWUP_MAX_INFLIGHT_FIX = 'nonsense';
     execFileSync.mockImplementation(makeDispatch(0, 9));
     const lines = await runDrainCapturingLogs();
-    expect(promotions(lines)).toHaveLength(1);
+    expect(promotions(lines)).toHaveLength(5);
     expect(promotions(lines).length).toBeLessThan(9);
   });
 
