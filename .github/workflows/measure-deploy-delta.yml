@@ -173,7 +173,7 @@ jobs:
                 exit 1
               fi
               if ! has=$(
-                awk 'body { sub(/\r$/, ""); print } /^[[:space:]]*$/ { body=1 }' "$response" \
+                awk '/^[[:space:]]*[{[]/ { body=1 } body { sub(/\r$/, ""); print }' "$response" \
                   | jq -r '[.artifacts[] | select(.name=="github-pages" and .expired==false)] | length'
               ); then
                 echo "::error::gh api returned an unreadable artifact-list body for run $r. This is an API failure, NOT 'this run has no artifact'."

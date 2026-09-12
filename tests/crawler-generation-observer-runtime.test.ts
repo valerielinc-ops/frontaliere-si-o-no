@@ -350,8 +350,14 @@ describe('crawler observer GitHub binding', () => {
           workflow_run: { id: Number(runId) },
         }];
       },
-      readArtifact: async (_artifact: any, expectedName: string) => {
+      readArtifact: async (artifact: any, expectedName: string) => {
         const group = /crawler-group-(\d{2})-terminal\.json/.exec(expectedName)![1];
+        const binding = value.groups[group];
+        expect(artifact).toMatchObject({
+          id: 50_000 + Number(group),
+          name: binding.artifactName,
+          workflow_run: { id: Number(binding.runId) },
+        });
         return terminalManifest(group, `${10_000 + Number(group)}-1`);
       },
       prepareSource: async () => ({
@@ -364,7 +370,9 @@ describe('crawler observer GitHub binding', () => {
     });
 
     expect(report.observer).toEqual({ status: 'blocked', reasons: ['blocked_manifest_invalid'] });
-    expect(report.barrier.groups['01'].reasons).toContain('manifest_binding_mismatch');
+    for (const group of GROUP_IDS) {
+      expect(report.barrier.groups[group].reasons).toEqual(['manifest_binding_mismatch']);
+    }
   });
 
   it('accepts sentinel replay evidence only from the exact pinned manual workflow', () => {

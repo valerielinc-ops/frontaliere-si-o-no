@@ -1751,12 +1751,15 @@ describe('generation checkpoint and preflight', () => {
     const remoteArtifacts = groupArtifactFixture();
     const contract = preflightFixture(observer, remoteArtifacts);
     const malformed = structuredClone(contract);
-    delete malformed.artifacts[0].file;
+    // A non-coercible artifact name makes the comparator itself throw. The
+    // diagnostic guard must absorb that throw, not only a later canonicalJson
+    // failure, so the caller can still report blocked and clean up normally.
+    malformed.artifacts[0].file = Symbol('invalid-artifact-file');
 
     const result = evaluateCrawlerGenerationPreflight({
       corpusCodeCommit,
       localContract: malformed,
-      remoteContract: structuredClone(malformed),
+      remoteContract: malformed,
       localObserver: observer,
       remoteObserver: observer,
       remoteArtifacts,
