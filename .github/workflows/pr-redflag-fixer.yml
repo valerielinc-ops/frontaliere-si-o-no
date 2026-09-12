@@ -490,7 +490,7 @@ jobs:
       # re-review non partirebbe (anti-ricorsione); il fix verrebbe comunque
       # committato. Esposto come remote authenticato.
       - name: Configure push remote (App token / PAT)
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '')
+        if: steps.guard.outputs.proceed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '') && steps.claim.outputs.claim_allowed == 'true'
         env:
           PUSH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
