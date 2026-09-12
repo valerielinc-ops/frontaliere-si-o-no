@@ -301,6 +301,14 @@ describe('daily item parsing and lifecycle', () => {
     expect(decision).toMatchObject({ action: 'seal', reason: 'daily-bucket-sealed' });
     expect(bucketState(decision.body || '')).toBe('sealed');
     expect(selectFirstOpenItem(decision.body || '')?.id).toBe(`FU-${DAY}-001`);
+
+    const fencedExample = shorthand.replace(
+      '- Suggested action: aggiungi `firstGuard()` e `secondGuard()` in `scripts/example.mjs`',
+      '- Suggested action: aggiungi `firstGuard()` e `secondGuard()` in `scripts/example.mjs`\n```md\n- State: blocked\n```',
+    );
+    const fencedDecision = decideDailyMintGate({ title, body: fencedExample }, { triageComplete: true });
+    expect(fencedDecision).toMatchObject({ action: 'seal', reason: 'daily-bucket-sealed' });
+    expect(selectFirstOpenItem(fencedDecision.body || '')?.id).toBe(`FU-${DAY}-001`);
   });
 
   it('segnala una fence Markdown non terminata e blocca sealing, queue, reconcile e close', () => {
