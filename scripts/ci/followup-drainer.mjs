@@ -2850,6 +2850,66 @@ export function runDrain() {
     console.log(`budget di run: ${Math.round(budget.remainingMs() / 1000)}s utilizzabili prima della deadline del job.`);
   }
 
+  // --- PARKED-WIP: salva i checkpoint prima dell'AGE-OUT ---------------------
+  // Un fixer può aver pushato `fix/issue-N` e poi essere morto su max-turns o
+  // senza marker. Se il rescue ha già parcheggiato la issue, `agent:fix` non è
+  // più presente e il vecchio age-out la vedeva come «mai entrata in
+  // lavorazione»: la chiudeva prima che il rescue potesse leggere il branch.
+  // Il branch live è la prova più forte del contrario. Ri-accodare con
+  // `agent:fix-queued` non consuma quota e lascia al DRAIN la promozione
+  // serializzata; quindi è sicuro anche durante un backoff quota.
+  //
+  // Il pass è prima dell'AGE-OUT anche per `--dry-run`: la preview non deve
+  // suggerire una chiusura che la modalità reale non può fare.
+  const parkedForWip = listIssues(LBL_PARKED)
+    .filter((iss) => isQueueManaged(iss))
+    .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED))
+    .filter((iss) => !isDecomposedParent(iss));
+  let parkedWipFound = 0;
+  let parkedWipRequeued = 0;
+  for (const iss of parkedForWip) {
+    const recoverable = recoverableFixBranch(iss.number);
+    if (!recoverable) continue;
+    parkedWipFound++;
+    if (hasFixPR(iss.number)) {
+      console.log(`PARKED-WIP #${iss.number} ignorato: esiste già una PR fix aperta (branch ${recoverable.branch} ahead=${recoverable.aheadBy}).`);
+      continue;
+    }
+    const outcome = latestFixOutcomeEntry(iss.number).outcome;
+    const decision = recoverableFixDecision({
+      outcome,
+      hasBranchWork: true,
+      attempt: attemptOf(iss),
+      // L'operazione qui è solo queueing: non avvia Claude e non deve essere
+      // bloccata dal backoff globale, che verrà rispettato dal DRAIN.
+      quotaBackoffActive: false,
+    });
+    if (decision.action === 'none') {
+      console.log(`::warning::PARKED-WIP #${iss.number}: branch ${recoverable.branch} ahead=${recoverable.aheadBy}, ma il marker ${outcome || 'assente'} non è compatibile con il recovery automatico.`);
+      continue;
+    }
+    if (decision.action === 'park-attempts') {
+      console.log(`PARKED-WIP #${iss.number} resta parked: ${decision.reason}, branch ${recoverable.branch} ahead=${recoverable.aheadBy}.`);
+      continue;
+    }
+    const previousAttempt = attemptOf(iss);
+    const previousAttemptLabel = previousAttempt ? `fu-attempt:${previousAttempt}` : null;
+    const add = [LBL_QUEUED, `fu-attempt:${decision.nextAttempt}`];
+    const remove = [LBL_PARKED, 'needs-human', previousAttemptLabel].filter(Boolean);
+    if (DRY) {
+      console.log(`[dry] RE-QUEUE PARKED-WIP #${iss.number} (${decision.reason}, branch ${recoverable.branch} ahead=${recoverable.aheadBy}) → agent:fix-queued`);
+      parkedWipRequeued++;
+      continue;
+    }
+    if (edit(iss.number, { add, remove })) {
+      console.log(`RE-QUEUE PARKED-WIP #${iss.number} (${decision.reason}, branch ${recoverable.branch} ahead=${recoverable.aheadBy}) → agent:fix-queued`);
+      parkedWipRequeued++;
+    }
+  }
+  if (parkedWipFound) {
+    console.log(`parked-wip: ${parkedWipFound} checkpoint live individuati, ${parkedWipRequeued} ri-accodati prima dell'age-out.`);
+  }
+
   // --- AGE-OUT CLOSE: drena il ratchet delle issue queue-managed mai chiuse ---
   // Ortogonale allo slot issue-fix (chiudere non tocca il fixer) → gira sempre.
   if (AGEOUT_DAYS > 0) {
@@ -2915,6 +2975,15 @@ export function runDrain() {
       console.log(`age-out: ${candidates.length} eleggibili, cap ${AGEOUT_MAX_PER_RUN}/run → ${candidates.length - toClose.length} rinviate al prossimo tick (no silent cap).`);
     }
     for (const iss of toClose) {
+      // Difesa anche dopo il pass PARKED-WIP: un edit può fallire, la lista
+      // open può essere stata letta prima della mutazione, oppure `--dry-run`
+      // non cambia le label. Un branch avanti a main prova che la issue è
+      // entrata in lavorazione: non chiuderla mai per age-out.
+      const liveWip = recoverableFixBranch(iss.number);
+      if (liveWip) {
+        console.log(`AGE-OUT skip #${iss.number}: checkpoint WIP live (${liveWip.branch} ahead=${liveWip.aheadBy}) → resta aperta/da recuperare.`);
+        continue;
+      }
       // Coppia non atomica (comment → close): senza budget il job può morire fra
       // le due e lasciare la issue commentata-ma-aperta, che al tick successivo
       // viene ri-commentata. Non si comincia se non c'è il tempo di finire.
