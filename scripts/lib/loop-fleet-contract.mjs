@@ -46,6 +46,7 @@ const REQUIRED_LOOP_FIELDS = [
   'maxAutonomy',
   'actionClasses',
   'guardrails',
+  'sourceRefs',
   'lifecycle',
 ];
 
@@ -107,6 +108,18 @@ function requireLifecycle(value, name) {
   };
 }
 
+function requireSourceCatalog(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) fail('registry sourceCatalog must be an object');
+  const entries = Object.entries(value);
+  if (entries.length === 0) fail('registry sourceCatalog must not be empty');
+  const catalog = {};
+  for (const [key, label] of entries) {
+    const sourceKey = requireText(key, 'sourceCatalog key');
+    catalog[sourceKey] = requireText(label, `sourceCatalog.${sourceKey}`);
+  }
+  return catalog;
+}
+
 function finiteOrNull(value, name) {
   if (value !== null && (!Number.isFinite(value) || typeof value !== 'number')) {
     fail(`${name} must be a finite number or null`);
@@ -123,6 +136,7 @@ export function validateLoopRegistry(registry) {
   if (!Array.isArray(registry.qualityStates) || JSON.stringify(registry.qualityStates) !== JSON.stringify(QUALITY_STATES)) {
     fail('registry qualityStates do not match the shared quality states');
   }
+  const sourceCatalog = requireSourceCatalog(registry.sourceCatalog);
   const autonomy = registry.autonomyLevels;
   if (!autonomy || typeof autonomy !== 'object' || AUTONOMY_LEVELS.some((level) => !autonomy[level])) {
     fail('registry must declare every autonomy level A0-A4');
@@ -148,13 +162,17 @@ export function validateLoopRegistry(registry) {
     if (!AUTONOMY_LEVELS.includes(loop.maxAutonomy)) fail(`${id}.maxAutonomy is not A0-A4`);
     requireTextArray(loop.actionClasses, `${id}.actionClasses`);
     requireTextArray(loop.guardrails, `${id}.guardrails`);
+    requireTextArray(loop.sourceRefs, `${id}.sourceRefs`);
+    for (const sourceRef of loop.sourceRefs) {
+      if (!Object.hasOwn(sourceCatalog, sourceRef)) fail(`${id}.sourceRefs references undeclared ${sourceRef}`);
+    }
     const lifecycle = requireLifecycle(loop.lifecycle, `${id}.lifecycle`);
     for (const actionClass of loop.actionClasses) {
       for (const part of actionClass.split('+').map((value) => value.trim()).filter(Boolean)) {
         declaredActionClasses.add(part);
       }
     }
-    normalizedLoops.push({ ...loop, lifecycle });
+    normalizedLoops.push({ ...loop, sourceRefs: [...loop.sourceRefs], lifecycle });
   }
   const actionAutonomyMap = registry.actionAutonomy;
   if (!actionAutonomyMap || typeof actionAutonomyMap !== 'object' || Array.isArray(actionAutonomyMap)) {
@@ -168,7 +186,7 @@ export function validateLoopRegistry(registry) {
   for (const actionClass of declaredActionClasses) {
     if (!Object.hasOwn(actionAutonomyMap, actionClass)) fail(`actionAutonomy is missing ${actionClass}`);
   }
-  return { ...registry, loops: normalizedLoops, actionAutonomy: { ...actionAutonomyMap } };
+  return { ...registry, sourceCatalog, loops: normalizedLoops, actionAutonomy: { ...actionAutonomyMap } };
 }
 
 export function actionClassParts(actionClass) {

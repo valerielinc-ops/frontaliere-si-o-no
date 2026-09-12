@@ -275,6 +275,7 @@ export function recordLoopEvidence({
     policyCompliant,
     lifecycleCompliant: decisionLifecycle.ok,
     lifecycle: policy.lifecycle,
+    sourceRefs: policy.sourceRefs,
     policyErrors,
     decision: decided?.decision || null,
     actionClass,
@@ -314,6 +315,7 @@ export function recordLoopEvidence({
     maxAutonomy: policy.maxAutonomy,
     lifecycle: policy.lifecycle,
     lifecycleCompliant: decisionLifecycle.ok,
+    sourceRefs: policy.sourceRefs,
     ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl'],
     written,
   };
