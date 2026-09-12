@@ -32,6 +32,66 @@ import {
   VITEST_SHARD_NAME_RE,
 } from './constants.mjs';
 
+const RED_CHECK_CONCLUSIONS = new Set(['failure', 'timed_out', 'cancelled']);
+
+/**
+ * Riprova una lettura sincrona finche' il dato e' utilizzabile.
+ *
+ * Un errore del reader (incluso un 404/403/rate-limit) attraversa il helper:
+ * non e' una risposta vuota e non va trasformato in un verdetto ambiguo.
+ * Anche `{ ok: false }` e' un errore esplicito, perche' i consumer usano
+ * proprio liste vuote per distinguere un head orfano da un'API non disponibile.
+ *
+ * @template T
+ * @param {{read: () => T, ready: (value: T) => boolean, attempts?: number,
+ *          delayMs?: number, sleep?: (delayMs: number) => void}} options
+ * @returns {T}
+ */
+export function pollUntil({ read, ready, attempts = 3, delayMs = 0, sleep = () => {} } = {}) {
+  if (typeof read !== 'function' || typeof ready !== 'function') {
+    throw new TypeError('pollUntil richiede funzioni read e ready');
+  }
+  const maxAttempts = Math.max(1, Math.trunc(Number(attempts) || 1));
+  let value;
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    value = read();
+    if (value && typeof value === 'object' && value.ok === false) {
+      const status = value.status === undefined ? '' : ` (HTTP ${value.status})`;
+      const error = new Error(`GitHub API ha restituito ok:false${status}`);
+      if (value.status !== undefined) error.status = value.status;
+      throw error;
+    }
+    if (ready(value)) return value;
+    if (attempt + 1 < maxAttempts) sleep(delayMs);
+  }
+  return value;
+}
+
+/** Un check-run vitest/esecuzione ha raggiunto un verdetto terminale. */
+export function vitestJobIsConcluded(job) {
+  return Boolean(job && job.status === 'completed' && job.conclusion);
+}
+
+/**
+ * Dice se la risposta dei check-run deve essere letta di nuovo.
+ * Una lista vuota o un vitest ancora queued/in_progress non autorizzano a
+ * classificare l'head usando dati vecchi.
+ */
+export function vitestCheckNeedsPolling(checkRuns) {
+  if (!Array.isArray(checkRuns)) return true;
+  const vitestRuns = checkRuns.filter(
+    (check) => check && (check.name === VITEST_CHECK_NAME || VITEST_SHARD_NAME_RE.test(check.name || '')),
+  );
+  if (vitestRuns.length === 0) return true;
+  return vitestRuns.some((check) => check.status !== 'completed' || !check.conclusion || !check.completed_at);
+}
+
+/** Due conclusioni sono intercambiabili solo se sono entrambe rosse. */
+export function areEquivalentCheckConclusions(left, right) {
+  if (!left || !right) return false;
+  return left === right || (RED_CHECK_CONCLUSIONS.has(left) && RED_CHECK_CONCLUSIONS.has(right));
+}
+
 /**
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  *   L'array `.check_runs` della GitHub check-runs API.
@@ -482,9 +542,10 @@ export function jobRefFromCheckRun(checkRun) {
  * In più due controlli di IDENTITÀ, perché «attempt corrente» non implica
  * «lo stesso verdetto su cui stiamo decidendo»: il job dev'essere `completed`
  * (una lista di step parziale non dimostra niente) e la sua `conclusion` e il
- * suo `head_sha` devono coincidere con quelli del check-run selezionato. Se
- * divergono, i due oggetti descrivono esecuzioni diverse e vale il
- * fail-CLOSED.
+ * suo `head_sha` devono riferirsi allo stesso verdetto del check-run selezionato.
+ * Le tre conclusioni rosse di Actions (`failure`, `timed_out`, `cancelled`)
+ * sono equivalenti per questo accoppiamento; un rosso non diventa verde per
+ * errore di normalizzazione dell'API.
  *
  * Pura: nessuna I/O. Il chiamante fetcha la lista dei job.
  *
@@ -499,7 +560,7 @@ export function currentAttemptJobSteps({ checkRun, jobId, jobs }) {
   const job = jobs.find((j) => j && String(j.id) === String(jobId));
   if (!job) return []; // attempt superato: il job non è più fra i correnti.
   if (job.status !== 'completed') return [];
-  if (!checkRun.conclusion || job.conclusion !== checkRun.conclusion) return [];
+  if (!areEquivalentCheckConclusions(checkRun.conclusion, job.conclusion)) return [];
   if (checkRun.head_sha && job.head_sha && job.head_sha !== checkRun.head_sha) return [];
   return Array.isArray(job.steps) ? job.steps : [];
 }

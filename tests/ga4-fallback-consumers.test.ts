@@ -41,8 +41,15 @@ describe('fallback GA4 dei monitor PostHog', () => {
       'scripts/fetch-thin-page-promotions.mjs',
       'scripts/refresh-noslash-keep.mjs',
     ];
+    const byConstruction = [
+      'scripts/funnel-metrics-snapshot.mjs',
+      'scripts/lib/source-liveness.mjs',
+    ];
     for (const file of migrated) {
       expect(readFileSync(resolve(root, file), 'utf8'), file).toMatch(/getServiceAccountToken\(/);
+    }
+    for (const file of byConstruction) {
+      expect(readFileSync(resolve(root, file), 'utf8'), file).not.toMatch(/getServiceAccountToken\(/);
     }
   });
 

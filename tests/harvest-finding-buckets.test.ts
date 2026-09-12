@@ -86,6 +86,19 @@ describe('bucketFinding — la ricognizione negata non fa punteggio', () => {
     expect(bucketFinding(line)).toBe('structured-data');
   });
 
+  it('tratta en dash e trattino ASCII spaziato come confini di frase', () => {
+    for (const separator of ['–', ' - ']) {
+      const line = `🟡 Nit: nessun impatto su \`dist/api/\` ${separator} 🔴 Important: il JSON-LD emette \`baseSalary\` senza valuta.`;
+      expect(stripNegatedImpactClauses(line)).toMatch(/baseSalary/);
+      expect(bucketFinding(line)).toBe('structured-data');
+    }
+  });
+
+  it('dichiara la precedenza del topic canonical sulla sweep sibling', () => {
+    const line = '🔴 Important: la sitemap canonical è rotta; lo stesso anti-pattern nel file gemello non è toccato.';
+    expect(bucketFinding(line)).toBe('canonical-sitemap');
+  });
+
   it("la coda contrastiva toglie solo se stessa, non cio' che la precede", () => {
     const line = '🔴 Important: il fix tocca il canonical del locale `de`, non `dist/api/`, le sitemap o i feed.';
     const stripped = stripNegatedImpactClauses(line);
