@@ -81608,6 +81608,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costi-nidi-servizi-infanzia-canton-sg': {
+    title: 'Costi asili nido e custodia nel Canton San Gallo',
+    description: 'Scopri i costi degli asili nido e della custodia bambini nel Canton San Gallo: rette in base al reddito, sussidi comunali e deduzioni fiscali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, costi, asili, nido, custodia',
+    ogTitle: 'Asili nido e custodia bambini Canton San Gallo: costi',
+    ogDescription: 'Tutte le informazioni sulle rette per asili nido e servizi per l\'infanzia nel Cantone di San Gallo: agevolazioni comunali, fasce di reddito e detrazioni fiscali per le famiglie.',
+    canonicalPath: '/articoli-svizzera/costi-nidi-servizi-infanzia-canton-sg/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costi asili nido e custodia nel Canton San Gallo",
+      "description": "Scopri i costi degli asili nido e della custodia bambini nel Canton San Gallo: rette in base al reddito, sussidi comunali e deduzioni fiscali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-nidi-servizi-infanzia-canton-sg.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Spazio giochi luminoso in una struttura di custodia per l'infanzia nel Cantone di San Gallo"
+      },
+      "datePublished": "2026-09-12T02:05:29+00:00",
+      "dateModified": "2026-09-12T02:05:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costi-nidi-servizi-infanzia-canton-sg/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

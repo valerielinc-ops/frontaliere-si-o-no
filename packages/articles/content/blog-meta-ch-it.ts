@@ -6286,6 +6286,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bitcoin-suisse-taglio-posti-zugo.title': 'Bitcoin Suisse taglia fino a 60 posti a Zugo',
     'blog.article.bitcoin-suisse-taglio-posti-zugo.excerpt': 'Il fornitore di servizi cripto Bitcoin Suisse avvia una riorganizzazione a Zugo che prevede il taglio di un massimo di 60 posti su 120 dipendenti in Svizzera.',
     'blog.article.bitcoin-suisse-taglio-posti-zugo.imageAlt': 'Sede di un fornitore di servizi finanziari in Svizzera',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.title': 'Costi asili nido e custodia nel Canton San Gallo',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.excerpt': 'Guida alle rette per nidi, famiglie diurne e doposcuola nel Cantone di San Gallo: tariffe su reddito, sussidi comunali e sgravi fiscali.',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.imageAlt': 'Spazio giochi luminoso in una struttura di custodia per l\'infanzia nel Cantone di San Gallo',
 };
 
 export default blogMetaChIt;

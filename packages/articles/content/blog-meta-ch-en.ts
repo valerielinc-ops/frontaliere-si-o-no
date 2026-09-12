@@ -6286,6 +6286,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bitcoin-suisse-taglio-posti-zugo.title': 'Bitcoin Suisse cuts up to 60 seats in Zug',
     'blog.article.bitcoin-suisse-taglio-posti-zugo.excerpt': 'Crypto service provider Bitcoin Suisse launches a reorganization in Zug that involves cutting a maximum of 60 jobs out of 120 employees in Switzerland.',
     'blog.article.bitcoin-suisse-taglio-posti-zugo.imageAlt': 'Financial service provider office in Switzerland',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.title': 'Childcare and custody costs in the Canton of St. Gallen',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.excerpt': 'Guide to fees for nurseries, day families and after-school in the Canton of St. Gallen: rates on income, municipal subsidies and tax reductions.',
+    'blog.article.costi-nidi-servizi-infanzia-canton-sg.imageAlt': 'Bright play area in an early childcare education facility in Canton St. Gallen',
 };
 
 export default blogMetaChEn;
