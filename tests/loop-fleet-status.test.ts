@@ -26,19 +26,24 @@ describe('loop fleet status', () => {
     const rows = buildStatusRows(
       registry,
       { L0: run(10) },
-      { L0: { evidence: { quality: 'observed', evidenceComplete: true, policyCompliant: true, decision: 'observing', actionClass: 'observe', requiredAutonomy: 'A0' }, error: null } },
+      { L0: { evidence: { quality: 'observed', evidenceComplete: true, policyCompliant: true, decision: 'observing', actionClass: 'observe', requiredAutonomy: 'A0', health: { issueCount: 0, warningCount: 0 } }, error: null } },
     );
     expect(rows).toHaveLength(12);
     expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
       quality: 'observed',
       decision: 'observing',
       requiredAutonomy: 'A0',
+      actualAutonomy: 'A0',
       policyCompliant: true,
+      issue: null,
+      missingOutcome: null,
     });
     expect(rows.find((row: any) => row.loopId === 'L1')).toMatchObject({
       quality: 'unmeasurable',
       evidenceComplete: false,
       policyCompliant: false,
+      issue: 'evidence not inspected',
+      missingOutcome: 'independent outcome not recorded',
     });
   });
 
