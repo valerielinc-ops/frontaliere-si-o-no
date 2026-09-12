@@ -21,6 +21,7 @@ import {
   assertRetirementsDisjointFromPlan,
   buildClusterContext,
   buildJunkRetirementHtml,
+  cacheHitRetiredLandingPaths,
   clusterKeywordFromCandidate,
   enumerateJunkRetirements,
   junkRetirementWrites,
@@ -212,6 +213,24 @@ describe('restoredKeywordLandingPaths — cache HIT must not re-plan a withdrawa
     const files = [CLUSTER, RETIRED];
     expect(files).toContain(RETIRED);
     expect(restoredKeywordLandingPaths(files, [RETIRED])).toHaveLength(1);
+  });
+});
+
+describe('cacheHitRetiredLandingPaths — cache HIT sees cross-shard retirements (issue #8070)', () => {
+  it('adds current indexed siblings to the shard-local manifest retirements', () => {
+    const current = enumerateJunkRetirements(
+      [JUNK],
+      new Map([['it::ricerca-cookie-bern', ['/cerca-lavoro-zurigo/ricerca-cookie-bern']]]),
+    );
+
+    expect(cacheHitRetiredLandingPaths(
+      current,
+      ['cerca-lavoro-ticino/ricerca-cookie-bern/index.html'],
+    )).toEqual(expect.arrayContaining([
+      '/cerca-lavoro-ticino/ricerca-cookie-bern',
+      '/cerca-lavoro-svizzera/ricerca-cookie-bern',
+      '/cerca-lavoro-zurigo/ricerca-cookie-bern',
+    ]));
   });
 });
 

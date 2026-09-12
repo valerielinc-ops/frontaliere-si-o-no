@@ -251,7 +251,7 @@ describe('iPersonal sister crawlers authoritative snapshots', () => {
       'utf8',
     );
     expect(template).toContain('skipShrinkGuard: authoritativeSnapshotVerified');
-    const fetchIndex = template.indexOf('parsedJobs = await fetchJobs()');
+    const fetchIndex = template.indexOf('const fetchResult = await fetchJobs()');
     const validationIndex = template.indexOf('evaluateAuthoritativeSnapshot(\n    parsedJobs');
     const mergeIndex = template.indexOf('mergePreserveLocaleData(companyExisting, parsedJobs');
     expect(fetchIndex).toBeGreaterThan(-1);

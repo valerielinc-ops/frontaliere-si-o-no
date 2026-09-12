@@ -3,7 +3,10 @@ import {
   COMPANY_SKIP_RUNS,
   COMPANY_STERILE_RUNS,
   companySourceSignature,
+  initialCascadeStopReason,
   nextCompanySkipEntry,
+  pruneExpiredCompanySkipEntries,
+  resetCompanySkipStateForClearedCompanies,
   shouldSkipCompany,
 } from '../scripts/relocalize-pending-jobs.mjs';
 
@@ -161,5 +164,47 @@ describe('salto per azienda sterile — scenario marriott (N=2, K=3)', () => {
     // persi) e' misurato su questa coppia: va rimisurato, non ereditato.
     expect(COMPANY_STERILE_RUNS).toBe(2);
     expect(COMPANY_SKIP_RUNS).toBe(3);
+  });
+
+  it('conserva una voce legacy con salto scaduto ma sterile non zero', () => {
+    const companies = pruneExpiredCompanySkipEntries({
+      armed: { sterile: 0, skipUntilRun: 2 },
+      legacy: { sterile: 1, skipUntilRun: 2 },
+      future: { sterile: 1, skipUntilRun: 5 },
+    }, 3);
+
+    expect(companies).toEqual({
+      legacy: { sterile: 1, skipUntilRun: 2 },
+      future: { sterile: 1, skipUntilRun: 5 },
+    });
+  });
+
+  it('non classifica una deadline scaduta come finestra tutta saltata', () => {
+    expect(initialCascadeStopReason({
+      windowStopReason: 'in progress',
+      allCompaniesSkipped: true,
+      nowMs: 10_000,
+      runStartMs: 0,
+      cascadeDeadlineMs: 10_000,
+      passStartMs: 0,
+      timeBudgetMs: 60_000,
+      timeBudgetFraction: 1,
+    })).toBe('cascade deadline');
+  });
+
+  it('azzera il ledger solo per le aziende toccate dal pre-clear interno', () => {
+    const state = {
+      run: 4,
+      companies: {
+        'sterile-company': { sterile: 1, signature: 'old' },
+        untouched: { sterile: 1, signature: 'keep' },
+      },
+    };
+
+    resetCompanySkipStateForClearedCompanies(state, ['Sterile Company']);
+
+    expect(state.companies).toEqual({
+      untouched: { sterile: 1, signature: 'keep' },
+    });
   });
 });

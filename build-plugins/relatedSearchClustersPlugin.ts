@@ -1929,6 +1929,22 @@ export function restoredRetiredLandingPaths(
 }
 
 /**
+ * Retirement paths a cache-HIT build must register from both its restored
+ * manifest and the current junk-candidate evidence. A shard's manifest only
+ * contains files that shard emitted, while the current retirement enumeration
+ * knows about indexed siblings owned by other locale shards (issue #8070).
+ */
+export function cacheHitRetiredLandingPaths(
+  currentRetirements: ReadonlyArray<JunkRetirement>,
+  restoredRetiredFiles: ReadonlyArray<string> = [],
+): string[] {
+  return Array.from(new Set([
+    ...restoredRetiredLandingPaths(restoredRetiredFiles),
+    ...currentRetirements.flatMap((retirement) => retirement.paths.map(normalizeLandingPath)),
+  ]));
+}
+
+/**
  * Fail the build when a junk withdrawal would land on a path a LIVE cluster
  * also emits (issue #7752).
  *
@@ -3766,6 +3782,26 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       let clusterNoindexCount = 0;
       let clusterBytesSaved = 0;
 
+      // These inputs are needed even on a cache HIT: the cache manifest is
+      // shard-local, but a newly classified junk doorway can have live indexed
+      // siblings emitted by another locale shard (issue #8070). Load the
+      // evidence before the early return so the HIT can recalculate the full
+      // retirement set. The expensive enriched/jobs inputs remain MISS-only.
+      const __tLoadCandidates = profileStart();
+      const candidates = filterAndDedupeCandidates(loadCandidates(rootDir));
+      profileRecord('load-candidates', __tLoadCandidates);
+      const __tLoadIndexed = profileStart();
+      const indexedClusterUrlsByKey = loadIndexedClusterUrls(rootDir);
+      profileRecord('load-indexed-cluster-urls', __tLoadIndexed);
+      const __tPublished = profileStart();
+      const publishedClusterKeys = loadPreviouslyEmittedClusterKeys(rootDir);
+      profileRecord('load-published-cluster-keys', __tPublished);
+      const junkRetirements = enumerateJunkRetirements(
+        candidates,
+        indexedClusterUrlsByKey,
+        publishedClusterKeys,
+      );
+
       // Cache fast path. If inputs haven't changed since the last emit,
       // restore the cluster + hub HTML + sitemap fragment from disk, run
       // the cross-plugin patches (master sitemap + hub-link injection)
@@ -3822,7 +3858,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           // The same rels, declared EMITTED-but-unplanned so a live sibling of a
           // retired locale keeps its own block (issue #7756).
           registerRetiredKeywordLandingPaths(
-            restoredRetiredLandingPaths(restored.retiredFiles ?? []),
+            cacheHitRetiredLandingPaths(junkRetirements, restored.retiredFiles ?? []),
           );
           await jobsSeoPagesFlushed;
           await reconcileSitemapJobsWithDist(distDir, restored.crossSectionMirrorLocs ?? []);
@@ -3838,9 +3874,6 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         console.log(`\x1b[36m[related-search-clusters]\x1b[0m cache MISS (key=${cacheKey}): full emit`);
       }
 
-      const __tLoadCandidates = profileStart();
-      const candidates = filterAndDedupeCandidates(loadCandidates(rootDir));
-      profileRecord('load-candidates', __tLoadCandidates);
       if (candidates.length === 0) {
         console.log('\x1b[36m[related-search-clusters]\x1b[0m 0 candidates after filtering — nothing to emit');
         printRelatedSearchProfile();
@@ -3852,26 +3885,6 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const __tLoadJobs = profileStart();
       const jobs = loadJobs(rootDir);
       profileRecord('load-jobs', __tLoadJobs);
-      // GSC/GA4/PostHog-driven mirror paths, keyed by `${locale}::${slug}`.
-      // Empty map when the data file is missing or hasn't been populated yet
-      // (cron `.github/workflows/refresh-indexed-cluster-urls.yml` runs
-      // weekly; first run after deploy populates it). Empty map is safe:
-      // the emit loop still produces the TI + legacyCantonGroup default
-      // mirrors for every cluster.
-      const indexedClusterUrlsByKey = loadIndexedClusterUrls(rootDir);
-      // Doorways whose keyword the junk denylist now rejects (issue #7316).
-      // `buildClusterContext` stops emitting them; that alone leaves the
-      // already-published copy live, orphaned and indexable, because the
-      // served corpus is reassembled across deploys. Enumerated here so the
-      // withdrawal document below can overwrite those exact paths.
-      // Only for doorways with evidence of publication (issue #7753): a
-      // candidate the audit added but no build ever emitted has nothing live to
-      // withdraw, and synthesizing one would CREATE the thin page instead of
-      // retiring it.
-      const __tPublished = profileStart();
-      const publishedClusterKeys = loadPreviouslyEmittedClusterKeys(rootDir);
-      profileRecord('load-published-cluster-keys', __tPublished);
-      const junkRetirements = enumerateJunkRetirements(candidates, indexedClusterUrlsByKey, publishedClusterKeys);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys, ${publishedClusterKeys.size} previously-emitted cluster keys`);
 
       // Inverted token index: lazy posting lists per (locale, token), shared
