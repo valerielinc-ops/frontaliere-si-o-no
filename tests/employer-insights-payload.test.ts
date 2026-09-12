@@ -3,7 +3,7 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
-import { EmployerInsightsReport } from '../components/pages/EmployerInsightsPage';
+import { EmployerInsightsReport, windowLabel } from '../components/pages/EmployerInsightsPage';
 import type { Locale } from '../services/i18n';
 import { handleList, serializeEmployerInsightsTotals } from '../functions/src/adminEmployerInsights.js';
 
@@ -92,7 +92,10 @@ const basePayload = {
     delivery: 'non disponibile',
     trend: [],
   }],
-  trend: [],
+  trend: [
+    { week: '2026-08-31', views: 71, visitors: 6, applyClicks: 480 },
+    { week: '2026-09-07', views: 40, visitors: 3, applyClicks: 221 },
+  ],
   profileTrend: [],
 };
 
@@ -189,38 +192,54 @@ describe('employer insights payload UI', () => {
     expect(adminPageSource).toContain('profileViews');
   });
 
-  it('renders applyClicks, applications and profileViews as separate annotated metrics', () => {
+  it('renders source metrics and derived signals without exposing non-unique user units', () => {
     const html = render(basePayload);
 
     expect(html).toContain('Click per candidarsi');
     expect(html).toContain('Candidature inviate');
-    expect(html).toContain('Visualizzazioni profilo azienda');
+    expect(html).toContain('Visite al profilo azienda');
     expect(html).toContain('>701<');
     expect(html).toContain('>302<');
     expect(html).toContain('>903<');
-    expect(html).toContain('Utenti associati ai click');
-    expect(html).toContain('>544<');
+    expect(html).toContain('Peso dell’annuncio principale');
+    expect(html).toContain('100,0%');
+    expect(html).toContain('Annunci con click');
+    expect(html).toContain('1 / 1');
+    expect(html).not.toContain('Unità utente osservate');
+    expect(html).not.toContain('>544<');
+    expect(html).not.toContain('Visitatori osservati');
     expect(html).toContain('events-source');
-    expect(html).toContain('applications-source');
-    expect(html.match(/Finestra:/g)?.length).toBeGreaterThanOrEqual(3);
-    expect(html.match(/Sorgente:/g)?.length).toBeGreaterThanOrEqual(3);
-    expect(html).toContain('2026-01-01T00:00:00.000Z');
-    expect(html).toContain('2026-09-09T00:00:00.000Z');
-    expect(html).toContain('UTC');
+    expect(html).toContain('Andamento nel tempo');
+    expect(html).toContain('31 ago');
+    expect(html).toContain('480 click per candidarsi');
+    expect(html).not.toContain('Utenti associati ai click');
+    expect(html).not.toContain('Finestra:');
+    expect(html).not.toContain('Sorgente:');
+    expect(html).not.toContain('2026-01-01T00:00:00.000Z');
+    expect(html).not.toContain('2026-09-09T00:00:00.000Z');
+    expect(html).not.toContain('UTC');
     expect(employerPageSource).not.toMatch(/['"](?:ga4|posthog)['"]/i);
+    const ga4Html = render({ ...basePayload, source: 'ga4' });
+    expect(ga4Html).toContain('Google Analytics');
+    expect(ga4Html).not.toContain('>ga4<');
   });
 
   it('renders the report copy and number format for every supported locale', () => {
     const expected = {
-      it: ['Dati di interazione per Fixture', 'Click per candidarsi', 'Rivendica i tuoi annunci'],
-      en: ['Engagement data for Fixture', 'Apply clicks', 'Claim your job ads'],
-      de: ['Interaktionsdaten für Fixture', 'Klicks auf Bewerbung', 'Stellenanzeigen beanspruchen'],
-      fr: ['Données d’interaction pour Fixture', 'Clics pour postuler', 'Revendiquer vos offres'],
+      it: ['I segnali di Fixture', 'Click per candidarsi', 'Rivendica i tuoi annunci'],
+      en: ['The signals from Fixture', 'Apply clicks', 'Claim your job ads'],
+      de: ['Die Signale von Fixture', 'Klicks auf Bewerbung', 'Stellenanzeigen beanspruchen'],
+      fr: ['Les signaux de Fixture', 'Clics pour postuler', 'Revendiquer vos offres'],
     } as const;
     for (const [locale, strings] of Object.entries(expected) as Array<[Locale, readonly string[]]>) {
       const html = render(basePayload, locale);
       for (const value of strings) expect(html).toContain(value);
     }
+  });
+
+  it('formats the API window as a friendly inclusive date range', () => {
+    expect(windowLabel(window, 'it')).toBe('1 gen – 8 set 2026');
+    expect(windowLabel(window, 'en')).toMatch(/Jan 1.*Sep 8.*2026/);
   });
 
   it('keeps observed numbers when timezone is absent but the window is present', () => {
@@ -230,8 +249,8 @@ describe('employer insights payload UI', () => {
     });
 
     expect(html).toContain('>701<');
-    expect(html).toContain('dato osservato');
-    expect(html).toContain('timezone non disponibile');
+    expect(html).toContain('1 gen – 8 set 2026');
+    expect(html).not.toContain('timezone non disponibile');
   });
 
   it('says a count is not proven unique when the payload carries no deduplication proof', () => {
@@ -241,12 +260,9 @@ describe('employer insights payload UI', () => {
     // The measured traffic is kept — dropping it would delete real events...
     expect(html).toContain('>701<');
     // ...but it is not presented as a proven count of distinct acts.
-    expect(html).toContain('conteggio osservato, unicità non provata');
-    const applyClicksStart = html.indexOf('aria-label="Click per candidarsi: 701"');
-    const applicationsStart = html.indexOf('aria-label="Candidature inviate: 302"');
-    expect(applyClicksStart).toBeGreaterThanOrEqual(0);
-    expect(applicationsStart).toBeGreaterThan(applyClicksStart);
-    expect(html.slice(applyClicksStart, applicationsStart)).not.toContain('dato osservato');
+    expect(html).toContain('unicità non provata');
+    expect(html).toContain('La sorgente non fornisce una prova tecnica sufficiente');
+    expect(html).not.toContain('conteggio osservato');
   });
 
   it('reports how many units could not be deduplicated', () => {
@@ -256,8 +272,8 @@ describe('employer insights payload UI', () => {
     });
 
     expect(html).toContain('>701<');
-    expect(html).toContain('conteggio osservato, unicità non provata');
-    expect(html).toContain('Unità senza prova di unicità');
+    expect(html).toContain('unicità non provata');
+    expect(html).toContain('eventi grezzi del provider non hanno una prova di deduplicazione');
     expect(html).toContain('412');
   });
 
@@ -280,7 +296,7 @@ describe('employer insights payload UI', () => {
     });
 
     expect(zeroHtml).toContain('zero osservato');
-    expect(sourceUnavailableHtml.match(/sorgente non disponibile/g)?.length).toBeGreaterThanOrEqual(4);
+    expect(sourceUnavailableHtml).toContain('Fonte non disponibile');
     expect(sourceUnavailableHtml).not.toMatch(/Click per candidarsi[\s\S]{0,240}>0<|Click per candidarsi[\s\S]{0,240}>701</);
   });
 
@@ -290,9 +306,9 @@ describe('employer insights payload UI', () => {
       totals: { ...basePayload.totals, views: -1 },
     });
 
-    expect(html).toContain('aria-label="Visualizzazioni annuncio: non disponibile"');
-    expect(html).not.toContain('aria-label="Visualizzazioni annuncio: -1"');
-    expect(html).toMatch(/Visualizzazioni annuncio<\/p><p[^>]*>dato assente<\/p>/);
+    expect(html).toContain('Visualizzazioni annunci');
+    expect(html).not.toContain('>-1<');
+    expect(html).toContain('dato assente');
   });
 
   it('normalizes additional window keys and hides raw technical keys', () => {
@@ -307,14 +323,12 @@ describe('employer insights payload UI', () => {
       },
     });
 
-    expect(html).toMatch(/<h3[^>]*>Periodo completo<\/h3>/);
-    expect(html).toMatch(/<h3[^>]*>90 giorni<\/h3>/);
-    expect(html).toMatch(/<h3[^>]*>30 giorni<\/h3>/);
-    expect(html).toMatch(/<h3[^>]*>Finestra aggiuntiva<\/h3>/);
-    expect(html).not.toMatch(/<h3[^>]*>all-time<\/h3>/);
-    expect(html).not.toMatch(/<h3[^>]*>90D<\/h3>/);
-    expect(html).not.toMatch(/<h3[^>]*>P30D<\/h3>/);
-    expect(html).not.toMatch(/<h3[^>]*>unexpected-window<\/h3>/);
+    expect(html).toContain('Ultimi 30 giorni');
+    expect(html).toContain('Ultimi 90 giorni');
+    expect(html).not.toContain('all-time');
+    expect(html).not.toContain('90D');
+    expect(html).not.toContain('P30D');
+    expect(html).not.toContain('unexpected-window');
   });
 
   it('marks applications as partial when either coverage status is incomplete', () => {
@@ -333,8 +347,9 @@ describe('employer insights payload UI', () => {
 
     for (const payload of payloads) {
       const html = render(payload);
-      expect(html).toMatch(/Candidature inviate<\/p><p[^>]*>copertura parziale<\/p>/);
-      expect(html).toContain('aria-label="Candidature inviate: 302"');
+      expect(html).toContain('Candidature inviate');
+      expect(html).toContain('copertura parziale');
+      expect(html).toContain('>302<');
     }
   });
 });

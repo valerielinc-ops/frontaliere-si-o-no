@@ -583,6 +583,7 @@ function ensureCompanyState(states, catalog, companyKey) {
       eventsObserved: 0,
       eventTypes: new Map(),
       trend: new Map(),
+      applyClickTrend: new Map(),
       profileTrend: new Map(),
       companyPaths: new Set(),
     });
@@ -686,8 +687,9 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
       ad.visitors += visitors;
       ad.applyClicks += clicks;
       ad.applyClickUsers += applyClickUsers;
-      const week = sourceRow.week || (pageview ? weekStart(sourceRow.timestamp) : null);
+      const week = sourceRow.week || ((pageview || applyClick) ? weekStart(sourceRow.timestamp) : null);
       if (pageview && week) addMetric(ad.trend, week, views);
+      if (applyClick && week) addMetric(state.applyClickTrend, week, clicks);
     } else if (pageview) {
       state.profileViews += views;
       state.profileVisitors += visitors;
@@ -782,10 +784,20 @@ function serializeEventTypes(types) {
   return Object.fromEntries([...types.entries()].sort(([a], [b]) => a.localeCompare(b)));
 }
 
-function serializeTrend(trend) {
-  return [...trend.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([week, views]) => ({ week, views }));
+function serializeTrend(trend, extras = {}) {
+  const weeks = new Set(trend.keys());
+  for (const extra of Object.values(extras)) {
+    for (const week of extra.keys()) weeks.add(week);
+  }
+  return [...weeks]
+    .sort((a, b) => a.localeCompare(b))
+    .map((week) => {
+      const point = { week, views: trend.get(week) || 0 };
+      for (const [name, extra] of Object.entries(extras)) {
+        if (extra.has(week)) point[name] = extra.get(week) || 0;
+      }
+      return point;
+    });
 }
 
 function queryCoverageOrDefault(queryCoverage, coverage, window) {
@@ -874,6 +886,10 @@ function selectWindowSummary(doc) {
     window: doc.window,
     totals: doc.totals,
     trend: doc.trend,
+    topAd: doc.topAd,
+    ads: doc.ads,
+    profileTrend: doc.profileTrend,
+    applicationsCoverage: doc.applicationsCoverage,
     coverage: doc.coverage,
     limits: doc.limits,
   };
@@ -961,7 +977,7 @@ export function buildInsightsDocuments({
     const forwardedAt = ads.map((ad) => ad.forwardedAt).filter(Boolean).sort().at(-1) || null;
     const jobTrend = ads.flatMap((ad) => ad.trend);
     for (const point of jobTrend) addMetric(state.trend, point.week, point.views);
-    const trend = serializeTrend(state.trend);
+    const trend = serializeTrend(state.trend, { applyClicks: state.applyClickTrend });
     const profileTrend = serializeTrend(state.profileTrend);
     const eventLimits = queryCoverageOrDefault(queryCoverage, aggregate.coverage, window);
     const doc = {
