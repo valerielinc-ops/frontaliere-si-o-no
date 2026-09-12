@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-09-11T23:06:58.786Z",
+  "assembledAt": "2026-09-12T12:55:23.439Z",
   "jobs": [
     {
       "id": "citta-di-bellinzona-responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
@@ -63,7 +63,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "citta-di-bellinzona-assistente-dentale-presso-il-settore-attivita-sociali-servizio-clinica-dentaria-bellinzona",
@@ -111,7 +111,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=884ae3e2-9776-4e19-b06b-a49066a6ccd8,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:06:54.680Z",
+      "crawledAt": "2026-09-12T12:55:17.575Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -188,7 +188,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

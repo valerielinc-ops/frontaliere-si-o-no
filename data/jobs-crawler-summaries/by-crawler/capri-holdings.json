@@ -1,18 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-11T23:21:25.351Z",
-  "total": 5,
-  "newCount": 1,
-  "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 17740,
-  "avgDurationMs": 17740,
+  "generatedAt": "2026-09-12T13:12:50.792Z",
+  "total": 4,
+  "newCount": 0,
+  "updatedCount": 4,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 18393,
+  "avgDurationMs": 18393,
   "durationHistory": [
-    17740
+    18393
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
@@ -27,7 +28,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate",
-      "slug": "store-manager-landquart-capri-holdings",
+      "slug": "direttore-del-negozio-landquart-capri-holdings-michael-kors-versace-graubunden",
       "category": "retail",
       "datePosted": "2026-09-11",
       "source": "capri-holdings-workday-crawler",
@@ -40,18 +41,18 @@
         "canton": "GR",
         "location": "Graubünden"
       },
-      "crawledAt": "",
+      "id": "capri-holdings-3d3f64b95ee9",
       "needsRetranslation": true,
-      "_qualityScore": 72,
+      "firstSeenAt": "2026-09-11T23:21:22.496Z",
+      "crawledAt": "",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 8,
+        "translation": 25,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
@@ -80,9 +81,9 @@
         "location": "Manno"
       },
       "id": "capri-holdings-c2a82205abea",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T22:07:37.799Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -168,8 +169,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Versace/job/Geneva/Sales-Associate_R_785257",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Versace/job/Geneva/Sales-Associate_R_785257",
@@ -205,7 +205,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -214,5 +213,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

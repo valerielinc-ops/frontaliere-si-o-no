@@ -34,6 +34,7 @@ import {
   lastLabelEventAt,
   lastFixPromotion,
   latestFixOutcomeEntryFromComments,
+  mergeAfterFixOutcomeAt,
   crawlerFixDecision,
   DELIVERED,
   NON_RETRYABLE,
@@ -41,6 +42,18 @@ import {
 } from '../scripts/ci/followup-drainer.mjs';
 
 const T = (min: number) => Date.UTC(2026, 8, 7, 0, min, 0);
+
+describe('mergeAfterFixOutcomeAt — una PR vecchia non qualifica un retry', () => {
+  it('accetta solo un merge successivo al verdetto corrente', () => {
+    expect(mergeAfterFixOutcomeAt(T(25), T(20))).toBe(T(25));
+    expect(mergeAfterFixOutcomeAt(T(20), T(20))).toBeNull();
+    expect(mergeAfterFixOutcomeAt(T(15), T(20))).toBeNull();
+  });
+
+  it('fallisce chiuso se il timestamp del verdetto non è leggibile', () => {
+    expect(mergeAfterFixOutcomeAt(T(25), null)).toBeNull();
+  });
+});
 
 describe('isDeliveredThisRun — la consegna va scopata alla run corrente', () => {
   it('promozione, poi marker, poi merge: e\' la consegna di QUESTA run', () => {
@@ -207,15 +220,28 @@ describe('il cablaggio del ramo DELIVERED non si scollega in silenzio', () => {
 
   it('il rescue queue-managed ha il ramo, ed è qualificato da isDeliveredThisRun', () => {
     const stuck = src.slice(src.indexOf('for (const iss of stuckFix) {'));
+    const queue = src.slice(
+      src.indexOf('for (const iss of stuckFix) {'),
+      src.indexOf('for (const iss of crawlerFix) {'),
+    );
     const branch = /if \(outcome && DELIVERED\.has\(outcome\)\) \{([\s\S]*?)\n {4}\}/.exec(stuck);
     expect(branch, 'il rescue queue-managed deve avere il ramo DELIVERED').toBeTruthy();
     // Il re-queue gratuito deve passare dal gate sulla run corrente, e le due
     // letture devono venire dal merge REALE e dalla promozione — non
     // dall'assenza di PR aperte, che è ciò che sbagliava.
     expect(branch![1]).toMatch(/isDeliveredThisRun\(\{/);
-    expect(branch![1]).toMatch(/mergedAt = mergedFixPrAt\(/);
-    expect(branch![1]).toMatch(/promotion = fixPromotion\(/);
+    expect(queue).toMatch(/const mergedAt = outcome === 'pr-created' \? mergedFixPrAt\(/);
     expect(branch![1]).toMatch(/promotedAt: promotion\.at/);
+  });
+
+  it('il rescue queue-managed scarta i marker della promozione precedente', () => {
+    const start = src.indexOf('for (const iss of stuckFix) {');
+    const end = src.indexOf('for (const iss of crawlerFix) {', start);
+    const queue = src.slice(start, end);
+    expect(queue).toMatch(/const rawOutcome = outcomeEntry\.outcome/);
+    expect(queue).toMatch(/const promotion = !hasPR && rawOutcome !== null/);
+    expect(queue).toMatch(/const outcome = outcomeForCurrentPromotion\(\{/);
+    expect(queue).toMatch(/promotedAt: promotion\.at/);
   });
 
   it('il gemello crawler riceve le stesse tre letture, o il buco si riapre da quel lato', () => {
@@ -223,5 +249,32 @@ describe('il cablaggio del ramo DELIVERED non si scollega in silenzio', () => {
     expect(crawler).toMatch(/outcomeAt: entry\.at/);
     expect(crawler).toMatch(/mergedAt = delivered \? mergedFixPrAt\(/);
     expect(crawler).toMatch(/promotedAt: promotion\.at/);
+  });
+});
+
+describe('il checkpoint WIP parcheggiato viene salvato prima dell age-out', () => {
+  const src = readFileSync(new URL('../scripts/ci/followup-drainer.mjs', import.meta.url), 'utf8');
+
+  it('ri-accoda i parked con branch live e difende anche la chiusura', () => {
+    const run = src.slice(src.indexOf('export function runDrain()'));
+    const ageOutAt = run.indexOf('// --- AGE-OUT CLOSE:');
+    expect(ageOutAt).toBeGreaterThanOrEqual(0);
+    const preAgeOut = run.slice(0, ageOutAt);
+    expect(preAgeOut).toMatch(/const parkedForWip = listIssues\(LBL_PARKED\)/);
+    expect(preAgeOut).toMatch(/const parkedWipOrder = rotateForScan\(parkedForWip/);
+    expect(preAgeOut).toMatch(/PARKED_WIP_MAX_PER_RUN/);
+    expect(preAgeOut).toMatch(/budget\.take\(`#\$\{iss\.number\} \(parked-wip\)/);
+    expect(preAgeOut).toMatch(/isRecoverableQueueManaged/);
+    expect(preAgeOut).toMatch(/const recoverable = recoverableFixBranch\(iss\.number\)/);
+    expect(preAgeOut).toMatch(/recoverable\?\.state === 'unknown'/);
+    expect(preAgeOut).toMatch(/RE-QUEUE PARKED-WIP/);
+    expect(preAgeOut).toMatch(/add = \[LBL_QUEUED/);
+    expect(preAgeOut).toMatch(/remove = \[LBL_PARKED, 'needs-human'/);
+
+    const parentAt = run.indexOf('// --- PARENT-CLOSE:');
+    const ageOut = run.slice(ageOutAt, parentAt);
+    expect(ageOut).toMatch(/const liveWip = recoverableFixBranch\(iss\.number\)/);
+    expect(ageOut).toMatch(/liveWip\?\.state === 'unknown'/);
+    expect(ageOut).toMatch(/AGE-OUT skip #\$\{iss\.number\}: checkpoint WIP live/);
   });
 });

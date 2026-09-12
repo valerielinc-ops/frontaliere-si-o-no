@@ -17,7 +17,10 @@ import { describe, expect, it } from 'vitest';
 // @ts-expect-error — plain .mjs CI script, no type declarations
 import {
   backlogTrendWarning,
+  claudeAllocation,
+  claudeReviewRunStats,
   claudeReviewCount,
+  claudeUsageStepRan,
   MERGED_PR_LIST_LIMIT,
   mergedPrStats,
   PR_REPAIR_RUN_WARN,
@@ -97,6 +100,56 @@ describe('repairEfficiencyWarnings — allarmi di allocazione senza nuove chiama
   it('non unisce due report separati da un backlog illeggibile', () => {
     const prior = [backlogReport(21, 10), report(14, []), backlogReport(7, 20)];
     expect(backlogTrendWarning(30, prior)).toBe('');
+  });
+});
+
+describe('tests.yml — segnale Claude incorporato e allocazione', () => {
+  it('conta solo il passo persistito del fallback realmente usato', () => {
+    expect(claudeUsageStepRan([{
+      steps: [
+        { name: 'Run Claude review', status: 'completed', conclusion: 'success' },
+        { name: 'Claude usage metrics', status: 'completed', conclusion: 'skipped' },
+      ],
+    }])).toBe(false); // Codex-primary o tests-only
+    expect(claudeUsageStepRan([{
+      steps: [
+        { name: 'Run Claude review', status: 'completed', conclusion: 'success' },
+        { name: 'Claude usage metrics', status: 'completed', conclusion: 'success' },
+      ],
+    }])).toBe(true);
+    expect(claudeUsageStepRan([{
+      steps: [{ name: 'Claude usage metrics', status: 'in_progress', conclusion: '' }],
+    }])).toBe(false);
+  });
+
+  it('rende esplicita una lettura GitHub incompleta e non la trasforma in zero', () => {
+    const calls: string[][] = [];
+    const stats = claudeReviewRunStats('2026-09-01', (args: string[]) => {
+      calls.push(args);
+      if (args[0] === 'run') return [{ databaseId: 1 }, { databaseId: 2 }];
+      if (args.some((arg) => arg.includes('/runs/1/'))) {
+        return { jobs: [{ steps: [{ name: 'Claude usage metrics', status: 'completed', conclusion: 'success' }] }] };
+      }
+      throw new Error('HTTP 429');
+    });
+
+    expect(stats).toEqual({ total: 2, claudeRuns: 1, measured: false, truncated: false });
+    expect(calls).toHaveLength(3);
+    expect(calls[0]).toEqual(expect.arrayContaining(['--event', 'pull_request', '--status', 'completed']));
+  });
+
+  it('include il reviewer incorporato nel rapporto riparazione PR:issue-fix', () => {
+    expect(claudeAllocation({
+      prRepairRuns: 4,
+      embeddedReviewRuns: 2,
+      issueFixRuns: 3,
+    })).toEqual({ repairRuns: 6, issueFixRuns: 3, ratio: '2.0:1' });
+    expect(claudeAllocation({
+      prRepairRuns: 4,
+      embeddedReviewRuns: 2,
+      embeddedMeasured: false,
+      issueFixRuns: 3,
+    })).toEqual({ repairRuns: null, issueFixRuns: 3, ratio: 'n/d' });
   });
 });
 

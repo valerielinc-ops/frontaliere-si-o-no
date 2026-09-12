@@ -1,16 +1,16 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-09-11T23:25:48.081Z",
+  "generatedAt": "2026-09-12T13:17:36.779Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 12450,
-  "avgDurationMs": 12450,
+  "durationMs": 15003,
+  "avgDurationMs": 15003,
   "durationHistory": [
-    12450
+    15003
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -116,7 +116,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T22:07:24.592Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-09-11T23:26:05.713Z",
+  "assembledAt": "2026-09-12T13:17:53.883Z",
   "jobs": [
     {
       "id": "corner-banca-62309aa78f00",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Team di Raccolta Dipendenti Zürich - ref. 1068",
         "en": "Team of Employees Zürich - Ref. 1068",
-        "de": "Employee Collection Team Zürich - ref. 1068",
+        "de": "Team di Raccolta Dipendenti Zürich - ref. 1068",
         "fr": "Équipe des employés Zürich - Réf. 1068"
       },
       "description": "Stiamo cercando un professionista motivato e orientato al cliente per unirsi al nostro team in un ambiente dinamico e in crescita. Il candidato ideale è desideroso di sviluppare le proprie competenze nella gestione delle relazioni con i clienti e nel recupero crediti, combinando forti capacità comunicative con empatia e un approccio orientato alla soluzione. Questo ruolo offre l'opportunità di lavorare a stretto contatto con i clienti, negoziare soluzioni di pagamento sostenibili e contribuire a mantenere relazioni positive e professionali anche in situazioni sensibili.\n\nResponsabilità principali:\n\n• Contatto telefonico con i clienti per la gestione del credito e il recupero dei debiti\n\n• Ascolto attivo delle situazioni dei clienti e identificazione di soluzioni di pagamento sostenibili\n\n• Negoziazione di piani di rimborso e monitoraggio degli accordi concordati\n\n• Gestione e aggiornamento dei casi nei sistemi interni\n\n• Collaborazione con il team per monitorare le posizioni aperte\n\n• Mantenimento di un approccio professionale ed empatico anche in situazioni sensibili\n\n• Formazione commerciale (apprendistato commerciale o qualifica equivalente)\n\n• Tedesco madrelingua e buona conoscenza dell'inglese\n\n• Eccellenti capacità comunicative e forti capacità di ascolto del cliente\n\n• Aptitudine a gestire le relazioni con i clienti per telefono\n\n• Empatia, capacità di mediazione e mentalità orientata alla soluzione\n\n• Attenzione ai dettagli e capacità organizzative\n\n• Spirito di squadra e affidabilità\n\nProfilo ideale\n\n• Persona giovane e motivata desiderosa di crescere professionalmente\n\n• Capacità di rimanere calmi e professionali anche in conversazioni difficili\n\n• Attitudine orientata al team e mentalità collaborativa",
@@ -74,7 +74,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:01.002Z",
+      "crawledAt": "2026-09-12T13:17:48.126Z",
       "previousSlugs": [
         "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
         "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen"
@@ -92,6 +92,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.238Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -114,8 +115,8 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
         "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
-        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        "de": "spontaner-ausbildungseinsatz-corner-banca-switzerland",
+        "fr": "apprentissage-spontane-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -161,22 +162,27 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:01.002Z",
+      "crawledAt": "2026-09-12T13:17:48.126Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
+        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "unsolicited-application-apprenticeship-corner-banca-switzerland",
         "spontaner-ausbildungseinsatz-corner-banca-switzerland",
         "apprentissage-spontane-corner-banca-switzerland"
       ],
       "previousSlugsByLocale": {
         "de": [
           "initiativbewerbung-lehre-corner-banca-switzerland",
+          "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
           "spontaner-ausbildungseinsatz-corner-banca-switzerland"
         ],
         "fr": [
+          "unsolicited-application-apprenticeship-corner-banca-switzerland",
           "apprentissage-spontane-corner-banca-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.988Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -208,7 +214,7 @@
       "title": "Information Security Specialista  -  ref. 1108",
       "titleByLocale": {
         "it": "Information Security Specialista - ref. 1108",
-        "en": "Information Security Specialist - ref. 1108",
+        "en": "Information Security Specialista  -  ref. 1108",
         "de": "Information Security Spezialist - ref. 1108",
         "fr": "Information Security Spécialiste - ref. 1108"
       },
@@ -259,7 +265,7 @@
       "url": "https://jobs.corner.ch/o/information-security-specialist-ref-1108",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:01.001Z",
+      "crawledAt": "2026-09-12T13:17:48.125Z",
       "previousSlugs": [
         "information-security-specialist-ref-1108-corner-banca-lugano"
       ],
@@ -269,6 +275,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.230Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "salarySource": "estimated",
@@ -302,9 +309,9 @@
       "title": "Legal Collection case Manager  - ref. 1095",
       "titleByLocale": {
         "it": "Legal Collection case Manager - ref. 1095",
-        "en": "Legal Collection case Manager-ref. 1095",
+        "en": "Legal Collection case Manager  - ref. 1095",
         "de": "Fallmanager für Rechtssammlung - Ref. 1095",
-        "fr": "Legal Collection case Manager - réf. 1095"
+        "fr": "Legal Collection case Manager - ref. 1095"
       },
       "description": "Stiamo cercando un Legal Collections Specialist motivato e orientato ai dettagli per unirsi al nostro team. Sarai responsabile della gestione del recupero legale dei debiti\n\ne del supporto alle strategie di recupero all'interno del quadro della Legge svizzera sull'esecuzione dei debiti e fallimenti (SchKG) e delle normative sui prodotti finanziari e sul credito al consumo applicabili.\n\nQuesto ruolo richiede una stretta collaborazione con gli stakeholder interni, i partner legali esterni e i debitori per massimizzare i risultati del recupero mantenendo un approccio professionale e orientato al cliente.\n\nCosa Offriamo\n\n• Posizione fissa in un ambiente lavorativo dinamico e internazionale.\n\n• Salario competitivo e pacchetto di benefit.\n\n• Sede situata a Wallisellen (Zurigo), con possibilità di lavoro parzialmente remoto (smart working).\n\n• Programma completo di inserimento e formazione durante i primi tre mesi presso il nostro ufficio di Lugano.\n\n• Opportunità di crescita professionale e sviluppo all'interno di un'organizzazione in espansione.\n\nResponsabilità Chiave\n\n• Gestire un portafoglio di conti in ritardo e avviare, monitorare e seguire le procedure di recupero legale dei debiti.\n\n• Preparare, revisionare e elaborare documentazione legale, mantenere registri precisi dei casi e monitorare i procedimenti legali in corso per garantire un follow-up tempestivo.\n\n• Interagire con i debitori, i rappresentanti legali, le agenzie di recupero crediti, i tribunali e le autorità pubbliche, e negoziare piani di pagamento e accordi transattivi quando appropriato.\n\n• Valutare i casi di recupero, raccomandare azioni legali appropriate e sostenere il raggiungimento degli obiettivi di recupero.\n\n• Collaborare con i dipartimenti interni, inclusa l'Assistenza Clienti, e contribuire al miglioramento continuo dei processi di recupero e delle strategie di recupero.\n\n• Almeno 3 anni di solida esperienza nella gestione del recupero crediti nel sistema giudiziario svizzero (recupero legale) è richiesta.\n\n• Una solida comprensione delle procedure di esecuzione dei debiti e insolvenza svizzere, insieme alla familiarità con i prodotti finanziari e le normative sul credito al consumo, sarebbe un vantaggio.\n\n• Fluente in francese (livello C1, scritto e parlato) e buone competenze in italiano (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.\n\n• Mentalità orientata agli obiettivi, capacità organizzative e capacità di risolvere problemi.\n\n• La capacità di lavorare in modo indipendente è essenziale, mantenendo allo stesso tempo un forte spirito di squadra e un'eccellente comunicazione con i colleghi della sede centrale mentre si lavora da un'ufficio distaccato.\n\n• Grande attenzione ai dettagli e impegno per la precisione.\n\n• Competenza in Microsoft Office e sistemi di gestione dei casi.\n\n• Diploma commerciale o qualifica equivalente (ad esempio, laurea in legge svizzera, scienze politiche o campo correlato).",
       "descriptionByLocale": {
@@ -353,7 +360,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:01.001Z",
+      "crawledAt": "2026-09-12T13:17:48.125Z",
       "previousSlugs": [
         "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
         "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
@@ -382,6 +389,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.233Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -413,7 +421,7 @@
       "title": "FI Administration & Business Support  - ref. 1116",
       "titleByLocale": {
         "it": "FI Administration & Business Support - ref. 1116",
-        "en": "FI Administration & Business Support-ref. 1116",
+        "en": "FI Administration & Business Support  - ref. 1116",
         "de": "FI Verwaltung und Unternehmensunterstützung - Ref. 1116",
         "fr": "FI Administration et soutien aux entreprises - réf. 1116"
       },
@@ -467,7 +475,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:01.000Z",
+      "crawledAt": "2026-09-12T13:17:48.125Z",
       "previousSlugs": [
         "fi-administration-e-business-support-2-corner-banca-lugano",
         "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
@@ -478,6 +486,7 @@
           "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:34:20.594Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -495,9 +504,7 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "corner-banca-c2be30cf246d",
@@ -563,7 +570,7 @@
       "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:00.995Z",
+      "crawledAt": "2026-09-12T13:17:48.124Z",
       "previousSlugs": [
         "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
       ],
@@ -573,6 +580,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.211Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -654,7 +662,7 @@
       "url": "https://jobs.corner.ch/o/employee-backoffice-ref-1110",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:00.994Z",
+      "crawledAt": "2026-09-12T13:17:48.120Z",
       "previousSlugs": [
         "employee-backoffice-ref-1110-corner-banca-lugano"
       ],
@@ -664,6 +672,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.210Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -760,8 +769,9 @@
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:26:00.993Z",
+      "crawledAt": "2026-09-12T13:17:48.119Z",
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -795,9 +805,9 @@
       "title": "Senior Compliance Officer  - ref. 1111",
       "titleByLocale": {
         "it": "Senior Compliance Officer - ref. 1111",
-        "en": "Senior Compliance Officer-ref. 1111",
-        "de": "Senior Compliance Officer – Ref. 1111",
-        "fr": "Agent principal de conformité - réf. 1111"
+        "en": "Senior Compliance Officer - ref. 1111",
+        "de": "Senior Compliance Officer - ref. 1111",
+        "fr": "Senior Compliance Officer  - ref. 1111"
       },
       "description": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
       "descriptionByLocale": {
@@ -847,14 +857,16 @@
       "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:00.992Z",
+      "crawledAt": "2026-09-12T13:17:48.118Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-compliance-officer-ref-1111-corner-banca-lugano"
+          "senior-compliance-officer-ref-1111-corner-banca-lugano",
+          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
         ]
       },
       "previousSlugs": [
-        "senior-compliance-officer-ref-1111-corner-banca-lugano"
+        "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:46:42.895Z",
@@ -891,7 +903,7 @@
       "title": "Consulente Fiscale (Private Banking)  - ref. 1117",
       "titleByLocale": {
         "it": "Consulente Fiscale (Private Banking) - ref. 1117",
-        "en": "Fiscale Consultant (Private Banking) - ref. 11",
+        "en": "Consulente Fiscale (Private Banking)  - ref. 1117",
         "de": "Steuerberater (Private Banking) – Ref. 1117",
         "fr": "Conseiller fiscal (Banque privée) - réf. 1117"
       },
@@ -943,7 +955,7 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:00.991Z",
+      "crawledAt": "2026-09-12T13:17:48.118Z",
       "previousSlugs": [
         "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
       ],
@@ -953,6 +965,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:44:57.049Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -986,7 +999,7 @@
       "title": "Customer Retention & Growth - ref. 1118",
       "titleByLocale": {
         "it": "Customer Retention & Growth - ref. 1118",
-        "en": "Customer Retention & Gro Gro 1118",
+        "en": "Customer Retention & Growth - ref. 1118",
         "de": "Kundenerhalt und Wachstum - ref. 1118",
         "fr": "Rétention des clients et croissance - ref. 1118"
       },
@@ -1024,7 +1037,7 @@
       "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:00.990Z",
+      "crawledAt": "2026-09-12T13:17:48.116Z",
       "firstSeenAt": "2026-08-27T20:12:11.446Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1042,9 +1055,7 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "corner-banca-d340d5737202",
@@ -1061,7 +1072,7 @@
       "title": "Online Campaign Manager - ref. 1102",
       "titleByLocale": {
         "it": "Online Campaign Manager - ref. 1102",
-        "en": "Online Campaign Manager-ref. 1102",
+        "en": "Online Campaign Manager - ref. 1102",
         "de": "Online-Kampagnenmanager - Ref. 1102",
         "fr": "Gestionnaire de campagne en ligne - réf. 1102"
       },
@@ -1112,7 +1123,7 @@
       "url": "https://jobs.corner.ch/o/online-campaign-manager-ref-1102",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:00.989Z",
+      "crawledAt": "2026-09-12T13:17:48.115Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T21:51:32.218Z",
       "salaryMin": 68000,
@@ -1148,7 +1159,7 @@
       "title": "Credit & Client Advisor (m/f) - ref. 1128",
       "titleByLocale": {
         "it": "Credit & Client Consulente (m/f) - ref. 1128",
-        "en": "Credit & Client Advisor ZQX0Q 1128 (m/f)",
+        "en": "Credit & Client Advisor (m/f) - ref. 1128",
         "de": "Credit & Client Berater (m/f) - ref. 1128",
         "fr": "Credit & Client Conseiller (m/f) - ref. 1128"
       },
@@ -1205,8 +1216,9 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:00.987Z",
+      "crawledAt": "2026-09-12T13:17:48.114Z",
       "firstSeenAt": "2026-09-03T13:49:26.507Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1240,7 +1252,7 @@
       "title": "Consumer Loan Advisor  - ref. 1129",
       "titleByLocale": {
         "it": "Consumer Loan Consulente - ref. 1129",
-        "en": "Consumer Loan Advisor-ref. 1129",
+        "en": "Consumer Loan Advisor  - ref. 1129",
         "de": "Consumer Loan Berater - ref. 1129",
         "fr": "Consumer Loan Conseiller - ref. 1129"
       },
@@ -1278,8 +1290,9 @@
       "url": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T23:26:00.987Z",
+      "crawledAt": "2026-09-12T13:17:48.114Z",
       "firstSeenAt": "2026-09-03T13:49:26.508Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",

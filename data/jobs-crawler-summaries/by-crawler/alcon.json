@@ -1,7 +1,7 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-09-11T23:26:33.418Z",
+  "generatedAt": "2026-09-12T13:18:16.744Z",
   "total": 5,
   "discovered": null,
   "parsed": 4,
@@ -12,10 +12,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5098,
-  "avgDurationMs": 5098,
+  "durationMs": 6858,
+  "avgDurationMs": 6858,
   "durationHistory": [
-    5098
+    6858
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Manager--Accounting---Reporting_R-2026-49365-2",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:26:28.419Z",
+      "crawledAt": "2026-09-12T13:18:09.753Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Professional-Education---Development-Manager--m-w-d----Vision-Care-DACH_R-2026-48937-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:26:29.090Z",
+      "crawledAt": "2026-09-12T13:18:10.430Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:26:27.734Z",
+      "crawledAt": "2026-09-12T13:18:09.082Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -143,7 +143,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:26:29.727Z",
+      "crawledAt": "2026-09-12T13:18:11.094Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,

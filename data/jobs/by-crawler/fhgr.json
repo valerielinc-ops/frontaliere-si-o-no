@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-09-11T23:18:04.864Z",
+  "assembledAt": "2026-09-12T13:07:39.228Z",
   "jobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:17:59.031Z",
+      "crawledAt": "2026-09-12T13:07:31.826Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -81,16 +81,21 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "bauingenieur-in-fhgr-ch"
+          "bauingenieur-in-fhgr-ch",
+          "bauingenieur-in-fachhochschule-graubunden-chur"
         ],
         "it": [
-          "bauingenieur-in-fhgr-ch"
+          "bauingenieur-in-fhgr-ch",
+          "ingegnere-civile-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "bauingenieur-in-fhgr-ch"
+        "bauingenieur-in-fhgr-ch",
+        "bauingenieur-in-fachhochschule-graubunden-chur",
+        "ingegnere-civile-fachhochschule-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -112,7 +117,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur",
         "en": "project-manager-administrative-directorate-fachhochschule-graubunden-chur",
-        "de": "projektleiter-in-verwaltungsdirektion-fhgr-ch",
+        "de": "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
         "fr": "gestionnaire-de-projet-direction-administrative-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
@@ -137,7 +142,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/797/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:17:57.882Z",
+      "crawledAt": "2026-09-12T13:07:30.803Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -157,22 +162,24 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "projektleiter-in-verwaltungsdirektion-fhgr-ch",
-        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
+        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
+        "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-verwaltungsdirektion-fhgr-ch",
-          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
+          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
+          "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
         ],
-        "fr": [
+        "de": [
+          "projektleiter-in-verwaltungsdirektion-fhgr-ch",
           "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
         ],
-        "de": [
-          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
-          "projektleiter-in-verwaltungsdirektion-fhgr-ch"
+        "fr": [
+          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
         ]
       },
       "firstSeenAt": "2026-08-28T05:26:57.952Z",
@@ -197,7 +204,7 @@
       "slugByLocale": {
         "it": "assistente-hr-fachhochschule-graubunden-chur",
         "en": "hr-assistant-fachhochschule-graubunden-chur",
-        "de": "hr-assistent-in-fhgr-ch",
+        "de": "hr-assistent-in-fachhochschule-graubunden-chur",
         "fr": "assistant-rh-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
@@ -222,7 +229,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/808/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:17:56.686Z",
+      "crawledAt": "2026-09-12T13:07:29.998Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -242,25 +249,27 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "hr-assistent-in-fhgr-ch",
-        "hr-assistent-in-fachhochschule-graubunden-chur",
-        "assistente-hr-fachhochschule-graubunden-chur"
+        "assistente-hr-fachhochschule-graubunden-chur",
+        "hr-assistent-in-fachhochschule-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-assistent-in-fhgr-ch"
+          "hr-assistent-in-fhgr-ch",
+          "assistente-hr-fachhochschule-graubunden-chur"
         ],
         "en": [
           "hr-assistent-in-fhgr-ch"
         ],
-        "fr": [
-          "hr-assistent-in-fhgr-ch"
-        ],
         "de": [
-          "hr-assistent-in-fachhochschule-graubunden-chur",
+          "hr-assistent-in-fhgr-ch",
+          "hr-assistent-in-fachhochschule-graubunden-chur"
+        ],
+        "fr": [
           "hr-assistent-in-fhgr-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T23:31:09.494Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -278,11 +287,11 @@
     },
     {
       "id": "fhgr-30b6daabed80",
-      "slug": "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
+      "slug": "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich",
       "slugByLocale": {
-        "de": "studienbetriebskoordinator-in-fhgr-ch",
-        "it": "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
+        "it": "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich",
         "en": "study-operations-coordinator-fachhochschule-graubunden-zurich",
+        "de": "studienbetriebskoordinator-in-fhgr-ch",
         "fr": "coordonnateur-des-operations-d-etude-fachhochschule-graubunden-zurich"
       },
       "company": "Fachhochschule Graubünden",
@@ -290,16 +299,16 @@
       "companyDomain": "fhgr.ch",
       "title": "Studienbetriebskoordinator/-in",
       "titleByLocale": {
-        "de": "Studienbetriebskoordinator/-in",
-        "it": "Coordinatore delle operazioni di studio",
+        "it": "Studienbetriebskoordinator/-in",
         "en": "Study Operations Coordinator",
+        "de": "Studienbetriebskoordinator/-in",
         "fr": "Coordonnateur des opérations d'étude"
       },
       "description": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Für unser Institut für Management und Weiterbildung (IMW) , welches berufsbegleitende Weiterbildungsprogramme für Führungskräfte des mittleren und oberen Kaders anbietet, suchen wir per sofort oder nach Vereinbarung eine/n | In dieser vielseitigen Funktion gestalten Sie den Studienbetrieb aktiv mit und sind eine wichtige Anlaufstelle für Studieninteressierte, Studierende und die Studienleitung. Sie unterstützen bei der Planung und Durchführung des Lehrbetriebs, führen Erstgespräche, wirken bei der Akquise und im Marketing mit und betreuen unsere Social-Media-Kanäle. Gleichzeitig koordinieren Sie Stundenpläne, Räume, Einschreibungen und Feedback-Prozesse und stellen den reibungslosen Kursbetrieb sowie die Pflege unserer Lernplattform «Moodle» sicher. Sie organisieren zudem Studienreisen und interne Veranstaltungen wie Workshops, Kick-offs und Alumni-Anlässe von der Planung bis zur Nachbereitung. Mit Ihrem Organisationstalent, Ihrer Kommunikationsstärke und Ihren Ideen tragen Sie zudem zur Optimierung von Prozessen sowie zur Weiterentwicklung und Qualitätssicherung unserer Bildungsangebote bei. | Ihr Profil\n• Eidg. Fachausweis oder Höhere Fachschule (HF) mit entsprechender Berufserfahrung\n• Organisations- und kommunikationsstarke Persönlichkeit mit hoher Dienstleistungsorientierung\n• Erfahrung im Verkauf von Weiterbildungs- oder Dienstleistungsangeboten (von Vorteil)\n• Sehr gute Anwenderkenntnisse in MS Office; Erfahrung in E-Learning-Systemen wie Moodle, CRM-Tools und Social Media (von Vorteil)\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n• Bereitschaft für gelegentliche Arbeitseinsätze an Abenden oder Wochenenden | Wir begeistern Sie mit\n• Einem modernen Arbeitsplatz beim Hauptbahnhof Zürich\n• Unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• Unserer Unterstützung in der persönlichen Weiterbildung\n• Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
       "descriptionByLocale": {
-        "de": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Für unser Institut für Management und Weiterbildung (IMW) , welches berufsbegleitende Weiterbildungsprogramme für Führungskräfte des mittleren und oberen Kaders anbietet, suchen wir per sofort oder nach Vereinbarung eine/n | In dieser vielseitigen Funktion gestalten Sie den Studienbetrieb aktiv mit und sind eine wichtige Anlaufstelle für Studieninteressierte, Studierende und die Studienleitung. Sie unterstützen bei der Planung und Durchführung des Lehrbetriebs, führen Erstgespräche, wirken bei der Akquise und im Marketing mit und betreuen unsere Social-Media-Kanäle. Gleichzeitig koordinieren Sie Stundenpläne, Räume, Einschreibungen und Feedback-Prozesse und stellen den reibungslosen Kursbetrieb sowie die Pflege unserer Lernplattform «Moodle» sicher. Sie organisieren zudem Studienreisen und interne Veranstaltungen wie Workshops, Kick-offs und Alumni-Anlässe von der Planung bis zur Nachbereitung. Mit Ihrem Organisationstalent, Ihrer Kommunikationsstärke und Ihren Ideen tragen Sie zudem zur Optimierung von Prozessen sowie zur Weiterentwicklung und Qualitätssicherung unserer Bildungsangebote bei. | Ihr Profil\n• Eidg. Fachausweis oder Höhere Fachschule (HF) mit entsprechender Berufserfahrung\n• Organisations- und kommunikationsstarke Persönlichkeit mit hoher Dienstleistungsorientierung\n• Erfahrung im Verkauf von Weiterbildungs- oder Dienstleistungsangeboten (von Vorteil)\n• Sehr gute Anwenderkenntnisse in MS Office; Erfahrung in E-Learning-Systemen wie Moodle, CRM-Tools und Social Media (von Vorteil)\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n• Bereitschaft für gelegentliche Arbeitseinsätze an Abenden oder Wochenenden | Wir begeistern Sie mit\n• Einem modernen Arbeitsplatz beim Hauptbahnhof Zürich\n• Unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• Unserer Unterstützung in der persönlichen Weiterbildung\n• Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
         "it": "Come università, FH Graubünden si concentra sul pensiero dinamico e sull'azione proattiva. Sviluppiamo i nostri oltre 2400 studenti in istruzione e formazione in personalità responsabili. Nella nostra ricerca interdisciplinare e transdisciplinare, ci concentriamo sui temi delle tecnologie future applicate, dello sviluppo nella regione alpina e dell'attività imprenditoriale. Come datore di lavoro, promuoviamo pari opportunità e diversità. Per il nostro Institute for Management and Continuing Education (IMW), che offre programmi di formazione continua part-time per i dirigenti medio e superiore, stiamo cercando una In questa funzione versatile, si modella attivamente l'operazione di studio e sono un punto di contatto importante per i futuri studenti e la gestione dello studio. Sostengono la pianificazione e l'attuazione dell'operazione didattica, conducono discussioni iniziali, partecipano all'acquisizione e al marketing e supervisionano i nostri canali di social media. Allo stesso tempo, coordina gli orari, le camere, le iscrizioni e i processi di feedback e assicura le operazioni di corso e la manutenzione della nostra piattaforma di apprendimento “Moodle”. Inoltre organizzano viaggi di studio e eventi interni come workshop, kick-off e eventi di alunni dalla pianificazione al follow-up. Con il tuo talento organizzativo, la tua forza di comunicazione e le tue idee, contribuisci anche all'ottimizzazione dei processi e all'ulteriore sviluppo e garanzia di qualità delle nostre offerte educative. # Il tuo profilo\n• Eidg. Scheda specialistica o Scuola Tecnica Superiore (HF) con corrispondente esperienza professionale\n• Personalità organizzativa e comunicativa con un alto orientamento di servizio\n• Esperienza nella vendita di offerte di formazione o di servizio (vantageous)\n• Conoscenza utente molto buona in MS Office; Esperienza in sistemi di e-learning come Moodle, strumenti CRM e social media (vantageous)\n• Conoscenza molto buona del tedesco e buona conoscenza dell'inglese\n• Prontezza per incarichi di lavoro occasionali nelle serate o nei fine settimana\n• Un luogo di lavoro moderno alla stazione centrale di Zurigo\n• Il nostro spirito di squadra dinamico e la nostra cultura universitaria aperta\n• Il nostro sostegno allo sviluppo personale\n• Condizioni di lavoro moderne e molte offerte sportive e culturali",
         "en": "As a university, FH Graubünden focuses on dynamic thinking and proactive action. We develop our more than 2400 students in education and training into responsible personalities. In our interdisciplinary and transdisciplinary research, we focus on the topics of applied future technologies, development in the Alpine region and entrepreneurial activity. As an employer, we promote equal opportunities and diversity. For our Institute for Management and Continuing Education (IMW), which offers part-time continuing education programs for middle and upper executives, we are looking for an In this versatile function, you actively shape the study operation and are an important point of contact for prospective students and the study management. They support in the planning and implementation of the teaching operation, conduct initial discussions, participate in the acquisition and marketing and supervise our social media channels. At the same time, you coordinate timetables, rooms, enrollments and feedback processes and ensure smooth course operations and the maintenance of our learning platform “Moodle”. They also organise study trips and internal events such as workshops, kick-offs and alumni events from planning to follow-up. With your organizational talent, your communication strength and your ideas, you also contribute to the optimization of processes as well as the further development and quality assurance of our educational offerings. | Your profile\n• Eidg. Specialist card or Higher Technical School (HF) with corresponding professional experience\n• Organizational and communication-strong personality with a high service orientation\n• Experience in selling training or service offers (advantageous)\n• Very good user knowledge in MS Office; Experience in e-learning systems such as Moodle, CRM tools and social media (advantageous)\n• Very good knowledge of German and good knowledge of English\n• Readiness for occasional work assignments on evenings or weekends | We inspire you with\n• A modern workplace at Zurich Central Station\n• Our dynamic team spirit and our open university culture\n• Our support in personal development\n• Modern employment conditions and many sports and cultural offers",
+        "de": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Für unser Institut für Management und Weiterbildung (IMW) , welches berufsbegleitende Weiterbildungsprogramme für Führungskräfte des mittleren und oberen Kaders anbietet, suchen wir per sofort oder nach Vereinbarung eine/n | In dieser vielseitigen Funktion gestalten Sie den Studienbetrieb aktiv mit und sind eine wichtige Anlaufstelle für Studieninteressierte, Studierende und die Studienleitung. Sie unterstützen bei der Planung und Durchführung des Lehrbetriebs, führen Erstgespräche, wirken bei der Akquise und im Marketing mit und betreuen unsere Social-Media-Kanäle. Gleichzeitig koordinieren Sie Stundenpläne, Räume, Einschreibungen und Feedback-Prozesse und stellen den reibungslosen Kursbetrieb sowie die Pflege unserer Lernplattform «Moodle» sicher. Sie organisieren zudem Studienreisen und interne Veranstaltungen wie Workshops, Kick-offs und Alumni-Anlässe von der Planung bis zur Nachbereitung. Mit Ihrem Organisationstalent, Ihrer Kommunikationsstärke und Ihren Ideen tragen Sie zudem zur Optimierung von Prozessen sowie zur Weiterentwicklung und Qualitätssicherung unserer Bildungsangebote bei. | Ihr Profil\n• Eidg. Fachausweis oder Höhere Fachschule (HF) mit entsprechender Berufserfahrung\n• Organisations- und kommunikationsstarke Persönlichkeit mit hoher Dienstleistungsorientierung\n• Erfahrung im Verkauf von Weiterbildungs- oder Dienstleistungsangeboten (von Vorteil)\n• Sehr gute Anwenderkenntnisse in MS Office; Erfahrung in E-Learning-Systemen wie Moodle, CRM-Tools und Social Media (von Vorteil)\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n• Bereitschaft für gelegentliche Arbeitseinsätze an Abenden oder Wochenenden | Wir begeistern Sie mit\n• Einem modernen Arbeitsplatz beim Hauptbahnhof Zürich\n• Unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• Unserer Unterstützung in der persönlichen Weiterbildung\n• Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
         "fr": "En tant qu'université, FH Graubünden se concentre sur la pensée dynamique et l'action proactive. Nous développons nos plus de 2400 étudiants en éducation et formation en personnalités responsables. Dans notre recherche interdisciplinaire et transdisciplinaire, nous nous concentrons sur les thèmes des technologies appliquées à l'avenir, du développement dans la région alpine et de l'activité entrepreneuriale. En tant qu'employeur, nous favorisons l'égalité des chances et la diversité. Pour notre Institut de gestion et de formation continue (IMW), qui offre des programmes de formation continue à temps partiel pour les cadres moyens et supérieurs, nous recherchons un Dans cette fonction polyvalente, vous façonnez activement le fonctionnement de l'étude et êtes un point de contact important pour les étudiants potentiels et la gestion de l'étude. Ils soutiennent la planification et la mise en oeuvre de l'opération pédagogique, mènent des discussions initiales, participent à l'acquisition et au marketing et supervisent nos réseaux sociaux. En même temps, vous coordonnez les horaires, les salles, les inscriptions et les processus de rétroaction et vous assurez un bon fonctionnement des cours et l'entretien de notre plateforme d'apprentissage. Ils organisent également des voyages d'études et des événements internes tels que des ateliers, des lancements et des événements d'anciens élèves, de la planification au suivi. Avec votre talent organisationnel, votre force de communication et vos idées, vous contribuez également à l'optimisation des processus ainsi qu'au développement et à l'assurance qualité de nos offres éducatives. - Oui. Votre profil\n• Oui. Carte de spécialiste ou École technique supérieure (HF) avec expérience professionnelle correspondante\n• Personnalité organisationnelle et de communication forte avec une orientation de service élevée\n• Expérience dans la vente d'offres de formation ou de service (avantages)\n• Très bonne connaissance utilisateur dans MS Office; Expérience dans les systèmes d'apprentissage en ligne tels que Moodle, les outils CRM et les médias sociaux (avantages)\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais\n• Préparation pour des travaux occasionnels le soir ou le week-end\n• Un lieu de travail moderne à la gare centrale de Zurich\n• Notre esprit d'équipe dynamique et notre culture universitaire ouverte\n• Notre soutien au développement personnel\n• Conditions d'emploi modernes et nombreuses offres sportives et culturelles"
       },
       "location": "Zürich",
@@ -307,7 +316,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/807/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:17:55.544Z",
+      "crawledAt": "2026-09-12T13:07:28.937Z",
       "addressLocality": "Zürich",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -325,9 +334,15 @@
       "requirementsByLocale": {},
       "department": "Institut für Management und Weiterbildung (IMW)",
       "contractDuration": "permanent",
+      "previousSlugs": [
+        "studienbetriebskoordinator-in-fhgr-ch",
+        "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
+        "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "studienbetriebskoordinator-in-fhgr-ch",
+          "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
           "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
         ],
         "en": [
@@ -337,10 +352,8 @@
           "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
         ]
       },
-      "previousSlugs": [
-        "studienbetriebskoordinator-in-fhgr-ch",
-        "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
-      ],
+      "firstSeenAt": "2026-09-11T13:41:07.210Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -354,8 +367,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-11T13:41:07.210Z"
+      "addressRegion": "ZH"
     }
   ]
 }
