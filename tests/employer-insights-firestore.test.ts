@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { handleEmployerInsights, generateInsightsToken } from '../functions/src/employerInsights.js';
 import {
   employerInsightsAdId,
+  employerInsightsWindowAdsSubcollection,
   readEmployerInsightsSnapshot,
   restoreEmployerInsightsSnapshot,
   writeEmployerInsightsDocuments,
@@ -113,6 +114,7 @@ describe('employer insights Firestore storage', () => {
     });
     expect(snapshot.ads.get('acme')).toHaveLength(101);
     expect(employerInsightsAdId(ad(7))).toBe(employerInsightsAdId(ad(7)));
+    expect(employerInsightsWindowAdsSubcollection('90d')).toBe('ads_90d');
   });
 
   it('shards additional-window ads instead of nesting them in the root', async () => {
