@@ -200,6 +200,19 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
+function writeResult(reportDir, { verdict, issued, candidatesWritten }) {
+  if (!reportDir) return null;
+  const file = path.join(path.resolve(reportDir), 'l2-result.json');
+  fs.writeFileSync(file, `${JSON.stringify({
+    loopId: LOOP_ID,
+    ok: verdict.ok,
+    quality: verdict.quality,
+    issued,
+    candidatesWritten,
+  }, null, 2)}\n`);
+  return file;
+}
+
 function issueBody(verdict, decision) {
   return [
     'L2 ha trovato domanda GSC utilizzabile per candidati, ma il risultato “next useful action” non è ancora un numero misurabile.',
@@ -300,8 +313,16 @@ export async function runL2({
     });
     issued = true;
   }
+  const resultFile = writeResult(reportDir, { verdict, issued, candidatesWritten });
   logger.log(`[L2] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
-  return { verdict, observation, decision, files, issued, candidatesWritten };
+  return {
+    verdict,
+    observation,
+    decision,
+    files: resultFile ? [...files, resultFile] : files,
+    issued,
+    candidatesWritten,
+  };
 }
 
 function parseArgs(argv) {

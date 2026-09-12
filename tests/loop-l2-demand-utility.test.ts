@@ -101,6 +101,11 @@ describe('L2 Demand → Utility', () => {
     expect(result.issued).toBe(true);
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l2-candidates.json'), 'utf8')))
       .toMatchObject({ reversible: true, candidates: [{ landingPath: '/offerte-lavoro-ticino/' }] });
+    expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l2-result.json'), 'utf8'))).toMatchObject({
+      ok: false,
+      issued: true,
+      candidatesWritten: true,
+    });
     expect(issues).toHaveLength(1);
   });
 
@@ -113,5 +118,19 @@ describe('L2 Demand → Utility', () => {
     expect(result.verdict.quality).toBe('unmeasurable');
     expect(result.observation.numerator).toBeNull();
     expect(result.observation.denominator).toBeNull();
+  });
+
+  it('does not write a persisted result when issue creation fails', async () => {
+    const input = tempFile(snapshot({ outcomes: undefined }));
+    const reportDir = path.join(input.dir, 'report');
+    await expect(runL2({
+      now: NOW,
+      sourcePath: input.file,
+      reportDir,
+      issue: true,
+      createIssueImpl: async () => { throw new Error('issue service unavailable'); },
+      logger: { log() {} },
+    })).rejects.toThrow('issue service unavailable');
+    expect(fs.existsSync(path.join(reportDir, 'l2-result.json'))).toBe(false);
   });
 });

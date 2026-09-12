@@ -72,10 +72,10 @@ jobs:
             args+=(--dry-run)
           fi
           set +e
-          node scripts/ci/loop-l2-demand-utility.mjs "${args[@]}" | tee "$REPORT_DIR/stdout.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          node scripts/ci/loop-l2-demand-utility.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
           run_code=${PIPESTATUS[0]}
           set -e
-          if [ "$run_code" -ne 0 ] && jq -e '.issued == true' "$REPORT_DIR/stdout.json" >/dev/null 2>&1; then
+          if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l2-result.json" >/dev/null 2>&1; then
             echo 'L2 finding persisted as a deduplicated issue; no unreviewed landing change was applied.' | tee -a "$GITHUB_STEP_SUMMARY"
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
