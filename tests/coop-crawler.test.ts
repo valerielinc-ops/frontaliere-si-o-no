@@ -977,6 +977,30 @@ describe('Coop-family source-detail contract (#5253)', () => {
     expect(gone).toEqual([jobs.find((job) => job.url.includes('22222222'))!.url]);
   });
 
+  it('publishes one finite drop observation for both gone and rejected details (#7885)', async () => {
+    const jobs = cases.map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    const thin = { ...jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'), description: '<p>Kurze Anzeige.</p>' };
+    const fetchImpl = async (input: unknown, _init?: unknown) => {
+      if (String(input).includes('22222222')) return new Response(null, { status: 410 });
+      const detail = String(input).includes('44444444') ? thin : jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen');
+      return new Response(`<script type="application/ld+json">${JSON.stringify(detail)}</script>`, { status: 200 });
+    };
+
+    let observed: unknown = null;
+    const enriched = await enrichCoopSourceBackedJobs(jobs, {
+      fetchImpl: fetchImpl as any,
+      concurrency: 2,
+      onDropSummary: (drop) => { observed = drop; },
+    });
+
+    expect(observed).toEqual({ candidates: 4, gone: 1, rejected: 1, dropped: 2 });
+    expect(enriched.detailDrop).toEqual(observed);
+    expect(Object.keys(enriched)).not.toContain('detailDrop');
+  });
+
   it('reads a single gone page on a tiny batch as expiry, not drift', async () => {
     // One withdrawn vacancy out of one is 100% of the batch: the ratio alone
     // would abort the crawl on the most banal case the drop exists to survive.

@@ -377,7 +377,7 @@ async function queryOpenRouter(query) {
  */
 const MAX_ATTEMPTS = 3;
 
-// Per-RUN ceiling on time spent sleeping between retries (issue #7398).
+// Per-platform, per-RUN ceiling on time spent sleeping between retries (issue #7398).
 // MAX_ATTEMPTS bounds the wait of a SINGLE call (<=120s with `Retry-After: 60`),
 // but runCheck makes one call per platform per query: 20 queries x ~120s is ~40
 // min of pure sleep against the job's `timeout-minutes: 30`, so a quota-429 day
@@ -387,10 +387,10 @@ const MAX_ATTEMPTS = 3;
 // return null, which callers already record as `checked: false` (unknown) and
 // never as "not cited".
 const RETRY_BUDGET_MS = 300_000; // 5 min of sleep on a 30-min job
-let retryBudgetLeftMs = RETRY_BUDGET_MS;
+const retryBudgetLeftMs = new Map();
 
-/** Reset the per-run retry budget (a run = one process; tests need it too). */
-function resetRetryBudget() { retryBudgetLeftMs = RETRY_BUDGET_MS; }
+/** Reset every platform's per-run retry budget (a run = one process; tests need it too). */
+function resetRetryBudget() { retryBudgetLeftMs.clear(); }
 
 /**
  * Reset EVERY per-run budget, at the one place a run begins.
@@ -411,15 +411,17 @@ function resetRunBudgets() {
 }
 
 /**
- * Spend `ms` of the run's retry budget. Returns false when the budget cannot
- * cover the planned wait — the caller must then give up WITHOUT sleeping.
+ * Spend `ms` of one platform's run budget. Returns false when that platform's
+ * budget cannot cover the planned wait — the caller must give up WITHOUT sleeping.
  */
 function spendRetryBudget(label, ms) {
-  if (ms > retryBudgetLeftMs) {
-    console.warn(`  ⚠ ${label}: retry budget spent (${Math.round(RETRY_BUDGET_MS / 1000)}s/run) — giving up without waiting`);
+  const key = String(label || 'unknown');
+  const left = retryBudgetLeftMs.get(key) ?? RETRY_BUDGET_MS;
+  if (ms > left) {
+    console.warn(`  ⚠ ${label}: retry budget spent (${Math.round(RETRY_BUDGET_MS / 1000)}s/platform/run) — giving up without waiting`);
     return false;
   }
-  retryBudgetLeftMs -= ms;
+  retryBudgetLeftMs.set(key, left - ms);
   return true;
 }
 

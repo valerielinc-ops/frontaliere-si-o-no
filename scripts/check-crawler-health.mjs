@@ -90,6 +90,7 @@ import {
   CRAWLER_FETCH_FAILURE_OUTCOMES,
   normalizeFetchOutcome,
 } from './lib/crawler-fetch-outcome.mjs';
+import { detailDropFromSummary, detailDropAdvisoryReason } from './lib/crawler-detail-drop.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -948,6 +949,7 @@ async function inspectCrawler(slug) {
     summary && typeof summary === 'object' && Number.isFinite(Number(summary.parsed))
       ? Number(summary.parsed)
       : null;
+  const detailDrop = detailDropFromSummary(summary);
   // Source-proven empty state (crawler-template `evaluateAuthoritativeSnapshot`):
   // absent for crawlers without an authoritative-snapshot validator.
   const authoritativeEmpty =
@@ -1004,6 +1006,7 @@ async function inspectCrawler(slug) {
     discovered,
     written,
     parsed,
+    detailDrop,
     authoritativeEmpty,
     lastFetchOutcome,
     earlyExit,
@@ -1087,6 +1090,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     summary.parsed >= 0
       ? summary.parsed
       : null;
+  const detailDrop = detailDropFromSummary(summary);
   const authoritativeEmpty = summary.authoritativeEmptySnapshot === true;
   // Same fetch verdict as `inspectCrawler` (#7897), mirrored here for the same
   // reason the counts above are: the corpus republishes the slice verbatim, and
@@ -1116,6 +1120,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     discovered,
     written,
     parsed,
+    detailDrop,
     authoritativeEmpty,
     lastFetchOutcome,
     earlyExit,
@@ -1415,13 +1420,19 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     : lastObservedJobs > 0
       ? 0
       : (previous.consecutiveEmptyOkRuns ?? 0) + 1;
-  const advisory =
+  let advisory =
     lastObservedJobs === 0 &&
     emptyOk &&
     consecutiveEmptyOkRuns >= EMPTY_OK_ADVISORY_AFTER_RUNS;
-  const advisoryReason = advisory
+  let advisoryReason = advisory
     ? `${consecutiveEmptyOkRuns} consecutive empty-ok runs (>= ${EMPTY_OK_ADVISORY_AFTER_RUNS}) — verify the source is still alive, not just "legitimately quiet"`
     : null;
+
+  const detailDropReason = detailDropAdvisoryReason(observation.detailDrop);
+  if (!advisory && detailDropReason !== null) {
+    advisory = true;
+    advisoryReason = detailDropReason;
+  }
 
   const lastNonZeroJobs =
     lastObservedJobs > 0 ? lastObservedJobs : (previous.lastNonZeroJobs ?? 0);
@@ -1516,6 +1527,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _lastObservedDiscoveredCount: hasDiscoveredSignal ? observation.discovered : null,
       _lastObservedWrittenCount: observation.written ?? null,
       _lastObservedParsedCount: hasParsedSignal ? observation.parsed : null,
+      _lastObservedDetailDrop: observation.detailDrop ?? null,
       _autoFilteredEmpty: autoFilteredEmpty,
       _pipelineDroppedAll: pipelineDroppedAll,
       _authoritativeEmptySnapshot: authoritativeEmpty,

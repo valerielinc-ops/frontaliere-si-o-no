@@ -199,6 +199,33 @@ describe('standard crawler authoritative-empty policy', () => {
     );
   });
 
+  it('carries a Coop detail-drop observation into the standard summary', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'detail-drop-summary-root-'));
+    const parsedJobs = Object.assign(
+      [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+      { detailDrop: { candidates: 10, gone: 1, rejected: 1 } },
+    );
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Detail Drop Summary Test',
+        root,
+        fetchJobs: async () => parsedJobs,
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detailCandidates: 10,
+        detailGone: 1,
+        detailRejected: 1,
+      }),
+    );
+  });
+
   it('preserves structured fetch metadata in the summary slice', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'structured-fetch-result-root-'));
     try {

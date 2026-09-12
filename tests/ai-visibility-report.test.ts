@@ -314,6 +314,22 @@ describe('retry waiting is capped per run, not only per call', () => {
     expect(waits.length).toBe(spent); // not one further sleep
   });
 
+  it('keeps the retry budget of a quiet platform after a noisy platform is spent', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation(rateLimited);
+    const waits = captureWaits();
+
+    // Three calls at 120s + 120s + 60s consume the entire 5-minute budget
+    // for this platform. The other platform must still get its own bounded
+    // retry rather than inheriting the noisy platform's exhausted counter.
+    for (let i = 0; i < 3; i++) await fetchWithRetry('Noisy platform', 'https://noisy.test', {});
+    const beforeQuietPlatform = waits.length;
+
+    await fetchWithRetry('Quiet platform', 'https://quiet.test', {});
+
+    expect(waits.length).toBeGreaterThan(beforeQuietPlatform);
+    expect(waits.slice(beforeQuietPlatform).reduce((a, b) => a + b, 0)).toBeLessThanOrEqual(RETRY_BUDGET_MS);
+  });
+
   it('starts each run with a full budget', async () => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(rateLimited);
     const waits = captureWaits();

@@ -484,6 +484,10 @@ function singleLineErrorMessage(error) {
  * network/DNS/TLS error remains fail-closed: the listing alone cannot prove
  * that the source is still reachable, while its rich fallback is safe for an
  * otherwise complete crawl that received one 503.
+ * `onDropSummary` receives `{ candidates, gone, rejected, dropped }` once the
+ * batch settles, including a zero-drop observation. The same object is kept as
+ * a non-enumerable `.detailDrop` on the returned array for standard-pipeline
+ * callers; absent summary fields therefore still mean "not measured".
  */
 export async function enrichCoopSourceBackedJobs(jobs, {
   fetchImpl = undiciFetch,
@@ -492,6 +496,7 @@ export async function enrichCoopSourceBackedJobs(jobs, {
   timeoutMs = 20000,
   onGone = null,
   onRejected = null,
+  onDropSummary = null,
   preserveListingOnTransientFailure = false,
 } = {}) {
   const input = Array.isArray(jobs) ? jobs : [];
@@ -572,8 +577,25 @@ export async function enrichCoopSourceBackedJobs(jobs, {
     }
   });
   await Promise.all(workers);
-  if (gone.length === 0 && rejected.length === 0 && unavailable.length === 0) return output;
-  const dropped = gone.length + rejected.length;
+  const detailDrop = Object.freeze({
+    candidates: input.length,
+    gone: gone.length,
+    rejected: rejected.length,
+    dropped: gone.length + rejected.length,
+  });
+  const publishDropSummary = (jobs) => {
+    Object.defineProperty(jobs, 'detailDrop', {
+      value: detailDrop,
+      enumerable: false,
+      configurable: true,
+    });
+    return jobs;
+  };
+  if (typeof onDropSummary === 'function') onDropSummary(detailDrop);
+  if (gone.length === 0 && rejected.length === 0 && unavailable.length === 0) {
+    return publishDropSummary(output);
+  }
+  const dropped = detailDrop.dropped;
   if (input.length >= DETAIL_DROP_ABORT_MIN_BATCH && dropped > input.length * DETAIL_DROP_ABORT_RATIO) {
     throw new Error(
       `Coop-family detail batch: ${gone.length}/${input.length} pages gone (HTTP 404/410), `
@@ -594,7 +616,7 @@ export async function enrichCoopSourceBackedJobs(jobs, {
     console.warn(`⚠️  Kept ${unavailable.length}/${input.length} listing-backed Coop-family vacancies after retryable detail failures:`);
     for (const { url, reason } of unavailable) console.warn(`  - ${url} (${reason})`);
   }
-  return output.filter((job) => job !== undefined);
+  return publishDropSummary(output.filter((job) => job !== undefined));
 }
 
 // ─────────────────────────────────────────────────────────────

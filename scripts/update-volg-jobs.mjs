@@ -63,12 +63,14 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
+import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
 const COMPANY_KEY = 'volg-fenaco';
+const volgSummaryCounts = { detailDrop: null };
 // Per-crawler-scoped scratch path. This script does its own Prospective.ch
 // fenaco career-center discovery + merge (no runDedicatedBaseCrawler pass)
 // but still wrote straight to the literal data/jobs.json path — shared
@@ -432,6 +434,7 @@ async function enrichWithDetails(jobs) {
   const enriched = await enrichCoopSourceBackedJobs(jobs, {
     allowedHosts: ['jobs.fenaco.com'],
     concurrency: 4,
+    onDropSummary: (drop) => { volgSummaryCounts.detailDrop = drop; },
     // A retryable detail status must not abort the complete, already parsed
     // listing batch. buildJob() supplies the validated >=50-word fallback;
     // network/DNS/TLS failures remain fail-closed in the shared helper.
@@ -844,7 +847,8 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'volg');
+  volgSummaryCounts.detailDrop = null;
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'volg', volgSummaryCounts);
   console.log('🏪 Running dedicated Volg / fenaco jobs crawler...');
   console.log(`   Source: ${CC_BASE}`);
   console.log('');
@@ -930,6 +934,7 @@ async function main() {
     label: 'volg',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    ...detailDropSummaryFields(volgSummaryCounts.detailDrop),
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

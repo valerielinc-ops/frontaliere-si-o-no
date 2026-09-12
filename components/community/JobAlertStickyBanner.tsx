@@ -4,12 +4,30 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
+import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 
 const DISMISS_KEY = 'jobAlertStickyBanner:dismissedUntil';
 const DISMISS_DAYS = 7;
 
-export default function JobAlertStickyBanner() {
+interface JobAlertStickyBannerProps {
+ userId?: string | null;
+ authResolved?: boolean;
+ keyword?: string | null;
+}
+
+export default function JobAlertStickyBanner({
+ userId = null,
+ authResolved = true,
+ keyword = null,
+}: JobAlertStickyBannerProps) {
  const { t } = useTranslation();
+ const eligibility = useJobAlertEligibility({
+ enabled: true,
+ authResolved,
+ userId,
+ keyword,
+ surface: 'sticky_banner',
+ });
  const [visible, setVisible] = useState(false);
  // Fire a single impression the first time the banner reveals, so the
  // sticky-banner funnel has a `shown` denominator. open/dismiss were tracked
@@ -17,6 +35,10 @@ export default function JobAlertStickyBanner() {
  const shownTrackedRef = useRef(false);
 
  useEffect(() => {
+ if (eligibility !== true) {
+ setVisible(false);
+ return;
+ }
  const dismissedUntil = Number(localStorage.getItem(DISMISS_KEY) || 0);
  if (dismissedUntil > Date.now()) return;
 
@@ -35,7 +57,7 @@ export default function JobAlertStickyBanner() {
  window.addEventListener('scroll', onScroll, { passive: true });
  onScroll();
  return () => window.removeEventListener('scroll', onScroll);
- }, []);
+ }, [eligibility]);
 
  // The impression is fired by the shell's `onShown`, not by `visible`:
  // scroll depth is only half the condition now — the banner also has to win a
@@ -60,7 +82,7 @@ export default function JobAlertStickyBanner() {
  setVisible(false);
  };
 
- if (!visible) return null;
+ if (eligibility !== true || !visible) return null;
 
  return (
  <BottomPromptShell

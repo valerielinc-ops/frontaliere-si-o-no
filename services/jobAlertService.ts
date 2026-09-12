@@ -19,6 +19,8 @@ import {
   planJobAlertConsentUpgrade,
   type UpgradeSkipReason,
 } from './jobAlertConsentUpgrade';
+import { normalizeKeyword, stripKeywordEmoji } from './jobAlertKeyword';
+export { normalizeKeyword, stripKeywordEmoji } from './jobAlertKeyword';
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -630,48 +632,6 @@ export async function upgradeBackfilledAlertConsent(
   }
 
   return { upgraded, skipped, failed };
-}
-
-/**
- * Strip emoji / pictographs (and their variation selectors + ZWJ) from a
- * keyword, preserving case and the textual label. Category labels surface as
- * e.g. "💻 Tecnologia"; the emoji must NOT end up in the stored keyword because
- * `matchJobToAlert` (scripts/send-job-alerts.mjs) matches keywords as a
- * substring of the job title/description — and no job text contains "💻", so an
- * emoji-prefixed keyword would match zero jobs and the alert would never fire.
- */
-export function stripKeywordEmoji(s: string): string {
-  // `\p{Extended_Pictographic}` covers every emoji pictograph (future-proof vs
-  // hand-maintained codepoint ranges, which missed e.g. ⭐ U+2B50, ❤️ U+2764) —
-  // plus variation selectors (U+FE0F) and the ZWJ (U+200D) that glue compound
-  // emoji. A category label gaining a new emoji must never re-introduce the
-  // zero-match failure this strip prevents.
-  return (s || '')
-    .replace(/[\p{Extended_Pictographic}\u{FE00}-\u{FE0F}\u{200D}]/gu, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-/**
- * Normalize a free-form keyword/category string for stable comparison.
- * Strips emoji, lowercases, trims, strips combining diacritics (NFD), and
- * collapses internal whitespace to a single space.
- *
- * Emoji stripping keeps comparison consistent with the stored (emoji-free)
- * keyword: dedupe (`findMatchingAlertForCategory`) and the per-category gating
- * key must treat "💻 Tecnologia" and "Tecnologia" as the same category.
- *
- * Used by:
- *  - `findMatchingAlertForCategory` (dedupe across surfaces).
- *  - `jobDetailAlertGating` (per-category cooldown key).
- */
-export function normalizeKeyword(s: string): string {
-  return stripKeywordEmoji(s)
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, ' ');
 }
 
 /**
