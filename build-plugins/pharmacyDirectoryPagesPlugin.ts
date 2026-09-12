@@ -160,7 +160,7 @@ function buildPage(kind: PharmacyPageKind, locale: Locale, city: string | undefi
   const body = renderBody(kind, locale, city);
   const wordCount = countHtmlBodyWords(body);
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `<main class="seo-static-content">${body}${endOfContentMultiplexHtml({ indexable: true })}</main>`;
+  const bodyHtml = `<main class="seo-static-content">${body}${endOfContentMultiplexHtml({ indexable })}</main>`;
   const pathName = absolutePath(kind, locale, city ? pharmacyCitySlug(city) : undefined);
   const title = kind === 'hub' ? COPY[locale].hubTitle : kind === 'canton' ? COPY[locale].cantonTitle : kind === 'duty-hub' ? COPY[locale].dutyHubTitle : kind === 'city' ? COPY[locale].cityTitle(city || '') : COPY[locale].dutyCityTitle(city || '');
   const description = kind === 'duty-hub' ? COPY[locale].dutyHubLede : kind === 'duty-city' ? COPY[locale].dutyCityLede : kind === 'city' ? COPY[locale].cantonLede : COPY[locale].hubLede;
