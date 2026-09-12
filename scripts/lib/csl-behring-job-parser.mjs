@@ -18,8 +18,9 @@
  *
  * Location text format: `EMEA, CH, Kanton Bern, Bern, CSL Behring` (region,
  * country code, canton, city, business unit). We split on commas and pick
- * the first segment that looks like a city. We also handle the "N Locations"
- * roll-up via fallback to Bern.
+ * the first segment that looks like a city. Multi-location postings collapse
+ * to `N Locations` in the listing, so the detail payload's primary and
+ * additional locations are inspected before using any fallback.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllCslBehringJobs() — Fetch and parse all Swiss jobs
@@ -34,7 +35,7 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetail,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -101,6 +102,29 @@ function cleanCslLocation(raw = '') {
     if (inferSwissTargetCanton(c)) return c;
   }
   return candidates[0];
+}
+
+function locationDescriptor(value) {
+  if (typeof value === 'string') return value;
+  return value?.descriptor || value?.location || value?.name || '';
+}
+
+/**
+ * Resolve the first Swiss city from a Workday primary/additional location
+ * list. A listing's `N Locations` label is not a city and the primary detail
+ * location may be a foreign tenant HQ while an additional location names the
+ * Swiss workplace (for example, `EMEA, CH, Glattbrugg, CSL Behring`).
+ */
+export function resolveCslLocation(primaryLocation = '', additionalLocations = []) {
+  const candidates = [
+    primaryLocation,
+    ...(Array.isArray(additionalLocations) ? additionalLocations : []),
+  ];
+  for (const candidate of candidates) {
+    const cleaned = cleanCslLocation(locationDescriptor(candidate));
+    if (cleaned && inferSwissTargetCanton(cleaned)) return cleaned;
+  }
+  return '';
 }
 
 /* ── Company matchers ──────────────────────────────────────── */
@@ -226,22 +250,45 @@ export async function fetchAllCslBehringJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.locationRaw || 'Bern';
+    // The listing endpoint frequently returns only `N Locations`. Fetch the
+    // detail once and use its Swiss additional location when the primary
+    // location belongs to the global posting tenant.
+    const detail = await fetchWorkdayJobDetail(WORKDAY_API_BASE, listing.externalPath);
+    const info = detail?.jobPostingInfo || {};
+    const detailLocations = [
+      info.location,
+      ...(Array.isArray(info.additionalLocations) ? info.additionalLocations : []),
+    ].map(locationDescriptor).filter(Boolean);
+    const resolvedDetailLocation = resolveCslLocation(info.location, info.additionalLocations);
+    const detailLocationText = detailLocations.join(' | ');
+    if (!resolvedDetailLocation && isLocationExplicitlyForeign(detailLocationText)) {
+      console.log(`  ⏭️  Skipped foreign location: ${detailLocationText} — ${title}`);
+      await new Promise((r) => setTimeout(r, 400));
+      continue;
+    }
+
+    const rawLocation = resolvedDetailLocation || listing.locationRaw || 'Bern';
     if (isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
+      await new Promise((r) => setTimeout(r, 400));
       continue;
     }
     const cleaned = cleanCslLocation(rawLocation);
     const location = cleaned || 'Bern';
     const canton = inferSwissTargetCanton(location) || 'BE';
     const publicUrl = listing.url || CAREER_URL;
+    const employmentType = detectEmploymentType(listing.timeType || '', title);
 
-    // Workday listing endpoint never returns the body — fetch detail.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
-      WORKDAY_API_BASE,
-      listing.externalPath,
-      stripHtml,
-    );
+    // Workday listing endpoint never returns the body; reuse the detail
+    // response already fetched for the authoritative location fields.
+    const detailDescription = info.jobDescription
+      ? stripHtml(String(info.jobDescription))
+        .replace(/[ \t]+/g, ' ')
+        .replace(/[ \t]*\n[ \t]*/g, '\n')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim()
+        .slice(0, 4000)
+      : '';
     await new Promise((r) => setTimeout(r, 400));
 
     const fallbackDescription = [
@@ -286,8 +333,8 @@ export async function fetchAllCslBehringJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || '', title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Biotech / Farmaceutico',
       currency: 'CHF',

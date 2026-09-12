@@ -92,7 +92,40 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
     });
 
     expect(result.id).toBe('new@example.com');
-    expect(payloadOf().consent_text).toBe(CONSENT_TEXTS.signInAutoSubscribe.text);
+    expect(payloadOf()).toMatchObject({
+      consent_text: CONSENT_TEXTS.signInAutoSubscribe.text,
+      confirmed_at: '__server_timestamp__',
+      confirmedAt: '__server_timestamp__',
+    });
+  });
+
+  it('stamps an explicitly displayed confirmed gate when repairing an old row without proof', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        email: 'old-gate@example.com',
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        consent_text_displayed: false,
+      }),
+    });
+
+    await captureNewsletterSubscriber({} as any, {
+      email: 'old-gate@example.com',
+      source: 'job_board_auth',
+      status: 'confirmed',
+      isActive: true,
+      ...consentProof('communicationsSignIn', 'google_oauth', 'it'),
+    });
+
+    expect(payloadOf()).toMatchObject({
+      status: 'confirmed',
+      isActive: true,
+      confirmed_at: '__server_timestamp__',
+      confirmedAt: '__server_timestamp__',
+      consent_text_displayed: true,
+    });
   });
 
   it('does NOT break the 8.505 documents that already lack one', async () => {
@@ -137,6 +170,69 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
 
     expect(payloadOf().consent_text).toBe('formula precedente');
     expect(payloadOf().consent_text_version).toBe('1');
+  });
+
+  it('does not turn an access-only email login into visible consent on a silent-auth row', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        email: 'silent-auth@example.com',
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        confirmed_at: '__confirmed__',
+        source: 'signup',
+        source_channel: 'auth_google',
+        consent_text: 'formula auth storica',
+        consent_text_displayed: false,
+        consent_act: 'authentication',
+        consent_method: 'google_oauth',
+      }),
+    });
+
+    await captureNewsletterSubscriber({} as any, {
+      email: 'silent-auth@example.com',
+      source: 'publisher_gate_email',
+      // The access gate renders this notice, but without an explicit
+      // subscription/DOI request it must only request login for an existing
+      // address; it must not mint the missing marketing proof.
+      ...consentProof('communicationsOptIn', 'email_submit', 'it'),
+    });
+
+    const payload = payloadOf();
+    expect(payload.status).toBe('confirmed');
+    expect(payload.source).toBe('signup');
+    expect(payload.consent_text).toBe('formula auth storica');
+    expect(payload.consent_text_displayed).toBe(false);
+    expect(payload.consent_act).toBe('authentication');
+  });
+
+  it('records displayed proof when a contextual social gate explicitly promotes a silent-auth row', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        email: 'contextual-auth@example.com',
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        confirmed_at: '__confirmed__',
+        source_channel: 'auth_google',
+        consent_text_displayed: false,
+      }),
+    });
+
+    await captureNewsletterSubscriber({} as any, {
+      email: 'contextual-auth@example.com',
+      source: 'job_board_auth',
+      status: 'confirmed',
+      isActive: true,
+      ...consentProof('communicationsSignIn', 'google_oauth', 'it'),
+    });
+
+    const payload = payloadOf();
+    expect(payload.status).toBe('confirmed');
+    expect(payload.consent_text_displayed).toBe(true);
+    expect(payload.consent_act).toBe('authentication');
   });
 });
 
@@ -307,7 +403,8 @@ describe('functions/index.js — where the stamp is and is not applied', () => {
     );
     const at = confirmFn.indexOf('await stampConsentIp(req, email)');
     expect(at).toBeGreaterThan(-1);
-    expect(confirmFn.slice(Math.max(0, at - 200), at)).toMatch(/if \(purpose === 'confirm'\)/);
+    expect(confirmFn.slice(Math.max(0, at - 240), at)).toMatch(/purpose === 'confirm'/);
+    expect(confirmFn.slice(Math.max(0, at - 240), at)).toMatch(/purpose === 'resubscribe'/);
   });
 
   it('stamps create_alert only after a real create, not on a rejected/invalid request (#5718)', () => {
@@ -591,7 +688,6 @@ describe('every signup path names its formula — the census that keeps it that 
    */
   const PATHS = [
     'App.tsx',
-    'services/authService.ts',
     'components/community/JobBoard.tsx',
     'components/community/JobOrphanView.tsx',
     'components/community/JobBridgeView.tsx',

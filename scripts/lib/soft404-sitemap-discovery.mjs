@@ -39,6 +39,7 @@
  */
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
+import { isExternallyServedUrl } from './externally-served-paths.mjs';
 
 /** Job sitemaps are excluded: job pages have their own validators and rules. */
 export function isJobSitemap(file) {
@@ -86,6 +87,26 @@ export function discoverSoft404Sitemaps(rootDir) {
   return { dir, files, excluded };
 }
 
+function sitemapUrls(xml) {
+  const urls = [];
+  for (const re of [
+    /<loc>\s*(https?:\/\/[^<]+?)\s*<\/loc>/gi,
+    /<xhtml:link[^>]*href="(https?:\/\/[^\"]+)"[^>]*\/?\s*>/gi,
+  ]) {
+    for (const match of xml.matchAll(re)) urls.push(match[1].trim());
+  }
+  return urls;
+}
+
+function sitemapHasLocalUrl(dir, file) {
+  try {
+    const xml = readFileSync(path.join(dir, file), 'utf-8');
+    return sitemapUrls(xml).some((url) => !isExternallyServedUrl(url));
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Verdict on a population that turned out to be empty.
  *
@@ -109,6 +130,11 @@ export function soft404PopulationError({ dir, files, rootDir, checkedPages, elig
   if (files.length === 0) {
     return `no sitemap to judge in ${dir} — the build emitted none, or every ` +
       'candidate was excluded (job shards / sitemap indexes).';
+  }
+  if (checkedPages === 0 && eligiblePages === 0
+    && !files.some((file) => sitemapHasLocalUrl(dir, file))) {
+    return `${files.length} sitemap(s) in ${dir} contain only externally served URLs — ` +
+      'no local sitemap was available to validate.';
   }
   if (checkedPages === 0 && (eligiblePages === null || eligiblePages > 0)) {
     return `${files.length} sitemap(s) in ${dir} but 0 pages resolved under ` +

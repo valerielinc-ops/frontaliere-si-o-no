@@ -541,6 +541,11 @@ function readCohort() {
   return new Set(raw);
 }
 
+export function beforeCohortWarning(label, cohort) {
+  if (label !== 'after' || cohort !== null) return null;
+  return '::warning::[translation-stats] no `before` cohort for this run — age at completion is not measured';
+}
+
 function main() {
   const label = process.argv[2] || 'translate-pending';
   // The two passes of one translate-pending run, and the only two labels the
@@ -549,6 +554,8 @@ function main() {
   const isBefore = label === 'before';
   const isAfter = label === 'after';
   const previouslyIncomplete = isAfter ? readCohort() : null;
+  const cohortWarning = beforeCohortWarning(label, previouslyIncomplete);
+  if (cohortWarning) console.warn(cohortWarning);
 
   const files = listSliceFileNames(CRAWLERS_DIR);
 

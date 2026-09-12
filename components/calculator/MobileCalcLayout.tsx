@@ -4,7 +4,7 @@ import { SimulationInputs, SimulationResult } from '../../types';
 import { useTranslation, getCantonI18nParams } from '../../services/i18n';
 import { lazyRetry } from '@/services/lazyRetry';
 import { Analytics } from '@/services/analytics';
-import { upsertNewsletterSubscriber, requestConfirmationEmail, markNewsletterSubscribedLocally } from '@/services/newsletterSubscribers';
+import { upsertNewsletterSubscriber, markNewsletterSubscribedLocally } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
 import ConsentNotice from '@/components/shared/ConsentNotice';
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
@@ -159,13 +159,18 @@ const MobileCalcLayout: React.FC<Props> = ({
  ]);
  const db = getFirestore(await getApp());
  await upsertNewsletterSubscriber(db, {
- email,
- source: 'analysis_gate',
- // #5678/#5712: this gate exchanged the full salary analysis for the
+      email,
+      source: 'analysis_gate',
+      // The email gate is an explicit new request, but an old opt-out remains
+      // binding until the fresh DOI link is used.
+      reconsent: true,
+      // #5678/#5712: this gate exchanged the full salary analysis for the
  // address. The notice under the button is now what gets stored.
  ...consentProof('communicationsOptIn', 'email_submit', locale),
  });
- await requestConfirmationEmail(email);
+ // `upsertNewsletterSubscriber` owns the single DOI request. Do not send a
+ // second one here: the old duplicate raced the first fire-and-forget request
+ // and could produce two provider deliveries before the cooldown was written.
  markNewsletterSubscribedLocally();
  unlockAchievement('newsletter_subscriber');
  Analytics.trackEvent('newsletter_gate_subscribed', { source: 'full_analysis' });
@@ -205,8 +210,9 @@ const MobileCalcLayout: React.FC<Props> = ({
 
  useEffect(() => {
  if (!authUser || !showNewsletterGate) return;
- markNewsletterSubscribedLocally();
- Analytics.trackEvent('newsletter_gate_subscribed', { source: 'full_analysis', method: 'social' });
+ // Social authentication grants access to the analysis only. It is not a
+ // newsletter subscription and must not set the local subscriber flag.
+ Analytics.trackEvent('analysis_gate_access_granted', { source: 'full_analysis', method: 'social' });
  setGateStatus('success');
  setTimeout(() => {
  setShowNewsletterGate(false);

@@ -45,7 +45,9 @@ import {
   captureLostSlugs,
   DEFAULT_PREV_SLUG_CAP,
   normalizeForLengthComparison,
+  normalizeCompanyKey,
 } from './lib/dedicated-crawler-common.mjs';
+import { legacyTruncatedCompanyKey, normalizeCompanyKeyAlias } from './lib/company-key.mjs';
 import { collectMissingAssembledBridges } from './scatter-jobs-to-slices.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import {
@@ -55,7 +57,7 @@ import {
   TRAFFIC_SOURCE_PATH,
 } from './lib/job-traffic-priority.mjs';
 import { logCascadeSummary } from './lib/free-translate.mjs';
-import { markRunStart, readRunStartMs, recordRunPhase } from './lib/translate-run-clock.mjs';
+import { markRunStart, recordRunPhase, resolveRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
 import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
@@ -165,6 +167,20 @@ function parseCompanyKey() {
 
 const COMPANY_KEY_FILTER = parseCompanyKey();
 
+/**
+ * Migrate a job's pre-digest key when its full company name is present.
+ * Preserve explicit aliases for records whose key is not the historical cut;
+ * those may intentionally differ from the display name (group/company aliases).
+ */
+export function canonicalCompanyKeyForJob(job = {}) {
+  const explicitKey = normalizeCompanyKeyAlias(job?.companyKey || '');
+  const companyName = String(job?.company || '').trim();
+  const legacyKey = legacyTruncatedCompanyKey(companyName);
+  const legacyKeyForms = new Set([legacyKey, normalizeCompanyKey(legacyKey)].filter(Boolean));
+  if (explicitKey && legacyKeyForms.has(explicitKey)) return normalizeCompanyKey(companyName);
+  return explicitKey || normalizeCompanyKey(companyName);
+}
+
 function parseShadowPreflightV2Options() {
   const args = process.argv.slice(2);
   const valueFor = (flag) => {
@@ -204,6 +220,43 @@ export function createObserverCompensatedClock(now = Date.now) {
 }
 
 const LEGACY_CLOCK = createObserverCompensatedClock();
+
+function writeThinkingArtifacts({
+  enabled,
+  salt,
+  cascadeStop,
+  companiesQueued,
+  rows,
+  failedCompanyKeys,
+}) {
+  if (!enabled) return;
+  const summary = summarizeThinkingAb(rows);
+  const companiesProcessed = new Set(rows.map((row) => row.companyKey)).size;
+  // L'artefatto vive nel RUNNER_TEMP e viene caricato dal workflow: non
+  // committarlo, sarebbe un file di dati riscritto a ogni run. Il flush viene
+  // richiamato dal finally e dai signal handler, così non dipende dal fondo
+  // del ciclo per-azienda.
+  const outDir = process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp';
+  const outPath = path.join(outDir, 'translation-thinking-ab.json');
+  const cascadeOutPath = path.join(outDir, 'translation-cascade-companies.json');
+  try {
+    const artifact = {
+      salt,
+      generatedAt: new Date(LEGACY_CLOCK.now()).toISOString(),
+      cascadeStop,
+      companiesQueued,
+      companiesProcessed,
+      companiesFailed: failedCompanyKeys.size,
+      summary,
+      rows,
+    };
+    writeJsonAtomic(outPath, artifact);
+    writeJsonAtomic(cascadeOutPath, artifact);
+    console.log(`   📄 righe scritte in ${outPath} e ${cascadeOutPath}`);
+  } catch (err) {
+    console.log(`   ⚠️  impossibile scrivere l'artefatto A/B: ${err.message}`);
+  }
+}
 
 function emitTranslationShadowPreflightV2(inputFactory) {
   if (!SHADOW_PREFLIGHT_V2.outputPath) return null;
@@ -249,9 +302,9 @@ const TIME_BUDGET_MS = 320 * 60 * 1000;
 // under the Argos-first ordering the local-MT BULK pass (Phase 2a) runs before
 // this cascade and seeds the marker, so the cascade's 250min deadline correctly
 // counts the time Phase 2a already spent — keeping Phase 2a + cascade + mop-up
-// inside the 350min timeout. Falls back to now() when no marker exists
-// (cascade-first / standalone), identical to the prior behaviour.
-const RUN_START_MS = readRunStartMs() ?? Date.now();
+// inside the 350min timeout. Standalone invocations keep a local fallback;
+// the workflow fails closed when its marker is missing.
+const RUN_START_MS = resolveRunStartMs();
 // Run-wide deadline for the slow HTTP/ONNX cascade. Default 250min (cascade-first
 // era: the cascade IS the primary translator). Under Argos-first the fast
 // CTranslate2 bulk (Phase 2a) + the Argos mop-up (Phase 2c) already cover the
@@ -285,24 +338,29 @@ function readJson(filePath) {
   }
 }
 
+/**
+ * Drop only expired armed entries. A legacy/manual entry with an expired
+ * `skipUntilRun` and a non-zero `sterile` counter is not equivalent to an
+ * armed entry: deleting it would silently erase accumulated observations.
+ */
+export function pruneExpiredCompanySkipEntries(stored, run) {
+  const companies = {};
+  for (const [key, entry] of Object.entries(stored || {})) {
+    const expired = entry?.skipUntilRun && Number(entry.skipUntilRun) < run;
+    if (expired && entry?.sterile === 0) continue;
+    companies[key] = entry;
+  }
+  return companies;
+}
+
 /** Ledger del salto per azienda sterile — vedi COMPANY_SKIP_STATE_PATH. */
 function readCompanySkipState() {
   const raw = readJson(COMPANY_SKIP_STATE_PATH);
   const run = Number(raw?.run) || 0;
   const stored = (raw && typeof raw.companies === 'object' && raw.companies) || {};
-  // Pota le voci con un salto gia' scaduto. E' esattamente equivalente a
-  // tenerle — `shouldSkipCompany` le ignora e `nextCompanySkipEntry` riparte
-  // comunque da `sterile: 1`, perche' una voce scaduta porta `sterile: 0` — ma
-  // senza la potatura il file cresce con lo storico di ogni azienda mai
-  // osservata e non torna mai indietro, e il rewrite completo per azienda
-  // diventa il caso peggiore proprio nelle run lunghe che questa regola vuole
-  // accorciare.
-  const companies = {};
-  for (const [key, entry] of Object.entries(stored)) {
-    if (entry?.skipUntilRun && Number(entry.skipUntilRun) < run) continue;
-    companies[key] = entry;
-  }
-  return { run, companies };
+  // Entries written by nextCompanySkipEntry have sterile === 0 when armed;
+  // preserve anything else so legacy/manual state cannot lose its counter.
+  return { run, companies: pruneExpiredCompanySkipEntries(stored, run) };
 }
 
 function writeCompanySkipState(state) {
@@ -406,7 +464,7 @@ export function jobLocaleSignature(job) {
 export function snapshotCompanySignatures(jobs, companyKey) {
   const m = new Map();
   for (const j of jobs) {
-    if (normalizeCompanyKey(j.companyKey || j.company || '') !== companyKey) continue;
+    if (canonicalCompanyKeyForJob(j) !== companyKey) continue;
     if (j.slug) m.set(j.slug, jobLocaleSignature(j));
   }
   return m;
@@ -416,7 +474,7 @@ export function snapshotCompanySignatures(jobs, companyKey) {
 export function changedSlugsSince(snapshot, jobs, companyKey) {
   const changed = new Set();
   for (const j of jobs) {
-    if (normalizeCompanyKey(j.companyKey || j.company || '') !== companyKey) continue;
+    if (canonicalCompanyKeyForJob(j) !== companyKey) continue;
     if (!j.slug) continue;
     const before = snapshot.get(j.slug);
     if (before === undefined || before !== jobLocaleSignature(j)) changed.add(j.slug);
@@ -585,6 +643,20 @@ export function nextCompanySkipEntry(entry, {
 }
 
 /**
+ * Internal pre-clears are progress, not a source re-crawl. Forget the sterile
+ * observation for affected companies so a smaller pending set cannot look like
+ * a changed source signature on the next run (issue #8068 item 5).
+ */
+export function resetCompanySkipStateForClearedCompanies(state, companyKeys = []) {
+  if (!state?.companies || typeof state.companies !== 'object') return state;
+  for (const companyKey of companyKeys) {
+    const key = normalizeCompanyKey(companyKey);
+    if (key) delete state.companies[key];
+  }
+  return state;
+}
+
+/**
  * Return why a cascade pass must stop, with the run-wide cascade deadline
  * taking precedence over the general workflow time-budget guard.
  */
@@ -599,6 +671,34 @@ export function cascadeStopReason({
   if (nowMs >= runStartMs + cascadeDeadlineMs) return 'cascade deadline';
   if (nowMs - passStartMs >= timeBudgetMs * timeBudgetFraction) return 'time budget';
   return null;
+}
+
+/**
+ * Choose the initial cascade stop reason only after checking the run-wide clock.
+ * This keeps an all-skipped window from masking a deadline reached between the
+ * window snapshot and the classification (issue #8068 item 4).
+ */
+export function initialCascadeStopReason({
+  windowStopReason,
+  allCompaniesSkipped = false,
+  nowMs,
+  runStartMs,
+  cascadeDeadlineMs,
+  passStartMs,
+  timeBudgetMs,
+  timeBudgetFraction,
+}) {
+  if (windowStopReason === 'cascade deadline') return 'cascade deadline';
+  const stopReason = cascadeStopReason({
+    nowMs,
+    runStartMs,
+    cascadeDeadlineMs,
+    passStartMs,
+    timeBudgetMs,
+    timeBudgetFraction,
+  });
+  if (stopReason) return stopReason;
+  return allCompaniesSkipped ? 'all companies skipped' : 'queue exhausted';
 }
 
 export function computeCascadeWindow({ nowMs, runStartMs, deadlineMs }) {
@@ -771,19 +871,6 @@ export function isIncomplete(job) {
 }
 
 /**
- * Normalize a company key for matching.
- */
-function normalizeCompanyKey(value = '') {
-  return String(value || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-
-/**
  * Sort jobs by priority: needsRetranslation first, then by datePosted (most recent first).
  */
 function sortByPriority(a, b) {
@@ -921,23 +1008,39 @@ async function runSharedCrawler(companyKeys, maxJobs) {
 }
 
 /**
- * Read the shared crawler's company-level coverage observation.
+ * Read the shared crawler's company-level coverage observations.
  *
- * `localizationCoveredCompanyKeys` includes sterile visits where the crawler
- * reached a company but had no consumable candidate. That is the observation
- * needed by the company-skip ledger and by the artifact; `cleared` must never
- * be used as its proxy.
+ * A sterile visit and effective work have different meanings for the
+ * company-skip ledger. The legacy combined field is accepted only for older
+ * crawler results; current results use `localizationSterileCompanyKeys` and
+ * `localizationAttemptedCompanyKeys` explicitly.
  */
-function servedCompanyKeysFromCrawlerResult(crawlerResult) {
-  const companyKeys = Array.isArray(crawlerResult?.localizationCoveredCompanyKeys)
-    ? crawlerResult.localizationCoveredCompanyKeys
-    : (Array.isArray(crawlerResult?.localizationAttemptedCompanyKeys)
-      ? crawlerResult.localizationAttemptedCompanyKeys : []);
-  return new Set(
-    companyKeys
-      .map((companyKey) => normalizeCompanyKey(companyKey).slice(0, 64))
+export function companyCoverageFromCrawlerResult(crawlerResult) {
+  const hasExplicitSterileKeys = Array.isArray(crawlerResult?.localizationSterileCompanyKeys);
+  const coveredCompanyKeys = crawlerResult?.localizationCoveredCompanyKeys;
+  const attemptedCompanyKeys = crawlerResult?.localizationAttemptedCompanyKeys;
+  const normalizeCompanyKeys = (companyKeys) => new Set(
+    (Array.isArray(companyKeys) ? companyKeys : [])
+      .map((companyKey) => normalizeCompanyKey(companyKey))
       .filter(Boolean),
   );
+  const sterile = normalizeCompanyKeys(
+    hasExplicitSterileKeys ? crawlerResult.localizationSterileCompanyKeys : coveredCompanyKeys,
+  );
+  const effective = normalizeCompanyKeys(attemptedCompanyKeys);
+  const legacyCovered = normalizeCompanyKeys(coveredCompanyKeys);
+  const served = hasExplicitSterileKeys
+    ? new Set([...sterile, ...effective])
+    : (legacyCovered.size > 0 ? legacyCovered : effective);
+  return { sterile, effective, served };
+}
+
+export function servedCompanyKeysFromCrawlerResult(crawlerResult) {
+  return companyCoverageFromCrawlerResult(crawlerResult).served;
+}
+
+export function sterileCompanyKeysFromCrawlerResult(crawlerResult) {
+  return companyCoverageFromCrawlerResult(crawlerResult).sterile;
 }
 
 /**
@@ -998,7 +1101,7 @@ export function buildAssembledJobIndex(assembledJobs, companyKey) {
   };
   const inScope = [];
   for (const job of assembledJobs) {
-    const jobKey = normalizeCompanyKey(job.companyKey || job.company || '');
+    const jobKey = canonicalCompanyKeyForJob(job);
     if (jobKey !== companyKey) continue;
     inScope.push(job);
   }
@@ -1347,8 +1450,13 @@ function invalidateCacheForIncompleteJobs(companyKey, incompleteJobs) {
 
 export function filterPendingForCompany(pendingJobs, companyKeyFilter) {
   if (!companyKeyFilter) return [...pendingJobs];
+  const normalizedFilter = normalizeCompanyKeyAlias(companyKeyFilter);
+  if (!normalizedFilter) return [];
   return pendingJobs.filter((job) => (
-    normalizeCompanyKey(job.companyKey || job.company || '') === companyKeyFilter
+    canonicalCompanyKeyForJob(job) === canonicalCompanyKeyForJob({
+      company: job?.company,
+      companyKey: normalizedFilter,
+    })
   ));
 }
 
@@ -1388,6 +1496,31 @@ async function main() {
 }
 
 export async function runRelocalization(phase) {
+  const thinkingAb = isThinkingAbEnabled(process.env);
+  const thinkingSalt = runSalt(process.env);
+  const thinkingRows = [];
+  const failedCompanyKeys = new Set();
+  let companiesQueued = 0;
+  let cascadeStop = phase?.stopReason || 'nothing to relocalize';
+  const flushThinkingArtifacts = () => writeThinkingArtifacts({
+    enabled: thinkingAb,
+    salt: thinkingSalt,
+    cascadeStop,
+    companiesQueued,
+    rows: thinkingRows,
+    failedCompanyKeys,
+  });
+  const onTermination = (signal) => {
+    cascadeStop = 'runner terminated';
+    flushThinkingArtifacts();
+    process.exit(signal === 'SIGINT' ? 130 : 143);
+  };
+  if (thinkingAb) {
+    process.once('SIGINT', onTermination);
+    process.once('SIGTERM', onTermination);
+  }
+
+  try {
   console.log('🔍 Scanning for jobs needing translation...\n');
 
   if (!fs.existsSync(DATA_JOBS_PATH)) {
@@ -1411,6 +1544,7 @@ export async function runRelocalization(phase) {
   // sync paths below, which run on jobs actually translated this run.
   let directCleared = 0;
   let directReset = 0;
+  const directClearedCompanyKeys = new Set();
   if (fs.existsSync(BY_CRAWLER_DIR)) {
     for (const file of listSliceFileNames(BY_CRAWLER_DIR)) {
       const filePath = path.join(BY_CRAWLER_DIR, file);
@@ -1420,7 +1554,11 @@ export async function runRelocalization(phase) {
       for (const job of crawlerData.jobs) {
         const outcome = reconcileRetranslationState(job, { attempted: false });
         if (outcome === 'reset' || outcome === 'cleared') fileChanged = true;
-        if (outcome === 'cleared') directCleared++;
+        if (outcome === 'cleared') {
+          directCleared++;
+          const companyKey = canonicalCompanyKeyForJob(job);
+          if (companyKey) directClearedCompanyKeys.add(companyKey);
+        }
         else if (outcome === 'reset') directReset++;
       }
       if (fileChanged) {
@@ -1434,6 +1572,9 @@ export async function runRelocalization(phase) {
   if (directReset > 0) {
     console.log(`♻️  Lifted give-up on ${directReset} re-crawled job(s) (source changed)`);
   }
+
+  const companySkipState = readCompanySkipState();
+  const preClearedCompanyKeys = new Set();
 
   // Find all jobs needing translation (flagged or incomplete)
   let pending = jobs.filter(needsTranslation);
@@ -1451,6 +1592,7 @@ export async function runRelocalization(phase) {
   const incompleteCount = pending.length - flaggedCount;
 
   if (pending.length === 0) {
+    resetCompanySkipStateForClearedCompanies(companySkipState, directClearedCompanyKeys);
     emitTranslationShadowPreflightV2(() => ({
       dryRun: false,
       notAttemptedReason: 'legacy_no_pending_before_execution_plan',
@@ -1470,6 +1612,7 @@ export async function runRelocalization(phase) {
         trafficSource: TRAFFIC_SOURCE_PATH,
       },
     }));
+    if (directClearedCompanyKeys.size > 0) writeCompanySkipState(companySkipState);
     console.log('✅ All jobs have complete locale coverage. Nothing to re-localize.');
     return;
   }
@@ -1526,7 +1669,12 @@ export async function runRelocalization(phase) {
   }
 
   // Fast-path: clear flags for jobs that are already complete (no AI call needed).
-  const preCleared = clearRetranslationFlags(jobs);
+  const preCleared = clearRetranslationFlags(jobs, {
+    onCleared: (job) => {
+      const companyKey = canonicalCompanyKeyForJob(job);
+      if (companyKey) preClearedCompanyKeys.add(companyKey);
+    },
+  });
   if (preCleared > 0) {
     writeJsonAtomic(DATA_JOBS_PATH, jobs, { compact: true });
     console.log(`⚡ Pre-cleared ${preCleared} flags for already-complete jobs in assembled dataset`);
@@ -1536,6 +1684,10 @@ export async function runRelocalization(phase) {
     const stillPendingJobs = jobs.filter(needsTranslation);
     const filteredStillPendingJobs = filterPendingForCompany(stillPendingJobs, COMPANY_KEY_FILTER);
     if (filteredStillPendingJobs.length === 0) {
+      resetCompanySkipStateForClearedCompanies(companySkipState, [
+        ...directClearedCompanyKeys,
+        ...preClearedCompanyKeys,
+      ]);
       emitTranslationShadowPreflightV2(() => ({
         dryRun: false,
         notAttemptedReason: 'legacy_preclear_emptied_execution_plan',
@@ -1570,6 +1722,9 @@ export async function runRelocalization(phase) {
           trafficSource: TRAFFIC_SOURCE_PATH,
         },
       }));
+      if (directClearedCompanyKeys.size > 0 || preClearedCompanyKeys.size > 0) {
+        writeCompanySkipState(companySkipState);
+      }
       console.log('✅ All jobs complete after pre-clear. Nothing left to translate.');
       return;
     }
@@ -1599,7 +1754,7 @@ export async function runRelocalization(phase) {
   const cappedPending = pending.slice(0, effectiveMax);
   const companyJobCounts = new Map();
   for (const job of cappedPending) {
-    const key = normalizeCompanyKey(job.companyKey || job.company || '');
+    const key = canonicalCompanyKeyForJob(job);
     if (!key) {
       continue;
     }
@@ -1623,7 +1778,7 @@ export async function runRelocalization(phase) {
   // cambia solo sul re-crawl, che e' la semantica dichiarata.
   const companyPendingJobs = new Map();
   for (const job of pending) {
-    const key = normalizeCompanyKey(job.companyKey || job.company || '');
+    const key = canonicalCompanyKeyForJob(job);
     if (!key) {
       continue;
     }
@@ -1644,7 +1799,13 @@ export async function runRelocalization(phase) {
   // Il tempo liberato non resta inutilizzato: un'azienda saltata non
   // incrementa `totalProcessed`, quindi la finestra scorre piu' in basso
   // nell'ordine per traffico prima della deadline.
-  const companySkipState = readCompanySkipState();
+  // A pre-clear is internal progress, not a source re-crawl. Forget the
+  // affected sterile observations so a smaller pending set cannot trigger the
+  // signature-based early rearm on its own (issue #8068 item 5).
+  resetCompanySkipStateForClearedCompanies(companySkipState, [
+    ...directClearedCompanyKeys,
+    ...preClearedCompanyKeys,
+  ]);
   companySkipState.run = Number(companySkipState.run || 0) + 1;
   const companySkipRun = companySkipState.run;
   const companySignatures = new Map();
@@ -1671,7 +1832,7 @@ export async function runRelocalization(phase) {
     orderedPending,
     capWindow: cappedPending,
     capWindowCompanyKeys: cappedPending.map((job) => {
-      const key = normalizeCompanyKey(job.companyKey || job.company || '');
+    const key = canonicalCompanyKeyForJob(job);
       return key || null;
     }),
     companyBudgets: [...companyJobCounts].map(([companyKey, count]) => ({ companyKey, jobs: count })),
@@ -1716,8 +1877,11 @@ export async function runRelocalization(phase) {
     // Not the same as an empty queue: there WAS pending work, it just carried no
     // usable company key. The default reason would have called this idle.
     phase.stopReason = 'no valid company keys';
+    cascadeStop = phase.stopReason;
     return;
   }
+
+  companiesQueued = companyKeys.length;
 
   console.log(`\n🔄 Re-localizing up to ${effectiveMax} jobs across ${cascadeCompanyKeys.length} companies (incremental save)...`);
 
@@ -1744,7 +1908,16 @@ export async function runRelocalization(phase) {
   // Why the stop reason is hoisted: it is the difference between "the cascade ran
   // out of companies" and "the cascade was never given a window", and only the
   // second is a problem with the run rather than with the queue.
-  let cascadeStop = window.stopReason === 'cascade deadline' ? 'cascade deadline' : 'queue exhausted';
+  cascadeStop = initialCascadeStopReason({
+    windowStopReason: window.stopReason,
+    allCompaniesSkipped: cascadeCompanyKeys.length === 0 && companyKeys.length > 0,
+    nowMs: LEGACY_CLOCK.now(),
+    runStartMs: RUN_START_MS,
+    cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+    passStartMs: startTime,
+    timeBudgetMs: TIME_BUDGET_MS,
+    timeBudgetFraction: 1,
+  });
   // Ogni azienda della finestra e' saltata (workspace#24). Va detto per nome:
   // il guardrail di coda vuota sopra legge `companyKeys`, la lista PIENA,
   // quindi non scatta, il ciclo gira zero volte e la run finirebbe con
@@ -1752,17 +1925,13 @@ export async function runRelocalization(phase) {
   // indistinguibile da uno stallo, con la regola che produce un falso allarme
   // proprio quando funziona. Nessun `return`: il mop-up a valle e' un
   // meccanismo diverso e puo' ancora liberare job.
-  if (cascadeStop !== 'cascade deadline' && cascadeCompanyKeys.length === 0 && companyKeys.length > 0) {
+  if (cascadeStop === 'all companies skipped') {
     console.log(`\n⏭️  Tutte le ${companyKeys.length} aziende della finestra sono saltate: nessuna e' eleggibile in questa run.`);
-    cascadeStop = 'all companies skipped';
   }
 
   // A/B sul thinking di claude-cli/haiku. Spento di default: si accende con
   // TRANSLATION_THINKING_AB=1. Vedi scripts/lib/thinking-ab.mjs: il braccio si
   // assegna per invocazione e il sale include l'id della run.
-  const thinkingAb = isThinkingAbEnabled(process.env);
-  const thinkingSalt = runSalt(process.env);
-  const thinkingRows = [];
   const companyExecutionGroups = buildCompanyExecutionGroups(cascadeCompanyKeys, companyJobCounts);
   if (thinkingAb) {
     console.log(`\n🧪 A/B thinking attivo (sale ${thinkingSalt}): ogni invocazione va a un braccio, con righe attribuibili per azienda.`);
@@ -1814,7 +1983,7 @@ export async function runRelocalization(phase) {
     let invalidated = 0;
     for (const companyKey of executionKeys) {
       const companyIncomplete = cappedPending.filter(j =>
-        normalizeCompanyKey(j.companyKey || j.company || '') === normalizeCompanyKey(companyKey));
+        canonicalCompanyKeyForJob(j) === normalizeCompanyKey(companyKey));
       companyIncompleteByKey.set(companyKey, companyIncomplete);
       invalidated += invalidateCacheForIncompleteJobs(companyKey, companyIncomplete);
     }
@@ -1874,9 +2043,12 @@ export async function runRelocalization(phase) {
       // al crawler.
       const companyStartedMs = LEGACY_CLOCK.now();
       let servedCompanyKeys = new Set();
+      let sterileCompanyKeys = new Set();
       try {
         const crawlerResult = await runSharedCrawler(executionKeys, companyJobCount);
-        servedCompanyKeys = servedCompanyKeysFromCrawlerResult(crawlerResult);
+        const coverage = companyCoverageFromCrawlerResult(crawlerResult);
+        servedCompanyKeys = coverage.served;
+        sterileCompanyKeys = coverage.sterile;
       } finally {
         if (armHandle) armHandle.restore();
       }
@@ -1889,7 +2061,7 @@ export async function runRelocalization(phase) {
       if (Array.isArray(currentJobs)) {
         const cleared = clearRetranslationFlags(currentJobs, {
           onCleared: (job) => {
-            const clearedKey = normalizeCompanyKey(job.companyKey || job.company || '');
+            const clearedKey = canonicalCompanyKeyForJob(job);
             if (clearedInExecution.has(clearedKey)) {
               clearedByCompany.set(clearedKey, (clearedByCompany.get(clearedKey) || 0) + 1);
             }
@@ -1918,7 +2090,7 @@ export async function runRelocalization(phase) {
           // Diagnose: how many jobs for this company are still incomplete after crawler ran?
           if (Array.isArray(currentJobs)) {
             const companyJobs = currentJobs.filter(j =>
-              normalizeCompanyKey(j.companyKey || j.company || '') === normalizeCompanyKey(companyKey));
+              canonicalCompanyKeyForJob(j) === normalizeCompanyKey(companyKey));
             const companyIncomplete = companyJobs.filter(j => needsTranslation(j));
             if (companyIncomplete.length > 0) {
               console.log(`   🔬 ${companyKey}: ${companyIncomplete.length}/${companyJobs.length} still pending after crawler`);
@@ -1957,7 +2129,9 @@ export async function runRelocalization(phase) {
         // `cleared` e' il delta per azienda: le traduzioni che hanno superato
         // il gate. Anche con un'invocazione aggregata resta una riga per azienda,
         // con il gruppo esplicito per rendere leggibile il costo condiviso.
-        const companyWasServed = servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64));
+        const normalizedCompanyKey = normalizeCompanyKey(companyKey);
+        const companyWasServed = servedCompanyKeys.has(normalizedCompanyKey);
+        const companyWasSterile = sterileCompanyKeys.has(normalizedCompanyKey);
         const row = {
           arm: thinkingArm ?? null,
           companyKey,
@@ -1979,7 +2153,7 @@ export async function runRelocalization(phase) {
         // budget dell'invocazione. Non chiamarla sterile se non e' stata mai
         // servita: il suo lavoro resta pending e deve poter rientrare nella
         // prossima finestra senza accumulare falsi salti.
-        if (companyWasServed) {
+        if (companyWasSterile || (companyWasServed && companyCleared > 0)) {
           const entry = nextCompanySkipEntry(companySkipState.companies[companyKey], {
             cleared: companyCleared,
             runCounter: companySkipRun,
@@ -1987,6 +2161,8 @@ export async function runRelocalization(phase) {
           });
           if (entry) companySkipState.companies[companyKey] = entry;
           else delete companySkipState.companies[companyKey];
+        } else if (companyWasServed) {
+          console.log(`   🔬 ${companyKey}: lavoro effettivo osservato; contatore sterile invariato`);
         } else {
           console.log(`   ⏭️  ${companyKey}: invocazione aggregata esaurita prima di servirla; contatore sterile invariato`);
         }
@@ -2003,6 +2179,7 @@ export async function runRelocalization(phase) {
 
     } catch (err) {
       cascadeStop = 'company failure';
+      for (const companyKey of executionKeys) failedCompanyKeys.add(companyKey);
       consecutiveFailures++;
       console.error(`   ❌ ${executionLabel} failed: ${err.message}`);
       console.log(`   💾 Progress saved: ${totalFixed} jobs translated before failure`);
@@ -2038,7 +2215,7 @@ export async function runRelocalization(phase) {
     // Only retry companies that had at least one success (partial failure)
     const retryCompanies = new Map();
     for (const j of retryPending) {
-      const k = normalizeCompanyKey(j.companyKey || j.company || '');
+      const k = canonicalCompanyKeyForJob(j);
       // `cascadeCompanyKeys`, non `companyJobCounts`: senza questo il retry pass
     // ripescherebbe proprio le aziende appena saltate — i loro job sono ancora
     // pending per definizione — e rispenderebbe il tempo che il salto libera.
@@ -2124,7 +2301,7 @@ export async function runRelocalization(phase) {
                 elapsedMs: retryElapsedMs * (retryCompanies.get(companyKey) || 0) / count,
                 attempted: retryAttemptedByCompany.get(companyKey).size,
                 cleared: 0,
-                companyServed: retryServedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64)),
+                companyServed: retryServedCompanyKeys.has(normalizeCompanyKey(companyKey)),
                 ...(retryKeys.length > 1 ? { invocationCompanyKeys: [...retryKeys] } : {}),
               };
               retryRowsByCompany.set(companyKey, row);
@@ -2135,7 +2312,7 @@ export async function runRelocalization(phase) {
             const clearedByCompany = new Map();
             const cleared = clearRetranslationFlags(afterRetry, {
               onCleared: (job) => {
-                const clearedKey = normalizeCompanyKey(job.companyKey || job.company || '');
+                const clearedKey = canonicalCompanyKeyForJob(job);
                 if (retryKeys.includes(clearedKey)) {
                   clearedByCompany.set(clearedKey, (clearedByCompany.get(clearedKey) || 0) + 1);
                 }
@@ -2168,6 +2345,7 @@ export async function runRelocalization(phase) {
             }
           }
         } catch {
+          for (const companyKey of retryKeys) failedCompanyKeys.add(companyKey);
           console.log(`   ⚠️  ${retryLabel} retry failed — will be picked up by next scheduled run`);
         }
       }
@@ -2233,36 +2411,25 @@ export async function runRelocalization(phase) {
 
   if (thinkingAb) {
     const summary = summarizeThinkingAb(thinkingRows);
-    const companiesProcessed = new Set(thinkingRows.map((row) => row.companyKey)).size;
     console.log(`\n🧪 A/B thinking — ${summary.rows} aziende, sale ${thinkingSalt}`);
     for (const [arm, a] of Object.entries(summary.arms)) {
       const ms = a.msPerJob === null ? 'n/d' : `${Math.round(a.msPerJob / 1000)}s/job`;
       const acc = a.acceptRate === null ? 'n/d' : `${(a.acceptRate * 100).toFixed(1)}%`;
-      console.log(`   ${arm.padEnd(12)} ${String(a.companies).padStart(3)} aziende, ${String(a.jobs).padStart(4)} job, ${ms.padStart(8)}, accettate ${acc} (${a.cleared}/${a.attempted})`);
-    }
-    // L'artefatto vive nel RUNNER_TEMP e viene caricato dal workflow: non
-    // committarlo, sarebbe un file di dati riscritto a ogni run.
-    const outDir = process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp';
-    const outPath = path.join(outDir, 'translation-thinking-ab.json');
-    const cascadeOutPath = path.join(outDir, 'translation-cascade-companies.json');
-    try {
-      const artifact = {
-        salt: thinkingSalt,
-        generatedAt: new Date().toISOString(),
-        cascadeStop,
-        companiesQueued: companyKeys.length,
-        companiesProcessed,
-        summary,
-        rows: thinkingRows,
-      };
-      writeJsonAtomic(outPath, artifact);
-      writeJsonAtomic(cascadeOutPath, artifact);
-      console.log(`   📄 righe scritte in ${outPath} e ${cascadeOutPath}`);
-    } catch (err) {
-      console.log(`   ⚠️  impossibile scrivere l'artefatto A/B: ${err.message}`);
+      console.log(`   ${arm.padEnd(12)} ${String(a.companies).padStart(3)} aziende (${a.servedCompanies} servite, ${a.unservedCompanies} non servite), ${String(a.jobs).padStart(4)} job, ${ms.padStart(8)}, accettate ${acc} (${a.cleared}/${a.attempted})`);
     }
   }
   console.log('✅ Re-localization complete.');
+  } catch (error) {
+    cascadeStop = 'failed';
+    if (phase) phase.stopReason = cascadeStop;
+    throw error;
+  } finally {
+    if (thinkingAb) {
+      flushThinkingArtifacts();
+      process.off('SIGINT', onTermination);
+      process.off('SIGTERM', onTermination);
+    }
+  }
 }
 
 // Only run the pipeline when invoked directly (`node scripts/relocalize-pending-jobs.mjs`).

@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   aggregateApplicationEvidence,
   aggregateEmployerEvents,
+  assertCompleteEventCoverage,
   buildIdentityCatalog,
   buildDryRunPayload,
   buildGa4EventQueryBody,
@@ -11,6 +12,7 @@ import {
   loadApplicationRecords,
   queryGa4EventRows,
   queryEventRows,
+  resolveEventIdentity,
 } from '../scripts/build-employer-insights.mjs';
 import { validateEmployerInsightsPayload } from '../scripts/ci/validate-employer-insights-payload.mjs';
 import {
@@ -251,7 +253,8 @@ describe('employer insights event coverage', () => {
 
     expect(doc.totals.adsCount).toBe(1);
     expect(doc.ads).toHaveLength(1);
-    expect(doc.ads[0]).toMatchObject({ views: 0, applyClicks: 1, eventsObserved: 1 });
+    expect(doc.ads[0]).toMatchObject({ views: 0, applyClicks: 1, applyClickUsers: 1, eventsObserved: 1 });
+    expect(doc.totals.applyClickUsers).toBe(1);
   });
 
   it('excludes an event outside the explicit documentable window', () => {
@@ -356,6 +359,26 @@ describe('employer insights event coverage', () => {
     ]);
 
     expect(result).toMatchObject({ observed: 2, removed: 0, dedupUnavailable: 0 });
+  });
+
+  it('counts two real page views of the same route when their emission ids differ', () => {
+    const path = '/offerte-di-lavoro-ticino/role-it/';
+    const result = collapseTechnicalDuplicates([
+      event({ event: '$pageview', path, jobSlug: 'role-it', emissionId: 'page-view-visit-1' }),
+      event({ event: '$pageview', path, jobSlug: 'role-it', emissionId: 'page-view-visit-2' }),
+    ]);
+
+    expect(result).toMatchObject({ observed: 2, removed: 0, dedupUnavailable: 0 });
+  });
+
+  it('counts one page view when a retry shares its emission id', () => {
+    const path = '/offerte-di-lavoro-ticino/role-it/';
+    const result = collapseTechnicalDuplicates([
+      event({ event: '$pageview', path, jobSlug: 'role-it', emissionId: 'page-view-retry' }),
+      event({ event: '$pageview', path, jobSlug: 'role-it', emissionId: 'page-view-retry' }),
+    ]);
+
+    expect(result).toMatchObject({ observed: 1, removed: 1, dedupUnavailable: 0 });
   });
 
   it('does not fuse events without an emission id and marks dedup as unavailable', () => {
@@ -545,10 +568,73 @@ describe('employer insights technical deduplication', () => {
     expect(result.dedupUnavailable).toBe(3);
   });
 
-  it('does not use provider identifiers as a query cursor or emission fallback', () => {
-    expect(EMPLOYER_INSIGHTS_SOURCE).not.toMatch(
-      /EVENT_KEY_EXPRESSION|\$insert_id|\$event_id|\b(?:uuid|eventId|insert_id)\b/,
-    );
+  it('accounts for item_id-only identity loss instead of guessing an ad', () => {
+    const aliasCatalog = buildIdentityCatalog([job()]);
+    const aliasRow = event({
+      event: 'select_content',
+      eventKey: 'item-id-only',
+      jobSlug: '',
+      itemId: 'acme_role-it',
+      contentType: 'job_board_apply',
+    });
+    const aliasIdentity = resolveEventIdentity(aliasRow, aliasCatalog);
+    expect(aliasIdentity).toMatchObject({ scope: 'company', companyKey: 'acme' });
+
+    const aliasAggregate = aggregateEmployerEvents([aliasRow], {
+      catalog: aliasCatalog,
+      window: WINDOW,
+    });
+    expect(aliasAggregate.coverage).toMatchObject({ observed: 1, attributed: 1, residualTotal: 0, invariant: true });
+    expect(aliasAggregate.states.get('acme')?.ads.size).toBe(0);
+
+    const ambiguousCatalog = buildIdentityCatalog([
+      job({ id: 'job-first', companyKey: 'first', company: 'Shared Co', slug: 'role-first' }),
+      job({ id: 'job-second', companyKey: 'second', company: 'Shared Co', slug: 'role-second' }),
+    ]);
+    const ambiguousRow = event({
+      eventKey: 'ambiguous-item-id',
+      jobSlug: '',
+      itemId: 'shared-co_role',
+    });
+    const unidentifiedRow = event({
+      eventKey: 'unidentified-event',
+      jobSlug: '',
+      itemId: '',
+      employerKey: '',
+      path: '',
+      jobId: '',
+      providerId: '',
+    });
+    expect(resolveEventIdentity(ambiguousRow, ambiguousCatalog)).toMatchObject({ residual: 'ambiguous_company_alias' });
+    expect(resolveEventIdentity(unidentifiedRow, ambiguousCatalog)).toMatchObject({ residual: 'unidentified_event' });
+
+    const residualAggregate = aggregateEmployerEvents([ambiguousRow, unidentifiedRow], {
+      catalog: ambiguousCatalog,
+      window: WINDOW,
+    });
+    expect(residualAggregate.coverage).toMatchObject({
+      observed: 2,
+      attributed: 0,
+      residualTotal: 2,
+      invariant: true,
+      residuals: { ambiguous_company_alias: 1, unidentified_event: 1 },
+    });
+  });
+
+  it('uses a non-empty event key as the final total cursor discriminator', () => {
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain('const EVENT_KEY_EXPRESSION');
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain('properties.$insert_id');
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain('properties.$event_id');
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain('toString(uuid)');
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain("concat(toString(timestamp), '|'");
+    expect(EMPLOYER_INSIGHTS_SOURCE).toContain('cursor_event_key');
+  });
+
+  it('fails closed instead of handing a truncated event snapshot to consumers', () => {
+    expect(() => assertCompleteEventCoverage({ rowsReturned: 9, totalRows: 10, truncated: true }))
+      .toThrow('event query truncated');
+    expect(() => assertCompleteEventCoverage({ rowsReturned: 10, totalRows: 10, truncated: false }))
+      .not.toThrow();
   });
 
   it('keeps views and clicks separate from the emission id in grouped rows', () => {
@@ -613,7 +699,7 @@ describe('employer insights technical deduplication', () => {
       '',
       '',
       '',
-      '',
+      unusedSlot,
     ];
     const pageRows = [
       groupedRow('slot-a', '2026-09-01 12:00:00.000000'),
@@ -639,6 +725,80 @@ describe('employer insights technical deduplication', () => {
     expect(pageQueries.every((query) => !query.includes('OFFSET'))).toBe(true);
     expect(pageQueries[1]).toContain('timestamp >');
     expect(pageQueries[1]).toContain("2026-09-01 12:00:01.000000");
+    expect(pageQueries[1]).toContain('cursor_event_key');
+  });
+
+  it('distinguishes an empty provider response from an explicit zero count', async () => {
+    await expect(queryEventRows(WINDOW, {
+      query: async () => [],
+      pageSize: 1,
+    })).rejects.toThrow('count response unavailable');
+
+    const runQuery = async (query: string) => {
+      if (query.startsWith('SELECT count() AS total FROM (')) return [[0]];
+      if (query.includes('SELECT count() AS total') && query.includes('FROM events')) return [[0]];
+      return [];
+    };
+    const result = await queryEventRows(WINDOW, { query: runQuery, pageSize: 1 });
+    expect(result.coverage).toMatchObject({
+      sourceObserved: 0,
+      sourceResponse: 'present',
+      sourceResponseRows: 1,
+      groupedResponse: 'present',
+      groupedResponseRows: 1,
+    });
+  });
+
+  it('converts a non-UTC object cursor to UTC before resuming', async () => {
+    const cursorRow = (timestamp: string, eventKey: string) => ({
+      cursorTimestamp: timestamp,
+      cursor_event: 'scroll_depth',
+      cursor_week: '2026-09-01',
+      cursor_path: '',
+      cursor_job_slug: '',
+      cursor_job_id: '',
+      cursor_provider_id: '',
+      cursor_employer_key: '',
+      cursor_item_id: '',
+      cursor_content_type: '',
+      cursor_emission_id: '',
+      cursor_event_key: eventKey,
+      observed: 1,
+    });
+    const queries: string[] = [];
+    const rows = [
+      cursorRow('2026-09-01T12:00:01.123456+02:00', 'key-a'),
+      cursorRow('2026-09-01T12:00:02.123456+02:00', 'key-b'),
+    ];
+    const runQuery = async (query: string) => {
+      queries.push(query);
+      if (query.startsWith('SELECT count() AS total FROM (')) return [[2]];
+      if (query.includes('SELECT count() AS total') && query.includes('FROM events')) return [[2]];
+      const pageNumber = queries.filter((candidate) => candidate.includes(' LIMIT 1')).length;
+      return [rows[pageNumber - 1]];
+    };
+
+    const result = await queryEventRows(WINDOW, { query: runQuery, pageSize: 1 });
+    const pageQueries = queries.filter((query) => query.includes(' LIMIT 1'));
+
+    expect(result.rows).toHaveLength(2);
+    expect(pageQueries[1]).toContain("toDateTime64('2026-09-01 10:00:01.123456', 6)");
+  });
+
+  it('rejects a page whose event discriminator is empty', async () => {
+    const row = Array(28).fill('');
+    row[10] = 1;
+    row[16] = '2026-09-01 12:00:00.000000';
+    row[17] = 'scroll_depth';
+    row[27] = '';
+    const runQuery = async (query: string) => {
+      if (query.startsWith('SELECT count() AS total FROM (')) return [[1]];
+      if (query.includes('SELECT count() AS total') && query.includes('FROM events')) return [[1]];
+      return [row];
+    };
+
+    await expect(queryEventRows(WINDOW, { query: runQuery, pageSize: 1 }))
+      .rejects.toThrow('posthog page missing keyset cursor');
   });
 
   it('filters array rows by the selected timestamp instead of a missing placeholder', () => {
@@ -734,10 +894,16 @@ describe('employer insights technical deduplication', () => {
     });
     expect(doc).toMatchObject({
       companyKey: 'acme',
-      totals: { views: 7, applyClicks: 1, profileViews: 2 },
+      totals: { views: 7, applyClicks: 1, applyClickUsers: 1, profileViews: 2 },
       source: 'ga4',
     });
-    expect(doc.ads[0]).toMatchObject({ views: 7, applyClicks: 1 });
+    expect(doc.trend).toContainEqual({ week: '2026-08-31', views: 7, applyClicks: 1 });
+    expect(doc.ads[0]).toMatchObject({ views: 7, applyClicks: 1, applyClickUsers: 1 });
+    expect(doc.coverage.identityResolution.applyClickUsers).toMatchObject({
+      identifier: 'person_id',
+      globalUnique: false,
+      pii: false,
+    });
   });
 
   it('marks a short or data-loss GA4 page as truncated instead of declaring full coverage', async () => {
@@ -769,6 +935,21 @@ describe('employer insights technical deduplication', () => {
       dataLossFromOtherRow: true,
     });
   });
+
+  it('does not attribute a sector-hub pageview to a job with the same short alias', () => {
+    const catalog = buildIdentityCatalog([job({ slug: 'infermieri' })]);
+    const result = aggregateEmployerEvents([{
+      event: 'page_view',
+      path: '/cerca-lavoro-ticino/infermieri/',
+      observed: 4487,
+      views: 4487,
+      persons: 759,
+      timestamp: IN_WINDOW_TIMESTAMP,
+    }], { catalog, window: WINDOW, source: 'ga4' });
+
+    expect(result.states.size).toBe(0);
+    expect(result.coverage.residuals.unidentified_event).toBe(4487);
+  });
 });
 
 describe('publisher apply-click deduplication', () => {
@@ -795,14 +976,24 @@ describe('publisher apply-click deduplication', () => {
     });
   });
 
-  it('bounds the publisher emission ledger and marks overflow unavailable', () => {
+  it('does not recount an evicted retry when the publisher ledger reaches its limit', () => {
     const existing = Array.from({ length: 64 }, (_, index) => `click-${index + 1}`);
-    const next = appendApplyClickEmissionId(existing, 'click-65');
+    const overflow = decideApplyClickDedup({ eventId: 'click-65', seenEventIds: existing });
+    const next = appendApplyClickEmissionId(existing, overflow.record ? 'click-65' : null);
+    const retry = decideApplyClickDedup({ eventId: 'click-1', seenEventIds: next.emissionIds });
 
-    expect(next).toMatchObject({ unavailable: 1 });
+    expect(overflow).toMatchObject({
+      record: false,
+      removed: 0,
+      unavailable: 1,
+      status: 'dedup non disponibile',
+      reason: 'dedup_unavailable',
+    });
+    expect(next).toMatchObject({ unavailable: 0 });
     expect(next.emissionIds).toHaveLength(64);
-    expect(next.emissionIds[0]).toBe('click-2');
-    expect(next.emissionIds.at(-1)).toBe('click-65');
+    expect(next.emissionIds[0]).toBe('click-1');
+    expect(next.emissionIds.at(-1)).toBe('click-64');
+    expect(retry).toMatchObject({ record: false, removed: 1, unavailable: 0, status: 'available' });
   });
 
   it('passes a stable emission id at every publisher apply callsite', () => {

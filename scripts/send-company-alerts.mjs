@@ -119,6 +119,7 @@ import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from '
 import { FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
 import { isImmediateCompanyAlert, IMMEDIATE_FREQUENCY } from './lib/company-alert-routing.mjs';
 import { companyAlertQuarantineReason } from './lib/company-alert-routing.mjs';
+import { evaluateJobAlertConsent } from '../functions/src/jobAlertBackfillCore.js';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
  * `/aziende/` in services/companyAlertEmail.mjs.
@@ -608,7 +609,8 @@ export function buildRecipientSections(
  * Consent/suppression deferrals count at alert level, because they can happen
  * with no current job key (or with a different job key on each run). The
  * throughput reasons (`per-run-cap` and `card-cap`) remain per-job: they are
- * allocator outcomes, not another attempt to resolve consent.
+ * allocator outcomes, not another attempt to resolve consent, and therefore
+ * do not consume the deferred failure budget.
  *
  * @param {object[]} sections
  * @param {number} nowMs
@@ -628,9 +630,7 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
           if (!key) continue;
           const previous = deliveryLedger[key];
           if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
-          const attempts = previous?.state === DELIVERY_STATES.DEFERRED
-            ? (Number(previous.attempts) || 0) + 1
-            : 1;
+          const attempts = positiveAttempts(previous?.attempts);
           const state = attempts >= DEFERRED_MAX_ATTEMPTS
             ? DELIVERY_STATES.DEFERRED_EXHAUSTED
             : DELIVERY_STATES.DEFERRED;
@@ -639,7 +639,7 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
             [job],
             nowMs,
             state,
-            { reason: normalizedReason, attempts },
+            attempts > 0 ? { reason: normalizedReason, attempts } : { reason: normalizedReason },
           );
         }
         return {
@@ -668,12 +668,16 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
         if (!key) continue;
         const previous = deliveryLedger[key];
         if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
+        const attemptsForJob = Math.max(attempts, positiveAttempts(previous?.attempts) + 1);
+        const stateForJob = attemptsForJob >= DEFERRED_MAX_ATTEMPTS
+          ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+          : state;
         deliveryLedger = mergeDeliveryLedger(
           deliveryLedger,
           [job],
           nowMs,
-          state,
-          { reason: normalizedReason, attempts },
+          stateForJob,
+          { reason: normalizedReason, attempts: attemptsForJob },
         );
       }
       return {
@@ -1375,6 +1379,7 @@ async function main() {
   // `active`; missing/pending/unknown is DEFERRED, never fail-open.
   const emailsInScope = [...new Set(alerts.map((a) => String(a.email || '').toLowerCase()))];
   const consentByEmail = new Map();
+  const newsletterProfiles = new Map();
   const LOOKUP_CHUNK_SIZE = 200;
   for (let i = 0; i < emailsInScope.length; i += LOOKUP_CHUNK_SIZE) {
     const chunk = emailsInScope.slice(i, i + LOOKUP_CHUNK_SIZE);
@@ -1386,6 +1391,7 @@ async function main() {
       const snaps = await db.getAll(...refs);
       chunk.forEach((e, idx) => {
         const [nlDoc, jaDoc] = snaps.slice(idx * 2, idx * 2 + 2);
+        if (nlDoc?.exists) newsletterProfiles.set(e, nlDoc.data() || {});
         consentByEmail.set(e, classifyRecipientConsent(
           nlDoc && { exists: nlDoc.exists, data: nlDoc.data() || {} },
           jaDoc && { exists: jaDoc.exists, data: jaDoc.data() || {} },
@@ -1432,6 +1438,28 @@ async function main() {
     await persistDeferredDeliveryWrites(db, deferredDeliveryWrites, DRY_RUN);
     console.log('   No recipient has a verified sendable consent state — nothing to send.');
     return;
+  }
+
+  // The immediate sender must enforce the same consent boundary as the daily
+  // digest. A historical backfill can be switched to `immediate` by later
+  // writes, so filtering only the digest would leave a second delivery path.
+  // Missing newsletter data fails closed for inferred alerts.
+  const blockedBackfillReasons = {};
+  const beforeBackfillConsentFilter = alerts.length;
+  alerts = alerts.filter((alert) => {
+    const emailKey = String(alert.email || '').toLowerCase();
+    const verdict = evaluateJobAlertConsent({
+      alert,
+      subscriber: newsletterProfiles.get(emailKey) || null,
+    });
+    if (!verdict.allowed) {
+      blockedBackfillReasons[verdict.reason] = (blockedBackfillReasons[verdict.reason] || 0) + 1;
+      return false;
+    }
+    return true;
+  });
+  if (alerts.length !== beforeBackfillConsentFilter) {
+    console.log(`   🔐 Job-alert consent gate: ${beforeBackfillConsentFilter - alerts.length} inferred alert(s) skipped — ${JSON.stringify(blockedBackfillReasons)}`);
   }
 
   // ── ONE EMAIL PER RECIPIENT ──────────────────────────────────────────────

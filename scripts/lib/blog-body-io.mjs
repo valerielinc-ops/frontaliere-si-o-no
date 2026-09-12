@@ -34,7 +34,8 @@ export function bodyDirForSection(section) {
 }
 
 /**
- * Extracts body1..body3 from a body module's source text.
+ * Extracts body1..body20 from a body module's source text, matching the
+ * renderer's contiguous body-segment probe.
  *
  * @param {string} content raw .ts file contents
  * @param {string} id      article id (the file's basename)
@@ -43,7 +44,7 @@ export function bodyDirForSection(section) {
 export function extractBodies(content, id) {
   const bodies = {};
   if (typeof content !== 'string' || !id) return bodies;
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 20; i++) {
     const key = `blog.article.${id}.body${i}`;
     const pattern = new RegExp(`'${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}':\\s*'((?:[^'\\\\]|\\\\.)*)'`, 's');
     const m = content.match(pattern);

@@ -23,6 +23,7 @@ import {
   titleLooksUntranslatedFromSource,
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { MAX_SLUG_LENGTH } from './regenerate-slugs-helpers.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
 import { WORKDAY_HOST_RE, workdayReqFromLeaf, UMANTIS_HOST_RE, UMANTIS_VACANCY_PATH_RE } from './job-url-key.mjs';
 import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
@@ -38,6 +39,7 @@ import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 import { intFromEnv } from './int-from-env.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
+import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -120,16 +122,6 @@ export function sanitizeAiOutput(text) {
   // Step 3 — strip NUL and DEL
   s = s.replace(/[\u0000\u007f]/g, '');
   return s;
-}
-
-export function normalizeKey(value = '') {
-  return String(value || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
 }
 
 const GERMAN_SLUG_WORDS =
@@ -3198,7 +3190,7 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
           cacheUpdated = true;
           if (job.needsRetranslation) { delete job.needsRetranslation; changed = true; }
         } else {
-          if (job.localeMismatchSuppressed && !sourceChangedSinceSuppression(job)) {
+          if (job.localeMismatchSuppressed && !sourceChangedSinceSuppression(job, baseDesc)) {
             skipAiSuppressedCount += 1;
             continue;
           }
@@ -5980,16 +5972,16 @@ export function stableSlugHash(job) {
  *
  * @param {string} slug — Base slug (without disambiguator)
  * @param {string} disambiguator — Suffix string (e.g. from stableSlugHash or UUID prefix)
- * @param {number} [maxLen=120] — Max total slug length
+ * @param {number} [maxLen=MAX_SLUG_LENGTH] — Max total slug length shared with the canonical builder
  * @returns {string} Slug with disambiguator appended, or base slug if no disambiguator
  */
-export function appendSlugDisambiguator(slug, disambiguator, maxLen = 120) {
+export function appendSlugDisambiguator(slug, disambiguator, maxLen = MAX_SLUG_LENGTH) {
   const base = String(slug || '').trim();
   const d = String(disambiguator || '').trim();
   if (!d) return base;
   if (!base) return d;
   const maxBase = Math.max(0, maxLen - d.length - 1);
-  const trimmed = base.slice(0, maxBase).replace(/-+$/, '');
+  const trimmed = truncateSlugAtWordBoundary(base, maxBase).replace(/-+$/, '');
   return trimmed ? `${trimmed}-${d}` : d;
 }
 
@@ -6056,7 +6048,7 @@ export function isLegacyRouteCapRefusal(error) {
     || error?.code === LEGACY_ROUTE_CAP_ERROR_CODE;
 }
 
-export function normalizeCompanyKey(input) { return normalizeKey(input).slice(0, 64); }
+export { normalizeKey, normalizeCompanyKey };
 
 export function dateOnly(input) {
   const d = new Date(input || Date.now());
@@ -6707,6 +6699,11 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     // Apply isSlugStable to each locale in slugByLocale — prevent slug churn
     // from minor title wording changes (e.g. "per la Ricerca" → "di ricerca")
     if (old.slugByLocale && fresh.slugByLocale) {
+      const oldDisambiguator = String(old.slugDisambiguator || '').trim();
+      const freshDisambiguator = String(fresh.slugDisambiguator || '').trim();
+      const disambiguatorChanged = Boolean(
+        freshDisambiguator && freshDisambiguator !== oldDisambiguator,
+      );
       for (const locale of LOCALES) {
         const oldSlug = old.slugByLocale[locale];
         const newSlug = fresh.slugByLocale[locale];
@@ -6727,7 +6724,10 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
         }
 
         if (oldSlug && newSlug && oldSlug !== newSlug) {
-          const stable = isSlugStable(oldSlug, newSlug, {
+          // A disambiguator retrofit is an intentional identity migration.
+          // The generic token-containment rule would otherwise call
+          // `base-slug` and `base-slug-hash` stable and keep the collision.
+          const stable = !disambiguatorChanged && isSlugStable(oldSlug, newSlug, {
             existingLocation: old.addressLocality || old.location || '',
             newLocation: fresh.addressLocality || fresh.location || '',
           });
@@ -6780,7 +6780,15 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     // never be merged into one slug even when their title-token Jaccard score
     // exceeds the 0.80 threshold.
     if (old.slug && fresh.slug && old.slug !== fresh.slug) {
-      const stable = isSlugStable(old.slug, fresh.slug, {
+      const oldDisambiguator = String(old.slugDisambiguator || '').trim();
+      const freshDisambiguator = String(fresh.slugDisambiguator || '').trim();
+      const disambiguatorChanged = Boolean(
+        freshDisambiguator && freshDisambiguator !== oldDisambiguator,
+      );
+      // A newly persisted disambiguator deliberately changes the active route;
+      // capture the old base slug below even when its tokens are contained in
+      // the suffixed replacement.
+      const stable = !disambiguatorChanged && isSlugStable(old.slug, fresh.slug, {
         existingLocation: old.addressLocality || old.location || '',
         newLocation: fresh.addressLocality || fresh.location || '',
       });
@@ -7599,9 +7607,15 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   const nowIsoDate = dateOnly(Date.now());
   const nowIsoTs = new Date().toISOString();
   const map = new Map();
+  const resolveCompanyKey = typeof options.resolveCompanyKey === 'function'
+    ? options.resolveCompanyKey
+    : normalizeCompanyKey;
+  const resolveJobCompanyKey = typeof options.resolveJobCompanyKey === 'function'
+    ? options.resolveJobCompanyKey
+    : (job) => resolveCompanyKey(String(job?.companyKey || job?.company || ''));
   const scopeCompanyKeys = new Set(
     (Array.isArray(options.scopeCompanyKeys) ? options.scopeCompanyKeys : [])
-      .map((k) => normalizeCompanyKey(k))
+      .map((k) => resolveCompanyKey(k))
       .filter(Boolean)
   );
   const hasScopedCompanyKeys = scopeCompanyKeys.size > 0;
@@ -7622,6 +7636,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (!fp) continue;
     const normalized = {
       ...job,
+      ...(job?.companyKey ? { companyKey: resolveJobCompanyKey(job) } : {}),
       crawledAt: normalizeSpace(job.crawledAt || ''),
     };
     const prev = map.get(fp);
@@ -7653,6 +7668,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     seenIncoming.add(fp);
     const next = {
       ...raw,
+      ...(raw?.companyKey ? { companyKey: resolveJobCompanyKey(raw) } : {}),
       id: raw.id || buildStableId(raw),
       crawledAt: nowIsoTs,
     };
@@ -7789,13 +7805,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   const allMerged = [...map.values()];
   const inScopeJobs = hasScopedCompanyKeys
     ? allMerged.filter((j) => {
-      const key = normalizeCompanyKey(String(j?.companyKey || j?.company || ''));
+      const key = resolveJobCompanyKey(j);
       return scopeCompanyKeys.has(key);
     })
     : allMerged;
   const outOfScopeJobs = hasScopedCompanyKeys
     ? allMerged.filter((j) => {
-      const key = normalizeCompanyKey(String(j?.companyKey || j?.company || ''));
+      const key = resolveJobCompanyKey(j);
       return !scopeCompanyKeys.has(key);
     })
     : [];

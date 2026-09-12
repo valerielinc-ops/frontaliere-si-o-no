@@ -1,0 +1,22 @@
+{
+  "companyKey": "schweizerhof-flims",
+  "companyName": "Schweizerhof",
+  "companyHost": "hotelcareer.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933"
+  ],
+  "detailTemplate": "/jobs/romantik-hotel-schweizerhof-11933/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Portier Housekeeping (m/w)",
+    "Receptionist (m/w) 80 - 100% in unbefristeter Jahrestellung",
+    "Zimmer-Reinigungskraft (m/w) gerne auch langfristige Anstellung"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-12T08:50:50.994Z"
+}

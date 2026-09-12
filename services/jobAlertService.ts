@@ -804,6 +804,10 @@ export async function subscribeSalaryAlert(
  * and what the site shows them under that URL are the same entity — including
  * the brand-alias fold, which collapses "Migros Ticino" and "Gruppo Migros"
  * onto `migros` instead of creating two alerts that each see half the jobs.
+ * `companyKey` remains an input to that shared resolver for its explicit
+ * canonical rules, but it never replaces the display name: crawler keys can
+ * own several employer labels (for example the Migros crawler also publishes
+ * Galaxus jobs), while the public profile is keyed by the employer label.
  *
  * The matcher's `normalizeCompanyToken` (services/jobAlertMatching.mjs) is now
  * DERIVED from the same slug, so the write side and the read side cannot drift.
@@ -864,7 +868,19 @@ export async function subscribeCompanyAlert(
     sourceJobUrl: source?.url ?? null,
     sourceJobTitle: source?.title ?? null,
   };
-  return createAlert(userId, email, config);
+  const alert = await createAlert(userId, email, config);
+  // The anonymous double-opt-in path leaves this marker on the newsletter
+  // subscriber until the alert is actually persisted. Do not clear it before
+  // the idempotent write resolves, otherwise an ambiguous response could lose
+  // the only retryable intent.
+  const db = await getDb();
+  const { doc, getDoc, updateDoc } = await import('firebase/firestore');
+  const subscriberRef = doc(db, 'newsletter_subscribers', normalizeEmail(email));
+  const subscriberSnap = await getDoc(subscriberRef);
+  if (subscriberSnap.exists()) {
+    await updateDoc(subscriberRef, { company_follow_followup_pending: false });
+  }
+  return alert;
 }
 
 /**

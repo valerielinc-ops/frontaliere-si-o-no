@@ -19,7 +19,11 @@ import {
 import { useTranslation } from '@/services/i18n';
 import { reportCaughtError } from '@/services/errorReporter';
 import { useExchangeRate } from '@/services/exchangeRateService';
-import { trafficService, type TrafficData } from '@/services/trafficService';
+import {
+ trafficService,
+ effectiveTrafficWaitMinutes,
+ type TrafficData,
+} from '@/services/trafficService';
 import { borderCrossings } from '@/data/borderCrossings';
 import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
@@ -257,8 +261,8 @@ const MorningDashboard: React.FC = () => {
  // trafficLevel undefined = no historical label yet (e.g. non-Ticino
  // borders), NOT 'closed' — filtering it out left this "fastest crossings"
  // widget blind to every non-Ticino crossing (issue #4892 sibling fix).
- // `status` below already degrades gracefully when trafficLevel is
- // undefined (falls through the 'high' check to 'green').
+ // Missing readings stay unavailable: a trafficLevel label is not a live
+ // provider observation and must not be turned into a fabricated status.
  const openCrossings = borderCrossings.filter(bc => bc.trafficLevel !== 'closed');
  return openCrossings
  .map(bc => {
@@ -266,12 +270,12 @@ const MorningDashboard: React.FC = () => {
  return {
  name: bc.name,
  foreignSide: bc.foreignSide,
- waitMinutes: live?.totalCrossingMinutes ?? live?.waitTimeMinutes ?? 0,
- status: live?.status ?? (bc.trafficLevel === 'high' ? 'yellow' as const : 'green' as const),
+ waitMinutes: effectiveTrafficWaitMinutes(live),
+ status: live?.status,
  type: bc.type,
  };
  })
- .sort((a, b) => a.waitMinutes - b.waitMinutes)
+ .sort((a, b) => (a.waitMinutes ?? Infinity) - (b.waitMinutes ?? Infinity))
  .slice(0, 5);
  }, [traffic]);
 
@@ -424,7 +428,8 @@ const MorningDashboard: React.FC = () => {
  <div className={`w-3 h-3 rounded-full flex-shrink-0 ${
  crossing.status === 'green' ? 'bg-success-strong' :
  crossing.status === 'yellow' ? 'bg-warning-strong' :
- 'bg-danger-strong'
+ crossing.status === 'red' ? 'bg-danger-strong' :
+ 'bg-surface-raised'
  }`} />
  <div className="min-w-0 flex-1">
  <div className="font-semibold text-sm text-heading truncate">
@@ -436,11 +441,14 @@ const MorningDashboard: React.FC = () => {
  </div>
  <div className="text-right flex-shrink-0">
  <div className={`text-sm font-bold ${
+ crossing.waitMinutes === null ? 'text-muted' :
  crossing.waitMinutes === 0 ? 'text-success' :
  crossing.waitMinutes <= 10 ? 'text-warning' :
  'text-danger'
  }`}>
- {crossing.waitMinutes > 0
+ {crossing.waitMinutes === null
+ ? t('traffic.notAvailable', 'n.d.')
+ : crossing.waitMinutes > 0
  ? `~${crossing.waitMinutes} min`
  : t('morning.traffic.clear')
  }
@@ -476,7 +484,9 @@ const MorningDashboard: React.FC = () => {
  emoji="🚗"
  title={t('morning.tips.bestCrossing')}
  value={topCrossings[0]?.name || '-'}
- subtitle={topCrossings[0]?.waitMinutes
+ subtitle={topCrossings[0]?.waitMinutes == null
+ ? t('traffic.notAvailable', 'n.d.')
+ : topCrossings[0].waitMinutes > 0
  ? `~${topCrossings[0].waitMinutes} min`
  : t('morning.traffic.clear')
  }

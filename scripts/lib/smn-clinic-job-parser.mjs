@@ -187,6 +187,15 @@ export function fetchOutcomeForZeroMatch(verdict) {
 }
 
 /**
+ * Keep fetch metadata beside, rather than on, the jobs array. Array helpers
+ * return a new array and do not preserve custom properties, so the structured
+ * result is the stable transport boundary for `lastFetchOutcome` (issue #8069).
+ */
+export function buildSmnClinicFetchResult(jobs, fetchOutcome = null) {
+  return { jobs, fetchOutcome };
+}
+
+/**
  * Directory labels that share a significant word with a configured label —
  * the rename candidates to put in front of whoever reads the drift warning
  * ("Clinique de Montchoisi" → "Centre Médical Montchoisi").
@@ -520,11 +529,9 @@ export function createSmnClinicParser(config) {
     }
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${jobs.length} with rich detail content)`);
-    // Same optional-property channel `runStandardCrawlerPipeline` already reads
-    // `discoveredCount` through, so the verdict survives the zero-job soft exit
-    // and reaches the summary slice the exit guard writes.
-    if (fetchOutcome) jobs.fetchOutcome = fetchOutcome;
-    return jobs;
+    // Keep the verdict outside the array: a consumer can filter/map/spread
+    // `result.jobs` without losing the value that reaches the summary slice.
+    return buildSmnClinicFetchResult(jobs, fetchOutcome);
   }
 
   return { fetchAllJobs, isCompanyJob, isTrustedDomain, LISTING_URL, matchesClinicPosting };

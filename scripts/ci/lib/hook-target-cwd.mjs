@@ -25,14 +25,66 @@
  * This same directory reaches both `readFileSync` and the sibling gate's
  * fallback `HEAD`, so the two gates judge the same worktree.
  *
- * Fail-safe by construction: any missing/malformed/nonexistent cwd signal falls
- * back to the next available signal and ultimately returns `undefined`, which
- * `execFileSync`'s own `cwd` option treats identically to "not passed" — i.e.
- * today's behaviour (inherit the ambient cwd), never a new failure mode.
+ * Missing, malformed, variable-based, or nonexistent cwd signals still fall
+ * back to the next available signal. An existing literal `cd` is different:
+ * if it names a non-repository or a relative directory in another worktree,
+ * the details object preserves that failure so a gate cannot silently inspect
+ * a plausible but wrong checkout.
  */
-import { statSync } from 'node:fs';
+import { existsSync, realpathSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { resolve } from 'node:path';
+import { dirname, isAbsolute, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
+const CORPUS_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
+const siteRepositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
+const localRepositories = new Map([
+  [SITE_REPOSITORY, {
+    repo: siteRepositoryRoot,
+    checkScript: resolve(siteRepositoryRoot, 'scripts/ci/check-sibling-patterns.mjs'),
+  }],
+  [CORPUS_REPOSITORY, {
+    repo: resolve(siteRepositoryRoot, '..', 'frontaliere-articles'),
+    checkScript: resolve(siteRepositoryRoot, '..', 'frontaliere-articles', 'scripts/ci/check-sibling-patterns.mjs'),
+  }],
+]);
+
+/**
+ * Read the explicit repository flag from `gh pr create` without interpreting
+ * the shell. The root hooks are shared by the site and corpus sessions, so
+ * the repository named by the command — not this module's checkout — decides
+ * whether a repository-local checker is available.
+ *
+ * @param {string} command command received by a PreToolUse hook
+ * @returns {string|undefined}
+ */
+function explicitRepository(command) {
+  const text = String(command ?? '');
+  const bodyIndex = text.search(/\s--body(?:-file)?(?:[= ]|$)/);
+  const cli = bodyIndex >= 0 ? text.slice(0, bodyIndex) : text;
+  const flagRe = /(?:^|\s)(?:--repo[= ]+|-R[= ]*)(?:"([^"]*)"|'([^']*)'|(\S+))/g;
+  for (const match of cli.matchAll(flagRe)) {
+    const raw = (match[1] ?? match[2] ?? match[3] ?? '').trim();
+    if (raw && !/[$`]/.test(raw)) return raw;
+  }
+  return undefined;
+}
+
+/**
+ * Resolve the local repository and optional sibling checker for a PR command.
+ * A repository without a local checker returns `null` instead of silently
+ * running the site's checker against another repository's branch.
+ *
+ * @param {string} command command received by a PreToolUse hook
+ * @returns {{repo:string, checkScript:string}|null}
+ */
+export function resolveHookRepository(command) {
+  const requested = explicitRepository(command) ?? SITE_REPOSITORY;
+  const target = localRepositories.get(requested);
+  if (!target || !existsSync(target.checkScript)) return null;
+  return target;
+}
 
 // Only inspect shell separators (plus the quote opened by `zsh -lc "..."`),
 // and only the prefix before the first `gh pr create`. This avoids treating a
@@ -44,13 +96,28 @@ const COMMAND_CWD_RE =
 /**
  * @param {{ cwd?: unknown }} payload parsed PreToolUse stdin JSON
  * @param {string} [command] command received by the PreToolUse hook
- * @returns {string|undefined} an existing directory, or `undefined`
+ * @returns {{cwd:string|undefined, trackedCwd:string|undefined,
+ *   commandCwd:string|undefined, error?:{kind:string,path:string}}}
  */
-export function resolveHookTargetCwd(payload, command = '') {
+export function resolveHookTargetCwdDetails(payload, command = '') {
   const candidate = payload?.cwd;
   const trackedCwd =
     typeof candidate === 'string' && candidate && isDirectory(candidate) ? candidate : undefined;
-  return resolveCommandCwd(command, trackedCwd ?? process.cwd()) ?? trackedCwd;
+  const baseCwd = trackedCwd ?? process.cwd();
+  const commandResolution = resolveCommandCwd(command, baseCwd, baseCwd);
+  if (commandResolution) {
+    return {
+      cwd: commandResolution.cwd,
+      trackedCwd,
+      commandCwd: commandResolution.commandCwd,
+      ...(commandResolution.error ? { error: commandResolution.error } : {}),
+    };
+  }
+  return { cwd: trackedCwd, trackedCwd, commandCwd: undefined };
+}
+
+export function resolveHookTargetCwd(payload, command = '') {
+  return resolveHookTargetCwdDetails(payload, command).cwd;
 }
 
 /**
@@ -60,9 +127,11 @@ export function resolveHookTargetCwd(payload, command = '') {
  *
  * @param {string} command command received by the PreToolUse hook
  * @param {string} baseCwd directory from which a relative `cd` would run
- * @returns {string|undefined} an existing directory named by the command
+ * @param {string} referenceCwd directory whose worktree a relative `cd` must share
+ * @returns {{cwd:string|undefined, commandCwd:string,
+ *   error?:{kind:string,path:string}}|undefined}
  */
-function resolveCommandCwd(command, baseCwd = process.cwd()) {
+function resolveCommandCwd(command, baseCwd = process.cwd(), referenceCwd = baseCwd) {
   const text = String(command ?? '');
   const cliIndex = text.indexOf('gh pr create');
   const prefix = cliIndex >= 0 ? text.slice(0, cliIndex) : text;
@@ -72,9 +141,31 @@ function resolveCommandCwd(command, baseCwd = process.cwd()) {
     const raw = (match[1] ?? match[2] ?? match[3] ?? '').trim();
     if (!raw || /[$`]/.test(raw)) continue;
     const candidate = resolve(baseCwd, raw);
-    if (isDirectory(candidate)) resolvedCwd = candidate;
+    if (!isDirectory(candidate)) continue;
+
+    const candidateRoot = resolveGitWorktreeRoot(candidate);
+    if (!candidateRoot) {
+      return {
+        cwd: candidate,
+        commandCwd: candidate,
+        error: { kind: 'non-repository', path: candidate },
+      };
+    }
+
+    if (!isAbsolute(raw)) {
+      const referenceRoot = resolveGitWorktreeRoot(referenceCwd);
+      if (!referenceRoot || referenceRoot !== candidateRoot) {
+        return {
+          cwd: undefined,
+          commandCwd: candidate,
+          error: { kind: 'different-worktree', path: candidate },
+        };
+      }
+    }
+
+    resolvedCwd = candidate;
   }
-  return resolvedCwd;
+  return resolvedCwd ? { cwd: resolvedCwd, commandCwd: resolvedCwd } : undefined;
 }
 
 function isDirectory(candidate) {
@@ -83,6 +174,39 @@ function isDirectory(candidate) {
   } catch {
     return false;
   }
+}
+
+/**
+ * Resolve the Git worktree root for a directory without inheriting the
+ * process cwd. `undefined` means the directory cannot run a repository-local
+ * gate.
+ */
+export function resolveGitWorktreeRoot(candidate) {
+  if (!candidate || !isDirectory(candidate)) return undefined;
+  try {
+    const root = execFileSync('git', ['rev-parse', '--show-toplevel'], {
+      cwd: candidate,
+      encoding: 'utf8',
+      stdio: ['pipe', 'pipe', 'ignore'],
+    }).trim();
+    if (!root) return undefined;
+    try { return realpathSync(root); } catch { return resolve(root); }
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * @param {{error?:{kind:string,path:string}}|undefined} resolution
+ * @returns {string|undefined}
+ */
+export function describeHookTargetCwdFailure(resolution) {
+  const failure = resolution?.error;
+  if (!failure) return undefined;
+  if (failure.kind === 'different-worktree') {
+    return `cd relativo verso ${failure.path} risolve un worktree diverso da quello tracciato`;
+  }
+  return `cwd ${failure.path} non appartiene a una repository Git`;
 }
 
 /**

@@ -116,12 +116,18 @@ jobs:
           import fs from 'node:fs';
           import { getFirestoreDb } from './scripts/lib/firestore-admin.mjs';
 
+          const expectedSource = process.env.INSIGHTS_SOURCE;
+          if (!expectedSource) throw new Error('INSIGHTS_SOURCE is required before reading the snapshot baseline');
           const db = await getFirestoreDb();
           const snapshot = await db.collection('employer_insights').get();
           if (snapshot.empty) throw new Error('employer_insights is empty; refusing a first write without a baseline');
-          const ids = snapshot.docs.map((doc) => doc.id).sort();
-          fs.writeFileSync('/tmp/employer-insights-current.json', JSON.stringify({ count: ids.length, ids }, null, 2) + '\n');
-          console.log(`Current employer_insights documents: ${ids.length}`);
+          const ids = snapshot.docs
+            .filter((doc) => doc.data()?.source === expectedSource)
+            .map((doc) => doc.id)
+            .sort();
+          if (ids.length === 0) throw new Error(`employer_insights has no ${expectedSource} documents; refusing a first write for this source`);
+          fs.writeFileSync('/tmp/employer-insights-current.json', JSON.stringify({ source: expectedSource, count: ids.length, ids }, null, 2) + '\n');
+          console.log(`Current employer_insights documents for ${expectedSource}: ${ids.length} (collection total: ${snapshot.size})`);
           NODE
 
       - name: Build complete dry-run payload (no Firestore write)
@@ -149,9 +155,14 @@ jobs:
           set -euo pipefail
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
-          import { FieldValue } from 'firebase-admin/firestore';
           import { getFirestoreDb } from './scripts/lib/firestore-admin.mjs';
-          import { commitInChunks } from './scripts/lib/firestore-batch.mjs';
+          import {
+            EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION,
+            employerInsightsAdId,
+            readEmployerInsightsSnapshot,
+            restoreEmployerInsightsSnapshot,
+            writeEmployerInsightsDocuments,
+          } from './scripts/lib/employer-insights-firestore.mjs';
 
           const payload = JSON.parse(fs.readFileSync(process.env.PAYLOAD_PATH, 'utf8'));
           const expectedSource = process.env.INSIGHTS_SOURCE;
@@ -160,62 +171,51 @@ jobs:
           }
           const expected = payload.documents;
           const db = await getFirestoreDb();
-          const collection = db.collection('employer_insights');
-          const beforeSnapshot = await collection.get();
-          const before = new Map(beforeSnapshot.docs.map((doc) => [doc.id, doc.data()]));
-
-          async function applyItems(items) {
-            return commitInChunks(db, items, (batch, item) => {
-              const ref = collection.doc(item.id);
-              if (item.operation === 'delete') batch.delete(ref);
-              else batch.set(ref, item.data);
-            }, { chunkSize: 400, maxBatchOps: 400 });
-          }
+          const before = await readEmployerInsightsSnapshot(db);
 
           async function rollback() {
-            const afterSnapshot = await collection.get();
-            const restore = [...before.entries()].map(([id, data]) => ({ id, operation: 'set', data }));
-            for (const doc of afterSnapshot.docs) {
-              if (!before.has(doc.id)) restore.push({ id: doc.id, operation: 'delete' });
-            }
-            let committed = 0;
+            let result = { attempted: 0, committed: 0 };
             try {
-              committed = await applyItems(restore);
+              result = await restoreEmployerInsightsSnapshot(db, before);
             } catch (error) {
-              committed = Number.isInteger(error?.committedItems) ? error.committedItems : committed;
-              throw new Error(`rollback incomplete: committed ${committed}/${restore.length} documents; ${error.message}`, { cause: error });
+              const committed = Number.isInteger(error?.committedItems) ? error.committedItems : result.committed;
+              const attempted = Number.isInteger(error?.attemptedItems) ? error.attemptedItems : result.attempted;
+              throw new Error(`rollback incomplete: committed ${committed}/${attempted} documents (Firestore items); ${error.message}`, { cause: error });
             }
-            if (committed !== restore.length) {
-              throw new Error(`rollback incomplete: committed ${committed}/${restore.length} documents`);
+            if (result.committed !== result.attempted) {
+              throw new Error(`rollback incomplete: committed ${result.committed}/${result.attempted} documents (Firestore items)`);
             }
-            return { attempted: restore.length, committed };
+            return result;
           }
 
           try {
-            const items = expected.map((document) => ({
-              id: document.companyKey,
-              operation: 'set',
-              data: { ...document, updatedAt: FieldValue.serverTimestamp() },
-            }));
-            const written = await applyItems(items);
+            const writeResult = await writeEmployerInsightsDocuments(db, expected, { before });
+            const written = writeResult.documentsWritten;
             if (written !== expected.length) throw new Error(`writer committed ${written}/${expected.length} documents`);
 
-            const afterSnapshot = await collection.get();
+            const after = await readEmployerInsightsSnapshot(db);
             const missing = expected.filter((document) => {
-              const stored = afterSnapshot.docs.find((doc) => doc.id === document.companyKey)?.data();
+              const stored = after.roots.get(document.companyKey);
+              const storedAds = after.ads.get(document.companyKey) || new Map();
+              const expectedAdIds = document.ads.map((ad) => employerInsightsAdId(ad));
               return !stored
                 || stored.source !== expectedSource
                 || stored.provenance?.snapshotId !== document.provenance?.snapshotId
                 || stored.window?.from !== document.window?.from
                 || stored.window?.to !== document.window?.to
-                || stored.window?.timezone !== document.window?.timezone;
+                || stored.window?.timezone !== document.window?.timezone
+                || stored.adsStorage?.type !== 'subcollection'
+                || stored.adsStorage?.collection !== EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION
+                || stored.adsStorage?.count !== document.ads.length
+                || expectedAdIds.some((id) => !storedAds.has(id))
+                || storedAds.size !== document.ads.length;
             }).map((document) => document.companyKey);
             if (missing.length) throw new Error(`post-write verification missing ${missing.length} validated documents`);
-            console.log(`Committed and verified ${written} employer_insights documents; existing collection count is ${afterSnapshot.size}.`);
+            console.log(`Committed and verified ${written} employer_insights roots plus ad shards; existing collection count is ${after.roots.size}.`);
           } catch (error) {
             try {
               const rollbackResult = await rollback();
-              console.error(`Write failed; previous employer_insights snapshot restored (${rollbackResult.committed}/${rollbackResult.attempted} documents).`);
+              console.error(`Write failed; previous employer_insights snapshot restored (${rollbackResult.committed}/${rollbackResult.attempted} Firestore items).`);
             } catch (rollbackError) {
               throw new Error(`write failed; rollback status: ${rollbackError.message}; original write: ${error.message}`, { cause: rollbackError });
             }

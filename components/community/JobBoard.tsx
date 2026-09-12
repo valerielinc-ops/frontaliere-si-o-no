@@ -754,6 +754,7 @@ function normalizeIncomingJob(raw: any): JobListing {
  const company = String(raw?.company || '').trim() || 'Azienda';
  const companyKey = String(raw?.companyKey || '').trim() || undefined;
  const rawCompanyDomain = String(raw?.companyDomain || '').trim();
+ const rawApplyUrl = String(raw?.applyUrl || '').trim();
 
  return {
  ...raw,
@@ -775,6 +776,7 @@ function normalizeIncomingJob(raw: any): JobListing {
  // Do not promote job.url (which may be an ATS host) into ownership proof.
  // Static SEO and runtime JSON-LD must both use the crawler's raw domain.
  companyDomain: rawCompanyDomain || undefined,
+ applyUrl: rawApplyUrl || undefined,
  sector: String(raw?.sector || '').trim() || undefined,
  };
 }
@@ -4719,6 +4721,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   };
  }, [installHistoryPushStateWrapper]);
  const pageViewTrackedKey = useRef<string | null>(null);
+ const pageViewEmission = useRef<{ path: string; id: string | null } | null>(null);
 
  // The central route tracker deliberately defers job-detail/company-hub
  // page_views to this point. Read the URL inside the effect: a pushState can
@@ -4732,18 +4735,29 @@ const JobBoard: React.FC<JobBoardProps> = ({
    installHistoryPushStateWrapper();
   }
   const path = readCurrentPageViewPath();
-  if (!path) return;
+  if (!path) {
+   pageViewTrackedKey.current = null;
+   pageViewEmission.current = null;
+   return;
+  }
   const { pageTemplate } = deriveAnalyticsPageContext(path);
   if (pageTemplate !== 'job_detail' && pageTemplate !== 'jobs_company') {
    // The central tracker owns every other template. Clear the last deferred
    // key so a later visit to the same job URL is a new page view.
    pageViewTrackedKey.current = null;
+   pageViewEmission.current = null;
    return;
   }
   const key = `${path}|${pageViewIdentity?.jobSlug || ''}|${pageViewIdentity?.employerKey || ''}`;
+  // React.StrictMode re-runs effect setup on the same mount. Mark before the
+  // call so that rerun is a technical duplicate, not a second act.
   if (pageViewTrackedKey.current === key) return;
   pageViewTrackedKey.current = key;
-  Analytics.trackPageView(path, undefined, pageViewIdentity);
+  // `undefined` opens a new act; a later identity resolution on the same path
+  // passes the stored id explicitly so the retry remains that same act.
+  const originalId = pageViewEmission.current?.path === path ? pageViewEmission.current.id : undefined;
+  const id = Analytics.trackPageView(path, undefined, pageViewIdentity, originalId);
+  pageViewEmission.current = { path, id };
  }, [pageViewIdentity, pageViewNavigationVersion, initialJobSlug, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor, locale, installHistoryPushStateWrapper]);
 
  // A search/company view momentarily shows a non-authoritative `filteredJobs`:
@@ -6217,17 +6231,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ]);
  const firestore = getFirestore(await getApp());
  if (!firestore) return;
- // Fifth sibling of the auto-subscribe guard (App.tsx, hooks/useUserState.ts,
- // services/authService.ts, PublisherPublishPage) and the same reasoning
- // (#5672). Two of this function's four callers are social sign-in unlocks
- // that promote (`isActive`/`status: 'confirmed'` below when the source is
- // Google/Facebook), which is the ring exactly: open an old email → the
- // never-expiring `ac` code signs you in → unlock a job → subscribed again.
- // The other two land `pending` and so are never promoted, but the upsert
- // still records a `subscribe_completed` event on an opted-out document, and
- // that event is the signal a genuine re-subscription is recognised by. The
- // localStorage flag above cannot cover either case: the unsubscribe handler
- // deletes it.
+ // This is an explicit job-access gate, not a generic authentication hook.
+ // Two callers are social sign-in unlocks that promote
+ // (`isActive`/`status: 'confirmed'` below when the source is Google/Facebook)
+ // because the gate displays the communications notice before the click. The
+ // other two land `pending` and require the DOI link; none is triggered by a
+ // page visit or by a global auth listener.
  //
  // Returning here also skips `markNewsletterSubscribedLocally()` below, which
  // is intended: that flag is what grants offerwall access, and granting a
@@ -6238,9 +6247,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { isNewsletterOptedOut, isNewsletterAccountDeleted } = await import('@/services/newsletterSubscribers');
  if (localStorage.getItem('newsletter_subscribed') === 'true'
  && !(await isNewsletterAccountDeleted(firestore, email))) return;
- if (await isNewsletterOptedOut(firestore, email)) return;
  const normalizedSource = String(source || 'job_board_auth').toLowerCase();
  const isTrustedAuthSource = normalizedSource.includes('google') || normalizedSource.includes('facebook');
+ // Social sign-in is authentication, not renewed newsletter consent. An
+ // explicit email gate, however, may start a fresh DOI cycle after an opt-out;
+ // the confirmation link remains the only thing that lifts the suppression.
+ if (isTrustedAuthSource && await isNewsletterOptedOut(firestore, email)) return;
  const focusedJob = selectedJob || sortedJobs[0] || null;
  const jobContext = focusedJob
  ? {
@@ -6274,6 +6286,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  locationInterest: jobContext.location,
  sectorInterest: jobContext.category,
  locale: navigator.language || 'it-IT',
+ reconsent: !isTrustedAuthSource,
  isActive: isTrustedAuthSource,
  status: isTrustedAuthSource ? 'confirmed' : 'pending',
  // Two different acts, ONE sentence (#5678, #5712, #5765). Each of the two

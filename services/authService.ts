@@ -14,12 +14,10 @@ import { hasActiveSlot } from '@/services/popupQueue';
 import { reportCaughtError } from '@/services/errorReporter';
 import { isNewsletterAutologinInFlight, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 import { resilientImport } from '@/services/resilientImport';
-import { getFirebaseAuthPersistenceKey } from '@/services/firebaseAuthPersistence';
-// Static, unlike the Firestore/newsletter modules below: consentTexts.ts is a
-// frozen constant table with no dependencies, so there is nothing to defer —
-// and a consent proof that failed to load would silently un-fix #5678.
-import { consentProof } from '@/services/consentTexts';
-
+import {
+ hasFirebaseAuthPersistence,
+ setFirebaseAuthSessionMarker,
+} from '@/services/firebaseAuthPersistence';
 // ─── Lazy Firebase Auth Loading ────────────────────────────────
 
 let _auth: any = null;
@@ -42,14 +40,16 @@ function logAuthDebug(event: string, details?: Record<string, unknown>): void {
  }
 }
 
+/** Keep synchronous static gates in step with Firebase's confirmed state. */
+function mirrorAuthSessionMarker(user: unknown | null): void {
+ if (typeof window === 'undefined') return;
+ setFirebaseAuthSessionMarker(window.localStorage, Boolean(user));
+}
+
 /** Lightweight synchronous check for an existing Firebase Auth session in localStorage. */
 export function hasPersistedAuthSession(): boolean {
  if (typeof window === 'undefined') return false;
- try {
- const activeKey = getFirebaseAuthPersistenceKey();
- return window.localStorage.getItem(activeKey) !== null;
- } catch { /* localStorage unavailable */ }
- return false;
+ return hasFirebaseAuthPersistence(window.localStorage);
 }
 
 function shouldStartAuthImmediately(): boolean {
@@ -103,6 +103,7 @@ async function ensureFirebaseAuth(): Promise<void> {
  }
  // Only expose _auth after full initialization is confirmed.
  _auth = authInstance;
+ mirrorAuthSessionMarker(authInstance.currentUser);
  logAuthDebug('ensureFirebaseAuth:ready', {
  authDomain: appInstance?.options?.authDomain || null,
  hasCurrentUser: Boolean(_auth?.currentUser),
@@ -216,6 +217,7 @@ export async function signInWithGoogle(): Promise<any | null> {
  try {
  Analytics.trackUIInteraction('auth', 'google', 'login', 'popup-start');
  const result = await _authModule.signInWithPopup(authInstance, googleProvider);
+ mirrorAuthSessionMarker(result.user);
  Analytics.trackUIInteraction('auth', 'google', 'login', 'success');
  // Best-effort: save user profile to Firestore for personalization
  saveUserProfileToFirestore(result.user, 'google').catch(() => {});
@@ -263,6 +265,7 @@ export async function signOut(): Promise<void> {
  const authInstance = getAuthInstance();
  if (!authInstance || !_authModule) return;
  await _authModule.signOut(authInstance);
+ mirrorAuthSessionMarker(null);
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'general', 'logout', 'success');
  } catch (error) {
@@ -276,6 +279,7 @@ export async function signInWithEmailPassword(email: string, password: string): 
  const authInstance = getAuthInstance();
  if (!authInstance || !_authModule) return null;
  const result = await _authModule.signInWithEmailAndPassword(authInstance, email.trim(), password);
+ mirrorAuthSessionMarker(result.user);
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'email', 'login', 'success');
  return result.user;
@@ -325,10 +329,12 @@ export async function signInWithNewsletterEmailLink(email: string, href?: string
 
  const currentUserEmail = getAuthEmail(authInstance.currentUser);
  if (currentUserEmail && currentUserEmail.toLowerCase() === normalizedEmail) {
- return authInstance.currentUser;
+  mirrorAuthSessionMarker(authInstance.currentUser);
+  return authInstance.currentUser;
  }
 
  const result = await _authModule.signInWithEmailLink(authInstance, normalizedEmail, link);
+ mirrorAuthSessionMarker(result?.user);
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'newsletter', 'login', 'email-link-success');
  return result?.user || null;
@@ -346,6 +352,7 @@ export async function signInWithCustomAuthToken(token: string): Promise<any | nu
  const authInstance = getAuthInstance();
  if (!authInstance || !_authModule) return null;
  const result = await _authModule.signInWithCustomToken(authInstance, token);
+ mirrorAuthSessionMarker(result?.user);
  return result?.user || null;
  } catch (error) {
  reportCaughtError(error, 'auth.signInWithCustomToken');
@@ -725,6 +732,7 @@ export async function signInWithFacebook(): Promise<any | null> {
  // Desktop: try popup
  try {
  const result = await _authModule.signInWithPopup(authInstance, facebookProvider);
+  mirrorAuthSessionMarker(result.user);
  await patchFacebookData(result);
  Analytics.trackUIInteraction('auth', 'facebook', 'login', 'success');
  // Best-effort: save user profile to Firestore for personalization
@@ -734,7 +742,10 @@ export async function signInWithFacebook(): Promise<any | null> {
  // Account exists with different credential — link accounts
  if (popupError?.code === 'auth/account-exists-with-different-credential') {
  const user = await handleAccountLinking(popupError);
- if (user) return user;
+ if (user) {
+  mirrorAuthSessionMarker(user);
+  return user;
+ }
  // If linking failed, inform the user
  console.warn('[Auth] Please sign in with Google instead (same email).');
  return null;
@@ -790,6 +801,7 @@ export async function reAuthFacebook(): Promise<any | null> {
 
  try {
  const result = await _authModule.signInWithPopup(authInstance, facebookProvider);
+  mirrorAuthSessionMarker(result.user);
  await patchFacebookData(result);
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'facebook', 'reauth', 'success');
@@ -999,6 +1011,7 @@ export function useAuth(): AuthState & {
  });
  if (result?.user) {
  const provider = sessionStorage.getItem('auth_redirect_provider') || 'google';
+ mirrorAuthSessionMarker(result.user);
  sessionStorage.removeItem('auth_redirect_provider');
  // Mirror the redirect result into local hook state immediately.
  // On some mobile Google redirect returns, Firebase restores the session
@@ -1049,6 +1062,7 @@ export function useAuth(): AuthState & {
  ? u.providerData.map((p: any) => p?.providerId).filter(Boolean)
  : [],
  });
+ mirrorAuthSessionMarker(u);
  setUser(u);
  setLoading(false);
  });
@@ -1225,6 +1239,7 @@ interface OneTapButtonOptions {
  logo_alignment?: 'left' | 'center';
  width?: number;
  locale?: string;
+ click_listener?: () => void;
 }
 
 let oneTapInitialized = false;
@@ -1322,77 +1337,7 @@ export async function initOneTap(): Promise<boolean> {
  return oneTapInitPromise;
 }
 
-/**
- * Handle One Tap credential response
- */
-/**
- * Persist a newsletter_subscribers/{email} record for a One Tap signin.
- *
- * The desktop popup + mobile redirect flows rely on the App.tsx auth listener
- * to fire `upsertNewsletterSubscriber` after `onAuthStateChanged` updates
- * `authEmail`. One Tap signs the user in via `signInWithCredential` without
- * routing through that listener path (the listener is lazy and may not be
- * attached, and the flow does not set `auth_redirect_provider`), so we mirror
- * the popup-flow upsert here directly.
- */
-async function persistOneTapSubscriber(user: { email?: string | null; displayName?: string | null }): Promise<void> {
- const rawEmail = user?.email?.toLowerCase().trim();
- if (!rawEmail || !rawEmail.includes('@')) return;
- try {
- const [{ getFirestore }, { getApp }, newsletterModule] = await Promise.all([
- resilientImport(() => import('firebase/firestore'), (m) => typeof m.getFirestore === 'function'),
- resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
- resilientImport(() => import('@/services/newsletterSubscribers'), (m) => typeof m.normalizeNewsletterEmail === 'function'),
- ]);
- const db = getFirestore(await getApp());
- const normalizedEmail = newsletterModule.normalizeNewsletterEmail(rawEmail);
- if (!normalizedEmail) return;
- const hasLocalSubscriptionFlag = typeof window !== 'undefined'
- && window.localStorage?.getItem('newsletter_subscribed') === 'true';
- if (
- hasLocalSubscriptionFlag
- && !(await newsletterModule.isNewsletterAccountDeleted(db, normalizedEmail))
- ) return;
- // Third sibling of the auto-subscribe-on-sign-in guard (App.tsx and
- // hooks/useUserState.ts are the other two): the localStorage flag above is
- // not a guard, because the unsubscribe handler clears it. One Tap signs the
- // reader in from any link in any email we ever sent, so without this a
- // single One Tap prompt undid a recorded opt-out (#5672).
- if (await newsletterModule.isNewsletterOptedOut(db, normalizedEmail)) return;
- const savedJobContext = typeof window !== 'undefined' ? consumeAuthJobContext() : null;
- await newsletterModule.upsertNewsletterSubscriber(db, {
- email: normalizedEmail,
- name: user.displayName || null,
- preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
- source: 'signup',
- sourceChannel: 'auth_google',
- sourcePage: typeof window !== 'undefined' ? window.location.pathname : null,
- sourceCta: 'one_tap',
- sourceComponent: 'auth_one_tap',
- locale: typeof navigator !== 'undefined' ? navigator.language || 'it-IT' : 'it-IT',
- ...(savedJobContext ? {
- jobContext: {
- slug: savedJobContext.slug || null,
- company: savedJobContext.company || null,
- location: savedJobContext.location || null,
- category: savedJobContext.category || null,
- },
- locationInterest: savedJobContext.location || null,
- sectorInterest: savedJobContext.category || null,
- } : {}),
- isActive: true,
- // One Tap is an authentication, and the recorded formula says exactly
- // that (#5678). Google is certain here — unlike App.tsx's shared
- // listener, this helper only ever runs for a Google credential.
- ...consentProof('signInAutoSubscribe', 'google_oauth'),
- });
- try { window.localStorage?.setItem('newsletter_subscribed', 'true'); } catch { /* ignore */ }
- } catch (err) {
- // Best-effort: don't break sign-in if Firestore write fails (e.g., rate-limit, offline)
- reportCaughtError(err, 'auth.persistOneTapSubscriber');
- }
-}
-
+/** Handle One Tap credential response. Authentication alone never subscribes. */
 async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  try {
  await ensureFirebaseAuth();
@@ -1400,15 +1345,13 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  if (!authInstance || !_authModule) return;
  const credential = _authModule.GoogleAuthProvider.credential(response.credential);
  const result = await _authModule.signInWithCredential(authInstance, credential);
+ mirrorAuthSessionMarker(result.user);
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'google', 'login', 'onetap');
 
- // Mirror the popup-flow side effects: profile enrich + full subscriber upsert.
- // Without these, One Tap creates an Auth user without any newsletter_subscribers
- // doc, so the user never receives the newsletter (regression introduced when
- // ea096801e7 fixed the GSI loader and One Tap actually started firing).
+ // Profile enrichment is independent from newsletter consent. A newsletter
+ // record is created only by an explicit form or a visible communications gate.
  saveUserProfileToFirestore(result.user, 'google').catch(() => { /* best-effort */ });
- persistOneTapSubscriber(result.user).catch(() => { /* best-effort */ });
 
  // Redirect to saved path if present (e.g., expired/bridge job → listing)
  const savedPath = sessionStorage.getItem('auth_redirect_path');
@@ -1531,6 +1474,7 @@ export async function deleteCurrentUser(): Promise<boolean> {
  }
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'account', 'delete', 'success');
+ mirrorAuthSessionMarker(null);
  return true;
  } catch (error) {
  console.warn('Account deletion error:', error);

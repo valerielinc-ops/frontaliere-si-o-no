@@ -2,7 +2,9 @@ import { describe, it, expect } from 'vitest';
 import {
   aggregateGa4Rows,
   ga4Date,
+  comparePostHogCompany,
   postHogBaseQuery,
+  reportPayload,
   resolveGa4Employers,
 } from '../scripts/employer-traffic-report.mjs';
 
@@ -61,6 +63,34 @@ describe('aggregateGa4Rows', () => {
     expect(result.employers).toHaveLength(1);
     expect(result.employers[0]).toMatchObject({ key: 'acme', observed: 0, applyClicks: 0 });
   });
+
+  it('keeps zero-valued GA4 employers out of the printed table without non-finite totals', () => {
+    const companies = new Map([
+      ['acme', { key: 'acme', name: 'Acme SA', aliases: new Set(['acme']) }],
+    ]);
+    const [row] = aggregateGa4Rows([ga4Row('acme', false, 0, 0, 0)]);
+    const resolved = resolveGa4Employers([row], companies);
+    const payload = reportPayload({
+      source: 'ga4',
+      window: WINDOW,
+      data: {
+        coverage: {
+          observed: resolved.observed,
+          attributed: resolved.attributed,
+          residuals: resolved.residuals,
+          residualTotal: 0,
+          limits: { groups: { limit: 1, pageSize: 1, totalBeforeCut: 1, returned: 1, pages: 1, truncated: false } },
+        },
+      },
+      rows: resolved.employers,
+      min: 1,
+      days: 90,
+    });
+
+    expect(payload.employers).toHaveLength(0);
+    expect(payload.totals).toMatchObject({ applyClickProxy: 0, applyClicks: 0, persons: 0, sessions: 0, clicks: 0 });
+    expect(JSON.stringify(payload)).not.toMatch(/NaN|Infinity/);
+  });
 });
 
 describe('postHogBaseQuery', () => {
@@ -72,6 +102,16 @@ describe('postHogBaseQuery', () => {
     expect(firstPage).not.toContain('OFFSET');
     expect(nextPage).toContain("> 'acme'");
     expect(nextPage).not.toContain('OFFSET');
+  });
+
+  it('compares company cursors with ClickHouse UTF-8 byte ordering', () => {
+    const supplementary = String.fromCodePoint(0x10000);
+    const privateUseBmp = '\uE000';
+
+    // JavaScript UTF-16 and ClickHouse UTF-8 disagree for this pair; the
+    // cursor guard must follow the database ordering, not the JS default.
+    expect(supplementary > privateUseBmp).toBe(false);
+    expect(comparePostHogCompany(supplementary, privateUseBmp)).toBeGreaterThan(0);
   });
 });
 

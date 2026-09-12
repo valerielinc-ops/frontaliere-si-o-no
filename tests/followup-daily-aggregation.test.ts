@@ -80,6 +80,13 @@ describe('post-merge triage marker contract', () => {
     expect(zeroResultBranch).toBeTruthy();
     expect(zeroResultBranch).not.toContain('persistence_ok=false');
   });
+
+  it('reads positive persistence only from the explicit creation/update line', () => {
+    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+    const bucketLine = workflow.split('\n').find((line) => line.includes('bucket_refs=$(printf'));
+    expect(bucketLine).toContain('Created');
+    expect(bucketLine).toContain('bucket #[0-9]+');
+  });
 });
 
 function item(id: string, state = 'open', title = 'Proteggi il comportamento') {
@@ -272,6 +279,38 @@ describe('daily follow-up identity and dedup', () => {
 });
 
 describe('daily item parsing and lifecycle', () => {
+  it('recupera il formato shorthand del triage e apre gli item senza State', () => {
+    const shorthand = [
+      'State: collecting',
+      '',
+      '## Origine',
+      '- PR: #8101',
+      '',
+      '## Item',
+      item(`FU-${DAY}-001`)
+        .replace('- State: open\n', '')
+        .replace('- Target file:', '- Target repository: owner/repo\n- Target file:'),
+      '',
+    ].join('\n');
+    const title = dailyBucketTitle(DAY, 'owner/repo', 1);
+    expect(bucketState(shorthand)).toBe('collecting');
+    expect(dailyKeyFromBucketBody(shorthand)).toBe(DAY);
+    expect(hasDailyBucketRepositoryConsistency(shorthand, 'owner/repo')).toBe(true);
+
+    const decision = decideDailyMintGate({ title, body: shorthand }, { triageComplete: true });
+    expect(decision).toMatchObject({ action: 'seal', reason: 'daily-bucket-sealed' });
+    expect(bucketState(decision.body || '')).toBe('sealed');
+    expect(selectFirstOpenItem(decision.body || '')?.id).toBe(`FU-${DAY}-001`);
+
+    const fencedExample = shorthand.replace(
+      '- Suggested action: aggiungi `firstGuard()` e `secondGuard()` in `scripts/example.mjs`',
+      '- Suggested action: aggiungi `firstGuard()` e `secondGuard()` in `scripts/example.mjs`\n```md\n- State: blocked\n```',
+    );
+    const fencedDecision = decideDailyMintGate({ title, body: fencedExample }, { triageComplete: true });
+    expect(fencedDecision).toMatchObject({ action: 'seal', reason: 'daily-bucket-sealed' });
+    expect(selectFirstOpenItem(fencedDecision.body || '')?.id).toBe(`FU-${DAY}-001`);
+  });
+
   it('segnala una fence Markdown non terminata e blocca sealing, queue, reconcile e close', () => {
     const unterminated = body(item(`FU-${DAY}-001`)).replace(
       '- Acceptance token: `firstGuard()`',

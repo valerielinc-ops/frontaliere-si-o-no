@@ -170,12 +170,16 @@ function stripFencedBlocks(text) {
     out.push(line);
   }
 
-  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+  const visible = fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+  // Inline code is quoted evidence too.  Leaving it visible makes a filename
+  // such as `triage-sweep.mjs` turn the surrounding single-item issue into an
+  // aggregate merely because the path contains the word "sweep" (#1320/FU-028).
+  return visible.replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
 }
 
 export function hasEnumeratedItems(body) {
   const b = stripFencedBlocks(body);
-  const numberedSections = (b.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length;
+  const numberedSections = (b.match(/^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length;
   if (numberedSections >= 2) return true;
   const lines = b.split('\n');
   const orderedBoldItems = lines.reduce((count, line, index) => {
@@ -208,7 +212,7 @@ function isBoldTitleLead(rest, lines = [], start = 0) {
  * detectors, OR'd: explicit title count, keyword fallback, body enumeration.
  */
 export function isAggregate(title, body) {
-  const titleText = String(title || '');
+  const titleText = stripFencedBlocks(title);
   // Daily buckets are aggregates even when their current count is one. Keep
   // this shared predicate aligned with the issue-fix closing-ref generator so
   // a fallback path can never emit `Closes #N` for a daily bucket.

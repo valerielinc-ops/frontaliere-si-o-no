@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-09-11T13:38:01.134Z",
+  "generatedAt": "2026-09-12T13:04:20.699Z",
   "total": 149,
   "newCount": 0,
   "updatedCount": 95,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 2352,
-  "avgDurationMs": 2352,
+  "durationMs": 3118,
+  "avgDurationMs": 3118,
   "durationHistory": [
-    2352
+    3118
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1230,12 +1230,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "pwc-a814f960a57b",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-07-01T12:21:56.910Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,

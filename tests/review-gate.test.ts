@@ -11,6 +11,7 @@ import {
   importantFindings,
   logClassification,
   CODEX_REVIEW_MARKER,
+  normalizeReviewBody,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
 
@@ -618,6 +619,155 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     });
   });
 
+  it('carries a prior LGTM across a fallback that repeats unchanged confirmed findings', async () => {
+    const fixedReview = {
+      ...approvingBotReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `src/changed.mjs:L12`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'),
+    };
+    const staleReview = {
+      ...historicalImportantReview,
+      body: `${CODEX_REVIEW_MARKER}\n${historicalImportantReview.body.replace(/\n## LGTM$/u, '')}`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, fixedReview, staleReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      changedPathsFn: () => [],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.reason).toMatch(/stale fallback/i);
+  });
+
+  it('keeps a repeated fallback blocking when one cited file changed afterwards', async () => {
+    const fixedReview = {
+      ...approvingBotReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `src/changed.mjs:L12`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'),
+    };
+    const staleReview = {
+      ...historicalImportantReview,
+      body: `${CODEX_REVIEW_MARKER}\n${historicalImportantReview.body.replace(/\n## LGTM$/u, '')}`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, fixedReview, staleReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      changedPathsFn: () => ['src/changed.mjs'],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
+    expect(result.classification.inScope).toHaveLength(1);
+  });
+
+  it('does not hide an Important introduced between the prior LGTM and fallback', async () => {
+    const fixedReview = {
+      ...approvingBotReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `src/changed.mjs:L12`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'),
+    };
+    const intermediateReview = {
+      ...historicalImportantReview,
+      body: [
+        '## Findings (Important: 1, Nit: 0)',
+        '',
+        '`scripts/ci/review-gate.mjs:L881`: 🔴 Important: a new gate flaw remains.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const staleReview = {
+      ...historicalImportantReview,
+      body: `${CODEX_REVIEW_MARKER}\n${historicalImportantReview.body.replace(/\n## LGTM$/u, '')}`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, fixedReview, intermediateReview, staleReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      changedPathsFn: () => [],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
+    expect(result.classification.blocking).toBe(true);
+  });
+
+  it('accepts a post-LGTM finding explicitly closed before the stale fallback', async () => {
+    const fixedReview = {
+      ...approvingBotReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `src/changed.mjs:L12`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'),
+    };
+    const intermediateReview = {
+      ...historicalImportantReview,
+      body: [
+        '## Findings (Important: 1, Nit: 0)',
+        '',
+        '`scripts/ci/review-gate.mjs:L881`: 🔴 Important: a new gate flaw remains.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const closingReview = {
+      ...historicalImportantReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `scripts/ci/review-gate.mjs:L881`: ok.',
+      ].join('\n'),
+      commit_id: HEAD_SHA,
+    };
+    const staleReview = {
+      ...historicalImportantReview,
+      body: `${CODEX_REVIEW_MARKER}\n${historicalImportantReview.body.replace(/\n## LGTM$/u, '')}`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, fixedReview, intermediateReview, closingReview, staleReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      changedPathsFn: () => [],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.reason).toMatch(/stale fallback/i);
+  });
+
   it('accepts a Codex review only with strict evidence, marker and exact HEAD', async () => {
     const codexReview = {
       user: { type: 'Bot', login: 'github-actions[bot]' },
@@ -680,6 +830,36 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 describe('review gate: citazioni e conferme', () => {
   const bot = (body: string) => ({ user: { type: 'Bot', login: 'claude[bot]' }, body, commit_id: 'c'.repeat(40) });
 
+  it('decodifica i separatori newline serializzati dalla review automation', async () => {
+    const escaped = [
+      CODEX_REVIEW_MARKER,
+      '## Findings (Important: 0, Nit: 0)',
+      'Fix di `src/changed.mjs:L12`: ok.',
+      '## LGTM',
+    ].join('\\n');
+
+    expect(normalizeReviewBody(escaped)).toContain('\n## Findings');
+    expect(normalizeReviewBody(escaped)).toContain('\nFix di');
+
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[
+        historicalImportantReview,
+        {
+          ...approvingBotReview,
+          body: escaped,
+          commit_id: HEAD_SHA,
+        },
+      ]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
+  });
+
   it('keeps findingKey() and citationConfirmed() as direct moved-anchor contracts', () => {
     const citation = { path: 'scripts/ci/review-gate.mjs', line: 431 };
     const finding = { citations: [citation], text: 'moved review anchor' };
@@ -721,12 +901,87 @@ describe('review gate: citazioni e conferme', () => {
     expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
   });
 
+  it('riconosce le citazioni delle Firebase rules nelle conferme storiche', () => {
+    const opened = bot('## Findings (Important: 1, Nit: 0)\n\nfirestore.rules:L148: 🔴 Important: la regola di conferma non è coerente.');
+    expect(extractFileCitations(opened.body)).toEqual([
+      { path: 'firestore.rules', line: 148 },
+    ]);
+    expect(importantFindings(opened.body)[0].citations).toEqual([
+      { path: 'firestore.rules', line: 148 },
+    ]);
+    const confirmed = bot('## Findings (Important: 0, Nit: 0)\nFix di `firestore.rules:L148`: ok.\n## LGTM');
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
   it('retains every precise anchor and explicit companion path until each is confirmed', () => {
     const opened = bot('## Findings\n🔴 Important: `src/a.ts:L3` and `src/b.ts:L4` are broken; also fix `src/helper.ts`.');
     const partial = bot('## Findings\nFix di `src/a.ts:L3`: ok.\n## LGTM');
     const remaining = historicalImportantFindings([opened, partial], { includeLatest: true });
     expect(remaining).toHaveLength(1);
     expect(remaining[0].citations).toHaveLength(3);
+  });
+
+  it('ignora i path-esempio nudi assenti dal tree dopo la conferma dell’anchor preciso', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`src/changed.mjs:L12`: 🔴 Important: the root fallback accepts `scripts/foo.mjs` even when `subdir/scripts/foo.mjs` is missing.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `src/changed.mjs:L12`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([opened, confirmed], {
+      includeLatest: true,
+      repositoryPaths: ['src/changed.mjs'],
+    })).toHaveLength(0);
+  });
+
+  it('closes a unique bare companion path when the follow-up confirms its fix line', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`functions/index.js:L344`: 🔴 Important: the consumer is in `build-plugins/borderWaitHydrationScript.ts`.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `functions/index.js:L344`: ok.',
+      'Fix di `build-plugins/borderWaitHydrationScript.ts:L79`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
+  it('closes a shared bare companion only after each finding anchor is confirmed', () => {
+    const openedA = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`src/a.mjs:L10`: 🔴 Important: the first consumer also needs `src/shared.mjs`.',
+    ].join('\n'));
+    const openedB = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`src/b.mjs:L11`: 🔴 Important: the second consumer also needs `src/shared.mjs`.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `src/a.mjs:L10`: ok.',
+      'Fix di `src/b.mjs:L11`: ok.',
+      'Fix di `src/shared.mjs:L7`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([openedA, openedB, confirmed], { includeLatest: true }))
+      .toHaveLength(0);
   });
 
   it('treats a bare repeat of a precise path as context, not a second anchor', () => {

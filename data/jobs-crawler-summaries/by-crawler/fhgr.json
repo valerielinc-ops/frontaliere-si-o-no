@@ -1,23 +1,24 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-09-11T13:41:20.008Z",
+  "generatedAt": "2026-09-12T13:07:39.230Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
   "lastFetchOutcome": null,
   "written": 4,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9081,
-  "avgDurationMs": 9081,
+  "durationMs": 10306,
+  "avgDurationMs": 10306,
   "durationHistory": [
-    9081
+    10306
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "fhgr-30b6daabed80",
       "slug": "studienbetriebskoordinator-in-fhgr-ch",
@@ -30,7 +31,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/807/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:07.210Z",
+      "crawledAt": "2026-09-12T13:07:28.937Z",
       "addressLocality": "Zürich",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -46,16 +47,15 @@
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/807/Application/CheckLogin/1",
       "department": "Institut für Management und Weiterbildung (IMW)",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-11T13:41:07.210Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "fhgr-b9a11e45c5e0",
       "slug": "hr-assistent-in-fhgr-ch",
@@ -68,7 +68,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/808/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:08.312Z",
+      "crawledAt": "2026-09-12T13:07:29.998Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/797/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:09.318Z",
+      "crawledAt": "2026-09-12T13:07:30.803Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:41:10.335Z",
+      "crawledAt": "2026-09-12T13:07:31.826Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",

@@ -35,18 +35,42 @@ function normalizeMarkdownHeading(line) {
   return line.replace(/^[ \t]{0,3}/, '').replace(/[ \t]+$/, '');
 }
 
-function headingLine(line) {
-  return headingLevel(line) !== null;
-}
-
 function headingLevel(line) {
   const match = normalizeMarkdownHeading(line).match(/^(#{1,6})[ \t]+/);
   return match ? match[1].length : null;
 }
 
+function markdownHeadingAt(lines, index) {
+  const line = lines[index];
+  const level = headingLevel(line);
+  if (level !== null) {
+    return {
+      level,
+      text: normalizeMarkdownHeading(line).replace(/^#{1,6}[ \t]+/, '').trim(),
+      bodyStart: index + 1,
+    };
+  }
+
+  const text = normalizeMarkdownHeading(line).trim();
+  const underline = index + 1 < lines.length
+    && normalizeMarkdownHeading(lines[index + 1]).match(/^(=+|-+)[ \t]*$/);
+  if (!text || !underline) return null;
+
+  return {
+    level: underline[1][0] === '=' ? 1 : 2,
+    text,
+    bodyStart: index + 2,
+  };
+}
+
 function fenceMarker(line) {
   const match = line.match(/^[ \t]{0,3}(`{3,}|~{3,})/);
-  return match ? match[1][0] : null;
+  return match ? { char: match[1][0], length: match[1].length } : null;
+}
+
+function advanceFenceState(inFence, marker) {
+  if (!inFence) return marker;
+  return marker.char === inFence.char && marker.length >= inFence.length ? null : inFence;
 }
 
 /**
@@ -60,16 +84,23 @@ function fenceMarker(line) {
 export function extractSectionByHeading(markdown, heading) {
   const lines = String(markdown ?? '').split(/\r?\n/);
   const target = String(heading).trim();
+  const targetLevel = headingLevel(target);
+  const targetText = targetLevel === null
+    ? target
+    : normalizeMarkdownHeading(target).replace(/^#{1,6}[ \t]+/, '').trim();
   let inFence = null;
   const matches = [];
 
   for (let index = 0; index < lines.length; index += 1) {
     const marker = fenceMarker(lines[index]);
     if (marker) {
-      inFence = inFence === marker ? null : inFence ?? marker;
+      inFence = advanceFenceState(inFence, marker);
       continue;
     }
-    if (!inFence && normalizeMarkdownHeading(lines[index]) === target) matches.push(index);
+    const headingAt = !inFence ? markdownHeadingAt(lines, index) : null;
+    if (headingAt && headingAt.level === targetLevel && headingAt.text === targetText) {
+      matches.push(headingAt);
+    }
   }
 
   if (inFence) {
@@ -82,19 +113,18 @@ export function extractSectionByHeading(markdown, heading) {
     throw new Error(`Required heading is ambiguous (${matches.length} matches): ${target}`);
   }
 
-  const start = matches[0];
-  const targetLevel = headingLevel(lines[start]);
+  const { level: matchedLevel, bodyStart } = matches[0];
   inFence = null;
   const body = [];
-  for (let index = start + 1; index < lines.length; index += 1) {
+  for (let index = bodyStart; index < lines.length; index += 1) {
     const marker = fenceMarker(lines[index]);
     if (marker) {
-      inFence = inFence === marker ? null : inFence ?? marker;
+      inFence = advanceFenceState(inFence, marker);
       body.push(lines[index]);
       continue;
     }
-    const level = headingLine(lines[index]) ? headingLevel(lines[index]) : null;
-    if (!inFence && level !== null && level <= targetLevel) break;
+    const headingAt = !inFence ? markdownHeadingAt(lines, index) : null;
+    if (!inFence && headingAt && headingAt.level <= matchedLevel) break;
     body.push(lines[index]);
   }
 
@@ -158,8 +188,31 @@ export function validateRedflagDocumentSections(document) {
   return value;
 }
 
+/**
+ * Indent the document for the multiline GitHub Actions prompt and enforce the
+ * byte budget on the value that is actually injected, not only on its raw
+ * unindented form.
+ *
+ * @param {string} document
+ * @param {string} [indent]
+ * @returns {string}
+ */
+export function indentAndValidateRedflagDocumentSections(document, indent = '            ') {
+  const value = validateRedflagDocumentSections(document);
+  const indented = value.split(/\r?\n/).map((line) => indent + line).join('\n');
+  const bytes = Buffer.byteLength(indented, 'utf8');
+  if (bytes > REDFLAG_DOC_SECTIONS_MAX_BYTES) {
+    throw new Error(
+      `Indented redflag document too large for the prompt: ${bytes} bytes > ${REDFLAG_DOC_SECTIONS_MAX_BYTES}-byte limit`,
+    );
+  }
+  return indented;
+}
+
 export function buildIssueFixAgentContract({ read } = {}) {
-  return buildDocumentSections(AGENTS_REQUIRED_SECTIONS, '# Issue-fix: contratto AGENTS.md vincolante', { read });
+  return validateRedflagDocumentSections(
+    buildDocumentSections(AGENTS_REQUIRED_SECTIONS, '# Issue-fix: contratto AGENTS.md vincolante', { read }),
+  );
 }
 
 const invokedDirectly = process.argv[1]

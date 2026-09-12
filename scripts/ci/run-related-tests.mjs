@@ -67,6 +67,29 @@ const testFixtureRe = /^tests\/.+\.json$/i;
 const assetLiteralRe = /(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
 const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
+// A related-test verdict is only meaningful when the generated runtime data
+// used by the selected tests is present. The CI checkout materializes these
+// sentinels; a local sparse worktree does not. Keep `--select-only` and the
+// local dry-run seam usable for inspecting the graph, but never let a real
+// Vitest invocation turn missing artifacts into application regressions.
+const REQUIRED_FULL_CHECKOUT_ARTIFACTS = Object.freeze([
+  'data/blog-articles-data.ts',
+  'data/swiss-articles-data.ts',
+  'public/.nojekyll',
+]);
+function missingFullCheckoutArtifacts() {
+  return REQUIRED_FULL_CHECKOUT_ARTIFACTS.filter((relative) => !existsSync(relative));
+}
+function requireFullCheckoutForVerdict() {
+  const missing = missingFullCheckoutArtifacts();
+  const localInspection = selectionOnly
+    || (process.env.VITEST_RELATED_DRY_RUN === 'true' && process.env.GITHUB_ACTIONS !== 'true');
+  if (missing.length === 0 || localInspection) return;
+  console.error('BLOCKED: related-test verdict requires a full checkout; generated runtime artifacts are missing.');
+  console.error(`  Artefacts mancanti: ${missing.join(', ')}`);
+  console.error('  È un problema di ambiente, non di codice: esegui il comando in CI o da un checkout PIENO con data/ e public/ materializzati.');
+  process.exit(2);
+}
 // These dependencies are wired by Vitest/configuration or executed through a
 // path string, so no static import edge can reliably reach their consumers.
 const importRe = /(?:import\s+(?:[^'";]*?\s+from\s+)?|export\s+[^'";]*?\s+from\s+|import\s*\(|require\s*\()(['"])([^'"]+)\1/g;
@@ -267,6 +290,7 @@ const candidates = [...new Set(changed.filter((file) =>
     && (sourceRe.test(file) || githubAssetRe.test(file) || testFixtureRe.test(file))
     && !alwaysExcludedTests.has(file)))];
 const forceFull = changedStatus !== 'complete';
+requireFullCheckoutForVerdict();
 if (candidates.length === 0 && !forceFull) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
   if (selectionOnly) writeAssembleDecision([]);
@@ -325,6 +349,16 @@ if (unreadable.length > 0) {
   console.log(`⚠️ ${unreadable.length} tracked file(s) unreadable in this working tree (sparse checkout?) — dropped from the import graph, so the selection may be incomplete:`);
   for (const file of unreadable.slice(0, 10)) console.log(`   ${file}`);
   if (unreadable.length > 10) console.log(`   … and ${unreadable.length - 10} more`);
+  // A sparse checkout is useful for inspecting a selection, but it cannot
+  // produce a trustworthy related-test verdict. Keep the explicit local
+  // dry-run seam for that inspection and fail closed for every real run.
+  const sparseInspection = process.env.VITEST_RELATED_DRY_RUN === 'true'
+    && process.env.GITHUB_ACTIONS !== 'true';
+  if (!sparseInspection && process.env.VITEST_RELATED_DRY_RUN !== 'true') {
+    console.error('BLOCKED: related-test verdict requires a full checkout; missing tracked imports make the static graph incomplete.');
+    console.error('Run this command in CI or from a full checkout with data/ and public/ materialized.');
+    process.exit(2);
+  }
 }
 const isRunnableTest = (file) => testRe.test(file) && !corpusWideTests.has(file) && !alwaysExcludedTests.has(file);
 const allTests = tracked.filter(isRunnableTest);

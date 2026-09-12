@@ -303,7 +303,7 @@ jobs:
               }
               function hasEnumeratedItems(body) {
                 const clean = stripFencedBlocks(body);
-                if ((clean.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length >= 2) return true;
+                if ((clean.match(/^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length >= 2) return true;
                 const lines = clean.split('\n');
                 let ordered = 0;
                 let bullets = 0;
@@ -551,6 +551,7 @@ jobs:
             # bundles change. The services/locales/blog-body symlink is in the
             # checkout, but its corpus target is otherwise excluded.
             /packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts
+            /packages/articles/content/blog-body-ch/de/naturalizzazione-canton-san-gallo-procedura.ts
             # Type-only dependency imported by the SEO modules above; keep it
             # file-scoped so the article corpus remains excluded.
             /packages/articles/content/seo/seoMetadataType.ts
@@ -904,6 +905,22 @@ jobs:
               await github.rest.issues.createComment({ owner, repo, issue_number, body });
             }
 
+      # Blocking source gate (#8304): keep the stable browser-graph entry point
+      # exercised in the same required job as its Vitest coverage. The wrapper
+      # reads only the source tree and fails if a Node builtin reaches the SPA.
+      - name: Assert browser graph has no Node leaves
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
+        background: true
+        run: node scripts/ci/assert-browser-graph-node-free.mjs
+
+      # Blocking source gate (#8304): every newsletter webhook must cross the
+      # store boundary, so browser-only ranking helpers never enter the
+      # Node-backed ranking module through an adapter.
+      - name: Assert webhook ranking imports stay at the store boundary
+        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
+        background: true
+        run: node scripts/ci/assert-webhook-ranking-imports.mjs
+
       # Blocking gate (escalation #1954, bucket reviewer-finding/cls-layout 6×/14d):
       # forbid hard-coded AdSense <ins> in build-plugins. Only adSlotHtml() may emit
       # the raw ad markup; its min-height/format come from the registry
@@ -1212,7 +1229,7 @@ jobs:
         # Deve restare attivo perché `run-related-tests.mjs` consuma sempre
         # `changed-paths.txt`, anche quando tutti i gate corpus-wide sono
         # delegati.
-        if: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group' || github.event_name == 'workflow_dispatch') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -2113,6 +2130,8 @@ jobs:
             The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes PR metadata, historical open Important findings with their path+line anchors, the review-scoped code-file list, code-only diff, incremental delta (when present), and sibling signal. Generated data/static paths are intentionally omitted from the bundle. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
 
             If `INCREMENTAL_BASE` is set, review only the delta and its interactions, but do not treat the prior Claude review as permission to erase an open Important finding. The bundle's historical section is authoritative: if a cited anchor is unchanged or the delta is only a base alignment, carry that finding into this review with the same path and line and do not append `## LGTM`; if the cited code was actually fixed, write `Fix di \`path:L<line>\`: ok.` for every cited anchor before allowing `Important: 0` and `## LGTM`. For an Important without a file citation, carry it unless it is explicitly resolved with `Fix di \`<normalized finding text>\`: ok.` (omit inner backticks). A merge-only delta can never resolve a prior Important by silence. If the bundle says the code contribution is unchanged, post a short review only when the historical section has no open Important findings.
+
+            If the bundle identifies a historical Important on the PR body with an anchor `PR body:L<n>`, its resolution MUST be written exactly as `Fix di \`PR body:L<n>\`: ok.` (one line per anchor), before `Important: 0` and `## LGTM`; never replace that metadata anchor with a prose paraphrase. For an Important without a file or PR-body anchor, use the normalized finding text required above, inside the confirmation backticks.
 
             Review in one pass with a hard repository-tool budget: read the two contract files and the bundle, then use at most one batched read/search call for direct delta interactions. Never scan the whole repository, enumerate all siblings, or re-fetch the PR through GitHub. Validate the body contract, inspect only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage. Every non-funnel `❓ q:` in that section MUST end with the exact disposition `— deferred, non funnel-critical.`. The words `report-only`, `deferred`, or `non-funnel-critical` inside the question do not dispose it; a funnel-critical question must be promoted to `🔴 Important` instead.
 

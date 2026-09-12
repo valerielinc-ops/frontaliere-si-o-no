@@ -49,8 +49,18 @@ const ROOT = path.resolve(__dirname, '..');
 const WORKFLOW = '.github/workflows/needs-human-sweep.yml';
 const ENTRY = 'scripts/ci/needs-human-prepass.mjs';
 
-/** Ogni specificatore relativo `from '...'`, side-effect o dinamico. */
+/** Import statici relativi: le espressioni dinamiche devono fallire chiuso. */
 const REL_IMPORT_RE = /(?:^|\n)\s*(?:import|export)[^'";]*from\s*['"](\.[^'"]+)['"]|\bimport\s*\(?\s*['"](\.[^'"]+)['"]/g;
+const UNRESOLVED_DYNAMIC_IMPORT_RE = /\bimport\s*\(\s*(?!['"][^'"]*['"]\s*\))([\s\S]*?)\)/g;
+
+function relativeImportSpecifiers(source: string, file: string): string[] {
+  const unresolved = source.match(UNRESOLVED_DYNAMIC_IMPORT_RE);
+  if (unresolved?.length) {
+    throw new Error(`Unresolvable dynamic import in ${file}: ${unresolved[0]}`);
+  }
+  return [...source.matchAll(REL_IMPORT_RE)]
+    .map((m) => m[1] ?? m[2]);
+}
 
 /**
  * La chiusura transitiva degli import RELATIVI a partire da `entry`, in path
@@ -72,8 +82,7 @@ function importClosure(entry: string): { files: string[]; missing: string[] } {
       missing.push(rel);
       continue;
     }
-    for (const m of src.matchAll(REL_IMPORT_RE)) {
-      const specifier = m[1] ?? m[2];
+    for (const specifier of relativeImportSpecifiers(src, rel)) {
       stack.push(path.normalize(path.join(path.dirname(rel), specifier)));
     }
   }
@@ -111,6 +120,17 @@ describe('needs-human-sweep.yml — chiusura sparse del job prepass', () => {
     ].join('\n');
     expect([...source.matchAll(REL_IMPORT_RE)].map((m) => m[1] ?? m[2]))
       .toEqual(['./side-effect.mjs', './dynamic.mjs']);
+  });
+
+  it('fallisce rumorosamente su import dinamici non risolvibili', () => {
+    expect(() => relativeImportSpecifiers(
+      'const loaded = await import(`./${locale}.mjs`);',
+      'scripts/ci/example.mjs',
+    )).toThrow(/Unresolvable dynamic import/);
+    expect(() => relativeImportSpecifiers(
+      "const loaded = await import('./' + locale);",
+      'scripts/ci/example.mjs',
+    )).toThrow(/Unresolvable dynamic import/);
   });
 
   it('il job `prepass` checkouta tutto cio' + "'" + ' che il pre-pass importa', () => {

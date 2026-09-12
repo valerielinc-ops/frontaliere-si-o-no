@@ -865,7 +865,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  'newsletter_upsert',
  );
 
- if (upsert.existed) {
+ if (upsert.existed && upsert.status !== 'pending') {
  // Already subscribed — still show success (they get the guide)
  markNewsletterSubscribedLocally();
  setStatus('success');

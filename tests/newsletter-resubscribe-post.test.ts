@@ -124,6 +124,16 @@ describe('the unsubscribe confirmation page offers a form, never a link', () => 
   });
 });
 
+describe('SPA resubscribe credential boundary', () => {
+  it('never reuses an unsubscribe URL token for the resubscribe POST', () => {
+    const app = read('App.tsx');
+    expect(app).toMatch(
+      /const resubscribeCredential = action === 'resubscribe' \? urlParams\.get\('token'\) : null;/,
+    );
+    expect(app).toMatch(/if \(authenticated\) setPendingResubscribe\(\(\) => performResubscribe\);/);
+  });
+});
+
 // ── Invariant 2: the opt-out stamp survives the re-subscription ──────────────
 
 describe('a legitimate re-subscription never erases the opt-out record', () => {

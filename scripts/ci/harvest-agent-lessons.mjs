@@ -77,6 +77,8 @@ const TAXONOMY = [
   { key: 'time-bomb-hardcoded', re: /hardcoded|time-?bomb|absolute date|aged? out|invecchia|date assolut/i, docKeys: ['date assolut', 'time-bomb', 'daysago'] },
   { key: 'cls-layout', re: /\bcls\b|layout shift|reflow|reserve space|min-h-|aspect-ratio/i, docKeys: ['cls', 'reserve space', 'layout shift'] },
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
+  // Precedence is intentional: when a finding mentions both surfaces, the
+  // topic bucket wins before the sibling-sweep process bucket below.
   { key: 'canonical-sitemap', re: /canonical|sitemap|noindex|cross-section/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
   { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|\bpat\b|credential|secret|branch protection|push.*workflow/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
   // i18n-NAMING: genuine naming/i18n defects only — locale URL segments, translated
@@ -281,7 +283,8 @@ const IMPACT_VERB = String.raw`impatt\w*|impact\b|ricadut\w*|tocca\w*|touch\w*|r
 // toccate e' fatto di nomi di file: «nessun impatto su `articles.json`, sulle
 // sitemap o sui feed» si troncava a «nessun impatto su `articles» e lasciava
 // scansionabile «.json`, sulle sitemap o sui feed» — bucket `canonical-sitemap`.
-const CLAUSE_BODY = String.raw`(?:[^.;—\n]|\.(?!\s|$))`;
+const SPACED_HYPHEN = String.raw`[ \t]-[ \t]`;
+const CLAUSE_BODY = String.raw`(?:(?!${SPACED_HYPHEN})[^.;—–\n]|\.(?!\s|$))`;
 // (C) La negazione E' il difetto quando la riga afferma uno SWEEP incompleto: «lo
 //     stesso anti-pattern in `cf-purge-cache.mjs` non e' toccato». E' la
 //     formulazione che REVIEW.md prescrive per un finding di classe, ed e' anche
@@ -309,11 +312,12 @@ const NEGATED_IMPACT_CLAUSE_RE =
 //     avanti nella frase.
 const CONTRASTIVE_NEGATED_TAIL_RE =
   new RegExp(String.raw`(\b(?:${IMPACT_VERB})\b(?:(?!\b(?:${IMPACT_VERB})\b)${CLAUSE_BODY})*?),\s*(?:e\s+|ma\s+)?(?:non|not)\b${CLAUSE_BODY}*`, 'giu');
-// Confine di frase, nella STESSA accezione di `CLAUSE_BODY`: `;`, `—`, a capo, e
+// Confine di frase, nella STESSA accezione di `CLAUSE_BODY`: `;`, `—`, `–`, un
+// trattino ASCII spaziato, a capo, e
 // il punto solo se seguito da spazio o fine riga (dentro un code span non lo e').
 // Tenerne una definizione sola e' cio' che impedisce al guard di sweep e allo
 // strip di disaccordarsi su dove finisce una frase.
-const SENTENCE_BOUNDARY_RE = /[;—\n]|\.(?=\s|$)/gu;
+const SENTENCE_BOUNDARY_RE = new RegExp(String.raw`[;—–\n]|${SPACED_HYPHEN}|\.(?=\s|$)`, 'gu');
 // La frase che contiene lo span `[start, end)`: dal confine precedente al primo
 // confine successivo. I confini interni allo span non esistono per costruzione
 // (`CLAUSE_BODY` li esclude), ma vengono comunque saltati invece di troncare.
@@ -490,7 +494,7 @@ function stripFencedBlocks(text) {
 
 export function hasEnumeratedItems(body) {
   const b = stripFencedBlocks(body);
-  const numberedSections = (b.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length;
+  const numberedSections = (b.match(/^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length;
   if (numberedSections >= 2) return true;
   const lines = b.split('\n');
   const orderedBoldItems = lines.reduce((count, line, index) => {

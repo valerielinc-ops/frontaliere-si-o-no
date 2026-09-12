@@ -74,6 +74,9 @@ export function needsDetailEnrichment(spec, rows = []) {
 export function geographyFieldsForDecision(decision = {}) {
   const geography = decision.geography;
   if (!geography) return null;
+  // Select only publishable address fields. `decision.candidate` also carries
+  // duplicateCandidates, which is a diagnostic collision trace and must not
+  // enter a persisted vacancy or grow on a later evidence fold.
   const candidate = decision.candidate || {};
   const addressLocality = String(candidate.addressLocality || '').trim()
     || String(geography.location || '').split(/[,;/|]/)[0].trim();
@@ -345,7 +348,11 @@ export async function runSpecInProduction(spec, runtime = {}) {
       'descrizione source-backed assente o non verificabile');
     return enriched.filter(Boolean);
   } finally {
-    await validateUrl.dispatcher.close().catch(() => {});
+    try {
+      await validateUrl.dispatcher.close();
+    } catch (error) {
+      console.warn(`[prospector:${spec.companyKey}] dispatcher cleanup failed:`, error);
+    }
   }
 }
 

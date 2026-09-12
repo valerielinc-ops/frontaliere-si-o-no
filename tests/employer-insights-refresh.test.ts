@@ -15,6 +15,13 @@ describe('employer insights refresh rollback', () => {
     expect(REFRESH_WORKFLOW_SOURCE).not.toContain('has no complete GA4 identity feed yet');
   });
 
+  it('compares document coverage with the selected source, not legacy roots', () => {
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('const expectedSource = process.env.INSIGHTS_SOURCE;');
+    expect(REFRESH_WORKFLOW_SOURCE).toMatch(/snapshot\.docs\s*\.filter\(\(doc\) => doc\.data\(\)\?\.source === expectedSource\)/);
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('has no ${expectedSource} documents');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('source: expectedSource');
+  });
+
   it('reports items committed before a later Firestore chunk fails', async () => {
     let commitCount = 0;
     const committedBatches: unknown[][] = [];
@@ -47,7 +54,7 @@ describe('employer insights refresh rollback', () => {
     const result = await commitInChunks(
       db as never,
       ['before-a', 'before-b', 'after-a'],
-      (batch, item) => batch.set({ id: item }, { item }),
+      (batch, item) => batch.set({ id: item } as never, { item }),
       { chunkSize: 2 },
     ).catch((error: unknown) => error as Error & { committedItems?: number });
 
@@ -63,8 +70,10 @@ describe('employer insights refresh rollback', () => {
   it('keeps rollback completion and partial progress visible in the workflow error', () => {
     expect(REFRESH_WORKFLOW_SOURCE).toContain('error?.committedItems');
     expect(REFRESH_WORKFLOW_SOURCE).toMatch(
-      /rollback incomplete: committed \$\{committed\}\/\$\{restore\.length\} documents/,
+      /rollback incomplete: committed \$\{committed\}\/\$\{attempted\} documents \(Firestore items\)/,
     );
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('restoreEmployerInsightsSnapshot');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('error?.attemptedItems');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('rollbackResult.committed');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('rollback status:');
   });

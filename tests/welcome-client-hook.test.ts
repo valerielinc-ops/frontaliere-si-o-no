@@ -2,21 +2,18 @@
  * tests/welcome-client-hook.test.ts — regression guard for the client-side
  * welcome-email wiring in services/newsletterSubscribers.ts.
  *
- * ~82% of newsletter signups are PRE-CONFIRMED, written client-side straight
- * to Firestore via upsertNewsletterSubscriber (Google One Tap,
- * Google/Facebook/LinkedIn sign-in, job-unlock gates — see
- * tests/auth-onetap-subscriber-persistence.test.ts, which confirms
- * persistOneTapSubscriber's sourceChannel: 'auth_google' resolves to
- * status: 'confirmed'). These signups never hit a confirmation-link Cloud
- * Function, so the requestWelcomeEmail branch added to
- * upsertNewsletterSubscriber is their ONLY welcome touchpoint.
+ * Explicit contextual gates may still write PRE-CONFIRMED records client-side
+ * via upsertNewsletterSubscriber, but generic authentication and One Tap are
+ * access-only now. These explicit records never hit a confirmation-link Cloud
+ * Function, so the requestWelcomeEmail branch in upsertNewsletterSubscriber
+ * is their welcome touchpoint.
  *
  * upsertNewsletterSubscriber has 17 direct callers (impact:
  * impactedCount 29, risk CRITICAL) — this suite exists specifically to
- * prove the new branch is purely additive: byte-identical behavior for the
- * pre-existing pending/confirmed-existed cases, plus the one new case
- * (confirmed && !existed), and that a failing welcome-email request can
- * NEVER surface to callers of upsertNewsletterSubscriber.
+ * prove the branch is purely additive: byte-identical behavior for the
+ * pending/confirmed-existed cases, plus the confirmed-new case, and that a
+ * failing welcome-email request can NEVER surface to callers of
+ * upsertNewsletterSubscriber.
  *
  * Firestore mocking follows the established convention (see
  * tests/services/newsletterSubscribers.resubscribe.test.ts): stub the

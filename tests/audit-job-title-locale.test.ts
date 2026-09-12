@@ -551,6 +551,7 @@ describe('dataset audits — the crash reporter survives a death before the audi
     const gate = crashGate(read(file));
     // Guards the guard: an empty slice would make the assertion below vacuous.
     expect(gate, `no crash reporter found in ${file}`).toMatch(/^\s*if:/);
+    expect(gate).toMatch(/!cancelled\(\)/);
     expect(gate).toMatch(/failure\(\)/);
   });
 

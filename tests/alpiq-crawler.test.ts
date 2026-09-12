@@ -11,6 +11,9 @@ import {
   parseAlpiqDetailHtml,
   isTicinoLocation,
   isSwissLocation,
+  normalizeListingWhitespace,
+  extractLocationContractSegment,
+  hasStandaloneSwissSignal,
   slugify,
   stripHtml,
 } from '@/scripts/lib/alpiq-job-parser.mjs';
@@ -105,6 +108,12 @@ describe('Alpiq crawler — location filtering', () => {
     expect(isSwissLocation('Airolo')).toBe(true);
   });
 
+  it('requires standalone Swiss signals instead of matching them inside words', () => {
+    expect(hasStandaloneSwissSignal('Olten, CH - 100%')).toBe(true);
+    expect(hasStandaloneSwissSignal('Swissland')).toBe(false);
+    expect(hasStandaloneSwissSignal('MCH')).toBe(false);
+  });
+
   it('rejects non-Swiss locations', () => {
     expect(isSwissLocation('Cammarata')).toBe(false);
     expect(isSwissLocation('Madrid')).toBe(false);
@@ -113,6 +122,14 @@ describe('Alpiq crawler — location filtering', () => {
 });
 
 describe('Alpiq crawler — job block parsing', () => {
+  it('normalizes HTML boundaries before extracting the location contract', () => {
+    const html = '<div><span>Location:</span> Olten | <strong>Olten, CH - <em>100</em>%</strong></div>';
+    expect(normalizeListingWhitespace(html)).toContain('Location: Olten');
+    expect(extractLocationContractSegment(html)).toBe('Olten');
+    expect(parseAlpiqJobBlock(`<a href="/career/open-jobs/your-application/42">Engineer</a>${html}`))
+      .toMatchObject({ location: 'Olten', percentage: '100' });
+  });
+
   it('parses a Swiss job block', () => {
     const job = parseAlpiqJobBlock(JOB_BLOCK_SWISS);
     expect(job).not.toBeNull();

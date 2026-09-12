@@ -4,7 +4,9 @@ import { CONSENT_TEXTS } from '@/services/consentTexts';
 import { render, screen, fireEvent, cleanup, waitFor, act } from '@testing-library/react';
 import PdfDownloadGate from '@/components/shared/PdfDownloadGate';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
-import { getFirebaseAuthPersistenceKey } from '@/services/firebaseAuthPersistence';
+import { getFirebaseAuthPersistenceKey, setFirebaseApiKey } from '@/services/firebaseAuthPersistence';
+
+setFirebaseApiKey('runtime-api-key');
 
 const authMock = vi.hoisted(() => {
   let currentUser: any = null;

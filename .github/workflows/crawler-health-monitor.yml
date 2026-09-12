@@ -203,7 +203,14 @@ jobs:
             # I backtick che contiene sono innocui: bash espande le command
             # substitution nel TESTO dell'heredoc, non nel valore delle variabili
             # che vi espande dentro.
-            scheda=$(jq -r ".[$i].scheda // \"\"" data/crawler-health-issues.json)
+            if ! scheda="$(jq -er ".[$i].scheda | select(type == \"string\" and length > 0)" data/crawler-health-issues.json)"; then
+              echo "::error::Missing non-empty scheda for crawler ${slug}." >&2
+              exit 1
+            fi
+            if [ -z "$scheda" ]; then
+              echo "::error::Missing non-empty scheda for crawler ${slug}." >&2
+              exit 1
+            fi
 
             # `${slug}` is a legitimate discriminant — one issue per crawler.
             # `${status}` was NOT: a crawler sliding degraded → broken changed the

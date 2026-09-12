@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-09-11T13:36:14.250Z",
+  "assembledAt": "2026-09-11T23:06:51.371Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:50.266Z",
+      "crawledAt": "2026-09-11T23:06:23.728Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "praticanta-praticant-srg-ssr-cuira"
+        "fr": "pratique-pratique-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -87,7 +87,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Praticanta / praticant"
+        "fr": "Pratique / Pratique"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -101,7 +101,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:49.525Z",
+      "crawledAt": "2026-09-11T23:06:22.853Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -142,15 +142,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "fr": [
-          "pratique-pratique-srg-ssr-cuira"
-        ]
-      },
-      "previousSlugs": [
-        "pratique-pratique-srg-ssr-cuira"
-      ],
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
@@ -169,7 +160,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "service-operator-srg-ssr-bern",
+        "it": "operatore-di-servizio-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -179,7 +170,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Service Operator",
+        "it": "Operatore di servizio",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -196,7 +187,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:48.696Z",
+      "crawledAt": "2026-09-11T23:06:21.966Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -276,15 +267,12 @@
       "addressRegion": "BE",
       "previousSlugsByLocale": {
         "it": [
-          "operatore-di-servizio-srg-ssr-bern",
           "service-operator-srg-ssr-bern"
         ]
       },
       "previousSlugs": [
-        "operatore-di-servizio-srg-ssr-bern",
         "service-operator-srg-ssr-bern"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "srg-ssr-a8ae3325568d",
@@ -317,7 +305,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:38.097Z",
+      "crawledAt": "2026-09-11T23:06:21.388Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -353,21 +341,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
-        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
       ],
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -414,7 +397,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:34.532Z",
+      "crawledAt": "2026-09-11T23:06:20.811Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -449,20 +432,17 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-08-17T21:37:03.185Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -509,7 +489,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:34.045Z",
+      "crawledAt": "2026-09-11T23:06:18.812Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -561,7 +541,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:15.082Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -608,7 +587,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:33.463Z",
+      "crawledAt": "2026-09-11T23:06:08.872Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -645,13 +624,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
-        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
-          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -661,7 +638,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -708,7 +684,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:32.917Z",
+      "crawledAt": "2026-09-11T23:06:08.237Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -747,13 +723,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
-        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
-          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
@@ -763,7 +737,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:35.078Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -810,7 +783,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:32.339Z",
+      "crawledAt": "2026-09-11T23:06:07.572Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -849,13 +822,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
-        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
-          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
@@ -865,7 +836,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:34.182Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -912,7 +882,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:31.781Z",
+      "crawledAt": "2026-09-11T23:06:06.987Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -949,13 +919,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
-        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
-          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -965,7 +933,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1012,7 +979,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:31.211Z",
+      "crawledAt": "2026-09-11T23:06:06.344Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1061,7 +1028,6 @@
         "orgLabel": "RSI"
       },
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -1108,7 +1074,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:30.571Z",
+      "crawledAt": "2026-09-11T23:06:05.774Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1166,7 +1132,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:48:14.107Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1181,119 +1146,6 @@
         }
       },
       "addressRegion": "ZH"
-    },
-    {
-      "id": "srg-ssr-6c08b6ba378b",
-      "slug": "presentatore-di-tempo-srg-ssr-bern",
-      "slugByLocale": {
-        "it": "presentatore-di-tempo-srg-ssr-bern",
-        "en": "weather-presenter-srg-ssr-bern",
-        "de": "wettermoderator-srg-ssr-bern",
-        "fr": "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Présentatrice ou présentateur météo",
-      "titleByLocale": {
-        "it": "Presentatore di tempo",
-        "en": "Weather presenter",
-        "de": "Wettermoderator",
-        "fr": "Présentatrice ou présentateur météo"
-      },
-      "description": "Votre mission Vous préparez et présentez les bulletins météo à la TV, notamment les éditions de midi et du soir. Vous analysez les données météorologiques disponibles, sélectionnez les informations pertinentes pour le public et les traduisez en un discours clair, précis et accessible. Vous préparez les cartes et les graphismes nécessaires à vos présentations, sélectionnez les illustrations appropriées et rédigez vos textes. À l'antenne, vous êtes capable de vous adapter aux différentes situations, notamment en direct, et de gérer avec calme et professionnalisme les éventuels imprévus techniques. Vous contribuez également au développement de contenus météo et climatologiques pour les vecteurs digitaux. Vous êtes ainsi amené·e à adapter votre manière de raconter et de vulgariser l'information en fonction des différents formats et des usages numériques. Vous collaborez régulièrement avec MétéoSuisse afin de garantir la précision et la qualité des informations diffusées. Vous partagez également votre expertise avec les journalistes du Département de l'information lors de sujets liés à la météorologie et à la climatologie. Vous travaillerez majoritairement seul avec de l'autonomie, dans une équipe motivée et dynamique, ainsi que de fréquents contacts avec les partenaires. Votre profil\n• Sens aigu de l'information de service public, rigueur et capacité à identifier les besoins du public.\n• Formation dans l'animation, la communication, le journalisme, ou dans un domaine scientifique\n• Intérêt marqué pour la météorologie et la climatologie\n• Expérience dans la présentation ou l'animation\n• Grande aisance dans l'expression orale et face caméra.\n• Excellentes capacités de vulgarisation et aptitude à rendre des informations scientifiques accessibles au grand public.\n• Bonne capacité rédactionnelle et sens de la synthèse.\n• Maîtrise de la présentation en direct et capacité à faire face aux imprévus avec calme et réactivité.\n• Bonne compréhension des outils informatiques utilisés pour la production de cartes et de graphiques météo ainsi que pour la création de contenus digitaux.\n• Notions de tournage digital (moyens légers) et de montage vidéo, un atout.\n• Intérêt pour les nouveaux formats et les usages digitaux.\n• Connaissances en allemand et en anglais : B2.\n• Flexibilité pour du travail 7/365 Ce que nous vous offrons Vous aimez transmettre une information utile au public, vous avez un intérêt marqué pour la météorologie et vous êtes à l'aise face caméra ? Rejoignez-nous dans cette fonction au cœur de l'antenne, où vous contribuez à faire de la météo un rendez-vous clair, fiable et accessible, à la TV comme sur nos vecteurs digitaux. Nous recherchons une présentatrice ou un présentateur météo au sein du département de l'information, qui aura pour mission de préparer et présenter les bulletins météo ainsi que de contribuer à la production de contenus liés à la météorologie et à la climatologie.",
-      "descriptionByLocale": {
-        "it": "La tua missione Si prepara e presenta rapporti meteo su TV, tra cui numeri di mezzogiorno e sera. Analizzi i dati meteo disponibili, seleziona le informazioni pertinenti al pubblico e la traduci in un discorso chiaro, preciso e accessibile. Prepara mappe e grafici per le tue presentazioni, seleziona illustrazioni appropriate e scrivi i tuoi testi. In aria, si è in grado di adattarsi a situazioni diverse, soprattutto dal vivo, e di gestire con calma e professionalità eventuali eventi tecnici imprevisti. Contribuisci anche allo sviluppo del clima e dei contenuti climatici per i vettori digitali. È quindi necessario adattare il vostro modo di raccontare e diffondere informazioni in base a diversi formati e usi digitali. Collabora regolarmente con MétéoSwitzerland per garantire l'accuratezza e la qualità delle informazioni diffuse. Condividi anche la tua esperienza con i giornalisti DPI su temi meteo e climatologia. Si lavorerà principalmente da solo con autonomia, in un team motivato e dinamico, così come contatti frequenti con i partner. Il tuo profilo\n• Forte senso di informazioni di servizio pubblico, rigore e capacità di identificare le esigenze pubbliche.\n• Formazione in animazione, comunicazione, giornalismo, o in campo scientifico\n• Alto interesse per la meteorologia e la climatologia\n• Esperienza in presentazione o animazione\n• Grande facilità in espressione orale e fotocamera faccia.\n• Ottima capacità di accesso e capacità di rendere le informazioni scientifiche accessibili al pubblico generale.\n• Buona capacità editoriale e senso di sintesi.\n• Controllo della presentazione dal vivo e capacità di affrontare eventi imprevisti con calma e reattività.\n• Buona comprensione degli strumenti informatici utilizzati per la produzione di mappe e grafici meteo e per la creazione di contenuti digitali.\n• Concetti di ripresa digitale (media di luce) e editing video, un bene.\n• Interessi in nuovi formati e usi digitali.\n• Conoscenza in tedesco e inglese: B2.\n• Flessibilità del lavoro 7/365 Cosa ti offriamo Ti piace trasmettere informazioni utili al pubblico, avere un forte interesse per la meteorologia e sei confortevole fotocamera di fronte? Unisciti a noi in questa funzione nel cuore dell'antenna, dove aiuta a rendere il tempo un appuntamento chiaro, affidabile e accessibile, in TV come sui nostri vettori digitali. Siamo alla ricerca di un presentatore meteo all'interno del Dipartimento dell'Informazione, la cui missione sarà quella di preparare e presentare rapporti meteorologici, nonché di contribuire alla produzione di contenuti atmosferici e climatici.",
-        "en": "Your Mission You prepare and present weather reports on TV, including noon and evening editions. You analyze the available weather data, select information relevant to the public and translate it into a clear, accurate and accessible speech. You prepare maps and graphics for your presentations, select appropriate illustrations and write your texts. On the air, you are able to adapt to different situations, especially live, and to manage with calm and professionalism any technical unforeseen events. You also contribute to the development of weather and climatological content for digital vectors. You are therefore required to adapt your way of telling and disseminating information according to different formats and digital uses. You regularly collaborate with MétéoSwitzerland to ensure the accuracy and quality of the information disseminated. You also share your expertise with DPI journalists on weather and climatology topics. You will mostly work alone with autonomy, in a motivated and dynamic team, as well as frequent contacts with partners. Your profile\n• Strong sense of public service information, rigour and ability to identify public needs.\n• Training in animation, communication, journalism, or in a scientific field\n• High interest in meteorology and climatology\n• Experience in presentation or animation\n• Great ease in oral expression and face camera.\n• Excellent outreach capacity and ability to make scientific information accessible to the general public.\n• Good editorial capacity and sense of synthesis.\n• Control of live presentation and ability to cope with unforeseen events with calm and reactivity.\n• Good understanding of the computer tools used for the production of maps and weather charts as well as for the creation of digital content.\n• Concepts of digital shooting (light mediums) and video editing, an asset.\n• Interest in new formats and digital uses.\n• Knowledge in German and English: B2.\n• Flexibility for work 7/365 What we offer you Do you like to transmit useful information to the public, have a strong interest in meteorology and are you comfortable facing camera? Join us in this function at the heart of the antenna, where you help make the weather a clear, reliable and accessible appointment, on TV as on our digital vectors. We are looking for a weather presenter within the Information Department, whose mission will be to prepare and present weather reports as well as to contribute to the production of weather and climatology related content.",
-        "de": "Deine Mission Sie erstellen und präsentieren Wetterberichte im Fernsehen, einschließlich Mittags- und Abendausgaben. Sie analysieren die verfügbaren Wetterdaten, wählen für die Öffentlichkeit relevante Informationen aus und übersetzen sie in eine klare, genaue und zugängliche Sprache. Sie erstellen Karten und Grafiken für Ihre Präsentationen, wählen passende Illustrationen aus und schreiben Ihre Texte. In der Luft sind Sie in der Lage, sich an verschiedene Situationen anzupassen, insbesondere live, und mit Ruhe und Professionalität alle technischen unvorhergesehenen Ereignisse zu bewältigen. Sie tragen auch zur Entwicklung von Wetter- und Klimainhalten für digitale Vektoren bei. Sie müssen daher Ihre Art, Informationen zu erzählen und zu verbreiten, an verschiedene Formate und digitale Nutzungen anpassen. Sie arbeiten regelmäßig mit MétéoSwitzerland zusammen, um die Genauigkeit und Qualität der verbreiteten Informationen sicherzustellen. Sie teilen Ihre Expertise auch mit DPI-Journalisten zu Wetter- und Klimathemen. Sie werden meist allein mit Autonomie arbeiten, in einem motivierten und dynamischen Team, sowie häufige Kontakte mit Partnern. Dein Profil\n• Starkes Gespür für Informationen im öffentlichen Dienst, Strenge und Fähigkeit, öffentliche Bedürfnisse zu erkennen.\n• Ausbildung in Animation, Kommunikation, Journalismus oder in einem wissenschaftlichen Bereich\n• Hohes Interesse an Meteorologie und Klimatologie\n• Erfahrung in Präsentation oder Animation\n• Große Leichtigkeit im mündlichen Ausdruck und Gesichtskamera.\n• Hervorragende Outreach-Kapazität und Fähigkeit, wissenschaftliche Informationen der Öffentlichkeit zugänglich zu machen.\n• Gute redaktionelle Kapazität und Sinn für Synthese.\n• Kontrolle der Live-Präsentation und Fähigkeit, mit unvorhergesehenen Ereignissen mit Ruhe und Reaktivität umzugehen.\n• Gutes Verständnis der Computer-Tools für die Erstellung von Karten und Wetterkarten sowie für die Erstellung von digitalen Inhalten.\n• Konzepte des digitalen Schießens (leichte Medien) und Videobearbeitung, ein Asset.\n• Interesse an neuen Formaten und digitalen Nutzungen.\n• Kenntnisse in Deutsch und Englisch: B2.\n• Flexibilität für die Arbeit 7/365 Was wir Ihnen anbieten Möchten Sie nützliche Informationen an die Öffentlichkeit weitergeben, haben ein starkes Interesse an Meteorologie und fühlen Sie sich mit der Kamera wohl? Begleiten Sie uns in dieser Funktion im Herzen der Antenne, wo Sie dazu beitragen, das Wetter zu einem klaren, zuverlässigen und zugänglichen Termin zu machen, im Fernsehen wie auf unseren digitalen Vektoren. Wir suchen einen Wettermoderator innerhalb der Informationsabteilung, dessen Aufgabe es sein wird, Wetterberichte zu erstellen und zu präsentieren sowie zur Erstellung von wetter- und klimatologiebezogenen Inhalten beizutragen.",
-        "fr": "Votre mission Vous préparez et présentez les bulletins météo à la TV, notamment les éditions de midi et du soir. Vous analysez les données météorologiques disponibles, sélectionnez les informations pertinentes pour le public et les traduisez en un discours clair, précis et accessible. Vous préparez les cartes et les graphismes nécessaires à vos présentations, sélectionnez les illustrations appropriées et rédigez vos textes. À l'antenne, vous êtes capable de vous adapter aux différentes situations, notamment en direct, et de gérer avec calme et professionnalisme les éventuels imprévus techniques. Vous contribuez également au développement de contenus météo et climatologiques pour les vecteurs digitaux. Vous êtes ainsi amené·e à adapter votre manière de raconter et de vulgariser l'information en fonction des différents formats et des usages numériques. Vous collaborez régulièrement avec MétéoSuisse afin de garantir la précision et la qualité des informations diffusées. Vous partagez également votre expertise avec les journalistes du Département de l'information lors de sujets liés à la météorologie et à la climatologie. Vous travaillerez majoritairement seul avec de l'autonomie, dans une équipe motivée et dynamique, ainsi que de fréquents contacts avec les partenaires. Votre profil\n• Sens aigu de l'information de service public, rigueur et capacité à identifier les besoins du public.\n• Formation dans l'animation, la communication, le journalisme, ou dans un domaine scientifique\n• Intérêt marqué pour la météorologie et la climatologie\n• Expérience dans la présentation ou l'animation\n• Grande aisance dans l'expression orale et face caméra.\n• Excellentes capacités de vulgarisation et aptitude à rendre des informations scientifiques accessibles au grand public.\n• Bonne capacité rédactionnelle et sens de la synthèse.\n• Maîtrise de la présentation en direct et capacité à faire face aux imprévus avec calme et réactivité.\n• Bonne compréhension des outils informatiques utilisés pour la production de cartes et de graphiques météo ainsi que pour la création de contenus digitaux.\n• Notions de tournage digital (moyens légers) et de montage vidéo, un atout.\n• Intérêt pour les nouveaux formats et les usages digitaux.\n• Connaissances en allemand et en anglais : B2.\n• Flexibilité pour du travail 7/365 Ce que nous vous offrons Vous aimez transmettre une information utile au public, vous avez un intérêt marqué pour la météorologie et vous êtes à l'aise face caméra ? Rejoignez-nous dans cette fonction au cœur de l'antenne, où vous contribuez à faire de la météo un rendez-vous clair, fiable et accessible, à la TV comme sur nos vecteurs digitaux. Nous recherchons une présentatrice ou un présentateur météo au sein du département de l'information, qui aura pour mission de préparer et présenter les bulletins météo ainsi que de contribuer à la production de contenus liés à la météorologie et à la climatologie."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:30.092Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3006",
-      "streetAddress": "Giacomettistrasse 1",
-      "category": "Media / Giornalismo",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
-      "requirements": [
-        "Sens aigu de l'information de service public, rigueur et capacité à identifier les besoins du public.",
-        "Formation dans l'animation, la communication, le journalisme, ou dans un domaine scientifique",
-        "Intérêt marqué pour la météorologie et la climatologie",
-        "Expérience dans la présentation ou l'animation",
-        "Grande aisance dans l'expression orale et face caméra.",
-        "Excellentes capacités de vulgarisation et aptitude à rendre des informations scientifiques accessibles au grand public.",
-        "Bonne capacité rédactionnelle et sens de la synthèse.",
-        "Maîtrise de la présentation en direct et capacité à faire face aux imprévus avec calme et réactivité.",
-        "Bonne compréhension des outils informatiques utilisés pour la production de cartes et de graphiques météo ainsi que pour la création de contenus digitaux.",
-        "Notions de tournage digital (moyens légers) et de montage vidéo, un atout.",
-        "Intérêt pour les nouveaux formats et les usages digitaux.",
-        "Connaissances en allemand et en anglais : B2.",
-        "Flexibilité pour du travail 7/365"
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Sens aigu de l'information de service public, rigueur et capacité à identifier les besoins du public.",
-          "Formation dans l'animation, la communication, le journalisme, ou dans un domaine scientifique",
-          "Intérêt marqué pour la météorologie et la climatologie",
-          "Expérience dans la présentation ou l'animation",
-          "Grande aisance dans l'expression orale et face caméra.",
-          "Excellentes capacités de vulgarisation et aptitude à rendre des informations scientifiques accessibles au grand public.",
-          "Bonne capacité rédactionnelle et sens de la synthèse.",
-          "Maîtrise de la présentation en direct et capacité à faire face aux imprévus avec calme et réactivité."
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "af977dd7-0da1-45f7-b728-14e5db8a1863",
-        "org": "rts",
-        "orgLabel": "RTS",
-        "pensumMin": 35,
-        "pensumMax": 35
-      },
-      "previousSlugs": [
-        "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
-        "presentatore-di-tempo-srg-ssr-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
-          "presentatore-di-tempo-srg-ssr-bern"
-        ],
-        "en": [
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
-        ],
-        "de": [
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-27T19:52:31.631Z",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
     },
     {
       "id": "srg-ssr-5f308f7330f9",
@@ -1326,7 +1178,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:29.608Z",
+      "crawledAt": "2026-09-11T23:06:05.139Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1363,13 +1215,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
-        "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich"
+        "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
-          "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich"
+          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
         ],
         "en": [
           "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
@@ -1379,7 +1229,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:42.256Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1426,7 +1275,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-di-genere-informazione-nazionale-offerta-operazioni/cfb04e9b-a468-42ae-a4d6-b8a57d4f6c50",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:29.079Z",
+      "crawledAt": "2026-09-11T23:06:04.555Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1464,7 +1313,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-08-31T17:00:43.065Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1511,7 +1359,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:28.490Z",
+      "crawledAt": "2026-09-11T23:06:03.937Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1549,13 +1397,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
-        "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich"
+        "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
-          "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich"
+          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
         ],
         "en": [
           "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
@@ -1565,7 +1411,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:43.813Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1612,7 +1457,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rsi-info-digitale/17338cec-b414-4787-bc8a-0718d1522e66",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:27.898Z",
+      "crawledAt": "2026-09-11T23:06:03.353Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1704,7 +1549,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-interactive-media-designer-rts-couleur-3/6814b6b0-96af-427f-a369-8f1d4275a816",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:27.296Z",
+      "crawledAt": "2026-09-11T23:06:02.777Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1749,7 +1594,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-02T23:09:02.702Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1796,7 +1640,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-recherchiste/7e518bec-7354-4090-9626-3d8c4ea47d3d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:26.634Z",
+      "crawledAt": "2026-09-11T23:06:02.206Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1841,13 +1685,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-recherchiste-srg-ssr-bern",
-        "formazione-di-ricerca-srg-ssr-bern"
+        "stagiaire-recherchiste-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-srg-ssr-bern",
-          "formazione-di-ricerca-srg-ssr-bern"
+          "stagiaire-recherchiste-srg-ssr-bern"
         ],
         "en": [
           "stagiaire-recherchiste-srg-ssr-bern"
@@ -1857,7 +1699,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:01.047Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1904,7 +1745,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/unternehmensentwickler-in/3622b4b4-a2dc-463a-80e1-17e8580a49d9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:26.135Z",
+      "crawledAt": "2026-09-11T23:06:01.379Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1945,22 +1786,32 @@
       },
       "previousSlugs": [
         "unternehmensentwickler-in-srg-ssr-bern",
-        "sviluppatori-di-imprese-srg-ssr-bern"
+        "presentatore-di-tempo-srg-ssr-bern",
+        "weather-presenter-srg-ssr-bern",
+        "wettermoderator-srg-ssr-bern",
+        "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unternehmensentwickler-in-srg-ssr-bern",
-          "sviluppatori-di-imprese-srg-ssr-bern"
+          "presentatore-di-tempo-srg-ssr-bern",
+          "weather-presenter-srg-ssr-bern",
+          "wettermoderator-srg-ssr-bern",
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
         ],
         "en": [
-          "unternehmensentwickler-in-srg-ssr-bern"
+          "unternehmensentwickler-in-srg-ssr-bern",
+          "weather-presenter-srg-ssr-bern"
         ],
         "fr": [
-          "unternehmensentwickler-in-srg-ssr-bern"
+          "unternehmensentwickler-in-srg-ssr-bern",
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+        ],
+        "de": [
+          "wettermoderator-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:17.762Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -2007,7 +1858,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialiste-developpement-de-l-entreprise-f-h/68d88043-3525-4e16-9feb-b00befaafcd0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:25.538Z",
+      "crawledAt": "2026-09-11T23:06:00.790Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2046,13 +1897,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
-        "specialista-di-sviluppo-aziendale-m-f-srg-ssr-bern"
+        "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
-          "specialista-di-sviluppo-aziendale-m-f-srg-ssr-bern"
+          "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
         ],
         "en": [
           "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
@@ -2062,7 +1911,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:17.077Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2109,7 +1957,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialista-sviluppo-aziendale/e5a4e260-bf26-4091-80eb-d00ff6e77726",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:24.984Z",
+      "crawledAt": "2026-09-11T23:05:59.967Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2148,7 +1996,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-08T13:36:16.364Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2195,7 +2042,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/chargees-de-projet-technique/3631e123-3639-47c1-aa9b-19dd52c04de5",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:24.432Z",
+      "crawledAt": "2026-09-11T23:05:59.320Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2239,13 +2086,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "charge-e-s-de-projet-technique-srg-ssr-lausanne",
-        "responsabile-del-progetto-tecnico-srg-ssr-lausanne"
+        "charge-e-s-de-projet-technique-srg-ssr-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-e-s-de-projet-technique-srg-ssr-lausanne",
-          "responsabile-del-progetto-tecnico-srg-ssr-lausanne"
+          "charge-e-s-de-projet-technique-srg-ssr-lausanne"
         ],
         "en": [
           "charge-e-s-de-projet-technique-srg-ssr-lausanne"
@@ -2255,7 +2100,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:04:42.334Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -2302,7 +2146,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/journaliste-data-actualite/c57274dd-5b5b-40c1-b089-be5ddd120c45",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:35:23.892Z",
+      "crawledAt": "2026-09-11T23:05:58.728Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2352,13 +2196,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "journaliste-data-actualite-srg-ssr-bern",
-        "giornalista-news-srg-ssr-bern"
+        "journaliste-data-actualite-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "journaliste-data-actualite-srg-ssr-bern",
-          "giornalista-news-srg-ssr-bern"
+          "journaliste-data-actualite-srg-ssr-bern"
         ],
         "en": [
           "journaliste-data-actualite-srg-ssr-bern"
@@ -2368,7 +2210,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:45:01.576Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2415,7 +2256,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-srf-kids/e074e953-1135-4c64-b155-3ef4424df7bc",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:23.358Z",
+      "crawledAt": "2026-09-11T23:05:58.177Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2452,7 +2293,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-09-10T23:07:07.025Z",
-      "needsRetranslation": true,
       "salaryMin": 63500,
       "salaryMax": 112500,
       "salarySource": "estimated",
@@ -2499,7 +2339,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/responsabile-rete-tre/af6a6cbb-11f2-434e-906f-26f2a33ff12a",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:22.815Z",
+      "crawledAt": "2026-09-11T23:05:57.590Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2538,7 +2378,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-10T23:07:06.414Z",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "salarySource": "estimated",
@@ -2559,9 +2398,9 @@
       "slug": "stage-nella-redazione-radiofonica-di-rete-uno-srg-ssr-comano",
       "slugByLocale": {
         "it": "stage-nella-redazione-radiofonica-di-rete-uno-srg-ssr-comano",
-        "en": "stage-nella-redazione-radiofonica-di-rete-uno-srg-ssr-comano",
-        "de": "stage-nella-redazione-radiofonica-di-rete-uno-srg-ssr-comano",
-        "fr": "stage-nella-redazione-radiofonica-di-rete-uno-srg-ssr-comano"
+        "en": "stage-in-the-radio-editing-of-rete-uno-srg-ssr-comano",
+        "de": "buhne-im-radioschnitt-von-rete-uno-srg-ssr-comano",
+        "fr": "etape-dans-le-montage-radio-de-rete-uno-srg-ssr-comano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2569,23 +2408,23 @@
       "title": "Stage nella redazione radiofonica di Rete Uno",
       "titleByLocale": {
         "it": "Stage nella redazione radiofonica di Rete Uno",
-        "en": "Stage nella redazione radiofonica di Rete Uno",
-        "de": "Stage nella redazione radiofonica di Rete Uno",
-        "fr": "Stage nella redazione radiofonica di Rete Uno"
+        "en": "Stage in the radio editing of Rete Uno",
+        "de": "Bühne im Radioschnitt von Rete Uno",
+        "fr": "Etape dans le montage radio de Rete Uno"
       },
       "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alle attività quotidiane della redazione radiofonica di Rete Uno.\n• Ricerca, selezione e sviluppo di temi di attualità, cultura, società e intrattenimento da proporre in trasmissione.\n• Preparazione di contributi radiofonici e approfondimenti editoriali.\n• Organizzazione e preparazione di interviste con ospiti ed esperti.\n• Partecipazione alla realizzazione e alla conduzione di una trasmissione radiofonica.\n• Collaborazione con conduttrici, conduttori e redazione nella pianificazione dei contenuti.\n• Supporto alle attività redazionali e di produzione legate alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti appassiona il mondo della radio e segui l'attualità?\n• Possiedi una buona cultura generale?\n• Hai ottime capacità comunicative, sia scritte sia orali?\n• Potresti trovarti a tuo agio nel parlare davanti a un microfono?\n• Sai instaurare con facilità relazioni interpersonali e lavorare in team?\n• Sei una persona curiosa, dinamica e proattiva?\n• Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?\n• Hai una buona conoscenza del territorio?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
       "descriptionByLocale": {
         "it": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alle attività quotidiane della redazione radiofonica di Rete Uno.\n• Ricerca, selezione e sviluppo di temi di attualità, cultura, società e intrattenimento da proporre in trasmissione.\n• Preparazione di contributi radiofonici e approfondimenti editoriali.\n• Organizzazione e preparazione di interviste con ospiti ed esperti.\n• Partecipazione alla realizzazione e alla conduzione di una trasmissione radiofonica.\n• Collaborazione con conduttrici, conduttori e redazione nella pianificazione dei contenuti.\n• Supporto alle attività redazionali e di produzione legate alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti appassiona il mondo della radio e segui l'attualità?\n• Possiedi una buona cultura generale?\n• Hai ottime capacità comunicative, sia scritte sia orali?\n• Potresti trovarti a tuo agio nel parlare davanti a un microfono?\n• Sai instaurare con facilità relazioni interpersonali e lavorare in team?\n• Sei una persona curiosa, dinamica e proattiva?\n• Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?\n• Hai una buona conoscenza del territorio?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-        "en": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alle attività quotidiane della redazione radiofonica di Rete Uno.\n• Ricerca, selezione e sviluppo di temi di attualità, cultura, società e intrattenimento da proporre in trasmissione.\n• Preparazione di contributi radiofonici e approfondimenti editoriali.\n• Organizzazione e preparazione di interviste con ospiti ed esperti.\n• Partecipazione alla realizzazione e alla conduzione di una trasmissione radiofonica.\n• Collaborazione con conduttrici, conduttori e redazione nella pianificazione dei contenuti.\n• Supporto alle attività redazionali e di produzione legate alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti appassiona il mondo della radio e segui l'attualità?\n• Possiedi una buona cultura generale?\n• Hai ottime capacità comunicative, sia scritte sia orali?\n• Potresti trovarti a tuo agio nel parlare davanti a un microfono?\n• Sai instaurare con facilità relazioni interpersonali e lavorare in team?\n• Sei una persona curiosa, dinamica e proattiva?\n• Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?\n• Hai una buona conoscenza del territorio?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-        "de": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alle attività quotidiane della redazione radiofonica di Rete Uno.\n• Ricerca, selezione e sviluppo di temi di attualità, cultura, società e intrattenimento da proporre in trasmissione.\n• Preparazione di contributi radiofonici e approfondimenti editoriali.\n• Organizzazione e preparazione di interviste con ospiti ed esperti.\n• Partecipazione alla realizzazione e alla conduzione di una trasmissione radiofonica.\n• Collaborazione con conduttrici, conduttori e redazione nella pianificazione dei contenuti.\n• Supporto alle attività redazionali e di produzione legate alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti appassiona il mondo della radio e segui l'attualità?\n• Possiedi una buona cultura generale?\n• Hai ottime capacità comunicative, sia scritte sia orali?\n• Potresti trovarti a tuo agio nel parlare davanti a un microfono?\n• Sai instaurare con facilità relazioni interpersonali e lavorare in team?\n• Sei una persona curiosa, dinamica e proattiva?\n• Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?\n• Hai una buona conoscenza del territorio?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-        "fr": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alle attività quotidiane della redazione radiofonica di Rete Uno.\n• Ricerca, selezione e sviluppo di temi di attualità, cultura, società e intrattenimento da proporre in trasmissione.\n• Preparazione di contributi radiofonici e approfondimenti editoriali.\n• Organizzazione e preparazione di interviste con ospiti ed esperti.\n• Partecipazione alla realizzazione e alla conduzione di una trasmissione radiofonica.\n• Collaborazione con conduttrici, conduttori e redazione nella pianificazione dei contenuti.\n• Supporto alle attività redazionali e di produzione legate alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti appassiona il mondo della radio e segui l'attualità?\n• Possiedi una buona cultura generale?\n• Hai ottime capacità comunicative, sia scritte sia orali?\n• Potresti trovarti a tuo agio nel parlare davanti a un microfono?\n• Sai instaurare con facilità relazioni interpersonali e lavorare in team?\n• Sei una persona curiosa, dinamica e proattiva?\n• Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?\n• Hai una buona conoscenza del territorio?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera."
+        "en": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaboration with the daily activities of the radio editing of Rete Uno.\n• Research, selection and development of topical issues, culture, society and entertainment to be proposed in transmission.\n• Preparation of radio contributions and editorial backgrounds.\n• Organization and preparation of interviews with guests and experts.\n• Participation in the implementation and management of a radio transmission.\n• Collaboration with conductors, conductors and editors in content planning.\n• Support for editorial and production activities related to airing. You?\n• Are you attending university (or equivalent school) or have you finished it for a maximum of one year?\n• Are you passionate about the world of radio and you follow the topic?\n• Do you have a good general culture?\n• Do you have excellent communication skills, both written and oral?\n• Could you be comfortable talking in front of a microphone?\n• Can you easily establish interpersonal relationships and work in teams?\n• Are you a curious, dynamic and proactive person?\n• Are you interested in deepening different themes and telling them to an audience?\n• Do you have a good knowledge of the territory?\n• Knowledge of national languages and English is a preferential title! Any further questions? 6 months between November 2026 and April 2027, the workplace is in Comano. CANDIDARSI IS FACILE! Only applications submitted through jobs.rsi.ch will be considered and accompanied by a letter of motivation, CV and university attendance certificate or degree. The deadline for submission of the application on Monday 5 October 2026. LA RSI La RSI, Swiss Radiotelevisione di lingua italiana, is a public service broadcaster whose mandate is enshrined in the Federal Constitution, the Broadcasting Law (LRTV) and the Concession. Independent, it is a pillar of the Swiss media landscape, as it plays a key role in promoting open dialogue and disseminating accurate information. Thanks to a wide range of radio, television and digital programs, the CSR offers a universal service in the media field, reaching and informing the population in a capillary way. This function is essential both for democracy, and to ensure that the Swiss public is constantly updated and informed, with coverage ranging from politics to culture, from economy to entertainment, from sport to education. The ISR provides an accurate picture of Swiss reality on a national, linguistic and regional scale, facilitating dialogue and exchange between the language regions of Switzerland.",
+        "de": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Zusammenarbeit mit den täglichen Aktivitäten der Radiobearbeitung von Rete Uno.\n• Forschung, Auswahl und Entwicklung von aktuellen Themen, Kultur, Gesellschaft und Unterhaltung, die in der Übertragung vorgeschlagen werden.\n• Vorbereitung von Radiobeiträgen und redaktionellen Hintergründen.\n• Organisation und Vorbereitung von Interviews mit Gästen und Experten.\n• Beteiligung an der Durchführung und Verwaltung einer Funkübertragung.\n• Zusammenarbeit mit Dirigenten, Dirigenten und Editoren in der Content Planung.\n• Unterstützung für redaktionelle und Produktionsaktivitäten im Zusammenhang mit der Ausstrahlung. Sie?\n• Besuchen Sie die Universität (oder eine gleichwertige Schule) oder haben Sie sie für maximal ein Jahr abgeschlossen?\n• Sie interessieren sich für die Welt des Radios und verfolgen das Thema?\n• Haben Sie eine gute allgemeine Kultur?\n• Haben Sie ausgezeichnete Kommunikationsfähigkeiten, sowohl schriftlich als auch mündlich?\n• Könnten Sie sich wohl fühlen, vor einem Mikrofon zu sprechen?\n• Können Sie leicht zwischenmenschliche Beziehungen aufbauen und in Teams arbeiten?\n• Sind Sie eine neugierige, dynamische und proaktive Person?\n• Sind Sie daran interessiert, verschiedene Themen zu vertiefen und sie einem Publikum zu erzählen?\n• Haben Sie eine gute Kenntnis des Territoriums?\n• Kenntnisse der Landessprachen und Englisch ist ein bevorzugter Titel! Weitere Fragen? 6 Monate zwischen November 2026 und April 2027 ist der Arbeitsplatz in Comano. CANDIDARSI IST FAZIL! Nur Bewerbungen, die über jobs.rsi.ch eingereicht werden, werden von einem Motivationsschreiben, Lebenslauf und Universitätsurkunde oder Abschluss begleitet. Die Frist für die Einreichung des Antrags am Montag, den 5. Oktober 2026. LA RSI La RSI, Swiss Radiotelevisione di lingua italiana, ist eine öffentlich-rechtliche Rundfunkanstalt, deren Auftrag in der Bundesverfassung, dem Rundfunkgesetz (LRTV) und der Konzession verankert ist. Unabhängig ist es eine Säule der Schweizer Medienlandschaft, da es eine Schlüsselrolle bei der Förderung eines offenen Dialogs und der Verbreitung korrekter Informationen spielt. Dank einer breiten Palette von Radio-, Fernseh- und digitalen Programmen bietet die CSR einen universellen Service im Medienbereich, der die Bevölkerung kapillar erreicht und informiert. Diese Funktion ist sowohl für die Demokratie als auch für die ständige Aktualisierung und Information der Schweizer Öffentlichkeit von Politik bis Kultur, von Wirtschaft bis Unterhaltung, von Sport bis Bildung unerlässlich. Die ISR bietet ein genaues Bild der Schweizer Realität auf nationaler, sprachlicher und regionaler Ebene und erleichtert den Dialog und Austausch zwischen den Sprachregionen der Schweiz.",
+        "fr": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaboration avec les activités quotidiennes de l'édition radio de Rete Uno.\n• Recherche, sélection et développement de questions d'actualité, culture, société et divertissement à proposer en transmission.\n• Préparation des contributions radiophoniques et des antécédents rédactionnels.\n• Organisation et préparation d'entretiens avec des invités et des experts.\n• Participation à la mise en œuvre et à la gestion d'une transmission radio.\n• Collaboration avec les chefs d'orchestre, les chefs d'orchestre et les éditeurs dans la planification du contenu.\n• Appui aux activités de rédaction et de production liées à la diffusion. Toi ?\n• Vous fréquentez l'université (ou l'école équivalente) ou l'avez-vous terminée pendant un an maximum?\n• Êtes-vous passionné par le monde de la radio et vous suivez le sujet?\n• Avez-vous une bonne culture générale ?\n• Avez-vous d'excellentes compétences en communication, à la fois écrite et orale?\n• Tu peux parler devant un micro ?\n• Pouvez-vous facilement établir des relations interpersonnelles et travailler en équipe?\n• Êtes-vous une personne curieuse, dynamique et proactive?\n• Êtes-vous intéressé par l'approfondissement de différents thèmes et leur dire à un public?\n• Avez-vous une bonne connaissance du territoire ?\n• La connaissance des langues nationales et de l'anglais est un titre préférentiel! D'autres questions ? 6 mois entre novembre 2026 et avril 2027, le lieu de travail est à Comano. CANDIDARSI EST FACILE ! Seules les demandes soumises par jobs.rsi.ch seront examinées et accompagnées d'une lettre de motivation, d'un CV et d'un certificat ou d'un diplôme de fréquentation universitaire. Date limite pour le dépôt de la demande: lundi 5 octobre 2026. LA RSI La RSI, Radiotélévision suisse di lingua italiana, est un radiodiffuseur de service public dont le mandat est consacré par la Constitution fédérale, la loi sur la radiodiffusion (LRTV) et la concession. Indépendant, il est un pilier du paysage médiatique suisse, car il joue un rôle clé dans la promotion d'un dialogue ouvert et la diffusion d'informations exactes. Grâce à un large éventail d'émissions de radio, de télévision et de télévision numériques, la RSE offre un service universel dans le domaine des médias, touchant et informant la population d'une manière capillaire. Cette fonction est essentielle à la fois pour la démocratie et pour que le public suisse soit constamment informé et mis à jour, avec une couverture allant de la politique à la culture, de l'économie au divertissement, du sport à l'éducation. L'ISR fournit une image précise de la réalité suisse à l'échelle nationale, linguistique et régionale, facilitant le dialogue et les échanges entre les régions linguistiques de la Suisse."
       },
       "location": "Comano",
       "canton": "TI",
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-radiofonica-di-rete-uno/f0713e91-8f0d-45e7-97e7-594e453d4471",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:22.240Z",
+      "crawledAt": "2026-09-11T23:05:56.994Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2621,9 +2460,7 @@
           "Potresti trovarti a tuo agio nel parlare davanti a un microfono?",
           "Sai instaurare con facilità relazioni interpersonali e lavorare in team?",
           "Sei una persona curiosa, dinamica e proattiva?",
-          "Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?",
-          "Hai una buona conoscenza del territorio?",
-          "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
+          "Hai interesse nell'approfondire temi diversi e nel raccontarli a un pubblico?"
         ]
       },
       "_srgMeta": {
@@ -2633,7 +2470,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -2655,9 +2491,9 @@
       "slug": "stage-social-media-content-creator-rete-uno-e-rete-tre-srg-ssr-comano",
       "slugByLocale": {
         "it": "stage-social-media-content-creator-rete-uno-e-rete-tre-srg-ssr-comano",
-        "en": "stage-social-media-content-creator-rete-uno-e-rete-tre-srg-ssr-comano",
-        "de": "stage-social-media-content-creator-rete-uno-e-rete-tre-srg-ssr-comano",
-        "fr": "stage-social-media-content-creator-rete-uno-e-rete-tre-srg-ssr-comano"
+        "en": "social-media-content-creator-network-one-and-network-three-srg-ssr-comano",
+        "de": "social-media-content-creator-network-one-und-network-three-srg-ssr-comano",
+        "fr": "medias-sociaux-createur-de-contenu-reseau-un-et-reseau-trois-srg-ssr-comano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2665,23 +2501,23 @@
       "title": "Stage Social Media / Content Creator, Rete Uno e Rete Tre",
       "titleByLocale": {
         "it": "Stage Social Media / Content Creator, Rete Uno e Rete Tre",
-        "en": "Stage Social Media / Content Creator, Rete Uno e Rete Tre",
-        "de": "Stage Social Media / Content Creator, Rete Uno e Rete Tre",
-        "fr": "Stage Social Media / Content Creator, Rete Uno e Rete Tre"
+        "en": "Social Media / Content Creator, Network One and Network Three",
+        "de": "Social Media / Content Creator, Network One und Network Three",
+        "fr": "Médias sociaux / Créateur de contenu, Réseau Un et Réseau Trois"
       },
       "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alla gestione e allo sviluppo della presenza social di Rete Uno e Rete Tre.\n• Ideazione e produzione di contenuti digitali a partire dai programmi radiofonici.\n• Creazione di reel, stories, caroselli e altri contenuti originali per Instagram e gli altri canali digitali.\n• Realizzazione di riprese video con smartphone durante trasmissioni, interviste, eventi ed emissioni esterne.\n• Montaggio e adattamento di contenuti per i diversi formati e piattaforme social.\n• Ricerca di idee, linguaggi e formati innovativi per valorizzare i contenuti delle due reti. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?\n• Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?\n• Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?\n• Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?\n• Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?\n• Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?\n• Sai adattare contenuti e linguaggi alle diverse piattaforme social?\n• Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?\n• Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale? Cosa offriamo Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026. LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
       "descriptionByLocale": {
         "it": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alla gestione e allo sviluppo della presenza social di Rete Uno e Rete Tre.\n• Ideazione e produzione di contenuti digitali a partire dai programmi radiofonici.\n• Creazione di reel, stories, caroselli e altri contenuti originali per Instagram e gli altri canali digitali.\n• Realizzazione di riprese video con smartphone durante trasmissioni, interviste, eventi ed emissioni esterne.\n• Montaggio e adattamento di contenuti per i diversi formati e piattaforme social.\n• Ricerca di idee, linguaggi e formati innovativi per valorizzare i contenuti delle due reti. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?\n• Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?\n• Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?\n• Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?\n• Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?\n• Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?\n• Sai adattare contenuti e linguaggi alle diverse piattaforme social?\n• Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?\n• Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale? Cosa offriamo Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026. LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-        "en": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alla gestione e allo sviluppo della presenza social di Rete Uno e Rete Tre.\n• Ideazione e produzione di contenuti digitali a partire dai programmi radiofonici.\n• Creazione di reel, stories, caroselli e altri contenuti originali per Instagram e gli altri canali digitali.\n• Realizzazione di riprese video con smartphone durante trasmissioni, interviste, eventi ed emissioni esterne.\n• Montaggio e adattamento di contenuti per i diversi formati e piattaforme social.\n• Ricerca di idee, linguaggi e formati innovativi per valorizzare i contenuti delle due reti. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?\n• Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?\n• Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?\n• Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?\n• Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?\n• Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?\n• Sai adattare contenuti e linguaggi alle diverse piattaforme social?\n• Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?\n• Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale? Cosa offriamo Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026. LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-        "de": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alla gestione e allo sviluppo della presenza social di Rete Uno e Rete Tre.\n• Ideazione e produzione di contenuti digitali a partire dai programmi radiofonici.\n• Creazione di reel, stories, caroselli e altri contenuti originali per Instagram e gli altri canali digitali.\n• Realizzazione di riprese video con smartphone durante trasmissioni, interviste, eventi ed emissioni esterne.\n• Montaggio e adattamento di contenuti per i diversi formati e piattaforme social.\n• Ricerca di idee, linguaggi e formati innovativi per valorizzare i contenuti delle due reti. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?\n• Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?\n• Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?\n• Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?\n• Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?\n• Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?\n• Sai adattare contenuti e linguaggi alle diverse piattaforme social?\n• Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?\n• Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale? Cosa offriamo Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026. LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-        "fr": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaborazione alla gestione e allo sviluppo della presenza social di Rete Uno e Rete Tre.\n• Ideazione e produzione di contenuti digitali a partire dai programmi radiofonici.\n• Creazione di reel, stories, caroselli e altri contenuti originali per Instagram e gli altri canali digitali.\n• Realizzazione di riprese video con smartphone durante trasmissioni, interviste, eventi ed emissioni esterne.\n• Montaggio e adattamento di contenuti per i diversi formati e piattaforme social.\n• Ricerca di idee, linguaggi e formati innovativi per valorizzare i contenuti delle due reti. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessa il mondo della radio, dei social media e della creazione di contenuti digitali?\n• Conosci l'offerta radiofonica, televisiva e digitale della RSI e, in particolare, quella di Rete Uno e Rete Tre?\n• Utilizzi quotidianamente i social media e ne conosci linguaggi, dinamiche e tendenze?\n• Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?\n• Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?\n• Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?\n• Sai adattare contenuti e linguaggi alle diverse piattaforme social?\n• Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?\n• Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale? Cosa offriamo Altre domande? INFO SUL PROCESSO DI CANDIDATURA Stage di 6 mesi tra novembre 2026 e aprile 2027, la sede di lavoro è a Comano. CANDIDARSI È FACILE! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 5 ottobre 2026. LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera."
+        "en": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaboration in the management and development of the social presence of Rete Uno and Rete Tre.\n• Ideation and production of digital content from radio programs.\n• Creation of reel, stories, carousels and other original content for Instagram and other digital channels.\n• Realization of video footage with smartphones during broadcasts, interviews, events and external issues.\n• Edit and adapt content for different formats and social platforms.\n• Search for innovative ideas, languages and formats to enhance the content of the two networks. You?\n• Are you attending university (or equivalent school) or have you finished it for a maximum of one year?\n• Are you interested in the world of radio, social media and the creation of digital content?\n• Do you know the radio, television and digital offer of the RSI and, in particular, the one of Rete Uno and Rete Tre?\n• Do you use social media daily and know languages, dynamics and trends?\n• Follow the current events, culture, music and events of Italian Switzerland?\n• Can you identify and value the most interesting content by turning them into effective formats for social media?\n• Do you have good writing skills and know how to make short texts, titles and copy suitable for different digital channels?\n• Can you adapt content and languages to different social platforms?\n• Do you have experience shooting with smartphones and using video editing tools?\n• Do you have an excellent mastery of Italian written and spoken and know at least another national language?\n• Do you have any good knowledge of Swiss territory and general culture? What do we offer more questions? 6 months between November 2026 and April 2027, the workplace is in Comano. CANDIDARSI IS FACILE! Only applications submitted through jobs.rsi.ch will be considered and accompanied by a letter of motivation, CV and university attendance certificate or degree. Deadline for submission of applications Monday 5 October 2026. LA RSI, Swiss Radiotelevisione di lingua italiana, is a public service broadcaster whose mandate is enshrined in the Federal Constitution, the Radiotelevision Act (LRTV) and the Concession. Independent, it is a pillar of the Swiss media landscape, as it plays a key role in promoting open dialogue and disseminating accurate information. Thanks to a wide range of radio, television and digital programs, the CSR offers a universal service in the media field, reaching and informing the population in a capillary way. This function is essential both for democracy, and to ensure that the Swiss public is constantly updated and informed, with coverage ranging from politics to culture, from economy to entertainment, from sport to education. The ISR provides an accurate picture of Swiss reality on a national, linguistic and regional scale, facilitating dialogue and exchange between the language regions of Switzerland.",
+        "de": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Zusammenarbeit in der Verwaltung und Entwicklung der sozialen Präsenz von Rete Uno und Rete Tre.\n• Ideenfindung und Produktion digitaler Inhalte aus Radioprogrammen.\n• Erstellung von Rollen, Geschichten, Karussells und anderen Originalinhalten für Instagram und andere digitale Kanäle.\n• Realisierung von Videomaterial mit Smartphones während Sendungen, Interviews, Veranstaltungen und externen Themen.\n• Bearbeiten und Anpassen von Inhalten für verschiedene Formate und soziale Plattformen.\n• Suchen Sie nach innovativen Ideen, Sprachen und Formaten, um den Inhalt der beiden Netzwerke zu verbessern. Sie?\n• Besuchen Sie die Universität (oder eine gleichwertige Schule) oder haben Sie sie für maximal ein Jahr abgeschlossen?\n• Interessieren Sie sich für die Welt des Radios, der sozialen Medien und der Erstellung digitaler Inhalte?\n• Kennen Sie das Radio-, Fernseh- und digitale Angebot des RSI und insbesondere das von Rete Uno und Rete Tre?\n• Nutzen Sie Social Media täglich und kennen Sprachen, Dynamiken und Trends?\n• Folgen Sie den aktuellen Veranstaltungen, Kultur, Musik und Veranstaltungen der Italienischen Schweiz?\n• Können Sie die interessantesten Inhalte identifizieren und bewerten, indem Sie sie in effektive Formate für soziale Medien verwandeln?\n• Haben Sie gute Schreibfähigkeiten und wissen, wie man kurze Texte, Titel und Kopien für verschiedene digitale Kanäle geeignet macht?\n• Können Sie Inhalte und Sprachen an verschiedene soziale Plattformen anpassen?\n• Haben Sie Erfahrung mit dem Fotografieren mit Smartphones und der Verwendung von Videobearbeitungswerkzeugen?\n• Haben Sie eine ausgezeichnete Beherrschung der italienischen geschrieben und gesprochen und wissen mindestens eine andere Landessprache?\n• Haben Sie gute Kenntnisse des Schweizer Territoriums und der allgemeinen Kultur? Was bieten wir mehr Fragen an? 6 Monate zwischen November 2026 und April 2027 ist der Arbeitsplatz in Comano. CANDIDARSI IST FAZIL! Nur Bewerbungen, die über jobs.rsi.ch eingereicht werden, werden von einem Motivationsschreiben, Lebenslauf und Universitätsurkunde oder Abschluss begleitet. Bewerbungsfrist Montag, 5. Oktober 2026. LA RSI, Swiss Radiotelevisione di lingua italiana, ist eine öffentlich-rechtliche Rundfunkanstalt, deren Auftrag in der Bundesverfassung, dem Radiotelevision Act (LRTV) und der Konzession verankert ist. Unabhängig ist es eine Säule der Schweizer Medienlandschaft, da es eine Schlüsselrolle bei der Förderung eines offenen Dialogs und der Verbreitung korrekter Informationen spielt. Dank einer breiten Palette von Radio-, Fernseh- und digitalen Programmen bietet die CSR einen universellen Service im Medienbereich, der die Bevölkerung kapillar erreicht und informiert. Diese Funktion ist sowohl für die Demokratie als auch für die ständige Aktualisierung und Information der Schweizer Öffentlichkeit von Politik bis Kultur, von Wirtschaft bis Unterhaltung, von Sport bis Bildung unerlässlich. Die ISR bietet ein genaues Bild der Schweizer Realität auf nationaler, sprachlicher und regionaler Ebene und erleichtert den Dialog und Austausch zwischen den Sprachregionen der Schweiz.",
+        "fr": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Collaboration dans la gestion et le développement de la présence sociale de Rete Uno et Rete Tre.\n• Idéation et production de contenu numérique à partir d'émissions de radio.\n• Création de bobines, histoires, carrousels et autres contenus originaux pour Instagram et autres canaux numériques.\n• Réalisation de vidéos avec smartphones pendant les émissions, interviews, événements et questions externes.\n• Modifier et adapter le contenu pour différents formats et plateformes sociales.\n• Rechercher des idées, des langues et des formats innovants pour améliorer le contenu des deux réseaux. Toi ?\n• Vous fréquentez l'université (ou l'école équivalente) ou l'avez-vous terminée pendant un an maximum?\n• Êtes-vous intéressé par le monde de la radio, des médias sociaux et de la création de contenu numérique?\n• Connaissez-vous l'offre radio, télévision et numérique du RSI et, en particulier, celle de Rete Uno et Rete Tre?\n• Utilisez-vous les médias sociaux quotidiennement et connaissez-vous les langues, les dynamiques et les tendances?\n• Suivez les événements actuels, la culture, la musique et les événements de la Suisse italienne ?\n• Pouvez-vous identifier et valoriser le contenu le plus intéressant en le transformant en formats efficaces pour les médias sociaux?\n• Avez-vous de bonnes compétences d'écriture et savez-vous faire de courts textes, titres et copies adaptés aux différents canaux numériques?\n• Pouvez-vous adapter des contenus et des langues à différentes plateformes sociales ?\n• Avez-vous l'expérience de la prise de vue avec les smartphones et l'utilisation d'outils de montage vidéo?\n• Avez-vous une excellente maîtrise de l'italien écrit et parlé et connaissant au moins une autre langue nationale?\n• Avez-vous une bonne connaissance du territoire suisse et de la culture générale? Que proposons-nous d'autres questions? 6 mois entre novembre 2026 et avril 2027, le lieu de travail est à Comano. CANDIDARSI EST FACILE ! Seules les demandes soumises par jobs.rsi.ch seront examinées et accompagnées d'une lettre de motivation, d'un CV et d'un certificat ou d'un diplôme de fréquentation universitaire. Date limite pour le dépôt des candidatures lundi 5 octobre 2026. LA RSI, Radiotélévision suisse di lingua italiana, est un radiodiffuseur de service public dont le mandat est consacré par la Constitution fédérale, la Loi sur la radiodiffusion (LRTV) et la concession. Indépendant, il est un pilier du paysage médiatique suisse, car il joue un rôle clé dans la promotion d'un dialogue ouvert et la diffusion d'informations exactes. Grâce à un large éventail d'émissions de radio, de télévision et de télévision numériques, la RSE offre un service universel dans le domaine des médias, touchant et informant la population d'une manière capillaire. Cette fonction est essentielle à la fois pour la démocratie et pour que le public suisse soit constamment informé et mis à jour, avec une couverture allant de la politique à la culture, de l'économie au divertissement, du sport à l'éducation. L'ISR fournit une image précise de la réalité suisse à l'échelle nationale, linguistique et régionale, facilitant le dialogue et les échanges entre les régions linguistiques de la Suisse."
       },
       "location": "Comano",
       "canton": "TI",
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rete-uno-e-rete-tre/c9783f6a-a253-43f3-9ef7-6a679c49914d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:35:21.643Z",
+      "crawledAt": "2026-09-11T23:05:56.408Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2718,10 +2554,7 @@
           "Segui l'attualità, la cultura, la musica e gli eventi della Svizzera italiana?",
           "Sai individuare e valorizzare i contenuti più interessanti trasformandoli in formati efficaci per i social media?",
           "Hai buone capacità di scrittura e sai realizzare testi brevi, titoli e copy adatti ai diversi canali digitali?",
-          "Sai adattare contenuti e linguaggi alle diverse piattaforme social?",
-          "Hai esperienza nelle riprese con smartphone e nell'utilizzo di strumenti di montaggio video?",
-          "Hai un'ottima padronanza dell'italiano scritto e parlato e conosci almeno un'altra lingua nazionale?",
-          "Hai delle buone conoscenze del territorio svizzero e della cultura generale?"
+          "Sai adattare contenuti e linguaggi alle diverse piattaforme social?"
         ]
       },
       "_srgMeta": {
@@ -2731,7 +2564,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",

@@ -12,13 +12,35 @@ import { spawnSync, execFileSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
-import { isDeclaredFalsePositive, DECLARATION_HOWTO } from '../scripts/ci/sibling-check-gate.mjs';
+import { isDeclaredFalsePositive, DECLARATION_HOWTO, resolveSiblingGateTarget } from '../scripts/ci/sibling-check-gate.mjs';
 import { resolveGatedHeadRef } from '../scripts/ci/lib/hook-target-cwd.mjs';
 import { describePrBodySource, localDiffPaths } from '../scripts/ci/pr-body-check-gate.mjs';
 import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const GATE = resolve(ROOT, 'scripts/ci/sibling-check-gate.mjs');
+
+describe('sibling-check-gate — repository routing', () => {
+  it('uses the site checker for an explicit site repository', () => {
+    const target = resolveSiblingGateTarget(
+      'gh pr create --repo valerielinc-ops/frontaliere-si-o-no --head feature-x --title x',
+    );
+    expect(target?.repo).toBe(ROOT);
+    expect(target?.checkScript).toMatch(/scripts\/ci\/check-sibling-patterns\.mjs$/);
+  });
+
+  it('does not run the site checker for corpus PRs without a corpus checker', () => {
+    expect(
+      resolveSiblingGateTarget(
+        'gh pr create --repo nanakokyobashi-rgb/frontaliere-articles --head feature-x --title x',
+      ),
+    ).toBeNull();
+  });
+
+  it('ignores an explicit repository outside this workspace', () => {
+    expect(resolveSiblingGateTarget('gh pr create --repo example/other --head feature-x')).toBeNull();
+  });
+});
 
 describe('isDeclaredFalsePositive — only AGENTS.md #6 escape-hatch language qualifies', () => {
   const FP_NONIMPL = `
@@ -176,6 +198,30 @@ describe('sibling-check-gate hook — cwd forwarding (2026-08-25 incident)', () 
     const res = runGate('gh pr create --title x --body "y"', { cwd: outsideAnyRepo });
     expect(res.status).toBe(EXIT_BLOCK);
     expect(res.stderr).toMatch(/NON ESEGUITO/);
+  });
+
+  it('blocks a literal cd to an existing non-repository before --head can fall back to the gate repo', () => {
+    const outsideAnyRepo = mkdtempSync(join(tmpdir(), 'sibling-gate-literal-cd-'));
+    createdDirs.push(outsideAnyRepo);
+    const res = runGate(
+      `cd "${outsideAnyRepo}" && gh pr create --head main --title x --body "y"`,
+      { cwd: ambientRepo },
+    );
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/cwd non risolvibile|non appartiene a una repository Git/i);
+    expect(res.stderr).toMatch(/NON ESEGUITO/);
+  });
+
+  it('blocks a relative cd that points at a different nested worktree', () => {
+    const foreign = join(ambientRepo, 'foreign-worktree');
+    mkdirSync(foreign);
+    execFileSync('git', ['init', '-q', foreign], { stdio: 'ignore' });
+    const res = runGate(
+      'cd foreign-worktree && gh pr create --title x --body "y"',
+      { cwd: ambientRepo },
+    );
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/worktree diverso/i);
   });
 
   it('falls back to the ambient directory (today\'s pre-fix behaviour) when the payload carries no cwd at all', () => {

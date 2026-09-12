@@ -46,7 +46,9 @@ describe('JobBoard in-feed reservation on URL restore', () => {
       JOB_BOARD_SOURCE.indexOf('function readSeededJob'),
     );
     expect(normalizer).toContain('const rawCompanyDomain = String(raw?.companyDomain || \'\').trim();');
+    expect(normalizer).toContain('const rawApplyUrl = String(raw?.applyUrl || \'\').trim();');
     expect(normalizer).toContain('companyDomain: rawCompanyDomain || undefined');
+    expect(normalizer).toContain('applyUrl: rawApplyUrl || undefined');
     expect(normalizer).not.toContain('companyDomain: canonicalHost');
   });
 });

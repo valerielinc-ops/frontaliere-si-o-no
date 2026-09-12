@@ -12,7 +12,7 @@ name: Stale PR rescuer (self-healing signal)
 #      segnale a valle e non può acquisirne (con i test rossi il job si ferma
 #      prima dello step di review Claude, che dal 2026-08-26 vive dentro
 #      `tests.yml`) → prima cadeva in un `else` muto ed era irrecuperabile. Fix:
-#      `stale-review`, che riapre il gate near-merge di pr-autorebase.
+#      `stale-review`, che riapre il grafo dei rerun e dei fixer.
 #      Misurata su 8 PR ferme 1-4 giorni il 2026-08-05 (issue #5041).
 #
 # DETERMINISTICO (zero Claude → zero quota Max, coerente con la frugalità di
@@ -96,21 +96,42 @@ jobs:
           NOW=$(date -u +%s)
           AGE_MIN_S=7200  # 2h: non toccare PR con lavoro recente (agent attivo)
 
-          # PR aperte, autore owner (skip fork/dependabot). updatedAt per age gate.
-          prs=$(gh pr list --repo "$REPO" --state open --limit 50 \
-            --json number,headRefName,headRefOid,updatedAt,author,labels,isDraft)
+          # Tutte le PR aperte sono candidate alla lettura; la provenienza
+          # autonoma viene verificata sotto con branch/label, non inferita
+          # dall'autore owner (che include anche PR umane). `gh pr list` con
+          # `--limit 50` troncava in silenzio proprio le PR più vecchie, cioè
+          # quelle che questo rescuer deve recuperare. Se una pagina API non
+          # è leggibile, il job fallisce e il cron ritenta: non si dichiara
+          # verde lasciando una PR invisibile.
+          if ! prs=$(gh api --paginate "repos/$REPO/pulls?state=open&per_page=100" \
+            --jq '.[] | {number, headRefName: .head.ref, headRefOid: .head.sha, updatedAt: .updated_at, labels: [.labels[] | {name}], isDraft: .draft}' \
+            | jq -s '.'); then
+            echo "::error::Query PR aperte fallita o non valida: scan stale non eseguito." >&2
+            exit 1
+          fi
 
           echo "$prs" | jq -c '.[]' | while read -r pr; do
             N=$(echo "$pr" | jq -r '.number')
             BRANCH=$(echo "$pr" | jq -r '.headRefName')
             HEAD=$(echo "$pr" | jq -r '.headRefOid')
             UPD=$(echo "$pr" | jq -r '.updatedAt')
-            AUTHOR=$(echo "$pr" | jq -r '.author.login')
-            HAS_LABEL=$(echo "$pr" | jq -r '[.labels[].name] | index("stale-review") // empty')
+            HAS_AUTOFIX=$(echo "$pr" | jq -r 'if any(.labels[]?.name; . == "agent:autofix") then "true" else "false" end')
             IS_DRAFT=$(echo "$pr" | jq -r '.isDraft')
 
-            # Idempotenza: già flaggata → skip.
-            if [ -n "$HAS_LABEL" ]; then echo "PR #$N già stale-review — skip"; continue; fi
+            # Il rescuer e il recycle sono strumenti del loop autonomo. La
+            # provenienza va dimostrata dal branch storico del fixer oppure dal
+            # label esplicito applicato dallo step `issue-fix`/`/fix-issue`;
+            # autore owner non è una prova sufficiente, perché include anche PR
+            # umane. Questo filtro evita che una stale-review aggiunta a mano
+            # trasformi una PR umana in un target di auto-requeue.
+            IS_AUTOFIX=false
+            case "$BRANCH" in
+              fix/*) IS_AUTOFIX=true ;;
+              *) [ "$HAS_AUTOFIX" = "true" ] && IS_AUTOFIX=true ;;
+            esac
+            if [ "$IS_AUTOFIX" != "true" ]; then
+              echo "PR #$N non marcata agent:autofix e branch non fix/* — skip (solo PR autonome)"; continue
+            fi
 
             # DRAFT → skip. Una draft non è in attesa di review, quindi nessuna
             # delle tre classi è un vero stallo per lei. Il filtro diventa
@@ -172,14 +193,16 @@ jobs:
               continue
             fi
 
-            REASON=""; RESCUE=""
+            REASON=""; RESCUE=""; CLASS=""
             if [ "$TESTS_CONCL" = "success" ] && [ "$LAST_CID" != "$HEAD" ]; then
+              CLASS="A"
               # Classe A: tests verdi sull'head corrente da >2h ma nessuna review
               # l'ha mai coperto (workflow-validation drift o coda congestionata —
               # non distinguibili via API, stesso fix per entrambe).
               REASON="tests verdi sull'head corrente da >2h ma nessuna review pr-review-loop l'ha coperto"
               RESCUE="\`git fetch origin main && git merge origin/main\` nel branch \`$BRANCH\` poi push (allinea i workflow file, sana un eventuale app-token 401). Se il merge non serve, attendi ancora — può essere coda congestionata. Vedi AGENTS.md → \"Workflow-validation drift\"."
             elif [ "$IMPORTANT_MARKER_STATUS" -eq 0 ] && [ "$LAST_CID" = "$HEAD" ]; then
+              CLASS="B"
               # Classe B: 🔴 Important sull'head corrente, non ripreso. Regex
               # allineata a REDFLAG_IMPORTANT_RE (scripts/ci/lib/constants.mjs):
               # un bare `grep -q "🔴"` avrebbe mis-triggerato su prosa di
@@ -193,6 +216,7 @@ jobs:
               REASON="🔴 Important non ripreso (review sull'head corrente $HEAD, auto-merge skipped, nessun commit nuovo)"
               RESCUE="applica il fix del 🔴 in un nuovo commit sullo stesso branch \`$BRANCH\` → re-review automatica. Vedi la review più recente sulla PR."
             elif [ "$TESTS_PENDING" = "0" ] && [ "$TESTS_CONCL" != "success" ]; then
+              CLASS="C"
               # Classe C — RETE DI SICUREZZA (2026-08-05, issue #5041).
               #
               # Le classi A e B presuppongono che la PR abbia già un segnale a
@@ -213,19 +237,29 @@ jobs:
               # (`cancelled`, `timed_out`, `action_required`, e il caso "nessun
               # check-run vitest" degli head orfani) senza esigere alcuna prova.
               #
-              # Resta alert-only e non spreca CI: mette una label + UN commento
-              # idempotente. È `pr-autorebase` a decidere se rebasare, e
-              # `recycle-stale-prs` a raccogliere ciò che resta fermo. Il gate
-              # d'età di 2h + l'idempotenza della label impediscono il rumore su
-              # una PR con lavoro in corso.
+              # Resta deterministico e non usa Claude: mette una label, rilancia
+              # il check esistente (o lo dispatcha se manca) e scrive UN commento
+              # idempotente. Il gate d'età di 2h + il marker (classe, head)
+              # impediscono il rumore su una PR con lavoro in corso.
               REASON="vitest \`$TESTS_CONCL\` sull'head da >2h, nessun run in volo e nessun segnale a valle (con i test rossi il job si ferma prima dello step di review Claude) — stallo silenzioso"
-              RESCUE="etichettata \`stale-review\` per riaprire il grafo: il rescuer riesegue il run PR di tests.yml e riattiva il consumer e \`pr-autorebase\` ora la considera near-merge, la rebasa su main e ri-dispatcha i test. Se il rosso è REALE (del diff della PR) va fixato a mano sul branch \`$BRANCH\` — la label non lo nasconde, lo rende visibile. Vedi AGENTS.md → \"main rosso blocca a cascata\"."
+              RESCUE="etichettata \`stale-review\` e rieseguito/ri-dispatchato \`tests.yml\` per riaprire il grafo di review. Se il rosso è REALE (del diff della PR) il redcheck-fixer lo corregge entro il suo round cap; il rescuer non abbassa il gate e la label non nasconde il problema. Se il branch è in conflitto, il recycle giornaliero ricrea il fix contro main corrente. Vedi AGENTS.md → \"main rosso blocca a cascata\"."
             else
               echo "PR #$N nessuno stallo noto (tests=$TESTS_CONCL pending=$TESTS_PENDING) — skip"; continue
             fi
 
             echo "::warning::PR #$N STALLED — $REASON"
             if [ "${DRY_RUN:-false}" = "true" ]; then echo "(dry-run) skip azione PR #$N"; continue; fi
+
+            # Idempotenza sull'AZIONE, non sulla VALUTAZIONE: `stale-review`
+            # non è più un semaforo che nasconde la PR al giro successivo.
+            # La chiave (classe, head) permette di riprovare uno stallo quando
+            # cambia il commit o la diagnosi, senza commentare a ogni cron.
+            posted=$(gh api --paginate "repos/$REPO/issues/$N/comments?per_page=100" 2>/dev/null || echo '[]')
+            POSTED_BODIES=$(echo "$posted" | jq -rs '[.[][]? | .body // ""] | join("\n")' 2>/dev/null || echo "")
+            MARKER="<!-- stale-pr-rescuer class=$CLASS head=${HEAD:0:7} -->"
+            case "$POSTED_BODIES" in
+              *"$MARKER"*) echo "PR #$N: classe $CLASS su ${HEAD:0:7} già segnalata — nessuna azione"; continue ;;
+            esac
 
             gh pr edit "$N" --repo "$REPO" --add-label "stale-review" 2>/dev/null || \
               echo "label stale-review assente nel repo — creala una volta: gh label create stale-review"
@@ -237,13 +271,21 @@ jobs:
               select((.name == "vitest execution" or .name == "vitest (unit + integration)") and .status == "completed" and .conclusion != "skipped")]
               | sort_by([(.name == "vitest execution"), .completed_at]) | last | .details_url // ""
               | capture("/actions/runs/(?<id>[0-9]+)")?.id // empty')
+            ACTION_OK=true
             if [ -n "$RESCUE_RUN" ]; then
-              gh run rerun "$RESCUE_RUN" --repo "$REPO" || echo "::warning::Cannot rerun code checks for PR #$N."
+              gh run rerun "$RESCUE_RUN" --repo "$REPO" || {
+                ACTION_OK=false
+                echo "::warning::Cannot rerun code checks for PR #$N."
+              }
             else
-              gh workflow run tests.yml --repo "$REPO" --ref "$BRANCH" -f "pr_number=$N" || \
+              gh workflow run tests.yml --repo "$REPO" --ref "$BRANCH" -f "pr_number=$N" || {
+                ACTION_OK=false
                 echo "::warning::Cannot dispatch missing code checks for PR #$N."
+              }
             fi
-            gh pr comment "$N" --repo "$REPO" --body "$(printf '🔧 **stale-review** (auto): PR ferma >2h.\n\nClasse: %s\n\nRescue: %s\n\n_Segnale deterministico da stale-pr-rescuer.yml (zero-Claude). Auto-rescue con push = follow-up (serve PAT scope workflows)._' "$REASON" "$RESCUE")" \
+            COMMENT_MARKER=""
+            if [ "$ACTION_OK" = "true" ]; then COMMENT_MARKER="$MARKER"; fi
+            gh pr comment "$N" --repo "$REPO" --body "$(printf '🔧 **stale-review** (auto): PR ferma >2h.\n\nClasse: %s\n\nRescue: %s\n\n_Segnale deterministico da stale-pr-rescuer.yml (zero-Claude). Auto-rescue con push = follow-up (serve PAT scope workflows)._\n%s' "$REASON" "$RESCUE" "$COMMENT_MARKER")" \
               2>/dev/null || echo "comment fallito PR #$N"
           done
           echo "Scan completo."

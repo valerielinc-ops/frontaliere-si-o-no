@@ -21,6 +21,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { writeEmployerInsightsDocuments } from './lib/employer-insights-firestore.mjs';
 import { assertEmployerInsightsSource } from './lib/employer-insights-contract.mjs';
 import {
   GA4_READONLY_SCOPE,
@@ -38,6 +39,7 @@ import {
   canonicalCompanyProfileSlug,
   rawCompanySlug,
 } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { isJobBoardSectorHubPath } from '../build-plugins/shared/jobSectorSlugs.mjs';
 
 export const INSIGHTS_SCHEMA_VERSION = 2;
 export const DELIVERY_UNAVAILABLE = 'non disponibile';
@@ -476,6 +478,12 @@ function pathSegments(pathname) {
 
 function routeIdentity(pathname) {
   const segments = pathSegments(pathname);
+  // Sector hubs deliberately share the `/section/<slug>/` shape with job
+  // details. Their page views have no employer/job identity and must remain
+  // residual traffic; resolving the hub slug against the job catalog would
+  // inflate an employer's denominator (e.g. `/infermieri/` versus the LIS
+  // detail slug) while apply clicks remain correctly attributed.
+  if (isJobBoardSectorHubPath(pathname)) return null;
   for (const segment of segments) {
     const prefix = COMPANY_HUB_PREFIXES.find((candidate) => segment.startsWith(candidate) && segment.length > candidate.length);
     if (prefix) return { kind: 'company', alias: segment.slice(prefix.length) };
@@ -579,9 +587,11 @@ function ensureCompanyState(states, catalog, companyKey) {
       profileViews: 0,
       profileVisitors: 0,
       applyClicks: 0,
+      applyClickUsers: 0,
       eventsObserved: 0,
       eventTypes: new Map(),
       trend: new Map(),
+      applyClickTrend: new Map(),
       profileTrend: new Map(),
       companyPaths: new Set(),
     });
@@ -610,6 +620,7 @@ function ensureAd(state, job) {
       views: 0,
       visitors: 0,
       applyClicks: 0,
+      applyClickUsers: 0,
       eventsObserved: 0,
       eventTypes: new Map(),
       trend: new Map(),
@@ -673,7 +684,12 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
     const views = pageview ? (sourceRow.views == null ? count : numberOr(sourceRow.views, count)) : 0;
     const visitors = pageview ? numberOr(sourceRow.visitors || sourceRow.persons, 0) : 0;
     const clicks = applyClick ? (sourceRow.clicks == null ? count : numberOr(sourceRow.clicks, count)) : 0;
+    // GA4/PostHog expose users per grouped row, not a cross-window user union.
+    // Keep the observed units for context, but never present them as named or
+    // globally unique people.
+    const applyClickUsers = applyClick ? numberOr(sourceRow.persons, 0) : 0;
     state.applyClicks += clicks;
+    state.applyClickUsers += applyClickUsers;
     if (job) {
       state.views += views;
       state.visitors += visitors;
@@ -683,8 +699,10 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
       ad.views += views;
       ad.visitors += visitors;
       ad.applyClicks += clicks;
-      const week = sourceRow.week || (pageview ? weekStart(sourceRow.timestamp) : null);
+      ad.applyClickUsers += applyClickUsers;
+      const week = sourceRow.week || ((pageview || applyClick) ? weekStart(sourceRow.timestamp) : null);
       if (pageview && week) addMetric(ad.trend, week, views);
+      if (applyClick && week) addMetric(state.applyClickTrend, week, clicks);
     } else if (pageview) {
       state.profileViews += views;
       state.profileVisitors += visitors;
@@ -786,10 +804,20 @@ function serializeEventTypes(types) {
   return Object.fromEntries([...types.entries()].sort(([a], [b]) => a.localeCompare(b)));
 }
 
-function serializeTrend(trend) {
-  return [...trend.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([week, views]) => ({ week, views }));
+function serializeTrend(trend, extras = {}) {
+  const weeks = new Set(trend.keys());
+  for (const extra of Object.values(extras)) {
+    for (const week of extra.keys()) weeks.add(week);
+  }
+  return [...weeks]
+    .sort((a, b) => a.localeCompare(b))
+    .map((week) => {
+      const point = { week, views: trend.get(week) || 0 };
+      for (const [name, extra] of Object.entries(extras)) {
+        if (extra.has(week)) point[name] = extra.get(week) || 0;
+      }
+      return point;
+    });
 }
 
 function queryCoverageOrDefault(queryCoverage, coverage, window) {
@@ -807,6 +835,10 @@ function queryCoverageOrDefault(queryCoverage, coverage, window) {
     queryHash: query.queryHash || null,
     snapshotId: query.snapshotId || null,
     sourceObserved: query.sourceObserved ?? coverage.rawObserved,
+    sourceResponse: query.sourceResponse ?? null,
+    sourceResponseRows: query.sourceResponseRows ?? null,
+    groupedResponse: query.groupedResponse ?? null,
+    groupedResponseRows: query.groupedResponseRows ?? null,
     from: window.from,
     to: window.to,
   };
@@ -843,6 +875,10 @@ export function buildDryRunPayload({
       truncated: normalizedCoverage.truncated,
       queryHash: normalizedCoverage.queryHash,
       snapshotId: normalizedCoverage.snapshotId,
+      sourceResponse: normalizedCoverage.sourceResponse,
+      sourceResponseRows: normalizedCoverage.sourceResponseRows,
+      groupedResponse: normalizedCoverage.groupedResponse,
+      groupedResponseRows: normalizedCoverage.groupedResponseRows,
     },
     documents,
   };
@@ -870,6 +906,10 @@ function selectWindowSummary(doc) {
     window: doc.window,
     totals: doc.totals,
     trend: doc.trend,
+    topAd: doc.topAd,
+    ads: doc.ads,
+    profileTrend: doc.profileTrend,
+    applicationsCoverage: doc.applicationsCoverage,
     coverage: doc.coverage,
     limits: doc.limits,
   };
@@ -941,6 +981,7 @@ export function buildInsightsDocuments({
         views: ad.views,
         visitors: ad.visitors,
         applyClicks: ad.applyClicks,
+        applyClickUsers: ad.applyClickUsers,
         eventsObserved: ad.eventsObserved,
         eventTypes: serializeEventTypes(ad.eventTypes),
         applications: app ? app.applications : unavailable.applications,
@@ -956,7 +997,7 @@ export function buildInsightsDocuments({
     const forwardedAt = ads.map((ad) => ad.forwardedAt).filter(Boolean).sort().at(-1) || null;
     const jobTrend = ads.flatMap((ad) => ad.trend);
     for (const point of jobTrend) addMetric(state.trend, point.week, point.views);
-    const trend = serializeTrend(state.trend);
+    const trend = serializeTrend(state.trend, { applyClicks: state.applyClickTrend });
     const profileTrend = serializeTrend(state.profileTrend);
     const eventLimits = queryCoverageOrDefault(queryCoverage, aggregate.coverage, window);
     const doc = {
@@ -972,6 +1013,7 @@ export function buildInsightsDocuments({
         profileViews: state.profileViews,
         profileVisitors: state.profileVisitors,
         applyClicks: state.applyClicks,
+        applyClickUsers: state.applyClickUsers,
         adsCount: ads.length,
         applications: totalsApplications,
         applicationsStatus: evidence.status === 'source_unavailable'
@@ -986,6 +1028,8 @@ export function buildInsightsDocuments({
       profileTrend,
       coverage: {
         ...aggregate.coverage,
+        sourceResponse: eventLimits.sourceResponse,
+        sourceResponseRows: eventLimits.sourceResponseRows,
         residuals: { ...aggregate.coverage.residuals },
         identityResolution: {
           method: 'explicit_alias',
@@ -996,6 +1040,12 @@ export function buildInsightsDocuments({
             identifier: 'person_id',
             aggregation: 'sum_distinct_per_event_group',
             globalUnique: false,
+          },
+          applyClickUsers: {
+            identifier: 'person_id',
+            aggregation: 'sum_per_apply_event_group',
+            globalUnique: false,
+            pii: false,
           },
         },
       },
@@ -1019,6 +1069,10 @@ export function buildInsightsDocuments({
         pages: eventLimits.pages,
         pageSize: eventLimits.pageSize,
         truncated: eventLimits.truncated,
+        sourceResponse: eventLimits.sourceResponse,
+        sourceResponseRows: eventLimits.sourceResponseRows,
+        groupedResponse: eventLimits.groupedResponse,
+        groupedResponseRows: eventLimits.groupedResponseRows,
       },
     };
     if (Object.keys(additionalWindows).length) doc.additionalWindows = additionalWindows;
@@ -1046,6 +1100,26 @@ function hogqlDate(iso) {
   return String(iso).replace('T', ' ').replace(/\.\d{3}Z$/, '');
 }
 
+// Every grouped event row needs a cursor discriminator that cannot be empty.
+// PostHog installations expose the identity in different places, so prefer
+// the stable provider ids and fall back to the complete grouped identity.
+const EVENT_KEY_EXPRESSION = [
+  'coalesce(',
+  "nullIf(toString(properties.$insert_id), ''),",
+  "nullIf(toString(properties.$event_id), ''),",
+  "nullIf(toString(uuid), ''),",
+  "concat(toString(timestamp), '|', toString(event), '|',",
+  "coalesce(toString(properties.$pathname), ''), '|',",
+  "coalesce(toString(properties.job_slug), ''), '|',",
+  "coalesce(toString(properties.job_id), ''), '|',",
+  "coalesce(toString(properties.publisher_job_id), ''), '|',",
+  "coalesce(toString(properties.employer_key), ''), '|',",
+  "coalesce(toString(properties.item_id), ''), '|',",
+  "coalesce(toString(properties.content_type), ''), '|',",
+  "coalesce(toString(properties.emission_id), ''))",
+  ')',
+].join(' ');
+
 const EVENT_CURSOR_TIMESTAMP_INDEX = 16;
 const EVENT_CURSOR_FIELDS = [
   { name: 'event', index: 17, alias: 'cursor_event', expression: 'toString(event)', objectKeys: ['cursor_event', 'event'] },
@@ -1058,6 +1132,7 @@ const EVENT_CURSOR_FIELDS = [
   { name: 'itemId', index: 24, alias: 'cursor_item_id', expression: "coalesce(toString(properties.item_id), '')", objectKeys: ['cursor_item_id', 'itemId', 'item_id'] },
   { name: 'contentType', index: 25, alias: 'cursor_content_type', expression: "coalesce(toString(properties.content_type), '')", objectKeys: ['cursor_content_type', 'contentType', 'content_type'] },
   { name: 'emissionId', index: 26, alias: 'cursor_emission_id', expression: "coalesce(toString(properties.emission_id), '')", objectKeys: ['cursor_emission_id', 'emissionId', 'emission_id'] },
+  { name: 'eventKey', index: 27, alias: 'cursor_event_key', expression: EVENT_KEY_EXPRESSION, objectKeys: ['cursor_event_key', 'eventKey', 'event_key'] },
 ];
 
 function hogqlString(value) {
@@ -1065,12 +1140,26 @@ function hogqlString(value) {
 }
 
 function hogqlTimestamp(value) {
-  const raw = String(value ?? '')
-    .trim()
-    .replace('T', ' ')
-    .replace(/(?:Z|[+-]\d\d:\d\d)$/, '');
-  const [whole, fraction = ''] = raw.split('.', 2);
-  return whole + '.' + fraction.slice(0, 6).padEnd(6, '0');
+  const match = String(value ?? '').trim().match(
+    /^(\d{4}-\d{2}-\d{2})[T ](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?(Z|[+-]\d{2}:?\d{2})?$/,
+  );
+  if (!match) throw new Error('invalid PostHog cursor timestamp');
+  const [, datePart, hour, minute, second, rawFraction = '', zone = ''] = match;
+  const fraction = rawFraction.slice(0, 6).padEnd(6, '0');
+  if (!zone || zone === 'Z') return `${datePart} ${hour}:${minute}:${second}.${fraction}`;
+
+  const sign = zone[0] === '+' ? 1 : -1;
+  const offsetDigits = zone.slice(1).replace(':', '');
+  const offsetHours = Number(offsetDigits.slice(0, 2));
+  const offsetMinutes = Number(offsetDigits.slice(2, 4));
+  if (offsetHours > 23 || offsetMinutes > 59) throw new Error('invalid PostHog cursor timestamp offset');
+  const [year, month, day] = datePart.split('-').map(Number);
+  const base = Date.UTC(year, month - 1, day, Number(hour), Number(minute), Number(second));
+  if (!Number.isFinite(base)) throw new Error('invalid PostHog cursor timestamp');
+  const utc = new Date(base - sign * (offsetHours * 60 + offsetMinutes) * 60_000);
+  const pad = (number) => String(number).padStart(2, '0');
+  return `${utc.getUTCFullYear()}-${pad(utc.getUTCMonth() + 1)}-${pad(utc.getUTCDate())} `
+    + `${pad(utc.getUTCHours())}:${pad(utc.getUTCMinutes())}:${pad(utc.getUTCSeconds())}.${fraction}`;
 }
 
 function cursorFieldValue(row, field) {
@@ -1086,15 +1175,31 @@ function eventCursorFromRow(row) {
     ? row[EVENT_CURSOR_TIMESTAMP_INDEX]
     : row?.cursorTimestamp ?? row?.cursor_timestamp ?? row?.timestamp;
   const values = EVENT_CURSOR_FIELDS.map((field) => [field.name, cursorFieldValue(row, field)]);
-  if (timestamp == null || timestamp === '' || values.some(([, value]) => value == null)) return null;
+  const eventKey = values.find(([name]) => name === 'eventKey')?.[1];
+  if (
+    timestamp == null
+    || timestamp === ''
+    || values.some(([, value]) => value == null)
+    || eventKey === ''
+  ) return null;
   return {
     timestamp: String(timestamp),
     ...Object.fromEntries(values.map(([name, value]) => [name, String(value)])),
   };
 }
 
-function eventCursorSortKey(cursor) {
-  return [hogqlTimestamp(cursor.timestamp), ...EVENT_CURSOR_FIELDS.map((field) => cursor[field.name])].join('\u0000');
+function compareCursorText(left, right) {
+  return Buffer.from(String(left), 'utf8').compare(Buffer.from(String(right), 'utf8'));
+}
+
+function compareEventCursors(left, right) {
+  const timestampResult = compareCursorText(hogqlTimestamp(left.timestamp), hogqlTimestamp(right.timestamp));
+  if (timestampResult !== 0) return timestampResult;
+  for (const field of EVENT_CURSOR_FIELDS) {
+    const result = compareCursorText(left[field.name], right[field.name]);
+    if (result !== 0) return result;
+  }
+  return 0;
 }
 
 function eventCursorFilter(cursor, cursorTimestamp) {
@@ -1147,8 +1252,9 @@ function eventSelect(window, cursor = null) {
     FROM events
     WHERE timestamp >= toDateTime('${from}') AND timestamp < toDateTime('${to}')${cursorFilter}
     GROUP BY event, week, path, job_slug, job_id, provider_id,
-             employer_key, item_id, content_type, emission_id, timestamp
-    ORDER BY timestamp, ${cursorOrder}
+             employer_key, item_id, content_type, emission_id, timestamp,
+             ${EVENT_KEY_EXPRESSION}
+    ORDER BY cursor_timestamp, ${cursorOrder}
   `.trim();
 }
 
@@ -1161,6 +1267,26 @@ function eventCountSelect(window) {
   `.trim();
 }
 
+function readPostHogCountResult(rows, label) {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    throw new Error(`posthog ${label} count response unavailable`);
+  }
+  const first = rows[0];
+  const raw = Array.isArray(first) ? first[0] : first?.total;
+  if (raw === undefined || raw === null || raw === '') {
+    throw new Error(`posthog ${label} count response invalid`);
+  }
+  const value = Number(raw);
+  if (!Number.isFinite(value)) {
+    throw new Error(`posthog ${label} count response invalid`);
+  }
+  return {
+    count: Math.max(0, Math.trunc(value)),
+    response: 'present',
+    rawRows: rows.length,
+  };
+}
+
 export async function queryEventRows(window, { query: runQuery = hogql, pageSize = EVENT_QUERY_PAGE_SIZE } = {}) {
   const baseQuery = eventSelect(window);
   const queryHash = sha256(baseQuery);
@@ -1168,8 +1294,10 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
     runQuery('SELECT count() AS total FROM (' + baseQuery + ')'),
     runQuery(eventCountSelect(window)),
   ]);
-  const groupedRowsBeforeCut = Math.max(0, Math.trunc(numberOr(countRows?.[0]?.[0] ?? countRows?.[0]?.total, 0)));
-  const sourceObserved = Math.max(0, Math.trunc(numberOr(sourceCountRows?.[0]?.[0] ?? sourceCountRows?.[0]?.total, 0)));
+  const groupedCount = readPostHogCountResult(countRows, 'grouped');
+  const sourceCount = readPostHogCountResult(sourceCountRows, 'source');
+  const groupedRowsBeforeCut = groupedCount.count;
+  const sourceObserved = sourceCount.count;
   const rows = [];
   let pages = 0;
   let cursor = null;
@@ -1180,7 +1308,7 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
     if (!pageRows.length) break;
     const nextCursor = eventCursorFromRow(pageRows.at(-1));
     if (!nextCursor) throw new Error('posthog page missing keyset cursor');
-    if (cursor && eventCursorSortKey(nextCursor) <= eventCursorSortKey(cursor)) {
+    if (cursor && compareEventCursors(nextCursor, cursor) <= 0) {
       throw new Error('posthog keyset cursor did not advance');
     }
     cursor = nextCursor;
@@ -1204,8 +1332,21 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
       queryHash,
       snapshotId: sha256(`${queryHash}:${window.from}:${window.to}`),
       sourceObserved,
+      sourceResponse: sourceCount.response,
+      sourceResponseRows: sourceCount.rawRows,
+      groupedResponse: groupedCount.response,
+      groupedResponseRows: groupedCount.rawRows,
     },
   };
+}
+
+/** Do not hand a partial event snapshot to the document builder. */
+export function assertCompleteEventCoverage(coverage) {
+  if (coverage?.truncated) {
+    throw new Error(
+      `employer insights event query truncated (${coverage.rowsReturned ?? 0}/${coverage.totalRows ?? 0} grouped rows)`,
+    );
+  }
 }
 
 const GA4_INSIGHTS_EVENTS = ['page_view', 'job_apply'];
@@ -1429,21 +1570,9 @@ export async function loadApplicationRecords(db = null) {
 }
 
 async function writeDocuments(docs) {
-  const { FieldValue } = await import('firebase-admin/firestore');
   const db = await getFirestoreDb();
-  let written = 0;
-  for (let i = 0; i < docs.length; i += 400) {
-    const batch = db.batch();
-    for (const document of docs.slice(i, i + 400)) {
-      batch.set(db.collection('employer_insights').doc(document.companyKey), {
-        ...document,
-        updatedAt: FieldValue.serverTimestamp(),
-      });
-      written += 1;
-    }
-    await batch.commit();
-  }
-  return written;
+  const result = await writeEmployerInsightsDocuments(db, docs);
+  return result.documentsWritten;
 }
 
 async function main() {
@@ -1503,6 +1632,7 @@ async function main() {
     const queried = source === 'ga4'
       ? await queryGa4EventRows(window, ga4Options)
       : await queryEventRows(window);
+    assertCompleteEventCoverage(queried.coverage);
     if (source === 'ga4' && queried.coverage.identityObserved <= 0) {
       throw new Error(`GA4 employer identity feed unavailable for ${window.from} → ${window.to}`);
     }

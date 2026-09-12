@@ -1,0 +1,105 @@
+name: Loop L10 fleet control
+
+on:
+  schedule:
+    - cron: '29 13 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'data/loop-fleet/loop-registry.json'
+      - 'data/quota-history.jsonl'
+      - 'data/loop-health-history.jsonl'
+      - 'scripts/ci/loop-l10-fleet-control.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/ci/technical-operations-audit.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/technical-operations-supervisor.yml'
+      - '.github/workflows/loop-l10-fleet-control.yml'
+  pull_request:
+    paths:
+      - 'data/loop-fleet/loop-registry.json'
+      - 'data/quota-history.jsonl'
+      - 'data/loop-health-history.jsonl'
+      - 'scripts/ci/loop-l10-fleet-control.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/ci/technical-operations-audit.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/technical-operations-supervisor.yml'
+      - '.github/workflows/loop-l10-fleet-control.yml'
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: 'Create/update one deduplicated issue for an execution-control finding'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: loop-l10-fleet-control
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout fleet ledgers
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /data/loop-fleet/loop-registry.json
+            /data/quota-history.jsonl
+            /data/loop-health-history.jsonl
+            /scripts/ci/loop-l10-fleet-control.mjs
+            /scripts/ci/record-loop-fleet-evidence.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/github-issue-creator.mjs
+            /.github/workflows/loop-l10-fleet-control.yml
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Audit loop operations
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l10
+        run: |
+          set -o pipefail
+          mkdir -p "$REPORT_DIR"
+          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --quota data/quota-history.jsonl --health data/loop-health-history.jsonl)
+          if [ "$ISSUE_ENABLED" = "true" ]; then
+            args+=(--issue --strict)
+          else
+            args+=(--dry-run)
+          fi
+          set +e
+          node scripts/ci/loop-l10-fleet-control.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
+          run_code=${PIPESTATUS[0]}
+          set -e
+          if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l10-result.json" >/dev/null 2>&1; then
+            echo 'L10 finding persisted; locks, queues and retries remain gate-preserving runner-local actions.' | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ "$run_code" -ne 0 ]; then
+            exit "$run_code"
+          fi
+      - name: Record canonical L10 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l10
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L10 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
+      - name: Upload L10 observation and actions
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: loop-l10-fleet-control-${{ github.run_id }}
+          path: ${{ runner.temp }}/loop-fleet-l10/
+          retention-days: 90
+          if-no-files-found: error

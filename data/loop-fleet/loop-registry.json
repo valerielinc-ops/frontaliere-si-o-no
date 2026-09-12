@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "2026-09-12",
+  "states": [
+    "unmeasurable",
+    "observing",
+    "candidate",
+    "canary",
+    "adopted",
+    "rolled_back",
+    "inconclusive"
+  ],
+  "qualityStates": [
+    "observed",
+    "zero",
+    "missing",
+    "stale",
+    "partial",
+    "unmeasurable"
+  ],
+  "autonomyLevels": {
+    "A0": "observe",
+    "A1": "recommend",
+    "A2": "change-via-review",
+    "A3": "bounded-canary",
+    "A4": "safe-automation"
+  },
+  "loops": [
+    {
+      "loopId": "L0",
+      "goal": "Data Truth & Freshness",
+      "owner": "CDO / Chief Trust",
+      "oracle": "independent corpus manifest and HTTP contract",
+      "cadence": "2h / daily",
+      "primaryMetric": "fresh_complete_manifest_rate",
+      "minimumSample": 1,
+      "maxAutonomy": "A4",
+      "actionClasses": ["observe", "issue", "quarantine", "block-publication"],
+      "guardrails": [
+        "missing or stale data is never emitted as zero",
+        "site and corpus communicate only over HTTP",
+        "the last valid published surface remains untouched on failure"
+      ]
+    },
+    {
+      "loopId": "L1",
+      "goal": "Reliability & UX",
+      "owner": "CTO / Reliability",
+      "oracle": "independent synthetic path and error telemetry",
+      "cadence": "hourly / daily",
+      "primaryMetric": "error_free_useful_session_rate",
+      "minimumSample": 100,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "issue", "pr", "suspend-canary"],
+      "guardrails": ["one anomaly is not a rollback", "Auto Ads stays enabled"]
+    },
+    {
+      "loopId": "L2",
+      "goal": "Demand to Utility",
+      "owner": "Chief Growth / SEO",
+      "oracle": "GSC snapshot plus landing-path evidence",
+      "cadence": "daily / weekly",
+      "primaryMetric": "useful_action_per_1000_eligible_landing_sessions",
+      "minimumSample": 1000,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "candidate", "issue", "pr"],
+      "guardrails": ["no thin pages", "no keyword stuffing", "source required"]
+    },
+    {
+      "loopId": "L3",
+      "goal": "Job Quality to Apply",
+      "owner": "CPO / Customer Value",
+      "oracle": "job contract and destination reachability checks",
+      "cadence": "daily",
+      "primaryMetric": "valid_application_handoff_per_1000_qualified_job_sessions",
+      "minimumSample": 100,
+      "maxAutonomy": "A4",
+      "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr"],
+      "guardrails": ["handoff is not an application submission", "never invent apply events"]
+    },
+    {
+      "loopId": "L4",
+      "goal": "Alert to Return",
+      "owner": "Chief Retention / CRM",
+      "oracle": "consent, delivery and return attribution ledger",
+      "cadence": "event + daily",
+      "primaryMetric": "attributed_return_per_1000_eligible_recipients",
+      "minimumSample": 100,
+      "maxAutonomy": "A4",
+      "actionClasses": ["observe", "suppress", "defer", "issue"],
+      "guardrails": ["consent is purpose-specific", "idempotent delivery", "quiet hours"]
+    },
+    {
+      "loopId": "L5",
+      "goal": "Decision Moments",
+      "owner": "CPO / Customer Value",
+      "oracle": "completed task and next-action event contract",
+      "cadence": "weekly",
+      "primaryMetric": "next_useful_action_per_1000_completions",
+      "minimumSample": 100,
+      "maxAutonomy": "A3",
+      "actionClasses": ["observe", "candidate", "canary", "stop", "stale-label", "issue", "recommend"],
+      "guardrails": ["no dark patterns", "no unsupported timing promise", "no invasive personalization"]
+    },
+    {
+      "loopId": "L6",
+      "goal": "Content Learning & Factuality",
+      "owner": "Chief Trust / Accuracy",
+      "oracle": "source evidence independent of the generator",
+      "cadence": "per generation + daily",
+      "primaryMetric": "confirmed_defect_rate",
+      "minimumSample": 1,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr", "lesson"],
+      "guardrails": ["model output is not the oracle", "source and locale must agree"]
+    },
+    {
+      "loopId": "L7",
+      "goal": "Experiment Allocator",
+      "owner": "CEO / Chief Mission",
+      "oracle": "pre-registered assignment, outcome and guardrail ledger",
+      "cadence": "weekly",
+      "primaryMetric": "registered_outcome_per_eligible_cohort",
+      "minimumSample": 200,
+      "maxAutonomy": "A3",
+      "actionClasses": ["observe", "candidate", "canary", "stop", "issue", "recommend"],
+      "guardrails": ["persistent assignment", "minimum sample", "explicit expiry", "no automatic price change"]
+    },
+    {
+      "loopId": "L8",
+      "goal": "Revenue & Attribution Reconciliation",
+      "owner": "CRO / Monetization + CFO",
+      "oracle": "approved-source exports and independent join checks",
+      "cadence": "daily / weekly",
+      "primaryMetric": "approved_net_chf_per_1000_relevant_exposures",
+      "minimumSample": 100,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "reconcile", "issue", "recommend"],
+      "guardrails": ["missing export is unmeasurable", "approved differs from pending/reversed", "Auto Ads stays enabled"]
+    },
+    {
+      "loopId": "L9",
+      "goal": "Employer Supply to Paid Activation",
+      "owner": "CRO / Monetization",
+      "oracle": "checkout and subscription state ledger",
+      "cadence": "weekly",
+      "primaryMetric": "paid_activation_rate",
+      "minimumSample": 20,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "candidate", "pr", "draft-outreach"],
+      "guardrails": ["no real outreach without approval", "inventory is not revenue", "no automatic price change"]
+    },
+    {
+      "loopId": "L10",
+      "goal": "Engineering Learning / Fleet Control",
+      "owner": "COO / Fleet Controller",
+      "oracle": "GitHub run, PR, issue and quota ledger",
+      "cadence": "continuous + daily",
+      "primaryMetric": "verified_decision_throughput",
+      "minimumSample": 1,
+      "maxAutonomy": "A4",
+      "actionClasses": ["observe", "route", "lock", "retry", "follow-up"],
+      "guardrails": ["one writer per artifact", "bounded queues", "never bypass a gate"]
+    },
+    {
+      "loopId": "L11",
+      "goal": "Technical Operations Assurance",
+      "owner": "Chief Operations Assurance",
+      "oracle": "workflow syntax, reachability and output reconciliation",
+      "cadence": "daily + PR",
+      "primaryMetric": "healthy_reachable_workflow_rate",
+      "minimumSample": 1,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "issue", "pr", "block-proven-defect"],
+      "guardrails": ["ambiguous findings stay observe-only", "no error-to-warning downgrade", "no auto-merge of uncertain fixes"]
+    }
+  ]
+}

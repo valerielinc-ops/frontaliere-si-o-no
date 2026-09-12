@@ -62,6 +62,9 @@ export const RC_TO_ENV = {
   GH_MODELS_PAT_7:                ['GH_MODELS_PAT_7'],
   GH_MODELS_PAT_8:                ['GH_MODELS_PAT_8'],
   GH_MODELS_PAT_9:                ['GH_MODELS_PAT_9'],
+  // Public Firebase client configuration. It is loaded for runtime/bootstrap
+  // tooling, never written as a source or static HTML literal.
+  FIREBASE_API_KEY:               ['FIREBASE_API_KEY', 'VITE_FIREBASE_API_KEY'],
   GOOGLE_MAPS_API_KEY:            ['GOOGLE_MAPS_API_KEY'],
   TOMTOM_API_KEY:             ['TOMTOM_API_KEY'],
   HERE_API_KEY:               ['HERE_API_KEY'],

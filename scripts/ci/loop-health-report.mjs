@@ -46,8 +46,18 @@ const CLAUDE_WORKFLOWS = [
 // Failure-rate sopra questa soglia (sui run reali, esclusi skipped/cancelled)
 // = regressione da investigare (baseline post-#1919: redflag-fixer era al 56%).
 const FAIL_RATE_WARN = 0.2;
+// Target misurati nell'issue #8306: la quota non deve essere assorbita dalla
+// riparazione delle PR generate dal ciclo. Sono warning, non gate: il report
+// deve restare osservabile anche quando l'API restituisce un periodo vuoto.
+export const PR_REPAIR_RUN_WARN = 400;
+export const REPAIR_TO_ISSUE_RATIO_WARN = 7;
 export const MERGED_PR_LIST_LIMIT = 1000;
 const CLAUDE_REVIEW_LOGIN = /^(?:claude|frontaliere-automation)(?:\[bot\])?$/i;
+const TESTS_CLAUDE_RUN_LIMIT = 1000;
+// `tests.yml` already emits this persisted step only after the Claude fallback
+// was actually used. A skipped step therefore distinguishes tests-only and
+// Codex-primary runs without changing the adapted workflow here.
+export const CLAUDE_USAGE_STEP_NAME = 'Claude usage metrics';
 
 function gh(args, { json = true } = {}) {
   const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
@@ -81,6 +91,78 @@ function runStats(workflow, since) {
   const real = total - (by.cancelled || 0) - (by.skipped || 0); // run che hanno lavorato
   const fail = by.failure || 0;
   return { total, real, fail, ok: by.success || 0, cancelled: by.cancelled || 0, skipped: by.skipped || 0, rate: real ? fail / real : 0 };
+}
+
+/**
+ * Whether a tests.yml job persisted the actual Claude-fallback signal.
+ * @param {unknown} jobs Actions jobs response (or its `jobs` array)
+ */
+export function claudeUsageStepRan(jobs) {
+  const list = Array.isArray(jobs) ? jobs : [];
+  return list.some((job) => (Array.isArray(job?.steps) ? job.steps : []).some((step) =>
+    step?.name === CLAUDE_USAGE_STEP_NAME
+    && step.status === 'completed'
+    && step.conclusion !== 'skipped'));
+}
+
+/**
+ * Count actual Claude fallback consumers in the embedded tests.yml reviewer.
+ * Jobs are inspected only for this workflow; an API failure makes the metric
+ * explicitly indeterminate instead of silently reporting a false zero.
+ */
+export function claudeReviewRunStats(since, runGh = gh) {
+  let runs = [];
+  try {
+    runs = runGh(['run', 'list', '--repo', REPO, '--workflow', 'tests.yml',
+      '--event', 'pull_request', '--status', 'completed', '--created', `>${since}`,
+      '--limit', String(TESTS_CLAUDE_RUN_LIMIT), '--json', 'databaseId']);
+  } catch {
+    return { total: 0, claudeRuns: 0, measured: false, truncated: false };
+  }
+  if (!Array.isArray(runs)) return { total: 0, claudeRuns: 0, measured: false, truncated: false };
+
+  let claudeRuns = 0;
+  let measured = true;
+  for (const run of runs) {
+    if (!run?.databaseId) {
+      measured = false;
+      continue;
+    }
+    try {
+      const response = runGh([
+        'api',
+        `repos/${REPO}/actions/runs/${run.databaseId}/jobs?filter=latest&per_page=100`,
+      ]);
+      if (claudeUsageStepRan(response?.jobs)) claudeRuns += 1;
+    } catch {
+      measured = false;
+    }
+  }
+  const truncated = runs.length === TESTS_CLAUDE_RUN_LIMIT;
+  return { total: runs.length, claudeRuns, measured: measured && !truncated, truncated };
+}
+
+/**
+ * Merge the embedded reviewer into the PR-repair allocation only when its
+ * measurement is complete. The report remains advisory when GitHub is
+ * temporarily unreadable: it prints n/d and does not invent a ratio.
+ */
+export function claudeAllocation({
+  prRepairRuns = 0,
+  embeddedReviewRuns = 0,
+  embeddedMeasured = true,
+  issueFixRuns = 0,
+} = {}) {
+  const repairs = Number(prRepairRuns);
+  const embedded = Number(embeddedReviewRuns);
+  const issueFix = Number(issueFixRuns);
+  const repairRuns = embeddedMeasured && Number.isFinite(repairs) && Number.isFinite(embedded)
+    ? repairs + embedded
+    : null;
+  const ratio = repairRuns !== null && Number.isFinite(issueFix) && issueFix > 0
+    ? `${(repairRuns / issueFix).toFixed(1)}:1`
+    : 'n/d';
+  return { repairRuns, issueFixRuns: issueFix, ratio };
 }
 
 export function claudeReviewCount(pr) {
@@ -159,7 +241,76 @@ export function warnKey(text) {
   if (/failure-rate/i.test(s) && wf) return `failure-rate:${wf[1]}`;
   if (/first-shot LGTM rate/i.test(s)) return 'first-shot-lgtm';
   if (/agent:fix zombie/i.test(s)) return 'zombie';
+  if (/PR repair volume/i.test(s)) return 'pr-repair-volume';
+  if (/rapporto riparazione PR:issue-fix/i.test(s)) return 'repair-to-issue-ratio';
+  if (/coda agent:fix-queued in crescita/i.test(s)) return 'queued-growth';
   return s.replace(/\d+/g, '#').trim();
+}
+
+/**
+ * Backlog values from prior reports, preserving missing values so two reports
+ * separated by an unreadable/malformed report cannot look consecutive.
+ * @param {unknown[]} comments oldest first
+ * @returns {(number|null)[]}
+ */
+function priorBacklogValues(comments) {
+  return (Array.isArray(comments) ? comments : [])
+    .filter((body) => /^## Loop health/m.test(String(body || '')))
+    .map((body) => {
+      const match = String(body || '').match(/^\*\*Backlog:.*?in coda\s+(\d+)/m);
+      return match ? Number(match[1]) : null;
+    });
+}
+
+/**
+ * Warn only after two consecutive increases (three reports including today).
+ * One noisy week is not enough; the current value is not persisted anywhere,
+ * it is compared to the tracker's existing comments.
+ *
+ * @param {number} currentQueued current `agent:fix-queued` count
+ * @param {unknown[]} comments prior tracker comments, oldest first
+ * @returns {string}
+ */
+export function backlogTrendWarning(currentQueued, comments = []) {
+  const current = Number(currentQueued);
+  if (!Number.isFinite(current)) return '';
+  const history = priorBacklogValues(comments);
+  if (history.length < 2) return '';
+  const before = history.at(-2);
+  const previous = history.at(-1);
+  if (before === null || previous === null) return '';
+  if (!(current > previous && previous > before)) return '';
+  return `coda agent:fix-queued in crescita: ${before} → ${previous} → ${current} per 3 report consecutivi`;
+}
+
+/**
+ * The high-cost allocation warnings from issue #8306. Pure so the thresholds
+ * can be tested without calling GitHub. A zero issue-fix denominator stays
+ * indeterminate rather than becoming a false alarm.
+ *
+ * @param {{repairRuns?: number, issueFixRuns?: number, queued?: number,
+ *          priorComments?: unknown[]}} input
+ * @returns {string[]}
+ */
+export function repairEfficiencyWarnings({
+  repairRuns = 0,
+  issueFixRuns = 0,
+  queued = 0,
+  priorComments = [],
+} = {}) {
+  const repairs = Number(repairRuns);
+  const issueFix = Number(issueFixRuns);
+  const warnings = [];
+  if (Number.isFinite(repairs) && repairs > PR_REPAIR_RUN_WARN) {
+    warnings.push(`PR repair volume ${repairs} run reali (> ${PR_REPAIR_RUN_WARN})`);
+  }
+  if (Number.isFinite(repairs) && Number.isFinite(issueFix)
+      && issueFix > 0 && repairs / issueFix > REPAIR_TO_ISSUE_RATIO_WARN) {
+    warnings.push(`rapporto riparazione PR:issue-fix ${repairs}:${issueFix} (> ${REPAIR_TO_ISSUE_RATIO_WARN}:1)`);
+  }
+  const trend = backlogTrendWarning(queued, priorComments);
+  if (trend) warnings.push(trend);
+  return warnings;
 }
 
 /**
@@ -247,6 +398,7 @@ function main() {
   const since = isoDaysAgo(DAYS);
   const lines = [];
   const warns = [];
+  const workflowStats = {};
 
   lines.push(`## Loop health — ultimi ${DAYS}gg (dal ${since})`);
   lines.push('');
@@ -255,11 +407,16 @@ function main() {
   let claudePerDay = 0;
   for (const wf of CLAUDE_WORKFLOWS) {
     const s = runStats(wf, since);
+    workflowStats[wf] = s;
     claudePerDay += s.real / DAYS;
     const flag = s.rate > FAIL_RATE_WARN && s.real >= 5 ? ' ⚠️' : '';
     if (flag) warns.push(`failure-rate ${(s.rate * 100).toFixed(0)}% su ${wf} (${s.fail}/${s.real} run reali)`);
     lines.push(`| ${wf}${flag} | ${s.real} | ${s.ok} | ${s.fail} | ${(s.rate * 100).toFixed(0)}% | ${s.cancelled} | ${s.skipped} |`);
   }
+  const embeddedClaude = claudeReviewRunStats(since);
+  const embeddedClaudeLabel = embeddedClaude.measured ? embeddedClaude.claudeRuns : 'n/d';
+  if (embeddedClaude.measured) claudePerDay += embeddedClaude.claudeRuns / DAYS;
+  lines.push(`| tests.yml (Claude usage metrics) | ${embeddedClaudeLabel} | — | — | — | — | — |`);
   lines.push('');
   lines.push(`**Invocazioni Claude ≈ ${claudePerDay.toFixed(0)}/giorno** (run reali, proxy token-burn).`);
 
@@ -277,12 +434,36 @@ function main() {
   const needsHuman = labelCount('needs-human');
   lines.push(`**Backlog:** agent:fix zombie ${zombies} · in coda ${queued} · fu-parked ${parked} · needs-human ${needsHuman}.`);
 
+  // The tracker comments are already the source for warning streaks. Reuse
+  // the same read for the queue trend: no extra GitHub request per report.
+  const tracker = findTracker();
+  const trackerComments = tracker ? defaultFetchComments(tracker) : [];
+  const issueFixRuns = workflowStats['issue-fix.yml']?.real || 0;
+  const allocation = claudeAllocation({
+    prRepairRuns: (workflowStats['pr-redflag-fixer.yml']?.real || 0)
+      + (workflowStats['pr-redcheck-fixer.yml']?.real || 0),
+    embeddedReviewRuns: embeddedClaude.claudeRuns,
+    embeddedMeasured: embeddedClaude.measured,
+    issueFixRuns,
+  });
+  const allocationRepairs = allocation.repairRuns === null ? 'n/d' : allocation.repairRuns;
+  lines.push(`**Allocazione:** riparazione PR ${allocationRepairs} run reali (incluso tests.yml Claude ${embeddedClaudeLabel}) · issue-fix ${issueFixRuns} · rapporto ${allocation.ratio}.`);
+  if (!embeddedClaude.measured) {
+    warns.push('tests.yml Claude reviewer non misurabile: jobs API incompleta');
+  } else {
+    warns.push(...repairEfficiencyWarnings({
+      repairRuns: allocation.repairRuns,
+      issueFixRuns,
+      queued,
+      priorComments: trackerComments,
+    }));
+  }
+
   // Quanto dura ciascun allarme: una riga di soglia accesa da due mesi senza
   // mai cambiare stato non si legge più. Il conteggio la rende di nuovo
   // leggibile — "1 report" è rumore di una settimana storta, "9 consecutivi"
   // è un'escalation che nessuno ha raccolto.
-  const tracker = findTracker();
-  const streaks = warnStreaks(tracker);
+  const streaks = warnStreaks(tracker, () => trackerComments);
   lines.push('');
   lines.push(warns.length
     ? `### ⚠️ Da investigare\n${warns.map((w) => {

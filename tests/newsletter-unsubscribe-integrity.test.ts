@@ -9,8 +9,8 @@
  * `unsubscribed` branch. Every link in every email we have ever sent carries
  * the deterministic, never-expiring `ac` autologin code, so reading an old
  * email signs the reader back in, the auto-subscribe-on-sign-in effect fires,
- * and `'signup'` — the first entry of CONFIRMED_NEWSLETTER_SOURCES — put them
- * back to `confirmed`/active. The only guard was a localStorage flag that the
+ * and the old source-only inference put them back to `confirmed`/active. The
+ * only guard was a localStorage flag that the
  * unsubscribe handler itself removes, i.e. one that was always absent for
  * exactly the people it had to protect. Measured 2026-08-12 over all 8.604
  * subscriber documents: 281 opt-outs still active, 95 of them genuine
@@ -134,9 +134,8 @@ const ANONYMOUS_SIGNUP = { email: EMAIL, source: 'popup' } as const;
 describe('inferNewsletterSubscriptionState — a recorded opt-out is not undone by signing in', () => {
   it('does not resurrect an opt-out through the `signup` source (the ring itself)', () => {
     // The literal shape of App.tsx's auto-subscribe effect:
-    // upsertNewsletterSubscriber(authEmail, 'signup', ...). `'signup'` is the
-    // first entry of CONFIRMED_NEWSLETTER_SOURCES, which is what used to
-    // return confirmed/active here.
+    // upsertNewsletterSubscriber(authEmail, 'signup', ...). The old
+    // source-only inference is what used to return confirmed/active here.
     expect(
       inferNewsletterSubscriptionState({ email: EMAIL, source: 'signup' }, UNSUBSCRIBED_DOC),
     ).toEqual({ status: 'unsubscribed', isActive: false });
@@ -145,9 +144,9 @@ describe('inferNewsletterSubscriptionState — a recorded opt-out is not undone 
   it('does not resurrect an opt-out through an explicit isActive:true either', () => {
     // The path the effect ACTUALLY takes, and one the issue does not mention:
     // App.tsx's shared upsert callback passes `isActive: true`, so the write
-    // never reaches the CONFIRMED_NEWSLETTER_SOURCES branch — it short-circuits
-    // on the explicit-status branch at the very top. A guard placed only in
-    // front of the source branch would have left the production ring open.
+    // short-circuits on the explicit-status branch at the very top. A guard
+    // placed only in front of the old source branch would have left the
+    // production ring open.
     expect(
       inferNewsletterSubscriptionState(
         { email: EMAIL, source: 'signup', sourceChannel: 'auth_google', isActive: true },
@@ -188,21 +187,24 @@ describe('inferNewsletterSubscriptionState — a recorded opt-out is not undone 
     ).toEqual({ status: 'unsubscribed', isActive: false });
   });
 
-  it('still lets an explicit re-opt-in through', () => {
-    // Two, and only two, signals lift it: the win-back / "riattiva" click…
+  it('only the explicit resubscribe link lifts it immediately', () => {
+    // The win-back / "riattiva" click carries a scoped credential and may
+    // lift the opt-out. A typed form is different: it starts a fresh DOI
+    // cycle and must remain pending until the confirmation link is used.
     expect(
       inferNewsletterSubscriptionState(
         { email: EMAIL, source: 'resubscribe_link', isActive: true },
         UNSUBSCRIBED_DOC,
       ),
     ).toEqual({ status: 'confirmed', isActive: true });
-    // …and the explicit flag, for a caller that can prove the same thing.
+    // The explicit flag is now a request for that fresh DOI cycle, not proof
+    // that the recipient already completed it.
     expect(
       inferNewsletterSubscriptionState(
         { email: EMAIL, source: 'popup', isActive: true, reconsent: true },
         UNSUBSCRIBED_DOC,
       ),
-    ).toEqual({ status: 'confirmed', isActive: true });
+    ).toEqual({ status: 'pending', isActive: false });
   });
 
   it('allows every new-registration shape when the old Auth lifecycle is tombstoned', () => {
@@ -224,8 +226,8 @@ describe('inferNewsletterSubscriptionState — a recorded opt-out is not undone 
 
   it('leaves every non-promoting write byte-identical', () => {
     // The guard is a post-filter that can only decline a promotion, so a
-    // webhook demotion, a first-time signup and a healthy confirmed subscriber
-    // all resolve exactly as they did before.
+    // webhook demotion, a first-time anonymous write and a healthy confirmed
+    // subscriber all resolve to the protective state expected today.
     expect(
       inferNewsletterSubscriptionState({ email: EMAIL, status: 'bounced' }, UNSUBSCRIBED_DOC),
     ).toEqual({ status: 'bounced', isActive: false });
@@ -234,7 +236,7 @@ describe('inferNewsletterSubscriptionState — a recorded opt-out is not undone 
     ).toEqual({ status: 'pending', isActive: false });
     expect(
       inferNewsletterSubscriptionState({ email: EMAIL, source: 'signup' }, undefined),
-    ).toEqual({ status: 'confirmed', isActive: true });
+    ).toEqual({ status: 'pending', isActive: false });
     expect(
       inferNewsletterSubscriptionState(
         { email: EMAIL, source: 'signup' },
@@ -243,13 +245,63 @@ describe('inferNewsletterSubscriptionState — a recorded opt-out is not undone 
     ).toEqual({ status: 'confirmed', isActive: true });
   });
 
+  it('never infers confirmation from acquisition provenance alone', () => {
+    for (const source of [
+      'signup',
+      'auth_google',
+      'auth_facebook',
+      'auth_linkedin',
+      'chatbot_google',
+      'chatbot_facebook',
+      'job_board_auth',
+      'job_gate',
+      'tax_calendar_google',
+      'tax_calendar_facebook',
+      'resubscribe_link',
+      'newsletter_email_link',
+    ]) {
+      expect(
+        inferNewsletterSubscriptionState({ email: EMAIL, source }, undefined),
+        source,
+      ).toEqual({ status: 'pending', isActive: false });
+    }
+  });
+
+  it('turns a proofless silent-auth row into pending even when the old caller passes isActive:true', () => {
+    const silentAuth = {
+      ...CONFIRMED_WITH_CAMEL_STAMP,
+      status: 'confirmed',
+      isActive: true,
+      source_channel: 'auth_google',
+      consent_act: 'authentication',
+      consent_method: 'google_oauth',
+      consent_text_displayed: false,
+    };
+    expect(
+      inferNewsletterSubscriptionState(
+        {
+          email: EMAIL,
+          source: 'lead_magnet_salary',
+          isActive: true,
+          reconsent: true,
+          consentText: 'Formula mostrata',
+          consentTextDisplayed: true,
+          consentAct: 'communicationsOptIn',
+          consentMethod: 'email_submit',
+        },
+        silentAuth,
+      ),
+    ).toEqual({ status: 'pending', isActive: false });
+  });
+
   it('does NOT accept confirmed_at as supersession — that is the 186 cohort', () => {
     // scripts/lib/suppressionDecay.mjs lets a `confirmed_at` newer than the
     // opt-out supersede the stamp. Copying that rule here would exempt exactly
     // the population this guard exists for: the resurrection wrote a fresh
     // `confirmed_at` on every one of the 186, because the transition guard in
     // captureNewsletterSubscriber fires when the previous state was not
-    // confirmed. Only resubscribe_link/reconsent lift the opt-out.
+    // confirmed. Only the explicit resubscribe link lifts the opt-out; a
+    // reconsent form starts a new pending DOI cycle.
     expect(
       inferNewsletterSubscriptionState(
         { email: EMAIL, source: 'signup' },
@@ -459,21 +511,27 @@ describe('a binding opt-out is never handed back active, whatever the status say
     expect(isNewsletterOptOutBinding({ ...CONFIRMED_WITH_CAMEL_STAMP, ...payload })).toBe(true);
   });
 
-  it('a GRANTED re-opt-in still lifts it, from either signal', async () => {
-    for (const input of [
-      { email: EMAIL, source: 'resubscribe_link', isActive: true },
-      { email: EMAIL, source: 'popup', isActive: true, reconsent: true },
-    ]) {
+  it('the link lifts it, while a typed re-consent leaves it bound pending DOI', async () => {
+    for (const [input, expectedStatus, writesLiftStamp] of [
+      [{ email: EMAIL, source: 'resubscribe_link', isActive: true }, 'confirmed', true],
+      [{ email: EMAIL, source: 'popup', isActive: true, reconsent: true }, 'pending', false],
+    ] as const) {
       setDocMock.mockClear();
       getDocMock.mockResolvedValue({ exists: () => true, data: () => CONFIRMED_WITH_CAMEL_STAMP });
 
       const result = await captureNewsletterSubscriber({} as any, input as any);
 
-      expect(result.status).toBe('confirmed');
+      expect(result.status).toBe(expectedStatus);
       expect(result.optedOut).toBe(false);
       const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
-      expect(payload.resubscribed_at).toBe('__server_timestamp__');
-      expect(payload.resubscribedAt).toBe('__server_timestamp__');
+      if (writesLiftStamp) {
+        expect(payload.resubscribed_at).toBe('__server_timestamp__');
+        expect(payload.resubscribedAt).toBe('__server_timestamp__');
+      } else {
+        expect(payload).not.toHaveProperty('resubscribed_at');
+        expect(payload).not.toHaveProperty('resubscribedAt');
+        expect(isNewsletterOptOutBinding({ ...CONFIRMED_WITH_CAMEL_STAMP, ...payload })).toBe(true);
+      }
     }
   });
 });
@@ -488,8 +546,8 @@ describe('the post-filter never returns a status less protective than the record
   it('an anonymous subscribe against a clean opt-out preserves `unsubscribed`, not `pending`', () => {
     // The root. `inferSubscriptionStateIgnoringOptOut` answers
     // `{ status: 'pending', isActive: false }` for a write with no explicit
-    // status from a source outside CONFIRMED_NEWSLETTER_SOURCES, and the old
-    // first line — `if (!inferred.isActive) return inferred` — returned it:
+    // status/activity, and the old first line — `if (!inferred.isActive)
+    // return inferred` — returned it:
     // the preservation branch below was unreachable for exactly the population
     // it was written for.
     expect(inferNewsletterSubscriptionState({ ...ANONYMOUS_SIGNUP }, UNSUBSCRIBED_DOC))
@@ -619,6 +677,27 @@ describe('no email of any kind to an address with a recorded opt-out (#5734)', (
     expect(payload.account_deleted_at).toBe('__delete_field__');
     await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 10000, interval: 50 });
     expect((fetchMock.mock.calls[0] as [string])[0]).toBe(`${FUNCTIONS_BASE}/newsletterSendConfirmation`);
+  });
+
+  it('a deliberate re-consent sends the fresh resubscribe DOI and stays pending', async () => {
+    getDocMock.mockResolvedValue({ exists: () => true, data: () => UNSUBSCRIBED_DOC });
+
+    const result = await upsertNewsletterSubscriber({} as any, {
+      ...ANONYMOUS_SIGNUP,
+      isActive: false,
+      status: 'pending',
+      reconsent: true,
+      consentText: 'Formula mostrata',
+      consentTextDisplayed: true,
+      consentAct: 'communicationsOptIn',
+      consentMethod: 'email_submit',
+    });
+
+    expect(result.status).toBe('pending');
+    expect(result.optedOut).toBe(false);
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 10000, interval: 50 });
+    const [, init] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect(JSON.parse(init.body as string)).toMatchObject({ purpose: 'resubscribe' });
   });
 
   it('sends a welcome email for a tombstoned social/OAuth registration', async () => {
@@ -840,6 +919,14 @@ describe('the two unsubscribe paths leave the same observable state', () => {
     expect(call, 'the App.tsx call to unsubscribeNewsletterSubscriber moved or changed shape').toBeTruthy();
     expect(call![0], 'App.tsx must pass `credential` — see #5719 and the 52 uncounted events').toMatch(/\bcredential:/);
     expect(call![0]).toMatch(/autologin_code/);
+
+    const preflightStart = appSrc.indexOf("if (authenticated && action === 'unsubscribe') {");
+    const directWriteAt = appSrc.indexOf('await unsubscribeNewsletterSubscriber(db, {');
+    expect(preflightStart).toBeGreaterThan(-1);
+    expect(preflightStart).toBeLessThan(directWriteAt);
+    const preflight = appSrc.slice(preflightStart, directWriteAt);
+    expect(preflight).toMatch(/for \(const credential of \[urlParams\.get\('token'\), autologinCode\]\)/);
+    expect(preflight).toContain('unsubscribeViaCloudFunction');
   });
 
   it('leaves both unrestorable by restore-mailtrap-suspension-suppressions.mjs', async () => {
@@ -902,20 +989,25 @@ describe('reconsent is wired to deliberate acts and to nothing else', () => {
     }
   });
 
-  it('the publisher gate\'s sign-in effect does NOT', () => {
-    // PublisherPublishPage's social branch runs from a useEffect on the auth
-    // user, behind the same localStorage flag as the other three
-    // auto-subscribe effects — a fourth sibling of the ring, not a form.
-    // Its "implicit consent" is not consent to resume refused mail.
+  it('the publisher gate\'s social write requires an explicit provider click', () => {
+    // The write remains intentional for this visible communications gate, but
+    // an already-authenticated page visit must not satisfy it. The callback
+    // marker also survives a full-page OAuth redirect.
     const src = read('components/pages/PublisherPublishPage.tsx');
     expect(src).toMatch(/source:\s*'publisher_gate_social'/);
-    expect(src).not.toMatch(/reconsent/);
+    expect(src).not.toMatch(/reconsent:\s*true/);
+    expect(src).toMatch(/onAuthIntent=\{markGateSocialIntent\}/);
+    expect(src).toMatch(/if \(!gateSocialIntentRef\.current && !restoredSocialIntent\) return;/);
+    expect(src).toMatch(/publisher_social_auth_intent_at/);
   });
 
-  it('no sign-in path grants it', () => {
-    for (const rel of ['App.tsx', 'hooks/useUserState.ts', 'services/authService.ts', 'components/community/JobBoard.tsx']) {
+  it('no social sign-in path grants it', () => {
+    for (const rel of ['App.tsx', 'hooks/useUserState.ts', 'services/authService.ts']) {
       expect(read(rel), `${rel} must never assert re-consent from an auth event`).not.toMatch(/reconsent/);
     }
+    const jobBoard = read('components/community/JobBoard.tsx');
+    expect(jobBoard).not.toMatch(/reconsent:\s*true/);
+    expect(jobBoard).toMatch(/reconsent:\s*!isTrustedAuthSource/);
   });
 });
 
@@ -964,20 +1056,27 @@ describe('an opted-out recipient signing in produces NO write at all', () => {
     expect(addDocMock).not.toHaveBeenCalled();
   });
 
-  it('all SIX auto-subscribe-on-sign-in paths gate the upsert on it', () => {
-    // The guard has to precede the call, not merely appear in the file: an
-    // `isNewsletterOptedOut` that runs after the upsert would read as fixed
-    // and write the event anyway.
-    //
-    // SIX, not the five it grew to. JobBoard's autoNewsletterSubscribe is
-    // the one nothing pointed at: two of its four callers are social
-    // sign-in job unlocks that promote to confirmed/active, which is the ring
-    // verbatim. TaxCalendar's Google/Facebook reminder sign-in is the same
-    // ring on a different funnel — #5713 item 2.
+  it('generic authentication paths never invoke the newsletter upsert', () => {
+    // Authentication alone is access/profile state. The old global listener,
+    // hook wrapper, and One Tap handler were the resurrection ring; none may
+    // create a subscriber or record a subscribe_completed event now.
+    expect(read('App.tsx')).not.toMatch(/source:\s*['"]signup(?:_linkedin)?['"]|sourceChannel:\s*['"]auth_/);
+    expect(read('hooks/useUserState.ts')).not.toMatch(/upsertNewsletterSubscriber|captureNewsletterSubscriber/);
+    expect(read('services/authService.ts')).not.toMatch(/upsertNewsletterSubscriber|captureNewsletterSubscriber|newsletterSubscribers/);
+  });
+
+  it('access-only social gates do not forge the local newsletter flag', () => {
+    for (const rel of [
+      'components/calculator/MobileCalcLayout.tsx',
+      'components/community/OfferwallNewsletterGate.tsx',
+    ]) {
+      expect(read(rel), `${rel} must not mark social authentication as subscribed`)
+        .not.toMatch(/markNewsletterSubscribedLocally\(\)[\s\S]{0,120}method:\s*['"]social/);
+    }
+  });
+
+  it('visible communication gates guard their intentional upsert on opt-out', () => {
     const paths = [
-      'App.tsx',
-      'hooks/useUserState.ts',
-      'services/authService.ts',
       'components/pages/PublisherPublishPage.tsx',
       'components/community/JobBoard.tsx',
       'components/fisco/TaxCalendar.tsx',
@@ -987,8 +1086,8 @@ describe('an opted-out recipient signing in produces NO write at all', () => {
       const guardAt = src.indexOf('isNewsletterOptedOut(');
       const upsertAt = src.search(/upsertNewsletterSubscriber(Record)?\(/);
       expect(guardAt, `${rel} must consult the recipient's real state`).toBeGreaterThan(-1);
-      expect(upsertAt, `${rel} must still perform the upsert`).toBeGreaterThan(-1);
-      expect(src.slice(guardAt), `${rel} must return early before upserting`)
+      expect(upsertAt, `${rel} must still perform the intentional gate upsert`).toBeGreaterThan(guardAt);
+      expect(src.slice(guardAt, upsertAt), `${rel} must return early before upserting`)
         .toMatch(/isNewsletterOptedOut\([^)]*\)\)\s*return;/);
     }
   });
@@ -997,9 +1096,6 @@ describe('an opted-out recipient signing in produces NO write at all', () => {
     // The flag the unsubscribe handler itself removes. It may stay as a cheap
     // early exit, but never as the only thing between a login and a write.
     for (const rel of [
-      'App.tsx',
-      'hooks/useUserState.ts',
-      'services/authService.ts',
       'components/pages/PublisherPublishPage.tsx',
       'components/community/JobBoard.tsx',
       'components/fisco/TaxCalendar.tsx',

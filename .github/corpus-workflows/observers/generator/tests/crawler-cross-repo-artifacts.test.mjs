@@ -54,6 +54,12 @@ function crawlerIdsFromArtifact(text) {
   return crawlerIds;
 }
 
+function expectedCrawlerEntriesFromArtifact(text) {
+  const match = /^\s+CRAWLER_GENERATION_EXPECTED_CRAWLERS:\s+'([^']+)'$/m.exec(text);
+  assert.ok(match, 'roster atteso del finalizer non trovato');
+  return JSON.parse(match[1]);
+}
+
 test('il parser del roster tollera field-order e ignora wait o campi annidati non-background', () => {
   const workflow = [
     '      - name: Run coop',
@@ -84,6 +90,24 @@ test('il parser del roster conserva il formato corrente minimale', () => {
     '        background: true',
   ].join('\n');
   assert.deepEqual(crawlerIdsFromArtifact(workflow), ['coop']);
+});
+
+test('crawler group 07 usa gli stessi id canonici in step, expected roster e artifacts.members', () => {
+  const artifact = CONTRACT.artifacts.find((entry) => entry.file === 'crawler-group-07.yml');
+  assert.ok(artifact);
+  const workflow = readFileSync(path.join(WORKFLOWS, artifact.file), 'utf8');
+  const stepIds = crawlerIdsFromArtifact(workflow);
+  const expected = expectedCrawlerEntriesFromArtifact(workflow);
+  const expectedIds = expected.map((entry) => entry.crawlerId);
+
+  assert.deepEqual([...new Set(stepIds)].sort(), [...new Set(expectedIds)].sort());
+  assert.deepEqual([...new Set(stepIds)].sort(), [...new Set(artifact.members)].sort());
+  assert.equal(expected.find((entry) => entry.crawlerId === 'guess-europe')?.primarySlice,
+    'data/jobs/by-crawler/guess-europe.json');
+  assert.equal(expected.find((entry) => entry.crawlerId === 'vf-international-the-north-face-timberland')?.primarySlice,
+    'data/jobs/by-crawler/vf-international-the-north-face-timberland.json');
+  assert.equal(expected.some((entry) => entry.crawlerId === 'guess'), false);
+  assert.equal(expected.some((entry) => entry.crawlerId === 'vf'), false);
 });
 
 test('il contratto censisce 23 gruppi + translate-pending e tutti i crawler unici', () => {

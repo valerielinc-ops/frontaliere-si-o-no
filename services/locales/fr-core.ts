@@ -2803,6 +2803,13 @@ Règles :
  'consultingCta.article.body': '30 minutes avec un expert en fiscalité frontalière pour clarifier ton cas précis — €49, places limitées.',
  'consultingCta.article.button': 'Réserver une consultation',
 
+ 'whatsNew.v3964.title': 'Des rapports entreprises plus utiles',
+ 'whatsNew.v3964.employerInsights.title': 'Une évolution enfin lisible',
+ 'whatsNew.v3964.employerInsights.desc': 'Les rapports privés proposent désormais des périodes de 30 ou 90 jours, un graphique des vues et des clics, les offres qui attirent le plus l’attention et une distinction claire entre observations agrégées, personnes uniques et candidatures non mesurées.',
+ 'whatsNew.v3963.title': 'Insights entreprises plus clairs',
+ 'whatsNew.v3963.employerInsights.title': 'Clics de candidature et données vérifiables',
+ 'whatsNew.v3963.employerInsights.desc': 'Les rapports privés pour les entreprises distinguent désormais les vues, les clics pour postuler, l’attention portée aux offres et les candidatures enregistrées, avec la période et la source toujours visibles.',
+
  // v3.71.0 — calculateur boosté
  'whatsNew.v3962.title': 'Comparaison des carburants plus claire',
  'whatsNew.v3962.fuelCompare.title': 'Essence et diesel, commune par commune',
@@ -3856,6 +3863,8 @@ Règles :
  'publisherDashboard.kpi.totalApplications': 'Candidatures',
  'publisherDashboard.kpi.intentRate': 'Taux d’intention / clic',
  'publisherDashboard.kpi.noDataYet': 'Les statistiques se remplissent à mesure que les frontaliers voient vos annonces.',
+ 'publisherDashboard.analytics.dedupUnavailable': 'Déduplication indisponible',
+ 'publisherDashboard.analytics.metricUnavailable': 'Non disponible',
  'publisherDashboard.adsHeading': 'Vos annonces',
  'publisherDashboard.bestPerformer': 'La plus vue',
  'publisherDashboard.empty.title': 'Vos candidatures commencent ici',

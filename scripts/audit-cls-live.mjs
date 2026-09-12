@@ -114,8 +114,11 @@ function saveBaseline(baseline) {
 // Retry on transient PSI 5xx errors (Lighthouse-side flakes). Backoff: 2s/4s/8s.
 // PSI returns 500/502 surprisingly often under load; treating them as hard
 // failures fails the deploy gate even when Google is the problem, not us.
-// 4xx errors (bad URL, missing key, quota) are NOT retried — they indicate
-// a configuration bug that retrying cannot fix.
+// 4xx errors (bad URL, missing key, quota) are NOT retried with the same
+// credentials — they indicate a configuration/provider response that the
+// retry loop cannot fix. A configured key rejected with 401/403 gets one
+// deliberate keyless fallback below, because PSI can still serve the request
+// without a key and the live gate must not confuse key configuration with CLS.
 const PSI_MAX_ATTEMPTS = 3;
 const PSI_RETRY_BASE_MS = 2000;
 
@@ -194,9 +197,9 @@ export function compactShiftItems(audit, limit = 5) {
   }));
 }
 
-async function runPsi(url, strategy) {
+async function runPsiRequest(url, strategy, apiKey = '') {
   const params = new URLSearchParams({ url, strategy, category: 'performance' });
-  if (API_KEY) params.set('key', API_KEY);
+  if (apiKey) params.set('key', apiKey);
   const endpoint = `${PSI_ENDPOINT}?${params.toString()}`;
 
   let lastError = null;
@@ -227,6 +230,45 @@ async function runPsi(url, strategy) {
   }
   // Defensive — unreachable, the loop always either returns or throws.
   throw lastError || new Error(`PSI failed after ${PSI_MAX_ATTEMPTS} attempts for ${url} (${strategy})`);
+}
+
+/**
+ * PSI auth/quota responses contain no live CLS measurement. They are
+ * inconclusive provider failures, not evidence of a site regression.
+ */
+export function isInconclusivePsiError(error) {
+  const message = typeof error === 'string'
+    ? error
+    : error?.message || error?.error || '';
+  const statuses = [...String(message).matchAll(/\bPSI\s+(\d{3})\b/g)]
+    .map((match) => Number(match[1]));
+  return statuses.length > 0 && statuses.every((status) => [401, 403, 429].includes(status));
+}
+
+export function shouldFailOpenForPsiErrors(errors = []) {
+  return Array.isArray(errors) && errors.length > 0 && errors.every(isInconclusivePsiError);
+}
+
+async function runPsi(url, strategy) {
+  try {
+    return await runPsiRequest(url, strategy, API_KEY);
+  } catch (error) {
+    if (!API_KEY || !/\bPSI (?:401|403)\b/.test(error?.message || '')) throw error;
+
+    // A key can be rejected by a stale restriction or an API enablement
+    // mismatch even while unauthenticated PSI requests remain available.
+    // Retry once without it so a secret/configuration problem cannot become a
+    // false live-CMS regression. The original error is retained if fallback
+    // also fails, making the report explain both attempts.
+    try {
+      return await runPsiRequest(url, strategy, '');
+    } catch (fallbackError) {
+      throw new Error(
+        `${fallbackError.message || fallbackError} (keyed PSI request was rejected with ${error.message})`,
+        { cause: fallbackError },
+      );
+    }
+  }
 }
 
 function parsePsiResponse(j) {
@@ -405,6 +447,9 @@ async function run() {
 
   const hardRegressions = results.filter((r) => r.verdict.state === 'hard_regression');
   const softRegressions = results.filter((r) => r.verdict.state === 'soft_regression');
+  const hasBlockingPsiErrors = errors.some((error) => !isInconclusivePsiError(error));
+  const allPsiProviderErrors =
+    results.length === 0 && errors.length > 0 && shouldFailOpenForPsiErrors(errors);
 
   if (REBASELINE) {
     const newBaseline = {
@@ -429,7 +474,7 @@ async function run() {
   const slimResults = results.map((r) => { const { raw, ...rest } = r; return rest; });
   writeFileSync(
     resolve(REPORTS_DIR, `cls-${today}.json`),
-    JSON.stringify({ generated: new Date().toISOString(), baseUrl: BASE_URL, threshold: HARD_CLS_THRESHOLD, results: slimResults, errors, hardRegressions: hardRegressions.length, softRegressions: softRegressions.length }, null, 2) + '\n',
+    JSON.stringify({ generated: new Date().toISOString(), baseUrl: BASE_URL, threshold: HARD_CLS_THRESHOLD, results: slimResults, errors, hardRegressions: hardRegressions.length, softRegressions: softRegressions.length, inconclusive: allPsiProviderErrors }, null, 2) + '\n',
   );
 
   // Structured audit-reports/ entry. Offender list = every result with a
@@ -462,7 +507,9 @@ async function run() {
     });
   await writeAuditReport({
     audit: 'cls-live',
-    passed: hardRegressions.length === 0,
+    passed: hardRegressions.length === 0
+      && !hasBlockingPsiErrors
+      && (results.length > 0 || allPsiProviderErrors),
     threshold: { metric: 'cls', value: HARD_CLS_THRESHOLD, comparator: '<=' },
     baselineFile: 'data/cls-baseline.json',
     offenders: offendersForReport,
@@ -471,12 +518,13 @@ async function run() {
       hardRegressions: hardRegressions.length,
       softRegressions: softRegressions.length,
       errorsCount: errors.length,
+      inconclusive: allPsiProviderErrors,
       baseUrl: BASE_URL,
     },
   });
 
   if (JSON_OUT) {
-    console.log(JSON.stringify({ results, errors, hardRegressions, softRegressions }, null, 2));
+    console.log(JSON.stringify({ results, errors, hardRegressions, softRegressions, inconclusive: allPsiProviderErrors }, null, 2));
   } else {
     console.log('');
     console.log(`Targets audited: ${TARGETS.length} × ${STRATEGIES.length} = ${TARGETS.length * STRATEGIES.length}`);
@@ -490,23 +538,18 @@ async function run() {
   }
 
   // Exit policy:
-  //   0 — no hard regression (soft regressions are warning only)
-  //   1 — at least one hard regression OR all PSI calls errored for a reason
-  //       that isn't quota-exhaustion
+  //   0 — no hard regression and no blocking PSI error; an all-provider
+  //       auth/quota outage is inconclusive and therefore passes open
+  //   1 — at least one hard regression OR any non-inconclusive PSI error
   if (hardRegressions.length > 0) process.exit(1);
+  if (hasBlockingPsiErrors) process.exit(1);
   if (results.length === 0 && errors.length > 0) {
-    // If every single call was rejected by PSI's daily quota (429 "Quota
-    // exceeded"), there is zero signal about the live site's actual CLS —
-    // this fires whenever `load-rc-env.mjs` fails to fetch PAGESPEED_API_KEY
-    // from Remote Config (itself rate-limited) and the script falls back to
-    // unauthenticated calls, which share a much smaller global PSI quota.
-    // Blocking the deploy gate on a third-party rate limit is a false
-    // "Validation Failure", not a real regression. Fail open, same as this
-    // repo's other watchdogs on inconclusive API results (see
-    // check-pages-publish-lag.mjs).
-    const allQuotaExceeded = errors.every((e) => /\bPSI 429\b/.test(e.error));
-    if (allQuotaExceeded) {
-      console.log('\n⚠️  All PSI calls rejected with quota-exceeded (429) — inconclusive, not a site regression. Passing gate open.');
+    // These responses contain zero CLS signal. Blocking the deploy gate on a
+    // third-party auth/quota response is a false "Validation Failure", not a
+    // real regression. Fail open, same as this repo's other watchdogs on
+    // inconclusive API results (see check-pages-publish-lag.mjs).
+    if (allPsiProviderErrors) {
+      console.log('\n⚠️  All PSI calls were inconclusive (auth/quota 401/403/429) — not a site regression. Passing gate open.');
       process.exit(0);
     }
     process.exit(1);

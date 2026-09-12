@@ -1,33 +1,13 @@
 {
-  "run": 25,
+  "run": 30,
   "companies": {
     "postfinance": {
       "sterile": 1,
       "signature": "4366b7bf23dc82b3"
     },
-    "marriott": {
-      "sterile": 1,
-      "signature": "9efc2954eb1d1eed"
-    },
     "efg-international": {
       "sterile": 1,
       "signature": "1b23396d87184fa6"
-    },
-    "confederazione-ticino": {
-      "sterile": 1,
-      "signature": "e5b620c63ebb2e2a"
-    },
-    "banca-sempione": {
-      "sterile": 1,
-      "signature": "1134ce9629c4a469"
-    },
-    "medacta-international": {
-      "sterile": 1,
-      "signature": "ea643bc31eae2dea"
-    },
-    "arxada": {
-      "sterile": 1,
-      "signature": "c6319e7022fbea3d"
     },
     "axa-svizzera": {
       "sterile": 1,
@@ -36,11 +16,6 @@
     "ffs-officine-ferrovie-federali": {
       "sterile": 1,
       "signature": "f27cebbc78000cc9"
-    },
-    "migros-ticino": {
-      "sterile": 0,
-      "signature": "90e473f33488da21",
-      "skipUntilRun": 24
     },
     "grand-hotel-des-bains-kempinski": {
       "sterile": 1,
@@ -55,8 +30,9 @@
       "signature": "c4dd21cb0b542968"
     },
     "banca-cler": {
-      "sterile": 1,
-      "signature": "d70bcc7e9b0b25ed"
+      "sterile": 0,
+      "signature": "d70bcc7e9b0b25ed",
+      "skipUntilRun": 31
     }
   }
 }

@@ -794,7 +794,9 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @typedef {Object} CrawlerConfig
  * @property {string}   companyKey          — Unique kebab-case key (e.g. 'lonza')
  * @property {string}   companyLabel        — Display name for logs (e.g. 'Lonza')
- * @property {Function} fetchJobs           — async () => ParsedJob[]. Source-locale only.
+ * @property {Function} fetchJobs           — async () => ParsedJob[] or
+ *                                             { jobs: ParsedJob[], ...metadata }.
+ *                                             Source-locale only.
  * @property {Function} isCompanyJob        — (job) => boolean. Matches this company's jobs.
  * @property {string}   [root]              — Project root (default: cwd)
  * @property {string}   [defaultSourceLang] — Fallback source language (default: 'it')
@@ -852,6 +854,36 @@ export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
 }
 
 /**
+ * Normalize the fetch result while keeping parser metadata outside the jobs
+ * array. Arrays with attached fields remain supported for legacy crawlers, but
+ * new parsers can return `{ jobs, fetchOutcome }` so an intermediate
+ * `.filter()`/`.map()` cannot discard the verdict (issue #8069).
+ *
+ * @param {unknown} fetchResult
+ * @returns {{ jobs: object[]|undefined, metadata: object }}
+ */
+export function normalizeCrawlerFetchResult(fetchResult) {
+  if (Array.isArray(fetchResult)) {
+    return { jobs: fetchResult, metadata: fetchResult };
+  }
+  if (fetchResult && typeof fetchResult === 'object') {
+    return {
+      jobs: Array.isArray(fetchResult.jobs) ? fetchResult.jobs : undefined,
+      metadata: fetchResult,
+    };
+  }
+  return { jobs: undefined, metadata: {} };
+}
+
+// A source-specific parser may report how many otherwise-valid listings it
+// discarded because it could not derive a per-vacancy detail URL. Once that
+// loss exceeds 40% of the existing slice, keep the old slice: the ordinary
+// anti-shrink guard only reacts to the resulting job count and deliberately
+// allows a 40%-retained large slice through, which would make this failure
+// mode silently archive live pages.
+export const MISSING_DETAIL_URL_MAX_RATIO = 0.4;
+
+/**
  * Restore the active slug identity of jobs already present in a crawler slice.
  *
  * The implementation lives in `scripts/lib/slug-history-journal.mjs` (issue
@@ -905,8 +937,9 @@ export async function runStandardCrawlerPipeline(config) {
   // ─── Step 0: Init ───────────────────────────────────────────
   setCrawlerStartTime();
   // `counts.discovered` (issue #5945, mirrors update-baronie-jobs.mjs) lets a
-  // fetchJobs() that attaches an optional `.discoveredCount` property to its
-  // returned array report the pre-filter candidate count — even on the
+  // fetchJobs() that returns either a legacy array with an optional
+  // `.discoveredCount` property or a structured `{ jobs, discoveredCount }`
+  // result report the pre-filter candidate count — even on the
   // "0 jobs after filtering" early return below — so check-crawler-health can
   // classify "found candidates, filtered to 0" as healthy instead of broken,
   // without a human adding the slug to EMPTY_OK_CRAWLERS. Parsers that don't
@@ -941,8 +974,10 @@ export async function runStandardCrawlerPipeline(config) {
   // ─── Step 2: Fetch ──────────────────────────────────────────
   // Parser returns source-locale jobs only. DO NOT set non-source locale fields.
   let parsedJobs;
+  let fetchMetadata;
   try {
-    parsedJobs = await fetchJobs();
+    const fetchResult = await fetchJobs();
+    ({ jobs: parsedJobs, metadata: fetchMetadata } = normalizeCrawlerFetchResult(fetchResult));
   } catch (err) {
     // Connection-level fetch failure = the runner's datacenter egress could not
     // reach an otherwise-healthy source (transient IP-reputation / egress block,
@@ -980,15 +1015,33 @@ export async function runStandardCrawlerPipeline(config) {
     throw err;
   }
 
-  if (Number.isFinite(parsedJobs?.discoveredCount)) {
-    counts.discovered = parsedJobs.discoveredCount;
+  if (Number.isFinite(fetchMetadata?.discoveredCount)) {
+    counts.discovered = fetchMetadata.discoveredCount;
   }
-  if (CRAWLER_FETCH_OUTCOMES.has(parsedJobs?.fetchOutcome)) {
-    counts.lastFetchOutcome = parsedJobs.fetchOutcome;
+  if (CRAWLER_FETCH_OUTCOMES.has(fetchMetadata?.fetchOutcome)) {
+    counts.lastFetchOutcome = fetchMetadata.fetchOutcome;
   }
   // Set before every early return below, so a soft-exit slice written by the
   // exit guard carries the same evidence a published one would.
   counts.parsed = Array.isArray(parsedJobs) ? parsedJobs.length : 0;
+
+  const missingDetailUrlCount = Number(fetchMetadata?.missingDetailUrlCount);
+  const missingDetailUrlRatio = companyExisting.length > 0 && Number.isFinite(missingDetailUrlCount)
+    ? missingDetailUrlCount / companyExisting.length
+    : 0;
+  if (
+    companyExisting.length > 0
+    && Number.isFinite(missingDetailUrlCount)
+    && missingDetailUrlCount > 0
+    && missingDetailUrlRatio > MISSING_DETAIL_URL_MAX_RATIO
+  ) {
+    console.warn(
+      `\n⚠️ ${companyLabel}: ${missingDetailUrlCount}/${companyExisting.length} valid listings `
+      + `(${Math.round(missingDetailUrlRatio * 100)}%) lost their detail URL `
+      + `(limit ${MISSING_DETAIL_URL_MAX_RATIO * 100}%). Keeping existing jobs.`,
+    );
+    return;
+  }
 
   // Only source-specific crawlers with an explicit completeness proof may
   // retire every unmatched record immediately. Validation runs before the

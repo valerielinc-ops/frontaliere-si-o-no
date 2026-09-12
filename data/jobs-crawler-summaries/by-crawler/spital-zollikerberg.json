@@ -1,45 +1,44 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-11T13:31:57.631Z",
-  "total": 10,
+  "generatedAt": "2026-09-12T12:51:57.934Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 10,
+  "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 40678,
-  "avgDurationMs": 40678,
+  "unchangedCount": 0,
+  "durationMs": 36357,
+  "avgDurationMs": 36357,
   "durationHistory": [
-    40678
+    36357
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-e383b94e0594",
-      "slug": "esperto-di-cura-apn-palliative-care-spital-zollikerberg-zollikerberg",
+      "id": "spital-zollikerberg-ed34f14c254a",
+      "slug": "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Pflegeexperte/ Pflegeexpertin APN Palliative Care",
+      "title": "Gastronomie Neumünster Park Mitarbeiterin / Mitarbeiter Restaurants & Events Gastronomie",
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=76d96412-2757-430e-ab22-f33aff58feab,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=54e6cb46-6f0c-49aa-8393-f1ddc7ae9aef,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:01:37.428Z",
+      "crawledAt": "2026-09-12T12:51:53.194Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8125",
-      "category": "Sanità / Ospedali",
+      "category": "Ospitalità",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -47,19 +46,17 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=76d96412-2757-430e-ab22-f33aff58feab,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=54e6cb46-6f0c-49aa-8393-f1ddc7ae9aef,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

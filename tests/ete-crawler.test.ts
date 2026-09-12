@@ -175,7 +175,8 @@ describe('Emil Egger AG crawler parser', () => {
       for (const job of jobs) {
         const urlHash = createHash('sha1').update(job.url).digest('hex').slice(0, 12);
         expect(job.id).toBe(`ete-${urlHash}`);
-        expect(job.slug).toBe(slugify(`${job.title} ete ch ${job.location}`));
+        expect(job.slugDisambiguator).toBe(urlHash.slice(0, 8));
+        expect(job.slug).toBe(`${slugify(`${job.title} ete ch ${job.location}`)}-${job.slugDisambiguator}`);
         expect(job.description.length).toBeGreaterThan(120);
       }
       expect(new Set(jobs.map((job) => job.slug)).size).toBe(2);

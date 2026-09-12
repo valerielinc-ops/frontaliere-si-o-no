@@ -2803,6 +2803,13 @@ Regeln:
  'consultingCta.article.body': '30 Minuten mit einem Grenzgänger-Steuerexperten, um deinen konkreten Fall zu klären — €49, begrenzte Plätze.',
  'consultingCta.article.button': 'Beratung buchen',
 
+ 'whatsNew.v3964.title': 'Nützlichere Arbeitgeberberichte',
+ 'whatsNew.v3964.employerInsights.title': 'Ein Verlauf, den man lesen kann',
+ 'whatsNew.v3964.employerInsights.desc': 'Private Berichte bieten jetzt Zeiträume von 30 oder 90 Tagen, ein Diagramm für Aufrufe und Klicks, die Anzeigen mit der grössten Aufmerksamkeit sowie eine klare Trennung zwischen aggregierten Beobachtungen, eindeutigen Personen und nicht gemessenen Bewerbungen.',
+ 'whatsNew.v3963.title': 'Klarere Arbeitgeber-Insights',
+ 'whatsNew.v3963.employerInsights.title': 'Bewerbungsklicks und überprüfbare Daten',
+ 'whatsNew.v3963.employerInsights.desc': 'Private Arbeitgeberberichte unterscheiden jetzt Aufrufe, Bewerbungsklicks, Anzeigenaufmerksamkeit und erfasste Bewerbungen und zeigen immer Zeitraum und Datenquelle an.',
+
  // v3.71.0 — Rechner-Upgrade
  'whatsNew.v3962.title': 'Klarerer Kraftstoffvergleich',
  'whatsNew.v3962.fuelCompare.title': 'Benzin und Diesel für jede Gemeinde',
@@ -3856,6 +3863,8 @@ Regeln:
  'publisherDashboard.kpi.totalApplications': 'Bewerbungen',
  'publisherDashboard.kpi.intentRate': 'Intent-/Klickrate',
  'publisherDashboard.kpi.noDataYet': 'Die Statistiken füllen sich, sobald Grenzgänger Ihre Inserate sehen.',
+ 'publisherDashboard.analytics.dedupUnavailable': 'Deduplizierung nicht verfügbar',
+ 'publisherDashboard.analytics.metricUnavailable': 'Nicht verfügbar',
  'publisherDashboard.adsHeading': 'Ihre Inserate',
  'publisherDashboard.bestPerformer': 'Meist gesehen',
  'publisherDashboard.empty.title': 'Hier beginnen Ihre Bewerbungen',
