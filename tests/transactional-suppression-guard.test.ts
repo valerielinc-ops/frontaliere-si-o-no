@@ -72,13 +72,21 @@ const VALID_PDF_BASE64 = Buffer.from('%PDF-1.4 fake', 'utf8').toString('base64')
  * against a versioned double in tests/newsletter-confirmation-ledger-atomicity.test.ts.
  * What matters here is only that the guard verdicts below are still reached.
  */
-function makeDb(docData: Record<string, unknown> | null, opts: { getThrows?: boolean } = {}) {
+function makeDb(docData: Record<string, unknown> | null, opts: {
+  getThrows?: boolean;
+  getSequence?: Array<Record<string, unknown> | null | Error>;
+} = {}) {
   const writes: Record<string, any>[] = [];
   const events: Record<string, any>[] = [];
+  let reads = 0;
   const docRef: any = {
     get: async () => {
       if (opts.getThrows) throw new Error('UNAVAILABLE: simulated Firestore outage');
-      return { exists: docData !== null, data: () => docData || {} };
+      const value = opts.getSequence
+        ? opts.getSequence[Math.min(reads++, opts.getSequence.length - 1)]
+        : docData;
+      if (value instanceof Error) throw value;
+      return { exists: value !== null, data: () => value || {} };
     },
     set: async (data: any) => { writes.push(data); },
     update: async (data: any) => { writes.push(data); },
@@ -88,6 +96,7 @@ function makeDb(docData: Record<string, unknown> | null, opts: { getThrows?: boo
     }),
   };
   const db = {
+    get reads() { return reads; },
     writes,
     events,
     collection: () => ({ doc: () => docRef }),
@@ -224,11 +233,15 @@ describe('handleSendCalculatorReport — narrow suppression guard', () => {
 // ── newsletterConfirmationEmail ──────────────────────────────────────────────
 
 describe('sendNewsletterConfirmationEmail — narrow suppression guard', () => {
-  async function send(docData: Record<string, unknown> | null, purpose?: string) {
+  async function send(
+    docData: Record<string, unknown> | null,
+    purpose?: string,
+    opts: { getThrows?: boolean; getSequence?: Array<Record<string, unknown> | null | Error> } = {},
+  ) {
     const { sendNewsletterConfirmationEmail } = await import(
       '../functions/src/newsletterConfirmationEmail.js'
     );
-    const db = makeDb(docData);
+    const db = makeDb(docData, opts);
     const result = await sendNewsletterConfirmationEmail({
       email: 'user@example.com',
       locale: 'it',
@@ -264,6 +277,72 @@ describe('sendNewsletterConfirmationEmail — narrow suppression guard', () => {
     const { result } = await send({ status: 'pending', isActive: false });
     expect(result.success).toBe(true);
     expect(vi.mocked((await cascade()).sendEmailCascade)).toHaveBeenCalledTimes(1);
+  });
+
+  it('rechecks consent immediately before sending and blocks a concurrent unsubscribe', async () => {
+    const { result, db } = await send(
+      { status: 'pending', isActive: false },
+      undefined,
+      { getSequence: [
+        { status: 'pending', isActive: false },
+        { status: 'unsubscribed', isActive: false, unsubscribed_at: '2026-09-12T00:00:00.000Z' },
+      ] },
+    );
+    expect(result).toEqual({ success: false, error: 'address_suppressed' });
+    expect(db.reads).toBe(2);
+    expect(vi.mocked((await cascade()).sendEmailCascade)).not.toHaveBeenCalled();
+  });
+
+  it('rechecks consent immediately before sending and blocks a concurrent confirmation', async () => {
+    const { result, db } = await send(
+      { status: 'pending', isActive: false },
+      undefined,
+      { getSequence: [
+        { status: 'pending', isActive: false },
+        { status: 'confirmed', isActive: true, confirmed_at: '2026-09-12T00:00:00.000Z' },
+      ] },
+    );
+    expect(result).toEqual({ success: false, error: 'already_confirmed' });
+    expect(db.reads).toBe(2);
+    expect(vi.mocked((await cascade()).sendEmailCascade)).not.toHaveBeenCalled();
+  });
+
+  it('does not let a new opt-out race through the explicit resubscribe DOI path', async () => {
+    const { result, db } = await send(
+      {
+        status: 'pending',
+        isActive: false,
+        unsubscribed_at: '2026-09-10T00:00:00.000Z',
+        confirmed_at: '2026-09-01T00:00:00.000Z',
+      },
+      'resubscribe',
+      { getSequence: [
+        {
+          status: 'pending',
+          isActive: false,
+          unsubscribed_at: '2026-09-10T00:00:00.000Z',
+          confirmed_at: '2026-09-01T00:00:00.000Z',
+        },
+        { status: 'unsubscribed', isActive: false, unsubscribed_at: '2026-09-12T00:00:00.000Z' },
+      ] },
+    );
+    expect(result).toEqual({ success: false, error: 'address_suppressed' });
+    expect(db.reads).toBe(2);
+    expect(vi.mocked((await cascade()).sendEmailCascade)).not.toHaveBeenCalled();
+  });
+
+  it('fails closed when the final consent-state read is unavailable', async () => {
+    const { result, db } = await send(
+      { status: 'pending', isActive: false },
+      undefined,
+      { getSequence: [
+        { status: 'pending', isActive: false },
+        new Error('UNAVAILABLE: simulated Firestore outage'),
+      ] },
+    );
+    expect(result).toEqual({ success: false, error: 'subscriber_state_unavailable' });
+    expect(db.reads).toBe(2);
+    expect(vi.mocked((await cascade()).sendEmailCascade)).not.toHaveBeenCalled();
   });
 
   it('refuses an opted-out record even when a caller asks for a DOI', async () => {

@@ -59,6 +59,45 @@ export {
 const CONFIRMATION_COOLDOWN_MS = 60 * 60 * 1000; // 1 hour
 
 /**
+ * Return the refusal that applies to the subscriber's CURRENT state.
+ *
+ * This predicate is intentionally shared by the initial read and the final
+ * read immediately before the provider call. Preparing a token/template can
+ * take long enough for an unsubscribe, account deletion, or a competing
+ * confirmation to land in between those reads; the final read is the last
+ * local gate, so a state change already persisted before it blocks the send.
+ *
+ * `resubscribe` is the one exception to the ordinary opt-out-stamp rule: the
+ * old stamp is expected while a fresh pending DOI is being sent. A current
+ * `unsubscribed` status still wins, so a new opt-out during the request is
+ * fail-closed.
+ */
+function confirmationSendStateError(data, { isLoginLink = false, isResubscribeLink = false } = {}) {
+ if (isAccountDeletedTombstone(data)) return 'account_deleted';
+ if (isTransactionalHardBlock({ status: data?.status, bounceSeverity: data?.bounce_severity })) {
+ return 'address_suppressed';
+ }
+
+ if (isLoginLink) return null;
+
+ const status = String(data?.status || '').trim().toLowerCase();
+ if (isResubscribeLink) {
+ if (status === 'unsubscribed') return 'address_suppressed';
+ return status === 'pending' ? null : 'confirmation_not_pending';
+ }
+
+ if (isNewsletterOptOutBinding(data)) return 'address_suppressed';
+ if (
+ (status === 'confirmed' && data?.isActive)
+ || hasConfirmationStamp(data)
+ || hasConfirmationProof(data)
+ ) {
+ return 'already_confirmed';
+ }
+ return status === 'pending' ? null : 'confirmation_not_pending';
+}
+
+/**
  * The confirmation link's credential — scoped to `confirm` and dated (#5704).
  *
  * It used to be `HMAC(secret, email)`: the same string the unsubscribe link, the
@@ -122,10 +161,6 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
 
  const data = subscriberDoc.data();
 
- if (isAccountDeletedTombstone(data)) {
- return { success: false, error: 'account_deleted' };
- }
-
  // Keep the transactional send narrow, but do not let a direct caller turn a
  // marketing record back into a DOI request. A confirmation email is valid
  // only for a genuinely pending record with no confirmation stamp/proof and no
@@ -134,27 +169,11 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  // third, narrow case: the user has just typed the address into a fresh
  // re-consent form, so an old confirmation stamp is expected, but the address
  // stays pending until this new DOI link is clicked.
- if (isTransactionalHardBlock({ status: data?.status, bounceSeverity: data?.bounce_severity })) {
+ const stateError = confirmationSendStateError(data, { isLoginLink, isResubscribeLink });
+ if (stateError === 'address_suppressed') {
  console.warn(`[newsletterConfirmation] suppressed address, send skipped: status=${data?.status}`);
- return { success: false, error: 'address_suppressed' };
  }
-
- const status = String(data?.status || '').trim().toLowerCase();
- if (!isLoginLink && !isResubscribeLink && isNewsletterOptOutBinding(data)) {
- return { success: false, error: 'address_suppressed' };
- }
-
- if (!isLoginLink && !isResubscribeLink && (
-   (status === 'confirmed' && data?.isActive)
-   || hasConfirmationStamp(data)
-   || hasConfirmationProof(data)
- )) {
- return { success: false, error: 'already_confirmed' };
- }
-
- if (!isLoginLink && status !== 'pending') {
- return { success: false, error: 'confirmation_not_pending' };
- }
+ if (stateError) return { success: false, error: stateError };
 
  const now = Date.now();
 
@@ -237,6 +256,30 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  firstSentAt: confirmationFirstSentAt(data),
  login: isLoginLink,
  });
+
+ // Re-read the consent state after all token/template work and immediately
+ // before crossing the provider boundary. The initial read is not enough:
+ // an unsubscribe, account deletion, or competing confirmation may have
+ // landed while the message was being composed. A read failure is also
+ // fail-closed here; no provider call is safer than an unverifiable DOI.
+ let latestSubscriberDoc;
+ try {
+ latestSubscriberDoc = await subscriberRef.get();
+ } catch (stateErr) {
+ console.error('[newsletterConfirmation] latest subscriber state unavailable, send skipped:', stateErr?.message || stateErr);
+ return { success: false, error: 'subscriber_state_unavailable' };
+ }
+ if (!latestSubscriberDoc.exists) {
+ return { success: false, error: 'subscriber_not_found' };
+ }
+ const latestStateError = confirmationSendStateError(
+ latestSubscriberDoc.data() || {},
+ { isLoginLink, isResubscribeLink },
+ );
+ if (latestStateError === 'address_suppressed') {
+ console.warn('[newsletterConfirmation] subscriber state changed to suppressed, send skipped');
+ }
+ if (latestStateError) return { success: false, error: latestStateError };
 
  const { sent, failed } = await sendEmailCascade([{
  payload: {
