@@ -146,6 +146,23 @@ describe('employer insights Firestore storage', () => {
     expect(Buffer.byteLength(JSON.stringify(root))).toBeLessThan(1_048_576);
   });
 
+  it('removes shards whose new company root was never committed', async () => {
+    const db = makeFakeFirestore();
+    const document = {
+      companyKey: 'newco',
+      ads: [ad(1)],
+      additionalWindows: { '90d': { ads: [ad(2)] } },
+    };
+    db.values.set(`employer_insights/newco/ads/${employerInsightsAdId(ad(1))}`, ad(1));
+    db.values.set(`employer_insights/newco/ads_90d/${employerInsightsAdId(ad(2))}`, ad(2));
+
+    const before = { roots: new Map(), ads: new Map(), windowAds: new Map() };
+    const result = await restoreEmployerInsightsSnapshot(db as never, before, { expectedDocuments: [document] });
+
+    expect(result).toEqual({ attempted: 2, committed: 2 });
+    expect([...db.values.keys()]).toHaveLength(0);
+  });
+
   it('removes stale shards and can restore the complete previous snapshot', async () => {
     const db = makeFakeFirestore();
     const initial = {

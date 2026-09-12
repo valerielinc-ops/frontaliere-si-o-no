@@ -90,13 +90,29 @@ function asDataMap(snapshot) {
   return result;
 }
 
+async function readShardCollections(doc, collectionNames, ads, windowAds) {
+  for (const collectionName of collectionNames) {
+    const adCollection = doc.ref?.collection?.(collectionName);
+    if (!adCollection) continue;
+    const adSnapshot = await adCollection.get();
+    const adMap = asDataMap(adSnapshot);
+    if (adMap.size === 0) continue;
+    if (collectionName === EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION) {
+      ads.set(doc.id, adMap);
+      continue;
+    }
+    if (!windowAds.has(doc.id)) windowAds.set(doc.id, new Map());
+    windowAds.get(doc.id).set(collectionName, adMap);
+  }
+}
+
 /**
  * Read roots and ad shards. Older snapshots have no subcollection and remain
  * valid; this is also the complete rollback baseline for a migration run.
  * `discoverOrphans` is reserved for rollback, where an unreferenced window
  * shard must be found even if its root pointer was never committed.
  */
-export async function readEmployerInsightsSnapshot(db, { discoverOrphans = false } = {}) {
+export async function readEmployerInsightsSnapshot(db, { discoverOrphans = false, orphanCompanyDocuments = [] } = {}) {
   const collection = db.collection(EMPLOYER_INSIGHTS_COLLECTION);
   const rootSnapshot = await collection.get();
   const roots = new Map();
@@ -125,18 +141,19 @@ export async function readEmployerInsightsSnapshot(db, { discoverOrphans = false
         }
       }
     }
-    for (const collectionName of collectionNames) {
-      const adCollection = doc.ref?.collection?.(collectionName);
-      if (!adCollection) continue;
-      const adSnapshot = await adCollection.get();
-      const adMap = asDataMap(adSnapshot);
-      if (adMap.size === 0) continue;
-      if (collectionName === EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION) {
-        ads.set(doc.id, adMap);
-        continue;
-      }
-      if (!windowAds.has(doc.id)) windowAds.set(doc.id, new Map());
-      windowAds.get(doc.id).set(collectionName, adMap);
+    await readShardCollections(doc, collectionNames, ads, windowAds);
+  }
+
+  // A failed write can also leave shards for a new company before its root is
+  // created. Firestore cannot discover that parent through rootSnapshot, so
+  // rollback supplies the validated company documents whose refs were tried.
+  if (discoverOrphans) {
+    for (const document of orphanCompanyDocuments || []) {
+      const companyKey = String(document?.companyKey || '').trim();
+      if (!companyKey || roots.has(companyKey)) continue;
+      const collectionNames = new Set([EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION]);
+      for (const collectionName of additionalWindowAds(document).keys()) collectionNames.add(collectionName);
+      await readShardCollections({ id: companyKey, ref: collection.doc(companyKey) }, collectionNames, ads, windowAds);
     }
   }
 
@@ -233,8 +250,11 @@ export async function writeEmployerInsightsDocuments(db, documents, { before } =
  * operation list is one-op-per-item, so the shared batch helper also reports
  * precise progress if the rollback itself encounters an outage.
  */
-export async function restoreEmployerInsightsSnapshot(db, before) {
-  const after = await readEmployerInsightsSnapshot(db, { discoverOrphans: true });
+export async function restoreEmployerInsightsSnapshot(db, before, { expectedDocuments = [] } = {}) {
+  const after = await readEmployerInsightsSnapshot(db, {
+    discoverOrphans: true,
+    orphanCompanyDocuments: expectedDocuments,
+  });
   const collection = db.collection(EMPLOYER_INSIGHTS_COLLECTION);
   const items = [];
 

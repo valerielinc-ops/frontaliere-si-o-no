@@ -177,7 +177,7 @@ jobs:
           async function rollback() {
             let result = { attempted: 0, committed: 0 };
             try {
-              result = await restoreEmployerInsightsSnapshot(db, before);
+              result = await restoreEmployerInsightsSnapshot(db, before, { expectedDocuments: expected });
             } catch (error) {
               const committed = Number.isInteger(error?.committedItems) ? error.committedItems : result.committed;
               const attempted = Number.isInteger(error?.attemptedItems) ? error.attemptedItems : result.attempted;

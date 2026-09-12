@@ -73,6 +73,7 @@ describe('employer insights refresh rollback', () => {
       /rollback incomplete: committed \$\{committed\}\/\$\{attempted\} documents \(Firestore items\)/,
     );
     expect(REFRESH_WORKFLOW_SOURCE).toContain('restoreEmployerInsightsSnapshot');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('expectedDocuments: expected');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('error?.attemptedItems');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('rollbackResult.committed');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('rollback status:');
