@@ -233,8 +233,10 @@ const SETTLE_MIN = intFromEnv('FOLLOWUP_SETTLE_MIN', 3);
 
 // Quante run `issue-fix` possono essere vive insieme. Era 1 hard-coded — un
 // mutex, non un cap — poi alzato a 3 (2026-09-04). Il default 5 è il massimo
-// misurato come stabile dalla flotta locale senza avvicinarsi al limite disco;
-// il pool remoto resta bounded e usa la stessa quota Codex-primary. Override:
+// misurato come stabile dalla flotta locale senza avvicinarsi al limite disco:
+// 5 job Codex concorrenti hanno retto senza conflitti/ENOSPC, mentre a 7 il
+// disco è sceso da 25 GiB a 3,4 GiB in circa un'ora (14 worktree). Il pool
+// remoto resta bounded e usa la stessa quota Codex-primary. Override:
 // `FOLLOWUP_MAX_INFLIGHT_FIX=N` conserva il kill-switch e la telemetria — la
 // riga `in-flight=N/M` nel log di ogni run.
 //
