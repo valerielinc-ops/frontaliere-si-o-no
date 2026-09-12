@@ -11672,6 +11672,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.voto-pecc-gran-consiglio-ticino.title': 'Vote on Pecc in the Grand Council: the economic choice',
     'blog.article.voto-pecc-gran-consiglio-ticino.excerpt': 'Appeal of economic and environmental organizations to the Grand Council of Ticino for the vote on the Cantonal Energy and Climate Plan.',
     'blog.article.voto-pecc-gran-consiglio-ticino.imageAlt': 'Bellinzona castle in Ticino',
+    'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.title': 'Living in Cucciago and working in Ticino as a border worker',
+    'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.excerpt': 'Discover the advantages and disadvantages of living at Cucciago and working in Ticino as a border worker. Information on transportation, cost of living and taxes.',
+    'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.imageAlt': 'Cucciago and its castle',
 };
 
 export default blogMetaEn;

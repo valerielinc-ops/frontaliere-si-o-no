@@ -11673,6 +11673,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.voto-pecc-gran-consiglio-ticino.title': 'Voto sul Pecc in Gran Consiglio: la scelta economica',
     'blog.article.voto-pecc-gran-consiglio-ticino.excerpt': 'Appello di organizzazioni economiche e ambientaliste al Gran Consiglio ticinese per il voto sul Piano energetico e climatico cantonale.',
     'blog.article.voto-pecc-gran-consiglio-ticino.imageAlt': 'Castello di Bellinzona in Ticino',
+    'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.title': 'Vivere a Cucciago e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.excerpt': 'Scopri i vantaggi e gli svantaggi di vivere a Cucciago e lavorare in Ticino come frontaliere. Informazioni su trasporti, costo della vita e tasse.',
+    'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.imageAlt': 'Cucciago e il suo castello',
 };
 
 export default blogMetaIt;
