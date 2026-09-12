@@ -1563,6 +1563,16 @@ describe('cross-repo crawler execution artifacts', () => {
     );
     expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest: allowed })).not.toThrow();
 
+    const withCouplingSnapshot = structuredClone(allowed);
+    const coupledObserver = withCouplingSnapshot.files.find((entry: any) => (
+      entry.sitePath === '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs'
+    ));
+    coupledObserver.couplingSnapshot = [
+      { path: 'generator/data/crawler-cross-repo-contract.json', mode: 'identical' },
+    ];
+    expect(() => assertCrawlerManifestDelta({ baseManifest: allowed, currentManifest: withCouplingSnapshot }))
+      .not.toThrow();
+
     const contaminated = structuredClone(allowed);
     contaminated.files[0].reason = 'silently changed by transport branch';
     expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest: contaminated }))

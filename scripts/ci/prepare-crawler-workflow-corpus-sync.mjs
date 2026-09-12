@@ -130,12 +130,19 @@ export function assertCrawlerManifestDelta({ baseManifest, currentManifest } = {
   }
   for (const [sitePath, destination] of expectedMappings()) {
     const current = currentOwned.get(sitePath);
-    if (!current || current.path !== destination || current.mode !== 'identical') {
+    if (!current || current.path !== destination || current.mode !== 'identical' ||
+        !hasValidTransportManifestKeys(current)) {
       throw new Error(`owned crawler manifest entry missing or malformed: ${sitePath}`);
     }
     const baseIndex = (expected.files ?? []).findIndex((entry) => entry.sitePath === sitePath);
-    if (baseIndex >= 0) expected.files[baseIndex].baseline = structuredClone(current.baseline);
-    else expected.files.push(structuredClone(current));
+    if (baseIndex >= 0) {
+      expected.files[baseIndex].baseline = structuredClone(current.baseline);
+      if (Object.hasOwn(current, 'couplingSnapshot')) {
+        expected.files[baseIndex].couplingSnapshot = structuredClone(current.couplingSnapshot);
+      }
+    } else {
+      expected.files.push(structuredClone(current));
+    }
   }
   if (JSON.stringify(currentManifest) !== JSON.stringify(expected)) {
     throw new Error('crawler transport changed loop-sync manifest outside its owned baselines');
