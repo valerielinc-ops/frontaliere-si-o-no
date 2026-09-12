@@ -22,6 +22,7 @@ import {
   crawlerFixDecision,
   CRAWLER_MAX_ATTEMPTS,
   isRecoverableQueueManaged,
+  isGithubNotFoundError,
   outcomeForCurrentPromotion,
   recoverableFixDecision,
 } from '../scripts/ci/followup-drainer.mjs';
@@ -169,6 +170,12 @@ describe('recoverableFixDecision — checkpoint WIP del fixer', () => {
     });
     expect(merged.action).toBe('none');
     expect(merged.nextAttempt).toBe(0);
+  });
+
+  it('distingue un branch assente da un errore API non leggibile', () => {
+    expect(isGithubNotFoundError({ stderr: 'gh: Not Found (HTTP 404)' })).toBe(true);
+    expect(isGithubNotFoundError({ stderr: '{"message":"Server Error","status":"500"}' })).toBe(false);
+    expect(isGithubNotFoundError({ message: 'timeout contacting GitHub' })).toBe(false);
   });
 
   it('ignora needs-human solo per recuperare il WIP e conserva gli altri veto', () => {

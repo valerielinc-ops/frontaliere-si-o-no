@@ -1988,6 +1988,11 @@ function inFlightFixCount() {
 // avrebbe mai potuto vedere, e senza una riga di log a dirlo. Un silent cap in
 // senso proprio, contro la regola esplicita di AGENTS.md.
 const ISSUE_LIST_LIMIT = intFromEnv('FOLLOWUP_ISSUE_LIST_LIMIT', 300);
+// Il pass PARKED-WIP può fare fino a quattro letture/mutazioni per candidato
+// (compare, PR aperta, commenti, merge) e non deve consumare l'intero tick prima
+// del rescue ordinario. Il cap è indipendente dal deadline-budget: protegge
+// anche i run locali o i workflow che non esportano una deadline.
+const PARKED_WIP_MAX_PER_RUN = intFromEnv('FOLLOWUP_PARKED_WIP_MAX_PER_RUN', 25);
 
 /** Elenco issue con tetto DICHIARATO: se il tetto è stato raggiunto lo dice,
  * invece di restituire in silenzio una vista parziale che sembra completa. */
@@ -2493,6 +2498,20 @@ function hasFixPREver(num) {
   } catch { return true; }
 }
 
+/** Distingue il 404 «branch fix/issue-N assente» da un errore API generico.
+ * Il primo è uno stato normale del ciclo e significa «nessun checkpoint»; il
+ * secondo deve restare fail-closed, perché non abbiamo potuto verificare il
+ * branch. Pura → testabile senza chiamare GitHub.
+ */
+export function isGithubNotFoundError(error) {
+  if (Number(error?.status) === 404) return true;
+  const details = [error?.stderr, error?.stdout, error?.message]
+    .map((value) => String(value || ''))
+    .join('\n');
+  return /\bHTTP\s+404\b/i.test(details)
+    || /["']?status["']?\s*[:=]\s*["']?404["']?(?:\D|$)/i.test(details);
+}
+
 /**
  * Un checkpoint WIP remoto è lavoro recuperabile finché il branch canonico
  * contiene commit che non sono in `main`. La query live evita di fidarsi di un
@@ -2515,7 +2534,8 @@ function recoverableFixBranch(num) {
     const aheadBy = Number(comparison?.ahead_by);
     if (!Number.isSafeInteger(aheadBy)) return { state: 'unknown', branch };
     return aheadBy > 0 ? { state: 'live', branch, aheadBy } : null;
-  } catch {
+  } catch (error) {
+    if (isGithubNotFoundError(error)) return null;
     return { state: 'unknown', branch };
   }
 }
@@ -2904,9 +2924,30 @@ export function runDrain() {
     .filter((iss) => isRecoverableQueueManaged(iss))
     .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED))
     .filter((iss) => !isDecomposedParent(iss));
+  const parkedWipOrder = rotateForScan(parkedForWip, {
+    scanMax: PARKED_WIP_MAX_PER_RUN, now: Date.now(), periodMs: SCAN_ROTATION_PERIOD_MS,
+  });
   let parkedWipFound = 0;
   let parkedWipRequeued = 0;
-  for (const iss of parkedForWip) {
+  let parkedWipDeferredByCap = 0;
+  let parkedWipDeferredByBudget = 0;
+  for (let parkedIndex = 0; parkedIndex < parkedWipOrder.length; parkedIndex += 1) {
+    const iss = parkedWipOrder[parkedIndex];
+    if (parkedIndex >= PARKED_WIP_MAX_PER_RUN) {
+      parkedWipDeferredByCap = parkedWipOrder.length - parkedIndex;
+      break;
+    }
+    // Il confronto del branch è una lettura remota per candidata e le letture
+    // successive possono essere ancora più costose. Prenotiamo il candidato
+    // prima di iniziare: se il budget non basta, non tocchiamo nulla e il
+    // prossimo tick riparte dalla stessa finestra ruotata.
+    if (!budget.take(`#${iss.number} (parked-wip)`, ITEM_COST_MS)) {
+      parkedWipDeferredByBudget = parkedWipOrder.length - parkedIndex;
+      if (parkedWipDeferredByBudget > 1) {
+        budget.defer(`parked-wip: altre ${parkedWipDeferredByBudget - 1} candidate`);
+      }
+      break;
+    }
     const recoverable = recoverableFixBranch(iss.number);
     if (recoverable?.state === 'unknown') {
       console.log(`::warning::PARKED-WIP #${iss.number}: confronto ${recoverable.branch} con main non verificabile → nessuna mutazione, resta aperta per il prossimo tick.`);
@@ -2951,8 +2992,15 @@ export function runDrain() {
       parkedWipRequeued++;
     }
   }
-  if (parkedWipFound) {
-    console.log(`parked-wip: ${parkedWipFound} checkpoint live individuati, ${parkedWipRequeued} ri-accodati prima dell'age-out.`);
+  if (parkedWipFound || parkedWipDeferredByCap || parkedWipDeferredByBudget) {
+    const capNote = parkedWipDeferredByCap
+      ? `${parkedWipDeferredByCap} rinviate per cap ${PARKED_WIP_MAX_PER_RUN}/run`
+      : '';
+    const budgetNote = parkedWipDeferredByBudget
+      ? `${parkedWipDeferredByBudget} rinviate per budget`
+      : '';
+    const deferredNote = [capNote, budgetNote].filter(Boolean).join('; ');
+    console.log(`parked-wip: ${parkedWipFound} checkpoint live individuati, ${parkedWipRequeued} ri-accodati prima dell'age-out${deferredNote ? `; ${deferredNote} al prossimo tick (no silent cap)` : ''}.`);
   }
 
   // --- AGE-OUT CLOSE: drena il ratchet delle issue queue-managed mai chiuse ---
