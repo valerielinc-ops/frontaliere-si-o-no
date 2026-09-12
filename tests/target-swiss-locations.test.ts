@@ -60,6 +60,11 @@ describe('target swiss locations', () => {
     expect(inferAnyCanton('Stein Appenzell Ausserrhoden')).toBe('AR');
   });
 
+  it('prefers an explicit canton name over a city alias from another canton', () => {
+    expect(inferSwissTargetCanton('Reinach, Aargau')).toBe('AG');
+    expect(inferAnyCanton('Reinach, Aargau')).toBe('AG');
+  });
+
   // ── VS (Valais/Wallis) canton matching ──
   describe('Valais (VS) canton matching', () => {
     it('recognizes VS major cities', () => {

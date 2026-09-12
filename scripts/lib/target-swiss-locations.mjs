@@ -340,9 +340,44 @@ function hasExplicitCantonMarker(text = '', code = '') {
     || new RegExp(`\\(\\s*${upperCode}\\s*\\)`, 'i').test(String(text || ''));
 }
 
+// Official canton names are kept separate from the representative city
+// aliases in SWISS_CANTONS.names. A free-text location often contains both
+// (e.g. "Reinach, Aargau"): the explicit canton name must win even when a
+// city alias from another canton is longer. Keep this small map beside the
+// inference policy rather than inferring it from names[] — that array also
+// intentionally contains city aliases for backward-compatible matching.
+const CANTON_EXPLICIT_NAMES = {
+  AG: ['aargau', 'argovie', 'argovia'],
+  AI: ['appenzell innerrhoden', 'appenzell rhodes-intérieures', 'appenzello interno'],
+  AR: ['appenzell ausserrhoden', 'appenzell rhodes-extérieures', 'appenzello esterno'],
+  BE: ['bern', 'berne', 'berna'],
+  BL: ['basel-landschaft', 'bâle-campagne', 'basilea campagna'],
+  BS: ['basel-stadt', 'bâle-ville', 'basilea città'],
+  FR: ['fribourg', 'freiburg', 'friborgo', 'friburgo'],
+  GE: ['genève', 'geneva', 'genf', 'ginevra'],
+  GL: ['glarus', 'glaris', 'glarona'],
+  GR: ['graubünden', 'graubunden', 'grisons', 'grigioni', 'grischun'],
+  JU: ['jura', 'giura'],
+  LU: ['luzern', 'lucerne', 'lucerna'],
+  NE: ['neuchâtel', 'neuchatel', 'neuenburg'],
+  NW: ['nidwalden', 'nidwald', 'nidvaldo'],
+  OW: ['obwalden', 'obwald', 'obvaldo'],
+  SG: ['st. gallen', 'st gallen', 'saint-gall', 'san gallo', 'sankt gallen', 'st-gallen'],
+  SH: ['schaffhausen', 'schaffhouse', 'sciaffusa'],
+  SO: ['solothurn', 'soleure', 'soletta'],
+  SZ: ['schwyz', 'svitto'],
+  TG: ['thurgau', 'thurgovie', 'turgovia'],
+  TI: ['ticino', 'tessin'],
+  UR: ['uri'],
+  VD: ['vaud', 'waadt'],
+  VS: ['valais', 'wallis', 'vallese'],
+  ZG: ['zug', 'zoug', 'zugo'],
+  ZH: ['zürich', 'zurich', 'zuerich', 'zurigo'],
+};
+
 // A canton NAME/CODE match (isCantonRelevant steps 1/3/4) is a curated,
 // author-relevant signal — but (see hasExplicitCantonSuffix above) it can
-// itself collide with another canton's trailing-code suffix, so it ranks
+// itself collide with another canton’s trailing-code suffix, so it ranks
 // below that suffix check, not above it. The BFS municipality/alias TOKEN
 // match (isCantonRelevant step 2) is the fuzziest tier and stays last.
 function tokenMatchSpecificity(tokens = [], lower = '') {
@@ -376,7 +411,12 @@ function strongCantonSignalScore(text = '', code = '') {
   const codeLower = upperCode.toLowerCase();
   if (new RegExp(`\\bch ${codeLower}\\b`, 'i').test(lower)) return 1_000;
   if (new RegExp(`\\d{4}\\s+${codeLower}\\b`, 'i').test(lower)) return 1_000;
-  return tokenMatchSpecificity([...cantonNames, ...staticTokens], lower);
+  const explicitNameScore = tokenMatchSpecificity([
+    ...(CANTON_EXPLICIT_NAMES[upperCode] || []),
+    ...staticTokens,
+  ], lower);
+  if (explicitNameScore > 0) return 500 + explicitNameScore;
+  return tokenMatchSpecificity(cantonNames, lower);
 }
 
 function strongestCantonSignal(text = '', codes = []) {
