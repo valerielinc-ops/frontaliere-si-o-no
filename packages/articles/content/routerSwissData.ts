@@ -2125,6 +2125,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzeri-spesa-crescita-rallenta': { it: 'svizzeri-spesa-crescita-rallenta', en: 'swiss-spending-growth-slows', de: 'schweizer-konsumwachstum-verlangsamt-sich', fr: 'depenses-suisses-croissance-ralentit' },
  'svizzera-siccita-faldeg-acque': { it: 'svizzera-siccita-faldeg-acque', en: 'switzerland-drought-groundwater-risk', de: 'schweiz-duerre-grundwasser-gefahr', fr: 'suisse-secheresse-eaux-souterraines' },
  'stagionali-turismo-spese-alloggio': { it: 'stagionali-turismo-spese-alloggio', en: 'seasonal-workers-tourism-housing-costs', de: 'saisonarbeitskraefte-tourismus-wohngeschaefte', fr: 'travailleurs-saisonniers-tourisme-logement' },
+ 'giovani-ticino-demografia-ustat': { it: 'giovani-ticino-demografia-ustat', en: 'ticino-youth-demographics-ustat', de: 'junge-menschen-tessin-demografie-ustat', fr: 'jeunes-tessin-demographie-ustat' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
