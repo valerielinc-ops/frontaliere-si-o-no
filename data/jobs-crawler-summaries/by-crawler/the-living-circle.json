@@ -1,16 +1,16 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-09-11T23:11:12.609Z",
+  "generatedAt": "2026-09-12T12:59:53.813Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1105,
-  "avgDurationMs": 1105,
+  "durationMs": 1060,
+  "avgDurationMs": 1060,
   "durationHistory": [
-    1105
+    1060
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,13 +37,13 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "the-living-circle-e28ac1886309",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-11T13:38:48.303Z",
-      "_qualityScore": 86,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 23,
+        "translation": 25,
         "completeness": 14
       }
     }

@@ -1,7 +1,7 @@
 {
   "key": "engadin-tourismus",
   "label": "Engadin Tourismus AG",
-  "generatedAt": "2026-09-11T23:11:54.462Z",
+  "generatedAt": "2026-09-12T13:00:32.207Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,10 +12,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6272,
-  "avgDurationMs": 6272,
+  "durationMs": 5531,
+  "avgDurationMs": 5531,
   "durationHistory": [
-    6272
+    5531
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,8 +44,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/corporate-communications-managerin-m-w-d-100",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:47.928Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-12T13:00:26.356Z",
       "firstSeenAt": "2026-09-10T23:10:41.678Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -80,8 +79,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/guest-experience-specialist-m-w-d-70-tourist-information-sils",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:11:48.452Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-09-12T13:00:26.639Z",
       "firstSeenAt": "2026-08-12T21:56:51.841Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
