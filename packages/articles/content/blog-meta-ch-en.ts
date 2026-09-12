@@ -6298,6 +6298,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stagionali-turismo-spese-alloggio.title': 'Seasonal in Tourism: Featured Accommodation Expenses',
     'blog.article.stagionali-turismo-spese-alloggio.excerpt': 'A study by the University of Lausanne commissioned by the Federal Office of Housing analyzes the housing difficulties of seasonal workers.',
     'blog.article.stagionali-turismo-spese-alloggio.imageAlt': 'Seasonal workers in Swiss tourism and housing challenges',
+    'blog.article.giovani-ticino-demografia-ustat.title': 'Young people in Ticino: demographic analysis and USTAT flows',
+    'blog.article.giovani-ticino-demografia-ustat.excerpt': 'USTAT demographic analysis on young people in Ticino: negative intercantonal balance towards other cantons but offset by new arrivals from abroad.',
+    'blog.article.giovani-ticino-demografia-ustat.imageAlt': 'Young people in Ticino and migration flows according to Ustat data',
 };
 
 export default blogMetaChEn;

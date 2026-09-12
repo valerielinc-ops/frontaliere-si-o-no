@@ -6298,6 +6298,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stagionali-turismo-spese-alloggio.title': 'Saisonal im Tourismus: Unterkunftskosten im Vordergrund',
     'blog.article.stagionali-turismo-spese-alloggio.excerpt': 'Eine Studie der Universität Lausanne im Auftrag des Bundesamtes für Wohnungswesen analysiert die Wohnungsnot der Saisonarbeiter.',
     'blog.article.stagionali-turismo-spese-alloggio.imageAlt': 'Saisonarbeitskräfte im Schweizer Tourismus und Wohnungsfragen',
+    'blog.article.giovani-ticino-demografia-ustat.title': 'Jugendliche im Tessin: Demografische Analyse und USTAT-Ströme',
+    'blog.article.giovani-ticino-demografia-ustat.excerpt': 'Demografische USTAT-Analyse der Jugendlichen im Tessin: Negativer interkantonaler Saldo gegenüber anderen Kantonen, der jedoch durch Neuankömmlinge aus dem Ausland ausgeglichen wird.',
+    'blog.article.giovani-ticino-demografia-ustat.imageAlt': 'Junge Menschen im Tessin und Migrationsströme laut Ustat-Daten',
 };
 
 export default blogMetaChDe;

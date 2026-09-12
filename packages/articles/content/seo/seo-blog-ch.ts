@@ -81764,6 +81764,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giovani-ticino-demografia-ustat': {
+    title: 'Giovani in Ticino: analisi demografica e flussi USTAT',
+    description: 'Scopri l\'analisi demografica dell\'Ustat sui giovani in Ticino tra flussi intercantonali, immigrazione dall\'estero e il tasso di rientro degli studenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, giovani, analisi, demografica, flussi',
+    ogTitle: 'Giovani in Ticino: i dati USTAT su flussi migratori e demografia',
+    ogDescription: 'Analisi approfondita dell\'Ufficio cantonale di statistica sui giovani tra i 25 e i 35 anni in Ticino: saldi intercantonali negativi, arrivi dall\'estero e rientro dei laureati.',
+    canonicalPath: '/articoli-svizzera/giovani-ticino-demografia-ustat/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giovani in Ticino: analisi demografica e flussi USTAT",
+      "description": "Scopri l'analisi demografica dell'Ustat sui giovani in Ticino tra flussi intercantonali, immigrazione dall'estero e il tasso di rientro degli studenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giovani-ticino-demografia-ustat.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani in Ticino e flussi migratori secondo i dati dell'Ustat"
+      },
+      "datePublished": "2026-09-12T04:19:56+00:00",
+      "dateModified": "2026-09-12T04:19:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/giovani-ticino-demografia-ustat/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
