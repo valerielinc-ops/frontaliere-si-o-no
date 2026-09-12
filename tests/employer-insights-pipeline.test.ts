@@ -796,6 +796,7 @@ describe('employer insights technical deduplication', () => {
       totals: { views: 7, applyClicks: 1, applyClickUsers: 1, profileViews: 2 },
       source: 'ga4',
     });
+    expect(doc.trend).toContainEqual({ week: '2026-08-31', views: 7, applyClicks: 1 });
     expect(doc.ads[0]).toMatchObject({ views: 7, applyClicks: 1, applyClickUsers: 1 });
     expect(doc.coverage.identityResolution.applyClickUsers).toMatchObject({
       identifier: 'person_id',
