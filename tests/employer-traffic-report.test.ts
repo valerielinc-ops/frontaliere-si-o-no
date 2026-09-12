@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   aggregateGa4Rows,
+  ga4Date,
   comparePostHogCompany,
   postHogBaseQuery,
   reportPayload,
@@ -111,5 +112,11 @@ describe('postHogBaseQuery', () => {
     // cursor guard must follow the database ordering, not the JS default.
     expect(supplementary > privateUseBmp).toBe(false);
     expect(comparePostHogCompany(supplementary, privateUseBmp)).toBeGreaterThan(0);
+  });
+});
+
+describe('GA4 date windows', () => {
+  it('uses the previous calendar day when an exclusive --to is exactly midnight', () => {
+    expect(ga4Date('2026-09-08T00:00:00.000Z')).toBe('2026-09-07');
   });
 });
