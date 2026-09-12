@@ -95,7 +95,7 @@ describe('technical operations audit', () => {
       '  contents: read',
       'concurrency:',
       '  group: broken',
-      '  queue: max',
+      '  queue: bogus',
       'jobs:',
       '  build:',
       '    runs-on: ubuntu-latest',
@@ -119,6 +119,24 @@ describe('technical operations audit', () => {
       'workflow.step-reference',
       'workflow.data-write-without-check',
     ]));
+  });
+
+  it('accetta la estensione queue:max dichiarata dal contratto del repository', () => {
+    const source = [
+      'name: queue-extension',
+      'on: [push]',
+      'concurrency:',
+      '  group: jobs-data-pipeline',
+      '  cancel-in-progress: false',
+      '  queue: max',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - run: echo ok',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/queue-extension.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.concurrency-key')).toEqual([]);
   });
 
   it('segnala un output referenziato che il run non produce', () => {
@@ -168,6 +186,51 @@ describe('technical operations audit', () => {
       'workflow.needs-reference',
       'workflow.needs-output-reference',
     ]));
+  });
+
+  it('risolve gli output dichiarati da un reusable workflow locale', () => {
+    const source = [
+      'name: reusable-consumer',
+      'on: [push]',
+      'jobs:',
+      '  validate:',
+      '    uses: ./.github/workflows/post-deploy-validate-dist.yml',
+      '  publish:',
+      '    runs-on: ubuntu-latest',
+      '    needs: validate',
+      '    steps:',
+      '      - run: echo "${{ needs.validate.outputs.integrity_ok }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/reusable-consumer.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => candidate === '/repo/.github/workflows/post-deploy-validate-dist.yml',
+      reusableWorkflowOutputs: new Map([
+        ['.github/workflows/post-deploy-validate-dist.yml', new Set(['integrity_ok'])],
+      ]),
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.needs-output-reference')).toEqual([]);
+  });
+
+  it('declassa a warning uno script che vive nel checkout actions/checkout runtime', () => {
+    const source = [
+      'name: runtime-checkout',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run generated tool',
+      '        working-directory: build',
+      '        run: node scripts/generated.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/runtime-checkout.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference'))
+      .toEqual([expect.objectContaining({ severity: 'warning' })]);
+    expect(findings.find((item: any) => item.rule === 'workflow.script-reference')?.message)
+      .toContain('actions/checkout (build)');
   });
 
   it('non usa un file omonimo nella root per mascherare working-directory errato', () => {

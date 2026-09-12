@@ -35,16 +35,37 @@ function text(value) {
   return typeof value === 'string' && value.trim().length > 0;
 }
 
+function record(value) {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
 function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], snapshot = null, candidates = [] }) {
   return { loopId: LOOP_ID, sourcePath, checkedAt: now.toISOString(), ok, quality, reason, issues, snapshot, candidates };
 }
 
 function outcomeFields(payload) {
-  const outcomes = payload.outcomes || payload.metrics?.outcomes;
+  const hasTopLevel = Object.prototype.hasOwnProperty.call(payload, 'outcomes')
+    && payload.outcomes !== undefined;
+  const hasNested = record(payload.metrics)
+    && Object.prototype.hasOwnProperty.call(payload.metrics, 'outcomes')
+    && payload.metrics.outcomes !== undefined;
+  const topLevel = hasTopLevel ? payload.outcomes : undefined;
+  const nested = hasNested ? payload.metrics.outcomes : undefined;
+  const counts = (value) => record(value)
+    ? { eligibleLandingSessions: value.eligibleLandingSessions, usefulActions: value.usefulActions }
+    : null;
+  const topCounts = counts(topLevel);
+  const nestedCounts = counts(nested);
+  const conflict = hasTopLevel && hasNested
+    && JSON.stringify(topCounts) !== JSON.stringify(nestedCounts);
+  const invalid = (hasTopLevel && !record(topLevel)) || (hasNested && !record(nested));
+  const outcomes = hasTopLevel ? topLevel : nested;
   return {
     outcomes,
     eligibleLandingSessions: outcomes?.eligibleLandingSessions,
     usefulActions: outcomes?.usefulActions,
+    conflict,
+    invalid,
   };
 }
 
@@ -113,13 +134,30 @@ export function validateDemandSnapshot(payload, {
       source: 'gsc-orphan-queries-clusters',
     }));
 
-  const { outcomes, eligibleLandingSessions, usefulActions } = outcomeFields(payload);
-  const outcomePresent = integer(eligibleLandingSessions) && integer(usefulActions);
-  if (!outcomePresent) issues.push('outcomes.eligibleLandingSessions and outcomes.usefulActions are missing');
-  if (outcomePresent && usefulActions > eligibleLandingSessions) {
+  const {
+    outcomes,
+    eligibleLandingSessions,
+    usefulActions,
+    conflict: outcomeConflict,
+    invalid: outcomeInvalid,
+  } = outcomeFields(payload);
+  const outcomeShapeValid = integer(eligibleLandingSessions) && integer(usefulActions);
+  const outcomeConsistent = outcomeShapeValid && usefulActions <= eligibleLandingSessions;
+  const outcomeUsable = outcomeShapeValid
+    && !outcomeConflict
+    && !outcomeInvalid
+    && outcomeConsistent;
+  if (outcomeConflict) {
+    issues.push('outcomes disagree between top-level and metrics.outcomes');
+  } else if (outcomeInvalid) {
+    issues.push('outcomes must be an object with joined session/action counts');
+  } else if (!outcomeShapeValid) {
+    issues.push('outcomes.eligibleLandingSessions and outcomes.usefulActions are missing');
+  }
+  if (outcomeShapeValid && !outcomeConsistent) {
     issues.push('outcomes.usefulActions exceeds outcomes.eligibleLandingSessions');
   }
-  if (outcomePresent && eligibleLandingSessions < minimumSample) {
+  if (outcomeConsistent && eligibleLandingSessions < minimumSample) {
     issues.push(`eligibleLandingSessions is below minimum sample (${eligibleLandingSessions} < ${minimumSample})`);
   }
 
@@ -137,7 +175,14 @@ export function validateDemandSnapshot(payload, {
     clusters: Array.isArray(clusters) ? clusters.length : null,
     validClusters: validClusters.length,
     candidates: candidates.length,
-    outcomes: outcomePresent
+    outcomeJoin: outcomeConflict
+      ? 'conflicting'
+      : outcomeInvalid
+        ? 'invalid'
+        : outcomeShapeValid
+          ? 'joined'
+          : 'missing',
+    outcomes: outcomeUsable
       ? { eligibleLandingSessions, usefulActions }
       : null,
   };
@@ -146,7 +191,7 @@ export function validateDemandSnapshot(payload, {
   if (!generatedAt || !Array.isArray(clusters)) quality = 'unmeasurable';
   else if (clusters.length === 0) quality = 'zero';
   else if (ageHours < -0.0834 || ageHours > maxAgeHours) quality = 'stale';
-  else if (validClusters.length !== clusters.length || !outcomePresent || eligibleLandingSessions < minimumSample) quality = 'partial';
+  else if (validClusters.length !== clusters.length || !outcomeUsable || eligibleLandingSessions < minimumSample) quality = 'partial';
   const ok = quality === 'observed' && issues.length === 0;
   return baseVerdict({
     sourcePath,
