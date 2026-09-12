@@ -93,7 +93,18 @@ function findFile(root, name) {
   return null;
 }
 
-function downloadEvidence(loopId, runId, tempRoot) {
+function readLastJsonl(file) {
+  const lines = fs.readFileSync(file, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean);
+  if (!lines.length) return null;
+  try {
+    return JSON.parse(lines[lines.length - 1]);
+  } catch (error) {
+    throw new Error(`canonical health ledger is invalid JSON: ${error.message}`);
+  }
+}
+
+function downloadEvidence(loopId, run, tempRoot) {
+  const runId = typeof run === 'object' ? run.databaseId : run;
   const target = path.join(tempRoot, loopId.toLowerCase());
   fs.mkdirSync(target, { recursive: true });
   const downloaded = ghRaw(['run', 'download', String(runId), '--name', artifactName(loopId, runId), '--dir', target], { allowFailure: true });
@@ -101,7 +112,22 @@ function downloadEvidence(loopId, runId, tempRoot) {
   const file = findFile(target, 'loop-fleet-evidence.json');
   if (!file) return { evidence: null, error: 'canonical loop-fleet-evidence.json is missing from the latest artifact' };
   try {
-    return { evidence: readJson(file), error: null };
+    const evidence = readJson(file);
+    if (evidence.loopId !== loopId) {
+      return { evidence: null, error: `canonical evidence belongs to ${evidence.loopId || 'unknown'}, expected ${loopId}` };
+    }
+    if (String(evidence.run?.runId || '') !== String(runId)) {
+      return { evidence: null, error: `canonical evidence belongs to run ${evidence.run?.runId || 'unknown'}, expected ${runId}` };
+    }
+    if (run?.headSha && evidence.run?.sha && run.headSha !== evidence.run.sha) {
+      return { evidence: null, error: 'canonical evidence SHA does not match the selected run' };
+    }
+    const healthFile = findFile(target, 'loop-health-history.jsonl');
+    const health = healthFile ? readLastJsonl(healthFile) : null;
+    if (health && (health.loopId !== loopId || String(health.execution?.runId || '') !== String(runId))) {
+      return { evidence: null, error: 'canonical health ledger does not match the selected loop/run' };
+    }
+    return { evidence: { ...evidence, health }, error: null };
   } catch (error) {
     return { evidence: null, error: `canonical evidence is invalid JSON: ${error.message}` };
   }
@@ -113,6 +139,24 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
     const runResult = runResults[policy.loopId] || { run: null, error: 'run not inspected' };
     const evidenceResult = evidenceResults[policy.loopId] || { evidence: null, error: 'evidence not inspected' };
     const evidence = evidenceResult.evidence;
+    const health = evidence?.health || {};
+    const quality = text(evidence?.quality) || 'unmeasurable';
+    const issueCount = Number.isInteger(health.issueCount) ? health.issueCount : null;
+    const warningCount = Number.isInteger(health.warningCount) ? health.warningCount : null;
+    const evidenceError = evidenceResult.error || runResult.error || null;
+    const issue = evidenceError
+      || (issueCount !== null && issueCount > 0 ? `${issueCount} issue(s) recorded` : null)
+      || (warningCount !== null && warningCount > 0 ? `${warningCount} warning(s) recorded` : null)
+      || (quality !== 'observed' ? 'quality or evidence is incomplete' : null);
+    const missingOutcome = !evidence?.evidenceComplete
+      ? 'independent outcome not recorded'
+      : (quality === 'observed' ? null : 'independent outcome unavailable or incomplete');
+    const actualAutonomy = text(evidence?.requiredAutonomy) || text(health.requiredAutonomy);
+    const nextHumanAction = evidenceError
+      ? 'restore or attach the independent source and rerun the loop'
+      : (missingOutcome
+        ? 'validate or attach the independent outcome before changing exposure'
+        : 'review the recorded outcome and close the observation window');
     return {
       loopId: policy.loopId,
       goal: policy.goal,
@@ -128,16 +172,20 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
         headSha: runResult.run.headSha || null,
         url: runResult.run.url || null,
       } : null,
-      quality: text(evidence?.quality) || 'unmeasurable',
+      quality,
       decision: text(evidence?.decision) || 'unmeasurable',
       actionClass: text(evidence?.actionClass) || null,
-      requiredAutonomy: text(evidence?.requiredAutonomy) || null,
+      requiredAutonomy: actualAutonomy,
+      actualAutonomy,
       policyCompliant: evidence?.policyCompliant === true,
       evidenceComplete: evidence?.evidenceComplete === true,
-      evidenceError: evidenceResult.error || runResult.error || null,
-      nextAction: evidence?.quality === 'observed'
-        ? 'continue observation window and record the independent outcome'
-        : 'restore or attach the independent source; keep changes candidate-only',
+      evidenceError,
+      issue,
+      missingOutcome,
+      nextHumanAction,
+      nextAction: nextHumanAction,
+      issueCount,
+      warningCount,
     };
   });
 }
@@ -146,14 +194,16 @@ function renderMarkdown(rows) {
   const lines = [
     '## Loop fleet status',
     '',
-    '| Loop | Owner | Ultimo run | Qualità | Decisione | Autonomia effettiva / max | Policy |',
-    '| --- | --- | --- | --- | --- | --- | --- |',
+    '| Loop | Owner | Ultimo run | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | Next human action | Policy |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ];
   for (const row of rows) {
     const run = row.lastRun ? `[${row.lastRun.conclusion}](${row.lastRun.url || '#'})` : 'n/d';
-    const autonomy = `${row.requiredAutonomy || 'n/d'} / ${row.maxAutonomy}`;
+    const autonomy = `${row.actualAutonomy || 'n/d'} / ${row.maxAutonomy}`;
+    const issue = row.issue || '—';
+    const missingOutcome = row.missingOutcome || '—';
     const policy = row.evidenceComplete && row.policyCompliant ? 'ok' : 'incomplete';
-    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${row.quality} | ${row.decision} | ${autonomy} | ${policy} |`);
+    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${row.nextHumanAction} | ${policy} |`);
   }
   lines.push('', 'Qualità o evidenza assente = `unmeasurable`; il report non sintetizza zeri.');
   return `${lines.join('\n')}\n`;
@@ -173,7 +223,7 @@ export function collectStatus({
     const runResult = ghRun(workflow);
     runResults[policy.loopId] = runResult;
     evidenceResults[policy.loopId] = runResult.run
-      ? download(policy.loopId, runResult.run.databaseId, tempRoot)
+      ? download(policy.loopId, runResult.run, tempRoot)
       : { evidence: null, error: runResult.error };
   }
   return buildStatusRows(registry, runResults, evidenceResults);
