@@ -105,6 +105,56 @@ describe('technical operations audit', () => {
     expect(findings.map((item: any) => item.rule)).toContain('workflow.output-not-produced');
   });
 
+  it('mantiene separati gli scope tra job e verifica gli output needs dichiarati', () => {
+    const source = [
+      'name: scoped',
+      'on: [push]',
+      'jobs:',
+      '  producer:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: write',
+      '        id: only_here',
+      '        run: echo "value=yes" >> "$GITHUB_OUTPUT"',
+      '  consumer:',
+      '    runs-on: ubuntu-latest',
+      '    needs: producer',
+      '    steps:',
+      '      - name: read',
+      '        run: echo "${{ steps.only_here.outputs.value }} ${{ needs.producer.outputs.missing }}"',
+      '  unrelated:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: read',
+      '        run: echo "${{ needs.producer.result }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/scoped.yml', source, { root: '/repo' });
+    expect(findings.map((item: any) => item.rule)).toEqual(expect.arrayContaining([
+      'workflow.step-reference',
+      'workflow.needs-reference',
+      'workflow.needs-output-reference',
+    ]));
+  });
+
+  it('non usa un file omonimo nella root per mascherare working-directory errato', () => {
+    const source = [
+      'name: cwd',
+      'on: [push]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: run',
+      '        working-directory: subdir',
+      '        run: node scripts/tool.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/cwd.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => candidate === '/repo/scripts/tool.mjs',
+    });
+    expect(findings.find((item: any) => item.rule === 'workflow.script-reference')?.severity).toBe('error');
+  });
+
   it('scansiona l’inventario reale e non può passare con uno scan vuoto', () => {
     const report = auditWorkflowFiles(process.cwd());
     expect(report.filesScanned).toBeGreaterThanOrEqual(200);

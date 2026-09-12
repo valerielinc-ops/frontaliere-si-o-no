@@ -146,6 +146,17 @@ function localReferenceExists(root, rawPath, workingDirectory = '.') {
   return fs.existsSync(path.resolve(base, cleanPath));
 }
 
+function staticWorkingDirectory(root, rawWorkingDirectory) {
+  const value = typeof rawWorkingDirectory === 'string' && rawWorkingDirectory.trim()
+    ? rawWorkingDirectory.trim()
+    : '.';
+  if (/\$\{\{|\$(?:\{)?[A-Za-z_][A-Za-z0-9_]*(?:\})?/.test(value)) return null;
+  const resolved = path.resolve(root, value);
+  const relative = path.relative(root, resolved);
+  if (relative.startsWith('..') || path.isAbsolute(relative)) return null;
+  return resolved;
+}
+
 function extractCommandPaths(run) {
   const paths = [];
   const source = String(run || '');
@@ -265,20 +276,67 @@ function validateTriggers(triggers, knownWorkflowNames, file, source, findings) 
   }
 }
 
-function validateJobExpressions(source, file, jobNames, inputNames, stepIds, stepOutputMap, findings, workflowCallSecrets = null) {
-  for (const expression of expressions(source)) {
-    const line = lineFor(source, source.slice(expression.offset));
+function walkStringValues(value, visit) {
+  if (typeof value === 'string') {
+    visit(value);
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item) => walkStringValues(item, visit));
+    return;
+  }
+  if (isRecord(value)) {
+    Object.values(value).forEach((item) => walkStringValues(item, visit));
+  }
+}
+
+function normalizeNeeds(rawNeeds) {
+  if (typeof rawNeeds === 'string') return new Set([rawNeeds]);
+  if (Array.isArray(rawNeeds)) return new Set(rawNeeds.map((item) => String(item)));
+  return new Set();
+}
+
+function validateExpressionText(source, file, text, {
+  jobName,
+  jobNames,
+  inputNames,
+  stepIds,
+  stepOutputMap,
+  declaredNeeds,
+  jobOutputMap,
+  workflowCallSecrets,
+}, findings) {
+  for (const expression of expressions(text)) {
+    const expressionText = expression.text.trim();
+    const line = lineFor(source, expressionText || text);
     for (const match of expression.text.matchAll(/\bsteps\.([A-Za-z_][A-Za-z0-9_-]*)\.(?:outputs\.([A-Za-z_][A-Za-z0-9_-]*)|(?:outcome|conclusion))\b/g)) {
       const stepId = match[1];
       const outputKey = match[2];
       if (!stepIds.has(stepId)) {
-        findings.push(finding(file, 'workflow.step-reference', 'error', `step non dichiarato usato nell'espressione: ${stepId}`, line, expression.text.trim()));
-      } else if (outputKey && stepOutputMap.has(stepId) && stepOutputMap.get(stepId).size > 0 && !stepOutputMap.get(stepId).has(outputKey)) {
-        findings.push(finding(file, 'workflow.output-not-produced', 'warning', `l'output ${stepId}.${outputKey} è referenziato ma non è prodotto dal run staticamente osservabile`, line, expression.text.trim()));
+        findings.push(finding(file, 'workflow.step-reference', 'error', `step non dichiarato usato nell'espressione: ${stepId}`, line, expressionText));
+      } else if (outputKey) {
+        const outputInfo = stepOutputMap.get(stepId);
+        if (outputInfo?.known && !outputInfo.keys.has(outputKey)) {
+          findings.push(finding(file, 'workflow.output-not-produced', 'warning', `l'output ${stepId}.${outputKey} è referenziato ma non è prodotto dal run staticamente osservabile`, line, expressionText));
+        }
       }
     }
-    for (const match of expression.text.matchAll(/\bneeds\.([A-Za-z_][A-Za-z0-9_-]*)\b/g)) {
-      if (!jobNames.has(match[1])) findings.push(finding(file, 'workflow.needs-reference', 'error', `job non dichiarato usato nell'espressione: ${match[1]}`, line, expression.text.trim()));
+    for (const match of expression.text.matchAll(/\bneeds\.([A-Za-z_][A-Za-z0-9_-]*)(?:\.outputs\.([A-Za-z_][A-Za-z0-9_-]*))?\b/g)) {
+      const dependency = match[1];
+      const outputKey = match[2];
+      if (!jobNames.has(dependency)) {
+        findings.push(finding(file, 'workflow.needs-reference', 'error', `job non dichiarato usato nell'espressione: ${dependency}`, line, expressionText));
+        continue;
+      }
+      if (!declaredNeeds.has(dependency)) {
+        findings.push(finding(file, 'workflow.needs-reference', 'error', `job ${dependency} usato nell'espressione del job ${jobName} ma non dichiarato in needs`, line, expressionText));
+      }
+      if (outputKey && declaredNeeds.has(dependency)) {
+        const outputKeys = jobOutputMap.get(dependency) || new Set();
+        if (!outputKeys.has(outputKey)) {
+          findings.push(finding(file, 'workflow.needs-output-reference', 'error', `output del job ${dependency} non dichiarato: ${outputKey}`, line, expressionText));
+        }
+      }
     }
     for (const match of expression.text.matchAll(/\bsecrets\.([A-Za-z_][A-Za-z0-9_-]*)\b/g)) {
       if (match[1] === 'GITHUB_TOKEN') continue;
@@ -286,10 +344,22 @@ function validateJobExpressions(source, file, jobNames, inputNames, stepIds, ste
       // fail-closed solo per reusable workflows, dove la dichiarazione è parte
       // del contratto e una secret assente rende il chiamante invalido.
       if (workflowCallSecrets && !workflowCallSecrets.has(match[1])) {
-        findings.push(finding(file, 'workflow.secret-reference', 'error', `secret non dichiarata in workflow_call: ${match[1]}`, line, expression.text.trim()));
+        findings.push(finding(file, 'workflow.secret-reference', 'error', `secret non dichiarata in workflow_call: ${match[1]}`, line, expressionText));
+      }
+    }
+    for (const match of expression.text.matchAll(/\b(?:github\.event\.)?inputs\.([A-Za-z_][A-Za-z0-9_-]*)\b/g)) {
+      if (!inputNames.has(match[1])) {
+        findings.push(finding(file, 'workflow.input-reference', 'error', `input non dichiarato usato nell'espressione: ${match[1]}`, line, expressionText));
       }
     }
   }
+}
+
+function validateJobExpressions(source, file, context, findings, workflowCallSecrets = null) {
+  walkStringValues(context.job, (text) => validateExpressionText(source, file, text, {
+    ...context,
+    workflowCallSecrets,
+  }, findings));
 }
 
 function validateWorkflowLevel(workflow, file, source, findings) {
@@ -316,13 +386,25 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
   const jobs = isRecord(workflow.jobs) ? workflow.jobs : {};
   const jobNames = new Set(Object.keys(jobs));
   const inputNames = inputDefinitions(normalizeTriggers(workflow.on));
-  const stepIds = new Set();
-  const stepOutputMap = new Map();
+  const jobContexts = new Map();
+  const jobOutputMap = new Map();
   const backgroundByJob = new Map();
   const waitByJob = new Map();
 
   for (const [jobName, rawJob] of Object.entries(jobs)) {
     const job = isRecord(rawJob) ? rawJob : {};
+    const idsForJob = new Set();
+    const outputsForJob = new Map();
+    const backgroundIndexes = [];
+    const waitIndexes = [];
+    jobOutputMap.set(jobName, isRecord(job.outputs) ? new Set(Object.keys(job.outputs)) : new Set());
+    jobContexts.set(jobName, {
+      jobName,
+      job,
+      stepIds: idsForJob,
+      stepOutputMap: outputsForJob,
+      declaredNeeds: normalizeNeeds(job.needs),
+    });
     if (typeof job.needs === 'string') {
       if (!jobNames.has(job.needs)) findings.push(finding(file, 'workflow.needs-reference', 'error', `job ${jobName} dipende da job inesistente: ${job.needs}`, lineFor(source, job.needs)));
     } else if (Array.isArray(job.needs)) {
@@ -350,10 +432,6 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
       continue;
     }
 
-    const idsForJob = new Set();
-    const outputsForJob = new Map();
-    const backgroundIndexes = [];
-    const waitIndexes = [];
     job.steps.forEach((rawStep, index) => {
       const stepLine = lineFor(source, typeof rawStep?.name === 'string' ? rawStep.name : '- name:');
       if (!isRecord(rawStep)) {
@@ -380,12 +458,12 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
           findings.push(finding(file, 'workflow.local-action', 'error', `local action non trovata: ${rawStep.uses}`, stepLine));
         }
         if (hasRun) {
-          const workingDirectory = typeof rawStep['working-directory'] === 'string' ? rawStep['working-directory'] : '.';
-          const dynamicDirectory = /\b(?:cd|pushd)\s+["']?\$(?:\{)?[A-Za-z_][A-Za-z0-9_]*(?:\})?|\bgit\s+clone\b/i.test(rawStep.run);
+          const workingRoot = staticWorkingDirectory(root, rawStep['working-directory']);
+          const dynamicDirectory = workingRoot === null
+            || /\b(?:cd|pushd)\s+["']?\$(?:\{)?[A-Za-z_][A-Za-z0-9_]*(?:\})?|\bgit\s+clone\b/i.test(rawStep.run);
           for (const candidate of extractCommandPaths(rawStep.run)) {
-            const inWorkingDirectory = exists(path.resolve(root, workingDirectory, candidate));
-            const inRepositoryRoot = workingDirectory !== '.' && exists(path.resolve(root, candidate));
-            if (!inWorkingDirectory && !inRepositoryRoot) {
+            const inWorkingDirectory = workingRoot !== null && exists(path.resolve(workingRoot, candidate));
+            if (!inWorkingDirectory) {
               findings.push(finding(
                 file,
                 'workflow.script-reference',
@@ -414,14 +492,14 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
           findings.push(finding(file, 'workflow.duplicate-step-id', 'error', `step id duplicato nel job ${jobName}: ${rawStep.id}`, stepLine));
         } else {
           idsForJob.add(rawStep.id);
-          stepIds.add(rawStep.id);
-          outputsForJob.set(rawStep.id, hasRun ? stepOutputKeys(rawStep.run) : new Set());
+          outputsForJob.set(rawStep.id, hasRun
+            ? { keys: stepOutputKeys(rawStep.run), known: true }
+            : { keys: new Set(), known: false });
         }
       }
     });
     backgroundByJob.set(jobName, backgroundIndexes);
     waitByJob.set(jobName, waitIndexes);
-    for (const [id, keys] of outputsForJob) stepOutputMap.set(id, keys);
   }
 
   for (const [jobName, backgroundIndexes] of backgroundByJob) {
@@ -439,7 +517,14 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
   // workflow's explicit `workflow_call.secrets` contract is statically
   // checkable; `secrets: inherit` delegates the contract to the caller.
   const workflowCallSecrets = isRecord(callSecrets) ? new Set(Object.keys(callSecrets)) : null;
-  validateJobExpressions(source, file, jobNames, inputNames, stepIds, stepOutputMap, findings, workflowCallSecrets);
+  for (const context of jobContexts.values()) {
+    validateJobExpressions(source, file, {
+      ...context,
+      jobNames,
+      inputNames,
+      jobOutputMap,
+    }, findings, workflowCallSecrets);
+  }
   void knownWorkflowNames;
 }
 
