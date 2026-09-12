@@ -6301,6 +6301,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.giovani-ticino-demografia-ustat.title': 'Giovani in Ticino: analisi demografica e flussi USTAT',
     'blog.article.giovani-ticino-demografia-ustat.excerpt': 'Analisi demografica USTAT sui giovani in Ticino: saldo intercantonale negativo verso altri Cantoni ma compensato dai nuovi arrivi dall\'estero.',
     'blog.article.giovani-ticino-demografia-ustat.imageAlt': 'Giovani in Ticino e flussi migratori secondo i dati dell\'Ustat',
+    'blog.article.mercato-affitti-san-gallo-canoni-diritto.title': 'Affitti San Gallo: canoni, deposito e diritti dell\'inquilino',
+    'blog.article.mercato-affitti-san-gallo-canoni-diritto.excerpt': 'Quadro legale federale uniforme, deposito max 3 mensilità, disdetta solo su modulo ufficiale, contestazione entro 30 giorni all\'autorità di conciliazione.',
+    'blog.article.mercato-affitti-san-gallo-canoni-diritto.imageAlt': 'Palazzina residenziale nel Canton San Gallo con montagne sullo sfondo',
 };
 
 export default blogMetaChIt;
