@@ -7,6 +7,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
+  actionAutonomy,
   buildDecision,
   buildObservation,
   findLoopPolicy,
@@ -70,7 +71,6 @@ function candidateAction(candidate, rowIssues = []) {
     sources: Array.isArray(candidate.sources) ? candidate.sources.slice(0, 10) : [],
     issueCodes: rowIssues,
     actionClass: 'candidate',
-    autonomy: 'A1',
     action: 'candidate-only: register persistent assignment, bounded exposure, guardrails and expiry before any canary',
     reversible: true,
     appliesToTraffic: false,
@@ -251,10 +251,17 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   const outcomeVerdict = validateOutcomes(outcomes, { now, maxAgeHours, sourcePath: outcomePath, minimumSample });
   const issues = [...candidateVerdict.issues, ...outcomeVerdict.issues];
   const warnings = [...candidateVerdict.warnings];
+  let candidates = candidateVerdict.candidates;
   if (loopRegistry) {
     try {
+      const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate');
       validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate+stop+issue');
+      candidates = candidates.map((candidate) => ({
+        ...candidate,
+        autonomy: candidatePolicy.requiredAutonomy,
+      }));
     } catch (error) {
+      candidates = [];
       issues.push(`registry policy is not compatible with L7 actions: ${error.message}`);
     }
   }
@@ -284,7 +291,7 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
     issues,
     warnings,
     snapshot,
-    candidates: candidateVerdict.candidates,
+    candidates,
   });
 }
 
@@ -329,8 +336,8 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now) {
-  if (!reportDir || verdict.ok) return null;
+function writeActions(reportDir, verdict, now, loopRegistry) {
+  if (!reportDir || verdict.ok || !loopRegistry) return null;
   const file = path.join(path.resolve(reportDir), 'l7-actions.json');
   const outcomes = verdict.snapshot?.outcomes;
   const guardrailBreaches = outcomes?.guardrailBreaches;
@@ -339,7 +346,8 @@ function writeActions(reportDir, verdict, now) {
   if ((integer(guardrailBreaches) && guardrailBreaches > 0)
       || (integer(contaminatedAssignments) && contaminatedAssignments > 0)) {
     actions.push({
-      autonomy: 'A3',
+      actionClass: 'stop',
+      autonomy: actionAutonomy('stop', loopRegistry.actionAutonomy),
       action: 'recommend stopping the affected bounded canary pending guardrail and contamination review',
       reversible: true,
       appliesToTraffic: false,
@@ -402,9 +410,10 @@ export async function runL7({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
+  let loopRegistry = null;
   let verdict;
   try {
-    const loopRegistry = validateLoopRegistry(readJson(registryPath, 'loop registry'));
+    loopRegistry = validateLoopRegistry(readJson(registryPath, 'loop registry'));
     findLoopPolicy(loopRegistry, LOOP_ID);
     verdict = validateExperimentAllocator({
       registry: readJson(candidatesPath, 'experimental candidates'),
@@ -453,7 +462,7 @@ export async function runL7({
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }

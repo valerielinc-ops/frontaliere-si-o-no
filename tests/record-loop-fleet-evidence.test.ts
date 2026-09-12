@@ -47,11 +47,20 @@ function writeL1Evidence(dir: string) {
 describe('record-loop-fleet-evidence', () => {
   it('validates registry action classes and their autonomy ceiling', () => {
     expect(() => validateLoopRegistry(registry)).not.toThrow();
-    expect(actionAutonomy('issue+suspend-canary')).toBe('A2');
+    expect(actionAutonomy('issue+suspend-canary', registry.actionAutonomy)).toBe('A2');
     expect(validateActionClassAgainstPolicy(registry, 'L1', 'issue+suspend-canary'))
       .toMatchObject({ requiredAutonomy: 'A2', maxAutonomy: 'A2' });
     expect(() => validateActionClassAgainstPolicy(registry, 'L1', 'issue+stop'))
       .toThrow(/not allowed by registry/);
+  });
+
+  it('fails closed when the registry action map is incomplete or has stale entries', () => {
+    const missing = { ...registry, actionAutonomy: { ...registry.actionAutonomy } };
+    delete missing.actionAutonomy.observe;
+    expect(() => validateLoopRegistry(missing)).toThrow(/actionAutonomy is missing observe/);
+
+    const stale = { ...registry, actionAutonomy: { ...registry.actionAutonomy, obsolete: 'A1' } };
+    expect(() => validateLoopRegistry(stale)).toThrow(/obsolete is not declared/);
   });
 
   it('writes one canonical line per ledger and is idempotent for a rerun', () => {

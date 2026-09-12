@@ -25,6 +25,29 @@
     "A3": "bounded-canary",
     "A4": "safe-automation"
   },
+  "actionAutonomy": {
+    "observe": "A0",
+    "issue": "A1",
+    "candidate": "A1",
+    "recommend": "A1",
+    "draft-outreach": "A1",
+    "follow-up": "A1",
+    "lesson": "A1",
+    "pr": "A2",
+    "reconcile": "A2",
+    "canary": "A3",
+    "stop": "A3",
+    "suspend-canary": "A2",
+    "stale-label": "A3",
+    "quarantine": "A2",
+    "block-publication": "A4",
+    "block-proven-defect": "A4",
+    "suppress": "A4",
+    "defer": "A4",
+    "route": "A4",
+    "lock": "A4",
+    "retry": "A4"
+  },
   "loops": [
     {
       "loopId": "L0",
