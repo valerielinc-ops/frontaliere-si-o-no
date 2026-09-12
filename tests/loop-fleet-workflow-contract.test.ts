@@ -34,6 +34,7 @@ describe('loop fleet workflow contract', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-status.yml'), 'utf8');
     expect(source).toContain('actions: read');
     expect(source).toContain('--strict');
+    expect(source).toContain('inputs.strict');
     expect(source).not.toMatch(/issues:\s*write|contents:\s*write|pull-requests:\s*write/u);
   });
 });
