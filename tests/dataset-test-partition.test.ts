@@ -1,9 +1,15 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   listDatasetDependentTests,
   listDatasetIndependentTests,
   shouldAssembleForRelatedTests,
 } from '../scripts/ci/dataset-dependent-tests.mjs';
+
+const CLASSIFIER_SOURCE = readFileSync(
+  new URL('../scripts/ci/dataset-dependent-tests.mjs', import.meta.url),
+  'utf-8',
+);
 
 // tests.yml esegue la suite in DUE run vitest: la prima mentre
 // assemble-jobs-dataset.mjs gira in `background:`, la seconda dopo il
@@ -79,6 +85,22 @@ describe('partizione test dataset-dipendenti', () => {
       selectedTests: B24_NON_READING_SELECTION,
       unreadableCount: 0,
     })).toEqual({ required: false, reason: 'related selection is dataset-independent' });
+  });
+
+  it('degrada a required quando la classificazione di una selezione lancia', () => {
+    expect(shouldAssembleForRelatedTests({
+      eventName: 'pull_request',
+      changedPaths: ['README.md'],
+      changedStatus: 'complete',
+      selectedTests: [null as unknown as string],
+      unreadableCount: 0,
+    })).toMatchObject({ required: true, degraded: true });
+  });
+
+  it('mantiene il classificatore senza parent pointer quando li disabilita', () => {
+    expect(CLASSIFIER_SOURCE).toMatch(/createSourceFile[\s\S]*?\n\s*false,/);
+    expect(CLASSIFIER_SOURCE).not.toMatch(/\bnode\s*\.\s*parent\b/);
+    expect(CLASSIFIER_SOURCE).toMatch(/function functionName\(node, parent, fallback\)/);
   });
 
   it('non degenera: il gruppo indipendente resta la maggioranza della suite', () => {

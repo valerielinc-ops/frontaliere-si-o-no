@@ -25,8 +25,10 @@ import {
   enumerateJunkRetirements,
   junkRetirementWrites,
   loadPreviouslyEmittedClusterKeys,
+  retiredManifestWrites,
   restoredKeywordLandingPaths,
   restoredRetiredLandingPaths,
+  saveToCache,
   tryRestoreFromCache,
   TokenIndex,
 } from '../build-plugins/relatedSearchClustersPlugin';
@@ -371,6 +373,42 @@ describe('restoredKeywordLandingPaths — a poisoned manifest fails the cache HI
     );
 
     await expect(tryRestoreFromCache(root, path.join(root, 'dist'), 'old-key')).resolves.toBeNull();
+    fs.rmSync(root, { recursive: true, force: true });
+  });
+
+  it('re-applies manifest retirements after an invalidated midway restore (issue #8071)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-midway-retirement-'));
+    const dist = path.join(root, 'dist');
+    const retirementPath = '/cerca-lavoro-svizzera/ricerca-cookie-bern/';
+    const retirementHtml = buildJunkRetirementHtml('it');
+    const retirementWrites = junkRetirementWrites(retirementPath, retirementHtml);
+    const liveRel = 'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html';
+    for (const write of retirementWrites) {
+      const file = path.join(dist, write.rel);
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      fs.writeFileSync(file, write.html);
+    }
+    const liveFile = path.join(dist, liveRel);
+    fs.mkdirSync(path.dirname(liveFile), { recursive: true });
+    fs.writeFileSync(liveFile, '<html>live</html>');
+
+    const key = 'midway-retirement';
+    const retiredRels = retirementWrites.map((write) => write.rel);
+    saveToCache(root, dist, key, [...retiredRels, liveRel], [], [], [], [], retiredRels);
+    fs.rmSync(path.join(root, '.cache', 'related-search-clusters', key, 'files', liveRel));
+
+    const dist2 = path.join(root, 'dist2');
+    fs.mkdirSync(dist2, { recursive: true });
+    await expect(tryRestoreFromCache(root, dist2, key)).resolves.toBeNull();
+
+    // The invalid restore has already copied some files. The fallback must
+    // overwrite the retired pair from the manifest, not trust whichever half
+    // happened to land before the missing entry was observed.
+    const manifestWrites = retiredManifestWrites(retiredRels);
+    expect(manifestWrites.map((write) => write.rel)).toEqual(retiredRels);
+    for (const write of manifestWrites) {
+      expect(fs.readFileSync(path.join(dist2, write.rel), 'utf-8')).toBe(write.html);
+    }
     fs.rmSync(root, { recursive: true, force: true });
   });
 });
