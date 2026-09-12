@@ -73,9 +73,10 @@ export function TopAdsChart({ ads, limit = 10, locale = 'it' }: TopAdsChartProps
                   aria-label={`${ad.title}: ${nf.format(ad.views)} ${copy.views}${clickCount != null ? `, ${nf.format(clickCount)} ${copy.clicks}` : ''}${rateLabel ? `, ${rateLabel} ${copy.rate}` : ''}`}
                 >
                   <div
-                    className="h-full rounded-full bg-accent transition-[width] duration-1000 ease-out"
+                    className="h-full origin-left rounded-full bg-accent transition-transform duration-1000 ease-out"
                     style={{
-                      width: inView ? `${pct}%` : '0%',
+                      width: `${pct}%`,
+                      transform: inView ? 'scaleX(1)' : 'scaleX(0)',
                       transitionDelay: `${i * 70}ms`,
                     }}
                   />

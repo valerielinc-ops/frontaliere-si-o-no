@@ -11,15 +11,15 @@
  * `feedback_silent_consent.md`, all analytics fire unconditionally.
  *
  * Design:
- * - Pure string classification. Does NOT import build-plugin route tables
- *   (keeps client bundle slim — no need to ship `listFuelTodayPaths`, etc.
- *   just to tag a page view).
+ * - Pure string classification. It reuses only the compact shared sector-slug
+ *   table; it does not pull in the build-only page emitters.
  * - All 4 locale URL prefixes are covered (IT root, /en/, /de/, /fr/).
  * - Returns `null` for any path that isn't a tagged SEO page, so unrelated
  *   events do not receive a spurious `seo_page_type`.
  */
 
 import { captureEvent as posthogCapture } from './posthog';
+import { isJobBoardSectorHubPath } from './analyticsPageContext';
 
 // ─── Locale detection ──────────────────────────────────────────────────
 
@@ -162,7 +162,7 @@ export type SeoPageType =
  * Hubs under the job-board section are classified in this priority order:
  *   1. `city_hub` — exact match for lugano/mendrisio/bellinzona
  *   2. `recency_hub` — exact match for locale-aware recency slugs
- *   3. `sector_hub` — any other non-empty second segment that isn't a job slug
+ *   3. `sector_hub` — exact match for a locale-aware emitted sector slug
  *   4. `job_listing` — fall-through (covers job details + top-level listings)
  */
 export function classifySeoPageType(pathname: string): SeoPageType | null {
@@ -215,14 +215,11 @@ export function classifySeoPageType(pathname: string): SeoPageType | null {
     if (secondSegment) {
       if (CITY_HUB_SLUGS.includes(secondSegment)) return 'city_hub';
       if (RECENCY_HUB_SLUGS.includes(secondSegment)) return 'recency_hub';
-      // Otherwise it's either a sector hub or a job detail. Sector hubs are
-      // short, URL-safe identifiers without multiple hyphens (e.g.
-      // "infermieri", "case-anziani"). Job detail slugs include many
-      // hyphens and appended job-ids (e.g. "software-engineer-bank-x-12345").
-      // Heuristic: if the second segment has <4 hyphen-separated parts,
-      // treat as a sector hub; else as a job listing.
-      const hyphenParts = secondSegment.split('-').filter(Boolean);
-      if (hyphenParts.length < 4) return 'sector_hub';
+      // A short job slug can be a real detail page (for example
+      // `educatori-sociali`). Use the shared emitted-hub table instead of a
+      // hyphen-count heuristic, otherwise detail views pollute sector traffic
+      // and the employer denominator.
+      if (isJobBoardSectorHubPath(pathname)) return 'sector_hub';
       return 'job_listing';
     }
     // Bare /cerca-lavoro-ticino/ — the listing index page.

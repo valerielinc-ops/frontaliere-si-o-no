@@ -1,3 +1,5 @@
+import { isJobBoardSectorHubPath as isSharedJobBoardSectorHubPath } from '../build-plugins/shared/jobSectorSlugs.mjs';
+
 export type AnalyticsPageContext = {
  contentGroup: string;
  pageTemplate: string;
@@ -34,6 +36,15 @@ function startsWithAny(path: string, prefixes: string[]): boolean {
  return prefixes.some((prefix) => path === prefix || path.startsWith(`${prefix}/`));
 }
 
+/**
+ * Sector hubs and job details share the same two-segment URL shape. Keep this
+ * exact lookup separate so analytics consumers can reject hub traffic before
+ * it is attributed to an employer.
+ */
+export function isJobBoardSectorHubPath(inputPath: string): boolean {
+ return isSharedJobBoardSectorHubPath(inputPath);
+}
+
 export function deriveAnalyticsPageContext(inputPath: string): AnalyticsPageContext {
  const normalizedPath = normalizePath(inputPath);
  const localeMatch = normalizedPath.match(LOCALE_PREFIX_RE);
@@ -65,12 +76,13 @@ export function deriveAnalyticsPageContext(inputPath: string): AnalyticsPageCont
  const firstTail = tail.split('/')[0] || '';
  const isCompany = /^(azienda|company|unternehmen|entreprise)-/i.test(firstTail);
  const isSearch = /^(ricerca|search|suche|recherche)-/i.test(firstTail);
+ const isSectorHub = isJobBoardSectorHubPath(normalizedPath);
  return {
  contentGroup: 'jobs',
- pageTemplate: !tail ? 'jobs_index' : isCompany ? 'jobs_company' : isSearch ? 'jobs_search' : 'job_detail',
+ pageTemplate: !tail ? 'jobs_index' : isCompany ? 'jobs_company' : isSearch ? 'jobs_search' : isSectorHub ? 'jobs_sector' : 'job_detail',
  siteSection: 'jobs',
  contentLocale,
- routeFamily: !tail ? 'jobs_index' : isCompany ? 'jobs_company' : isSearch ? 'jobs_search' : 'job_detail',
+ routeFamily: !tail ? 'jobs_index' : isCompany ? 'jobs_company' : isSearch ? 'jobs_search' : isSectorHub ? 'jobs_sector' : 'job_detail',
  };
  }
 

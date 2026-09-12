@@ -834,6 +834,21 @@ describe('employer insights technical deduplication', () => {
       dataLossFromOtherRow: true,
     });
   });
+
+  it('does not attribute a sector-hub pageview to a job with the same short alias', () => {
+    const catalog = buildIdentityCatalog([job({ slug: 'infermieri' })]);
+    const result = aggregateEmployerEvents([{
+      event: 'page_view',
+      path: '/cerca-lavoro-ticino/infermieri/',
+      observed: 4487,
+      views: 4487,
+      persons: 759,
+      timestamp: IN_WINDOW_TIMESTAMP,
+    }], { catalog, window: WINDOW, source: 'ga4' });
+
+    expect(result.states.size).toBe(0);
+    expect(result.coverage.residuals.unidentified_event).toBe(4487);
+  });
 });
 
 describe('publisher apply-click deduplication', () => {

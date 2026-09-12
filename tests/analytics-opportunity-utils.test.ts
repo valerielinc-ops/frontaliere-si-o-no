@@ -18,6 +18,14 @@ describe('analytics opportunity utils', () => {
       pageTemplate: 'jobs_company',
       contentGroup: 'jobs',
     });
+    expect(classifyAnalyticsPath('/cerca-lavoro-ticino/infermieri/')).toMatchObject({
+      pageTemplate: 'jobs_sector',
+      routeFamily: 'jobs_sector',
+    });
+    expect(classifyAnalyticsPath('/cerca-lavoro-ticino/educatori-sociali/')).toMatchObject({
+      pageTemplate: 'job_detail',
+      routeFamily: 'job_detail',
+    });
   });
 
   it('aggregates rows by template', () => {

@@ -39,6 +39,7 @@ import {
   canonicalCompanyProfileSlug,
   rawCompanySlug,
 } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { isJobBoardSectorHubPath } from '../build-plugins/shared/jobSectorSlugs.mjs';
 
 export const INSIGHTS_SCHEMA_VERSION = 2;
 export const DELIVERY_UNAVAILABLE = 'non disponibile';
@@ -476,6 +477,12 @@ function pathSegments(pathname) {
 
 function routeIdentity(pathname) {
   const segments = pathSegments(pathname);
+  // Sector hubs deliberately share the `/section/<slug>/` shape with job
+  // details. Their page views have no employer/job identity and must remain
+  // residual traffic; resolving the hub slug against the job catalog would
+  // inflate an employer's denominator (e.g. `/infermieri/` versus the LIS
+  // detail slug) while apply clicks remain correctly attributed.
+  if (isJobBoardSectorHubPath(pathname)) return null;
   for (const segment of segments) {
     const prefix = COMPANY_HUB_PREFIXES.find((candidate) => segment.startsWith(candidate) && segment.length > candidate.length);
     if (prefix) return { kind: 'company', alias: segment.slice(prefix.length) };
