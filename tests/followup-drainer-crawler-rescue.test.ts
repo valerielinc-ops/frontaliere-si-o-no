@@ -21,6 +21,7 @@ import { describe, it, expect } from 'vitest';
 import {
   crawlerFixDecision,
   CRAWLER_MAX_ATTEMPTS,
+  isRecoverableQueueManaged,
   outcomeForCurrentPromotion,
   recoverableFixDecision,
 } from '../scripts/ci/followup-drainer.mjs';
@@ -154,6 +155,29 @@ describe('recoverableFixDecision — checkpoint WIP del fixer', () => {
     });
     expect(d.action).toBe('hold-quota');
     expect(d.nextAttempt).toBe(1);
+  });
+
+  it('riprende una PR chiusa senza merge, ma non una PR già mergiata', () => {
+    const closed = recoverableFixDecision({
+      outcome: 'pr-created', hasBranchWork: true, hasMergedFix: false, attempt: 0,
+    });
+    expect(closed.action).toBe('requeue');
+    expect(closed.nextAttempt).toBe(1);
+
+    const merged = recoverableFixDecision({
+      outcome: 'pr-created', hasBranchWork: true, hasMergedFix: true, attempt: 0,
+    });
+    expect(merged.action).toBe('none');
+    expect(merged.nextAttempt).toBe(0);
+  });
+
+  it('ignora needs-human solo per recuperare il WIP e conserva gli altri veto', () => {
+    const labels = (...names: string[]) => names.map((name) => ({ name }));
+    const issue = { title: 'follow-up(#1234): checkpoint del fixer' };
+
+    expect(isRecoverableQueueManaged({ ...issue, labels: labels('follow-up', 'fu-parked', 'needs-human') })).toBe(true);
+    expect(isRecoverableQueueManaged({ ...issue, labels: labels('follow-up', 'fu-parked', 'needs-human', 'keep-open') })).toBe(false);
+    expect(isRecoverableQueueManaged({ ...issue, labels: labels('follow-up', 'fu-parked', 'needs-human', 'agent:no-age-out') })).toBe(false);
   });
 
   it('il crawler non cede un branch a una promozione fresca senza verdetto', () => {
