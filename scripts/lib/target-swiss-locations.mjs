@@ -329,23 +329,63 @@ function hasExplicitCantonSuffix(text = '', code = '') {
   return lastToken === code.toUpperCase();
 }
 
+/**
+ * Explicit canton markers must be checked on the raw text: normalization
+ * removes parentheses, so `Buchs (AG)` becomes `buchs ag` before the generic
+ * signal pass and can otherwise be claimed by the SG homonym.
+ */
+function hasExplicitCantonMarker(text = '', code = '') {
+  const upperCode = String(code || '').toUpperCase();
+  return hasExplicitCantonSuffix(text, upperCode)
+    || new RegExp(`\\(\\s*${upperCode}\\s*\\)`, 'i').test(String(text || ''));
+}
+
 // A canton NAME/CODE match (isCantonRelevant steps 1/3/4) is a curated,
 // author-relevant signal — but (see hasExplicitCantonSuffix above) it can
 // itself collide with another canton's trailing-code suffix, so it ranks
 // below that suffix check, not above it. The BFS municipality/alias TOKEN
 // match (isCantonRelevant step 2) is the fuzziest tier and stays last.
-function hasStrongCantonSignal(text = '', code = '') {
+function tokenMatchSpecificity(tokens = [], lower = '') {
+  let best = 0;
+  for (const token of tokens) {
+    const normalized = normalizeSwissTargetLocationText(token);
+    if (!normalized) continue;
+    if (normalized.includes(' ')) {
+      if (lower.includes(normalized)) best = Math.max(best, normalized.length);
+      continue;
+    }
+    const escaped = normalized.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    if (new RegExp(`\\b${escaped}\\b`, 'i').test(lower)) {
+      best = Math.max(best, normalized.length);
+    }
+  }
+  return best;
+}
+
+/**
+ * Return a comparable strength for the curated canton signals. Full names
+ * outrank shorter aliases (`appenzell ausserrhoden` > `appenzell`), while
+ * contextual code forms remain stronger than any prose token.
+ */
+function strongCantonSignalScore(text = '', code = '') {
   const lower = normalizeSwissTargetLocationText(text);
-  if (!lower) return false;
+  if (!lower) return 0;
   const upperCode = code.toUpperCase();
   const cantonNames = SWISS_CANTONS[upperCode]?.names || [];
   const staticTokens = CANTON_STATIC_TOKENS[upperCode] || [];
-  if (hasToken([...cantonNames, ...staticTokens], lower)) return true;
   const codeLower = upperCode.toLowerCase();
-  if (new RegExp(`\\(${codeLower}\\)`, 'i').test(lower)) return true;
-  if (new RegExp(`\\bch ${codeLower}\\b`, 'i').test(lower)) return true;
-  if (new RegExp(`\\d{4}\\s+${codeLower}\\b`, 'i').test(lower)) return true;
-  return false;
+  if (new RegExp(`\\bch ${codeLower}\\b`, 'i').test(lower)) return 1_000;
+  if (new RegExp(`\\d{4}\\s+${codeLower}\\b`, 'i').test(lower)) return 1_000;
+  return tokenMatchSpecificity([...cantonNames, ...staticTokens], lower);
+}
+
+function strongestCantonSignal(text = '', codes = []) {
+  let best = { code: '', score: 0 };
+  for (const code of codes) {
+    const score = strongCantonSignalScore(text, code);
+    if (score > best.score) best = { code, score };
+  }
+  return best.code;
 }
 
 /**
@@ -354,15 +394,16 @@ function hasStrongCantonSignal(text = '', code = '') {
  */
 export function inferSwissTargetCanton(text = '') {
   // Pass 0: explicit trailing canton-code suffix — the strongest possible
-  // signal, checked across all target cantons before any name/city match.
+  // signal, including the parenthesized Swiss address form, checked across all
+  // target cantons before any name/city match.
   for (const code of TARGET_CANTONS) {
-    if (hasExplicitCantonSuffix(text, code)) return code;
+    if (hasExplicitCantonMarker(text, code)) return code;
   }
   // Pass 1: curated name/code signal, across all target cantons — wins
-  // regardless of TARGET_CANTONS array order.
-  for (const code of TARGET_CANTONS) {
-    if (hasStrongCantonSignal(text, code)) return code;
-  }
+  // regardless of TARGET_CANTONS array order. Longer, more specific canton
+  // names win over shorter aliases from another canton.
+  const strong = strongestCantonSignal(text, TARGET_CANTONS);
+  if (strong) return strong;
   // Pass 2: fall back to fuzzy city-name matching.
   for (const code of TARGET_CANTONS) {
     if (isCantonRelevant(text, code)) return code;
@@ -376,15 +417,15 @@ export function inferSwissTargetCanton(text = '') {
  */
 export function inferAnyCanton(text = '') {
   // Pass 0: explicit trailing canton-code suffix, across ALL 26 cantons —
-  // wins regardless of which canton's name/city list would otherwise match.
+  // including the parenthesized Swiss address form, wins regardless of which
+  // canton's name/city list would otherwise match.
   for (const code of Object.keys(SWISS_CANTONS)) {
-    if (hasExplicitCantonSuffix(text, code)) return code;
+    if (hasExplicitCantonMarker(text, code)) return code;
   }
 
   // Pass 1: curated name/code signal, across ALL 26 cantons.
-  for (const code of Object.keys(SWISS_CANTONS)) {
-    if (hasStrongCantonSignal(text, code)) return code;
-  }
+  const strong = strongestCantonSignal(text, Object.keys(SWISS_CANTONS));
+  if (strong) return strong;
 
   // Pass 2: fuzzy city-name matching, target cantons first (fast path for
   // common cases), then all others.
@@ -548,8 +589,8 @@ export function isKnownSwissCity(cityName = '', cantonHint = '') {
 export function isCantonOnlyLabel(text = '') {
   const token = normalizeToken(text);
   if (!token) return false;
-  // A canton's `names` alias list (used for keyword-relevance matching, see
-  // hasStrongCantonSignal) folds in representative CITY names for cantons
+  // A canton’s `names` alias list (used for keyword-relevance matching, see
+  // strongCantonSignalScore) folds in representative CITY names for cantons
   // whose own name is rarely written out (e.g. BL: "Allschwil", "Reinach",
   // "Muttenz"...) to strengthen fuzzy canton detection in free text.
   // Reusing that same list for _cantonOnlyTokens would wrongly classify a

@@ -27,6 +27,7 @@ const {
   loadHistory,
   saveHistory,
   recordSnapshot,
+  recordSourceUnavailableSnapshots,
   evaluateConsecutiveRegression,
   main,
 } = await import('../scripts/cwv-monitor-check.mjs');
@@ -138,6 +139,23 @@ describe('loadHistory / saveHistory round-trip', () => {
     const history = loadHistory('/tmp/does-not-exist-cwv-history-4302.json');
     expect(history).toEqual({ pages: {} });
   });
+
+  it('records an explicit null snapshot for every target when the source is unavailable', () => {
+    const history: { pages: Record<string, any> } = { pages: {} };
+    recordSourceUnavailableSnapshots(history, '2026-07-08', 'PostHog down; GA4 empty');
+
+    expect(Object.keys(history.pages)).toHaveLength(TARGET_PAGES.length);
+    for (const page of TARGET_PAGES) {
+      expect(history.pages[page.key].weeks).toEqual([{
+        date: '2026-07-08',
+        cls_p75: null,
+        cls_n: 0,
+        inp_p75: null,
+        inp_n: 0,
+        sourceUnavailable: 'PostHog down; GA4 empty',
+      }]);
+    }
+  });
 });
 
 describe('main()', () => {
@@ -175,6 +193,26 @@ describe('main()', () => {
       json: async () => ({ results: [[1.5, 50, 100, 40]] }), // cls_p75=1.5 (way over every threshold)
     });
     await main({ ga4FallbackImpl: async () => [] });
+    expect(execFileSync).not.toHaveBeenCalled();
+  });
+
+  it('persists null snapshots when PostHog is dead and GA4 has no target observations', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ results: [] }),
+    });
+    await main({ ga4FallbackImpl: async () => [] });
+
+    const history = loadHistory('/tmp/cwv-monitor-check-test-history.json');
+    expect(Object.keys(history.pages)).toHaveLength(TARGET_PAGES.length);
+    for (const page of TARGET_PAGES) {
+      const row = history.pages[page.key].weeks.at(-1);
+      expect(row.cls_p75).toBeNull();
+      expect(row.inp_p75).toBeNull();
+      expect(row.cls_n).toBe(0);
+      expect(row.inp_n).toBe(0);
+      expect(row.sourceUnavailable).toMatch(/GA4 fallback returned no target/);
+    }
     expect(execFileSync).not.toHaveBeenCalled();
   });
 });
