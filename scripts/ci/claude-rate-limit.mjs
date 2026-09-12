@@ -268,6 +268,35 @@ export function latestFixOutcomeEntryFromComments(comments) {
   return latest || { outcome: null, at: null };
 }
 
+/**
+ * Ultimo esito osservabile di una run, includendo il backstop deterministico.
+ *
+ * `latestFixOutcomeEntryFromComments()` deve ignorare `no-pr-unspecified`: il
+ * backstop non è una diagnosi dell'agente. Ma ignorarlo anche quando è più
+ * recente di un verdetto autentico significa riusare un `max-turns` vecchio
+ * per classificare una run nuova (il caso reale #7096). Qui il backstop più
+ * recente invalida quindi il verdetto precedente; il codice generico torna a
+ * `outcome: null`, mentre un backstop `pr-created` conserva l'esito utile.
+ * Pura → testabile.
+ *
+ * @param {Array<{body?: string, createdAt?: string, created_at?: string}>} comments
+ * @returns {{outcome: string|null, at: number|null}}
+ */
+export function latestFixRunOutcomeEntryFromComments(comments) {
+  const authentic = latestFixOutcomeEntryFromComments(comments);
+  let backstop = null;
+  for (const comment of comments || []) {
+    const body = String(comment?.body || '');
+    if (!body.includes(BACKSTOP_MARKER)) continue;
+    const entry = fixOutcomeEntry(comment);
+    if (entry && (!backstop || entry.at >= backstop.at)) backstop = entry;
+  }
+  if (!backstop || (authentic.at !== null && authentic.at >= backstop.at)) return authentic;
+  return backstop.outcome === 'no-pr-unspecified'
+    ? { outcome: null, at: backstop.at }
+    : backstop;
+}
+
 /** Proiezione sul solo codice per i chiamanti che non devono scopare il
  * verdetto a una run. Pura → testabile. */
 export function latestFixOutcomeFromComments(comments) {
