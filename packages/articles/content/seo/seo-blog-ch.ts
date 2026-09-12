@@ -81647,6 +81647,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzeri-spesa-crescita-rallenta': {
+    title: 'Svizzeri spendono di più, ma la crescita rallenta',
+    description: 'L\'indicatore dei consumi PostFinance sale dello 0,8% in agosto, rallentando rispetto a luglio e giugno. Scopri i dettagli sui settori di spesa. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, spendono, crescita, rallenta',
+    ogTitle: 'Svizzeri spendono di più, ma la crescita rallenta in agosto',
+    ogDescription: 'L\'indicatore dei consumi di PostFinance segna +0,8% in agosto rispetto all\'anno precedente, rallentando la corsa rispetto a luglio e giugno.',
+    canonicalPath: '/articoli-svizzera/svizzeri-spesa-crescita-rallenta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzeri spendono di più, ma la crescita rallenta",
+      "description": "L'indicatore dei consumi PostFinance sale dello 0,8% in agosto, rallentando rispetto a luglio e giugno. Scopri i dettagli sui settori di spesa. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzeri-spesa-crescita-rallenta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Indicatori dei consumi in Svizzera e pagamenti con carta"
+      },
+      "datePublished": "2026-09-12T02:13:17+00:00",
+      "dateModified": "2026-09-12T02:13:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzeri-spesa-crescita-rallenta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
