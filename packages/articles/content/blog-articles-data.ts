@@ -34869,6 +34869,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'benzina-riserve-svizzera-frontalieri',
+ category: 'pratico',
+ date: '2026-09-12T08:27:30.904Z',
+ image: '/images/blog/benzina-riserve-svizzera-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-09-12',
+ category: 'novita',
+ date: '2026-09-12T09:07:30.077Z',
+ image: '/images/blog/bollettino-frontaliere-2026-09-12.webp',
+ hasCalculator: false,
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

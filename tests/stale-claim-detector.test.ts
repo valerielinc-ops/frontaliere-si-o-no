@@ -151,8 +151,8 @@ describe('referencedIssueNumbers — i cinque canali con cui una PR dice "sto su
   });
 
   it('Addresses ... #N nelle PR aggregate protegge il claim anche senza chiudere la issue', () => {
-    const prs = [{ body: 'Addresses item 1 e item 2 di #8039\nAddresses #12' }];
-    expect([...referencedIssueNumbers(prs)].sort((a, b) => a - b)).toEqual([12, 8039]);
+    const prs = [{ body: 'Addresses item 1 e item 2 di #8039\nAddresses #12 e #13' }];
+    expect([...referencedIssueNumbers(prs)].sort((a, b) => a - b)).toEqual([12, 13, 8039]);
   });
 
   it('un branch che somiglia ma non combacia NON conta', () => {
