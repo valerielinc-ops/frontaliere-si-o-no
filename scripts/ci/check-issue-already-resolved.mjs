@@ -170,11 +170,11 @@ function stripFencedBlocks(text) {
     out.push(line);
   }
 
-  const visible = fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
-  // Inline code is quoted evidence too.  Leaving it visible makes a filename
-  // such as `triage-sweep.mjs` turn the surrounding single-item issue into an
-  // aggregate merely because the path contains the word "sweep" (#1320/FU-028).
-  return visible.replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
+  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+}
+
+function maskInlineCodeSpans(text) {
+  return String(text || '').replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
 }
 
 export function hasEnumeratedItems(body) {
@@ -212,7 +212,7 @@ function isBoldTitleLead(rest, lines = [], start = 0) {
  * detectors, OR'd: explicit title count, keyword fallback, body enumeration.
  */
 export function isAggregate(title, body) {
-  const titleText = stripFencedBlocks(title);
+  const titleText = maskInlineCodeSpans(stripFencedBlocks(title));
   // Daily buckets are aggregates even when their current count is one. Keep
   // this shared predicate aligned with the issue-fix closing-ref generator so
   // a fallback path can never emit `Closes #N` for a daily bucket.
@@ -228,7 +228,7 @@ export function isAggregate(title, body) {
   // that wrongly blocked `pr-body-contract` on a fully-completed single item
   // (#3378).
   if (m) return Number(m[1]) >= 2;
-  const bodyText = stripFencedBlocks(body);
+  const bodyText = maskInlineCodeSpans(stripFencedBlocks(body));
   if (/\b(?:sweep|batch|bulk)\b/i.test(`${titleText}\n${bodyText}`)) return true;
   return hasEnumeratedItems(body);
 }
