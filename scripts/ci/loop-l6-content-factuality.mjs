@@ -481,13 +481,16 @@ export async function runL6({
   }
   let issued = false;
   if (issue && !verdict.ok) {
-    await createIssueImpl({
+    const issueResult = await createIssueImpl({
       title: 'L6 Content Factuality: independent source verdict is missing or invalid',
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'content-quality', 'loop-l6'],
       workflow: 'Loop L6 Content Learning and Factuality',
     });
+    if (!issueResult || issueResult.persisted !== true) {
+      throw new Error('L6 issue persistence failed: createGithubIssue did not confirm persisted=true');
+    }
     issued = true;
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten });

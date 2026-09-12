@@ -129,7 +129,7 @@ describe('L6 Content Learning & Factuality', () => {
       outcomePath: files.outcomePath,
       reportDir: files.reportDir,
       issue: true,
-      createIssueImpl: async () => {},
+      createIssueImpl: async () => ({ persisted: true }),
       logger: { log() {} },
     });
     expect(result.issued).toBe(true);
@@ -138,6 +138,20 @@ describe('L6 Content Learning & Factuality', () => {
       issued: true,
       actionsWritten: false,
     });
+  });
+
+  it('does not claim persistence when the issue writer returns persisted false', async () => {
+    const files = tempFiles({ outcome: null });
+    await expect(runL6({
+      now: NOW,
+      historyPath: files.historyPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      issue: true,
+      createIssueImpl: async () => ({ persisted: false }),
+      logger: { log() {} },
+    })).rejects.toThrow('issue persistence failed');
+    expect(fs.existsSync(path.join(files.reportDir, 'l6-result.json'))).toBe(false);
   });
 
   it('does not claim persistence when issue creation fails', async () => {
