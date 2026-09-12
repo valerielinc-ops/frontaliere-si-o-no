@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   GRIGIONI_MUNICIPALITIES,
+  inferAnyCanton,
   inferSwissTargetCanton,
   isCantonRelevant,
   isGrigioniRelevant,
@@ -46,6 +47,22 @@ describe('target swiss locations', () => {
     // Zurich (ZH) and Geneva (GE) are now targets. Assert non-CH locations instead.
     expect(isTargetSwissLocation('Milan, IT')).toBe(false);
     expect(inferSwissTargetCanton('Tokyo, JP')).toBe('');
+  });
+
+  it('honors explicit parenthesized canton codes before same-name city aliases', () => {
+    expect(inferSwissTargetCanton('Buchs (AG)')).toBe('AG');
+    expect(inferSwissTargetCanton('Reinach (AG)')).toBe('AG');
+    expect(inferAnyCanton('Buchs (AG)')).toBe('AG');
+  });
+
+  it('prefers a full canton name over a shorter alias from another canton', () => {
+    expect(inferSwissTargetCanton('Stein Appenzell Ausserrhoden')).toBe('AR');
+    expect(inferAnyCanton('Stein Appenzell Ausserrhoden')).toBe('AR');
+  });
+
+  it('prefers an explicit canton name over a city alias from another canton', () => {
+    expect(inferSwissTargetCanton('Reinach, Aargau')).toBe('AG');
+    expect(inferAnyCanton('Reinach, Aargau')).toBe('AG');
   });
 
   // ── VS (Valais/Wallis) canton matching ──

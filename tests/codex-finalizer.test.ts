@@ -33,6 +33,10 @@ function finalize(mode = 'codex-success') {
         EVIDENCE_FILE: evidence,
         GITHUB_OUTPUT: outputs,
         GITHUB_STEP_SUMMARY: '/dev/null',
+        ...(mode === 'quota-held' ? {
+          REPAIR_QUOTA_ADMIT: 'false',
+          REPAIR_QUOTA_HELD: 'true',
+        } : {}),
       },
     });
     let output = '';
@@ -84,5 +88,14 @@ describe('actual Codex-primary/Claude-fallback finalizer', () => {
     expect(result.status, result.stderr).toBe(0);
     expect(result.output).toContain('selected_provider=none');
     expect(result.output).toContain('action_success=false');
+  });
+
+  it('records a quota-held round as a successful provider-neutral no-op', () => {
+    const result = finalize('quota-held');
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.output).toContain('selected_provider=none');
+    expect(result.output).toContain('action_success=true');
+    expect(result.output).toContain('codex_outcome=skipped');
+    expect(result.output).toContain('claude_outcome=skipped');
   });
 });

@@ -104,13 +104,22 @@ outputs:
   side_effect_detected:
     description: "true when Codex may have changed local or remote state before failing."
     value: ${{ steps.finalize.outputs.side_effect_detected }}
+  repair_quota_held:
+    description: "true when a PR repair was held by the zero-Claude allocation floor."
+    value: ${{ steps.repair_quota.outputs.held }}
 
 runs:
   using: composite
   steps:
 
+    - name: Repair quota admission (zero-Claude)
+      id: repair_quota
+      shell: bash
+      run: node "$GITHUB_WORKSPACE/scripts/ci/repair-quota-admission.mjs"
+
     - name: Resolve trusted Node runtime
       id: trusted_node
+      if: steps.repair_quota.outputs.admit == 'true'
       shell: bash
       env:
         CODEX_ACTION_PATH: ${{ github.action_path }}
@@ -269,7 +278,7 @@ runs:
 
     - name: Snapshot Codex primary runtime before fallback
       id: runtime_snapshot
-      if: steps.trusted_node.outcome == 'success'
+      if: steps.repair_quota.outputs.admit == 'true' && steps.trusted_node.outcome == 'success'
       shell: bash
       env:
         CODEX_ACTION_PATH: ${{ github.action_path }}
@@ -301,7 +310,7 @@ runs:
 
     - name: Install pinned Codex CLI (primary, without credentials)
       id: codex_cli
-      if: steps.trusted_node.outcome == 'success'
+      if: steps.repair_quota.outputs.admit == 'true' && steps.trusted_node.outcome == 'success'
       shell: bash
       env:
         NPM_CONFIG_USERCONFIG: /dev/null
@@ -384,12 +393,12 @@ runs:
 
     - name: Prepare Linux sandbox prerequisites for Codex primary
       id: sandbox_setup
-      if: steps.codex_cli.outcome == 'success'
+      if: steps.repair_quota.outputs.admit == 'true' && steps.codex_cli.outcome == 'success'
       uses: ./.github/actions/setup-codex-sandbox
 
     - name: Prepare ephemeral Codex subscription auth for Codex primary
       id: codex_auth
-      if: steps.trusted_node.outcome == 'success' && steps.codex_cli.outcome == 'success' && steps.sandbox_setup.outcome == 'success'
+      if: steps.repair_quota.outputs.admit == 'true' && steps.trusted_node.outcome == 'success' && steps.codex_cli.outcome == 'success' && steps.sandbox_setup.outcome == 'success'
       shell: bash
       env:
         CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
@@ -414,7 +423,7 @@ runs:
 
     - name: Run Codex primary (one subscription attempt)
       id: codex
-      if: steps.trusted_node.outcome == 'success' && steps.codex_cli.outcome == 'success' && steps.sandbox_setup.outcome == 'success' && steps.codex_auth.outcome == 'success'
+      if: steps.repair_quota.outputs.admit == 'true' && steps.trusted_node.outcome == 'success' && steps.codex_cli.outcome == 'success' && steps.sandbox_setup.outcome == 'success' && steps.codex_auth.outcome == 'success'
       continue-on-error: true
       shell: bash
       env:
@@ -1113,7 +1122,7 @@ runs:
       # A failed Codex process is retryable only when the bridge and Git-state
       # snapshots prove that it did not deliver or mutate anything. Unknown
       # state is deliberately non-retryable to avoid duplicate fixes/PRs.
-      if: always() && (steps.codex.outcome == 'skipped' || (steps.codex.outcome == 'failure' && steps.codex.outputs.side_effect_detected == 'false'))
+      if: always() && steps.repair_quota.outputs.admit == 'true' && (steps.codex.outcome == 'skipped' || (steps.codex.outcome == 'failure' && steps.codex.outputs.side_effect_detected == 'false'))
       continue-on-error: true
       uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
       with:
@@ -1135,11 +1144,28 @@ runs:
         CODEX_OUTPUT: ${{ steps.codex.outputs.codex_output }}
         CLAUDE_OUTCOME: ${{ steps.claude.outcome }}
         EXEC_FILE: ${{ steps.claude.outputs.execution_file }}
+        REPAIR_QUOTA_ADMIT: ${{ steps.repair_quota.outputs.admit }}
+        REPAIR_QUOTA_HELD: ${{ steps.repair_quota.outputs.held }}
         EVIDENCE_FILE: ${{ runner.temp }}/codex-primary-evidence-${{ github.run_id }}-${{ github.run_attempt }}.md
         TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
         RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
       run: |
         set -euo pipefail
+        if [ "${REPAIR_QUOTA_ADMIT:-true}" != 'true' ]; then
+          if [ "${REPAIR_QUOTA_HELD:-false}" != 'true' ]; then
+            echo '::error::Repair quota admission produced an invalid non-admit state.'
+            exit 1
+          fi
+          # A held round is a deliberate no-op. The admission script already
+          # posted the durable hold comment, applied stale-review, and removed
+          # the round marker before this finalizer was reached.
+          printf 'execution_file=\n' >> "$GITHUB_OUTPUT"
+          printf 'fallback_used=false\nfallback_success=false\nfallback_trigger=\n' >> "$GITHUB_OUTPUT"
+          printf 'fallback_evidence_file=\ncodex_output_file=\n' >> "$GITHUB_OUTPUT"
+          printf 'codex_outcome=skipped\nclaude_outcome=skipped\nclaude_used=false\nclaude_success=false\n' >> "$GITHUB_OUTPUT"
+          printf 'side_effect_detected=false\nprimary_provider=codex\nprimary_success=false\nselected_provider=none\naction_success=true\n' >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
         codex_outcome="${CODEX_OUTCOME:-skipped}"
         side_effect_detected="${CODEX_SIDE_EFFECT_DETECTED:-unknown}"
         if [ "$codex_outcome" = 'skipped' ]; then
@@ -1281,8 +1307,14 @@ runs:
     - name: Preserve primary/fallback outcome
       if: always()
       shell: bash
+      env:
+        REPAIR_QUOTA_HELD: ${{ steps.repair_quota.outputs.held }}
       run: |
         set -uo pipefail
+        if [ "${REPAIR_QUOTA_HELD:-false}" = 'true' ]; then
+          echo '✓ PR repair held by the zero-Claude quota admission floor.'
+          exit 0
+        fi
         finalize_outcome="${{ steps.finalize.outcome }}"
         action_success="${{ steps.finalize.outputs.action_success }}"
         if [ "$finalize_outcome" != 'success' ]; then
