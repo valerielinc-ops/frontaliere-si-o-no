@@ -25,6 +25,8 @@ import {
   referencedIssueNumbers,
   DEFAULT_STALE_CLAIM_HOURS,
   claimOwner,
+  hasClaimLabel,
+  removeLabelArgs,
 } from '../scripts/ci/stale-claim-detector.mjs';
 
 const NOW = Date.parse('2026-08-08T12:00:00Z');
@@ -52,6 +54,20 @@ describe('selectStaleClaims', () => {
     const issues = [{ number: 4248, labels: REMOTE_CLAIM, updatedAt: hoursAgo(30) }];
     expect(claimOwner(REMOTE_CLAIM)).toBe('remote');
     expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([4248]);
+  });
+
+  it('un owner-only remoto è visibile e resta liberabile dopo una scrittura parziale', () => {
+    const ownerOnly = [{ name: 'agent:remote' }];
+    const issues = [{ number: 4248, labels: ownerOnly, updatedAt: hoursAgo(30) }];
+    expect(hasClaimLabel(ownerOnly)).toBe(true);
+    expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([4248]);
+  });
+
+  it('un owner-only locale resta protetto anche senza il mutex base', () => {
+    const ownerOnly = [{ name: 'agent:local' }];
+    const issues = [{ number: 4248, labels: ownerOnly, updatedAt: hoursAgo(30) }];
+    expect(claimOwner(ownerOnly)).toBe('local');
+    expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([]);
   });
 
   it('un claim con due owner è conteso e non viene mutato', () => {
@@ -184,7 +200,16 @@ describe('lettura produzione', () => {
     expect(SOURCE).toContain("['api', apiPath, '--paginate', '--slurp']");
     expect(SOURCE).toContain('issue claim response missing required fields');
     expect(SOURCE).toContain('open PR response missing required fields');
+    expect(SOURCE).toContain('CLAIM_SCAN_LABELS.flatMap');
+    expect(SOURCE).toContain('removeLabelArgs(removeLabels)');
     expect(SOURCE).not.toContain("['issue', 'list'");
     expect(SOURCE).not.toContain("['pr', 'list'");
+  });
+
+  it('ripete il flag per ogni label rimossa, senza affidarsi a una variadica ambigua', () => {
+    expect(removeLabelArgs(['agent:in-progress', 'agent:remote'])).toEqual([
+      '--remove-label', 'agent:in-progress',
+      '--remove-label', 'agent:remote',
+    ]);
   });
 });
