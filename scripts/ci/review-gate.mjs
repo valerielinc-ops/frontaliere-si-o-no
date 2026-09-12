@@ -44,6 +44,21 @@ const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])
 const CODEX_REVIEWER_LOGIN_RE = /^(?:github-actions\[bot\]|frontaliere-automation\[bot\])$/iu;
 export const CODEX_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
+
+/**
+ * Some review clients serialize the Markdown body as one JSON-like string and
+ * send literal `\\n` separators to GitHub. Treat that shape as Markdown only
+ * when it is unmistakably a complete review; arbitrary prose containing the
+ * two characters `\\n` must remain untouched. Without this normalization the
+ * gate cannot see section boundaries or the explicit `Fix di ...: ok.`
+ * confirmations, so it resurrects already-fixed historical findings.
+ */
+export function normalizeReviewBody(body) {
+  const text = String(body || '');
+  if (/\r?\n/u.test(text) || !text.includes('\\n')) return text;
+  if (!text.includes('## Findings') && !text.includes('## LGTM')) return text;
+  return text.replace(/\\r\\n/gu, '\n').replace(/\\n/gu, '\n');
+}
 // L'alternanza delle estensioni e' first-match-wins: senza il lookahead finale
 // `ts` vince su `tsx` e `js` su `json`/`jsx`, e la citazione viene troncata a un
 // path che non esiste (`Foo.tsx:L107` -> `Foo.ts`). Un path non risolvibile e'
@@ -167,7 +182,7 @@ function importantFindingLine(line, { inLgtm = false } = {}) {
  * leak paths into the previous finding.
  */
 function parseImportantFindings(body, extractCitations) {
-  const lines = String(body || '').split(/\r?\n/u);
+  const lines = normalizeReviewBody(body).split(/\r?\n/u);
   const markerLines = lines
     .map((line, index) => ({ line, index, marker: firstFindingMarker(line) }))
     .filter(({ marker }) => marker);
@@ -259,7 +274,7 @@ function emptyClassification(findings = []) {
 // outside-only exception is safe without `## LGTM` only when the reviewer
 // explicitly disposes of every question as non-funnel/deferred.
 function hasUnresolvedFunnelQuestion(body) {
-  return String(body || '').split(/\r?\n/u).some((line) =>
+  return normalizeReviewBody(body).split(/\r?\n/u).some((line) =>
     QUESTION_MARKER_RE.test(line) && !NON_FUNNEL_QUESTION_RE.test(line));
 }
 
@@ -501,7 +516,7 @@ function prBodyAnchor(text) {
 
 function fixConfirmations(body) {
   const confirmations = [];
-  for (const line of String(body || '').split(/\r?\n/u)) {
+  for (const line of normalizeReviewBody(body).split(/\r?\n/u)) {
     const match = line.match(FIX_CONFIRMATION_RE);
     if (!match) continue;
     const text = match[1].trim();
@@ -872,7 +887,7 @@ function staleFallbackCarryForward({
   headSha,
   changedPathsFn = changedPathsBetween,
 } = {}) {
-  const latestBody = String(latest?.body || '');
+  const latestBody = normalizeReviewBody(latest?.body || '');
   if (!latestBody.includes(CODEX_REVIEW_MARKER)
       || /^##\s+LGTM\b/imu.test(latestBody)) return null;
 
@@ -1152,7 +1167,7 @@ export async function runReviewGate({
   }
   const latest = codexReview || latestReviewer(reviewHistory);
   if (!latest) return { approved: false, reason: 'nessuna review Claude leggibile' };
-  const body = String(latest.body || '');
+  const body = normalizeReviewBody(latest.body || '');
   const staleCarry = staleFallbackCarryForward({
     reviews: reviewHistory,
     latest,
