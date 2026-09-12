@@ -75,7 +75,10 @@
  * drift #5717 was opened about.
  */
 
-import { hasConfirmationProof } from '../../services/subscriberConsent.mjs';
+import {
+  hasConfirmationProof,
+  isNewsletterConfirmationEvent,
+} from '../../services/subscriberConsent.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -291,13 +294,14 @@ export const AUTO_CONFIRMED_ORIGIN_RE = /^(signup|auth_|chatbot_|job_|tax_calend
  *  1. the stamp, via the shared `hasConfirmationProof()`. ONE definition, so
  *     this weekly `--apply` path and the send gates cannot disagree about who
  *     consented, which is precisely how they came to disagree;
- *  2. an explicit `confirm` event. Written by exactly one place —
- *     functions/src/newsletterSubscriptionManagement.js's `action === 'confirm'`
- *     branch, the double-opt-in link — so it is a click, not a deduction, and
- *     it is the PERIOD EVIDENCE that lets someone who confirmed before the
- *     stamp existed keep their subscription. Measured 2026-08-13: 283 of a
- *     296-doc sample of stamped subscribers carry one, so it is the ordinary
- *     recording of a real confirmation and not an exotic case.
+ *  2. an explicit server-owned `confirm` event whose source is
+ *     `confirmation_link`. The current writer is
+ *     functions/src/newsletterSubscriptionManagement.js's
+ *     `action === 'confirm'` branch, the double-opt-in link — so it is a click,
+ *     not a deduction, and it is the PERIOD EVIDENCE that lets someone who
+ *     confirmed before the stamp existed keep their subscription. Historical
+ *     client auth/signup writers also used the `confirm` type, which is why the
+ *     source channel is part of this predicate.
  *
  * ── The three disjuncts that are GONE (#5717) ───────────────────────────────
  *
@@ -320,7 +324,9 @@ export const AUTO_CONFIRMED_ORIGIN_RE = /^(signup|auth_|chatbot_|job_|tax_calend
  * i.e. the entire population the removed disjuncts were admitting is a
  * population that was asked and never answered. Nobody who actually confirmed
  * is lost by dropping them, and the branch that WOULD have saved such a person
- * — the `confirm` event — is the one kept.
+ * — the server-recorded confirmation-link event — is the one kept. Historical
+ * auth/signup writers also emitted `event_type: 'confirm'`, so that type alone
+ * is not evidence.
  *
  * @param {object} sub subscriber doc fields
  * @param {object[]} [events] docs from the subscriber's `events` subcollection
@@ -329,7 +335,7 @@ export const AUTO_CONFIRMED_ORIGIN_RE = /^(signup|auth_|chatbot_|job_|tax_calend
 export function hasConsentEvidence(sub, events = []) {
   if (hasConfirmationProof(sub)) return true;
   for (const e of events || []) {
-    if (String(e?.event_type || '') === 'confirm') return true;
+    if (isNewsletterConfirmationEvent(e)) return true;
   }
   return false;
 }
@@ -350,7 +356,8 @@ export function hasConsentEvidence(sub, events = []) {
  * `confirmed` unconditionally. This is the corrected form, applied to the
  * general path so it cannot regress back to the older behaviour.
  *
- * SINCE #5717 the evidence is the stamp or a `confirm` event, and nothing else.
+ * SINCE #5717 the evidence is the stamp or a server-owned confirmation-link
+ * event, and nothing else.
  * Until then `hasConsentEvidence()` also accepted `subscribe_completed` and the
  * signup-origin regex, so this function could resolve to `'confirmed'` for a
  * document that had never confirmed — and it does so from

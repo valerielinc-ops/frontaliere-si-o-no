@@ -139,7 +139,7 @@ describe('no top-level script writes the literal or ternary status: confirmed', 
     // spot, because this is where a reader comes looking for what covers it.
     const doc = { status: 'suppressed', source: 'signup', source_cta: 'job_gate' };
     expect(recoveredStatus('newsletter_subscribers', doc, [{ event_type: 'subscribe_completed' }])).toBe('pending');
-    expect(recoveredStatus('newsletter_subscribers', doc, [{ event_type: 'confirm' }])).toBe('confirmed');
+    expect(recoveredStatus('newsletter_subscribers', doc, [{ event_type: 'confirm', source_channel: 'confirmation_link' }])).toBe('confirmed');
     expect(recoveredStatus('newsletter_subscribers', { ...doc, confirmed_at: '2026-01-01T00:00:00Z' })).toBe('confirmed');
   });
 
@@ -170,7 +170,7 @@ describe('no top-level script writes the literal or ternary status: confirmed', 
     const ref = {};
     const pendingNoProof = { id: 'x@example.com', ref, data: { status: 'pending', confirmation_sent_at: '2026-08-01T00:00:00Z' } };
     const withStamp = { id: 'y@example.com', ref, data: { status: 'pending', confirmed_at: '2026-01-01T00:00:00Z' } };
-    const withEvent = { id: 'z@example.com', ref, data: { status: 'pending' }, events: [{ event_type: 'confirm' }] };
+    const withEvent = { id: 'z@example.com', ref, data: { status: 'pending' }, events: [{ event_type: 'confirm', source_channel: 'confirmation_link' }] };
 
     expect(planConfirmedStatusBackfill([pendingNoProof]).repair).toEqual([]);
     expect(planConfirmedStatusBackfill([withStamp]).repair).toHaveLength(1);
@@ -329,6 +329,11 @@ describe('every branch that writes the word writes the proof', () => {
   it('each of the two records its own event — the second half of the proof', () => {
     const branches = Object.fromEntries(actionBranches(src).map((b) => [b.action, stripComments(b.body)]));
     expect(branches.confirm).toMatch(/event_type\s*:\s*'confirm'/);
+    // The root marker is what lets bulk senders honour a DOI click even when
+    // the document's older source_channel still says auth_* and no sender can
+    // afford an events-subcollection read per recipient.
+    expect(branches.confirm).toMatch(/confirmed_via\s*:\s*CONFIRMATION_LINK_PROOF/);
+    expect(branches.confirm).toMatch(/confirmedVia\s*:\s*CONFIRMATION_LINK_PROOF/);
     // The resubscribe click is identified by its source_channel, which is the
     // field #5690's isExplicitNewsletterReOptIn() keys on to decide that this
     // — and only this — may lift a recorded opt-out.

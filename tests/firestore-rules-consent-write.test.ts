@@ -87,6 +87,27 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
     );
   });
 
+  it('an unauthenticated client cannot forge the server-owned DOI provenance', async () => {
+    const unauthed = testEnv.unauthenticatedContext();
+    await assertFails(
+      setDoc(
+        doc(unauthed.firestore(), 'newsletter_subscribers', SUBSCRIBER_EMAIL),
+        { confirmed_via: 'confirmation_link' },
+        { merge: true },
+      ),
+    );
+  });
+
+  it('an unauthenticated client cannot forge a DOI confirmation event', async () => {
+    const unauthed = testEnv.unauthenticatedContext();
+    await assertFails(
+      setDoc(
+        doc(unauthed.firestore(), 'newsletter_subscribers', SUBSCRIBER_EMAIL, 'events', 'forged-confirm'),
+        { event_type: 'confirm', source_channel: 'confirmation_link' },
+      ),
+    );
+  });
+
   it('an authenticated client with a mismatched email can no longer overwrite consent_text', async () => {
     const mismatched = testEnv.authenticatedContext('some-uid', {
       email: 'someone-else@example.com',
