@@ -278,9 +278,21 @@ export function createWorkdaySwissParser(config) {
     console.log(`  📋 Listings found: ${listings.length}${strictSwiss ? ' (unfiltered — strict CH gate active)' : ' (Swiss facet)'}`);
 
     const jobs = [];
+    let missingDetailUrlCount = 0;
     for (const listing of listings) {
       const title = normalizeSpace(listing.title || '');
       if (!title || title.length < 3) continue;
+
+      // Count URL loss only after the same listing-level foreign-location gate
+      // used below. Ambiguous locations stay conservative; detail-only
+      // geography cannot be checked once the detail URL is missing.
+      const listingRawLocation = listing.locationRaw || (strictSwiss ? '' : defaultCity);
+      const detailUrl = String(listing.url || '').trim();
+      if (!detailUrl) {
+        if (!isLocationExplicitlyForeign(listingRawLocation)) missingDetailUrlCount += 1;
+        console.log(`  ⏭️  Skipped listing without detail URL: ${title}`);
+        continue;
+      }
 
       // In strict mode (unfiltered board) never substitute the HQ city before
       // the location gate: an empty `locationRaw` carries no per-site Swiss
@@ -305,7 +317,6 @@ export function createWorkdaySwissParser(config) {
       const detailIsForeignOnly = detailLocations.length > 0
         && !detailLocation
         && detailLocations.some((value) => isLocationExplicitlyForeign(value));
-      const listingRawLocation = listing.locationRaw || (strictSwiss ? '' : defaultCity);
       if (detailIsForeignOnly) {
         console.log(`  ⏭️  Skipped foreign detail location: ${detailLocations.join(' | ')} — ${title}`);
         continue;
@@ -358,7 +369,8 @@ export function createWorkdaySwissParser(config) {
         continue;
       }
       const canton = inferredCanton || defaultCanton;
-      const publicUrl = listing.url || careerUrl || PUBLIC_BASE;
+      const publicUrl = detailUrl;
+      const employmentType = detectEmploymentType(listing.timeType || '', title);
 
       const detailDescription = detailInfo.jobDescription
         ? stripHtml(String(detailInfo.jobDescription))
@@ -408,8 +420,8 @@ export function createWorkdaySwissParser(config) {
         addressCountry: 'CH',
         country: 'CH',
         category: detectCategory(title),
-        contract: 'full-time',
-        employmentType: detectEmploymentType(listing.timeType || '', title),
+        contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+        employmentType,
         experienceLevel: detectExperienceLevel(title),
         sector,
         currency: 'CHF',
@@ -425,6 +437,7 @@ export function createWorkdaySwissParser(config) {
     }
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
+    jobs.missingDetailUrlCount = missingDetailUrlCount;
     return jobs;
   }
 

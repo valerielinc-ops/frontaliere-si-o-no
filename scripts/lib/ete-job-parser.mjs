@@ -212,6 +212,7 @@ export async function fetchAllEteJobs(runtime = {}) {
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
     const publicUrl = listing.url;
+    const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     // ETE publishes identical titles at distinct depots. Location is exact
@@ -247,8 +248,8 @@ export async function fetchAllEteJobs(runtime = {}) {
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
