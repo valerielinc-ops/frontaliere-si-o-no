@@ -1,21 +1,21 @@
 {
   "key": "vista",
   "label": "Vista Augenpraxen & Kliniken",
-  "generatedAt": "2026-09-11T23:29:58.676Z",
-  "total": 10,
+  "generatedAt": "2026-09-12T13:20:47.643Z",
+  "total": 9,
   "discovered": null,
   "parsed": 10,
   "lastFetchOutcome": null,
-  "written": 10,
+  "written": 9,
   "authoritativeEmptySnapshot": false,
   "newCount": 1,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 12030,
-  "avgDurationMs": 12030,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 11694,
+  "avgDurationMs": 11694,
   "durationHistory": [
-    12030
+    11694
   ],
   "newJobs": [
     {
@@ -31,7 +31,7 @@
       "url": "https://link.ostendis.com/publication/augenoptiker-in-oder-med-praxisassistent-in/bcu7ppilfl5373flkcxki1l17ef75fsd4i0zklvpd0v2iyprazare7khh5k4ahoq",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:29:51.380Z",
+      "crawledAt": "2026-09-12T13:20:40.949Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -68,13 +68,13 @@
       "companyKey": "vista",
       "companyDomain": "vista.ch",
       "title": "Leiter/in Finanzbuchhaltung 100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Basel",
       "canton": "BS",
       "url": "https://link.ostendis.com/publication/leiter-in-finanzbuchhaltung/ayb2p6iu76wwngwhqkpz7xewm3nfoy5vvt9ixtudyp32zkzdevm3powzva08fiip",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:29:46.309Z",
+      "crawledAt": "2026-09-12T13:20:35.962Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -95,11 +95,11 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "firstSeenAt": "2026-09-11T13:54:07.125Z",
-      "_qualityScore": 82,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -116,7 +116,7 @@
       "url": "https://link.ostendis.com/publication/optometrist-in-mit-fachverantwortung-biometrie-sprechstunde/7dep13y4glk16fb1wl1y6sdwdh272d750gw0m8c6d1egjn340hykcxeh438li0ag",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:29:47.052Z",
+      "crawledAt": "2026-09-12T13:20:36.686Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -157,7 +157,7 @@
       "url": "https://link.ostendis.com/publication/orthoptist-in/q1uxhlk4ugvk4qm56pfcdmyzk70dlxq304kjsmjl5mnxajod6w58p5tcjwozc73c",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:29:47.765Z",
+      "crawledAt": "2026-09-12T13:20:37.390Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "url": "https://link.ostendis.com/publication/orthoptist-in/zubonpx8e5gtjyws5ehwfzllwb0pz74o72rpd7h661kw1moxkb05npdwyvqh4od4",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:29:48.474Z",
+      "crawledAt": "2026-09-12T13:20:38.102Z",
       "addressLocality": "Pfäffikon SZ",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -235,13 +235,13 @@
       "companyKey": "vista",
       "companyDomain": "vista.ch",
       "title": "Dipl. Expertin bzw. Experte Anästhesiepflege NDS HF (m/w) 60-80%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Pfäffikon SZ",
       "canton": "SZ",
       "url": "https://link.ostendis.com/publication/dipl-expertin-bzw-experte-anaesthesiepflege-nds-hf/xd6uf1og4ywkm3ecr23ap56ndwzuq8lfdpe6h3aa76dhpiuqa9ryddkahed2it20",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:29:49.200Z",
+      "crawledAt": "2026-09-12T13:20:38.820Z",
       "addressLocality": "Pfäffikon SZ",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -283,7 +283,7 @@
       "url": "https://link.ostendis.com/publication/medizinische-praxisassistenz/ld8pmpv90u7fqskhcuc554ocdawemqweyqmtbfjyscso9gv1benwkrnq2ptvw07r",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:29:49.944Z",
+      "crawledAt": "2026-09-12T13:20:39.533Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -325,7 +325,7 @@
       "url": "https://link.ostendis.com/publication/orthoptist-in/n64ag35vocrpflez4aqf57l6kbam6e65z3i8d23pycrzs27za6g5k4jlori7ixjb",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:29:50.656Z",
+      "crawledAt": "2026-09-12T13:20:40.232Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -346,11 +346,11 @@
       "pensumMin": 20,
       "pensumMax": 20,
       "firstSeenAt": "2026-07-10T22:38:21.478Z",
-      "_qualityScore": 86,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -361,13 +361,13 @@
       "companyKey": "vista",
       "companyDomain": "vista.ch",
       "title": "Dipl. Experte Anästhesiepflege (m/w) 60-80% Burgdorf",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Burgdorf",
       "canton": "BE",
       "url": "https://link.ostendis.com/publication/dipl-experte-anaesthesiepflege-burgdorf/77qin0tyz4buxlhbaeed88wt4783dnkmczw5zgcu8sqcnewzkco7zcy545km4izk",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:29:52.116Z",
+      "crawledAt": "2026-09-12T13:20:41.661Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -409,7 +409,7 @@
       "url": "https://link.ostendis.com/publication/augenoptiker-in-oder-med-praxisassistent-in/o0s0few6o00bjjgtl3f7cxorkcx7vsd5ypw6r43drmpnogs882ahob57c0fzleyf",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:29:52.839Z",
+      "crawledAt": "2026-09-12T13:20:42.379Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -439,8 +439,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "vista-1f21e606a722",
       "slug": "fage-infermiere-professionale-diplomato-40-m-f-vista-augenpraxen-kliniken-dattwil-ag",
@@ -478,7 +477,6 @@
       "salaryMax": 49200,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -487,5 +485,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
