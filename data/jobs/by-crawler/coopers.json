@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-09-11T23:14:12.262Z",
+  "assembledAt": "2026-09-12T13:04:18.211Z",
   "jobs": [
     {
       "id": "coopers-4c65b0608cd3",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P121CU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:14:06.434Z",
+      "crawledAt": "2026-09-12T13:04:13.234Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -65,14 +65,17 @@
         ]
       },
       "previousSlugs": [
-        "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
+        "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum",
+        "it-business-applications-consulente-proalpha-m-w-d-coopers-group-ag-bern-grossraum"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
+          "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum",
+          "it-business-applications-consulente-proalpha-m-w-d-coopers-group-ag-bern-grossraum"
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:53.050Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -118,7 +121,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:14:05.591Z",
+      "crawledAt": "2026-09-12T13:04:12.379Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -165,12 +168,14 @@
         "lead-expeditor-m-f-d-coopers-wallis",
         "leiter-m-f-d-coopers-group-ag-wallis",
         "expediteur-de-plomb-m-f-d-coopers-group-ag-wallis",
-        "engineering-planner-m-f-d-coopers-wallis"
+        "engineering-planner-m-f-d-coopers-wallis",
+        "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "engineering-planer-m-f-d-coopers-wallis",
-          "engineering-planner-m-f-d-coopers-wallis"
+          "engineering-planner-m-f-d-coopers-wallis",
+          "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
         ],
         "en": [
           "engineering-planner-m-f-d-coopers-group-ag-wallis",
@@ -184,6 +189,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T22:41:36.318Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -213,7 +219,7 @@
       "title": "Release Train Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Release Train Ingegnere (m/w/d)",
-        "en": "Train Engineer (m/f/d)",
+        "en": "Release Train Engineer (m/w/d)",
         "de": "Release Train Ingenieur (m/w/d)",
         "fr": "Release Train Ingénieur (m/w/d)"
       },
@@ -229,7 +235,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B4I17W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:14:04.747Z",
+      "crawledAt": "2026-09-12T13:04:11.545Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -261,14 +267,17 @@
         ]
       },
       "previousSlugs": [
-        "release-train-engineer-m-w-d-coopers-luzern"
+        "release-train-engineer-m-w-d-coopers-luzern",
+        "release-train-ingegnere-m-w-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "release-train-engineer-m-w-d-coopers-luzern"
+          "release-train-engineer-m-w-d-coopers-luzern",
+          "release-train-ingegnere-m-w-d-coopers-group-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-09-09T13:53:11.147Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -310,13 +319,13 @@
         "fr": "Pour notre client à Basel-Landschaft, nous recherchons un développeur d'applications expérimenté et motivé - Java/PHP .\n\nCe rôle consiste à élaborer et à maintenir des applications essentielles, à assurer une intégration transparente entre les systèmes et à soutenir l'excellence opérationnelle.\n\nVos tâches :\n\n• Conception, développement et maintenance d'applications utilisant Java et PHP\n\n• Créer et optimiser les requêtes SQL et les structures de base de données pour les systèmes haute performance\n\n• Développer et gérer des API pour les intégrations internes et externes\n\n• Administrer et dépanner les environnements basés sur Linux\n\n• Collaborer avec des équipes interfonctionnelles pour fournir des solutions informatiques robustes\n\n• Fournir un soutien sur appel pendant les soirées et les week-ends convenus pour assurer la disponibilité du système\n\n• Participer aux examens de code, aux essais et aux processus de documentation\n\nVotre profil:\n\n• Expérience éprouvée en développement Java et PHP\n\n• Forte connaissance de la conception avancée de bases de données SQL et relationnelles\n\n• Expérience pratique avec le développement et l'intégration d'API\n\n• Compétence en administration du système d'exploitation Linux\n\n• Compétence en DevOps & gestion efficace des pipelines est un plus\n\n• Familiarité avec les plateformes cloud et la conteneurisation (par exemple Docker, Kubernetes).\n\n• Capacité de travailler de façon indépendante et en équipe\n\n• Excellentes compétences en résolution de problèmes et en communication\n\n• Volonté de fournir du soutien sur appel pendant les soirées/fins de semaine selon le calendrier\n\n• Fluent en anglais, allemand et français est un plus"
       },
       "location": "Basel-Landschaft",
-      "canton": "BS",
+      "canton": "BL",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3N22VU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:14:03.892Z",
+      "crawledAt": "2026-09-12T13:04:10.710Z",
       "addressLocality": "Basel-Landschaft",
-      "addressRegion": "BS",
+      "addressRegion": "BL",
       "addressCountry": "CH",
       "country": "CH",
       "category": "IT",
@@ -350,12 +359,14 @@
       },
       "previousSlugs": [
         "application-developer-java-php-m-f-d-coopers-basel-landschaft",
-        "java-php-developer-m-f-d-coopers-basel-landschaft"
+        "java-php-developer-m-f-d-coopers-basel-landschaft",
+        "sviluppatore-di-applicazioni-java-php-m-f-d-coopers-group-ag-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
           "application-developer-java-php-m-f-d-coopers-basel-landschaft",
-          "java-php-developer-m-f-d-coopers-basel-landschaft"
+          "java-php-developer-m-f-d-coopers-basel-landschaft",
+          "sviluppatore-di-applicazioni-java-php-m-f-d-coopers-group-ag-basel-landschaft"
         ],
         "de": [
           "application-developer-java-php-m-f-d-coopers-basel-landschaft"
@@ -365,6 +376,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:28:45.542Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -394,7 +406,7 @@
       "title": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
       "titleByLocale": {
         "it": "ICT System & Network Ingegnere 80 bis 100% (m/w/d)",
-        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 to 100% (m/f/d)",
+        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "de": "ICT Infrastructure Ingenieur (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "fr": "ICT System & Network Ingénieur 80 bis 100% (m/w/d)"
       },
@@ -410,7 +422,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:14:03.032Z",
+      "crawledAt": "2026-09-12T13:04:09.844Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -442,16 +454,20 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:23:50.233Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+          "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
         ],
         "de": [
-          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+          "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
         ]
       },
       "previousSlugs": [
-        "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+        "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+        "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -498,7 +514,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C05OD2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:14:02.172Z",
+      "crawledAt": "2026-09-12T13:04:09.025Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -536,12 +552,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "monitoring-alerting-engineer-m-w-d-coopers-bern"
+          "monitoring-alerting-engineer-m-w-d-coopers-bern",
+          "zabbix-engineer-m-w-d-coopers-bern"
         ],
         "it": [
           "zabbix-engineer-m-w-d-coopers-bern",
           "monitoring-alerting-engineer-m-w-d-coopers-bern",
-          "test-ingegnere-m-w-d-coopers-group-ag-bern"
+          "test-ingegnere-m-w-d-coopers-group-ag-bern",
+          "zabbix-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "zabbix-engineer-m-w-d-coopers-bern"
@@ -553,9 +571,11 @@
       "previousSlugs": [
         "zabbix-engineer-m-w-d-coopers-bern",
         "monitoring-alerting-engineer-m-w-d-coopers-bern",
-        "test-ingegnere-m-w-d-coopers-group-ag-bern"
+        "test-ingegnere-m-w-d-coopers-group-ag-bern",
+        "zabbix-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "firstSeenAt": "2026-07-10T10:28:37.373Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -601,7 +621,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C17UR4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:14:01.311Z",
+      "crawledAt": "2026-09-12T13:04:08.176Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -634,11 +654,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
+        "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern",
+        "senior-responsabile-di-progetto-neuausschreibung-client-hardware-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
+          "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern",
+          "senior-responsabile-di-progetto-neuausschreibung-client-hardware-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
@@ -648,6 +670,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:25:24.511Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -677,7 +700,7 @@
       "title": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
       "titleByLocale": {
         "it": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
-        "en": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
+        "en": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "de": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "fr": "Fonctionnaire chargé de la gestion des projets et calcul des services (m/f/d)"
       },
@@ -693,7 +716,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:14:00.476Z",
+      "crawledAt": "2026-09-12T13:04:07.320Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -738,7 +761,8 @@
         "specialiste-principal-de-la-gestion-des-projets-m-m-j-coopers-group-ag-bern",
         "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
         "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern",
-        "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-group-ag-bern"
+        "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-group-ag-bern",
+        "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -746,7 +770,8 @@
           "projectmanagement-officer-pmo-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
           "projektassistenz-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
           "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
-          "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern"
+          "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern",
+          "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "projectmanagement-officer-pmo-m-w-d-coopers-bern"
@@ -762,6 +787,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T23:17:39.897Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -807,7 +833,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:59.636Z",
+      "crawledAt": "2026-09-12T13:04:06.412Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -838,11 +864,13 @@
         ]
       },
       "previousSlugs": [
-        "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
+        "it-applikationsmanager-80-100-m-w-d-coopers-thurgau",
+        "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
+          "it-applikationsmanager-80-100-m-w-d-coopers-thurgau",
+          "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau"
         ],
         "en": [
           "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
@@ -852,6 +880,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:53:35.533Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "salarySource": "estimated",
@@ -881,7 +910,7 @@
       "title": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
       "titleByLocale": {
         "it": "Solution Architetto D365 & Power Platform 80 – 100 % (m/w/d)",
-        "en": "Solution Architect D365 & Power Platform 80 – 100% (m/f/d)",
+        "en": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
         "de": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
         "fr": "Solution Architecte D365 & Power Platform 80 – 100 % (m/w/d)"
       },
@@ -897,7 +926,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:58.785Z",
+      "crawledAt": "2026-09-12T13:04:05.560Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -978,7 +1007,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:57.935Z",
+      "crawledAt": "2026-09-12T13:04:04.631Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1013,13 +1042,15 @@
       "previousSlugs": [
         "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
         "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern",
-        "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern"
+        "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern",
+        "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
           "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern",
-          "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern"
+          "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern",
+          "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
@@ -1030,6 +1061,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:53:46.212Z",
+      "needsRetranslation": true,
       "salaryMin": 22600,
       "salaryMax": 38400,
       "salarySource": "estimated",
@@ -1075,7 +1107,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=A121LY",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:57.047Z",
+      "crawledAt": "2026-09-12T13:04:03.708Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1110,13 +1142,15 @@
       "previousSlugs": [
         "operative-r-einkaufer-in-energieinfrastruktur-m-w-d-coopers-bern",
         "operative-r-einkaufer-in-capex-m-w-d-coopers-bern",
-        "operative-r-einkaufer-in-capex-energieprojekte-m-w-d-coopers-bern"
+        "operative-r-einkaufer-in-capex-energieprojekte-m-w-d-coopers-bern",
+        "operativo-r-acquirente-progetti-energetici-capex-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operative-r-einkaufer-in-energieinfrastruktur-m-w-d-coopers-bern",
           "operative-r-einkaufer-in-capex-m-w-d-coopers-bern",
-          "operative-r-einkaufer-in-capex-energieprojekte-m-w-d-coopers-bern"
+          "operative-r-einkaufer-in-capex-energieprojekte-m-w-d-coopers-bern",
+          "operativo-r-acquirente-progetti-energetici-capex-m-f-d-coopers-group-ag-bern"
         ],
         "en": [
           "operative-r-einkaufer-in-capex-m-w-d-coopers-bern"
@@ -1127,6 +1161,7 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:38:07.026Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "salarySource": "estimated",
@@ -1172,7 +1207,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:56.190Z",
+      "crawledAt": "2026-09-12T13:04:02.832Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1203,11 +1238,13 @@
         ]
       },
       "previousSlugs": [
-        "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
+        "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
+        "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
+          "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
+          "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1257,7 +1294,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=06P8UJ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:13:55.319Z",
+      "crawledAt": "2026-09-12T13:04:02.000Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1337,7 +1374,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FEW938",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:13:54.383Z",
+      "crawledAt": "2026-09-12T13:04:01.163Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1370,11 +1407,13 @@
       },
       "previousSlugs": [
         "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers",
-        "senior-engineering-maintenance-expert-ibex-readiness-operations-directeur-m-f-d-coopers-group-ag-wallis"
+        "senior-engineering-maintenance-expert-ibex-readiness-operations-directeur-m-f-d-coopers-group-ag-wallis",
+        "senior-engineering-maintenance-expert-ibex-readiness-operations-direttore-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers"
+          "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers",
+          "senior-engineering-maintenance-expert-ibex-readiness-operations-direttore-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
           "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers"
@@ -1431,7 +1470,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OZ155L",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:13:53.439Z",
+      "crawledAt": "2026-09-12T13:04:00.333Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1472,7 +1511,8 @@
         "data-ingenieur-m-w-d-coopers-group-ag-zug",
         "data-engineer-m-w-d-coopers-zug",
         "data-ingegnere-m-w-d-coopers-group-ag-luzern",
-        "development-ingegnere-m-f-d-coopers-group-ag-zug"
+        "development-ingegnere-m-f-d-coopers-group-ag-zug",
+        "solution-ingegnere-expert-80-100-m-f-d-coopers-group-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1486,7 +1526,8 @@
           "data-ingenieur-m-w-d-coopers-group-ag-zug",
           "data-engineer-m-w-d-coopers-zug",
           "data-ingegnere-m-w-d-coopers-group-ag-luzern",
-          "development-ingegnere-m-f-d-coopers-group-ag-zug"
+          "development-ingegnere-m-f-d-coopers-group-ag-zug",
+          "solution-ingegnere-expert-80-100-m-f-d-coopers-group-ag-zug"
         ],
         "en": [
           "platform-engineer-80-100-m-f-d-coopers-zug",
@@ -1498,6 +1539,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:15:03.492Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1543,7 +1585,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=97WWQ3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:52.575Z",
+      "crawledAt": "2026-09-12T13:03:59.480Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1575,11 +1617,13 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
+        "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern",
+        "responsabile-di-progetto-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
+          "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern",
+          "responsabile-di-progetto-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern"
         ],
         "en": [
           "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
@@ -1619,7 +1663,7 @@
       "title": "Senior PostgreSQL Migration Consultant (SQL Server zu PostgreSQL) (m/w/d)",
       "titleByLocale": {
         "it": "Senior PostgreSQL Migration Consulente (SQL Server zu PostgreSQL) (m/w/d)",
-        "en": "Senior PostgreSQL Migration Consultant (SQL Server to PostgreSQL) (m/f/d)",
+        "en": "Senior PostgreSQL Migration Consultant (SQL Server zu PostgreSQL) (m/w/d)",
         "de": "Senior PostgreSQL Migration Berater (SQL Server zu PostgreSQL) (m/w/d)",
         "fr": "Consultant principal en migration PostgreSQL (serveur SQL vers PostgreSQL) (h/f/d)"
       },
@@ -1635,7 +1679,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5F8Y1Q",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:51.655Z",
+      "crawledAt": "2026-09-12T13:03:58.599Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1713,7 +1757,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OBI201",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:13:50.723Z",
+      "crawledAt": "2026-09-12T13:03:57.761Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1746,12 +1790,14 @@
       },
       "previousSlugs": [
         "senior-quality-assurance-specialist-m-f-d-coopers-aargau",
-        "senior-expert-quality-assurance-m-f-d-coopers-aargau"
+        "senior-expert-quality-assurance-m-f-d-coopers-aargau",
+        "senior-quality-assurance-specialista-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-quality-assurance-specialist-m-f-d-coopers-aargau",
-          "senior-expert-quality-assurance-m-f-d-coopers-aargau"
+          "senior-expert-quality-assurance-m-f-d-coopers-aargau",
+          "senior-quality-assurance-specialista-m-f-d-coopers-group-ag-aargau"
         ],
         "en": [
           "senior-quality-assurance-specialist-m-f-d-coopers-aargau"
@@ -1764,6 +1810,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T08:58:08.447Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1809,7 +1856,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=06XT3H",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:13:49.847Z",
+      "crawledAt": "2026-09-12T13:03:56.901Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1899,7 +1946,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:48.997Z",
+      "crawledAt": "2026-09-12T13:03:56.056Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1930,17 +1977,20 @@
         ]
       },
       "previousSlugs": [
-        "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
+        "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt",
+        "talent-acquisition-specialista-basel-m-w-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
+          "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt",
+          "talent-acquisition-specialista-basel-m-w-d-coopers-group-ag-basel-stadt"
         ],
         "fr": [
           "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
         ]
       },
       "firstSeenAt": "2026-09-02T13:44:15.661Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1970,7 +2020,7 @@
       "title": "Senior Software Engineer / Go Developer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Software Ingegnere / Go Sviluppatore (m/w/d)",
-        "en": "Senior Software Engineer / Go Developer (m/f/d)",
+        "en": "Senior Software Engineer / Go Developer (m/w/d)",
         "de": "Senior Software Ingenieur / Go Entwickler (m/w/d)",
         "fr": "Senior Software Ingénieur / Go Développeur (m/w/d)"
       },
@@ -1986,7 +2036,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O4UI83",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:48.140Z",
+      "crawledAt": "2026-09-12T13:03:55.208Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2022,11 +2072,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-software-engineer-go-developer-m-w-d-coopers-bern"
+        "senior-software-engineer-go-developer-m-w-d-coopers-bern",
+        "senior-software-ingegnere-go-sviluppatore-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-go-developer-m-w-d-coopers-bern"
+          "senior-software-engineer-go-developer-m-w-d-coopers-bern",
+          "senior-software-ingegnere-go-sviluppatore-m-w-d-coopers-group-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -2060,7 +2112,7 @@
       "title": "Archiv Manager:in (m/w/d)",
       "titleByLocale": {
         "it": "Gestione archivio (m/f/d)",
-        "en": "Archive Manager (m/f/d)",
+        "en": "Archiv Manager:in (m/w/d)",
         "de": "Archiv Manager:in (m/w/d)",
         "fr": "Gestionnaire d'archives (h/f/d)"
       },
@@ -2076,7 +2128,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=RHG048",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:47.260Z",
+      "crawledAt": "2026-09-12T13:03:54.361Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2108,11 +2160,13 @@
         ]
       },
       "previousSlugs": [
-        "archiv-manager-in-m-w-d-coopers-aargau"
+        "archiv-manager-in-m-w-d-coopers-aargau",
+        "gestione-archivio-in-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "archiv-manager-in-m-w-d-coopers-aargau"
+          "archiv-manager-in-m-w-d-coopers-aargau",
+          "gestione-archivio-in-m-f-d-coopers-group-ag-aargau"
         ],
         "en": [
           "archiv-manager-in-m-w-d-coopers-aargau"
@@ -2164,13 +2218,13 @@
         "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (00FKF7)\n\n•\nIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nPart Time, 80-100%\n\n01.11.2026 - 30.04.2027 (mit Option auf Verlängerung)\n\nsystem spezialist , Microsoft Exchange\n\nSounds interesting?\n\nSimply click \""
       },
       "location": "Basel-Landschaft",
-      "canton": "BS",
+      "canton": "BL",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:46.415Z",
+      "crawledAt": "2026-09-12T13:03:53.457Z",
       "addressLocality": "Basel-Landschaft",
-      "addressRegion": "BS",
+      "addressRegion": "BL",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
@@ -2201,11 +2255,13 @@
         ]
       },
       "previousSlugs": [
-        "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
+        "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft",
+        "specialista-di-sistema-in-f5-m-f-d-coopers-group-ag-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
+          "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft",
+          "specialista-di-sistema-in-f5-m-f-d-coopers-group-ag-basel-landschaft"
         ],
         "en": [
           "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
@@ -2245,7 +2301,7 @@
       "title": "ICT Support Specialist – Digital Workplace (2nd Level) (m/w/d)",
       "titleByLocale": {
         "it": "Supporto Operativo ICT Digital Workplace (m/f/d)",
-        "en": "ICT Support Specialist - Digital Workplace (2nd Level) (m/f/d)",
+        "en": "ICT Support Specialist – Digital Workplace (2nd Level) (m/w/d)",
         "de": "ICT Support Spezialist – Digital Workplace (2nd Level) (m/w/d)",
         "fr": "Soutien opérationnel TIC sur le lieu de travail numérique (h/f/d)"
       },
@@ -2261,7 +2317,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8I4I2V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:45.559Z",
+      "crawledAt": "2026-09-12T13:03:52.560Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2297,7 +2353,8 @@
           "ict-betriebsunterstutzung-digital-workplace-m-w-d-coopers-bern",
           "ict-betriebsunterstutzung-digital-workplace-50-m-w-d-coopers-bern",
           "supporto-operativo-ict-lavoro-digitale-50-m-f-d-coopers-group-ag-bern",
-          "ict-support-specialist-digital-workplace-2nd-level-m-w-d-coopers-bern"
+          "ict-support-specialist-digital-workplace-2nd-level-m-w-d-coopers-bern",
+          "supporto-operativo-ict-digital-workplace-m-f-d-coopers-group-ag-bern"
         ],
         "en": [
           "ict-betriebsunterstutzung-digital-workplace-m-w-d-coopers-bern",
@@ -2306,7 +2363,8 @@
         ],
         "de": [
           "ict-betriebsunterstutzung-digital-workplace-50-m-w-d-coopers-bern",
-          "ict-support-specialist-digital-workplace-2nd-level-m-w-d-coopers-bern"
+          "ict-support-specialist-digital-workplace-2nd-level-m-w-d-coopers-bern",
+          "ict-betriebsunterstutzung-digital-workplace-m-w-d-coopers-bern"
         ],
         "fr": [
           "ict-betriebsunterstutzung-digital-workplace-50-m-w-d-coopers-bern",
@@ -2319,9 +2377,11 @@
         "supporto-operativo-ict-lavoro-digitale-50-m-f-d-coopers-group-ag-bern",
         "ict-operational-support-digital-workplace-50-m-f-d-coopers-group-ag-bern",
         "soutien-operationnel-tic-sur-le-lieu-de-travail-numerique-50-h-f-d-coopers-group-ag-bern",
-        "ict-support-specialist-digital-workplace-2nd-level-m-w-d-coopers-bern"
+        "ict-support-specialist-digital-workplace-2nd-level-m-w-d-coopers-bern",
+        "supporto-operativo-ict-digital-workplace-m-f-d-coopers-group-ag-bern"
       ],
       "firstSeenAt": "2026-09-04T23:00:41.148Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2367,7 +2427,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=31JGY3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:13:44.665Z",
+      "crawledAt": "2026-09-12T13:03:51.690Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2399,7 +2459,18 @@
           "Quality Assurance, GxP, Compliance, Cornerstone, Training"
         ]
       },
+      "previousSlugs": [
+        "compliance-support-expert-gxp-training-m-f-d-coopers-basel-stadt",
+        "esperto-di-supporto-alla-conformita-gxp-training-m-f-d-coopers-group-ag-basel-stadt"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-support-expert-gxp-training-m-f-d-coopers-basel-stadt",
+          "esperto-di-supporto-alla-conformita-gxp-training-m-f-d-coopers-group-ag-basel-stadt"
+        ]
+      },
       "firstSeenAt": "2026-09-07T15:14:15.885Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2412,15 +2483,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "compliance-support-expert-gxp-training-m-f-d-coopers-basel-stadt"
-        ]
-      },
-      "previousSlugs": [
-        "compliance-support-expert-gxp-training-m-f-d-coopers-basel-stadt"
-      ]
+      }
     },
     {
       "id": "coopers-3358bb94f65e",
@@ -2437,7 +2500,7 @@
       "title": "Senior Data Engineer - Datenplattform & Databricks (m/w/d)",
       "titleByLocale": {
         "it": "Senior Data Ingegnere - Datenplattform & Databricks (m/w/d)",
-        "en": "Senior Data Engineer - Data Platform & Databricks (m/f/d)",
+        "en": "Senior Data Engineer - Datenplattform & Databricks (m/w/d)",
         "de": "Senior Data Ingenieur - Datenplattform & Databricks (m/w/d)",
         "fr": "Senior Data Ingénieur - Datenplattform & Databricks (m/w/d)"
       },
@@ -2453,7 +2516,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XRN197",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:43.775Z",
+      "crawledAt": "2026-09-12T13:03:50.846Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2485,11 +2548,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-data-engineer-datenplattform-databricks-m-w-d-coopers-luzern"
+        "senior-data-engineer-datenplattform-databricks-m-w-d-coopers-luzern",
+        "senior-data-ingegnere-datenplattform-databricks-m-w-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-data-engineer-datenplattform-databricks-m-w-d-coopers-luzern"
+          "senior-data-engineer-datenplattform-databricks-m-w-d-coopers-luzern",
+          "senior-data-ingegnere-datenplattform-databricks-m-w-d-coopers-group-ag-luzern"
         ],
         "fr": [
           "senior-data-engineer-datenplattform-databricks-m-w-d-coopers-luzern"
@@ -2526,7 +2591,7 @@
       "title": "Product Leader (m/w/d)",
       "titleByLocale": {
         "it": "Leader del prodotto (m/f/d)",
-        "en": "Product Leader (m/f/d)",
+        "en": "Product Leader (m/w/d)",
         "de": "Product Leader (m/w/d)",
         "fr": "Chef de produit (h/f/d)"
       },
@@ -2542,7 +2607,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=LV994W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:42.731Z",
+      "crawledAt": "2026-09-12T13:03:50.009Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2574,17 +2639,20 @@
         ]
       },
       "previousSlugs": [
-        "product-leader-m-w-d-coopers-aargau"
+        "product-leader-m-w-d-coopers-aargau",
+        "leader-del-prodotto-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-leader-m-w-d-coopers-aargau"
+          "product-leader-m-w-d-coopers-aargau",
+          "leader-del-prodotto-m-f-d-coopers-group-ag-aargau"
         ],
         "fr": [
           "product-leader-m-w-d-coopers-aargau"
         ]
       },
       "firstSeenAt": "2026-09-08T13:40:24.597Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2630,7 +2698,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4UVZ38",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:40.857Z",
+      "crawledAt": "2026-09-12T13:03:49.168Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2663,12 +2731,14 @@
       },
       "previousSlugs": [
         "senior-aem-entwickler-in-m-w-d-coopers-luzern",
-        "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern"
+        "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
+        "sviluppatore-senior-aem-m-f-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-aem-entwickler-in-m-w-d-coopers-luzern",
-          "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern"
+          "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
+          "sviluppatore-senior-aem-m-f-d-coopers-group-ag-luzern"
         ],
         "en": [
           "senior-aem-entwickler-in-m-w-d-coopers-luzern"
@@ -2678,6 +2748,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:40:23.730Z",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -2723,7 +2794,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=316FLZ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:39.893Z",
+      "crawledAt": "2026-09-12T13:03:48.250Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2758,14 +2829,17 @@
         ]
       },
       "previousSlugs": [
-        "senior-sap-fi-co-solution-consultant-erp-finance-m-w-d-coopers-bern"
+        "senior-sap-fi-co-solution-consultant-erp-finance-m-w-d-coopers-bern",
+        "senior-sap-fi-co-solution-consulente-erp-finanza-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-sap-fi-co-solution-consultant-erp-finance-m-w-d-coopers-bern"
+          "senior-sap-fi-co-solution-consultant-erp-finance-m-w-d-coopers-bern",
+          "senior-sap-fi-co-solution-consulente-erp-finanza-m-w-d-coopers-group-ag-bern"
         ]
       },
       "firstSeenAt": "2026-09-08T13:40:22.856Z",
+      "needsRetranslation": true,
       "salaryMin": 175000,
       "salaryMax": 307500,
       "salarySource": "estimated",
@@ -2811,7 +2885,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B72I2Q",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:13:38.039Z",
+      "crawledAt": "2026-09-12T13:03:46.424Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2888,7 +2962,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=04N7OA",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:13:37.106Z",
+      "crawledAt": "2026-09-12T13:03:45.573Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2965,7 +3039,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O828HG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:13:36.224Z",
+      "crawledAt": "2026-09-12T13:03:44.698Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2999,14 +3073,16 @@
         "test-automation-ingegnere-m-f-d-coopers-group-ag-zug",
         "test-automation-engineer-m-f-d-coopers-zug",
         "test-automation-ingenieur-m-f-d-coopers-group-ag-zug",
-        "lab-automation-engineer-m-f-d-coopers-zug"
+        "lab-automation-engineer-m-f-d-coopers-zug",
+        "lab-automation-ingegnere-m-f-d-coopers-group-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "test-automation-ingegnere-m-f-d-coopers-group-ag-zug",
           "test-automation-engineer-m-f-d-coopers-zug",
           "test-automation-ingenieur-m-f-d-coopers-group-ag-zug",
-          "lab-automation-engineer-m-f-d-coopers-zug"
+          "lab-automation-engineer-m-f-d-coopers-zug",
+          "lab-automation-ingegnere-m-f-d-coopers-group-ag-zug"
         ],
         "en": [
           "test-automation-engineer-m-f-d-coopers-zug"
@@ -3020,6 +3096,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:10:55.524Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3049,7 +3126,7 @@
       "title": "Fullstack DevOps Engineer C#/.NET & Blazor (m/w/d)",
       "titleByLocale": {
         "it": "Fullstack DevOps Ingegnere C#/.NET & Blazor (m/w/d)",
-        "en": "Fullstack DevOps Engineer C#/.NET & Blazor (m/f/d)",
+        "en": "Fullstack DevOps Engineer C#/.NET & Blazor (m/w/d)",
         "de": "Fullstack DevOps Ingenieur C#/.NET & Blazor (m/w/d)",
         "fr": "Fullstack DevOps Ingénieur C#/.NET & Blazor (m/w/d)"
       },
@@ -3065,7 +3142,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4IL4Q6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:35.366Z",
+      "crawledAt": "2026-09-12T13:03:43.822Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3096,19 +3173,21 @@
           "DevOps, Fullstack, .NET, Blazor, MongoDB"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-10T23:10:54.673Z",
+      "previousSlugs": [
+        "fullstack-devops-engineer-c-net-blazor-m-w-d-coopers-bern",
+        "fullstack-devops-ingegnere-c-net-blazor-m-w-d-coopers-group-ag-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fullstack-devops-engineer-c-net-blazor-m-w-d-coopers-bern"
+          "fullstack-devops-engineer-c-net-blazor-m-w-d-coopers-bern",
+          "fullstack-devops-ingegnere-c-net-blazor-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "fullstack-devops-engineer-c-net-blazor-m-w-d-coopers-bern"
         ]
       },
-      "previousSlugs": [
-        "fullstack-devops-engineer-c-net-blazor-m-w-d-coopers-bern"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-10T23:10:54.673Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -3154,7 +3233,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:34.492Z",
+      "crawledAt": "2026-09-12T13:03:42.876Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3185,12 +3264,14 @@
       },
       "previousSlugs": [
         "sheq-fachperson-mit-verantwortung-fur-arbeitssicherheit-m-w-d-coopers-aargau",
-        "sheq-fachperson-con-verantwortung-per-arbeitssicherheit-m-w-d-coopers-group-ag-aargau"
+        "sheq-fachperson-con-verantwortung-per-arbeitssicherheit-m-w-d-coopers-group-ag-aargau",
+        "sheq-professionista-responsabile-della-sicurezza-sul-lavoro-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sheq-fachperson-mit-verantwortung-fur-arbeitssicherheit-m-w-d-coopers-aargau",
-          "sheq-fachperson-con-verantwortung-per-arbeitssicherheit-m-w-d-coopers-group-ag-aargau"
+          "sheq-fachperson-con-verantwortung-per-arbeitssicherheit-m-w-d-coopers-group-ag-aargau",
+          "sheq-professionista-responsabile-della-sicurezza-sul-lavoro-m-f-d-coopers-group-ag-aargau"
         ],
         "en": [
           "sheq-fachperson-mit-verantwortung-fur-arbeitssicherheit-m-w-d-coopers-aargau"
@@ -3200,6 +3281,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:10:53.825Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -3245,7 +3327,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:13:33.597Z",
+      "crawledAt": "2026-09-12T13:03:41.927Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3280,17 +3362,20 @@
         ]
       },
       "previousSlugs": [
-        "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
+        "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
+        "sviluppatore-sharepoint-in-on-premises-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
+          "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
+          "sviluppatore-sharepoint-in-on-premises-m-f-d-coopers-group-ag-bern"
         ],
         "en": [
           "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-08-20T10:23:52.776Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -3307,27 +3392,27 @@
     },
     {
       "id": "coopers-e2588de27506",
-      "slug": "hardware-integration-engineer-m-f-d-coopers-zug",
+      "slug": "hardware-integration-ingegnere-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
+        "it": "hardware-integration-ingegnere-m-f-d-coopers-group-ag-zug",
         "en": "hardware-integration-engineer-m-f-d-coopers-zug",
-        "it": "hardware-integration-engineer-m-f-d-coopers-zug",
-        "de": "hardware-integration-engineer-m-f-d-coopers-zug",
-        "fr": "hardware-integration-engineer-m-f-d-coopers-zug"
+        "de": "hardware-integration-ingenieur-m-f-d-coopers-group-ag-zug",
+        "fr": "hardware-integration-ingenieur-m-f-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
       "title": "Hardware Integration Engineer (m/f/d)",
       "titleByLocale": {
-        "en": "Hardware Integration Engineer (m/f/d)",
         "it": "Hardware Integration Ingegnere (m/f/d)",
+        "en": "Hardware Integration Engineer (m/f/d)",
         "de": "Hardware Integration Ingenieur (m/f/d)",
         "fr": "Hardware Integration Ingénieur (m/f/d)"
       },
       "description": "For our client in the MedTech industry, we are looking for a hardware integration Engineer\n\nTasks & Responsibilities:\n\n• Driving System Integration & Integrity: You will act as a guardian of system quality, leading the physical and logical integration of hardware and software modules into a cohesive, high-performing whole.\n\n• Hardware Parametrization & Firmware Interaction: Rather than just verifying a small part in isolation, you will define critical parameters, configure and program test software, and parameterize the firmware and software to optimize performance and ensure smooth and reliable operation over its lifetime.\n\n• Proactive Robustness & Endurance Testing: Instead of simply executing scripts, you will design and arrange advanced electromechanical test setups, long-term endurance trials, and lifetime reliability tests (targeting critical metrics like MTBF and MTBRV) to explore the system's limits under real-world conditions including SW.\n\n• Transforming Data into Insight: You will listen to what our instruments are telling us. By continuously supervising parameters, tracking hardware counters, and analyzing complex data logs, you will turn raw observations into actionable improvements.\n\n• Collaborative Troubleshooting & Root-Cause Analysis: You will own the journey of mechatronic issues from first discovery to resolution. Collaborating across electronics, mechanics, firmware and software teams, you will perform deep-dive troubleshooting to deliver elegant, fact-based fixes.\n\n• Bridge-Building across R&D and Operations: You will serve as a key technical partner, ensuring the smooth transfer of robust, validated mechatronic designs to our global manufacturing and service partners.\n\nMust Haves:\n\n• A BSc/MSc degree in Electrical Engineering, Mechanical Engineering, Systems Engineering, Mechatronics, or a related discipline\n\n• 5 years of hands-on experience in HW/SW integration, unit- and system-level testing, or mechatronic troubleshooting\n\n• Experience in a regulated environment (such as MedTech, Diagnostics, IVD, or GxP) is a strong advantage Technical Toolkit:\n\n• A deep understanding of mechatronics (the physical interplay between mechanics and electronics) and its interaction with firmware and software.\n\n• Experience in scripting or programming for test execution and automation.\n\n• Comfort and experience working in a Linux environment.\n\n• Mindset: A curious investigator who loves to figure out how complex systems work under the hood. A strong interest in emerging technologies and are eager to explore how AI-assisted tools can be leveraged to optimize hardware testing and data analysis. The person works precisely and persistently, communicating technical findings with empathy and clarity to foster collaborative solutions.\n\n• Fluency in English is required; German is a great advantage for local collaboration.",
       "descriptionByLocale": {
-        "en": "For our client in the MedTech industry, we are looking for a hardware integration Engineer\n\nTasks & Responsibilities:\n\n• Driving System Integration & Integrity: You will act as a guardian of system quality, leading the physical and logical integration of hardware and software modules into a cohesive, high-performing whole.\n\n• Hardware Parametrization & Firmware Interaction: Rather than just verifying a small part in isolation, you will define critical parameters, configure and program test software, and parameterize the firmware and software to optimize performance and ensure smooth and reliable operation over its lifetime.\n\n• Proactive Robustness & Endurance Testing: Instead of simply executing scripts, you will design and arrange advanced electromechanical test setups, long-term endurance trials, and lifetime reliability tests (targeting critical metrics like MTBF and MTBRV) to explore the system's limits under real-world conditions including SW.\n\n• Transforming Data into Insight: You will listen to what our instruments are telling us. By continuously supervising parameters, tracking hardware counters, and analyzing complex data logs, you will turn raw observations into actionable improvements.\n\n• Collaborative Troubleshooting & Root-Cause Analysis: You will own the journey of mechatronic issues from first discovery to resolution. Collaborating across electronics, mechanics, firmware and software teams, you will perform deep-dive troubleshooting to deliver elegant, fact-based fixes.\n\n• Bridge-Building across R&D and Operations: You will serve as a key technical partner, ensuring the smooth transfer of robust, validated mechatronic designs to our global manufacturing and service partners.\n\nMust Haves:\n\n• A BSc/MSc degree in Electrical Engineering, Mechanical Engineering, Systems Engineering, Mechatronics, or a related discipline\n\n• 5 years of hands-on experience in HW/SW integration, unit- and system-level testing, or mechatronic troubleshooting\n\n• Experience in a regulated environment (such as MedTech, Diagnostics, IVD, or GxP) is a strong advantage Technical Toolkit:\n\n• A deep understanding of mechatronics (the physical interplay between mechanics and electronics) and its interaction with firmware and software.\n\n• Experience in scripting or programming for test execution and automation.\n\n• Comfort and experience working in a Linux environment.\n\n• Mindset: A curious investigator who loves to figure out how complex systems work under the hood. A strong interest in emerging technologies and are eager to explore how AI-assisted tools can be leveraged to optimize hardware testing and data analysis. The person works precisely and persistently, communicating technical findings with empathy and clarity to foster collaborative solutions.\n\n• Fluency in English is required; German is a great advantage for local collaboration.",
         "it": "Per il nostro cliente nel settore MedTech, stiamo cercando un ingegnere di integrazione hardware\n\nCompiti e responsabilità:\n\n• Integrazione del sistema di guida & Integrity: Lei agirà come custode della qualità del sistema, conducendo l'integrazione fisica e logica di hardware e moduli software in un insieme coeso e ad alto rendimento.\n\n• Hardware Parametrization & Firmware Interaction: Piuttosto che solo verificare una piccola parte in isolamento, definiremo parametri critici, configurare e programmare software di prova, e parametrizzare il firmware e il software per ottimizzare le prestazioni e garantire un funzionamento fluido e affidabile nel corso della sua vita.\n\n• Proattivo Robustezza & Endurance Testing: Invece di eseguire semplicemente gli script, si progetta e organizzerà configurazioni di test elettromeccanici avanzate, prove di resistenza a lungo termine e test di affidabilità a vita (che rappresentano metriche critiche come MTBF e MTBRV) per esplorare i limiti del sistema in condizioni reali, tra cui SW.\n\n• Trasformare i dati in Insight: Ascolterai ciò che ci dicono i nostri strumenti. Superando continuamente i parametri, monitorando i contatori hardware e analizzando i registri di dati complessi, si trasformeranno le osservazioni crude in miglioramenti attuabili.\n\n• Risoluzione dei problemi di collaborazione & Root-Cause Analysis: possederai il viaggio di problemi meccatronici dalla prima scoperta alla risoluzione. Collaborando tra i team di elettronica, meccanica, firmware e software, eseguirai una risoluzione dei problemi in profondità per fornire soluzioni eleganti e basate sul fatto.\n\n• Bridge-Building attraverso R&D e Operations: Lei servirà come partner tecnico chiave, assicurando il trasferimento regolare di robusti e convalidati disegni meccatronici ai nostri partner di produzione e servizio globali.\n\nDeve avere:\n\n• Laurea in ingegneria elettrica, ingegneria meccanica, ingegneria dei sistemi, meccatronica, o una disciplina correlata\n\n• 5 anni di esperienza pratica nell'integrazione HW/SW, test a livello di unità e di sistema, o risoluzione dei problemi meccatronici\n\n• L'esperienza in un ambiente regolamentato (come MedTech, Diagnostics, IVD o GxP) è un toolkit tecnico di grande vantaggio:\n\n• Una profonda comprensione della meccatronica (l'interazione fisica tra meccanica ed elettronica) e la sua interazione con firmware e software.\n\n• Esperienza nella scrittura o nella programmazione per l'esecuzione di test e l'automazione.\n\n• Comfort ed esperienza di lavoro in un ambiente Linux.\n\n• Mindset: Un curioso investigatore che ama capire come i sistemi complessi lavorano sotto il cofano. Un forte interesse per le tecnologie emergenti e sono desiderosi di esplorare come gli strumenti assistiti dall'IA possono essere sfruttati per ottimizzare i test hardware e l'analisi dei dati. La persona lavora in modo preciso e persistente, comunicando risultati tecnici con empatia e chiarezza per favorire soluzioni collaborative.\n\n• Il tedesco è un grande vantaggio per la collaborazione locale.",
+        "en": "For our client in the MedTech industry, we are looking for a hardware integration Engineer\n\nTasks & Responsibilities:\n\n• Driving System Integration & Integrity: You will act as a guardian of system quality, leading the physical and logical integration of hardware and software modules into a cohesive, high-performing whole.\n\n• Hardware Parametrization & Firmware Interaction: Rather than just verifying a small part in isolation, you will define critical parameters, configure and program test software, and parameterize the firmware and software to optimize performance and ensure smooth and reliable operation over its lifetime.\n\n• Proactive Robustness & Endurance Testing: Instead of simply executing scripts, you will design and arrange advanced electromechanical test setups, long-term endurance trials, and lifetime reliability tests (targeting critical metrics like MTBF and MTBRV) to explore the system's limits under real-world conditions including SW.\n\n• Transforming Data into Insight: You will listen to what our instruments are telling us. By continuously supervising parameters, tracking hardware counters, and analyzing complex data logs, you will turn raw observations into actionable improvements.\n\n• Collaborative Troubleshooting & Root-Cause Analysis: You will own the journey of mechatronic issues from first discovery to resolution. Collaborating across electronics, mechanics, firmware and software teams, you will perform deep-dive troubleshooting to deliver elegant, fact-based fixes.\n\n• Bridge-Building across R&D and Operations: You will serve as a key technical partner, ensuring the smooth transfer of robust, validated mechatronic designs to our global manufacturing and service partners.\n\nMust Haves:\n\n• A BSc/MSc degree in Electrical Engineering, Mechanical Engineering, Systems Engineering, Mechatronics, or a related discipline\n\n• 5 years of hands-on experience in HW/SW integration, unit- and system-level testing, or mechatronic troubleshooting\n\n• Experience in a regulated environment (such as MedTech, Diagnostics, IVD, or GxP) is a strong advantage Technical Toolkit:\n\n• A deep understanding of mechatronics (the physical interplay between mechanics and electronics) and its interaction with firmware and software.\n\n• Experience in scripting or programming for test execution and automation.\n\n• Comfort and experience working in a Linux environment.\n\n• Mindset: A curious investigator who loves to figure out how complex systems work under the hood. A strong interest in emerging technologies and are eager to explore how AI-assisted tools can be leveraged to optimize hardware testing and data analysis. The person works precisely and persistently, communicating technical findings with empathy and clarity to foster collaborative solutions.\n\n• Fluency in English is required; German is a great advantage for local collaboration.",
         "de": "Für unseren Kunden in der MedTech-Branche suchen wir einen Hardware Integration Engineer\n\nAufgaben & Verantwortlichkeiten:\n\n• Driving System Integration & Integrity: Sie fungieren als Hüter der Systemqualität und führen die physische und logische Integration von Hard- und Softwaremodulen in ein zusammenhängendes, leistungsstarkes Ganzes.\n\n• Hardware-Parametrisierung & Firmware-Interaktion: Anstatt nur ein kleines Teil isoliert zu verifizieren, definieren Sie kritische Parameter, konfigurieren und programmieren Testsoftware und parametrieren Firmware und Software, um die Leistung zu optimieren und einen reibungslosen und zuverlässigen Betrieb über die Lebensdauer zu gewährleisten.\n\n• Proaktive Robustheits- und Endurance-Tests: Anstatt nur Skripte auszuführen, entwerfen und arrangieren Sie fortschrittliche elektromechanische Test-Setups, Langzeit-Ausdauertests und lebenslange Zuverlässigkeitstests (mit kritischen Metriken wie MTBF und MTBRV), um die Grenzen des Systems unter realen Bedingungen einschließlich SW zu erkunden.\n\n• Daten in Einsicht verwandeln: Sie werden hören, was unsere Instrumente uns sagen. Durch die kontinuierliche Überwachung von Parametern, die Nachverfolgung von Hardwarezählern und die Analyse komplexer Datenprotokolle verwandeln Sie rohe Beobachtungen in umsetzbare Verbesserungen.\n\n• Collaborative Troubleshooting & Root-Cause Analysis: Sie werden die Reise der mechatronischen Probleme von der ersten Entdeckung bis zur Lösung besitzen. In Zusammenarbeit mit Elektronik-, Mechanik-, Firmware- und Softwareteams führen Sie eine Deep-Dive-Fehlersuche durch, um elegante, faktenbasierte Korrekturen zu liefern.\n\n• Brückenbau über Forschung & Entwicklung und Betrieb: Sie werden als wichtiger technischer Partner fungieren und die reibungslose Übertragung robuster, validierter mechatronischer Designs an unsere globalen Fertigungs- und Servicepartner sicherstellen.\n\nMust Haves:\n\n• Ein BSc / MSc-Abschluss in Elektrotechnik, Maschinenbau, Systemtechnik, Mechatronik oder einer verwandten Disziplin\n\n• 5 Jahre praktische Erfahrung in HW/SW-Integration, Unit- und System-Level-Testing oder mechatronischer Fehlersuche\n\n• Erfahrung in einer regulierten Umgebung (wie MedTech, Diagnose, IVD oder GxP) ist ein großer Vorteil Technical Toolkit:\n\n• Ein tiefes Verständnis der Mechatronik (das physikalische Zusammenspiel zwischen Mechanik und Elektronik) und ihrer Interaktion mit Firmware und Software.\n\n• Erfahrung in Skripting oder Programmierung für Testausführung und Automatisierung.\n\n• Komfort und Erfahrung in einer Linux-Umgebung.\n\n• Mindset: Ein neugieriger Ermittler, der es liebt herauszufinden, wie komplexe Systeme unter der Haube funktionieren. Ein starkes Interesse an neuen Technologien und sind gespannt, wie KI-unterstützte Tools genutzt werden können, um Hardware-Tests und Datenanalysen zu optimieren. Die Person arbeitet präzise und hartnäckig und kommuniziert technische Erkenntnisse mit Empathie und Klarheit, um kollaborative Lösungen zu fördern.\n\n• Englischkenntnisse sind erforderlich; Deutsch ist ein großer Vorteil für die lokale Zusammenarbeit.",
         "fr": "Pour notre client dans l'industrie MedTech, nous recherchons un ingénieur d'intégration matérielle\n\nTâches et responsabilités :\n\n• Intégration et intégrité du système de conduite: Vous agirez comme gardien de la qualité du système, menant à l'intégration physique et logique des modules matériels et logiciels dans un tout cohérent et performant.\n\n• Paramétrisation matérielle et interaction du micrologiciel : Plutôt que de vérifier une petite partie isolément, vous définirez les paramètres critiques, configurerez et programmerez le logiciel de test, et paramétrerez le micrologiciel et le logiciel pour optimiser les performances et assurer un fonctionnement fluide et fiable tout au long de sa vie.\n\n• Tests de robustesse et d'endurance proactifs : Au lieu de simplement exécuter des scripts, vous concevrez et organiserez des essais électromécaniques avancés, des essais d'endurance à long terme et des tests de fiabilité à vie (cible des mesures critiques comme MTBF et MTBRV) pour explorer les limites du système dans des conditions réelles, y compris SW.\n\n• Transformer les données en une vision: Vous écouterez ce que nos instruments nous disent. En surveillant en permanence les paramètres, en suivant les compteurs de matériel et en analysant les journaux de données complexes, vous transformerez les observations brutes en améliorations actionnables.\n\n• Dépannage collaboratif et analyse des causes profondes : Vous posséderez le parcours des problèmes mécatroniques de la première découverte à la résolution. Collaborant avec des équipes d'électronique, de mécanique, de firmware et de logiciels, vous effectuerez des dépannages profonds pour fournir des corrections élégantes et factuelles.\n\n• Bâtir des ponts à travers la R-D et les opérations : Vous serez un partenaire technique clé, assurant le transfert en douceur de conceptions mécatroniques robustes et validées à nos partenaires mondiaux de fabrication et de service.\n\nDoit :\n\n• Baccalauréat en génie électrique, génie mécanique, génie des systèmes, mécatronique ou discipline connexe\n\n• 5 ans d'expérience pratique dans l'intégration HW/SW, les tests au niveau des unités et des systèmes, ou le dépannage mécatronique\n\n• L'expérience dans un environnement réglementé (tels que MedTech, Diagnostics, IVD ou GxP) est un atout important.\n\n• Une compréhension profonde de la mécatronique (l'interaction physique entre la mécanique et l'électronique) et de son interaction avec le firmware et le logiciel.\n\n• Expérience en script ou en programmation pour l'exécution de tests et l'automatisation.\n\n• Confort et expérience de travail dans un environnement Linux.\n\n• Mindset: Un enquêteur curieux qui aime comprendre comment les systèmes complexes fonctionnent sous le capot. Un vif intérêt pour les technologies émergentes et sont impatients d'explorer comment utiliser les outils assistés par l'IA pour optimiser les tests matériels et l'analyse des données. La personne travaille avec précision et persévérance, en communiquant les résultats techniques avec empathie et clarté pour favoriser des solutions collaboratives.\n\n• La maîtrise de l'anglais est nécessaire; l'allemand est un grand avantage pour la collaboration locale."
       },
@@ -3336,7 +3421,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3L2X5M",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:13:32.649Z",
+      "crawledAt": "2026-09-12T13:03:40.990Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3366,6 +3451,22 @@
           "Software engineering"
         ]
       },
+      "firstSeenAt": "2026-09-11T23:13:32.649Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "hardware-integration-engineer-m-f-d-coopers-zug"
+        ],
+        "de": [
+          "hardware-integration-engineer-m-f-d-coopers-zug"
+        ],
+        "fr": [
+          "hardware-integration-engineer-m-f-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "hardware-integration-engineer-m-f-d-coopers-zug"
+      ],
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3378,8 +3479,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-11T23:13:32.649Z"
+      }
     },
     {
       "id": "coopers-687a0cfa57c1",
@@ -3402,17 +3502,17 @@
       },
       "description": "positions\n\n•\n\t\t\t\t\t\tSenior IT Project Manager\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
       "descriptionByLocale": {
-        "en": "positions\n\n•\n\t\t\t\t\t\tSenior IT Project Manager\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
-        "it": "posizioni\n\n•\n Responsabile del progetto IT senior\n\nCandidati\n\n•\n Coopers Portal\n\n•\n Coopers Care\n\n•\n Specializzazione\n\n•\n Posizioni\n\n•\n Contratti\n\n•\n Pagamenti\n\n•\n Fare riferimento a un amico\n\nAziende\n\n•\n Reclutamento\n\n•\n Ricerca executive\n\n•\n Reclutamento del progetto\n\n•\n RPO\n\n•\n MSP\n\n•\n Consulenza e Soluzioni\n\nInformazioni\n\n•\n Team\n\n•\n Unisciti a noi\n\n•\n Talentor\n\nBlog\n\nContatto\n\n• Modulo di contatto\n\n• Offerte IT Basilea\n\n• Lavori IT Zurigo\n\n• Offerte di lavoro Berna\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basilea\n\n+41 41 632 43 50\n\nufficio@coopers.ch\n\n•\n\n•\n Informativa sulla privacy\n\n•\n Imprint\n\n•\n Mappa del sito",
-        "de": "Positionen\n\n•\n Senior IT Projektmanager\n\nKandidaten\n\n•\n Coopers Portal\n\n•\n Coopers Care\n\n•\n Spezialisierung\n\n•\n Platzierungen\n\n•\n Vertrag\n\n•\n Payrolling\n\n•\n Verweisen Sie einen Freund\n\nUnternehmen\n\n•\n Einstellung\n\n•\n Executive Search\n\n•\n Projektrekrutierung\n\n•\n RPO\n\n•\n MSP\n\n•\n Beratung & Lösungen\n\nÜber\n\n•\n Team\n\n•\n Begleiten Sie uns\n\n•\n Talentor\n\nBlog Blog\n\nKontakt\n\n• Kontaktformular\n\n• IT Jobs Basel\n\n• IT Jobs Zürich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstraße 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n Datenschutzpolitik\n\n•\n Abdruck\n\n•\n Sitemap",
-        "fr": "Fonctions\n\n•\n Gestionnaire principal de projet TI\n\nCandidats\n\n•\n Portail Coopers\n\n•\n Coopers Care\n\n•\n Spécialisation\n\n•\n Placements\n\n•\n Contrats\n\n•\n Solde\n\n•\n Référez un ami\n\nEntreprises\n\n•\n Recrutement\n\n•\n Recherche exécutive\n\n•\n Recrutement de projets\n\n•\n RPO\n\n•\n MSP\n\n•\n Conseil & Solutions\n\nÀ propos\n\n•\n Équipe\n\n•\n Rejoignez-nous\n\n•\n Talentor\n\nBlog\n\nPersonne à contacter\n\n• Formulaire de contact\n\n• Emplois en TI Bâle\n\n• Emplois en informatique Zurich\n\n• Emplois en informatique Berne\n\n• Emplois LS Bâle\n\nGroupe Coopers AG\n\nGrellingerstrasse 75\n\nCH-4052 Bâle\n\n+41 41 632 43 50\n\nbureau@coopers.ch\n\n•\n\n•\n Politique de confidentialité\n\n•\n Empreinte\n\n•\n Plan du site"
+        "it": "posizioni\n\n•\nResponsabile del progetto IT senior\n\nCandidati\n\n•\nCoopers Portal\n\n•\nCoopers Care\n\n•\nSpecializzazione\n\n•\nContratti\n\n•\nPagamenti\n\n•\nFare riferimento a un amico\n\nAziende\n\n•\nReclutamento\n\n•\nRicerca executive\n\n•\nReclutamento del progetto\n\n•\nRPO\n\n•\nMSP\n\n•\nConsulenza e Soluzioni\n\nInformazioni\n\n•\nTeam\n\n•\nUnisciti a noi\n\n•\nTalentor\n\nBlog\n\nContatto\n\n• Modulo di contatto\n\n• Offerte IT Basilea\n\n• Lavori IT Zurigo\n\n• Offerte di lavoro Berna\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basilea\n\n+41 41 632 43 50\n\nufficio@coopers.ch\n\n•\n\n•\nInformativa sulla privacy\n\n•\nImprint\n\n•\nMappa del sito",
+        "en": "positions\n\n•\nSenior IT Project Manager\n\nCandidates\n\n•\n\nCoopers Portal\n\nCoopers Care\n\nSpecialization\n\nPlacements\n\nContracting\n\nPayrolling\n\nRefer a Friend\n\nCompanies\n\nRecruitment\n\nExecutive Search\n\nProject Recruiting\n\nRPO\n\nMSP\n\nConsulting & Solutions\n\nAbout\n\nTeam\n\nJoin us\n\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\nPrivacy policy\n\nImprint\n\nSitemap",
+        "de": "Positionen\n\n•\nSenior IT Projektmanager\n\nKandidaten\n\n•\nCoopers Portal\n\n•\nCoopers Care\n\n•\nSpezialisierung\n\n•\nPlatzierungen\n\n•\nVertrag\n\n•\nPayrolling\n\n•\nVerweisen Sie einen Freund\n\nUnternehmen\n\n•\nEinstellung\n\n•\nExecutive Search\n\n•\nProjektrekrutierung\n\n•\nRPO\n\n•\nMSP\n\n•\nBeratung & Lösungen\n\nÜber\n\n•\nTeam\n\n•\nBegleiten Sie uns\n\n•\nTalentor\n\nBlog Blog\n\nKontakt\n\n• Kontaktformular\n\n• IT Jobs Basel\n\n• IT Jobs Zürich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstraße 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\nDatenschutzpolitik\n\n•\nAbdruck\n\n•\nSitemap",
+        "fr": "Fonctions\n\n•\nGestionnaire principal de projet TI\n\nCandidats\n\n•\nPortail Coopers\n\n•\nCoopers Care\n\n•\nSpécialisation\n\n•\nPlacements\n\n•\nContrats\n\n•\nSolde\n\n•\nRéférez un ami\n\nEntreprises\n\n•\nRecrutement\n\n•\nRecherche exécutive\n\n•\nRecrutement de projets\n\n•\nRPO\n\n•\nMSP\n\n•\nConseil & Solutions\n\nÀ propos\n\n•\nÉquipe\n\n•\nRejoignez-nous\n\n•\nTalentor\n\nBlog\n\nPersonne à contacter\n\n• Formulaire de contact\n\n• Emplois en TI Bâle\n\n• Emplois en informatique Zurich\n\n• Emplois en informatique Berne\n\n• Emplois LS Bâle\n\nGroupe Coopers AG\n\nGrellingerstrasse 75\n\nCH-4052 Bâle\n\n+41 41 632 43 50\n\nbureau@coopers.ch\n\n•\n\n•\nPolitique de confidentialité\n\n•\nEmpreinte\n\n•\nPlan du site"
       },
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2A5C2E",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:13:31.798Z",
+      "crawledAt": "2026-09-12T13:03:40.133Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3460,105 +3560,14 @@
       "firstSeenAt": "2026-09-11T23:13:31.798Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-it-project-manager-m-f-d-coopers-solothurn"
+          "senior-it-project-manager-m-f-d-coopers-solothurn",
+          "responsabile-progetti-it-senior-m-f-d-coopers-group-ag-solothurn"
         ]
       },
       "previousSlugs": [
-        "senior-it-project-manager-m-f-d-coopers-solothurn"
+        "senior-it-project-manager-m-f-d-coopers-solothurn",
+        "responsabile-progetti-it-senior-m-f-d-coopers-group-ag-solothurn"
       ]
-    },
-    {
-      "id": "coopers-5d0c996657ef",
-      "slug": "acquirente-materiale-m-f-d-coopers-group-ag-zug",
-      "slugByLocale": {
-        "it": "acquirente-materiale-m-f-d-coopers-group-ag-zug",
-        "en": "material-buyer-m-f-d-coopers-zug",
-        "de": "materialkaufer-m-w-d-coopers-group-ag-zug",
-        "fr": "acheteur-de-materiel-h-f-d-coopers-group-ag-zug"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Material Buyer (m/f/d)",
-      "titleByLocale": {
-        "it": "Acquirente materiale (m/f/d)",
-        "en": "Material Buyer (m/f/d)",
-        "de": "Materialkäufer (m/w/d)",
-        "fr": "Acheteur de matériel (h/f/d)"
-      },
-      "description": "For our client in the Diagnostics industry, we are looking for a Material Buyer who is going to end-to-end procurement processes for non-finished goods, components and assemblies\n\nMain tasks:\n\n• Order & Inventory Management: Process requisitions, place purchase orders globally, manage Just-In-Time (JIT) processes, and oversee Vendor-Managed Inventory (VMI).\n\n• Delivery & Shortage Mitigation: Track open orders, monitor on-time deliveries, and proactively initiate escalation measures to eliminate production interruptions and resolve material shortages.\n\n• Supplier Relationship & Forecasting: Maintain daily operational supplier relationships, manage iCollab integration (POs, shipping, forecasting, eInvoicing), and distribute supplier forecasts alongside performance data for review meetings.\n\n• Financial & Data Accuracy: Verify and approve incoming invoices, resolve price or quantity discrepancies, manage supplier complaints, and maintain accurate master data in SAP ERP and iCollab.\n\n• Reporting & Onboarding: Generate routine reports on orders, supplier performance, and inventory levels. Mentor and train incoming Buyer 2 and Buyer 3 team members to ensure team knowledge continuity.\n\n• Cross-Site Projects: Contribute to cross-functional and cross-site initiatives focused on optimizing procurement and supply chain processes.\n\n• Workflow Optimization: Continuously evaluate and refine operational workflows to enhance quality, efficiency, and team output\n\nYour experience:\n\n• Education: Bachelor’s degree in Business, Supply Chain Management, Logistics, or a related field.\n\n• Professional Experience: Minimum 2 years of relevant post-graduation work experience in procurement/supply chain (excluding internships, working student roles, or thesis work).\n\n• Technical Skills: Proven proficiency with SAP ERP (MM, PP, and Master Data) and a strong affinity for data-driven decision-making.\n\n• Project Management: Practical experience participating in or leading project-based initiatives.\n\n• Languages: Business fluency in both German and English (written and spoken).\n\n• Soft Skills: Exceptional stakeholder management, strong team spirit, structured work habits, and a systems-thinking mindset.",
-      "descriptionByLocale": {
-        "it": "Per il nostro cliente nell'industria Diagnostica, stiamo cercando un compratore di materiale che finirà per concludere i processi di approvvigionamento per beni non finiti, componenti e assemblaggi\n\nPrincipali compiti:\n\n• Gestione dell'ordine e dell'inventario: Requisizioni di processo, ordini di acquisto di luogo a livello globale, gestione dei processi di Just-In-Time (JIT) e supervisionare l'inventario del venditore-gestito (VMI).\n\n• Consegna & Shortage Mitigation: Traccia gli ordini aperti, monitora le consegne in tempo reale e avvia proattivamente misure di escalation per eliminare le interruzioni di produzione e risolvere la carenza di materiale.\n\n• Rapporti e Previsione del Fornitore: Mantenere le relazioni quotidiane dei fornitori operativi, gestire l'integrazione di iCollab (PO, spedizione, previsione, eInvoicing), e distribuire le previsioni dei fornitori insieme ai dati delle prestazioni per le riunioni di revisione.\n\n• Accuratezza finanziaria e dati: verifica e approva le fatture in arrivo, risolvi il prezzo o le discrepanze di quantità, gestisci i reclami dei fornitori e mantieni i dati master accurati in SAP ERP e iCollab.\n\n• Reporting & Onboarding: Generare rapporti di routine su ordini, prestazioni dei fornitori e livelli di inventario. Mentore e treno in arrivo Buyer 2 e Buyer 3 membri del team per garantire la continuità della conoscenza del team.\n\n• Progetti cross-Site: Contribuire a iniziative interfunzionali e cross-site focalizzate sull'ottimizzazione dei processi di approvvigionamento e supply chain.\n\n• Ottimizzazione del flusso di lavoro: Valutare costantemente e affinare i flussi di lavoro operativi per migliorare la qualità, l'efficienza e l'output del team\n\nLa tua esperienza:\n\n• Istruzione: laurea in Business, Supply Chain Management, Logistica, o un campo relativo.\n\n• Esperienza professionale: minimo 2 anni di esperienza lavorativa post-graduazione rilevante nella catena di approvvigionamento/fornimento (esclusi gli stage, i ruoli degli studenti di lavoro, o il lavoro di tesi).\n\n• Competenze tecniche: Prove competenze con SAP ERP (MM, PP e Master Data) e una forte affinità per il processo decisionale basato sui dati.\n\n• Project Management: Esperienza pratica che partecipa a o alle principali iniziative di progetto.\n\n• Lingue: Fluenza aziendale sia in tedesco che in inglese (scritta e parlata).\n\n• Soft Skills: gestione eccezionale delle parti interessate, forte spirito di squadra, abitudini di lavoro strutturate e una mentalità che pensa ai sistemi.",
-        "en": "For our client in the Diagnostics industry, we are looking for a Material Buyer who is going to end-to-end procurement processes for non-finished goods, components and assemblies\n\nMain tasks:\n\n• Order & Inventory Management: Process requisitions, place purchase orders globally, manage Just-In-Time (JIT) processes, and oversee Vendor-Managed Inventory (VMI).\n\n• Delivery & Shortage Mitigation: Track open orders, monitor on-time deliveries, and proactively initiate escalation measures to eliminate production interruptions and resolve material shortages.\n\n• Supplier Relationship & Forecasting: Maintain daily operational supplier relationships, manage iCollab integration (POs, shipping, forecasting, eInvoicing), and distribute supplier forecasts alongside performance data for review meetings.\n\n• Financial & Data Accuracy: Verify and approve incoming invoices, resolve price or quantity discrepancies, manage supplier complaints, and maintain accurate master data in SAP ERP and iCollab.\n\n• Reporting & Onboarding: Generate routine reports on orders, supplier performance, and inventory levels. Mentor and train incoming Buyer 2 and Buyer 3 team members to ensure team knowledge continuity.\n\n• Cross-Site Projects: Contribute to cross-functional and cross-site initiatives focused on optimizing procurement and supply chain processes.\n\n• Workflow Optimization: Continuously evaluate and refine operational workflows to enhance quality, efficiency, and team output\n\nYour experience:\n\n• Education: Bachelor’s degree in Business, Supply Chain Management, Logistics, or a related field.\n\n• Professional Experience: Minimum 2 years of relevant post-graduation work experience in procurement/supply chain (excluding internships, working student roles, or thesis work).\n\n• Technical Skills: Proven proficiency with SAP ERP (MM, PP, and Master Data) and a strong affinity for data-driven decision-making.\n\n• Project Management: Practical experience participating in or leading project-based initiatives.\n\n• Languages: Business fluency in both German and English (written and spoken).\n\n• Soft Skills: Exceptional stakeholder management, strong team spirit, structured work habits, and a systems-thinking mindset.",
-        "de": "Für unseren Kunden in der Diagnostikbranche suchen wir einen Materialkäufer, der die End-to-End-Beschaffungsprozesse für unfertige Waren, Komponenten und Baugruppen durchführt.\n\nHauptaufgaben:\n\n• Order & Inventory Management: Anforderungen bearbeiten, Bestellungen global aufgeben, Just-In-Time (JIT)-Prozesse verwalten und Vendor-Managed Inventory (VMI) beaufsichtigen.\n\n• Liefer- und Engpassminderung: Verfolgen Sie offene Aufträge, überwachen Sie pünktliche Lieferungen und initiieren Sie proaktiv Eskalationsmaßnahmen, um Produktionsunterbrechungen zu beseitigen und Materialknappheit zu beheben.\n\n• Supplier Relationship & Forecasting: Pflegen Sie die täglichen operativen Lieferantenbeziehungen, verwalten Sie die iCollab-Integration (POs, Versand, Prognose, eInvoicing) und verteilen Sie Lieferantenprognosen neben Leistungsdaten für Review-Meetings.\n\n• Finanz- und Datengenauigkeit: Überprüfen und genehmigen Sie eingehende Rechnungen, beheben Sie Preis- oder Mengenabweichungen, verwalten Sie Lieferantenbeschwerden und pflegen Sie genaue Stammdaten in SAP ERP und iCollab.\n\n• Reporting & Onboarding: Generieren Sie Routineberichte über Bestellungen, Lieferantenleistung und Lagerbestände. Mentor und trainieren eingehende Buyer 2 und Buyer 3 Teammitglieder, um die Kontinuität des Teamwissens zu gewährleisten.\n\n• Standortübergreifende Projekte: Beitrag zu funktions- und standortübergreifenden Initiativen zur Optimierung von Beschaffungs- und Lieferkettenprozessen.\n\n• Workflow-Optimierung: Kontinuierliche Evaluierung und Verfeinerung betrieblicher Workflows zur Verbesserung von Qualität, Effizienz und Teamleistung\n\nIhre Erfahrung:\n\n• Ausbildung: Bachelor-Abschluss in Business, Supply Chain Management, Logistik oder einem verwandten Bereich.\n\n• Berufserfahrung: Mindestens 2 Jahre einschlägige Berufserfahrung nach dem Abschluss in der Beschaffungs-/Lieferkette (ausgenommen Praktika, Werkstudentenrollen oder Abschlussarbeiten).\n\n• Technische Fähigkeiten: Bewährte Kenntnisse in SAP ERP (MM, PP und Master Data) und eine starke Affinität für datengesteuerte Entscheidungen.\n\n• Projektmanagement: Praktische Erfahrung in der Teilnahme an oder Leitung von projektbasierten Initiativen.\n\n• Sprachen: Business fließend in Deutsch und Englisch (geschrieben und gesprochen).\n\n• Soft Skills: Außergewöhnliches Stakeholder-Management, starker Teamgeist, strukturierte Arbeitsgewohnheiten und eine systemorientierte Denkweise.",
-        "fr": "Pour notre client dans l'industrie Diagnostics, nous cherchons un acheteur de matériaux qui va de bout en bout des processus d'approvisionnement pour les biens, composants et assemblages non finis\n\nPrincipales tâches:\n\n• Gestion des commandes et des stocks : traitez les demandes, passez des commandes à l'échelle mondiale, gérez les processus JIT et supervisez les stocks gérés par les fournisseurs.\n\n• Atténuation de la livraison et de la pénurie : suivre les commandes ouvertes, surveiller les livraisons à temps et prendre des mesures proactives d'escalade pour éliminer les interruptions de production et résoudre les pénuries matérielles.\n\n• Relations avec les fournisseurs et prévisions : Maintenir des relations opérationnelles quotidiennes avec les fournisseurs, gérer l'intégration iCollab (PO, expédition, prévision, facturation électronique) et distribuer les prévisions des fournisseurs en même temps que les données de performance pour les réunions d'examen.\n\n• Exactitude financière et de données : Vérifier et approuver les factures reçues, résoudre les écarts de prix ou de quantité, gérer les plaintes des fournisseurs et maintenir des données de base précises dans SAP ERP et iCollab.\n\n• Reporting & Inboarding: Générer des rapports de routine sur les commandes, les performances des fournisseurs et les niveaux d'inventaire. Mentor et former les nouveaux membres de l'équipe Acheteur 2 et Acheteur 3 pour assurer la continuité des connaissances de l'équipe.\n\n• Projets transsites : Contribuer à des initiatives interfonctionnelles et intersites axées sur l'optimisation des processus d'approvisionnement et de chaîne d'approvisionnement.\n\n• Optimisation du flux de travail : Évaluer et affiner en permanence les flux de travail opérationnels afin d'améliorer la qualité, l'efficacité et la sortie de l'équipe\n\nVotre expérience:\n\n• Études: Baccalauréat en affaires, gestion de la chaîne d'approvisionnement, logistique, ou un domaine connexe.\n\n• Expérience professionnelle : minimum de 2 ans d'expérience de travail pertinente après l'obtention d'un diplôme dans la chaîne d'approvisionnement (à l'exclusion des stages, des rôles d'étudiants ou des travaux de thèse).\n\n• Compétences techniques : Compétence éprouvée avec SAP ERP (MM, PP et Master Data) et une forte affinité pour la prise de décision axée sur les données.\n\n• Gestion de projet : Expérience pratique de la participation ou de la direction d'initiatives axées sur le projet.\n\n• Langues: Anglais et allemand (écrit et parlé).\n\n• Compétences douces : gestion exceptionnelle des parties prenantes, esprit d'équipe fort, habitudes de travail structurées et état d'esprit de réflexion des systèmes."
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SEC718",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-10T23:11:03.294Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-03",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=SEC718",
-      "requirements": [
-        "Administration - Various",
-        "Contracting",
-        "Full Time",
-        "November 2026 - 12 months + extension",
-        "Supply Chain"
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Administration - Various",
-          "Contracting",
-          "Full Time",
-          "November 2026 - 12 months + extension",
-          "Supply Chain"
-        ]
-      },
-      "previousSlugs": [
-        "material-buyer-m-f-d-coopers-zug",
-        "material-buyer-m-w-d-coopers-group-ag-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "material-buyer-m-f-d-coopers-zug",
-          "material-buyer-m-w-d-coopers-group-ag-zug"
-        ],
-        "de": [
-          "material-buyer-m-f-d-coopers-zug"
-        ],
-        "fr": [
-          "material-buyer-m-f-d-coopers-zug"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T13:32:09.513Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
