@@ -116,12 +116,18 @@ jobs:
           import fs from 'node:fs';
           import { getFirestoreDb } from './scripts/lib/firestore-admin.mjs';
 
+          const expectedSource = process.env.INSIGHTS_SOURCE;
+          if (!expectedSource) throw new Error('INSIGHTS_SOURCE is required before reading the snapshot baseline');
           const db = await getFirestoreDb();
           const snapshot = await db.collection('employer_insights').get();
           if (snapshot.empty) throw new Error('employer_insights is empty; refusing a first write without a baseline');
-          const ids = snapshot.docs.map((doc) => doc.id).sort();
-          fs.writeFileSync('/tmp/employer-insights-current.json', JSON.stringify({ count: ids.length, ids }, null, 2) + '\n');
-          console.log(`Current employer_insights documents: ${ids.length}`);
+          const ids = snapshot.docs
+            .filter((doc) => doc.data()?.source === expectedSource)
+            .map((doc) => doc.id)
+            .sort();
+          if (ids.length === 0) throw new Error(`employer_insights has no ${expectedSource} documents; refusing a first write for this source`);
+          fs.writeFileSync('/tmp/employer-insights-current.json', JSON.stringify({ source: expectedSource, count: ids.length, ids }, null, 2) + '\n');
+          console.log(`Current employer_insights documents for ${expectedSource}: ${ids.length} (collection total: ${snapshot.size})`);
           NODE
 
       - name: Build complete dry-run payload (no Firestore write)
