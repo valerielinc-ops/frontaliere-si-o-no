@@ -34806,6 +34806,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'indice-rischio-geopolitico-ticino',
+ category: 'novita',
+ date: '2026-09-12T01:19:13.323Z',
+ image: '/images/blog/indice-rischio-geopolitico-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

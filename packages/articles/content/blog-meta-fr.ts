@@ -11662,6 +11662,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-laveno-mombello-ticino.title': 'Frontaliers à Laveno-Mombello : guide et fiscalité au Tessin',
     'blog.article.frontaliere-laveno-mombello-ticino.excerpt': 'Vivre à Laveno-Mombello et travailler au Tessin : liens, impôts à la source, franchises et prévoyance pour les travailleurs frontaliers.',
     'blog.article.frontaliere-laveno-mombello-ticino.imageAlt': 'Vue du lac Majeur près de Laveno-Mombello pour les frontaliers au Tessin',
+    'blog.article.indice-rischio-geopolitico-ticino.title': 'Le Tessin mesure le risque géopolitique avec un nouvel indice',
+    'blog.article.indice-rischio-geopolitico-ticino.excerpt': 'Un nouveau document de 54 pages évalue les tensions mondiales et l\'impact sur l\'économie tessinoise, offrant des analyses et des prévisions pour les entreprises.',
+    'blog.article.indice-rischio-geopolitico-ticino.imageAlt': 'Vue de Lugano et du lac sous un ciel nuageux',
 };
 
 export default blogMetaFr;

@@ -11659,6 +11659,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-laveno-mombello-ticino.title': 'Grenzgänger in Laveno-Mombello: Fahren und Steuern im Tessin',
     'blog.article.frontaliere-laveno-mombello-ticino.excerpt': 'Wohnen in Laveno-Mombello und Arbeiten im Tessin: Verbindungen, Quellensteuern, Franchisen und Vorsorge für Grenzgänger.',
     'blog.article.frontaliere-laveno-mombello-ticino.imageAlt': 'Blick auf den Lago Maggiore bei Laveno-Mombello für Grenzgänger im Tessin',
+    'blog.article.indice-rischio-geopolitico-ticino.title': 'Tessin misst das geopolitische Risiko mit einem neuen Index',
+    'blog.article.indice-rischio-geopolitico-ticino.excerpt': 'Ein neues 54-seitiges Dokument bewertet die globalen Spannungen und Auswirkungen auf die Tessiner Wirtschaft und bietet Analysen und Prognosen für Unternehmen.',
+    'blog.article.indice-rischio-geopolitico-ticino.imageAlt': 'Blick auf Lugano und den See bei bewölktem Himmel',
 };
 
 export default blogMetaDe;
