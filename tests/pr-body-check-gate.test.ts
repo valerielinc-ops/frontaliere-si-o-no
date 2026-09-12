@@ -1,6 +1,14 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { spawnSync } from 'node:child_process';
-import { chmodSync, mkdtempSync, writeFileSync, rmSync } from 'node:fs';
+import {
+  chmodSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  symlinkSync,
+  writeFileSync,
+} from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { resolve } from 'node:path';
@@ -275,6 +283,19 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(res.stderr).toMatch(/Non implementato/);
   });
 
+  it('blocks a body-file flag whose value is another option', () => {
+    for (const bodyFileArgs of [
+      ['-F', '--add-label', 'needs-human'],
+      ['--body-file=--add-label', 'needs-human'],
+    ]) {
+      const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', ...bodyFileArgs], {
+        encoding: 'utf8',
+      });
+      expect(res.status).toBe(EXIT_BLOCK);
+      expect(res.stderr).toMatch(/richiede.*body-file/);
+    }
+  });
+
   it('passes through non-body `gh pr edit` mutations to the real gh', () => {
     const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
     createdDirs.push(dir);
@@ -293,6 +314,59 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(res.stdout).toContain('real-gh-called');
   });
 
+  it('reads -F - from stdin, validates it, and forwards the materialized file', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(
+      fakeGh,
+      '#!/bin/sh\n' +
+        'set -eu\n' +
+        'while [ "$#" -gt 0 ]; do\n' +
+        '  case "$1" in\n' +
+        '    --body-file|-F) body_file="$2"; shift 2 ;;\n' +
+        '    *) shift ;;\n' +
+        '  esac\n' +
+        'done\n' +
+        '/bin/cat "$body_file"\n',
+      'utf8',
+    );
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '-F', '-'], {
+      input: [BOTH_HEADERS, 'stdin-body'].join('\n'),
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+      },
+    });
+    expect(res.status).toBe(0);
+    expect(res.stdout).toContain('body PR conforme');
+    expect(res.stdout).toContain('stdin-body');
+  });
+
+  it('stops instead of recursively invoking itself when gh resolves to the shim', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const scriptsDir = join(dir, 'scripts');
+    mkdirSync(scriptsDir);
+    symlinkSync(resolve(ROOT, 'scripts', 'ci'), join(scriptsDir, 'ci'), 'dir');
+    const selfGh = join(scriptsDir, 'gh');
+    writeFileSync(selfGh, readFileSync(SHIM));
+    chmodSync(selfGh, 0o755);
+    const res = spawnSync(process.execPath, [selfGh, 'pr', 'edit', '123', '--add-label', 'needs-human'], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: scriptsDir,
+        PR_BODY_GATE_BIN: join(scriptsDir, 'wrapper-bin'),
+      },
+    });
+    expect(res.status).toBe(1);
+    expect(res.stderr).toMatch(/risolto sullo shim/);
+  });
+
   it('the workflow gh shim skips an unreadable body-file without failing the job', () => {
     const file = join(tmpdir(), `missing-shim-pr-body-${process.pid}-${Date.now()}.md`);
     const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '--body-file', file], {
@@ -306,13 +380,20 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
     createdDirs.push(dir);
     const file = join(dir, 'body.md');
+    const statusFile = join(dir, 'status');
     writeFileSync(file, BOTH_HEADERS, 'utf8');
     const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '--body-file', file], {
       encoding: 'utf8',
-      env: { ...process.env, PATH: '', PR_BODY_GATE_BIN: join(dir, 'wrapper-bin') },
+      env: {
+        ...process.env,
+        PATH: '',
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_BODY_GATE_STATUS_FILE: statusFile,
+      },
     });
     expect(res.status).toBe(0);
     expect(res.stderr).toMatch(/gh non avviabile/);
+    expect(readFileSync(statusFile, 'utf8')).toBe('best-effort-failed\n');
   });
 
   // 2026-08-25: end-to-end proof that payload.cwd reaches extractPrBody, not
