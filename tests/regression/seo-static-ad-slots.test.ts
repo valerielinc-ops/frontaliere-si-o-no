@@ -195,6 +195,13 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
     expect(html).toContain('aria-label="advertisement"');
   });
 
+  it('pharmacy directory gates its multiplex on the same indexable flag as robots', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'build-plugins/pharmacyDirectoryPagesPlugin.ts'), 'utf8');
+    expect(src).toContain('const indexable = wordCount >= MIN_INDEXABLE_WORDS;');
+    expect(src).toMatch(/endOfContentMultiplexHtml\(\{ indexable \}\)/);
+    expect(src).not.toContain('endOfContentMultiplexHtml({ indexable: true })');
+  });
+
   // Per-family call-count guard. The 6 families named in #4485 plus the sibling
   // families that shared the same "Auto Ads only" gap (AGENTS.md rule #6 —
   // fix the whole class in one PR): exchange-rate, employer-profile and the
