@@ -13,6 +13,10 @@ import { normalizeTranslationText, sha256TranslationText } from './translation-u
 
 export const TRANSLATION_MEMORY_V2_SCHEMA_VERSION = 2;
 export const MAX_TRANSLATION_EVIDENCE_V2 = 8;
+export const TRANSLATION_MEMORY_INVALIDATION_OUTCOMES_V2 = Object.freeze([
+  'rejected_candidate',
+  'stale_source',
+]);
 
 const MEMORY_KEYS = ['records', 'schemaVersion'];
 const RECORD_KEYS = ['candidates', 'identity'];

@@ -4,6 +4,10 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { performance } from 'node:perf_hooks';
 import { promisify } from 'node:util';
+import {
+  invalidateTranslationCandidateV2,
+  TRANSLATION_MEMORY_INVALIDATION_OUTCOMES_V2,
+} from './content-addressed-translation-memory-v2.mjs';
 import { reduceTranslationDerivedPatchBatchV2 } from './translation-derived-reducer-v2.mjs';
 import { validateTranslationDerivedPatchV2 } from './translation-derived-patch-v2.mjs';
 import {
@@ -301,6 +305,37 @@ export function createTranslationStateDrainerV2(options) {
 
   async function acknowledge(patches, slicePath, outcomes, mainCommit, publishedCommit, intentHash) {
     await onStage('beforeAck', { outcomes, mainCommit, publishedCommit, intentHash });
+    const invalidationGroups = new Map();
+    patches.forEach((patch, index) => {
+      const outcome = outcomes[index];
+      if (!TRANSLATION_MEMORY_INVALIDATION_OUTCOMES_V2.includes(outcome)) return;
+      const group = invalidationGroups.get(patch.identity.key) ?? {
+        identity: patch.identity,
+        entries: [],
+      };
+      group.entries.push({ outcome, patch });
+      invalidationGroups.set(patch.identity.key, group);
+    });
+    const memoryUpdates = new Map();
+    if (invalidationGroups.size > 0) {
+      const memories = await stateStore.readTranslationMemories({
+        identities: [...invalidationGroups.values()].map((group) => group.identity),
+      });
+      if (!Array.isArray(memories.memories) || memories.memories.length !== invalidationGroups.size) {
+        throw new TypeError('translation drainer memory snapshot does not match invalidation targets');
+      }
+      [...invalidationGroups.values()].forEach((group, index) => {
+        let memory = memories.memories[index];
+        for (const { outcome, patch } of group.entries) {
+          memory = invalidateTranslationCandidateV2(memory, {
+            candidateId: patch.candidate.candidateId,
+            identityKey: patch.identity.key,
+            reasonCode: outcome,
+          });
+        }
+        memoryUpdates.set(group.identity.key, memory);
+      });
+    }
     try {
       await stateStore.acknowledgeBatch(patches.map((patch, index) => ({
         patch,
@@ -309,6 +344,9 @@ export function createTranslationStateDrainerV2(options) {
         mainCommit,
         publishedCommit,
         intentHash,
+        ...(memoryUpdates.has(patch.identity.key)
+          ? { memoryUpdate: memoryUpdates.get(patch.identity.key) }
+          : {}),
       })));
       return true;
     } catch (error) {

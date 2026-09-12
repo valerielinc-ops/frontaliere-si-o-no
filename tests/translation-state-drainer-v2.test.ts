@@ -5,6 +5,7 @@ import { dirname, join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
   createEmptyTranslationMemoryV2,
+  lookupTranslationMemoryV2,
   recordTranslationCandidateV2,
 } from '../scripts/lib/content-addressed-translation-memory-v2.mjs';
 import {
@@ -564,6 +565,51 @@ describe('translation state drainer v2', () => {
     expect(git(one, 'ls-remote', '--refs', 'origin', 'refs/heads/main').split(/\s+/u)[0]).toBe(before);
     expect((await stateStore.readAcknowledgment(patch.patchHash)).acknowledgment.outcome)
       .toBe(expectedOutcome);
+  });
+
+  it('invalidates a rejected candidate in memory with the reducer outcome', async () => {
+    const { one, slice } = setup();
+    const patch = patchFor(slice.jobs[0], slice.jobs[0].title);
+    const { drainer, stateStore } = createPair(one);
+
+    const result = await drainer.drain({ slicePath: SLICE_PATH, patches: [patch] });
+    const memory = (await stateStore.readTranslationMemories({ identities: [patch.identity] })).memories[0];
+    const candidate = memory.records[0].candidates.find((item) => item.candidateId === patch.candidate.candidateId);
+
+    expect(result.outcomes).toEqual(['rejected_candidate']);
+    expect(candidate).toMatchObject({
+      applicability: 'invalidated',
+      invalidationReason: 'rejected_candidate',
+    });
+    expect(lookupTranslationMemoryV2(memory, {
+      identity: patch.identity,
+      engineVersion: patch.candidate.engineVersion,
+      gateVersion: patch.candidate.gateVersion,
+    }).status).toBe('missing');
+  });
+
+  it('invalidates a stale-source candidate in memory with the reducer outcome', async () => {
+    const originalJob = job(1);
+    const { one } = setup(4, (current) => {
+      current.jobs[0].title = 'Fonte cambiata';
+    });
+    const patch = patchFor(originalJob);
+    const { drainer, stateStore } = createPair(one);
+
+    const result = await drainer.drain({ slicePath: SLICE_PATH, patches: [patch] });
+    const memory = (await stateStore.readTranslationMemories({ identities: [patch.identity] })).memories[0];
+    const candidate = memory.records[0].candidates.find((item) => item.candidateId === patch.candidate.candidateId);
+
+    expect(result.outcomes).toEqual(['stale_source']);
+    expect(candidate).toMatchObject({
+      applicability: 'invalidated',
+      invalidationReason: 'stale_source',
+    });
+    expect(lookupTranslationMemoryV2(memory, {
+      identity: patch.identity,
+      engineVersion: patch.candidate.engineVersion,
+      gateVersion: patch.candidate.gateVersion,
+    }).status).toBe('missing');
   });
 
   it('requeues the same candidate when its derived value disappears and retains both immutable acks', async () => {
