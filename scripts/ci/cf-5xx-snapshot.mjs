@@ -172,6 +172,7 @@ export function buildSnapshot({ diagnostics, paths, windowHours, until, zoneName
     byHostStatusCache: diag.byHostStatusCache,
     byHour: diag.byHour,
     bySurface: surf.bySurface,
+    topN: TOP_PATHS,
     topPaths: surf.topPaths,
   };
 }
@@ -254,29 +255,31 @@ export function checkUrlClean(history, url, {
   const target = historyUrlKey(url);
   if (!target || target === '/') return { ok: false, reason: 'URL mancante', checked: 0, lastSeenAt: null };
   const all = (history || []).filter((s) => s && s.ts);
-  if (all.length < snapshots) {
-    return { ok: false, reason: `storia troppo corta: ${all.length} snapshot su ${snapshots} richiesti`, checked: all.length, lastSeenAt: null };
+  const top50 = all.filter((s) => Number(s.topN) === TOP_PATHS);
+  if (top50.length < snapshots) {
+    return { ok: false, reason: `storia troppo corta: ${top50.length} snapshot top-50 su ${snapshots} richiesti`, checked: top50.length, lastSeenAt: null };
   }
-  const ageDays = (now - Date.parse(all[all.length - 1].ts)) / 86_400_000;
+  const ageDays = (now - Date.parse(top50[top50.length - 1].ts)) / 86_400_000;
   if (!(ageDays <= staleAfterDays)) {
     return { ok: false, reason: `serie ferma da ${ageDays.toFixed(1)} giorni (max ${staleAfterDays}) — il monitor non sta guardando`, checked: 0, lastSeenAt: null };
   }
-  // Fail-closed sull'URL introvabile. `topPaths` tiene i 15 peggiori per
-  // snapshot, e la chiave arriva da fuori (il titolo della issue, sanificato):
+  // Fail-closed sull'URL introvabile. `topPaths` tiene i 50 peggiori per
+  // gli snapshot nuovi; le righe legacy possono contenerne solo 15. La chiave
+  // arriva da fuori (il titolo della issue, sanificato):
   // un URL che non compare in NESSUNO snapshot dell'intera storia non e' un URL
   // guarito, e' una chiave che non ha mai fatto match — refuso, sanificazione
   // che ha riscritto un carattere, o un path troppo raro per entrare nei top.
   // Trattarlo come pulito darebbe un verde permanente su una issue ancora rossa.
-  if (!all.some((s) => (s.topPaths || []).some((p) => historyUrlKey(p?.url) === target))) {
+  if (!top50.some((s) => (s.topPaths || []).some((p) => historyUrlKey(p?.url) === target))) {
     return {
       ok: false,
-      reason: `mai visto in ${all.length} snapshot: la chiave non fa match (refuso, o path fuori dai top path di ogni snapshot) — non e' una prova di guarigione`,
+      reason: `mai visto in ${top50.length} snapshot top-50: la chiave non fa match (refuso, o path fuori dai top path di ogni snapshot) — non e' una prova di guarigione`,
       checked: 0,
       lastSeenAt: null,
     };
   }
 
-  const window = all.slice(-snapshots);
+  const window = top50.slice(-snapshots);
   let lastSeenAt = null;
   for (const s of window) {
     if ((s.topPaths || []).some((p) => historyUrlKey(p?.url) === target)) lastSeenAt = s.ts;
