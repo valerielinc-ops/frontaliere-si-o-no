@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hornbach",
-  "assembledAt": "2026-09-11T23:11:26.301Z",
+  "assembledAt": "2026-09-12T13:03:16.900Z",
   "jobs": [
     {
       "id": "hornbach-153091",
@@ -33,7 +33,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzMDkx&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.697Z",
+      "crawledAt": "2026-09-12T13:03:03.188Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-farben-tapeten-teppiche-hornbach-sirnach"
+        "verkaufer-in-farben-tapeten-teppiche-hornbach-sirnach",
+        "venditore-vernici-carta-da-parati-e-tappeti-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-farben-tapeten-teppiche-hornbach-sirnach"
+          "verkaufer-in-farben-tapeten-teppiche-hornbach-sirnach",
+          "venditore-vernici-carta-da-parati-e-tappeti-hornbach-sirnach"
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.903Z",
@@ -79,7 +81,7 @@
       "slug": "assistente-alle-vendite-elettriche-hornbach-luzern-littau",
       "slugByLocale": {
         "it": "assistente-alle-vendite-elettriche-hornbach-luzern-littau",
-        "en": "seller-in-electric-hornbach-luzern-littau",
+        "en": "sales-associate-electrical-hornbach-luzern-littau",
         "de": "verkaufer-in-elektro-hornbach-luzern-littau",
         "fr": "vendeur-en-electrique-hornbach-luzern-littau"
       },
@@ -105,7 +107,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUyNTIz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.693Z",
+      "crawledAt": "2026-09-12T13:03:03.186Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -137,6 +139,8 @@
         "seller-in-colours-hornbach-luzern-littau",
         "verkaufer-in-farben-hornbach-luzern-littau",
         "vendeur-en-couleurs-hornbach-luzern-littau",
+        "seller-in-electric-hornbach-luzern-littau",
+        "assistente-alle-vendite-elettriche-hornbach-luzern-littau",
         "sales-associate-electrical-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
@@ -153,12 +157,14 @@
           "colori-dei-venditori-hornbach-luzern-littau",
           "seller-in-colours-hornbach-luzern-littau",
           "verkaufer-in-farben-hornbach-luzern-littau",
-          "vendeur-en-couleurs-hornbach-luzern-littau"
+          "vendeur-en-couleurs-hornbach-luzern-littau",
+          "assistente-alle-vendite-elettriche-hornbach-luzern-littau"
         ],
         "en": [
           "seller-in-flooring-decoration-hornbach-luzern-littau",
           "seller-in-building-materials-hornbach-luzern-littau",
           "seller-in-colours-hornbach-luzern-littau",
+          "seller-in-electric-hornbach-luzern-littau",
           "sales-associate-electrical-hornbach-luzern-littau"
         ],
         "de": [
@@ -218,7 +224,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzNzUy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.692Z",
+      "crawledAt": "2026-09-12T13:03:03.185Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -296,7 +302,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDQy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.691Z",
+      "crawledAt": "2026-09-12T13:03:03.182Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -348,7 +354,7 @@
       "slug": "piante-venditori-hornbach-affoltern-am-albis",
       "slugByLocale": {
         "it": "piante-venditori-hornbach-affoltern-am-albis",
-        "en": "seller-in-plants-hornbach-affoltern-am-albis",
+        "en": "plant-salesperson-hornbach-affoltern-am-albis",
         "de": "verkaufer-in-pflanzen-hornbach-affoltern-am-albis",
         "fr": "vendeur-dans-les-usines-hornbach-affoltern-am-albis"
       },
@@ -374,7 +380,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjU3&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.687Z",
+      "crawledAt": "2026-09-12T13:03:03.181Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -394,95 +400,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufer-in-pflanzen-hornbach-affoltern-am-albis",
+        "seller-in-plants-hornbach-affoltern-am-albis",
+        "piante-venditori-hornbach-affoltern-am-albis",
         "plant-salesperson-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-pflanzen-hornbach-affoltern-am-albis"
+          "verkaufer-in-pflanzen-hornbach-affoltern-am-albis",
+          "piante-venditori-hornbach-affoltern-am-albis"
         ],
         "en": [
+          "seller-in-plants-hornbach-affoltern-am-albis",
           "plant-salesperson-hornbach-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.884Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hornbach-154262",
-      "slug": "verkaufer-in-gartenmaschinen-e-bewasserung-hornbach-affoltern-am-albis",
-      "slugByLocale": {
-        "it": "verkaufer-in-gartenmaschinen-e-bewasserung-hornbach-affoltern-am-albis",
-        "en": "vendor-in-gardening-machinery-and-watering-hornbach-affoltern-am-albis",
-        "de": "verkaufer-in-gartenmaschinen-und-bewasserung-hornbach-affoltern-am-albis",
-        "fr": "fournisseur-dans-les-machines-de-jardinage-et-d-arrosage-hornbach-affoltern-am-albis"
-      },
-      "company": "Hornbach",
-      "companyKey": "hornbach",
-      "companyDomain": "hornbach.ch",
-      "title": "Verkäufer:in Gartenmaschinen und Bewässerung",
-      "titleByLocale": {
-        "it": "Venditore/a di attrezzature da giardino e irrigazione",
-        "en": "Garden Machinery and Irrigation Salesperson",
-        "de": "Verkäufer:in Gartenmaschinen und Bewässerung",
-        "fr": "Vendeur/ve de machines et d'irrigation pour jardins"
-      },
-      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Vollzeit oder Teilzeit wählbar zwischen 40 % und 100 %\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400 Es gibt immer was zu tun\n• Du berätst und begeisterst unserer Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt die Zusammenarbeit und gibst Deine wertvollen Fachkenntnisse weiter.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Deine Fachkenntnisse im Bereich Gartenmaschinen und Bewässerung sowie die Leidenschaft für den Kundenkontakt zeichnen Dich aus.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Als Quereinsteiger:in freust Du Dich darauf, Dein Talent in einer neuen Umgebung einzusetzen.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Gärtern:in, Landschaftgärtner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
-      "descriptionByLocale": {
-        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Selezione a tempo pieno o part-time tra il 40% e il 100%\n• Quota BVG (Fondo di sospensione) del 65 % versata\n• Equo salario minimo da CHF 4'400 C'è sempre qualcosa da fare\n• Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti.\n• Grazie a voi, gli scaffali sono riempiti e i prodotti sono presentati in modo attraente.\n• Sostieni la cooperazione e passi la tua preziosa esperienza.\n• Si utilizza attivamente il negozio online come strumento di vendita. La tua fondazione\n• La vostra esperienza in macchine da giardinaggio e innaffiamento, così come la vostra passione per il contatto con il cliente si distingue.\n• Hai un alto senso di responsabilità e rimani positivo in situazioni stressanti.\n• Come principiante laterale: non vediamo l'ora di usare il tuo talento in un nuovo ambiente.\n• Possiamo contare sulla vostra flessibilità entro i nostri orari di apertura.\n• Hai completato un'istruzione come giardiniere:in, paesaggista:in o simile.\n\nArea: Vendita / Commercio al dettaglio",
-        "en": "You can look forward to it.\n• 39-hour week with flexible breaks\n• Full-time or part-time selection between 40% and 100%\n• BVG share (pension fund) of 65 % paid\n• Fair minimum wage from CHF 4'400 There is always something to do\n• You advise and inspire our customers in the realization of their projects.\n• Thanks to you, the shelves are filled and the products are presented attractively.\n• You support cooperation and pass on your valuable expertise.\n• You actively use the online shop as a sales tool. Your foundation\n• Your expertise in gardening machinery and watering as well as your passion for customer contact set you apart.\n• You have a high sense of responsibility and stay positive in stressful situations.\n• As a lateral beginner: you are looking forward to using your talent in a new environment.\n• We can rely on your flexibility within our opening hours.\n• You have completed an education as a gardener:in, landscaper:in or similar.\n\nArea: Sales / Retail Trade",
-        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Vollzeit oder Teilzeit wählbar zwischen 40 % und 100 %\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400 Es gibt immer was zu tun\n• Du berätst und begeisterst unserer Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt die Zusammenarbeit und gibst Deine wertvollen Fachkenntnisse weiter.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Deine Fachkenntnisse im Bereich Gartenmaschinen und Bewässerung sowie die Leidenschaft für den Kundenkontakt zeichnen Dich aus.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Als Quereinsteiger:in freust Du Dich darauf, Dein Talent in einer neuen Umgebung einzusetzen.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Gärtern:in, Landschaftgärtner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
-        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Sélection à temps plein ou à temps partiel entre 40% et 100%\n• Part BVG (fonds de pension) de 65 %\n• Salaire minimum équitable à partir de CHF 4'400 Il y a toujours quelque chose à faire.\n• Vous conseillez et inspirez nos clients dans la réalisation de leurs projets.\n• Grâce à vous, les étagères sont remplies et les produits sont présentés de manière attrayante.\n• Vous soutenez la coopération et transmettez votre précieuse expertise.\n• Vous utilisez activement la boutique en ligne comme outil de vente. Votre fondation\n• Votre expertise en machines de jardinage et d'arrosage ainsi que votre passion pour le contact avec le client vous distinguent.\n• Vous avez un haut sens des responsabilités et restez positif dans les situations stressantes.\n• Comme débutant latéral: vous êtes impatient d'utiliser votre talent dans un nouvel environnement.\n• Nous pouvons compter sur votre flexibilité dans nos heures d'ouverture.\n• Vous avez terminé une éducation comme jardinier:in, paysagiste:in ou similaire.\n\nDomaine: Vente / Commerce de détail"
-      },
-      "location": "Affoltern am Albis",
-      "canton": "ZH",
-      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjYy&showApplicationForm=false",
-      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.686Z",
-      "addressLocality": "Affoltern am Albis",
-      "addressRegion": "ZH",
-      "streetAddress": "Obfelderstrasse 37",
-      "postalCode": "8910",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "sector": "Retail / Bricolage e Giardinaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-07",
-      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154262&company=Hornbach&username=",
-      "jobReqId": "154262",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-gartenmaschinen-und-bewasserung-hornbach-affoltern-am-albis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-gartenmaschinen-und-bewasserung-hornbach-affoltern-am-albis"
-        ],
-        "en": [
-          "verkaufer-in-gartenmaschinen-und-bewasserung-hornbach-affoltern-am-albis"
-        ],
-        "fr": [
-          "verkaufer-in-gartenmaschinen-und-bewasserung-hornbach-affoltern-am-albis"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:58:56.882Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -528,7 +460,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjYw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.686Z",
+      "crawledAt": "2026-09-12T13:03:03.180Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -547,11 +479,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-garten-hartwaren-hornbach-affoltern-am-albis"
+        "verkaufer-in-garten-hartwaren-hornbach-affoltern-am-albis",
+        "assistente-alle-vendite-per-ferramenta-da-giardino-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-garten-hartwaren-hornbach-affoltern-am-albis"
+          "verkaufer-in-garten-hartwaren-hornbach-affoltern-am-albis",
+          "assistente-alle-vendite-per-ferramenta-da-giardino-hornbach-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.883Z",
@@ -600,7 +534,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mjgw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.685Z",
+      "crawledAt": "2026-09-12T13:03:03.178Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -623,7 +557,8 @@
         "zoo-venditore-hornbach-galgenen",
         "seller-in-zoo-hornbach-galgenen",
         "verkaufer-in-zoo-hornbach-galgenen",
-        "vendeur-au-zoo-hornbach-galgenen"
+        "vendeur-au-zoo-hornbach-galgenen",
+        "legno-del-venditore-hornbach-galgenen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -631,7 +566,8 @@
           "zoo-venditore-hornbach-galgenen",
           "seller-in-zoo-hornbach-galgenen",
           "verkaufer-in-zoo-hornbach-galgenen",
-          "vendeur-au-zoo-hornbach-galgenen"
+          "vendeur-au-zoo-hornbach-galgenen",
+          "legno-del-venditore-hornbach-galgenen"
         ],
         "en": [
           "seller-in-zoo-hornbach-galgenen"
@@ -654,6 +590,84 @@
           "@type": "QuantitativeValue",
           "minValue": 69500,
           "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hornbach-154262",
+      "slug": "verkaufer-in-gartenmaschinen-e-bewasserung-hornbach-affoltern-am-albis",
+      "slugByLocale": {
+        "it": "verkaufer-in-gartenmaschinen-e-bewasserung-hornbach-affoltern-am-albis",
+        "en": "vendor-in-gardening-machinery-and-watering-hornbach-affoltern-am-albis",
+        "de": "verkaufer-in-gartenmaschinen-und-bewasserung-hornbach-affoltern-am-albis",
+        "fr": "fournisseur-dans-les-machines-de-jardinage-et-d-arrosage-hornbach-affoltern-am-albis"
+      },
+      "company": "Hornbach",
+      "companyKey": "hornbach",
+      "companyDomain": "hornbach.ch",
+      "title": "Verkäufer:in Gartenmaschinen und Bewässerung",
+      "titleByLocale": {
+        "it": "Venditore/a di attrezzature da giardino e irrigazione",
+        "en": "Garden Machinery and Irrigation Salesperson",
+        "de": "Verkäufer:in Gartenmaschinen und Bewässerung",
+        "fr": "Vendeur/ve de machines et d'irrigation pour jardins"
+      },
+      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Vollzeit oder Teilzeit wählbar zwischen 40 % und 100 %\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400 Es gibt immer was zu tun\n• Du berätst und begeisterst unserer Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt die Zusammenarbeit und gibst Deine wertvollen Fachkenntnisse weiter.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Deine Fachkenntnisse im Bereich Gartenmaschinen und Bewässerung sowie die Leidenschaft für den Kundenkontakt zeichnen Dich aus.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Als Quereinsteiger:in freust Du Dich darauf, Dein Talent in einer neuen Umgebung einzusetzen.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Gärtern:in, Landschaftgärtner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
+      "descriptionByLocale": {
+        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Selezione a tempo pieno o part-time tra il 40% e il 100%\n• Quota BVG (Fondo di sospensione) del 65 % versata\n• Equo salario minimo da CHF 4'400 C'è sempre qualcosa da fare\n• Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti.\n• Grazie a voi, gli scaffali sono riempiti e i prodotti sono presentati in modo attraente.\n• Sostieni la cooperazione e passi la tua preziosa esperienza.\n• Si utilizza attivamente il negozio online come strumento di vendita. La tua fondazione\n• La vostra esperienza in macchine da giardinaggio e innaffiamento, così come la vostra passione per il contatto con il cliente si distingue.\n• Hai un alto senso di responsabilità e rimani positivo in situazioni stressanti.\n• Come principiante laterale: non vediamo l'ora di usare il tuo talento in un nuovo ambiente.\n• Possiamo contare sulla vostra flessibilità entro i nostri orari di apertura.\n• Hai completato un'istruzione come giardiniere:in, paesaggista:in o simile.\n\nArea: Vendita / Commercio al dettaglio",
+        "en": "You can look forward to it.\n• 39-hour week with flexible breaks\n• Full-time or part-time selection between 40% and 100%\n• BVG share (pension fund) of 65 % paid\n• Fair minimum wage from CHF 4'400 There is always something to do\n• You advise and inspire our customers in the realization of their projects.\n• Thanks to you, the shelves are filled and the products are presented attractively.\n• You support cooperation and pass on your valuable expertise.\n• You actively use the online shop as a sales tool. Your foundation\n• Your expertise in gardening machinery and watering as well as your passion for customer contact set you apart.\n• You have a high sense of responsibility and stay positive in stressful situations.\n• As a lateral beginner: you are looking forward to using your talent in a new environment.\n• We can rely on your flexibility within our opening hours.\n• You have completed an education as a gardener:in, landscaper:in or similar.\n\nArea: Sales / Retail Trade",
+        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Vollzeit oder Teilzeit wählbar zwischen 40 % und 100 %\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400 Es gibt immer was zu tun\n• Du berätst und begeisterst unserer Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt die Zusammenarbeit und gibst Deine wertvollen Fachkenntnisse weiter.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Deine Fachkenntnisse im Bereich Gartenmaschinen und Bewässerung sowie die Leidenschaft für den Kundenkontakt zeichnen Dich aus.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Als Quereinsteiger:in freust Du Dich darauf, Dein Talent in einer neuen Umgebung einzusetzen.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Gärtern:in, Landschaftgärtner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
+        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Sélection à temps plein ou à temps partiel entre 40% et 100%\n• Part BVG (fonds de pension) de 65 %\n• Salaire minimum équitable à partir de CHF 4'400 Il y a toujours quelque chose à faire.\n• Vous conseillez et inspirez nos clients dans la réalisation de leurs projets.\n• Grâce à vous, les étagères sont remplies et les produits sont présentés de manière attrayante.\n• Vous soutenez la coopération et transmettez votre précieuse expertise.\n• Vous utilisez activement la boutique en ligne comme outil de vente. Votre fondation\n• Votre expertise en machines de jardinage et d'arrosage ainsi que votre passion pour le contact avec le client vous distinguent.\n• Vous avez un haut sens des responsabilités et restez positif dans les situations stressantes.\n• Comme débutant latéral: vous êtes impatient d'utiliser votre talent dans un nouvel environnement.\n• Nous pouvons compter sur votre flexibilité dans nos heures d'ouverture.\n• Vous avez terminé une éducation comme jardinier:in, paysagiste:in ou similaire.\n\nDomaine: Vente / Commerce de détail"
+      },
+      "location": "Affoltern am Albis",
+      "canton": "ZH",
+      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjYy&showApplicationForm=false",
+      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-12T13:03:03.178Z",
+      "addressLocality": "Affoltern am Albis",
+      "addressRegion": "ZH",
+      "streetAddress": "Obfelderstrasse 37",
+      "postalCode": "8910",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "sector": "Retail / Bricolage e Giardinaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-07",
+      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154262&company=Hornbach&username=",
+      "jobReqId": "154262",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufer-in-gartenmaschinen-und-bewasserung-hornbach-affoltern-am-albis"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-gartenmaschinen-und-bewasserung-hornbach-affoltern-am-albis"
+        ],
+        "en": [
+          "verkaufer-in-gartenmaschinen-und-bewasserung-hornbach-affoltern-am-albis"
+        ],
+        "fr": [
+          "verkaufer-in-gartenmaschinen-und-bewasserung-hornbach-affoltern-am-albis"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:58:56.882Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -689,7 +703,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mjc5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.684Z",
+      "crawledAt": "2026-09-12T13:03:03.176Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -708,11 +722,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-baustoffe-hornbach-galgenen"
+        "verkaufer-in-baustoffe-hornbach-galgenen",
+        "venditore-in-materiali-da-costruzione-hornbach-galgenen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-baustoffe-hornbach-galgenen"
+          "verkaufer-in-baustoffe-hornbach-galgenen",
+          "venditore-in-materiali-da-costruzione-hornbach-galgenen"
         ],
         "en": [
           "verkaufer-in-baustoffe-hornbach-galgenen"
@@ -767,7 +783,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzNjA5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.684Z",
+      "crawledAt": "2026-09-12T13:03:03.175Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -791,7 +807,8 @@
         "seller-in-wood-hornbach-luzern-littau",
         "verkaufer-in-holz-hornbach-luzern-littau",
         "vendeur-en-bois-hornbach-luzern-littau",
-        "verkaufer-innen-holz-zuschnitt-hornbach-luzern-littau"
+        "verkaufer-innen-holz-zuschnitt-hornbach-luzern-littau",
+        "tessere-venditore-tessere-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -800,7 +817,8 @@
           "seller-in-wood-hornbach-luzern-littau",
           "verkaufer-in-holz-hornbach-luzern-littau",
           "vendeur-en-bois-hornbach-luzern-littau",
-          "verkaufer-innen-holz-zuschnitt-hornbach-luzern-littau"
+          "verkaufer-innen-holz-zuschnitt-hornbach-luzern-littau",
+          "tessere-venditore-tessere-hornbach-luzern-littau"
         ],
         "en": [
           "seller-in-wood-hornbach-luzern-littau"
@@ -823,80 +841,6 @@
           "@type": "QuantitativeValue",
           "minValue": 69500,
           "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hornbach-153986",
-      "slug": "rivestimenti-in-legno-per-venditori-elementi-edilizi-hornbach-sirnach",
-      "slugByLocale": {
-        "it": "rivestimenti-in-legno-per-venditori-elementi-edilizi-hornbach-sirnach",
-        "en": "vendor-in-wood-flooring-components-hornbach-sirnach",
-        "de": "verkaufer-in-holz-bodenbelage-bauelemente-hornbach-sirnach",
-        "fr": "fournisseur-dans-les-composants-de-plancher-en-bois-hornbach-sirnach"
-      },
-      "company": "Hornbach",
-      "companyKey": "hornbach",
-      "companyDomain": "hornbach.ch",
-      "title": "Verkäufer:in Holz Bodenbeläge Bauelemente 50%",
-      "titleByLocale": {
-        "it": "Venditore/a di Pavimenti in Legno",
-        "en": "Salesperson: Wood Flooring Elements",
-        "de": "Verkäufer:in Holz Bodenbeläge Bauelemente 50%",
-        "fr": "Vendeur/ve de Revêtements de Sol en Bois"
-      },
-      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• Mindestens 5 Wochen Ferien pro Jahr\n• Fairer Mindestlohn ab CHF 4'400 Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Holz Bodenbeläge Bauelemente sowie Deine Kollegialität zeichnen Dich aus.\n• Du besitzt idealerweise einen Staplerführerausweis und behältst in stressigen Situationen den Überblick.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Zimmermann/Zimmerin, Schreiner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
-      "descriptionByLocale": {
-        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Quota BVG (Fondo di sospensione) del 65 %\n• Generoso congedo di maternità e di paternità\n• Almeno 5 settimane di vacanza all'anno\n• Equo salario minimo da CHF 4'400 C'è sempre qualcosa da fare\n• Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti.\n• Grazie a voi, gli scaffali sono riempiti e i prodotti sono presentati in modo attraente.\n• Sostieni la tua squadra ovunque ci sia qualcosa da fare.\n• Si utilizza attivamente il negozio online come strumento di vendita. La tua fondazione\n• Porti la passione per i consigli dei clienti e metti prima la soddisfazione del cliente.\n• Hai un alto senso di responsabilità e rimani positivo in situazioni stressanti.\n• La vostra buona conoscenza dei componenti per pavimenti in legno e la vostra collegialità vi distinguono.\n• Idealmente, hai una patente di guida per carrelli elevatori e tieni traccia di situazioni stressanti.\n• Hai completato un apprendistato come specialista di vendita al dettaglio:mann, carpentiere / portiere, carpentiere:in o simili.\n\nArea: Vendita / Commercio al dettaglio",
-        "en": "You can look forward to that.\n• 39-hour week with flexible breaks\n• BVG share (pension fund) of 65 % paid\n• Generous maternity and paternity leave\n• At least 5 weeks of vacation per year\n• Fair minimum wage from CHF 4'400 There is always something to do\n• You advise and inspire our customers in the realization of their projects.\n• Thanks to you, the shelves are filled and the products are presented attractively.\n• You support your team wherever there is something to do.\n• You actively use the online shop as a sales tool. Your foundation\n• You bring passion for customer advice and put customer satisfaction first.\n• You have a high sense of responsibility and stay positive in stressful situations.\n• Your good knowledge of wood flooring components and your collegiality distinguish you.\n• Ideally, you have a forklift driver’s license and keep track of stressful situations.\n• You have completed an apprenticeship as a retail specialist:mann, carpenter/roomkeeper, carpenter:in or similar.\n\nArea: Sales / Retail Trade",
-        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• Mindestens 5 Wochen Ferien pro Jahr\n• Fairer Mindestlohn ab CHF 4'400 Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Holz Bodenbeläge Bauelemente sowie Deine Kollegialität zeichnen Dich aus.\n• Du besitzt idealerweise einen Staplerführerausweis und behältst in stressigen Situationen den Überblick.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Zimmermann/Zimmerin, Schreiner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
-        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Part BVG (fonds de pension) de 65 % versée\n• Congé de maternité et de paternité généreux\n• Au moins 5 semaines de vacances par an\n• Salaire minimum équitable à partir de CHF 4'400 Il y a toujours quelque chose à faire\n• Vous conseillez et inspirez nos clients dans la réalisation de leurs projets.\n• Grâce à vous, les étagères sont remplies et les produits sont présentés de manière attrayante.\n• Vous soutenez votre équipe partout où il y a quelque chose à faire.\n• Vous utilisez activement la boutique en ligne comme outil de vente. Votre fondation\n• Vous apportez la passion pour les conseils des clients et mettre la satisfaction des clients en premier.\n• Vous avez un haut sens des responsabilités et restez positif dans des situations stressantes.\n• Votre bonne connaissance des composants de plancher de bois et votre collégialité vous distinguent.\n• Idéalement, vous avez un permis de conducteur de chariot élévateur et de garder une trace des situations stressantes.\n• Vous avez suivi un apprentissage en tant que spécialiste du commerce de détail:mann, charpentier/serveur de chambre, charpentier:in ou similaire.\n\nDomaine: Vente / Commerce de détail"
-      },
-      "location": "Sirnach",
-      "canton": "TG",
-      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzOTg2&showApplicationForm=false",
-      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.683Z",
-      "addressLocality": "Sirnach",
-      "addressRegion": "TG",
-      "streetAddress": "Ebnetstrasse 5",
-      "postalCode": "8370",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "sector": "Retail / Bricolage e Giardinaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153986&company=Hornbach&username=",
-      "jobReqId": "153986",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-holz-bodenbelage-bauelemente-hornbach-sirnach",
-        "verkaufer-in-holz-bodenbelage-bauelemente-50-hornbach-sirnach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-holz-bodenbelage-bauelemente-hornbach-sirnach",
-          "verkaufer-in-holz-bodenbelage-bauelemente-50-hornbach-sirnach"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:58:56.897Z",
-      "salaryMin": 28800,
-      "salaryMax": 43500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 28800,
-          "maxValue": 43500,
           "unitText": "YEAR"
         }
       }
@@ -932,7 +876,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MTg2&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.683Z",
+      "crawledAt": "2026-09-12T13:03:03.175Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -951,14 +895,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-logistik-hornbach-sirnach"
+        "mitarbeiter-in-logistik-hornbach-sirnach",
+        "addetto-a-alla-logistica-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-logistik-hornbach-sirnach"
+          "mitarbeiter-in-logistik-hornbach-sirnach",
+          "addetto-a-alla-logistica-hornbach-sirnach"
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.885Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -969,97 +916,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hornbach-154407",
-      "slug": "collaboratore-trice-wareneingang-hornbach-luzern-littau",
-      "slugByLocale": {
-        "it": "collaboratore-trice-wareneingang-hornbach-luzern-littau",
-        "en": "associate-wareneingang-hornbach-luzern-littau",
-        "de": "mitarbeiter-in-wareneingang-hornbach-luzern-littau",
-        "fr": "collaborateur-trice-wareneingang-hornbach-luzern-littau"
-      },
-      "company": "Hornbach",
-      "companyKey": "hornbach",
-      "companyDomain": "hornbach.ch",
-      "title": "Mitarbeiter:in Wareneingang",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Wareneingang",
-        "en": "Associate Wareneingang",
-        "de": "Mitarbeiter:in Wareneingang",
-        "fr": "Collaborateur/trice Wareneingang"
-      },
-      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Unkomplizierte Du-Kultur\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du fertigst den Wareneingang ab und stellst die Ware der Verkaufsfläche bereit.\n• Beim Be- und Entladen von LKW's packst Du mit an.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt. Dein Fundament\n• Deine Leidenschaft für einen reibungslosen Warenfluss und Deine Macherpersönlichkeit zeichnen Dich aus.\n• Du hast idealerweise eine abgeschlossene Ausbildung als Logistiker:in oder Berufserfahrung in der Logistik.\n• Du besitzt einen Führerausweis (mindestens Kategorie F) und einen Staplerführerausweis.\n\nBereich: Logistik / Supply Chain",
-      "descriptionByLocale": {
-        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Quota BVG (Fondo di sospensione) del 65 % versata\n• Equo salario minimo da CHF 4'400\n• Una cultura semplice\n• Generoso congedo di maternità e paternità C'è sempre qualcosa da fare\n• Finisci la ricevuta della merce e fornisci la merce all'area di vendita.\n• Quando si caricano e scaricano i camion, si entra in gioco.\n• Sostieni la tua squadra ovunque ci sia qualcosa da fare. La tua fondazione\n• La vostra passione per un flusso liscio di merci e la vostra personalità creatrice vi distingue.\n• Idealmente, hai completato la formazione come logistica: in o esperienza professionale nella logistica.\n• Hai una patente di guida (almeno categoria F) e una patente di guida per camion.\n\nArea: Logistica / Supply Chain",
-        "en": "You can look forward to it.\n• 39-hour week with flexible breaks\n• BVG share (pension fund) of 65 % paid\n• Fair minimum wage from CHF 4'400\n• Uncomplicated du-culture\n• Generous maternity and paternity leave There is always something to do\n• You finish the goods receipt and provide the goods to the sales area.\n• When loading and unloading trucks, you get involved.\n• You support your team wherever there is something to do. Your foundation\n• Your passion for a smooth flow of goods and your maker personality set you apart.\n• Ideally, you have completed training as a logistician: in or professional experience in logistics.\n• You have a driver’s license (at least category F) and a truck driver’s license.\n\nArea: Logistics / Supply Chain",
-        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Unkomplizierte Du-Kultur\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du fertigst den Wareneingang ab und stellst die Ware der Verkaufsfläche bereit.\n• Beim Be- und Entladen von LKW's packst Du mit an.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt. Dein Fundament\n• Deine Leidenschaft für einen reibungslosen Warenfluss und Deine Macherpersönlichkeit zeichnen Dich aus.\n• Du hast idealerweise eine abgeschlossene Ausbildung als Logistiker:in oder Berufserfahrung in der Logistik.\n• Du besitzt einen Führerausweis (mindestens Kategorie F) und einen Staplerführerausweis.\n\nBereich: Logistik / Supply Chain",
-        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Part BVG (fonds de pension) de 65 %\n• Salaire minimum équitable à partir de CHF 4'400\n• Du-culture simple\n• Congé de maternité et de paternité généreux Il y a toujours quelque chose à faire.\n• Vous terminez le reçu des marchandises et fournissez les marchandises à la zone de vente.\n• Lors du chargement et du déchargement des camions, vous vous impliquez.\n• Vous soutenez votre équipe partout où il y a quelque chose à faire. Votre fondation\n• Votre passion pour un flux de biens en douceur et votre personnalité de fabricant vous sépare.\n• Idéalement, vous avez suivi une formation en tant que logisticien : expérience professionnelle en logistique.\n• Vous avez un permis de conduire (au moins la catégorie F) et un permis de conducteur de camion.\n\nDomaine: Logistique / Chaîne d'approvisionnement"
-      },
-      "location": "Luzern Littau",
-      "canton": "LU",
-      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NDA3&showApplicationForm=false",
-      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.682Z",
-      "addressLocality": "Luzern Littau",
-      "addressRegion": "Luzern",
-      "streetAddress": "Thorenbergstrasse 49",
-      "postalCode": "6014",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "sector": "Retail / Bricolage e Giardinaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154407&company=Hornbach&username=",
-      "jobReqId": "154407",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-wareneingang-hornbach-luzern-littau",
-        "collaboratore-trice-holzzuschnitt-hornbach-luzern-littau",
-        "associate-holzzuschnitt-hornbach-luzern-littau",
-        "mitarbeiter-in-holzzuschnitt-hornbach-luzern-littau",
-        "collaborateur-trice-holzzuschnitt-hornbach-luzern-littau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-wareneingang-hornbach-luzern-littau",
-          "collaboratore-trice-holzzuschnitt-hornbach-luzern-littau",
-          "associate-holzzuschnitt-hornbach-luzern-littau",
-          "mitarbeiter-in-holzzuschnitt-hornbach-luzern-littau",
-          "collaborateur-trice-holzzuschnitt-hornbach-luzern-littau"
-        ],
-        "en": [
-          "associate-holzzuschnitt-hornbach-luzern-littau",
-          "mitarbeiter-in-wareneingang-hornbach-luzern-littau"
-        ],
-        "de": [
-          "mitarbeiter-in-holzzuschnitt-hornbach-luzern-littau"
-        ],
-        "fr": [
-          "collaborateur-trice-holzzuschnitt-hornbach-luzern-littau",
-          "mitarbeiter-in-wareneingang-hornbach-luzern-littau"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T11:20:39.857Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -1095,7 +951,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzgy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.682Z",
+      "crawledAt": "2026-09-12T13:03:03.174Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -1118,7 +974,8 @@
         "collaboratore-trice-warenausgabe-hornbach-affoltern-am-albis",
         "associate-warenausgabe-hornbach-affoltern-am-albis",
         "mitarbeiter-in-warenausgabe-hornbach-affoltern-am-albis",
-        "collaborateur-trice-warenausgabe-hornbach-affoltern-am-albis"
+        "collaborateur-trice-warenausgabe-hornbach-affoltern-am-albis",
+        "collaboratore-trice-kundendienst-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1126,7 +983,8 @@
           "collaboratore-trice-warenausgabe-hornbach-affoltern-am-albis",
           "associate-warenausgabe-hornbach-affoltern-am-albis",
           "mitarbeiter-in-warenausgabe-hornbach-affoltern-am-albis",
-          "collaborateur-trice-warenausgabe-hornbach-affoltern-am-albis"
+          "collaborateur-trice-warenausgabe-hornbach-affoltern-am-albis",
+          "collaboratore-trice-kundendienst-hornbach-affoltern-am-albis"
         ],
         "en": [
           "mitarbeiter-in-kundendienst-hornbach-affoltern-am-albis",
@@ -1151,6 +1009,176 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hornbach-153986",
+      "slug": "rivestimenti-in-legno-per-venditori-elementi-edilizi-hornbach-sirnach",
+      "slugByLocale": {
+        "it": "rivestimenti-in-legno-per-venditori-elementi-edilizi-hornbach-sirnach",
+        "en": "vendor-in-wood-flooring-components-hornbach-sirnach",
+        "de": "verkaufer-in-holz-bodenbelage-bauelemente-hornbach-sirnach",
+        "fr": "fournisseur-dans-les-composants-de-plancher-en-bois-hornbach-sirnach"
+      },
+      "company": "Hornbach",
+      "companyKey": "hornbach",
+      "companyDomain": "hornbach.ch",
+      "title": "Verkäufer:in Holz Bodenbeläge Bauelemente 50%",
+      "titleByLocale": {
+        "it": "Venditore/a di Pavimenti in Legno",
+        "en": "Salesperson: Wood Flooring Elements",
+        "de": "Verkäufer:in Holz Bodenbeläge Bauelemente 50%",
+        "fr": "Vendeur/ve de Revêtements de Sol en Bois"
+      },
+      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• Mindestens 5 Wochen Ferien pro Jahr\n• Fairer Mindestlohn ab CHF 4'400 Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Holz Bodenbeläge Bauelemente sowie Deine Kollegialität zeichnen Dich aus.\n• Du besitzt idealerweise einen Staplerführerausweis und behältst in stressigen Situationen den Überblick.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Zimmermann/Zimmerin, Schreiner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
+      "descriptionByLocale": {
+        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Quota BVG (Fondo di sospensione) del 65 %\n• Generoso congedo di maternità e di paternità\n• Almeno 5 settimane di vacanza all'anno\n• Equo salario minimo da CHF 4'400 C'è sempre qualcosa da fare\n• Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti.\n• Grazie a voi, gli scaffali sono riempiti e i prodotti sono presentati in modo attraente.\n• Sostieni la tua squadra ovunque ci sia qualcosa da fare.\n• Si utilizza attivamente il negozio online come strumento di vendita. La tua fondazione\n• Porti la passione per i consigli dei clienti e metti prima la soddisfazione del cliente.\n• Hai un alto senso di responsabilità e rimani positivo in situazioni stressanti.\n• La vostra buona conoscenza dei componenti per pavimenti in legno e la vostra collegialità vi distinguono.\n• Idealmente, hai una patente di guida per carrelli elevatori e tieni traccia di situazioni stressanti.\n• Hai completato un apprendistato come specialista di vendita al dettaglio:mann, carpentiere / portiere, carpentiere:in o simili.\n\nArea: Vendita / Commercio al dettaglio",
+        "en": "You can look forward to that.\n• 39-hour week with flexible breaks\n• BVG share (pension fund) of 65 % paid\n• Generous maternity and paternity leave\n• At least 5 weeks of vacation per year\n• Fair minimum wage from CHF 4'400 There is always something to do\n• You advise and inspire our customers in the realization of their projects.\n• Thanks to you, the shelves are filled and the products are presented attractively.\n• You support your team wherever there is something to do.\n• You actively use the online shop as a sales tool. Your foundation\n• You bring passion for customer advice and put customer satisfaction first.\n• You have a high sense of responsibility and stay positive in stressful situations.\n• Your good knowledge of wood flooring components and your collegiality distinguish you.\n• Ideally, you have a forklift driver’s license and keep track of stressful situations.\n• You have completed an apprenticeship as a retail specialist:mann, carpenter/roomkeeper, carpenter:in or similar.\n\nArea: Sales / Retail Trade",
+        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• Mindestens 5 Wochen Ferien pro Jahr\n• Fairer Mindestlohn ab CHF 4'400 Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Holz Bodenbeläge Bauelemente sowie Deine Kollegialität zeichnen Dich aus.\n• Du besitzt idealerweise einen Staplerführerausweis und behältst in stressigen Situationen den Überblick.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Zimmermann/Zimmerin, Schreiner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
+        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Part BVG (fonds de pension) de 65 % versée\n• Congé de maternité et de paternité généreux\n• Au moins 5 semaines de vacances par an\n• Salaire minimum équitable à partir de CHF 4'400 Il y a toujours quelque chose à faire\n• Vous conseillez et inspirez nos clients dans la réalisation de leurs projets.\n• Grâce à vous, les étagères sont remplies et les produits sont présentés de manière attrayante.\n• Vous soutenez votre équipe partout où il y a quelque chose à faire.\n• Vous utilisez activement la boutique en ligne comme outil de vente. Votre fondation\n• Vous apportez la passion pour les conseils des clients et mettre la satisfaction des clients en premier.\n• Vous avez un haut sens des responsabilités et restez positif dans des situations stressantes.\n• Votre bonne connaissance des composants de plancher de bois et votre collégialité vous distinguent.\n• Idéalement, vous avez un permis de conducteur de chariot élévateur et de garder une trace des situations stressantes.\n• Vous avez suivi un apprentissage en tant que spécialiste du commerce de détail:mann, charpentier/serveur de chambre, charpentier:in ou similaire.\n\nDomaine: Vente / Commerce de détail"
+      },
+      "location": "Sirnach",
+      "canton": "TG",
+      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzOTg2&showApplicationForm=false",
+      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-12T13:03:03.174Z",
+      "addressLocality": "Sirnach",
+      "addressRegion": "TG",
+      "streetAddress": "Ebnetstrasse 5",
+      "postalCode": "8370",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "sector": "Retail / Bricolage e Giardinaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153986&company=Hornbach&username=",
+      "jobReqId": "153986",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufer-in-holz-bodenbelage-bauelemente-hornbach-sirnach",
+        "verkaufer-in-holz-bodenbelage-bauelemente-50-hornbach-sirnach",
+        "rivestimenti-in-legno-per-venditori-elementi-edilizi-hornbach-sirnach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-holz-bodenbelage-bauelemente-hornbach-sirnach",
+          "verkaufer-in-holz-bodenbelage-bauelemente-50-hornbach-sirnach",
+          "rivestimenti-in-legno-per-venditori-elementi-edilizi-hornbach-sirnach"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:58:56.897Z",
+      "salaryMin": 28800,
+      "salaryMax": 43500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 28800,
+          "maxValue": 43500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hornbach-154407",
+      "slug": "collaboratore-trice-wareneingang-hornbach-luzern-littau",
+      "slugByLocale": {
+        "it": "collaboratore-trice-wareneingang-hornbach-luzern-littau",
+        "en": "associate-wareneingang-hornbach-luzern-littau",
+        "de": "mitarbeiter-in-wareneingang-hornbach-luzern-littau",
+        "fr": "collaborateur-trice-wareneingang-hornbach-luzern-littau"
+      },
+      "company": "Hornbach",
+      "companyKey": "hornbach",
+      "companyDomain": "hornbach.ch",
+      "title": "Mitarbeiter:in Wareneingang",
+      "titleByLocale": {
+        "it": "Collaboratore/trice Wareneingang",
+        "en": "Associate Wareneingang",
+        "de": "Mitarbeiter:in Wareneingang",
+        "fr": "Collaborateur/trice Wareneingang"
+      },
+      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Unkomplizierte Du-Kultur\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du fertigst den Wareneingang ab und stellst die Ware der Verkaufsfläche bereit.\n• Beim Be- und Entladen von LKW's packst Du mit an.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt. Dein Fundament\n• Deine Leidenschaft für einen reibungslosen Warenfluss und Deine Macherpersönlichkeit zeichnen Dich aus.\n• Du hast idealerweise eine abgeschlossene Ausbildung als Logistiker:in oder Berufserfahrung in der Logistik.\n• Du besitzt einen Führerausweis (mindestens Kategorie F) und einen Staplerführerausweis.\n\nBereich: Logistik / Supply Chain",
+      "descriptionByLocale": {
+        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Quota BVG (Fondo di sospensione) del 65 % versata\n• Equo salario minimo da CHF 4'400\n• Una cultura semplice\n• Generoso congedo di maternità e paternità C'è sempre qualcosa da fare\n• Finisci la ricevuta della merce e fornisci la merce all'area di vendita.\n• Quando si caricano e scaricano i camion, si entra in gioco.\n• Sostieni la tua squadra ovunque ci sia qualcosa da fare. La tua fondazione\n• La vostra passione per un flusso liscio di merci e la vostra personalità creatrice vi distingue.\n• Idealmente, hai completato la formazione come logistica: in o esperienza professionale nella logistica.\n• Hai una patente di guida (almeno categoria F) e una patente di guida per camion.\n\nArea: Logistica / Supply Chain",
+        "en": "You can look forward to it.\n• 39-hour week with flexible breaks\n• BVG share (pension fund) of 65 % paid\n• Fair minimum wage from CHF 4'400\n• Uncomplicated du-culture\n• Generous maternity and paternity leave There is always something to do\n• You finish the goods receipt and provide the goods to the sales area.\n• When loading and unloading trucks, you get involved.\n• You support your team wherever there is something to do. Your foundation\n• Your passion for a smooth flow of goods and your maker personality set you apart.\n• Ideally, you have completed training as a logistician: in or professional experience in logistics.\n• You have a driver’s license (at least category F) and a truck driver’s license.\n\nArea: Logistics / Supply Chain",
+        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Unkomplizierte Du-Kultur\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du fertigst den Wareneingang ab und stellst die Ware der Verkaufsfläche bereit.\n• Beim Be- und Entladen von LKW's packst Du mit an.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt. Dein Fundament\n• Deine Leidenschaft für einen reibungslosen Warenfluss und Deine Macherpersönlichkeit zeichnen Dich aus.\n• Du hast idealerweise eine abgeschlossene Ausbildung als Logistiker:in oder Berufserfahrung in der Logistik.\n• Du besitzt einen Führerausweis (mindestens Kategorie F) und einen Staplerführerausweis.\n\nBereich: Logistik / Supply Chain",
+        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Part BVG (fonds de pension) de 65 %\n• Salaire minimum équitable à partir de CHF 4'400\n• Du-culture simple\n• Congé de maternité et de paternité généreux Il y a toujours quelque chose à faire.\n• Vous terminez le reçu des marchandises et fournissez les marchandises à la zone de vente.\n• Lors du chargement et du déchargement des camions, vous vous impliquez.\n• Vous soutenez votre équipe partout où il y a quelque chose à faire. Votre fondation\n• Votre passion pour un flux de biens en douceur et votre personnalité de fabricant vous sépare.\n• Idéalement, vous avez suivi une formation en tant que logisticien : expérience professionnelle en logistique.\n• Vous avez un permis de conduire (au moins la catégorie F) et un permis de conducteur de camion.\n\nDomaine: Logistique / Chaîne d'approvisionnement"
+      },
+      "location": "Luzern Littau",
+      "canton": "LU",
+      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NDA3&showApplicationForm=false",
+      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-12T13:03:03.173Z",
+      "addressLocality": "Luzern Littau",
+      "addressRegion": "Luzern",
+      "streetAddress": "Thorenbergstrasse 49",
+      "postalCode": "6014",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "sector": "Retail / Bricolage e Giardinaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154407&company=Hornbach&username=",
+      "jobReqId": "154407",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-wareneingang-hornbach-luzern-littau",
+        "collaboratore-trice-holzzuschnitt-hornbach-luzern-littau",
+        "associate-holzzuschnitt-hornbach-luzern-littau",
+        "mitarbeiter-in-holzzuschnitt-hornbach-luzern-littau",
+        "collaborateur-trice-holzzuschnitt-hornbach-luzern-littau",
+        "collaboratore-trice-wareneingang-hornbach-luzern-littau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-wareneingang-hornbach-luzern-littau",
+          "collaboratore-trice-holzzuschnitt-hornbach-luzern-littau",
+          "associate-holzzuschnitt-hornbach-luzern-littau",
+          "mitarbeiter-in-holzzuschnitt-hornbach-luzern-littau",
+          "collaborateur-trice-holzzuschnitt-hornbach-luzern-littau",
+          "collaboratore-trice-wareneingang-hornbach-luzern-littau"
+        ],
+        "en": [
+          "associate-holzzuschnitt-hornbach-luzern-littau",
+          "mitarbeiter-in-wareneingang-hornbach-luzern-littau"
+        ],
+        "de": [
+          "mitarbeiter-in-holzzuschnitt-hornbach-luzern-littau"
+        ],
+        "fr": [
+          "collaborateur-trice-holzzuschnitt-hornbach-luzern-littau",
+          "mitarbeiter-in-wareneingang-hornbach-luzern-littau"
+        ]
+      },
+      "firstSeenAt": "2026-07-21T11:20:39.857Z",
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -1186,7 +1214,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NDYw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.681Z",
+      "crawledAt": "2026-09-12T13:03:03.173Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -1205,11 +1233,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kassierer-in-hornbach-affoltern-am-albis"
+        "kassierer-in-hornbach-affoltern-am-albis",
+        "cashier-in-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kassierer-in-hornbach-affoltern-am-albis"
+          "kassierer-in-hornbach-affoltern-am-albis",
+          "cashier-in-hornbach-affoltern-am-albis"
         ],
         "en": [
           "kassierer-in-hornbach-affoltern-am-albis"
@@ -1240,7 +1270,7 @@
         "it": "venditore-in-sanitario-hornbach-biel-bienne",
         "en": "seller-in-sanitary-hornbach-biel-bienne",
         "de": "verkaufer-in-sanitar-hornbach-biel-bienne",
-        "fr": "vendeur-dans-sanitaire-hornbach-biel-bienne"
+        "fr": "fournisseur-de-produits-sanitaires-hornbach-biel-bienne"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -1264,7 +1294,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUyNTc2&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.681Z",
+      "crawledAt": "2026-09-12T13:03:03.170Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -1284,21 +1314,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufer-in-sanitar-hornbach-biel-bienne",
+        "vendeur-dans-sanitaire-hornbach-biel-bienne",
+        "venditore-in-sanitario-hornbach-biel-bienne",
         "fournisseur-de-produits-sanitaires-hornbach-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-sanitar-hornbach-biel-bienne"
+          "verkaufer-in-sanitar-hornbach-biel-bienne",
+          "venditore-in-sanitario-hornbach-biel-bienne"
         ],
         "en": [
           "verkaufer-in-sanitar-hornbach-biel-bienne"
         ],
         "fr": [
           "verkaufer-in-sanitar-hornbach-biel-bienne",
+          "vendeur-dans-sanitaire-hornbach-biel-bienne",
           "fournisseur-de-produits-sanitaires-hornbach-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:45.444Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1344,7 +1379,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Nzgw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.680Z",
+      "crawledAt": "2026-09-12T13:03:03.169Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -1422,7 +1457,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Nzk5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.679Z",
+      "crawledAt": "2026-09-12T13:03:03.168Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -1441,11 +1476,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-garten-hornbach-sirnach"
+        "verkaufer-in-garten-hornbach-sirnach",
+        "venditore-in-giardino-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-garten-hornbach-sirnach"
+          "verkaufer-in-garten-hornbach-sirnach",
+          "venditore-in-giardino-hornbach-sirnach"
         ],
         "en": [
           "verkaufer-in-garten-hornbach-sirnach"
@@ -1500,7 +1537,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NTg3&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.678Z",
+      "crawledAt": "2026-09-12T13:03:03.168Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -1519,11 +1556,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-baustoffe-hornbach-sirnach"
+        "verkaufer-in-baustoffe-hornbach-sirnach",
+        "venditore-in-materiali-da-costruzione-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-baustoffe-hornbach-sirnach"
+          "verkaufer-in-baustoffe-hornbach-sirnach",
+          "venditore-in-materiali-da-costruzione-hornbach-sirnach"
         ],
         "en": [
           "verkaufer-in-baustoffe-hornbach-sirnach"
@@ -1578,7 +1617,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUyNTIy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.678Z",
+      "crawledAt": "2026-09-12T13:03:03.167Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -1669,7 +1708,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjM5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.675Z",
+      "crawledAt": "2026-09-12T13:03:03.160Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -1688,11 +1727,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-garten-hartwaren-hornbach-biel-bienne"
+        "verkaufer-in-garten-hartwaren-hornbach-biel-bienne",
+        "assistente-alle-vendite-per-ferramenta-da-giardino-hornbach-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-garten-hartwaren-hornbach-biel-bienne"
+          "verkaufer-in-garten-hartwaren-hornbach-biel-bienne",
+          "assistente-alle-vendite-per-ferramenta-da-giardino-hornbach-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.883Z",
@@ -1741,7 +1782,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0ODg2&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.674Z",
+      "crawledAt": "2026-09-12T13:03:03.159Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -1760,11 +1801,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kassierer-in-an-kundeninformation-hornbach-luzern-littau"
+        "kassierer-in-an-kundeninformation-hornbach-luzern-littau",
+        "cashier-nelle-informazioni-del-cliente-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kassierer-in-an-kundeninformation-hornbach-luzern-littau"
+          "kassierer-in-an-kundeninformation-hornbach-luzern-littau",
+          "cashier-nelle-informazioni-del-cliente-hornbach-luzern-littau"
         ],
         "en": [
           "kassierer-in-an-kundeninformation-hornbach-luzern-littau"
@@ -1819,7 +1862,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0OTEw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.673Z",
+      "crawledAt": "2026-09-12T13:03:03.158Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -1838,11 +1881,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-holzzuschnitt-hornbach-biel-bienne"
+        "mitarbeiter-in-holzzuschnitt-hornbach-biel-bienne",
+        "collaboratore-trice-holzzuschnitt-hornbach-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-holzzuschnitt-hornbach-biel-bienne"
+          "mitarbeiter-in-holzzuschnitt-hornbach-biel-bienne",
+          "collaboratore-trice-holzzuschnitt-hornbach-biel-bienne"
         ],
         "en": [
           "mitarbeiter-in-holzzuschnitt-hornbach-biel-bienne"
@@ -1862,6 +1907,92 @@
           "@type": "QuantitativeValue",
           "minValue": 68500,
           "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hornbach-154968",
+      "slug": "venditore-in-elettrico-hornbach-galgenen",
+      "slugByLocale": {
+        "it": "venditore-in-elettrico-hornbach-galgenen",
+        "en": "seller-in-electric-hornbach-galgenen",
+        "de": "verkaufer-in-elektro-hornbach-galgenen",
+        "fr": "vendeur-en-electrique-hornbach-galgenen"
+      },
+      "company": "Hornbach",
+      "companyKey": "hornbach",
+      "companyDomain": "hornbach.ch",
+      "title": "Verkäufer:in Elektro",
+      "titleByLocale": {
+        "it": "Venditore elettrico",
+        "en": "Seller Electric",
+        "de": "Verkäufer:in Elektro",
+        "fr": "Vendeur électrique"
+      },
+      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Mindestens 5 Wochen Ferien pro Jahr Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Elektro sowie Deine Kollegialität zeichnen Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Elektroniker:in, Elektroinstallateur:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
+      "descriptionByLocale": {
+        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Generoso congedo di maternità e di paternità\n• Quota BVG (Fondo di sospensione) del 65 %\n• Equo salario minimo da CHF 4'400\n• Almeno 5 settimane di vacanza all'anno C'è sempre qualcosa da fare\n• Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti.\n• Grazie a voi, gli scaffali sono riempiti e i prodotti sono presentati in modo attraente.\n• Sostieni la tua squadra ovunque ci sia qualcosa da fare.\n• Si utilizza attivamente il negozio online come strumento di vendita. La tua fondazione\n• Porti la passione per i consigli dei clienti e metti prima la soddisfazione del cliente.\n• Hai un alto senso di responsabilità e rimani positivo in situazioni stressanti.\n• La vostra buona conoscenza nel campo dell'elettronica e la vostra collegialità vi distinguono.\n• Possiamo contare sulla vostra flessibilità entro i nostri orari di apertura.\n• Hai completato un apprendistato come specialista al dettaglio:mann, ingegnere elettronico:in, installatore elettrico:in o simili.\n\nArea: Vendita / Commercio al dettaglio",
+        "en": "You can look forward to that.\n• 39-hour week with flexible breaks\n• Generous maternity and paternity leave\n• BVG share (pension fund) of 65 % paid\n• Fair minimum wage from CHF 4'400\n• At least 5 weeks of vacation per year There is always something to do\n• You advise and inspire our customers in the realization of their projects.\n• Thanks to you, the shelves are filled and the products are presented attractively.\n• You support your team wherever there is something to do.\n• You actively use the online shop as a sales tool. Your foundation\n• You bring passion for customer advice and put customer satisfaction first.\n• You have a high sense of responsibility and stay positive in stressful situations.\n• Your good knowledge in the field of electronics and your collegiality distinguish you.\n• We can rely on your flexibility within our opening hours.\n• You have completed an apprenticeship as a retail specialist:mann, electronics engineer:in, electrical installer:in or similar.\n\nArea: Sales / Retail Trade",
+        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Mindestens 5 Wochen Ferien pro Jahr Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Elektro sowie Deine Kollegialität zeichnen Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Elektroniker:in, Elektroinstallateur:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
+        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Congé de maternité et de paternité généreux\n• Part BVG (fonds de pension) de 65 % versée\n• Salaire minimum équitable à partir de CHF 4'400\n• Au moins 5 semaines de vacances par an Il y a toujours quelque chose à faire\n• Vous conseillez et inspirez nos clients dans la réalisation de leurs projets.\n• Grâce à vous, les étagères sont remplies et les produits sont présentés de manière attrayante.\n• Vous soutenez votre équipe partout où il y a quelque chose à faire.\n• Vous utilisez activement la boutique en ligne comme outil de vente. Votre fondation\n• Vous apportez la passion pour les conseils des clients et mettre la satisfaction des clients en premier.\n• Vous avez un haut sens des responsabilités et restez positif dans des situations stressantes.\n• Votre bonne connaissance dans le domaine de l'électronique et votre collégialité vous distinguent.\n• Nous pouvons compter sur votre flexibilité dans les heures d'ouverture.\n• Vous avez suivi un apprentissage en tant que spécialiste du commerce de détail:mann, ingénieur en électronique:in, installateur électrique:in ou similaire.\n\nDomaine: Vente / Commerce de détail"
+      },
+      "location": "Galgenen",
+      "canton": "SZ",
+      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0OTY4&showApplicationForm=false",
+      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-12T13:03:03.154Z",
+      "addressLocality": "Galgenen",
+      "addressRegion": "SZ",
+      "streetAddress": "Kantonsstrasse 61",
+      "postalCode": "8854",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "sector": "Retail / Bricolage e Giardinaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154968&company=Hornbach&username=",
+      "jobReqId": "154968",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistente-alle-vendite-elettriche-hornbach-galgenen",
+        "seller-in-electric-hornbach-galgenen",
+        "vendeur-en-electrique-hornbach-galgenen",
+        "verkaufer-in-elektro-hornbach-galgenen",
+        "venditore-in-elettrico-hornbach-galgenen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-alle-vendite-elettriche-hornbach-galgenen",
+          "seller-in-electric-hornbach-galgenen",
+          "vendeur-en-electrique-hornbach-galgenen",
+          "verkaufer-in-elektro-hornbach-galgenen",
+          "venditore-in-elettrico-hornbach-galgenen"
+        ],
+        "en": [
+          "verkaufer-in-elektro-hornbach-galgenen"
+        ],
+        "fr": [
+          "verkaufer-in-elektro-hornbach-galgenen"
+        ]
+      },
+      "firstSeenAt": "2026-08-26T10:02:23.729Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -1897,7 +2028,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0OTMz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.672Z",
+      "crawledAt": "2026-09-12T13:03:03.154Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -1916,11 +2047,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach"
+        "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach",
+        "venditore-in-utensili-da-stiro-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach"
+          "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach",
+          "venditore-in-utensili-da-stiro-hornbach-sirnach"
         ],
         "en": [
           "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach"
@@ -1930,6 +2063,7 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:02:23.729Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1975,7 +2109,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0OTQ5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.671Z",
+      "crawledAt": "2026-09-12T13:03:03.153Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -1994,11 +2128,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-garten-hartwaren-hornbach-galgenen"
+        "verkaufer-in-garten-hartwaren-hornbach-galgenen",
+        "venditore-in-garden-hardware-hornbach-galgenen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-garten-hartwaren-hornbach-galgenen"
+          "verkaufer-in-garten-hartwaren-hornbach-galgenen",
+          "venditore-in-garden-hardware-hornbach-galgenen"
         ],
         "en": [
           "verkaufer-in-garten-hartwaren-hornbach-galgenen"
@@ -2008,90 +2144,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:02:23.728Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hornbach-154968",
-      "slug": "venditore-in-elettrico-hornbach-galgenen",
-      "slugByLocale": {
-        "it": "venditore-in-elettrico-hornbach-galgenen",
-        "en": "seller-in-electric-hornbach-galgenen",
-        "de": "verkaufer-in-elektro-hornbach-galgenen",
-        "fr": "vendeur-en-electrique-hornbach-galgenen"
-      },
-      "company": "Hornbach",
-      "companyKey": "hornbach",
-      "companyDomain": "hornbach.ch",
-      "title": "Verkäufer:in Elektro",
-      "titleByLocale": {
-        "it": "Venditore elettrico",
-        "en": "Seller Electric",
-        "de": "Verkäufer:in Elektro",
-        "fr": "Vendeur électrique"
-      },
-      "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Mindestens 5 Wochen Ferien pro Jahr Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Elektro sowie Deine Kollegialität zeichnen Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Elektroniker:in, Elektroinstallateur:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
-      "descriptionByLocale": {
-        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Generoso congedo di maternità e di paternità\n• Quota BVG (Fondo di sospensione) del 65 %\n• Equo salario minimo da CHF 4'400\n• Almeno 5 settimane di vacanza all'anno C'è sempre qualcosa da fare\n• Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti.\n• Grazie a voi, gli scaffali sono riempiti e i prodotti sono presentati in modo attraente.\n• Sostieni la tua squadra ovunque ci sia qualcosa da fare.\n• Si utilizza attivamente il negozio online come strumento di vendita. La tua fondazione\n• Porti la passione per i consigli dei clienti e metti prima la soddisfazione del cliente.\n• Hai un alto senso di responsabilità e rimani positivo in situazioni stressanti.\n• La vostra buona conoscenza nel campo dell'elettronica e la vostra collegialità vi distinguono.\n• Possiamo contare sulla vostra flessibilità entro i nostri orari di apertura.\n• Hai completato un apprendistato come specialista al dettaglio:mann, ingegnere elettronico:in, installatore elettrico:in o simili.\n\nArea: Vendita / Commercio al dettaglio",
-        "en": "You can look forward to that.\n• 39-hour week with flexible breaks\n• Generous maternity and paternity leave\n• BVG share (pension fund) of 65 % paid\n• Fair minimum wage from CHF 4'400\n• At least 5 weeks of vacation per year There is always something to do\n• You advise and inspire our customers in the realization of their projects.\n• Thanks to you, the shelves are filled and the products are presented attractively.\n• You support your team wherever there is something to do.\n• You actively use the online shop as a sales tool. Your foundation\n• You bring passion for customer advice and put customer satisfaction first.\n• You have a high sense of responsibility and stay positive in stressful situations.\n• Your good knowledge in the field of electronics and your collegiality distinguish you.\n• We can rely on your flexibility within our opening hours.\n• You have completed an apprenticeship as a retail specialist:mann, electronics engineer:in, electrical installer:in or similar.\n\nArea: Sales / Retail Trade",
-        "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Grosszügiger Mutter- und Vaterschaftsurlaub\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Mindestens 5 Wochen Ferien pro Jahr Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Elektro sowie Deine Kollegialität zeichnen Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Elektroniker:in, Elektroinstallateur:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
-        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Congé de maternité et de paternité généreux\n• Part BVG (fonds de pension) de 65 % versée\n• Salaire minimum équitable à partir de CHF 4'400\n• Au moins 5 semaines de vacances par an Il y a toujours quelque chose à faire\n• Vous conseillez et inspirez nos clients dans la réalisation de leurs projets.\n• Grâce à vous, les étagères sont remplies et les produits sont présentés de manière attrayante.\n• Vous soutenez votre équipe partout où il y a quelque chose à faire.\n• Vous utilisez activement la boutique en ligne comme outil de vente. Votre fondation\n• Vous apportez la passion pour les conseils des clients et mettre la satisfaction des clients en premier.\n• Vous avez un haut sens des responsabilités et restez positif dans des situations stressantes.\n• Votre bonne connaissance dans le domaine de l'électronique et votre collégialité vous distinguent.\n• Nous pouvons compter sur votre flexibilité dans les heures d'ouverture.\n• Vous avez suivi un apprentissage en tant que spécialiste du commerce de détail:mann, ingénieur en électronique:in, installateur électrique:in ou similaire.\n\nDomaine: Vente / Commerce de détail"
-      },
-      "location": "Galgenen",
-      "canton": "SZ",
-      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0OTY4&showApplicationForm=false",
-      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.671Z",
-      "addressLocality": "Galgenen",
-      "addressRegion": "SZ",
-      "streetAddress": "Kantonsstrasse 61",
-      "postalCode": "8854",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "sector": "Retail / Bricolage e Giardinaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154968&company=Hornbach&username=",
-      "jobReqId": "154968",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistente-alle-vendite-elettriche-hornbach-galgenen",
-        "seller-in-electric-hornbach-galgenen",
-        "vendeur-en-electrique-hornbach-galgenen",
-        "verkaufer-in-elektro-hornbach-galgenen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistente-alle-vendite-elettriche-hornbach-galgenen",
-          "seller-in-electric-hornbach-galgenen",
-          "vendeur-en-electrique-hornbach-galgenen",
-          "verkaufer-in-elektro-hornbach-galgenen"
-        ],
-        "en": [
-          "verkaufer-in-elektro-hornbach-galgenen"
-        ],
-        "fr": [
-          "verkaufer-in-elektro-hornbach-galgenen"
-        ]
-      },
-      "firstSeenAt": "2026-08-26T10:02:23.729Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2137,7 +2189,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU1MDM4&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.670Z",
+      "crawledAt": "2026-09-12T13:03:03.152Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -2156,11 +2208,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-fliesen-hornbach-sirnach"
+        "verkaufer-in-fliesen-hornbach-sirnach",
+        "vendita-in-piastrelle-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-fliesen-hornbach-sirnach"
+          "verkaufer-in-fliesen-hornbach-sirnach",
+          "vendita-in-piastrelle-hornbach-sirnach"
         ],
         "en": [
           "verkaufer-in-fliesen-hornbach-sirnach"
@@ -2215,7 +2269,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU1MTU0&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.669Z",
+      "crawledAt": "2026-09-12T13:03:03.147Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -2237,12 +2291,14 @@
         "verkaufer-in-pflanzen-hornbach-luzern-littau",
         "vendor-in-impianti-hornbach-luzern-littau",
         "vendor-in-plants-hornbach-luzern-littau",
-        "fournisseur-dans-les-usines-hornbach-luzern-littau"
+        "fournisseur-dans-les-usines-hornbach-luzern-littau",
+        "impianti-di-saldatura-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-pflanzen-hornbach-luzern-littau",
-          "vendor-in-impianti-hornbach-luzern-littau"
+          "vendor-in-impianti-hornbach-luzern-littau",
+          "impianti-di-saldatura-hornbach-luzern-littau"
         ],
         "en": [
           "verkaufer-in-pflanzen-hornbach-luzern-littau",
@@ -2254,6 +2310,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:39:49.152Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2299,7 +2356,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzc5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.668Z",
+      "crawledAt": "2026-09-12T13:03:03.145Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -2318,11 +2375,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-hornbach-affoltern-am-albis"
+        "lehrstelle-logistiker-in-efz-hornbach-affoltern-am-albis",
+        "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-hornbach-affoltern-am-albis"
+          "lehrstelle-logistiker-in-efz-hornbach-affoltern-am-albis",
+          "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-affoltern-am-albis"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-hornbach-affoltern-am-albis"
@@ -2332,6 +2391,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:45.445Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2377,7 +2437,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU1MDI3&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.667Z",
+      "crawledAt": "2026-09-12T13:03:03.144Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -2396,11 +2456,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-warenausgang-hornbach-sirnach"
+        "mitarbeiter-in-warenausgang-hornbach-sirnach",
+        "collaboratore-trice-warenausgang-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-warenausgang-hornbach-sirnach"
+          "mitarbeiter-in-warenausgang-hornbach-sirnach",
+          "collaboratore-trice-warenausgang-hornbach-sirnach"
         ],
         "en": [
           "mitarbeiter-in-warenausgang-hornbach-sirnach"
@@ -2410,6 +2472,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:09:35.498Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2455,7 +2518,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU1MTUz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.666Z",
+      "crawledAt": "2026-09-12T13:03:03.143Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -2474,11 +2537,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-farben-hornbach-luzern-littau"
+        "verkaufer-in-farben-hornbach-luzern-littau",
+        "colore-del-venditore-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-farben-hornbach-luzern-littau"
+          "verkaufer-in-farben-hornbach-luzern-littau",
+          "colore-del-venditore-hornbach-luzern-littau"
         ],
         "en": [
           "verkaufer-in-farben-hornbach-luzern-littau"
@@ -2533,7 +2598,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NTAz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.665Z",
+      "crawledAt": "2026-09-12T13:03:03.140Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -2552,11 +2617,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-detailhandel-efz-eisenwaren-hornbach-affoltern-am-albis"
+        "lehrstelle-detailhandel-efz-eisenwaren-hornbach-affoltern-am-albis",
+        "apprendistato-commercio-al-dettaglio-cfc-eisenwaren-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-detailhandel-efz-eisenwaren-hornbach-affoltern-am-albis"
+          "lehrstelle-detailhandel-efz-eisenwaren-hornbach-affoltern-am-albis",
+          "apprendistato-commercio-al-dettaglio-cfc-eisenwaren-hornbach-affoltern-am-albis"
         ],
         "en": [
           "lehrstelle-detailhandel-efz-eisenwaren-hornbach-affoltern-am-albis"
@@ -2566,84 +2633,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:45.443Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hornbach-154377",
-      "slug": "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-affoltern-am-albis",
-      "slugByLocale": {
-        "it": "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-affoltern-am-albis",
-        "en": "apprenticeship-for-retail-trade-efz-do-it-hornbach-affoltern-am-albis",
-        "de": "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis",
-        "fr": "lehrstelle-commerce-de-detail-efz-do-it-hornbach-affoltern-am-albis"
-      },
-      "company": "Hornbach",
-      "companyKey": "hornbach",
-      "companyDomain": "hornbach.ch",
-      "title": "Lehrstelle Detailhandel EFZ (Do-It)",
-      "titleByLocale": {
-        "it": "Apprendistato commercio al dettaglio CFC (Do-It)",
-        "en": "Apprenticeship for retail trade EFZ (Do-It)",
-        "de": "Lehrstelle Detailhandel EFZ (Do-It)",
-        "fr": "Apprentissage pour le commerce de détail EFZ (Do-It)"
-      },
-      "description": "Branche: Do-It │ Betrieblicher Schwerpunkt: Gestalten von Einkaufserlebnissen Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 6 Wochen Ferien\n• Intensive Betreuung durch engagierte Ausbildner:innen\n• Attraktive Löhne\n• 1. Lehrjahr CHF 900\n• 2. Lehrjahr CHF 1'100\n• 3. Lehrjahr CHF 1'600 Dein Aufgabengebiet\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Die saisonalen Warenpräsentationen gestaltest Du mit Deinen kreativen Ideen aktiv mit.\n• Du setzt verschiedene Verkaufswerkzeuge wie z. B. den Onlineshop für eine optimale Beratung ein.\n• Langweilig wird Dir nicht…es gibt immer was zu tun! Dein Fundament\n• Du hast Spass am Umgang mit Menschen und gehst positiv auf sie zu.\n• Deine offene, zuverlässige und hilfsbereite Macherpersönlichkeit zeichnen Dich aus.\n• Du hast den Willen, mit Vollgas in der Schule wie auch im Betrieb den Durchbruch zu schaffen.\n• Auch bei Abend- und Samstagsarbeit zeigst Du volles Engagement.\n\nBereich: Lehrstelle / Duales Studium / Praktikum",
-      "descriptionByLocale": {
-        "it": "Industria: Do-It Iglesias focus operativo: Progettare esperienze di shopping Non vedo l'ora di\n• Settimana di 39 ore con pause flessibili\n• Almeno 6 settimane di vacanza\n• Supporto intensivo da parte di formatori impegnati: dentro\n• Retribuzioni interessanti\n• 1. Anno educativo CHF 900\n• 2. Anno di formazione CHF 1'100\n• 3. Anno di formazione CHF 1600 La vostra area di responsabilità\n• Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti.\n• Formate attivamente le presentazioni stagionali con le vostre idee creative.\n• Si utilizzano vari strumenti di vendita come il negozio online per una consulenza ottimale.\n• Non ti annoi... c'è sempre qualcosa da fare! La tua fondazione\n• Ti piace occuparti delle persone e avvicinarti positivamente.\n• La tua personalità creatrice aperta, affidabile e disponibile ti distingue.\n• Hai la volontà di fare il passo avanti con il tetto pieno a scuola così come nella società.\n• Anche a sera e sabato lavoro si mostra pieno impegno.\n\nArea: Apprendistato / doppio studio / stage",
-        "en": "Industry: Do-It │ Operational focus: Designing shopping experiences You can look forward to\n• 39-hour week with flexible breaks\n• At least 6 weeks of vacation\n• Intensive support by committed trainers: inside\n• Attractive wages\n• 1. Educational year CHF 900\n• 2. Year of training CHF 1'100\n• 3. Training year CHF 1'600 Your area of responsibility\n• You advise and inspire our customers in the realization of their projects.\n• You actively shape the seasonal presentations with your creative ideas.\n• You use various sales tools such as the online shop for optimal advice.\n• You don’t get bored... there is always something to do! Your foundation\n• You enjoy dealing with people and approach them positively.\n• Your open, reliable and helpful maker personality sets you apart.\n• You have the will to make the breakthrough with full throttle in school as well as in the company.\n• Even at evening and Saturday work you show full commitment.\n\nArea: Apprenticeship / Dual studies / Internship",
-        "de": "Branche: Do-It │ Betrieblicher Schwerpunkt: Gestalten von Einkaufserlebnissen Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 6 Wochen Ferien\n• Intensive Betreuung durch engagierte Ausbildner:innen\n• Attraktive Löhne\n• 1. Lehrjahr CHF 900\n• 2. Lehrjahr CHF 1'100\n• 3. Lehrjahr CHF 1'600 Dein Aufgabengebiet\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Die saisonalen Warenpräsentationen gestaltest Du mit Deinen kreativen Ideen aktiv mit.\n• Du setzt verschiedene Verkaufswerkzeuge wie z. B. den Onlineshop für eine optimale Beratung ein.\n• Langweilig wird Dir nicht…es gibt immer was zu tun! Dein Fundament\n• Du hast Spass am Umgang mit Menschen und gehst positiv auf sie zu.\n• Deine offene, zuverlässige und hilfsbereite Macherpersönlichkeit zeichnen Dich aus.\n• Du hast den Willen, mit Vollgas in der Schule wie auch im Betrieb den Durchbruch zu schaffen.\n• Auch bei Abend- und Samstagsarbeit zeigst Du volles Engagement.\n\nBereich: Lehrstelle / Duales Studium / Praktikum",
-        "fr": "Industrie: Do-It │ Objectif opérationnel: concevoir des expériences d'achat Vous pouvez attendre avec impatience\n• Semaine de 39 heures avec pauses flexibles\n• Au moins 6 semaines de vacances\n• Soutien intensif de formateurs engagés: à l'intérieur\n• Salaires attractifs\n• 1. Année scolaire CHF 900\n• 2. Année de formation CHF 1'100\n• 3. Année de formation CHF 1'600 Votre domaine de responsabilité\n• Vous conseillez et inspirez nos clients dans la réalisation de leurs projets.\n• Vous façonnez activement les présentations saisonnières avec vos idées créatives.\n• Vous utilisez divers outils de vente tels que la boutique en ligne pour des conseils optimaux.\n• Tu ne t'ennuies pas... Il y a toujours quelque chose à faire ! Votre fondation\n• Vous aimez traiter avec les gens et les aborder positivement.\n• Votre personnalité de fabricant ouverte, fiable et utile vous distingue.\n• Vous avez la volonté de faire la percée avec plein gaz à l'école ainsi que dans l'entreprise.\n• Même le soir et le samedi, vous montrez votre plein engagement.\n\nDomaine: Apprentissage / Double études / Stage"
-      },
-      "location": "Affoltern am Albis",
-      "canton": "ZH",
-      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzc3&showApplicationForm=false",
-      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.664Z",
-      "addressLocality": "Affoltern am Albis",
-      "addressRegion": "ZH",
-      "streetAddress": "Obfelderstrasse 37",
-      "postalCode": "8910",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "sector": "Retail / Bricolage e Giardinaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-08",
-      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154377&company=Hornbach&username=",
-      "jobReqId": "154377",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis"
-        ],
-        "en": [
-          "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis"
-        ],
-        "fr": [
-          "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis"
-        ]
-      },
-      "firstSeenAt": "2026-08-03T12:38:45.441Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2689,7 +2679,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NTAx&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.664Z",
+      "crawledAt": "2026-09-12T13:03:03.139Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -2708,11 +2698,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-detailhandel-efz-farben-hornbach-affoltern-am-albis"
+        "lehrstelle-detailhandel-efz-farben-hornbach-affoltern-am-albis",
+        "apprendistato-commercio-al-dettaglio-cfc-farben-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-detailhandel-efz-farben-hornbach-affoltern-am-albis"
+          "lehrstelle-detailhandel-efz-farben-hornbach-affoltern-am-albis",
+          "apprendistato-commercio-al-dettaglio-cfc-farben-hornbach-affoltern-am-albis"
         ],
         "en": [
           "lehrstelle-detailhandel-efz-farben-hornbach-affoltern-am-albis"
@@ -2722,6 +2714,88 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:45.442Z",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hornbach-154377",
+      "slug": "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-affoltern-am-albis",
+      "slugByLocale": {
+        "it": "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-affoltern-am-albis",
+        "en": "apprenticeship-for-retail-trade-efz-do-it-hornbach-affoltern-am-albis",
+        "de": "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis",
+        "fr": "lehrstelle-commerce-de-detail-efz-do-it-hornbach-affoltern-am-albis"
+      },
+      "company": "Hornbach",
+      "companyKey": "hornbach",
+      "companyDomain": "hornbach.ch",
+      "title": "Lehrstelle Detailhandel EFZ (Do-It)",
+      "titleByLocale": {
+        "it": "Apprendistato commercio al dettaglio CFC (Do-It)",
+        "en": "Apprenticeship for retail trade EFZ (Do-It)",
+        "de": "Lehrstelle Detailhandel EFZ (Do-It)",
+        "fr": "Apprentissage pour le commerce de détail EFZ (Do-It)"
+      },
+      "description": "Branche: Do-It │ Betrieblicher Schwerpunkt: Gestalten von Einkaufserlebnissen Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 6 Wochen Ferien\n• Intensive Betreuung durch engagierte Ausbildner:innen\n• Attraktive Löhne\n• 1. Lehrjahr CHF 900\n• 2. Lehrjahr CHF 1'100\n• 3. Lehrjahr CHF 1'600 Dein Aufgabengebiet\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Die saisonalen Warenpräsentationen gestaltest Du mit Deinen kreativen Ideen aktiv mit.\n• Du setzt verschiedene Verkaufswerkzeuge wie z. B. den Onlineshop für eine optimale Beratung ein.\n• Langweilig wird Dir nicht…es gibt immer was zu tun! Dein Fundament\n• Du hast Spass am Umgang mit Menschen und gehst positiv auf sie zu.\n• Deine offene, zuverlässige und hilfsbereite Macherpersönlichkeit zeichnen Dich aus.\n• Du hast den Willen, mit Vollgas in der Schule wie auch im Betrieb den Durchbruch zu schaffen.\n• Auch bei Abend- und Samstagsarbeit zeigst Du volles Engagement.\n\nBereich: Lehrstelle / Duales Studium / Praktikum",
+      "descriptionByLocale": {
+        "it": "Industria: Do-It Iglesias focus operativo: Progettare esperienze di shopping Non vedo l'ora di\n• Settimana di 39 ore con pause flessibili\n• Almeno 6 settimane di vacanza\n• Supporto intensivo da parte di formatori impegnati: dentro\n• Retribuzioni interessanti\n• 1. Anno educativo CHF 900\n• 2. Anno di formazione CHF 1'100\n• 3. Anno di formazione CHF 1600 La vostra area di responsabilità\n• Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti.\n• Formate attivamente le presentazioni stagionali con le vostre idee creative.\n• Si utilizzano vari strumenti di vendita come il negozio online per una consulenza ottimale.\n• Non ti annoi... c'è sempre qualcosa da fare! La tua fondazione\n• Ti piace occuparti delle persone e avvicinarti positivamente.\n• La tua personalità creatrice aperta, affidabile e disponibile ti distingue.\n• Hai la volontà di fare il passo avanti con il tetto pieno a scuola così come nella società.\n• Anche a sera e sabato lavoro si mostra pieno impegno.\n\nArea: Apprendistato / doppio studio / stage",
+        "en": "Industry: Do-It │ Operational focus: Designing shopping experiences You can look forward to\n• 39-hour week with flexible breaks\n• At least 6 weeks of vacation\n• Intensive support by committed trainers: inside\n• Attractive wages\n• 1. Educational year CHF 900\n• 2. Year of training CHF 1'100\n• 3. Training year CHF 1'600 Your area of responsibility\n• You advise and inspire our customers in the realization of their projects.\n• You actively shape the seasonal presentations with your creative ideas.\n• You use various sales tools such as the online shop for optimal advice.\n• You don’t get bored... there is always something to do! Your foundation\n• You enjoy dealing with people and approach them positively.\n• Your open, reliable and helpful maker personality sets you apart.\n• You have the will to make the breakthrough with full throttle in school as well as in the company.\n• Even at evening and Saturday work you show full commitment.\n\nArea: Apprenticeship / Dual studies / Internship",
+        "de": "Branche: Do-It │ Betrieblicher Schwerpunkt: Gestalten von Einkaufserlebnissen Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 6 Wochen Ferien\n• Intensive Betreuung durch engagierte Ausbildner:innen\n• Attraktive Löhne\n• 1. Lehrjahr CHF 900\n• 2. Lehrjahr CHF 1'100\n• 3. Lehrjahr CHF 1'600 Dein Aufgabengebiet\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Die saisonalen Warenpräsentationen gestaltest Du mit Deinen kreativen Ideen aktiv mit.\n• Du setzt verschiedene Verkaufswerkzeuge wie z. B. den Onlineshop für eine optimale Beratung ein.\n• Langweilig wird Dir nicht…es gibt immer was zu tun! Dein Fundament\n• Du hast Spass am Umgang mit Menschen und gehst positiv auf sie zu.\n• Deine offene, zuverlässige und hilfsbereite Macherpersönlichkeit zeichnen Dich aus.\n• Du hast den Willen, mit Vollgas in der Schule wie auch im Betrieb den Durchbruch zu schaffen.\n• Auch bei Abend- und Samstagsarbeit zeigst Du volles Engagement.\n\nBereich: Lehrstelle / Duales Studium / Praktikum",
+        "fr": "Industrie: Do-It │ Objectif opérationnel: concevoir des expériences d'achat Vous pouvez attendre avec impatience\n• Semaine de 39 heures avec pauses flexibles\n• Au moins 6 semaines de vacances\n• Soutien intensif de formateurs engagés: à l'intérieur\n• Salaires attractifs\n• 1. Année scolaire CHF 900\n• 2. Année de formation CHF 1'100\n• 3. Année de formation CHF 1'600 Votre domaine de responsabilité\n• Vous conseillez et inspirez nos clients dans la réalisation de leurs projets.\n• Vous façonnez activement les présentations saisonnières avec vos idées créatives.\n• Vous utilisez divers outils de vente tels que la boutique en ligne pour des conseils optimaux.\n• Tu ne t'ennuies pas... Il y a toujours quelque chose à faire ! Votre fondation\n• Vous aimez traiter avec les gens et les aborder positivement.\n• Votre personnalité de fabricant ouverte, fiable et utile vous distingue.\n• Vous avez la volonté de faire la percée avec plein gaz à l'école ainsi que dans l'entreprise.\n• Même le soir et le samedi, vous montrez votre plein engagement.\n\nDomaine: Apprentissage / Double études / Stage"
+      },
+      "location": "Affoltern am Albis",
+      "canton": "ZH",
+      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzc3&showApplicationForm=false",
+      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-12T13:03:03.138Z",
+      "addressLocality": "Affoltern am Albis",
+      "addressRegion": "ZH",
+      "streetAddress": "Obfelderstrasse 37",
+      "postalCode": "8910",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "sector": "Retail / Bricolage e Giardinaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-08",
+      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154377&company=Hornbach&username=",
+      "jobReqId": "154377",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis",
+        "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-affoltern-am-albis"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis",
+          "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-affoltern-am-albis"
+        ],
+        "en": [
+          "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis"
+        ],
+        "fr": [
+          "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis"
+        ]
+      },
+      "firstSeenAt": "2026-08-03T12:38:45.441Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2767,7 +2841,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzg3&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.663Z",
+      "crawledAt": "2026-09-12T13:03:03.135Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -2786,11 +2860,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-hornbach-luzern-littau"
+        "lehrstelle-logistiker-in-efz-hornbach-luzern-littau",
+        "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-hornbach-luzern-littau"
+          "lehrstelle-logistiker-in-efz-hornbach-luzern-littau",
+          "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-luzern-littau"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-hornbach-luzern-littau"
@@ -2800,6 +2876,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:45.440Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -2845,7 +2922,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MzY5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.662Z",
+      "crawledAt": "2026-09-12T13:03:03.134Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -2864,11 +2941,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-detailhandel-efz-do-it-hornbach-biel-bienne"
+        "lehrstelle-detailhandel-efz-do-it-hornbach-biel-bienne",
+        "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-detailhandel-efz-do-it-hornbach-biel-bienne"
+          "lehrstelle-detailhandel-efz-do-it-hornbach-biel-bienne",
+          "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-biel-bienne"
         ],
         "en": [
           "lehrstelle-detailhandel-efz-do-it-hornbach-biel-bienne"
@@ -2878,6 +2957,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:45.439Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2923,7 +3003,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzgz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.661Z",
+      "crawledAt": "2026-09-12T13:03:03.133Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -2942,11 +3022,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-detailhandel-efz-do-it-hornbach-luzern-littau"
+        "lehrstelle-detailhandel-efz-do-it-hornbach-luzern-littau",
+        "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-detailhandel-efz-do-it-hornbach-luzern-littau"
+          "lehrstelle-detailhandel-efz-do-it-hornbach-luzern-littau",
+          "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-luzern-littau"
         ],
         "en": [
           "lehrstelle-detailhandel-efz-do-it-hornbach-luzern-littau"
@@ -2956,84 +3038,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:45.438Z",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hornbach-154371",
-      "slug": "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-galgenen",
-      "slugByLocale": {
-        "it": "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-galgenen",
-        "en": "lehrstelle-retail-efz-do-it-hornbach-galgenen",
-        "de": "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen",
-        "fr": "lehrstelle-commerce-de-detail-efz-do-it-hornbach-galgenen"
-      },
-      "company": "Hornbach",
-      "companyKey": "hornbach",
-      "companyDomain": "hornbach.ch",
-      "title": "Lehrstelle Detailhandel EFZ (Do-It)",
-      "titleByLocale": {
-        "it": "Apprendistato commercio al dettaglio CFC (Do-It)",
-        "en": "Apprenticeship for retail trade EFZ (Do-It)",
-        "de": "Lehrstelle Detailhandel EFZ (Do-It)",
-        "fr": "Apprentissage pour le commerce de détail EFZ (Do-It)"
-      },
-      "description": "Branche: Do-it-yourself │ Betrieblicher Schwerpunkt: Gestalten von Einkaufserlebnissen Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 6 Wochen Ferien\n• Intensive Betreuung durch engagierte Ausbildner:innen\n• Attraktive Löhne\n• 1. Lehrjahr CHF 900\n• 2. Lehrjahr CHF 1'100\n• 3. Lehrjahr CHF 1'600 Dein Aufgabengebiet\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Die saisonalen Warenpräsentationen gestaltest Du mit Deinen kreativen Ideen aktiv mit.\n• Du setzt verschiedene Verkaufswerkzeuge wie z. B. den Onlineshop für eine optimale Beratung ein.\n• Langweilig wird Dir nicht…es gibt immer was zu tun! Dein Fundament\n• Du hast Spass am Umgang mit Menschen und gehst positiv auf sie zu.\n• Deine offene, zuverlässige und hilfsbereite Macherpersönlichkeit zeichnen Dich aus.\n• Du hast den Willen, mit Vollgas in der Schule wie auch im Betrieb den Durchbruch zu schaffen.\n• Auch bei Abend- und Samstagsarbeit zeigst Du volles Engagement.\n\nBereich: Lehrstelle / Duales Studium / Praktikum",
-      "descriptionByLocale": {
-        "it": "Industria: Do-it-yourself ό Focus operativo: Progettare esperienze di shopping Non vedo l'ora di\n• Settimana di 39 ore con pause flessibili\n• Almeno 6 settimane di vacanza\n• Supporto intensivo da parte di formatori impegnati: dentro\n• Retribuzioni interessanti\n• 1. Anno educativo CHF 900\n• 2. Anno di formazione CHF 1'100\n• 3. Anno di formazione CHF 1600 La vostra area di responsabilità\n• Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti.\n• Formate attivamente le presentazioni stagionali con le vostre idee creative.\n• Si utilizzano vari strumenti di vendita come il negozio online per una consulenza ottimale.\n• Non ti annoi... c'è sempre qualcosa da fare! La tua fondazione\n• Ti piace occuparti delle persone e avvicinarti positivamente.\n• La tua personalità creatrice aperta, affidabile e disponibile ti distingue.\n• Hai la volontà di fare il passo avanti con il tetto pieno a scuola così come nella società.\n• Anche a sera e sabato lavoro si mostra pieno impegno.\n\nArea: Apprendistato / doppio studio / stage",
-        "en": "Industry: Do-it-yourself │ Operational focus: Designing shopping experiences You can look forward to\n• 39-hour week with flexible breaks\n• At least 6 weeks of vacation\n• Intensive support by committed trainers: inside\n• Attractive wages\n• 1. Educational year CHF 900\n• 2. Year of training CHF 1'100\n• 3. Training year CHF 1'600 Your area of responsibility\n• You advise and inspire our customers in the realization of their projects.\n• You actively shape the seasonal presentations with your creative ideas.\n• You use various sales tools such as the online shop for optimal advice.\n• You don’t get bored... there is always something to do! Your foundation\n• You enjoy dealing with people and approach them positively.\n• Your open, reliable and helpful maker personality sets you apart.\n• You have the will to make the breakthrough with full throttle in school as well as in the company.\n• Even at evening and Saturday work you show full commitment.\n\nArea: Apprenticeship / Dual studies / Internship",
-        "de": "Branche: Do-it-yourself │ Betrieblicher Schwerpunkt: Gestalten von Einkaufserlebnissen Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 6 Wochen Ferien\n• Intensive Betreuung durch engagierte Ausbildner:innen\n• Attraktive Löhne\n• 1. Lehrjahr CHF 900\n• 2. Lehrjahr CHF 1'100\n• 3. Lehrjahr CHF 1'600 Dein Aufgabengebiet\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Die saisonalen Warenpräsentationen gestaltest Du mit Deinen kreativen Ideen aktiv mit.\n• Du setzt verschiedene Verkaufswerkzeuge wie z. B. den Onlineshop für eine optimale Beratung ein.\n• Langweilig wird Dir nicht…es gibt immer was zu tun! Dein Fundament\n• Du hast Spass am Umgang mit Menschen und gehst positiv auf sie zu.\n• Deine offene, zuverlässige und hilfsbereite Macherpersönlichkeit zeichnen Dich aus.\n• Du hast den Willen, mit Vollgas in der Schule wie auch im Betrieb den Durchbruch zu schaffen.\n• Auch bei Abend- und Samstagsarbeit zeigst Du volles Engagement.\n\nBereich: Lehrstelle / Duales Studium / Praktikum",
-        "fr": "Industrie: Faites-vous-vous-même │ Objectif opérationnel: Concevoir des expériences d'achat Vous pouvez attendre avec impatience\n• Semaine de 39 heures avec pauses flexibles\n• Au moins 6 semaines de vacances\n• Soutien intensif de formateurs engagés: à l'intérieur\n• Salaires attractifs\n• 1. Année scolaire CHF 900\n• 2. Année de formation CHF 1'100\n• 3. Année de formation CHF 1'600 Votre domaine de responsabilité\n• Vous conseillez et inspirez nos clients dans la réalisation de leurs projets.\n• Vous façonnez activement les présentations saisonnières avec vos idées créatives.\n• Vous utilisez divers outils de vente tels que la boutique en ligne pour des conseils optimaux.\n• Tu ne t'ennuies pas... Il y a toujours quelque chose à faire ! Votre fondation\n• Vous aimez traiter avec les gens et les aborder positivement.\n• Votre personnalité de fabricant ouverte, fiable et utile vous distingue.\n• Vous avez la volonté de faire la percée avec plein gaz à l'école ainsi que dans l'entreprise.\n• Même le soir et le samedi, vous montrez votre plein engagement.\n\nDomaine: Apprentissage / Double études / Stage"
-      },
-      "location": "Galgenen",
-      "canton": "SZ",
-      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzcx&showApplicationForm=false",
-      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.660Z",
-      "addressLocality": "Galgenen",
-      "addressRegion": "SZ",
-      "streetAddress": "Kantonsstrasse 61",
-      "postalCode": "8854",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "sector": "Retail / Bricolage e Giardinaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-08",
-      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154371&company=Hornbach&username=",
-      "jobReqId": "154371",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen"
-        ],
-        "en": [
-          "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen"
-        ],
-        "fr": [
-          "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen"
-        ]
-      },
-      "firstSeenAt": "2026-08-03T12:38:45.436Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -3079,7 +3084,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzc4&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.660Z",
+      "crawledAt": "2026-09-12T13:03:03.129Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -3098,11 +3103,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-detailhandel-efz-do-it-hornbach-sirnach"
+        "lehrstelle-detailhandel-efz-do-it-hornbach-sirnach",
+        "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-detailhandel-efz-do-it-hornbach-sirnach"
+          "lehrstelle-detailhandel-efz-do-it-hornbach-sirnach",
+          "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-sirnach"
         ],
         "en": [
           "lehrstelle-detailhandel-efz-do-it-hornbach-sirnach"
@@ -3112,6 +3119,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:45.437Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -3122,6 +3130,87 @@
           "@type": "QuantitativeValue",
           "minValue": 48000,
           "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hornbach-154371",
+      "slug": "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-galgenen",
+      "slugByLocale": {
+        "it": "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-galgenen",
+        "en": "lehrstelle-retail-efz-do-it-hornbach-galgenen",
+        "de": "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen",
+        "fr": "lehrstelle-commerce-de-detail-efz-do-it-hornbach-galgenen"
+      },
+      "company": "Hornbach",
+      "companyKey": "hornbach",
+      "companyDomain": "hornbach.ch",
+      "title": "Lehrstelle Detailhandel EFZ (Do-It)",
+      "titleByLocale": {
+        "it": "Apprendistato commercio al dettaglio CFC (Do-It)",
+        "en": "Apprenticeship for retail trade EFZ (Do-It)",
+        "de": "Lehrstelle Detailhandel EFZ (Do-It)",
+        "fr": "Apprentissage pour le commerce de détail EFZ (Do-It)"
+      },
+      "description": "Branche: Do-it-yourself │ Betrieblicher Schwerpunkt: Gestalten von Einkaufserlebnissen Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 6 Wochen Ferien\n• Intensive Betreuung durch engagierte Ausbildner:innen\n• Attraktive Löhne\n• 1. Lehrjahr CHF 900\n• 2. Lehrjahr CHF 1'100\n• 3. Lehrjahr CHF 1'600 Dein Aufgabengebiet\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Die saisonalen Warenpräsentationen gestaltest Du mit Deinen kreativen Ideen aktiv mit.\n• Du setzt verschiedene Verkaufswerkzeuge wie z. B. den Onlineshop für eine optimale Beratung ein.\n• Langweilig wird Dir nicht…es gibt immer was zu tun! Dein Fundament\n• Du hast Spass am Umgang mit Menschen und gehst positiv auf sie zu.\n• Deine offene, zuverlässige und hilfsbereite Macherpersönlichkeit zeichnen Dich aus.\n• Du hast den Willen, mit Vollgas in der Schule wie auch im Betrieb den Durchbruch zu schaffen.\n• Auch bei Abend- und Samstagsarbeit zeigst Du volles Engagement.\n\nBereich: Lehrstelle / Duales Studium / Praktikum",
+      "descriptionByLocale": {
+        "it": "Industria: Do-it-yourself ό Focus operativo: Progettare esperienze di shopping Non vedo l'ora di\n• Settimana di 39 ore con pause flessibili\n• Almeno 6 settimane di vacanza\n• Supporto intensivo da parte di formatori impegnati: dentro\n• Retribuzioni interessanti\n• 1. Anno educativo CHF 900\n• 2. Anno di formazione CHF 1'100\n• 3. Anno di formazione CHF 1600 La vostra area di responsabilità\n• Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti.\n• Formate attivamente le presentazioni stagionali con le vostre idee creative.\n• Si utilizzano vari strumenti di vendita come il negozio online per una consulenza ottimale.\n• Non ti annoi... c'è sempre qualcosa da fare! La tua fondazione\n• Ti piace occuparti delle persone e avvicinarti positivamente.\n• La tua personalità creatrice aperta, affidabile e disponibile ti distingue.\n• Hai la volontà di fare il passo avanti con il tetto pieno a scuola così come nella società.\n• Anche a sera e sabato lavoro si mostra pieno impegno.\n\nArea: Apprendistato / doppio studio / stage",
+        "en": "Industry: Do-it-yourself │ Operational focus: Designing shopping experiences You can look forward to\n• 39-hour week with flexible breaks\n• At least 6 weeks of vacation\n• Intensive support by committed trainers: inside\n• Attractive wages\n• 1. Educational year CHF 900\n• 2. Year of training CHF 1'100\n• 3. Training year CHF 1'600 Your area of responsibility\n• You advise and inspire our customers in the realization of their projects.\n• You actively shape the seasonal presentations with your creative ideas.\n• You use various sales tools such as the online shop for optimal advice.\n• You don’t get bored... there is always something to do! Your foundation\n• You enjoy dealing with people and approach them positively.\n• Your open, reliable and helpful maker personality sets you apart.\n• You have the will to make the breakthrough with full throttle in school as well as in the company.\n• Even at evening and Saturday work you show full commitment.\n\nArea: Apprenticeship / Dual studies / Internship",
+        "de": "Branche: Do-it-yourself │ Betrieblicher Schwerpunkt: Gestalten von Einkaufserlebnissen Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Mindestens 6 Wochen Ferien\n• Intensive Betreuung durch engagierte Ausbildner:innen\n• Attraktive Löhne\n• 1. Lehrjahr CHF 900\n• 2. Lehrjahr CHF 1'100\n• 3. Lehrjahr CHF 1'600 Dein Aufgabengebiet\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Die saisonalen Warenpräsentationen gestaltest Du mit Deinen kreativen Ideen aktiv mit.\n• Du setzt verschiedene Verkaufswerkzeuge wie z. B. den Onlineshop für eine optimale Beratung ein.\n• Langweilig wird Dir nicht…es gibt immer was zu tun! Dein Fundament\n• Du hast Spass am Umgang mit Menschen und gehst positiv auf sie zu.\n• Deine offene, zuverlässige und hilfsbereite Macherpersönlichkeit zeichnen Dich aus.\n• Du hast den Willen, mit Vollgas in der Schule wie auch im Betrieb den Durchbruch zu schaffen.\n• Auch bei Abend- und Samstagsarbeit zeigst Du volles Engagement.\n\nBereich: Lehrstelle / Duales Studium / Praktikum",
+        "fr": "Industrie: Faites-vous-vous-même │ Objectif opérationnel: Concevoir des expériences d'achat Vous pouvez attendre avec impatience\n• Semaine de 39 heures avec pauses flexibles\n• Au moins 6 semaines de vacances\n• Soutien intensif de formateurs engagés: à l'intérieur\n• Salaires attractifs\n• 1. Année scolaire CHF 900\n• 2. Année de formation CHF 1'100\n• 3. Année de formation CHF 1'600 Votre domaine de responsabilité\n• Vous conseillez et inspirez nos clients dans la réalisation de leurs projets.\n• Vous façonnez activement les présentations saisonnières avec vos idées créatives.\n• Vous utilisez divers outils de vente tels que la boutique en ligne pour des conseils optimaux.\n• Tu ne t'ennuies pas... Il y a toujours quelque chose à faire ! Votre fondation\n• Vous aimez traiter avec les gens et les aborder positivement.\n• Votre personnalité de fabricant ouverte, fiable et utile vous distingue.\n• Vous avez la volonté de faire la percée avec plein gaz à l'école ainsi que dans l'entreprise.\n• Même le soir et le samedi, vous montrez votre plein engagement.\n\nDomaine: Apprentissage / Double études / Stage"
+      },
+      "location": "Galgenen",
+      "canton": "SZ",
+      "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzcx&showApplicationForm=false",
+      "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-12T13:03:03.128Z",
+      "addressLocality": "Galgenen",
+      "addressRegion": "SZ",
+      "streetAddress": "Kantonsstrasse 61",
+      "postalCode": "8854",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "sector": "Retail / Bricolage e Giardinaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-08",
+      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154371&company=Hornbach&username=",
+      "jobReqId": "154371",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen",
+        "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-galgenen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen",
+          "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-galgenen"
+        ],
+        "en": [
+          "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen"
+        ],
+        "fr": [
+          "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen"
+        ]
+      },
+      "firstSeenAt": "2026-08-03T12:38:45.436Z",
+      "needsRetranslation": true,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -3157,7 +3246,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzcy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.659Z",
+      "crawledAt": "2026-09-12T13:03:03.127Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -3176,11 +3265,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-logistik-efz-hornbach-biel-bienne"
+        "lehrstelle-logistik-efz-hornbach-biel-bienne",
+        "apprendistato-logistik-cfc-hornbach-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistik-efz-hornbach-biel-bienne"
+          "lehrstelle-logistik-efz-hornbach-biel-bienne",
+          "apprendistato-logistik-cfc-hornbach-biel-bienne"
         ],
         "en": [
           "lehrstelle-logistik-efz-hornbach-biel-bienne"
@@ -3190,6 +3281,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:45.435Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3235,7 +3327,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mzcz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.658Z",
+      "crawledAt": "2026-09-12T13:03:03.126Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -3254,11 +3346,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-hornbach-galgenen"
+        "lehrstelle-logistiker-in-efz-hornbach-galgenen",
+        "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-galgenen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-hornbach-galgenen"
+          "lehrstelle-logistiker-in-efz-hornbach-galgenen",
+          "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-galgenen"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-hornbach-galgenen"
@@ -3268,6 +3362,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:45.432Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -3299,7 +3394,7 @@
         "it": "Internship WMS Risorse umane",
         "en": "Internship WMS Human Resources",
         "de": "Praktikum WMS Personalwesen",
-        "fr": "Stage WMS Ressources humaines"
+        "fr": "Praktikum WMS Human Resources"
       },
       "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche und flexible Arbeitszeiten\n• Möglichkeit für Homeoffice\n• Spannende Einblicke in der Welt des Human Resources\n• Offene Du-Kultur vom Lernenden bis zum Geschäftsführer\n• Viel Verantwortung und die Möglichkeit, eigene Ideen einzubringen\n• Ein motiviertes Team, das Dich unterstützt und fördert Es gibt immer was zu tun\n• Du organisierst diverse Schulungen, unterstützt bei deren Vorbereitung und verwaltest das Schulungssystem.\n• Du betreust unsere Social-Media-Kanäle im Ausbildungsmarketing und postest regelmässige Beiträge.\n• Du wirkst bei der Personalsuche unserer Lernenden mit und führst nach der Dossierprüfung erste Telefoninterviews durch.\n• Du bereitest Präsentationen und Dokumente professionell auf und verleihst ihnen den letzten Feinschliff.\n• Du unterstützt Dein Team bei spannenden Projekten und wo immer es was zu tun gibt. Dein Fundament\n• Du arbeitest gerne mit Menschen und bist kontaktfreudig, zuverlässig sowie lernbereit.\n• Du bist ein Organisationstalent und behältst auch in hektischen Situationen den Überblick.\n• Du interessierst Dich für Social Media sowie digitale Trends und beherrschst die Microsoft Office Programme.\n• Du bist WMS-Absolvent:in, Maturand:in oder ähnliches und willst Dein Wissen in die Praxis umsetzen.\n• Du bringst gute Französischkenntnisse mit und möchtest diese weiter ausbauen.\n\nBereich: Lehrstelle / Duales Studium / Praktikum",
       "descriptionByLocale": {
@@ -3313,7 +3408,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NzY1&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.657Z",
+      "crawledAt": "2026-09-12T13:03:03.123Z",
       "addressLocality": "Sursee",
       "addressRegion": "Luzern",
       "streetAddress": "Schellenrain 9",
@@ -3332,17 +3427,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-wms-human-resources-hornbach-sursee"
+        "praktikum-wms-human-resources-hornbach-sursee",
+        "praktikum-wms-risorse-umane-hornbach-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-wms-human-resources-hornbach-sursee"
+          "praktikum-wms-human-resources-hornbach-sursee",
+          "praktikum-wms-risorse-umane-hornbach-sursee"
         ],
         "fr": [
           "praktikum-wms-human-resources-hornbach-sursee"
         ]
       },
       "firstSeenAt": "2026-08-10T21:49:42.907Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -3388,7 +3486,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NTI2&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.656Z",
+      "crawledAt": "2026-09-12T13:03:03.122Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -3407,11 +3505,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kv-lehrstelle-kauffrau-mann-efz-hornbach-luzern-littau"
+        "kv-lehrstelle-kauffrau-mann-efz-hornbach-luzern-littau",
+        "kv-apprendistato-kauffrau-mann-cfc-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-kauffrau-mann-efz-hornbach-luzern-littau"
+          "kv-lehrstelle-kauffrau-mann-efz-hornbach-luzern-littau",
+          "kv-apprendistato-kauffrau-mann-cfc-hornbach-luzern-littau"
         ]
       },
       "needsRetranslation": true,
@@ -3444,7 +3544,7 @@
       "companyDomain": "hornbach.ch",
       "title": "Duales Studium - BWL Handel - Bachelor of Arts",
       "titleByLocale": {
-        "it": "Dual studies - Business Administration Trade - Bachelor of Arts",
+        "it": "Duales Studium - BWL Handel - Bachelor of Arts",
         "en": "Dual studies - Business Administration Trade - Bachelor of Arts",
         "de": "Duales Studium - BWL Handel - Bachelor of Arts",
         "fr": "Doubles études - Administration des affaires Commerce - Bachelor of Arts"
@@ -3461,7 +3561,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0NTI1&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:11:12.653Z",
+      "crawledAt": "2026-09-12T13:03:03.116Z",
       "addressLocality": "Sursee",
       "addressRegion": "Luzern",
       "streetAddress": "Schellenrain 9",
@@ -3480,17 +3580,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "duales-studium-bwl-handel-bachelor-of-arts-hornbach-sursee"
+        "duales-studium-bwl-handel-bachelor-of-arts-hornbach-sursee",
+        "dual-studies-business-administration-trade-bachelor-of-arts-hornbach-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "duales-studium-bwl-handel-bachelor-of-arts-hornbach-sursee"
+          "duales-studium-bwl-handel-bachelor-of-arts-hornbach-sursee",
+          "dual-studies-business-administration-trade-bachelor-of-arts-hornbach-sursee"
         ],
         "fr": [
           "duales-studium-bwl-handel-bachelor-of-arts-hornbach-sursee"
         ]
       },
       "firstSeenAt": "2026-08-04T22:18:55.947Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
