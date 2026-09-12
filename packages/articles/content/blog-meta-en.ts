@@ -11675,6 +11675,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.title': 'Living in Cucciago and working in Ticino as a border worker',
     'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.excerpt': 'Discover the advantages and disadvantages of living at Cucciago and working in Ticino as a border worker. Information on transportation, cost of living and taxes.',
     'blog.article.vivere-cucciago-lavorare-ticino-frontaliere.imageAlt': 'Cucciago and its castle',
+    'blog.article.assunzioni-alto-piemonte-settembre-2026.title': 'Alto Piemonte: 6,470 hires expected in September 2026',
+    'blog.article.assunzioni-alto-piemonte-settembre-2026.excerpt': 'The labour market in Upper Piedmont has 6,470 contracts scheduled for September 2026, with more than 75% of forward contracts.',
+    'blog.article.assunzioni-alto-piemonte-settembre-2026.imageAlt': 'Employment forecasts in Upper Piedmont for September',
 };
 
 export default blogMetaEn;
