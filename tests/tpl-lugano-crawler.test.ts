@@ -14,13 +14,17 @@ import {
   parseTplListingPage,
   parseTplListingState,
   parseTplDetailPage,
+  extractTplCapitolatoUrl,
+  buildTplDescription,
   isTplJob,
   inferEmploymentType,
 } from '@/scripts/lib/tpl-lugano-job-parser.mjs';
 import {
   applyTplAuthoritativeDetails,
   buildTplAdapterSeedFields,
+  buildTplJobRow,
   fetchTplSourceSnapshot,
+  mergeTplJobRows,
 } from '@/scripts/update-tpl-lugano-jobs.mjs';
 
 // ─── Fixture: Listing page with one open position (live markup) ───
@@ -197,6 +201,7 @@ describe('parseTplDetailPage', () => {
     expect(result).toEqual(expect.objectContaining({
       title: 'Specialista Risorse Umane',
       location: 'Lugano',
+      capitolatoUrl: 'https://www.tplsa.ch/repository/pdf/863388487-BandoSpecialistaRisorseUmane.pdf',
     }));
     expect(result?.body).toContain('Guarda il Capitolato');
     expect(result?.body).toContain('candidature@tplsa.ch');
@@ -208,24 +213,61 @@ describe('parseTplDetailPage', () => {
     expect(parseTplDetailPage('<h1>Specialista Risorse Umane</h1><div class="Menu2">menu</div>')).toBeNull();
     expect(parseTplDetailPage(DETAIL_HTML, 'Autista Autobus')).toBeNull();
   });
+
+  it('rejects a capitolato URL outside the TPL PDF path', () => {
+    expect(extractTplCapitolatoUrl('<a href="https://attacker.example/repository/pdf/ad.pdf">PDF</a>')).toBe('');
+    expect(extractTplCapitolatoUrl("<a href = '/repository/pdf/ad.pdf'>PDF</a>"))
+      .toBe('https://www.tplsa.ch/repository/pdf/ad.pdf');
+    expect(extractTplCapitolatoUrl('<a href="https://www.tplsa.ch/repository/pdf/ad.pdf#page=2">PDF</a>'))
+      .toBe('https://www.tplsa.ch/repository/pdf/ad.pdf');
+  });
+
+  it('uses the PDF text as the authoritative description and keeps inline fallback available', () => {
+    const built = buildTplDescription(
+      'Addetto/a rimessa',
+      'MANSIONI\nGestione del materiale e supporto operativo.',
+      'Le candidature dovranno pervenire via email.',
+    );
+    expect(built.description).toContain('MANSIONI');
+    expect(built.description).toContain('Gestione del materiale');
+    expect(built.description).not.toContain('Le candidature dovranno');
+
+    const fallback = buildTplDescription('', '', 'Le candidature dovranno pervenire via email.');
+    expect(fallback.description).toContain('Le candidature dovranno');
+  });
 });
 
 describe('TPL source snapshot and adapter boundary', () => {
   it('validates every listed detail and declares the exact URLs as seedDetailUrls', async () => {
     const calls: string[] = [];
+    const pdfCalls: string[] = [];
+    const pdfText = `MANSIONI\n${'Gestione del materiale e supporto operativo per il servizio pubblico. '.repeat(8)}`;
     const fetchImpl = (async (input: string | URL | Request) => {
       const url = String(input);
       calls.push(url);
       return sourceResponse(url.includes('tpl-lavora-con-noi') ? LISTING_WITH_JOBS_HTML : DETAIL_HTML);
     }) as typeof fetch;
 
-    const snapshot = await fetchTplSourceSnapshot({ fetchImpl, timeoutMs: 100 });
+    const extractPdfImpl = async (input: string) => {
+      pdfCalls.push(input);
+      return {
+        text: pdfText,
+        rawText: pdfText,
+        thin: false,
+        totalPages: 2,
+      };
+    };
+
+    const snapshot = await fetchTplSourceSnapshot({ fetchImpl, extractPdfImpl, timeoutMs: 100 });
     expect(snapshot.state).toBe('jobs');
     expect(snapshot.jobs).toHaveLength(1);
     expect(calls).toEqual([
       'https://www.tplsa.ch/2/50/tpl-lavora-con-noi.html',
       'https://www.tplsa.ch/2/50/candidati/?idhr=748',
     ]);
+    expect(pdfCalls).toEqual(['https://www.tplsa.ch/repository/pdf/863388487-BandoSpecialistaRisorseUmane.pdf']);
+    expect(snapshot.jobs[0].body).toContain('Gestione del materiale');
+    expect(snapshot.jobs[0].pageBody).toContain('candidature@tplsa.ch');
 
     const seeds = buildTplAdapterSeedFields(snapshot.jobs);
     expect(seeds.seedDetailUrls).toEqual(['https://www.tplsa.ch/2/50/candidati/?idhr=748']);
@@ -248,6 +290,40 @@ describe('TPL source snapshot and adapter boundary', () => {
     });
     expect(calls).toBe(1);
     expect(buildTplAdapterSeedFields([])).toEqual({ seedUrls: [], seedDetailUrls: [], seedMetaByUrl: {} });
+  });
+
+  it('fails closed when the capitolato is missing, thin, failed, or too short', async () => {
+    const fetchImpl = (async (input: string | URL | Request) => sourceResponse(
+      String(input).includes('tpl-lavora-con-noi') ? LISTING_WITH_JOBS_HTML : DETAIL_HTML,
+    )) as typeof fetch;
+
+    const cases = [
+      {
+        label: 'failed PDF',
+        extractPdfImpl: async () => ({ text: '', rawText: '', thin: false, error: 'HTTP 503 while fetching PDF' }),
+      },
+      {
+        label: 'image-only PDF',
+        extractPdfImpl: async () => ({ text: '', rawText: '1 / 1', thin: true, totalPages: 1 }),
+      },
+      {
+        label: 'short PDF',
+        extractPdfImpl: async () => ({ text: 'Titolo breve', rawText: 'Titolo breve', thin: false, totalPages: 1 }),
+      },
+    ];
+
+    for (const testCase of cases) {
+      await expect(fetchTplSourceSnapshot({ fetchImpl, extractPdfImpl: testCase.extractPdfImpl, timeoutMs: 100 }))
+        .rejects.toThrow(/authoritative PDF content gate/);
+    }
+
+    const missingPdfFetch = (async (input: string | URL | Request) => sourceResponse(
+      String(input).includes('tpl-lavora-con-noi')
+        ? LISTING_WITH_JOBS_HTML
+        : DETAIL_HTML.replace('class="btn btn-candidati" href = "/repository/pdf/863388487-BandoSpecialistaRisorseUmane.pdf"', 'class="btn btn-candidati" href = "/2/50/candidati/?idhr=748"'),
+    )) as typeof fetch;
+    await expect(fetchTplSourceSnapshot({ fetchImpl: missingPdfFetch, timeoutMs: 100 }))
+      .rejects.toThrow(/no validated capitolato PDF URL/);
   });
 
   it('throws on unrecognised empty listings and HTTP-200 ghost details', async () => {
@@ -294,6 +370,52 @@ describe('TPL source snapshot and adapter boundary', () => {
 
     expect(() => applyTplAuthoritativeDetails([], source)).toThrow(/lost 1 validated detail URL/);
     expect(() => applyTplAuthoritativeDetails([stable, { ...stable }], source)).toThrow(/duplicate URL/);
+  });
+
+  it('materializes thin TPL rows before localization and preserves identity/translations', () => {
+    const source = [{
+      url: 'https://www.tplsa.ch/2/50/candidati/?idhr=769',
+      title: 'Addetto/a rimessa',
+      body: 'Descrizione PDF autorevole con mansioni, requisiti e condizioni di impiego per il servizio pubblico.',
+      location: 'Lugano',
+    }];
+    const existing = [{
+      id: 'tpl-lugano-stable',
+      slug: 'addetto-rimessa-tpl-lugano',
+      previousSlugs: ['vecchio-slug-tpl-lugano'],
+      companyKey: 'tpl-lugano',
+      company: 'TPL - Trasporti Pubblici Luganesi',
+      url: source[0].url,
+      title: 'Vecchio titolo',
+      description: 'Vecchia descrizione',
+      titleByLocale: { it: 'Vecchio titolo', en: 'Old title' },
+      descriptionByLocale: {
+        it: 'Descrizione PDF autorevole con mansioni, requisiti e condizioni di impiego per il servizio pubblico.',
+        en: 'Old description for the stable vacancy kept from the previous localization.',
+      },
+      slugByLocale: { it: 'addetto-rimessa-tpl-lugano', en: 'old-title-tpl-lugano' },
+      postedDate: '2026-08-01',
+    }];
+
+    const fresh = buildTplJobRow(source[0], '2026-09-12');
+    expect(fresh.companyKey).toBe('tpl-lugano');
+    expect(fresh.description).toContain('Descrizione PDF autorevole');
+    expect(fresh.slugByLocale.it).toBe('addetto-a-rimessa-tpl-lugano');
+
+    const result = mergeTplJobRows(source, existing, '2026-09-12');
+    expect(result).toEqual(expect.objectContaining({ added: 0, updated: 1, removed: 0 }));
+    expect(result.jobs[0]).toEqual(expect.objectContaining({
+      id: existing[0].id,
+      slug: existing[0].slug,
+      previousSlugs: existing[0].previousSlugs,
+      title: source[0].title,
+      description: source[0].body,
+      postedDate: existing[0].postedDate,
+    }));
+    expect(result.jobs[0].titleByLocale.en).toBe('Old title');
+    expect(result.jobs[0].descriptionByLocale.en)
+      .toBe('Old description for the stable vacancy kept from the previous localization.');
+    expect(applyTplAuthoritativeDetails(result.jobs, source).matched).toBe(1);
   });
 });
 

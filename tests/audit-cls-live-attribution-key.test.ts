@@ -33,7 +33,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
-import { pickLayoutShiftAudit, compactShiftItems } from '../scripts/audit-cls-live.mjs';
+import {
+  pickLayoutShiftAudit,
+  compactShiftItems,
+  isInconclusivePsiError,
+  shouldFailOpenForPsiErrors,
+} from '../scripts/audit-cls-live.mjs';
 
 const NEW_AUDIT = {
   score: 1,
@@ -110,6 +115,30 @@ describe('compactShiftItems — forma stabile e compatta', () => {
     expect(compactShiftItems(many, 2)).toHaveLength(2);
     expect(compactShiftItems(undefined)).toBeNull();
     expect(compactShiftItems({ details: {} })).toBeNull();
+  });
+});
+
+describe('PSI provider failures — gate inconclusive, not CLS regression', () => {
+  it('recognizes auth and quota responses without hiding malformed requests', () => {
+    expect(isInconclusivePsiError('PSI 401 for https://example.test')).toBe(true);
+    expect(isInconclusivePsiError(new Error('PSI 403 for https://example.test'))).toBe(true);
+    expect(isInconclusivePsiError({ error: 'PSI 429 for https://example.test' })).toBe(true);
+    expect(isInconclusivePsiError('PSI 400 for https://example.test')).toBe(false);
+    expect(isInconclusivePsiError('PSI network error for https://example.test')).toBe(false);
+    expect(isInconclusivePsiError('PSI 400 for target (keyed PSI request was rejected with PSI 403 for target)')).toBe(false);
+  });
+
+  it('fails open only when every target is rejected by auth or quota', () => {
+    expect(shouldFailOpenForPsiErrors([
+      { error: 'PSI 403 for target A' },
+      { error: 'PSI 429 for target B' },
+    ])).toBe(true);
+    expect(shouldFailOpenForPsiErrors([
+      { error: 'PSI 403 for target A' },
+      { error: 'PSI 400 for target B' },
+    ])).toBe(false);
+    expect(shouldFailOpenForPsiErrors([{ error: 'PSI network error for target A' }])).toBe(false);
+    expect(shouldFailOpenForPsiErrors([])).toBe(false);
   });
 });
 

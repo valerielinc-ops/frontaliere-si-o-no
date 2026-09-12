@@ -9,9 +9,10 @@
  * This script:
  *   1. Fetches the careers page
  *   2. Extracts job URLs (if any are listed)
- *   3. Updates adapter seed URLs
- *   4. Runs base crawler for detail parsing/localization
- *   5. Validates locale coverage
+ *   3. Builds each vacancy from its source-owned detail block + capitolato PDF
+ *   4. Merges the rows into the crawler slice (identity/slug preserved)
+ *   5. Runs base crawler in localize-existing-only mode (4 locales)
+ *   6. Validates locale coverage
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -39,12 +40,18 @@ import {
   normalize,
   normalizeKey,
   detectLang,
+  guessCategory,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
+  MIN_TPL_DESC_LENGTH,
   parseTplListingState,
   parseTplDetailPage,
+  buildTplDescription,
   inferEmploymentType,
 } from './lib/tpl-lugano-job-parser.mjs';
+import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
@@ -124,12 +131,13 @@ async function fetchTplHtml(url, label, { fetchImpl, timeoutMs }) {
  * last persisted slice is preserved. Only TPL's explicit empty-state copy is
  * accepted as an authoritative zero.
  *
- * @param {{fetchImpl?: typeof fetch, timeoutMs?: number}} [options]
- * @returns {Promise<{state: 'jobs'|'empty', jobs: Array<{url:string,title:string,body:string,location:string}>}>}
+ * @param {{fetchImpl?: typeof fetch, extractPdfImpl?: Function, timeoutMs?: number}} [options]
+ * @returns {Promise<{state: 'jobs'|'empty', jobs: Array<{url:string,title:string,body:string,location:string,capitolatoUrl:string}>}>}
  */
 export async function fetchTplSourceSnapshot(options = {}) {
   const timeoutMs = Number(options.timeoutMs ?? process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const fetchImpl = options.fetchImpl || fetch;
+  const extractPdf = options.extractPdfImpl || extractPdfJobContentFromUrl;
   console.log(`🔍 Fetching TPL careers page: ${TPL_LISTING_URL}`);
   const listingHtml = await fetchTplHtml(TPL_LISTING_URL, 'TPL careers listing', {
     fetchImpl,
@@ -154,7 +162,47 @@ export async function fetchTplSourceSnapshot(options = {}) {
     if (!detail) {
       throw new Error(`TPL detail failed the authoritative content gate: ${listedJob.url}`);
     }
-    jobs.push({ ...listedJob, ...detail });
+    // The detail page carries only the application block; the ad itself lives in
+    // the capitolato PDF, so the description is built from that (same shape as
+    // the sibling Ticino transport crawler, FART).
+    const pdf = detail.capitolatoUrl
+      ? await extractPdf(detail.capitolatoUrl, {
+        fetchImpl,
+        timeoutMs: Math.max(timeoutMs, 30_000),
+      })
+      : { text: '', rawText: '', thin: false };
+    if (detail.capitolatoUrl && pdf.error) {
+      console.warn(`  ⚠️ TPL capitolato extraction failed for "${detail.title}": ${pdf.error}`);
+    }
+    if (pdf.warning) console.warn(`  ⚠️ ${pdf.warning}`);
+    const pdfText = pdf.thin ? '' : String(pdf.rawText || pdf.text || '');
+    const { description, warnings } = buildTplDescription(
+      detail.title,
+      pdfText,
+      detail.body,
+    );
+    for (const warning of warnings) console.warn(`  ⚠️ ${warning}`);
+
+    // The detail page's inline block is only the application boilerplate. A
+    // failed, image-only, or otherwise thin capitolato must never be turned
+    // into a publishable row: localizeExistingOnly would otherwise materialise
+    // it before the shared quality gate can reject the generic fallback. Throw
+    // before the complete snapshot is written so the prior slice is retained.
+    const contentProblems = [];
+    if (!detail.capitolatoUrl) contentProblems.push('no validated capitolato PDF URL');
+    if (pdf.error) contentProblems.push(`PDF extraction failed: ${pdf.error}`);
+    else if (pdf.thin) contentProblems.push('PDF has no usable text layer');
+    else if (!pdfText.trim()) contentProblems.push('PDF extraction returned no text');
+    if (description.length < MIN_TPL_DESC_LENGTH) {
+      contentProblems.push(`description is ${description.length} chars (< ${MIN_TPL_DESC_LENGTH})`);
+    }
+    if (contentProblems.length > 0) {
+      throw new Error(
+        `TPL detail failed the authoritative PDF content gate for ${detail.capitolatoUrl || listedJob.url}: `
+        + contentProblems.join('; '),
+      );
+    }
+    jobs.push({ ...listedJob, ...detail, body: description, pageBody: detail.body });
   }
 
   console.log(`✅ Validated ${jobs.length}/${listing.jobs.length} TPL detail pages`);
@@ -220,6 +268,100 @@ function canonicalTplDetailUrl(rawUrl = '') {
   }
 }
 
+function tplSlug(title = '') {
+  const base = String(title || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return truncateSlugAtWordBoundary(`${base}-${TPL_KEY}`.replace(/--+/g, '-'), 200);
+}
+
+/**
+ * Build a publishable row from one validated source vacancy.
+ *
+ * TPL detail pages carry no JSON-LD and no inline ad text, so the shared engine's
+ * generic HTML fallback can only reach the page's meta description (27 chars on
+ * the live markup) and drops the candidate as thin — which then left the runner's
+ * parity gate with nothing to patch (#8301). The authoritative snapshot is
+ * therefore materialised here, exactly as the sibling FART crawler does, and the
+ * shared engine is used for localization only.
+ */
+export function buildTplJobRow(source, postedDate = new Date().toISOString().slice(0, 10)) {
+  const title = source.title;
+  const description = source.body;
+  return {
+    title,
+    company: TPL_COMPANY_NAME,
+    companyKey: TPL_KEY,
+    location: source.location || 'Lugano',
+    canton: 'TI',
+    country: 'CH',
+    url: source.url,
+    applyUrl: TPL_LISTING_URL,
+    description,
+    category: guessCategory(title, description),
+    sector: 'Trasporti pubblici / Mobilita',
+    employmentType: inferEmploymentType(title, description),
+    source: 'tpl-lugano-crawler',
+    sourceLang: detectLang(description || title, 'it'),
+    postedDate,
+    addressLocality: 'Lugano',
+    addressRegion: 'TI',
+    postalCode: '6900',
+    streetAddress: 'Via Campagna 15',
+    titleByLocale: { it: title },
+    descriptionByLocale: { it: description },
+    slugByLocale: { it: tplSlug(title) },
+    _targetScope: { canton: 'TI', location: 'Lugano' },
+  };
+}
+
+/**
+ * Merge the authoritative snapshot over the rows already persisted for TPL.
+ * Existing rows keep their identity (id, slug history, translated locales) and
+ * only their source-owned fields are refreshed; a row whose detail URL left the
+ * listing is dropped, because the listing snapshot is the active set.
+ */
+export function mergeTplJobRows(sourceJobs = [], existingJobs = [], postedDate = undefined) {
+  const existingByUrl = new Map(
+    (Array.isArray(existingJobs) ? existingJobs : [])
+      .map((job) => [canonicalTplDetailUrl(job.url), job])
+      .filter(([key]) => Boolean(key)),
+  );
+
+  const merged = [];
+  let added = 0;
+  let updated = 0;
+  for (const source of sourceJobs) {
+    const fresh = buildTplJobRow(source, postedDate);
+    const existing = existingByUrl.get(canonicalTplDetailUrl(source.url));
+    if (!existing) {
+      merged.push(fresh);
+      added++;
+      continue;
+    }
+    merged.push({
+      ...existing,
+      ...fresh,
+      postedDate: existing.postedDate || fresh.postedDate,
+      titleByLocale: mergeLocaleTextMap(existing.titleByLocale, fresh.titleByLocale, 3),
+      descriptionByLocale: mergeLocaleTextMap(
+        existing.descriptionByLocale,
+        fresh.descriptionByLocale,
+        30,
+        fresh.sourceLang,
+      ),
+      slugByLocale: mergeLocaleTextMap(existing.slugByLocale, fresh.slugByLocale, 3),
+    });
+    updated++;
+  }
+
+  const removed = existingByUrl.size - updated;
+  return { jobs: merged, added, updated, removed: Math.max(0, removed) };
+}
+
 /**
  * Replace generic HTML fallback content with the source-owned TPL block while
  * retaining the shared crawler's stable id/slug/history. Any missing or
@@ -271,6 +413,9 @@ function runBaseCrawler() {
     localizeOnlyCompanyKeys: TPL_KEY,
     forceLocalizeKeys: TPL_KEY,
     disableWorkdayForce: true,
+    // The rows are materialised by this script from the authoritative snapshot
+    // (see buildTplJobRow); the shared engine only translates them.
+    localizeExistingOnly: true,
     extraEnv: {
       JOBS_CRAWLER_MAX_JOB_LINKS: process.env.JOBS_CRAWLER_MAX_JOB_LINKS || '100000',
       JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES || '100000',
@@ -357,6 +502,18 @@ async function main() {
     console.log(`ℹ️ Persisted authoritative TPL zero; archived ${archived} expired route(s).`);
     return;
   }
+
+  // Materialise the source-owned rows before invoking the shared engine. TPL's
+  // detail page is intentionally thin (the actual vacancy is in its PDF), so
+  // the generic crawler's quality gate discards a fresh URL before the later
+  // parity overlay can see it. Localize-existing-only then preserves these
+  // validated rows while still filling the missing locales.
+  const materialized = mergeTplJobRows(sourceSnapshot.jobs, priorJobs);
+  writeJsonAtomic(DATA_JOBS, materialized.jobs);
+  console.log(
+    `📦 Materialized ${materialized.jobs.length} authoritative TPL row(s)`
+    + ` (added=${materialized.added}, updated=${materialized.updated}, removed=${materialized.removed}).`,
+  );
 
   await runBaseCrawler();
 
