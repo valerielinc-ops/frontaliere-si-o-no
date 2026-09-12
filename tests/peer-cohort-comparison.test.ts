@@ -132,6 +132,17 @@ describe('buildPeerProse', () => {
 });
 
 describe('renderPeerComparison', () => {
+  it('accetta un nuovo sostantivo tedesco nella forma del dativo plurale', () => {
+    const html = renderPeerComparison({
+      locale: 'de',
+      currentKey: 'c',
+      rows,
+      labels: { ...labels, peerNoun: 'Gemeinden' },
+      formatValue: fmt,
+    });
+    expect(html).toContain('Gemeinden');
+  });
+
   it('rifiuta un nominativo tedesco dove il template richiede il dativo plurale', () => {
     expect(() => renderPeerComparison({
       locale: 'de',

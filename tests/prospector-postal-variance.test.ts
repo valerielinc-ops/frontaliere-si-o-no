@@ -9,6 +9,12 @@ import {
   summarizeHostPostalVariance,
 } from '../scripts/lib/prospector/postal-variance.mjs';
 
+import {
+  storedPostalMentions as storedReportPostalMentions,
+  summarizeSourceBackedDropImpact,
+  aggregateSourceBackedDropImpact,
+} from '../scripts/prospect-measure-postal-variance.mjs';
+
 // Shape of a physioswiss detail page: the vacancy's NPA in the body, the
 // association's NPA in the footer of every page (#7464).
 const physioswissPage = (postal: string, locality: string) => `
@@ -191,5 +197,83 @@ describe('aggregatePostalVariance', () => {
     expect(totals.criterion.recall).toBe(0.6);
     expect(totals.baseline.precision).toBe(0.3);
     expect(totals.ambiguity).toEqual({ none: 3, one: 7, several: 1 });
+  });
+});
+
+describe('storedPostalMentions', () => {
+  it('rehydrates multi-word localities without changing the variance verdict', () => {
+    const pageOf = (postal: string, locality: string, truth: string) => ({
+      url: `https://example.test/${postal}/`,
+      truth,
+      mentions: freeTextPostalMentions(`<p>${postal} ${locality}</p><footer>3013 Bern</footer>`),
+    });
+    const fresh = [
+      pageOf('2300', 'La Chaux-de-Fonds', 'La Chaux-de-Fonds'),
+      pageOf('8618', 'Oetwil am See', 'Oetwil am See'),
+    ];
+    const persisted = fresh.map((page) => ({
+      ...page,
+      mentions: storedReportPostalMentions(page.mentions.map(({ key, known }) => ({ key, known }))),
+    }));
+
+    expect(persisted[0].mentions.find((mention) => mention.postalCode === '2300')?.locality)
+      .toBe('la chaux de fonds');
+    expect(persisted[1].mentions.find((mention) => mention.postalCode === '8618')?.locality)
+      .toBe('oetwil am see');
+    expect(summarizeHostPostalVariance(persisted)).toEqual(summarizeHostPostalVariance(fresh));
+  });
+
+  it('keeps the persisted mention shape compatible with the standalone helper', () => {
+    const mentions = [{ key: '2300 la chaux-de-fonds' }, { key: '8618 oetwil am see' }];
+    expect(storedReportPostalMentions(mentions)).toEqual([
+      expect.objectContaining({ postalCode: '2300', locality: 'la chaux-de-fonds' }),
+      expect.objectContaining({ postalCode: '8618', locality: 'oetwil am see' }),
+    ]);
+  });
+});
+
+describe('source-backed geography drop impact', () => {
+  it('measures rows dropped by the geography guard and identifies an empty host', () => {
+    expect(summarizeSourceBackedDropImpact([
+      { listingGeography: true, guardGeography: true },
+      { listingGeography: true, guardGeography: false },
+      { listingGeography: false, guardGeography: false },
+    ])).toEqual({
+      sampledRows: 3,
+      rowsBeforeGuard: 3,
+      rowsWithListingGeography: 2,
+      rowsAfterGuard: 1,
+      rowsDroppedByGuard: 2,
+      dropRate: 2 / 3,
+      hostFallsToZero: false,
+    });
+    expect(summarizeSourceBackedDropImpact([
+      { listingGeography: false, guardGeography: false },
+      { listingGeography: false, guardGeography: false },
+    ]).hostFallsToZero).toBe(true);
+  });
+
+  it('aggregates the host-level signal without counting unmeasured hosts', () => {
+    const first = summarizeSourceBackedDropImpact([
+      { guardGeography: true },
+      { guardGeography: false },
+    ]);
+    const empty = summarizeSourceBackedDropImpact([
+      { guardGeography: false },
+    ]);
+    expect(aggregateSourceBackedDropImpact({
+      first: { sourceBackedGeography: first },
+      empty: { sourceBackedGeography: empty },
+      unmeasured: { sourceBackedGeography: { sampledRows: 0 } },
+    })).toEqual({
+      hosts: 2,
+      sampledRows: 3,
+      rowsBeforeGuard: 3,
+      rowsWithListingGeography: 0,
+      rowsAfterGuard: 1,
+      rowsDroppedByGuard: 2,
+      hostsFallingToZero: 1,
+      dropRate: 2 / 3,
+    });
   });
 });

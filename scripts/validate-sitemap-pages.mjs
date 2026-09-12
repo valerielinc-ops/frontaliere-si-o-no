@@ -103,6 +103,7 @@ import { discoverSoft404Sitemaps, soft404PopulationError } from './lib/soft404-s
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { isExternallyServedUrl, isExternallyServedPath } from './lib/externally-served-paths.mjs';
+import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
 import {
   classifyCanonicalMismatch,
   isLegitLegacyAliasCanonicalization,
@@ -368,6 +369,7 @@ function urlToDistPath_soft404(url) {
 
 function isExpiredJobArchive(html) {
   return (
+    html.includes(REDIRECT_STUB_MARKER) ||
     /questa posizione.*non.*più disponibile/i.test(html) ||
     /this position.*no longer available/i.test(html) ||
     /diese stelle.*nicht mehr verfügbar/i.test(html) ||

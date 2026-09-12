@@ -18,6 +18,7 @@ import path from 'node:path';
 import { flatString } from './lib/flat-string.mjs';
 import { discoverSoft404Sitemaps, soft404PopulationError } from './lib/soft404-sitemap-discovery.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
+import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -90,6 +91,8 @@ function hasNoindex(html) {
 function isExpiredJobArchive(html) {
   // Archive pages have specific copy patterns
   return (
+    html.includes(REDIRECT_STUB_MARKER) ||
+    /(?:ricerca non più disponibile|search no longer available|suche nicht mehr verfügbar|recherche plus disponible)/i.test(html) ||
     /questa posizione.*non.*più disponibile/i.test(html) ||
     /this position.*no longer available/i.test(html) ||
     /diese stelle.*nicht mehr verfügbar/i.test(html) ||
@@ -97,6 +100,15 @@ function isExpiredJobArchive(html) {
     /posizioni aperte simili/i.test(html) ||
     /similar open positions/i.test(html)
   );
+}
+
+/** The external-shard predicate is path-based; hosts are irrelevant here. */
+function isExternalSitemapUrl(url) {
+  try {
+    return isExternallyServedUrl(new URL(url).pathname);
+  } catch {
+    return isExternallyServedUrl(url);
+  }
 }
 
 /** Detect skeleton-dominated pages (more gray boxes than content). */
@@ -131,7 +143,7 @@ for (const file of sitemapFiles) {
   let fileIssues = 0;
 
   for (const url of allUrls) {
-    if (isExternallyServedUrl(url)) {
+    if (isExternalSitemapUrl(url)) {
       externallyServed++;
       continue;
     }
