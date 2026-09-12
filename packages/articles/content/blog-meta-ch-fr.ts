@@ -6280,6 +6280,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.economiesuisse-silvan-wildhaber.title': 'Economiesuisse : Silvan Wildhaber est le nouveau président',
     'blog.article.economiesuisse-silvan-wildhaber.excerpt': 'Passage de la présidence à Economiesuisse : Silvan Wildhaber succède à Christoph Mäder avec un soutien total aux accords bilatéraux III.',
     'blog.article.economiesuisse-silvan-wildhaber.imageAlt': 'Palais fédéral à Berne accueillant la journée de l\'économie',
+    'blog.article.finanze-ospedali-svizzera-2025.title': 'Hôpitaux suisses : des finances en légère amélioration',
+    'blog.article.finanze-ospedali-svizzera-2025.excerpt': 'Situation financière en légère amélioration pour les hôpitaux suisses, mais plus de 80 % des structures restent en deçà de la marge nécessaire.',
+    'blog.article.finanze-ospedali-svizzera-2025.imageAlt': 'Bâtiment hospitalier suisse avec un panorama urbain',
 };
 
 export default blogMetaChFr;
