@@ -231,9 +231,10 @@ export function masculineGermanTitle(text) {
   return String(text ?? '')
     .replace(/\b(\p{L}[\p{L}-]*?)mann\/\1in\b/giu, '$1mann')
     .replace(/\b(\p{L}[\p{L}-]*)frau(?:\/-?|[-_])mann\b/giu, '$1mann')
-    .replace(/\b(\p{L}[\p{L}-]*)[/:*_]-?in\b/giu, '$1')
+    .replace(/\b(\p{L}[\p{L}-]*)mann(?:\/-?|[-_])frau\b/giu, '$1mann')
+    .replace(/\b(\p{L}[\p{L}-]*)[/:*_]-?in(?:nen)?\b/giu, '$1')
     .replace(/\b(\p{L}[\p{L}-]*)\/\1in\b/giu, '$1')
-    .replace(/\b(\p{L}[\p{L}-]*)\*r\b/giu, '$1r');
+    .replace(/\b(\p{L}[\p{L}-]*)\*([rR])\b/giu, (_match, stem, ending) => `${stem}${ending}`);
 }
 
 function normalizeArgosText(text, from, field) {

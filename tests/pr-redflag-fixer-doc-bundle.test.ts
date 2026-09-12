@@ -205,6 +205,23 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
     );
   });
 
+  it('does not close a longer fence with a shorter same-character marker', () => {
+    const fixture = [
+      '## Wrapper',
+      '',
+      '````md',
+      '## Privacy',
+      '```',
+      '## Still inside',
+      '````',
+      '',
+      '## Privacy',
+      'binding content',
+    ].join('\n');
+
+    expect(extractSectionByHeading(fixture, '## Privacy')).toBe('binding content');
+  });
+
   it('does not silently accept an empty required section', () => {
     expect(() =>
       buildRedflagDocumentSections({
