@@ -401,6 +401,29 @@ describe('generatori del body PR — sezione dei residui', () => {
     expect(blocks[0].renderedWith).toContain('This instruction mentions a nested marker:');
   });
 
+  it('misura l’intera mappa with quando il prompt da solo resta sotto soglia', () => {
+    const prompt = 'p'.repeat(19_950);
+    const otherInput = 'x'.repeat(100);
+    const fixture = [
+      'name: with threshold fixture',
+      'jobs:',
+      '  review:',
+      '    steps:',
+      '      - uses: acme/claude-codex-fallback@main',
+      '        with:',
+      '          prompt: |',
+      `            ${prompt}`,
+      `          model: ${otherInput}`,
+    ].join('\n');
+
+    const blocks = promptBlocks(fixture);
+    expect(blocks).toHaveLength(1);
+    expect(blocks[0].prompt).toHaveLength(prompt.length);
+    expect(blocks[0].prompt.length).toBeLessThanOrEqual(20_000);
+    expect(blocks[0].renderedWith.length).toBeGreaterThan(20_000);
+    expect(blocks[0].renderedWith).toContain(`model: ${otherInput}`);
+  });
+
   it('trova almeno i generatori noti (il discovery non è vacuo)', async () => {
     const found = new Set(emissions(sources).map((e) => e.rel));
     // Se il discovery si rompe, ogni altro test qui sotto diventa verde a vuoto
