@@ -50,7 +50,28 @@ describe('L2 Demand → Utility', () => {
     const verdict = validateDemandSnapshot(snapshot({ outcomes: undefined }), { now: NOW });
     expect(verdict.ok).toBe(false);
     expect(verdict.quality).toBe('partial');
+    expect(verdict.snapshot.outcomeJoin).toBe('missing');
     expect(verdict.snapshot.outcomes).toBeNull();
+  });
+
+  it('fails closed when the joined outcome numerator exceeds its denominator', async () => {
+    const input = tempFile(snapshot({
+      outcomes: { eligibleLandingSessions: 1200, usefulActions: 1201 },
+    }));
+    const result = await runL2({ now: NOW, sourcePath: input.file, logger: { log() {} } });
+    expect(result.verdict).toMatchObject({ ok: false, quality: 'partial' });
+    expect(result.verdict.snapshot).toMatchObject({ outcomeJoin: 'joined', outcomes: null });
+    expect(result.observation.numerator).toBeNull();
+    expect(result.observation.denominator).toBeNull();
+  });
+
+  it('does not select one of two conflicting outcome contracts', () => {
+    const verdict = validateDemandSnapshot(snapshot({
+      metrics: { outcomes: { eligibleLandingSessions: 1200, usefulActions: 181 } },
+    }), { now: NOW });
+    expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
+    expect(verdict.snapshot).toMatchObject({ outcomeJoin: 'conflicting', outcomes: null });
+    expect(verdict.issues.join(' ')).toContain('disagree');
   });
 
   it('does not manufacture a 0/0 outcome from an empty cluster list', async () => {
