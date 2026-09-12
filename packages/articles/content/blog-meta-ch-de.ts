@@ -6274,6 +6274,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-giura.title': 'Aufenthaltsbewilligung B im Jura: Voraussetzungen, Dokumente und Verlängerung',
     'blog.article.permesso-dimora-b-canton-giura.excerpt': 'Informieren Sie sich über die Anforderungen, die einzureichenden Dokumente und das Erneuerungsverfahren der B-Bewilligung im Kanton Jura mit praktischen Hinweisen für Personen, die in der Schweiz leben.',
     'blog.article.permesso-dimora-b-canton-giura.imageAlt': 'Kantonsamt für Migration im Kanton Jura, typisches Schweizer Gebäude mit Schildern.',
+    'blog.article.asib-richiesta-aumenti-bancari.title': 'Schweizer Banken: ASIB fordert Lohnerhöhungen von 2,5%',
+    'blog.article.asib-richiesta-aumenti-bancari.excerpt': 'Die ASIB verlangt für die Verhandlungen 2026/2027 eine Erhöhung der Lohnsumme um 2,5% und für die Einkommen um 2000 Franken auf 120\'000 Franken.',
+    'blog.article.asib-richiesta-aumenti-bancari.imageAlt': 'Bürogebäude in Lugano mit Seeblick',
 };
 
 export default blogMetaChDe;

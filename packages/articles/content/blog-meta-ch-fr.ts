@@ -6274,6 +6274,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-giura.title': 'Permis de séjour B dans le Jura : exigences, documents et renouvellement',
     'blog.article.permesso-dimora-b-canton-giura.excerpt': 'Découvrez les exigences, les documents à produire et la procédure de renouvellement du permis B dans le canton du Jura, avec des indications pratiques pour ceux qui vivent en Suisse.',
     'blog.article.permesso-dimora-b-canton-giura.imageAlt': 'Office cantonal de la migration dans le Jura, bâtiment suisse avec panneaux officiels.',
+    'blog.article.asib-richiesta-aumenti-bancari.title': 'Banques suisses : l\'ASIB demande des augmentations salariales de 2,5%',
+    'blog.article.asib-richiesta-aumenti-bancari.excerpt': 'L\'ASIB demande une augmentation de 2,5% de la masse salariale et 2000 francs de plus pour les revenus jusqu\'à 120\'000 francs pour les négociations 2026/2027.',
+    'blog.article.asib-richiesta-aumenti-bancari.imageAlt': 'Bureaux bancaires à Lugano avec vue sur le lac',
 };
 
 export default blogMetaChFr;
