@@ -17,7 +17,10 @@ import {
 } from '../../functions/src/lib/employerInsightsStorage.js';
 
 export const EMPLOYER_INSIGHTS_COLLECTION = 'employer_insights';
-export { EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION };
+export {
+  EMPLOYER_INSIGHTS_ADS_SUBCOLLECTION,
+  employerInsightsWindowAdsSubcollection,
+};
 
 function stableAdIdentity(ad) {
   return String(ad?.jobId || ad?.slug || ad?.path || ad?.title || '').trim();
