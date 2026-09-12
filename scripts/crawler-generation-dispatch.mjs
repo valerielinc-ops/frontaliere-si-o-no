@@ -732,11 +732,11 @@ function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifac
     ...GROUP_IDS.map((group) => `crawler-group-${group}.yml`),
     'translate-pending.yml',
   ].sort(compareCodePoint);
-  const actualArtifacts = Array.isArray(contract?.artifacts)
-    ? contract.artifacts.map((entry) => entry?.file).sort(compareCodePoint)
-    : [];
   let contractShapeValid = false;
   try {
+    const actualArtifacts = Array.isArray(contract?.artifacts)
+      ? contract.artifacts.map((entry) => entry?.file).sort(compareCodePoint)
+      : [];
     contractShapeValid = contract?.schemaVersion === 1
       && contract?.groupCount === GROUP_IDS.length
       && contract?.artifactCount === expectedArtifacts.length

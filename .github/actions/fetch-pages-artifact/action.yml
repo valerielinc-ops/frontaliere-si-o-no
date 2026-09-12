@@ -32,8 +32,9 @@ inputs:
     required: true
   expected-sha:
     description: >-
-      Optional commit SHA that the selected deploy run must have built. When
-      supplied, the action fails if the run's head_sha differs.
+      Optional commit SHA, branch, or tag that the selected deploy run must
+      have built. When supplied, the action resolves it to a full commit SHA
+      and fails if the run's head_sha differs.
     required: false
     default: ""
 outputs:
@@ -280,9 +281,21 @@ runs:
           exit 1
         fi
 
-        if [ -n "$INPUT_EXPECTED_SHA" ] && [ "$FOUND_SHA" != "$INPUT_EXPECTED_SHA" ]; then
-          echo "::error::Deploy run $FOUND has head_sha $FOUND_SHA, expected $INPUT_EXPECTED_SHA; refusing to compare a different commit."
-          exit 1
+        if [ -n "$INPUT_EXPECTED_SHA" ]; then
+          if ! EXPECTED_SHA=$(gh api "repos/$GH_REPO/commits/$INPUT_EXPECTED_SHA" --jq '.sha'); then
+            echo "::error::Expected commit ref $INPUT_EXPECTED_SHA cannot be resolved in $GH_REPO."
+            exit 1
+          fi
+          if ! printf '%s' "$EXPECTED_SHA" | grep -qE '^[0-9a-fA-F]{40}$'; then
+            echo "::error::GitHub returned an invalid commit SHA for expected ref $INPUT_EXPECTED_SHA."
+            exit 1
+          fi
+          FOUND_SHA_LOWER=$(printf '%s' "$FOUND_SHA" | tr '[:upper:]' '[:lower:]')
+          EXPECTED_SHA_LOWER=$(printf '%s' "$EXPECTED_SHA" | tr '[:upper:]' '[:lower:]')
+          if [ "$FOUND_SHA_LOWER" != "$EXPECTED_SHA_LOWER" ]; then
+            echo "::error::Deploy run $FOUND has head_sha $FOUND_SHA, expected ref $INPUT_EXPECTED_SHA (resolved $EXPECTED_SHA); refusing to compare a different commit."
+            exit 1
+          fi
         fi
 
         rm -rf "$WORK"
