@@ -1,6 +1,6 @@
 {
   "crawlerKey": "anybotics",
-  "assembledAt": "2026-09-11T23:07:02.987Z",
+  "assembledAt": "2026-09-12T12:55:25.003Z",
   "jobs": [
     {
       "id": "anybotics-faf88312b698",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/anybotics/8ba5fd36-edfb-4040-8369-fb16996d3c3e",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:57.892Z",
+      "crawledAt": "2026-09-12T12:55:20.551Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -96,7 +96,7 @@
       "url": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:57.591Z",
+      "crawledAt": "2026-09-12T12:55:20.248Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -111,6 +111,20 @@
       "applyUrl": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "solution-architect-power-utilities-anybotics-ch",
+        "solution-architetto-power-utilities-anybotics-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-architect-power-utilities-anybotics-ch",
+          "solution-architetto-power-utilities-anybotics-zurich"
+        ],
+        "fr": [
+          "solution-architect-power-utilities-anybotics-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-10T23:05:23.420Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -124,21 +138,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-10T23:05:23.420Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "solution-architect-power-utilities-anybotics-ch",
-          "solution-architetto-power-utilities-anybotics-zurich"
-        ],
-        "fr": [
-          "solution-architect-power-utilities-anybotics-ch"
-        ]
-      },
-      "previousSlugs": [
-        "solution-architect-power-utilities-anybotics-ch",
-        "solution-architetto-power-utilities-anybotics-zurich"
-      ]
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-c480824429fa",
@@ -171,7 +171,7 @@
       "url": "https://jobs.lever.co/anybotics/7e305a48-4628-4a6a-b054-0367b6f6e586",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:57.289Z",
+      "crawledAt": "2026-09-12T12:55:19.947Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -215,6 +215,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:50:16.522Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -261,7 +262,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:56.987Z",
+      "crawledAt": "2026-09-12T12:55:19.645Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -339,7 +340,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:56.685Z",
+      "crawledAt": "2026-09-12T12:55:19.343Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -365,6 +366,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T12:59:44.319Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -411,7 +413,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:56.383Z",
+      "crawledAt": "2026-09-12T12:55:19.041Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -443,6 +445,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.094Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -489,7 +492,7 @@
       "url": "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:56.082Z",
+      "crawledAt": "2026-09-12T12:55:18.739Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -572,7 +575,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:55.780Z",
+      "crawledAt": "2026-09-12T12:55:18.438Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -650,7 +653,7 @@
       "url": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:55.478Z",
+      "crawledAt": "2026-09-12T12:55:18.137Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -728,7 +731,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:55.175Z",
+      "crawledAt": "2026-09-12T12:55:17.835Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -810,7 +813,7 @@
       "url": "https://jobs.lever.co/anybotics/f687dc6d-d6d4-4111-a564-ae3369cca6b4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:54.873Z",
+      "crawledAt": "2026-09-12T12:55:17.533Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -825,7 +828,18 @@
       "applyUrl": "https://jobs.lever.co/anybotics/f687dc6d-d6d4-4111-a564-ae3369cca6b4",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "key-account-manager-oil-gas-anybotics-ch",
+        "key-account-manager-petrolio-e-gas-anybotics-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-oil-gas-anybotics-ch",
+          "key-account-manager-petrolio-e-gas-anybotics-zurich"
+        ]
+      },
       "firstSeenAt": "2026-09-08T13:32:26.383Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -839,15 +853,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "previousSlugsByLocale": {
-        "it": [
-          "key-account-manager-oil-gas-anybotics-ch"
-        ]
-      },
-      "previousSlugs": [
-        "key-account-manager-oil-gas-anybotics-ch"
-      ]
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-5839d064a74b",
@@ -880,7 +886,7 @@
       "url": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:54.571Z",
+      "crawledAt": "2026-09-12T12:55:17.230Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -958,7 +964,7 @@
       "url": "https://jobs.lever.co/anybotics/ea8d77e2-423f-4e79-9836-10da898d60d4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:06:54.266Z",
+      "crawledAt": "2026-09-12T12:55:16.925Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1003,7 +1009,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     }
   ]
 }
