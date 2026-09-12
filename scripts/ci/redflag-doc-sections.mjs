@@ -46,7 +46,12 @@ function headingLevel(line) {
 
 function fenceMarker(line) {
   const match = line.match(/^[ \t]{0,3}(`{3,}|~{3,})/);
-  return match ? match[1][0] : null;
+  return match ? { char: match[1][0], length: match[1].length } : null;
+}
+
+function advanceFenceState(inFence, marker) {
+  if (!inFence) return marker;
+  return marker.char === inFence.char && marker.length >= inFence.length ? null : inFence;
 }
 
 /**
@@ -66,7 +71,7 @@ export function extractSectionByHeading(markdown, heading) {
   for (let index = 0; index < lines.length; index += 1) {
     const marker = fenceMarker(lines[index]);
     if (marker) {
-      inFence = inFence === marker ? null : inFence ?? marker;
+      inFence = advanceFenceState(inFence, marker);
       continue;
     }
     if (!inFence && normalizeMarkdownHeading(lines[index]) === target) matches.push(index);
@@ -89,7 +94,7 @@ export function extractSectionByHeading(markdown, heading) {
   for (let index = start + 1; index < lines.length; index += 1) {
     const marker = fenceMarker(lines[index]);
     if (marker) {
-      inFence = inFence === marker ? null : inFence ?? marker;
+      inFence = advanceFenceState(inFence, marker);
       body.push(lines[index]);
       continue;
     }
