@@ -201,7 +201,7 @@ function normalizeMissingDailyItemStates(body) {
   let offset = 0;
   for (const item of items) {
     if (item.state !== null) continue;
-    if (/^\s*-\s+State\s*:/im.test(item.raw)) return null;
+    if (hasLiveItemStateField(item.raw)) return null;
     const headingEnd = item.raw.indexOf('\n');
     if (headingEnd < 0) return null;
     const raw = `${item.raw.slice(0, headingEnd + 1)}- State: open\n${item.raw.slice(headingEnd + 1)}`;
@@ -210,6 +210,28 @@ function normalizeMissingDailyItemStates(body) {
     offset += raw.length - item.raw.length;
   }
   return normalized;
+}
+
+/** Do not confuse a quoted/fenced example with a live item State field. */
+function hasLiveItemStateField(text) {
+  let fence = null;
+  for (const line of String(text || '').split('\n')) {
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+    if (/^\s*>/.test(line)) continue;
+    if (fence) {
+      if (marker && marker[1][0] === fence.char
+          && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
+        fence = null;
+      }
+      continue;
+    }
+    if (marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
+      continue;
+    }
+    if (/^\s*-\s+State\s*:/i.test(line)) return true;
+  }
+  return false;
 }
 
 /** Update only the bucket-level state line (never an item `State:` line). */
