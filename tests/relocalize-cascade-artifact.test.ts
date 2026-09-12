@@ -45,6 +45,13 @@ afterEach(() => {
 });
 
 describe('cascade company artifact', () => {
+  it('flushes outside the normal tail and uses the compensated run clock', () => {
+    const runtime = fs.readFileSync(path.join(root, 'scripts/relocalize-pending-jobs.mjs'), 'utf8');
+    expect(runtime).toMatch(/finally \{\s+if \(thinkingAb\) \{\s+flushThinkingArtifacts\(\);/);
+    expect(runtime).toContain('new Date(LEGACY_CLOCK.now()).toISOString()');
+    expect(runtime).toContain("process.once('SIGTERM', onTermination)");
+  });
+
   it('publishes the in-progress phase before the first crawler call', () => {
     const runtime = fs.readFileSync(path.join(root, 'scripts/relocalize-pending-jobs.mjs'), 'utf8');
     const active = runtime.indexOf('phase.stopReason = window.stopReason;');
@@ -178,5 +185,7 @@ describe('cascade company artifact', () => {
     expect(artifact.cascadeStop).toBe('company failure');
     expect(artifact.companiesQueued).toBe(1);
     expect(artifact.companiesProcessed).toBe(0);
+    expect(artifact.companiesFailed).toBe(1);
+    expect(artifact.generatedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
   });
 });
