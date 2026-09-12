@@ -4684,7 +4684,9 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
   for (const job of existingJobs || []) {
     const domain = normalizeHost(hostOf(job?.url || ''));
     if (job?.source === 'Company Careers Crawler' && domain && activeDomains.has(domain)) {
-      const explicitKey = resolveJobCompanyKey(job);
+      const explicitKey = String(job?.companyKey || '').trim()
+        ? resolveJobCompanyKey(job)
+        : '';
       const legacyCompany = resolveCompanyKey(String(job?.company || ''));
       const legacyAliases = authoritativeLegacyAliasesByCompanyKey.get(singleScopedCompanyKey);
       const key = explicitKey
