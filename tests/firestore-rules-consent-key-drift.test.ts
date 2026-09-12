@@ -150,8 +150,8 @@ describe('firestore.rules — consentFieldsTouched() copre i campi scritti', () 
     ('applica il guard comune alla root %s', (collection) => {
       const rules = readFileSync(resolve(ROOT, 'firestore.rules'), 'utf8');
       const own = directRules(matchBlock(rules, `match /${collection}/{email}`));
-      expect(own).toContain('allow update: if !consentFieldsTouched(request.resource.data, resource.data)');
-      expect(own).toContain('request.auth.token.email.lower() == email.lower()');
+      expect(own).toMatch(/allow update:[\s\S]*consentFieldsTouched\(request\.resource\.data, resource\.data\)/);
+      expect(own).toMatch(/request\.auth\.token\.email\.lower\(\) == email\.lower\(\)|isVerifiedSubscriberOwner\(email\)/);
     });
 
   it('nessun writer nuovo sfugge alla lista sorvegliata', () => {

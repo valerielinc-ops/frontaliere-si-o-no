@@ -23,31 +23,18 @@
  *    invoked alongside the Google sign-in when the fallback button is used
  *  - `mountEnabled`: gate the GIS mount on extra conditions (e.g. modal slot)
  *
- * WHY THERE IS NO <ConsentNotice> IN HERE (#5739)
- * ----------------------------------------------
- * Pressing one of these buttons subscribes the visitor: the auth listener in
- * App.tsx writes a `newsletter_subscribers` document as soon as the sign-in
- * completes. So the obvious improvement is to render the consent formula right
- * here, once, and have every mount point inherit it. It is the wrong move, in
- * two independent ways, and both are cheap to re-discover the hard way:
+ * NEWSLETTER BOUNDARY (#5739, #5764)
+ * ----------------------------------
+ * This shared control is authentication-only. It never writes
+ * `newsletter_subscribers` and it never treats a One Tap or an unrelated
+ * session restoration as a communications request. A contextual gate that
+ * deliberately couples a provider click to communications may pass
+ * `onAuthIntent`; that callback records only the user's click intent so the
+ * parent can complete its own consent-aware write after authentication.
  *
- *  - the formula App.tsx stores for that click is `signInAutoSubscribe`, an
- *    Italian-only `displayed: false` entry. Rendering `communicationsSignIn`
- *    beside the button would put one sentence on screen and keep a different
- *    one in the document — a fabricated proof, which is a worse position in
- *    front of an authority than an admitted gap (see services/consentTexts.ts);
- *  - six of the eight screens that mount this component already render their
- *    own notice for their own email branch. A second one here is the exact
- *    defect #5765 removed: two statements about one decision, one of them
- *    stored. `tests/consent-shown-at-signup.test.tsx` counts notices per gate
- *    and would fail on all six.
- *
- * The state that follows from that — screens where a provider button subscribes
- * somebody with nothing on screen — is a declared gap, not an oversight: every
- * such screen is listed in `SIGN_IN_SURFACES` in that test file, and the rule
- * it does enforce is that nothing may CLAIM to have been shown. Closing the gap
- * properly means giving App.tsx a formula it can honestly display at EVERY
- * sign-in entry point, One Tap included — which is #5726, not a prop here.
+ * There is no <ConsentNotice> here because the shared control does not know
+ * whether its parent is an access gate, a newsletter form, or an account
+ * screen. The parent owns both the disclosure and the newsletter write.
  */
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -82,6 +69,8 @@ interface SocialSignInButtonsProps {
   linkedInResponsiveLabel?: boolean;
   /** Extra side-effect run when the user clicks the Google fallback button. */
   onGoogleFallback?: () => void;
+  /** Record an explicit click on any social provider before authentication. */
+  onAuthIntent?: () => void;
   /** Additional gate for mounting the GIS rendered button (default: true). */
   mountEnabled?: boolean;
 }
@@ -105,6 +94,7 @@ export default function SocialSignInButtons({
   googleFallbackVariant = 'lg',
   linkedInResponsiveLabel = false,
   onGoogleFallback,
+  onAuthIntent,
   mountEnabled = true,
 }: SocialSignInButtonsProps) {
   const { t } = useTranslation();
@@ -153,11 +143,15 @@ export default function SocialSignInButtons({
   const googleColumn = (
     <div className="space-y-2">
       {/* Google Identity rendered button (falls back to a plain button if GIS is slow/blocked) */}
-      <div ref={googleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl" />
+      <div
+        ref={googleButtonRef}
+        onClick={onAuthIntent}
+        className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl"
+      />
       {!googleButtonReady && (
         <button
           type="button"
-          onClick={() => { onGoogleFallback?.(); void googleSignIn(); }}
+          onClick={() => { onAuthIntent?.(); onGoogleFallback?.(); void googleSignIn(); }}
           className={`w-full ${fallbackSizeClasses} grid grid-cols-[20px_1fr_20px] items-center bg-surface border border-edge rounded-xl text-body font-semibold hover:bg-surface-raised transition-colors`}
         >
           <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
@@ -171,7 +165,7 @@ export default function SocialSignInButtons({
   const linkedInButton = linkedInAvailable ? (
     <button
       type="button"
-      onClick={() => { void signInWithLinkedIn(); }}
+      onClick={() => { onAuthIntent?.(); void signInWithLinkedIn(); }}
       className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors"
       aria-label={linkedInLabel(locale)}
     >

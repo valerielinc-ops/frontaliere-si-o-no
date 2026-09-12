@@ -44,6 +44,8 @@ import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 import { forensicsFields } from './lib/requestForensics.js';
 import { isNewsletterOptOutBinding, toEpochMillis } from './lib/newsletterOptOut.js';
+import { isTransactionalHardBlock } from './lib/emailSuppression.js';
+import { isAccountDeletedTombstone } from './authAccountCleanup.js';
 import {
  verifyAutologinCode,
  resolveAutologinPolicy,
@@ -73,6 +75,24 @@ const CARD_BG = '#ffffff';
 const TEXT_COLOR = '#1f2937';
 const MUTED_COLOR = '#6b7280';
 const BORDER_COLOR = '#dbe2ea';
+
+async function mintNewsletterAuthToken(normalizedEmail) {
+ try {
+ ensureAdminApp();
+ let uid = null;
+ try {
+ const userRecord = await admin.auth().getUserByEmail(normalizedEmail);
+ uid = userRecord.uid;
+ } catch {
+ const newUser = await admin.auth().createUser({ email: normalizedEmail, emailVerified: true });
+ uid = newUser.uid;
+ }
+ return uid ? await admin.auth().createCustomToken(uid) : null;
+ } catch (authErr) {
+ console.warn('[newsletterManage] Failed to generate auth token:', authErr?.message);
+ return null;
+ }
+}
 
 function normalizeEmail(value) {
  return String(value || '').trim().toLowerCase();
@@ -428,7 +448,7 @@ function serializeAlertDoc(id, data) {
  */
 const RESUBSCRIBE_BURST_WINDOW_MS = 10_000;
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', autologinPolicy = undefined, tokenPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, forensics = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', mode = undefined, autologinPolicy = undefined, tokenPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, forensics = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  // Defaults to GET, i.e. FAIL-CLOSED. A caller that forgets to thread the verb
  // through cannot re-subscribe anybody; the opposite default would make the
@@ -691,6 +711,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  'revoke_autologin',
  'get_full_status',
  'toggle_newsletter_subscription',
+ 'resubscribe',
  'delete_alert',
  'update_alert',
  'create_alert',
@@ -1393,6 +1414,91 @@ export async function handleSubscriptionManagement({ action, email, token, local
  if (action === 'confirm') {
   const subscriberDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
   const subscriberData = subscriberDoc.exists ? (subscriberDoc.data() || {}) : {};
+  const loginOnly = String(mode || '').trim().toLowerCase() === 'login';
+  const accountDeleted = isAccountDeletedTombstone(subscriberData);
+
+  // Login links authenticate the visitor but never change newsletter state.
+  // Keeping this lower-privilege path separate prevents an old access link
+  // from resurrecting an opted-out address.
+  if (loginOnly) {
+   if (accountDeleted) {
+    return {
+     status: 409,
+     html: buildResponseHtml({
+      title: t(lang, 'manageErrorTitle'),
+      message: t(lang, 'manageErrorInvalidAction'),
+      showResubscribe: false,
+      email: normalizedEmail,
+      token,
+      locale: lang,
+     }),
+    };
+   }
+   if (!subscriberDoc.exists) {
+    return {
+     status: 404,
+     html: buildResponseHtml({
+      title: t(lang, 'manageErrorTitle'),
+      message: t(lang, 'manageErrorInvalidToken'),
+      showResubscribe: false,
+      email: '',
+      token: '',
+      locale: lang,
+     }),
+    };
+   }
+   const authToken = await mintNewsletterAuthToken(normalizedEmail);
+   if (!authToken) {
+    return {
+     status: 500,
+     html: buildResponseHtml({
+      title: t(lang, 'manageErrorTitle'),
+      message: t(lang, 'manageErrorTitle'),
+      showResubscribe: false,
+      email: normalizedEmail,
+      token,
+      locale: lang,
+     }),
+    };
+   }
+   return {
+    status: 200,
+    authToken,
+    alreadyConfirmed: true,
+    loginOnly: true,
+    html: buildResponseHtml({
+     title: t(lang, 'loginSuccessTitle'),
+     message: t(lang, 'loginSuccessBody'),
+     showResubscribe: false,
+     email: '',
+     token: '',
+     locale: lang,
+    }),
+   };
+  }
+
+  // A stale confirmation token must not be a second subscription mechanism.
+  // A fresh re-consent token is the only exception: it arrives while the
+  // document is pending and is processed below.
+  if (
+   subscriberData
+   && !accountDeleted
+   && (isTransactionalHardBlock({ status: subscriberData.status, bounceSeverity: subscriberData.bounce_severity })
+    || (isNewsletterOptOutBinding(subscriberData) && subscriberData.status !== 'pending'))
+  ) {
+   return {
+    status: 409,
+    html: buildResponseHtml({
+     title: t(lang, 'manageErrorTitle'),
+     message: t(lang, 'manageErrorInvalidAction'),
+     showResubscribe: false,
+     email: normalizedEmail,
+     token,
+     locale: lang,
+    }),
+   };
+  }
+
   const companyFollowPending = subscriberData.company_follow_followup_pending === true
    || (subscriberData.company_follow_followup_pending === undefined
     && subscriberData.source_channel === 'company_follow_button');
@@ -1477,24 +1583,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
  }
 
- // Generate a custom auth token for auto-login after confirmation
- let authToken = null;
- try {
- ensureAdminApp();
- let uid = null;
- try {
- const userRecord = await admin.auth().getUserByEmail(normalizedEmail);
- uid = userRecord.uid;
- } catch {
- const newUser = await admin.auth().createUser({ email: normalizedEmail, emailVerified: true });
- uid = newUser.uid;
- }
- if (uid) {
- authToken = await admin.auth().createCustomToken(uid);
- }
- } catch (authErr) {
- console.warn('[newsletterManage] Failed to generate auth token for confirm:', authErr?.message);
- }
+ // Generate a custom auth token for auto-login after confirmation.
+ const authToken = await mintNewsletterAuthToken(normalizedEmail);
 
  const confirmTitle = alreadyConfirmed
  ? `${t(lang, 'manageResubscribeTitle')}`

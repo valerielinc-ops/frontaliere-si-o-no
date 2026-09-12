@@ -49,6 +49,7 @@ import { DEFAULT_CONFIRMATION_FOLLOWUP_EPOCH } from '../functions/src/lib/confir
 import { ROOT, read, stripComments, discoverSenders } from './helpers/senders';
 
 const CALLS_GATE = /hasConfirmationProof\s*\(/;
+const CALLS_JOB_ALERT_GATE = /evaluateJobAlertConsent\s*\(/;
 
 type Verdict =
   /** Consults the proof before choosing a recipient. */
@@ -83,17 +84,12 @@ type Verdict =
    */
   | { verdict: 'consent-request'; why: string; gateIn?: string }
   /**
-   * Reaches an address this file cannot vouch for, and is recorded as a FACT
-   * rather than tolerated in silence — the shape the precedent file uses for
-   * its blind spot. The entry fails the day the file starts calling the gate,
-   * which is how the change gets noticed instead of absorbed.
-   *
-   * `onFire` says what to do WHEN it fails, and it is not the same answer
-   * everywhere: for the drip the answer is "good, move it to `gated`", for the
-   * alert channels it is "stop — that is the wrong fix". A single generic
-   * message would push somebody toward the wrong one.
+   * Channel-aware gate: explicit job alerts keep their own consent basis, but
+   * inferred newsletter→job-alert backfills need a job-alert proof before the
+   * sender can use their `active` flag. This is deliberately not the generic
+   * newsletter `hasConfirmationProof` gate.
    */
-  | { verdict: 'known-gap'; why: string; issue: string; onFire: string };
+  | { verdict: 'channel-aware-gated'; why: string };
 
 /**
  * Every top-level sender, with the verdict that lets it past this file.
@@ -134,42 +130,20 @@ const VERDICTS: Record<string, Verdict> = {
     gateIn: 'functions/src/lib/confirmationFollowup.js',
   },
   /**
-   * The two alert channels, and the reason they are NOT simply "the newsletter
-   * defect, unfixed".
-   *
-   * A job alert somebody really created has a consent basis of its OWN: the act
-   * of creating it. Refusing to send it because the same address's NEWSLETTER
-   * document carries no stamp would let one channel's consent govern another —
-   * the same confusion between channels that produced #5705, pointing the other
-   * way. So the gate does not belong here, and an entry that only cited #5686
-   * would read as an invitation to add it.
-   *
-   * The real defect on this channel is not the missing stamp: it is that most
-   * of these alerts were never requested at all — 7.167 of 7.745 born from a
-   * backfill off the newsletter list, 6.308 still active (#5705, guarded in
-   * `shouldSkipSubscriber` by PR #5722) — and, until #5688, that a newsletter
-   * opt-out did not reach them. Neither passes through THIS gate: the opt-out
-   * half is asserted in tests/no-channel-mails-opted-out.test.ts, over the same
-   * sender population, with isCrossChannelStop as its predicate. The entries
-   * below therefore describe a BOUNDARY that is policed elsewhere, not work
-   * this PR postponed.
-   *
-   * Consent IN and consent OUT are not symmetric, and that asymmetry is the
-   * whole content of these two entries: an alert the user created carries its
-   * own opt-in, so the newsletter's opt-in must not govern it; but "stop
-   * emailing me" is not worded per-channel, so the newsletter's opt-OUT does.
+   * The two alert channels use a channel-aware gate. An alert somebody really
+   * created has a consent basis of its OWN and remains sendable; a historical
+   * newsletter backfill is not allowed to borrow `active` as consent and must
+   * carry either an alert-specific proof or an affirmative job-alert consent
+   * on the newsletter record. The newsletter opt-out remains a separate,
+   * cross-channel stop asserted in tests/no-channel-mails-opted-out.test.ts.
    */
   'scripts/send-job-alerts.mjs': {
-    verdict: 'known-gap',
-    why: 'consent here is the alert the user created, not the newsletter opt-in, so this gate does not belong here; the unrequested-alert problem is #5705 (PR #5722, guard in shouldSkipSubscriber). The newsletter OPT-OUT does reach this sender since #5688 — isCrossChannelStop, asserted in no-channel-mails-opted-out.test.ts',
-    issue: '#5705',
-    onFire: 'STOP — adding the newsletter consent gate here is the wrong fix: it lets one channel\'s consent govern another. Read #5705 first (the opt-out direction is already covered, and separately)',
+    verdict: 'channel-aware-gated',
+    why: 'explicit alerts keep their own consent; historical newsletter backfills require evaluateJobAlertConsent before delivery',
   },
   'scripts/send-company-alerts.mjs': {
-    verdict: 'known-gap',
-    why: 'same consent basis and same boundary as send-job-alerts: isCrossChannelStop on the newsletter doc + isJobAlertExcluded on its own, and deliberately no opt-IN gate',
-    issue: '#5705',
-    onFire: 'STOP — same as send-job-alerts: the followed-employer alert is its own consent. Read #5705 first',
+    verdict: 'channel-aware-gated',
+    why: 'the immediate sender shares the same explicit-vs-backfilled consent boundary as the daily digest',
   },
   'scripts/send-saved-jobs-digest.mjs': {
     verdict: 'not-a-broadcast',
@@ -221,10 +195,12 @@ describe('every sender is classified', () => {
 describe('the verdicts hold', () => {
   const entries = Object.entries(VERDICTS);
   const gated = entries.filter(([, v]) => v.verdict === 'gated') as Array<[string, Extract<Verdict, { verdict: 'gated' }>]>;
+  const channelAware = entries.filter(([, v]) => v.verdict === 'channel-aware-gated') as Array<
+    [string, Extract<Verdict, { verdict: 'channel-aware-gated' }>]
+  >;
   const consentRequests = entries.filter(([, v]) => v.verdict === 'consent-request') as Array<
     [string, Extract<Verdict, { verdict: 'consent-request' }>]
   >;
-  const gaps = entries.filter(([, v]) => v.verdict === 'known-gap');
   const notBroadcast = entries.filter(([, v]) => v.verdict === 'not-a-broadcast');
 
   it('there is exactly one consent-request channel', () => {
@@ -250,15 +226,14 @@ describe('the verdicts hold', () => {
     expect(stripComments(read(where))).not.toMatch(/function hasConfirmationProof/);
   });
 
-  it.each(gaps)('%s is still the gap it is declared to be', (file, v) => {
-    // Asserted as a fact, not tolerated in silence — and the message says what
-    // to DO when it fires, which differs by channel: for the drip closing the
-    // gap is the fix, for the alert channels closing it IS the bug.
-    const g = v as Extract<Verdict, { verdict: 'known-gap' }>;
+  it.each(channelAware)('%s consults the channel-aware job-alert gate', (file) => {
+    const src = stripComments(read(file));
+    expect(src, `${file} must call evaluateJobAlertConsent()`).toMatch(CALLS_JOB_ALERT_GATE);
+    expect(read(file)).toMatch(/from '[^']*jobAlertBackfillCore\.js'/);
     expect(
-      stripComments(read(file)),
-      `${file} now consults the gate — ${g.onFire} (${g.issue})`,
-    ).not.toMatch(CALLS_GATE);
+      stripComments(read('functions/src/jobAlertBackfillCore.js')),
+      'the channel-aware gate must have one canonical implementation',
+    ).toMatch(/export function evaluateJobAlertConsent\s*\(/);
   });
 
   it.each(notBroadcast)('%s does not scan a subscriber collection', (file) => {
@@ -421,6 +396,23 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
     expect(hasConfirmationProof(null)).toBe(false);
   });
 
+  it('does not treat a silent authentication timestamp as newsletter consent', () => {
+    const authOnly = {
+      status: 'confirmed',
+      isActive: true,
+      confirmed_at: STAMP,
+      source: 'signup',
+      source_channel: 'auth_google',
+      consent_act: 'authentication',
+      consent_text_displayed: false,
+    };
+    expect(hasConfirmationProof(authOnly)).toBe(false);
+    expect(hasConfirmationProof({ ...authOnly, consent_text_displayed: true })).toBe(true);
+    expect(hasConfirmationProof({
+      doc: { ...authOnly, consent_text_displayed: false },
+    })).toBe(false);
+  });
+
   /**
    * THE REVIEW FINDING ON #5686, and the fork it opened.
    *
@@ -438,32 +430,25 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
    * that field to proof would let a scanner's timestamp count as consent,
    * which is the exact defect #5711/#5720 is open to close.
    *
-   * TAKEN — make the path that EARNS the stamp write it. But only one of the
-   * two toggle paths earns it, and the difference is the credential:
-   *   - the SPA toggle (components/preferences/SubscriptionPreferencesController
-   *     .tsx, authToggleNewsletter) runs behind a live Firebase session on the
-   *     signed-in user's own address. A scanner does not produce that. STAMPED.
-   *   - the Cloud Function toggle (`action=toggle_newsletter_subscription`) is
-   *     authenticated by the SAME eternal email HMAC as the resubscribe link,
-   *     over GET (services/newsletterSubscribers.ts calls it with a plain
-   *     `fetch(url)`). Stamping there would hand the forgery path we just
-   *     refused a second door, onto the one field the whole architecture
-   *     trusts. NOT STAMPED — recorded below, tracked as #5720.
+   * TAKEN — neither preference toggle mints DOI proof. A signed-in session
+   * proves who is operating the profile, but it does not prove that the
+   * newsletter confirmation link was completed. A prior confirmed stamp may
+   * still support an explicit profile re-opt-in; a row without one remains
+   * unmarketable until the real confirmation path runs.
    */
   describe('who may write the proof', () => {
-    it('the authenticated in-app toggle writes the stamp, so its users keep receiving', () => {
+    it('the authenticated in-app toggle does not mint a confirmation stamp', () => {
       const src = stripComments(read('components/preferences/SubscriptionPreferencesController.tsx'));
       const fn = src.slice(src.indexOf('async function authToggleNewsletter'));
       const subscribeBranch = fn.slice(0, fn.indexOf('} else {'));
-      expect(subscribeBranch).toMatch(/confirmed_at:\s*serverTimestamp\(\)/);
-      expect(subscribeBranch).toMatch(/confirmedAt:\s*serverTimestamp\(\)/);
-      // And the gate agrees with the write: the row that toggle produces passes.
+      expect(subscribeBranch).not.toMatch(/confirmed_at:\s*serverTimestamp\(\)/);
+      expect(subscribeBranch).not.toMatch(/confirmedAt:\s*serverTimestamp\(\)/);
+      // The gate agrees with the write: a row that toggle produces without
+      // prior proof does not pass.
       expect(hasConfirmationProof({
         status: 'subscribed',
         resubscribed_at: STAMP,
-        confirmed_at: STAMP,
-        confirmedAt: STAMP,
-      })).toBe(true);
+      })).toBe(false);
     });
 
     it('a `subscribed` row with only resubscribed_at does NOT pass', () => {
