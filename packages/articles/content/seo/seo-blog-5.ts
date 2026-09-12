@@ -89383,6 +89383,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-2030-riforma-previdenza': {
+    title: 'AVS 2030: la riforma della previdenza svizzera',
+    description: 'Scopri i dettagli della riforma AVS 2030 presentata a Berna dal Consiglio federale. Entrate extra, età minima e reazioni della politica svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, riforma, previdenza, presentata, berna',
+    ogTitle: 'AVS 2030: la riforma della previdenza svizzera',
+    ogDescription: 'Analisi completa sulla riforma AVS 2030 presentata a Berna. Scopri tutte le misure previste dal Consiglio federale per la previdenza svizzera, le entrate stimate a 600 milioni annui e le posizioni dei partiti politici.',
+    canonicalPath: '/articoli-frontaliere/avs-2030-riforma-previdenza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS 2030: la riforma della previdenza svizzera",
+      "description": "Scopri i dettagli della riforma AVS 2030 presentata a Berna dal Consiglio federale. Entrate extra, età minima e reazioni della politica svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-2030-riforma-previdenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna dove si discute la riforma AVS 2030"
+      },
+      "datePublished": "2026-09-12T00:03:42+00:00",
+      "dateModified": "2026-09-12T00:03:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/avs-2030-riforma-previdenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -34779,6 +34779,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'avs-2030-riforma-previdenza',
+ category: 'pensione',
+ date: '2026-09-12T00:03:41.955Z',
+ image: '/images/blog/avs-2030-riforma-previdenza.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
