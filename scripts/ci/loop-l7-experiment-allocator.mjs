@@ -198,6 +198,8 @@ function validateOutcomes(outcomes, {
   if (integer(values.guardrailBreaches) && integer(values.exposures) && values.guardrailBreaches > values.exposures) issues.push('outcomes.guardrailBreaches exceeds outcomes.exposures');
   if (integer(values.persistentAssignments) && integer(values.assignments) && values.persistentAssignments > values.assignments) issues.push('outcomes.persistentAssignments exceeds outcomes.assignments');
   if (integer(values.contaminatedAssignments) && integer(values.assignments) && values.contaminatedAssignments > values.assignments) issues.push('outcomes.contaminatedAssignments exceeds outcomes.assignments');
+  if (integer(values.guardrailBreaches) && values.guardrailBreaches > 0) issues.push('outcomes.guardrailBreaches is non-zero; the canary is not safe to continue');
+  if (integer(values.contaminatedAssignments) && values.contaminatedAssignments > 0) issues.push('outcomes.contaminatedAssignments is non-zero; the assignment ledger is not clean');
   let ageHours = null;
   if (generatedAt) {
     ageHours = hoursBetween(now, generatedAt);
@@ -206,6 +208,17 @@ function validateOutcomes(outcomes, {
   }
   if (integer(values.eligibleCohort) && values.eligibleCohort > 0 && values.eligibleCohort < minimumSample) {
     issues.push(`eligibleCohort is below minimum sample (${values.eligibleCohort} < ${minimumSample})`);
+  }
+  if (integer(values.assignments) && values.assignments > 0 && values.assignments < minimumSample) {
+    issues.push(`assignments is below minimum sample (${values.assignments} < ${minimumSample})`);
+  }
+  if (integer(values.exposures) && values.exposures > 0 && values.exposures < minimumSample) {
+    issues.push(`exposures is below minimum sample (${values.exposures} < ${minimumSample})`);
+  }
+  if (integer(values.eligibleCohort) && values.eligibleCohort > 0
+      && integer(values.assignments) && integer(values.exposures)
+      && ((values.assignments === 0) !== (values.exposures === 0))) {
+    issues.push('outcome participation is incomplete: assignments and exposures cannot be measured together');
   }
   const snapshot = {
     path: sourcePath,
@@ -217,7 +230,7 @@ function validateOutcomes(outcomes, {
   let quality = 'observed';
   if (!generatedAt || Object.values(values).some((value) => !integer(value)) || !finitePositive(durationDays)) quality = 'partial';
   else if (ageHours < -0.0834 || ageHours > maxAgeHours) quality = 'stale';
-  else if (values.eligibleCohort === 0 && issues.length === 0) quality = 'zero';
+  else if ((values.eligibleCohort === 0 || values.assignments === 0 || values.exposures === 0) && issues.length === 0) quality = 'zero';
   else if (issues.length) quality = 'partial';
   return { quality, issues, snapshot };
 }
@@ -313,11 +326,13 @@ function writeActions(reportDir, verdict, now) {
   const file = path.join(path.resolve(reportDir), 'l7-actions.json');
   const outcomes = verdict.snapshot?.outcomes;
   const guardrailBreaches = outcomes?.guardrailBreaches;
+  const contaminatedAssignments = outcomes?.contaminatedAssignments;
   const actions = [];
-  if (integer(guardrailBreaches) && guardrailBreaches > 0) {
+  if ((integer(guardrailBreaches) && guardrailBreaches > 0)
+      || (integer(contaminatedAssignments) && contaminatedAssignments > 0)) {
     actions.push({
       autonomy: 'A3',
-      action: 'recommend stopping the affected bounded canary pending guardrail review',
+      action: 'recommend stopping the affected bounded canary pending guardrail and contamination review',
       reversible: true,
       appliesToTraffic: false,
       noAutomaticPriceChange: true,

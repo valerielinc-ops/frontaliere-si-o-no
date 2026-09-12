@@ -99,6 +99,27 @@ describe('L7 Experiment Allocator', () => {
     expect(result.observation.denominator).toBeNull();
   });
 
+  it('does not treat an eligible cohort without assignments or exposures as observed', async () => {
+    const files = tempFiles(registry(), outcomes({
+      eligibleCohort: 300,
+      assignments: 0,
+      exposures: 0,
+      primaryOutcomes: 0,
+      persistentAssignments: 0,
+    }));
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      logger: { log() {} },
+    });
+    expect(result.verdict.quality).toBe('zero');
+    expect(result.verdict.ok).toBe(false);
+    expect(result.observation.numerator).toBeNull();
+    expect(result.observation.denominator).toBeNull();
+  });
+
   it('rejects future outcome timestamps and starts the decision window at now', async () => {
     const files = tempFiles(registry(), outcomes({ generatedAt: '2026-09-13T12:00:00.000Z' }));
     const result = await runL7({
@@ -119,6 +140,26 @@ describe('L7 Experiment Allocator', () => {
     }, { now: NOW });
     expect(verdict.quality).toBe('partial');
     expect(verdict.reason).toContain('exposures exceeds outcomes.assignments');
+  });
+
+  it('stops and escalates a canary with any guardrail breach or contamination', async () => {
+    const verdict = validateExperimentAllocator({
+      registry: registry(),
+      outcomes: outcomes({ guardrailBreaches: 1, contaminatedAssignments: 1 }),
+    }, { now: NOW });
+    expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
+    expect(verdict.issues.join(' ')).toContain('guardrailBreaches is non-zero');
+    expect(verdict.issues.join(' ')).toContain('contaminatedAssignments is non-zero');
+    const files = tempFiles(registry(), outcomes({ guardrailBreaches: 1, contaminatedAssignments: 1 }));
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      apply: true,
+      logger: { log() {} },
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l7-actions.json'), 'utf8')).actions[0]).toMatchObject({ autonomy: 'A3' });
   });
 
   it('writes only candidate recommendations and preserves the no-price-change guardrail', async () => {
