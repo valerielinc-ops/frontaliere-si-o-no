@@ -89617,6 +89617,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-voto-pecc-gran-consiglio-ticino': {
+    title: 'Voto sul Pecc in Gran Consiglio: la scelta economica',
+    description: 'Appello al Gran Consiglio ticinese per l\'approvazione del Piano energetico e climatico cantonale. Scopri i dettagli economici e la transizione energetica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, pecc, gran, consiglio',
+    ogTitle: 'Voto Pecc in Gran Consiglio: la scelta economica in Ticino',
+    ogDescription: 'Le organizzazioni economiche e ambientaliste ticinesi chiedono al Gran Consiglio di approvare il Piano energetico e climatico cantonale (Pecc) per ridurre la dipendenza dai combustibili fossili e investire nelle risorse locali.',
+    canonicalPath: '/articoli-frontaliere/voto-pecc-gran-consiglio-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto sul Pecc in Gran Consiglio: la scelta economica",
+      "description": "Appello al Gran Consiglio ticinese per l'approvazione del Piano energetico e climatico cantonale. Scopri i dettagli economici e la transizione energetica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/voto-pecc-gran-consiglio-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castello di Bellinzona in Ticino"
+      },
+      "datePublished": "2026-09-12T02:18:52+00:00",
+      "dateModified": "2026-09-12T02:18:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/voto-pecc-gran-consiglio-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
