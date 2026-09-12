@@ -2119,6 +2119,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-dimora-b-canton-giura': { it: 'permesso-dimora-b-canton-giura', en: 'residence-permit-b-jura', de: 'aufenthaltsbewilligung-b-jura', fr: 'permis-dimora-b-jura' },
  'asib-richiesta-aumenti-bancari': { it: 'asib-richiesta-aumenti-bancari', en: 'asib-bank-salary-demands', de: 'asib-bank-gehaltsforderungen', fr: 'asib-demandes-salaires-banques' },
  'economiesuisse-silvan-wildhaber': { it: 'economiesuisse-silvan-wildhaber', en: 'economiesuisse-silvan-wildhaber-is-the-new-president', de: 'economiesuisse-silvan-wildhaber-wird-neuer-prasident', fr: 'economiesuisse-silvan-wildhaber-est-le-nouveau-president' },
+ 'finanze-ospedali-svizzera-2025': { it: 'finanze-ospedali-svizzera-2025', en: 'finances-hospitals-switzerland-2025', de: 'finanzen-krankenhaeuser-schweiz-2025', fr: 'finances-hopitaux-suisse-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
