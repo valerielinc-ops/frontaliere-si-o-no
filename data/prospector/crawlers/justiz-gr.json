@@ -1,0 +1,22 @@
+{
+  "companyKey": "justiz-gr",
+  "companyName": "Tribunale regionale Moesa",
+  "companyHost": "justiz-gr.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.justiz-gr.ch/gerichte/obergericht/ueber-uns/offene-stellen/"
+  ],
+  "detailTemplate": "/gerichte/obergericht/ueber-uns/offene-stellen/gerichte/obergericht/dienstleistungenthemen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Prozess- und Verfahrenskosten",
+    "Unentgeltliche Rechtspflege",
+    "Allgemeine Rechtsauskünfte"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-12T08:52:03.068Z"
+}
