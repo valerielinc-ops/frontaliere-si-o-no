@@ -133,7 +133,7 @@ describe('measureTranslationQueue', () => {
       const concurrency = concurrencyConfig(workflowPath);
       expect(concurrency.group).toBe(JOBS_DATA_PIPELINE_GROUP);
       expect(concurrency['cancel-in-progress']).toBe(false);
-      expect(concurrency.queue).toBe('max');
+      expect(concurrency).not.toHaveProperty('queue');
     }
   });
 
