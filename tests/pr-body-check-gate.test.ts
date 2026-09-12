@@ -396,6 +396,26 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(readFileSync(statusFile, 'utf8')).toBe('best-effort-failed\n');
   });
 
+  it('returns failure when a best-effort gh failure cannot record its status', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    const statusDirectory = join(dir, 'status-directory');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    mkdirSync(statusDirectory);
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '--body-file', file], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: '',
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_BODY_GATE_STATUS_FILE: statusDirectory,
+      },
+    });
+    expect(res.status).toBe(1);
+    expect(res.stderr).toMatch(/stato di consegna non scrivibile/);
+  });
+
   // 2026-08-25: end-to-end proof that payload.cwd reaches extractPrBody, not
   // just the unit-level default-parameter test above. Without the fix this
   // command would exit 0 fail-safe (relative body-file unreadable from this
