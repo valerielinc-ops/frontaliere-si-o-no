@@ -248,13 +248,16 @@ function metricState(value: MetricValue, source: string | null | undefined, wind
 
 export function employerMetricStateLabel(state: MetricState, locale: Locale = 'it'): string {
   const copy = copyFor(locale);
+  const notDeduplicatedLabel: Record<Locale, string> = {
+    it: 'dato osservato (deduplicazione non verificata)',
+    en: 'observed data (deduplication not verified)',
+    de: 'beobachtete Daten (Deduplizierung nicht verifiziert)',
+    fr: 'donnée observée (déduplication non vérifiée)',
+  };
   if (state === 'zero-observed') return copy.zeroObserved;
   if (state === 'data-missing') return copy.missing;
   if (state === 'source-unavailable') return copy.unavailable;
-  // The source can retain a technical deduplication state, but the report
-  // should describe the number as observed data rather than foregrounding an
-  // implementation detail in the customer-facing surface.
-  if (state === 'observed-not-deduplicated') return copy.observed;
+  if (state === 'observed-not-deduplicated') return notDeduplicatedLabel[locale] || notDeduplicatedLabel.it;
   if (state === 'coverage-partial') return copy.partial;
   return copy.observed;
 }
