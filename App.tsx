@@ -89,6 +89,7 @@ const Metodologia = lazyRetry(() => import('@/components/pages/Metodologia').the
 const DataDeletion = lazyRetry(() => import('@/components/pages/DataDeletion').then(m => ({ default: m.DataDeletion })));
 const EmailConfirmed = lazyRetry(() => import('@/components/pages/EmailConfirmed').then(m => ({ default: m.EmailConfirmed })));
 const NewsletterPreferences = lazyRetry(() => import('@/components/pages/NewsletterPreferences').then(m => ({ default: m.NewsletterPreferences })));
+const StabioDossoPetitionPage = lazyRetry(() => import('@/components/pages/StabioDossoPetitionPage').then(m => ({ default: m.StabioDossoPetitionPage })));
 // "Le mie aziende seguite" — CompanyAlert manager (#5012 phase 2). Private
 // route: no sitemap entry, no seo-pages record, absent from seo-completeness's
 // `standalones` — same convention as NewsletterPreferences above.
@@ -2091,7 +2092,7 @@ const App: React.FC = () => {
  // reservation squeezed the centre cell to ~840px at 1500px and cramped the
  // form/results columns (the calculator was unreadable on desktop). 160px keeps
  // the centre ~1120px at 1500px while still serving side-rail ads ≥1400px.
- const sideRailEligible = !staticOverlay && !['admin', 'blog', 'job-board'].includes(activeTab);
+ const sideRailEligible = !staticOverlay && !['admin', 'blog', 'job-board', 'petition'].includes(activeTab);
 
  // Collapse a side-rail's reserved 160px gutter to zero once its ad stack
  // reports nothing filled (no GAM creative, no AdSense backfill), so an unfilled
@@ -2859,6 +2860,10 @@ const App: React.FC = () => {
  selectedArticle={blogSection === 'svizzera' ? (swissArticle as BlogArticleId | null) : blogArticle}
  onSelectArticle={(id) => { if (blogSection === 'svizzera') setSwissArticle(id); else setBlogArticle(id); }}
  />
+ </div>
+ ) : activeTab === 'petition' ? (
+ <div className="max-w-5xl mx-auto">
+ <StabioDossoPetitionPage />
  </div>
  ) : activeTab === 'privacy' ? (
  <div>

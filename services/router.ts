@@ -15,6 +15,7 @@
  */
 
 import { getLocale, type Locale } from './i18n';
+import { STABIO_DOSSO_PETITION_PATHS } from './petitionRoute';
 import { SLUG_TABLES, type SlugTable } from './routeSlugs.data';
 import { cdnDataUrl } from './cdnDataBase';
 import { buildJobSlugRecord, jobSlugShardKey, jobSlugShardPath } from './jobSlugShards';
@@ -244,7 +245,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'frontaliere-wizard' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'employer-insights' | 'journalist-dashboard' | 'subscribe' | 'followed-companies';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'frontaliere-wizard' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'employer-insights' | 'journalist-dashboard' | 'subscribe' | 'followed-companies' | 'petition';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -2012,6 +2013,13 @@ export function parsePath(pathname: string): ParseResult {
  const allParts = path.split('/').filter(Boolean);
  const [locale, parts] = detectLocaleFromPath(allParts);
 
+ // Public petition landing: it is a real SPA page, so keep staticOverlay
+ // false and let the interactive auth/consent form hydrate in place.
+ const petitionPath = STABIO_DOSSO_PETITION_PATHS[locale].replace(/\/$/, '').toLowerCase();
+ if (path === petitionPath) {
+   return { route: { activeTab: 'petition' }, locale };
+ }
+
  const table = SLUG_TABLES[locale];
  const revTop = REVERSE_TOP[locale];
 
@@ -3709,6 +3717,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.newsletterPreferences}${hashSuffix}`);
  case 'followed-companies':
  return finish(`${prefix}/${table.followedCompanies}${hashSuffix}`);
+ case 'petition':
+ return finish(STABIO_DOSSO_PETITION_PATHS[lang] + hashSuffix);
  default:
  return finish((prefix || '/') + hashSuffix);
  }
@@ -3814,6 +3824,8 @@ export function getSeoSection(route: AppRoute): string {
  return 'newsletter-preferences';
  case 'followed-companies':
  return 'followed-companies';
+ case 'petition':
+ return 'petition';
  case 'tassazione-hub':
  return 'tassazione-hub';
  case 'autore':
