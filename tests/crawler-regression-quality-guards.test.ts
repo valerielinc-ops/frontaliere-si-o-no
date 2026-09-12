@@ -208,7 +208,10 @@ describe('Crawler wiring — Coop and Migros import the shared guards', () => {
     expect(src).toContain("import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';");
     expect(src).toContain('const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);');
     expect(src).toContain('const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;');
-    expect(src).toContain('if (fs.existsSync(path.dirname(PUBLIC_JOBS)))');
+    expect(src).toContain('function requirePublicMirror()');
+    expect(src).toContain('function removeStalePublicMirror()');
+    expect(src).toContain('if (requirePublicMirror())');
+    expect(src).toContain('removeStalePublicMirror()');
     expect(src).not.toContain("path.resolve(ROOT, 'public', 'data', 'jobs.json')");
   });
 

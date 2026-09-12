@@ -43,6 +43,10 @@ describe('run-related-tests — il selettore sopravvive a un worktree sparse', (
     // può fare, quindi va detta a voce, sopra l'elenco dei test scelti.
     expect(SRC).toMatch(/unreadable\.length > 0/);
     expect(SRC).toContain('the selection may be incomplete');
+    expect(SRC).toContain('process.exit(2)');
+    expect(SRC).toContain('requires a full checkout');
+    expect(SRC).toContain('data/blog-articles-data.ts');
+    expect(SRC).toContain('public/.nojekyll');
   });
 
   it('su un checkout completo il comportamento è invariato', () => {
