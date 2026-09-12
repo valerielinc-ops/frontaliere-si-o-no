@@ -10,9 +10,7 @@ import React, { useEffect, useState } from 'react';
 import {
   ArrowRight,
   BarChart3,
-  Building2,
   CalendarDays,
-  CheckCircle2,
   Eye,
   Home,
   Layers3,
@@ -51,7 +49,6 @@ interface EmployerInsightsCopy {
   period30: string;
   period90: string;
   periodUnavailable: string;
-  sourceAggregated: string;
   sourceUnavailable: string;
   updated: (date: string) => string;
   overviewHeading: string;
@@ -85,7 +82,6 @@ interface EmployerInsightsCopy {
   profileMissing: string;
   profileUnavailable: string;
   applications: string;
-  applicationsUnavailable: string;
   applicationsDescription: string;
   applicationsObserved: (value: string) => string;
   applicationsZero: string;
@@ -118,7 +114,7 @@ const COPY: Record<Locale, EmployerInsightsCopy> = {
     title: (companyName) => `I segnali di ${companyName}`,
     intro: 'Un quadro verificabile di visibilità e interesse per i tuoi annunci, con un periodo che puoi esplorare.',
     periodLabel: 'Periodo', period30: 'Ultimi 30 giorni', period90: 'Ultimi 90 giorni', periodUnavailable: 'Periodo non disponibile',
-    sourceAggregated: 'Dati aggregati, non nominativi', sourceUnavailable: 'Fonte non disponibile',
+    sourceUnavailable: 'Fonte non disponibile',
     updated: (date) => `Aggiornato il ${date}`,
     overviewHeading: 'Il segnale in breve',
     applyClicks: 'Click per candidarsi', applyClicksDescription: 'Un segnale di interesse, non una candidatura inviata.',
@@ -128,12 +124,12 @@ const COPY: Record<Locale, EmployerInsightsCopy> = {
     topAdsHeading: 'Dove si concentra l’attenzione', topAdsDescription: 'Gli annunci sono ordinati per visualizzazioni; sotto trovi anche click e tasso di interesse.',
     trendHeading: 'Andamento nel tempo', trendDescription: 'La linea segue le visualizzazioni. Le barre mostrano i click quando esistono valori settimanali. Ogni serie usa la propria scala.',
     trendUp: 'La visibilità registrata è cresciuta nel periodo.', trendDown: 'La visibilità registrata è diminuita nel periodo.',
-    qualityHeading: 'Leggere bene il dato', qualityDescription: 'Una sola nota di metodo per distinguere traffico, segnali e persone.',
-    qualitySource: 'Fonte e perimetro', qualitySourceDescription: 'Il report usa una sorgente aggregata e mantiene il periodo scelto sempre visibile.',
-    qualityDeduplication: 'Qualità dell’osservazione', qualityDeduplicationAvailable: 'Gli eventi riportati hanno una prova tecnica di deduplicazione.', qualityDeduplicationUnknown: 'La sorgente non fornisce una prova tecnica sufficiente per dichiarare l’unicità degli eventi.', qualityDeduplicationDescription: (count) => `${count} eventi grezzi del provider non hanno una prova di deduplicazione. Restano visibili come osservazioni, non come persone uniche.`,
-    profileViews: 'Visite al profilo azienda', profileObserved: 'Visite al profilo registrate separatamente dalle pagine degli annunci.', profileZero: 'Nessun segnale di visita al profilo separato dalle pagine degli annunci nel periodo.', profileMissing: 'Questo segnale non è presente nel report.', profileUnavailable: 'La sorgente non rende disponibile questo segnale.',
-    applications: 'Candidature inviate', applicationsUnavailable: 'Non misurate', applicationsDescription: 'Il completamento avviene sul sito di candidatura e non è esposto alla nostra misurazione.', applicationsObserved: (value) => `${value} registrate`, applicationsZero: 'Nessuna candidatura registrata nel periodo.',
-    measurementHeading: 'Dove finisce la misurazione', measurementDescription: 'Il click è l’ultimo segnale verificabile quando il processo di candidatura continua su un sito esterno. Per questo non lo trasformiamo in candidature o persone.',
+    qualityHeading: 'Trasparenza della misura', qualityDescription: 'Cosa misuriamo, cosa significa un click e dove si ferma il dato.',
+    qualitySource: 'Da dove arrivano i numeri', qualitySourceDescription: 'Numeri aggregati dalla sorgente indicata sopra, nel periodo selezionato.',
+    qualityDeduplication: 'Unicità delle osservazioni', qualityDeduplicationAvailable: 'Gli eventi riportati hanno una prova tecnica di deduplicazione.', qualityDeduplicationUnknown: 'La sorgente non dimostra che gli eventi siano azioni uniche.', qualityDeduplicationDescription: (count) => `${count} eventi tecnici non hanno una prova di unicità. Li mostriamo come osservazioni, non come persone uniche.`,
+    profileViews: 'Visite al profilo azienda', profileObserved: 'Visite al profilo registrate separatamente dalle pagine degli annunci.', profileZero: 'Non è disponibile un segnale separato di visita al profilo nel periodo.', profileMissing: 'Questo segnale non è presente nel report.', profileUnavailable: 'La sorgente non rende disponibile questo segnale.',
+    applications: 'Candidature inviate', applicationsDescription: 'La candidatura si completa sul sito esterno; questo report non vede il completamento.', applicationsObserved: (value) => `${value} registrate`, applicationsZero: 'Nessuna candidatura registrata nel periodo.',
+    measurementHeading: 'Il click segnala interesse', measurementDescription: 'Un click avvia il passaggio verso la candidatura. Se il completamento avviene su un sito esterno, non possiamo verificarlo qui.',
     observed: 'dato osservato', zeroObserved: 'zero osservato', missing: 'dato assente', unavailable: 'non disponibile', notDeduplicated: 'unicità non provata', partial: 'copertura parziale',
     logoAlt: (companyName) => `Logo di ${companyName}`,
     ctaHeading: 'Dai seguito ai segnali registrati', ctaDescription: (companyName) => `Rivendica il profilo di ${companyName}, metti gli annunci in evidenza e accompagna il pubblico verso il tuo processo di candidatura con una misurazione più chiara.`, claim: 'Rivendica i tuoi annunci', savePdf: 'Salva questi dati in PDF',
@@ -143,23 +139,23 @@ const COPY: Record<Locale, EmployerInsightsCopy> = {
   },
   en: {
     reportLabel: 'Private report · aggregated data', title: (companyName) => `The signals from ${companyName}`, intro: 'A verifiable view of visibility and interest for your job ads, with a period you can explore.',
-    periodLabel: 'Period', period30: 'Last 30 days', period90: 'Last 90 days', periodUnavailable: 'Period unavailable', sourceAggregated: 'Aggregated, non-identifying data', sourceUnavailable: 'Source unavailable', updated: (date) => `Updated ${date}`,
+    periodLabel: 'Period', period30: 'Last 30 days', period90: 'Last 90 days', periodUnavailable: 'Period unavailable', sourceUnavailable: 'Source unavailable', updated: (date) => `Updated ${date}`,
     overviewHeading: 'The signal at a glance', applyClicks: 'Apply clicks', applyClicksDescription: 'A signal of interest, not a submitted application.', interestRate: 'Interest rate', interestRateDescription: 'Apply clicks ÷ ad views.', adViews: 'Ad views', adViewsDescription: 'Recorded view events.', attentionShare: 'Share of the leading ad', attentionShareDescription: 'Share of all views concentrated on the most-viewed ad.', adsWithClicks: 'Ads with clicks', adsWithClicksDescription: 'Ads with at least one apply click (out of measured ads).', topAdsHeading: 'Where attention is focused', topAdsDescription: 'Ads are ordered by views; clicks and interest rate are shown below too.', trendHeading: 'Trend over time', trendDescription: 'The line follows views. Bars show apply clicks when weekly values exist. Each series uses its own scale.', trendUp: 'Recorded visibility grew over the period.', trendDown: 'Recorded visibility declined over the period.',
-    qualityHeading: 'Read the data correctly', qualityDescription: 'One methodology note to separate traffic, signals and people.', qualitySource: 'Source and scope', qualitySourceDescription: 'The report uses an aggregated source and keeps the selected period visible.', qualityDeduplication: 'Observation quality', qualityDeduplicationAvailable: 'The reported events have technical deduplication proof.', qualityDeduplicationUnknown: 'The source does not provide enough technical proof to call the events unique.', qualityDeduplicationDescription: (count) => `${count} raw provider events have no deduplication proof. They remain visible as observations, not unique people.`, profileViews: 'Company profile visits', profileObserved: 'Profile visits recorded separately from ad pages.', profileZero: 'No profile-visit signal was observed separately from ad pages in this period.', profileMissing: 'This signal is not included in the report.', profileUnavailable: 'The source does not provide this signal.', applications: 'Applications submitted', applicationsUnavailable: 'Not measured', applicationsDescription: 'Completion happens on the application site and is not exposed to our measurement.', applicationsObserved: (value) => `${value} recorded`, applicationsZero: 'No application was recorded in the period.', measurementHeading: 'Where measurement ends', measurementDescription: 'The click is the last verifiable signal when the application continues on an external site. We therefore do not turn it into applications or people.',
+    qualityHeading: 'Measurement transparency', qualityDescription: 'What we measure, what a click means and where the data stops.', qualitySource: 'Where the numbers come from', qualitySourceDescription: 'Aggregated numbers from the source shown above, for the selected period.', qualityDeduplication: 'Uniqueness of observations', qualityDeduplicationAvailable: 'The reported events have technical deduplication proof.', qualityDeduplicationUnknown: 'The source does not prove that the events are unique actions.', qualityDeduplicationDescription: (count) => `${count} technical events have no uniqueness proof. We show them as observations, not unique people.`, profileViews: 'Company profile visits', profileObserved: 'Profile visits recorded separately from ad pages.', profileZero: 'No separate profile-visit signal is available for this period.', profileMissing: 'This signal is not included in the report.', profileUnavailable: 'The source does not provide this signal.', applications: 'Applications submitted', applicationsDescription: 'Applications are completed on an external site; this report cannot see completion.', applicationsObserved: (value) => `${value} recorded`, applicationsZero: 'No application was recorded in the period.', measurementHeading: 'A click signals interest', measurementDescription: 'A click starts the path towards an application. If completion happens on an external site, we cannot verify it here.',
     observed: 'observed data', zeroObserved: 'zero observed', missing: 'data missing', unavailable: 'not available', notDeduplicated: 'uniqueness not proven', partial: 'partial coverage', logoAlt: (companyName) => `${companyName} logo`, ctaHeading: 'Turn these signals into action', ctaDescription: (companyName) => `Claim ${companyName}’s profile, feature your ads and guide this audience to your application process with clearer measurement.`, claim: 'Claim your job ads', savePdf: 'Save this report as PDF', generated: (companyName, date) => `Data for ${companyName} generated on ${date}`, privatePage: 'private, not indexed.', home: 'Go to homepage', invalidTitle: 'Invalid or expired link', invalidBody: 'This private report is only available through the link we sent you. It may have expired: contact us and we will send you a new one.', preparingTitle: 'Report being prepared', preparingBody: 'We are still collecting traffic data for your company. Try again shortly.', loading: 'Loading report…',
   },
   de: {
     reportLabel: 'Privater Bericht · aggregierte Daten', title: (companyName) => `Die Signale von ${companyName}`, intro: 'Eine überprüfbare Ansicht von Sichtbarkeit und Interesse für Ihre Stellenanzeigen – mit wählbarem Zeitraum.',
-    periodLabel: 'Zeitraum', period30: 'Letzte 30 Tage', period90: 'Letzte 90 Tage', periodUnavailable: 'Zeitraum nicht verfügbar', sourceAggregated: 'Aggregierte, nicht personenbezogene Daten', sourceUnavailable: 'Quelle nicht verfügbar', updated: (date) => `Aktualisiert am ${date}`,
+    periodLabel: 'Zeitraum', period30: 'Letzte 30 Tage', period90: 'Letzte 90 Tage', periodUnavailable: 'Zeitraum nicht verfügbar', sourceUnavailable: 'Quelle nicht verfügbar', updated: (date) => `Aktualisiert am ${date}`,
     overviewHeading: 'Das Signal auf einen Blick', applyClicks: 'Klicks auf Bewerbung', applyClicksDescription: 'Ein Signal für Interesse, keine eingereichte Bewerbung.', interestRate: 'Interesse', interestRateDescription: 'Bewerbungsklicks ÷ Anzeigenaufrufe.', adViews: 'Anzeigenaufrufe', adViewsDescription: 'Erfasste Aufrufereignisse.', attentionShare: 'Anteil der führenden Anzeige', attentionShareDescription: 'Anteil aller Aufrufe, der auf die meistgesehene Anzeige entfällt.', adsWithClicks: 'Anzeigen mit Klicks', adsWithClicksDescription: 'Anzeigen mit mindestens einem Bewerbungsklick (von den gemessenen Anzeigen).', topAdsHeading: 'Wo die Aufmerksamkeit liegt', topAdsDescription: 'Die Anzeigen sind nach Aufrufen geordnet; Klicks und Interesse stehen ebenfalls dabei.', trendHeading: 'Entwicklung im Zeitverlauf', trendDescription: 'Die Linie zeigt Aufrufe. Balken zeigen Bewerbungsklicks, sofern Wochenwerte vorhanden sind. Jede Serie nutzt ihre eigene Skala.', trendUp: 'Die erfasste Sichtbarkeit ist im Zeitraum gestiegen.', trendDown: 'Die erfasste Sichtbarkeit ist im Zeitraum gesunken.',
-    qualityHeading: 'Daten richtig lesen', qualityDescription: 'Eine Methodiknotiz, damit Traffic, Signale und Personen getrennt bleiben.', qualitySource: 'Quelle und Umfang', qualitySourceDescription: 'Der Bericht nutzt eine aggregierte Quelle und zeigt den gewählten Zeitraum an.', qualityDeduplication: 'Qualität der Beobachtung', qualityDeduplicationAvailable: 'Für die gemeldeten Ereignisse liegt ein technischer Nachweis der Deduplizierung vor.', qualityDeduplicationUnknown: 'Die Quelle liefert keinen ausreichenden technischen Nachweis, um die Ereignisse als eindeutig zu bezeichnen.', qualityDeduplicationDescription: (count) => `${count} rohe Ereignisse des Anbieters haben keinen Deduplizierungsnachweis. Sie bleiben als Beobachtungen sichtbar, nicht als eindeutige Personen.`, profileViews: 'Besuche des Unternehmensprofils', profileObserved: 'Profilbesuche getrennt von den Anzeigenseiten erfasst.', profileZero: 'Im Zeitraum wurde kein separates Profilbesuch-Signal neben den Anzeigenseiten beobachtet.', profileMissing: 'Dieses Signal ist im Bericht nicht enthalten.', profileUnavailable: 'Die Quelle stellt dieses Signal nicht bereit.', applications: 'Eingereichte Bewerbungen', applicationsUnavailable: 'Nicht gemessen', applicationsDescription: 'Der Abschluss findet auf der Bewerbungsseite statt und ist für unsere Messung nicht sichtbar.', applicationsObserved: (value) => `${value} erfasst`, applicationsZero: 'Im Zeitraum wurde keine Bewerbung erfasst.', measurementHeading: 'Wo die Messung endet', measurementDescription: 'Der Klick ist das letzte überprüfbare Signal, wenn die Bewerbung auf einer externen Seite fortgesetzt wird. Wir machen daraus daher keine Bewerbungen oder Personen.',
+    qualityHeading: 'Transparenz der Messung', qualityDescription: 'Was wir messen, was ein Klick bedeutet und wo die Daten enden.', qualitySource: 'Herkunft der Zahlen', qualitySourceDescription: 'Aggregierte Zahlen aus der oben genannten Quelle für den gewählten Zeitraum.', qualityDeduplication: 'Eindeutigkeit der Beobachtungen', qualityDeduplicationAvailable: 'Für die gemeldeten Ereignisse liegt ein technischer Nachweis der Deduplizierung vor.', qualityDeduplicationUnknown: 'Die Quelle weist nicht nach, dass es sich um eindeutige Aktionen handelt.', qualityDeduplicationDescription: (count) => `${count} technische Ereignisse haben keinen Nachweis der Eindeutigkeit. Wir zeigen sie als Beobachtungen, nicht als eindeutige Personen.`, profileViews: 'Besuche des Unternehmensprofils', profileObserved: 'Profilbesuche getrennt von den Anzeigenseiten erfasst.', profileZero: 'Für diesen Zeitraum ist kein separates Profilbesuch-Signal verfügbar.', profileMissing: 'Dieses Signal ist im Bericht nicht enthalten.', profileUnavailable: 'Die Quelle stellt dieses Signal nicht bereit.', applications: 'Eingereichte Bewerbungen', applicationsDescription: 'Bewerbungen werden auf einer externen Seite abgeschlossen; dieser Bericht sieht den Abschluss nicht.', applicationsObserved: (value) => `${value} erfasst`, applicationsZero: 'Im Zeitraum wurde keine Bewerbung erfasst.', measurementHeading: 'Ein Klick signalisiert Interesse', measurementDescription: 'Ein Klick startet den Weg zur Bewerbung. Wenn der Abschluss auf einer externen Seite erfolgt, können wir ihn hier nicht überprüfen.',
     observed: 'beobachtete Daten', zeroObserved: 'null beobachtet', missing: 'Daten fehlen', unavailable: 'nicht verfügbar', notDeduplicated: 'Eindeutigkeit nicht bestätigt', partial: 'teilweise Abdeckung', logoAlt: (companyName) => `Logo von ${companyName}`, ctaHeading: 'Machen Sie mehr aus diesen Signalen', ctaDescription: (companyName) => `Beanspruchen Sie das Profil von ${companyName}, heben Sie Ihre Anzeigen hervor und führen Sie diese Zielgruppe mit klarerer Messung zu Ihrem Bewerbungsprozess.`, claim: 'Stellenanzeigen beanspruchen', savePdf: 'Bericht als PDF speichern', generated: (companyName, date) => `Daten für ${companyName}, erstellt am ${date}`, privatePage: 'privat, nicht indexiert.', home: 'Zur Startseite', invalidTitle: 'Ungültiger oder abgelaufener Link', invalidBody: 'Dieser private Bericht ist nur über den zugesandten Link erreichbar. Der Link ist möglicherweise abgelaufen: Kontaktieren Sie uns für einen neuen Link.', preparingTitle: 'Bericht wird vorbereitet', preparingBody: 'Wir sammeln noch Verkehrsdaten für Ihr Unternehmen. Versuchen Sie es später erneut.', loading: 'Bericht wird geladen…',
   },
   fr: {
     reportLabel: 'Rapport privé · données agrégées', title: (companyName) => `Les signaux de ${companyName}`, intro: 'Une vue vérifiable de la visibilité et de l’intérêt pour vos offres, avec une période à explorer.',
-    periodLabel: 'Période', period30: '30 derniers jours', period90: '90 derniers jours', periodUnavailable: 'Période indisponible', sourceAggregated: 'Données agrégées et non nominatives', sourceUnavailable: 'Source indisponible', updated: (date) => `Mis à jour le ${date}`,
+    periodLabel: 'Période', period30: '30 derniers jours', period90: '90 derniers jours', periodUnavailable: 'Période indisponible', sourceUnavailable: 'Source indisponible', updated: (date) => `Mis à jour le ${date}`,
     overviewHeading: 'Le signal en un coup d’œil', applyClicks: 'Clics pour postuler', applyClicksDescription: 'Un signal d’intérêt, pas une candidature envoyée.', interestRate: 'Taux d’intérêt', interestRateDescription: 'Clics pour postuler ÷ vues de l’offre.', adViews: 'Vues des offres', adViewsDescription: 'Événements de consultation enregistrés.', attentionShare: 'Part de l’offre principale', attentionShareDescription: 'Part de toutes les vues concentrée sur l’offre la plus consultée.', adsWithClicks: 'Offres avec clics', adsWithClicksDescription: 'Offres ayant reçu au moins un clic pour postuler (parmi les offres mesurées).', topAdsHeading: 'Où se concentre l’attention', topAdsDescription: 'Les offres sont classées par vues ; les clics et le taux d’intérêt sont également indiqués.', trendHeading: 'Évolution dans le temps', trendDescription: 'La ligne suit les vues. Les barres montrent les clics lorsque des valeurs hebdomadaires existent. Chaque série utilise sa propre échelle.', trendUp: 'La visibilité enregistrée a progressé sur la période.', trendDown: 'La visibilité enregistrée a diminué sur la période.',
-    qualityHeading: 'Bien lire la donnée', qualityDescription: 'Une note de méthode pour distinguer trafic, signaux et personnes.', qualitySource: 'Source et périmètre', qualitySourceDescription: 'Le rapport utilise une source agrégée et conserve la période sélectionnée visible.', qualityDeduplication: 'Qualité de l’observation', qualityDeduplicationAvailable: 'Les événements rapportés disposent d’une preuve technique de déduplication.', qualityDeduplicationUnknown: 'La source ne fournit pas de preuve technique suffisante pour déclarer les événements uniques.', qualityDeduplicationDescription: (count) => `${count} événements bruts du fournisseur n’ont pas de preuve de déduplication. Ils restent visibles comme observations, pas comme personnes uniques.`, profileViews: 'Visites du profil d’entreprise', profileObserved: 'Visites du profil enregistrées séparément des pages d’offres.', profileZero: 'Aucun signal de visite du profil séparé des pages d’offres n’a été observé sur la période.', profileMissing: 'Ce signal n’est pas présent dans le rapport.', profileUnavailable: 'La source ne fournit pas ce signal.', applications: 'Candidatures envoyées', applicationsUnavailable: 'Non mesurées', applicationsDescription: 'La finalisation a lieu sur le site de candidature et n’est pas exposée à notre mesure.', applicationsObserved: (value) => `${value} enregistrées`, applicationsZero: 'Aucune candidature n’a été enregistrée sur la période.', measurementHeading: 'Où la mesure s’arrête', measurementDescription: 'Le clic est le dernier signal vérifiable lorsque la candidature continue sur un site externe. Nous n’en faisons donc ni des candidatures ni des personnes.',
+    qualityHeading: 'Transparence de la mesure', qualityDescription: 'Ce que nous mesurons, ce que signifie un clic et où les données s’arrêtent.', qualitySource: 'Origine des chiffres', qualitySourceDescription: 'Des chiffres agrégés issus de la source indiquée ci-dessus, pour la période sélectionnée.', qualityDeduplication: 'Unicité des observations', qualityDeduplicationAvailable: 'Les événements rapportés disposent d’une preuve technique de déduplication.', qualityDeduplicationUnknown: 'La source ne prouve pas qu’il s’agit d’actions uniques.', qualityDeduplicationDescription: (count) => `${count} événements techniques n’ont pas de preuve d’unicité. Nous les montrons comme des observations, pas comme des personnes uniques.`, profileViews: 'Visites du profil d’entreprise', profileObserved: 'Visites du profil enregistrées séparément des pages d’offres.', profileZero: 'Aucun signal séparé de visite du profil n’est disponible pour cette période.', profileMissing: 'Ce signal n’est pas présent dans le rapport.', profileUnavailable: 'La source ne fournit pas ce signal.', applications: 'Candidatures envoyées', applicationsDescription: 'Les candidatures sont finalisées sur un site externe ; ce rapport ne voit pas la finalisation.', applicationsObserved: (value) => `${value} enregistrées`, applicationsZero: 'Aucune candidature n’a été enregistrée sur la période.', measurementHeading: 'Un clic signale un intérêt', measurementDescription: 'Un clic démarre le parcours vers la candidature. Si la finalisation a lieu sur un site externe, nous ne pouvons pas la vérifier ici.',
     observed: 'donnée observée', zeroObserved: 'zéro observé', missing: 'donnée absente', unavailable: 'indisponible', notDeduplicated: 'unicité non prouvée', partial: 'couverture partielle', logoAlt: (companyName) => `Logo de ${companyName}`, ctaHeading: 'Transformez ces signaux en actions', ctaDescription: (companyName) => `Revendiquez le profil de ${companyName}, mettez vos offres en avant et guidez ce public vers votre processus de candidature avec une mesure plus claire.`, claim: 'Revendiquer vos offres', savePdf: 'Enregistrer le rapport en PDF', generated: (companyName, date) => `Données de ${companyName} générées le ${date}`, privatePage: 'page privée, non indexée.', home: 'Accéder à l’accueil', invalidTitle: 'Lien invalide ou expiré', invalidBody: 'Ce rapport privé est accessible uniquement via le lien que nous vous avons envoyé. Il a peut-être expiré : écrivez-nous pour en recevoir un nouveau.', preparingTitle: 'Rapport en préparation', preparingBody: 'Nous recueillons encore les données de trafic de votre entreprise. Réessayez dans un instant.', loading: 'Chargement du rapport…',
   },
 };
@@ -277,6 +273,7 @@ function CompanyLogo({ companyName, companyKey, alt }: { companyName: string; co
   const fallback = generateInitialsLogo(companyName);
   const resolved = cdnImageUrl(resolveCompanyLogoUrl({ company: companyName, companyKey })) || fallback;
   const [src, setSrc] = useState(resolved);
+  useEffect(() => setSrc(resolved), [resolved]);
   return <img src={src} alt={alt} width={72} height={72} className="h-[72px] w-[72px] rounded-xl bg-surface p-2 object-contain" loading="eager" onError={() => setSrc(fallback)} />;
 }
 
@@ -375,6 +372,15 @@ export function EmployerInsightsReport({ data, locale: localeProp }: { data: Emp
       : copy.qualityDeduplicationUnknown;
   const attentionShare = formatAttentionShare(activeRange.ads, activeRange.totals.views, locale);
   const adsWithClicks = formatAdsWithApplyClicks(activeRange.ads, activeRange.totals.adsCount, locale);
+  const applicationDescription = applicationUnavailable
+    ? copy.applicationsDescription
+    : applicationMetric.state === 'zero-observed'
+      ? copy.applicationsZero
+      : applicationMetric.state === 'data-missing' || applicationMetric.state === 'source-unavailable'
+        ? employerMetricStateLabel(applicationMetric.state, locale)
+        : applicationMetric.state === 'coverage-partial'
+          ? copy.partial
+          : copy.applicationsObserved(applicationMetric.display);
 
   const handleRangeChange = (key: string) => {
     setSelectedRangeKey(key);
@@ -389,16 +395,16 @@ export function EmployerInsightsReport({ data, locale: localeProp }: { data: Emp
             <div className="flex min-w-0 items-start gap-4 sm:gap-5">
               <CompanyLogo companyName={data.companyName} companyKey={data.companyKey} alt={copy.logoAlt(data.companyName)} />
               <div className="min-w-0">
-                <div className="mb-3 flex flex-wrap items-center gap-2 text-xs font-medium text-on-accent/75"><span className="inline-flex items-center gap-1.5 rounded-full bg-on-accent/10 px-2.5 py-1"><Sparkles className="h-3.5 w-3.5" aria-hidden="true" />{copy.reportLabel}</span><span className="inline-flex items-center gap-1.5 rounded-full bg-on-accent/10 px-2.5 py-1"><BarChart3 className="h-3.5 w-3.5" aria-hidden="true" />{sourceDisplay}</span></div>
                 <h1 className="max-w-3xl font-display text-3xl font-semibold leading-tight tracking-[-0.025em] text-on-accent text-balance sm:text-5xl">{copy.title(data.companyName)}</h1>
                 <p className="mt-3 max-w-2xl text-sm leading-relaxed text-on-accent/80 sm:text-base">{copy.intro}</p>
+                <div className="mt-4 flex flex-wrap items-center gap-2 text-xs font-medium text-on-accent/75"><span className="inline-flex items-center gap-1.5 rounded-full bg-on-accent/10 px-2.5 py-1"><Sparkles className="h-3.5 w-3.5" aria-hidden="true" />{copy.reportLabel}</span><span className="inline-flex items-center gap-1.5 rounded-full bg-on-accent/10 px-2.5 py-1"><BarChart3 className="h-3.5 w-3.5" aria-hidden="true" />{sourceDisplay}</span></div>
               </div>
             </div>
             <div className="shrink-0 rounded-xl bg-on-accent/10 px-4 py-3 text-sm lg:min-w-[190px]"><p className="text-xs font-semibold uppercase tracking-[0.08em] text-on-accent/65">{copy.periodLabel}</p><p className="mt-1 font-semibold text-on-accent">{periodLabel}</p><p className="mt-2 text-xs text-on-accent/65">{copy.updated(updatedLabel)}</p></div>
           </div>
           <div className="mt-8 grid gap-7 border-t border-on-accent/15 pt-7 sm:grid-cols-[1.25fr_1fr] sm:gap-10"><div><p className="text-sm font-medium text-on-accent/75">{copy.applyClicks}</p><p className="mt-1 font-display text-6xl font-semibold leading-none tracking-[-0.04em] tabular-nums text-on-accent sm:text-7xl">{applyMetric.display}</p><p className="mt-3 max-w-md text-sm leading-relaxed text-on-accent/75">{copy.applyClicksDescription}</p>{applyMetric.state !== 'observed' && <p className="mt-2 text-xs font-semibold uppercase tracking-[0.06em] text-on-accent/65">{employerMetricStateLabel(applyMetric.state, locale)}</p>}</div><div className="grid grid-cols-2 content-end gap-x-6 gap-y-5"><div><p className="text-xs text-on-accent/60">{copy.interestRate}</p><p className="mt-1 font-display text-2xl font-semibold tabular-nums text-on-accent">{formatRate(activeRange.totals.applyClicks, activeRange.totals.views, locale)}</p></div><div><p className="text-xs text-on-accent/60">{copy.adViews}</p><p className="mt-1 font-display text-2xl font-semibold tabular-nums text-on-accent">{viewMetric.display}</p></div></div></div>
         </div>
-        <div className="mt-5 flex flex-col gap-4 rounded-2xl border border-edge bg-surface-raised p-4 sm:flex-row sm:items-center sm:justify-between sm:px-5"><div className="flex items-center gap-3"><CalendarDays className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" /><div><p className="text-sm font-semibold text-strong">{copy.periodLabel}</p><p className="text-xs text-muted" aria-live="polite">{periodLabel}</p></div></div><div className="flex flex-wrap gap-2" role="group" aria-label={copy.periodLabel}>{ranges.map((range) => <button key={range.key} type="button" aria-pressed={range.key === activeRange.key} onClick={() => handleRangeChange(range.key)} className={`min-h-[44px] rounded-lg px-4 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${range.key === activeRange.key ? 'bg-accent text-on-accent' : 'bg-surface text-link hover:bg-accent-subtle'}`}>{range.label}</button>)}</div></div>
+        <div data-period-selector className="mt-5 flex flex-col gap-4 rounded-2xl border border-edge bg-surface-raised p-4 sm:flex-row sm:items-center sm:justify-between sm:px-5"><div className="flex items-center gap-3"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-subtle text-accent"><CalendarDays className="h-5 w-5" aria-hidden="true" /></span><div><p className="text-sm font-semibold text-strong">{copy.periodLabel}</p><p className="text-xs text-muted" aria-live="polite">{periodLabel}</p></div></div><div className="grid w-full grid-cols-2 gap-2 sm:w-auto" role="group" aria-label={copy.periodLabel}>{ranges.map((range) => <button key={range.key} type="button" data-period={range.key} aria-pressed={range.key === activeRange.key} onClick={() => handleRangeChange(range.key)} className={`min-h-[44px] rounded-lg px-4 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${range.key === activeRange.key ? 'bg-accent text-on-accent shadow-stripe-sm' : 'bg-surface text-link hover:bg-accent-subtle'}`}>{range.label}</button>)}</div></div>
       </header>
 
       <RevealSection ariaLabelledby="insights-overview-heading"><h2 id="insights-overview-heading" className="mb-5 font-display text-xl font-semibold text-strong sm:text-2xl">{copy.overviewHeading}</h2><dl className="grid grid-cols-2 divide-x divide-y divide-edge overflow-hidden rounded-2xl border border-edge bg-surface-raised sm:grid-cols-4 sm:divide-y-0"><MetricTile icon={<MousePointerClick className="h-5 w-5" />} label={copy.interestRate} value={formatRate(activeRange.totals.applyClicks, activeRange.totals.views, locale)} description={copy.interestRateDescription} /><MetricTile icon={<Eye className="h-5 w-5" />} label={copy.adViews} value={viewMetric.display} description={copy.adViewsDescription} state={viewMetric.state === 'data-missing' || viewMetric.state === 'source-unavailable' ? employerMetricStateLabel(viewMetric.state, locale) : undefined} /><MetricTile icon={<BarChart3 className="h-5 w-5" />} label={copy.attentionShare} value={attentionShare} description={copy.attentionShareDescription} /><MetricTile icon={<Layers3 className="h-5 w-5" />} label={copy.adsWithClicks} value={adsWithClicks} description={copy.adsWithClicksDescription} /></dl></RevealSection>
@@ -412,39 +418,37 @@ export function EmployerInsightsReport({ data, locale: localeProp }: { data: Emp
           <h2 id="insights-quality-heading" className="font-display text-xl font-semibold text-strong sm:text-2xl">{copy.qualityHeading}</h2>
           <p className="mt-1 max-w-2xl text-sm text-subtle">{copy.qualityDescription}</p>
         </div>
-        <div className="grid gap-4">
-          <article className="rounded-2xl border border-edge bg-surface-raised p-5 sm:p-6">
-            <div className="flex items-start gap-3">
-              <ShieldCheck className={`mt-0.5 h-5 w-5 shrink-0 ${qualityProofAvailable ? 'text-success' : 'text-warning-strong'}`} aria-hidden="true" />
+        <article className="rounded-2xl border border-edge bg-surface-raised p-5 sm:p-7">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-2 rounded-full bg-accent-subtle px-3 py-1.5 text-xs font-semibold text-link"><BarChart3 className="h-3.5 w-3.5" aria-hidden="true" />{sourceDisplay}</span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-surface-alt px-3 py-1.5 text-xs font-medium text-subtle"><CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />{periodLabel}</span>
+            <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium ${qualityProofAvailable ? 'bg-success-subtle text-success-strong' : 'bg-warning-subtle text-warning-strong'}`}><ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />{qualityProofAvailable ? copy.observed : copy.notDeduplicated}</span>
+          </div>
+          <div className="mt-7 grid gap-6 border-t border-edge pt-6 sm:grid-cols-2 sm:gap-10">
+            <div>
+              <h3 className="font-semibold text-strong">{copy.measurementHeading}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-subtle">{copy.measurementDescription}</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-strong">{copy.qualitySource}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-subtle">{copy.qualitySourceDescription}</p>
+            </div>
+          </div>
+          <details className="mt-7 border-t border-edge pt-5">
+            <summary className="flex min-h-[44px] cursor-pointer items-center gap-2 text-sm font-semibold text-link focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">{copy.qualityDeduplication}</summary>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-subtle">{qualityDeduplicationStatus}</p>
+            <div className="mt-5 grid gap-4 border-t border-edge pt-5 sm:grid-cols-2">
               <div>
-                <h3 className="font-semibold text-strong">{copy.qualitySource}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-subtle">{copy.qualitySourceDescription}</p>
-                <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent-subtle px-3 py-1.5 text-xs font-semibold text-link"><BarChart3 className="h-3.5 w-3.5" aria-hidden="true" />{sourceDisplay} · {copy.sourceAggregated}</p>
-                <p className="mt-3 text-xs text-muted">{copy.periodLabel}: {periodLabel}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.06em] text-muted">{copy.profileViews}</p>
+                <p className="mt-1 text-sm leading-relaxed text-subtle">{profileDescription}</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.06em] text-muted">{copy.applications}</p>
+                <p className="mt-1 text-sm leading-relaxed text-subtle">{applicationDescription}</p>
               </div>
             </div>
-            <div className="mt-6 border-t border-edge pt-5">
-              <h3 className="font-semibold text-strong">{copy.qualityDeduplication}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-subtle">{qualityDeduplicationStatus}</p>
-            </div>
-            <div className="mt-6 border-t border-edge pt-5">
-              <h3 className="font-semibold text-strong">{copy.measurementHeading}</h3>
-              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-subtle">{copy.measurementDescription}</p>
-            </div>
-          </article>
-        </div>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          <article className="rounded-2xl border border-edge bg-surface-raised p-5">
-            <div className="flex items-center gap-2"><Building2 className="h-4 w-4 text-accent" aria-hidden="true" /><h3 className="font-semibold text-strong">{copy.profileViews}</h3></div>
-            <p className="mt-3 font-display text-3xl font-semibold tabular-nums text-strong">{profileMetric.display}</p>
-            <p className="mt-2 text-sm leading-relaxed text-subtle">{profileDescription}</p>
-          </article>
-          <article className="rounded-2xl border border-edge bg-surface-raised p-5">
-            <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-success" aria-hidden="true" /><h3 className="font-semibold text-strong">{copy.applications}</h3></div>
-            <p className="mt-3 font-display text-3xl font-semibold tabular-nums text-strong">{applicationUnavailable ? copy.applicationsUnavailable : applicationMetric.display}</p>
-            <p className="mt-2 text-sm leading-relaxed text-subtle">{applicationUnavailable ? copy.applicationsDescription : applicationMetric.state === 'zero-observed' ? copy.applicationsZero : applicationMetric.state === 'coverage-partial' ? copy.partial : copy.applicationsObserved(applicationMetric.display)}</p>
-          </article>
-        </div>
+          </details>
+        </article>
       </RevealSection>
 
       <RevealSection ariaLabelledby="insights-cta-heading" className="rounded-2xl bg-surface-inverted px-5 py-9 text-center text-on-accent sm:px-10 sm:py-12"><h2 id="insights-cta-heading" className="font-display text-2xl font-semibold text-on-accent text-balance sm:text-3xl">{copy.ctaHeading}</h2><p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-on-accent/80 sm:text-base">{copy.ctaDescription(data.companyName)}</p><a data-employer-cta="insights_claim" href={`${buildPath({ activeTab: 'publish' }, locale)}?claim=1&tier=azienda`} className="mt-7 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-accent px-7 py-3.5 text-base font-semibold text-on-accent no-underline transition-colors hover:bg-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent">{copy.claim}<ArrowRight className="h-5 w-5" aria-hidden="true" /></a></RevealSection>

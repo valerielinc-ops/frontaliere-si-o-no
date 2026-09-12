@@ -32,7 +32,10 @@ function chartCopy(locale: Locale): { listLabel: string; views: string; clicks: 
 
 export function TopAdsChart({ ads, limit = 10, locale = 'it' }: TopAdsChartProps): React.ReactElement | null {
   const { ref, inView } = useReveal<HTMLDivElement>();
-  const rows = ads.slice(0, limit);
+  const rows = ads
+    .filter((ad) => ad && typeof ad.title === 'string' && Number.isFinite(ad.views) && ad.views >= 0)
+    .sort((a, b) => b.views - a.views || a.title.localeCompare(b.title))
+    .slice(0, limit);
   if (rows.length === 0) return null;
 
   const max = Math.max(...rows.map((a) => a.views), 1);
@@ -46,8 +49,9 @@ export function TopAdsChart({ ads, limit = 10, locale = 'it' }: TopAdsChartProps
           const pct = Math.max((ad.views / max) * 100, 2); // floor so tiny bars stay visible
           const clickCount = typeof ad.applyClicks === 'number' && Number.isFinite(ad.applyClicks) ? Math.max(ad.applyClicks, 0) : null;
           const rate = ad.views > 0 && clickCount != null ? clickCount / ad.views : null;
+          const rateLabel = rate == null ? null : new Intl.NumberFormat(locale === 'it' ? 'it-IT' : locale, { style: 'percent', maximumFractionDigits: 1 }).format(rate);
           return (
-            <li key={ad.slug || ad.path || i} className="group rounded-xl border border-edge bg-surface-raised px-3 py-3 sm:px-4">
+            <li key={ad.slug || ad.path || i} className={`group border-b border-edge px-1 py-4 first:pt-0 last:border-b-0 last:pb-0 sm:px-2 ${i === 0 ? 'rounded-xl bg-accent-subtle/40 px-3 sm:px-4' : ''}`}>
               <div className="flex items-start gap-3">
                 <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent-subtle text-xs font-semibold text-accent" aria-hidden="true">
                   {i + 1}
@@ -66,7 +70,7 @@ export function TopAdsChart({ ads, limit = 10, locale = 'it' }: TopAdsChartProps
                 <div
                   className="h-2.5 w-full overflow-hidden rounded-full bg-surface-alt"
                   role="img"
-                  aria-label={`${ad.title}: ${nf.format(ad.views)} ${copy.views}`}
+                  aria-label={`${ad.title}: ${nf.format(ad.views)} ${copy.views}${clickCount != null ? `, ${nf.format(clickCount)} ${copy.clicks}` : ''}${rateLabel ? `, ${rateLabel} ${copy.rate}` : ''}`}
                 >
                   <div
                     className="h-full rounded-full bg-accent transition-[width] duration-1000 ease-out"
@@ -78,7 +82,7 @@ export function TopAdsChart({ ads, limit = 10, locale = 'it' }: TopAdsChartProps
                 </div>
                 <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
                   {clickCount != null && <span className="tabular-nums">{nf.format(clickCount)} {copy.clicks}</span>}
-                  {rate != null && <span className="tabular-nums">{new Intl.NumberFormat(locale === 'it' ? 'it-IT' : locale, { style: 'percent', maximumFractionDigits: 1 }).format(rate)} {copy.rate}</span>}
+                  {rateLabel && <span className="tabular-nums">{rateLabel} {copy.rate}</span>}
                 </div>
               </div>
             </li>

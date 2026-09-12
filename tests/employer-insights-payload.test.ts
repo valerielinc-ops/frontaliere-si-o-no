@@ -199,8 +199,9 @@ describe('employer insights payload UI', () => {
     expect(html).toContain('Candidature inviate');
     expect(html).toContain('Visite al profilo azienda');
     expect(html).toContain('>701<');
-    expect(html).toContain('>302<');
-    expect(html).toContain('>903<');
+    expect(html).not.toContain('>302<');
+    expect(html).not.toContain('>903<');
+    expect(html).toContain('Trasparenza della misura');
     expect(html).toContain('Peso dell’annuncio principale');
     expect(html).toContain('100,0%');
     expect(html).toContain('Annunci con click');
@@ -261,7 +262,7 @@ describe('employer insights payload UI', () => {
     expect(html).toContain('>701<');
     // ...but it is not presented as a proven count of distinct acts.
     expect(html).toContain('unicità non provata');
-    expect(html).toContain('La sorgente non fornisce una prova tecnica sufficiente');
+    expect(html).toContain('La sorgente non dimostra che gli eventi siano azioni uniche');
     expect(html).not.toContain('conteggio osservato');
   });
 
@@ -273,7 +274,7 @@ describe('employer insights payload UI', () => {
 
     expect(html).toContain('>701<');
     expect(html).toContain('unicità non provata');
-    expect(html).toContain('eventi grezzi del provider non hanno una prova di deduplicazione');
+    expect(html).toContain('eventi tecnici non hanno una prova di unicità');
     expect(html).toContain('412');
   });
 
@@ -349,7 +350,7 @@ describe('employer insights payload UI', () => {
       const html = render(payload);
       expect(html).toContain('Candidature inviate');
       expect(html).toContain('copertura parziale');
-      expect(html).toContain('>302<');
+      expect(html).not.toContain('>302<');
     }
   });
 });
