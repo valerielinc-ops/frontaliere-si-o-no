@@ -11655,6 +11655,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.avs-2030-riforma-previdenza.title': 'AVS 2030: la riforma della previdenza svizzera',
     'blog.article.avs-2030-riforma-previdenza.excerpt': 'Presentata a Berna la riforma AVS 2030. Entrate extra stimate a 600 milioni annui e aumento dell\'età minima da 58 a 63 anni. Divisioni tra i partiti.',
     'blog.article.avs-2030-riforma-previdenza.imageAlt': 'Palazzo federale a Berna dove si discute la riforma AVS 2030',
+    'blog.article.vivere-pigra-lavorare-ticino-frontaliere.title': 'Vivere a Pigra, lavorare in Ticino: la guida',
+    'blog.article.vivere-pigra-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza e il costo della vita per i frontalieri che scelgono Pigra per vivere e lavorare in Ticino.',
+    'blog.article.vivere-pigra-lavorare-ticino-frontaliere.imageAlt': 'Vista di Pigra e del Lago di Lugano con il panorama alpino del Ticino.',
 };
 
 export default blogMetaIt;

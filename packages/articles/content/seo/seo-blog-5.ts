@@ -89422,6 +89422,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-pigra-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Pigra, lavorare in Ticino: la guida | Frontaliere Ticino',
+    description: 'Guida completa per chi vive a Pigra e lavora in Ticino: collegamenti, tempi di percorrenza, costo vita, fiscalità (Nuovo Accordo Frontalieri), assicurazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, pigra, lavorare, scopri',
+    ogTitle: 'Vivere a Pigra, lavorare in Ticino: guida per frontalieri',
+    ogDescription: 'Tutto quello che devi sapere se vivi a Pigra e lavori in Ticino. Analizziamo collegamenti, costo della vita, fiscalità con il nuovo accordo frontalieri 2024, e assicurazioni. Pianifica la tua scelta.',
+    canonicalPath: '/articoli-frontaliere/vivere-pigra-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Pigra, lavorare in Ticino: la guida",
+      "description": "Guida completa per chi vive a Pigra e lavora in Ticino: collegamenti, tempi di percorrenza, costo vita, fiscalità (Nuovo Accordo Frontalieri), assicurazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-pigra-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Pigra e del Lago di Lugano con il panorama alpino del Ticino."
+      },
+      "datePublished": "2026-09-12T00:39:24+00:00",
+      "dateModified": "2026-09-12T00:39:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-pigra-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
