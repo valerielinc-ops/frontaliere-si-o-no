@@ -170,13 +170,20 @@ describe('cleanupUserDataForDeletedAccount', () => {
     const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
       '../functions/src/authAccountCleanup.js'
     );
-    const db = seedDeletedUser();
+    const db = seedDeletedUser({
+      [`petition_signatures/${UID}`]: {
+        petitionId: 'stabio-dosso',
+        uid: UID,
+      },
+    });
 
     const result = await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
 
     expect(result.deletedSavedJobs).toBe(2);
     expect(result.tombstonedNewsletter).toBe(true);
     expect(result.tombstonedJobAlert).toBe(true);
+    expect(result.deletedPetitionSignature).toBe(true);
+    expect(db.store[`petition_signatures/${UID}`]).toBeUndefined();
     expect(db.store[`users/${UID}`]).toBeUndefined();
     expect(db.store[`users/${UID}/savedJobs/job-a`]).toBeUndefined();
     expect(db.store[`users/${UID}/savedJobs/job-b`]).toBeUndefined();

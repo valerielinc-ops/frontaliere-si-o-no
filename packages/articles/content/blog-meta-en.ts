@@ -11689,6 +11689,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-12.imageAlt': 'The day\'s numbers for cross-border commuters – September 12, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-12.seoDescription': 'Cross-border brief, September 12, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-12.ogDescription': 'The numbers for September 12, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.title': 'Stabio-Gaggiolo speed bump: queues and anger from cross-border workers',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.excerpt': 'Reports about the speed bump just beyond Gaggiolo customs describe more than ten extra minutes every day. Official counts show a crossing already under pressure.',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.imageAlt': 'Cars queuing between Gaggiolo customs and Stabio after the speed bump',
 };
 
 export default blogMetaEn;
