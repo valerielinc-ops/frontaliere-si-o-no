@@ -172,6 +172,35 @@ describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
       fs.rmSync(dir, { recursive: true, force: true });
     }
   });
+
+  it('enumerates every workflow caller and requires the full archive checkout', () => {
+    const workflowsDir = path.resolve(__dirname, '..', '.github', 'workflows');
+    const callers = fs.readdirSync(workflowsDir)
+      .filter((file) => /\.ya?ml$/.test(file))
+      .map((file) => ({
+        file,
+        source: fs.readFileSync(path.join(workflowsDir, file), 'utf8'),
+      }))
+      .filter(({ source }) => source.split('\n').some((line) => (
+        !line.trim().startsWith('#')
+        && /audit:expired-at-parsable|scripts\/audit-expired-at-parsable\.mjs/.test(line)
+      )));
+
+    expect(callers.map(({ file }) => file)).toEqual(['reconcile-expired-route-duplicates.yml']);
+    for (const { source } of callers) {
+      const checkoutStart = source.indexOf('- name: Checkout');
+      const setupStart = source.indexOf('- name: Setup Node.js', checkoutStart);
+      expect(checkoutStart).toBeGreaterThanOrEqual(0);
+      expect(setupStart).toBeGreaterThan(checkoutStart);
+      const checkout = source.slice(checkoutStart, setupStart);
+      const auditAt = source.indexOf('scripts/audit-expired-at-parsable.mjs');
+      expect(checkout).toContain('uses: actions/checkout@v5');
+      expect(checkout).not.toMatch(/sparse-checkout/);
+      expect(checkout).not.toMatch(/filter\s*:/);
+      expect(source).toContain('data/jobs/expired/by-crawler');
+      expect(auditAt).toBeGreaterThan(setupStart);
+    }
+  });
 });
 
 describe('committed expired archive — the corpus observer', () => {

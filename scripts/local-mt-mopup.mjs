@@ -299,11 +299,15 @@ export function finalizeMopupTranslation({
  * for the language-aware arm of the existing-value guard — see below.
  *
  * @returns {{decision: string, incoming: string, sourceText: string,
- *   existing: string, languageDriven: boolean}}
+ *   normalizedSourceText: string, existing: string, languageDriven: boolean}}
  *   decision is 'write' or one of 'skip:source-locale' | 'skip:empty-raw' |
  *   'skip:finalize-empty' | 'skip:source-copy' | 'skip:existing-good' |
  *   'skip:candidate-untranslated'. languageDriven marks the decisions the
  *   language arm made, the ones the rollout switch gates.
+ *
+ * `base.sourceText` stays unchanged for persistence; `base.normalizedSourceText`
+ * is comparison-only. Neither may be written into `job.title` or
+ * `job.titleByLocale[srcLang]` by the caller.
  */
 /**
  * Il nome con cui questo entry point chiede la sua politica di corsia.
@@ -418,9 +422,9 @@ export function classifyMopupWrite({
   const rawSourceText = field === 'title'
     ? (job.title || job.titleByLocale?.[srcLang] || '').trim()
     : (job.description || job.descriptionByLocale?.[srcLang] || '').trim();
-  const sourceText = normalizeArgosText(rawSourceText, srcLang, field);
+  const normalizedSourceText = normalizeArgosText(rawSourceText, srcLang, field);
   const existing = String(job[bag]?.[locale] || '').trim();
-  const base = { incoming: '', sourceText, existing };
+  const base = { incoming: '', sourceText: rawSourceText, normalizedSourceText, existing };
 
   if (locale === srcLang) return { ...base, decision: 'skip:source-locale' };
 
@@ -428,7 +432,7 @@ export function classifyMopupWrite({
   if (!raw) return { ...base, decision: 'skip:empty-raw' };
 
   const incoming = finalizeMopupTranslation({
-    sourceText,
+    sourceText: normalizedSourceText,
     rawText: raw,
     targetLang: locale,
     fieldType: field,
@@ -437,14 +441,14 @@ export function classifyMopupWrite({
   if (!incoming) return { ...base, decision: 'skip:finalize-empty' };
 
   // Never write a value that is just a copy of the source (would re-flag).
-  if (incoming.toLowerCase() === sourceText.toLowerCase()) {
+  if (incoming.toLowerCase() === normalizedSourceText.toLowerCase()) {
     return { ...base, incoming, decision: 'skip:source-copy' };
   }
 
   // Don't overwrite an already-good translation (one that isn't a source copy
   // and meets the min length). Only fill genuinely-missing/bad slots.
   const existingIsBad = existing.length < (field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS)
-    || existing.toLowerCase() === sourceText.toLowerCase();
+    || existing.toLowerCase() === normalizedSourceText.toLowerCase();
   if (existing && !existingIsBad) {
     // LANGUAGE ARM (workspace issue 16). Length and byte-exact copy are not the
     // only ways an existing value can be bad: it can be the wrong LANGUAGE.
@@ -482,7 +486,7 @@ export function classifyMopupWrite({
     }
     const ask = (title) => titleLooksUntranslated({
       title,
-      sourceTitle: sourceText,
+      sourceTitle: normalizedSourceText,
       sourceLang: srcLang,
       targetLocale: locale,
       company: job.company || '',

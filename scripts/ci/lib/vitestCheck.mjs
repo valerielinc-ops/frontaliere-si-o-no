@@ -16,8 +16,10 @@
  * a oltranza pur con i test verdi (l'auto-merge è event-driven e non ri-valuta
  * da solo). La selezione "ultimo COMPLETATO con verdetto per completed_at" è
  * invariante all'ordine API e ai duplicati: vince il verdetto finito più fresco
- * per il codice all'HEAD. Un job `skipped` è completato ma non è un verdetto e
- * viene escluso.
+ * per il codice all'HEAD. Per i consumer Vitest un job `skipped` è completato
+ * ma non è un verdetto e viene escluso. La generalizzazione per nomi arbitrari
+ * mantiene invece il verdetto `skipped`, salvo richiesta esplicita, perché il
+ * gate `generator-ci` deve distinguere «skipped» da «nessun run concluso».
  *
  * I run in-progress/queued (senza `completed_at`) sono ignorati di proposito:
  * un dispatch manuale appeso non deve bloccare il merge per sempre. Se NESSUN
@@ -53,7 +55,7 @@ export function latestCompletedVitestConclusion(checkRuns) {
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string}|null}
  */
 export function latestCompletedVitestRun(checkRuns) {
-  return latestCompletedRunByName(checkRuns, VITEST_CHECK_NAME);
+  return latestCompletedRunByName(checkRuns, VITEST_CHECK_NAME, { excludeSkipped: true });
 }
 
 /**
@@ -65,7 +67,7 @@ export function latestCompletedVitestRun(checkRuns) {
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string, details_url?: string}|null}
  */
 export function latestCompletedVitestExecutionRun(checkRuns) {
-  return latestCompletedRunByName(checkRuns, VITEST_EXECUTION_JOB_NAME);
+  return latestCompletedRunByName(checkRuns, VITEST_EXECUTION_JOB_NAME, { excludeSkipped: true });
 }
 
 /**
@@ -76,21 +78,25 @@ export function latestCompletedVitestExecutionRun(checkRuns) {
  * check-run con lo stesso nome, es. un `workflow_dispatch` manuale sullo
  * stesso branch). Usata anche per `GENERATOR_CI_JOB_NAME` (#242: il gate
  * dell'auto-merge sul check "test" di generator-ci.yml non deve ripetere il
- * bug del `[0]` arbitrario che questo modulo esiste per chiudere).
+ * bug del `[0]` arbitrario che questo modulo esiste per chiudere). Per
+ * preservare il verdetto del consumer generico, `skipped` viene escluso solo
+ * quando `excludeSkipped` è esplicitamente true.
  *
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  * @param {string} name
+ * @param {{excludeSkipped?: boolean}} [options]
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string}|null}
  */
-export function latestCompletedRunByName(checkRuns, name) {
+export function latestCompletedRunByName(checkRuns, name, options = {}) {
   if (!Array.isArray(checkRuns)) return null;
+  const { excludeSkipped = false } = options || {};
   const completed = checkRuns
     .filter(
       (c) =>
         c &&
         c.name === name &&
         c.status === 'completed' &&
-        c.conclusion !== 'skipped' &&
+        (!excludeSkipped || c.conclusion !== 'skipped') &&
         typeof c.completed_at === 'string' &&
         c.completed_at,
     )
@@ -105,10 +111,11 @@ export function latestCompletedRunByName(checkRuns, name) {
  *
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  * @param {string} name
+ * @param {{excludeSkipped?: boolean}} [options]
  * @returns {string}
  */
-export function latestCompletedConclusionByName(checkRuns, name) {
-  const last = latestCompletedRunByName(checkRuns, name);
+export function latestCompletedConclusionByName(checkRuns, name, options = {}) {
+  const last = latestCompletedRunByName(checkRuns, name, options);
   return last ? last.conclusion || '' : '';
 }
 
