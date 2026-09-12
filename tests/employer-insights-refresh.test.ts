@@ -15,6 +15,13 @@ describe('employer insights refresh rollback', () => {
     expect(REFRESH_WORKFLOW_SOURCE).not.toContain('has no complete GA4 identity feed yet');
   });
 
+  it('compares document coverage with the selected source, not legacy roots', () => {
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('const expectedSource = process.env.INSIGHTS_SOURCE;');
+    expect(REFRESH_WORKFLOW_SOURCE).toMatch(/snapshot\.docs\s*\.filter\(\(doc\) => doc\.data\(\)\?\.source === expectedSource\)/);
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('has no ${expectedSource} documents');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('source: expectedSource');
+  });
+
   it('reports items committed before a later Firestore chunk fails', async () => {
     let commitCount = 0;
     const committedBatches: unknown[][] = [];
