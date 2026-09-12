@@ -192,7 +192,7 @@ describe('buildScheda — l\'invariante e\' eseguibile, non un commento', () => 
  * ogni suo ramo che risponde «si'» senza averlo verificato e' un verde permanente.
  */
 describe('checkUrlClean — nessun verde per assenza di dati', () => {
-  const snap = (ts: string, urls: string[]) => ({ ts, topPaths: urls.map((url) => ({ url, count: 1 })) });
+  const snap = (ts: string, urls: string[], topN = 50) => ({ ts, topN, topPaths: urls.map((url) => ({ url, count: 1 })) });
   const NOW = Date.parse('2026-09-07T00:00:00Z');
   const sette = (urlsPerSnap: string[][]) =>
     urlsPerSnap.map((u, i) => snap(`2026-09-0${i + 1}T00:00:00Z`, u));
@@ -231,5 +231,32 @@ describe('checkUrlClean — nessun verde per assenza di dati', () => {
     const r = checkUrlClean(h, 'a/x.js', { snapshots: 7, now: NOW });
     expect(r.ok).toBe(false);
     expect(r.reason).toMatch(/storia troppo corta/);
+  });
+
+  it('non considera i top-15 legacy come prova di presenza nei top-50', () => {
+    const h = [
+      snap('2026-09-01T00:00:00Z', ['a/x.js'], 15),
+      snap('2026-09-02T00:00:00Z', []),
+      snap('2026-09-03T00:00:00Z', []),
+      snap('2026-09-04T00:00:00Z', []),
+    ];
+    const r = checkUrlClean(h, 'a/x.js', { snapshots: 3, now: Date.parse('2026-09-04T12:00:00Z') });
+    expect(r.ok).toBe(false);
+    expect(r.reason).toMatch(/mai visto/);
+  });
+});
+
+describe('crawler-health-monitor — scheda fail-closed', () => {
+  const workflow = readFileSync(
+    path.join(__dirname, '..', '.github', 'workflows', 'crawler-health-monitor.yml'),
+    'utf8',
+  );
+
+  it('rifiuta una scheda mancante o vuota invece di degradare a stringa vuota', () => {
+    expect(workflow).toContain('jq -er');
+    expect(workflow).toContain('type == \\"string\\" and length > 0');
+    expect(workflow).toContain('if [ -z "$scheda" ]');
+    expect(workflow).toContain('Missing non-empty scheda');
+    expect(workflow).not.toContain('.scheda // \\"\\"');
   });
 });

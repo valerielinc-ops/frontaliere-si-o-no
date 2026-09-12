@@ -248,6 +248,13 @@ export function readDriftSeries(text) {
  * @returns {string} markdown
  */
 export function buildAlertBody(record, verdict, trend) {
+  if (!Number.isInteger(record?.days) || record.days < 1) {
+    throw new Error('audit-canton-url-drift: record.days must be a positive integer');
+  }
+  if (!Array.isArray(record?.shards) || record.shards.length < 1) {
+    throw new Error('audit-canton-url-drift: record.shards must be a non-empty array');
+  }
+
   const shardCountUsed = record.shards.length;
   const repro = `node scripts/audit-canton-url-drift.mjs --days ${record.days} --shards ${shardCountUsed} --no-history`;
   return [
