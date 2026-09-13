@@ -416,6 +416,26 @@ const MANUAL_SEO_CTR_FAMILIES = [
     measuredOn: '2026-09-05',
   },
   {
+    // The events SEO pages use one shared title/description generator for the
+    // Swiss-wide index, canton hubs and comune pages. GSC discovery first
+    // surfaced the German segment (`/veranstaltungen/`) at 50.453 impressions;
+    // the four localized prefixes together measured 106.949 impressions in the
+    // same 90-day window (issue #8533).
+    id: 'eventi',
+    label: 'Eventi',
+    pathContains: '/eventi/',
+    pathAliases: ['/events/', '/veranstaltungen/', '/evenements/'],
+    kind: 'template',
+    monitored: true,
+    // 90-day GSC baseline after the monitor's minImpressions=5 filter:
+    // 1,558% CTR; the floor keeps a ~20% regression actionable without
+    // inventing a position-derived threshold.
+    targetCtr: 0.0125,
+    impressions90d: 106949,
+    measuredCtr: 0.01558,
+    measuredOn: '2026-09-13',
+  },
+  {
     // Il template fuel-price giornaliero (`build-plugins/fuelDailyPagesPlugin.ts`
     // + `fuelDailyData.ts`, sezione `FUEL_SECTION_SLUG.benzina`): un generator
     // condiviso di title/description, quindi una famiglia sorvegliabile come le
