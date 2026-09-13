@@ -89890,6 +89890,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-serbatoio-bella-cima-stabio': {
+    title: 'Nuovo serbatoio a Stabio: l\'acqua per il Mendrisiotto',
+    description: 'Inaugurato a Stabio il nuovo serbatoio idrico di Bella Cima: opera da 4 milioni di franchi per la sicurezza dell\'approvvigionamento nel Mendrisiotto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, serbatoio, stabio, acqua',
+    ogTitle: 'Nuovo serbatoio Bella Cima a Stabio per il Mendrisiotto',
+    ogDescription: 'Inaugurato a Stabio il nuovo impianto idrico di Bella Cima. Un investimento da 4 milioni di franchi per potenziare la sicurezza dell\'approvvigionamento idrico in tutto il Mendrisiotto, in vista anche del futuro completamento dell\'acquedotto a lago.',
+    canonicalPath: '/articoli-frontaliere/serbatoio-bella-cima-stabio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo serbatoio a Stabio: l'acqua per il Mendrisiotto",
+      "description": "Inaugurato a Stabio il nuovo serbatoio idrico di Bella Cima: opera da 4 milioni di franchi per la sicurezza dell'approvvigionamento nel Mendrisiotto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/serbatoio-bella-cima-stabio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il nuovo serbatoio idrico di Bella Cima a Stabio"
+      },
+      "datePublished": "2026-09-13T00:04:13+00:00",
+      "dateModified": "2026-09-13T00:04:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/serbatoio-bella-cima-stabio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

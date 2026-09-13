@@ -11693,6 +11693,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.title': 'Dosso al Gaggiolo: code e rabbia dei frontalieri a Stabio',
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.excerpt': 'Le segnalazioni sul dosso subito dopo la dogana di Gaggiolo parlano di oltre dieci minuti in più ogni giorno. I dati ufficiali mostrano un valico già molto carico.',
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.imageAlt': 'Auto in coda tra la dogana di Gaggiolo e Stabio dopo il dosso stradale',
+    'blog.article.serbatoio-bella-cima-stabio.title': 'Nuovo serbatoio a Stabio: l\'acqua per il Mendrisiotto',
+    'blog.article.serbatoio-bella-cima-stabio.excerpt': 'Inaugurato a Bella Cima il nuovo impianto idrico da 4 milioni di franchi per la sicurezza dell\'approvvigionamento nel Mendrisiotto.',
+    'blog.article.serbatoio-bella-cima-stabio.imageAlt': 'Il nuovo serbatoio idrico di Bella Cima a Stabio',
 };
 
 export default blogMetaIt;

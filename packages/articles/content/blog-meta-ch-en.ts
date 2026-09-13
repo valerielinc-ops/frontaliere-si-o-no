@@ -6313,6 +6313,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-giura-domanda.title': 'Family allowances Canton Jura: amounts and application',
     'blog.article.assegni-familiari-giura-domanda.excerpt': 'Practical guide to family and training allowances in the Canton of Jura: requirements, monthly amounts and application procedure at the competent fund.',
     'blog.article.assegni-familiari-giura-domanda.imageAlt': 'Swiss administrative office for family allowance applications',
+    'blog.article.banda-larga-regioni-periferiche-berna.title': 'Broadband in peripheral regions: 365 million from Bern',
+    'blog.article.banda-larga-regioni-periferiche-berna.excerpt': 'The Ticino cantonal initiative becomes a federal bill for ultra-broadband throughout the national territory.',
+    'blog.article.banda-larga-regioni-periferiche-berna.imageAlt': 'Federal Palace in Bern where broadband legislation proposals are discussed',
 };
 
 export default blogMetaChEn;

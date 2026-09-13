@@ -6313,6 +6313,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-giura-domanda.title': 'Familienzulagen Kanton Jura: Beträge und Antrag',
     'blog.article.assegni-familiari-giura-domanda.excerpt': 'Praktischer Leitfaden für Familien- und Ausbildungszulagen im Kanton Jura: Voraussetzungen, monatliche Beträge und Antragsverfahren bei der zuständigen Kasse.',
     'blog.article.assegni-familiari-giura-domanda.imageAlt': 'Schweizer Verwaltungsbüro für Familienzulagenanträge',
+    'blog.article.banda-larga-regioni-periferiche-berna.title': 'Breitband in Randregionen: 365 Millionen aus Bern',
+    'blog.article.banda-larga-regioni-periferiche-berna.excerpt': 'Die Tessiner Kantonsinitiative wird zu einem bundesweiten Vorschlag für ein Ultrabreitbandgesetz.',
+    'blog.article.banda-larga-regioni-periferiche-berna.imageAlt': 'Bundeshaus in Bern, wo Gesetzesvorschläge zur Breitbandversorgung diskutiert werden',
 };
 
 export default blogMetaChDe;
