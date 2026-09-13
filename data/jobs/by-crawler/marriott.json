@@ -902,9 +902,9 @@
     },
     {
       "id": "marriott-b2a7141b201e",
-      "slug": "f-b-service-shiftleader-marriott-zurich",
+      "slug": "leader-del-servizio-f-b-marriott-international-zurich",
       "slugByLocale": {
-        "it": "f-b-service-shiftleader-marriott-zurich",
+        "it": "leader-del-servizio-f-b-marriott-international-zurich",
         "en": "f-b-service-shiftleader-marriott-zurich",
         "de": "f-b-service-shiftleader-marriott-zurich",
         "fr": "chef-de-quart-de-service-f-b-marriott-international-zurich"
@@ -973,7 +973,15 @@
         }
       },
       "addressRegion": "ZH",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-shiftleader-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-shiftleader-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-757f64a9abc8",
