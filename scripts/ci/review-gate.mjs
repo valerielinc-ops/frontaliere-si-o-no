@@ -114,19 +114,6 @@ export function extractFileCitations(text) {
   return extractFileCitationsWith(text, FILE_CITATION_RE);
 }
 
-/**
- * A review can confirm earlier findings in the same paragraph as a new
- * finding. Those `Fix di ...: ok.` lines are resolution evidence, not new
- * anchors for the finding currently being classified.
- */
-function extractFindingCitations(text, extractCitations) {
-  const findingText = normalizeReviewBody(text)
-    .split(/\r?\n/u)
-    .filter((line) => !FIX_CONFIRMATION_RE.test(line))
-    .join('\n');
-  return extractCitations(findingText);
-}
-
 // Historical audit oracle: this mirrors the pre-#8189 parser so the audit can
 // quantify findings the old first-match extension bug would have left open.
 const LEGACY_FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
@@ -1346,6 +1333,19 @@ const isDirectRun = (() => {
     return false;
   }
 })();
+
+/**
+ * A review can confirm earlier findings in the same paragraph as a new
+ * finding. Those `Fix di ...: ok.` lines are resolution evidence, not new
+ * anchors for the finding currently being classified.
+ */
+function extractFindingCitations(text, extractCitations) {
+  const findingText = normalizeReviewBody(text)
+    .split(/\r?\n/u)
+    .filter((line) => !FIX_CONFIRMATION_RE.test(line))
+    .join('\n');
+  return extractCitations(findingText);
+}
 
 if (isDirectRun) {
   try {
