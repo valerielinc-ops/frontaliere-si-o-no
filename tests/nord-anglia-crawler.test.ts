@@ -398,6 +398,18 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
       expect(error).toBeInstanceOf(FeedEndpointUnavailableError);
       expect(error).toMatchObject({ feedEndpointUnavailable: true });
     });
+
+    it('classifies an off-host non-OK redirect before the HTTP error path', async () => {
+      const response = new Response('vendor unavailable', { status: 403 });
+      Object.defineProperty(response, 'url', {
+        value: 'https://www.nordangliaeducation.com/careers',
+      });
+      vi.stubGlobal('fetch', vi.fn(async () => response));
+
+      const error = await fetchAllNordAngliaJobs().catch((caught) => caught);
+      expect(error).toBeInstanceOf(FeedEndpointUnavailableError);
+      expect(error).toMatchObject({ feedEndpointUnavailable: true });
+    });
   });
 
   // ── slugify (imported from crawler-template) ──

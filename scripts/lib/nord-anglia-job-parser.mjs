@@ -318,11 +318,11 @@ async function fetchJobListings() {
     { headers: { 'User-Agent': POLITE_UA, Accept: 'application/rss+xml,application/xml,text/xml' } },
     { timeout: DEFAULT_TIMEOUT_MS, label: 'nord-anglia rss' },
   );
+  assertFeedEndpointHost('nord-anglia', ATS_HOST, res.url);
   if (!res.ok) {
     throw new Error(`Nord Anglia RSS feed returned HTTP ${res.status}`);
   }
 
-  assertFeedEndpointHost('nord-anglia', ATS_HOST, res.url);
   const xml = await res.text();
   assertFeedBodyLooksLikeXml('nord-anglia', ATS_HOST, xml);
   return parseNordAngliaRss(xml);
