@@ -63,6 +63,13 @@ function outcomes(overrides: Record<string, unknown> = {}) {
     freeProfiles: 0,
     sponsoredProfiles: 1,
     mrrRecognizedChf: 1200,
+    export: {
+      accountIdentity: 'publisherUid',
+      inventoryUntouched: true,
+      subscriptionStateUntouched: true,
+      pricesUntouched: true,
+      outreachSent: false,
+    },
     ...overrides,
   };
 }
@@ -131,6 +138,15 @@ describe('L9 Employer Supply → Paid Activation', () => {
     const verdict = validateEmployerActivation({ profiles: profiles(), outcomes: withoutScope }, { now: NOW });
     expect(verdict.quality).toBe('partial');
     expect(verdict.issues.join(' ')).toContain('inventoryScope is missing');
+  });
+
+  it('rejects a ledger that claims an unsafe external mutation', () => {
+    const verdict = validateEmployerActivation({
+      profiles: profiles(),
+      outcomes: outcomes({ export: { ...outcomes().export, pricesUntouched: false } }),
+    }, { now: NOW });
+    expect(verdict.quality).toBe('partial');
+    expect(verdict.issues.join(' ')).toContain('outcomes.export.pricesUntouched');
   });
 
   it('rejects a stale cross-source join and conflicting metric copies', () => {

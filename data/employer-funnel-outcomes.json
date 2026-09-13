@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-09-13T08:55:54.462Z",
+  "inventoryScope": {
+    "cohortKey": "employer-profiles-v1",
+    "profileSource": "data/employer-profiles.json",
+    "profileCount": 512,
+    "profileGeneratedAt": "2026-09-10T09:15:57.249Z"
+  },
+  "eligibleEmployerAccounts": 3,
+  "profileViewAccounts": 0,
+  "leadAccounts": 0,
+  "checkoutStartAccounts": 2,
+  "paidActivations": 1,
+  "activeSubscriptions": 1,
+  "attachedJobs": 0,
+  "renewals": 0,
+  "freeProfiles": 0,
+  "sponsoredProfiles": 0,
+  "mrrRecognizedChf": 98,
+  "telemetryWindow": {
+    "start": "2026-09-03T08:55:54.462Z",
+    "end": "2026-09-13T08:55:54.462Z"
+  },
+  "export": {
+    "schemaVersion": 1,
+    "sourceRefs": [
+      "firestore.publishers",
+      "firestore.orders",
+      "firestore.publisher_jobs",
+      "firestore.stripe_events"
+    ],
+    "accountIdentity": "publisherUid",
+    "anonymousFunnelExcluded": true,
+    "anonymousFunnelReason": "employer CTA analytics carries no publisherUid; profile views and leads are not promoted to accounts",
+    "profileMixSource": "publisher_jobs tier joined to employer profile companyKey",
+    "inventoryUntouched": true,
+    "subscriptionStateUntouched": true,
+    "pricesUntouched": true,
+    "outreachSent": false,
+    "accountMetricWindow": "current authoritative Firestore ledger; renewals use telemetryWindow"
+  }
+}
