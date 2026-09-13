@@ -6349,6 +6349,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.attacco-hacker-salt-dati-clienti.title': 'Salt: attacco informatico e furto dati clienti mobili',
     'blog.article.attacco-hacker-salt-dati-clienti.excerpt': 'L\'operatore telefonico Salt vittima di un attacco informatico. Sottratti dati personali di alcuni clienti mobili in Svizzera. Avvisato l\'Incaricato federale.',
     'blog.article.attacco-hacker-salt-dati-clienti.imageAlt': 'Sede di un operatore di telefonia mobile in Svizzera coinvolto in un attacco informatico',
+    'blog.article.dazi-usa-seco-commercio.title': 'Nuovi dazi USA e accordi SECO per le aziende svizzere',
+    'blog.article.dazi-usa-seco-commercio.excerpt': 'Gli Stati Uniti introducono dazi aggiuntivi fino al 12,5% sui beni svizzeri. La SECO monitora gli impatti e l\'evoluzione delle catene produttive.',
+    'blog.article.dazi-usa-seco-commercio.imageAlt': 'Sede della SECO in Svizzera',
 };
 
 export default blogMetaChIt;

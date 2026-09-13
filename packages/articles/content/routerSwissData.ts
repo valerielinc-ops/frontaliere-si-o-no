@@ -2142,6 +2142,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'f35a-prezzo-incerto-politica': { it: 'f35a-prezzo-incerto-politica', en: 'f35a-price-uncertainty-politics', de: 'f35a-preisunsicherheit-politik', fr: 'f35a-prix-incertain-politique' },
  'licenziamento-crans-montana-falsificazione': { it: 'licenziamento-crans-montana-falsificazione', en: 'crans-montana-employee-dismissal', de: 'entlassung-crans-montana-falschung', fr: 'licenciement-crans-montana-falsification' },
  'attacco-hacker-salt-dati-clienti': { it: 'attacco-hacker-salt-dati-clienti', en: 'salt-cyber-attack-customer-data', de: 'salt-cyberangriff-kundendaten', fr: 'cyberattaque-salt-donnees-clients' },
+ 'dazi-usa-seco-commercio': { it: 'dazi-usa-seco-commercio', en: 'us-tariffs-seco-trade', de: 'usa-zoelle-seco-handel', fr: 'tarifs-usa-seco-commerce' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

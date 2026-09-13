@@ -6349,6 +6349,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.attacco-hacker-salt-dati-clienti.title': 'Salt: Cyberangriff und Diebstahl mobiler Kundendaten',
     'blog.article.attacco-hacker-salt-dati-clienti.excerpt': 'Der Mobilfunkanbieter Salt wurde Opfer eines Cyberangriffs. Personendaten von einigen Mobilfunkkunden in der Schweiz gestohlen. Der Bundesbeauftragte wurde benachrichtigt.',
     'blog.article.attacco-hacker-salt-dati-clienti.imageAlt': 'Sitz eines Mobilfunkanbieters in der Schweiz, der von einem Cyberangriff betroffen ist',
+    'blog.article.dazi-usa-seco-commercio.title': 'Neue US-Zölle und SECO-VEREINBARUNGEN für Schweizer Unternehmen',
+    'blog.article.dazi-usa-seco-commercio.excerpt': 'Die USA führen zusätzliche Zölle von bis zu 12,5% auf Schweizer Waren ein. Das SECO überwacht die Auswirkungen und die Entwicklung der Produktionsketten.',
+    'blog.article.dazi-usa-seco-commercio.imageAlt': 'SECO Hauptsitz in der Schweiz',
 };
 
 export default blogMetaChDe;
