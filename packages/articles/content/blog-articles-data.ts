@@ -34995,6 +34995,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ospedale-del-ponte-terzo-lotto',
+ category: 'novita',
+ date: '2026-09-13T07:44:00.697Z',
+ image: '/images/blog/ospedale-del-ponte-terzo-lotto.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

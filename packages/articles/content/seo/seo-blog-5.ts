@@ -90319,6 +90319,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ospedale-del-ponte-terzo-lotto': {
+    title: 'Ospedale Del Ponte: nessun blocco per il terzo lotto',
+    description: 'Asst Sette Laghi smentisce il blocco del terzo lotto dell\'Ospedale Del Ponte. Finanziamenti di 13,6 milioni già in cassa per il polo materno infantile.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedale, ponte, nessun, blocco',
+    ogTitle: 'Ospedale Del Ponte, Asst Sette Laghi replica: nessun blocco del terzo lotto',
+    ogDescription: 'L\'azienda socio sanitaria territoriale Sette Laghi smentisce le voci sul blocco dei lavori all\'Ospedale Del Ponte di Varese confermando i fondi per 13,6 milioni.',
+    canonicalPath: '/articoli-frontaliere/ospedale-del-ponte-terzo-lotto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedale Del Ponte: nessun blocco per il terzo lotto",
+      "description": "Asst Sette Laghi smentisce il blocco del terzo lotto dell'Ospedale Del Ponte. Finanziamenti di 13,6 milioni già in cassa per il polo materno infantile.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ospedale-del-ponte-terzo-lotto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale Filippo Del Ponte a Varese"
+      },
+      "datePublished": "2026-09-13T07:44:00+00:00",
+      "dateModified": "2026-09-13T07:44:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ospedale-del-ponte-terzo-lotto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

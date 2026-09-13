@@ -11725,6 +11725,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franchigia-frontalieri-casalzuigno.title': 'New €10,000 deductible for border workers from Casalzuigno',
     'blog.article.franchigia-frontalieri-casalzuigno.excerpt': 'The New Frontier Agreement in force since 2024 introduces a deductible of €10,000 for new residents in Italy working in Ticino.',
     'blog.article.franchigia-frontalieri-casalzuigno.imageAlt': 'View of Casalzuigno near the border with Mendrisio and Ticino',
+    'blog.article.ospedale-del-ponte-terzo-lotto.title': 'Del Ponte Hospital: no block for the third batch',
+    'blog.article.ospedale-del-ponte-terzo-lotto.excerpt': 'Asst Seven Lakes denies the blockade of the third lot of the Del Ponte Hospital of Varese. Loans of 13.6 million already in cash and work started.',
+    'blog.article.ospedale-del-ponte-terzo-lotto.imageAlt': 'Filippo Del Ponte hospital in Varese',
 };
 
 export default blogMetaEn;
