@@ -3115,6 +3115,26 @@ export interface GenerateHealthPremiumsResult {
   triYearByCanton: Record<HealthPremiumCanton, TriYearCantonDelta | null>;
 }
 
+/**
+ * A live, indexed route used by the deploy gate to detect a missing premium
+ * dataset before a build artifact can publish a 404 (#8507).
+ */
+export const HEALTH_PREMIUMS_CRITICAL_PATHS = [
+  buildHealthPremiumsLeafPath('it', 'ticino', '26-30'),
+] as const;
+
+export function assertHealthPremiumsCriticalPages(result: GenerateHealthPremiumsResult): void {
+  const missing = HEALTH_PREMIUMS_CRITICAL_PATHS.filter((pagePath) => !result.pages[pagePath]);
+  if (missing.length === 0) return;
+
+  const skippedCantons = result.skippedCantons.length > 0
+    ? result.skippedCantons.join(',')
+    : 'none';
+  throw new Error(
+    `[health-premiums] critical page guard failed: missing=${missing.join(',')} skippedCantons=${skippedCantons}`,
+  );
+}
+
 export function generateHealthPremiumsPages(opts: {
   dataset: HealthPremiumsDataset;
   /** Optional prior-year dataset (same schema) for YoY computation. */
@@ -3433,14 +3453,15 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
         );
       }
 
-      const { pages, skippedCantons, yoyByCanton, triYearByCanton } =
-        generateHealthPremiumsPages({
-          dataset,
-          priorDataset,
-          oldestDataset,
-          today,
-          distDir,
-        });
+      const generation = generateHealthPremiumsPages({
+        dataset,
+        priorDataset,
+        oldestDataset,
+        today,
+        distDir,
+      });
+      assertHealthPremiumsCriticalPages(generation);
+      const { pages, skippedCantons, yoyByCanton, triYearByCanton } = generation;
       const yoyActive = Object.values(yoyByCanton).filter((y) => y !== null).length;
       const triYearActive = Object.values(triYearByCanton).filter((y) => y !== null).length;
 

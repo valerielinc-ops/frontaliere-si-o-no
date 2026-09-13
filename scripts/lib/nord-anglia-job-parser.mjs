@@ -48,6 +48,7 @@ import { createHash } from 'node:crypto';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { assertFeedBodyLooksLikeXml, assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 import { httpFetchWithRetry } from './transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -321,7 +322,9 @@ async function fetchJobListings() {
     throw new Error(`Nord Anglia RSS feed returned HTTP ${res.status}`);
   }
 
+  assertFeedEndpointHost('nord-anglia', ATS_HOST, res.url);
   const xml = await res.text();
+  assertFeedBodyLooksLikeXml('nord-anglia', ATS_HOST, xml);
   return parseNordAngliaRss(xml);
 }
 
