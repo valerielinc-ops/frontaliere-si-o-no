@@ -915,7 +915,7 @@ jobs:
       - name: Run source guards in parallel
         id: source-guards
         continue-on-error: true
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.body_contract.outcome != 'failure' }}
         env:
           RUN_BROWSER_GRAPH: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_WEBHOOK_BOUNDARY: ${{ steps.body_contract.outcome != 'failure' }}
@@ -1057,7 +1057,7 @@ jobs:
       # ══════════════════════════════════════════════════════════════════════
       - name: Start independent source gates
         id: independent-gates
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.body_contract.outcome != 'failure' }}
         env:
           RUN_TSC: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_AUDIT_MARKERS: ${{ steps.body_contract.outcome != 'failure' }}

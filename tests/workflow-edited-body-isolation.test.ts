@@ -50,6 +50,12 @@ describe('one code verdict and selective body recovery', () => {
     expect(first.with.script).toContain('currentPr.body');
     expect(job.steps.findIndex((step: { uses?: string }) => step.uses?.startsWith('actions/checkout@'))).toBeGreaterThan(0);
     for (const step of job.steps.slice(1)) {
+      // This collector is deliberately unconditional: it must publish the
+      // verdict of detached gates even when the body preflight failed.
+      if (step.id === 'collect-independent-gates') {
+        expect(step.if).toContain('always()');
+        continue;
+      }
       if (step.if) expect(step.if).toContain("steps.body_contract.outcome != 'failure'");
     }
     expect(job.steps.some((step: { name?: string }) => step.name === 'Require approving Claude review')).toBe(true);
