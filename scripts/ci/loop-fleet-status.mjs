@@ -241,7 +241,7 @@ function evidenceFromDurableHealth(health) {
   };
 }
 
-function downloadEvidence(loopId, run, tempRoot) {
+function downloadEvidence(loopId, run, tempRoot, registry) {
   const runId = typeof run === 'object' ? run.databaseId : run;
   const target = path.join(tempRoot, loopId.toLowerCase());
   fs.mkdirSync(target, { recursive: true });
@@ -267,8 +267,22 @@ function downloadEvidence(loopId, run, tempRoot) {
     }
     const lifecycleFile = findFile(target, 'lifecycle-events.jsonl');
     const lifecycleEvents = lifecycleFile
-      ? fs.readFileSync(lifecycleFile, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean).map((line) => JSON.parse(line))
-      : [];
+      ? fs.readFileSync(lifecycleFile, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean).map((line, index) => {
+        let event;
+        try {
+          event = JSON.parse(line);
+        } catch (error) {
+          throw new Error(`lifecycle event line ${index + 1} is invalid JSON: ${error.message}`);
+        }
+        validateLifecycleEvent(registry, loopId, event);
+        if (!object(event.execution)
+          || String(event.execution.runId || '') !== String(runId)
+          || (run?.headSha && String(event.execution.sha || '').toLowerCase() !== String(run.headSha).toLowerCase())) {
+          throw new Error(`lifecycle event line ${index + 1} does not match the selected loop/run`);
+        }
+        return event;
+      })
+      : null;
     return { evidence: { ...evidence, health }, lifecycleEvents: summarizeLifecycleEvents(lifecycleEvents), error: null };
   } catch (error) {
     return { evidence: null, error: `canonical evidence is invalid JSON: ${error.message}` };
@@ -415,12 +429,14 @@ export function collectStatus({
     const runResult = ghRun(workflow);
     runResults[policy.loopId] = runResult;
     const artifactResult = runResult.run
-      ? download(policy.loopId, runResult.run, tempRoot)
+      ? download(policy.loopId, runResult.run, tempRoot, registry)
       : { evidence: null, error: runResult.error };
     evidenceResults[policy.loopId] = {
       ...artifactResult,
       canonicalHealth: durable.byLoop[policy.loopId] || null,
-      canonicalLifecycle: durableLifecycle.byLoop[policy.loopId] || null,
+      canonicalLifecycle: durableLifecycle.available
+        ? (durableLifecycle.byLoop[policy.loopId] || summarizeLifecycleEvents([]))
+        : null,
       canonicalError: durable.error || durableLifecycle.error,
     };
   }

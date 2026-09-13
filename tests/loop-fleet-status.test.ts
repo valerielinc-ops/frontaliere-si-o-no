@@ -137,6 +137,24 @@ describe('loop fleet status', () => {
     });
   });
 
+  it('keeps an available lifecycle ledger explicit for loops with no candidate yet', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-status-empty-lifecycle-'));
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    fs.writeFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), '');
+
+    const rows = collectStatus({
+      ledgerDir,
+      ghRun: () => ({ run: null, error: 'no completed run found' }),
+      download: () => ({ evidence: null, error: 'not called' }),
+    });
+    expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
+      lifecycleState: 'no_candidate',
+      lifecycleEventCount: 0,
+      lifecycleComplete: null,
+    });
+  });
+
   it('keeps a legacy evidence record incomplete when its outcome contract is absent', () => {
     const rows = buildStatusRows(
       registry,
