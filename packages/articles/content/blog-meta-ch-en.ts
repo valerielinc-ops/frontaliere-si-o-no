@@ -6352,6 +6352,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dazi-usa-seco-commercio.title': 'New US Tariffs and SECO Agreements for Swiss Companies',
     'blog.article.dazi-usa-seco-commercio.excerpt': 'The United States introduces additional duties of up to 12.5% on Swiss goods. SECO monitors the impacts and evolution of production chains.',
     'blog.article.dazi-usa-seco-commercio.imageAlt': 'SECO headquarters in Switzerland',
+    'blog.article.furto-apparecchiature-mediche-roma.title': 'Swiss company robbed in Rome: instrumentation found',
+    'blog.article.furto-apparecchiature-mediche-roma.excerpt': 'The medical equipment of a Swiss company stolen on Thursday morning was found in Rome. The equipment was recovered by the local police.',
+    'blog.article.furto-apparecchiature-mediche-roma.imageAlt': 'Medical equipment of a Swiss company found in Rome',
 };
 
 export default blogMetaChEn;

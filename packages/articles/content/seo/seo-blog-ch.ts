@@ -82466,6 +82466,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furto-apparecchiature-mediche-roma': {
+    title: 'Azienda svizzera derubata a Roma: ritrovata la strumentazione',
+    description: 'Apparecchiature mediche di un\'azienda svizzera rubate a Roma e ritrovate dalla polizia locale. L\'azienda ha completato la presentazione universitaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, azienda, derubata, roma, ritrovata',
+    ogTitle: 'Azienda svizzera derubata a Roma: ritrovate le apparecchiature',
+    ogDescription: 'Ritrovata a Roma la strumentazione medica di un\'azienda svizzera rubata da un furgone nel quartiere Aurelio. Intervento decisivo della polizia locale di Roma Capitale.',
+    canonicalPath: '/articoli-svizzera/furto-apparecchiature-mediche-roma/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Azienda svizzera derubata a Roma: ritrovata la strumentazione",
+      "description": "Apparecchiature mediche di un'azienda svizzera rubate a Roma e ritrovate dalla polizia locale. L'azienda ha completato la presentazione universitaria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/furto-apparecchiature-mediche-roma.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apparecchiature mediche di un'azienda svizzera ritrovate a Roma"
+      },
+      "datePublished": "2026-09-13T07:48:40+00:00",
+      "dateModified": "2026-09-13T07:48:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/furto-apparecchiature-mediche-roma/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

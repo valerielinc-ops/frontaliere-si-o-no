@@ -2143,6 +2143,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'licenziamento-crans-montana-falsificazione': { it: 'licenziamento-crans-montana-falsificazione', en: 'crans-montana-employee-dismissal', de: 'entlassung-crans-montana-falschung', fr: 'licenciement-crans-montana-falsification' },
  'attacco-hacker-salt-dati-clienti': { it: 'attacco-hacker-salt-dati-clienti', en: 'salt-cyber-attack-customer-data', de: 'salt-cyberangriff-kundendaten', fr: 'cyberattaque-salt-donnees-clients' },
  'dazi-usa-seco-commercio': { it: 'dazi-usa-seco-commercio', en: 'us-tariffs-seco-trade', de: 'usa-zoelle-seco-handel', fr: 'tarifs-usa-seco-commerce' },
+ 'furto-apparecchiature-mediche-roma': { it: 'furto-apparecchiature-mediche-roma', en: 'theft-medical-equipment-roma', de: 'diebstahl-medizinische-geraete-rom', fr: 'vol-equipement-medical-rome' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
