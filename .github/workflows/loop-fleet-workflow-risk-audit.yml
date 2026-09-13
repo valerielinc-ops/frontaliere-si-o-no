@@ -1,0 +1,69 @@
+name: Loop fleet workflow risk audit
+
+# Read-only inventory of historical workflow side effects, ownership and
+# stop/kill-switch signals. It does not run or alter any listed workflow.
+on:
+  schedule:
+    - cron: '47 7 * * *'
+  workflow_dispatch:
+    inputs:
+      strict:
+        description: 'Fallire se un workflow high/critical manca owner o kill-switch'
+        required: false
+        default: false
+        type: boolean
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/**'
+      - 'scripts/ci/workflow-risk-inventory.mjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: loop-fleet-workflow-risk-audit
+  cancel-in-progress: true
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout workflow inventory
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /.github/workflows/
+            /scripts/ci/workflow-risk-inventory.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Build read-only risk inventory
+        env:
+          REPORT_DIR: ${{ runner.temp }}/workflow-risk-inventory
+        run: |
+          set -o pipefail
+          args=(--workflow-dir .github/workflows --out-dir "$REPORT_DIR")
+          if [ "${{ inputs.strict }}" = "true" ]; then
+            args+=(--strict)
+          fi
+          set +e
+          node scripts/ci/workflow-risk-inventory.mjs "${args[@]}" | tee "$REPORT_DIR/stdout.txt" | tee -a "$GITHUB_STEP_SUMMARY"
+          inventory_status=${PIPESTATUS[0]}
+          set -e
+          exit "$inventory_status"
+
+      - name: Upload read-only risk inventory
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: loop-fleet-workflow-risk-audit-${{ github.run_id }}
+          path: ${{ runner.temp }}/workflow-risk-inventory/
+          retention-days: 90
+          if-no-files-found: error
