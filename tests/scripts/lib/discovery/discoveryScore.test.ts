@@ -37,6 +37,12 @@ describe('freshnessFactorForAgeHours', () => {
     expect(freshnessFactorForAgeHours(NaN)).toBe(1);
     expect(freshnessFactorForAgeHours(undefined as unknown as number)).toBe(1);
   });
+
+  it('rejects null, blank strings, and booleans instead of treating them as age zero', () => {
+    for (const age of [null, '', true, false]) {
+      expect(freshnessFactorForAgeHours(age as unknown as number)).toBe(1);
+    }
+  });
 });
 
 describe('discoveryScore — orphan', () => {
@@ -68,6 +74,21 @@ describe('discoveryScore — orphan', () => {
     );
     // generic cluster, fallback p50 = 100, so multiplier = 100/400 = 0.25
     expect(out.rawScore).toBeGreaterThan(0);
+  });
+
+  it('uses the cluster fallback for null, blank, and boolean p50 values', () => {
+    for (const p50 of [null, '', true, false]) {
+      const out = discoveryScore(
+        {
+          headline: 'Tassazione frontalieri ticino',
+          source: 'orphan',
+          meta: { imp: 900 },
+        },
+        { windowDays: 90, clusterStats: { fiscale: { p50 }, generic: { p50: 80 } } },
+      );
+      // 900/90 × (CLUSTER_FALLBACK_P50=100)/400 = 2.5.
+      expect(out.rawScore).toBeCloseTo(2.5, 5);
+    }
   });
 });
 

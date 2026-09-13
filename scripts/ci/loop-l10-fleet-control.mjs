@@ -17,6 +17,8 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
+  loadLoopPolicyForRun,
+  validateActionClassAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -388,7 +390,7 @@ export function validateFleetControl({ registry, quota, health = null }, {
   const candidates = [];
   if (healthVerdict.quality === 'unmeasurable') {
     candidates.push({
-      autonomy: 'A1',
+      actionClass: 'route',
       action: 'route every loop producer to append a health row with runId, status, verified decision, artifacts, retries and quota usage',
       reversible: true,
       externalMutation: false,
@@ -397,7 +399,7 @@ export function validateFleetControl({ registry, quota, health = null }, {
   }
   if (registryVerdict.quality !== 'observed' || quotaVerdict.quality !== 'observed' || healthVerdict.quality === 'partial') {
     candidates.push({
-      autonomy: 'A2',
+      actionClass: 'follow-up',
       action: 'prepare a reviewed PR to repair registry, quota or health schema/cardinality; never bypass a failing gate',
       reversible: true,
       externalMutation: false,
@@ -406,12 +408,22 @@ export function validateFleetControl({ registry, quota, health = null }, {
   }
   if ((healthVerdict.snapshot?.artifactCollisions || 0) > 0 || (healthVerdict.snapshot?.retries || 0) > 0 || healthVerdict.quality !== 'observed') {
     candidates.push({
-      autonomy: 'A4',
+      actionClass: 'lock+retry',
       action: 'apply a runner-local per-artifact lock, bounded queue and capped retry policy before another write; leave gates enforced',
       reversible: true,
       externalMutation: false,
       gateBypass: false,
     });
+  }
+  for (const candidate of candidates) {
+    try {
+      const policy = validateActionClassAgainstPolicy(registry, LOOP_ID, candidate.actionClass);
+      candidate.autonomy = policy.requiredAutonomy;
+      candidate.maxAutonomy = policy.maxAutonomy;
+    } catch (error) {
+      candidate.autonomy = null;
+      candidate.policyError = error.message;
+    }
   }
   const ok = quality === 'observed' && issues.length === 0;
   return baseVerdict({
@@ -470,8 +482,19 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now) {
+function writeActions(reportDir, verdict, now, registry) {
   if (!reportDir || verdict.ok) return null;
+  if (!registry) return null;
+  const actions = verdict.candidates.map((candidate) => {
+    const actionClass = candidate.actionClass || 'follow-up';
+    const policy = validateActionClassAgainstPolicy(registry, LOOP_ID, actionClass);
+    return {
+      ...candidate,
+      actionClass,
+      autonomy: policy.requiredAutonomy,
+      maxAutonomy: policy.maxAutonomy,
+    };
+  });
   const file = path.join(path.resolve(reportDir), 'l10-safe-actions.json');
   fs.writeFileSync(file, `${JSON.stringify({
     loopId: LOOP_ID,
@@ -480,7 +503,7 @@ function writeActions(reportDir, verdict, now) {
     boundedQueues: true,
     gateBypass: false,
     githubWorkflowInventoryReviewDelegatedTo: 'L11 technical-operations-supervisor',
-    actions: verdict.candidates,
+    actions,
     rollback: 'remove only runner-local lock/queue plans and reports; do not bypass gates or mutate published artifacts',
   }, null, 2)}\n`);
   return file;
@@ -533,18 +556,22 @@ export async function runL10({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
-    const registry = readJson(registryPath, 'loop registry');
     const quota = readJsonl(quotaPath, 'quota history');
     const health = readJsonl(healthPath, 'loop health history');
-    verdict = validateFleetControl({ registry, quota, health }, {
+    verdict = validateFleetControl({ registry: loopRegistry, quota, health }, {
       now,
       maxAgeHours,
       registryPath,
       quotaPath,
       healthPath,
-      minimumSample,
+      minimumSample: policyMinimumSample,
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -560,7 +587,7 @@ export async function runL10({
         health: emptyHealthSnapshot(healthPath),
       },
       candidates: [{
-        autonomy: 'A2',
+        actionClass: 'follow-up',
         action: 'prepare a reviewed PR to restore or repair the fleet control inputs; preserve all gates',
         reversible: true,
         externalMutation: false,
@@ -568,6 +595,22 @@ export async function runL10({
       }],
     });
   }
+  const actionClass = verdict.ok ? 'observe' : 'route+lock+retry+follow-up';
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+  verdict = {
+    ...verdict,
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        ...(verdict.snapshot?.registry || {}),
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const health = verdict.snapshot?.health || {};
   const candidateStarts = [
@@ -579,42 +622,42 @@ export async function runL10({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: 'Engineering Learning / Fleet Control',
-    owner: 'COO / Fleet Controller',
-    oracle: 'registered loop execution, GitHub gate and quota ledgers',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'A loop decision is operationally useful only when its execution, artifact writes, retries, quota usage and gate status are independently auditable.',
     sourceSnapshot: verdict.snapshot || { registryPath, quotaPath, healthPath },
     observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'non-skipped-loop-executions-with-verifiable-artifacts',
     numerator: measurable ? health.verifiedDecisions : null,
     denominator: measurable ? health.eligibleRuns : null,
-    primaryMetric: 'verified_decision_throughput',
-    guardrails: ['one writer per artifact', 'bounded queues', 'never bypass a gate', 'missing health is not success'],
-    minimumSample,
-    actionClass: verdict.ok ? 'observe' : 'route+lock+retry+follow-up',
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
+    actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: 'Engineering Learning / Fleet Control',
-    owner: 'COO / Fleet Controller',
-    oracle: 'registered loop execution, GitHub gate and quota ledgers',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.ok ? 'observe' : 'route+lock+retry+follow-up',
+    actionClass,
     rollbackPlan: 'remove runner-local queue/lock plans and reports; never bypass a gate or rewrite a published artifact',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + 24 * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }

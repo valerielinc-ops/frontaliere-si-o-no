@@ -6316,6 +6316,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.banda-larga-regioni-periferiche-berna.title': 'Breitband in Randregionen: 365 Millionen aus Bern',
     'blog.article.banda-larga-regioni-periferiche-berna.excerpt': 'Die Tessiner Kantonsinitiative wird zu einem bundesweiten Vorschlag für ein Ultrabreitbandgesetz.',
     'blog.article.banda-larga-regioni-periferiche-berna.imageAlt': 'Bundeshaus in Bern, wo Gesetzesvorschläge zur Breitbandversorgung diskutiert werden',
+    'blog.article.condanne-banche-svizzera-corruzione.title': 'Verurteilungen von Banken in der Schweiz wegen Bestechung',
+    'blog.article.condanne-banche-svizzera-corruzione.excerpt': 'Sechs Schweizer Banken wurden kürzlich von der Bundesjustiz wegen Korruption oder Geldwäsche verurteilt. Lassen Sie uns den Trend mit den Experten besprechen.',
+    'blog.article.condanne-banche-svizzera-corruzione.imageAlt': 'Schweizer Bankgebäude in der Schweiz',
+    'blog.article.traffico-merci-alpi-semestre-2026.title': 'Transalpiner Güterverkehr: Daten und Wachstum im Jahr 2026',
+    'blog.article.traffico-merci-alpi-semestre-2026.excerpt': 'Wachstum des alpenquerenden Güterverkehrs um 3,1% im ersten Halbjahr 2026. Der Anteil der Bahn liegt bei 68%, während die Lkw wachsen.',
+    'blog.article.traffico-merci-alpi-semestre-2026.imageAlt': 'Schienen- und Strassenhueftverkehr ueber die Schweizer Alpen',
+    'blog.article.mercato-lavoro-seco-luglio-2026.title': 'SECO Arbeitsmarkt: 3% Arbeitslosigkeit im Juli 2026',
+    'blog.article.mercato-lavoro-seco-luglio-2026.excerpt': 'Die SECO-Daten für Juli 2026 wurden veröffentlicht: Arbeitslosenquote von 3%, Zunahme der Arbeitslosen um 7,8% gegenüber dem Vorjahr und 45\'156 registrierte offene Stellen.',
+    'blog.article.mercato-lavoro-seco-luglio-2026.imageAlt': 'SECO Arbeitsmarktstatistik in der Schweiz im Juli 2026',
+    'blog.article.esercito-polizia-berna-droni.title': 'Armee und Polizei trainieren Infrastrukturschutz',
+    'blog.article.esercito-polizia-berna-droni.excerpt': 'Im Kanton Bern läuft eine viertägige gemeinsame Übung zur Verteidigung kritischer Infrastrukturen gegen Drohnen.',
+    'blog.article.esercito-polizia-berna-droni.imageAlt': 'Gemeinsame Polizei- und Militärübung gegen Drohnen in Bern',
+    'blog.article.difesa-droni-infrastrutture-berna.title': 'Drohnenabwehr in der Schweiz: Die Übung in Bern startet',
+    'blog.article.difesa-droni-infrastrutture-berna.excerpt': 'Start einer viertägigen gemeinsamen Übung im Kanton Bern zum Schutz kritischer Infrastrukturen und Energieanlagen vor unbemannten Flugzeugen.',
+    'blog.article.difesa-droni-infrastrutture-berna.imageAlt': 'Sendeturm auf dem Bantiger im Kanton Bern während einer Sicherheitsübung',
 };
 
 export default blogMetaChDe;

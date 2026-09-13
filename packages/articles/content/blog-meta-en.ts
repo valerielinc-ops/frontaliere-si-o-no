@@ -11695,6 +11695,21 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.serbatoio-bella-cima-stabio.title': 'New tank in Stabio: water for the Mendrisiotto',
     'blog.article.serbatoio-bella-cima-stabio.excerpt': 'The new 4 million franc water system for security of supply in Mendrisiotto was inaugurated in Bella Cima.',
     'blog.article.serbatoio-bella-cima-stabio.imageAlt': 'The new Bella Cima water reservoir in Stabio',
+    'blog.article.formazione-lavoro-ticino.title': 'Training and work in Ticino: the challenges of integration',
+    'blog.article.formazione-lavoro-ticino.excerpt': 'Cotti and Capoferri question the government on the challenges of professional integration after school, also considering the variable of artificial intelligence.',
+    'blog.article.formazione-lavoro-ticino.imageAlt': 'Education and work in Ticino',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.title': 'Living in Pognana Lario and working in Ticino',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.excerpt': 'Practical guide for border workers at Pognana Lario: journeys to Chiasso, taxes, tax agreement and budget management.',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.imageAlt': 'View of the lake near Pognana Lario towards the Swiss border',
+    'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.title': 'Speedaf in Switzerland: 50,000 packages per day',
+    'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.excerpt': 'Speedaf, a Swiss subsidiary founded in April, aims to handle up to 50,000 shipments per day with centres in Zurich, Bern and Lausanne and headquarters in Freiburg.',
+    'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.imageAlt': 'Editorial image related to: Speedaf in Svizzera: 50’000 pacchi al giorno',
+    'blog.article.teleriscaldamento-varese-porte-aperte.title': 'Varese district heating: doors open to the power plant',
+    'blog.article.teleriscaldamento-varese-porte-aperte.excerpt': 'Open day at the Varese district heating plant on Saturday 19 September. Required reservations on Eventbrite.',
+    'blog.article.teleriscaldamento-varese-porte-aperte.imageAlt': 'District heating plant in Varese',
+    'blog.article.inaugurazione-campus-smartt-valley.title': 'Daverio: the new smartt VAlley campus has been inaugurated',
+    'blog.article.inaugurazione-campus-smartt-valley.excerpt': 'The 5000 sqm campus dedicated to training and innovation is open at Daverio. Investment of 4.5 million euros to bridge the gap between school and factory.',
+    'blog.article.inaugurazione-campus-smartt-valley.imageAlt': 'SMARTT VAlley campus in Daverio',
 };
 
 export default blogMetaEn;

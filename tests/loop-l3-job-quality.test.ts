@@ -96,7 +96,7 @@ describe('L3 Job Quality → Apply', () => {
   it('quarantines a missing apply URL as a candidate', () => {
     const verdict = validateJobSummaries([summary({ newJobs: [job({ applyUrl: undefined })] })], { outcomes: outcomes(), now: NOW });
     expect(verdict.quality).toBe('partial');
-    expect(verdict.candidates[0]).toMatchObject({ autonomy: 'A2', reversible: true });
+    expect(verdict.candidates[0]).toMatchObject({ actionClass: 'quarantine+pr', reversible: true });
     expect(verdict.candidates[0].issueCodes.join(' ')).toContain('applyUrl');
   });
 

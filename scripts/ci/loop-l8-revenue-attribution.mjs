@@ -17,6 +17,8 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
+  loadLoopPolicyForRun,
+  validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 import {
   parseAffiliateExport,
@@ -26,6 +28,7 @@ import {
 export const LOOP_ID = 'L8';
 export const DEFAULT_HISTORY_PATH = path.join('data', 'revenue-monitor-history.jsonl');
 export const DEFAULT_AFFILIATE_EXPORT_PATH = path.join('data', 'revenue-authorized-export.json');
+export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 240;
 export const MINIMUM_SAMPLE = 100;
 
@@ -338,7 +341,7 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
   const candidates = [];
   if (affiliateVerdict.quality === 'unmeasurable') {
     candidates.push({
-      autonomy: 'A1',
+      actionClass: 'recommend',
       action: 'request or attach a fresh authorised affiliate/commercial export with exposure denominators',
       reversible: true,
       externalMutation: false,
@@ -347,7 +350,7 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
   }
   if (affiliateVerdict.snapshot?.invalidRows > 0 || historyVerdict.quality === 'partial') {
     candidates.push({
-      autonomy: 'A2',
+      actionClass: 'recommend',
       action: 'open a reviewed PR to repair the producer/schema or its cardinality checks; do not rewrite the export in place',
       reversible: true,
       externalMutation: false,
@@ -356,7 +359,7 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
   }
   if (affiliateVerdict.snapshot?.approvedNetChf !== null) {
     candidates.push({
-      autonomy: 'A1',
+      actionClass: 'reconcile',
       action: 'reconcile approved, pending and reversed states before proposing a placement or partner change',
       reversible: true,
       externalMutation: false,
@@ -433,20 +436,26 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now) {
-  if (!reportDir || verdict.ok) return null;
+function writeActions(reportDir, verdict, now, loopRegistry) {
+  if (!reportDir || verdict.ok || !loopRegistry) return null;
   const file = path.join(path.resolve(reportDir), 'l8-safe-actions.json');
-  const actions = [
+  const reconcilePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'reconcile');
+  const actions = verdict.candidates.map((candidate) => {
+    const actionClass = candidate.actionClass || 'recommend';
+    const policy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+    return { ...candidate, actionClass, autonomy: policy.requiredAutonomy };
+  });
+  actions.unshift(
     {
-      autonomy: 'A2',
+      actionClass: reconcilePolicy.actionClass,
+      autonomy: reconcilePolicy.requiredAutonomy,
       action: 'prepare a runner-local quarantine report for invalid commercial rows and preserve the published monitor snapshot',
       reversible: true,
       externalMutation: false,
       autoAdsUntouched: true,
       publishedDataUntouched: true,
     },
-    ...verdict.candidates,
-  ];
+  );
   fs.writeFileSync(file, `${JSON.stringify({
     loopId: LOOP_ID,
     generatedAt: now.toISOString(),
@@ -493,6 +502,7 @@ export async function runL8({
   now = new Date(),
   historyPath = DEFAULT_HISTORY_PATH,
   affiliatePath = DEFAULT_AFFILIATE_EXPORT_PATH,
+  registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample = MINIMUM_SAMPLE,
   issue = false,
@@ -501,6 +511,11 @@ export async function runL8({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
     const history = readJsonl(historyPath, 'revenue history');
@@ -510,7 +525,7 @@ export async function runL8({
       maxAgeHours,
       historyPath,
       affiliatePath,
-      minimumSample,
+      minimumSample: policyMinimumSample,
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -524,7 +539,7 @@ export async function runL8({
         commercial: emptyAffiliateSnapshot(affiliatePath),
       },
       candidates: [{
-        autonomy: 'A1',
+        actionClass: 'recommend',
         action: 'restore the missing or unreadable revenue input in a reviewed change',
         reversible: true,
         externalMutation: false,
@@ -532,6 +547,33 @@ export async function runL8({
       }],
     });
   }
+  const actionClass = 'reconcile+issue';
+  const effectiveActionClass = verdict.ok ? 'observe' : actionClass;
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, effectiveActionClass);
+  for (const candidate of verdict.candidates) {
+    validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidate.actionClass || 'recommend');
+  }
+  verdict = {
+    ...verdict,
+    candidates: verdict.candidates.map((candidate) => {
+      const candidateActionClass = candidate.actionClass || 'recommend';
+      return {
+        ...candidate,
+        actionClass: candidateActionClass,
+        autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass).requiredAutonomy,
+      };
+    }),
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass: effectiveActionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   const commercial = verdict.snapshot?.commercial;
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const candidateStarts = [
@@ -543,9 +585,9 @@ export async function runL8({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: 'Revenue & Attribution Reconciliation',
-    owner: 'CRO / Monetization + CFO',
-    oracle: 'revenue monitor plus independent authorised commercial export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'A surface creates economic value only when approved money and its relevant exposure denominator reconcile independently.',
     sourceSnapshot: verdict.snapshot || { historyPath, affiliatePath },
     observationWindow: {
@@ -556,34 +598,34 @@ export async function runL8({
     cohort: 'relevant-web-or-email-exposures-with-authorised-approved-money-ledger',
     numerator: measurable ? commercial.approvedNetChf ?? 0 : null,
     denominator: measurable ? commercial.exposures?.relevant ?? 0 : null,
-    primaryMetric: 'approved_net_chf_per_1000_relevant_exposures',
-    guardrails: ['approved differs from pending and reversed', 'export must be authorised and fresh', 'Auto Ads stays enabled', 'no partner or price mutation'],
-    minimumSample,
-    actionClass: verdict.ok ? 'observe' : 'reconcile+issue',
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
+    actionClass: effectiveActionClass,
     quality: verdict.quality,
     allowNumeratorExceedDenominator: true,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: 'Revenue & Attribution Reconciliation',
-    owner: 'CRO / Monetization + CFO',
-    oracle: 'revenue monitor plus independent authorised commercial export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.ok ? 'observe' : 'reconcile+issue',
+    actionClass: effectiveActionClass,
     rollbackPlan: 'delete only runner-local reconciliation artifacts; leave Auto Ads, partners, prices, published snapshots and commercial systems unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + 7 * 24 * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }
@@ -621,6 +663,7 @@ function parseArgs(argv) {
     dryRun: argv.includes('--dry-run'),
     historyPath: valueAfter('--history', DEFAULT_HISTORY_PATH),
     affiliatePath: valueAfter('--affiliate', DEFAULT_AFFILIATE_EXPORT_PATH),
+    registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP

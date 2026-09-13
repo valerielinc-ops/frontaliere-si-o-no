@@ -9,10 +9,13 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
+  loadLoopPolicyForRun,
+  validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L2';
 export const DEFAULT_SOURCE_PATH = path.join('data', 'gsc-orphan-queries-clusters.json');
+export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 168;
 export const MINIMUM_SAMPLE = 1000;
 export const MAX_CANDIDATES = 25;
@@ -272,6 +275,7 @@ function issueBody(verdict, decision) {
 export async function runL2({
   now = new Date(),
   sourcePath = DEFAULT_SOURCE_PATH,
+  registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample = MINIMUM_SAMPLE,
   issue = false,
@@ -280,14 +284,42 @@ export async function runL2({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
     if (!fs.existsSync(path.resolve(sourcePath))) throw new Error(`GSC snapshot is missing: ${sourcePath}`);
     const payload = JSON.parse(fs.readFileSync(path.resolve(sourcePath), 'utf8'));
-    verdict = validateDemandSnapshot(payload, { now, maxAgeHours, sourcePath, minimumSample });
+    verdict = validateDemandSnapshot(payload, { now, maxAgeHours, sourcePath, minimumSample: policyMinimumSample });
   } catch (error) {
     verdict = baseVerdict({ sourcePath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
+  const actionClass = verdict.candidates.length ? 'candidate+issue' : 'issue';
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+  const candidatePolicy = verdict.candidates.length
+    ? validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate')
+    : null;
+  verdict = {
+    ...verdict,
+    candidates: verdict.candidates.map((candidate) => ({
+      ...candidate,
+      actionClass: 'candidate',
+      autonomy: candidatePolicy?.requiredAutonomy || null,
+    })),
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   // `zero` is a quality state, not proof of a zero outcome. Keep the metric
   // non-measurable until the explicit outcome join and sample gate are valid;
   // an empty cluster list must never manufacture a 0/0 observation.
@@ -298,9 +330,9 @@ export async function runL2({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: 'Demand to Utility',
-    owner: 'Chief Growth / SEO',
-    oracle: 'GSC snapshot plus landing-path evidence',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'Existing demand becomes useful only when a reviewed, sourced next action is measured on the same eligible landing cohort.',
     sourceSnapshot: verdict.snapshot || { source: 'gsc-orphan-query-clusters', path: sourcePath },
     observationWindow: {
@@ -311,38 +343,40 @@ export async function runL2({
     cohort: 'eligible-landing-sessions-with-next-useful-action',
     numerator: measurable ? verdict.snapshot.outcomes?.usefulActions ?? 0 : null,
     denominator: measurable ? verdict.snapshot.outcomes?.eligibleLandingSessions ?? 0 : null,
-    primaryMetric: 'useful_action_per_1000_eligible_landing_sessions',
-    guardrails: ['no thin pages', 'no keyword stuffing', 'source required'],
-    minimumSample,
-    actionClass: verdict.candidates.length ? 'candidate+issue' : 'issue',
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
+    actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: 'Demand to Utility',
-    owner: 'Chief Growth / SEO',
-    oracle: 'GSC snapshot plus landing-path evidence',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.candidates.length ? 'candidate+issue' : 'issue',
+    actionClass,
     rollbackPlan: 'discard runner-local candidate and leave the published landing graph unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + 7 * 24 * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);
   let issued = false;
   let candidatesWritten = false;
-  if (apply && reportDir && verdict.candidates.length) {
+  if (apply && reportDir && verdict.candidates.length && candidatePolicy) {
     fs.writeFileSync(path.join(path.resolve(reportDir), 'l2-candidates.json'), `${JSON.stringify({
       loopId: LOOP_ID,
       generatedAt: now.toISOString(),
       reversible: true,
       candidates: verdict.candidates,
+      actionClass: 'candidate',
+      autonomy: candidatePolicy.requiredAutonomy,
     }, null, 2)}\n`);
     candidatesWritten = true;
   }
@@ -384,6 +418,7 @@ function parseArgs(argv) {
     strict: argv.includes('--strict'),
     dryRun: argv.includes('--dry-run'),
     sourcePath: valueAfter('--source', DEFAULT_SOURCE_PATH),
+    registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP

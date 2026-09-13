@@ -870,6 +870,36 @@ describe('Coop-family source-detail contract (#5253)', () => {
     };
   }
 
+  it('includes word and text counts when validation emits warnings (#7884)', () => {
+    const [companyKey, url, locality, region] = cases[0];
+    const listing = {
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    };
+    const detail = { ...jsonLd(listing.title, locality, region), description: '<p>Kurze Anzeige.</p>' };
+
+    expect(() => applyCoopSourceDetailToJob(listing, detail)).toThrow(
+      /2 words, \d+ chars\): Description too short/,
+    );
+  });
+
+  it('includes word and text counts when only the 50-word floor rejects (#7884)', () => {
+    const [companyKey, url, locality, region] = cases[0];
+    const listing = {
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    };
+    const longTokens = Array.from({ length: 46 }, (_, index) => `Verantwortung${index + 1}`).join(' ');
+    const detail = {
+      ...jsonLd(listing.title, locality, region),
+      description: `<h2>Aufgaben</h2><ul><li>${longTokens}</li></ul>`,
+    };
+
+    expect(() => applyCoopSourceDetailToJob(listing, detail)).toThrow(
+      /49 words, \d+ chars\): Description below minimum 50 words/,
+    );
+  });
+
   it.each(cases)('%s replaces listing fallbacks without changing identity or route history', (companyKey, url, locality, region, canton) => {
     const listing = {
       id: `${companyKey}-stable`, url, companyKey, title: 'Verkäuferin Verkäufer',
@@ -947,6 +977,29 @@ describe('Coop-family source-detail contract (#5253)', () => {
       .rejects.toThrow(/2\/4 pages gone .*, 2\/4 rejected/);
   });
 
+  it('uses an explicit drop denominator while keeping the input-length default (#7887)', async () => {
+    const jobs = cases.map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    const fetchImpl = async (input: URL) => {
+      if (String(input).includes('11111111') || String(input).includes('22222222')) {
+        return new Response(null, { status: 410 });
+      }
+      return new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`, { status: 200 });
+    };
+
+    await expect(enrichCoopSourceBackedJobs(jobs, {
+      fetchImpl,
+      concurrency: 2,
+      dropBudgetDenominator: 2,
+    })).rejects.toThrow(/2\/4 pages gone/);
+
+    const defaultEnriched = await enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2 });
+    expect(defaultEnriched).toHaveLength(2);
+    expect(defaultEnriched.detailDrop).toEqual({ candidates: 4, gone: 2, rejected: 0, dropped: 2 });
+  });
+
   it('drops a withdrawn vacancy (HTTP 410) instead of failing the whole crawl (#6659)', async () => {
     const jobs = cases.map(([companyKey, url]) => ({
       id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
@@ -975,6 +1028,30 @@ describe('Coop-family source-detail contract (#5253)', () => {
     const gone: string[] = [];
     await enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2, onGone: (urls) => gone.push(...urls) });
     expect(gone).toEqual([jobs.find((job) => job.url.includes('22222222'))!.url]);
+  });
+
+  it('reports collected drops before rethrowing an untagged worker error (#7886)', async () => {
+    const jobs = cases.slice(0, 2).map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    jobs[1].url = 'https://untrusted.example/jobs/untrusted';
+    const gone: string[] = [];
+    const rejected: string[] = [];
+    let observed: unknown = null;
+    const fetchImpl = async () => new Response(null, { status: 410 });
+
+    await expect(enrichCoopSourceBackedJobs(jobs, {
+      fetchImpl,
+      concurrency: 2,
+      onDropSummary: (drop) => { observed = drop; },
+      onGone: (urls) => gone.push(...urls),
+      onRejected: (urls) => rejected.push(...urls),
+    })).rejects.toThrow(/Untrusted Coop-family detail host/);
+
+    expect(observed).toEqual({ candidates: 2, gone: 1, rejected: 0, dropped: 1 });
+    expect(gone).toEqual([jobs[0].url]);
+    expect(rejected).toEqual([]);
   });
 
   it('publishes one finite drop observation for both gone and rejected details (#7885)', async () => {
@@ -1046,8 +1123,21 @@ describe('Coop-family source-detail contract (#5253)', () => {
       ? new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`, { status: 200 })
       : new Response(null, { status: 404 });
 
-    await expect(enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2 }))
+    let observed: unknown = null;
+    const gone: string[] = [];
+    const rejected: string[] = [];
+
+    await expect(enrichCoopSourceBackedJobs(jobs, {
+      fetchImpl,
+      concurrency: 2,
+      onDropSummary: (drop) => { observed = drop; },
+      onGone: (urls) => gone.push(...urls),
+      onRejected: (urls) => rejected.push(...urls),
+    }))
       .rejects.toThrow(/3\/4 pages gone/);
+    expect(observed).toEqual({ candidates: 4, gone: 3, rejected: 0, dropped: 3 });
+    expect(gone).toEqual([]);
+    expect(rejected).toEqual([]);
     expect(jobs.every((job) => job.description === 'listing fallback')).toBe(true);
   });
 

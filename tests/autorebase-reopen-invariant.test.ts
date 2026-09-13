@@ -30,7 +30,7 @@ describe('pr-autorebase: la PR non resta chiusa in silenzio', () => {
     expect(script).toMatch(
       /REOPEN_ATTEMPTS\s*=\s*(?:Math\.max\(\s*4\s*,\s*)?(?:Number\(\s*process\.env\.AUTOREBASE_REOPEN_ATTEMPTS\s*\|\|\s*(?:[4-9]|\d{2,})\s*\)|intFromEnv\(\s*['"]AUTOREBASE_REOPEN_ATTEMPTS['"]\s*,\s*(?:[4-9]|\d{2,})\s*[,)])/,
     );
-    expect(script).toMatch(/REOPEN_COST_MS[\s\S]{0,120}intFromEnv\(\s*['"]AUTOREBASE_REOPEN_COST_MS['"]/);
+    expect(script).toMatch(/REOPEN_COST_MS[\s\S]{0,120}positiveIntFromEnv\(\s*['"]AUTOREBASE_REOPEN_COST_MS['"]/);
     const fn = script.slice(script.indexOf('function reopenToRetrigger'), script.indexOf('function reopenToRetrigger') + 2600);
     expect(fn).toContain('REOPEN_RETRY_SLEEP_S');
     expect(fn).toContain('REOPEN_ATTEMPTS');
@@ -52,7 +52,7 @@ describe('pr-autorebase: la PR non resta chiusa in silenzio', () => {
   it('riserva un budget DERIVATO dai tentativi, non un numero fisso', () => {
     // Un costo fisso diventa silenziosamente insufficiente appena si alzano i
     // tentativi — ed è così che il job muore a metà sezione critica.
-    const m = /const REOPEN_COST_MS = (?:Number|intFromEnv)\(([\s\S]{0,400}?)\);/.exec(script);
+    const m = /const REOPEN_COST_MS = (?:Number|intFromEnv|positiveIntFromEnv)\(([\s\S]{0,400}?)\);/.exec(script);
     expect(m).not.toBeNull();
     expect(m![1]).toContain('REOPEN_ATTEMPTS');
     expect(m![1]).toContain('REOPEN_RETRY_SLEEP_S');

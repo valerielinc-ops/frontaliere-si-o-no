@@ -96,7 +96,7 @@ import {
   decideNeedsHumanPass,
   renderReopenBudget,
 } from './lib/reopen-breaker.mjs';
-import { intFromEnv } from '../lib/int-from-env.mjs';
+import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -121,7 +121,7 @@ const REOPEN_RETRY_SLEEP_S = intFromEnv('AUTOREBASE_REOPEN_RETRY_SLEEP_S', 5);
  * job muore fra `close` e `reopen` lasciando la PR chiusa.
  * close + N chiamate reopen (≈3s l'una, generoso su un'API degradata) + le pause.
  */
-const REOPEN_COST_MS = intFromEnv('AUTOREBASE_REOPEN_COST_MS', 3_000 + REOPEN_ATTEMPTS * 3_000 + (REOPEN_ATTEMPTS - 1) * REOPEN_RETRY_SLEEP_S * 1_000);
+const REOPEN_COST_MS = positiveIntFromEnv('AUTOREBASE_REOPEN_COST_MS', 3_000 + REOPEN_ATTEMPTS * 3_000 + (REOPEN_ATTEMPTS - 1) * REOPEN_RETRY_SLEEP_S * 1_000);
 /**
  * Etichetta che dice al worktree-branch-janitor di NON cancellare l'head ref di
  * questa PR. Si applica solo quando la coppia close+reopen si è rotta a metà:

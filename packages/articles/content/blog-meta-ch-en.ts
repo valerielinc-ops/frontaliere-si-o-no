@@ -6316,6 +6316,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.banda-larga-regioni-periferiche-berna.title': 'Broadband in peripheral regions: 365 million from Bern',
     'blog.article.banda-larga-regioni-periferiche-berna.excerpt': 'The Ticino cantonal initiative becomes a federal bill for ultra-broadband throughout the national territory.',
     'blog.article.banda-larga-regioni-periferiche-berna.imageAlt': 'Federal Palace in Bern where broadband legislation proposals are discussed',
+    'blog.article.condanne-banche-svizzera-corruzione.title': 'Convictions against banks in Switzerland for corruption',
+    'blog.article.condanne-banche-svizzera-corruzione.excerpt': 'Six Swiss banks recently convicted by the federal justice for corruption or money laundering cases. Let\'s discuss the trend with the experts.',
+    'blog.article.condanne-banche-svizzera-corruzione.imageAlt': 'Swiss bank buildings in Switzerland',
+    'blog.article.traffico-merci-alpi-semestre-2026.title': 'Transalpine freight traffic: data and growth in 2026',
+    'blog.article.traffico-merci-alpi-semestre-2026.excerpt': 'Growth in transalpine freight traffic of 3.1% in the first half of 2026. The share of the railroad stands at 68%, while trucks are growing.',
+    'blog.article.traffico-merci-alpi-semestre-2026.imageAlt': 'Rail and road freight traffic across the Swiss Alps',
+    'blog.article.mercato-lavoro-seco-luglio-2026.title': 'Dry labour market: 3% unemployment in July 2026',
+    'blog.article.mercato-lavoro-seco-luglio-2026.excerpt': 'SECO data for July 2026 published: unemployment rate at 3%, unemployed increasing by 7.8% on an annual basis and 45,156 registered vacancies.',
+    'blog.article.mercato-lavoro-seco-luglio-2026.imageAlt': 'SECO labour market statistics in Switzerland in July 2026',
+    'blog.article.esercito-polizia-berna-droni.title': 'Army and police train infrastructure protection',
+    'blog.article.esercito-polizia-berna-droni.excerpt': 'A four-day joint exercise focused on defending critical infrastructure against drones is underway in the Canton of Bern.',
+    'blog.article.esercito-polizia-berna-droni.imageAlt': 'Joint police and military exercise against drones in Bern',
+    'blog.article.difesa-droni-infrastrutture-berna.title': 'Drone defense in Switzerland: the exercise in Bern kicks off',
+    'blog.article.difesa-droni-infrastrutture-berna.excerpt': 'A four-day joint exercise starts in the Canton of Bern dedicated to the protection of critical infrastructure and power plants from unmanned aircraft.',
+    'blog.article.difesa-droni-infrastrutture-berna.imageAlt': 'Transmission tower on the Bantiger in Canton Bern during a security exercise',
 };
 
 export default blogMetaChEn;

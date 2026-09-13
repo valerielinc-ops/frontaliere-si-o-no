@@ -2131,6 +2131,11 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-vaud-riduzione': { it: 'premi-cassa-malati-vaud-riduzione', en: 'vaud-health-insurance-premiums-reduction', de: 'waadt-krankenkassen-praemien-ermaessigung', fr: 'primes-assurance-maladie-vaud-reduction' },
  'assegni-familiari-giura-domanda': { it: 'assegni-familiari-giura-domanda', en: 'family-allowances-jura-application', de: 'familienzulagen-jura-antrag', fr: 'allocations-familiales-jura-demande' },
  'banda-larga-regioni-periferiche-berna': { it: 'banda-larga-regioni-periferiche-berna', en: 'broadband-periphery-regions-bern', de: 'breitband-periphere-regionen-bern', fr: 'haut-debit-regions-peripheriques-berne' },
+ 'condanne-banche-svizzera-corruzione': { it: 'condanne-banche-svizzera-corruzione', en: 'banks-convictions-switzerland-corruption', de: 'banken-verurteilungen-schweiz-korruption', fr: 'condamnations-banques-suisse-corruption' },
+ 'traffico-merci-alpi-semestre-2026': { it: 'traffico-merci-alpi-semestre-2026', en: 'freight-traffic-alps-semester-2026', de: 'gueterverkehr-alpen-halbjahr-2026', fr: 'trafic-marchandises-alpes-semestre-2026' },
+ 'mercato-lavoro-seco-luglio-2026': { it: 'mercato-lavoro-seco-luglio-2026', en: 'seco-labour-market-july-2026', de: 'seco-arbeitsmarkt-juli-2026', fr: 'marche-travail-seco-juillet-2026' },
+ 'esercito-polizia-berna-droni': { it: 'esercito-polizia-berna-droni', en: 'army-police-bern-drones', de: 'armee-polizei-bern-drohnen', fr: 'armee-police-berne-drones' },
+ 'difesa-droni-infrastrutture-berna': { it: 'difesa-droni-infrastrutture-berna', en: 'drone-defense-infrastructure-bern', de: 'drohnenabwehr-infrastruktur-bern', fr: 'defense-drones-infrastructure-berne' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

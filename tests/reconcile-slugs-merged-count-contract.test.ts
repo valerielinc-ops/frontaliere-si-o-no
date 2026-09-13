@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { reconcileOrphanSlugs, reconcileExpiredSlugs } from '../scripts/reconcile-job-slugs.mjs';
+import {
+  findMatchingSliceJob,
+  reconcileOrphanSlugs,
+  reconcileExpiredSlugs,
+} from '../scripts/reconcile-job-slugs.mjs';
 
 const root = path.resolve(__dirname, '..');
 
@@ -27,6 +31,58 @@ describe('reconcile slug functions — mergedCount return contract', () => {
     const res = reconcileExpiredSlugs([], [], { dryRun: true });
     expect(typeof res.mergedCount).toBe('number');
     expect('merged' in res).toBe(false);
+  });
+});
+
+describe('reconcile slug writer — stable ownership before slug fallback (#7920)', () => {
+  it('keeps the same target when sibling order changes and current slugs collide', () => {
+    const first = {
+      url: 'https://example.invalid/jobs/first-position',
+      slug: 'shared-current-slug',
+    };
+    const second = {
+      url: 'https://example.invalid/jobs/second-position',
+      slug: 'shared-current-slug',
+    };
+    const updated = {
+      id: 'assembled-second-id',
+      url: second.url,
+      slug: second.slug,
+    };
+
+    expect(findMatchingSliceJob([first, second], updated)).toBe(second);
+    expect(findMatchingSliceJob([second, first], updated)).toBe(second);
+  });
+
+  it('fails closed when only a colliding legacy slug identifies multiple siblings', () => {
+    const siblings = [
+      { slug: 'shared-current-slug' },
+      { slug: 'shared-current-slug' },
+    ];
+
+    expect(findMatchingSliceJob(siblings, { slug: 'shared-current-slug' })).toBeNull();
+    expect(findMatchingSliceJob(siblings, {})).toBeNull();
+  });
+
+  it('fails closed when a stable update identity meets an identity-less legacy candidate', () => {
+    const legacyCandidate = { slug: 'legacy-only-slug' };
+
+    expect(findMatchingSliceJob([legacyCandidate], {
+      id: 'assembled-stable-id',
+      slug: legacyCandidate.slug,
+    })).toBeNull();
+    expect(findMatchingSliceJob([legacyCandidate], {
+      url: 'https://example.invalid/jobs/assembled-stable-url',
+      slug: legacyCandidate.slug,
+    })).toBeNull();
+  });
+
+  it('allows a unique legacy slug only when both sides lack stable identity', () => {
+    const legacyCandidate = { slug: 'legacy-only-slug' };
+
+    expect(findMatchingSliceJob([legacyCandidate], {
+      slug: legacyCandidate.slug,
+    })).toBe(legacyCandidate);
   });
 });
 

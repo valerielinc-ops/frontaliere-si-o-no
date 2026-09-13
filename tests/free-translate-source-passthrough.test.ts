@@ -363,10 +363,10 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
 
   it('conta il passthrough anche sul ramo a CHUNK, che e\' quello dei body lunghi', async () => {
     // MyMemory passa al ramo a chunk sopra i 5000 caratteri. E' il ramo dei
-    // body — cioe' esattamente dei 27 passthrough misurati sul corpus — e la
-    // copia locale del confronto che stava li' li consumava prima di `tryTier`:
-    // il bucket non li avrebbe visti mai, e la riga `Tier passthrough` sarebbe
-    // stata cieca sul caso per cui e' stata scritta.
+    // body — cioe' esattamente dei 27 passthrough misurati sul corpus. Ogni
+    // echo deve comparire nel bucket canonico e nella dimensione chunk: il
+    // primo è il contratto di #1210, il secondo sostiene la calibrazione di
+    // FU-026 senza perdere la granularità.
     //
     // Sorgente su UNA riga di proposito: il ramo a chunk riassembla con
     // `parts.join(' ')`, quindi su un testo a piu' paragrafi l'uscita non e'
@@ -383,7 +383,7 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     const after = statsSnapshot();
 
     expect(out).toBe('');
-    expect(after.passthroughs - before.passthroughs).toBe(0);
+    expect(after.passthroughs - before.passthroughs).toBeGreaterThan(0);
     expect(after.chunks - before.chunks).toBeGreaterThan(0);
     expect(after.hits - before.hits).toBe(0);
   });
@@ -404,7 +404,7 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
 
     expect(calls).toBeGreaterThan(1);
     expect(out).toBe('');
-    expect(after.passthroughs - before.passthroughs).toBe(0);
+    expect(after.passthroughs - before.passthroughs).toBeGreaterThan(0);
     expect(after.chunks - before.chunks).toBeGreaterThan(0);
     expect(after.hits - before.hits).toBe(0);
   });

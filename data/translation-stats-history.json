@@ -1,161 +1,5 @@
 [
   {
-    "timestamp": "2026-08-22T13:46:56.069Z",
-    "label": "before",
-    "total": 27416,
-    "needsRetranslation": 11219,
-    "suppressed": 50,
-    "incomplete": 11812,
-    "complete": 15604,
-    "slotsPresent": 15604,
-    "flaggedAmongSlotsPresent": 586,
-    "verifiedTranslated": 15018,
-    "sourceCopyExcused": 587,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 62,
-      "en": 41,
-      "de": 70,
-      "fr": 63
-    },
-    "queueAge": {
-      "count": 11219,
-      "withTimestamp": 11219,
-      "oldestAgeDays": 131.2,
-      "p50AgeDays": 21.6,
-      "p90AgeDays": 73.2,
-      "buckets": {
-        "0-7d": 2031,
-        "7-30d": 4947,
-        "30-90d": 3606,
-        "90-180d": 635,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1981
-      },
-      {
-        "company": "Roche",
-        "pending": 552
-      },
-      {
-        "company": "Klubschule Migros",
-        "pending": 474
-      },
-      {
-        "company": "VOLG",
-        "pending": 285
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 265
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 254
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 247
-      },
-      {
-        "company": "BKW",
-        "pending": 227
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 213
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 193
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-08-22T16:02:37.024Z",
-    "label": "after",
-    "total": 27416,
-    "needsRetranslation": 10624,
-    "suppressed": 51,
-    "incomplete": 11795,
-    "complete": 15621,
-    "slotsPresent": 15621,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 15621,
-    "sourceCopyExcused": 587,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 62,
-      "en": 41,
-      "de": 69,
-      "fr": 63
-    },
-    "queueAge": {
-      "count": 10624,
-      "withTimestamp": 10624,
-      "oldestAgeDays": 131.3,
-      "p50AgeDays": 21.6,
-      "p90AgeDays": 73.1,
-      "buckets": {
-        "0-7d": 1956,
-        "7-30d": 4805,
-        "30-90d": 3362,
-        "90-180d": 501,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1980
-      },
-      {
-        "company": "Roche",
-        "pending": 552
-      },
-      {
-        "company": "Klubschule Migros",
-        "pending": 472
-      },
-      {
-        "company": "VOLG",
-        "pending": 285
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 265
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 254
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 247
-      },
-      {
-        "company": "BKW",
-        "pending": 227
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 213
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 193
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-22T18:47:14.116Z",
     "label": "before",
     "total": 27484,
@@ -17040,6 +16884,190 @@
       {
         "company": "Interdiscount",
         "pending": 145
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 131
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 72
+      },
+      {
+        "company": "JUMBO",
+        "pending": 65
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-13T00:06:08.690Z",
+    "label": "before",
+    "total": 32746,
+    "needsRetranslation": 5490,
+    "suppressed": 142,
+    "incomplete": 5932,
+    "complete": 26814,
+    "slotsPresent": 26814,
+    "flaggedAmongSlotsPresent": 18,
+    "verifiedTranslated": 26796,
+    "sourceCopyExcused": 464,
+    "slotsPresentByLength": 32619,
+    "languageVerified": 27707,
+    "missingByLocale": {
+      "it": 66,
+      "en": 56,
+      "de": 71,
+      "fr": 76
+    },
+    "queueAge": {
+      "count": 5490,
+      "withTimestamp": 5490,
+      "oldestAgeDays": 152.6,
+      "p50AgeDays": 15.8,
+      "p90AgeDays": 72.6,
+      "buckets": {
+        "0-1d": 12,
+        "1-2d": 99,
+        "2-7d": 1705,
+        "0-7d": 1816,
+        "7-30d": 1869,
+        "30-90d": 1408,
+        "90-180d": 397,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "topPending": [
+      {
+        "company": "STA Personal AG",
+        "pending": 1251
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 496
+      },
+      {
+        "company": "Roche",
+        "pending": 467
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 245
+      },
+      {
+        "company": "Sulzer",
+        "pending": 162
+      },
+      {
+        "company": "PEMSA",
+        "pending": 147
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 145
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 131
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 72
+      },
+      {
+        "company": "JUMBO",
+        "pending": 65
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-13T01:48:57.457Z",
+    "label": "after",
+    "total": 32746,
+    "needsRetranslation": 5415,
+    "suppressed": 142,
+    "incomplete": 5863,
+    "complete": 26883,
+    "slotsPresent": 26883,
+    "flaggedAmongSlotsPresent": 17,
+    "verifiedTranslated": 26866,
+    "sourceCopyExcused": 475,
+    "slotsPresentByLength": 32617,
+    "languageVerified": 27775,
+    "missingByLocale": {
+      "it": 67,
+      "en": 60,
+      "de": 73,
+      "fr": 78
+    },
+    "queueAge": {
+      "count": 5415,
+      "withTimestamp": 5415,
+      "oldestAgeDays": 152.7,
+      "p50AgeDays": 12.4,
+      "p90AgeDays": 73.2,
+      "buckets": {
+        "0-1d": 11,
+        "1-2d": 99,
+        "2-7d": 1700,
+        "0-7d": 1810,
+        "7-30d": 1805,
+        "30-90d": 1404,
+        "90-180d": 396,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 71,
+      "withTimestamp": 71,
+      "oldestAgeDays": 94.6,
+      "p50AgeDays": 17,
+      "p90AgeDays": 29.6,
+      "buckets": {
+        "0-1d": 0,
+        "1-2d": 0,
+        "2-7d": 0,
+        "0-7d": 0,
+        "7-30d": 64,
+        "30-90d": 5,
+        "90-180d": 2,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "STA Personal AG",
+        "pending": 1251
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 496
+      },
+      {
+        "company": "Roche",
+        "pending": 467
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 204
+      },
+      {
+        "company": "Sulzer",
+        "pending": 162
+      },
+      {
+        "company": "PEMSA",
+        "pending": 147
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 143
       },
       {
         "company": "Swiss Re",

@@ -89929,6 +89929,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-formazione-lavoro-ticino': {
+    title: 'Formazione e lavoro in Ticino: le sfide dell\'inserimento',
+    description: 'Cotti e Capoferri interpellano il governo sulle sfide dell inserimento professionale dopo la scuola e sull impatto dell intelligenza artificiale in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, lavoro, sfide, dell',
+    ogTitle: 'Formazione e lavoro in Ticino: le sfide dell inserimento',
+    ogDescription: 'Approfondimento sull interrogazione di Cotti e Capoferri al governo ticinese riguardo alle sfide dell inserimento professionale e all impatto dell intelligenza artificiale.',
+    canonicalPath: '/articoli-frontaliere/formazione-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione e lavoro in Ticino: le sfide dell'inserimento",
+      "description": "Cotti e Capoferri interpellano il governo sulle sfide dell inserimento professionale dopo la scuola e sull impatto dell intelligenza artificiale in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/formazione-lavoro-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Formazione e lavoro in Ticino"
+      },
+      "datePublished": "2026-09-13T00:17:00+00:00",
+      "dateModified": "2026-09-13T00:17:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/formazione-lavoro-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pognana-lario-frontaliere-ticino-guida': {
+    title: 'Vivere a Pognana Lario e lavorare in Ticino | Frontaliere Ticino',
+    description: 'Vivere a Pognana Lario e lavorare in Ticino: tempi per Brogeda, permesso G, franchigia fiscale di €10\'000 e contributi AVS e LPP. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, pognana, lario, lavorare',
+    ogTitle: 'Vivere a Pognana Lario e lavorare in Ticino',
+    ogDescription: 'Tutto su collegamenti stradali verso Chiasso, accordo fiscale Italia-Svizzera, franchigia di €10\'000 e gestione contributi per frontalieri a Pognana Lario.',
+    canonicalPath: '/articoli-frontaliere/pognana-lario-frontaliere-ticino-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Pognana Lario e lavorare in Ticino",
+      "description": "Vivere a Pognana Lario e lavorare in Ticino: tempi per Brogeda, permesso G, franchigia fiscale di €10'000 e contributi AVS e LPP. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pognana-lario-frontaliere-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scorcio del lago vicino a Pognana Lario verso il confine svizzero"
+      },
+      "datePublished": "2026-09-13T00:50:56+00:00",
+      "dateModified": "2026-09-13T00:50:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pognana-lario-frontaliere-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-speedaf-in-svizzera-50-000-pacchi-al-giorno': {
+    title: 'Speedaf in Svizzera: 50’000 pacchi al giorno | Frontaliere Ticino',
+    description: 'Speedaf, filiale svizzera fondata ad aprile, punta a gestire fino a 50’000 invii al giorno con centri a Zurigo, Berna e Losanna e sede a Friburgo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, speedaf, pacchi, giorno, filiale',
+    ogTitle: 'Speedaf in Svizzera: 50’000 pacchi al giorno',
+    ogDescription: 'Speedaf, filiale svizzera fondata ad aprile, punta a gestire fino a 50’000 invii al giorno con centri a Zurigo, Berna e Losanna e sede a Friburgo.',
+    canonicalPath: '/articoli-frontaliere/speedaf-in-svizzera-50-000-pacchi-al-giorno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Speedaf in Svizzera: 50’000 pacchi al giorno",
+      "description": "Speedaf, filiale svizzera fondata ad aprile, punta a gestire fino a 50’000 invii al giorno con centri a Zurigo, Berna e Losanna e sede a Friburgo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/speedaf-in-svizzera-50-000-pacchi-al-giorno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Speedaf in Svizzera: 50’000 pacchi al giorno"
+      },
+      "datePublished": "2026-09-13T01:04:04+00:00",
+      "dateModified": "2026-09-13T01:04:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/speedaf-in-svizzera-50-000-pacchi-al-giorno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-teleriscaldamento-varese-porte-aperte': {
+    title: 'Teleriscaldamento Varese: porte aperte alla centrale',
+    description: 'Scopri la centrale di teleriscaldamento di Varese di Acinque. Porte aperte sabato 19 settembre con prenotazione obbligatoria su Eventbrite. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, teleriscaldamento, varese, porte, aperte',
+    ogTitle: 'Teleriscaldamento di Varese: prenotazioni aperte per visitare la centrale',
+    ogDescription: 'Torna Impianti Aperti con il Gruppo Acinque. Sabato 19 settembre visite guidate alla centrale di teleriscaldamento di Varese in via Ottorino Rossi. Prenotazione obbligatoria su Eventbrite.',
+    canonicalPath: '/articoli-frontaliere/teleriscaldamento-varese-porte-aperte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Teleriscaldamento Varese: porte aperte alla centrale",
+      "description": "Scopri la centrale di teleriscaldamento di Varese di Acinque. Porte aperte sabato 19 settembre con prenotazione obbligatoria su Eventbrite. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/teleriscaldamento-varese-porte-aperte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centrale di teleriscaldamento a Varese"
+      },
+      "datePublished": "2026-09-13T01:12:30+00:00",
+      "dateModified": "2026-09-13T01:12:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/teleriscaldamento-varese-porte-aperte/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-inaugurazione-campus-smartt-valley': {
+    title: 'Daverio: inaugurato il nuovo campus SMARTT VAlley',
+    description: 'Inaugurato a Daverio il campus SMARTT VAlley: 5000 mq per formare le nuove competenze industriali. Investimento di 4,5 milioni di euro per scuola e lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, daverio, inaugurato, nuovo, campus',
+    ogTitle: 'Daverio: inaugurato il nuovo campus SMARTT VAlley',
+    ogDescription: 'Inaugurato a Daverio il campus SMARTT VAlley: 5000 mq per formare le nuove competenze industriali. Investimento di 4,5 milioni di euro per scuola e lavoro.',
+    canonicalPath: '/articoli-frontaliere/inaugurazione-campus-smartt-valley',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Daverio: inaugurato il nuovo campus SMARTT VAlley",
+      "description": "Inaugurato a Daverio il campus SMARTT VAlley: 5000 mq per formare le nuove competenze industriali. Investimento di 4,5 milioni di euro per scuola e lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/inaugurazione-campus-smartt-valley.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus SMARTT VAlley a Daverio"
+      },
+      "datePublished": "2026-09-13T01:23:00+00:00",
+      "dateModified": "2026-09-13T01:23:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inaugurazione-campus-smartt-valley/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
