@@ -11733,6 +11733,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-13.imageAlt': 'The day\'s numbers for cross-border commuters – September 13, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-13.seoDescription': 'Cross-border brief, September 13, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-13.ogDescription': 'The numbers for September 13, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.vivere-veleso-lavorare-ticino.title': 'Living in Veleso and working in Ticino as a border worker',
+    'blog.article.vivere-veleso-lavorare-ticino.excerpt': 'Practical guide for those who wish to reside in Veleso and commute in Ticino: taxation, permits and management of the cost of living.',
+    'blog.article.vivere-veleso-lavorare-ticino.imageAlt': 'View of a residential village near the Swiss border',
 };
 
 export default blogMetaEn;

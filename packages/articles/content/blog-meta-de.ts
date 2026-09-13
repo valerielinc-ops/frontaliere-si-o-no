@@ -11732,6 +11732,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-13.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 13. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-13.seoDescription': 'Grenzgänger-Bulletin vom 13. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-13.ogDescription': 'Die Zahlen vom 13. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.vivere-veleso-lavorare-ticino.title': 'Wohnen in Veleso und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-veleso-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die in Veleso wohnen und im Tessin pendeln möchten: Steuern, Genehmigungen und Verwaltung der Lebenshaltungskosten.',
+    'blog.article.vivere-veleso-lavorare-ticino.imageAlt': 'Ansicht eines Wohndorfes in der Nähe der Schweizer Grenze',
 };
 
 export default blogMetaDe;

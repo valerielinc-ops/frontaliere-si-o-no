@@ -11735,6 +11735,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-13.imageAlt': 'Les chiffres du jour pour les frontaliers – 13 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-13.seoDescription': 'Bulletin du frontalier du 13 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-13.ogDescription': 'Les chiffres du 13 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.vivere-veleso-lavorare-ticino.title': 'Vivre à Veleso et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-veleso-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui souhaitent résider à Veleso et se rendre au Tessin : fiscalité, permis et gestion du coût de la vie.',
+    'blog.article.vivere-veleso-lavorare-ticino.imageAlt': 'Vue d\'un village résidentiel près de la frontière suisse',
 };
 
 export default blogMetaFr;
