@@ -23,6 +23,23 @@ export function detectAggregate({ title = '', body = '', readable = true } = {})
   return { aggregate: isAggregate(title, body), fallback: false };
 }
 
+/**
+ * Normalize the JSON returned by `gh` without treating an empty response as a
+ * readable, single-item issue. An empty title/body pair is a degraded read and
+ * must take the safe fallback path.
+ *
+ * @param {unknown} value
+ * @returns {{title?: string, body?: string, readable: boolean, error?: string}}
+ */
+export function parseIssuePayload(value) {
+  const title = typeof value?.title === 'string' ? value.title : '';
+  const body = typeof value?.body === 'string' ? value.body : '';
+  if (!title.trim() && !body.trim()) {
+    return { readable: false, error: 'gh returned an empty title/body payload' };
+  }
+  return { title, body, readable: true };
+}
+
 function readIssue(repo, issue) {
   try {
     const out = execFileSync(
@@ -30,8 +47,7 @@ function readIssue(repo, issue) {
       ['issue', 'view', String(issue), '--repo', repo, '--json', 'title,body'],
       { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
     );
-    const parsed = JSON.parse(out);
-    return { title: parsed.title || '', body: parsed.body || '', readable: true };
+    return parseIssuePayload(JSON.parse(out));
   } catch (err) {
     return { readable: false, error: err?.message || String(err) };
   }
@@ -56,4 +72,28 @@ function main() {
   if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `is_aggregate=${aggregate}\n`);
 }
 
-if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) main();
+function emitSafeFallback(issue, error) {
+  console.error(
+    `::warning::detect-aggregate: errore non gestito per issue #${issue || '?'} (${error}) — `
+      + 'is_aggregate=true per prudenza (un falso `false` chiuderebbe il tracker con gli item dentro).',
+  );
+  console.log('is_aggregate=true');
+  // The output file itself can be the thing that failed (for example, a stale
+  // path or a directory). Best effort only: stdout still makes the safe
+  // decision visible and the caller exits successfully instead of stranding
+  // the in-flight issue.
+  try {
+    if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, 'is_aggregate=true\n');
+  } catch (outputError) {
+    console.error(`detect-aggregate: impossibile scrivere GITHUB_OUTPUT (${outputError?.message || outputError})`);
+  }
+}
+
+if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) {
+  try {
+    main();
+  } catch (err) {
+    emitSafeFallback(process.env.ISSUE_NUMBER || '', err?.message || String(err));
+    process.exit(0);
+  }
+}
