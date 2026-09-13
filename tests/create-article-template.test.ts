@@ -47,10 +47,12 @@ describe('AI Search prompt block', () => {
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/NON inventare/);
   });
 
-  it('allows only source-backed optional key facts and forbids placeholders', () => {
+  it('allows source-backed terms beyond the common key-fact examples', () => {
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toContain('3-8 coppie');
     expect(AI_SEARCH_PROMPT_BLOCK_IT).not.toContain('5-8 coppie');
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/dalla fonte/);
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/qualsiasi termine utile/i);
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/Scadenza.*Requisiti/);
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/campi assenti/i);
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/niente placeholder/i);
   });

@@ -127,7 +127,7 @@ OGNI articolo DEVE includere all'inizio di body1, PRIMA del lead giornalistico:
 
 2) FATTI CHIAVE — sezione "## Fatti chiave" con 3-8 coppie termine→valore dalla fonte:
    ## Fatti chiave
-   Campi ammessi: Cosa, Quando, Dove, Chi, Importo (solo se presenti).
+   Usa qualsiasi termine utile presente nella fonte (ad es. Cosa, Quando, Dove, Chi, Importo, Scadenza o Requisiti).
    Ometti i campi assenti; niente placeholder.
 
 DOPO queste due sezioni, prosegui con il lead giornalistico normale di body1.
