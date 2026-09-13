@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lindenhofgruppe",
-  "assembledAt": "2026-09-12T13:17:28.056Z",
+  "assembledAt": "2026-09-13T14:10:16.375Z",
   "jobs": [
     {
       "id": "lindenhofgruppe-2d023dadd7eb",
@@ -33,7 +33,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-fachfrau-mann-operationstechnik-hf/bd79ef21-83e1-4b31-8712-c0e047446b6b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.189Z",
+      "crawledAt": "2026-09-13T14:10:05.876Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -65,6 +65,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.776Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -110,7 +111,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-anaesthesie-weiterbildungsstelle/2f3965ca-5b14-4328-9d35-930d08d5d916",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.188Z",
+      "crawledAt": "2026-09-13T14:10:05.865Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -208,7 +209,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/lagerungspfleger-in/088f1376-4ff4-4ae7-83f4-309eb3178143",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.187Z",
+      "crawledAt": "2026-09-13T14:10:05.864Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -248,6 +249,7 @@
         "cure-di-stoccaggio-lindenhofgruppe-bern"
       ],
       "firstSeenAt": "2026-05-10T21:57:57.774Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -293,7 +295,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-patienten-hotellerie/ab8a9551-f216-4484-99e2-87cc305e9949",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.186Z",
+      "crawledAt": "2026-09-13T14:10:05.859Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -327,6 +329,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.767Z",
+      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
@@ -372,7 +375,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-ueberwachungspflege/1e931b67-86f5-415c-b2d8-08390c7dde3e",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.184Z",
+      "crawledAt": "2026-09-13T14:10:05.851Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -435,7 +438,7 @@
       "title": "Dipl. Expertin/Experte Anästhesie NDS HF",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Anesthesia Care NDS HF",
-        "en": "Dipl. Expert/Expert Anesthesia NDS HF",
+        "en": "Dipl. Expertin/Experte Anästhesie NDS HF",
         "de": "Dipl. Expertin/Experte Anästhesie NDS HF",
         "fr": "Dipl. Expert/Dipl. Expert Anesthésie Soins NDS HF"
       },
@@ -451,7 +454,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-anaesthesie-nds-hf/ded5d810-044f-4250-96dd-dd60ebfab8cd",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.182Z",
+      "crawledAt": "2026-09-13T14:10:05.843Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -493,6 +496,7 @@
         "dipl-expert-dipl-expert-anesthesia-care-nds-hf-lindenhofgruppe-bern"
       ],
       "firstSeenAt": "2026-05-10T21:57:57.762Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -538,7 +542,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz/64b173d5-520a-49f3-885c-ff5f2ba4a7a7",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.181Z",
+      "crawledAt": "2026-09-13T14:10:05.835Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -605,7 +609,7 @@
       "title": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
       "titleByLocale": {
         "it": "Dipl. Expertin/Expert terapia intensiva NDS HF o specialista infermieristico dipl. con corso IMC",
-        "en": "Dipl. Expert/Expert Intensive Care NDS HF or dipl. Nursing professional with IMC course",
+        "en": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
         "de": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
         "fr": "Dipl. Expertin/Expert soins intensifs NDS HF ou dipl. spécialiste des soins infirmiers avec cours IMC"
       },
@@ -621,7 +625,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-intensivpflege-nds-hf-oder-dipl-pflegefachfrau-mann-mit-imc-kurs/d729996e-84a5-483b-a3d0-e98c11d281f3",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.180Z",
+      "crawledAt": "2026-09-13T14:10:05.830Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -655,6 +659,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:48:51.847Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -700,7 +705,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/chefaerztin-chefarzt-allgemeine-innere-medizin/46c96a5c-a4b1-4f78-9ca3-8c19fb1dc1c1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.177Z",
+      "crawledAt": "2026-09-13T14:10:05.820Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -779,7 +784,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/koch-koechin-efz-in-ausbildung/502d4904-f78d-4644-ab66-a79f7cd5591b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.175Z",
+      "crawledAt": "2026-09-13T14:10:05.814Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -813,6 +818,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.996Z",
+      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
@@ -858,7 +864,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie/8727df5a-af23-4ee7-848f-e2ccdbaedb98",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.173Z",
+      "crawledAt": "2026-09-13T14:10:05.808Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -892,6 +898,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.992Z",
+      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
@@ -937,7 +944,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital/6e207f18-cc31-4a93-b690-c030b4f2b98c",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.170Z",
+      "crawledAt": "2026-09-13T14:10:05.803Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -971,6 +978,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.968Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -999,7 +1007,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1016,7 +1024,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/e510ac1f-cdc1-42ac-ae56-d88c48b6f4e8",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.168Z",
+      "crawledAt": "2026-09-13T14:10:05.794Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1056,6 +1064,7 @@
         ]
       },
       "firstSeenAt": "2026-07-18T21:58:23.063Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1084,7 +1093,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1101,7 +1110,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/791ceed8-d154-4785-8cfe-19f032d5baf6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.166Z",
+      "crawledAt": "2026-09-13T14:10:05.791Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1141,6 +1150,7 @@
         ]
       },
       "firstSeenAt": "2026-07-19T11:09:01.939Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1169,7 +1179,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1186,7 +1196,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/17b5a6a9-54eb-410c-902d-3729d668ac6e",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.163Z",
+      "crawledAt": "2026-09-13T14:10:05.787Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1247,12 +1257,12 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-11",
         "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
         "infermiere-laureato-fh-hf-lindenhofgruppe-lindenhofspital",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-3",
         "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital",
         "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital",
-        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital"
+        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital",
+        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1272,10 +1282,10 @@
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
           "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
           "infermiere-laureato-fh-hf-lindenhofgruppe-lindenhofspital",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-3",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital"
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
@@ -1292,6 +1302,7 @@
         ]
       },
       "firstSeenAt": "2026-07-19T22:16:44.389Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1320,7 +1331,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1337,7 +1348,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/193720a6-297c-46c6-9be6-893c8669c2b6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.161Z",
+      "crawledAt": "2026-09-13T14:10:05.783Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1377,6 +1388,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:59:40.952Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1422,7 +1434,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-radiologiefachfrau-mann-oder-med-praxisassistent-in/b229f97b-ea46-4da1-8d80-727956e674f0",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.158Z",
+      "crawledAt": "2026-09-13T14:10:05.779Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1499,7 +1511,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fachfrau-mann-gesundheit-fuer-unseren-pflegepool/3a285673-ab11-4c1b-9ae4-28fcb7c44d0f",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.155Z",
+      "crawledAt": "2026-09-13T14:10:05.774Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1574,7 +1586,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica Professional Focus F - Neonatologia",
+        "it": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
         "en": "Dipl. Nursing specialist Focus F - Neonatology",
         "de": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
         "fr": "Dipl. Spécialiste des soins infirmiers Focus F - Néonatologie"
@@ -1591,7 +1603,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fokus-f-neonatologie/09d72517-c3ce-47d6-b53a-2737e8edf0a6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.153Z",
+      "crawledAt": "2026-09-13T14:10:05.769Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1629,6 +1641,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:43:35.711Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1657,7 +1670,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Radiologiefachfrau/-mann",
       "titleByLocale": {
-        "it": "Dipl. Specialista di radiologia",
+        "it": "Dipl. Radiologiefachfrau/-mann",
         "en": "Dipl. Radiology specialist",
         "de": "Dipl. Radiologiefachfrau/-mann",
         "fr": "Dipl. Spécialiste de radiologie"
@@ -1674,7 +1687,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-radiologiefachfrau-mann/8f89efbb-059a-4b27-9e14-81da0df076d1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.146Z",
+      "crawledAt": "2026-09-13T14:10:05.765Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1712,6 +1725,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:09:50.994Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1757,7 +1771,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027/8a34afda-98fe-4d53-b4cf-f8de42c114fd",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.143Z",
+      "crawledAt": "2026-09-13T14:10:05.762Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1838,7 +1852,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/unterassistenzarzt-aerztin-medizinische-klinik/b062ead3-8ea2-4aa9-960d-b97f01f4e4df",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.141Z",
+      "crawledAt": "2026-09-13T14:10:05.758Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1880,6 +1894,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:44:41.538Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1925,7 +1940,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-intensivpflege-weiterbildungsstelle/14584d68-0227-4b64-8de2-c908bc7e1c30",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.138Z",
+      "crawledAt": "2026-09-13T14:10:05.755Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1996,7 +2011,7 @@
       "title": "Dipl. Expertin/Dipl. Experte Notfallpflege",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Emergency Care",
-        "en": "Dipl. Expert/Dipl. Expert Emergency Care",
+        "en": "Dipl. Expertin/Dipl. Experte Notfallpflege",
         "de": "Dipl. Expertin/Dipl. Experte Notfallpflege",
         "fr": "Dipl. Expert/Dipl. Expert Soins d'urgence"
       },
@@ -2012,7 +2027,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-dipl-experte-notfallpflege/278f8287-b7c1-421b-8ba6-4f800dd90365",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.136Z",
+      "crawledAt": "2026-09-13T14:10:05.751Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2052,6 +2067,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:31:34.545Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2097,7 +2113,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/teamleiter-in-fuer-fachfrau-mann-apotheke/79795f88-4108-4ee9-9bc8-9c09c5acc25a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.133Z",
+      "crawledAt": "2026-09-13T14:10:05.748Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2131,6 +2147,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:31:17.043Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2176,7 +2193,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-pflege/03ec6256-7d80-4d3b-9cd6-d91104a9d88a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.128Z",
+      "crawledAt": "2026-09-13T14:10:05.745Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2255,7 +2272,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-cand-med/c1f70a97-5b77-41e2-9f90-ecbb0cbf1afb",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.126Z",
+      "crawledAt": "2026-09-13T14:10:05.741Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2289,6 +2306,7 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:28:56.451Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2317,7 +2335,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale",
+        "it": "Dipl. Pflegefachfrau/-mann",
         "en": "Dipl. Nursing professional",
         "de": "Dipl. Pflegefachfrau/-mann",
         "fr": "Dipl. Professionnels des soins infirmiers"
@@ -2334,7 +2352,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann/843443ca-b174-4703-b4a1-e4bd5e0a752a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.123Z",
+      "crawledAt": "2026-09-13T14:10:05.737Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2391,6 +2409,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:23:40.522Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2436,7 +2455,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-sekretariat-radiologie/04c2a51e-f52f-4c27-b084-47e89f6ed0c8",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.120Z",
+      "crawledAt": "2026-09-13T14:10:05.727Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2515,7 +2534,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/medizinische-r-codierer-in/277af6a5-2668-4f91-ab72-cd3e8f50c7a6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.118Z",
+      "crawledAt": "2026-09-13T14:10:05.724Z",
       "addressLocality": "Muristalden",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2545,6 +2564,7 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:38:12.294Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2574,7 +2594,7 @@
       "title": "Dipl. Expertin/Dipl. Experte Anästhesiepflege Sonnenhof",
       "titleByLocale": {
         "it": "Dipl. Esperto/Dipl. Cura dell'anestesia esperto Sonnenhof",
-        "en": "Dipl. Expert/Dipl. Expert anesthesia care Sonnenhof",
+        "en": "Dipl. Expertin/Dipl. Experte Anästhesiepflege Sonnenhof",
         "de": "Dipl. Expertin/Dipl. Experte Anästhesiepflege Sonnenhof",
         "fr": "Dipl. Expert/Dipl. Soins d'anesthésie expert Sonnenhof"
       },
@@ -2590,7 +2610,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-dipl-experte-anaesthesiepflege-sonnenhof/a4ccec17-8b63-4976-bcc4-074ad575719a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.114Z",
+      "crawledAt": "2026-09-13T14:10:05.720Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2624,6 +2644,7 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:38:12.274Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2669,7 +2690,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegeassistent-in/29671368-b503-4f8b-9fde-70d7adbae766",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.110Z",
+      "crawledAt": "2026-09-13T14:10:05.716Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2709,6 +2730,7 @@
         "assistente-infermieristico-lindenhofgruppe-sonnenhofspital"
       ],
       "firstSeenAt": "2026-08-24T10:19:20.378Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2754,7 +2776,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/stv-abteilungsleiter-in-pflege-notfallzentrum/7dbb856f-2b8b-4a93-833c-b498665ee757",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.104Z",
+      "crawledAt": "2026-09-13T14:10:05.711Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2834,7 +2856,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-informatik/f4eba58c-8ca9-43cc-86f2-1a8ea394505b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.095Z",
+      "crawledAt": "2026-09-13T14:10:05.704Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2898,7 +2920,7 @@
       "title": "Dipl. Expertin/Dipl. Experte Notfallpflege",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Emergency Care",
-        "en": "Dipl. Expert/Dipl. Expert Emergency Care",
+        "en": "Dipl. Expertin/Dipl. Experte Notfallpflege",
         "de": "Dipl. Expertin/Dipl. Experte Notfallpflege",
         "fr": "Dipl. Expert/Dipl. Expert Soins d'urgence"
       },
@@ -2914,7 +2936,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-dipl-experte-notfallpflege/94065847-facb-43fc-8c62-748debe66cd2",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.089Z",
+      "crawledAt": "2026-09-13T14:10:05.698Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2998,7 +3020,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/unterassistenzarzt-aerztin-notfallzentrum/5667c3e6-6f7a-4a12-9520-76b123eb1ea1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.073Z",
+      "crawledAt": "2026-09-13T14:10:05.688Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3078,7 +3100,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/sachbearbeiter-in-patientenaufnahme-notfallzentrum/6b6b36a1-5966-4e1b-87ca-87075a8df2bb",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.064Z",
+      "crawledAt": "2026-09-13T14:10:05.674Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3158,7 +3180,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/arztsekretaer-in-gynaekologie/3dd39290-c9fb-45f6-a11f-3d126fca107a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.057Z",
+      "crawledAt": "2026-09-13T14:10:05.669Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3226,7 +3248,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -3243,7 +3265,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/a26470cd-8f0d-4403-a2fe-cdaf7d3d4d77",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.046Z",
+      "crawledAt": "2026-09-13T14:10:05.666Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3279,6 +3301,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:06.836Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3324,7 +3347,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/bachelor-of-science-in-pflege-zusatzmodul-b/0f326b16-2d04-4d60-851e-0e16e8f2b9b1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.043Z",
+      "crawledAt": "2026-09-13T14:10:05.658Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3413,7 +3436,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruehling-2027/5525acf6-6a9a-49c4-83bc-5f10bf628b93",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.039Z",
+      "crawledAt": "2026-09-13T14:10:05.655Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3494,7 +3517,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/assistentin-gesundheit-und-soziales-eba-in-ausbildung-lindenhofspital-oder-sonnenhofspital/5054f259-24f8-4273-b90d-6973a8cc6185",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.035Z",
+      "crawledAt": "2026-09-13T14:10:05.652Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3530,6 +3553,7 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:21:55.675Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -3575,7 +3599,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegehilfe-mit-erweiterten-aufgaben/48fef1b0-9e42-46a3-a656-e9105668b75a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.031Z",
+      "crawledAt": "2026-09-13T14:10:05.648Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3638,7 +3662,7 @@
       "title": "Pflegeexpertin / Pflegeexperte CNS Palliative Care",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura CNS Palliative Care",
-        "en": "Care expert / care expert CNS Palliative Care",
+        "en": "Pflegeexpertin / Pflegeexperte CNS Palliative Care",
         "de": "Pflegeexpertin / Pflegeexperte CNS Palliative Care",
         "fr": "Expert en soins / expert en soins Soins palliatifs du SNC"
       },
@@ -3654,7 +3678,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegeexpertin-pflegeexperte-cns-palliative-care/a32584f7-a00f-4bfb-874c-ebf30b60d7f4",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.027Z",
+      "crawledAt": "2026-09-13T14:10:05.641Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3685,6 +3709,7 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:21:55.570Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3730,7 +3755,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/sachbearbeiter-in-praxis-im-frauenzentrum-bern/abff807f-5da0-425f-89c5-8e7285117a1c",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.023Z",
+      "crawledAt": "2026-09-13T14:10:05.637Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3792,7 +3817,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Professionnels des soins infirmiers FH/HF"
@@ -3809,7 +3834,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/21b15185-6064-449e-9f39-ad60af1e94b1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.015Z",
+      "crawledAt": "2026-09-13T14:10:05.634Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3845,6 +3870,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:54:40.580Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3873,7 +3899,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale HF/FH",
+        "it": "Dipl. Pflegefachfrau/-mann HF/FH",
         "en": "Dipl. Nursing professional HF/FH",
         "de": "Dipl. Pflegefachfrau/-mann HF/FH",
         "fr": "Dipl. Professionnels des soins infirmiers HF/FH"
@@ -3890,7 +3916,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh/c2d12c5e-1b4f-4284-a4ab-0e16b8f91134",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:19.006Z",
+      "crawledAt": "2026-09-13T14:10:05.630Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3926,6 +3952,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:54.615Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3959,11 +3986,11 @@
         "de": "Medizinische Dokumentarin / Medizinischer Dokumentar",
         "fr": "Document médical / Document médical"
       },
-      "description": "Aufgaben:\nWir suchen für unser zertifiziertes Onkologiezentrum kurzfristig Unterstützung durch eine engagierte und dienstleistungsorientierte Fachperson im Bereich Tumordokumentation und medizinische Datenerfassung.\n• Erfassung und Pflege onkologischer Falldaten sowie Nachsorgedaten in der Tumordokumentationssoftware\n\n• Mitarbeit an den wöchentlichen Tumorboards inklusive Präsentation der Fälle und Unterstützung bei der Protokollführung\n\n• Mitwirkung bei internen und externen Audits\n\n• Erhebung und Erfassung weiterer dokumentationspflichtiger Daten in Register aus Patientendossiers und Arztberichten\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Erfahrung im medizinischen Bereich, idealerweise in der Pflege oder Operationstechnik\n\n• Berufserfahrung im Bereich Onkologie von Vorteil\n\n• Sehr gute IT-Anwenderkenntnisse sowie ein gutes Verständnis für Datenmanagement und Datenbanksystemen\n\n• Strukturierte, sorgfältige und qualitätsbewusste Arbeitsweise\n\n• Teamorientierte, flexible und lösungsorientierte Persönlichkeit mit positiver Grundhaltung\n\n• Motivation, einen wichtigen Beitrag zur kontinuierlichen Verbesserung der Behandlungsqualität zu leisten\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+      "description": "Aufgaben:\nFür unser zertifiziertes Onkologiezentrum suchen wir kurzfristig eine engagierte und dienstleistungsorientierte Fachperson für die Tumordokumentation und medizinische Datenerfassung.\n• Du erfasst und pflegst onkologische Fall- und Nachsorgedaten in der Tumordokumentationssoftware.\n\n• Du erhebst weitere dokumentationspflichtige Daten aus Patientendossiers und Arztberichten und erfasst diese in Registern.\n\n• Du unterstützt bei verschiedenen administrativen Aufgaben.\n\nAnforderungen:\n• Du hast eine abgeschlossene Ausbildung und Erfahrung im medizinischen Bereich, idealerweise in der Pflege oder Operationstechnik.\n\n• Du bringst idealerweise Berufserfahrung in der Onkologie mit.\n\n• Du verfügst über sehr gute IT-Anwenderkenntnisse und hast ein gutes Verständnis für Datenmanagement und Datenbanksystemen.\n\n• Du arbeitest strukturiert, sorgfältig und qualitätsbewusst.\n\n• Du bist flexibel, teamorientiert und handelst lösungsorientiert.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
       "descriptionByLocale": {
         "it": "Compiti:\nStiamo cercando un supporto a breve termine da uno specialista dedicato e orientato al servizio nel campo della documentazione tumorale e della raccolta di dati medici.\n• Raccolta e manutenzione di dati di casi oncologici e dati di assistenza nel software di documentazione del tumore\n\n• Partecipazione alle schede tumorali settimanali, compresa la presentazione dei casi e il supporto nella gestione dei protocolli\n\n• Cooperazione negli audit interni ed esterni\n\n• Raccolta e raccolta di ulteriori dati richiesti per la documentazione nei registri dei dossier dei pazienti e delle relazioni mediche\n\nRequisiti\n• Allenamento e esperienza completa nel campo medico, idealmente in allattamento o tecnica chirurgica\n\n• L'esperienza professionale oncologia è benefica\n\n• Molto buona conoscenza degli utenti IT e una buona comprensione della gestione dei dati e dei sistemi di database\n\n• Metodo di lavoro strutturato, attento e di qualità\n\n• Personalità orientata al team, flessibile e orientata alla soluzione con un atteggiamento positivo\n\n• Motivazione per dare un importante contributo al miglioramento continuo della qualità del trattamento\n\nOffriamo:\nVacanze e tempo libero\n• Mente. 26 vacanze\n\n• Possibilità di acquistare una vacanza\n\n• Bonus fedeltà: giorni liberi nel 5 ° e 7 ° anno di occupazione, dal 10 ° anno di occupazione ogni 5 anni\n\n• Al servizio notturno un tempo di credito del 30% (opzionale)\nGestione della salute sul lavoro (BGM) – “ZÄME GSUND”\n• Misure per rafforzare la salute\n\n• Laboratorio Cadre e Team con focus sulla salute\nLavoro e famiglia\n• KITA – orari di apertura orientati alle esigenze\n\n• 16 settimane di congedo di maternità con 100% paga continua, 15 giorni di congedo di paternità pagato\nVantaggi e offerte\n• REKA controlli con 20% di sconto\n\n• Cibo scontato nel ristorante del personale\n\n• Parcheggio sconto / Abbonamenti PubliBike\n\n• Vari sconti sui dipendenti\nPrecauzioni\n• Deduzione di metà coordinamento secondo BVG\n\n• Prosecuzione salariale generale in caso di malattia e infortunio (3 mesi di prosecuzione salariale da parte del datore di lavoro al 100%, poi indennità giornaliere al 90%)",
         "en": "Tasks:\nWe are looking for short-term support from a dedicated and service-oriented specialist in the field of tumor documentation and medical data collection.\n• Collection and maintenance of oncological case data as well as aftercare data in tumor documentation software\n\n• Participation in the weekly tumor boards including presentation of cases and support in protocol management\n\n• Cooperation in internal and external audits\n\n• Collection and collection of further data required for documentation in registers from patient dossiers and medical reports\n\nRequirements\n• Completed training and experience in the medical field, ideally in nursing or surgical technique\n\n• Oncology professional experience is beneficial\n\n• Very good IT user knowledge and a good understanding of data management and database systems\n\n• Structured, careful and quality-conscious working method\n\n• Team-oriented, flexible and solution-oriented personality with a positive attitude\n\n• Motivation to make an important contribution to the continuous improvement of treatment quality\n\nWe offer:\nHolidays and leisure\n• Mind. 26 holidays\n\n• Possibility to buy a holiday\n\n• Loyalty bonus: days off in the 5th and 7th year of employment, from 10th year of employment every 5 years\n\n• At night service a time credit of 30% (optional)\nOccupational Health Management (BGM) – “ZÄME GSUND”\n• Measures to strengthen health\n\n• Cadre and team workshops with focus on health\nWork and family\n• KITA – needs-oriented opening hours\n\n• 16 weeks of maternity leave with 100% continued pay, 15 days of paid paternity leave\nAdvantages and offers\n• REKA checks with 20% discount\n\n• Discounted food in the staff restaurant\n\n• Discount parking / PubliBike subscriptions\n\n• Various employee discounts\nPrecautions\n• Half coordination deduction according to BVG\n\n• Generous wage continuation in the event of illness and accident (3 months of wage continuation by employer to 100%, then daily allowances to 90%)",
-        "de": "Aufgaben:\nWir suchen für unser zertifiziertes Onkologiezentrum kurzfristig Unterstützung durch eine engagierte und dienstleistungsorientierte Fachperson im Bereich Tumordokumentation und medizinische Datenerfassung.\n• Erfassung und Pflege onkologischer Falldaten sowie Nachsorgedaten in der Tumordokumentationssoftware\n\n• Mitarbeit an den wöchentlichen Tumorboards inklusive Präsentation der Fälle und Unterstützung bei der Protokollführung\n\n• Mitwirkung bei internen und externen Audits\n\n• Erhebung und Erfassung weiterer dokumentationspflichtiger Daten in Register aus Patientendossiers und Arztberichten\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Erfahrung im medizinischen Bereich, idealerweise in der Pflege oder Operationstechnik\n\n• Berufserfahrung im Bereich Onkologie von Vorteil\n\n• Sehr gute IT-Anwenderkenntnisse sowie ein gutes Verständnis für Datenmanagement und Datenbanksystemen\n\n• Strukturierte, sorgfältige und qualitätsbewusste Arbeitsweise\n\n• Teamorientierte, flexible und lösungsorientierte Persönlichkeit mit positiver Grundhaltung\n\n• Motivation, einen wichtigen Beitrag zur kontinuierlichen Verbesserung der Behandlungsqualität zu leisten\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\nBetriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\nArbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\nVergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\nVorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "de": "Aufgaben:\nFür unser zertifiziertes Onkologiezentrum suchen wir kurzfristig eine engagierte und dienstleistungsorientierte Fachperson für die Tumordokumentation und medizinische Datenerfassung.\n• Du erfasst und pflegst onkologische Fall- und Nachsorgedaten in der Tumordokumentationssoftware.\n\n• Du erhebst weitere dokumentationspflichtige Daten aus Patientendossiers und Arztberichten und erfasst diese in Registern.\n\n• Du unterstützt bei verschiedenen administrativen Aufgaben.\n\nAnforderungen:\n• Du hast eine abgeschlossene Ausbildung und Erfahrung im medizinischen Bereich, idealerweise in der Pflege oder Operationstechnik.\n\n• Du bringst idealerweise Berufserfahrung in der Onkologie mit.\n\n• Du verfügst über sehr gute IT-Anwenderkenntnisse und hast ein gutes Verständnis für Datenmanagement und Datenbanksystemen.\n\n• Du arbeitest strukturiert, sorgfältig und qualitätsbewusst.\n\n• Du bist flexibel, teamorientiert und handelst lösungsorientiert.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\nBetriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\nArbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\nVergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\nVorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
         "fr": "Tâches :\nNous recherchons le soutien à court terme d'un spécialiste dédié et orienté vers le service dans le domaine de la documentation tumorale et de la collecte de données médicales.\n• Collecte et tenue à jour de données sur les cas oncologiques ainsi que de données de suivi dans le logiciel de documentation tumorale\n\n• Participation aux conseils de tumeurs hebdomadaires, y compris présentation des cas et soutien à la gestion des protocoles\n\n• Coopération dans les audits internes et externes\n\n• Collecte et collecte de nouvelles données nécessaires à la documentation dans les registres des dossiers des patients et des rapports médicaux\n\nExigences\n• Formation et expérience dans le domaine médical, idéalement en soins infirmiers ou techniques chirurgicales\n\n• Oncologie expérience professionnelle est bénéfique\n\n• Très bonne connaissance des utilisateurs informatiques et bonne compréhension des systèmes de gestion des données et de bases de données\n\n• Méthode de travail structurée, prudente et soucieuse de la qualité\n\n• Personnalité orientée équipe, flexible et orientée solution avec une attitude positive\n\n• Motivation à apporter une contribution importante à l'amélioration continue de la qualité du traitement\n\nNous offrons:\nVacances et loisirs\n• Esprit. 26 jours fériés\n\n• Possibilité d'acheter des vacances\n\n• Prime de fidélité: jours de congé tous les 5 ans à partir de 10 ans\n\n• Au service de nuit un crédit de temps de 30% (facultatif)\nGestion de la santé au travail (BGM) – -ZÄME\n• Mesures visant à renforcer la santé\n\n• Ateliers sur les cadres et les équipes axés sur la santé\nTravail et famille\n• KITA – horaires d'ouverture axés sur les besoins\n\n• 16 semaines de congé de maternité avec 100% de salaire continu, 15 jours de congé de paternité payé\nAvantages et offres\n• Reka vérifie avec 20% de réduction\n\n• Restauration à prix réduit dans le restaurant du personnel\n\n• Parking à rabais / PubliBike abonnements\n\n• Divers rabais aux employés\nPrécautions\n• Déduction pour demi-coordination selon BVG\n\n• Maintien d'un salaire généreux en cas de maladie et d'accident (3 mois de maintien d'un salaire par l'employeur à 100%, puis indemnités journalières à 90%)"
       },
       "location": "Engeried",
@@ -3971,7 +3998,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/medizinische-dokumentarin-medizinischer-dokumentar/30ded035-a726-45b3-8198-55c150d456ea",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:18.999Z",
+      "crawledAt": "2026-09-13T14:10:05.626Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4050,7 +4077,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-disposition-und-empfang/d8494406-f621-4ed2-a552-0a41c3aa2891",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:17:18.977Z",
+      "crawledAt": "2026-09-13T14:10:05.617Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4099,6 +4126,72 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "lindenhofgruppe-ad96d5621201",
+      "slug": "medizinischer-dokumentar-medizinische-dokumentarin-lindenhofgruppe-ch",
+      "slugByLocale": {
+        "de": "medizinischer-dokumentar-medizinische-dokumentarin-lindenhofgruppe-ch",
+        "it": "medizinischer-dokumentar-medizinische-dokumentarin-lindenhofgruppe-ch",
+        "en": "medizinischer-dokumentar-medizinische-dokumentarin-lindenhofgruppe-ch",
+        "fr": "medizinischer-dokumentar-medizinische-dokumentarin-lindenhofgruppe-ch"
+      },
+      "company": "Lindenhofgruppe",
+      "companyKey": "lindenhofgruppe",
+      "companyDomain": "lindenhofgruppe.ch",
+      "title": "Medizinischer Dokumentar / Medizinische Dokumentarin",
+      "titleByLocale": {
+        "de": "Medizinischer Dokumentar / Medizinische Dokumentarin",
+        "it": "Medizinischer Dokumentar / Medizinische Dokumentarin",
+        "en": "Medizinischer Dokumentar / Medizinische Dokumentarin",
+        "fr": "Medizinischer Dokumentar / Medizinische Dokumentarin"
+      },
+      "description": "Aufgaben:\nWerde Teil unseres Teams im Onkologiezentrum und bringe deine Expertise in der Tumordokumentation und medizinischen Datenerfassung ein.\n• Erfassung und Pflege onkologischer Falldaten sowie Nachsorgedaten in der Tumordokumentationssoftware\n\n• Mitarbeit an den wöchentlichen Tumorboards inklusive Präsentation der Fälle und Unterstützung bei der Protokollführung\n\n• Kontrolle und Plausibilisierung von Kennzahlen mit den Verantwortlichen sowie Erstellung relevanter Unterlagen für Zertifizierungen und Audits\n\n• Mitwirkung bei internen und externen Audits\n\n• Erhebung und Erfassung dokumentationspflichtiger Daten der hochspezialisierten Medizin (HSM) und medizinischen Registern aus Patientendossiers und Arztberichten\n\n• Unterstützung bei Jahresabschlüssen und Datenaufbereitungen\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Erfahrung im medizinischen Bereich, idealerweise in der Pflege oder Operationstechnik\n\n• Berufserfahrung im Bereich Onkologie von Vorteil\n\n• Sehr gute IT-Anwenderkenntnisse sowie ein gutes Verständnis für Datenmanagement und Datenbanksystemen\n\n• Strukturierte, sorgfältige und qualitätsbewusste Arbeitsweise\n\n• Teamorientierte, flexible und lösungsorientierte Persönlichkeit mit positiver Grundhaltung\n\n• Motivation, einen wichtigen Beitrag zur kontinuierlichen Verbesserung der Behandlungsqualität zu leisten\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+      "descriptionByLocale": {
+        "de": "Aufgaben:\nWerde Teil unseres Teams im Onkologiezentrum und bringe deine Expertise in der Tumordokumentation und medizinischen Datenerfassung ein.\n• Erfassung und Pflege onkologischer Falldaten sowie Nachsorgedaten in der Tumordokumentationssoftware\n\n• Mitarbeit an den wöchentlichen Tumorboards inklusive Präsentation der Fälle und Unterstützung bei der Protokollführung\n\n• Kontrolle und Plausibilisierung von Kennzahlen mit den Verantwortlichen sowie Erstellung relevanter Unterlagen für Zertifizierungen und Audits\n\n• Mitwirkung bei internen und externen Audits\n\n• Erhebung und Erfassung dokumentationspflichtiger Daten der hochspezialisierten Medizin (HSM) und medizinischen Registern aus Patientendossiers und Arztberichten\n\n• Unterstützung bei Jahresabschlüssen und Datenaufbereitungen\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Erfahrung im medizinischen Bereich, idealerweise in der Pflege oder Operationstechnik\n\n• Berufserfahrung im Bereich Onkologie von Vorteil\n\n• Sehr gute IT-Anwenderkenntnisse sowie ein gutes Verständnis für Datenmanagement und Datenbanksystemen\n\n• Strukturierte, sorgfältige und qualitätsbewusste Arbeitsweise\n\n• Teamorientierte, flexible und lösungsorientierte Persönlichkeit mit positiver Grundhaltung\n\n• Motivation, einen wichtigen Beitrag zur kontinuierlichen Verbesserung der Behandlungsqualität zu leisten\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "it": "Aufgaben:\nWerde Teil unseres Teams im Onkologiezentrum und bringe deine Expertise in der Tumordokumentation und medizinischen Datenerfassung ein.\n• Erfassung und Pflege onkologischer Falldaten sowie Nachsorgedaten in der Tumordokumentationssoftware\n\n• Mitarbeit an den wöchentlichen Tumorboards inklusive Präsentation der Fälle und Unterstützung bei der Protokollführung\n\n• Kontrolle und Plausibilisierung von Kennzahlen mit den Verantwortlichen sowie Erstellung relevanter Unterlagen für Zertifizierungen und Audits\n\n• Mitwirkung bei internen und externen Audits\n\n• Erhebung und Erfassung dokumentationspflichtiger Daten der hochspezialisierten Medizin (HSM) und medizinischen Registern aus Patientendossiers und Arztberichten\n\n• Unterstützung bei Jahresabschlüssen und Datenaufbereitungen\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Erfahrung im medizinischen Bereich, idealerweise in der Pflege oder Operationstechnik\n\n• Berufserfahrung im Bereich Onkologie von Vorteil\n\n• Sehr gute IT-Anwenderkenntnisse sowie ein gutes Verständnis für Datenmanagement und Datenbanksystemen\n\n• Strukturierte, sorgfältige und qualitätsbewusste Arbeitsweise\n\n• Teamorientierte, flexible und lösungsorientierte Persönlichkeit mit positiver Grundhaltung\n\n• Motivation, einen wichtigen Beitrag zur kontinuierlichen Verbesserung der Behandlungsqualität zu leisten\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "en": "Aufgaben:\nWerde Teil unseres Teams im Onkologiezentrum und bringe deine Expertise in der Tumordokumentation und medizinischen Datenerfassung ein.\n• Erfassung und Pflege onkologischer Falldaten sowie Nachsorgedaten in der Tumordokumentationssoftware\n\n• Mitarbeit an den wöchentlichen Tumorboards inklusive Präsentation der Fälle und Unterstützung bei der Protokollführung\n\n• Kontrolle und Plausibilisierung von Kennzahlen mit den Verantwortlichen sowie Erstellung relevanter Unterlagen für Zertifizierungen und Audits\n\n• Mitwirkung bei internen und externen Audits\n\n• Erhebung und Erfassung dokumentationspflichtiger Daten der hochspezialisierten Medizin (HSM) und medizinischen Registern aus Patientendossiers und Arztberichten\n\n• Unterstützung bei Jahresabschlüssen und Datenaufbereitungen\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Erfahrung im medizinischen Bereich, idealerweise in der Pflege oder Operationstechnik\n\n• Berufserfahrung im Bereich Onkologie von Vorteil\n\n• Sehr gute IT-Anwenderkenntnisse sowie ein gutes Verständnis für Datenmanagement und Datenbanksystemen\n\n• Strukturierte, sorgfältige und qualitätsbewusste Arbeitsweise\n\n• Teamorientierte, flexible und lösungsorientierte Persönlichkeit mit positiver Grundhaltung\n\n• Motivation, einen wichtigen Beitrag zur kontinuierlichen Verbesserung der Behandlungsqualität zu leisten\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "fr": "Aufgaben:\nWerde Teil unseres Teams im Onkologiezentrum und bringe deine Expertise in der Tumordokumentation und medizinischen Datenerfassung ein.\n• Erfassung und Pflege onkologischer Falldaten sowie Nachsorgedaten in der Tumordokumentationssoftware\n\n• Mitarbeit an den wöchentlichen Tumorboards inklusive Präsentation der Fälle und Unterstützung bei der Protokollführung\n\n• Kontrolle und Plausibilisierung von Kennzahlen mit den Verantwortlichen sowie Erstellung relevanter Unterlagen für Zertifizierungen und Audits\n\n• Mitwirkung bei internen und externen Audits\n\n• Erhebung und Erfassung dokumentationspflichtiger Daten der hochspezialisierten Medizin (HSM) und medizinischen Registern aus Patientendossiers und Arztberichten\n\n• Unterstützung bei Jahresabschlüssen und Datenaufbereitungen\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Erfahrung im medizinischen Bereich, idealerweise in der Pflege oder Operationstechnik\n\n• Berufserfahrung im Bereich Onkologie von Vorteil\n\n• Sehr gute IT-Anwenderkenntnisse sowie ein gutes Verständnis für Datenmanagement und Datenbanksystemen\n\n• Strukturierte, sorgfältige und qualitätsbewusste Arbeitsweise\n\n• Teamorientierte, flexible und lösungsorientierte Persönlichkeit mit positiver Grundhaltung\n\n• Motivation, einen wichtigen Beitrag zur kontinuierlichen Verbesserung der Behandlungsqualität zu leisten\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)"
+      },
+      "location": "Engeried",
+      "canton": "BE",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/medizinischer-dokumentar-medizinische-dokumentarin/c0b31879-e9e2-4fac-abb2-ea82849eac11",
+      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-13T14:10:05.587Z",
+      "addressLocality": "Engeried",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3012",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/med-dokumentarmed-dokumentarin-onkologiezentrum-engeried-de-f2947.html?agid=20",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-13T14:10:05.587Z"
     }
   ]
 }
