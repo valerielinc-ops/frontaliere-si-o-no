@@ -22,7 +22,13 @@ function registry(overrides: Record<string, unknown> = {}) {
     states: LOOP_STATES,
     qualityStates: QUALITY_STATES,
     autonomyLevels: Object.fromEntries(AUTONOMY_LEVELS.map((level) => [level, level])),
-    actionAutonomy: { observe: 'A0', 'follow-up': 'A1' },
+    actionAutonomy: {
+      observe: 'A0',
+      'follow-up': 'A1',
+      route: 'A4',
+      lock: 'A4',
+      retry: 'A4',
+    },
     sourceCatalog: { 'test-source': 'Independent test source' },
     loops: EXPECTED_LOOP_IDS.map((loopId) => ({
       loopId,
@@ -34,7 +40,9 @@ function registry(overrides: Record<string, unknown> = {}) {
       primaryMetric: 'verified_metric',
       minimumSample: 1,
       maxAutonomy: 'A4',
-      actionClasses: ['observe', 'follow-up'],
+      actionClasses: loopId === 'L10'
+        ? ['observe', 'follow-up', 'route', 'lock', 'retry']
+        : ['observe', 'follow-up'],
       guardrails: ['never bypass a gate'],
       lifecycle: {
         candidateTtlHours: 24,
@@ -125,7 +133,7 @@ describe('L10 Engineering Learning / Fleet Control', () => {
     }, { now: NOW });
     expect(verdict).toMatchObject({ ok: false, quality: 'unmeasurable' });
     expect(verdict.snapshot.health.verifiedDecisions).toBeNull();
-    expect(verdict.candidates.some((candidate) => candidate.autonomy === 'A1')).toBe(true);
+    expect(verdict.candidates.some((candidate) => candidate.actionClass === 'route' && candidate.autonomy === 'A4')).toBe(true);
   });
 
   it('detects an incomplete fleet registry and does not route an unknown loop as valid', () => {
@@ -148,7 +156,7 @@ describe('L10 Engineering Learning / Fleet Control', () => {
     expect(verdict.quality).toBe('partial');
     expect(verdict.issues.join(' ')).toContain('more discovery does not reduce proven quota');
     expect(verdict.issues.join(' ')).toContain('gateBypass must remain false');
-    expect(verdict.candidates.some((candidate) => candidate.autonomy === 'A4')).toBe(true);
+    expect(verdict.candidates.some((candidate) => candidate.actionClass === 'lock+retry' && candidate.autonomy === 'A4')).toBe(true);
   });
 
   it('keeps a skipped run out of the verified throughput denominator', () => {

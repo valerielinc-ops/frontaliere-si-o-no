@@ -16,11 +16,14 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
+  loadLoopPolicyForRun,
+  validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L9';
 export const DEFAULT_PROFILES_PATH = path.join('data', 'employer-profiles.json');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'employer-funnel-outcomes.json');
+export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 240;
 export const MINIMUM_SAMPLE = 20;
 export const MAX_CANDIDATES = 25;
@@ -148,7 +151,7 @@ function profileCandidate(profile) {
     activeJobs: profile.activeJobs,
     topCantons: profile.cantons.slice(0, 3),
     topCities: profile.cities.slice(0, 3),
-    autonomy: 'A1',
+    actionClass: 'draft-outreach',
     action: 'draft-outreach only: prepare a human-reviewed employer activation brief; do not send it',
     reversible: true,
     externalMutation: false,
@@ -460,7 +463,7 @@ export function validateEmployerActivation({ profiles, outcomes = null, outcomeP
   const candidates = [...profileVerdict.candidates];
   if (profileVerdict.quality !== 'observed' || outcomeVerdict.quality !== 'observed' || issues.length) {
     candidates.unshift({
-      autonomy: 'A2',
+      actionClass: 'pr',
       action: 'prepare a reviewed PR to repair the producer/schema or its funnel cardinality checks; never rewrite inventory in place',
       reversible: true,
       externalMutation: false,
@@ -529,18 +532,25 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now) {
-  if (!reportDir || verdict.ok) return null;
+function writeActions(reportDir, verdict, now, loopRegistry) {
+  if (!reportDir || verdict.ok || !loopRegistry) return null;
   const file = path.join(path.resolve(reportDir), 'l9-actions.json');
   const actions = [
     {
-      autonomy: 'A2',
+      actionClass: 'pr',
+      autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'pr').requiredAutonomy,
       action: 'prepare a reviewed PR for malformed profile or funnel data; preserve the published inventory and ledger',
       reversible: true,
       externalMutation: false,
       noAutomaticPriceChange: true,
     },
-    ...verdict.candidates.filter((candidate) => candidate.action.includes('draft-outreach')),
+    ...verdict.candidates
+      .filter((candidate) => candidate.action.includes('draft-outreach'))
+      .map((candidate) => ({
+        ...candidate,
+        actionClass: 'draft-outreach',
+        autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'draft-outreach').requiredAutonomy,
+      })),
   ];
   fs.writeFileSync(file, `${JSON.stringify({
     loopId: LOOP_ID,
@@ -594,6 +604,7 @@ export async function runL9({
   now = new Date(),
   profilesPath = DEFAULT_PROFILES_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
+  registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample = MINIMUM_SAMPLE,
   issue = false,
@@ -602,6 +613,11 @@ export async function runL9({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   const outcomePresent = fs.existsSync(path.resolve(outcomePath));
   try {
@@ -614,7 +630,7 @@ export async function runL9({
       maxAgeHours,
       sourcePath: profilesPath,
       outcomePath,
-      minimumSample,
+      minimumSample: policyMinimumSample,
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -629,7 +645,7 @@ export async function runL9({
         outcomes: emptyOutcomeSnapshot(outcomePath, { missing: !outcomePresent }),
       },
       candidates: [{
-        autonomy: 'A2',
+        actionClass: 'pr',
         action: 'prepare a reviewed PR to restore or repair the employer input; preserve the current published surface',
         reversible: true,
         externalMutation: false,
@@ -637,6 +653,32 @@ export async function runL9({
       }],
     });
   }
+  const actionClass = verdict.ok ? 'observe' : 'candidate+pr+draft-outreach';
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+  for (const candidate of verdict.candidates) {
+    validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidate.actionClass || 'pr');
+  }
+  verdict = {
+    ...verdict,
+    candidates: verdict.candidates.map((candidate) => {
+      const candidateActionClass = candidate.actionClass || 'pr';
+      return {
+        ...candidate,
+        actionClass: candidateActionClass,
+        autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass).requiredAutonomy,
+      };
+    }),
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const outcomes = verdict.snapshot?.outcomes || {};
   const candidateStarts = [
@@ -648,42 +690,42 @@ export async function runL9({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: 'Employer Supply to Paid Activation',
-    owner: 'CRO / Monetization',
-    oracle: 'independent checkout and subscription state ledger',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'Employer supply creates commercial value only when eligible accounts, funnel transitions and paid activations reconcile independently.',
     sourceSnapshot: verdict.snapshot || { profilesPath, outcomePath },
     observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'eligible-employer-accounts-with-factual-profile-inventory',
     numerator: measurable ? outcomes.paidActivations : null,
     denominator: measurable ? outcomes.eligibleEmployerAccounts : null,
-    primaryMetric: 'paid_activation_rate',
-    guardrails: ['inventory is not revenue', 'no real outreach without approval', 'no automatic price change', 'independent checkout/subscription ledger required'],
-    minimumSample,
-    actionClass: verdict.ok ? 'observe' : 'candidate+pr+draft-outreach',
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
+    actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: 'Employer Supply to Paid Activation',
-    owner: 'CRO / Monetization',
-    oracle: 'independent checkout and subscription state ledger',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.ok ? 'observe' : 'candidate+pr+draft-outreach',
+    actionClass,
     rollbackPlan: 'discard runner-local employer briefs and PR proposals; send no outreach and leave prices, inventory and subscription state unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + 7 * 86_400_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }
@@ -721,6 +763,7 @@ function parseArgs(argv) {
     dryRun: argv.includes('--dry-run'),
     profilesPath: valueAfter('--profiles', DEFAULT_PROFILES_PATH),
     outcomePath: valueAfter('--outcomes', DEFAULT_OUTCOME_PATH),
+    registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP
