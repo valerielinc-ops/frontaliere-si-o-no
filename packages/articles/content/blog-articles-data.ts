@@ -34968,6 +34968,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'stadler-rail-investimenti-kazakistan',
+ category: 'novita',
+ date: '2026-09-13T06:55:26.284Z',
+ image: '/images/blog/stadler-rail-investimenti-kazakistan.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

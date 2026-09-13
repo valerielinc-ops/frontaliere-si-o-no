@@ -11717,6 +11717,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.verbania-lavori-ponte-san-giovanni.title': 'Verbania, lavori sul ponte San Giovanni: traffico modificato',
     'blog.article.verbania-lavori-ponte-san-giovanni.excerpt': 'Interventi notturni di Acqua Novara.VCO sul ponte San Giovanni a Verbania dal 14 al 18 settembre con senso unico alternato.',
     'blog.article.verbania-lavori-ponte-san-giovanni.imageAlt': 'Lavori notturni e viabilità modificata sul ponte San Giovanni a Verbania',
+    'blog.article.stadler-rail-investimenti-kazakistan.title': 'Stadler Rail punta sul Kazakistan: 53 milioni di investimenti',
+    'blog.article.stadler-rail-investimenti-kazakistan.excerpt': 'Il costruttore turgoviese Stadler Rail investe 25 milioni di franchi nello stabilimento di Astana per avviare la produzione di casse in alluminio.',
+    'blog.article.stadler-rail-investimenti-kazakistan.imageAlt': 'Stabilimento ferroviario di Stadler Rail con macchinari avanzati',
 };
 
 export default blogMetaIt;

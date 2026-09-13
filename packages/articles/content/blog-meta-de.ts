@@ -11715,6 +11715,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.verbania-lavori-ponte-san-giovanni.title': 'Verbania, Arbeiten an der San Giovanni-Brücke: veränderter Verkehr',
     'blog.article.verbania-lavori-ponte-san-giovanni.excerpt': 'Nächtliche Eingriffe von Acqua Novara.VCO auf der Brücke San Giovanni in Verbania vom 14. bis 18. September mit Einbahnstraße.',
     'blog.article.verbania-lavori-ponte-san-giovanni.imageAlt': 'Nächtliche Bauarbeiten und Verkehrsänderungen an der San-Giovanni-Brücke in Verbania',
+    'blog.article.stadler-rail-investimenti-kazakistan.title': 'Stadler Rail setzt auf Kasachstan: 53 Millionen Investitionen',
+    'blog.article.stadler-rail-investimenti-kazakistan.excerpt': 'Der Thurgauer Hersteller Stadler Rail investiert 25 Millionen Franken in das Werk Astana, um mit der Produktion von Aluminiumgehäusen zu beginnen.',
+    'blog.article.stadler-rail-investimenti-kazakistan.imageAlt': 'Stadler Rail Bahnproduktionsanlage mit modernen Maschinen',
 };
 
 export default blogMetaDe;
