@@ -19,7 +19,7 @@
  *
  * ## LA REGOLA
  *
- * Un valore che non e' un intero finito NON e' un'opinione da propagare: e' un
+ * Un valore che non e' un intero decimale non negativo NON e' un'opinione da propagare: e' un
  * errore di configurazione. Si cade sul default e lo si DICE (`::warning::`,
  * cosi' GitHub Actions lo mostra sullo Step Summary invece di seppellirlo).
  * Assente o vuoto e' invece legittimo — significa «non l'ho impostata» — e cade
@@ -39,15 +39,16 @@
  * stessa modalita' di guasto dei negativi: successo dichiarato con dataset
  * troncato, solo per un refuso di notazione invece che di segno.
  *
- * Solo la notazione decimale e' accettata. Il segno resta ammesso perche' e' il
- * modo normale di scrivere un intero (`-5`, `+7`); esadecimale, ottale,
+ * Solo la notazione decimale non negativa e' accettata. Il segno positivo resta
+ * ammesso perche' e' un modo normale di scrivere un intero (`+7`); un valore
+ * negativo (`-5`) e' invece una configurazione non valida. Esadecimale, ottale,
  * binario, esponenziale e separatori non lo sono.
  */
 const DECIMAL_INT_RE = /^[+-]?\d+$/;
 
 /**
  * @param {string} name nome della variabile d'ambiente
- * @param {number} fallback valore da usare se assente, vuota o non intera
+ * @param {number} fallback valore da usare se assente, vuota o non intera non negativa
  * @param {{ env?: Record<string, string|undefined>, warn?: (msg: string) => void }} [opts]
  * @returns {number}
  */
@@ -58,9 +59,9 @@ export function intFromEnv(name, fallback, { env = process.env, warn = console.w
 
   const trimmed = String(raw).trim();
   const n = Number(trimmed);
-  if (!DECIMAL_INT_RE.test(trimmed) || !Number.isInteger(n)) {
+  if (!DECIMAL_INT_RE.test(trimmed) || !Number.isInteger(n) || n < 0) {
     warn(
-      `::warning::[int-from-env] ${name}=${JSON.stringify(String(raw))} non e' un intero decimale — `
+      `::warning::[int-from-env] ${name}=${JSON.stringify(String(raw))} non e' un intero decimale non negativo — `
       + `uso il default ${fallback}. Un valore non numerico qui diventava NaN, e NaN non lancia: `
       + 'si propagava in tetti, limiti di concorrenza e finestre temporali senza rendere rosso niente. '
       + "Una forma non decimale (`0x10`, `1e3`) e' invece un intero DIVERSO da quello scritto: stesso "
@@ -76,10 +77,10 @@ export function intFromEnv(name, fallback, { env = process.env, warn = console.w
  *
  * ## PERCHE' NON BASTA `intFromEnv` (corpus #884, follow-up di #7344)
  *
- * `intFromEnv` chiude il buco del `NaN`, che era il difetto di #7344. Ma per un
- * conteggio — un tetto di `slice`, un passo di concorrenza — restano due valori
- * che sono interi finiti, superano quel controllo, e SPENGONO comunque la
- * regola restando verdi:
+ * `intFromEnv` chiude il buco del `NaN` e dei negativi, che erano difetti di
+ * configurazione. Ma per un conteggio — un tetto di `slice`, un passo di
+ * concorrenza — lo ZERO resta un intero finito che supera quel controllo e
+ * SPENGE comunque la regola restando verde:
  *
  *   · `X_MAX_DETAIL_PAGES=-5` → `listings.slice(0, -5)` non e' «i primi -5»:
  *     e' «tutti tranne gli ultimi 5». Il crawler scarta cinque annunci veri e

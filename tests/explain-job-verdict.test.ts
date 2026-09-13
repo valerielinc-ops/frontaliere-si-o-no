@@ -50,6 +50,19 @@ describe('explain-job-verdict — selezione del job corrente', () => {
 
     expect(selected?.id).toBe(10);
   });
+
+  it('segnala il fallback quando l identità del runner non trova alcun job', async () => {
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const { selectCurrentJob } = await import('../scripts/ci/explain-job-verdict.mjs');
+    const selected = selectCurrentJob([
+      { id: 10, name: VITEST_EXECUTION_JOB_NAME, runner_name: 'runner-old', started_at: '2026-09-08T10:00:00Z' },
+      { id: 11, name: VITEST_EXECUTION_JOB_NAME, runner_name: 'runner-other', started_at: '2026-09-08T10:01:00Z' },
+    ], { runnerId: 'runner-id-missing', runnerName: 'runner-current' });
+
+    expect(selected?.id).toBe(11);
+    expect(warning).toHaveBeenCalledWith(expect.stringContaining('nessun match del runner corrente'));
+    expect(warning).toHaveBeenCalledWith(expect.stringContaining('fallback più recente'));
+  });
 });
 
 describe('explain-job-verdict — ramo verde', () => {

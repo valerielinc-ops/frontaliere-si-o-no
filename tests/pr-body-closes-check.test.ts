@@ -96,6 +96,12 @@ describe('checkClosesLines — ineffective closing keyword', () => {
     expect(res.violations.find((v) => v.type === 'ineffective-closing-keyword')?.ref).toBe('#849');
   });
 
+  it('non lascia che una negazione in una clausola precedente sopprima l intento successivo', () => {
+    const res = checkClosesLines('Il controllo non è completato, ma questa PR chiude #7994');
+    const violation = res.violations.find((v) => v.type === 'ineffective-closing-keyword');
+    expect(violation?.ref).toBe('#7994');
+  });
+
   it('non fonde parole vere quando normalizza l enfasi markdown', () => {
     expect(stripEmphasis('skip_total')).toBe('skiptotal');
     expect(stripEmphasis('stato_attuale')).toBe('statoattuale');

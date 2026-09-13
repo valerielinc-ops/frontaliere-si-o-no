@@ -119,6 +119,24 @@ describe('stepTimingLines — attribuzione del tempo di un job in timeout', () =
     expect(lines.find((line) => line.includes('prima'))).toContain('(10%)');
   });
 
+  it('estende la finestra quando il primo step precede started_at del job', () => {
+    const lines = stepTimingLines({
+      started_at: '2026-09-08T10:05:00Z',
+      completed_at: '2026-09-08T10:10:00Z',
+      steps: [{
+        name: 'setup anticipato',
+        started_at: '2026-09-08T10:00:00Z',
+        completed_at: '2026-09-08T10:10:00Z',
+      }],
+    });
+    const body = lines.join('\n');
+
+    expect(body).toContain('10m00s di vita del job');
+    expect(body).toContain('finestra estesa');
+    expect(lines.find((line) => line.includes('setup anticipato'))).toContain('(100%)');
+    expect(body).not.toContain('(200%)');
+  });
+
   it('non stampa percentuali quando la finestra del job è zero', () => {
     const lines = stepTimingLines({
       started_at: '2026-09-08T10:00:00Z',

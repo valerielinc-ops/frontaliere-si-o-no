@@ -135,7 +135,31 @@ function createRunnerVariant(source: string) {
   return dir;
 }
 
-function runRunnerInFixture(fixtureDir: string, runnerDir: string, suffix: string) {
+function createStatusStreamGitWrapper() {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-status-stream-git-'));
+  const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+  const wrapper = path.join(dir, 'git');
+  fs.writeFileSync(wrapper, `#!/bin/sh
+if [ "$1" = "diff" ]; then
+  case " $* " in
+    *" --name-status "*)
+      printf 'R100\\000.github/workflows/old-for-parser.yml\\000A\\000.github/workflows/brand-new-for-parser.yml\\000'
+      exit 0
+      ;;
+  esac
+fi
+exec "$RELATED_TESTS_REAL_GIT" "$@"
+`);
+  fs.chmodSync(wrapper, 0o755);
+  return { dir, realGit };
+}
+
+function runRunnerInFixture(
+  fixtureDir: string,
+  runnerDir: string,
+  suffix: string,
+  extraEnv: Record<string, string> = {},
+) {
   const changedFile = path.join(fixtureDir, `changed-${suffix}.txt`);
   const graphFile = path.join(fixtureDir, `graph-${suffix}.json`);
   fs.writeFileSync(changedFile, 'tests/consumer.test.ts\n');
@@ -158,6 +182,7 @@ function runRunnerInFixture(fixtureDir: string, runnerDir: string, suffix: strin
         // The helper resolves the fixture against origin/main. Do not let a
         // real CI GITHUB_BASE_REF select a different (or unavailable) ref.
         GITHUB_BASE_REF: '',
+        ...extraEnv,
       },
     },
   );
@@ -305,6 +330,25 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
       fs.rmSync(fixtureDir, { recursive: true, force: true });
       fs.rmSync(previousRunnerDir, { recursive: true, force: true });
       fs.rmSync(currentRunnerDir, { recursive: true, force: true });
+    }
+  }, 120_000);
+
+  it('non disallinea il flusso quando un rename espone un solo path', () => {
+    const runnerSource = fs.readFileSync(RUNNER, 'utf8');
+    const fixtureDir = createRenameFixture();
+    const runnerDir = createRunnerVariant(runnerSource);
+    const gitWrapper = createStatusStreamGitWrapper();
+    try {
+      const graph = runRunnerInFixture(fixtureDir, runnerDir, 'single-path-rename', {
+        PATH: `${gitWrapper.dir}:${process.env.PATH || ''}`,
+        RELATED_TESTS_REAL_GIT: gitWrapper.realGit,
+      });
+      expect(graph.files['tests/consumer.test.ts'].deps)
+        .toContain('.github/workflows/brand-new-for-parser.yml');
+    } finally {
+      fs.rmSync(fixtureDir, { recursive: true, force: true });
+      fs.rmSync(runnerDir, { recursive: true, force: true });
+      fs.rmSync(gitWrapper.dir, { recursive: true, force: true });
     }
   }, 120_000);
 
