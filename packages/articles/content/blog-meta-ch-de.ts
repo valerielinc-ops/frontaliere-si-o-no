@@ -6364,6 +6364,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.record-imprese-culturali-svizzera.title': 'Kulturunternehmensrekord in der Schweiz im Jahr 2024',
     'blog.article.record-imprese-culturali-svizzera.excerpt': 'Im Jahr 2024 verzeichnete die Schweiz 69 441 aktive Kulturunternehmen, ein Plus von 27% gegenüber 2011, obwohl die Beschäftigung zurückging.',
     'blog.article.record-imprese-culturali-svizzera.imageAlt': 'Kulturunternehmen in der Schweiz gemäss BFS-Daten',
+    'blog.article.forum-economico-ambientale-osce-praga.title': '32. OSZE-Forum in Prag: Fokus auf Sicherheit und Technologie',
+    'blog.article.forum-economico-ambientale-osce-praga.excerpt': 'Das 32. Wirtschafts- und Umweltforum der OSZE unter der Leitung des Schweizer Vorsitzes von 2026 wurde in Prag eröffnet.',
+    'blog.article.forum-economico-ambientale-osce-praga.imageAlt': 'Konferenzsaal des OSCE Wirtschafts- und Umweltforums in Prag',
 };
 
 export default blogMetaChDe;

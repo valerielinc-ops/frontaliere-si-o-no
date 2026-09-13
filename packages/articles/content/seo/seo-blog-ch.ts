@@ -82622,6 +82622,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-forum-economico-ambientale-osce-praga': {
+    title: '32° Forum OSCE a Praga: focus su sicurezza e tecnologia',
+    description: 'Inaugurato a Praga il 32° Forum economico e ambientale dell\'OSCE sotto la guida della Presidenza svizzera del 2026. Scopri tutti i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, forum, osce, praga, focus',
+    ogTitle: '32° Forum economico e ambientale OSCE a Praga',
+    ogDescription: 'Approfondimenti sul 32° Forum economico e ambientale dell\'OSCE a Praga guidato dalla Presidenza svizzera del 2026 con focus su tecnologia e sicurezza.',
+    canonicalPath: '/articoli-svizzera/forum-economico-ambientale-osce-praga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "32° Forum OSCE a Praga: focus su sicurezza e tecnologia",
+      "description": "Inaugurato a Praga il 32° Forum economico e ambientale dell'OSCE sotto la guida della Presidenza svizzera del 2026. Scopri tutti i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/forum-economico-ambientale-osce-praga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala conferenze del Forum economico e ambientale OSCE a Praga"
+      },
+      "datePublished": "2026-09-13T09:23:48+00:00",
+      "dateModified": "2026-09-13T09:23:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/forum-economico-ambientale-osce-praga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
