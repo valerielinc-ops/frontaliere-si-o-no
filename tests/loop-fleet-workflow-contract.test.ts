@@ -59,6 +59,8 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toMatch(/contents:\s*write/u);
     expect(source).toContain('Direct writes to main');
     expect(source).toContain('lifecycle-events.jsonl');
+    expect(source).toContain('for edit_attempt in 1 2 3');
+    expect(source).toContain('GitHub PR API did not accept the ledger PR update after 3 attempts');
   });
 
   it('keeps the automatic ledger recovery probe bounded and unable to write repository content', () => {
