@@ -13,7 +13,9 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
+  REQUIRED_LIFECYCLE_EVENT_TYPES,
   validateActionClassAgainstPolicy,
+  validateLifecycleEvent,
   validateLoopRegistry,
   validateOutcomeAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
@@ -37,6 +39,10 @@ const LOOP_WORKFLOWS = Object.freeze({
 
 function text(value) {
   return typeof value === 'string' && value.trim() ? value.trim() : null;
+}
+
+function object(value) {
+  return Boolean(value && typeof value === 'object' && !Array.isArray(value));
 }
 
 function readJson(file) {
@@ -142,6 +148,81 @@ function readDurableHealth(ledgerDir, registry) {
   }
 }
 
+export function summarizeLifecycleEvents(events) {
+  const byCandidate = new Map();
+  for (const event of events || []) {
+    const candidateId = text(event?.candidateId);
+    if (!candidateId) continue;
+    if (!byCandidate.has(candidateId)) byCandidate.set(candidateId, []);
+    byCandidate.get(candidateId).push(event);
+  }
+  const candidates = [...byCandidate.entries()].map(([candidateId, candidateEvents]) => {
+    const eventTypes = [...new Set(candidateEvents.map((event) => event.eventType))];
+    const missing = REQUIRED_LIFECYCLE_EVENT_TYPES.filter((eventType) => !eventTypes.includes(eventType));
+    const sorted = [...candidateEvents].sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt));
+    return {
+      candidateId,
+      owner: candidateEvents[0].owner,
+      eventTypes,
+      missing,
+      complete: missing.length === 0,
+      lastEvent: sorted.at(-1) ? {
+        eventType: sorted.at(-1).eventType,
+        occurredAt: sorted.at(-1).occurredAt,
+      } : null,
+    };
+  });
+  const last = [...(events || [])].sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt)).at(-1);
+  return {
+    available: true,
+    eventCount: (events || []).length,
+    candidateCount: candidates.length,
+    complete: candidates.length ? candidates.every((candidate) => candidate.complete) : null,
+    state: candidates.length === 0
+      ? 'no_candidate'
+      : (candidates.every((candidate) => candidate.complete) ? 'verified' : 'candidate'),
+    lastEvent: last ? { eventType: last.eventType, occurredAt: last.occurredAt } : null,
+    candidates,
+  };
+}
+
+function readDurableLifecycle(ledgerDir, registry) {
+  const file = path.resolve(ledgerDir, 'lifecycle-events.jsonl');
+  if (!fs.existsSync(file)) return { byLoop: {}, error: null, available: false };
+  try {
+    const byLoop = {};
+    const byId = new Map();
+    const lines = fs.readFileSync(file, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean);
+    for (const [index, line] of lines.entries()) {
+      let event;
+      try {
+        event = JSON.parse(line);
+      } catch (error) {
+        throw new Error(`line ${index + 1} is invalid JSON: ${error.message}`);
+      }
+      validateLifecycleEvent(registry, event.loopId, event);
+      if (!object(event.execution) || !text(event.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(event.execution.sha || ''))) {
+        throw new Error(`line ${index + 1} has no durable execution identity`);
+      }
+      const previous = byId.get(event.recordId);
+      if (previous && JSON.stringify(previous) !== JSON.stringify(event)) {
+        throw new Error(`line ${index + 1} conflicts with duplicate ${event.recordId}`);
+      }
+      if (previous) continue;
+      byId.set(event.recordId, event);
+      if (!byLoop[event.loopId]) byLoop[event.loopId] = [];
+      byLoop[event.loopId].push(event);
+    }
+    return {
+      byLoop: Object.fromEntries(Object.entries(byLoop).map(([loopId, events]) => [loopId, summarizeLifecycleEvents(events)])),
+      error: null,
+      available: true,
+    };
+  } catch (error) {
+    return { byLoop: {}, error: `lifecycle event ledger is invalid: ${error.message}`, available: true };
+  }
+}
+
 function evidenceFromDurableHealth(health) {
   if (!health) return null;
   return {
@@ -184,7 +265,11 @@ function downloadEvidence(loopId, run, tempRoot) {
     if (health && (health.loopId !== loopId || String(health.execution?.runId || '') !== String(runId))) {
       return { evidence: null, error: 'canonical health ledger does not match the selected loop/run' };
     }
-    return { evidence: { ...evidence, health }, error: null };
+    const lifecycleFile = findFile(target, 'lifecycle-events.jsonl');
+    const lifecycleEvents = lifecycleFile
+      ? fs.readFileSync(lifecycleFile, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean).map((line) => JSON.parse(line))
+      : [];
+    return { evidence: { ...evidence, health }, lifecycleEvents: summarizeLifecycleEvents(lifecycleEvents), error: null };
   } catch (error) {
     return { evidence: null, error: `canonical evidence is invalid JSON: ${error.message}` };
   }
@@ -196,6 +281,7 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
     const runResult = runResults[policy.loopId] || { run: null, error: 'run not inspected' };
     const evidenceResult = evidenceResults[policy.loopId] || { evidence: null, error: 'evidence not inspected' };
     const durableHealth = evidenceResult.canonicalHealth || null;
+    const lifecycleEvents = evidenceResult.canonicalLifecycle || evidenceResult.lifecycleEvents || null;
     const durableEvidence = evidenceFromDurableHealth(durableHealth);
     const evidence = evidenceResult.evidence || durableEvidence;
     const artifactHealth = evidence?.health || null;
@@ -222,6 +308,7 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       && outcome.independent === true
       && Array.isArray(outcome.missingFields)
       && outcome.missingFields.length === 0;
+    const lifecycleIncomplete = lifecycleEvents?.complete === false;
     const missingOutcome = !outcome
       ? 'independent outcome not recorded'
       : (outcomeMeasured ? null : `${outcome.status || 'unmeasurable'}: ${outcome.reason || 'independent outcome unavailable or incomplete'}`);
@@ -230,7 +317,9 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       ? 'restore or attach the independent source and rerun the loop'
       : (missingOutcome
         ? 'validate or attach the independent outcome before changing exposure'
-        : 'review the recorded outcome and close the observation window');
+        : (lifecycleIncomplete
+          ? 'advance the candidate through PR, tests, review, merge and post-merge verification'
+          : 'review the recorded outcome and close the observation window'));
     return {
       loopId: policy.loopId,
       goal: policy.goal,
@@ -268,6 +357,10 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       warningCount,
       outcome,
       outcomePolicyCompliant,
+      lifecycleEvents,
+      lifecycleState: lifecycleEvents?.state || 'unavailable',
+      lifecycleEventCount: lifecycleEvents?.eventCount ?? null,
+      lifecycleComplete: lifecycleEvents?.complete ?? null,
       historyAvailable: Boolean(durableHealth),
       ledgerLastRun: durableHealth ? {
         id: durableHealth.execution?.runId || null,
@@ -282,8 +375,8 @@ function renderMarkdown(rows) {
   const lines = [
     '## Loop fleet status',
     '',
-    '| Loop | Owner | Ultimo run | Ledger durable | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | TTL / SLA / verify | Fonti dichiarate | Next human action | Policy |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
+    '| Loop | Owner | Ultimo run | Ledger durable | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | TTL / SLA / verify | Lifecycle | Fonti dichiarate | Next human action | Policy |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ];
   for (const row of rows) {
     const run = row.lastRun ? `[${row.lastRun.conclusion}](${row.lastRun.url || '#'})` : 'n/d';
@@ -292,11 +385,14 @@ function renderMarkdown(rows) {
       : 'n/d';
     const autonomy = `${row.actualAutonomy || 'n/d'} / ${row.maxAutonomy}`;
     const lifecycle = `${row.candidateTtlHours}h / ${row.ownerSlaHours}h / ${row.postMergeVerificationHours}h`;
+    const lifecycleState = row.lifecycleEvents
+      ? `${row.lifecycleState} (${row.lifecycleEventCount ?? 'n/d'})`
+      : 'unavailable';
     const sources = row.sourceRefs.join(', ');
     const issue = row.issue || '—';
     const missingOutcome = row.missingOutcome || '—';
     const policy = row.evidenceComplete && row.policyCompliant ? 'ok' : 'incomplete';
-    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${ledger} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${lifecycle} | ${sources} | ${row.nextHumanAction} | ${policy} |`);
+    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${ledger} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${lifecycle} | ${lifecycleState} | ${sources} | ${row.nextHumanAction} | ${policy} |`);
   }
   lines.push('', 'Qualità o evidenza assente = `unmeasurable`; il report non sintetizza zeri.');
   return `${lines.join('\n')}\n`;
@@ -311,6 +407,7 @@ export function collectStatus({
 } = {}) {
   const registry = validateLoopRegistry(readJson(registryPath));
   const durable = readDurableHealth(ledgerDir, registry);
+  const durableLifecycle = readDurableLifecycle(ledgerDir, registry);
   const runResults = {};
   const evidenceResults = {};
   for (const policy of registry.loops) {
@@ -323,7 +420,8 @@ export function collectStatus({
     evidenceResults[policy.loopId] = {
       ...artifactResult,
       canonicalHealth: durable.byLoop[policy.loopId] || null,
-      canonicalError: durable.error,
+      canonicalLifecycle: durableLifecycle.byLoop[policy.loopId] || null,
+      canonicalError: durable.error || durableLifecycle.error,
     };
   }
   return buildStatusRows(registry, runResults, evidenceResults);

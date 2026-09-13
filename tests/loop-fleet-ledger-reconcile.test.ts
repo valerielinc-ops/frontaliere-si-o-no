@@ -72,11 +72,13 @@ describe('loop-fleet-ledger-reconcile', () => {
       observation: { recordType: 'observation', loopId: 'L0', recordId: 'observation-1', execution },
       decision: { recordType: 'decision', loopId: 'L0', recordId: 'decision-1', execution },
       health: { recordType: 'health', loopId: 'L0', recordId: 'health-1', execution },
+      lifecycle: { recordType: 'lifecycle-event', loopId: 'L0', recordId: 'lifecycle-1', execution },
     };
     writeJson(input, 'loop-fleet-evidence.json', { loopId: 'L0', run: { runId: '123', sha: SHA } });
     writeJsonl(input, 'loop-observations.jsonl', [records.observation]);
     writeJsonl(input, 'loop-decisions.jsonl', [records.decision]);
     writeJsonl(input, 'loop-health-history.jsonl', [records.health]);
+    writeJsonl(input, 'lifecycle-events.jsonl', [records.lifecycle]);
 
     expect(missingEvidenceRecordIds(input, ledger, { loopId: 'L0', runId: '123', sha: SHA })).toMatchObject({
       ok: true,
@@ -84,12 +86,14 @@ describe('loop-fleet-ledger-reconcile', () => {
         { type: 'observation', recordId: 'observation-1' },
         { type: 'decision', recordId: 'decision-1' },
         { type: 'health', recordId: 'health-1' },
+        { type: 'lifecycle', recordId: 'lifecycle-1' },
       ],
     });
 
     writeJsonl(ledger, 'loop-observations.jsonl', [records.observation]);
     writeJsonl(ledger, 'loop-decisions.jsonl', [records.decision]);
     writeJsonl(ledger, 'loop-health-history.jsonl', [records.health]);
+    writeJsonl(ledger, 'lifecycle-events.jsonl', [records.lifecycle]);
     expect(missingEvidenceRecordIds(input, ledger, { loopId: 'L0', runId: '123', sha: SHA })).toMatchObject({
       ok: true,
       missing: [],
@@ -136,12 +140,13 @@ describe('loop-fleet-ledger-reconcile', () => {
     expect(hasActiveBridgeRun([{ status: 'requested' }])).toBe(true);
   });
 
-  it('reads durable IDs from all three canonical ledgers', () => {
+  it('reads durable IDs from all four canonical ledgers', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-reconcile-test-'));
     fs.mkdirSync(path.join(root, 'ledger'));
     writeJsonl(path.join(root, 'ledger'), 'loop-health-history.jsonl', [{ recordId: 'health-1' }]);
     expect([...durableRecordIds(path.join(root, 'ledger')).health]).toEqual(['health-1']);
     expect(durableRecordIds(path.join(root, 'ledger')).observation.size).toBe(0);
     expect(durableRecordIds(path.join(root, 'ledger')).decision.size).toBe(0);
+    expect(durableRecordIds(path.join(root, 'ledger')).lifecycle.size).toBe(0);
   });
 });

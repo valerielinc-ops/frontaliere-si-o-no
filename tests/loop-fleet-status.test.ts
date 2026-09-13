@@ -3,7 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — the status roll-up is a dependency-free ESM CI script.
-import { buildStatusRows, collectStatus } from '../scripts/ci/loop-fleet-status.mjs';
+import { buildStatusRows, collectStatus, summarizeLifecycleEvents } from '../scripts/ci/loop-fleet-status.mjs';
 
 const registry = JSON.parse(fs.readFileSync(path.resolve('data/loop-fleet/loop-registry.json'), 'utf8'));
 
@@ -23,6 +23,36 @@ function run(id: number) {
 }
 
 describe('loop fleet status', () => {
+  it('reports lifecycle gaps without treating the missing downstream events as success', () => {
+    const summary = summarizeLifecycleEvents([
+      {
+        eventType: 'candidate',
+        candidateId: 'lf-decision-1',
+        owner: 'CTO / Reliability',
+        occurredAt: '2026-09-12T12:00:00.000Z',
+      },
+      {
+        eventType: 'owner_assigned',
+        candidateId: 'lf-decision-1',
+        owner: 'CTO / Reliability',
+        occurredAt: '2026-09-12T12:00:01.000Z',
+      },
+    ]);
+    expect(summary).toMatchObject({
+      available: true,
+      eventCount: 2,
+      candidateCount: 1,
+      complete: false,
+      state: 'candidate',
+      candidates: [{
+        candidateId: 'lf-decision-1',
+        eventTypes: ['candidate', 'owner_assigned'],
+        missing: ['pr_opened', 'tests_passed', 'review_approved', 'merged', 'post_merge_verified'],
+        complete: false,
+      }],
+    });
+  });
+
   it('keeps missing evidence explicit instead of reporting a false healthy state', () => {
     const rows = buildStatusRows(
       registry,

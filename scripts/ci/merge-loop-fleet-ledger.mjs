@@ -4,7 +4,7 @@
  * Merge one immutable loop-run artifact into the durable fleet ledger.
  *
  * This helper only appends validated records. It has no GitHub or production
- * credentials; the caller owns the reviewed branch/PR that carries the three
+ * credentials; the caller owns the reviewed branch/PR that carries the four
  * JSONL files. A rerun is idempotent by recordId and a conflicting duplicate
  * fails closed instead of silently rewriting history.
  */
@@ -15,6 +15,7 @@ import {
   appendJsonl,
   validateActionClassAgainstPolicy,
   validateDecisionLifecycle,
+  validateLifecycleEvent,
   validateOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
@@ -24,6 +25,14 @@ const LEDGER_FILES = Object.freeze({
   observation: 'loop-observations.jsonl',
   decision: 'loop-decisions.jsonl',
   health: 'loop-health-history.jsonl',
+  lifecycle: 'lifecycle-events.jsonl',
+});
+
+const RECORD_TYPES = Object.freeze({
+  observation: 'observation',
+  decision: 'decision',
+  health: 'health',
+  lifecycle: 'lifecycle-event',
 });
 
 function text(value) {
@@ -95,11 +104,16 @@ function assertExecution(record, expected) {
 
 function validateRecord(registry, loopId, type, record, expected) {
   if (!object(record)) throw new Error(`${type} record is not an object`);
-  if (record.recordType !== type) throw new Error(`${type} recordType is ${record.recordType || 'missing'}`);
+  const recordType = RECORD_TYPES[type] || type;
+  if (record.recordType !== recordType) throw new Error(`${type} recordType is ${record.recordType || 'missing'}`);
   if (record.loopId !== loopId) throw new Error(`${type} record belongs to ${record.loopId || 'unknown'}, expected ${loopId}`);
   if (!text(record.recordId)) throw new Error(`${type} record has no recordId`);
   assertExecution(record, expected);
   try {
+    if (type === 'lifecycle') {
+      validateLifecycleEvent(registry, loopId, record);
+      return record;
+    }
     validateActionClassAgainstPolicy(registry, loopId, record.actionClass);
     if (type === 'decision') validateDecisionLifecycle(registry, loopId, record);
     validateOutcomeAgainstPolicy(registry, loopId, record.outcome);
@@ -111,7 +125,8 @@ function validateRecord(registry, loopId, type, record, expected) {
 
 function validateHistoricalRecord(registry, type, record) {
   if (!object(record)) throw new Error(`${type} historical record is not an object`);
-  if (record.recordType !== type) throw new Error(`historical ${type} recordType is ${record.recordType || 'missing'}`);
+  const recordType = RECORD_TYPES[type] || type;
+  if (record.recordType !== recordType) throw new Error(`historical ${type} recordType is ${record.recordType || 'missing'}`);
   const historicalLoopId = text(record.loopId);
   if (!historicalLoopId || !registry.loops.some((loop) => loop.loopId === historicalLoopId)) {
     throw new Error(`historical ${type} record belongs to ${record.loopId || 'unknown'}, which is not declared in the registry`);
@@ -121,6 +136,10 @@ function validateHistoricalRecord(registry, type, record) {
     throw new Error(`historical ${type} ${record.recordId} has no durable execution identity`);
   }
   try {
+    if (type === 'lifecycle') {
+      validateLifecycleEvent(registry, historicalLoopId, record);
+      return record;
+    }
     validateActionClassAgainstPolicy(registry, historicalLoopId, record.actionClass);
     if (type === 'decision') validateDecisionLifecycle(registry, historicalLoopId, record);
     validateOutcomeAgainstPolicy(registry, historicalLoopId, record.outcome);
@@ -187,6 +206,9 @@ export function mergeLoopFleetLedger({
 
   const records = {};
   for (const [type, fileName] of Object.entries(LEDGER_FILES)) {
+    // Lifecycle events were introduced after the first durable artifacts.
+    // New recorder artifacts include them; old artifacts remain mergeable so
+    // reconciliation can recover their observations without inventing events.
     const sourceFile = findSingleFile(inputDir, fileName, { required: type === 'health' });
     records[type] = sourceFile
       ? readJsonl(sourceFile, `${fileName} input`).map((record) => validateRecord(registry, loopId, type, record, expected))

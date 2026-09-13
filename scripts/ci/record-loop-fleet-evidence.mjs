@@ -17,6 +17,7 @@ import {
   actionAutonomy,
   appendJsonl,
   buildDecision,
+  buildLifecycleEvent,
   buildOutcome,
   buildObservation,
   findLoopPolicy,
@@ -90,6 +91,35 @@ function withExecution(record, type, loopId, context) {
     recordId: recordId(type, loopId, record, context),
     execution: context,
   };
+}
+
+function lifecycleRecordId(eventType, loopId, candidateId, context, occurredAt) {
+  const basis = ['lifecycle', eventType, loopId, candidateId, context.repository || '', context.workflow || '', context.runId, context.runAttempt, context.sha || '', occurredAt].join('|');
+  return `lf-lifecycle-${crypto.createHash('sha256').update(basis).digest('hex').slice(0, 24)}`;
+}
+
+function buildCandidateLifecycleEvents({ policy, decision, context, now }) {
+  if (!decision || decision.decision !== 'candidate') return [];
+  const candidateId = decision.recordId;
+  return ['candidate', 'owner_assigned'].map((eventType) => {
+    const event = buildLifecycleEvent({
+      eventType,
+      loopId: decision.loopId,
+      candidateId,
+      owner: policy.owner,
+      sourceRecordId: decision.recordId,
+      sourceRefs: policy.sourceRefs,
+      lifecycle: policy.lifecycle,
+      occurredAt: decision.decidedAt,
+      artifactOrPr: decision.artifactOrPr,
+      recordedAt: now.toISOString(),
+    });
+    return {
+      ...event,
+      recordId: lifecycleRecordId(eventType, decision.loopId, candidateId, context, event.occurredAt),
+      execution: context,
+    };
+  });
 }
 
 function appendUnique(file, record) {
@@ -403,6 +433,7 @@ export function recordLoopEvidence({
   const outcomeMeasured = (outcome.status === 'observed' || outcome.status === 'zero')
     && outcome.independent
     && outcome.missingFields.length === 0;
+  const lifecycleEvents = buildCandidateLifecycleEvents({ policy, decision: decided, context, now });
   const health = {
     recordType: 'health',
     schemaVersion: 1,
@@ -416,6 +447,7 @@ export function recordLoopEvidence({
     policyCompliant,
     lifecycleCompliant: decisionLifecycle.ok,
     lifecycle: policy.lifecycle,
+    lifecycleEventTypes: lifecycleEvents.map((event) => event.eventType),
     sourceRefs: policy.sourceRefs,
     policyErrors,
     outcome,
@@ -448,6 +480,7 @@ export function recordLoopEvidence({
     observation: observed ? appendUnique(path.join(ledgerDir, 'loop-observations.jsonl'), observed) : false,
     decision: decided ? appendUnique(path.join(ledgerDir, 'loop-decisions.jsonl'), decided) : false,
     health: appendUnique(path.join(ledgerDir, 'loop-health-history.jsonl'), health),
+    lifecycle: lifecycleEvents.reduce((count, event) => count + (appendUnique(path.join(ledgerDir, 'lifecycle-events.jsonl'), event) ? 1 : 0), 0),
   };
   const summary = {
     schemaVersion: 1,
@@ -462,17 +495,18 @@ export function recordLoopEvidence({
     requiredAutonomy: autonomy,
     maxAutonomy: policy.maxAutonomy,
     lifecycle: policy.lifecycle,
+    lifecycleEventTypes: lifecycleEvents.map((event) => event.eventType),
     lifecycleCompliant: decisionLifecycle.ok,
     sourceRefs: policy.sourceRefs,
     outcome,
     outcomePolicyCompliant: outcomeErrors.length === 0,
     outcomeErrors,
     ledgerScope: configuredLedgerDir ? 'configured-durable-ledger' : 'run-artifact',
-    ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl'],
+    ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl', 'lifecycle-events.jsonl'],
     written,
   };
   fs.writeFileSync(path.join(dir, 'loop-fleet-evidence.json'), `${JSON.stringify(summary, null, 2)}\n`);
-  return { summary, observation: observed, decision: decided, health, evidenceError, policyErrors };
+  return { summary, observation: observed, decision: decided, health, lifecycleEvents, evidenceError, policyErrors };
 }
 
 function valueAfter(argv, flag, fallback = null) {
