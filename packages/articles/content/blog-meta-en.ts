@@ -11701,6 +11701,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pognana-lario-frontaliere-ticino-guida.title': 'Living in Pognana Lario and working in Ticino',
     'blog.article.pognana-lario-frontaliere-ticino-guida.excerpt': 'Practical guide for border workers at Pognana Lario: journeys to Chiasso, taxes, tax agreement and budget management.',
     'blog.article.pognana-lario-frontaliere-ticino-guida.imageAlt': 'View of the lake near Pognana Lario towards the Swiss border',
+    'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.title': 'Speedaf in Switzerland: 50,000 packages per day',
+    'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.excerpt': 'Speedaf, a Swiss subsidiary founded in April, aims to handle up to 50,000 shipments per day with centres in Zurich, Bern and Lausanne and headquarters in Freiburg.',
+    'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.imageAlt': 'Editorial image related to: Speedaf in Svizzera: 50’000 pacchi al giorno',
 };
 
 export default blogMetaEn;

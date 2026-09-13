@@ -82037,6 +82037,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-merci-alpi-semestre-2026': {
+    title: 'Traffico merci transalpino: dati e crescita nel 2026',
+    description: 'Scopri l\'andamento del traffico merci transalpino in Svizzera nel primo semestre 2026: dati su ferrovia, autocarri, cantieri e FFS Cargo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, merci, transalpino, dati',
+    ogTitle: 'Traffico merci transalpino: dati e crescita nel primo semestre 2026',
+    ogDescription: 'Analisi dei rapporti semestrali dell\'Ufficio federale dei trasporti sul traffico merci transalpino in Svizzera per il primo semestre 2026 tra rotaia e strada.',
+    canonicalPath: '/articoli-svizzera/traffico-merci-alpi-semestre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico merci transalpino: dati e crescita nel 2026",
+      "description": "Scopri l'andamento del traffico merci transalpino in Svizzera nel primo semestre 2026: dati su ferrovia, autocarri, cantieri e FFS Cargo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-merci-alpi-semestre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico merci su rotaia e strada attraverso le Alpi svizzere"
+      },
+      "datePublished": "2026-09-13T01:07:46+00:00",
+      "dateModified": "2026-09-13T01:07:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/traffico-merci-alpi-semestre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

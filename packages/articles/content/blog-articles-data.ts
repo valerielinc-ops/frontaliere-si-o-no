@@ -34923,6 +34923,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'speedaf-in-svizzera-50-000-pacchi-al-giorno',
+ category: 'novita',
+ date: '2026-09-13T01:04:04.215Z',
+ image: '/images/blog/speedaf-in-svizzera-50-000-pacchi-al-giorno.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

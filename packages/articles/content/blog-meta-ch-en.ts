@@ -6319,6 +6319,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.condanne-banche-svizzera-corruzione.title': 'Convictions against banks in Switzerland for corruption',
     'blog.article.condanne-banche-svizzera-corruzione.excerpt': 'Six Swiss banks recently convicted by the federal justice for corruption or money laundering cases. Let\'s discuss the trend with the experts.',
     'blog.article.condanne-banche-svizzera-corruzione.imageAlt': 'Swiss bank buildings in Switzerland',
+    'blog.article.traffico-merci-alpi-semestre-2026.title': 'Transalpine freight traffic: data and growth in 2026',
+    'blog.article.traffico-merci-alpi-semestre-2026.excerpt': 'Growth in transalpine freight traffic of 3.1% in the first half of 2026. The share of the railroad stands at 68%, while trucks are growing.',
+    'blog.article.traffico-merci-alpi-semestre-2026.imageAlt': 'Rail and road freight traffic across the Swiss Alps',
 };
 
 export default blogMetaChEn;
