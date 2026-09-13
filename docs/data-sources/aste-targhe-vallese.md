@@ -59,7 +59,7 @@ reali (sono vuote al momento della verifica), non un dubbio sui campi
 estratti dalla tab1. Test di schema: `tests/plate-auction-connector-vs.test.ts`
 contro fixture reali salvate (`tests/fixtures/vs-ecari-auction-sample.html`).
 
-Il registry (`data/plate-auction-sources-registry.json`, entry `vallese`) è
+Il registry (`data/plate-auction-sources-registry.json`, entry `vs`) è
 aggiornato a `status: "active"`, `accessMethod: "html-scrape"`.
 
 ## Prossimo passo, se si vuole estendere

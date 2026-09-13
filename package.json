@@ -55,6 +55,8 @@
     "new-article": "node scripts/create-article.mjs",
     "companies:generate": "node scripts/generate-crawler-companies.mjs",
     "jobs:assemble": "node scripts/assemble-jobs-dataset.mjs",
+    "plate-auctions:ingest": "node scripts/plate-auctions/ingest.mjs",
+    "plate-auctions:discover": "node scripts/plate-auctions/discover-sources.mjs",
     "jobs:assemble:stats": "node scripts/assemble-jobs-dataset.mjs --stats",
     "jobs:update:vf": "node scripts/update-vf-jobs.mjs",
     "jobs:update:cler": "node scripts/update-cler-jobs.mjs",

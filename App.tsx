@@ -108,6 +108,7 @@ const PreferredSourceCTA = lazyRetry(() => import('@/components/shared/Preferred
 const ConsultingPage = lazyRetry(() => import('@/components/pages/ConsultingPage'));
 const PressKit = lazyRetry(() => import('@/components/pages/PressKit'));
 const JobBoard = lazyRetry(() => import('@/components/community/JobBoard'));
+const PlateAuctionsPage = lazyRetry(() => import('@/components/pages/PlateAuctionsPage').then(m => ({ default: m.PlateAuctionsPage })));
 const FooterWeather = lazyRetry(() => import('@/components/shared/FooterWeather'));
 const MorningDashboard = lazyRetry(() => import('@/components/vita/MorningDashboard'));
 const PharmacyDirectory = lazyRetry(() => import('@/components/pages/PharmacyDirectory'));
@@ -245,7 +246,7 @@ import {
  Home, Timer, Users, Calendar, Shield, Mountain, GraduationCap,
  LifeBuoy, Rocket, Mail, Bug, Sunrise, User as UserIcon, LogIn,
  FileText, Gift, Hammer, BookA, School, Database, Clock, Receipt, Languages, BarChart3,
- Banknote, Fuel, Scale, Loader2, Menu, X, ScrollText, Info, Send
+ Banknote, Fuel, Scale, Loader2, Menu, X, ScrollText, Info, Send, Gavel
 } from 'lucide-react';
 import { TELEGRAM_CHANNEL_URL, isTelegramChannelConfigured } from '@/services/telegramChannel';
 
@@ -2092,7 +2093,7 @@ const App: React.FC = () => {
  // reservation squeezed the centre cell to ~840px at 1500px and cramped the
  // form/results columns (the calculator was unreadable on desktop). 160px keeps
  // the centre ~1120px at 1500px while still serving side-rail ads ≥1400px.
- const sideRailEligible = !staticOverlay && !['admin', 'blog', 'job-board', 'petition'].includes(activeTab);
+ const sideRailEligible = !staticOverlay && !['admin', 'blog', 'job-board', 'plate-auctions', 'petition'].includes(activeTab);
 
  // Collapse a side-rail's reserved 160px gutter to zero once its ad stack
  // reports nothing filled (no GAM creative, no AdSense backfill), so an unfilled
@@ -2436,6 +2437,21 @@ const App: React.FC = () => {
  <BarChart2 size={16} aria-hidden="true" />
  <span className="hidden xl:inline whitespace-nowrap">{t('nav.stats')}</span>
  {activeTab === 'stats' && (
+ <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent rounded-full animate-fade-in" />
+ )}
+ </a>
+
+ <a
+ href={buildPath({ activeTab: 'plate-auctions' })}
+ role="tab" aria-selected={activeTab === 'plate-auctions'}
+ onClick={(e) => { e.preventDefault(); handleTabChange('plate-auctions'); }}
+ onMouseEnter={() => prefetchTab('plate-auctions')}
+ aria-label={t('nav.plateAuctions')}
+ className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 min-h-[44px] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'plate-auctions' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
+ >
+ <Gavel size={16} aria-hidden="true" />
+ <span className="hidden xl:inline whitespace-nowrap">{t('nav.plateAuctions')}</span>
+ {activeTab === 'plate-auctions' && (
  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent rounded-full animate-fade-in" />
  )}
  </a>
@@ -2845,6 +2861,10 @@ const App: React.FC = () => {
  <GuidaTabContent />
  ) : activeTab === 'vita' ? (
  pharmacyPath ? <PharmacyDirectory page={pharmacyPath} /> : <VitaTabContent />
+ ) : activeTab === 'plate-auctions' ? (
+ <div className="max-w-7xl mx-auto">
+ <PlateAuctionsPage />
+ </div>
  ) : activeTab === 'stats' ? (
  <StatsTabContent />
  ) : activeTab === 'blog' ? (
@@ -3948,7 +3968,7 @@ const App: React.FC = () => {
  <CommunicationsConsentBanner email={authEmail} />
  {/* Mobile Bottom Navigation Bar */}
  <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
- <div className="grid grid-cols-6 h-14">
+ <div className="grid grid-cols-7 h-14">
  {([
  { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator.mobile') },
  { tab: 'confronti' as const, icon: Layers, label: t('nav.confronti.mobile') },
@@ -3956,6 +3976,7 @@ const App: React.FC = () => {
  { tab: 'guida' as const, icon: BookOpen, label: t('nav.guida.mobile') },
  { tab: 'vita' as const, icon: Home, label: t('nav.vita.mobile') },
  { tab: 'stats' as const, icon: BarChart2, label: t('nav.stats.mobile') },
+ { tab: 'plate-auctions' as const, icon: Gavel, label: t('nav.plateAuctions.mobile') },
  ] as const).map(({ tab, icon: Icon, label }) => {
  const isActive = activeTab === tab;
  return (
