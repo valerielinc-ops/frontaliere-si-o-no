@@ -2313,9 +2313,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "ambasciatore-di-scuola-stadt-zurich-zurich",
-        "en": "ambasciatore-di-scuola-stadt-zurich-zurich",
-        "de": "ambasciatore-di-scuola-stadt-zurich-zurich",
-        "fr": "ambasciatore-di-scuola-stadt-zurich-zurich"
+        "en": "school-ambassador-stadt-zurich-zurich",
+        "de": "schulbotschafter-in-stadt-zuerich-zurigo-51505",
+        "fr": "ambassadeur-d-ecole-stadt-zurich-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/ambasciatore-di-scuola-stadt-zurich-zurich",
@@ -2329,6 +2329,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -14596,14 +14597,14 @@
           "impressions": 3
         },
         {
-          "query": "lavoro chiasso",
+          "query": "chiasso lavoro",
           "clicks": 0,
           "impressions": 2
         },
         {
-          "query": "chiasso lavoro",
+          "query": "lavoro chiasso",
           "clicks": 0,
-          "impressions": 1
+          "impressions": 2
         },
         {
           "query": "ja",
@@ -14626,7 +14627,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 10,
+      "totalImpressions": 11,
       "totalClicks": 0,
       "topQuery": "lehrstellen chiasso",
       "title": "chiasso",
@@ -14670,7 +14671,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 15
+          "impressions": 17
         },
         {
           "query": "lavoro a chiasso",
@@ -14723,6 +14724,11 @@
           "impressions": 2
         },
         {
+          "query": "part time jobs near me",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "relewant chiasso",
           "clicks": 0,
           "impressions": 2
@@ -14761,14 +14767,9 @@
           "query": "lavoro chiasso",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "lavoro svizzera chiasso",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 64,
+      "totalImpressions": 68,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "chiasso",
@@ -14828,9 +14829,14 @@
           "query": "offerte di lavoro chiasso svizzera",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "relewant sa",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 6,
+      "totalImpressions": 7,
       "totalClicks": 0,
       "topQuery": "job chiasso",
       "title": "chiasso",
@@ -14877,7 +14883,7 @@
         {
           "query": "lavoro a chiasso",
           "clicks": 0,
-          "impressions": 447
+          "impressions": 474
         },
         {
           "query": "lavoro chiasso",
@@ -14887,36 +14893,36 @@
         {
           "query": "offerte lavoro chiasso",
           "clicks": 0,
-          "impressions": 29
+          "impressions": 31
         },
         {
           "query": "offerte di lavoro chiasso",
           "clicks": 0,
-          "impressions": 23
+          "impressions": 25
         },
         {
           "query": "lavoro svizzera chiasso",
           "clicks": 0,
-          "impressions": 22
+          "impressions": 23
         },
         {
           "query": "chiasso lavoro",
           "clicks": 0,
-          "impressions": 21
-        },
-        {
-          "query": "lavorare a chiasso",
-          "clicks": 1,
-          "impressions": 18
-        },
-        {
-          "query": "cerco lavoro a chiasso",
-          "clicks": 0,
-          "impressions": 18
+          "impressions": 22
         },
         {
           "query": "cerco lavoro chiasso",
           "clicks": 0,
+          "impressions": 21
+        },
+        {
+          "query": "cerco lavoro a chiasso",
+          "clicks": 0,
+          "impressions": 19
+        },
+        {
+          "query": "lavorare a chiasso",
+          "clicks": 1,
           "impressions": 18
         },
         {
@@ -14927,12 +14933,12 @@
         {
           "query": "job chiasso",
           "clicks": 0,
-          "impressions": 14
+          "impressions": 15
         },
         {
           "query": "annunci chiasso",
           "clicks": 0,
-          "impressions": 12
+          "impressions": 13
         },
         {
           "query": "offerte lavoro chiasso per italiani",
@@ -14940,12 +14946,12 @@
           "impressions": 12
         },
         {
-          "query": "lavoro chiasso svizzera",
+          "query": "offerte di lavoro a chiasso svizzera",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 11
         },
         {
-          "query": "offerte di lavoro a chiasso svizzera",
+          "query": "lavoro chiasso svizzera",
           "clicks": 0,
           "impressions": 9
         },
@@ -14975,7 +14981,7 @@
           "impressions": 7
         }
       ],
-      "totalImpressions": 849,
+      "totalImpressions": 897,
       "totalClicks": 3,
       "topQuery": "lavoro a chiasso",
       "title": "chiasso",
@@ -24113,8 +24119,8 @@
       "queries": [
         {
           "query": "educatore sociale offerte lavoro ticino",
-          "clicks": 16,
-          "impressions": 96
+          "clicks": 17,
+          "impressions": 97
         },
         {
           "query": "offerte di lavoro educatrice svizzera italiana",
@@ -24124,17 +24130,17 @@
         {
           "query": "lavoro insegnante canton ticino",
           "clicks": 0,
-          "impressions": 42
+          "impressions": 44
+        },
+        {
+          "query": "educatore canton ticino",
+          "clicks": 8,
+          "impressions": 39
         },
         {
           "query": "offerte lavoro educatore ticino",
           "clicks": 2,
           "impressions": 35
-        },
-        {
-          "query": "educatore canton ticino",
-          "clicks": 5,
-          "impressions": 34
         },
         {
           "query": "offerte di lavoro educatore svizzera italiana",
@@ -24162,6 +24168,11 @@
           "impressions": 25
         },
         {
+          "query": "educatore svizzera canton ticino",
+          "clicks": 4,
+          "impressions": 24
+        },
+        {
           "query": "educatrice ticino lavoro",
           "clicks": 1,
           "impressions": 23
@@ -24172,13 +24183,13 @@
           "impressions": 22
         },
         {
-          "query": "educatore svizzera canton ticino",
-          "clicks": 3,
-          "impressions": 22
-        },
-        {
           "query": "offerte lavoro educatore svizzera",
           "clicks": 4,
+          "impressions": 21
+        },
+        {
+          "query": "educatore ticino",
+          "clicks": 0,
           "impressions": 21
         },
         {
@@ -24187,14 +24198,9 @@
           "impressions": 20
         },
         {
-          "query": "educatore ticino",
-          "clicks": 0,
-          "impressions": 19
-        },
-        {
           "query": "lavoro educatore ticino",
           "clicks": 0,
-          "impressions": 19
+          "impressions": 20
         },
         {
           "query": "offerte di lavoro educatrice ticino",
@@ -24212,8 +24218,8 @@
           "impressions": 15
         }
       ],
-      "totalImpressions": 1004,
-      "totalClicks": 96,
+      "totalImpressions": 1021,
+      "totalClicks": 101,
       "topQuery": "educatore sociale offerte lavoro ticino",
       "title": "Educatori",
       "titleByLocale": {
@@ -25391,10 +25397,10 @@
         "fr": "enseignement-en-tant-que-fournisseur-de-logistique-livraison-mixte-dans-efz-distribution-lettres-et-paquets-post-ch-ag-d"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/enseignement-en-tant-que-fournisseur-de-logistique-livraison-mixte-dans-efz-distribution-lettres-et-paquets-post-ch-ag-d",
-        "en": "/en/find-jobs-ticino/enseignement-en-tant-que-fournisseur-de-logistique-livraison-mixte-dans-efz-distribution-lettres-et-paquets-post-ch-ag-d",
-        "de": "/de/jobs-im-tessin/enseignement-en-tant-que-fournisseur-de-logistique-livraison-mixte-dans-efz-distribution-lettres-et-paquets-post-ch-ag-d",
-        "fr": "/fr/trouver-emploi-tessin/enseignement-en-tant-que-fournisseur-de-logistique-livraison-mixte-dans-efz-distribution-lettres-et-paquets-post-ch-ag-d"
+        "it": "/cerca-lavoro-berna/enseignement-en-tant-que-fournisseur-de-logistique-livraison-mixte-dans-efz-distribution-lettres-et-paquets-post-ch-ag-d",
+        "en": "/en/find-jobs-bern/enseignement-en-tant-que-fournisseur-de-logistique-livraison-mixte-dans-efz-distribution-lettres-et-paquets-post-ch-ag-d",
+        "de": "/de/jobs-in-bern/enseignement-en-tant-que-fournisseur-de-logistique-livraison-mixte-dans-efz-distribution-lettres-et-paquets-post-ch-ag-d",
+        "fr": "/fr/trouver-emploi-berne/enseignement-en-tant-que-fournisseur-de-logistique-livraison-mixte-dans-efz-distribution-lettres-et-paquets-post-ch-ag-d"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -38723,10 +38729,10 @@
         "fr": "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2iv14i"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2iv14i",
-        "en": "/en/find-jobs-zurich/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2iv14i",
+        "it": "/cerca-lavoro-argovia/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2iv14i",
+        "en": "/en/find-jobs-aargau/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2iv14i",
         "de": "/de/jobs-im-solothurn/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2iv14i",
-        "fr": "/fr/trouver-emploi-zurich/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2iv14i"
+        "fr": "/fr/trouver-emploi-argovie/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2iv14i"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -40426,6 +40432,73 @@
         "en": "/en/find-jobs-lucerne/maisons-retraite-lucerne",
         "de": "/de/jobs-im-luzern/maisons-retraite-lucerne",
         "fr": "/fr/trouver-emploi-lucerne/maisons-retraite-lucerne"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "maler-in-fur-innen-und-aussenflachen-mit-naturfarben-sta-personal-ag-appenzell",
+      "locale": "de",
+      "path": "/de/jobs-in-appenzell/maler-in-fur-innen-und-aussenflachen-mit-naturfarben-sta-personal-ag-appenzell/",
+      "observedPaths": {
+        "de": "/de/jobs-in-appenzell/maler-in-fur-innen-und-aussenflachen-mit-naturfarben-sta-personal-ag-appenzell/"
+      },
+      "queries": [
+        {
+          "query": "maler nachhaltig appenzell",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "maler ungiftig appenzell",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "maler öko label appenzell",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "maler nachhaltig appenzell",
+      "title": "Maler in fur innen und aussenflachen mit naturfarben sta personal ag appenzell",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "maler-in-fur-innen-und-aussenflachen-mit-naturfarben-sta-personal-ag-appenzell",
+        "en": "maler-in-fur-innen-und-aussenflachen-mit-naturfarben-sta-personal-ag-appenzell",
+        "de": "maler-in-fur-innen-und-aussenflachen-mit-naturfarben-sta-personal-ag-appenzell",
+        "fr": "maler-in-fur-innen-und-aussenflachen-mit-naturfarben-sta-personal-ag-appenzell"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-appenzello/maler-in-fur-innen-und-aussenflachen-mit-naturfarben-sta-personal-ag-appenzell",
+        "en": "/en/find-jobs-appenzell/maler-in-fur-innen-und-aussenflachen-mit-naturfarben-sta-personal-ag-appenzell",
+        "de": "/de/jobs-im-appenzell/maler-in-fur-innen-und-aussenflachen-mit-naturfarben-sta-personal-ag-appenzell",
+        "fr": "/fr/trouver-emploi-appenzell/maler-in-fur-innen-und-aussenflachen-mit-naturfarben-sta-personal-ag-appenzell"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -42739,10 +42812,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "oberarztin-oberarzt-80-100-clienia-ag-zurich",
         "it": "medico-senior-80-100-clienia-ag-pfaffikon-zh",
-        "en": "medico-senior-80-100-clienia-ag-pfaffikon-zh",
-        "de": "medico-senior-80-100-clienia-ag-pfaffikon-zh",
-        "fr": "medico-senior-80-100-clienia-ag-pfaffikon-zh"
+        "en": "senior-physician-80-100-clienia-ag-pfaffikon-zh",
+        "fr": "medecin-principal-80-100-clienia-ag-pfaffikon-zh"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/medico-senior-80-100-clienia-ag-pfaffikon-zh",
@@ -42750,12 +42823,13 @@
         "de": "/de/jobs-in-zurich/medico-senior-80-100-clienia-ag-pfaffikon-zh",
         "fr": "/fr/trouver-emploi-zurich/medico-senior-80-100-clienia-ag-pfaffikon-zh"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-31366804067349",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -43466,10 +43540,10 @@
         "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-bubendorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bubendorf",
-        "en": "/en/find-jobs-zurich/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bubendorf",
-        "de": "/de/jobs-in-zurich/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bubendorf",
-        "fr": "/fr/trouver-emploi-zurich/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bubendorf"
+        "it": "/cerca-lavoro-basilea/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bubendorf",
+        "en": "/en/find-jobs-basel/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bubendorf",
+        "de": "/de/jobs-in-basel/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bubendorf",
+        "fr": "/fr/trouver-emploi-bale/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bubendorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -58855,10 +58929,10 @@
         "it": "segretario-a-medico-a-al-40-50-per-il-segretariato-medico-dell-oncologia-hopital-du-valais-sion"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/segretario-a-medico-a-al-40-50-per-il-segretariato-medico-dell-oncologia-hopital-du-valais-sion",
-        "en": "/en/find-jobs-ticino/segretario-a-medico-a-al-40-50-per-il-segretariato-medico-dell-oncologia-hopital-du-valais-sion",
-        "de": "/de/jobs-im-tessin/segretario-a-medico-a-al-40-50-per-il-segretariato-medico-dell-oncologia-hopital-du-valais-sion",
-        "fr": "/fr/trouver-emploi-tessin/segretario-a-medico-a-al-40-50-per-il-segretariato-medico-dell-oncologia-hopital-du-valais-sion"
+        "it": "/cerca-lavoro-vallese/segretario-a-medico-a-al-40-50-per-il-segretariato-medico-dell-oncologia-hopital-du-valais-sion",
+        "en": "/en/find-jobs-valais/segretario-a-medico-a-al-40-50-per-il-segretariato-medico-dell-oncologia-hopital-du-valais-sion",
+        "de": "/de/jobs-im-wallis/segretario-a-medico-a-al-40-50-per-il-segretariato-medico-dell-oncologia-hopital-du-valais-sion",
+        "fr": "/fr/trouver-emploi-valais/segretario-a-medico-a-al-40-50-per-il-segretariato-medico-dell-oncologia-hopital-du-valais-sion"
       },
       "sourceUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4572abbb97f73ad012f9322f2153af2b/atsann0004591/params/language/fr",
       "googleStatus": "unknown",
@@ -59186,10 +59260,10 @@
         "fr": "seller-in-in-hourly-wage-denner-winterthur"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/seller-in-in-hourly-wage-denner-winterthur",
-        "en": "/en/find-jobs-zurich/seller-in-in-hourly-wage-denner-winterthur",
-        "de": "/de/jobs-in-zurich/seller-in-in-hourly-wage-denner-winterthur",
-        "fr": "/fr/trouver-emploi-zurich/seller-in-in-hourly-wage-denner-winterthur"
+        "it": "/cerca-lavoro-turgovia/seller-in-in-hourly-wage-denner-winterthur",
+        "en": "/en/find-jobs-thurgau/seller-in-in-hourly-wage-denner-winterthur",
+        "de": "/de/jobs-im-thurgau/seller-in-in-hourly-wage-denner-winterthur",
+        "fr": "/fr/trouver-emploi-thurgovie/seller-in-in-hourly-wage-denner-winterthur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

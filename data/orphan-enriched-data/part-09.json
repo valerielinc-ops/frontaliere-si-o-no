@@ -3973,9 +3973,14 @@
           "query": "a fribourg",
           "clicks": 1,
           "impressions": 1
+        },
+        {
+          "query": "operia",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 1,
+      "totalImpressions": 2,
       "totalClicks": 1,
       "topQuery": "a fribourg",
       "title": "Apprenticeships",
@@ -10268,7 +10273,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 167
+          "impressions": 178
         },
         {
           "query": "homeoffice jobs bellinzona",
@@ -10361,12 +10366,12 @@
           "impressions": 1
         },
         {
-          "query": "www bellinzonaannunci ch",
+          "query": "randstad bellinzona",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 211,
+      "totalImpressions": 224,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "bellinzona",
@@ -10472,17 +10477,17 @@
         {
           "query": "offerte di lavoro bellinzona",
           "clicks": 2,
-          "impressions": 29
+          "impressions": 30
         },
         {
           "query": "offerte lavoro bellinzona",
           "clicks": 1,
-          "impressions": 22
+          "impressions": 23
         },
         {
           "query": "lavoro bellinzona",
           "clicks": 0,
-          "impressions": 19
+          "impressions": 20
         },
         {
           "query": "bellinzona lavoro",
@@ -10492,7 +10497,7 @@
         {
           "query": "bellinzona offerte di lavoro",
           "clicks": 0,
-          "impressions": 13
+          "impressions": 14
         },
         {
           "query": "offerte di lavoro a bellinzona",
@@ -10535,17 +10540,17 @@
           "impressions": 5
         },
         {
+          "query": "posti vacanti bellinzona",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
           "query": "bellinzona svizzera lavoro",
           "clicks": 0,
           "impressions": 4
         },
         {
           "query": "posti di lavoro bellinzona",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "posti vacanti bellinzona",
           "clicks": 0,
           "impressions": 3
         },
@@ -10570,7 +10575,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 177,
+      "totalImpressions": 184,
       "totalClicks": 3,
       "topQuery": "offerte di lavoro bellinzona",
       "title": "bellinzona",
@@ -17251,10 +17256,10 @@
         "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-volketswil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-volketswil",
-        "en": "/en/find-jobs-zurich/conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-volketswil",
+        "it": "/cerca-lavoro-san-gallo/conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-volketswil",
+        "en": "/en/find-jobs-st-gallen/conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-volketswil",
         "de": "/de/jobs-im-zurich/conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-volketswil",
-        "fr": "/fr/trouver-emploi-zurich/conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-volketswil"
+        "fr": "/fr/trouver-emploi-saint-gall/conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-volketswil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -37428,9 +37433,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "logistiker-dans-efz-eba-100-manor-ag-hochdorf",
-        "en": "logistiker-dans-efz-eba-100-manor-ag-hochdorf",
-        "de": "logistiker-dans-efz-eba-100-manor-ag-hochdorf",
+        "it": "manor-logistiker-in-efz-eba-100-hochdorf-logistikerin-efzeba-100",
         "fr": "logistiker-dans-efz-eba-100-manor-ag-hochdorf"
       },
       "localePaths": {
@@ -37445,6 +37448,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -38101,10 +38105,10 @@
         "fr": "manor-collaborateur-trice-caisse-70-sion-collaborateurtrice-caisse-70"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vallese/manor-collaborateur-trice-caisse-70-sion-collaborateurtrice-caisse-70",
-        "en": "/en/find-jobs-valais/manor-collaborateur-trice-caisse-70-sion-collaborateurtrice-caisse-70",
-        "de": "/de/jobs-im-wallis/manor-collaborateur-trice-caisse-70-sion-collaborateurtrice-caisse-70",
-        "fr": "/fr/trouver-emploi-valais/manor-collaborateur-trice-caisse-70-sion-collaborateurtrice-caisse-70"
+        "it": "/cerca-lavoro-neuchatel/manor-collaborateur-trice-caisse-70-sion-collaborateurtrice-caisse-70",
+        "en": "/en/find-jobs-neuchatel/manor-collaborateur-trice-caisse-70-sion-collaborateurtrice-caisse-70",
+        "de": "/de/jobs-in-neuenburg/manor-collaborateur-trice-caisse-70-sion-collaborateurtrice-caisse-70",
+        "fr": "/fr/trouver-emploi-neuchatel/manor-collaborateur-trice-caisse-70-sion-collaborateurtrice-caisse-70"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -40528,7 +40532,7 @@
         {
           "query": "mendrisio jobs",
           "clicks": 0,
-          "impressions": 6
+          "impressions": 8
         },
         {
           "query": "versicherungsagentur mendrisio",
@@ -40546,7 +40550,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 25,
+      "totalImpressions": 27,
       "totalClicks": 0,
       "topQuery": "lehrstellen mendrisio",
       "title": "mendrisio",
@@ -40590,7 +40594,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 63
+          "impressions": 65
         },
         {
           "query": "job mendrisio",
@@ -40658,6 +40662,11 @@
           "impressions": 1
         },
         {
+          "query": "mendrisio",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "mendrisio lavoro",
           "clicks": 0,
           "impressions": 1
@@ -40666,9 +40675,14 @@
           "query": "mendrisio ti",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "strutture fisse",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 93,
+      "totalImpressions": 97,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "mendrisio",
@@ -40772,12 +40786,12 @@
         {
           "query": "lavoro mendrisio",
           "clicks": 0,
-          "impressions": 32
+          "impressions": 33
         },
         {
           "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
           "clicks": 0,
-          "impressions": 22
+          "impressions": 27
         },
         {
           "query": "offerte di lavoro mendrisio",
@@ -40786,11 +40800,16 @@
         },
         {
           "query": "offerte lavoro mendrisio",
-          "clicks": 0,
-          "impressions": 8
+          "clicks": 1,
+          "impressions": 9
         },
         {
           "query": "aziende mendrisio che assumono",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
+          "query": "cerco lavoro mendrisio",
           "clicks": 0,
           "impressions": 6
         },
@@ -40805,22 +40824,27 @@
           "impressions": 5
         },
         {
+          "query": "offerte lavoro svizzera mendrisio",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
           "query": "lavoro in svizzera mendrisio",
           "clicks": 0,
           "impressions": 4
         },
         {
-          "query": "offerte lavoro svizzera mendrisio",
+          "query": "offerte lavoro mendrisio svizzera",
           "clicks": 0,
           "impressions": 4
         },
         {
-          "query": "cerco lavoro mendrisio",
+          "query": "fabbriche mendrisio offerta lavoro",
           "clicks": 0,
           "impressions": 3
         },
         {
-          "query": "fabbriche mendrisio offerta lavoro",
+          "query": "lavoro mendrisio svizzera",
           "clicks": 0,
           "impressions": 3
         },
@@ -40830,17 +40854,27 @@
           "impressions": 3
         },
         {
+          "query": "lavoro svizzera mendrisio",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "offerte di lavoro mendrisiotto",
           "clicks": 0,
           "impressions": 3
         },
         {
-          "query": "offerte lavoro mendrisio svizzera",
+          "query": "ti offro lavoro mendrisio",
           "clicks": 0,
           "impressions": 3
         },
         {
-          "query": "lavoro mendrisio svizzera",
+          "query": "cerco lavoro a mendrisio svizzera",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "comune di mendrisio offerte di lavoro",
           "clicks": 0,
           "impressions": 2
         },
@@ -40848,30 +40882,10 @@
           "query": "mendrisio ditte che assumono",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "mendrisio offerte lavoro",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "offerte lavoro mendrisiotto",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "ti offro lavoro mendrisio",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "mendrisiotto",
-          "clicks": 1,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 150,
-      "totalClicks": 1,
+      "totalImpressions": 174,
+      "totalClicks": 2,
       "topQuery": "lavoro mendrisio",
       "title": "mendrisio",
       "titleByLocale": {
@@ -47701,10 +47715,10 @@
         "fr": "project-manager-in-hlks-building-technology-80-100-zurich-afry-zurich"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/project-manager-in-hlks-building-technology-80-100-zurich-afry-zurich",
-        "en": "/en/find-jobs-ticino/project-manager-in-hlks-building-technology-80-100-zurich-afry-zurich",
-        "de": "/de/jobs-im-tessin/project-manager-in-hlks-building-technology-80-100-zurich-afry-zurich",
-        "fr": "/fr/trouver-emploi-tessin/project-manager-in-hlks-building-technology-80-100-zurich-afry-zurich"
+        "it": "/cerca-lavoro-zurigo/project-manager-in-hlks-building-technology-80-100-zurich-afry-zurich",
+        "en": "/en/find-jobs-zurich/project-manager-in-hlks-building-technology-80-100-zurich-afry-zurich",
+        "de": "/de/jobs-in-zurich/project-manager-in-hlks-building-technology-80-100-zurich-afry-zurich",
+        "fr": "/fr/trouver-emploi-zurich/project-manager-in-hlks-building-technology-80-100-zurich-afry-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -64433,10 +64447,10 @@
         "fr": "stv-filialleiter-in-in-ausbildung-denner"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/stv-filialleiter-in-in-ausbildung-denner",
-        "en": "/en/find-jobs-graubunden/stv-filialleiter-in-in-ausbildung-denner",
-        "de": "/de/jobs-in-graubunden/stv-filialleiter-in-in-ausbildung-denner",
-        "fr": "/fr/trouver-emploi-grisons/stv-filialleiter-in-in-ausbildung-denner"
+        "it": "/cerca-lavoro-zurigo/stv-filialleiter-in-in-ausbildung-denner",
+        "en": "/en/find-jobs-zurich/stv-filialleiter-in-in-ausbildung-denner",
+        "de": "/de/jobs-in-zurich/stv-filialleiter-in-in-ausbildung-denner",
+        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-in-in-ausbildung-denner"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

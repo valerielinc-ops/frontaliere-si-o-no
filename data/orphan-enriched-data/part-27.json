@@ -14479,10 +14479,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "collaborateur-caisse-non-alimentaire-etudiant-e-5-manor-ag-vevey",
-        "en": "collaborateur-caisse-non-alimentaire-etudiant-e-5-manor-ag-vevey",
-        "de": "collaborateur-caisse-non-alimentaire-etudiant-e-5-manor-ag-vevey",
-        "fr": "collaborateur-caisse-non-alimentaire-etudiant-e-5-manor-ag-vevey"
+        "it": "manor-collaborateur-trice-caisse-non-food-etudiant-e-5-vevey-collaborateurtrice-caisse-non",
+        "fr": "collaborateur-caisse-non-alimentaire-etudiant-e-5-manor-ag-vevey",
+        "en": "tel-44-49-49-en-c-manor-ag-vevey",
+        "de": "tel-44-49-49-de-c-manor-ag-vevey"
       },
       "localePaths": {
         "it": "/cerca-lavoro-vaud/collaborateur-caisse-non-alimentaire-etudiant-e-5-manor-ag-vevey",
@@ -14496,6 +14496,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -20148,10 +20149,10 @@
         "fr": "dipl-care-professional-hf-imc-or-dipl-expert-expert-intensive-care-nds-spital-zofingen-zofingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/dipl-care-professional-hf-imc-or-dipl-expert-expert-intensive-care-nds-spital-zofingen-zofingen",
-        "en": "/en/find-jobs-ticino/dipl-care-professional-hf-imc-or-dipl-expert-expert-intensive-care-nds-spital-zofingen-zofingen",
-        "de": "/de/jobs-im-tessin/dipl-care-professional-hf-imc-or-dipl-expert-expert-intensive-care-nds-spital-zofingen-zofingen",
-        "fr": "/fr/trouver-emploi-tessin/dipl-care-professional-hf-imc-or-dipl-expert-expert-intensive-care-nds-spital-zofingen-zofingen"
+        "it": "/cerca-lavoro-argovia/dipl-care-professional-hf-imc-or-dipl-expert-expert-intensive-care-nds-spital-zofingen-zofingen",
+        "en": "/en/find-jobs-aargau/dipl-care-professional-hf-imc-or-dipl-expert-expert-intensive-care-nds-spital-zofingen-zofingen",
+        "de": "/de/jobs-im-aargau/dipl-care-professional-hf-imc-or-dipl-expert-expert-intensive-care-nds-spital-zofingen-zofingen",
+        "fr": "/fr/trouver-emploi-argovie/dipl-care-professional-hf-imc-or-dipl-expert-expert-intensive-care-nds-spital-zofingen-zofingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25107,6 +25108,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "erp-demand-to-pay-d2p-domain-architetto-roche-basel",
+      "locale": "it",
+      "path": "/cerca-lavoro-vallese/erp-demand-to-pay-d2p-domain-architetto-roche-basel/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vallese/erp-demand-to-pay-d2p-domain-architetto-roche-basel/"
+      },
+      "queries": [
+        {
+          "query": "zimmermann",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "zimmermann",
+      "title": "Erp demand to pay d2p domain architetto roche",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "erp-demand-to-pay-d2p-domain-architetto-roche-basel",
+        "en": "erp-demand-to-pay-d2p-domain-architetto-roche-basel",
+        "de": "erp-demand-to-pay-d2p-domain-architetto-roche-basel",
+        "fr": "erp-demand-to-pay-d2p-domain-architetto-roche-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/erp-demand-to-pay-d2p-domain-architetto-roche-basel",
+        "en": "/en/find-jobs-valais/erp-demand-to-pay-d2p-domain-architetto-roche-basel",
+        "de": "/de/jobs-im-wallis/erp-demand-to-pay-d2p-domain-architetto-roche-basel",
+        "fr": "/fr/trouver-emploi-valais/erp-demand-to-pay-d2p-domain-architetto-roche-basel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -34356,10 +34415,10 @@
         "fr": "intern-in-bem-banking-scuol-from-august-2027-graubundner-kantonalbank-scuol"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/intern-in-bem-banking-scuol-from-august-2027-graubundner-kantonalbank-scuol",
-        "en": "/en/find-jobs-ticino/intern-in-bem-banking-scuol-from-august-2027-graubundner-kantonalbank-scuol",
-        "de": "/de/jobs-im-tessin/intern-in-bem-banking-scuol-from-august-2027-graubundner-kantonalbank-scuol",
-        "fr": "/fr/trouver-emploi-tessin/intern-in-bem-banking-scuol-from-august-2027-graubundner-kantonalbank-scuol"
+        "it": "/cerca-lavoro-grigioni/intern-in-bem-banking-scuol-from-august-2027-graubundner-kantonalbank-scuol",
+        "en": "/en/find-jobs-graubunden/intern-in-bem-banking-scuol-from-august-2027-graubundner-kantonalbank-scuol",
+        "de": "/de/jobs-in-graubunden/intern-in-bem-banking-scuol-from-august-2027-graubundner-kantonalbank-scuol",
+        "fr": "/fr/trouver-emploi-grisons/intern-in-bem-banking-scuol-from-august-2027-graubundner-kantonalbank-scuol"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -39024,9 +39083,14 @@
           "query": "manpower schweiz stundenlohn logistik 25 chf",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "suchen sie eine neue herausforderung in der logistik in der ostschweiz",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 20,
+      "totalImpressions": 21,
       "totalClicks": 0,
       "topQuery": "manpower schweiz logistik stundenlohn 25 chf",
       "title": "Logistik",
@@ -44472,7 +44536,7 @@
         {
           "query": "nursing jobs",
           "clicks": 0,
-          "impressions": 830
+          "impressions": 921
         },
         {
           "query": "kantonsspital aarau ksa",
@@ -44497,17 +44561,22 @@
         {
           "query": "i am searching for a permanent contract nursing job in german speaking switzerland with full time employment and support for recognition of my foreign diploma and i want to know which cantons are most open.",
           "clicks": 0,
-          "impressions": 16
+          "impressions": 18
         },
         {
           "query": "nurse jobs",
           "clicks": 0,
-          "impressions": 10
+          "impressions": 11
         },
         {
           "query": "nursing job opportunities in switzerland",
           "clicks": 0,
-          "impressions": 10
+          "impressions": 11
+        },
+        {
+          "query": "nursing jobs in switzerland",
+          "clicks": 0,
+          "impressions": 8
         },
         {
           "query": "i am looking for senior level nurse positions in zurich hospitals with full time employment.",
@@ -44520,12 +44589,17 @@
           "impressions": 6
         },
         {
-          "query": "nursing jobs in switzerland",
+          "query": "swiss nursing jobs",
           "clicks": 0,
           "impressions": 6
         },
         {
-          "query": "swiss nursing jobs",
+          "query": "nurse vacancies",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "switzerland nursing jobs",
           "clicks": 0,
           "impressions": 5
         },
@@ -44540,12 +44614,17 @@
           "impressions": 4
         },
         {
-          "query": "nurse vacancies",
+          "query": "switzerland jobs for nurses",
           "clicks": 0,
           "impressions": 4
         },
         {
-          "query": "switzerland nursing jobs",
+          "query": "switzerland nurse jobs",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "switzerland nurses vacancy",
           "clicks": 0,
           "impressions": 4
         },
@@ -44553,24 +44632,9 @@
           "query": "english speaking nursing jobs in switzerland",
           "clicks": 0,
           "impressions": 3
-        },
-        {
-          "query": "in euro",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "nurse job",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "nurses job vacancy in switzerland",
-          "clicks": 0,
-          "impressions": 3
         }
       ],
-      "totalImpressions": 1190,
+      "totalImpressions": 1302,
       "totalClicks": 3,
       "topQuery": "nursing jobs",
       "title": "Nurses",
@@ -50837,10 +50901,10 @@
         "fr": "project-manager-in-fire-protection-60-100-zurich-afry-zurich"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/project-manager-in-fire-protection-60-100-zurich-afry-zurich",
-        "en": "/en/find-jobs-ticino/project-manager-in-fire-protection-60-100-zurich-afry-zurich",
-        "de": "/de/jobs-im-tessin/project-manager-in-fire-protection-60-100-zurich-afry-zurich",
-        "fr": "/fr/trouver-emploi-tessin/project-manager-in-fire-protection-60-100-zurich-afry-zurich"
+        "it": "/cerca-lavoro-zurigo/project-manager-in-fire-protection-60-100-zurich-afry-zurich",
+        "en": "/en/find-jobs-zurich/project-manager-in-fire-protection-60-100-zurich-afry-zurich",
+        "de": "/de/jobs-in-zurich/project-manager-in-fire-protection-60-100-zurich-afry-zurich",
+        "fr": "/fr/trouver-emploi-zurich/project-manager-in-fire-protection-60-100-zurich-afry-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59489,10 +59553,10 @@
         "fr": "segretario-medico-schweizer-paraplegiker-gruppe-nottwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/segretario-medico-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "/en/find-jobs-ticino/segretario-medico-schweizer-paraplegiker-gruppe-nottwil",
-        "de": "/de/jobs-im-tessin/segretario-medico-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "/fr/trouver-emploi-tessin/segretario-medico-schweizer-paraplegiker-gruppe-nottwil"
+        "it": "/cerca-lavoro-lucerna/segretario-medico-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "/en/find-jobs-lucerne/segretario-medico-schweizer-paraplegiker-gruppe-nottwil",
+        "de": "/de/jobs-in-luzern/segretario-medico-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "/fr/trouver-emploi-lucerne/segretario-medico-schweizer-paraplegiker-gruppe-nottwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -61791,10 +61855,10 @@
         "fr": "senior-physician-gastroenterology-80-100-gzo-spital-wetzikon-wetzikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/senior-physician-gastroenterology-80-100-gzo-spital-wetzikon-wetzikon",
-        "en": "/en/find-jobs-ticino/senior-physician-gastroenterology-80-100-gzo-spital-wetzikon-wetzikon",
-        "de": "/de/jobs-im-tessin/senior-physician-gastroenterology-80-100-gzo-spital-wetzikon-wetzikon",
-        "fr": "/fr/trouver-emploi-tessin/senior-physician-gastroenterology-80-100-gzo-spital-wetzikon-wetzikon"
+        "it": "/cerca-lavoro-zurigo/senior-physician-gastroenterology-80-100-gzo-spital-wetzikon-wetzikon",
+        "en": "/en/find-jobs-zurich/senior-physician-gastroenterology-80-100-gzo-spital-wetzikon-wetzikon",
+        "de": "/de/jobs-in-zurich/senior-physician-gastroenterology-80-100-gzo-spital-wetzikon-wetzikon",
+        "fr": "/fr/trouver-emploi-zurich/senior-physician-gastroenterology-80-100-gzo-spital-wetzikon-wetzikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -67160,6 +67224,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "storenmonteur-in-storenmontagen-und-reparatur-fachkraft-ch-gmbh-winterthur",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/storenmonteur-in-storenmontagen-und-reparatur-fachkraft-ch-gmbh-winterthur/",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/storenmonteur-in-storenmontagen-und-reparatur-fachkraft-ch-gmbh-winterthur/"
+      },
+      "queries": [
+        {
+          "query": "storenmonteur",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "storenmonteur",
+      "title": "Storenmonteur in storenmontagen und reparatur fachkraft ch gmbh",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Winterthur",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "storenmonteur-in-storenmontagen-und-reparatur-fachkraft-ch-gmbh-winterthur",
+        "en": "storenmonteur-in-storenmontagen-und-reparatur-fachkraft-ch-gmbh-winterthur",
+        "de": "storenmonteur-in-storenmontagen-und-reparatur-fachkraft-ch-gmbh-winterthur",
+        "fr": "storenmonteur-in-storenmontagen-und-reparatur-fachkraft-ch-gmbh-winterthur"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/storenmonteur-in-storenmontagen-und-reparatur-fachkraft-ch-gmbh-winterthur",
+        "en": "/en/find-jobs-zurich/storenmonteur-in-storenmontagen-und-reparatur-fachkraft-ch-gmbh-winterthur",
+        "de": "/de/jobs-im-zurich/storenmonteur-in-storenmontagen-und-reparatur-fachkraft-ch-gmbh-winterthur",
+        "fr": "/fr/trouver-emploi-zurich/storenmonteur-in-storenmontagen-und-reparatur-fachkraft-ch-gmbh-winterthur"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -75718,10 +75840,10 @@
         "fr": "vendita-in-cassa-servizi-coop-genossenschaft-niederglatt"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendita-in-cassa-servizi-coop-genossenschaft-niederglatt",
-        "en": "/en/find-jobs-zurich/vendita-in-cassa-servizi-coop-genossenschaft-niederglatt",
+        "it": "/cerca-lavoro-argovia/vendita-in-cassa-servizi-coop-genossenschaft-niederglatt",
+        "en": "/en/find-jobs-aargau/vendita-in-cassa-servizi-coop-genossenschaft-niederglatt",
         "de": "/de/jobs-im-zurich/vendita-in-cassa-servizi-coop-genossenschaft-niederglatt",
-        "fr": "/fr/trouver-emploi-zurich/vendita-in-cassa-servizi-coop-genossenschaft-niederglatt"
+        "fr": "/fr/trouver-emploi-argovie/vendita-in-cassa-servizi-coop-genossenschaft-niederglatt"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
