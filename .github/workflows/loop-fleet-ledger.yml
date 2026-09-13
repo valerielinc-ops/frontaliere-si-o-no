@@ -267,7 +267,18 @@ jobs:
           EOF
           node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
           if [ -n "$open_pr" ]; then
-            gh pr edit "$open_pr" --repo "$GITHUB_REPOSITORY" --body-file "$body"
+            for edit_attempt in 1 2 3; do
+              if gh pr edit "$open_pr" --repo "$GITHUB_REPOSITORY" --body-file "$body"; then
+                break
+              fi
+              if [ "$edit_attempt" -eq 3 ]; then
+                echo "::error::GitHub PR API did not accept the ledger PR update after 3 attempts."
+                exit 1
+              fi
+              retry_delay=$((edit_attempt * 2))
+              echo "::warning::GitHub PR API update failed on attempt $edit_attempt; retrying in ${retry_delay}s."
+              sleep "$retry_delay"
+            done
           else
             gh pr create \
               --repo "$GITHUB_REPOSITORY" \
