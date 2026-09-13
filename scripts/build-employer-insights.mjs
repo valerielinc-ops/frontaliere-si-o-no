@@ -134,23 +134,35 @@ function toIso(value) {
   if (value == null || value === '') return null;
   if (value instanceof Date) return Number.isNaN(value.getTime()) ? null : value.toISOString();
   if (typeof value === 'object') {
-    if (typeof value.toDate === 'function') return toIso(value.toDate());
-    if (typeof value.toMillis === 'function') return toIso(new Date(value.toMillis()));
-    if (typeof value._seconds === 'number') return toIso(new Date(value._seconds * 1000 + numberOr(value._nanoseconds, 0) / 1e6));
-    if (typeof value.seconds === 'number') return toIso(new Date(value.seconds * 1000 + numberOr(value.nanoseconds, 0) / 1e6));
+    try {
+      if (typeof value.toDate === 'function') return toIso(value.toDate());
+      if (typeof value.toMillis === 'function') return toIso(new Date(value.toMillis()));
+      if (typeof value._seconds === 'number') return toIso(new Date(value._seconds * 1000 + numberOr(value._nanoseconds, 0) / 1e6));
+      if (typeof value.seconds === 'number') return toIso(new Date(value.seconds * 1000 + numberOr(value.nanoseconds, 0) / 1e6));
+    } catch {
+      return null;
+    }
   }
-  const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? null : date.toISOString();
+  try {
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? null : date.toISOString();
+  } catch {
+    return null;
+  }
 }
 
 function inWindow(timestamp, window) {
   const iso = toIso(timestamp);
   if (!iso) return false;
-  const from = Date.parse(window?.from);
-  const to = Date.parse(window?.to);
-  const time = Date.parse(iso);
-  return Number.isFinite(from) && Number.isFinite(to)
-    && Number.isFinite(time) && time >= from && time < to;
+  try {
+    const from = Date.parse(window?.from);
+    const to = Date.parse(window?.to);
+    const time = Date.parse(iso);
+    return Number.isFinite(from) && Number.isFinite(to)
+      && Number.isFinite(time) && time >= from && time < to;
+  } catch {
+    return false;
+  }
 }
 
 function weekStart(timestamp) {
