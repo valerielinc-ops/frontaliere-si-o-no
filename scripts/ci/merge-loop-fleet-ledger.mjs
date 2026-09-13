@@ -109,18 +109,21 @@ function validateRecord(registry, loopId, type, record, expected) {
   return record;
 }
 
-function validateHistoricalRecord(registry, loopId, type, record) {
+function validateHistoricalRecord(registry, type, record) {
   if (!object(record)) throw new Error(`${type} historical record is not an object`);
   if (record.recordType !== type) throw new Error(`historical ${type} recordType is ${record.recordType || 'missing'}`);
-  if (record.loopId !== loopId) throw new Error(`historical ${type} record belongs to ${record.loopId || 'unknown'}, expected ${loopId}`);
+  const historicalLoopId = text(record.loopId);
+  if (!historicalLoopId || !registry.loops.some((loop) => loop.loopId === historicalLoopId)) {
+    throw new Error(`historical ${type} record belongs to ${record.loopId || 'unknown'}, which is not declared in the registry`);
+  }
   if (!text(record.recordId)) throw new Error(`historical ${type} record has no recordId`);
-  if (!object(record.execution) || record.execution.loopId !== loopId || !text(record.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(record.execution.sha || ''))) {
+  if (!object(record.execution) || record.execution.loopId !== historicalLoopId || !text(record.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(record.execution.sha || ''))) {
     throw new Error(`historical ${type} ${record.recordId} has no durable execution identity`);
   }
   try {
-    validateActionClassAgainstPolicy(registry, loopId, record.actionClass);
-    if (type === 'decision') validateDecisionLifecycle(registry, loopId, record);
-    validateOutcomeAgainstPolicy(registry, loopId, record.outcome);
+    validateActionClassAgainstPolicy(registry, historicalLoopId, record.actionClass);
+    if (type === 'decision') validateDecisionLifecycle(registry, historicalLoopId, record);
+    validateOutcomeAgainstPolicy(registry, historicalLoopId, record.outcome);
   } catch (error) {
     throw new Error(`historical ${type} ${record.recordId} violates the registry: ${error.message}`);
   }
@@ -135,7 +138,7 @@ function mergeRecords({ target, label, records, registry, loopId, type }) {
   const existing = readJsonl(target, label);
   const byId = new Map();
   for (const record of existing) {
-    validateHistoricalRecord(registry, loopId, type, record);
+    validateHistoricalRecord(registry, type, record);
     if (!text(record.recordId)) throw new Error(`${label} contains a record without recordId`);
     if (byId.has(record.recordId) && !sameRecord(byId.get(record.recordId), record)) {
       throw new Error(`${label} contains conflicting duplicate ${record.recordId}`);
