@@ -62,6 +62,30 @@ describe('one code verdict and selective body recovery', () => {
     expect(job.steps.some((step: { name?: string }) => step.name === 'Fail when required review gate is skipped')).toBe(true);
   });
 
+  it('keeps a fail-closed roster for detached source gates', () => {
+    const launcher = job.steps.find((step: { id?: string }) => step.id === 'independent-gates');
+    const collector = job.steps.find((step: { id?: string }) => step.id === 'collect-independent-gates');
+    expect(launcher?.run).toEqual(expect.any(String));
+    expect(collector?.run).toEqual(expect.any(String));
+
+    const launchScript = launcher.run as string;
+    const collectScript = collector.run as string;
+    expect(launchScript).toContain('expected_labels=()');
+    expect(launchScript).toContain('expected_labels+=(tsc)');
+    expect(launchScript).toContain('expected_labels+=(audit-markers)');
+    expect(launchScript).toContain('expected_labels+=(action-runtimes)');
+    expect(launchScript).toContain('expected_labels+=(input-injection)');
+    expect(launchScript).toContain('expected_labels+=(locale-segments)');
+    expect(launchScript).toContain('expected_labels+=(evergreen-topics)');
+    expect(launchScript.indexOf('expected-labels')).toBeLessThan(launchScript.indexOf(': > "$state_dir/labels"'));
+    expect(collectScript).toContain('expected_file="$state_dir/expected-labels"');
+    expect(collectScript).toContain('actual_file="$state_dir/labels"');
+    expect(collectScript).toContain('expected roster is missing or empty');
+    expect(collectScript).toContain('observed roster is missing or empty');
+    expect(collectScript).toContain('grep -Fxc');
+    expect(collectScript).toContain('done < "$expected_file"');
+  });
+
   it('runs only API recovery from trusted main, without publishing a PR-head check', () => {
     expect(recovery.on).toEqual({ pull_request_target: { types: ['edited'] } });
     expect(recovery.jobs.recover.if).toBe('github.event.changes.body != null');

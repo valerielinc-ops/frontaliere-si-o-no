@@ -1069,6 +1069,34 @@ jobs:
           set -euo pipefail
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
           mkdir -p "$state_dir"
+          expected_labels=()
+          if [ "$RUN_TSC" = "true" ]; then
+            expected_labels+=(tsc)
+          fi
+          if [ "$RUN_AUDIT_MARKERS" = "true" ]; then
+            expected_labels+=(audit-markers)
+          fi
+          if [ "$RUN_ACTION_RUNTIMES" = "true" ]; then
+            expected_labels+=(action-runtimes)
+          fi
+          if [ "$RUN_INPUT_INJECTION" = "true" ]; then
+            expected_labels+=(input-injection)
+          fi
+          if [ "$RUN_LOCALE_SEGMENTS" = "true" ]; then
+            expected_labels+=(locale-segments)
+          fi
+          if [ "$RUN_EVERGREEN_TOPICS" = "true" ]; then
+            expected_labels+=(evergreen-topics)
+          fi
+          if [ "${#expected_labels[@]}" -eq 0 ]; then
+            echo "::error::independent gate roster is empty"
+            exit 1
+          fi
+          # Write the expected roster before launching anything. If a launcher
+          # fails between fork and PID/label registration, the collector still
+          # knows which gate was required and cannot mistake an empty/partial
+          # observed roster for a successful run.
+          printf '%s\n' "${expected_labels[@]}" > "$state_dir/expected-labels"
           : > "$state_dir/labels"
           start_gate() {
             local label="$1"
@@ -1507,14 +1535,51 @@ jobs:
             echo "source guards failed"
             failures=1
           fi
-          if [ -s "$state_dir/labels" ]; then
+          if [ "${{ steps.independent-gates.outcome }}" != "skipped" ]; then
+            expected_file="$state_dir/expected-labels"
+            actual_file="$state_dir/labels"
+            if [ ! -s "$expected_file" ]; then
+              echo "::error::independent gate expected roster is missing or empty"
+              failures=1
+            elif [ ! -s "$actual_file" ]; then
+              echo "::error::independent gate observed roster is missing or empty"
+              failures=1
+            else
+              while IFS= read -r label; do
+                [ -n "$label" ] || {
+                  echo "::error::independent gate expected roster contains an empty label"
+                  failures=1
+                  continue
+                }
+                occurrences="$(grep -Fxc -- "$label" "$actual_file" 2>/dev/null || true)"
+                if [ "$occurrences" -ne 1 ]; then
+                  echo "::error::independent gate roster mismatch for $label (observed $occurrences times)"
+                  failures=1
+                fi
+              done < "$expected_file"
+              while IFS= read -r label; do
+                [ -n "$label" ] || {
+                  echo "::error::independent gate observed roster contains an empty label"
+                  failures=1
+                  continue
+                }
+                if ! grep -Fqx -- "$label" "$expected_file" 2>/dev/null; then
+                  echo "::error::unexpected independent gate label: $label"
+                  failures=1
+                fi
+              done < "$actual_file"
+            fi
             while IFS= read -r label; do
               [ -n "$label" ] || continue
               status_file="$state_dir/$label.status"
               pid_file="$state_dir/$label.pid"
+              if [ ! -s "$pid_file" ]; then
+                echo "::error::$label did not publish a PID"
+                failures=1
+              fi
               while [ ! -s "$status_file" ]; do
                 if [ ! -s "$pid_file" ]; then
-                  echo "::error::$label did not publish a PID or status"
+                  echo "::error::$label cannot be monitored because its PID is missing"
                   failures=1
                   break
                 fi
@@ -1547,7 +1612,9 @@ jobs:
                   *) failures=1 ;;
                 esac
               fi
-            done < "$state_dir/labels"
+            done < "$expected_file"
+          else
+            echo "independent gate step skipped; no detached gates were expected"
           fi
           exit "$failures"
 
