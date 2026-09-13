@@ -14,6 +14,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   buildDecision,
   buildObservation,
@@ -605,6 +606,19 @@ export async function runL8({
     quality: verdict.quality,
     allowNumeratorExceedDenominator: true,
     recordedAt: now.toISOString(),
+  });
+  observation.outcome = buildValidatedLoopOutcome({
+    registry: loopRegistry,
+    loopId: LOOP_ID,
+    quality: verdict.quality,
+    independent: verdict.ok,
+    numerator: verdict.ok ? commercial.approvedNetChf ?? 0 : null,
+    denominator: verdict.ok ? commercial.exposures?.relevant ?? 0 : null,
+    observedAt: finiteDate(commercial?.generatedAt)?.toISOString() || null,
+    reason: verdict.ok
+      ? 'authorised commercial export reconciles approved money with relevant exposures'
+      : `commercial attribution outcome is ${verdict.quality}; pending or unapproved money is not counted`,
+    now,
   });
   const decision = buildDecision({
     loopId: LOOP_ID,

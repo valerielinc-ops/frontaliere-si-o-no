@@ -5,9 +5,9 @@
  *
  * The loop itself owns its domain validation. This recorder owns the common
  * operational contract: one run identity, one canonical observation line,
- * one canonical decision line and one health line. It never writes source,
- * published data or external state. The containing workflow uploads the
- * directory as the durable run artifact.
+ * one canonical decision line, one health line and one canonical outcome
+ * document. It never writes source, published data or external state. The
+ * containing workflow uploads the directory as the durable run artifact.
  */
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -467,9 +467,17 @@ export function recordLoopEvidence({
       observation: `${prefix}-observation.json`,
       decision: `${prefix}-decision.json`,
       result: `${prefix}-result.json`,
+      outcome: 'loop-fleet-outcome.json',
       report: fs.existsSync(path.resolve(resolvedReportPath)) ? relativePath(resolvedReportPath) : null,
     },
   };
+
+  const outcomePath = path.join(dir, 'loop-fleet-outcome.json');
+  fs.writeFileSync(outcomePath, `${JSON.stringify({
+    ...outcome,
+    loopId,
+    execution: context,
+  }, null, 2)}\n`);
 
   // Scheduled workflows intentionally leave this unset: their ledgers live in
   // the immutable run artifact. A caller that owns a reviewed durable target
@@ -501,6 +509,7 @@ export function recordLoopEvidence({
     outcome,
     outcomePolicyCompliant: outcomeErrors.length === 0,
     outcomeErrors,
+    outcomeArtifact: 'loop-fleet-outcome.json',
     ledgerScope: configuredLedgerDir ? 'configured-durable-ledger' : 'run-artifact',
     ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl', 'lifecycle-events.jsonl'],
     written,

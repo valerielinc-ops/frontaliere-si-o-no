@@ -14,6 +14,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   buildDecision,
   buildObservation,
@@ -637,6 +638,19 @@ export async function runL10({
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
+  });
+  observation.outcome = buildValidatedLoopOutcome({
+    registry: loopRegistry,
+    loopId: LOOP_ID,
+    quality: verdict.quality,
+    independent: verdict.ok,
+    numerator: verdict.ok ? health.verifiedDecisions : null,
+    denominator: verdict.ok ? health.eligibleRuns : null,
+    observedAt: finiteDate(health.latestAt)?.toISOString() || null,
+    reason: verdict.ok
+      ? 'GitHub run, PR and quota/health ledgers reconcile the verified decision count'
+      : `fleet health outcome is ${verdict.quality}; no execution is counted as verified`,
+    now,
   });
   const decision = buildDecision({
     loopId: LOOP_ID,

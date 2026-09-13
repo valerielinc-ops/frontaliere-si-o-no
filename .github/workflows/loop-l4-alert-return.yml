@@ -13,6 +13,7 @@ on:
       - 'scripts/ci/loop-l4-alert-return.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l4-alert-return.yml'
   pull_request:
@@ -24,6 +25,7 @@ on:
       - 'scripts/ci/loop-l4-alert-return.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l4-alert-return.yml'
   workflow_dispatch:
@@ -59,6 +61,7 @@ jobs:
             /scripts/ci/loop-l4-alert-return.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l4-alert-return.yml
           sparse-checkout-cone-mode: false

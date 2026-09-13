@@ -38,6 +38,14 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('uploads one canonical outcome artifact for every loop', () => {
+    for (const name of loopWorkflows) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
+      expect(uploadsWholeDirectory || source.includes('loop-fleet-outcome.json'), name).toBe(true);
+    }
+  });
+
   it('keeps the status roll-up read-only', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-status.yml'), 'utf8');
     expect(source).toContain('actions: read');

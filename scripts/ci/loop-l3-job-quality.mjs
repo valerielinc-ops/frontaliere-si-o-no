@@ -6,6 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   buildDecision,
   buildObservation,
@@ -551,6 +552,19 @@ export async function runL3({
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
+  });
+  observation.outcome = buildValidatedLoopOutcome({
+    registry: loopRegistry,
+    loopId: LOOP_ID,
+    quality: verdict.quality,
+    independent: verdict.ok,
+    numerator: verdict.ok ? verdict.snapshot.outcomes?.validHandoffs ?? 0 : null,
+    denominator: verdict.ok ? verdict.snapshot.outcomes?.eligibleJobSessions ?? 0 : null,
+    observedAt: generatedAt?.toISOString() || null,
+    reason: verdict.ok
+      ? 'crawler quality and the independent application-handoff export agree on the cohort'
+      : `application-handoff outcome is ${verdict.quality}; no application is inferred from a click or redirect`,
+    now,
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
