@@ -19090,6 +19090,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'forum-economico-ambientale-osce-praga',
+    category: 'novita',
+    date: '2026-09-13T09:23:48.276Z',
+    image: '/images/blog/forum-economico-ambientale-osce-praga.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

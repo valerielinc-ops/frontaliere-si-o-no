@@ -6364,6 +6364,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.record-imprese-culturali-svizzera.title': 'Record di imprese culturali in Svizzera nel 2024',
     'blog.article.record-imprese-culturali-svizzera.excerpt': 'Nel 2024 la Svizzera ha registrato 69 441 imprese culturali attive, segnando un aumento del 27% rispetto al 2011, sebbene gli impieghi siano diminuiti.',
     'blog.article.record-imprese-culturali-svizzera.imageAlt': 'Imprese culturali in Svizzera secondo i dati UST',
+    'blog.article.forum-economico-ambientale-osce-praga.title': '32° Forum OSCE a Praga: focus su sicurezza e tecnologia',
+    'blog.article.forum-economico-ambientale-osce-praga.excerpt': 'Inaugurato a Praga il 32° Forum economico e ambientale dell\'OSCE sotto la guida della Presidenza svizzera del 2026.',
+    'blog.article.forum-economico-ambientale-osce-praga.imageAlt': 'Sala conferenze del Forum economico e ambientale OSCE a Praga',
 };
 
 export default blogMetaChIt;

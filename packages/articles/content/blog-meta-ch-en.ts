@@ -6364,6 +6364,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.record-imprese-culturali-svizzera.title': 'Record number of cultural enterprises in Switzerland in 2024',
     'blog.article.record-imprese-culturali-svizzera.excerpt': 'In 2024, Switzerland registered 69,441 active cultural enterprises, an increase of 27% compared to 2011, although employment has decreased.',
     'blog.article.record-imprese-culturali-svizzera.imageAlt': 'Cultural enterprises in Switzerland according to FSO data',
+    'blog.article.forum-economico-ambientale-osce-praga.title': '32nd OSCE Forum in Prague: focus on security and technology',
+    'blog.article.forum-economico-ambientale-osce-praga.excerpt': 'The 32nd OSCE Economic and Environmental Forum was inaugurated in Prague under the leadership of the 2026 Swiss Presidency.',
+    'blog.article.forum-economico-ambientale-osce-praga.imageAlt': 'Conference hall at the OSCE Economic and Environmental Forum in Prague',
 };
 
 export default blogMetaChEn;
