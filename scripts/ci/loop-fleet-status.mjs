@@ -3,18 +3,23 @@
 /**
  * Build a live, read-only status table for the loop fleet.
  *
- * It reads the latest completed GitHub run and its immutable evidence
- * artifact. Missing artifacts or an unreadable Actions API are explicit
- * states; they are never treated as a healthy zero.
+ * It reads the latest completed GitHub run, its immutable evidence artifact and
+ * the append-only durable health ledger. Missing artifacts or an unreadable
+ * Actions API are explicit states; they are never treated as a healthy zero.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { validateLoopRegistry } from '../lib/loop-fleet-contract.mjs';
+import {
+  validateActionClassAgainstPolicy,
+  validateLoopRegistry,
+  validateOutcomeAgainstPolicy,
+} from '../lib/loop-fleet-contract.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
+const DEFAULT_LEDGER_DIR = path.join('data', 'loop-fleet', 'ledger');
 const LOOP_WORKFLOWS = Object.freeze({
   L0: 'loop-l0-data-truth.yml',
   L1: 'loop-l1-reliability.yml',
@@ -103,6 +108,58 @@ function readLastJsonl(file) {
   }
 }
 
+function readDurableHealth(ledgerDir, registry) {
+  const file = path.resolve(ledgerDir, 'loop-health-history.jsonl');
+  if (!fs.existsSync(file)) return { byLoop: {}, error: null };
+  try {
+    const byLoop = {};
+    const lines = fs.readFileSync(file, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean);
+    for (const [index, line] of lines.entries()) {
+      let health;
+      try {
+        health = JSON.parse(line);
+      } catch (error) {
+        throw new Error(`line ${index + 1} is invalid JSON: ${error.message}`);
+      }
+      if (!health || health.recordType !== 'health' || !text(health.loopId)) {
+        throw new Error(`line ${index + 1} is not a health record`);
+      }
+      validateActionClassAgainstPolicy(registry, health.loopId, health.actionClass);
+      validateOutcomeAgainstPolicy(registry, health.loopId, health.outcome);
+      if (!health.execution?.runId || !/^[0-9a-f]{40}$/iu.test(String(health.execution.sha))) {
+        throw new Error(`line ${index + 1} has no durable execution identity`);
+      }
+      const previous = byLoop[health.loopId];
+      const currentTime = Date.parse(health.recordedAt || health.execution.recordedAt || '');
+      const previousTime = previous
+        ? Date.parse(previous.recordedAt || previous.execution?.recordedAt || '')
+        : -Infinity;
+      if (!previous || (Number.isFinite(currentTime) && currentTime >= previousTime)) byLoop[health.loopId] = health;
+    }
+    return { byLoop, error: null };
+  } catch (error) {
+    return { byLoop: {}, error: `durable health ledger is invalid: ${error.message}` };
+  }
+}
+
+function evidenceFromDurableHealth(health) {
+  if (!health) return null;
+  return {
+    quality: health.quality || 'unmeasurable',
+    evidenceComplete: health.evidenceComplete === true,
+    lifecycleCompliant: health.lifecycleCompliant === true,
+    policyCompliant: health.policyCompliant === true && health.outcomePolicyCompliant === true,
+    outcomePolicyCompliant: health.outcomePolicyCompliant === true,
+    decision: health.decision || 'unmeasurable',
+    actionClass: health.actionClass || null,
+    requiredAutonomy: health.requiredAutonomy || null,
+    outcome: health.outcome || null,
+    run: health.execution || null,
+    health,
+    durable: true,
+  };
+}
+
 function downloadEvidence(loopId, run, tempRoot) {
   const runId = typeof run === 'object' ? run.databaseId : run;
   const target = path.join(tempRoot, loopId.toLowerCase());
@@ -138,21 +195,36 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
   return validated.loops.map((policy) => {
     const runResult = runResults[policy.loopId] || { run: null, error: 'run not inspected' };
     const evidenceResult = evidenceResults[policy.loopId] || { evidence: null, error: 'evidence not inspected' };
-    const evidence = evidenceResult.evidence;
-    const health = evidence?.health || {};
+    const durableHealth = evidenceResult.canonicalHealth || null;
+    const durableEvidence = evidenceFromDurableHealth(durableHealth);
+    const evidence = evidenceResult.evidence || durableEvidence;
+    const artifactHealth = evidence?.health || null;
+    const evidenceRunId = evidence?.run?.runId || evidence?.health?.execution?.runId || null;
+    const durableIsCurrent = durableHealth && evidenceRunId
+      ? String(durableHealth.execution?.runId || '') === String(evidenceRunId)
+      : !artifactHealth;
+    const health = (durableIsCurrent ? durableHealth : (artifactHealth || durableHealth)) || {};
     const quality = text(evidence?.quality) || 'unmeasurable';
     const lifecycleCompliant = evidence?.lifecycleCompliant === true;
+    const outcomePolicyCompliant = evidence?.outcomePolicyCompliant === true;
     const issueCount = Number.isInteger(health.issueCount) ? health.issueCount : null;
     const warningCount = Number.isInteger(health.warningCount) ? health.warningCount : null;
-    const evidenceError = evidenceResult.error || runResult.error
+    const evidenceError = evidenceResult.canonicalError || evidenceResult.error || runResult.error
+      || (!outcomePolicyCompliant ? 'canonical outcome policy is missing or noncompliant' : null)
       || (evidence && !lifecycleCompliant ? 'canonical lifecycle evidence is missing or noncompliant' : null);
     const issue = evidenceError
       || (issueCount !== null && issueCount > 0 ? `${issueCount} issue(s) recorded` : null)
       || (warningCount !== null && warningCount > 0 ? `${warningCount} warning(s) recorded` : null)
       || (quality !== 'observed' ? 'quality or evidence is incomplete' : null);
-    const missingOutcome = !evidence?.evidenceComplete
+    const outcome = evidence?.outcome || health.outcome || null;
+    const outcomeMeasured = outcome
+      && (outcome.status === 'observed' || outcome.status === 'zero')
+      && outcome.independent === true
+      && Array.isArray(outcome.missingFields)
+      && outcome.missingFields.length === 0;
+    const missingOutcome = !outcome
       ? 'independent outcome not recorded'
-      : (quality === 'observed' ? null : 'independent outcome unavailable or incomplete');
+      : (outcomeMeasured ? null : `${outcome.status || 'unmeasurable'}: ${outcome.reason || 'independent outcome unavailable or incomplete'}`);
     const actualAutonomy = text(evidence?.requiredAutonomy) || text(health.requiredAutonomy);
     const nextHumanAction = evidenceError
       ? 'restore or attach the independent source and rerun the loop'
@@ -184,7 +256,7 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       actionClass: text(evidence?.actionClass) || null,
       requiredAutonomy: actualAutonomy,
       actualAutonomy,
-      policyCompliant: evidence?.policyCompliant === true && lifecycleCompliant,
+      policyCompliant: evidence?.policyCompliant === true && lifecycleCompliant && outcomePolicyCompliant,
       evidenceComplete: evidence?.evidenceComplete === true,
       lifecycleCompliant,
       evidenceError,
@@ -194,6 +266,14 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       nextAction: nextHumanAction,
       issueCount,
       warningCount,
+      outcome,
+      outcomePolicyCompliant,
+      historyAvailable: Boolean(durableHealth),
+      ledgerLastRun: durableHealth ? {
+        id: durableHealth.execution?.runId || null,
+        recordedAt: durableHealth.recordedAt || durableHealth.execution?.recordedAt || null,
+        headSha: durableHealth.execution?.sha || null,
+      } : null,
     };
   });
 }
@@ -202,18 +282,21 @@ function renderMarkdown(rows) {
   const lines = [
     '## Loop fleet status',
     '',
-    '| Loop | Owner | Ultimo run | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | TTL / SLA / verify | Fonti dichiarate | Next human action | Policy |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
+    '| Loop | Owner | Ultimo run | Ledger durable | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | TTL / SLA / verify | Fonti dichiarate | Next human action | Policy |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ];
   for (const row of rows) {
     const run = row.lastRun ? `[${row.lastRun.conclusion}](${row.lastRun.url || '#'})` : 'n/d';
+    const ledger = row.ledgerLastRun
+      ? `${row.ledgerLastRun.id || 'n/d'} @ ${row.ledgerLastRun.recordedAt || 'n/d'}`
+      : 'n/d';
     const autonomy = `${row.actualAutonomy || 'n/d'} / ${row.maxAutonomy}`;
     const lifecycle = `${row.candidateTtlHours}h / ${row.ownerSlaHours}h / ${row.postMergeVerificationHours}h`;
     const sources = row.sourceRefs.join(', ');
     const issue = row.issue || '—';
     const missingOutcome = row.missingOutcome || '—';
     const policy = row.evidenceComplete && row.policyCompliant ? 'ok' : 'incomplete';
-    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${lifecycle} | ${sources} | ${row.nextHumanAction} | ${policy} |`);
+    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${ledger} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${lifecycle} | ${sources} | ${row.nextHumanAction} | ${policy} |`);
   }
   lines.push('', 'Qualità o evidenza assente = `unmeasurable`; il report non sintetizza zeri.');
   return `${lines.join('\n')}\n`;
@@ -221,20 +304,27 @@ function renderMarkdown(rows) {
 
 export function collectStatus({
   registryPath = DEFAULT_REGISTRY_PATH,
+  ledgerDir = DEFAULT_LEDGER_DIR,
   tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-status-')),
   ghRun = latestRun,
   download = downloadEvidence,
 } = {}) {
   const registry = validateLoopRegistry(readJson(registryPath));
+  const durable = readDurableHealth(ledgerDir, registry);
   const runResults = {};
   const evidenceResults = {};
   for (const policy of registry.loops) {
     const workflow = LOOP_WORKFLOWS[policy.loopId];
     const runResult = ghRun(workflow);
     runResults[policy.loopId] = runResult;
-    evidenceResults[policy.loopId] = runResult.run
+    const artifactResult = runResult.run
       ? download(policy.loopId, runResult.run, tempRoot)
       : { evidence: null, error: runResult.error };
+    evidenceResults[policy.loopId] = {
+      ...artifactResult,
+      canonicalHealth: durable.byLoop[policy.loopId] || null,
+      canonicalError: durable.error,
+    };
   }
   return buildStatusRows(registry, runResults, evidenceResults);
 }
@@ -247,7 +337,10 @@ function valueAfter(argv, flag, fallback = null) {
 export function main({ argv = process.argv.slice(2), logger = console } = {}) {
   const outDir = path.resolve(valueAfter(argv, '--out-dir', process.env.REPORT_DIR || process.env.RUNNER_TEMP || os.tmpdir()));
   fs.mkdirSync(outDir, { recursive: true });
-  const rows = collectStatus({ registryPath: valueAfter(argv, '--registry', DEFAULT_REGISTRY_PATH) });
+  const rows = collectStatus({
+    registryPath: valueAfter(argv, '--registry', DEFAULT_REGISTRY_PATH),
+    ledgerDir: valueAfter(argv, '--ledger-dir', DEFAULT_LEDGER_DIR),
+  });
   const report = { schemaVersion: 1, generatedAt: new Date().toISOString(), rows };
   fs.writeFileSync(path.join(outDir, 'loop-fleet-status.json'), `${JSON.stringify(report, null, 2)}\n`);
   fs.writeFileSync(path.join(outDir, 'loop-fleet-status.md'), renderMarkdown(rows));
