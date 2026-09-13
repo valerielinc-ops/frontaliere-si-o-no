@@ -602,6 +602,8 @@ export async function enrichCoopSourceBackedJobs(jobs, {
     rejected: rejected.length,
     dropped: gone.length + rejected.length,
   });
+  const sourceDriftDetected = input.length >= DETAIL_DROP_ABORT_MIN_BATCH
+    && detailDrop.dropped > abortDenominator * DETAIL_DROP_ABORT_RATIO;
   const publishDropSummary = (jobs) => {
     Object.defineProperty(jobs, 'detailDrop', {
       value: detailDrop,
@@ -615,12 +617,12 @@ export async function enrichCoopSourceBackedJobs(jobs, {
     if (gone.length > 0) {
       const goneLabels = gone.map(({ url, status }) => `${url} (HTTP ${status})`);
       console.warn(`⚠️  Dropped ${gone.length}/${input.length} withdrawn Coop-family vacancies: ${goneLabels.join(', ')}`);
-      if (typeof onGone === 'function') onGone(gone.map(({ url }) => url));
+      if (!sourceDriftDetected && typeof onGone === 'function') onGone(gone.map(({ url }) => url));
     }
     if (rejected.length > 0) {
       const rejectedLabels = rejected.map(({ url, reason }) => `${url} (${reason})`);
       console.warn(`⚠️  Dropped ${rejected.length}/${input.length} unusable Coop-family detail payloads: ${rejectedLabels.join(', ')}`);
-      if (typeof onRejected === 'function') onRejected(rejected.map(({ url }) => url));
+      if (!sourceDriftDetected && typeof onRejected === 'function') onRejected(rejected.map(({ url }) => url));
     }
     if (unavailable.length > 0) {
       console.warn(`⚠️  Kept ${unavailable.length}/${input.length} listing-backed Coop-family vacancies after retryable detail failures:`);
@@ -632,8 +634,7 @@ export async function enrichCoopSourceBackedJobs(jobs, {
   if (gone.length === 0 && rejected.length === 0 && unavailable.length === 0) {
     return publishDropSummary(output);
   }
-  const dropped = detailDrop.dropped;
-  if (input.length >= DETAIL_DROP_ABORT_MIN_BATCH && dropped > abortDenominator * DETAIL_DROP_ABORT_RATIO) {
+  if (sourceDriftDetected) {
     throw new Error(
       `Coop-family detail batch: ${gone.length}/${input.length} pages gone (HTTP 404/410), `
       + `${rejected.length}/${input.length} rejected — source drift, not vacancy expiry`,

@@ -1123,8 +1123,21 @@ describe('Coop-family source-detail contract (#5253)', () => {
       ? new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`, { status: 200 })
       : new Response(null, { status: 404 });
 
-    await expect(enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2 }))
+    let observed: unknown = null;
+    const gone: string[] = [];
+    const rejected: string[] = [];
+
+    await expect(enrichCoopSourceBackedJobs(jobs, {
+      fetchImpl,
+      concurrency: 2,
+      onDropSummary: (drop) => { observed = drop; },
+      onGone: (urls) => gone.push(...urls),
+      onRejected: (urls) => rejected.push(...urls),
+    }))
       .rejects.toThrow(/3\/4 pages gone/);
+    expect(observed).toEqual({ candidates: 4, gone: 3, rejected: 0, dropped: 3 });
+    expect(gone).toEqual([]);
+    expect(rejected).toEqual([]);
     expect(jobs.every((job) => job.description === 'listing fallback')).toBe(true);
   });
 
