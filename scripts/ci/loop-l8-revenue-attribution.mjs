@@ -14,9 +14,9 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   buildDecision,
-  buildOutcome,
   buildObservation,
   loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
@@ -488,7 +488,7 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
-function buildRevenueOutcome({ source, verdict, policy, now }) {
+function buildRevenueOutcome({ source, verdict, policy, registry, now }) {
   const commercial = verdict.snapshot?.commercial || {};
   const generatedAt = finiteDate(commercial.generatedAt);
   const approvedNetChf = nonNegativeNumber(commercial.approvedNetChf)
@@ -518,26 +518,18 @@ function buildRevenueOutcome({ source, verdict, policy, now }) {
   const status = measurable
     ? 'observed'
     : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
-  const requiredFieldsPresent = measurable
-    ? policy.outcome.requiredFields.slice()
-    : (generatedAt ? ['generatedAt'] : []);
-  const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
-  const outcome = buildOutcome({
-    outcomeId: policy.outcome.outcomeId,
-    status,
+  const outcome = buildValidatedLoopOutcome({
+    registry,
+    loopId: LOOP_ID,
+    quality: status,
     independent: measurable,
-    sourceRefs: policy.outcome.sourceRefs,
-    primaryMetric: policy.primaryMetric,
-    numerator: measurable ? approvedNetChf : null,
-    denominator: measurable ? relevantExposures : null,
-    requiredFieldsPresent,
-    missingFields,
+    numerator: approvedNetChf,
+    denominator: relevantExposures,
+    observedAt: generatedAt?.toISOString() || null,
     reason: measurable
       ? 'explicit independent authorized export with pending, approved and reversed states reconciled separately; monitor click telemetry remains separate'
       : `revenue attribution outcome is ${status}; no commercial amount is inferred from monitor clicks or missing exports`,
-    observedAt: generatedAt?.toISOString() || null,
-    allowNumeratorExceedDenominator: true,
-    recordedAt: now.toISOString(),
+    now,
   });
   return {
     ...outcome,
@@ -563,7 +555,7 @@ function buildRevenueOutcome({ source, verdict, policy, now }) {
       sourcePath: commercial.path,
       sourceRefs: policy.outcome.sourceRefs,
     },
-    evidenceStatus: commercial.missing ? 'missing' : (measurable ? 'verified' : 'unverified'),
+    evidenceStatus: commercial.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
     sourcePath: commercial.path,
     safeToAct: false,
     autoAdsUntouched: true,
@@ -733,7 +725,7 @@ export async function runL8({
       },
     },
   };
-  const outcome = buildRevenueOutcome({ source: sourceAffiliate, verdict, policy: loopPolicy, now });
+  const outcome = buildRevenueOutcome({ source: sourceAffiliate, verdict, policy: loopPolicy, registry: loopRegistry, now });
   const commercial = verdict.snapshot?.commercial;
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const candidateStarts = [

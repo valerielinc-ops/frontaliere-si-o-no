@@ -26,6 +26,7 @@ on:
       - 'functions/src/lib/syntheticClicks.js'
       - 'functions/src/lib/emailScannerRanges.js'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l4-alert-return.yml'
   pull_request:
@@ -50,6 +51,7 @@ on:
       - 'functions/src/lib/syntheticClicks.js'
       - 'functions/src/lib/emailScannerRanges.js'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l4-alert-return.yml'
   workflow_dispatch:
@@ -86,6 +88,7 @@ jobs:
             /scripts/ci/export-loop-outcomes.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
             /scripts/lib/posthog-client.mjs
             /functions/src/jobAlertBackfillCore.js

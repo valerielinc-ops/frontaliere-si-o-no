@@ -15,6 +15,7 @@ on:
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/build-employer-profiles.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l9-employer-activation.yml'
   pull_request:
@@ -28,6 +29,7 @@ on:
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/build-employer-profiles.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l9-employer-activation.yml'
   workflow_dispatch:
@@ -64,6 +66,7 @@ jobs:
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/build-employer-profiles.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
             /scripts/lib/posthog-client.mjs
             /.github/workflows/loop-l9-employer-activation.yml

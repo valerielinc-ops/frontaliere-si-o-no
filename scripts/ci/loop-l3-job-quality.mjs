@@ -6,9 +6,9 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   buildDecision,
-  buildOutcome,
   buildObservation,
   loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
@@ -422,7 +422,7 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
-function buildJobQualityOutcome({ verdict, policy, now }) {
+function buildJobQualityOutcome({ verdict, policy, registry, now }) {
   const outcomeSnapshot = verdict.snapshot?.outcomes || {};
   const generatedAt = finiteDate(outcomeSnapshot.generatedAt);
   const eligibleJobSessions = integer(outcomeSnapshot.eligibleJobSessions)
@@ -451,26 +451,18 @@ function buildJobQualityOutcome({ verdict, policy, now }) {
   const status = measurable
     ? 'observed'
     : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
-  const requiredFieldsPresent = measurable
-    ? policy.outcome.requiredFields.slice()
-    : (generatedAt ? ['generatedAt'] : []);
-  const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
-  const outcome = buildOutcome({
-    outcomeId: policy.outcome.outcomeId,
-    status,
+  const outcome = buildValidatedLoopOutcome({
+    registry,
+    loopId: LOOP_ID,
+    quality: status,
     independent: measurable,
-    sourceRefs: policy.outcome.sourceRefs,
-    primaryMetric: policy.primaryMetric,
-    numerator: measurable ? validHandoffs : null,
-    denominator: measurable ? eligibleJobSessions : null,
-    requiredFieldsPresent,
-    missingFields,
+    numerator: validHandoffs,
+    denominator: eligibleJobSessions,
+    observedAt: generatedAt?.toISOString() || null,
     reason: measurable
       ? 'explicit independent apply-handoff export with eligible-session and valid-handoff counts'
       : `job apply outcome is ${status}; no application event is inferred from crawler counts, URLs or clicks`,
-    observedAt: generatedAt?.toISOString() || null,
-    allowNumeratorExceedDenominator: false,
-    recordedAt: now.toISOString(),
+    now,
   });
   return {
     ...outcome,
@@ -485,7 +477,7 @@ function buildJobQualityOutcome({ verdict, policy, now }) {
       sourcePath: outcomeSnapshot.path,
       sourceRefs: policy.outcome.sourceRefs,
     },
-    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (measurable ? 'verified' : 'unverified'),
+    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
     sourcePath: outcomeSnapshot.path,
     handoffIsNotApplication: true,
     runnerLocalQuarantine: true,
@@ -636,7 +628,7 @@ export async function runL3({
       },
     },
   };
-  const outcome = buildJobQualityOutcome({ verdict, policy: loopPolicy, now });
+  const outcome = buildJobQualityOutcome({ verdict, policy: loopPolicy, registry: loopRegistry, now });
   // A zero-sized outcome cohort is not evidence of a zero handoff rate. Keep
   // metrics null until the observed outcome sample is complete and usable.
   const measurable = verdict.quality === 'observed' && verdict.ok;

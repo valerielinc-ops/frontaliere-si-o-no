@@ -6,6 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   buildDecision,
   buildObservation,
@@ -349,6 +350,19 @@ export async function runL2({
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
+  });
+  observation.outcome = buildValidatedLoopOutcome({
+    registry: loopRegistry,
+    loopId: LOOP_ID,
+    quality: verdict.quality,
+    independent: verdict.ok,
+    numerator: verdict.ok ? verdict.snapshot.outcomes?.usefulActions ?? 0 : null,
+    denominator: verdict.ok ? verdict.snapshot.outcomes?.eligibleLandingSessions ?? 0 : null,
+    observedAt: generatedAt?.toISOString() || null,
+    reason: verdict.ok
+      ? 'GSC and landing-path sources agree on the eligible session/action join'
+      : `useful-action outcome is ${verdict.quality}; no landing change is authorized`,
+    now,
   });
   const decision = buildDecision({
     loopId: LOOP_ID,

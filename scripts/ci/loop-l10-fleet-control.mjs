@@ -14,9 +14,9 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   buildDecision,
-  buildOutcome,
   buildObservation,
   loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
@@ -472,7 +472,7 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
-function buildFleetControlOutcome({ verdict, policy, now }) {
+function buildFleetControlOutcome({ verdict, policy, registry, now }) {
   const health = verdict.snapshot?.health || {};
   const generatedAt = finiteDate(health.latestAt);
   const eligibleRuns = integer(health.eligibleRuns) ? health.eligibleRuns : null;
@@ -485,26 +485,18 @@ function buildFleetControlOutcome({ verdict, policy, now }) {
   const status = measurable
     ? 'observed'
     : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
-  const requiredFieldsPresent = measurable
-    ? policy.outcome.requiredFields.slice()
-    : (generatedAt ? ['generatedAt'] : []);
-  const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
-  const outcome = buildOutcome({
-    outcomeId: policy.outcome.outcomeId,
-    status,
+  const outcome = buildValidatedLoopOutcome({
+    registry,
+    loopId: LOOP_ID,
+    quality: status,
     independent: measurable,
-    sourceRefs: policy.outcome.sourceRefs,
-    primaryMetric: policy.primaryMetric,
-    numerator: measurable ? verifiedDecisions : null,
-    denominator: measurable ? eligibleRuns : null,
-    requiredFieldsPresent,
-    missingFields,
+    numerator: verifiedDecisions,
+    denominator: eligibleRuns,
+    observedAt: generatedAt?.toISOString() || null,
     reason: measurable
       ? 'fresh health ledger confirms eligible runs, verified decisions and gate-preserving artifacts'
       : `fleet control outcome is ${status}; no throughput is inferred from missing or invalid health rows`,
-    observedAt: generatedAt?.toISOString() || null,
-    allowNumeratorExceedDenominator: false,
-    recordedAt: now.toISOString(),
+    now,
   });
   return {
     ...outcome,
@@ -527,7 +519,7 @@ function buildFleetControlOutcome({ verdict, policy, now }) {
       sourceRefs: policy.outcome.sourceRefs,
       status: measurable ? 'verified' : 'unverified',
     },
-    evidenceStatus: health.missing ? 'missing' : (measurable ? 'verified' : 'unverified'),
+    evidenceStatus: health.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
     sourcePath: health.path,
     safeToAct: false,
     oneWriterPerArtifact: true,
@@ -685,7 +677,7 @@ export async function runL10({
       },
     },
   };
-  const outcome = buildFleetControlOutcome({ verdict, policy: loopPolicy, now });
+  const outcome = buildFleetControlOutcome({ verdict, policy: loopPolicy, registry: loopRegistry, now });
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const health = verdict.snapshot?.health || {};
   const candidateStarts = [
