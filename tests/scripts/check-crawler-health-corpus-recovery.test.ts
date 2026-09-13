@@ -179,6 +179,37 @@ describe("crawler-health corpus recovery evidence", () => {
     expect(reason).toContain("last exitCode=0");
   });
 
+  it("recovers an authoritative empty proof without replacing newer site counts", () => {
+    const site = {
+      ...siteObservation(),
+      freshnessAt: "2026-09-01T06:00:00.000Z",
+      jobCount: 0,
+      activeJobCount: 0,
+      written: 0,
+    };
+    const corpus = {
+      ...siteObservation(),
+      freshnessAt: "2026-08-31T23:33:39.059Z",
+      jobCount: 17,
+      activeJobCount: 17,
+      written: 17,
+      authoritativeEmptySnapshot: true,
+    };
+
+    const selected = selectNewestCrawlerObservation(site, corpus, NOW_MS);
+    expect(selected.jobCount).toBe(0);
+    expect(selected.authoritativeEmptySnapshot).toBe(true);
+
+    const { status, state } = nextCrawlerState(
+      previousBrokenState("2026-08-31T20:00:00.000Z"),
+      selected,
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe("healthy");
+    expect(state._authoritativeEmptySnapshot).toBe(true);
+  });
+
   it("rejects a future-dated corpus payload instead of suppressing the site alert", async () => {
     const site = siteObservation();
     const futureSummary = {

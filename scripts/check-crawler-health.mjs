@@ -1220,6 +1220,7 @@ async function inspectCorpusRecoveryBatch(
 
 const OBSERVATION_DIAGNOSTIC_FIELDS = [
   'authoritativeEmpty',
+  'authoritativeEmptySnapshot',
   'lastFetchOutcome',
   'earlyExit',
   'exitCode',
@@ -1346,7 +1347,10 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // `EMPTY_OK_CRAWLERS` entry that keeps masking the slug after the source
   // really dies. This signal cannot: the proof is re-established every run or
   // the crawler throws.
-  const authoritativeEmpty = observation.authoritativeEmpty === true && lastObservedJobs === 0;
+  const authoritativeEmpty =
+    (observation.authoritativeEmpty === true ||
+      observation.authoritativeEmptySnapshot === true) &&
+    lastObservedJobs === 0;
 
   // The run's own verdict on WHY it is empty (#7897). Every signal above is
   // the monitor INFERRING a cause from counts it can compare; this one is the
