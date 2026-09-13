@@ -38,6 +38,11 @@ function registry(overrides: Record<string, unknown> = {}) {
       sourceRefs: ['test-source'],
       cadence: 'daily',
       primaryMetric: 'verified_metric',
+      outcome: {
+        outcomeId: `verified-${loopId.toLowerCase()}`,
+        sourceRefs: ['test-source'],
+        requiredFields: ['generatedAt', 'numerator', 'denominator'],
+      },
       minimumSample: 1,
       maxAutonomy: 'A4',
       actionClasses: loopId === 'L10'
