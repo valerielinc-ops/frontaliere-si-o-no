@@ -13,7 +13,7 @@ import {
   formatReport,
   parseIsoDurationMs,
 } from '../scripts/check-pharmacy-data-health.mjs';
-import ticino from '../data/pharmacies-ticino.json';
+import ticino from '../data/pharmacies-ticino-complete.json';
 
 const PHARMACY_WORKFLOW = join(__dirname, '..', '.github', 'workflows', 'pharmacy-data-health-monitor.yml');
 
@@ -200,7 +200,7 @@ describe('normalizeIdentityField', () => {
 });
 
 describe('the identity check against the real dataset', () => {
-  it('reports zero conflicts on the 119 pharmacies of data/pharmacies-ticino.json, so the monitor is born green', () => {
+  it('reports zero conflicts on the complete Ticino snapshot, so the monitor is born green', () => {
     expect(ticino.pharmacies.length).toBeGreaterThan(100);
     expect(detectAnagraficaConflicts('ticino', ticino)).toEqual([]);
   });
@@ -213,14 +213,14 @@ describe('report payload consumed by the workflow', () => {
     expect(report.dashboard.join('\n')).toContain('Copertura: 1/26');
   });
 
-  it('names the scheduler (#6752) as the way out when the anagrafica goes stale', () => {
+  it('names the catalogue workflow as the way out when the anagrafica goes stale', () => {
     const report = buildReport({
       registry,
       datasets: { ticino: anagrafica({ _fetchedAt: iso(40) }) },
       knownCantonCount: 26,
       nowMs: NOW,
     });
-    expect(report.problems.join('\n')).toContain('#6752');
+    expect(report.problems.join('\n')).toContain('sync-pharmacies-border');
   });
 });
 

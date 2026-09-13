@@ -10,9 +10,46 @@ export interface OpeningHours {
   dayOfWeek: 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
   opens: string;
   closes: string;
+  /** A source may explicitly publish a closed day instead of an interval. */
+  isClosed?: boolean;
 }
 
 export type PharmacySourceType = 'official' | 'association' | 'pharmacy' | 'verified_partner' | 'directory';
+
+export type PharmacyCountry = 'CH' | 'IT';
+
+/** Status is field-level: an absent value is never rendered as if it were verified. */
+export type PharmacyFieldStatus = 'verified' | 'not_published' | 'not_checked';
+
+export interface PharmacyFieldSource {
+  url: string;
+  sourceType: PharmacySourceType;
+  checkedAt: string;
+  /** Required when the source is OpenStreetMap, whose derived data is ODbL. */
+  license?: string;
+}
+
+export interface PharmacyDataAvailability {
+  address?: PharmacyFieldStatus;
+  phone?: PharmacyFieldStatus;
+  website?: PharmacyFieldStatus;
+  coordinates?: PharmacyFieldStatus;
+  openingHours?: PharmacyFieldStatus;
+  services?: PharmacyFieldStatus;
+}
+
+/**
+ * A previously published detail URL that must keep resolving after an
+ * official identity/locality correction. The importer records the old
+ * province, city and slug so the build can emit a locale-aware redirect to
+ * the current canonical page.
+ */
+export interface PharmacyUrlAlias {
+  country: PharmacyCountry;
+  province?: string;
+  city: string;
+  slug: string;
+}
 
 export interface Pharmacy {
   id: string;
@@ -21,8 +58,13 @@ export interface Pharmacy {
   address: string;
   postalCode: string;
   city: string;
-  canton: string;
-  country: 'CH';
+  /** Present for Swiss records; Italian records use `province` and `region`. */
+  canton?: string;
+  country: PharmacyCountry;
+  province?: string;
+  region?: string;
+  /** Stable identifier from the Italian Ministry of Health open dataset. */
+  ministryId?: string;
   latitude?: number;
   longitude?: number;
   phone?: string;
@@ -32,6 +74,11 @@ export interface Pharmacy {
   sourceUrl: string;
   sourceType: PharmacySourceType;
   lastVerifiedAt: string;
+  /** Provenance for optional fields enriched from a second public source. */
+  fieldSources?: Partial<Record<'address' | 'phone' | 'website' | 'coordinates' | 'openingHours' | 'services', PharmacyFieldSource>>;
+  dataAvailability?: PharmacyDataAvailability;
+  /** Historical detail URLs retained by the data pipeline for redirects. */
+  urlAliases?: PharmacyUrlAlias[];
 }
 
 export type PharmacyDutyCoverageType = 'city' | 'district' | 'region' | 'canton';
@@ -84,6 +131,10 @@ export interface PharmacySourceEntry {
   lastVerifiedAt?: string;
   /** ISO date/time of the most recent successful fetch from `officialSourceUrl` by a connector. Optional: unset until a connector exists for this canton. */
   sourceFetchedAt?: string;
+  /** Canonical checked-in anagraphic snapshot when duties and identity use separate feeds. */
+  anagraficaPath?: string;
+  /** Official source URL for the canonical anagraphic snapshot. */
+  anagraficaSourceUrl?: string;
 }
 
 export interface PharmacySourcesRegistry {
@@ -127,6 +178,17 @@ const SOURCE_TYPES: readonly PharmacySourceType[] = [
 ];
 const SOURCE_STATUSES: readonly PharmacySourceStatus[] = ['unverified', 'active', 'blocked', 'degraded'];
 
+/** Accept only absolute HTTPS URLs from public directory enrichment. */
+export function safePharmacyUrl(value: unknown): string | undefined {
+  if (typeof value !== 'string' || !value.trim()) return undefined;
+  try {
+    const url = new URL(value.trim());
+    return url.protocol === 'https:' ? value.trim() : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 /**
  * Validates a `PharmacySourceEntry` shape, returning the list of problems
  * found (empty = valid). Deliberately permissive on unknown extra fields —
@@ -167,7 +229,6 @@ const REQUIRED_PHARMACY_STRING_FIELDS: readonly (keyof Pharmacy)[] = [
   'address',
   'postalCode',
   'city',
-  'canton',
   'country',
   'sourceUrl',
   'sourceType',
@@ -191,8 +252,41 @@ export function validatePharmacy(index: number | string, entry: unknown): string
     }
   }
 
-  if (typeof e.country === 'string' && e.country !== 'CH') {
-    errors.push(`pharmacy[${index}]: invalid country "${e.country}" (expected "CH")`);
+  if (typeof e.country === 'string' && !(['CH', 'IT'] as const).includes(e.country as PharmacyCountry)) {
+    errors.push(`pharmacy[${index}]: invalid country "${e.country}" (expected "CH" or "IT")`);
+  }
+
+  if (e.country === 'CH' && (typeof e.canton !== 'string' || e.canton.trim() === '')) {
+    errors.push(`pharmacy[${index}]: Swiss record must declare "canton"`);
+  }
+  if (e.country === 'IT' && (typeof e.province !== 'string' || !/^[A-Z]{2}$/.test(e.province))) {
+    errors.push(`pharmacy[${index}]: Italian record must declare a two-letter "province"`);
+  }
+
+  for (const field of ['latitude', 'longitude'] as const) {
+    if (e[field] !== undefined && (typeof e[field] !== 'number' || !Number.isFinite(e[field] as number))) {
+      errors.push(`pharmacy[${index}]: invalid optional "${field}"`);
+    }
+  }
+
+  if (e.dataAvailability !== undefined && (typeof e.dataAvailability !== 'object' || e.dataAvailability === null || Array.isArray(e.dataAvailability))) {
+    errors.push(`pharmacy[${index}]: invalid optional "dataAvailability"`);
+  }
+
+  if (e.website !== undefined && !safePharmacyUrl(e.website)) {
+    errors.push(`pharmacy[${index}]: invalid optional "website" (expected an absolute HTTPS URL)`);
+  }
+
+  if (e.urlAliases !== undefined && (!Array.isArray(e.urlAliases) || e.urlAliases.some((alias) => {
+    if (typeof alias !== 'object' || alias === null || Array.isArray(alias)) return true;
+    const candidate = alias as Record<string, unknown>;
+    return !['CH', 'IT'].includes(String(candidate.country))
+      || typeof candidate.city !== 'string'
+      || !candidate.city.trim()
+      || typeof candidate.slug !== 'string'
+      || !candidate.slug.trim();
+  }))) {
+    errors.push(`pharmacy[${index}]: invalid optional "urlAliases"`);
   }
 
   return errors;
@@ -208,12 +302,18 @@ export function validatePharmacyList(pharmacies: unknown): string[] {
   }
   const errors: string[] = [];
   const seenIds = new Set<string>();
+  const seenSlugs = new Set<string>();
   pharmacies.forEach((entry, index) => {
     errors.push(...validatePharmacy(index, entry));
     const id = (entry as Record<string, unknown> | null)?.id;
     if (typeof id === 'string' && id) {
       if (seenIds.has(id)) errors.push(`pharmacy[${index}]: duplicate id "${id}"`);
       seenIds.add(id);
+    }
+    const slug = (entry as Record<string, unknown> | null)?.slug;
+    if (typeof slug === 'string' && slug) {
+      if (seenSlugs.has(slug)) errors.push(`pharmacy[${index}]: duplicate slug "${slug}"`);
+      seenSlugs.add(slug);
     }
   });
   return errors;

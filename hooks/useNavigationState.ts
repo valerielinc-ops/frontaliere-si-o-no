@@ -414,7 +414,7 @@ export function useNavigationState(): NavigationState {
  // Update SEO meta tags — use 404-specific noindex for unrecognized routes
  if (parsedNotFoundPath) {
  applyNotFoundSeo(parsedNotFoundPath);
- } else {
+ } else if (!route.pharmacyPath) {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
@@ -446,6 +446,7 @@ export function useNavigationState(): NavigationState {
  // target-locale slug immediately so canonical URLs and state stay consistent.
  const unsubLocale = onLocaleChange((newLocale) => {
  updatePathForLocale(newLocale);
+ setPharmacyPath(previous => previous ? { ...previous, locale: newLocale } : previous);
  setJobSlug(prev => {
  if (!prev) return prev;
  return getLocalizedJobSlug(prev, newLocale) || prev;
@@ -806,6 +807,7 @@ export function useNavigationState(): NavigationState {
  // vita
  useEffect(() => {
  if (activeTab === 'vita') {
+ if (pharmacyPath) return;
  if (suppressNextRouteSyncForTabRef.current === 'vita') {
  suppressNextRouteSyncForTabRef.current = null;
  return;

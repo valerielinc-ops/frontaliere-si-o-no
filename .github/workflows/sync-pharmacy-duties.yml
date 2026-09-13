@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: sync-pharmacy-duties
+  group: sync-pharmacy-data
   cancel-in-progress: false
 
 jobs:
@@ -31,6 +31,12 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '20'
+      # The duty parser reaches public-fetch-policy.mjs through crawler-template.mjs,
+      # which imports the declared `undici` dependency. load-rc-env.mjs also uses
+      # the installed firebase-admin SDK when loading Remote Config.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
       # Il ruleset del repo rifiuta il GITHUB_TOKEN ambientale sui push diretti
       # a main (GH013), quindi la credenziale va caricata PRIMA del push, non
       # dopo: e' l'invariante che tests/main-push-auth-wiring.test.ts verifica.

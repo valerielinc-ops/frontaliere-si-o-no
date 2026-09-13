@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-09-13T00:00:00.000Z",
+  "sources": {
+    "ticino-complete": {
+      "country": "CH",
+      "area": "Ticino",
+      "officialSourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
+      "accessMethod": "pdf",
+      "fetchFrequency": "P30D",
+      "timezone": "Europe/Zurich",
+      "sourceType": "official",
+      "owner": "platform",
+      "status": "active",
+      "license": "Swiss public-sector source; verify current terms before redistribution",
+      "notes": "Official cantonal public-pharmacy list. A separate OFCT feed supplies Ticino duty schedules."
+    },
+    "italy-border": {
+      "country": "IT",
+      "areas": ["CO", "VA", "VB"],
+      "officialSourceUrl": "https://www.dati.salute.gov.it/it/dataset/farmacie/",
+      "accessMethod": "json-api",
+      "fetchFrequency": "P1D",
+      "timezone": "Europe/Rome",
+      "sourceType": "official",
+      "owner": "platform",
+      "status": "active",
+      "license": "Italian Open Data Licence v2.0",
+      "notes": "Daily Ministry of Health open-data feed, filtered strictly by sigla_provincia CO/VA/VB."
+    },
+    "osm-enrichment": {
+      "country": "CH+IT",
+      "areas": ["CH-TI", "CO", "VA", "VB"],
+      "officialSourceUrl": "https://www.openstreetmap.org/",
+      "accessMethod": "json-api",
+      "fetchFrequency": "P30D",
+      "timezone": "Europe/Zurich",
+      "sourceType": "directory",
+      "owner": "platform",
+      "status": "active",
+      "license": "Open Database License (ODbL) 1.0",
+      "notes": "Optional field-level enrichment only. Identity and address remain sourced from the official dataset; unmatched or ambiguous elements are omitted."
+    }
+  }
+}
