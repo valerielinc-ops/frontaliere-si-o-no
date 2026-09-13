@@ -6,6 +6,10 @@ import { runL5, validateDecisionMoments } from '../scripts/ci/loop-l5-decision-m
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 
+function relativeIso(hoursFromNow: number) {
+  return new Date(NOW.getTime() + hoursFromNow * 3_600_000).toISOString();
+}
+
 function fuel(overrides: Record<string, unknown> = {}) {
   return {
     generatedAt: NOW.toISOString(),
@@ -74,6 +78,22 @@ describe('L5 Decision Moments', () => {
     expect(verdict.candidates.every((candidate) => ['A0', 'A1', 'A2', 'A3'].includes(candidate.autonomy))).toBe(true);
   });
 
+  it('does not treat an outcome as measured when registry evidence is incomplete', () => {
+    const registry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+    const verdict = validateDecisionMoments({
+      fuel: fuel(),
+      border: border(),
+      pharmacies: pharmacies(),
+      duties: duties(),
+      outcomes: outcomes({ evidence: { source: 'posthog-decision-surface-export', sourceRefs: ['decision-surfaces'] } }),
+    }, { now: NOW, registry });
+
+    expect(verdict.ok).toBe(false);
+    expect(verdict.quality).toBe('partial');
+    expect(verdict.snapshot.outcomes.quality).toBe('partial');
+    expect(verdict.issues.join(' ')).toContain('must include registry source refs: posthog');
+  });
+
   it('keeps missing outcomes partial and metrics null', () => {
     const verdict = validate({}, null);
     expect(verdict.quality).toBe('partial');
@@ -95,11 +115,33 @@ describe('L5 Decision Moments', () => {
   });
 
   it('marks stale data and protects the observation window from future timestamps', async () => {
-    const verdict = validate({ fuel: fuel({ generatedAt: '2026-09-01T12:00:00.000Z' }) });
-    expect(verdict.quality).toBe('partial');
-    const source = tempSource(outcomes({ generatedAt: '2026-09-12T18:00:00.000Z' }));
+    const verdict = validate({ fuel: fuel({ generatedAt: relativeIso(-120) }) });
+    expect(verdict.quality).toBe('stale');
+    expect(verdict.snapshot.sources.fuel.stale).toBe(true);
+    const source = tempSource(outcomes({ generatedAt: relativeIso(6) }));
     const result = await runL5({ now: NOW, fuelPath: source.files.fuel, borderPath: source.files.border, pharmacyPath: source.files.pharmacies, dutyPath: source.files.duties, outcomePath: source.files.outcomes, logger: { log() {} } });
     expect(result.decision.startedAt).toBe(NOW.toISOString());
+  });
+
+  it('does not export measured next-action metrics when a surface is stale', async () => {
+    const source = tempSource(outcomes());
+    const staleFuel = JSON.parse(fs.readFileSync(source.files.fuel, 'utf8'));
+    staleFuel.generatedAt = relativeIso(-120);
+    fs.writeFileSync(source.files.fuel, `${JSON.stringify(staleFuel)}\n`);
+
+    const result = await runL5({
+      now: NOW,
+      fuelPath: source.files.fuel,
+      borderPath: source.files.border,
+      pharmacyPath: source.files.pharmacies,
+      dutyPath: source.files.duties,
+      outcomePath: source.files.outcomes,
+      logger: { log() {} },
+    });
+
+    expect(result.verdict.quality).toBe('stale');
+    expect(result.outcome).toMatchObject({ status: 'stale', independent: false, numerator: null, denominator: null });
+    expect(result.observation).toMatchObject({ quality: 'stale', numerator: null, denominator: null });
   });
 
   it('does not manufacture a zero rate from an empty decision cohort', async () => {

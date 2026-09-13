@@ -600,6 +600,11 @@ function writeResult(reportDir, { verdict, issued, actionsWritten }) {
     candidateCount: verdict.candidates.length,
     issued,
     actionsWritten,
+    safeDraftOnly: true,
+    realOutreachSent: false,
+    inventoryUntouched: true,
+    subscriptionStateUntouched: true,
+    pricesUntouched: true,
     outcomeLedgerMissing: verdict.snapshot?.outcomes?.missing === true,
     profileInventoryComplete: verdict.snapshot?.profiles?.validProfileCount > 0
       && verdict.snapshot?.profiles?.invalidProfileCount === 0,

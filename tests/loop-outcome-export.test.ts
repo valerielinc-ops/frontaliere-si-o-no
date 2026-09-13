@@ -144,4 +144,23 @@ describe('read-only loop outcome exporters', () => {
       },
     });
   });
+
+  it('does not promote a paid inventory job into a paid activation without an active order', () => {
+    const output = buildL9OutcomeLedger({
+      now: NOW,
+      profiles: {
+        _meta: { generatedAt: NOW.toISOString() },
+        profiles: [{ companyKey: 'demo' }],
+      },
+      publisherRows: [row('publishers/p1', { company: { companyKey: 'demo', name: 'Demo AG' } })],
+      jobRows: [row('publisher_jobs/j1', { publisherUid: 'p1', status: 'paid', tier: 'sponsored', companyKey: 'demo' })],
+    });
+
+    expect(output).toMatchObject({
+      eligibleEmployerAccounts: 1,
+      paidActivations: 0,
+      activeSubscriptions: 0,
+      attachedJobs: 1,
+    });
+  });
 });
