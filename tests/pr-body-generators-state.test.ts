@@ -161,6 +161,11 @@ function isPlaceholder(bullet: string): boolean {
  */
 type PromptBlock = { prompt: string; renderedWith: string };
 
+// Several contract assertions inspect the same workflow sources. Cache the pure
+// YAML extraction so the suite measures the contract rather than reparsing the
+// same large prompts until the default Vitest timeout expires on a busy runner.
+const promptBlockCache = new Map<string, PromptBlock[]>();
+
 // Keep the detector and the body extractor on the same YAML spelling. In
 // particular, `prompt : |` is valid YAML and must not be selected by one side
 // while being invisible to the other.
@@ -268,9 +273,11 @@ function renderedWithBlocks(text: string): string[] {
 }
 
 function promptBlocks(text: string): PromptBlock[] {
+  const cached = promptBlockCache.get(text);
+  if (cached) return cached;
   const renderedWith = renderedWithBlocks(text);
   const lines = text.split(/\r?\n/);
-  return claudePromptNodes(text)
+  const blocks = claudePromptNodes(text)
     .filter((node): node is { line: number; indent: number; style: '|' | '>' } =>
       node.line !== null && node.indent !== null && node.style !== null,
     )
@@ -297,6 +304,8 @@ function promptBlocks(text: string): PromptBlock[] {
         : normalized;
       return { prompt, renderedWith: renderedWith[index] ?? prompt };
     });
+  promptBlockCache.set(text, blocks);
+  return blocks;
 }
 
 type Emission = { rel: string; bullets: string[]; placeholders: string[]; raw: string };
