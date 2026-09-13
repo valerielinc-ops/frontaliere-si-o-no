@@ -1112,7 +1112,11 @@ jobs:
           EOF
             chmod +x "$script"
             if command -v setsid >/dev/null 2>&1; then
-              nohup setsid bash "$script" > "$state_dir/$label.log" 2>&1 < /dev/null &
+              # GNU setsid forks when the caller is a process-group leader;
+              # --wait keeps the recorded PID alive until the wrapper writes
+              # its status file, so the collector cannot mistake that fork
+              # for a vanished gate.
+              nohup setsid --wait bash "$script" > "$state_dir/$label.log" 2>&1 < /dev/null &
             else
               nohup bash "$script" > "$state_dir/$label.log" 2>&1 < /dev/null &
             fi
