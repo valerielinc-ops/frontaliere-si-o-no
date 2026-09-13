@@ -9,10 +9,13 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
+  loadLoopPolicyForRun,
+  validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L1';
 export const DEFAULT_TELEMETRY_PATH = path.join('data', 'error-triage-baseline.json');
+export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 72;
 export const MINIMUM_SAMPLE = 100;
 
@@ -181,6 +184,7 @@ function issueBody(verdict, decision) {
 export async function runL1({
   now = new Date(),
   sourcePath = DEFAULT_TELEMETRY_PATH,
+  registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample = MINIMUM_SAMPLE,
   issue = false,
@@ -189,11 +193,16 @@ export async function runL1({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
     if (!fs.existsSync(path.resolve(sourcePath))) throw new Error(`telemetry source is missing: ${sourcePath}`);
     const telemetry = JSON.parse(fs.readFileSync(path.resolve(sourcePath), 'utf8'));
-    verdict = validateTelemetry(telemetry, { now, maxAgeHours, sourcePath, minimumSample });
+    verdict = validateTelemetry(telemetry, { now, maxAgeHours, sourcePath, minimumSample: policyMinimumSample });
   } catch (error) {
     verdict = baseVerdict({
       sourcePath,
@@ -203,6 +212,8 @@ export async function runL1({
       reason: error.message,
     });
   }
+  const actionClass = verdict.ok ? 'observe' : 'issue+suspend-canary';
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
 
   const measurable = verdict.quality === 'observed' || verdict.quality === 'zero';
   const numerator = measurable ? verdict.snapshot.errorFreeUsefulSessions : null;
@@ -213,9 +224,9 @@ export async function runL1({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: 'Reliability & UX',
-    owner: 'CTO / Reliability',
-    oracle: 'independent synthetic path and error telemetry',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'A complete, fresh useful-session export is required before reliability changes are proposed.',
     sourceSnapshot: verdict.snapshot || { source: 'error-ux-telemetry', path: sourcePath },
     observationWindow: {
@@ -226,38 +237,41 @@ export async function runL1({
     cohort: 'useful-sessions-without-observed-error',
     numerator,
     denominator,
-    primaryMetric: 'error_free_useful_session_rate',
-    guardrails: ['one anomaly is not a rollback', 'Auto Ads stays enabled'],
-    minimumSample,
-    actionClass: verdict.ok ? 'observe' : 'issue+suspend-canary',
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
+    actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: 'Reliability & UX',
-    owner: 'CTO / Reliability',
-    oracle: 'independent synthetic path and error telemetry',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.ok ? 'observe' : 'issue+suspend-canary',
+    actionClass,
     rollbackPlan: 'remove the runner-local hold marker; leave the user path and Auto Ads unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + 24 * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
 
   const files = writeReports(reportDir, verdict, observation, decision);
   let issued = false;
   let held = false;
-  if (apply && !verdict.ok && reportDir) {
+  if (apply && !verdict.ok && reportDir && actionPolicy) {
     fs.writeFileSync(path.join(path.resolve(reportDir), 'l1-canary-hold.json'), `${JSON.stringify({
       loopId: LOOP_ID,
       heldAt: now.toISOString(),
       reason: verdict.reason,
+      actionClass,
+      requiredAutonomy: actionPolicy.requiredAutonomy,
+      maxAutonomy: loopPolicy.maxAutonomy,
       previousSurfaceUntouched: true,
       autoAdsUntouched: true,
     }, null, 2)}\n`);
@@ -297,6 +311,7 @@ function parseArgs(argv) {
     strict: argv.includes('--strict'),
     dryRun: argv.includes('--dry-run'),
     sourcePath: valueAfter('--telemetry', DEFAULT_TELEMETRY_PATH),
+    registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
     maxAgeHours: Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS)),
     minimumSample: Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE)),
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP

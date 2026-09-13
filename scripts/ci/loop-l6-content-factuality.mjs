@@ -9,11 +9,14 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
+  loadLoopPolicyForRun,
+  validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L6';
 export const DEFAULT_HISTORY_PATH = path.join('data', 'quality-alerts-history.jsonl');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'content-factuality-outcomes.json');
+export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 1;
 export const MAX_CANDIDATES = 50;
@@ -75,7 +78,7 @@ function candidateFor(record) {
     severity: record.severity,
     articleId: evidence.articleId ?? evidence.slug ?? evidence.path ?? null,
     locale: evidence.locale ?? null,
-    autonomy: 'A1',
+    actionClass: 'candidate',
     action: 'candidate-only: verify the claim against an external source and open a reviewed PR with a regression test',
     reversible: true,
     generatorIsNotOracle: true,
@@ -319,18 +322,24 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now) {
-  if (!reportDir || verdict.ok) return null;
+function writeActions(reportDir, verdict, now, loopRegistry) {
+  if (!reportDir || verdict.ok || !loopRegistry) return null;
+  const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate');
   const file = path.join(path.resolve(reportDir), 'l6-actions.json');
   const actions = [
     {
-      autonomy: 'A1',
+      actionClass: 'candidate',
+      autonomy: candidatePolicy.requiredAutonomy,
       action: 'record a candidate correction only after independent source and locale verification',
       reversible: true,
       generatorIsNotOracle: true,
       publishedContentUntouched: true,
     },
-    ...verdict.candidates,
+    ...verdict.candidates.map((candidate) => ({
+      ...candidate,
+      actionClass: 'candidate',
+      autonomy: candidatePolicy.requiredAutonomy,
+    })),
   ];
   fs.writeFileSync(file, `${JSON.stringify({
     loopId: LOOP_ID,
@@ -391,6 +400,7 @@ export async function runL6({
   now = new Date(),
   historyPath = DEFAULT_HISTORY_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
+  registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample = MINIMUM_SAMPLE,
   issue = false,
@@ -399,6 +409,11 @@ export async function runL6({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
     verdict = validateContentFactuality({
@@ -409,7 +424,7 @@ export async function runL6({
       maxAgeHours,
       sourcePath: historyPath,
       outcomePath,
-      minimumSample,
+      minimumSample: policyMinimumSample,
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -421,15 +436,36 @@ export async function runL6({
     });
   }
   const measurable = verdict.quality === 'observed';
+  const actionClass = verdict.ok ? 'observe' : 'quarantine+candidate+issue';
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+  const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate');
+  verdict = {
+    ...verdict,
+    candidates: verdict.candidates.map((candidate) => ({
+      ...candidate,
+      actionClass: 'candidate',
+      autonomy: candidatePolicy.requiredAutonomy,
+    })),
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
     ? generatedAt.toISOString()
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: 'Content Learning and Factuality',
-    owner: 'Chief Trust / Accuracy',
-    oracle: 'independent source evidence and locale verification export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'A content defect is actionable only when an external source confirms the claim and the correction preserves the intended locale.',
     sourceSnapshot: verdict.snapshot || { source: 'quality-alerts-history', historyPath, outcomePath },
     observationWindow: {
@@ -440,34 +476,34 @@ export async function runL6({
     cohort: 'articles-reviewed-against-independent-external-source',
     numerator: measurable ? verdict.snapshot.outcomes?.confirmedDefects ?? 0 : null,
     denominator: measurable ? verdict.snapshot.outcomes?.reviewedArticles ?? 0 : null,
-    primaryMetric: 'confirmed_content_defect_rate_per_reviewed_article',
-    guardrails: ['generator output is not the oracle', 'external source required', 'source and locale must agree', 'published content stays untouched until review'],
-    minimumSample,
-    actionClass: verdict.ok ? 'observe' : 'quarantine+candidate+issue',
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
+    actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: 'Content Learning and Factuality',
-    owner: 'Chief Trust / Accuracy',
-    oracle: 'independent source evidence and locale verification export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.ok ? 'observe' : 'quarantine+candidate+issue',
+    actionClass,
     rollbackPlan: 'discard runner-local candidates and quarantine; leave published content and source history unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + 24 * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   let quarantineWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
     const quarantineFile = writeQuarantine(reportDir, verdict, now);
     actionsWritten = Boolean(actionFile);
     quarantineWritten = Boolean(quarantineFile);
@@ -511,6 +547,7 @@ function parseArgs(argv) {
     dryRun: argv.includes('--dry-run'),
     historyPath: valueAfter('--history', DEFAULT_HISTORY_PATH),
     outcomePath: valueAfter('--outcomes', DEFAULT_OUTCOME_PATH),
+    registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP

@@ -121,6 +121,47 @@ describe('L6 Content Learning & Factuality', () => {
     expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l6-quarantine.json'), 'utf8')).publishedContentUntouched).toBe(true);
   });
 
+  it('derives candidate autonomy from the loop registry', async () => {
+    const files = tempFiles({ outcome: null });
+    const registryPath = path.join(files.dir, 'loop-registry.json');
+    const registry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+    registry.actionAutonomy.candidate = 'A2';
+    fs.writeFileSync(registryPath, `${JSON.stringify(registry)}\n`);
+    const result = await runL6({
+      now: NOW,
+      historyPath: files.historyPath,
+      outcomePath: files.outcomePath,
+      registryPath,
+      reportDir: files.reportDir,
+      apply: true,
+      logger: { log() {} },
+    });
+    expect(result.verdict.snapshot.registry).toMatchObject({ requiredAutonomy: 'A2' });
+    expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l6-actions.json'), 'utf8')).actions[0]).toMatchObject({
+      actionClass: 'candidate',
+      autonomy: 'A2',
+    });
+  });
+
+  it('fails closed when the registry disallows the emitted composite action', async () => {
+    const files = tempFiles({ outcome: null });
+    const registryPath = path.join(files.dir, 'loop-registry.json');
+    const registry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+    const l6 = registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L6');
+    l6.actionClasses = l6.actionClasses.filter((actionClass: string) => actionClass !== 'quarantine');
+    fs.writeFileSync(registryPath, `${JSON.stringify(registry)}\n`);
+    await expect(runL6({
+      now: NOW,
+      historyPath: files.historyPath,
+      outcomePath: files.outcomePath,
+      registryPath,
+      reportDir: files.reportDir,
+      apply: true,
+      logger: { log() {} },
+    })).rejects.toThrow('quarantine');
+    expect(fs.existsSync(files.reportDir)).toBe(false);
+  });
+
   it('persists a separate result after issue creation succeeds', async () => {
     const files = tempFiles({ outcome: null });
     const result = await runL6({
