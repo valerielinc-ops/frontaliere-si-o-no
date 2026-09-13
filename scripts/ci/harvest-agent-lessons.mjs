@@ -27,6 +27,7 @@ import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import { REVIEWER_BOT_LOGIN_RE } from './lib/constants.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import { isAggregate } from './check-issue-already-resolved.mjs';
 
 const WINDOW_DAYS = intFromEnv('WINDOW_DAYS', 14);
 const THRESHOLD = intFromEnv('THRESHOLD', 3);
@@ -492,10 +493,6 @@ function stripFencedBlocks(text) {
   return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
 }
 
-function maskInlineCodeSpans(text) {
-  return String(text || '').replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
-}
-
 export function hasEnumeratedItems(body) {
   const b = stripFencedBlocks(body);
   const numberedSections = (b.match(/^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length;
@@ -530,15 +527,10 @@ function isBoldTitleLead(rest, lines = [], start = 0) {
 export function isAvoidableAlreadyFixed(title, labels, body = '') {
   const names = Array.isArray(labels) ? labels : [];
   if (!names.includes('follow-up')) return false; // out of the gate's scope
-  const t = maskInlineCodeSpans(stripFencedBlocks(title));
-  const m = t.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
-  // An explicit count is authoritative once present — no keyword fallback
-  // needed (and none applied), else a single-item title containing an
-  // ordinary word like "batch" (e.g. "1 item deferred ... batch backfill...")
-  // was misclassified as an aggregate (#3378).
-  if (m) return Number(m[1]) < 2;
-  if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return false; // aggregate by keyword (no explicit count stated)
-  if (hasEnumeratedItems(body)) return false; // aggregate by enumerazione nel corpo (#568)
+  // Keep analytics aligned with the pre-flight aggregate decision. A daily
+  // bucket is aggregate even with one current item; it is processed item by
+  // item and must not be counted as avoidable burn.
+  if (isAggregate(title, body)) return false;
   return true; // single-item follow-up → the gate's real target → countable
 }
 
@@ -625,7 +617,6 @@ export function orphanNoteBody(r) {
 
 export function isAvoidableMaxTurns(title, labels, delivery = false, body = '') {
   const names = Array.isArray(labels) ? labels : [];
-  const t = String(title || '');
   // `delivery` accepts the legacy boolean (`hasDeliveredPr`) or the richer
   // `{ hasDeliveredPr, hasRecoverableBranch }` — call sites written before the branch
   // evidence existed keep their meaning exactly.
@@ -637,15 +628,10 @@ export function isAvoidableMaxTurns(title, labels, delivery = false, body = '') 
   if (hasRecoverableBranch) return false;
   // (2) drainer already parked it as structurally non-fixable → expected death.
   if (names.includes('needs-human')) return false;
-  // (1) aggregate multi-item → over-budget by construction (circuit-breaker target),
-  //     not a fixable loop. Same detection as isAvoidableAlreadyFixed — an explicit
-  //     count is authoritative once present, no keyword fallback needed (else a
-  //     single-item title containing an ordinary word like "batch" was
-  //     misclassified as an aggregate, #3378).
-  const m = t.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
-  if (m) return Number(m[1]) < 2;
-  if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return false; // aggregate by keyword (no explicit count stated)
-  if (hasEnumeratedItems(body)) return false; // aggregate by enumerazione nel corpo (#568)
+  // (1) aggregate multi-item/daily bucket → over-budget by construction
+  // (circuit-breaker target), not a fixable loop. Reuse the same predicate as
+  // the pre-flight so a grammar change cannot split analytics from routing.
+  if (isAggregate(title, body)) return false;
   return true; // single-item, still-routable → fixable loop → countable
 }
 

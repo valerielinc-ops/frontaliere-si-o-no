@@ -124,6 +124,14 @@ describe('G5 — follow-up detector regressions', () => {
     expect(isAvoidableAlreadyFixed('follow-up(#1): 3 item deferiti — a, b, c', ['follow-up'])).toBe(false);
     expect(isAvoidableMaxTurns('follow-up(#1): 3 item deferiti — a, b, c', ['follow-up'])).toBe(false);
   });
+
+  it('tratta un daily bucket a un solo item come aggregate anche nell’analytics', () => {
+    const title = 'follow-up(daily:2026-09-13): 1 item — owner/repo';
+
+    expect(isAggregate(title, '')).toBe(true);
+    expect(isAvoidableAlreadyFixed(title, ['follow-up'])).toBe(false);
+    expect(isAvoidableMaxTurns(title, ['follow-up'], false)).toBe(false);
+  });
 });
 
 describe('G5 — kill switch di auto-chiusura nei workflow', () => {

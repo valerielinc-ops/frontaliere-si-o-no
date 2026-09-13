@@ -54,7 +54,14 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { dailyBucketInfo, detectAlreadyResolved, closingMergedPr } from './followup-resolution-match.mjs';
+import {
+  AGGREGATE_ITEM_COUNT_RE,
+  AGGREGATE_KEYWORD_RE,
+  dailyBucketInfo,
+  detectAlreadyResolved,
+  closingMergedPr,
+  maskInlineCodeSpans,
+} from './followup-resolution-match.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const ISSUE = process.env.ISSUE_NUMBER;
@@ -173,10 +180,6 @@ function stripFencedBlocks(text) {
   return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
 }
 
-function maskInlineCodeSpans(text) {
-  return String(text || '').replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
-}
-
 export function hasEnumeratedItems(body) {
   const b = stripFencedBlocks(body);
   const numberedSections = (b.match(/^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length;
@@ -217,7 +220,7 @@ export function isAggregate(title, body) {
   // this shared predicate aligned with the issue-fix closing-ref generator so
   // a fallback path can never emit `Closes #N` for a daily bucket.
   if (dailyBucketInfo(titleText)) return true;
-  const m = titleText.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
+  const m = titleText.match(AGGREGATE_ITEM_COUNT_RE);
   // An explicit count is authoritative once stated — trust it fully rather
   // than falling through to the keyword heuristic below, which exists ONLY
   // for aggregates that never state a count (e.g. "Sweep: ~30 crawlers").
@@ -229,7 +232,7 @@ export function isAggregate(title, body) {
   // (#3378).
   if (m) return Number(m[1]) >= 2;
   const bodyText = maskInlineCodeSpans(stripFencedBlocks(body));
-  if (/\b(?:sweep|batch|bulk)\b/i.test(`${titleText}\n${bodyText}`)) return true;
+  if (AGGREGATE_KEYWORD_RE.test(`${titleText}\n${bodyText}`)) return true;
   return hasEnumeratedItems(body);
 }
 
