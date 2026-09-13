@@ -11716,6 +11716,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.verbania-lavori-ponte-san-giovanni.title': 'Verbania, works on the San Giovanni bridge: modified traffic',
     'blog.article.verbania-lavori-ponte-san-giovanni.excerpt': 'Night-time interventions by Acqua Novara.VCO on the San Giovanni bridge at Verbania from 14 to 18 September with one-way alternation.',
     'blog.article.verbania-lavori-ponte-san-giovanni.imageAlt': 'Night roadworks and traffic changes on San Giovanni bridge in Verbania',
+    'blog.article.stadler-rail-investimenti-kazakistan.title': 'Stadler Rail focuses on Kazakhstan: 53 million investments',
+    'blog.article.stadler-rail-investimenti-kazakistan.excerpt': 'The Turgovian manufacturer Stadler Rail invests 25 million francs in the Astana plant to start the production of aluminium crates.',
+    'blog.article.stadler-rail-investimenti-kazakistan.imageAlt': 'Stadler Rail railway manufacturing plant with advanced machinery',
 };
 
 export default blogMetaEn;
