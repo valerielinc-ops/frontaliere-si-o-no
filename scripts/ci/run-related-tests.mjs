@@ -96,6 +96,30 @@ const importRe = /(?:import\s+(?:[^'";]*?\s+from\s+)?|export\s+[^'";]*?\s+from\s
 const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.svelte'];
 
 const normalize = (file) => file.replaceAll('\\', '/').replace(/^\.\//, '');
+const NAME_STATUS_RE = /^[ACDMRTUXB](?:\d+)?$/;
+
+/**
+ * Parse the NUL-delimited `git diff --name-status -z` stream defensively.
+ * A rename/copy normally carries two paths, but a pathspec can leave only one
+ * side visible. If the next field is itself a status token, do not consume it
+ * as the second path or every following entry shifts by one field.
+ */
+function parseNameStatusZ(fields) {
+  const entries = [];
+  for (let i = 0; i < fields.length;) {
+    const status = fields[i++];
+    const firstPath = fields[i++];
+    if (firstPath === undefined) break;
+    const paths = [firstPath];
+    if (/^[RC]/.test(status)
+      && fields[i] !== undefined
+      && !NAME_STATUS_RE.test(fields[i])) {
+      paths.push(fields[i++]);
+    }
+    entries.push(paths);
+  }
+  return entries;
+}
 const changed = readFileSync(changedPathFile, 'utf8').split(/\r?\n/).map((p) => normalize(p.trim())).filter(Boolean);
 let changedStatus = 'complete';
 try { changedStatus = readFileSync(changedStatusFile, 'utf8').trim() || 'error'; } catch {}
@@ -320,11 +344,9 @@ function changedAssetsFromDiff() {
         'diff', '--name-status', '--no-renames', '-z', base, '--', '.github', 'tests',
       ], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).split('\0').filter(Boolean);
       const assets = [];
-      for (let i = 0; i < fields.length;) {
-        const status = fields[i++];
-        const pathCount = /^[RC]/.test(status) ? 2 : 1;
-        for (let j = 0; j < pathCount && i < fields.length; j++) {
-          const file = normalize(fields[i++]);
+      for (const paths of parseNameStatusZ(fields)) {
+        for (const filePath of paths) {
+          const file = normalize(filePath);
           if (githubAssetRe.test(file) || testFixtureRe.test(file)) assets.push(file);
         }
       }
