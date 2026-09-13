@@ -92,11 +92,12 @@ export function joinAnchorParts(text = '', attr = '') {
 }
 
 /**
- * Absolute same-origin links in an HTML document, with their anchor text.
+ * Absolute same-host links in an HTML document, with their anchor text.
  * Cross-origin links are available only when a caller explicitly opts in;
  * careers-trail discovery does that for the separate ATS hop, while the
  * default keeps a document's own link evidence from leaking into another
- * origin.
+ * host. HTTP/HTTPS links on the same host remain usable when a page mixes
+ * transport schemes; a different host or port is still excluded.
  *
  * Written as a scan for `href=` rather than a full anchor match on purpose:
  * SME sites nest `<span>`/`<img>` inside `<a>` freely, and a
@@ -112,12 +113,8 @@ export function joinAnchorParts(text = '', attr = '') {
 export function extractLinks(html = '', baseUrl = '', options = {}) {
   const out = [];
   const seen = new Set();
-  let baseUrlObject = null;
-  let baseOrigin = '';
-  try {
-    baseUrlObject = new URL(baseUrl);
-    baseOrigin = baseUrlObject.origin;
-  } catch { /* absolute hrefs may still be usable */ }
+  let baseHost = '';
+  try { baseHost = new URL(baseUrl).host; } catch { /* absolute hrefs may still be usable */ }
   const sameOriginOnly = options.sameOriginOnly ?? true;
   const rx = /<a\b([^>]*)>/gi;
   let m;
@@ -133,14 +130,7 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
     let parsed;
     try { parsed = new URL(href, baseUrl); } catch { continue; }
     if (!/^https?:$/i.test(parsed.protocol)) continue;
-    // Umantis and other ATS pages sometimes emit absolute HTTP links from an
-    // HTTPS listing page. Keep the ownership boundary strict on host and port,
-    // while treating the scheme as transport detail; a different host still
-    // requires the caller to opt out of same-origin filtering explicitly.
-    const sameHostAndPort = baseUrlObject
-      && parsed.hostname === baseUrlObject.hostname
-      && parsed.port === baseUrlObject.port;
-    if (sameOriginOnly && baseOrigin && parsed.origin !== baseOrigin && !sameHostAndPort) continue;
+    if (sameOriginOnly && baseHost && parsed.host !== baseHost) continue;
     const abs = parsed.toString();
     const key = abs.split('#')[0];
     if (seen.has(key)) continue;
