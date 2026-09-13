@@ -500,13 +500,16 @@ export async function runL5({
   }
   let issued = false;
   if (issue && !verdict.ok) {
-    await createIssueImpl({
+    const issueResult = await createIssueImpl({
       title: 'L5 Decision Moments: surface freshness or next action is not measurable',
       description: issueBody(verdict, decision),
       priority: 3,
       labels: ['monitoring', 'ux', 'loop-l5'],
       workflow: 'Loop L5 Decision Moments',
     });
+    if (!issueResult || issueResult.persisted !== true) {
+      throw new Error('L5 issue persistence failed: createGithubIssue did not confirm persisted=true');
+    }
     issued = true;
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten });
