@@ -56,6 +56,9 @@ const TAB_LOADERS: Record<string, PrefetchFn[]> = {
  stats: [
  () => import('@/components/pages/StatsView'),
  ],
+ 'plate-auctions': [
+  () => import('@/components/pages/PlateAuctionsPage'),
+ ],
  vita: [
  () => import('@/components/comparators/CostOfLiving'),
  ],

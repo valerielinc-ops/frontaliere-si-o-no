@@ -34,6 +34,8 @@ const enCore: Record<string, string> = {
  'nav.guida': 'Practical Guide',
  'nav.vita': 'Daily Life',
  'nav.stats': 'Statistics',
+ 'nav.plateAuctions': 'Plate auctions',
+ 'nav.plateAuctions.mobile': 'Plates',
  'nav.simulator.mobile': 'Calc',
  'nav.confronti.mobile': 'Compare',
  'nav.fisco.mobile': 'Tax',

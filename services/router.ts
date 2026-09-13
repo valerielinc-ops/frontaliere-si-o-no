@@ -70,6 +70,7 @@ import { parseChCantonEmployersPath } from '../build-plugins/weeklyEmployersChCa
 import { isSectionPagePath, parseSectionPagePath } from '../build-plugins/sectionPagesPathsData';
 import { isFiscalHubPath, parseFiscalHubPath, parseFiscalMunicipalityPath } from '../build-plugins/fiscalMunicipalityData';
 import { buildPharmacyPath, parsePharmacyPath, type PharmacyPath } from './pharmacies/paths';
+import { buildPlateAuctionPath, parsePlateAuctionPath } from './plateAuctions/paths';
 import {
   isFrenchBorderMunicipalityHubPath,
   parseFrenchBorderMunicipalityHubPath,
@@ -245,7 +246,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'frontaliere-wizard' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'employer-insights' | 'journalist-dashboard' | 'subscribe' | 'followed-companies' | 'petition';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'plate-auctions' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'frontaliere-wizard' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'employer-insights' | 'journalist-dashboard' | 'subscribe' | 'followed-companies' | 'petition';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -794,7 +795,7 @@ const GLOSSARY_TERM_REVERSE: Record<Locale, Record<string, GlossaryTermId>> = {
 };
 
 /** All navigable tabs that should appear in SiteSearch */
-export const ALL_NAVIGABLE_TABS: string[] = ['calculator', 'feedback', 'stats', 'confronti', 'fisco', 'guida', 'vita', 'forum', 'contact', 'profile', 'gamification', 'morning', 'blog', 'glossario', 'dialetto', 'sitemap'];
+export const ALL_NAVIGABLE_TABS: string[] = ['calculator', 'feedback', 'stats', 'confronti', 'fisco', 'guida', 'vita', 'plate-auctions', 'forum', 'contact', 'profile', 'gamification', 'morning', 'blog', 'glossario', 'dialetto', 'sitemap'];
 export const ALL_CALCOLATORE_SUBTABS: string[] = ['calculator', 'whatif', 'payslip', 'ral', 'bonus', 'parental-leave', 'residency', 'salary-quiz'];
 export const ALL_CONFRONTI_SUBTABS: string[] = ['exchange', 'banks', 'health', 'mobile', 'shopping', 'cost-of-living', 'jobs', 'renovation'];
 export const ALL_FISCO_SUBTABS: string[] = ['tax-return', 'calendar', 'holidays', 'ristorni', 'pension', 'pillar3', 'quiz', 'tax-credit', 'withholding-rates', 'new-frontier-tax-sim'];
@@ -833,6 +834,10 @@ export interface AppRoute {
  /** Route-driven pharmacy surface, preserving the canonical page payload. */
  pharmacyPath?: PharmacyPath;
  statsSubTab?: StatsSubTab;
+ /** Swiss plate-auction route: hub, canton catalogue, or plate detail. */
+ plateAuctionView?: 'hub' | 'canton' | 'detail' | 'rankings';
+ plateAuctionCanton?: string;
+ plateAuctionPlate?: string;
  blogArticle?: BlogArticleId;
  /** Unresolved blog slug when blog data hasn't loaded yet (lazy-loaded). */
  blogSlug?: string;
@@ -2022,6 +2027,21 @@ export function parsePath(pathname: string): ParseResult {
 
  const table = SLUG_TABLES[locale];
  const revTop = REVERSE_TOP[locale];
+
+ // Swiss plate auctions are a standalone vertical with its own localized
+ // slug family, so it must be recognized before the generic top-level table.
+ const plateAuctionPath = parsePlateAuctionPath(pathname);
+ if (plateAuctionPath) {
+   return {
+     route: {
+       activeTab: 'plate-auctions',
+       plateAuctionView: plateAuctionPath.view,
+       ...(plateAuctionPath.canton ? { plateAuctionCanton: plateAuctionPath.canton } : {}),
+       ...(plateAuctionPath.plate ? { plateAuctionPlate: plateAuctionPath.plate } : {}),
+     },
+     locale: plateAuctionPath.locale,
+   };
+ }
 
  // Per-company "stats proof" page (/azienda/<companyKey>/) — private, reached
  // only via the HMAC-tokenized link in cold-outreach emails (?t=…), noindex,
@@ -3376,6 +3396,14 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  const table = SLUG_TABLES[lang];
  const prefix = localePrefix(lang);
  const hashSuffix = route.hash ? `#${route.hash}` : '';
+ if (route.activeTab === 'plate-auctions') {
+   return `${buildPlateAuctionPath({
+     locale: lang,
+     view: route.plateAuctionView || 'hub',
+     canton: route.plateAuctionCanton,
+     plate: route.plateAuctionPlate,
+   })}${hashSuffix}`;
+ }
  const localizeEditorialJobSlug = (jobSlug?: string): string | undefined => {
  const slug = String(jobSlug || '').trim();
  if (!slug) return undefined;
@@ -3785,6 +3813,8 @@ export function getSeoSection(route: AppRoute): string {
  const map: Record<string, string> = { livability: 'livability', 'jobs-observatory': 'jobsObservatory', traffic: 'traffic', 'salary-compare': 'salaryCompare', 'traffic-history': 'trafficHistory', unemployment: 'unemploymentStats', mortgage: 'mortgageComparison', 'fuel-prices': 'fuelPrices', 'health-premiums': 'healthPremiums' };
  return map[ss] || 'stats';
  }
+ case 'plate-auctions':
+ return 'plate-auctions';
  case 'job-board':
  return route.jobSlug ? `jobboard-${route.jobSlug}` : 'jobboard';
  case 'feedback':

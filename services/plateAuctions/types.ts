@@ -1,6 +1,6 @@
 /**
  * Plate-auction domain types — shared contract between the per-canton
- * connectors (Ticino/Grigioni/Vallese) and the pages/classifiche that read
+ * connectors (Grigioni/Vallese/Zurigo, with Ticino explicitly blocked) and the pages/classifiche that read
  * `data/plate-auction-sources-registry.json`. See #4854 → "Modello dati" for
  * the origin of `PlateAuction`; no auction data (prices, plates, winners) is
  * stored in the registry itself, only source configuration.
@@ -17,17 +17,30 @@ export type PlateAuctionStatus =
   | 'cancelled'
   | 'unknown';
 
+/** The public catalogue may contain more than a live auction. */
+export type PlateAuctionListingType =
+  | 'auction'
+  | 'fixed-price'
+  | 'wanted'
+  | 'future-registration';
+
 export type PlateAuctionDataConfidence = 'verified' | 'partial' | 'unverified' | 'conflicting';
 
 export interface PlateAuction {
   id: string;
+  /** Stable source key, normally the canton BFS code in upper case. */
+  sourceKey?: string;
+  /** Identifier assigned by the canton platform, when the platform exposes one. */
+  sourceRecordId?: string;
   canton: string;
   platePrefix: string;
   plateNumber: string;
   normalizedPlate: string;
+  listingType?: PlateAuctionListingType;
   vehicleType?: PlateVehicleType;
   auctionStatus: PlateAuctionStatus;
   currentBidChf?: number;
+  startingPriceChf?: number;
   finalPriceChf?: number;
   bidCount?: number;
   minimumIncrementChf?: number;
@@ -35,15 +48,30 @@ export interface PlateAuction {
   endsAt?: string;
   closedAt?: string;
   officialAuctionUrl: string;
+  /** Detail URL, distinct from the list/entry URL when available. */
+  officialDetailUrl?: string;
   sourceFetchedAt: string;
   lastVerifiedAt: string;
+  firstSeenAt?: string;
+  lastSeenAt?: string;
+  /** Set only after a closed result is read from an official source. */
+  finalPriceVerifiedAt?: string;
+  /** Optional source-local category or pattern, never a free-text bidder field. */
+  sourceCategory?: string;
+  platePattern?: string;
   dataConfidence: PlateAuctionDataConfidence;
   rawSnapshotHash: string;
 }
 
 export type PlateAuctionAccessMethod = 'html-scrape' | 'json-api' | 'pdf' | 'rss' | 'manual';
 
-export type PlateAuctionSourceStatus = 'unverified' | 'active' | 'blocked' | 'degraded';
+export type PlateAuctionSourceStatus =
+  | 'unverified'
+  | 'active'
+  | 'blocked'
+  | 'degraded'
+  | 'not-discovered'
+  | 'no-public-auction';
 
 export interface PlateAuctionSourceEntry {
   canton: string;
@@ -82,7 +110,14 @@ const REQUIRED_STRING_FIELDS: readonly (keyof PlateAuctionSourceEntry)[] = [
 ];
 
 const ACCESS_METHODS: readonly PlateAuctionAccessMethod[] = ['html-scrape', 'json-api', 'pdf', 'rss', 'manual'];
-const SOURCE_STATUSES: readonly PlateAuctionSourceStatus[] = ['unverified', 'active', 'blocked', 'degraded'];
+const SOURCE_STATUSES: readonly PlateAuctionSourceStatus[] = [
+  'unverified',
+  'active',
+  'blocked',
+  'degraded',
+  'not-discovered',
+  'no-public-auction',
+];
 
 /**
  * Validates a `PlateAuctionSourceEntry` shape, returning the list of problems
@@ -150,10 +185,24 @@ const DATA_CONFIDENCES: readonly PlateAuctionDataConfidence[] = [
 
 const OPTIONAL_NUMBER_FIELDS: readonly (keyof PlateAuction)[] = [
   'currentBidChf',
+  'startingPriceChf',
   'finalPriceChf',
   'bidCount',
   'minimumIncrementChf',
 ];
+
+const LISTING_TYPES: readonly PlateAuctionListingType[] = [
+  'auction',
+  'fixed-price',
+  'wanted',
+  'future-registration',
+];
+
+const VEHICLE_TYPES: readonly PlateVehicleType[] = ['car', 'motorcycle', 'trailer', 'other'];
+
+function isIsoDate(value: unknown): boolean {
+  return typeof value === 'string' && value.trim() !== '' && !Number.isNaN(Date.parse(value));
+}
 
 /**
  * Validates a single connector-produced `PlateAuction` snapshot, returning
@@ -186,9 +235,33 @@ export function validatePlateAuction(entry: unknown): string[] {
     errors.push(`invalid dataConfidence "${e.dataConfidence}"`);
   }
 
+  if (e.listingType !== undefined && (typeof e.listingType !== 'string' || !LISTING_TYPES.includes(e.listingType as PlateAuctionListingType))) {
+    errors.push(`invalid listingType "${String(e.listingType)}"`);
+  }
+  if (e.vehicleType !== undefined && (typeof e.vehicleType !== 'string' || !VEHICLE_TYPES.includes(e.vehicleType as PlateVehicleType))) {
+    errors.push(`invalid vehicleType "${String(e.vehicleType)}"`);
+  }
+
   for (const field of OPTIONAL_NUMBER_FIELDS) {
-    if (e[field] !== undefined && typeof e[field] !== 'number') {
-      errors.push(`"${String(field)}" must be a number when present`);
+    if (e[field] !== undefined && (typeof e[field] !== 'number' || !Number.isFinite(e[field] as number) || (e[field] as number) < 0)) {
+      errors.push(`"${String(field)}" must be a finite non-negative number when present`);
+    }
+  }
+
+  for (const field of ['sourceFetchedAt', 'lastVerifiedAt', 'startsAt', 'endsAt', 'closedAt', 'firstSeenAt', 'lastSeenAt', 'finalPriceVerifiedAt'] as const) {
+    if (e[field] !== undefined && !isIsoDate(e[field])) errors.push(`"${field}" must be an ISO-compatible date when present`);
+  }
+
+  if (typeof e.officialAuctionUrl === 'string' && !/^https:\/\//i.test(e.officialAuctionUrl)) {
+    errors.push('"officialAuctionUrl" must use https');
+  }
+  if (e.officialDetailUrl !== undefined && (typeof e.officialDetailUrl !== 'string' || !/^https:\/\//i.test(e.officialDetailUrl))) {
+    errors.push('"officialDetailUrl" must use https when present');
+  }
+  if (typeof e.platePrefix === 'string' && typeof e.plateNumber === 'string' && typeof e.normalizedPlate === 'string') {
+    const expected = `${e.platePrefix}${e.plateNumber}`.replace(/\s+/g, '').toUpperCase();
+    if (e.normalizedPlate.replace(/\s+/g, '').toUpperCase() !== expected) {
+      errors.push('"normalizedPlate" must match platePrefix + plateNumber');
     }
   }
 
@@ -208,6 +281,8 @@ export function validatePlateAuctionSourcesRegistry(registry: unknown): string[]
 
   if (typeof r.generatedAt !== 'string' || r.generatedAt.trim() === '') {
     errors.push('missing or empty "generatedAt"');
+  } else if (Number.isNaN(Date.parse(r.generatedAt))) {
+    errors.push('"generatedAt" must be an ISO-compatible date');
   }
   if (typeof r.sources !== 'object' || r.sources === null || Array.isArray(r.sources)) {
     return [...errors, 'missing "sources" object'];
@@ -217,8 +292,18 @@ export function validatePlateAuctionSourcesRegistry(registry: unknown): string[]
   if (Object.keys(sources).length === 0) {
     errors.push('"sources" has no entries');
   }
+  const cantonCodes = new Set<string>();
   for (const [key, entry] of Object.entries(sources)) {
     errors.push(...validatePlateAuctionSourceEntry(key, entry));
+    if (typeof entry === 'object' && entry !== null && !Array.isArray(entry)) {
+      const code = String((entry as Record<string, unknown>).plateCode || '').trim().toUpperCase();
+      if (code) {
+        if (cantonCodes.has(code)) errors.push(`${key}: duplicate plateCode "${code}"`);
+        cantonCodes.add(code);
+      }
+      const url = String((entry as Record<string, unknown>).officialUrl || '');
+      if (url && !/^https:\/\//i.test(url)) errors.push(`${key}: officialUrl must use https`);
+    }
   }
 
   return errors;

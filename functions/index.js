@@ -87,6 +87,7 @@ import { handleNewsletterSubscriberCreated } from './src/jobAlertBackfillTrigger
 import { signalTierChanged, getSignalTier } from './src/jobAlertBackfillCore.js';
 import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
 import { handlePetitionSign } from './src/petitionSign.js';
+import { getPublicPlateAuctionSnapshot, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
 
 ensureAdminApp();
 
@@ -383,6 +384,32 @@ export const getTrafficCurrent = onRequest(
  // A non-2xx response is essential: the client then keeps the pre-rendered
  // values instead of treating an empty 200 snapshot as authoritative.
  res.status(503).json({ documents: [], error: 'traffic_snapshot_unavailable' });
+ }
+ },
+);
+
+// Public plate-auction snapshot. Firestore stays server-only; the response is
+// allow-listed in plateAuctions.js and deliberately excludes bidder/winner
+// identities from eCari sources.
+export const getPlateAuctions = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ if (req.method !== 'GET') {
+ res.status(405).json({ error: 'method_not_allowed' });
+ return;
+ }
+ try {
+ const snapshot = await getPublicPlateAuctionSnapshot();
+ res.set('Cache-Control', 'public, max-age=300, s-maxage=300');
+ res.status(200).json(snapshot);
+ } catch (error) {
+ console.error('[getPlateAuctions]', error instanceof Error ? error.message : String(error));
+ res.status(503).json({ schema: 1, auctions: [], sources: {}, error: 'plate_auction_snapshot_unavailable' });
  }
  },
 );
@@ -2051,6 +2078,21 @@ export const reapPublisherPendingPayments = onSchedule(
  if (reverted > 0) console.log(`[reapPublisherPendingPayments] reverted ${reverted} stale pending ad(s)`);
  } catch (error) {
  console.error('[reapPublisherPendingPayments]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// Public-source collector for GR/VS/ZH. A source that returns zero rows or
+// errors is marked degraded and never purges the previous Firestore snapshot;
+// this avoids publishing a false empty market during an upstream outage.
+export const refreshPlateAuctions = onSchedule(
+ { region: 'europe-west6', schedule: 'every 6 hours', timeZone: 'Europe/Zurich' },
+ async () => {
+ try {
+ const result = await runPlateAuctionRefresh();
+ console.log('[refreshPlateAuctions]', JSON.stringify(result));
+ } catch (error) {
+ console.error('[refreshPlateAuctions]', error instanceof Error ? error.message : String(error));
  }
  },
 );
