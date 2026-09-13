@@ -168,11 +168,15 @@ async function readPrevious() {
   };
 }
 
-async function readPreviousItaly() {
+export async function readPreviousItaly(filePath = ITALY_OUTPUT_PATH) {
   try {
-    return await readJsonFile(ITALY_OUTPUT_PATH);
-  } catch {
-    return { pharmacies: [] };
+    return await readJsonFile(filePath);
+  } catch (error) {
+    // An absent snapshot is the expected first-run case. Parse and I/O errors
+    // must abort before publication: silently rebuilding without the prior
+    // snapshot would also discard the URL aliases that protect indexed pages.
+    if (error && typeof error === 'object' && error.code === 'ENOENT') return { pharmacies: [] };
+    throw error;
   }
 }
 
@@ -279,7 +283,9 @@ async function main() {
   console.log(`[import-pharmacies-border] Ticino: ${ticinoPharmacies.length}; Italy CO/VA/VB: ${italianPharmacies.length}; OSM enrichment records: ${osm.elements.length}`);
 }
 
-main().catch((error) => {
-  console.error(`[import-pharmacies-border] fatal: ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error(`[import-pharmacies-border] fatal: ${error?.stack || error}`);
+    process.exitCode = 1;
+  });
+}

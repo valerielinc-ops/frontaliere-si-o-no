@@ -1,8 +1,16 @@
 // @vitest-environment node
-import { describe, expect, it } from 'vitest';
-import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, pharmacyPageDescriptors } from '../../build-plugins/pharmacyDirectoryPagesPlugin';
+import { afterEach, describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, emitPharmacyAliasBridge, pharmacyPageDescriptors } from '../../build-plugins/pharmacyDirectoryPagesPlugin';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
+const tempRoots: string[] = [];
+
+afterEach(() => {
+  while (tempRoots.length > 0) fs.rmSync(tempRoots.pop()!, { recursive: true, force: true });
+});
 
 describe('pharmacy directory page matrix', () => {
   it('emits hubs, areas, city pages and one detail descriptor per pharmacy', () => {
@@ -48,5 +56,27 @@ describe('pharmacy directory page matrix', () => {
     expect(bridge).toContain('noindex,follow');
     expect(bridge).toContain('rel="canonical" href="https://frontaliereticino.ch/farmacie/italia/como/como/farmacia-corrente-42/"');
     expect(bridge).toContain('http-equiv="refresh"');
+  });
+
+  it('replaces stale index and flat files for a historical detail path', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pharmacy-alias-bridge-'));
+    tempRoots.push(root);
+    const descriptor = {
+      pharmacy: pharmacyPageDescriptors().find((candidate) => candidate.kind === 'pharmacy' && candidate.country === 'IT')!.pharmacy!,
+      alias: { country: 'IT' as const, province: 'CO', city: 'Como', slug: 'farmacia-vecchia-como-42' },
+      locale: 'it' as const,
+      from: '/farmacie/italia/como/como/farmacia-vecchia-como-42/',
+      to: '/farmacie/italia/como/como/farmacia-corrente-42/',
+    };
+    const relativePath = descriptor.from.replace(/^\/+/, '').replace(/\/+$/, '');
+    const outDir = path.join(root, relativePath);
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, 'index.html'), 'stale canonical');
+    fs.writeFileSync(path.join(root, `${relativePath}.html`), 'stale flat');
+
+    emitPharmacyAliasBridge(root, descriptor);
+
+    expect(fs.readFileSync(path.join(outDir, 'index.html'), 'utf8')).toContain('noindex,follow');
+    expect(fs.readFileSync(path.join(root, `${relativePath}.html`), 'utf8')).toContain('noindex,follow');
   });
 });

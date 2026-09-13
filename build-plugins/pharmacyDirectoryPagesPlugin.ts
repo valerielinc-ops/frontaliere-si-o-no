@@ -186,6 +186,21 @@ export function buildPharmacyAliasBridge(descriptor: PharmacyUrlAliasDescriptor)
  </head>`);
 }
 
+/**
+ * Replace both static forms of a historical detail URL. Vite is configured
+ * with `emptyOutDir: false`, so an old canonical page can still be present in
+ * dist when the importer turns it into an alias; existence is not evidence
+ * that the file should be preserved.
+ */
+export function emitPharmacyAliasBridge(distDir: string, descriptor: PharmacyUrlAliasDescriptor): void {
+  const relativePath = descriptor.from.replace(/^\/+/, '').replace(/\/+$/, '');
+  const outDir = path.join(distDir, relativePath);
+  const html = buildPharmacyAliasBridge(descriptor);
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
+  fs.writeFileSync(path.join(distDir, `${relativePath}.html`), html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''), 'utf8');
+}
+
 function cityPath(country: Pharmacy['country'], locale: Locale, citySlug: string, areaSlug?: string): PharmacyPath {
   return country === 'IT'
     ? { kind: 'city', locale, country, areaSlug, citySlug }
@@ -518,15 +533,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
       const written = await collector.flush();
       let aliasRedirects = 0;
       for (const alias of pharmacyUrlAliasDescriptors()) {
-        const relativePath = alias.from.replace(/^\/+/, '').replace(/\/+$/, '');
-        const outDir = path.join(distDir, relativePath);
-        const indexFile = path.join(outDir, 'index.html');
-        if (fs.existsSync(indexFile)) continue;
-        fs.mkdirSync(outDir, { recursive: true });
-        const html = buildPharmacyAliasBridge(alias);
-        fs.writeFileSync(indexFile, html, 'utf8');
-        const flatFile = path.join(distDir, `${relativePath}.html`);
-        if (!fs.existsSync(flatFile)) fs.writeFileSync(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''), 'utf8');
+        emitPharmacyAliasBridge(distDir, alias);
         aliasRedirects += 1;
       }
       if (shouldEmitLocale('it')) fs.writeFileSync(path.join(distDir, 'sitemap-farmacie.xml'), sitemap, 'utf8');

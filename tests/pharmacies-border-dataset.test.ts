@@ -1,10 +1,14 @@
 import { describe, expect, it } from 'vitest';
+import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import ticino from '../data/pharmacies-ticino-complete.json';
 import italy from '../data/pharmacies-italy-border.json';
 import duties from '../data/pharmacy-duties-ticino.json';
 import sources from '../data/pharmacy-border-sources.json';
 import { validateBorderSources, validateBorderSnapshot } from '../scripts/check-pharmacy-border-data.mjs';
 import { validatePharmacyList } from '../services/pharmacies/types';
+import { readPreviousItaly } from '../scripts/import-pharmacies-border.mjs';
 import { buildItalianBorderRecords, parseOsmOpeningHours } from '../scripts/lib/pharmacy-border-parser.mjs';
 
 const swiss = ticino.pharmacies;
@@ -95,5 +99,17 @@ describe('cross-border pharmacy datasets', () => {
       city: 'Como',
       slug: 'farmacia-vecchia-como-42',
     }]);
+  });
+
+  it('uses an empty previous snapshot only when the Italy file is absent', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'pharmacy-previous-'));
+    try {
+      await expect(readPreviousItaly(join(root, 'missing.json'))).resolves.toEqual({ pharmacies: [] });
+      const malformed = join(root, 'malformed.json');
+      await writeFile(malformed, '{"pharmacies":');
+      await expect(readPreviousItaly(malformed)).rejects.toThrow();
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
   });
 });
