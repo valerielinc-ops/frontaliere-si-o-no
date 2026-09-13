@@ -70,9 +70,10 @@ describe('review → autorebase ordering', () => {
     expect(reviewGate).toContain('classification.blocking');
     expect(reviewGate).toContain('reviewCommit === headSha');
     expect(reviewGate).toContain('scripts/ci/pr-contribution-fingerprint.mjs');
-    expect(nativeAutoMerge).toContain('gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto');
+    expect(nativeAutoMerge).toContain('native-automerge-gate.mjs');
     expect(nativeAutoMerge).toContain('types: [opened, reopened, ready_for_review, synchronize]');
-    expect(nativeAutoMerge).toContain('jq -e \'.autoMergeRequest != null\'');
+    expect(nativeAutoMerge).toContain('pull_request_review:');
+    expect(nativeAutoMerge).toContain('workflow_run:');
     expect(nativeAutoMergeRetry).toContain("cron: '*/20 * * * *'");
     expect(nativeAutoMergeRetry).toContain('gh pr list');
     expect(nativeAutoMergeRetry).toContain('MAX_PR_RETRIES: \'10\'');

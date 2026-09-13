@@ -33,6 +33,12 @@ jobs:
           gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/lib/google-service-account-token.mjs?ref=main" \
             --header 'Accept: application/vnd.github.raw+json' \
             > "$helper_dir/lib/google-service-account-token.mjs"
+          gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/native-automerge-gate.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$helper_dir/native-automerge-gate.mjs"
+          gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/constants.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$helper_dir/lib/constants.mjs"
           echo "NATIVE_AUTOMERGE_HELPER_DIR=$helper_dir" >> "$GITHUB_ENV"
 
       - name: Prepare Firebase credentials
@@ -88,9 +94,9 @@ jobs:
               continue
             fi
             attempted=$((attempted + 1))
-            if GH_TOKEN="$GITHUB_PAT" gh pr merge "$pr_number" --repo "$REPOSITORY" \
-              --auto --squash --delete-branch; then
-              echo "Native auto-merge enabled for PR #$pr_number"
+            if GH_TOKEN="$GITHUB_PAT" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
+              "$REPOSITORY" "$pr_number"; then
+              echo "Native auto-merge guard evaluated for PR #$pr_number"
             else
               echo "::warning::native auto-merge opt-in failed for PR #$pr_number; the next scheduled tick will retry"
               failed=$((failed + 1))
