@@ -499,6 +499,8 @@ export function summarizeLifecycleEvents(events = []) {
   const candidates = [...byCandidate.entries()].map(([candidateId, candidateEvents]) => {
     const eventTypes = [...new Set(candidateEvents.map((event) => event.eventType))];
     const missing = REQUIRED_LIFECYCLE_EVENT_TYPES.filter((eventType) => !eventTypes.includes(eventType));
+    const duplicateEventTypes = REQUIRED_LIFECYCLE_EVENT_TYPES.filter((eventType) =>
+      candidateEvents.filter((event) => event.eventType === eventType).length > 1);
     const ordered = candidateEvents
       .map((event, index) => ({ event, index }))
       .filter(({ event }) => ORDERED_LIFECYCLE_EVENTS.has(event.eventType))
@@ -519,7 +521,10 @@ export function summarizeLifecycleEvents(events = []) {
       const event = candidateEvents.find((candidateEvent) => candidateEvent.eventType === eventType);
       return event && !(typeof event.artifactOrPr === 'string' && event.artifactOrPr.trim());
     });
+    const terminalEventTypes = ['rollback_requested', 'rolled_back', 'inconclusive']
+      .filter((eventType) => eventTypes.includes(eventType));
     const incoherent = [
+      ...duplicateEventTypes.map((eventType) => `${eventType} appears more than once`),
       !orderValid ? 'events are out of order' : null,
       !ownerConsistent ? 'owner changes without an explicit reassignment event' : null,
       !sourceConsistent ? 'sourceRecordId changes across the candidate chain' : null,
@@ -534,7 +539,9 @@ export function summarizeLifecycleEvents(events = []) {
       orderValid,
       ownerConsistent,
       sourceConsistent,
+      duplicateEventTypes,
       missingEvidence,
+      terminalEventTypes,
       incoherent,
       complete: missing.length === 0 && incoherent.length === 0,
       lastEvent: sorted.at(-1) ? {
@@ -546,14 +553,22 @@ export function summarizeLifecycleEvents(events = []) {
   const last = [...(events || [])]
     .sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt))
     .at(-1);
+  const state = candidates.length === 0
+    ? 'no_candidate'
+    : (candidates.some((candidate) => candidate.terminalEventTypes.includes('inconclusive'))
+      ? 'inconclusive'
+      : (candidates.some((candidate) => candidate.terminalEventTypes.includes('rollback_requested')
+        && !candidate.terminalEventTypes.includes('rolled_back'))
+        ? 'rollback_requested'
+        : (candidates.some((candidate) => candidate.terminalEventTypes.includes('rolled_back'))
+          ? 'rolled_back'
+          : (candidates.every((candidate) => candidate.complete) ? 'verified' : 'candidate'))));
   return {
     available: true,
     eventCount: (events || []).length,
     candidateCount: candidates.length,
     complete: candidates.length ? candidates.every((candidate) => candidate.complete) : null,
-    state: candidates.length === 0
-      ? 'no_candidate'
-      : (candidates.every((candidate) => candidate.complete) ? 'verified' : 'candidate'),
+    state,
     lastEvent: last ? { eventType: last.eventType, occurredAt: last.occurredAt } : null,
     candidates,
   };

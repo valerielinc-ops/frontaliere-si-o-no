@@ -65,6 +65,7 @@ describe('loop fleet status', () => {
     });
     const summary = summarizeLifecycleEvents([
       base('candidate', '2026-09-12T12:00:00.000Z'),
+      base('candidate', '2026-09-12T12:00:00.500Z'),
       base('owner_assigned', '2026-09-12T12:00:01.000Z'),
       base('pr_opened', '2026-09-12T12:00:02.000Z'),
       base('tests_passed', '2026-09-12T12:00:03.000Z'),
@@ -76,6 +77,7 @@ describe('loop fleet status', () => {
       orderValid: false,
       ownerConsistent: false,
       sourceConsistent: true,
+      duplicateEventTypes: ['candidate'],
       missingEvidence: ['post_merge_verified'],
       complete: false,
     }] });
