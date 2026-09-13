@@ -21,6 +21,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { assertRssChannelItems } from './assert-json-list-shape.mjs';
+import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -29,6 +30,7 @@ export const BADRUTTS_PALACE_COMPANY_NAME = "Badrutt's Palace Hotel";
 export const BADRUTTS_PALACE_COMPANY_DOMAIN = 'badruttscareers.com';
 
 const CAREER_URL = 'https://jobs.badruttscareers.com/en-GB/jobs.rss';
+const CAREER_FEED_HOST = 'jobs.badruttscareers.com';
 const MAX_ITEM_DROP_RATIO = 0.5;
 const RSS_ITEM_STATS = Symbol('badruttsPalaceRssItemStats');
 
@@ -261,6 +263,10 @@ async function fetchRssFeed() {
       },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status} from RSS feed`);
+    // A vendor that retires its ATS answers `301 → marketing page`, not 404,
+    // and fetch follows it silently — the HTML would then be misreported as
+    // malformed XML instead of as a missing endpoint (#7847).
+    assertFeedEndpointHost('badrutts-palace', CAREER_FEED_HOST, res.url);
     return await res.text();
   } finally {
     clearTimeout(timer);

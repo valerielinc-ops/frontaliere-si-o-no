@@ -153,6 +153,32 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     expect(steps.slice(index + 1).some((candidate: any) => candidate?.['wait-all'] === true)).toBe(true);
   });
 
+  it('reports a retired ATS host as an unavailable endpoint, not as malformed XML (#7847)', async () => {
+    // The whole jobs2web tenant now answers `301 → the group marketing page`,
+    // which fetch follows silently. Before the guard the marketing HTML reached
+    // XMLValidator and the crawler died on "char '&' is not expected" — a
+    // diagnosis of the wrong document, and a red run on every wave.
+    // `url` is read-only on a constructed Response, so define the effective URL
+    // the redirect chain would have left behind.
+    vi.stubGlobal('fetch', vi.fn(async () => {
+      const html = new Response('<!DOCTYPE html><html><head><script>a&&b</script></head></html>', {
+        status: 200,
+        headers: { 'content-type': 'text/html' },
+      });
+      Object.defineProperty(html, 'url', { value: 'https://www.nordangliaeducation.com/careers' });
+      return html;
+    }));
+
+    const error = await fetchAllNordAngliaJobs().catch((err: any) => err);
+    expect(error).toBeInstanceOf(Error);
+    expect(error.message).toMatch(
+      /\[nord-anglia\] feed endpoint redirected off careers\.nordangliaeducation\.com/,
+    );
+    // The pipeline reads this flag to keep the indexed slice instead of
+    // de-indexing a live employer or failing the run.
+    expect(error.feedEndpointUnavailable).toBe(true);
+  });
+
   it('logs a canonical URL drop without exposing its query and fails on feed-wide URL drift', async () => {
     const driftedFeed = validRssItem({
       link: '<link>https://example.com/jobs/1399902133/?session=secret-token</link>',

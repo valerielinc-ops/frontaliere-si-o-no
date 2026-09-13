@@ -173,11 +173,13 @@ import {
 } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
 export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
 export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+export { assertFeedEndpointHost };
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -758,6 +760,13 @@ export function exitCrawlerOnError(err, label = 'crawler') {
     );
     process.exit(0);
   }
+  // Feed endpoint redirected off its own host (feed-endpoint-guard.mjs, #7847)
+  // — same keep-the-slice semantics as the pipeline catch in
+  // runStandardCrawlerPipeline, for the runners that drive their own pipeline.
+  if (err?.feedEndpointUnavailable) {
+    console.log(`\n⚠️ ${label}: ${err?.message || err}. Keeping existing jobs (no de-index).`);
+    process.exit(0);
+  }
   console.error(`❌ ${label} crawler failed: ${err?.message || err}`);
   process.exit(1);
 }
@@ -998,6 +1007,21 @@ export async function runStandardCrawlerPipeline(config) {
     if (isConnectionLevelFetchError(err)) {
       console.log(
         `\n⚠️ ${companyLabel}: connection-level fetch failure after retries + proxy fallback (${err.message}). Keeping existing jobs.`,
+      );
+      return;
+    }
+    // The vendor feed endpoint answered from a DIFFERENT host than its own —
+    // the ATS was taken offline and its whole host now 301s to the corporate
+    // marketing page (feed-endpoint-guard.mjs, #7847). No response about jobs
+    // was ever received, so this is the same "we got nothing usable" class as
+    // the two guards above: keep the indexed slice instead of de-indexing a
+    // live employer, and let the crawler-health monitor escalate persistence
+    // (3 consecutive zero-job runs → one deduplicated broken issue) rather
+    // than filing a Crawler Failure issue on every wave for a condition no
+    // diff in this repo can fix.
+    if (err?.feedEndpointUnavailable) {
+      console.log(
+        `\n⚠️ ${companyLabel}: ${err.message}. Keeping existing jobs.`,
       );
       return;
     }
