@@ -905,6 +905,7 @@ async function writeReconciledFustScratch(discovery, priorJobs, { refreshSource 
     ? await enrichCoopSourceBackedJobs(scratchJobs, {
         allowedHosts: ['jobs.fust.ch'],
         concurrency: 4,
+        dropBudgetDenominator: discovery.urls.length,
         onDropSummary: (drop) => { fustSummaryCounts.detailDrop = drop; },
         onGone: (urls) => goneUrls.push(...urls),
         // A detail payload the enricher rejects one vacancy at a time leaves
