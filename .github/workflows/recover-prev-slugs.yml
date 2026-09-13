@@ -248,10 +248,12 @@ jobs:
           safe_cross_job=$(grep -E '^\s*"safeCrossJobDecontaminations"' /tmp/prev-slug-recovery/scan-report.txt | head -1 | sed 's/.*: //;s/,//') || safe_cross_job=0
           recoverable_jobs=$(jq 'length' /tmp/prev-slug-recovery/recoverable.json)
           recoverable_slugs=$(jq '[.[].slugs|length]|add // 0' /tmp/prev-slug-recovery/recoverable.json)
-          echo "total_lost=${total_lost}" >> "$GITHUB_OUTPUT"
-          echo "safe_cross_job=${safe_cross_job}" >> "$GITHUB_OUTPUT"
-          echo "recoverable_jobs=${recoverable_jobs}" >> "$GITHUB_OUTPUT"
-          echo "recoverable_slugs=${recoverable_slugs}" >> "$GITHUB_OUTPUT"
+          {
+            echo "total_lost=${total_lost}"
+            echo "safe_cross_job=${safe_cross_job}"
+            echo "recoverable_jobs=${recoverable_jobs}"
+            echo "recoverable_slugs=${recoverable_slugs}"
+          } >> "$GITHUB_OUTPUT"
           {
             echo "## Scan summary"
             echo ""

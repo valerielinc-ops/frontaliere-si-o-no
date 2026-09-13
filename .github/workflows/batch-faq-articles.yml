@@ -242,11 +242,13 @@ jobs:
           INPUT_CONCURRENCY: ${{ inputs.concurrency || '3' }}
           INPUT_SKIP_TRANSLATE: ${{ inputs.skip_translate || 'false' }}
         run: |
-          echo "### Batch FAQ Generation Summary" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Articles limit**: $INPUT_LIMIT" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Concurrency**: $INPUT_CONCURRENCY" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Skip translate**: $INPUT_SKIP_TRANSLATE" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Modified files**: ${{ steps.count.outputs.modified_count || '0' }}" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "### Batch FAQ Generation Summary"
+            echo "- **Articles limit**: $INPUT_LIMIT"
+            echo "- **Concurrency**: $INPUT_CONCURRENCY"
+            echo "- **Skip translate**: $INPUT_SKIP_TRANSLATE"
+            echo "- **Modified files**: ${{ steps.count.outputs.modified_count || '0' }}"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Cleanup Codex auth broker
         if: always()

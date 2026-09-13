@@ -218,7 +218,12 @@ jobs:
         run: |
           set -eo pipefail
           tar -xzf /tmp/snapshot/prepared-snapshot.tgz -C .
-          test -f data/jobs.json && echo "✓ data/jobs.json restored ($(wc -c < data/jobs.json) bytes)" || { echo "✖ data/jobs.json missing after restore"; exit 1; }
+          if [ -f data/jobs.json ]; then
+            echo "✓ data/jobs.json restored ($(wc -c < data/jobs.json) bytes)"
+          else
+            echo "✖ data/jobs.json missing after restore"
+            exit 1
+          fi
 
       - name: Cache per-job OG images
         uses: actions/cache@v5
@@ -233,7 +238,7 @@ jobs:
           set -eo pipefail
           echo "::group::Build locale ${BUILD_LOCALE}"
           START=$(date +%s)
-          npm run build:ci 2>&1 | tee /tmp/build-${BUILD_LOCALE}.log
+          npm run build:ci 2>&1 | tee "/tmp/build-${BUILD_LOCALE}.log"
           END=$(date +%s)
           echo "::endgroup::"
           ELAPSED=$((END - START))
@@ -265,13 +270,15 @@ jobs:
           set -eo pipefail
           SIZE=$(du -sh dist 2>/dev/null | cut -f1 || echo '?')
           FILES=$(find dist -type f 2>/dev/null | wc -l | tr -d ' ' || echo '?')
-          echo "### Locale \`${BUILD_LOCALE}\` build summary" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "| metric | value |" >> "$GITHUB_STEP_SUMMARY"
-          echo "|---|---|" >> "$GITHUB_STEP_SUMMARY"
-          echo "| wall-time | ${BUILD_ELAPSED_SECONDS:-?}s |" >> "$GITHUB_STEP_SUMMARY"
-          echo "| dist size | ${SIZE} |" >> "$GITHUB_STEP_SUMMARY"
-          echo "| dist files | ${FILES} |" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "### Locale \`${BUILD_LOCALE}\` build summary"
+            echo ""
+            echo "| metric | value |"
+            echo "|---|---|"
+            echo "| wall-time | ${BUILD_ELAPSED_SECONDS:-?}s |"
+            echo "| dist size | ${SIZE} |"
+            echo "| dist files | ${FILES} |"
+          } >> "$GITHUB_STEP_SUMMARY"
 
   # ── Classic monolith build (all 4 locales) from the SAME prep snapshot ──
   # Reference for the equivalence check. Same data + same wall-clock window as
@@ -323,7 +330,12 @@ jobs:
         run: |
           set -eo pipefail
           tar -xzf /tmp/snapshot/prepared-snapshot.tgz -C .
-          test -f data/jobs.json && echo "✓ data/jobs.json restored" || { echo "✖ missing"; exit 1; }
+          if [ -f data/jobs.json ]; then
+            echo "✓ data/jobs.json restored"
+          else
+            echo "✖ missing"
+            exit 1
+          fi
       - name: Cache per-job OG images
         uses: actions/cache@v5
         with:
@@ -388,10 +400,10 @@ jobs:
         run: |
           set -eo pipefail
           MONO=/tmp/manifests/manifest-monolith/manifest-monolith.txt
-          SHARDS=""
+          shards=()
           for loc in it en de fr; do
             f="/tmp/manifests/manifest-$loc/manifest-$loc.txt"
-            [ -f "$f" ] && SHARDS="$SHARDS $f"
+            [ -f "$f" ] && shards+=("$f")
           done
-          echo "monolith: $MONO"; echo "shards:$SHARDS"
-          node scripts/ci/compare-dist-manifests.mjs "$MONO" $SHARDS
+          echo "monolith: $MONO"; echo "shards:${shards[*]}"
+          node scripts/ci/compare-dist-manifests.mjs "$MONO" "${shards[@]}"

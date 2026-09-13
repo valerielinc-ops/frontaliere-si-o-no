@@ -23,7 +23,7 @@ describe('technical operations audit', () => {
     expect(cronError('0 5 ? * *')).toMatch(/non valido/);
   });
 
-  it('mantiene valida la sintassi custom background/wait-all solo nel contratto previsto', () => {
+  it('rifiuta chiavi step non supportate da GitHub Actions', () => {
     const source = [
       'name: valid',
       'on: [push]',
@@ -43,8 +43,7 @@ describe('technical operations audit', () => {
       root: '/repo',
       exists: (candidate: string) => candidate === '/repo/scripts/example.mjs',
     });
-    expect(findings.filter((item: any) => item.rule.startsWith('workflow.background'))).toEqual([]);
-    expect(findings.filter((item: any) => item.rule.startsWith('workflow.wait-all'))).toEqual([]);
+    expect(findings.filter((item: any) => item.rule === 'workflow.unsupported-step-key')).toHaveLength(2);
   });
 
   it('non interpreta le espressioni dentro commenti come input runtime', () => {
@@ -112,7 +111,7 @@ describe('technical operations audit', () => {
     const findings = auditWorkflowText('.github/workflows/broken.yml', source, { root: '/repo' });
     const rules = new Set(findings.map((item: any) => item.rule));
     expect([...rules]).toEqual(expect.arrayContaining([
-      'workflow.concurrency-key',
+      'workflow.concurrency-value',
       'workflow.needs-reference',
       'workflow.step-executor',
       'workflow.input-reference',
@@ -121,7 +120,7 @@ describe('technical operations audit', () => {
     ]));
   });
 
-  it('accetta la estensione queue:max dichiarata dal contratto del repository', () => {
+  it('accetta queue:max come estensione supportata da GitHub Actions', () => {
     const source = [
       'name: queue-extension',
       'on: [push]',
@@ -137,6 +136,7 @@ describe('technical operations audit', () => {
     ].join('\n');
     const findings = auditWorkflowText('.github/workflows/queue-extension.yml', source, { root: '/repo' });
     expect(findings.filter((item: any) => item.rule === 'workflow.concurrency-key')).toEqual([]);
+    expect(findings.filter((item: any) => item.rule === 'workflow.concurrency-value')).toEqual([]);
   });
 
   it('segnala un output referenziato che il run non produce', () => {

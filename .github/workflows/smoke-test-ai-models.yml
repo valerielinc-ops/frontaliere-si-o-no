@@ -100,12 +100,14 @@ jobs:
         run: |
           mkdir -p .tmp
           node scripts/smoke-test-ai-models.mjs > .tmp/smoke.json 2> .tmp/smoke.log
-          echo "## Smoke-test summary" >> "$GITHUB_STEP_SUMMARY"
-          echo '```json' >> "$GITHUB_STEP_SUMMARY"
-          node -e "const r=require('./.tmp/smoke.json');console.log(JSON.stringify(r.summary,null,2))" >> "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "## Dead models (HTTP 404)" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "## Smoke-test summary"
+            echo '```json'
+            node -e "const r=require('./.tmp/smoke.json');console.log(JSON.stringify(r.summary,null,2))"
+            echo '```'
+            echo ""
+            echo "## Dead models (HTTP 404)"
+          } >> "$GITHUB_STEP_SUMMARY"
           node -e "
             const r=require('./.tmp/smoke.json');
             const dead=(r.results||[]).filter(x=>x.status==='http_404');

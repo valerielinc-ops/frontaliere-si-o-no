@@ -117,9 +117,8 @@ jobs:
         uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-      - name: Run kronenhof
-        id: crawler-kronenhof
-        background: true
+      - name: Launch kronenhof
+        id: crawler-launch-kronenhof
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kronenhof.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -132,7 +131,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/grand-hotel-kronenhof.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/kronenhof.sh"
+          launcher_path="$state_dir/kronenhof.launcher.sh"
+          log_path="$state_dir/kronenhof.log"
+          pid_path="$state_dir/kronenhof.pid"
+          status_path="$state_dir/kronenhof.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- kronenhof: run crawler (verbatim from original workflow) ----
@@ -147,7 +156,7 @@ jobs:
 
           # ---- kronenhof: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏨 Auto-update Grand Hotel Kronenhof jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🏨 Auto-update Grand Hotel Kronenhof jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -168,17 +177,33 @@ jobs:
             echo "⚠️ kronenhof: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::kronenhof: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::kronenhof: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ kronenhof: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run spital-affoltern
-        id: crawler-spital-affoltern
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/kronenhof.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/kronenhof.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/kronenhof.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch spital-affoltern
+        id: crawler-launch-spital-affoltern
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-spital-affoltern.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -191,7 +216,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/spital-affoltern.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/spital-affoltern.sh"
+          launcher_path="$state_dir/spital-affoltern.launcher.sh"
+          log_path="$state_dir/spital-affoltern.log"
+          pid_path="$state_dir/spital-affoltern.pid"
+          status_path="$state_dir/spital-affoltern.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- spital-affoltern: run crawler (verbatim from original workflow) ----
@@ -206,7 +241,7 @@ jobs:
 
           # ---- spital-affoltern: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Spital Affoltern jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Spital Affoltern jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -227,17 +262,33 @@ jobs:
             echo "⚠️ spital-affoltern: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::spital-affoltern: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::spital-affoltern: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ spital-affoltern: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run migros-hq
-        id: crawler-migros-hq
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/spital-affoltern.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/spital-affoltern.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/spital-affoltern.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch migros-hq
+        id: crawler-launch-migros-hq
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-migros-hq.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -250,7 +301,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/migros-hq.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/migros-hq.sh"
+          launcher_path="$state_dir/migros-hq.launcher.sh"
+          log_path="$state_dir/migros-hq.log"
+          pid_path="$state_dir/migros-hq.pid"
+          status_path="$state_dir/migros-hq.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- migros-hq: run crawler (verbatim from original workflow) ----
@@ -265,7 +326,7 @@ jobs:
 
           # ---- migros-hq: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Migros HQ Zürich jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Migros HQ Zürich jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -286,17 +347,33 @@ jobs:
             echo "⚠️ migros-hq: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::migros-hq: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::migros-hq: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ migros-hq: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run valiant-bank
-        id: crawler-valiant-bank
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/migros-hq.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/migros-hq.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/migros-hq.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch valiant-bank
+        id: crawler-launch-valiant-bank
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-valiant-bank.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -309,7 +386,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/valiant-bank.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/valiant-bank.sh"
+          launcher_path="$state_dir/valiant-bank.launcher.sh"
+          log_path="$state_dir/valiant-bank.log"
+          pid_path="$state_dir/valiant-bank.pid"
+          status_path="$state_dir/valiant-bank.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- valiant-bank: run crawler (verbatim from original workflow) ----
@@ -324,7 +411,7 @@ jobs:
 
           # ---- valiant-bank: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Valiant Bank jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Valiant Bank jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -345,17 +432,33 @@ jobs:
             echo "⚠️ valiant-bank: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::valiant-bank: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::valiant-bank: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ valiant-bank: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run octapharma
-        id: crawler-octapharma
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/valiant-bank.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/valiant-bank.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/valiant-bank.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch octapharma
+        id: crawler-launch-octapharma
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-octapharma.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -368,7 +471,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/octapharma.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/octapharma.sh"
+          launcher_path="$state_dir/octapharma.launcher.sh"
+          log_path="$state_dir/octapharma.log"
+          pid_path="$state_dir/octapharma.pid"
+          status_path="$state_dir/octapharma.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- octapharma: run crawler (verbatim from original workflow) ----
@@ -383,7 +496,7 @@ jobs:
 
           # ---- octapharma: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update OCTAPHARMA jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update OCTAPHARMA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -404,17 +517,33 @@ jobs:
             echo "⚠️ octapharma: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::octapharma: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::octapharma: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ octapharma: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run knowledge-lab
-        id: crawler-knowledge-lab
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/octapharma.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/octapharma.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/octapharma.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch knowledge-lab
+        id: crawler-launch-knowledge-lab
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-knowledge-lab.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -423,7 +552,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/knowledge-lab.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/knowledge-lab.sh"
+          launcher_path="$state_dir/knowledge-lab.launcher.sh"
+          log_path="$state_dir/knowledge-lab.log"
+          pid_path="$state_dir/knowledge-lab.pid"
+          status_path="$state_dir/knowledge-lab.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- knowledge-lab: run crawler (verbatim from original workflow) ----
@@ -438,7 +577,7 @@ jobs:
 
           # ---- knowledge-lab: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏗️ Auto-update Knowledge Lab jobs (dedicated crawler)"'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🏗️ Auto-update Knowledge Lab jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
@@ -459,17 +598,33 @@ jobs:
             echo "⚠️ knowledge-lab: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::knowledge-lab: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::knowledge-lab: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ knowledge-lab: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run wagerenhof
-        id: crawler-wagerenhof
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/knowledge-lab.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/knowledge-lab.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/knowledge-lab.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch wagerenhof
+        id: crawler-launch-wagerenhof
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-wagerenhof.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -482,7 +637,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/wagerenhof.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/wagerenhof.sh"
+          launcher_path="$state_dir/wagerenhof.launcher.sh"
+          log_path="$state_dir/wagerenhof.log"
+          pid_path="$state_dir/wagerenhof.pid"
+          status_path="$state_dir/wagerenhof.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- wagerenhof: run crawler (verbatim from original workflow) ----
@@ -497,7 +662,7 @@ jobs:
 
           # ---- wagerenhof: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Wagerenhof jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Wagerenhof jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -518,17 +683,33 @@ jobs:
             echo "⚠️ wagerenhof: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::wagerenhof: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::wagerenhof: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ wagerenhof: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run pfister
-        id: crawler-pfister
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/wagerenhof.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/wagerenhof.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/wagerenhof.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch pfister
+        id: crawler-launch-pfister
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pfister.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -541,7 +722,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/pfister.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/pfister.sh"
+          launcher_path="$state_dir/pfister.launcher.sh"
+          log_path="$state_dir/pfister.log"
+          pid_path="$state_dir/pfister.pid"
+          status_path="$state_dir/pfister.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- pfister: run crawler (verbatim from original workflow) ----
@@ -556,7 +747,7 @@ jobs:
 
           # ---- pfister: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Pfister jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Pfister jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -577,17 +768,33 @@ jobs:
             echo "⚠️ pfister: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::pfister: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::pfister: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ pfister: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run unispital-basel
-        id: crawler-unispital-basel
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/pfister.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/pfister.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/pfister.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch unispital-basel
+        id: crawler-launch-unispital-basel
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-unispital-basel.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -600,7 +807,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/unispital-basel.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/unispital-basel.sh"
+          launcher_path="$state_dir/unispital-basel.launcher.sh"
+          log_path="$state_dir/unispital-basel.log"
+          pid_path="$state_dir/unispital-basel.pid"
+          status_path="$state_dir/unispital-basel.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- unispital-basel: run crawler (verbatim from original workflow) ----
@@ -615,7 +832,7 @@ jobs:
 
           # ---- unispital-basel: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Universitätsspital Basel jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Universitätsspital Basel jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -636,17 +853,33 @@ jobs:
             echo "⚠️ unispital-basel: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::unispital-basel: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::unispital-basel: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ unispital-basel: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run sbb
-        id: crawler-sbb
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/unispital-basel.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/unispital-basel.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/unispital-basel.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch sbb
+        id: crawler-launch-sbb
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-sbb.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -659,7 +892,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/ffs-officine-ferrovie-federali.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/sbb.sh"
+          launcher_path="$state_dir/sbb.launcher.sh"
+          log_path="$state_dir/sbb.log"
+          pid_path="$state_dir/sbb.pid"
+          status_path="$state_dir/sbb.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- sbb: run crawler (verbatim from original workflow) ----
@@ -674,7 +917,7 @@ jobs:
 
           # ---- sbb: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SBB jobs (dedicated crawler)"'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SBB jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
@@ -695,17 +938,33 @@ jobs:
             echo "⚠️ sbb: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::sbb: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::sbb: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ sbb: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run ibsa
-        id: crawler-ibsa
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/sbb.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/sbb.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/sbb.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch ibsa
+        id: crawler-launch-ibsa
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ibsa.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -718,7 +977,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/ibsa-institut-biochimique.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/ibsa.sh"
+          launcher_path="$state_dir/ibsa.launcher.sh"
+          log_path="$state_dir/ibsa.log"
+          pid_path="$state_dir/ibsa.pid"
+          status_path="$state_dir/ibsa.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- ibsa: run crawler (verbatim from original workflow) ----
@@ -733,7 +1002,7 @@ jobs:
 
           # ---- ibsa: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🧬 Auto-update IBSA jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🧬 Auto-update IBSA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -754,17 +1023,33 @@ jobs:
             echo "⚠️ ibsa: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::ibsa: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::ibsa: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ ibsa: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run rennbahnklinik
-        id: crawler-rennbahnklinik
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/ibsa.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/ibsa.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/ibsa.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch rennbahnklinik
+        id: crawler-launch-rennbahnklinik
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-rennbahnklinik.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -777,7 +1062,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/rennbahnklinik.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/rennbahnklinik.sh"
+          launcher_path="$state_dir/rennbahnklinik.launcher.sh"
+          log_path="$state_dir/rennbahnklinik.log"
+          pid_path="$state_dir/rennbahnklinik.pid"
+          status_path="$state_dir/rennbahnklinik.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- rennbahnklinik: run crawler (verbatim from original workflow) ----
@@ -792,7 +1087,7 @@ jobs:
 
           # ---- rennbahnklinik: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update RENNBAHNKLINIK jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update RENNBAHNKLINIK jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -813,17 +1108,33 @@ jobs:
             echo "⚠️ rennbahnklinik: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::rennbahnklinik: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::rennbahnklinik: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ rennbahnklinik: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run mabetex
-        id: crawler-mabetex
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/rennbahnklinik.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/rennbahnklinik.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/rennbahnklinik.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch mabetex
+        id: crawler-launch-mabetex
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-mabetex.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -836,7 +1147,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/mabetex.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/mabetex.sh"
+          launcher_path="$state_dir/mabetex.launcher.sh"
+          log_path="$state_dir/mabetex.log"
+          pid_path="$state_dir/mabetex.pid"
+          status_path="$state_dir/mabetex.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- mabetex: run crawler (verbatim from original workflow) ----
@@ -851,7 +1172,7 @@ jobs:
 
           # ---- mabetex: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Mabetex Group jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Mabetex Group jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -872,17 +1193,33 @@ jobs:
             echo "⚠️ mabetex: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::mabetex: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::mabetex: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ mabetex: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run recruitingapp-2563
-        id: crawler-recruitingapp-2563
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/mabetex.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/mabetex.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/mabetex.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch recruitingapp-2563
+        id: crawler-launch-recruitingapp-2563
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-recruitingapp-2563.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -895,7 +1232,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/recruitingapp-2563.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/recruitingapp-2563.sh"
+          launcher_path="$state_dir/recruitingapp-2563.launcher.sh"
+          log_path="$state_dir/recruitingapp-2563.log"
+          pid_path="$state_dir/recruitingapp-2563.pid"
+          status_path="$state_dir/recruitingapp-2563.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- recruitingapp-2563: run crawler (verbatim from original workflow) ----
@@ -910,7 +1257,7 @@ jobs:
 
           # ---- recruitingapp-2563: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Switch Bewerbermanagement Stellen jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Switch Bewerbermanagement Stellen jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -931,17 +1278,33 @@ jobs:
             echo "⚠️ recruitingapp-2563: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::recruitingapp-2563: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::recruitingapp-2563: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ recruitingapp-2563: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run gzo-wetzikon
-        id: crawler-gzo-wetzikon
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/recruitingapp-2563.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/recruitingapp-2563.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/recruitingapp-2563.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch gzo-wetzikon
+        id: crawler-launch-gzo-wetzikon
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-gzo-wetzikon.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -954,7 +1317,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/gzo-wetzikon.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/gzo-wetzikon.sh"
+          launcher_path="$state_dir/gzo-wetzikon.launcher.sh"
+          log_path="$state_dir/gzo-wetzikon.log"
+          pid_path="$state_dir/gzo-wetzikon.pid"
+          status_path="$state_dir/gzo-wetzikon.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- gzo-wetzikon: run crawler (verbatim from original workflow) ----
@@ -969,7 +1342,7 @@ jobs:
 
           # ---- gzo-wetzikon: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update GZO Wetzikon jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update GZO Wetzikon jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -990,17 +1363,33 @@ jobs:
             echo "⚠️ gzo-wetzikon: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::gzo-wetzikon: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::gzo-wetzikon: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ gzo-wetzikon: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run kanton-aargau
-        id: crawler-kanton-aargau
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/gzo-wetzikon.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/gzo-wetzikon.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/gzo-wetzikon.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch kanton-aargau
+        id: crawler-launch-kanton-aargau
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kanton-aargau.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1013,7 +1402,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/kanton-aargau.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/kanton-aargau.sh"
+          launcher_path="$state_dir/kanton-aargau.launcher.sh"
+          log_path="$state_dir/kanton-aargau.log"
+          pid_path="$state_dir/kanton-aargau.pid"
+          status_path="$state_dir/kanton-aargau.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- kanton-aargau: run crawler (verbatim from original workflow) ----
@@ -1028,7 +1427,7 @@ jobs:
 
           # ---- kanton-aargau: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kanton Aargau jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kanton Aargau jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -1049,17 +1448,33 @@ jobs:
             echo "⚠️ kanton-aargau: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::kanton-aargau: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::kanton-aargau: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ kanton-aargau: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run css-versicherung
-        id: crawler-css-versicherung
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/kanton-aargau.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/kanton-aargau.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/kanton-aargau.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch css-versicherung
+        id: crawler-launch-css-versicherung
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-css-versicherung.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1072,7 +1487,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/css-versicherung.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/css-versicherung.sh"
+          launcher_path="$state_dir/css-versicherung.launcher.sh"
+          log_path="$state_dir/css-versicherung.log"
+          pid_path="$state_dir/css-versicherung.pid"
+          status_path="$state_dir/css-versicherung.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- css-versicherung: run crawler (verbatim from original workflow) ----
@@ -1087,7 +1512,7 @@ jobs:
 
           # ---- css-versicherung: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update CSS Versicherung jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update CSS Versicherung jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -1108,17 +1533,33 @@ jobs:
             echo "⚠️ css-versicherung: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::css-versicherung: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::css-versicherung: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ css-versicherung: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run holcim
-        id: crawler-holcim
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/css-versicherung.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/css-versicherung.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/css-versicherung.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch holcim
+        id: crawler-launch-holcim
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-holcim.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1131,7 +1572,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/holcim.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/holcim.sh"
+          launcher_path="$state_dir/holcim.launcher.sh"
+          log_path="$state_dir/holcim.log"
+          pid_path="$state_dir/holcim.pid"
+          status_path="$state_dir/holcim.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- holcim: run crawler (verbatim from original workflow) ----
@@ -1146,7 +1597,7 @@ jobs:
 
           # ---- holcim: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Holcim Group jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Holcim Group jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -1167,17 +1618,33 @@ jobs:
             echo "⚠️ holcim: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::holcim: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::holcim: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ holcim: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run klinik-adelheid
-        id: crawler-klinik-adelheid
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/holcim.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/holcim.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/holcim.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch klinik-adelheid
+        id: crawler-launch-klinik-adelheid
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-klinik-adelheid.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1190,7 +1657,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/klinik-adelheid.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/klinik-adelheid.sh"
+          launcher_path="$state_dir/klinik-adelheid.launcher.sh"
+          log_path="$state_dir/klinik-adelheid.log"
+          pid_path="$state_dir/klinik-adelheid.pid"
+          status_path="$state_dir/klinik-adelheid.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- klinik-adelheid: run crawler (verbatim from original workflow) ----
@@ -1205,7 +1682,7 @@ jobs:
 
           # ---- klinik-adelheid: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update KLINIK-ADELHEID jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update KLINIK-ADELHEID jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -1226,17 +1703,33 @@ jobs:
             echo "⚠️ klinik-adelheid: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::klinik-adelheid: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::klinik-adelheid: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ klinik-adelheid: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run avaloq
-        id: crawler-avaloq
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/klinik-adelheid.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/klinik-adelheid.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/klinik-adelheid.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch avaloq
+        id: crawler-launch-avaloq
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-avaloq.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1249,7 +1742,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/avaloq.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/avaloq.sh"
+          launcher_path="$state_dir/avaloq.launcher.sh"
+          log_path="$state_dir/avaloq.log"
+          pid_path="$state_dir/avaloq.pid"
+          status_path="$state_dir/avaloq.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- avaloq: run crawler (verbatim from original workflow) ----
@@ -1264,7 +1767,7 @@ jobs:
 
           # ---- avaloq: Commit updated data (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🛠️ Auto-update Avaloq jobs (dedicated crawler)"'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🛠️ Auto-update Avaloq jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
@@ -1285,17 +1788,33 @@ jobs:
             echo "⚠️ avaloq: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::avaloq: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::avaloq: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ avaloq: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run kanton-solothurn
-        id: crawler-kanton-solothurn
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/avaloq.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/avaloq.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/avaloq.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch kanton-solothurn
+        id: crawler-launch-kanton-solothurn
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kanton-solothurn.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1308,7 +1827,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/kanton-solothurn.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/kanton-solothurn.sh"
+          launcher_path="$state_dir/kanton-solothurn.launcher.sh"
+          log_path="$state_dir/kanton-solothurn.log"
+          pid_path="$state_dir/kanton-solothurn.pid"
+          status_path="$state_dir/kanton-solothurn.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- kanton-solothurn: run crawler (verbatim from original workflow) ----
@@ -1323,7 +1852,7 @@ jobs:
 
           # ---- kanton-solothurn: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kanton Solothurn jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kanton Solothurn jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -1344,17 +1873,33 @@ jobs:
             echo "⚠️ kanton-solothurn: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::kanton-solothurn: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::kanton-solothurn: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ kanton-solothurn: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run gesundheitsnetz-kuesnacht
-        id: crawler-gesundheitsnetz-kuesnacht
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/kanton-solothurn.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/kanton-solothurn.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/kanton-solothurn.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch gesundheitsnetz-kuesnacht
+        id: crawler-launch-gesundheitsnetz-kuesnacht
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-gesundheitsnetz-kuesnacht.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1367,7 +1912,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/gesundheitsnetz-kuesnacht.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/gesundheitsnetz-kuesnacht.sh"
+          launcher_path="$state_dir/gesundheitsnetz-kuesnacht.launcher.sh"
+          log_path="$state_dir/gesundheitsnetz-kuesnacht.log"
+          pid_path="$state_dir/gesundheitsnetz-kuesnacht.pid"
+          status_path="$state_dir/gesundheitsnetz-kuesnacht.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- gesundheitsnetz-kuesnacht: run crawler (verbatim from original workflow) ----
@@ -1382,7 +1937,7 @@ jobs:
 
           # ---- gesundheitsnetz-kuesnacht: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update GESUNDHEITSNETZ_KUESNACHT jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update GESUNDHEITSNETZ_KUESNACHT jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -1403,17 +1958,33 @@ jobs:
             echo "⚠️ gesundheitsnetz-kuesnacht: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::gesundheitsnetz-kuesnacht: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::gesundheitsnetz-kuesnacht: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ gesundheitsnetz-kuesnacht: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run asana-spital
-        id: crawler-asana-spital
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/gesundheitsnetz-kuesnacht.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/gesundheitsnetz-kuesnacht.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/gesundheitsnetz-kuesnacht.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch asana-spital
+        id: crawler-launch-asana-spital
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-asana-spital.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1426,7 +1997,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/asana-spital.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/asana-spital.sh"
+          launcher_path="$state_dir/asana-spital.launcher.sh"
+          log_path="$state_dir/asana-spital.log"
+          pid_path="$state_dir/asana-spital.pid"
+          status_path="$state_dir/asana-spital.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- asana-spital: run crawler (verbatim from original workflow) ----
@@ -1441,7 +2022,7 @@ jobs:
 
           # ---- asana-spital: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ASANA_SPITAL jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ASANA_SPITAL jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -1462,17 +2043,33 @@ jobs:
             echo "⚠️ asana-spital: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::asana-spital: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::asana-spital: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ asana-spital: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run bachem
-        id: crawler-bachem
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/asana-spital.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/asana-spital.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/asana-spital.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch bachem
+        id: crawler-launch-bachem
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-bachem.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1485,7 +2082,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/bachem.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/bachem.sh"
+          launcher_path="$state_dir/bachem.launcher.sh"
+          log_path="$state_dir/bachem.log"
+          pid_path="$state_dir/bachem.pid"
+          status_path="$state_dir/bachem.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- bachem: run crawler (verbatim from original workflow) ----
@@ -1500,7 +2107,7 @@ jobs:
 
           # ---- bachem: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update BACHEM jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update BACHEM jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -1521,17 +2128,33 @@ jobs:
             echo "⚠️ bachem: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::bachem: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::bachem: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ bachem: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run apg-sga
-        id: crawler-apg-sga
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/bachem.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/bachem.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/bachem.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch apg-sga
+        id: crawler-launch-apg-sga
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-apg-sga.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1544,7 +2167,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/apg-sga.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/apg-sga.sh"
+          launcher_path="$state_dir/apg-sga.launcher.sh"
+          log_path="$state_dir/apg-sga.log"
+          pid_path="$state_dir/apg-sga.pid"
+          status_path="$state_dir/apg-sga.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- apg-sga: run crawler (verbatim from original workflow) ----
@@ -1559,7 +2192,7 @@ jobs:
 
           # ---- apg-sga: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update APG|SGA jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update APG|SGA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -1580,17 +2213,33 @@ jobs:
             echo "⚠️ apg-sga: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::apg-sga: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::apg-sga: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ apg-sga: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run ail
-        id: crawler-ail
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/apg-sga.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/apg-sga.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/apg-sga.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch ail
+        id: crawler-launch-ail
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ail.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1603,7 +2252,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/ail-lugano.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/ail.sh"
+          launcher_path="$state_dir/ail.launcher.sh"
+          log_path="$state_dir/ail.log"
+          pid_path="$state_dir/ail.pid"
+          status_path="$state_dir/ail.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- ail: run crawler (verbatim from original workflow) ----
@@ -1618,7 +2277,7 @@ jobs:
 
           # ---- ail: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏢 Auto-update AIL jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🏢 Auto-update AIL jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -1639,17 +2298,33 @@ jobs:
             echo "⚠️ ail: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::ail: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::ail: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ ail: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Run sta
-        id: crawler-sta
-        background: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/ail.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/ail.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/ail.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch sta
+        id: crawler-launch-sta
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-sta.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -1662,7 +2337,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/sta.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/sta.sh"
+          launcher_path="$state_dir/sta.launcher.sh"
+          log_path="$state_dir/sta.log"
+          pid_path="$state_dir/sta.pid"
+          status_path="$state_dir/sta.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- sta: run crawler (verbatim from original workflow) ----
@@ -1677,7 +2362,7 @@ jobs:
 
           # ---- sta: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update STA Personal AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update STA Personal AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
@@ -1698,16 +2383,1084 @@ jobs:
             echo "⚠️ sta: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::sta: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::sta: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ sta: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Wait for all crawlers in this group
-        wait-all: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/sta.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/sta.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/sta.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Run kronenhof
+        id: crawler-kronenhof
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/kronenhof.status"
+          pid_file="$state_dir/kronenhof.pid"
+          log_file="$state_dir/kronenhof.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::kronenhof: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::kronenhof: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::kronenhof: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::kronenhof: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run spital-affoltern
+        id: crawler-spital-affoltern
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/spital-affoltern.status"
+          pid_file="$state_dir/spital-affoltern.pid"
+          log_file="$state_dir/spital-affoltern.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::spital-affoltern: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::spital-affoltern: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::spital-affoltern: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::spital-affoltern: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run migros-hq
+        id: crawler-migros-hq
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/migros-hq.status"
+          pid_file="$state_dir/migros-hq.pid"
+          log_file="$state_dir/migros-hq.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::migros-hq: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::migros-hq: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::migros-hq: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::migros-hq: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run valiant-bank
+        id: crawler-valiant-bank
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/valiant-bank.status"
+          pid_file="$state_dir/valiant-bank.pid"
+          log_file="$state_dir/valiant-bank.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::valiant-bank: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::valiant-bank: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::valiant-bank: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::valiant-bank: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run octapharma
+        id: crawler-octapharma
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/octapharma.status"
+          pid_file="$state_dir/octapharma.pid"
+          log_file="$state_dir/octapharma.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::octapharma: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::octapharma: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::octapharma: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::octapharma: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run knowledge-lab
+        id: crawler-knowledge-lab
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/knowledge-lab.status"
+          pid_file="$state_dir/knowledge-lab.pid"
+          log_file="$state_dir/knowledge-lab.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::knowledge-lab: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::knowledge-lab: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::knowledge-lab: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::knowledge-lab: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run wagerenhof
+        id: crawler-wagerenhof
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/wagerenhof.status"
+          pid_file="$state_dir/wagerenhof.pid"
+          log_file="$state_dir/wagerenhof.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::wagerenhof: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::wagerenhof: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::wagerenhof: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::wagerenhof: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run pfister
+        id: crawler-pfister
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/pfister.status"
+          pid_file="$state_dir/pfister.pid"
+          log_file="$state_dir/pfister.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::pfister: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::pfister: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::pfister: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::pfister: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run unispital-basel
+        id: crawler-unispital-basel
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/unispital-basel.status"
+          pid_file="$state_dir/unispital-basel.pid"
+          log_file="$state_dir/unispital-basel.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::unispital-basel: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::unispital-basel: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::unispital-basel: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::unispital-basel: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run sbb
+        id: crawler-sbb
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/sbb.status"
+          pid_file="$state_dir/sbb.pid"
+          log_file="$state_dir/sbb.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::sbb: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::sbb: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::sbb: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::sbb: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run ibsa
+        id: crawler-ibsa
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/ibsa.status"
+          pid_file="$state_dir/ibsa.pid"
+          log_file="$state_dir/ibsa.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::ibsa: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::ibsa: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::ibsa: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::ibsa: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run rennbahnklinik
+        id: crawler-rennbahnklinik
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/rennbahnklinik.status"
+          pid_file="$state_dir/rennbahnklinik.pid"
+          log_file="$state_dir/rennbahnklinik.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::rennbahnklinik: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::rennbahnklinik: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::rennbahnklinik: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::rennbahnklinik: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run mabetex
+        id: crawler-mabetex
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/mabetex.status"
+          pid_file="$state_dir/mabetex.pid"
+          log_file="$state_dir/mabetex.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::mabetex: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::mabetex: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::mabetex: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::mabetex: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run recruitingapp-2563
+        id: crawler-recruitingapp-2563
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/recruitingapp-2563.status"
+          pid_file="$state_dir/recruitingapp-2563.pid"
+          log_file="$state_dir/recruitingapp-2563.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::recruitingapp-2563: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::recruitingapp-2563: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::recruitingapp-2563: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::recruitingapp-2563: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run gzo-wetzikon
+        id: crawler-gzo-wetzikon
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/gzo-wetzikon.status"
+          pid_file="$state_dir/gzo-wetzikon.pid"
+          log_file="$state_dir/gzo-wetzikon.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::gzo-wetzikon: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::gzo-wetzikon: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::gzo-wetzikon: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::gzo-wetzikon: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run kanton-aargau
+        id: crawler-kanton-aargau
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/kanton-aargau.status"
+          pid_file="$state_dir/kanton-aargau.pid"
+          log_file="$state_dir/kanton-aargau.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::kanton-aargau: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::kanton-aargau: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::kanton-aargau: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::kanton-aargau: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run css-versicherung
+        id: crawler-css-versicherung
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/css-versicherung.status"
+          pid_file="$state_dir/css-versicherung.pid"
+          log_file="$state_dir/css-versicherung.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::css-versicherung: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::css-versicherung: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::css-versicherung: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::css-versicherung: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run holcim
+        id: crawler-holcim
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/holcim.status"
+          pid_file="$state_dir/holcim.pid"
+          log_file="$state_dir/holcim.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::holcim: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::holcim: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::holcim: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::holcim: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run klinik-adelheid
+        id: crawler-klinik-adelheid
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/klinik-adelheid.status"
+          pid_file="$state_dir/klinik-adelheid.pid"
+          log_file="$state_dir/klinik-adelheid.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::klinik-adelheid: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::klinik-adelheid: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::klinik-adelheid: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::klinik-adelheid: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run avaloq
+        id: crawler-avaloq
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/avaloq.status"
+          pid_file="$state_dir/avaloq.pid"
+          log_file="$state_dir/avaloq.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::avaloq: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::avaloq: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::avaloq: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::avaloq: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run kanton-solothurn
+        id: crawler-kanton-solothurn
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/kanton-solothurn.status"
+          pid_file="$state_dir/kanton-solothurn.pid"
+          log_file="$state_dir/kanton-solothurn.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::kanton-solothurn: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::kanton-solothurn: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::kanton-solothurn: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::kanton-solothurn: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run gesundheitsnetz-kuesnacht
+        id: crawler-gesundheitsnetz-kuesnacht
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/gesundheitsnetz-kuesnacht.status"
+          pid_file="$state_dir/gesundheitsnetz-kuesnacht.pid"
+          log_file="$state_dir/gesundheitsnetz-kuesnacht.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::gesundheitsnetz-kuesnacht: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::gesundheitsnetz-kuesnacht: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::gesundheitsnetz-kuesnacht: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::gesundheitsnetz-kuesnacht: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run asana-spital
+        id: crawler-asana-spital
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/asana-spital.status"
+          pid_file="$state_dir/asana-spital.pid"
+          log_file="$state_dir/asana-spital.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::asana-spital: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::asana-spital: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::asana-spital: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::asana-spital: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run bachem
+        id: crawler-bachem
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/bachem.status"
+          pid_file="$state_dir/bachem.pid"
+          log_file="$state_dir/bachem.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::bachem: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::bachem: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::bachem: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::bachem: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run apg-sga
+        id: crawler-apg-sga
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/apg-sga.status"
+          pid_file="$state_dir/apg-sga.pid"
+          log_file="$state_dir/apg-sga.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::apg-sga: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::apg-sga: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::apg-sga: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::apg-sga: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run ail
+        id: crawler-ail
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/ail.status"
+          pid_file="$state_dir/ail.pid"
+          log_file="$state_dir/ail.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::ail: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::ail: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::ail: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::ail: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run sta
+        id: crawler-sta
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/sta.status"
+          pid_file="$state_dir/sta.pid"
+          log_file="$state_dir/sta.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::sta: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::sta: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::sta: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::sta: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
       - name: Commit crawler group data atomically
         if: always()
         run: |-

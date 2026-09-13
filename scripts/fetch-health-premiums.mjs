@@ -648,6 +648,20 @@ async function main() {
     console.log(`   Most expensive: ${communeRankings[communeRankings.length - 1].municipality} (CHF ${communeRankings[communeRankings.length - 1].avgPremium})`);
   }
 
+  // Never replace a known-good production dataset with a successful-looking
+  // empty payload. A BAG schema change, an HTML/error response parsed as CSV,
+  // or an upstream outage can otherwise produce zero insurers and zero
+  // premiums while the process still exits 0; the update workflow would then
+  // commit four empty mirrors and the comparator would silently lose its data.
+  const premiumEntryCount = Object.keys(output.premiums).length;
+  if (relevantPremiums.length === 0 || output.insurers.length < 10 || premiumEntryCount === 0 || communeRankings.length === 0) {
+    throw new Error(
+      `Refusing to write incomplete health-premiums dataset: ` +
+      `relevant rows=${relevantPremiums.length}, insurers=${output.insurers.length}, ` +
+      `premium entries=${premiumEntryCount}, ranked communes=${communeRankings.length}`,
+    );
+  }
+
   // 8. Write output — canonical multi-year storage under data/health-premiums/.
   //    Resolve the final year from the dataset itself (CSV "Geschäftsjahr"
   //    column) so the written filename matches the actual payload even when

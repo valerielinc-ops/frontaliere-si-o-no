@@ -135,11 +135,11 @@ jobs:
           log ""
           log "── DUPLICATE-SUSPECT IMAGE FORMATS ──"
           log "  webp+jpg siblings in dist/images:"
-          find dist/images -type f -name '*.webp' 2>/dev/null | sed 's/\.webp$//' | while read b; do
+          find dist/images -type f -name '*.webp' 2>/dev/null | sed 's/\.webp$//' | while IFS= read -r b; do
             [ -f "$b.jpg" ] && echo "DUP $b"
           done | wc -l | xargs -I{} echo "    {} files"
           log "  webp+avif+jpg triplets in dist/images:"
-          find dist/images -type f -name '*.webp' 2>/dev/null | sed 's/\.webp$//' | while read b; do
+          find dist/images -type f -name '*.webp' 2>/dev/null | sed 's/\.webp$//' | while IFS= read -r b; do
             [ -f "$b.jpg" ] && [ -f "$b.avif" ] && echo "TRIP $b"
           done | wc -l | xargs -I{} echo "    {} files"
 
@@ -147,9 +147,9 @@ jobs:
           log "── COMPRESSION RATIO ESTIMATE ──"
           uncompressed=$(du -sb dist | awk '{print $1}')
           # gzip a representative HTML sample to gauge ratio
-          sample=$(find dist -type f -name '*.html' | head -100)
-          if [ -n "$sample" ]; then
-            cat $sample > /tmp/sample.html
+          mapfile -t sample_files < <(find dist -type f -name '*.html' | head -100)
+          if [ "${#sample_files[@]}" -gt 0 ]; then
+            cat "${sample_files[@]}" > /tmp/sample.html
             raw=$(stat -c '%s' /tmp/sample.html)
             gz=$(gzip -9c /tmp/sample.html | wc -c)
             ratio=$(echo "scale=2; $raw / $gz" | bc -l)

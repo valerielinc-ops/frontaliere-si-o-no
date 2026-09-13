@@ -28,8 +28,7 @@ on:
         description: 'Limit to one slot (weekly border only makes sense on-demand)'
         required: false
         default: ''
-        type: choice
-        options: ['', 'article', 'job', 'border']
+        type: string
       date:
         description: 'UTC day to report on (YYYY-MM-DD). Empty = yesterday.'
         required: false

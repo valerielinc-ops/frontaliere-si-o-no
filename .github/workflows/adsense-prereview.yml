@@ -103,13 +103,13 @@ jobs:
           INPUT_STRICT: ${{ inputs.strict || 'true' }}
           INPUT_BASE: ${{ inputs.base || 'https://frontaliereticino.ch' }}
         run: |
-          FLAGS="--source live --base $INPUT_BASE --sample $INPUT_SAMPLE --save"
+          args=(--source live --base "$INPUT_BASE" --sample "$INPUT_SAMPLE" --save)
           if [ "$INPUT_STRICT" = "true" ]; then
-            FLAGS="$FLAGS --strict"
+            args+=(--strict)
           fi
-          echo "Running: node scripts/adsense-prereview-audit.mjs $FLAGS"
+          echo "Running Adsenses pre-review audit with ${#args[@]} arguments"
           set +e
-          node scripts/adsense-prereview-audit.mjs $FLAGS
+          node scripts/adsense-prereview-audit.mjs "${args[@]}"
           code=$?
           set -e
           echo "code=$code" >> "$GITHUB_OUTPUT"

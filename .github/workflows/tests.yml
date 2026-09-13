@@ -908,21 +908,59 @@ jobs:
               await github.rest.issues.createComment({ owner, repo, issue_number, body });
             }
 
-      # Blocking source gate (#8304): keep the stable browser-graph entry point
-      # exercised in the same required job as its Vitest coverage. The wrapper
-      # reads only the source tree and fails if a Node builtin reaches the SPA.
-      - name: Assert browser graph has no Node leaves
-        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
-        background: true
-        run: node scripts/ci/assert-browser-graph-node-free.mjs
-
-      # Blocking source gate (#8304): every newsletter webhook must cross the
-      # store boundary, so browser-only ranking helpers never enter the
-      # Node-backed ranking module through an adapter.
-      - name: Assert webhook ranking imports stay at the store boundary
-        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
-        background: true
-        run: node scripts/ci/assert-webhook-ranking-imports.mjs
+      # These source gates are independent and have no outputs consumed by
+      # later steps. Run them concurrently inside one documented `run` step;
+      # `continue-on-error` lets the remaining diagnostics run, while the
+      # collector near the end makes any failure blocking.
+      - name: Run source guards in parallel
+        id: source-guards
+        continue-on-error: true
+        if: ${{ !cancelled() && steps.body_contract.outcome != 'failure' }}
+        env:
+          RUN_BROWSER_GRAPH: ${{ steps.body_contract.outcome != 'failure' }}
+          RUN_WEBHOOK_BOUNDARY: ${{ steps.body_contract.outcome != 'failure' }}
+          RUN_ADSENSE: ${{ steps.body_contract.outcome != 'failure' && github.event_name == 'pull_request' }}
+          RUN_LOOKBEHIND: ${{ steps.body_contract.outcome != 'failure' && github.event_name == 'pull_request' }}
+          RUN_NUMBER_ENV_FALLBACK: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'merge_group') }}
+        run: |
+          set +e
+          state_dir="${RUNNER_TEMP}/tests-source-guards"
+          mkdir -p "$state_dir"
+          pids=()
+          labels=()
+          start_gate() {
+            local label="$1"
+            shift
+            "$@" > "$state_dir/$label.log" 2>&1 &
+            pids+=("$!")
+            labels+=("$label")
+          }
+          if [ "$RUN_BROWSER_GRAPH" = "true" ]; then
+            start_gate browser-graph node scripts/ci/assert-browser-graph-node-free.mjs
+          fi
+          if [ "$RUN_WEBHOOK_BOUNDARY" = "true" ]; then
+            start_gate webhook-boundary node scripts/ci/assert-webhook-ranking-imports.mjs
+          fi
+          if [ "$RUN_ADSENSE" = "true" ]; then
+            start_gate adsense node scripts/ci/check-cls-ad-slots.mjs
+          fi
+          if [ "$RUN_LOOKBEHIND" = "true" ]; then
+            start_gate lookbehind node scripts/ci/check-client-lookbehind.mjs
+          fi
+          if [ "$RUN_NUMBER_ENV_FALLBACK" = "true" ]; then
+            start_gate number-env-fallback node scripts/ci/check-number-env-fallback.mjs
+          fi
+          failures=0
+          for i in "${!pids[@]}"; do
+            status=0
+            wait "${pids[$i]}" || status=$?
+            echo "[${labels[$i]}] exit=$status"
+            cat "$state_dir/${labels[$i]}.log"
+            if [ "$status" -ne 0 ]; then
+              failures=1
+            fi
+          done
+          exit "$failures"
 
       # Blocking gate (escalation #1954, bucket reviewer-finding/cls-layout 6×/14d):
       # forbid hard-coded AdSense <ins> in build-plugins. Only adSlotHtml() may emit
@@ -937,21 +975,11 @@ jobs:
       # I/O verso l'API GitHub. Un gate rosso fa comunque fallire il job (stesso
       # comportamento verificato live su post-deploy-validate-live, probe run
       # 28352247167); il `wait-all` sotto li rijoina prima della fine del job.
-      - name: Forbid hard-coded AdSense <ins> in build-plugins
-        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
-        background: true
-        run: node scripts/ci/check-cls-ad-slots.mjs
-
       # Blocking gate (#1996 → #1999): forbid regex lookbehind ((?<=/(?<!) in
       # client-bundled source. Older Safari/WebKit throws "invalid group specifier
       # name" at parse time → crashed job-detail render for Google Jobs traffic (lost
       # ad impressions). build-plugins/ + scripts/ are build-time (Node) → exempt.
       # Comment-aware; zero-Claude. Also covered by tests/check-client-lookbehind.test.ts.
-      - name: Forbid regex lookbehind in client-bundled source
-        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
-        background: true
-        run: node scripts/ci/check-client-lookbehind.mjs
-
       # Blocking gate (#7300 → #7344): forbid `Number(process.env.X || N)`. The
       # fallback INSIDE Number() only applies when the variable is unset, so a
       # non-numeric value yields NaN — which never throws and quietly removes
@@ -959,11 +987,6 @@ jobs:
       # fine (NaN is falsy there). Correct form: intFromEnv() from
       # scripts/lib/int-from-env.mjs. Comment-aware; zero-Claude. Also covered
       # by tests/int-from-env.test.ts.
-      - name: Forbid the NaN-producing env fallback inside Number()
-        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && ((github.event_name == 'pull_request') || (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'merge_group')) }}
-        background: true
-        run: node scripts/ci/check-number-env-fallback.mjs
-
       # NB: niente `if:` qui, ed è una constatazione, non una dimenticanza. Un
       # primo tentativo gli aveva messo la stessa condizione dei due
       # `background:` qui sopra (rijoinare solo ciò che si è forkato, dato che
@@ -984,9 +1007,6 @@ jobs:
       # su un file che GitHub rifiuterà, e il rifiuto non arriva come errore di
       # sintassi ma come una run `failure` con ZERO job — cioè, su questo file,
       # il gate di merge che semplicemente non esiste per quel commit.
-      - name: Wait for background source guards
-        wait-all: true
-
       # ══════════════════════════════════════════════════════════════════════
       # FAMIGLIA 2/4 — typecheck (ex job `typecheck (tsc --noEmit)`, #5540)
       # Vite compila con esbuild, che le annotazioni di tipo le RIMUOVE senza
@@ -1035,12 +1055,87 @@ jobs:
       # iterazioni. Il numero finisce nel log come `[mem-sample] MemAvailable
       # min=…MB max=…MB`.
       # ══════════════════════════════════════════════════════════════════════
-      - name: tsc --noEmit (baseline + ratchet)
-        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
-        background: true
+      - name: Start independent source gates
+        id: independent-gates
+        if: ${{ !cancelled() && steps.body_contract.outcome != 'failure' }}
         env:
-          NODE_OPTIONS: --max-old-space-size=8192
-        run: bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
+          RUN_TSC: ${{ steps.body_contract.outcome != 'failure' }}
+          RUN_AUDIT_MARKERS: ${{ steps.body_contract.outcome != 'failure' }}
+          RUN_ACTION_RUNTIMES: ${{ steps.body_contract.outcome != 'failure' }}
+          RUN_INPUT_INJECTION: ${{ steps.body_contract.outcome != 'failure' }}
+          RUN_LOCALE_SEGMENTS: ${{ steps.body_contract.outcome != 'failure' }}
+          RUN_EVERGREEN_TOPICS: ${{ steps.body_contract.outcome != 'failure' }}
+        run: |
+          set -euo pipefail
+          state_dir="${RUNNER_TEMP}/tests-independent-gates"
+          mkdir -p "$state_dir"
+          expected_labels=()
+          if [ "$RUN_TSC" = "true" ]; then
+            expected_labels+=(tsc)
+          fi
+          if [ "$RUN_AUDIT_MARKERS" = "true" ]; then
+            expected_labels+=(audit-markers)
+          fi
+          if [ "$RUN_ACTION_RUNTIMES" = "true" ]; then
+            expected_labels+=(action-runtimes)
+          fi
+          if [ "$RUN_INPUT_INJECTION" = "true" ]; then
+            expected_labels+=(input-injection)
+          fi
+          if [ "$RUN_LOCALE_SEGMENTS" = "true" ]; then
+            expected_labels+=(locale-segments)
+          fi
+          if [ "$RUN_EVERGREEN_TOPICS" = "true" ]; then
+            expected_labels+=(evergreen-topics)
+          fi
+          if [ "${#expected_labels[@]}" -eq 0 ]; then
+            echo "::error::independent gate roster is empty"
+            exit 1
+          fi
+          # Write the expected roster before launching anything. If a launcher
+          # fails between fork and PID registration, the collector still
+          # knows which gate was required and cannot mistake an empty/partial
+          # observed roster for a successful run.
+          printf '%s\n' "${expected_labels[@]}" > "$state_dir/expected-labels"
+          start_gate() {
+            local label="$1"
+            local command="$2"
+            local script="$state_dir/$label.sh"
+            cat > "$script" <<EOF
+          set +e
+          $command
+          status=\$?
+          status_tmp="$state_dir/$label.status.tmp.\$\$"
+          printf '%s\\n' "\$status" > "\$status_tmp"
+          mv "\$status_tmp" "$state_dir/$label.status"
+          exit "\$status"
+          EOF
+            chmod +x "$script"
+            if command -v setsid >/dev/null 2>&1; then
+              nohup setsid bash "$script" > "$state_dir/$label.log" 2>&1 < /dev/null &
+            else
+              nohup bash "$script" > "$state_dir/$label.log" 2>&1 < /dev/null &
+            fi
+            printf '%s\\n' "$!" > "$state_dir/$label.pid"
+          }
+          if [ "$RUN_TSC" = "true" ]; then
+            start_gate tsc 'env NODE_OPTIONS=--max-old-space-size=8192 bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate'
+          fi
+          if [ "$RUN_AUDIT_MARKERS" = "true" ]; then
+            start_gate audit-markers 'npm run audit:no-merge-markers'
+          fi
+          if [ "$RUN_ACTION_RUNTIMES" = "true" ]; then
+            start_gate action-runtimes 'npm run lint:gha-node-runtime'
+          fi
+          if [ "$RUN_INPUT_INJECTION" = "true" ]; then
+            start_gate input-injection 'npm run lint:workflow-input-injection'
+          fi
+          if [ "$RUN_LOCALE_SEGMENTS" = "true" ]; then
+            start_gate locale-segments 'npm run lint:hardcoded-locale-segments'
+          fi
+          if [ "$RUN_EVERGREEN_TOPICS" = "true" ]; then
+            start_gate evergreen-topics 'npm run check:evergreen-comune-topics'
+          fi
 
       # ══════════════════════════════════════════════════════════════════════
 # FAMIGLIA 3/4 — vitest related + i lint deterministici che le
@@ -1084,69 +1179,6 @@ jobs:
       # background non ha una semantica di raccolta documentata, quindi quello
       # step resta in primo piano per costruzione, non per prudenza.
       # ══════════════════════════════════════════════════════════════════════
-      - name: Audit no merge conflict markers
-        # `!cancelled()` SOLO qui, sul primo step della famiglia: da qui in giù
-        # la catena resta fail-fast come quando era un job a sé (gli step si
-        # passano artefatti — assemble → migrate → vitest dependent — e farli
-        # girare su un input mancante produrrebbe un secondo rosso illeggibile).
-        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled()) }}
-        # 0-tolerance gate: blocks any commit that contains unresolved
-        # <<<<<<< / ======= / >>>>>>> markers. Added after the 2026-05-21
-        # incident where 92 job slice files were committed with raw
-        # `git stash pop` conflicts and silently dropped ~3.5k jobs from
-        # production via assemble-jobs-dataset.mjs.
-        background: true
-        run: npm run audit:no-merge-markers
-
-      - name: Lint GHA action Node runtimes
-        # Deterministic guardrail (issue #787, follow-up of #779): fails if any
-        # first-party actions/* step is pinned to a major whose bundled Node
-        # runtime is node16/node20. GitHub defaults the runner to Node 24 on
-        # 2026-06-02 and removes node20 on 2026-09-16 — deprecated actions
-        # accumulate as annotations then hard-fail, which on this repo blocks
-        # the deploy. Catch the regression here instead of reactively (#779).
-        background: true
-        run: npm run lint:gha-node-runtime
-
-      - name: Lint workflow input shell-injection
-        # Deterministic guardrail (issue #5032): fails if a workflow input is
-        # interpolated into a `run:` block. `${{ … }}` is expanded BEFORE the
-        # shell parses the line, so a free-text dispatch input lands as script
-        # text on a runner holding FIREBASE_SERVICE_ACCOUNT_JSON (an
-        # owner-equivalent production service account), CLAUDE_CODE_OAUTH_TOKEN,
-        # ARTICLES_REPO_PAT and the shard deploy keys. Fix = pass through `env:`
-        # and reference the QUOTED shell variable. Also enforced by
-        # tests/workflow-input-injection.test.ts; this step surfaces it without
-        # waiting for the vitest job.
-        background: true
-        run: npm run lint:workflow-input-injection
-
-      - name: Lint hardcoded locale segments
-        # Deterministic guard (escalation #1529, reviewer-finding/i18n-naming):
-        # fails if a language segment (/de/, /fr/, /it/, /en/) is hardcoded as a
-        # string LITERAL inside a dynamically-built URL/path in scripts/**,
-        # build-plugins/** or components/** — instead of using the locale var
-        # (`${locale}` / `perLocaleSlug[locale]`). The reviewer flagged this 🔴
-        # 11×/14d because the path breaks on every locale != the hardcoded one.
-        # Catch it BEFORE the PR reaches review (zero-Claude). New legit cases:
-        # annotate with `// locale-segment-ok: <reason>` or rebaseline post-review.
-        background: true
-        run: npm run lint:hardcoded-locale-segments
-
-      - name: Verify evergreen comune topics pool is current
-        # Deterministic ratchet (follow-up of #6001, issue #6019): fails if
-        # public/evergreen-comune-topics.json does not match what
-        # data/municipalities produces right now. tests/evergreen-comune-topics-published.test.ts
-        # already asserts this same equality, but the script's own --check
-        # mode — documented in its header as "Use it in CI" — was never
-        # actually wired into a workflow; this closes that gap so the
-        # dedicated gate the script was written for exists, not just an
-        # incidental one via the vitest suite. On drift: run
-        # `node scripts/build-evergreen-comune-topics.mjs` and commit the
-        # result.
-        background: true
-        run: npm run check:evergreen-comune-topics
-
       - name: Fetch base ref for the factuality diff
         # Explicit destination refspec (issue #6058): a bare `git fetch origin
         # <branch>` only updates FETCH_HEAD, it does NOT create the
@@ -1358,73 +1390,6 @@ jobs:
           printf '%s\n' "$decision"
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
 
-      - name: Obsolete pre-assemble test slot
-        # Il related run unico viene eseguito dopo assemble+migrate. Questo
-        # vecchio slot resta disattivato per non costruire due volte il grafo
-        # Vitest; il comando non deve mai tornare a `npm test`/suite completa.
-        if: ${{ steps.body_contract.outcome != 'failure' && (false) }}
-        # VITEST_DATASET_GROUP=independent → vitest.config.ts esclude i file
-        # classificati da scripts/ci/dataset-dependent-tests.mjs. La partizione
-        # è calcolata dal sorgente a ogni run. La partizione conserva solo
-        # l'ordine assemble → test dataset: entrambi i comandi sono related-only.
-        #
-        # ─── IN BACKGROUND, E QUESTA POSIZIONE È IL MECCANISMO
-        #
-        # Questo è il task più LUNGO del job, e parte il PRIMA POSSIBILE: è la
-        # finestra dentro cui tutto il resto della seconda metà si nasconde
-        # gratis. «Il prima possibile» ha un limite duro e uno solo — legge
-        # `steps.corpus.outputs.skip`, quindi non può stare sopra lo step che
-        # quell'output lo produce ("Decide i gate corpus-wide", subito sopra).
-        # Più su, l'espressione risolverebbe vuoto: nessuna esclusione, i sette
-        # gate corpus-wide (201,4s misurati) rientrerebbero in un gruppo che
-        # non ne ha bisogno. Sotto questo punto, invece, ogni riga guadagnata
-        # è costo esposto.
-        #
-        # Da qui alla fine del job NON deve esistere nessun `wait-all` tranne
-        # quello finale, e non è una preferenza di stile: `wait-all` NON ha una
-        # forma selettiva — unisce TUTTO ciò che a quel punto è ancora in
-        # background, questo step compreso. Un join intermedio lo assorbirebbe
-        # e rimetterebbe in fila tutto ciò che segue, riportando la wall a
-        # quella sequenziale senza che nulla lo segnali (il `background: true`
-        # qui sotto diventerebbe una decorazione inerte). È esattamente
-        # l'errore che questa PR ha commesso e misurato: vedi la STORIA sullo
-        # step "Assemble + migrate" qui sotto.
-        #
-        # Il corollario è che assemble+migrate e "vitest run (test che leggono
-        # il dataset)" restano step FOREGROUND, in fila fra loro, e girano
-        # dentro questa finestra. Non serve nessun join per ordinarli: la fine
-        # di uno step foreground è già la sincronizzazione del successivo, ed è
-        # l'unica forma di join SELETTIVA che il runner offra — per costruzione
-        # non può catturare questo background.
-        #
-        # Che i due gruppi vitest CPU-bound si contendano le 4 vCPU è il punto,
-        # non un effetto collaterale: `pool: 'threads'` non satura mai
-        # perfettamente (import, I/O, code di file lunghi in coda), e i buchi di
-        # uno sono riempiti dall'altro. Il prezzo è che ogni test diventa più
-        # lento in wall-clock — vedi la STORIA sull'assemble per cosa questo ha
-        # già fatto scadere una volta, e le due mitigazioni con cui rientra.
-        #
-        # Il json reporter alimenta scripts/ci/generate-shard-weights.mjs via
-        # refresh-shard-weights.yml, che scarica `shard-timing-*` con una glob
-        # (progettata per i 4 shard di un tempo) → due file sono già supportati.
-        background: true
-        env:
-          VITEST_DATASET_GROUP: independent
-          # Il gate PR non dipende dal corpus riscritto dai crawler.
-          VITEST_SKIP_LIVE_DATA: 'true'
-          # I due gruppi Vitest girano contemporaneamente: su ubuntu-latest
-          # (4 vCPU) due worker ciascuno evita che ogni processo apra un pool
-          # completo e faccia scadere i test sotto contesa CPU.
-          VITEST_MAX_WORKERS: 2
-          VITEST_CACHE_DIR: node_modules/.vite-independent
-          # Calcolato per diff anche su eventuali run push/manual (non solo su
-          # pull_request, vedi lo step "Decide i gate corpus-wide"); vuoto su qualunque suo
-          # esito anomalo → nessuna esclusione, suite intera. `parseCorpusSkipList`
-          # filtra comunque il valore contro il registro: questa env non puo'
-          # spegnere un test che non sia uno dei sette.
-          VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
-        run: echo "pre-assemble related slot disabled; the single related run executes after assemble+migrate"
-
       - name: Decide whether dataset assembly is required
         id: assemble
         # The selector reuses run-related-tests.mjs's real related graph and
@@ -1554,27 +1519,79 @@ jobs:
           VITEST_SKIP_CORPUS_WIDE: 'true'
         run: node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
 
-      # ══════════════════════════════════════════════════════════════════════
-      # L'UNICO join della seconda metà del job chiude i sei cancelli
-      # deterministici (`tsc` + i cinque lint, avviati molto più sopra).
-      # Devono essere rijoinati PRIMA che il job finisca, altrimenti il loro
-      # esito non entra nel verdetto. Il test
-      # `tests/workflow-background-wait-schema.test.ts` lo verifica in modo
-      # strutturale, su tutti i workflow: ogni `background:` vuole un
-      # `wait-all` DOPO di sé nello stesso job. Questo join è anche l'unico
-      # modo di SAPERE come sono andati: fino a qui il loro esito non esiste.
-      #
-      # `wait-all` non ha una forma selettiva: unisce tutto ciò che è ancora in
-      # background. Va quindi lasciato in fondo, dopo il related run, per non
-      # serializzare i cancelli con assemble+migrate.
-      #
-      # NB: la durata di uno step in background dev'essere legata al LAVORO
-      # che accompagna, mai a un timer proprio — vedi la nota sul
-      # campionatore di memoria rimosso (era appeso a un `sleep` indipendente
-      # dalla suite, e a suite rossa teneva il job in ostaggio mezz'ora).
-      # ══════════════════════════════════════════════════════════════════════
-      - name: Wait for background gates and independent vitest
-        wait-all: true
+      # Collect the detached gate processes after the Vitest run. Each process
+      # publishes an atomic status file; a missing status from a dead process is
+      # a failure, and a non-zero status remains blocking.
+      - name: Collect independent source gates
+        id: collect-independent-gates
+        if: ${{ always() }}
+        run: |
+          set +e
+          state_dir="${RUNNER_TEMP}/tests-independent-gates"
+          failures=0
+          if [ "${{ steps.source-guards.outcome }}" = "failure" ]; then
+            echo "source guards failed"
+            failures=1
+          fi
+          if [ "${{ steps.independent-gates.outcome }}" != "skipped" ]; then
+            expected_file="$state_dir/expected-labels"
+            if [ ! -s "$expected_file" ]; then
+              echo "::error::independent gate expected roster is missing or empty"
+              failures=1
+            else
+              while IFS= read -r label; do
+                [ -n "$label" ] || {
+                  echo "::error::independent gate expected roster contains an empty label"
+                  failures=1
+                  continue
+                }
+                status_file="$state_dir/$label.status"
+                pid_file="$state_dir/$label.pid"
+                if [ ! -s "$pid_file" ]; then
+                  echo "::error::$label did not publish a PID"
+                  failures=1
+                fi
+                while [ ! -s "$status_file" ]; do
+                  if [ ! -s "$pid_file" ]; then
+                    echo "::error::$label cannot be monitored because its PID is missing"
+                    failures=1
+                    break
+                  fi
+                  pid="$(cat "$pid_file" 2>/dev/null || true)"
+                  if ! kill -0 "$pid" 2>/dev/null; then
+                    for retry in 1 2 3 4 5; do
+                      [ -s "$status_file" ] && break
+                      echo "waiting for $label status (attempt $retry/5)"
+                      sleep 1
+                    done
+                    if [ ! -s "$status_file" ]; then
+                      echo "::error::$label exited without publishing a status"
+                      failures=1
+                      break
+                    fi
+                  else
+                    sleep 1
+                  fi
+                done
+                if [ -s "$status_file" ]; then
+                  status="$(cat "$status_file" 2>/dev/null || true)"
+                  echo "[$label] exit=$status"
+                  cat "$state_dir/$label.log" 2>/dev/null || true
+                  case "$status" in
+                    ''|*[!0-9]*)
+                      echo "::error::$label published an invalid exit status: $status"
+                      failures=1
+                      ;;
+                    0) ;;
+                    *) failures=1 ;;
+                  esac
+                fi
+              done < "$expected_file"
+            fi
+          else
+            echo "independent gate step skipped; no detached gates were expected"
+          fi
+          exit "$failures"
 
       # Il salvataggio post-job di `actions/cache` non parte quando uno step
       # successivo fallisce (per esempio Vitest): TSC può essere verde, ma la
@@ -1743,9 +1760,11 @@ jobs:
         run: |
           set -euo pipefail
           set_tier() {
-            echo "tier=$1" >> "$GITHUB_OUTPUT"
-            echo "model=$2" >> "$GITHUB_OUTPUT"
-            echo "max_turns=$3" >> "$GITHUB_OUTPUT"
+            {
+              echo "tier=$1"
+              echo "model=$2"
+              echo "max_turns=$3"
+            } >> "$GITHUB_OUTPUT"
             echo "Review tier: $1 ($2, max-turns $3)"
           }
           # File cambiati dalla PR (per tier). Fallback GraphQL→REST/cap-100 +
@@ -1888,16 +1907,9 @@ jobs:
             set_tier normal claude-opus-5 35
           fi
 
-      - name: Wait for background Headroom install
-        wait-all: true
-
       - name: Setup Headroom compression proxy
         if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         uses: ./.github/actions/setup-headroom
-        with:
-          # L'install è già girato in background sopra: qui serve solo far
-          # partire il proxy e scrivere ANTHROPIC_BASE_URL.
-          skip-install: 'true'
 
       - name: Prefetch review context (zero-Claude, saves turns)
         id: prefetch
@@ -2220,6 +2232,9 @@ jobs:
             # secondo caso è quasi-deterministico su retry: split la PR, non
             # ri-lanciare all'infinito).
             NUM_TURNS=$(grep -oE '"num_turns"[[:space:]]*:[[:space:]]*[0-9]+' "${EXEC_FILE}" | tail -1 | grep -oE '[0-9]+' || true)
+            # The Markdown backticks and Unicode punctuation are intentional
+            # literal content for the issue comment.
+            # shellcheck disable=SC2016,SC1112
             BODY=$(printf '⚠️ **Review automatica fallita** (`terminal_reason=max_turns`, tier `%s`, cap %s turni, turni usati %s): Claude ha esaurito il budget di turni prima di poter postare un verdetto (`## LGTM` / 🔴). Nessuna review è stata pubblicata su questa PR — auto-merge non può scattare finché non ce n’è una.\n\nLog del run: %s\n\nPer sbloccare:\n- rilancia il job (rerun del run `tests` più recente di questa PR fa ripartire anche `pr-review-loop`), oppure\n- esegui la review in locale: checkout del branch, poi lancia la review con lo stesso contratto di `REVIEW.md` sul diff verso `main` (es. skill `/code-review` a effort alto) prima di mergiare a mano.\n\nSe questa PR ha già avuto una morte `max_turns` in precedenza, un retry raramente basta — dato osservato: le morti ripetute sono quasi tutte su PR con molti file indipendenti in un unico batch; valuta di splittarla in PR più piccole.' "${REVIEW_TIER:-?}" "${REVIEW_MAX_TURNS:-?}" "${NUM_TURNS:-?}" "$RUN_URL")
             gh pr comment "$PR_NUMBER" --body "$BODY" || echo "::warning::gh pr comment fallito (non bloccante)."
             echo "::error::Claude review hit max-turns (tier=${REVIEW_TIER:-?}, cap=${REVIEW_MAX_TURNS:-?}, turns=${NUM_TURNS:-?}) without posting a review — re-run this job, or split the PR if this recurs."

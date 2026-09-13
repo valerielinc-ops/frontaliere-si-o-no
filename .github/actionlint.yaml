@@ -1,14 +1,24 @@
-# `tests.yml` and the generated crawler groups use the repository runner's
-# `background:` / `wait-all:` step extension to overlap deterministic gates.
-# actionlint does not know that extension, so ignore only its two schema
-# diagnostics for those workflow paths; ordinary expression, shellcheck, and
-# workflow errors remain enabled.
+# GitHub Actions supports `concurrency.queue` (`single` or `max`), but the
+# actionlint version used by the repository action predates that schema field.
+# Ignore only its stale unknown-key diagnostic for the workflows that use the
+# documented queue policy; all other syntax, expression and shell diagnostics
+# remain enabled.
 paths:
-  .github/workflows/tests.yml:
+  .github/workflows/backfill-expired-from-history.yml:
     ignore:
-      - 'unexpected key "background"'
-      - 'step must run script with "run" section or run action with "uses" section'
-  ".github/workflows/crawler-group-*.yml":
+      - 'unexpected key "queue"'
+  .github/workflows/cleanup-stale-jobs.yml:
     ignore:
-      - 'unexpected key "background"'
-      - 'step must run script with "run" section or run action with "uses" section'
+      - 'unexpected key "queue"'
+  .github/workflows/reconcile-expired-route-duplicates.yml:
+    ignore:
+      - 'unexpected key "queue"'
+  .github/workflows/sync-gsc-orphans.yml:
+    ignore:
+      - 'unexpected key "queue"'
+  .github/workflows/translate-pending.yml:
+    ignore:
+      - 'unexpected key "queue"'
+  .github/corpus-workflows/translate-pending.yml:
+    ignore:
+      - 'unexpected key "queue"'

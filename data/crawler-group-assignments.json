@@ -1,5 +1,5 @@
 {
-  "_comment": "PINNED crawler -> group assignment. Source of truth for which crawler runs in which crawler-group-NN.yml, and in which position (position = order of the generated background steps). Maintained BY scripts/generate-crawler-group-workflows.mjs: edit data/crawler-manifest.json and re-run the generator, never hand-edit this file. A deliberate redistribution of the whole corpus is an explicit --rebalance run (#6482).",
+  "_comment": "PINNED crawler -> group assignment. Source of truth for which crawler runs in which crawler-group-NN.yml, and in which position (position = order of the generated crawler launchers). Maintained BY scripts/generate-crawler-group-workflows.mjs: edit data/crawler-manifest.json and re-run the generator, never hand-edit this file. A deliberate redistribution of the whole corpus is an explicit --rebalance run (#6482).",
   "groupCount": 23,
   "groups": [
     [

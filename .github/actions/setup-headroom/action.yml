@@ -7,10 +7,8 @@ description: >-
   NEVER blocked by a compression-layer problem.
 
   The install/start logic lives in install.sh + start.sh next to this file, not
-  inline here, so a caller can overlap the ~60s install with unrelated work by
-  invoking install.sh as a `background:` step (only `run:` steps support
-  `background:`; on a `uses:` step it breaks the workflow file — see
-  pr-review-loop.yml). Both entry points share one implementation.
+  inline here. The composite action installs Headroom in the foreground and
+  then starts the proxy, so every caller gets a normal GitHub Actions step.
 inputs:
   port:
     description: "Local proxy port."
@@ -20,8 +18,8 @@ inputs:
     default: "proxy,code"
   skip-install:
     description: >-
-      Set to "true" when the caller already ran install.sh itself (e.g. as a
-      background step) and only needs the proxy started.
+      Set to "true" when the caller already ran install.sh itself and only
+      needs the proxy started.
     default: "false"
 runs:
   using: "composite"

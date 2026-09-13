@@ -188,15 +188,17 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(job.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
       expect(job.env.CRAWLER_GENERATION_RECEIPT_DIR)
         .toBe('crawler-generation/receipts');
-      const background = job.steps.filter((step: any) => step.background === true);
-      expect(background).toHaveLength(results.generationRoster.groups[group].length);
-      expect(background.every((step: any) =>
+      const launchers = job.steps.filter((step: any) => step.id?.startsWith('crawler-launch-'));
+      const resultsByCrawler = job.steps.filter((step: any) => step.id?.startsWith('crawler-')
+        && !step.id.startsWith('crawler-launch-')
+        && !step.id.startsWith('crawler-generation-'));
+      expect(launchers).toHaveLength(results.generationRoster.groups[group].length);
+      expect(resultsByCrawler).toHaveLength(launchers.length);
+      expect(launchers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_RECEIPT_DIR'))).toBe(true);
-      expect(background.every((step: any) =>
+      expect(launchers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
-      expect(stepByName(job.steps, 'Wait for all crawlers in this group')).toEqual({
-        name: 'Wait for all crawlers in this group', 'wait-all': true,
-      });
+      expect(resultsByCrawler.every((step: any) => step.if === 'always()')).toBe(true);
       expect(stepByName(job.steps, 'Commit crawler group data atomically')).toEqual({
         name: 'Commit crawler group data atomically',
         if: 'always()',
@@ -266,7 +268,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(portableJob.env.CRAWLER_GENERATION_RECEIPT_DIR)
         .toBe('crawler-generation/receipts');
       const portableProducers = portableJob.steps.filter((step: any) =>
-        step.background === true || step.name === 'Commit crawler group data atomically');
+        step.id?.startsWith('crawler-launch-') || step.name === 'Commit crawler group data atomically');
       expect(portableProducers).toHaveLength(results.generationRoster.groups[group].length + 1);
       expect(portableProducers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);

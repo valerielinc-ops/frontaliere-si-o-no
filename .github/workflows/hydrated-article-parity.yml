@@ -170,6 +170,8 @@ jobs:
         run: |
           set -euo pipefail
           [ -s parity-report.txt ] || exit 0
+          # The Markdown backticks in the literal issue body are intentional.
+          # shellcheck disable=SC2016
           BODY=$(printf '%s\n' \
             'The hub renders articles the client does not have. React drops them on hydration, so a visitor sees an older list than a crawler does.' \
             '' \

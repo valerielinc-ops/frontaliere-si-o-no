@@ -126,21 +126,21 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     expect(canonicalizeNordAngliaJobUrl('https://example.com/job/Aubonne-Teacher/1/?utm_source=rss')).toBe('');
   });
 
-  it('isolates a hard failure to the Nord Anglia background step and its slice', () => {
+  it('isolates a hard failure to the Nord Anglia launch/result pair and its slice', () => {
     const workflowDir = join(ROOT, '.github', 'workflows');
     const groupFiles = readdirSync(workflowDir).filter((file) => /^crawler-group-\d+\.yml$/.test(file));
     const located = groupFiles.flatMap((file) => {
       const workflow = YAML.parse(readFileSync(join(workflowDir, file), 'utf8'));
       return Object.values(workflow?.jobs || {}).flatMap((job: any) => {
         const steps = Array.isArray(job?.steps) ? job.steps : [];
-        const index = steps.findIndex((step: any) => step?.id === 'crawler-nord-anglia');
-        return index < 0 ? [] : [{ file, steps, index, step: steps[index] }];
+        const index = steps.findIndex((step: any) => step?.id === 'crawler-launch-nord-anglia');
+        const resultIndex = steps.findIndex((step: any) => step?.id === 'crawler-nord-anglia');
+        return index < 0 || resultIndex < 0 ? [] : [{ file, steps, index, resultIndex, step: steps[index], result: steps[resultIndex] }];
       });
     });
 
     expect(located).toHaveLength(1);
-    const [{ steps, index, step }] = located;
-    expect(step.background).toBe(true);
+    const [{ steps, index, resultIndex, step, result }] = located;
     expect(step.env.JOBS_SLICE_FILE).toBe('data/jobs/by-crawler/nord-anglia.json');
     expect(step.run).toContain('node scripts/update-nord-anglia-jobs.mjs');
     expect(step.run).toMatch(/crawler_exit=\$\?/);
@@ -148,9 +148,12 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     expect(step.run).toMatch(
       /if \[ "\$crawler_exit" -eq 0 \]; then\s+CRAWLER_GROUP_DEFER_COMMIT=1\s+flock .*git-commit-data\.sh/,
     );
-    expect(steps.slice(0, index).some((candidate: any) => candidate?.background === true)).toBe(true);
-    expect(steps.slice(index + 1).some((candidate: any) => candidate?.background === true)).toBe(true);
-    expect(steps.slice(index + 1).some((candidate: any) => candidate?.['wait-all'] === true)).toBe(true);
+    expect(result).toMatchObject({ if: 'always()' });
+    expect(result.run).toContain('status_file=');
+    expect(result.run).toContain('exit "$status"');
+    expect(resultIndex).toBeGreaterThan(index);
+    expect(steps.slice(0, index).some((candidate: any) => candidate?.id?.startsWith('crawler-launch-'))).toBe(true);
+    expect(steps.slice(index + 1, resultIndex).some((candidate: any) => candidate?.id?.startsWith('crawler-launch-'))).toBe(true);
   });
 
   it('logs a canonical URL drop without exposing its query and fails on feed-wide URL drift', async () => {

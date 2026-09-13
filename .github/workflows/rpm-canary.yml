@@ -171,10 +171,12 @@ jobs:
         if: always()
         run: |
           if [ -s rpm-canary-result.json ]; then
-            echo "## RPM canary" >> "$GITHUB_STEP_SUMMARY"
-            echo '```json' >> "$GITHUB_STEP_SUMMARY"
-            cat rpm-canary-result.json >> "$GITHUB_STEP_SUMMARY"
-            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            {
+              echo "## RPM canary"
+              echo '```json'
+              cat rpm-canary-result.json
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Build issue body

@@ -123,10 +123,10 @@ jobs:
         id: changes
         run: |
           if git diff --quiet && git diff --cached --quiet; then
-            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
             echo "ℹ️ No parser changes detected"
           else
-            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
             echo "📝 Parser updates detected:"
             git status --short
           fi

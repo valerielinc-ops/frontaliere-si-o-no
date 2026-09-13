@@ -30,6 +30,17 @@ interface Crawler {
   durationMs: number;
 }
 
+function crawlerLaunchSteps(steps: any[]) {
+  return steps.filter((step) => typeof step?.id === 'string' && step.id.startsWith('crawler-launch-'));
+}
+
+function crawlerResultSteps(steps: any[]) {
+  return steps.filter((step) => typeof step?.id === 'string'
+    && /^crawler-[a-z0-9-]+$/.test(step.id)
+    && !step.id.startsWith('crawler-launch-')
+    && !step.id.startsWith('crawler-generation-'));
+}
+
 function makeCrawlers(n: number, durationFn: (i: number) => number): Crawler[] {
   return Array.from({ length: n }, (_, i) => ({ slug: `crawler-${i}`, durationMs: durationFn(i) }));
 }
@@ -754,18 +765,19 @@ describe('#6380 — one atomic commit per crawler group', () => {
       const doc = YAML.parse(fs.readFileSync(path.join(workflowsDir, file), 'utf8'));
       const job = doc.jobs[Object.keys(doc.jobs)[0]];
       expect(job.env.CRAWLER_GROUP_COMMIT_DIR).toBe('crawler-generation/commit-batch');
-      const background = job.steps.filter((step) => step.background === true);
-      expect(background.length).toBeGreaterThan(0);
-      for (const step of background) {
+      const launchers = crawlerLaunchSteps(job.steps);
+      const results = crawlerResultSteps(job.steps);
+      expect(launchers.length).toBeGreaterThan(0);
+      expect(results).toHaveLength(launchers.length);
+      for (const step of launchers) {
         expect(step.run).toContain('CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock');
       }
 
-      const waitIndex = job.steps.findIndex((step) => step['wait-all'] === true);
       const batchIndexes = job.steps
         .map((step, index) => ({ step, index }))
         .filter(({ step }) => step.name === 'Commit crawler group data atomically');
       expect(batchIndexes).toHaveLength(1);
-      expect(batchIndexes[0].index).toBe(waitIndex + 1);
+      expect(batchIndexes[0].index).toBeGreaterThan(Math.max(...results.map((step) => job.steps.indexOf(step))));
       expect(batchIndexes[0].step.if).toBe('always()');
       expect(batchIndexes[0].step.run).toContain('git-commit-data.sh --group-batch');
       const cleanupIndex = job.steps.findIndex((step) => step.name === 'Cleanup Codex auth broker');
@@ -838,10 +850,9 @@ describe('real-corpus invariant: every manifest crawler in exactly one committed
       const doc = YAML.parse(fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8'));
       const jobKey = Object.keys(doc.jobs)[0];
       const steps = doc.jobs[jobKey].steps;
-      for (const step of steps) {
-        if (!step.background) continue;
-        const match = /^crawler-(.+)$/.exec(step.id ?? '');
-        expect(match, `background step in ${f} has no 'crawler-<slug>' id: ${JSON.stringify(step.id)}`).not.toBeNull();
+      for (const step of crawlerLaunchSteps(steps)) {
+        const match = /^crawler-launch-(.+)$/.exec(step.id ?? '');
+        expect(match, `crawler launch step in ${f} has no 'crawler-launch-<slug>' id: ${JSON.stringify(step.id)}`).not.toBeNull();
         const slug = match[1];
         const list = occurrences.get(slug) ?? [];
         list.push(f);
@@ -1284,7 +1295,7 @@ describe('cross-repo crawler execution artifacts', () => {
       ...Object.values(generatedArmaniDoc.jobs)[0].steps,
       ...Object.values(armaniLogicDoc.jobs)[0].steps,
     ]
-      .filter((step: any) => step.background === true)
+      .filter((step: any) => step.id?.startsWith('crawler-launch-'))
       .flatMap((step: any) => Object.values(step.env ?? {}))
       .filter((value: any): value is string => typeof value === 'string');
     expect(stepValues.some((value) => value.includes('github.event.inputs.'))).toBe(false);
@@ -1292,7 +1303,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(stepValues.some((value) => value.includes('inputs.strict_localization'))).toBe(true);
     expect(stepValues.some((value) => value.includes('inputs.scan_start_id'))).toBe(true);
     const armaniStep = Object.values(armaniLogicDoc.jobs)[0].steps
-      .find((step: any) => step.id === 'crawler-giorgio-armani');
+      .find((step: any) => step.id === 'crawler-launch-giorgio-armani');
     expect(armaniStep.env.JOBS_GIORGIO_ARMANI_STRICT).toBe("${{ inputs.strict_localization || '0' }}");
   });
 
@@ -1310,12 +1321,12 @@ describe('cross-repo crawler execution artifacts', () => {
       .toThrow(/full job mismatch/);
   });
 
-  it('rifiuta campi futuri non normalizzati sui background step', () => {
+  it('rifiuta campi futuri non normalizzati sui crawler launch step', () => {
     const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
     const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
     const doc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
     const job: any = Object.values(doc.jobs)[0];
-    job.steps.find((step: any) => step.background === true).if = 'always()';
+    job.steps.find((step: any) => step.id?.startsWith('crawler-launch-')).if = 'always()';
     expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(doc), path.basename(logicPath)))
       .toThrow(/full job mismatch/);
   });
@@ -1489,7 +1500,7 @@ describe('cross-repo crawler execution artifacts', () => {
     const executed = fs.readdirSync(executedDir)
       .filter((file) => /^crawler-group-/.test(file))
       .map((file) => fs.readFileSync(path.join(executedDir, file), 'utf8'))
-      .filter((text) => text.includes(`id: crawler-${target}\n`) && text.includes('background: true'));
+      .filter((text) => text.includes(`id: crawler-launch-${target}\n`));
     expect(executed).toHaveLength(1);
     for (const observer of CORPUS_OBSERVER_FILES) {
       expect(fs.readFileSync(path.join(corpusRoot, observer.target), 'utf8'))
@@ -1603,7 +1614,7 @@ describe('cross-repo crawler execution artifacts', () => {
     const generated = YAML.parse(fs.readFileSync(path.join(outDir, 'crawler-group-01.yml'), 'utf8'));
     const logic = YAML.parse(fs.readFileSync(path.join(workflowsDir, 'crawler-group-01-logic.yml'), 'utf8'));
     const generatedSteps = Object.values(generated.jobs)[0].steps;
-    const crawlerSteps = generatedSteps.filter((step: any) => step.background === true);
+    const crawlerSteps = crawlerLaunchSteps(generatedSteps);
     const setupStep = generatedSteps.find(
       (step: any) => step.uses === './.github/actions/setup-claude-haiku-fallback',
     );
@@ -1625,7 +1636,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(logicSetupStep?.id).toBe('setup_claude_haiku_fallback');
     expect(logicSetupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
     expect(Object.values(logic.jobs)[0].steps
-      .filter((step: any) => step.background === true)
+      .filter((step: any) => step.id?.startsWith('crawler-launch-'))
       .every((step: any) => step.env?.CODEX_AUTH_JSON === undefined
         && step.env?.CODEX_AUTH_BROKER_SOCKET
           === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
@@ -1728,7 +1739,7 @@ describe('cross-repo crawler execution artifacts', () => {
 
       const backoffAt = job.steps.findIndex((step: any) => /Backoff 30s/.test(step.name ?? ''));
       const firstLogicAt = job.steps.findIndex((step: any) =>
-        step.background === true || /^Phase /.test(step.name ?? ''));
+        step.id?.startsWith('crawler-launch-') || /^Phase /.test(step.name ?? ''));
       expect(backoffAt).toBeGreaterThan(0);
       expect(job.steps[backoffAt].run).toContain('sleep 30');
       expect(firstLogicAt).toBeGreaterThan(backoffAt);
@@ -1773,7 +1784,7 @@ describe('cross-repo crawler execution artifacts', () => {
         expect(reporter.with.repo).not.toBe('valerielinc-ops/frontaliere-si-o-no');
         expect(reporter.with['workflow-file']).not.toContain('-logic.yml');
       }
-      const firstCrawlerAt = job.steps.findIndex((step: any) => step.background === true);
+      const firstCrawlerAt = job.steps.findIndex((step: any) => step.id?.startsWith('crawler-launch-'));
       const reporterAt = job.steps.indexOf(reporters[0]);
       if (artifact.members.length > 0) {
         expect(reporterAt, artifact.file).toBeLessThan(firstCrawlerAt);
@@ -1791,9 +1802,9 @@ describe('cross-repo crawler execution artifacts', () => {
     for (const artifact of contract.artifacts.filter((item: any) => item.members.length > 0)) {
       const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
       const job: any = Object.values(doc.jobs)[0];
-      const executed = job.steps.filter((step: any) => step.background === true);
+      const executed = crawlerLaunchSteps(job.steps);
       expect(executed.map((step: any) => step.id)).toEqual(
-        artifact.members.map((member: string) => `crawler-${member}`),
+        artifact.members.map((member: string) => `crawler-launch-${member}`),
       );
       expect(new Set(executed.map((step: any) => step.id)).size).toBe(executed.length);
       expect(job.needs).toBeUndefined();

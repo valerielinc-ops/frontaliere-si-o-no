@@ -246,22 +246,17 @@ jobs:
       # serve 200, else the live site can't boot → fail → caller rolls back.
       # If no CDN /assets/ ref is present (assets stayed same-origin this round —
       # Guard B kept dist/assets), there is nothing to verify → pass.
-      # ── Parallel live gates ──────────────────────────────────────────────
-      # The CDN-bundle curl check and the CLS gate (PSI — network-bound, light
-      # local CPU) are mutually independent and touch disjoint paths, so they run
-      # as `background:` steps overlapping the foreground Playwright chain (Live
-      # smoke → visual regression). `wait-all` near the end rejoins them; a failed
-      # background gate still fails the job (verified live, probe run 28352247167).
-      # The two Playwright steps stay foreground + sequential — they share
-      # playwright-report/ + test-results/ and would clobber each other if run
-      # concurrently. Load RC is hoisted here so the backgrounded CLS step
-      # inherits the PageSpeed key from $GITHUB_ENV before it launches.
+      # ── Live validation gates ───────────────────────────────────────────
+      # These gates are ordinary foreground steps. Keeping them in the
+      # documented Actions execution model makes each network check's failure
+      # visible at its own step and avoids relying on an undocumented join.
+      # The two Playwright steps remain sequential because they share
+      # playwright-report/ + test-results/.
       - name: Load RC secrets (PageSpeed API key)
         run: node scripts/load-rc-env.mjs
 
       - name: Verify CDN-offloaded bundle serves live
         id: cdn-gate
-        background: true
         env:
           LIVE_BASE_URL: https://frontaliereticino.ch
         run: |
@@ -330,7 +325,6 @@ jobs:
       #   3. counts agree with the manifest → the set is not truncated.
       - name: Verify canton job shards serve from CDN
         id: canton-shards-gate
-        background: true
         env:
           CDN_BASE_URL: https://cdn.frontaliereticino.ch
         run: |
@@ -382,10 +376,8 @@ jobs:
       # and ad-bid; without this gate, every refactor risks pushing it up another
       # notch. Improving the baseline requires running `audit-cls-live --rebaseline`
       # locally and committing the diff together with the fix.
-      # Backgrounded so PSI's serial/quota-limited wait overlaps the Playwright chain.
       - name: CLS regression gate
         id: cls-gate
-        background: true
         env:
           LIVE_BASE_URL: https://frontaliereticino.ch
         run: node scripts/audit-cls-live.mjs
@@ -410,13 +402,6 @@ jobs:
           PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
           LIVE_BASE_URL: https://frontaliereticino.ch
         run: npx playwright test tests/e2e/seo-visual-regression.spec.ts
-
-      # Rejoin the backgrounded CDN bundle + canton-shard + CLS gates. A failure
-      # in any of them surfaces here and fails the job. The upload + reporter
-      # steps below are always()/failure()-gated, so they still run on a gate
-      # failure (verified live, probe run 28352484149).
-      - name: Wait for parallel live gates (CDN bundle + canton shards + CLS)
-        wait-all: true
 
       - name: Upload CLS report
         if: always()

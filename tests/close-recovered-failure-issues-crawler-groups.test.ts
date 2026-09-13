@@ -6,14 +6,15 @@
  * issue title embedded a real, dispatchable workflow name (one workflow per
  * crawler), resolvable via `gh run list -w <name>`. After consolidation, 581
  * individual crawler workflows were replaced by 23 grouped
- * `crawler-group-*.yml` workflows, each running ~25 crawlers as concurrent
- * `background: true` steps in ONE job. `${{ github.workflow }}` inside each
- * crawler's inlined failure-report step now resolves to the shared GROUP's
- * name for every crawler in it — so scripts/generate-crawler-group-workflows.mjs
- * substitutes it with a literal, per-crawler-unique `Run <slug>` identifier at
- * generation time instead (see that script's "HAZARD FIX 3"). This reconciler
- * must therefore resolve `Run <slug>` back to (a) which group currently
- * contains that crawler, and (b) that specific background STEP's own
+ * `crawler-group-*.yml` workflows, each launching ~25 crawlers in detached
+ * `run:` steps and collecting their results in matching `Run <slug>` steps.
+ * `${{ github.workflow }}` inside each crawler's inlined failure-report step
+ * now resolves to the shared GROUP's name for every crawler in it — so
+ * scripts/generate-crawler-group-workflows.mjs substitutes it with a literal,
+ * per-crawler-unique `Run <slug>` identifier at generation time instead (see
+ * that script's "HAZARD FIX 3"). This reconciler must therefore resolve
+ * `Run <slug>` back to (a) which group currently contains that crawler, and
+ * (b) that specific result STEP's own
  * conclusion inside the group's shared job run — NOT the job's overall
  * conclusion, which would incorrectly reflect sibling crawlers' failures too.
  */
@@ -123,10 +124,18 @@ describe('findCrawlerGroupWorkflowName — resolves a crawler slug to its CURREN
   });
 
   function writeGroupFile(dir: string, filename: string, name: string, slugs: string[]) {
-    const steps = slugs.map((s) => `      - name: Run ${s}\n        id: crawler-${s}\n        background: true\n`).join('');
+    const steps = slugs.map((s) => [
+      `      - name: Launch ${s}`,
+      `        id: crawler-launch-${s}`,
+      '        run: echo launch',
+      `      - name: Run ${s}`,
+      `        id: crawler-${s}`,
+      '        if: always()',
+      '        run: echo result',
+    ].join('\n') + '\n').join('');
     fs.writeFileSync(
       path.join(dir, filename),
-      `name: ${name}\non:\n  workflow_dispatch: {}\njobs:\n  group:\n    runs-on: ubuntu-latest\n    steps:\n${steps}      - name: Wait\n        wait-all: true\n`,
+      `name: ${name}\non:\n  workflow_dispatch: {}\njobs:\n  group:\n    runs-on: ubuntu-latest\n    steps:\n${steps}`,
     );
   }
 

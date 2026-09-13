@@ -48,24 +48,29 @@ jobs:
       # The evidence index (GA4/PostHog network fetch) and the article
       # embeddings (local ONNX CPU work) are independent and write disjoint
       # files (data/evidence-index.json vs data/article-embeddings*.{bin,json}),
-      # so they run as background steps concurrently. `wait-all` rejoins before
-      # the commit; a failure in either still fails the job (verified live).
-      - name: Build evidence index
-        id: evidence-index
-        background: true
-        run: node scripts/build-evidence-index.mjs
-
-      - name: Build article embeddings (incremental)
-        id: article-embeddings
-        background: true
-        run: node scripts/build-article-embeddings.mjs --incremental
+      # so they run as ordinary shell processes in parallel. The explicit waits
+      # keep the commit behind both commands and preserve either failure.
+      - name: Build evidence index + article embeddings (parallel)
         env:
           # Local ONNX embeddings (no API key). Cache model weights in-repo so the
           # actions/cache step above persists them across runs.
           TRANSFORMERS_CACHE: .cache/transformers
-
-      - name: Wait for evidence index + embeddings
-        wait-all: true
+        run: |
+          set +e
+          node scripts/build-evidence-index.mjs > "$RUNNER_TEMP/evidence-index.log" 2>&1 &
+          evidence_pid=$!
+          node scripts/build-article-embeddings.mjs --incremental > "$RUNNER_TEMP/article-embeddings.log" 2>&1 &
+          embeddings_pid=$!
+          evidence_status=0
+          embeddings_status=0
+          wait "$evidence_pid" || evidence_status=$?
+          wait "$embeddings_pid" || embeddings_status=$?
+          cat "$RUNNER_TEMP/evidence-index.log"
+          cat "$RUNNER_TEMP/article-embeddings.log"
+          if [ "$evidence_status" -ne 0 ] || [ "$embeddings_status" -ne 0 ]; then
+            echo "evidence_status=$evidence_status embeddings_status=$embeddings_status"
+            exit 1
+          fi
 
       - name: Commit evidence
         run: |

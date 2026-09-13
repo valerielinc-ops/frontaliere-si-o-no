@@ -122,13 +122,13 @@ jobs:
 
           mkdir -p reports
 
-          FLAGS="--days $DAYS --save"
+          args=(--days "$DAYS" --save)
           if [ "$SECTION" != "all" ]; then
-            FLAGS="$FLAGS --$SECTION"
+            args+=("--$SECTION")
           fi
 
           echo "📊 Running analytics report ($SECTION, last $DAYS days)..."
-          node scripts/analytics-report.mjs $FLAGS
+          node scripts/analytics-report.mjs "${args[@]}"
         continue-on-error: true
 
       - name: Commit AI channel history
@@ -369,7 +369,7 @@ jobs:
                     console.log('- **' + safe(String(s.message || '').slice(0, 80)) + '** (' + s.count + 'x)');
                     const lines = String(s.stack || '').split(/\\\\n|at /).filter(Boolean).slice(0, 2);
                     for (const line of lines) {
-                      console.log('  - `' + safe(line.trim().slice(0, 80)) + '`');
+                      console.log('  - ' + String.fromCharCode(96) + safe(line.trim().slice(0, 80)) + String.fromCharCode(96));
                     }
                   }
                 }

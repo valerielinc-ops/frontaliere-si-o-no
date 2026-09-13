@@ -158,9 +158,9 @@ jobs:
           source_run=$(gh run view "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --json event,headBranch,headSha,conclusion)
           source_event=$(jq -r '.event // ""' <<<"$source_run")
           source_branch=$(jq -r '.headBranch // ""' <<<"$source_run")
-          source_sha=$(jq -r '.headSha // ""' <<<"$source_run")
+          observed_source_sha=$(jq -r '.headSha // ""' <<<"$source_run")
           source_conclusion=$(jq -r '.conclusion // ""' <<<"$source_run")
-          if [ "$source_branch" != 'main' ] || [ "$source_event" = 'pull_request' ] || [ "$source_sha" != "$SOURCE_SHA" ] || [ "$source_conclusion" = 'cancelled' ]; then
+          if [ "$source_branch" != 'main' ] || [ "$source_event" = 'pull_request' ] || [ "$observed_source_sha" != "$SOURCE_SHA" ] || [ "$source_conclusion" = 'cancelled' ]; then
             echo "::error::source run is not an eligible completed main run; refusing durable persistence"
             exit 1
           fi

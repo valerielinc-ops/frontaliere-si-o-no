@@ -70,6 +70,8 @@
 # fired on `types: [completed]`, i.e. as soon as the orchestrator job itself
 # finished dispatching, not after the crawls complete). See
 # orchestrate-crawlers.yml's own "Dispatch translate-pending" step.
+name: Translate Pending Jobs (logic)
+
 on:
   workflow_call:
     inputs:
