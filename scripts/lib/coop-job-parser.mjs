@@ -262,7 +262,7 @@ export function validateCoopDescription(markdown = '', sourceHtmlLength = 0) {
     warnings.push('No structured sections found (no headings or lists)');
   }
 
-  return { ok: warnings.length === 0, warnings };
+  return { ok: warnings.length === 0, warnings, textLength };
 }
 
 function jsonLdAddressCandidates(jsonLd = {}) {
@@ -382,8 +382,12 @@ export function applyCoopSourceDetailToJob(job, jsonLd) {
   const sourceHtml = String(jsonLd?.description || '');
   const description = coopDescHtmlToMarkdown(sourceHtml);
   const validation = validateCoopDescription(description, sourceHtml.length);
-  if (!validation.ok || wordCount(description) < 50) {
-    throw detailRejection(`Coop-family detail description rejected: ${validation.warnings.join('; ') || `${wordCount(description)} words`}`);
+  const descriptionWordCount = wordCount(description);
+  if (!validation.ok || descriptionWordCount < 50) {
+    const warningText = validation.warnings.join('; ') || 'Description below minimum 50 words';
+    throw detailRejection(
+      `Coop-family detail description rejected (${descriptionWordCount} words, ${validation.textLength} chars): ${warningText}`,
+    );
   }
 
   const detailEvidence = jsonLdAddressCandidates(jsonLd)
@@ -484,6 +488,8 @@ function singleLineErrorMessage(error) {
  * network/DNS/TLS error remains fail-closed: the listing alone cannot prove
  * that the source is still reachable, while its rich fallback is safe for an
  * otherwise complete crawl that received one 503.
+ * `dropBudgetDenominator` controls the population used by the source-drift
+ * ratio guard; when omitted, it remains `input.length` for all callers.
  * `onDropSummary` receives `{ candidates, gone, rejected, dropped }` once the
  * batch settles, including a zero-drop observation. The same object is kept as
  * a non-enumerable `.detailDrop` on the returned array for standard-pipeline
@@ -498,8 +504,12 @@ export async function enrichCoopSourceBackedJobs(jobs, {
   onRejected = null,
   onDropSummary = null,
   preserveListingOnTransientFailure = false,
+  dropBudgetDenominator = undefined,
 } = {}) {
   const input = Array.isArray(jobs) ? jobs : [];
+  const abortDenominator = Number.isFinite(dropBudgetDenominator)
+    ? dropBudgetDenominator
+    : input.length;
   const output = new Array(input.length);
   const gone = [];
   const rejected = [];
@@ -576,13 +586,24 @@ export async function enrichCoopSourceBackedJobs(jobs, {
       }
     }
   });
-  await Promise.all(workers);
+  let firstUnexpectedError;
+  let hasUnexpectedError = false;
+  const settledWorkers = workers.map((workerPromise) => workerPromise.catch((error) => {
+    if (!hasUnexpectedError) {
+      firstUnexpectedError = error;
+      hasUnexpectedError = true;
+    }
+    throw error;
+  }));
+  await Promise.allSettled(settledWorkers);
   const detailDrop = Object.freeze({
     candidates: input.length,
     gone: gone.length,
     rejected: rejected.length,
     dropped: gone.length + rejected.length,
   });
+  const sourceDriftDetected = input.length >= DETAIL_DROP_ABORT_MIN_BATCH
+    && detailDrop.dropped > abortDenominator * DETAIL_DROP_ABORT_RATIO;
   const publishDropSummary = (jobs) => {
     Object.defineProperty(jobs, 'detailDrop', {
       value: detailDrop,
@@ -591,30 +612,33 @@ export async function enrichCoopSourceBackedJobs(jobs, {
     });
     return jobs;
   };
-  if (typeof onDropSummary === 'function') onDropSummary(detailDrop);
+  const reportDropOutcomes = () => {
+    if (typeof onDropSummary === 'function') onDropSummary(detailDrop);
+    if (gone.length > 0) {
+      const goneLabels = gone.map(({ url, status }) => `${url} (HTTP ${status})`);
+      console.warn(`⚠️  Dropped ${gone.length}/${input.length} withdrawn Coop-family vacancies: ${goneLabels.join(', ')}`);
+      if (!sourceDriftDetected && typeof onGone === 'function') onGone(gone.map(({ url }) => url));
+    }
+    if (rejected.length > 0) {
+      const rejectedLabels = rejected.map(({ url, reason }) => `${url} (${reason})`);
+      console.warn(`⚠️  Dropped ${rejected.length}/${input.length} unusable Coop-family detail payloads: ${rejectedLabels.join(', ')}`);
+      if (!sourceDriftDetected && typeof onRejected === 'function') onRejected(rejected.map(({ url }) => url));
+    }
+    if (unavailable.length > 0) {
+      console.warn(`⚠️  Kept ${unavailable.length}/${input.length} listing-backed Coop-family vacancies after retryable detail failures:`);
+      for (const { url, reason } of unavailable) console.warn(`  - ${url} (${reason})`);
+    }
+  };
+  reportDropOutcomes();
+  if (hasUnexpectedError) throw firstUnexpectedError;
   if (gone.length === 0 && rejected.length === 0 && unavailable.length === 0) {
     return publishDropSummary(output);
   }
-  const dropped = detailDrop.dropped;
-  if (input.length >= DETAIL_DROP_ABORT_MIN_BATCH && dropped > input.length * DETAIL_DROP_ABORT_RATIO) {
+  if (sourceDriftDetected) {
     throw new Error(
       `Coop-family detail batch: ${gone.length}/${input.length} pages gone (HTTP 404/410), `
       + `${rejected.length}/${input.length} rejected — source drift, not vacancy expiry`,
     );
-  }
-  if (gone.length > 0) {
-    const goneLabels = gone.map(({ url, status }) => `${url} (HTTP ${status})`);
-    console.warn(`⚠️  Dropped ${gone.length}/${input.length} withdrawn Coop-family vacancies: ${goneLabels.join(', ')}`);
-    if (typeof onGone === 'function') onGone(gone.map(({ url }) => url));
-  }
-  if (rejected.length > 0) {
-    const rejectedLabels = rejected.map(({ url, reason }) => `${url} (${reason})`);
-    console.warn(`⚠️  Dropped ${rejected.length}/${input.length} unusable Coop-family detail payloads: ${rejectedLabels.join(', ')}`);
-    if (typeof onRejected === 'function') onRejected(rejected.map(({ url }) => url));
-  }
-  if (unavailable.length > 0) {
-    console.warn(`⚠️  Kept ${unavailable.length}/${input.length} listing-backed Coop-family vacancies after retryable detail failures:`);
-    for (const { url, reason } of unavailable) console.warn(`  - ${url} (${reason})`);
   }
   return publishDropSummary(output.filter((job) => job !== undefined));
 }
