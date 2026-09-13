@@ -82505,6 +82505,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-allarme-medici-frontalieri-ticino': {
+    title: 'Ticino, allarme medici: Denti chiede limiti ai frontalieri',
+    description: 'Il presidente dell\'Ordine dei medici ticinesi Franco Denti lancia l\'allarme sulla carenza di personale e chiede una riflessione etica sul reclutamento estero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, allarme, medici, denti, chiede',
+    ogTitle: 'Ticino, allarme medici: Denti chiede limiti ai frontalieri',
+    ogDescription: 'Franco Denti, presidente dell\'Ordine dei medici ticinesi, evidenzia la disparità nel numero di medici tra Ticino e Como e invoca una riflessione etica sul reclutamento di sanitari frontalieri.',
+    canonicalPath: '/articoli-svizzera/allarme-medici-frontalieri-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino, allarme medici: Denti chiede limiti ai frontalieri",
+      "description": "Il presidente dell'Ordine dei medici ticinesi Franco Denti lancia l'allarme sulla carenza di personale e chiede una riflessione etica sul reclutamento estero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/allarme-medici-frontalieri-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un centro medico nel Ticino con architettura moderna"
+      },
+      "datePublished": "2026-09-13T08:11:23+00:00",
+      "dateModified": "2026-09-13T08:11:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/allarme-medici-frontalieri-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

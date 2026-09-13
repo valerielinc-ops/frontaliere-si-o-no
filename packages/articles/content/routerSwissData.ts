@@ -2144,6 +2144,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'attacco-hacker-salt-dati-clienti': { it: 'attacco-hacker-salt-dati-clienti', en: 'salt-cyber-attack-customer-data', de: 'salt-cyberangriff-kundendaten', fr: 'cyberattaque-salt-donnees-clients' },
  'dazi-usa-seco-commercio': { it: 'dazi-usa-seco-commercio', en: 'us-tariffs-seco-trade', de: 'usa-zoelle-seco-handel', fr: 'tarifs-usa-seco-commerce' },
  'furto-apparecchiature-mediche-roma': { it: 'furto-apparecchiature-mediche-roma', en: 'theft-medical-equipment-roma', de: 'diebstahl-medizinische-geraete-rom', fr: 'vol-equipement-medical-rome' },
+ 'allarme-medici-frontalieri-ticino': { it: 'allarme-medici-frontalieri-ticino', en: 'alarm-cross-border-doctors-ticino', de: 'alarm-grenzgaenger-aerzte-tessin', fr: 'alerte-medecins-frontaliers-tessin' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

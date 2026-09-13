@@ -6355,6 +6355,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.furto-apparecchiature-mediche-roma.title': 'Swiss company robbed in Rome: instrumentation found',
     'blog.article.furto-apparecchiature-mediche-roma.excerpt': 'The medical equipment of a Swiss company stolen on Thursday morning was found in Rome. The equipment was recovered by the local police.',
     'blog.article.furto-apparecchiature-mediche-roma.imageAlt': 'Medical equipment of a Swiss company found in Rome',
+    'blog.article.allarme-medici-frontalieri-ticino.title': 'Ticino, medical alarm: Teeth ask border crossers for limits',
+    'blog.article.allarme-medici-frontalieri-ticino.excerpt': 'The president of the Order of Doctors of Ticino Franco Denti warns: Ticino has one doctor for every 900 inhabitants, at Como one for every 2,000. Ethical reflection is needed.',
+    'blog.article.allarme-medici-frontalieri-ticino.imageAlt': 'View of a medical center in Ticino with modern architecture',
 };
 
 export default blogMetaChEn;

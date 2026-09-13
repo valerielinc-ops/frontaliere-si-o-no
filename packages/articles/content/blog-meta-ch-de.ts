@@ -6355,6 +6355,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.furto-apparecchiature-mediche-roma.title': 'Schweizer Firma in Rom ausgeraubt: Instrumentierung gefunden',
     'blog.article.furto-apparecchiature-mediche-roma.excerpt': 'Am Donnerstagmorgen wurden in Rom die medizinischen Geräte eines Schweizer Unternehmens gestohlen. Die Instrumente wurden von der örtlichen Polizei geborgen.',
     'blog.article.furto-apparecchiature-mediche-roma.imageAlt': 'Medizinische Geräte eines Schweizer Unternehmens in Rom gefunden',
+    'blog.article.allarme-medici-frontalieri-ticino.title': 'Tessin, ärztlicher Alarm: Denti fordert Grenzüberschreitungen von Grenzgängern',
+    'blog.article.allarme-medici-frontalieri-ticino.excerpt': 'Der Präsident der Tessiner Ärztekammer Franco Denti warnt: Das Tessin hat einen Arzt pro 900 Einwohner, Como einen pro 2.000. Es bedarf einer ethischen Reflexion.',
+    'blog.article.allarme-medici-frontalieri-ticino.imageAlt': 'Ansicht eines medizinischen Zentrums im Tessin mit moderner Architektur',
 };
 
 export default blogMetaChDe;
