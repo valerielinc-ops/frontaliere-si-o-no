@@ -28,7 +28,7 @@ import { DATA_CONTROLLER_NAME, DATA_CONTROLLER_EMAIL } from '../functions/src/li
 // Node ESM.
 import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
-import { normalizeStructuredData } from '../services/seo/schema-normalizers';
+import { normalizeArticleStructuredData, normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
 import { unescapeTsString as sharedUnescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../scripts/lib/unescape-ts-string.mjs';
@@ -2450,7 +2450,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  parsed = parsed.filter((item: Record<string, unknown>) => String(item['@type'] || '') !== 'WebPage');
  }
  }
- parsed = normalizeStructuredData(parsed);
+ parsed = normalizeArticleStructuredData(normalizeStructuredData(parsed));
  // Cap oversized ItemList payloads. The auto-generated blog ItemList
  // (services/seo/seo-pages.ts:blog) grows by ~1 entry per published
  // article and now exceeds 900 items — that single inline JSON-LD
