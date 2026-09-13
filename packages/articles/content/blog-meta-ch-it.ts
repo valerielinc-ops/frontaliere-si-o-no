@@ -6331,6 +6331,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.difesa-droni-infrastrutture-berna.title': 'Difesa dai droni in Svizzera: al via l\'esercitazione a Berna',
     'blog.article.difesa-droni-infrastrutture-berna.excerpt': 'Partita una quattro-giorni di esercitazione congiunta nel Canton Berna dedicata alla protezione delle infrastrutture critiche e degli impianti energetici dai velivoli senza pilota.',
     'blog.article.difesa-droni-infrastrutture-berna.imageAlt': 'Torre di trasmissione sul Bantiger nel Canton Berna durante un esercizio di sicurezza',
+    'blog.article.hormuz-petrolio-200-dollari.title': 'Petrolio a 200 dollari: rischi per l\'economia e la Svizzera',
+    'blog.article.hormuz-petrolio-200-dollari.excerpt': 'Rischio di crollo congiunturale mondiale e petrolio fino a 200 dollari se lo Stretto di Hormuz resta chiuso. L\'analisi di UBS e i segnali per la Svizzera.',
+    'blog.article.hormuz-petrolio-200-dollari.imageAlt': 'Analista finanziario esamina i grafici del petrolio e dei mercati globali',
 };
 
 export default blogMetaChIt;
