@@ -138,6 +138,78 @@ describe("crawler-health corpus recovery evidence", () => {
     expect(selected.jobCount).toBe(0);
   });
 
+  it("keeps newer site counts while recovering a missing exit code from older corpus evidence", () => {
+    const site = {
+      ...siteObservation(),
+      freshnessAt: "2026-09-01T06:00:00.000Z",
+      jobCount: 0,
+      activeJobCount: 0,
+      written: 0,
+      earlyExit: true,
+      exitCode: null,
+    };
+    const corpus = {
+      ...siteObservation(),
+      freshnessAt: "2026-08-31T23:33:39.059Z",
+      jobCount: 17,
+      activeJobCount: 17,
+      written: 17,
+      earlyExit: true,
+      exitCode: 0,
+    };
+
+    const selected = selectNewestCrawlerObservation(site, corpus, NOW_MS);
+    expect(selected.freshnessAt).toBe(site.freshnessAt);
+    expect(selected.jobCount).toBe(0);
+    expect(selected.activeJobCount).toBe(0);
+    expect(selected.written).toBe(0);
+    expect(selected.exitCode).toBe(0);
+
+    const { status, reason } = nextCrawlerState(
+      {
+        ...previousBrokenState("2026-08-31T20:00:00.000Z"),
+        consecutiveEmptyRuns: 2,
+        consecutiveEmptyOkRuns: 2,
+      },
+      selected,
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe("broken");
+    expect(reason).toContain("last exitCode=0");
+  });
+
+  it("recovers an authoritative empty proof without replacing newer site counts", () => {
+    const site = {
+      ...siteObservation(),
+      freshnessAt: "2026-09-01T06:00:00.000Z",
+      jobCount: 0,
+      activeJobCount: 0,
+      written: 0,
+    };
+    const corpus = {
+      ...siteObservation(),
+      freshnessAt: "2026-08-31T23:33:39.059Z",
+      jobCount: 17,
+      activeJobCount: 17,
+      written: 17,
+      authoritativeEmptySnapshot: true,
+    };
+
+    const selected = selectNewestCrawlerObservation(site, corpus, NOW_MS);
+    expect(selected.jobCount).toBe(0);
+    expect(selected.authoritativeEmptySnapshot).toBe(true);
+
+    const { status, state } = nextCrawlerState(
+      previousBrokenState("2026-08-31T20:00:00.000Z"),
+      selected,
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe("healthy");
+    expect(state._authoritativeEmptySnapshot).toBe(true);
+  });
+
   it("rejects a future-dated corpus payload instead of suppressing the site alert", async () => {
     const site = siteObservation();
     const futureSummary = {

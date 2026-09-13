@@ -39,6 +39,9 @@ export const MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS = 3600;
 /** Sotto questo numero di sessioni la contraddizione non è dichiarabile. */
 export const MIN_SESSIONS_FOR_VERDICT = 30;
 
+/** Shared reason for a successful GA4 request that returned no daily rows. */
+export const GA4_EMPTY_DAILY_ROWS_REASON = 'GA4 ha risposto 200 con zero righe per-giorno';
+
 const finite = (v) => (typeof v === 'number' && Number.isFinite(v) ? v : null);
 
 const GA4_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
@@ -214,6 +217,7 @@ export async function fetchDailyEngagementVerdict({
     if (!res.ok) return notComputed(`HTTP ${res.status}`);
     const data = await res.json();
     const rows = Array.isArray(data.rows) ? data.rows : [];
+    if (rows.length === 0) return notComputed(GA4_EMPTY_DAILY_ROWS_REASON);
     const reportedRows = Number(data.rowCount);
     if (rows.length >= limit || (Number.isFinite(reportedRows) && reportedRows >= limit)) {
       return notComputed(`risposta GA4 ha raggiunto il limite di ${limit} righe; finestra potenzialmente troncata`);
