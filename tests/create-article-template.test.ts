@@ -50,10 +50,9 @@ describe('AI Search prompt block', () => {
   it('allows only source-backed optional key facts and forbids placeholders', () => {
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toContain('3-8 coppie');
     expect(AI_SEARCH_PROMPT_BLOCK_IT).not.toContain('5-8 coppie');
-    for (const placeholder of ['non specificato', 'not specified', 'nicht angegeben', 'non spécifié']) {
-      expect(AI_SEARCH_PROMPT_BLOCK_IT).toContain(placeholder);
-    }
-    expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/OMETTILO/);
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/dalla fonte/);
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/campi assenti/i);
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/niente placeholder/i);
   });
 
   it('is injected into scripts/create-article.mjs', () => {
@@ -190,10 +189,9 @@ describe('buildBackfillPrompt()', () => {
     });
     expect(prompt).toContain('3-8 coppie');
     expect(prompt).not.toContain('5-8 coppie');
-    expect(prompt).toMatch(/OMETTILO/);
-    for (const placeholder of ['non specificato', 'not specified', 'nicht angegeben', 'non spécifié']) {
-      expect(prompt).toContain(placeholder);
-    }
+    expect(prompt).toMatch(/dati presenti nell'articolo/i);
+    expect(prompt).toMatch(/campi assenti/i);
+    expect(prompt).toMatch(/niente placeholder/i);
   });
 });
 
