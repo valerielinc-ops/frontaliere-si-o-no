@@ -2140,6 +2140,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rischio-petrolio-hormuz-svizzera': { it: 'rischio-petrolio-hormuz-svizzera', en: 'oil-risk-hormuz-switzerland', de: 'oel-risiko-hormus-schweiz', fr: 'risque-petrole-hormuz-suisse' },
  'parmelin-tag-der-wirtschaft': { it: 'parmelin-tag-der-wirtschaft', en: 'parmelin-tag-der-wirtschaft-en', de: 'parmelin-tag-der-wirtschaft-de', fr: 'parmelin-tag-der-wirtschaft-fr' },
  'f35a-prezzo-incerto-politica': { it: 'f35a-prezzo-incerto-politica', en: 'f35a-price-uncertainty-politics', de: 'f35a-preisunsicherheit-politik', fr: 'f35a-prix-incertain-politique' },
+ 'licenziamento-crans-montana-falsificazione': { it: 'licenziamento-crans-montana-falsificazione', en: 'crans-montana-employee-dismissal', de: 'entlassung-crans-montana-falschung', fr: 'licenciement-crans-montana-falsification' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

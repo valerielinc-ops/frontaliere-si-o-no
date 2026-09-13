@@ -82349,6 +82349,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-licenziamento-crans-montana-falsificazione': {
+    title: 'Crans-Montana: licenziato dipendente per falsi edilizi',
+    description: 'Il Comune di Crans-Montana licenzia un impiegato dell\'Ufficio tecnico per falsificazione di documenti edilizi. Coinvolto anche nel caso Constellation.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, licenziato, dipendente, falsi',
+    ogTitle: 'Crans-Montana: licenziato dipendente per falsi edilizi',
+    ogDescription: 'Il Comune di Crans-Montana ha licenziato un dipendente dell\'Ufficio tecnico che aveva falsificato documenti per una terrazza, usurpando l\'identità di un ingegnere.',
+    canonicalPath: '/articoli-svizzera/licenziamento-crans-montana-falsificazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana: licenziato dipendente per falsi edilizi",
+      "description": "Il Comune di Crans-Montana licenzia un impiegato dell'Ufficio tecnico per falsificazione di documenti edilizi. Coinvolto anche nel caso Constellation.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/licenziamento-crans-montana-falsificazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio comunale in Svizzera rappresentativo delle istituzioni"
+      },
+      "datePublished": "2026-09-13T06:58:29+00:00",
+      "dateModified": "2026-09-13T06:58:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/licenziamento-crans-montana-falsificazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
