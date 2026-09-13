@@ -112,7 +112,9 @@ export function asyncCssHeadBlock(entryCss?: string): string {
  * Security meta rationale (GitHub Pages can't set HTTP response headers):
  *  - X-Content-Type-Options: blocks MIME-sniffing attacks.
  *  - Referrer-Policy: limits referrer info leaked to third parties.
- *  - Permissions-Policy: disables sensor APIs we don't use.
+ *  - Permissions-Policy: keeps camera/microphone disabled and limits the
+ *    geolocation API to this origin, which is the only sensor-like API used by
+ *    the pharmacy directory.
  *  - Content-Security-Policy: `upgrade-insecure-requests` auto-upgrades any
  *    stray http:// asset to https:// (this directive works via <meta>).
  *  NOTE: frame-ancestors (anti-clickjacking) and HSTS are IGNORED when set via
@@ -127,7 +129,7 @@ export const HEAD_PREFIX = `<meta charset="utf-8">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests;">
  <meta http-equiv="X-Content-Type-Options" content="nosniff">
  <meta name="referrer" content="strict-origin-when-cross-origin">
- <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+ <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self)">
  ${FAVICON_LINKS}`;
 
 /**
