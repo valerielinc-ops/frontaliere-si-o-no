@@ -53,6 +53,34 @@ describe('loop fleet status', () => {
     });
   });
 
+  it('does not mark a present event set verified when order, owner or evidence is incoherent', () => {
+    const base = (eventType: string, occurredAt: string, overrides: Record<string, unknown> = {}) => ({
+      eventType,
+      candidateId: 'lf-decision-coherent-check',
+      owner: 'CTO / Reliability',
+      sourceRecordId: 'lf-decision-coherent-check',
+      occurredAt,
+      artifactOrPr: `evidence://${eventType}`,
+      ...overrides,
+    });
+    const summary = summarizeLifecycleEvents([
+      base('candidate', '2026-09-12T12:00:00.000Z'),
+      base('owner_assigned', '2026-09-12T12:00:01.000Z'),
+      base('pr_opened', '2026-09-12T12:00:02.000Z'),
+      base('tests_passed', '2026-09-12T12:00:03.000Z'),
+      base('review_approved', '2026-09-12T12:00:04.000Z', { owner: 'CFO / Unit Economics' }),
+      base('merged', '2026-09-12T11:59:00.000Z'),
+      base('post_merge_verified', '2026-09-12T12:00:06.000Z', { artifactOrPr: null }),
+    ]);
+    expect(summary).toMatchObject({ state: 'candidate', complete: false, candidates: [{
+      orderValid: false,
+      ownerConsistent: false,
+      sourceConsistent: true,
+      missingEvidence: ['post_merge_verified'],
+      complete: false,
+    }] });
+  });
+
   it('keeps missing evidence explicit instead of reporting a false healthy state', () => {
     const rows = buildStatusRows(
       registry,

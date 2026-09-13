@@ -456,6 +456,9 @@ export function validateLifecycleEvent(registry, loopId, event) {
   if (event.schemaVersion !== 1) fail(`${loopId}.lifecycle event schemaVersion must be 1`);
   if (event.loopId !== loopId) fail(`${loopId}.lifecycle event belongs to ${event.loopId || 'unknown'}`);
   requireText(event.recordId, `${loopId}.lifecycle event recordId`);
+  if (!Object.hasOwn(event, 'recordedAt') || event.recordedAt === undefined) {
+    fail(`${loopId}.lifecycle event recordedAt is required`);
+  }
   const normalized = buildLifecycleEvent(event);
   const missingSourceRefs = policy.sourceRefs.filter((sourceRef) => !normalized.sourceRefs.includes(sourceRef));
   const extraSourceRefs = normalized.sourceRefs.filter((sourceRef) => !policy.sourceRefs.includes(sourceRef));
@@ -466,6 +469,94 @@ export function validateLifecycleEvent(registry, loopId, event) {
     fail(`${loopId}.lifecycle event lifecycle metadata does not match the registry`);
   }
   return { loopId, policy, event: normalized };
+}
+
+const ORDERED_LIFECYCLE_EVENTS = new Map(REQUIRED_LIFECYCLE_EVENT_TYPES.map((eventType, index) => [eventType, index]));
+const EVIDENCE_REQUIRED_LIFECYCLE_EVENTS = Object.freeze([
+  'pr_opened',
+  'tests_passed',
+  'review_approved',
+  'merged',
+  'post_merge_verified',
+]);
+
+/**
+ * Summarize lifecycle records without treating a set of event names as proof
+ * of a coherent chain. This is intentionally read-only: it reports missing
+ * evidence and contradictions for a separate observer or human owner.
+ */
+export function summarizeLifecycleEvents(events = []) {
+  const byCandidate = new Map();
+  for (const event of events || []) {
+    const candidateId = typeof event?.candidateId === 'string' && event.candidateId.trim()
+      ? event.candidateId.trim()
+      : null;
+    if (!candidateId) continue;
+    if (!byCandidate.has(candidateId)) byCandidate.set(candidateId, []);
+    byCandidate.get(candidateId).push(event);
+  }
+
+  const candidates = [...byCandidate.entries()].map(([candidateId, candidateEvents]) => {
+    const eventTypes = [...new Set(candidateEvents.map((event) => event.eventType))];
+    const missing = REQUIRED_LIFECYCLE_EVENT_TYPES.filter((eventType) => !eventTypes.includes(eventType));
+    const ordered = candidateEvents
+      .map((event, index) => ({ event, index }))
+      .filter(({ event }) => ORDERED_LIFECYCLE_EVENTS.has(event.eventType))
+      .sort((left, right) => {
+        const leftTime = Date.parse(left.event.occurredAt || '');
+        const rightTime = Date.parse(right.event.occurredAt || '');
+        return (Number.isFinite(leftTime) ? leftTime : Number.POSITIVE_INFINITY)
+          - (Number.isFinite(rightTime) ? rightTime : Number.POSITIVE_INFINITY)
+          || left.index - right.index;
+      });
+    const orderValid = ordered.every(({ event }, index) => index === 0
+      || ORDERED_LIFECYCLE_EVENTS.get(event.eventType) >= ORDERED_LIFECYCLE_EVENTS.get(ordered[index - 1].event.eventType));
+    const owners = [...new Set(candidateEvents.map((event) => event.owner).filter((owner) => typeof owner === 'string' && owner.trim()))];
+    const sourceRecordIds = [...new Set(candidateEvents.map((event) => event.sourceRecordId).filter((sourceRecordId) => typeof sourceRecordId === 'string' && sourceRecordId.trim()))];
+    const ownerConsistent = owners.length <= 1;
+    const sourceConsistent = sourceRecordIds.length <= 1;
+    const missingEvidence = EVIDENCE_REQUIRED_LIFECYCLE_EVENTS.filter((eventType) => {
+      const event = candidateEvents.find((candidateEvent) => candidateEvent.eventType === eventType);
+      return event && !(typeof event.artifactOrPr === 'string' && event.artifactOrPr.trim());
+    });
+    const incoherent = [
+      !orderValid ? 'events are out of order' : null,
+      !ownerConsistent ? 'owner changes without an explicit reassignment event' : null,
+      !sourceConsistent ? 'sourceRecordId changes across the candidate chain' : null,
+      ...missingEvidence.map((eventType) => `${eventType} has no artifactOrPr reference`),
+    ].filter(Boolean);
+    const sorted = [...candidateEvents].sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt));
+    return {
+      candidateId,
+      owner: owners[0] || candidateEvents[0]?.owner || null,
+      eventTypes,
+      missing,
+      orderValid,
+      ownerConsistent,
+      sourceConsistent,
+      missingEvidence,
+      incoherent,
+      complete: missing.length === 0 && incoherent.length === 0,
+      lastEvent: sorted.at(-1) ? {
+        eventType: sorted.at(-1).eventType,
+        occurredAt: sorted.at(-1).occurredAt,
+      } : null,
+    };
+  });
+  const last = [...(events || [])]
+    .sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt))
+    .at(-1);
+  return {
+    available: true,
+    eventCount: (events || []).length,
+    candidateCount: candidates.length,
+    complete: candidates.length ? candidates.every((candidate) => candidate.complete) : null,
+    state: candidates.length === 0
+      ? 'no_candidate'
+      : (candidates.every((candidate) => candidate.complete) ? 'verified' : 'candidate'),
+    lastEvent: last ? { eventType: last.eventType, occurredAt: last.occurredAt } : null,
+    candidates,
+  };
 }
 
 export function buildObservation({

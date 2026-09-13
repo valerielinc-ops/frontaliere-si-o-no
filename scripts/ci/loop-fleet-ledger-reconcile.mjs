@@ -153,6 +153,11 @@ export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, s
     records[type] = file ? jsonlRecords(file) : [];
   }
   if (records.health.length === 0) return { ok: false, reason: 'health evidence is missing', missing: [] };
+  const lifecycleExpected = Array.isArray(summary.ledgerFiles)
+    && summary.ledgerFiles.includes('lifecycle-events.jsonl');
+  if (lifecycleExpected && !findFile(inputDir, 'lifecycle-events.jsonl')) {
+    return { ok: false, reason: 'lifecycle evidence is missing from a current-contract artifact', missing: [] };
+  }
 
   const missing = [];
   for (const [type, values] of Object.entries(records)) {

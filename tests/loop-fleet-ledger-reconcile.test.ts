@@ -121,6 +121,22 @@ describe('loop-fleet-ledger-reconcile', () => {
     });
   });
 
+  it('does not treat a current-contract artifact as durable when lifecycle evidence is absent', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-reconcile-current-contract-'));
+    const ledger = path.join(root, 'ledger');
+    fs.mkdirSync(ledger);
+    writeJson(root, 'loop-fleet-evidence.json', {
+      loopId: 'L0',
+      run: { runId: '123', sha: SHA },
+      ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl', 'lifecycle-events.jsonl'],
+    });
+    writeJsonl(root, 'loop-health-history.jsonl', [{ recordId: 'health-1', loopId: 'L0', execution: { loopId: 'L0', runId: '123', sha: SHA } }]);
+    expect(missingEvidenceRecordIds(root, ledger, { loopId: 'L0', runId: '123', sha: SHA })).toMatchObject({
+      ok: false,
+      reason: 'lifecycle evidence is missing from a current-contract artifact',
+    });
+  });
+
   it('selects the oldest bounded recovery candidates', () => {
     const definition = sourceDefinition('L0');
     const candidates = [
