@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mikron",
-  "assembledAt": "2026-09-12T13:07:50.821Z",
+  "assembledAt": "2026-09-13T14:05:32.195Z",
   "jobs": [
     {
       "url": "https://www.mikron.com/en/polymecanic-team-leader",
@@ -325,6 +325,7 @@
         "canton": "TI",
         "location": "Agno"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:22:19.475Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
@@ -354,9 +355,7 @@
       "previousSlugs": [
         "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
         "marketing-generalista-m-f-d-con-lingua-madre-tedesca-mikron-group-agno"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      ]
     },
     {
       "url": "https://www.mikron.com/en/tecnico-venditore-junior-con-conoscenza-della-lingua-svizzero-tedesca",
@@ -399,6 +398,7 @@
         "canton": "TI",
         "location": "Agno"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:22:19.475Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
@@ -415,9 +415,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      }
     }
   ]
 }
