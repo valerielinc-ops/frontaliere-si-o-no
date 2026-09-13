@@ -17,7 +17,7 @@
       "title": "Testing & Commissioning Engineer",
       "titleByLocale": {
         "it": "Testing & Commissioning Ingegnere",
-        "en": "Testing & Commissioning Engineer",
+        "en": "Testing and Commissioning Engineer",
         "de": "Testing & Commissioning Ingenieur",
         "fr": "Recrutement"
       },
@@ -104,7 +104,6 @@
         "testing-commissioning-engineer-stadler-rail-wallisellen"
       ],
       "firstSeenAt": "2026-06-10T07:53:09.447Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -134,7 +133,7 @@
       "title": "Testing & Commissioning Engineer",
       "titleByLocale": {
         "it": "Test e ingegnere della Commissione",
-        "en": "Testing & Commissioning Engineer",
+        "en": "Testing and Commissioning Engineer",
         "de": "Testing & Commissioning Ingenieur",
         "fr": "Testing & Commissioning Ingénieur"
       },
@@ -181,7 +180,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T13:01:52.676Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -259,7 +257,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:07.142Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -333,7 +330,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:08.867Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -515,7 +511,7 @@
       "title": "Head of Master Data Management Engineering, Mitglied des Kaders",
       "titleByLocale": {
         "it": "Responsabile Master Data Management Engineering, membro del cadre",
-        "en": "Head of Master Data Management Engineering, Mitglied des Kaders",
+        "en": "Head of Master Data Management Engineering, member of the cadre",
         "de": "Leiter Master Data Management Engineering, Mitglied des Kaders",
         "fr": "Chef de Master Data Management Engineering, membre du cadre"
       },
@@ -562,7 +558,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:36:20.071Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -642,7 +637,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:24:13.844Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -813,8 +807,7 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-620b851e9742",
@@ -878,7 +871,6 @@
         ]
       },
       "firstSeenAt": "2026-06-21T22:49:03.910Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1031,7 +1023,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:01.951Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1061,7 +1052,7 @@
       "title": "SAP Produktion Consultant",
       "titleByLocale": {
         "it": "SAP Produktion Consulente",
-        "en": "SAP Produktion Consultant",
+        "en": "SAP Production Consultant",
         "de": "SAP Produktion Berater",
         "fr": "Conseiller en production SAP"
       },
@@ -1096,16 +1087,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sap-produktion-consultant-stadler-rail-ch",
-        "sap-produktion-consulente-stadler-rail-bussnang"
+        "sap-produktion-consulente-stadler-rail-bussnang",
+        "consulente-sap-hr-it-stadler-rail-bussnang",
+        "sap-hr-it-consultant-stadler-rail-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sap-produktion-consultant-stadler-rail-ch",
-          "sap-produktion-consulente-stadler-rail-bussnang"
+          "sap-produktion-consulente-stadler-rail-bussnang",
+          "consulente-sap-hr-it-stadler-rail-bussnang",
+          "sap-hr-it-consultant-stadler-rail-ch"
+        ],
+        "fr": [
+          "sap-hr-it-consultant-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-07-20T22:24:13.310Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1135,7 +1132,7 @@
       "title": "Portfolio- und Delivery Manager:in Digitale Produktentwicklung",
       "titleByLocale": {
         "it": "Portfolio e Delivery Manager: nello sviluppo di prodotti digitali",
-        "en": "Portfolio- und Delivery Manager:in Digitale Produktentwicklung",
+        "en": "Portfolio and Delivery Manager Digital Product Development",
         "de": "Portfolio- und Delivery Manager:in Digitale Produktentwicklung",
         "fr": "Gestionnaire de portefeuille et de prestation : en développement de produits numériques"
       },
@@ -1183,7 +1180,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T10:01:52.428Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -1510,7 +1506,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:26:05.144Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1540,7 +1535,7 @@
       "title": "Netzwerk und Cyber Security Engineer",
       "titleByLocale": {
         "it": "Ingegnere di rete e sicurezza informatica",
-        "en": "Netzwerk und Cyber Security Engineer",
+        "en": "Network and Cyber Security Engineer",
         "de": "Netzwerk und Cyber Security Ingenieur",
         "fr": "Ingénieur en réseau et cybersécurité"
       },
@@ -1587,7 +1582,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:40:04.151Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1667,7 +1661,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:26:04.670Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1918,7 +1911,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:13:05.293Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -2062,7 +2054,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:03:03.892Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2252,7 +2243,7 @@
       "title": "Team Lead Safety / Testing Sicherungsanlagen",
       "titleByLocale": {
         "it": "Sistemi di sicurezza / controllo del team",
-        "en": "Team Lead Safety / Testing Sicherungsanlagen",
+        "en": "Team Lead Safety / Testing Safety Systems",
         "de": "Teamleiter Safety / Testing Sicherungsanlagen",
         "fr": "Chef d'équipe Sécurité / Essais Systèmes de sécurité"
       },
@@ -2305,7 +2296,6 @@
         "capo-team-e-ixl-fundamentals-stadler-rail-olten"
       ],
       "firstSeenAt": "2026-06-25T12:13:52.564Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -2552,7 +2542,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:47.552Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -2742,7 +2731,7 @@
       "title": "SAP EWM Application Specialist & Logistik Key User (m/w/d) 100%",
       "titleByLocale": {
         "it": "SAP EWM Application Specialista & Logistik Key User (m/w/d) 100%",
-        "en": "SAP EWM Application Specialist & Logistik Key User (m/w/d) 100%",
+        "en": "SAP EWM Application Specialist & Logistics Key User (m/f/d) 100%",
         "de": "SAP EWM Application Spezialist & Logistik Key User (m/w/d) 100%",
         "fr": "SAP EWM Application Spécialiste & Logistik Key User (m/w/d) 100%"
       },
@@ -2789,7 +2778,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T10:19:21.289Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3155,7 +3143,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:37.752Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 153000,
       "salarySource": "estimated",
@@ -3185,7 +3172,7 @@
       "title": "Field-Engineer - Inbetriebsetzung & Flottenbetreuung",
       "titleByLocale": {
         "it": "Ingegnere di campo - Commissioning & Fleet Support",
-        "en": "Field-Engineer - Inbetriebsetzung & Flottenbetreuung",
+        "en": "Field Engineer - Commissioning & Fleet Support",
         "de": "Field-Ingenieur - Inbetriebsetzung & Flottenbetreuung",
         "fr": "Ingénieur de terrain - Mise en service et soutien de la flotte"
       },
@@ -3232,7 +3219,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T12:13:39.645Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -3387,7 +3373,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.016Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -4009,7 +3994,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:29:48.086Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -4497,7 +4481,7 @@
       "title": "DevOps & Integration Engineer SRMS",
       "titleByLocale": {
         "it": "DevOps Ingegnere",
-        "en": "DevOps & Integration Engineer SRMS",
+        "en": "DevOps and Integration Engineer SRMS",
         "de": "DevOps & Integration Ingenieur SRMS",
         "fr": "DevOps Ingénieur"
       },
@@ -4546,7 +4530,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:32:12.839Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -4576,7 +4559,7 @@
       "title": "Chief Operations Officer Division Service, Mitglied der Divisionsleitung",
       "titleByLocale": {
         "it": "Capo Operazioni Ufficiale Divisione Servizio, Membro della Direzione Divisione",
-        "en": "Chief Operations Officer Division Service, Mitglied der Divisionsleitung",
+        "en": "Chief Operations Officer Division Service, Member of Division Management",
         "de": "Chief Operations Officer Division Service, Mitglied der Divisionsleitung",
         "fr": "Chef de la Division des opérations Service, Membre de la gestion de la Division"
       },
@@ -4623,7 +4606,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:29:07.531Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 153000,
       "salarySource": "estimated",
@@ -4776,7 +4758,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:29:08.027Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -4840,7 +4821,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-10T07:52:27.340Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -5176,7 +5156,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:18.705Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -5248,7 +5227,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:15.805Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5324,7 +5302,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:21.015Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -5727,7 +5704,7 @@
       "title": "Application-Manager E-CAD",
       "titleByLocale": {
         "it": "Gestione applicazioni E-CAD",
-        "en": "Application-Manager E-CAD",
+        "en": "Application Manager E-CAD",
         "de": "Application-Manager E-CAD",
         "fr": "Gestionnaire d'applications E-CAD"
       },
@@ -6162,7 +6139,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:10.587Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -6480,7 +6456,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:08:16.399Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6557,7 +6532,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:08:16.903Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6711,7 +6685,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:08.272Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6788,7 +6761,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:45:06.439Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "salarySource": "estimated",
@@ -7022,7 +6994,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:29:40.570Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -7411,7 +7382,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:45:37.867Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7491,7 +7461,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:45:37.382Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -7610,7 +7579,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:55.613Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7690,7 +7658,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:17.674Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -7770,7 +7737,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:15.881Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -7850,7 +7816,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:16.482Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -7937,7 +7902,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:46:25.377Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -7969,7 +7933,7 @@
         "it": "Risorse Umane Business Partner Region Mid",
         "en": "User Safety: safe",
         "de": "Personalwesen Business Partner Region Mid",
-        "fr": "HR Business Partner Region Mid"
+        "fr": "Partenaires en RH Région Mid"
       },
       "description": "PROFIL\n\n• Abgeschlossenes Studium mit Schwerpunkt Human Resources, Betriebswirtschaft oder eine vergleichbare Qualifikation\n\n• Mehrjährige Berufserfahrung als HR Business Partner, in der Personalleitung oder in einer vergleichbaren HR‑Funktion in einem internationalen Umfeld\n\n• Erfahrung in der Zusammenarbeit mit Management‑Stakeholdern sowie in Matrix‑Organisationen\n\n• Fundierte Kenntnisse moderner HR‑Instrumente und ‑Prozesse (z. B. Talent Management, Compensation, Performance Management)\n\n• Sehr gute Kommunikations‑ und Beratungskompetenz sowie ein souveränes Auftreten auf Management‑Ebene\n\n• Ausgeprägtes Verständnis für unterschiedliche Länder‑ und Kulturen sowie Bereitschaft zu moderater Reisetätigkeit\n\n• Fliessende Deutsch‑ und Englischkenntnisse in Wort und Schrift\n\nAUFGABEN\n\nAls HR Business Partner:in Region Mid bist du die zentrale HR‑Ansprechperson für den Regionenleiter und das Management der Region Mid, bestehend aus den Ländergesellschaften in Deutschland, Dänemark, Niederlanden und Österreich. Du stellst die Verbindung zwischen dem HR der Division und den HR‑Teams in den Ländern sicher und trägst aktiv zur Umsetzung der HR‑Strategie auf divisionsebene bei.\n\nDeine Hauptaufgaben umfassen:\n\n• Strategische und operative HR‑Beratung des Regionenleiters sowie der Führungskräfte der Ländergesellschaften\n\n• Enge Zusammenarbeit mit dem HR der Division zur Umsetzung divisionaler HR‑Strategien, Prozesse und Initiativen\n\n• Schnittstellenfunktion zwischen dem divisionalen HR und den HR‑Verantwortlichen der Länder (z. B. Harmonisierung, Abstimmung und Kommunikation)\n\n• Mitarbeit und Leitung von HR‑Projekten mit regionalem Fokus sowie divisionsweiten Projekten\n\n• Coaching und Weiterentwicklung der lokalen HR-Teams\n\n• Steuerung und Monitoring relevanter HR‑KPIs auf regionaler Ebene inkl. Massnahmenplänen\n\n• Beratung bei arbeitsrechtlichen, personalpolitischen und mitbestimmungsrelevanten Fragestellungen in Kooperation mit den lokalen HR‑Teams\n\n• Aufbau und Führung der internen Kommunikation in der Region Mid",
       "descriptionByLocale": {
@@ -8014,7 +7978,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:59.048Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8093,7 +8056,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:57.895Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -8338,7 +8300,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:41:48.066Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -8447,7 +8408,7 @@
       "title": "Systems Engineer Elektro",
       "titleByLocale": {
         "it": "Ingegnere di Sistemi Elettrico",
-        "en": "Systems Engineer Elektro",
+        "en": "Systems Engineer Electric",
         "de": "Systems Ingenieur Elektro",
         "fr": "Ingénieur systèmes électrique"
       },
@@ -8491,7 +8452,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:51.564Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -8650,7 +8610,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:25:53.648Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -8682,7 +8641,7 @@
         "it": "Consulente Logistico Interno SAP",
         "en": "SAP Inhouse Consultant Logistics",
         "de": "SAP Inhouse Berater Logistik",
-        "fr": "SAP Inhouse Consultant Logistik"
+        "fr": "SAP Consultant logistique interne"
       },
       "description": "PROFIL\n\nMindestens 5 Jahre Erfahrung (Design & Konfiguration) mit SAP eWM, sei es im Unterhalt von SAP eWM oder der Implementierung von SAP eWM\n\nErfahrungen in SAP S4/HANA Greenfield Transformationen und Daten Migration\n\nFundierte Kenntnisse von Logistikprozessen, insbesondere interne Lagerprozesse, einschließlich Ein- und Auslagerungslogistik, Bestandsführung, Lagerplatzstrategien, Optimierung von Lageraufgaben und Integration mit SAP Transportation Management (SAP TM).\n\nErfahrung in der Integration von SAP eWM mit Modulen wie MM, SD und TM sowie Drittsystemen von Vorteil\n\nAusgeprägte Fähigkeit, mit Stakeholdern zu interagieren, Workshops durchzuführen, funktionale Spezifikationen zu erstellen sowie User Acceptance Testing (UAT) und Go-Live-Phasen zu unterstützen\n\nFlüssiges Deutsch und Englisch mit ausgezeichneten Kommunikations- und Präsentationsfähigkeiten.\n\nAUFGABEN\n\nAls SAP S4/HANA Inhouse Consultant Logistik verantwortest Du die Konzeption, Umsetzung und Weiterentwicklung von SAP eWM‑Prozessen auf S/4HANA. Du optimierst Logistikabläufe, sicherst reibungslose Integrationen und unterstützet Projekte, Rollouts und den laufenden Betrieb.\n\nDeine Aufgaben\n\n• Design, Konfiguration und Test von SAP S4/HANA eWM‑Funktionen.\n\n• Analyse und Optimierung von Logistikprozessen.\n\n• Sicherstellen einer reibungslosen Integration von SAP eWM mit Modulen wie MM, SD und TM sowie Drittsystemen.\n\n• Unterstützung von S/4HANA‑Rollouts und Change‑Management.\n\n• Bearbeitung von Support‑ und Change‑Requests der Key‑User‑Community.\n\n• Durchführung von Schulungen sowie Sicherstellung der Dokumentation und Best Practices.",
       "descriptionByLocale": {
@@ -8737,7 +8696,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.151Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8817,7 +8775,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:25:54.234Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -8897,7 +8854,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:25:52.467Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -9010,7 +8966,7 @@
       "title": "Lead System Elektro-Engineer",
       "titleByLocale": {
         "it": "Lead System Ingegnere Elettrico",
-        "en": "Lead System Elektro-Engineer",
+        "en": "Lead System Electric Engineer",
         "de": "Lead System Elektro-Ingenieur",
         "fr": "Lead System Ingénieur électrique"
       },
@@ -9054,7 +9010,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:37.139Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -9084,7 +9039,7 @@
       "title": "Cost-Engineer",
       "titleByLocale": {
         "it": "Cost-Ingegnere",
-        "en": "Cost-Engineer",
+        "en": "Cost Engineer",
         "de": "Cost-Ingenieur",
         "fr": "Cost-Ingénieur"
       },
@@ -9142,7 +9097,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T13:39:34.568Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -9216,7 +9170,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:34.265Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -9318,7 +9271,7 @@
       "companyDomain": "stadlerrail.com",
       "title": "Technical Buyer",
       "titleByLocale": {
-        "it": "Technical Buyer",
+        "it": "Acquirenti tecnici",
         "en": "Technical buyers",
         "de": "Technical Buyer",
         "fr": "Acheteurs techniques"
@@ -9371,7 +9324,6 @@
         ]
       },
       "firstSeenAt": "2026-08-08T09:53:12.905Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -9524,7 +9476,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:35.997Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -9629,7 +9580,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:31.968Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -9705,7 +9655,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:33.116Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -9781,7 +9730,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:32.536Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -9857,7 +9805,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:31.389Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -9975,7 +9922,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:30.817Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -10317,7 +10263,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:55:19.351Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -10419,7 +10364,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:27.909Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -10668,16 +10612,16 @@
       "title": "Schweissfachingenieur:in",
       "titleByLocale": {
         "de": "Schweissfachingenieur:in",
-        "it": "Schweissfachingenieur:in",
-        "en": "Schweissfachingenieur:in",
-        "fr": "Schweissfachingenieur:in"
+        "it": "Ingegnere di saldatura",
+        "en": "Welding engineer",
+        "fr": "Ingénieur de soudage"
       },
       "description": "PROFIL\n\n-Erfolgreich abgeschlossenes Studium (FH/Uni) in Maschinenbau, Werkstofftechnik oder einer vergleichbaren Fachrichtung\n\n-Qualifikation als International/European Welding Engineer (IWE/EWE) zwingend\n\n-Mehrjährige Berufserfahrung in einer ähnlichen Funktion, idealerweise im Schienenfahrzeugbau, Stahlbau oder einem vergleichbaren industriellen Umfeld\n\n-Fundierte Kenntnisse der Schweisstechnik; Erfahrungen im Bereich Aluminium sind ein zusätzliches Plus\n\n-Analytisches Denken, eine strukturierte Arbeitsweise und der Anspruch, nachhaltige Lösungen zu schaffen\n\n-Hohes Qualitätsbewusstsein sowie die Fähigkeit, technische \n• Anforderungen pragmatisch und zielgerichtet umzusetzen\n\n-Freude daran, vor Ort bei Lieferanten, in Werken und bei Projekten präsent zu sein (Reisebereitschaft ca. 30 %)\n\nAUFGABEN\n\n-Übernahme der Funktion der unterstützenden Schweissaufsicht gemäss EN 15085-2 und ISO 3834-2 am Standort Bussnang\n\n-Sicherstellung der schweisstechnischen Qualität und Konformität bei unseren  Stahllieferanten (CL 1) sowie Unterstützung der internen Fertigung im Bereich Aluminium\n\n-Erstellung und Pflege von schweisstechnischen Planungsunterlagen, Arbeitsanweisungen sowie projektbezogenen Prüf- und Fertigungsanweisungen\n\n-Unterstützung bei der theoretischen Ausbildung von Schweissern, Anlagenbedienern und Mitarbeitenden im Bereich der zerstörungsfreien Prüfung (ZfP)\n\n-Prüfung von Vertrags- und Fertigungsunterlagen hinsichtlich Herstellbarkeit, Qualitätsanforderungen, Nachweisführung sowie der Einhaltung relevanter Normen und Regelwerke\n\n-Schweisstechnische Bewertung von Konstruktionen sowie Freigabe von Zeichnungen und Fertigungsunterlagen\n\n-Durchführung von schweisstechnischen Audits und First Article Inspections (FAIs) bei nationalen und internationalen Lieferanten.",
       "descriptionByLocale": {
         "de": "PROFIL\n\n-Erfolgreich abgeschlossenes Studium (FH/Uni) in Maschinenbau, Werkstofftechnik oder einer vergleichbaren Fachrichtung\n\n-Qualifikation als International/European Welding Engineer (IWE/EWE) zwingend\n\n-Mehrjährige Berufserfahrung in einer ähnlichen Funktion, idealerweise im Schienenfahrzeugbau, Stahlbau oder einem vergleichbaren industriellen Umfeld\n\n-Fundierte Kenntnisse der Schweisstechnik; Erfahrungen im Bereich Aluminium sind ein zusätzliches Plus\n\n-Analytisches Denken, eine strukturierte Arbeitsweise und der Anspruch, nachhaltige Lösungen zu schaffen\n\n-Hohes Qualitätsbewusstsein sowie die Fähigkeit, technische \n• Anforderungen pragmatisch und zielgerichtet umzusetzen\n\n-Freude daran, vor Ort bei Lieferanten, in Werken und bei Projekten präsent zu sein (Reisebereitschaft ca. 30 %)\n\nAUFGABEN\n\n-Übernahme der Funktion der unterstützenden Schweissaufsicht gemäss EN 15085-2 und ISO 3834-2 am Standort Bussnang\n\n-Sicherstellung der schweisstechnischen Qualität und Konformität bei unseren  Stahllieferanten (CL 1) sowie Unterstützung der internen Fertigung im Bereich Aluminium\n\n-Erstellung und Pflege von schweisstechnischen Planungsunterlagen, Arbeitsanweisungen sowie projektbezogenen Prüf- und Fertigungsanweisungen\n\n-Unterstützung bei der theoretischen Ausbildung von Schweissern, Anlagenbedienern und Mitarbeitenden im Bereich der zerstörungsfreien Prüfung (ZfP)\n\n-Prüfung von Vertrags- und Fertigungsunterlagen hinsichtlich Herstellbarkeit, Qualitätsanforderungen, Nachweisführung sowie der Einhaltung relevanter Normen und Regelwerke\n\n-Schweisstechnische Bewertung von Konstruktionen sowie Freigabe von Zeichnungen und Fertigungsunterlagen\n\n-Durchführung von schweisstechnischen Audits und First Article Inspections (FAIs) bei nationalen und internationalen Lieferanten.",
-        "it": "PROFIL\n\n-Erfolgreich abgeschlossenes Studium (FH/Uni) in Maschinenbau, Werkstofftechnik oder einer vergleichbaren Fachrichtung\n\n-Qualifikation als International/European Welding Engineer (IWE/EWE) zwingend\n\n-Mehrjährige Berufserfahrung in einer ähnlichen Funktion, idealerweise im Schienenfahrzeugbau, Stahlbau oder einem vergleichbaren industriellen Umfeld\n\n-Fundierte Kenntnisse der Schweisstechnik; Erfahrungen im Bereich Aluminium sind ein zusätzliches Plus\n\n-Analytisches Denken, eine strukturierte Arbeitsweise und der Anspruch, nachhaltige Lösungen zu schaffen\n\n-Hohes Qualitätsbewusstsein sowie die Fähigkeit, technische \n• Anforderungen pragmatisch und zielgerichtet umzusetzen\n\n-Freude daran, vor Ort bei Lieferanten, in Werken und bei Projekten präsent zu sein (Reisebereitschaft ca. 30 %)\n\nAUFGABEN\n\n-Übernahme der Funktion der unterstützenden Schweissaufsicht gemäss EN 15085-2 und ISO 3834-2 am Standort Bussnang\n\n-Sicherstellung der schweisstechnischen Qualität und Konformität bei unseren  Stahllieferanten (CL 1) sowie Unterstützung der internen Fertigung im Bereich Aluminium\n\n-Erstellung und Pflege von schweisstechnischen Planungsunterlagen, Arbeitsanweisungen sowie projektbezogenen Prüf- und Fertigungsanweisungen\n\n-Unterstützung bei der theoretischen Ausbildung von Schweissern, Anlagenbedienern und Mitarbeitenden im Bereich der zerstörungsfreien Prüfung (ZfP)\n\n-Prüfung von Vertrags- und Fertigungsunterlagen hinsichtlich Herstellbarkeit, Qualitätsanforderungen, Nachweisführung sowie der Einhaltung relevanter Normen und Regelwerke\n\n-Schweisstechnische Bewertung von Konstruktionen sowie Freigabe von Zeichnungen und Fertigungsunterlagen\n\n-Durchführung von schweisstechnischen Audits und First Article Inspections (FAIs) bei nationalen und internationalen Lieferanten.",
-        "en": "PROFIL\n\n-Erfolgreich abgeschlossenes Studium (FH/Uni) in Maschinenbau, Werkstofftechnik oder einer vergleichbaren Fachrichtung\n\n-Qualifikation als International/European Welding Engineer (IWE/EWE) zwingend\n\n-Mehrjährige Berufserfahrung in einer ähnlichen Funktion, idealerweise im Schienenfahrzeugbau, Stahlbau oder einem vergleichbaren industriellen Umfeld\n\n-Fundierte Kenntnisse der Schweisstechnik; Erfahrungen im Bereich Aluminium sind ein zusätzliches Plus\n\n-Analytisches Denken, eine strukturierte Arbeitsweise und der Anspruch, nachhaltige Lösungen zu schaffen\n\n-Hohes Qualitätsbewusstsein sowie die Fähigkeit, technische \n• Anforderungen pragmatisch und zielgerichtet umzusetzen\n\n-Freude daran, vor Ort bei Lieferanten, in Werken und bei Projekten präsent zu sein (Reisebereitschaft ca. 30 %)\n\nAUFGABEN\n\n-Übernahme der Funktion der unterstützenden Schweissaufsicht gemäss EN 15085-2 und ISO 3834-2 am Standort Bussnang\n\n-Sicherstellung der schweisstechnischen Qualität und Konformität bei unseren  Stahllieferanten (CL 1) sowie Unterstützung der internen Fertigung im Bereich Aluminium\n\n-Erstellung und Pflege von schweisstechnischen Planungsunterlagen, Arbeitsanweisungen sowie projektbezogenen Prüf- und Fertigungsanweisungen\n\n-Unterstützung bei der theoretischen Ausbildung von Schweissern, Anlagenbedienern und Mitarbeitenden im Bereich der zerstörungsfreien Prüfung (ZfP)\n\n-Prüfung von Vertrags- und Fertigungsunterlagen hinsichtlich Herstellbarkeit, Qualitätsanforderungen, Nachweisführung sowie der Einhaltung relevanter Normen und Regelwerke\n\n-Schweisstechnische Bewertung von Konstruktionen sowie Freigabe von Zeichnungen und Fertigungsunterlagen\n\n-Durchführung von schweisstechnischen Audits und First Article Inspections (FAIs) bei nationalen und internationalen Lieferanten.",
-        "fr": "PROFIL\n\n-Erfolgreich abgeschlossenes Studium (FH/Uni) in Maschinenbau, Werkstofftechnik oder einer vergleichbaren Fachrichtung\n\n-Qualifikation als International/European Welding Engineer (IWE/EWE) zwingend\n\n-Mehrjährige Berufserfahrung in einer ähnlichen Funktion, idealerweise im Schienenfahrzeugbau, Stahlbau oder einem vergleichbaren industriellen Umfeld\n\n-Fundierte Kenntnisse der Schweisstechnik; Erfahrungen im Bereich Aluminium sind ein zusätzliches Plus\n\n-Analytisches Denken, eine strukturierte Arbeitsweise und der Anspruch, nachhaltige Lösungen zu schaffen\n\n-Hohes Qualitätsbewusstsein sowie die Fähigkeit, technische \n• Anforderungen pragmatisch und zielgerichtet umzusetzen\n\n-Freude daran, vor Ort bei Lieferanten, in Werken und bei Projekten präsent zu sein (Reisebereitschaft ca. 30 %)\n\nAUFGABEN\n\n-Übernahme der Funktion der unterstützenden Schweissaufsicht gemäss EN 15085-2 und ISO 3834-2 am Standort Bussnang\n\n-Sicherstellung der schweisstechnischen Qualität und Konformität bei unseren  Stahllieferanten (CL 1) sowie Unterstützung der internen Fertigung im Bereich Aluminium\n\n-Erstellung und Pflege von schweisstechnischen Planungsunterlagen, Arbeitsanweisungen sowie projektbezogenen Prüf- und Fertigungsanweisungen\n\n-Unterstützung bei der theoretischen Ausbildung von Schweissern, Anlagenbedienern und Mitarbeitenden im Bereich der zerstörungsfreien Prüfung (ZfP)\n\n-Prüfung von Vertrags- und Fertigungsunterlagen hinsichtlich Herstellbarkeit, Qualitätsanforderungen, Nachweisführung sowie der Einhaltung relevanter Normen und Regelwerke\n\n-Schweisstechnische Bewertung von Konstruktionen sowie Freigabe von Zeichnungen und Fertigungsunterlagen\n\n-Durchführung von schweisstechnischen Audits und First Article Inspections (FAIs) bei nationalen und internationalen Lieferanten."
+        "it": "PROFESSIONALE\n\n- Studi conclusi con successo (FH/uni) in ingegneria meccanica, ingegneria dei materiali o un campo di studio comparabile\n\n-Qualificazione come Ingegnere Internazionale/European Welding (IWE/EWE)\n\n- Diversi anni di esperienza professionale in una funzione simile, idealmente nella costruzione di veicoli ferroviari, costruzione di acciaio o un ambiente industriale paragonabile\n\nConoscenza del suono della tecnologia di saldatura; Esperienza nel campo dell'alluminio è un ulteriore plus\n\nIl pensiero analitico, un modo di lavorare strutturato e l'aspirazione a creare soluzioni sostenibili\n\n-Consapevolezza di alta qualità e la capacità tecnica\n• Requisiti di implementazione pragmaticamente e volutamente\n\n- Difficoltà di essere presenti in loco a fornitori, impianti e progetti (volontà di viaggiare circa il 30%)\n\nTASKS\n\nAssunzione della funzione del piano di saldatura di supporto secondo EN 15085-2 e ISO 3834-2 nel sito Bussnang\n\nProduzione di qualità e conformità della saldatura presso i nostri fornitori di acciaio (CL 1) e supporto per la produzione interna nel settore dell'alluminio\n\nPreparazione e manutenzione di documenti di pianificazione della saldatura, istruzioni di lavoro e istruzioni di test e produzione relative al progetto\n\nSostegno alla formazione teorica di saldatori, operatori di impianti e dipendenti nel campo dei test non distruttivi (NDT)\n\n- Esame dei documenti contrattuali e di produzione per quanto riguarda la producibilità, i requisiti di qualità, la dimostrazione e il rispetto delle norme e dei regolamenti pertinenti\n\nValutazione della saldatura dei disegni e approvazione dei disegni e dei documenti di produzione\n\nAttuazione dei controlli di saldatura e delle ispezioni di primo articolo (FAI) presso i fornitori nazionali e internazionali.",
+        "en": "PROFILE\n\n-Successfully completed studies (FH/uni) in mechanical engineering, materials engineering or a comparable field of study\n\n-Qualification as International/European Welding Engineer (IWE/EWE)\n\n- Several years of professional experience in a similar function, ideally in rail vehicle construction, steel construction or a comparable industrial environment\n\nSound knowledge of welding technology; Experience in the field of aluminium is an additional plus\n\nAnalytical thinking, a structured way of working and the aspiration to create sustainable solutions\n\n-High quality awareness as well as the ability to technical\n• Implement requirements pragmatically and purposefully\n\n- Delight in being present on site at suppliers, plants and projects (willingness to travel about 30%)\n\nTASKS\n\nAssumption of the function of the supporting welding plan according to EN 15085-2 and ISO 3834-2 at the Bussnang site\n\nProduction of welding quality and conformity at our steel suppliers (CL 1) as well as support for internal production in the aluminium sector\n\nPreparation and maintenance of welding planning documents, work instructions and project-related test and production instructions\n\nSupport in the theoretical training of welders, plant operators and employees in the field of non-destructive testing (NDT)\n\n- Examination of contract and production documents with regard to producibility, quality requirements, demonstration and compliance with relevant standards and regulations\n\nWelding assessment of designs and approval of drawings and production documents\n\nImplementation of welding audits and first article inspections (FAIs) at national and international suppliers.",
+        "fr": "PROFIL\n\n- Études menées avec succès (FH/uni) en génie mécanique, en génie des matériaux ou dans un domaine d'études comparable\n\n-Qualification en tant qu'ingénieur de soudage international/européen (IWE/EWE)\n\n- Plusieurs années d'expérience professionnelle dans une fonction similaire, idéalement dans la construction de véhicules ferroviaires, la construction d'acier ou un environnement industriel comparable\n\nUne bonne connaissance de la technologie de soudage; l'expérience dans le domaine de l'aluminium est un plus supplémentaire\n\nLa pensée analytique, une façon structurée de travailler et l'aspiration à créer des solutions durables\n\n- Sensibilisation de haute qualité ainsi que la capacité technique\n• Mettre en œuvre les exigences de manière pragmatique et ciblée\n\n- Délice d'être présent sur place chez les fournisseurs, les usines et les projets (volonté de voyager environ 30%)\n\nTÂCHES\n\nHypothèse de la fonction du plan de soudage de support selon EN 15085-2 et ISO 3834-2 sur le site de Bussnang\n\nProduction de qualité de soudage et de conformité chez nos fournisseurs d'acier (CL 1) ainsi que support pour la production interne dans le secteur de l'aluminium\n\nPréparation et entretien des documents de planification du soudage, des instructions de travail et des instructions d'essai et de production liées au projet\n\nSoutien à la formation théorique des soudeurs, des opérateurs et des employés dans le domaine des essais non destructifs (NDT)\n\n- Examen des documents contractuels et de production en ce qui concerne la production, les exigences de qualité, la démonstration et le respect des normes et réglementations pertinentes\n\nÉvaluation du soudage des plans et approbation des dessins et des documents de production\n\nMise en oeuvre d'audits de soudage et d'inspections du premier article auprès de fournisseurs nationaux et internationaux."
       },
       "location": "Bussnang",
       "canton": "TG",
@@ -10703,7 +10647,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "schweissfachingenieur-in-stadler-rail-ch"
@@ -10742,16 +10685,16 @@
       "title": "Candidature spontanée pour les étudiant/es et jeunes diplômé/es.",
       "titleByLocale": {
         "fr": "Candidature spontanée pour les étudiant/es et jeunes diplômé/es.",
-        "it": "Candidature spontanée pour les étudiant/es et jeunes diplômé/es.",
-        "en": "Candidature spontanée pour les étudiant/es et jeunes diplômé/es.",
-        "de": "Candidature spontanée pour les étudiant/es et jeunes diplômé/es."
+        "it": "Domanda spontanea per studenti e giovani laureati.",
+        "en": "Spontaneous application for students and young graduates.",
+        "de": "Spontane Bewerbung für Studierende und junge Absolventen."
       },
       "description": "EXPÉRIENCES\n\n• Étudiant/es de l’ETH/EPFL, d’une université ou d’une haute école spécialisée, en bachelor ou en master\n\n• Diplômé/es souhaitant débuter directement leur carrière professionnelle\n\n• Formation dans les domaines de l’ingénierie (p. ex. génie mécanique, génie électrique, informatique, technologie des véhicules, ingénierie des systèmes ou domaines similaires) ou en économie d’entreprise\n\n• Intérêt pour la technique, l’innovation et la collaboration interdisciplinaire\n\n• Curiosité, motivation et capacité à travailler de manière autonome\n\nRESPONSABILITÉS\n\nIntéressé/es par\n\n• Des stages\n\n• Des travaux de diplôme (travaux de bachelor ou de master)\n\n• Une activité d’étudiant/e salarié/e\n\n• Une entrée directe dans la vie professionnelle\n\nDans les domaines suivants\n\n• Ingénierie\n\n• Mise en service\n\n• Gestion de projet",
       "descriptionByLocale": {
         "fr": "EXPÉRIENCES\n\n• Étudiant/es de l’ETH/EPFL, d’une université ou d’une haute école spécialisée, en bachelor ou en master\n\n• Diplômé/es souhaitant débuter directement leur carrière professionnelle\n\n• Formation dans les domaines de l’ingénierie (p. ex. génie mécanique, génie électrique, informatique, technologie des véhicules, ingénierie des systèmes ou domaines similaires) ou en économie d’entreprise\n\n• Intérêt pour la technique, l’innovation et la collaboration interdisciplinaire\n\n• Curiosité, motivation et capacité à travailler de manière autonome\n\nRESPONSABILITÉS\n\nIntéressé/es par\n\n• Des stages\n\n• Des travaux de diplôme (travaux de bachelor ou de master)\n\n• Une activité d’étudiant/e salarié/e\n\n• Une entrée directe dans la vie professionnelle\n\nDans les domaines suivants\n\n• Ingénierie\n\n• Mise en service\n\n• Gestion de projet",
-        "it": "EXPÉRIENCES\n\n• Étudiant/es de l’ETH/EPFL, d’une université ou d’une haute école spécialisée, en bachelor ou en master\n\n• Diplômé/es souhaitant débuter directement leur carrière professionnelle\n\n• Formation dans les domaines de l’ingénierie (p. ex. génie mécanique, génie électrique, informatique, technologie des véhicules, ingénierie des systèmes ou domaines similaires) ou en économie d’entreprise\n\n• Intérêt pour la technique, l’innovation et la collaboration interdisciplinaire\n\n• Curiosité, motivation et capacité à travailler de manière autonome\n\nRESPONSABILITÉS\n\nIntéressé/es par\n\n• Des stages\n\n• Des travaux de diplôme (travaux de bachelor ou de master)\n\n• Une activité d’étudiant/e salarié/e\n\n• Une entrée directe dans la vie professionnelle\n\nDans les domaines suivants\n\n• Ingénierie\n\n• Mise en service\n\n• Gestion de projet",
-        "en": "EXPÉRIENCES\n\n• Étudiant/es de l’ETH/EPFL, d’une université ou d’une haute école spécialisée, en bachelor ou en master\n\n• Diplômé/es souhaitant débuter directement leur carrière professionnelle\n\n• Formation dans les domaines de l’ingénierie (p. ex. génie mécanique, génie électrique, informatique, technologie des véhicules, ingénierie des systèmes ou domaines similaires) ou en économie d’entreprise\n\n• Intérêt pour la technique, l’innovation et la collaboration interdisciplinaire\n\n• Curiosité, motivation et capacité à travailler de manière autonome\n\nRESPONSABILITÉS\n\nIntéressé/es par\n\n• Des stages\n\n• Des travaux de diplôme (travaux de bachelor ou de master)\n\n• Une activité d’étudiant/e salarié/e\n\n• Une entrée directe dans la vie professionnelle\n\nDans les domaines suivants\n\n• Ingénierie\n\n• Mise en service\n\n• Gestion de projet",
-        "de": "EXPÉRIENCES\n\n• Étudiant/es de l’ETH/EPFL, d’une université ou d’une haute école spécialisée, en bachelor ou en master\n\n• Diplômé/es souhaitant débuter directement leur carrière professionnelle\n\n• Formation dans les domaines de l’ingénierie (p. ex. génie mécanique, génie électrique, informatique, technologie des véhicules, ingénierie des systèmes ou domaines similaires) ou en économie d’entreprise\n\n• Intérêt pour la technique, l’innovation et la collaboration interdisciplinaire\n\n• Curiosité, motivation et capacité à travailler de manière autonome\n\nRESPONSABILITÉS\n\nIntéressé/es par\n\n• Des stages\n\n• Des travaux de diplôme (travaux de bachelor ou de master)\n\n• Une activité d’étudiant/e salarié/e\n\n• Une entrée directe dans la vie professionnelle\n\nDans les domaines suivants\n\n• Ingénierie\n\n• Mise en service\n\n• Gestion de projet"
+        "it": "ESPERIENZA\n\n• ETH/EPFL studente, università o liceo specializzato in laurea o master\n\n• I laureati che desiderano iniziare la loro carriera professionale direttamente\n\n• Formazione in ingegneria (ad esempio ingegneria meccanica, ingegneria elettrica, informatica, tecnologia dei veicoli, ingegneria dei sistemi o settori simili) o economia aziendale\n\n• Interessi in tecnologia, innovazione e collaborazione interdisciplinare\n\n• Curiosità, motivazione e capacità di lavorare in modo indipendente\n\nLIABILITÀ\n\nInteressato da\n\n• Stage\n\n• Lavoro di diploma (lavoro di laurea o di master)\n\n• Attività degli studenti\n\n• Entrata diretta nella vita lavorativa\n\nNelle seguenti aree:\n\n• Ingegneria\n\n• Commissione\n\n• Gestione dei progetti",
+        "en": "EXPERIENCE\n\n• ETH/EPFL student, university or high school specialising in bachelor's or master's degree\n\n• Graduates wishing to start their professional career directly\n\n• Training in engineering (e.g. mechanical engineering, electrical engineering, computer science, vehicle technology, systems engineering or similar fields) or business economy\n\n• Interest in technology, innovation and interdisciplinary collaboration\n\n• Curiosity, motivation and ability to work independently\n\nLIABILITY\n\nInterested by\n\n• Internships\n\n• Diploma work (bachelor or master's work)\n\n• Student activity\n\n• Direct entry into working life\n\nIn the following areas:\n\n• Engineering\n\n• Commissioning\n\n• Project management",
+        "de": "ERFAHRUNG\n\n• ETH/EPFL-Student, Universität oder Gymnasium mit Schwerpunkt Bachelor- oder Masterstudium\n\n• Absolventen, die ihre berufliche Karriere direkt beginnen möchten\n\n• Ausbildung in Ingenieurwissenschaften (z. B. Maschinenbau, Elektrotechnik, Informatik, Fahrzeugtechnik, Systemtechnik oder ähnliche Bereiche) oder Betriebswirtschaft\n\n• Interesse an Technologie, Innovation und interdisziplinärer Zusammenarbeit\n\n• Neugier, Motivation und Fähigkeit, selbstständig zu arbeiten\n\nHAFTUNG\n\nInteresse:\n\n• Praktika\n\n• Diplomarbeit (Bachelor- oder Masterarbeit)\n\n• Studentenaktivität\n\n• Direkter Eintritt ins Arbeitsleben\n\nIn folgenden Bereichen:\n\n• Ingenieurwesen\n\n• Inbetriebnahme\n\n• Projektmanagement"
       },
       "location": "Wallisellen",
       "canton": "ZH",
@@ -10777,7 +10720,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -10808,16 +10750,16 @@
       "title": "Initiativbewerbung für Studierende",
       "titleByLocale": {
         "de": "Initiativbewerbung für Studierende",
-        "it": "Initiativbewerbung per Studierende",
-        "en": "Initiativbewerbung für Studierende",
-        "fr": "Initiativbewerbung für Studierende"
+        "it": "Richiesta di iniziativa per gli studenti",
+        "en": "Initiative application for students",
+        "fr": "Demande d'initiative pour les étudiants"
       },
       "description": "PROFIL\n\n• Studierende der ETH/EPFL, Universität oder Fachhochschulen im Bachelor oder Master\n\n• Absolvent:innen mit Interesse am Direkteinstieg\n\n• Studiengang in den Bereichen des Ingenieurwesens (z. B. Maschinenbau, Elektrotechnik, Informatik, Fahrzeugtechnik, Systemtechnik oder ähnliche Fachrichtungen) oder der Betriebswirtschaft\n\n•\nInteresse an Technik, Innovation und interdisziplinärer Zusammenarbeit\n\n•\nNeugier, Motivation und selbständige Arbeitsweise\n\nAUFGABEN\n\nInteressierte für\n\n• Praktika\n\n• Diplomarbeit (Bachelor-/Masterarbeiten)\n\n• Werkstudententätigkeiten\n\n• Direkteinstieg\n\nIn den Bereichen\n\n• Engineering\n\n• Inbetriebsetzung\n\n• Projektleitung",
       "descriptionByLocale": {
         "de": "PROFIL\n\n• Studierende der ETH/EPFL, Universität oder Fachhochschulen im Bachelor oder Master\n\n• Absolvent:innen mit Interesse am Direkteinstieg\n\n• Studiengang in den Bereichen des Ingenieurwesens (z. B. Maschinenbau, Elektrotechnik, Informatik, Fahrzeugtechnik, Systemtechnik oder ähnliche Fachrichtungen) oder der Betriebswirtschaft\n\n•\nInteresse an Technik, Innovation und interdisziplinärer Zusammenarbeit\n\n•\nNeugier, Motivation und selbständige Arbeitsweise\n\nAUFGABEN\n\nInteressierte für\n\n• Praktika\n\n• Diplomarbeit (Bachelor-/Masterarbeiten)\n\n• Werkstudententätigkeiten\n\n• Direkteinstieg\n\nIn den Bereichen\n\n• Engineering\n\n• Inbetriebsetzung\n\n• Projektleitung",
-        "it": "PROFIL\n\n• Studierende der ETH/EPFL, Universität oder Fachhochschulen im Bachelor oder Master\n\n• Absolvent:innen mit Interesse am Direkteinstieg\n\n• Studiengang in den Bereichen des Ingenieurwesens (z. B. Maschinenbau, Elektrotechnik, Informatik, Fahrzeugtechnik, Systemtechnik oder ähnliche Fachrichtungen) oder der Betriebswirtschaft\n\n•\nInteresse an Technik, Innovation und interdisziplinärer Zusammenarbeit\n\n•\nNeugier, Motivation und selbständige Arbeitsweise\n\nAUFGABEN\n\nInteressierte für\n\n• Praktika\n\n• Diplomarbeit (Bachelor-/Masterarbeiten)\n\n• Werkstudententätigkeiten\n\n• Direkteinstieg\n\nIn den Bereichen\n\n• Engineering\n\n• Inbetriebsetzung\n\n• Projektleitung",
-        "en": "PROFIL\n\n• Studierende der ETH/EPFL, Universität oder Fachhochschulen im Bachelor oder Master\n\n• Absolvent:innen mit Interesse am Direkteinstieg\n\n• Studiengang in den Bereichen des Ingenieurwesens (z. B. Maschinenbau, Elektrotechnik, Informatik, Fahrzeugtechnik, Systemtechnik oder ähnliche Fachrichtungen) oder der Betriebswirtschaft\n\n•\nInteresse an Technik, Innovation und interdisziplinärer Zusammenarbeit\n\n•\nNeugier, Motivation und selbständige Arbeitsweise\n\nAUFGABEN\n\nInteressierte für\n\n• Praktika\n\n• Diplomarbeit (Bachelor-/Masterarbeiten)\n\n• Werkstudententätigkeiten\n\n• Direkteinstieg\n\nIn den Bereichen\n\n• Engineering\n\n• Inbetriebsetzung\n\n• Projektleitung",
-        "fr": "PROFIL\n\n• Studierende der ETH/EPFL, Universität oder Fachhochschulen im Bachelor oder Master\n\n• Absolvent:innen mit Interesse am Direkteinstieg\n\n• Studiengang in den Bereichen des Ingenieurwesens (z. B. Maschinenbau, Elektrotechnik, Informatik, Fahrzeugtechnik, Systemtechnik oder ähnliche Fachrichtungen) oder der Betriebswirtschaft\n\n•\nInteresse an Technik, Innovation und interdisziplinärer Zusammenarbeit\n\n•\nNeugier, Motivation und selbständige Arbeitsweise\n\nAUFGABEN\n\nInteressierte für\n\n• Praktika\n\n• Diplomarbeit (Bachelor-/Masterarbeiten)\n\n• Werkstudententätigkeiten\n\n• Direkteinstieg\n\nIn den Bereichen\n\n• Engineering\n\n• Inbetriebsetzung\n\n• Projektleitung"
+        "it": "PROFESSIONALE\n\n• Studenti di ETH/EPFL, università o università di scienze applicate in Bachelor o Master\n\n• Laureato:donne con interesse per l'ingresso diretto\n\n• Corso di laurea in ingegneria (ad esempio ingegneria meccanica, ingegneria elettrica, informatica, ingegneria dei veicoli, ingegneria dei sistemi o discipline simili) o amministrazione aziendale\n\n•\nInteressi in tecnologia, innovazione e collaborazione interdisciplinare\n\n•\nCuriosità, motivazione e metodi di lavoro indipendenti\n\nTASKS\n\ninteressati a\n\n• Formaggi\n\n• Tesi di diploma (le tesi di laurea/Master)\n\n• Attività degli studenti\n\n• Entrate dirette\n\nNelle aree:\n\n• Ingegneria\n\n• Mettere in servizio\n\n• Gestione dei progetti",
+        "en": "PROFILE\n\n• Students of ETH/EPFL, university or university of applied sciences in Bachelor or Master\n\n• Graduate:women with an interest in direct entry\n\n• Degree programme in engineering (e.g. mechanical engineering, electrical engineering, computer science, vehicle engineering, systems engineering or similar disciplines) or business administration\n\n•\nInterest in technology, innovation and interdisciplinary collaboration\n\n•\nCuriosity, motivation and independent working methods\n\nTASKS\n\ninterested in\n\n• Trainees\n\n• Diploma thesis (Bachelor's/Master's theses)\n\n• Working student activities\n\n• Direct entries\n\nIn the areas:\n\n• Engineering\n\n• Putting into service\n\n• Project management",
+        "fr": "PROFIL\n\n• Étudiants de l'ETH/EPFL, de l'université ou de l'université des sciences appliquées en baccalauréat ou maîtrise\n\n• Diplômée:femmes ayant un intérêt pour l'entrée directe\n\n• Programme de diplôme en ingénierie (par exemple, génie mécanique, génie électrique, informatique, génie des véhicules, génie des systèmes ou disciplines similaires) ou en administration des affaires\n\n•\nIntérêt pour la technologie, l'innovation et la collaboration interdisciplinaire\n\n•\nCuriosité, motivation et méthodes de travail indépendantes\n\nTÂCHES\n\nintéressés par\n\n• Stagiaires\n\n• Thèse de diplôme (Thèses Bachelor/Master)\n\n• Activités des étudiants qui travaillent\n\n• Entrées directes\n\nDans les domaines:\n\n• Génie\n\n• Mise en service\n\n• Gestion de projet"
       },
       "location": "Wallisellen",
       "canton": "ZH",
@@ -10843,7 +10785,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "initiativbewerbung-fur-studierende-stadler-rail-ch"
@@ -10882,16 +10823,16 @@
       "title": "Mitarbeiter:in Elektrovormontage Mechanik",
       "titleByLocale": {
         "de": "Mitarbeiter:in Elektrovormontage Mechanik",
-        "it": "Collaboratore/trice Elektrovormontage Mechanik",
-        "en": "Associate Elektrovormontage Mechanik",
-        "fr": "Collaborateur/trice Elektrovormontage Mechanik"
+        "it": "Meccanica elettronica dei dipendenti",
+        "en": "Employee Electropreassembly Mechanics",
+        "fr": "Mécanique Électropréassemblage des employés"
       },
       "description": "PROFIL\n\n• Abgeschlossene Ausbildung im elektrischen Bereich\n(Automatiker, Automatikmonteur, Schaltanlagenmonteur, Elektromonteur)\n\n• Interesse an Führungsunterstützung und Verantwortungsbewusstem arbeiten\n\n• Mithilfe zur Sicherstellung der Qualität\n\n• Sprachkenntnisse in Deutsch\n\n• Qualitätsbewusste, sowie selbständige und zuverlässige Arbeitsweise\n\n• Flexible, selbständige und teamfähige Persönlichkeit\n\n• EDV Grundkenntnisse\n\nAUFGABEN\n\n• Mechanischer Aufbau von Elektroschaltschränken gemäss Zeichnung und Stücklisten\n\n• Bestückung der Elektrokomponenten gemäss Aufbauplan\n\n• Selbstständiges ab-längen der benötigten Tragschienen und Kabelkanäle\n\n• Änderungen der bestehenden Schaltschränke\n\n• Kontrolle des angelieferten Materials\n\n• Abstimmung mit Gruppenleiter und Teamleiter",
       "descriptionByLocale": {
         "de": "PROFIL\n\n• Abgeschlossene Ausbildung im elektrischen Bereich\n(Automatiker, Automatikmonteur, Schaltanlagenmonteur, Elektromonteur)\n\n• Interesse an Führungsunterstützung und Verantwortungsbewusstem arbeiten\n\n• Mithilfe zur Sicherstellung der Qualität\n\n• Sprachkenntnisse in Deutsch\n\n• Qualitätsbewusste, sowie selbständige und zuverlässige Arbeitsweise\n\n• Flexible, selbständige und teamfähige Persönlichkeit\n\n• EDV Grundkenntnisse\n\nAUFGABEN\n\n• Mechanischer Aufbau von Elektroschaltschränken gemäss Zeichnung und Stücklisten\n\n• Bestückung der Elektrokomponenten gemäss Aufbauplan\n\n• Selbstständiges ab-längen der benötigten Tragschienen und Kabelkanäle\n\n• Änderungen der bestehenden Schaltschränke\n\n• Kontrolle des angelieferten Materials\n\n• Abstimmung mit Gruppenleiter und Teamleiter",
-        "it": "PROFIL\n\n• Abgeschlossene Ausbildung im elektrischen Bereich\n(Automatiker, Automatikmonteur, Schaltanlagenmonteur, Elektromonteur)\n\n• Interesse an Führungsunterstützung und Verantwortungsbewusstem arbeiten\n\n• Mithilfe zur Sicherstellung der Qualität\n\n• Sprachkenntnisse in Deutsch\n\n• Qualitätsbewusste, sowie selbständige und zuverlässige Arbeitsweise\n\n• Flexible, selbständige und teamfähige Persönlichkeit\n\n• EDV Grundkenntnisse\n\nAUFGABEN\n\n• Mechanischer Aufbau von Elektroschaltschränken gemäss Zeichnung und Stücklisten\n\n• Bestückung der Elektrokomponenten gemäss Aufbauplan\n\n• Selbstständiges ab-längen der benötigten Tragschienen und Kabelkanäle\n\n• Änderungen der bestehenden Schaltschränke\n\n• Kontrolle des angelieferten Materials\n\n• Abstimmung mit Gruppenleiter und Teamleiter",
-        "en": "PROFIL\n\n• Abgeschlossene Ausbildung im elektrischen Bereich\n(Automatiker, Automatikmonteur, Schaltanlagenmonteur, Elektromonteur)\n\n• Interesse an Führungsunterstützung und Verantwortungsbewusstem arbeiten\n\n• Mithilfe zur Sicherstellung der Qualität\n\n• Sprachkenntnisse in Deutsch\n\n• Qualitätsbewusste, sowie selbständige und zuverlässige Arbeitsweise\n\n• Flexible, selbständige und teamfähige Persönlichkeit\n\n• EDV Grundkenntnisse\n\nAUFGABEN\n\n• Mechanischer Aufbau von Elektroschaltschränken gemäss Zeichnung und Stücklisten\n\n• Bestückung der Elektrokomponenten gemäss Aufbauplan\n\n• Selbstständiges ab-längen der benötigten Tragschienen und Kabelkanäle\n\n• Änderungen der bestehenden Schaltschränke\n\n• Kontrolle des angelieferten Materials\n\n• Abstimmung mit Gruppenleiter und Teamleiter",
-        "fr": "PROFIL\n\n• Abgeschlossene Ausbildung im elektrischen Bereich\n(Automatiker, Automatikmonteur, Schaltanlagenmonteur, Elektromonteur)\n\n• Interesse an Führungsunterstützung und Verantwortungsbewusstem arbeiten\n\n• Mithilfe zur Sicherstellung der Qualität\n\n• Sprachkenntnisse in Deutsch\n\n• Qualitätsbewusste, sowie selbständige und zuverlässige Arbeitsweise\n\n• Flexible, selbständige und teamfähige Persönlichkeit\n\n• EDV Grundkenntnisse\n\nAUFGABEN\n\n• Mechanischer Aufbau von Elektroschaltschränken gemäss Zeichnung und Stücklisten\n\n• Bestückung der Elektrokomponenten gemäss Aufbauplan\n\n• Selbstständiges ab-längen der benötigten Tragschienen und Kabelkanäle\n\n• Änderungen der bestehenden Schaltschränke\n\n• Kontrolle des angelieferten Materials\n\n• Abstimmung mit Gruppenleiter und Teamleiter"
+        "it": "PROFESSIONALE\n\n• Allenamento elettrico completo\n(automatico, automatico, interruttore, elettrico)\n\n• Interessi di sostegno alla leadership e lavoro responsabile\n\n• Assistenza per garantire la qualità\n\n• Competenze linguistiche in tedesco\n\n• Metodo di lavoro affidabile, indipendente e affidabile\n\n• Personalità flessibile, indipendente e maneggevole\n\n• Capacità informatiche di base\n\nTASKS\n\n• Costruzione meccanica di armadi elettrici interruttori secondo le liste di disegno e parti\n\n• Apparecchiature dei componenti elettrici secondo il piano di costruzione\n\n• Taglio indipendente alla lunghezza delle guide di supporto e dei canali via cavo richiesti\n\n• Modifiche agli armadi interruttori esistenti\n\n• Controllo del materiale ricevuto\n\n• Coordinamento con leader di gruppo e leader di team",
+        "en": "PROFILE\n\n• Completed electrical training\n(automatic, automatic, switchgear, electric)\n\n• Interest in leadership support and responsible work\n\n• Assistance in ensuring quality\n\n• Language skills in German\n\n• Quality-conscious, independent and reliable working method\n\n• Flexible, independent and team-capable personality\n\n• Basic computer skills\n\nTASKS\n\n• Mechanical construction of electrical switchgear cabinets according to the drawing and parts lists\n\n• Equipment of the electrical components according to the construction plan\n\n• Independent cutting to length of the required support rails and cable channels\n\n• Changes to existing switchgear cabinets\n\n• Control of the material received\n\n• Coordination with group leaders and team leaders",
+        "fr": "PROFIL\n\n• Formation électrique terminée\n(automatique, automatique, électrique)\n\n• Intérêt pour le soutien au leadership et le travail responsable\n\n• Assistance pour assurer la qualité\n\n• Compétences linguistiques en allemand\n\n• Méthode de travail axée sur la qualité, indépendante et fiable\n\n• Personnalité flexible, indépendante et capable d'équipe\n\n• Compétences informatiques de base\n\nTÂCHES\n\n• Construction mécanique d'armoires électriques selon les listes de dessins et de pièces\n\n• Équipement des composants électriques selon le plan de construction\n\n• Découpe indépendante jusqu'à la longueur des rails de support et des canaux câblés requis\n\n• Changements aux armoires de commutation existantes\n\n• Contrôle du matériel reçu\n\n• Coordination avec les chefs de groupe et les chefs d'équipe"
       },
       "location": "Bussnang",
       "canton": "TG",
@@ -10917,7 +10858,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-elektrovormontage-mechanik-stadler-rail-ch"
@@ -10956,16 +10896,16 @@
       "title": "Softwareentwickler:in Diagnose-, Netzwerk- und Visualisierungssysteme",
       "titleByLocale": {
         "de": "Softwareentwickler:in Diagnose-, Netzwerk- und Visualisierungssysteme",
-        "it": "Softwareentwickler:in Diagnose-, Netzwerk- e Visualisierungssysteme",
-        "en": "Softwareentwickler:in Diagnose-, Netzwerk- und Visualisierungssysteme",
-        "fr": "Softwareentwickler:in Diagnose-, Netzwerk- und Visualisierungssysteme"
+        "it": "Software sviluppatore sistemi diagnostici, di rete e di visualizzazione",
+        "en": "Software developer diagnostic, network and visualization systems",
+        "fr": "Systèmes de diagnostic, de réseau et de visualisation des développeurs de logiciels"
       },
       "description": "PROFIL\n\n• Abgeschlossenes Studium (FH/Uni) in Informatik, Applikationsentwicklung oder einer vergleichbaren Fachrichtung\n\n• Alternativ eine abgeschlossene Berufsausbildung als Informatiker:in EFZ Fachrichtung Applikationsentwicklung mit entsprechender Berufserfahrung\n\n• Mehrjährige Erfahrung in der objektorientierten Programmierung, vorzugsweise mit Java\n\n• Kenntnisse in Linux und GUI-Entwicklung von Vorteil\n\n• Praxisnahe Erfahrung im Bereich Netzwerk- und Kommunikationstechnologien\n\n• Interesse an OT-Security-Themen sowie an sicherheitsrelevanten Kommunikations- und Fahrzeugsystemen ist von Vorteil\n\n• Kenntnisse in den Bereichen Cyber Security, Risikoanalysen oder Security-by-Design sind von Vorteil\n\n• Reisebereitschaft von ca. 20 %\n\nAUFGABEN\n\n• Konzeption, Entwicklung, Test und Betreuung von Diagnose-, Visualisierungs- und Fernkommunikationssystemen für unsere Fahrzeuge\n\n• Übernahme der fachlichen Verantwortung für Diagnoseprojekte sowie die Umsetzung von Kundenanforderungen\n\n• Inbetriebnahme von Systemen im Labor und am Fahrzeug inklusive Validierung, Wartung und Weiterentwicklung\n\n• Mitarbeit bei der Neu- und Weiterentwicklung bestehender Diagnose- und Kommunikationslösungen\n\n• Technische Unterstützung der Bereiche Vertrieb, Produktmanagement und Projektmanagement\n\n• Technischer Support und Betreuung von Diagnosesystemen in Fahrzeugprojekten\n\nDeine Weiterentwicklungsmöglichkeiten im Bereich Cyber Security\n\n• Möglichkeit zur Übernahme von Verantwortung für Cyber-Security-Themen im Fahrzeugumfeld, abhängig von Interesse und persönlicher Entwicklung\n\n• Mitarbeit bei der Analyse von Sicherheitsanforderungen sowie der Erstellung von Risiko- und Bedrohungsanalysen\n\n• Unterstützung bei der Definition, Umsetzung und Weiterentwicklung von Security-Konzepten für Diagnose- und Kommunikationssysteme\n\n• Begleitung von Fahrzeugprojekten bei der Integration von Cyber-Security-Anforderungen in enger Zusammenarbeit mit Engineering, Kunden und internen Fachbereichen\n\n• Kontinuierlicher Ausbau des Fachwissens in einem zukunftsorientierten und wachsenden Technologiefeld",
       "descriptionByLocale": {
         "de": "PROFIL\n\n• Abgeschlossenes Studium (FH/Uni) in Informatik, Applikationsentwicklung oder einer vergleichbaren Fachrichtung\n\n• Alternativ eine abgeschlossene Berufsausbildung als Informatiker:in EFZ Fachrichtung Applikationsentwicklung mit entsprechender Berufserfahrung\n\n• Mehrjährige Erfahrung in der objektorientierten Programmierung, vorzugsweise mit Java\n\n• Kenntnisse in Linux und GUI-Entwicklung von Vorteil\n\n• Praxisnahe Erfahrung im Bereich Netzwerk- und Kommunikationstechnologien\n\n• Interesse an OT-Security-Themen sowie an sicherheitsrelevanten Kommunikations- und Fahrzeugsystemen ist von Vorteil\n\n• Kenntnisse in den Bereichen Cyber Security, Risikoanalysen oder Security-by-Design sind von Vorteil\n\n• Reisebereitschaft von ca. 20 %\n\nAUFGABEN\n\n• Konzeption, Entwicklung, Test und Betreuung von Diagnose-, Visualisierungs- und Fernkommunikationssystemen für unsere Fahrzeuge\n\n• Übernahme der fachlichen Verantwortung für Diagnoseprojekte sowie die Umsetzung von Kundenanforderungen\n\n• Inbetriebnahme von Systemen im Labor und am Fahrzeug inklusive Validierung, Wartung und Weiterentwicklung\n\n• Mitarbeit bei der Neu- und Weiterentwicklung bestehender Diagnose- und Kommunikationslösungen\n\n• Technische Unterstützung der Bereiche Vertrieb, Produktmanagement und Projektmanagement\n\n• Technischer Support und Betreuung von Diagnosesystemen in Fahrzeugprojekten\n\nDeine Weiterentwicklungsmöglichkeiten im Bereich Cyber Security\n\n• Möglichkeit zur Übernahme von Verantwortung für Cyber-Security-Themen im Fahrzeugumfeld, abhängig von Interesse und persönlicher Entwicklung\n\n• Mitarbeit bei der Analyse von Sicherheitsanforderungen sowie der Erstellung von Risiko- und Bedrohungsanalysen\n\n• Unterstützung bei der Definition, Umsetzung und Weiterentwicklung von Security-Konzepten für Diagnose- und Kommunikationssysteme\n\n• Begleitung von Fahrzeugprojekten bei der Integration von Cyber-Security-Anforderungen in enger Zusammenarbeit mit Engineering, Kunden und internen Fachbereichen\n\n• Kontinuierlicher Ausbau des Fachwissens in einem zukunftsorientierten und wachsenden Technologiefeld",
-        "it": "PROFIL\n\n• Abgeschlossenes Studium (FH/Uni) in Informatik, Applikationsentwicklung oder einer vergleichbaren Fachrichtung\n\n• Alternativ eine abgeschlossene Berufsausbildung als Informatiker:in EFZ Fachrichtung Applikationsentwicklung mit entsprechender Berufserfahrung\n\n• Mehrjährige Erfahrung in der objektorientierten Programmierung, vorzugsweise mit Java\n\n• Kenntnisse in Linux und GUI-Entwicklung von Vorteil\n\n• Praxisnahe Erfahrung im Bereich Netzwerk- und Kommunikationstechnologien\n\n• Interesse an OT-Security-Themen sowie an sicherheitsrelevanten Kommunikations- und Fahrzeugsystemen ist von Vorteil\n\n• Kenntnisse in den Bereichen Cyber Security, Risikoanalysen oder Security-by-Design sind von Vorteil\n\n• Reisebereitschaft von ca. 20 %\n\nAUFGABEN\n\n• Konzeption, Entwicklung, Test und Betreuung von Diagnose-, Visualisierungs- und Fernkommunikationssystemen für unsere Fahrzeuge\n\n• Übernahme der fachlichen Verantwortung für Diagnoseprojekte sowie die Umsetzung von Kundenanforderungen\n\n• Inbetriebnahme von Systemen im Labor und am Fahrzeug inklusive Validierung, Wartung und Weiterentwicklung\n\n• Mitarbeit bei der Neu- und Weiterentwicklung bestehender Diagnose- und Kommunikationslösungen\n\n• Technische Unterstützung der Bereiche Vertrieb, Produktmanagement und Projektmanagement\n\n• Technischer Support und Betreuung von Diagnosesystemen in Fahrzeugprojekten\n\nDeine Weiterentwicklungsmöglichkeiten im Bereich Cyber Security\n\n• Möglichkeit zur Übernahme von Verantwortung für Cyber-Security-Themen im Fahrzeugumfeld, abhängig von Interesse und persönlicher Entwicklung\n\n• Mitarbeit bei der Analyse von Sicherheitsanforderungen sowie der Erstellung von Risiko- und Bedrohungsanalysen\n\n• Unterstützung bei der Definition, Umsetzung und Weiterentwicklung von Security-Konzepten für Diagnose- und Kommunikationssysteme\n\n• Begleitung von Fahrzeugprojekten bei der Integration von Cyber-Security-Anforderungen in enger Zusammenarbeit mit Engineering, Kunden und internen Fachbereichen\n\n• Kontinuierlicher Ausbau des Fachwissens in einem zukunftsorientierten und wachsenden Technologiefeld",
-        "en": "PROFIL\n\n• Abgeschlossenes Studium (FH/Uni) in Informatik, Applikationsentwicklung oder einer vergleichbaren Fachrichtung\n\n• Alternativ eine abgeschlossene Berufsausbildung als Informatiker:in EFZ Fachrichtung Applikationsentwicklung mit entsprechender Berufserfahrung\n\n• Mehrjährige Erfahrung in der objektorientierten Programmierung, vorzugsweise mit Java\n\n• Kenntnisse in Linux und GUI-Entwicklung von Vorteil\n\n• Praxisnahe Erfahrung im Bereich Netzwerk- und Kommunikationstechnologien\n\n• Interesse an OT-Security-Themen sowie an sicherheitsrelevanten Kommunikations- und Fahrzeugsystemen ist von Vorteil\n\n• Kenntnisse in den Bereichen Cyber Security, Risikoanalysen oder Security-by-Design sind von Vorteil\n\n• Reisebereitschaft von ca. 20 %\n\nAUFGABEN\n\n• Konzeption, Entwicklung, Test und Betreuung von Diagnose-, Visualisierungs- und Fernkommunikationssystemen für unsere Fahrzeuge\n\n• Übernahme der fachlichen Verantwortung für Diagnoseprojekte sowie die Umsetzung von Kundenanforderungen\n\n• Inbetriebnahme von Systemen im Labor und am Fahrzeug inklusive Validierung, Wartung und Weiterentwicklung\n\n• Mitarbeit bei der Neu- und Weiterentwicklung bestehender Diagnose- und Kommunikationslösungen\n\n• Technische Unterstützung der Bereiche Vertrieb, Produktmanagement und Projektmanagement\n\n• Technischer Support und Betreuung von Diagnosesystemen in Fahrzeugprojekten\n\nDeine Weiterentwicklungsmöglichkeiten im Bereich Cyber Security\n\n• Möglichkeit zur Übernahme von Verantwortung für Cyber-Security-Themen im Fahrzeugumfeld, abhängig von Interesse und persönlicher Entwicklung\n\n• Mitarbeit bei der Analyse von Sicherheitsanforderungen sowie der Erstellung von Risiko- und Bedrohungsanalysen\n\n• Unterstützung bei der Definition, Umsetzung und Weiterentwicklung von Security-Konzepten für Diagnose- und Kommunikationssysteme\n\n• Begleitung von Fahrzeugprojekten bei der Integration von Cyber-Security-Anforderungen in enger Zusammenarbeit mit Engineering, Kunden und internen Fachbereichen\n\n• Kontinuierlicher Ausbau des Fachwissens in einem zukunftsorientierten und wachsenden Technologiefeld",
-        "fr": "PROFIL\n\n• Abgeschlossenes Studium (FH/Uni) in Informatik, Applikationsentwicklung oder einer vergleichbaren Fachrichtung\n\n• Alternativ eine abgeschlossene Berufsausbildung als Informatiker:in EFZ Fachrichtung Applikationsentwicklung mit entsprechender Berufserfahrung\n\n• Mehrjährige Erfahrung in der objektorientierten Programmierung, vorzugsweise mit Java\n\n• Kenntnisse in Linux und GUI-Entwicklung von Vorteil\n\n• Praxisnahe Erfahrung im Bereich Netzwerk- und Kommunikationstechnologien\n\n• Interesse an OT-Security-Themen sowie an sicherheitsrelevanten Kommunikations- und Fahrzeugsystemen ist von Vorteil\n\n• Kenntnisse in den Bereichen Cyber Security, Risikoanalysen oder Security-by-Design sind von Vorteil\n\n• Reisebereitschaft von ca. 20 %\n\nAUFGABEN\n\n• Konzeption, Entwicklung, Test und Betreuung von Diagnose-, Visualisierungs- und Fernkommunikationssystemen für unsere Fahrzeuge\n\n• Übernahme der fachlichen Verantwortung für Diagnoseprojekte sowie die Umsetzung von Kundenanforderungen\n\n• Inbetriebnahme von Systemen im Labor und am Fahrzeug inklusive Validierung, Wartung und Weiterentwicklung\n\n• Mitarbeit bei der Neu- und Weiterentwicklung bestehender Diagnose- und Kommunikationslösungen\n\n• Technische Unterstützung der Bereiche Vertrieb, Produktmanagement und Projektmanagement\n\n• Technischer Support und Betreuung von Diagnosesystemen in Fahrzeugprojekten\n\nDeine Weiterentwicklungsmöglichkeiten im Bereich Cyber Security\n\n• Möglichkeit zur Übernahme von Verantwortung für Cyber-Security-Themen im Fahrzeugumfeld, abhängig von Interesse und persönlicher Entwicklung\n\n• Mitarbeit bei der Analyse von Sicherheitsanforderungen sowie der Erstellung von Risiko- und Bedrohungsanalysen\n\n• Unterstützung bei der Definition, Umsetzung und Weiterentwicklung von Security-Konzepten für Diagnose- und Kommunikationssysteme\n\n• Begleitung von Fahrzeugprojekten bei der Integration von Cyber-Security-Anforderungen in enger Zusammenarbeit mit Engineering, Kunden und internen Fachbereichen\n\n• Kontinuierlicher Ausbau des Fachwissens in einem zukunftsorientierten und wachsenden Technologiefeld"
+        "it": "PROFESSIONALE\n\n• Studi completi (FH/uni) in informatica, sviluppo delle applicazioni o un campo di studio comparabile\n\n• In alternativa, una formazione professionale completa come scienziato informatico: nel settore EFZ sviluppo delle applicazioni con corrispondente esperienza professionale\n\n• Diversi anni di esperienza nella programmazione orientata agli oggetti, preferibilmente con Java\n\n• La conoscenza dello sviluppo di Linux e GUI è utile\n\n• Esperienza pratica nel campo delle tecnologie di rete e comunicazione\n\n• L'interesse per gli argomenti di sicurezza OT e i sistemi di comunicazione e di veicolo rilevanti per la sicurezza è vantaggioso\n\n• La conoscenza della sicurezza informatica, dell'analisi del rischio o della sicurezza per design è un vantaggio\n\n• Volontà di viaggiare circa il 20%\n\nTASKS\n\n• Progettazione, sviluppo, test e supporto di sistemi diagnostici, di visualizzazione e di comunicazione remota per i nostri veicoli\n\n• Assumere responsabilità professionale per i progetti diagnostici e l'attuazione dei requisiti del cliente\n\n• Commissione di sistemi in laboratorio e sul veicolo, tra cui validazione, manutenzione e ulteriore sviluppo\n\n• Cooperazione nello sviluppo e sviluppo di soluzioni diagnostiche e di comunicazione esistenti\n\n• Supporto tecnico per le vendite, la gestione dei prodotti e la gestione dei progetti\n\n• Supporto tecnico e supporto dei sistemi diagnostici nei progetti di veicoli\n\nLe tue ulteriori opportunità di sviluppo nel campo della sicurezza informatica\n\n• Possibilità di assumersi la responsabilità per problemi di sicurezza informatica nell'ambiente del veicolo, a seconda dell'interesse e dello sviluppo personale\n\n• Cooperazione nell'analisi dei requisiti di sicurezza e preparazione delle analisi dei rischi e delle minacce\n\n• Sostegno alla definizione, implementazione e sviluppo di concetti di sicurezza per sistemi diagnostici e di comunicazione\n\n• Sostegno ai progetti di veicoli nell'integrazione dei requisiti di sicurezza informatica in stretta collaborazione con ingegneria, clienti e dipartimenti interni\n\n• Espansione continua delle competenze in un settore tecnologico orientato al futuro",
+        "en": "PROFILE\n\n• Completed studies (FH/uni) in computer science, application development or a comparable field of study\n\n• Alternatively, a completed vocational training as a computer scientist: in EFZ field of application development with corresponding professional experience\n\n• Several years of experience in object-oriented programming, preferably with Java\n\n• Knowledge of Linux and GUI development is beneficial\n\n• Practical experience in the field of network and communication technologies\n\n• Interest in OT security topics as well as safety-relevant communication and vehicle systems is beneficial\n\n• Knowledge of cyber security, risk analysis or security-by-design is an advantage\n\n• Willingness to travel about 20%\n\nTASKS\n\n• Design, development, testing and support of diagnostic, visualization and remote communication systems for our vehicles\n\n• Assuming professional responsibility for diagnostic projects and implementing customer requirements\n\n• Commissioning of systems in the laboratory and on the vehicle including validation, maintenance and further development\n\n• Cooperation in the development and further development of existing diagnostic and communication solutions\n\n• Technical support for sales, product management and project management\n\n• Technical support and support of diagnostic systems in vehicle projects\n\nYour further development opportunities in the field of cyber security\n\n• Possibility to take responsibility for cyber security issues in the vehicle environment, depending on interest and personal development\n\n• Cooperation in the analysis of security requirements and the preparation of risk and threat analyses\n\n• Support in the definition, implementation and further development of security concepts for diagnostic and communication systems\n\n• Support of vehicle projects in the integration of cyber security requirements in close cooperation with engineering, customers and internal departments\n\n• Continuous expansion of expertise in a future-oriented and growing technology field",
+        "fr": "PROFIL\n\n• Études terminées (FH/uni) en informatique, développement d'applications ou dans un domaine d'études comparable\n\n• Par ailleurs, une formation professionnelle complétée en tant qu'informaticiens: dans le domaine du développement des applications EFZ avec une expérience professionnelle correspondante\n\n• Plusieurs années d'expérience dans la programmation orientée objet, de préférence avec Java\n\n• La connaissance du développement de Linux et de GUI est bénéfique\n\n• Expérience pratique dans le domaine des technologies de réseau et de communication\n\n• L'intérêt pour les questions de sécurité OT ainsi que pour les systèmes de communication et de véhicule pertinents à la sécurité est bénéfique\n\n• La connaissance de la cybersécurité, de l'analyse des risques ou de la sécurité par conception est un avantage\n\n• Volonté de voyager environ 20%\n\nTÂCHES\n\n• Conception, développement, essais et support de systèmes de diagnostic, de visualisation et de communication à distance pour nos véhicules\n\n• Responsabilité professionnelle des projets de diagnostic et mise en œuvre des exigences des clients\n\n• Mise en service des systèmes dans le laboratoire et sur le véhicule, y compris la validation, l'entretien et le développement\n\n• Coopération pour la mise au point et le développement de solutions de diagnostic et de communication existantes\n\n• Assistance technique pour les ventes, la gestion de produits et la gestion de projets\n\n• Appui technique et appui aux systèmes de diagnostic dans les projets de véhicules\n\nVos nouvelles possibilités de développement dans le domaine de la cybersécurité\n\n• Possibilité de prendre en charge les questions de cybersécurité dans l'environnement automobile, en fonction de l'intérêt et du développement personnel\n\n• Coopération à l'analyse des exigences en matière de sécurité et à la préparation d'analyses des risques et des menaces\n\n• Appui à la définition, à la mise en œuvre et au développement de concepts de sécurité pour les systèmes de diagnostic et de communication\n\n• Appui aux projets de véhicules dans l'intégration des exigences de cybersécurité en étroite collaboration avec l'ingénierie, les clients et les services internes\n\n• Développement continu des compétences dans un domaine technologique axé sur l'avenir et en croissance"
       },
       "location": "St. Margrethen",
       "canton": "SG",
@@ -10991,7 +10931,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "softwareentwickler-in-diagnose-netzwerk-und-visualisierungssysteme-stadler-rail-ch"
@@ -11255,7 +11194,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:23.841Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -11505,7 +11443,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:52.502Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -11610,7 +11547,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:22.094Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -11684,7 +11620,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:21.519Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -11714,16 +11649,16 @@
       "title": "CNC-Bediener:in",
       "titleByLocale": {
         "de": "CNC-Bediener:in",
-        "it": "CNC-Bediener:in",
-        "en": "CNC-Bediener:in",
-        "fr": "CNC-Bediener:in"
+        "it": "Operatore CNC",
+        "en": "CNC operator",
+        "fr": "Opérateur CNC"
       },
       "description": "PROFIL\n\n• Abgeschlossene Grundausbildung als Polymechaniker:in oder Produktionsmechaniker:in Richtung CNC\n\n• Mehrjährige Berufserfahrung in der CNC-Bedienung von 5-Achs Fräsmaschinen, vorzugsweise in der Profilbearbeitung\n\n• Bereitschaft zur Arbeit in einem rotierenden 3-Schichtbetrieb\n\n• Freude an selbstständiger Arbeit an der Maschine\n\n• Lesen und verstehen von NC-Codes und technischen Zeichnungen\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. Niveau B1)\n\n• Vorhandene PC-Grundkenntnisse\n\nAUFGABEN\n\n• Zuständig in der Einrichtung, Bedienung und allgemeinen Wartung unserer CNC-Anlagen (Maschinensteuerung: Siemens Sinumerik  ONE / Solution line)\n\n• Verarbeitung von Aluminiumprofilen und Schweissbaugruppen bis zu 27m Länge\n\n• Aktive und unkomplizierte Zusammenarbeit im Team\n\n• Mithilfe bei Prozessoptimierungen sowie Ausarbeiten und Einleiten entsprechender Verbesserungsmassnahmen\n\n• Verantwortung für die Einhaltung unserer Sicherheits- und Qualitätsstandards sowie der Terminvorgaben",
       "descriptionByLocale": {
         "de": "PROFIL\n\n• Abgeschlossene Grundausbildung als Polymechaniker:in oder Produktionsmechaniker:in Richtung CNC\n\n• Mehrjährige Berufserfahrung in der CNC-Bedienung von 5-Achs Fräsmaschinen, vorzugsweise in der Profilbearbeitung\n\n• Bereitschaft zur Arbeit in einem rotierenden 3-Schichtbetrieb\n\n• Freude an selbstständiger Arbeit an der Maschine\n\n• Lesen und verstehen von NC-Codes und technischen Zeichnungen\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. Niveau B1)\n\n• Vorhandene PC-Grundkenntnisse\n\nAUFGABEN\n\n• Zuständig in der Einrichtung, Bedienung und allgemeinen Wartung unserer CNC-Anlagen (Maschinensteuerung: Siemens Sinumerik  ONE / Solution line)\n\n• Verarbeitung von Aluminiumprofilen und Schweissbaugruppen bis zu 27m Länge\n\n• Aktive und unkomplizierte Zusammenarbeit im Team\n\n• Mithilfe bei Prozessoptimierungen sowie Ausarbeiten und Einleiten entsprechender Verbesserungsmassnahmen\n\n• Verantwortung für die Einhaltung unserer Sicherheits- und Qualitätsstandards sowie der Terminvorgaben",
-        "it": "PROFIL\n\n• Abgeschlossene Grundausbildung als Polymechaniker:in oder Produktionsmechaniker:in Richtung CNC\n\n• Mehrjährige Berufserfahrung in der CNC-Bedienung von 5-Achs Fräsmaschinen, vorzugsweise in der Profilbearbeitung\n\n• Bereitschaft zur Arbeit in einem rotierenden 3-Schichtbetrieb\n\n• Freude an selbstständiger Arbeit an der Maschine\n\n• Lesen und verstehen von NC-Codes und technischen Zeichnungen\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. Niveau B1)\n\n• Vorhandene PC-Grundkenntnisse\n\nAUFGABEN\n\n• Zuständig in der Einrichtung, Bedienung und allgemeinen Wartung unserer CNC-Anlagen (Maschinensteuerung: Siemens Sinumerik  ONE / Solution line)\n\n• Verarbeitung von Aluminiumprofilen und Schweissbaugruppen bis zu 27m Länge\n\n• Aktive und unkomplizierte Zusammenarbeit im Team\n\n• Mithilfe bei Prozessoptimierungen sowie Ausarbeiten und Einleiten entsprechender Verbesserungsmassnahmen\n\n• Verantwortung für die Einhaltung unserer Sicherheits- und Qualitätsstandards sowie der Terminvorgaben",
-        "en": "PROFIL\n\n• Abgeschlossene Grundausbildung als Polymechaniker:in oder Produktionsmechaniker:in Richtung CNC\n\n• Mehrjährige Berufserfahrung in der CNC-Bedienung von 5-Achs Fräsmaschinen, vorzugsweise in der Profilbearbeitung\n\n• Bereitschaft zur Arbeit in einem rotierenden 3-Schichtbetrieb\n\n• Freude an selbstständiger Arbeit an der Maschine\n\n• Lesen und verstehen von NC-Codes und technischen Zeichnungen\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. Niveau B1)\n\n• Vorhandene PC-Grundkenntnisse\n\nAUFGABEN\n\n• Zuständig in der Einrichtung, Bedienung und allgemeinen Wartung unserer CNC-Anlagen (Maschinensteuerung: Siemens Sinumerik  ONE / Solution line)\n\n• Verarbeitung von Aluminiumprofilen und Schweissbaugruppen bis zu 27m Länge\n\n• Aktive und unkomplizierte Zusammenarbeit im Team\n\n• Mithilfe bei Prozessoptimierungen sowie Ausarbeiten und Einleiten entsprechender Verbesserungsmassnahmen\n\n• Verantwortung für die Einhaltung unserer Sicherheits- und Qualitätsstandards sowie der Terminvorgaben",
-        "fr": "PROFIL\n\n• Abgeschlossene Grundausbildung als Polymechaniker:in oder Produktionsmechaniker:in Richtung CNC\n\n• Mehrjährige Berufserfahrung in der CNC-Bedienung von 5-Achs Fräsmaschinen, vorzugsweise in der Profilbearbeitung\n\n• Bereitschaft zur Arbeit in einem rotierenden 3-Schichtbetrieb\n\n• Freude an selbstständiger Arbeit an der Maschine\n\n• Lesen und verstehen von NC-Codes und technischen Zeichnungen\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. Niveau B1)\n\n• Vorhandene PC-Grundkenntnisse\n\nAUFGABEN\n\n• Zuständig in der Einrichtung, Bedienung und allgemeinen Wartung unserer CNC-Anlagen (Maschinensteuerung: Siemens Sinumerik  ONE / Solution line)\n\n• Verarbeitung von Aluminiumprofilen und Schweissbaugruppen bis zu 27m Länge\n\n• Aktive und unkomplizierte Zusammenarbeit im Team\n\n• Mithilfe bei Prozessoptimierungen sowie Ausarbeiten und Einleiten entsprechender Verbesserungsmassnahmen\n\n• Verantwortung für die Einhaltung unserer Sicherheits- und Qualitätsstandards sowie der Terminvorgaben"
+        "it": "PROFESSIONALE\n\n• Allenamento di base completo come polimeccanico: in o meccanico di produzione: nella direzione di CNC\n\n• Diversi anni di esperienza professionale nel funzionamento CNC di macchine di fresatura a 5 assi, preferibilmente nella lavorazione del profilo\n\n• Prontezza di lavorare in un funzionamento rotante a 3 turni\n\n• Gioia di lavorare indipendentemente sulla macchina\n\n• Leggere e comprendere i codici NC e i disegni tecnici\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura (livello minimo B1)\n\n• Conoscenza del PC di base\n\nTASKS\n\n• Responsabile per la configurazione, il funzionamento e la manutenzione generale dei nostri sistemi CNC (controllo macchina: Siemens Sinumerik ONE / Solution line)\n\n• Lavorazione di profili in alluminio e saldature fino a 27m di lunghezza\n\n• Cooperazione attiva e semplice in un team\n\n• Assistenza all'ottimizzazione dei processi, nonché all'elaborazione e all'avvio di corrispondenti misure di miglioramento\n\n• Responsabilità per il rispetto dei nostri standard e scadenze di sicurezza e qualità",
+        "en": "PROFILE\n\n• Completed basic training as a polymechanic:in or production mechanic:in the direction of CNC\n\n• Several years of professional experience in the CNC operation of 5-axis milling machines, preferably in profile processing\n\n• Readiness to work in a rotating 3-shift operation\n\n• Joy of working independently on the machine\n\n• Read and understand NC codes and technical drawings\n\n• Good knowledge of German in words and writing (minor level B1)\n\n• Basic PC knowledge\n\nTASKS\n\n• Responsible for the setup, operation and general maintenance of our CNC systems (machine control: Siemens Sinumerik ONE / Solution line)\n\n• Processing of aluminium profiles and welding assemblies up to 27m in length\n\n• Active and uncomplicated cooperation in a team\n\n• Assistance in process optimization as well as elaboration and initiation of corresponding improvement measures\n\n• Responsibility for compliance with our safety and quality standards and deadlines",
+        "fr": "PROFIL\n\n• Achevé la formation de base en tant que polymécanicien:en ou mécanicien de production:en direction de CNC\n\n• Plusieurs années d'expérience professionnelle dans le fonctionnement CNC des fraiseuses à 5 axes, de préférence dans le traitement des profils\n\n• Préparation au travail dans une opération tournante en 3 équipes\n\n• Joy de travailler indépendamment sur la machine\n\n• Lire et comprendre les codes NC et les dessins techniques\n\n• Bonne connaissance de l'allemand en mots et en écriture (niveau B1)\n\n• Connaissances élémentaires en matière de PC\n\nTÂCHES\n\n• Responsable de la configuration, du fonctionnement et de la maintenance générale de nos systèmes CNC (commande machine: Siemens Sinumerik ONE / Solution line)\n\n• Traitement des profilés en aluminium et des assemblages de soudage jusqu'à 27 m de longueur\n\n• Coopération active et non compliquée dans une équipe\n\n• Aide à l'optimisation des processus ainsi qu'à l'élaboration et au lancement de mesures d'amélioration correspondantes\n\n• Responsabilité du respect de nos normes de sécurité et de qualité et délais"
       },
       "location": "Altenrhein",
       "canton": "SG",
@@ -11749,7 +11684,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -11858,7 +11792,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:32:23.026Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -12188,16 +12121,16 @@
       "title": "Aluminiumschweisser:in",
       "titleByLocale": {
         "de": "Aluminiumschweisser:in",
-        "it": "Aluminiumschweisser:in",
-        "en": "Aluminiumschweisser:in",
-        "fr": "Aluminiumschweisser:in"
+        "it": "Saldatori in alluminio",
+        "en": "Aluminium welders",
+        "fr": "Soudeurs en aluminium"
       },
       "description": "AUFGABEN\n\n• Zuständig für die Zusammenstellung unserer Aluminiumbaugruppen auf Basis technischer Zeichnungen\n\n• Umsetzung abwechslungsreicher Schweissarbeiten an Baugruppen bis hin zum kompletten Wagenkasten (manuell oder Automat)\n\n• Manuelle Nachbearbeitung der geschweissten Komponenten\n\n• Erfolgreiche und unkomplizierte Zusammenarbeit im Team von bis zu acht Personen\n\n• Verantwortung für die Einhaltung unserer Qualitätsstandards\n\nPROFIL\n\n• Abgeschlossene Grundausbildung als Anlagen- und Apparatebauer, Metallbauschlosser oder adäquater Berufserfahrung\n\n• Erfahrung im Aluminiumbereich (MIG zwingend / TIG von Vorteil)\n\n• Qualitätsbewusstsein und Begeisterung für grosse Bauteile\n\n• Bereitschaft zur Schichtarbeit (Früh- und Spätschicht, keine Nachtschicht)\n\n• Gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil",
       "descriptionByLocale": {
         "de": "AUFGABEN\n\n• Zuständig für die Zusammenstellung unserer Aluminiumbaugruppen auf Basis technischer Zeichnungen\n\n• Umsetzung abwechslungsreicher Schweissarbeiten an Baugruppen bis hin zum kompletten Wagenkasten (manuell oder Automat)\n\n• Manuelle Nachbearbeitung der geschweissten Komponenten\n\n• Erfolgreiche und unkomplizierte Zusammenarbeit im Team von bis zu acht Personen\n\n• Verantwortung für die Einhaltung unserer Qualitätsstandards\n\nPROFIL\n\n• Abgeschlossene Grundausbildung als Anlagen- und Apparatebauer, Metallbauschlosser oder adäquater Berufserfahrung\n\n• Erfahrung im Aluminiumbereich (MIG zwingend / TIG von Vorteil)\n\n• Qualitätsbewusstsein und Begeisterung für grosse Bauteile\n\n• Bereitschaft zur Schichtarbeit (Früh- und Spätschicht, keine Nachtschicht)\n\n• Gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil",
-        "it": "AUFGABEN\n\n• Zuständig für die Zusammenstellung unserer Aluminiumbaugruppen auf Basis technischer Zeichnungen\n\n• Umsetzung abwechslungsreicher Schweissarbeiten an Baugruppen bis hin zum kompletten Wagenkasten (manuell oder Automat)\n\n• Manuelle Nachbearbeitung der geschweissten Komponenten\n\n• Erfolgreiche und unkomplizierte Zusammenarbeit im Team von bis zu acht Personen\n\n• Verantwortung für die Einhaltung unserer Qualitätsstandards\n\nPROFIL\n\n• Abgeschlossene Grundausbildung als Anlagen- und Apparatebauer, Metallbauschlosser oder adäquater Berufserfahrung\n\n• Erfahrung im Aluminiumbereich (MIG zwingend / TIG von Vorteil)\n\n• Qualitätsbewusstsein und Begeisterung für grosse Bauteile\n\n• Bereitschaft zur Schichtarbeit (Früh- und Spätschicht, keine Nachtschicht)\n\n• Gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil",
-        "en": "AUFGABEN\n\n• Zuständig für die Zusammenstellung unserer Aluminiumbaugruppen auf Basis technischer Zeichnungen\n\n• Umsetzung abwechslungsreicher Schweissarbeiten an Baugruppen bis hin zum kompletten Wagenkasten (manuell oder Automat)\n\n• Manuelle Nachbearbeitung der geschweissten Komponenten\n\n• Erfolgreiche und unkomplizierte Zusammenarbeit im Team von bis zu acht Personen\n\n• Verantwortung für die Einhaltung unserer Qualitätsstandards\n\nPROFIL\n\n• Abgeschlossene Grundausbildung als Anlagen- und Apparatebauer, Metallbauschlosser oder adäquater Berufserfahrung\n\n• Erfahrung im Aluminiumbereich (MIG zwingend / TIG von Vorteil)\n\n• Qualitätsbewusstsein und Begeisterung für grosse Bauteile\n\n• Bereitschaft zur Schichtarbeit (Früh- und Spätschicht, keine Nachtschicht)\n\n• Gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil",
-        "fr": "AUFGABEN\n\n• Zuständig für die Zusammenstellung unserer Aluminiumbaugruppen auf Basis technischer Zeichnungen\n\n• Umsetzung abwechslungsreicher Schweissarbeiten an Baugruppen bis hin zum kompletten Wagenkasten (manuell oder Automat)\n\n• Manuelle Nachbearbeitung der geschweissten Komponenten\n\n• Erfolgreiche und unkomplizierte Zusammenarbeit im Team von bis zu acht Personen\n\n• Verantwortung für die Einhaltung unserer Qualitätsstandards\n\nPROFIL\n\n• Abgeschlossene Grundausbildung als Anlagen- und Apparatebauer, Metallbauschlosser oder adäquater Berufserfahrung\n\n• Erfahrung im Aluminiumbereich (MIG zwingend / TIG von Vorteil)\n\n• Qualitätsbewusstsein und Begeisterung für grosse Bauteile\n\n• Bereitschaft zur Schichtarbeit (Früh- und Spätschicht, keine Nachtschicht)\n\n• Gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil"
+        "it": "TASKS\n\n• Responsabile per il montaggio dei nostri assemblaggi in alluminio a base di disegni tecnici\n\n• Attuazione di varie lavorazioni di saldatura su assiemi fino al corpo completo dell'automobile (manuale o automatico)\n\n• post-elaborazione manuale dei componenti saldati\n\n• Cooperazione riuscita e semplice in un team di fino a otto persone\n\n• Responsabilità per il rispetto dei nostri standard di qualità\n\nPROFESSIONALE\n\n• Formazione di base completa come produttore di impianti e apparati, fabbro di metallo o esperienza professionale adeguata\n\n• Esperienza nel settore dell'alluminio (MIG obbligatoria / TIG di vantaggio)\n\n• Consapevolezza e entusiasmo della qualità per grandi componenti\n\n• Sollecitudine per il lavoro a turni (cambio anteriore e tardivo, nessun turno notturno)\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura, altre lingue sono vantaggiose",
+        "en": "TASKS\n\n• Responsible for assembling our aluminium assemblies based on technical drawings\n\n• Implementation of varied welding work on assemblies up to the complete car body (manual or automatic)\n\n• Manual post-processing of the welded components\n\n• Successful and uncomplicated cooperation in a team of up to eight people\n\n• Responsibility for compliance with our quality standards\n\nPROFILE\n\n• Completed basic training as a plant and apparatus manufacturer, metalwork locksmith or adequate professional experience\n\n• Experience in the aluminium sector (MIG mandatory / TIG of advantage)\n\n• Quality awareness and enthusiasm for large components\n\n• Readiness for shift work (early and late shift, no night shift)\n\n• Good knowledge of German in words and writing, other languages are advantageous",
+        "fr": "TÂCHES\n\n• Responsable du montage de nos assemblages en aluminium basés sur des dessins techniques\n\n• Réalisation de travaux de soudage variés sur des assemblages jusqu'à la carrosserie complète (manuelle ou automatique)\n\n• post-traitement manuel des composants soudés\n\n• Coopération réussie et sans complications au sein d'une équipe de huit personnes au maximum\n\n• Responsabilité du respect de nos normes de qualité\n\nPROFIL\n\n• Achevé la formation de base en tant que fabricant d'usines et d'appareils, de serruriers ou d'expérience professionnelle adéquate\n\n• Expérience dans le secteur de l'aluminium (MIG obligatoire / TIG d'avantage)\n\n• Sensibilisation à la qualité et enthousiasme pour les grands composants\n\n• Préparation au travail posté (début et fin, pas de travail de nuit)\n\n• Bonne connaissance de l'allemand en mots et en écriture, d'autres langues sont avantageuses"
       },
       "location": "Altenrhein",
       "canton": "SG",
@@ -12223,7 +12156,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "aluminiumschweisser-in-stadler-rail-ch"
@@ -12306,7 +12238,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:39:56.525Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -12421,7 +12352,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:17.494Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -12528,7 +12458,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:18.071Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -12621,7 +12550,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:31:54.927Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -12717,7 +12645,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:12.904Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -12797,7 +12724,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:40:14.253Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -13088,7 +13014,6 @@
         "ingegnere-cloud-m365-collaborazione-stadler-rail-bussnang"
       ],
       "firstSeenAt": "2026-06-10T07:53:16.910Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -13272,7 +13197,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:10.034Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -13940,8 +13864,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

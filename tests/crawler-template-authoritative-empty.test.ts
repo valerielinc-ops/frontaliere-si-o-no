@@ -18,6 +18,8 @@ const mocks = vi.hoisted(() => ({
   validateDedicatedLocaleCoverage: vi.fn(() => undefined),
   writeJobsCrawlerSliceVerified: vi.fn(async () => ({ written: true, shrinkAccepted: false })),
   writeSummaryCrawlerSlice: vi.fn(() => undefined),
+  registerCrawlerSummaryGuard: vi.fn(),
+  isConnectionLevelFetchError: vi.fn(() => false),
 }));
 
 vi.mock('../scripts/jobs-url-helper.mjs', () => ({
@@ -43,7 +45,7 @@ vi.mock('../scripts/assemble-jobs-dataset.mjs', () => ({
   writeJobsCrawlerSlice: vi.fn(),
   writeJobsCrawlerSliceVerified: mocks.writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice: mocks.writeSummaryCrawlerSlice,
-  registerCrawlerSummaryGuard: vi.fn(),
+  registerCrawlerSummaryGuard: mocks.registerCrawlerSummaryGuard,
   assembleJobsDataset: mocks.assembleJobsDataset,
   readExistingCrawlerJobs: mocks.readExistingCrawlerJobs,
 }));
@@ -64,7 +66,7 @@ vi.mock('../scripts/lib/transient-fetch.mjs', () => ({
   RETRYABLE_STATUS: new Set([500, 502, 503, 504]),
   WAF_IP_BLOCK_STATUS: new Set([403]),
   isTransientFetchError: vi.fn(() => false),
-  isConnectionLevelFetchError: vi.fn(() => false),
+  isConnectionLevelFetchError: mocks.isConnectionLevelFetchError,
   fetchWithRetry: vi.fn(),
 }));
 
@@ -95,6 +97,51 @@ afterEach(() => {
 });
 
 describe('standard crawler authoritative-empty policy', () => {
+  it('records a connection bail-out in the exit-guard counters (#8376)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'connection-outcome-root-'));
+    mocks.isConnectionLevelFetchError.mockReturnValueOnce(true);
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Connection Outcome Test',
+        root,
+        fetchJobs: async () => {
+          throw new TypeError('fetch failed');
+        },
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts.lastFetchOutcome).toBe('connection_error');
+  });
+
+  it('records an unavailable feed endpoint in the exit-guard counters (#8375)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'feed-outcome-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Feed Outcome Test',
+        root,
+        fetchJobs: async () => {
+          const error = new Error('feed redirected to the vendor homepage') as Error & {
+            feedEndpointUnavailable?: boolean;
+          };
+          error.feedEndpointUnavailable = true;
+          throw error;
+        },
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts.lastFetchOutcome).toBe('feed_endpoint_unavailable');
+  });
+
   it('allows zero only when both the source validator and explicit opt-in agree', () => {
     const validator = vi.fn(() => true);
     expect(evaluateAuthoritativeSnapshot([], {

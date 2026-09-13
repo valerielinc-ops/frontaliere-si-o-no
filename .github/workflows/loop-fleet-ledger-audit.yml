@@ -74,6 +74,7 @@ jobs:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-ledger-audit
         run: |
           set -o pipefail
+          mkdir -p "$REPORT_DIR"
           args=(--registry data/loop-fleet/loop-registry.json --ledger-dir data/loop-fleet/ledger --workflow-dir .github/workflows --artifacts "$RUNNER_TEMP/loop-fleet-artifacts.json" --out-dir "$REPORT_DIR")
           if [ "${{ inputs.strict }}" = "true" ]; then
             args+=(--strict)
