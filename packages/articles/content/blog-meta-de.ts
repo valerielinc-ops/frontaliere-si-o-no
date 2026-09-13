@@ -11724,6 +11724,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.franchigia-frontalieri-casalzuigno.title': 'Neue Selbstbeteiligung 10.000 € für Grenzgänger aus Casalzuigno',
     'blog.article.franchigia-frontalieri-casalzuigno.excerpt': 'Die neue Frontalieri-Vereinbarung, die seit 2024 in Kraft ist, führt eine Selbstbeteiligung von 10.000 € für neue Einwohner Italiens ein, die im Tessin arbeiten.',
     'blog.article.franchigia-frontalieri-casalzuigno.imageAlt': 'Ansicht von Casalzuigno an der Grenze zu Mendrisio und Tessin',
+    'blog.article.ospedale-del-ponte-terzo-lotto.title': 'Ospedale Del Ponte: keine Sperrung für die dritte Charge',
+    'blog.article.ospedale-del-ponte-terzo-lotto.excerpt': 'Asst Sette Laghi bestreitet die Sperrung des dritten Loses des Krankenhauses Del Ponte von Varese. Darlehen in Höhe von 13,6 Millionen bereits in der Kasse und begonnene Arbeiten.',
+    'blog.article.ospedale-del-ponte-terzo-lotto.imageAlt': 'Filippo Del Ponte Krankenhaus in Varese',
 };
 
 export default blogMetaDe;
