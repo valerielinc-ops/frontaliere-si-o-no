@@ -10,9 +10,10 @@ on:
   # This workflow only calls the GitHub API and never executes PR code.
   # pull_request_target keeps the write permission available for fork PRs too.
   pull_request_target:
-    # Native auto-merge persists across new commits, so re-running this job on
-    # every synchronize/push only repeats the API call and helper download.
-    types: [opened, reopened, ready_for_review]
+    # Native auto-merge persists across new commits. `synchronize` is retained
+    # as a bounded recovery path for a transient API failure on the first
+    # opt-in; the job reads the current state before attempting the mutation.
+    types: [opened, reopened, ready_for_review, synchronize]
 
 permissions:
   contents: read
@@ -67,6 +68,11 @@ jobs:
           if [ -z "$GITHUB_PAT" ]; then
             echo "GITHUB_PAT was not loaded from Remote Config" >&2
             exit 1
+          fi
+          current=$(GH_TOKEN="$GITHUB_PAT" gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json autoMergeRequest)
+          if jq -e '.autoMergeRequest != null' <<<"$current" >/dev/null; then
+            echo 'Native auto-merge is already enabled; no mutation needed.'
+            exit 0
           fi
           GH_TOKEN="$GITHUB_PAT" gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto --squash --delete-branch
       - name: Cleanup Firebase credentials
