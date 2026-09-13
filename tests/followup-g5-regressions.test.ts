@@ -7,6 +7,7 @@ import {
 import {
   hasEnumeratedItems as preflightHasEnumeratedItems,
   isAggregate,
+  isAggregateForAnalytics,
 } from '../scripts/ci/check-issue-already-resolved.mjs';
 import {
   hasEnumeratedItems as harvestHasEnumeratedItems,
@@ -123,6 +124,24 @@ describe('G5 — follow-up detector regressions', () => {
     expect(isAvoidableMaxTurns('follow-up(#1): cleanup', ['follow-up'], false, G5_BODY)).toBe(false);
     expect(isAvoidableAlreadyFixed('follow-up(#1): 3 item deferiti — a, b, c', ['follow-up'])).toBe(false);
     expect(isAvoidableMaxTurns('follow-up(#1): 3 item deferiti — a, b, c', ['follow-up'])).toBe(false);
+  });
+
+  it('tratta un daily bucket a un solo item come aggregate anche nell’analytics', () => {
+    const title = 'follow-up(daily:2026-09-13): 1 item — owner/repo';
+
+    expect(isAggregate(title, '')).toBe(true);
+    expect(isAvoidableAlreadyFixed(title, ['follow-up'])).toBe(false);
+    expect(isAvoidableMaxTurns(title, ['follow-up'], false)).toBe(false);
+  });
+
+  it('mantiene il keyword body-only fuori dal burn analytics, ma non dal pre-flight', () => {
+    const title = 'follow-up(#1): cleanup';
+    const body = 'The single item has a batch-related note in ordinary prose.';
+
+    expect(isAggregate(title, body)).toBe(true);
+    expect(isAggregateForAnalytics(title, body)).toBe(false);
+    expect(isAvoidableAlreadyFixed(title, ['follow-up'], body)).toBe(true);
+    expect(isAvoidableMaxTurns(title, ['follow-up'], false, body)).toBe(true);
   });
 });
 

@@ -78,6 +78,16 @@ export function isDailyBucketTitle(title = '') {
   return !!dailyBucketInfo(title);
 }
 
+// Aggregate grammar is shared by the pre-flight gate, the lessons harvester,
+// and the adapted reconciler. Keep the vocabulary/count regexes and inline
+// Markdown masking in this pure module so those callers cannot drift.
+export const AGGREGATE_ITEM_COUNT_RE = /\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i;
+export const AGGREGATE_KEYWORD_RE = /\b(?:sweep|batch|bulk)\b/i;
+
+export function maskInlineCodeSpans(text) {
+  return String(text || '').replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
+}
+
 /**
  * Normalize a fingerprint component without changing the acceptance oracle.
  * Punctuation meaningful to code tokens is retained; whitespace/case drift is not.
