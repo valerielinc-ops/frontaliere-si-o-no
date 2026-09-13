@@ -463,6 +463,13 @@ describe('generateFuelStationPages() — Ticino only', () => {
     expect(sample).toMatch(/Recensione editoriale della stazione/);
   });
 
+  it('uses the stated 6 L/100 km commute assumption for monthly context', () => {
+    const sample = pages['/prezzi-benzina/chiasso/stazioni/eni-via-compolongo/'];
+    expect(sample).toContain('106 litri');
+    expect(sample).not.toContain('200 litri');
+    expect(sample).not.toContain('4 pieni × prezzo');
+  });
+
   it('every page links back to the zone hub', () => {
     for (const [path, html] of Object.entries(pages)) {
       const zoneMatch = path.match(/\/(chiasso|mendrisio|lugano|bellinzona|locarno)\//);

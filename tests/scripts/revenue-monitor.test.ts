@@ -102,6 +102,25 @@ describe('revenue-monitor / bucketCtrFromRows()', () => {
 });
 
 describe('revenue-monitor / buildComparisonRows() CLS + CTR', () => {
+  it('uses the AdSense API currency code in current metric labels', () => {
+    const rows = buildComparisonRows({
+      adsense: {
+        currencyCode: 'EUR',
+        revenuePerDay: 1.2,
+        rpm: 4.5,
+        desktopRpm: 5.1,
+        authGateImpressions7d: 12,
+      },
+      gsc: null,
+      posthog: null,
+    });
+    expect(rows.map((row: any) => row.metric)).toEqual(expect.arrayContaining([
+      'AdSense revenue / day (EUR)',
+      'AdSense RPM (EUR)',
+      'AdSense desktop RPM (EUR)',
+    ]));
+  });
+
   it('includes PostHog CLS rows when posthog data present', () => {
     const current = {
       adsense: null,
@@ -273,6 +292,27 @@ describe('revenue-monitor / buildHistoryEntry()', () => {
     expect(parsed.gsc.clicksPerDay).toBe(320);
     expect(parsed.posthog.clsP75Mobile).toBe(0.5);
     expect(parsed.posthog.source).toBe('ga4-fallback');
+  });
+
+  it('persists canonical currency-neutral AdSense fields with the legacy aliases', () => {
+    const current = {
+      adsense: {
+        currencyCode: 'EUR',
+        revenuePerDay: 1.1,
+        rpm: 3.2,
+        desktopRpm: 4.4,
+        authGateImpressions7d: 5,
+      },
+      gsc: null,
+      posthog: null,
+    };
+    const entry = buildHistoryEntry(current, buildComparisonRows(current), '2026-09-13');
+    expect(entry.adsense).toMatchObject({
+      currencyCode: 'EUR',
+      revenuePerDay: 1.1,
+      rpm: 3.2,
+      desktopRpm: 4.4,
+    });
   });
 
   it('non confronta CLS quando la sorgente corrente differisce dal baseline', () => {
