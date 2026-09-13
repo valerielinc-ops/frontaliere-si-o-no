@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vz-vermoegenszentrum",
-  "assembledAt": "2026-09-12T13:00:21.718Z",
+  "assembledAt": "2026-09-13T13:56:11.711Z",
   "jobs": [
     {
       "id": "vz-vermoegenszentrum-20362b2dcf3f",
@@ -33,7 +33,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center-zweisprachig/facfb110-e586-45c5-b396-8d21bc7383eb",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.868Z",
+      "crawledAt": "2026-09-13T13:56:06.594Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -82,6 +82,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:46:45.788Z",
+      "needsRetranslation": true,
       "salaryMin": 36800,
       "salaryMax": 55800,
       "salarySource": "estimated",
@@ -92,6 +93,101 @@
           "@type": "QuantitativeValue",
           "minValue": 36800,
           "maxValue": 55800,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "vz-vermoegenszentrum-f3367b7723fd",
+      "slug": "collaboratore-trice-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich",
+      "slugByLocale": {
+        "it": "collaboratore-trice-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich",
+        "en": "employee-in-contact-center-high-german-40-80-vz-vermogenszentrum-zurich-zurich",
+        "de": "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermoegenszentrum-ch",
+        "fr": "employe-dans-le-centre-de-contact-haut-allemand-40-80-vz-vermogenszentrum-zurich-zurich"
+      },
+      "company": "VZ VermögensZentrum",
+      "companyKey": "vz-vermoegenszentrum",
+      "companyDomain": "vermoegenszentrum.ch",
+      "title": "Mitarbeiter/-in Contact Center (Hochdeutsch)",
+      "titleByLocale": {
+        "it": "Centro di contatto dei dipendenti (High German)",
+        "en": "Employee Contact Center (High German)",
+        "de": "Mitarbeiter/-in Contact Center (Hochdeutsch)",
+        "fr": "Employé/dans le centre de contact (haut allemand), 40-80 %"
+      },
+      "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du kontaktierst unsere Kundinnen und Kunden telefonisch und vereinbarst Termine mit Personen, die an einer Beratung interessiert sind.\n\n• Du koordinierst die Termine mit unseren Beraterinnen und Beratern.\n\n• Du interessierst dich für Finanzfragen und setzt das Know-how, das du bei uns aufbaust und vertiefst, effektiv im Gespräch ein.\n\n• Du bist engagiert und zielorientiert und hast Lust auf ein junges Team.\n\n• Du sprichst akzentfrei Hochdeutsch.\n\n• Du bringst idealerweise Erfahrung im Kundenkontakt oder in der Finanzbranche mit.\n\n• Du wirst sorgfältig in deine Aufgaben eingeführt, professionell gecoached und für die Gesprächsführung geschult.\n\n• Du arbeitest in einem unkomplizierten und offenen Umfeld an zentraler Lage in Zürich. Bei dieser Tätigkeit gibt es keine Homeoffice Möglichkeit.\n\n• Du arbeitest mindestens 21.25 Stunden pro Woche mit mindestens einer Abendschicht bis 19.30 Uhr. Deine Arbeitstage kannst du selbstständig planen.",
+      "descriptionByLocale": {
+        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. Consigliamo individui e aziende di soldi, gestire le attività e offrire servizi finanziari attraenti. Mentre stiamo crescendo fortemente, stiamo cercando rinforzi d'accordo nella nostra sede di Paradeplatz a Zurigo.\n• Contatta i nostri clienti per telefono e fai appuntamenti con persone che sono interessate alla consulenza.\n• Coordinate gli appuntamenti con i nostri consulenti.\n• Sei interessato a questioni finanziarie e utilizzare il know-how che si costruisce e approfondire con noi efficacemente in conversazione.\n• Siete impegnati e orientati verso l'obiettivo e vi sentite come una squadra giovane.\n• Parli senza accento alto tedesco.\n• È idealmente portare esperienza nel contatto con i clienti o nel settore finanziario.\n• Sarete accuratamente introdotti ai vostri compiti, professionalmente allenati e addestrati per la conversazione.\n• Lavori in un ambiente semplice e aperto in una posizione centrale a Zurigo. In questa attività, non c'è possibilità di ufficio domestico.\n• Lavori almeno 17 ore alla settimana con almeno un turno serale fino alle 19.30. Puoi pianificare i tuoi giorni lavorativi in modo indipendente.",
+        "en": "VZ is the leading independent financial services provider in Switzerland. We advise individuals and companies about money, manage assets and offer attractive financial services. As we are growing strongly, we are looking for agreement reinforcements at our headquarters at Paradeplatz in Zurich.\n• You contact our customers by phone and make appointments with people who are interested in consulting.\n• You coordinate the appointments with our consultants.\n• You are interested in financial issues and use the know-how you build up and deepen with us effectively in conversation.\n• You are committed and goal-oriented and feel like a young team.\n• You speak accent-free High German.\n• You ideally bring experience in customer contact or in the financial industry.\n• You will be carefully introduced to your tasks, professionally coached and trained for conversation.\n• You work in an uncomplicated and open environment at a central location in Zurich. In this activity, there is no home office possibility.\n• You work at least 17 hours a week with at least one evening shift until 7.30 pm. You can plan your working days independently.",
+        "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du kontaktierst unsere Kundinnen und Kunden telefonisch und vereinbarst Termine mit Personen, die an einer Beratung interessiert sind.\n\n• Du koordinierst die Termine mit unseren Beraterinnen und Beratern.\n\n• Du interessierst dich für Finanzfragen und setzt das Know-how, das du bei uns aufbaust und vertiefst, effektiv im Gespräch ein.\n\n• Du bist engagiert und zielorientiert und hast Lust auf ein junges Team.\n\n• Du sprichst akzentfrei Hochdeutsch.\n\n• Du bringst idealerweise Erfahrung im Kundenkontakt oder in der Finanzbranche mit.\n\n• Du wirst sorgfältig in deine Aufgaben eingeführt, professionell gecoached und für die Gesprächsführung geschult.\n\n• Du arbeitest in einem unkomplizierten und offenen Umfeld an zentraler Lage in Zürich. Bei dieser Tätigkeit gibt es keine Homeoffice Möglichkeit.\n\n• Du arbeitest mindestens 21.25 Stunden pro Woche mit mindestens einer Abendschicht bis 19.30 Uhr. Deine Arbeitstage kannst du selbstständig planen.",
+        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Nous conseillons les particuliers et les entreprises sur l'argent, gérons les actifs et offrons des services financiers attrayants. Au fur et à mesure que nous grandissons, nous cherchons des renforts d'accord à notre siège de Paradeplatz à Zurich.\n• Vous contactez nos clients par téléphone et prenez rendez-vous avec des personnes intéressées par la consultation.\n• Vous coordonnez les rendez-vous avec nos consultants.\n• Vous êtes intéressé par les questions financières et utilisez le savoir-faire que vous développez et approfondissez avec nous efficacement dans la conversation.\n• Vous êtes engagé et orienté vers le but et vous sentez comme une jeune équipe.\n• Vous parlez sans accent.\n• Vous apportez idéalement de l'expérience dans le contact client ou dans le secteur financier.\n• Vous serez soigneusement présenté à vos tâches, entraîné et formé pour la conversation.\n• Vous travaillez dans un environnement simple et ouvert à un emplacement central à Zurich. Dans cette activité, il n'y a aucune possibilité de bureau à domicile.\n• Vous travaillez au moins 17 heures par semaine avec au moins un quart du soir jusqu'à 19h30. Vous pouvez planifier vos journées de travail indépendamment."
+      },
+      "location": "Zürich, Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center-hochdeutsch/5183c85d-3a37-457a-baee-12334360c46c",
+      "source": "VZ VermögensZentrum Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-13T13:56:06.593Z",
+      "addressLocality": "Zürich",
+      "postalCode": "8002",
+      "addressRegion": "Zürich",
+      "streetAddress": "Gotthardstrasse 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Servizio Clienti",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Wealth Management",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-01-06",
+      "applyUrl": "https://vzjobs.abacuscity.ch/de/jobapplicationform?jobportal_id=2&jobportal_jobid=1005799",
+      "requirements": [
+        "• Du bist engagiert und zielorientiert und hast Lust auf ein junges Team.",
+        "• Du sprichst akzentfrei Hochdeutsch.",
+        "• Du bringst idealerweise Erfahrung im Kundenkontakt oder in der Finanzbranche mit."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Du bist engagiert und zielorientiert und hast Lust auf ein junges Team.",
+          "• Du sprichst akzentfrei Hochdeutsch.",
+          "• Du bringst idealerweise Erfahrung im Kundenkontakt oder in der Finanzbranche mit."
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich",
+        "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermoegenszentrum-ch",
+        "mitarbeiter-in-contact-center-hochdeutsch-ab-50-vz-vermoegenszentrum-ch",
+        "mitarbeiter-in-contact-center-hochdeutsch-vz-vermoegenszentrum-ch",
+        "collaboratore-trice-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermoegenszentrum-ch",
+          "mitarbeiter-in-contact-center-hochdeutsch-ab-50-vz-vermoegenszentrum-ch",
+          "mitarbeiter-in-contact-center-hochdeutsch-vz-vermoegenszentrum-ch",
+          "collaboratore-trice-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:46:45.788Z",
+      "needsRetranslation": true,
+      "salaryMin": 58800,
+      "salaryMax": 89200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58800,
+          "maxValue": 89200,
           "unitText": "YEAR"
         }
       }
@@ -127,7 +223,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center/5302e5f4-5b81-442e-8676-8872e8b64a3b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.867Z",
+      "crawledAt": "2026-09-13T13:56:06.593Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -173,6 +269,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:46:45.787Z",
+      "needsRetranslation": true,
       "salaryMin": 36800,
       "salaryMax": 55800,
       "salarySource": "estimated",
@@ -201,7 +298,7 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Collaborateur/Collaboratrice Contact Center",
       "titleByLocale": {
-        "it": "Centro contatti Collaboratore",
+        "it": "Collaborateur/Collaboratrice Contact Center",
         "en": "Collaborator Contact Center, 40-80%",
         "de": "Collaborator Contact Center, 40-80%",
         "fr": "Collaborateur/Collaboratrice Contact Center"
@@ -218,7 +315,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/collaborateur-collaboratrice-contact-center/400da688-9b37-4f98-b3f4-b2d633b3b3f3",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:00:14.866Z",
+      "crawledAt": "2026-09-13T13:56:06.592Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "Vaud",
@@ -282,6 +379,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:46:45.787Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -292,100 +390,6 @@
           "@type": "QuantitativeValue",
           "minValue": 48400,
           "maxValue": 73200,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "vz-vermoegenszentrum-f3367b7723fd",
-      "slug": "collaboratore-trice-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich",
-        "en": "employee-in-contact-center-high-german-40-80-vz-vermogenszentrum-zurich-zurich",
-        "de": "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermoegenszentrum-ch",
-        "fr": "employe-dans-le-centre-de-contact-haut-allemand-40-80-vz-vermogenszentrum-zurich-zurich"
-      },
-      "company": "VZ VermögensZentrum",
-      "companyKey": "vz-vermoegenszentrum",
-      "companyDomain": "vermoegenszentrum.ch",
-      "title": "Mitarbeiter/-in Contact Center (Hochdeutsch)",
-      "titleByLocale": {
-        "it": "Centro di contatto dei dipendenti (High German)",
-        "en": "Employee Contact Center (High German)",
-        "de": "Mitarbeiter/-in Contact Center (Hochdeutsch)",
-        "fr": "Employé/dans le centre de contact (haut allemand), 40-80 %"
-      },
-      "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du kontaktierst unsere Kundinnen und Kunden telefonisch und vereinbarst Termine mit Personen, die an einer Beratung interessiert sind.\n\n• Du koordinierst die Termine mit unseren Beraterinnen und Beratern.\n\n• Du interessierst dich für Finanzfragen und setzt das Know-how, das du bei uns aufbaust und vertiefst, effektiv im Gespräch ein.\n\n• Du bist engagiert und zielorientiert und hast Lust auf ein junges Team.\n\n• Du sprichst akzentfrei Hochdeutsch.\n\n• Du bringst idealerweise Erfahrung im Kundenkontakt oder in der Finanzbranche mit.\n\n• Du wirst sorgfältig in deine Aufgaben eingeführt, professionell gecoached und für die Gesprächsführung geschult.\n\n• Du arbeitest in einem unkomplizierten und offenen Umfeld an zentraler Lage in Zürich. Bei dieser Tätigkeit gibt es keine Homeoffice Möglichkeit.\n\n• Du arbeitest mindestens 21.25 Stunden pro Woche mit mindestens einer Abendschicht bis 19.30 Uhr. Deine Arbeitstage kannst du selbstständig planen.",
-      "descriptionByLocale": {
-        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. Consigliamo individui e aziende di soldi, gestire le attività e offrire servizi finanziari attraenti. Mentre stiamo crescendo fortemente, stiamo cercando rinforzi d'accordo nella nostra sede di Paradeplatz a Zurigo.\n• Contatta i nostri clienti per telefono e fai appuntamenti con persone che sono interessate alla consulenza.\n• Coordinate gli appuntamenti con i nostri consulenti.\n• Sei interessato a questioni finanziarie e utilizzare il know-how che si costruisce e approfondire con noi efficacemente in conversazione.\n• Siete impegnati e orientati verso l'obiettivo e vi sentite come una squadra giovane.\n• Parli senza accento alto tedesco.\n• È idealmente portare esperienza nel contatto con i clienti o nel settore finanziario.\n• Sarete accuratamente introdotti ai vostri compiti, professionalmente allenati e addestrati per la conversazione.\n• Lavori in un ambiente semplice e aperto in una posizione centrale a Zurigo. In questa attività, non c'è possibilità di ufficio domestico.\n• Lavori almeno 17 ore alla settimana con almeno un turno serale fino alle 19.30. Puoi pianificare i tuoi giorni lavorativi in modo indipendente.",
-        "en": "VZ is the leading independent financial services provider in Switzerland. We advise individuals and companies about money, manage assets and offer attractive financial services. As we are growing strongly, we are looking for agreement reinforcements at our headquarters at Paradeplatz in Zurich.\n• You contact our customers by phone and make appointments with people who are interested in consulting.\n• You coordinate the appointments with our consultants.\n• You are interested in financial issues and use the know-how you build up and deepen with us effectively in conversation.\n• You are committed and goal-oriented and feel like a young team.\n• You speak accent-free High German.\n• You ideally bring experience in customer contact or in the financial industry.\n• You will be carefully introduced to your tasks, professionally coached and trained for conversation.\n• You work in an uncomplicated and open environment at a central location in Zurich. In this activity, there is no home office possibility.\n• You work at least 17 hours a week with at least one evening shift until 7.30 pm. You can plan your working days independently.",
-        "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du kontaktierst unsere Kundinnen und Kunden telefonisch und vereinbarst Termine mit Personen, die an einer Beratung interessiert sind.\n\n• Du koordinierst die Termine mit unseren Beraterinnen und Beratern.\n\n• Du interessierst dich für Finanzfragen und setzt das Know-how, das du bei uns aufbaust und vertiefst, effektiv im Gespräch ein.\n\n• Du bist engagiert und zielorientiert und hast Lust auf ein junges Team.\n\n• Du sprichst akzentfrei Hochdeutsch.\n\n• Du bringst idealerweise Erfahrung im Kundenkontakt oder in der Finanzbranche mit.\n\n• Du wirst sorgfältig in deine Aufgaben eingeführt, professionell gecoached und für die Gesprächsführung geschult.\n\n• Du arbeitest in einem unkomplizierten und offenen Umfeld an zentraler Lage in Zürich. Bei dieser Tätigkeit gibt es keine Homeoffice Möglichkeit.\n\n• Du arbeitest mindestens 21.25 Stunden pro Woche mit mindestens einer Abendschicht bis 19.30 Uhr. Deine Arbeitstage kannst du selbstständig planen.",
-        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Nous conseillons les particuliers et les entreprises sur l'argent, gérons les actifs et offrons des services financiers attrayants. Au fur et à mesure que nous grandissons, nous cherchons des renforts d'accord à notre siège de Paradeplatz à Zurich.\n• Vous contactez nos clients par téléphone et prenez rendez-vous avec des personnes intéressées par la consultation.\n• Vous coordonnez les rendez-vous avec nos consultants.\n• Vous êtes intéressé par les questions financières et utilisez le savoir-faire que vous développez et approfondissez avec nous efficacement dans la conversation.\n• Vous êtes engagé et orienté vers le but et vous sentez comme une jeune équipe.\n• Vous parlez sans accent.\n• Vous apportez idéalement de l'expérience dans le contact client ou dans le secteur financier.\n• Vous serez soigneusement présenté à vos tâches, entraîné et formé pour la conversation.\n• Vous travaillez dans un environnement simple et ouvert à un emplacement central à Zurich. Dans cette activité, il n'y a aucune possibilité de bureau à domicile.\n• Vous travaillez au moins 17 heures par semaine avec au moins un quart du soir jusqu'à 19h30. Vous pouvez planifier vos journées de travail indépendamment."
-      },
-      "location": "Zürich, Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center-hochdeutsch/5183c85d-3a37-457a-baee-12334360c46c",
-      "source": "VZ VermögensZentrum Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.866Z",
-      "addressLocality": "Zürich",
-      "postalCode": "8002",
-      "addressRegion": "Zürich",
-      "streetAddress": "Gotthardstrasse 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Servizio Clienti",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Wealth Management",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-06",
-      "applyUrl": "https://vzjobs.abacuscity.ch/de/jobapplicationform?jobportal_id=2&jobportal_jobid=1005799",
-      "requirements": [
-        "• Du bist engagiert und zielorientiert und hast Lust auf ein junges Team.",
-        "• Du sprichst akzentfrei Hochdeutsch.",
-        "• Du bringst idealerweise Erfahrung im Kundenkontakt oder in der Finanzbranche mit."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du bist engagiert und zielorientiert und hast Lust auf ein junges Team.",
-          "• Du sprichst akzentfrei Hochdeutsch.",
-          "• Du bringst idealerweise Erfahrung im Kundenkontakt oder in der Finanzbranche mit."
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich",
-        "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermoegenszentrum-ch",
-        "mitarbeiter-in-contact-center-hochdeutsch-ab-50-vz-vermoegenszentrum-ch",
-        "mitarbeiter-in-contact-center-hochdeutsch-vz-vermoegenszentrum-ch",
-        "collaboratore-trice-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermoegenszentrum-ch",
-          "mitarbeiter-in-contact-center-hochdeutsch-ab-50-vz-vermoegenszentrum-ch",
-          "mitarbeiter-in-contact-center-hochdeutsch-vz-vermoegenszentrum-ch",
-          "collaboratore-trice-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
-        ],
-        "en": [
-          "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
-        ],
-        "fr": [
-          "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:46:45.788Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
           "unitText": "YEAR"
         }
       }
@@ -421,7 +425,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/fachspezialist-in-underwriting/6ba404fd-1ff7-4c04-9e57-8eb7291edcf4",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.865Z",
+      "crawledAt": "2026-09-13T13:56:06.591Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -489,6 +493,7 @@
         "specialista-nella-sottoscrizione-80-100-vz-vermogenszentrum-zurich-zurich"
       ],
       "firstSeenAt": "2026-07-04T12:46:45.786Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 131000,
       "salarySource": "estimated",
@@ -534,7 +539,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-underwriter-in-privatversicherungen/a4389d17-bf9c-4642-ab3c-929103849595",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.863Z",
+      "crawledAt": "2026-09-13T13:56:06.590Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -597,6 +602,7 @@
         "sottoscrizione-del-personale-in-reparto-specializzato-80-100-vz-vermogenszentrum-zurich-zurich"
       ],
       "firstSeenAt": "2026-07-04T12:46:45.785Z",
+      "needsRetranslation": true,
       "salaryMin": 64000,
       "salaryMax": 106500,
       "salarySource": "estimated",
@@ -607,97 +613,6 @@
           "@type": "QuantitativeValue",
           "minValue": 64000,
           "maxValue": 106500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "vz-vermoegenszentrum-c6c11085934c",
-      "slug": "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich",
-      "slugByLocale": {
-        "it": "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich",
-        "en": "personnel-in-operations-pension-fund-with-specialist-responsibility-80-100-vz-vermogenszentrum-zurich-zurich",
-        "de": "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
-        "fr": "personnel-dans-la-caisse-de-retraite-des-operations-avec-responsabilite-specialisee-80-100-vz-vermogenszentrum-zurich"
-      },
-      "company": "VZ VermögensZentrum",
-      "companyKey": "vz-vermoegenszentrum",
-      "companyDomain": "vermoegenszentrum.ch",
-      "title": "Sachbearbeiter/-in Operations Pensionskasse (mit Fachverantwortung)",
-      "titleByLocale": {
-        "it": "Fondo Pensione Operazioni Personali (con responsabilità specialistica)",
-        "en": "Personnel Operations Pension Fund (with specialist responsibility)",
-        "de": "Sachbearbeiter/-in Operations Pensionskasse (mit Fachverantwortung)",
-        "fr": "Personnel/dans la Caisse de retraite des opérations (avec responsabilité spécialisée), 80-100 %"
-      },
-      "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du bearbeitest selbstständig und qualitativ anspruchsvoll die vielfältigen Geschäftsfälle im Bereich der aktiven Versicherten unserer Sammelstiftungen und stellst eine korrekte, effiziente und termingerechte Abwicklung sicher.\n\n• Du berätst Versicherte und Arbeitgeber kompetent zu Vorsorgethemen und unterstützt sie bei komplexen Fragestellungen rund um die berufliche Vorsorge.\n\n• Du bearbeitest anspruchsvolle schriftliche und telefonische Anfragen von Kundinnen und Kunden selbstständig, und effizient und trägst damit wesentlich zu einer hohen Kundenzufriedenheit bei.\n\n• Du arbeitest aktiv in Projekten mit, bringst eigene Ideen ein und unterstützt die Weiterentwicklung unserer Dienstleistungen und Prozesse.\n\n• Je nach Engagement, Interesse und Entwicklung übernimmst du schrittweise persönliche Fachverantwortung und positionierst dich als interne Fachperson.\n\n• Fundierte Erfahrung in der beruflichen Vorsorge, idealerweise im Umfeld von Sammelstiftungen\n\n• Fachliche Weiterbildungen wie beispielsweise der Fachausweis Sozialversicherungen oder Fachmann/-frau Personalvorsorge von Vorteil\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie Motivation, Verantwortung zu übernehmen und Fachthemen aktiv mitzugestalten\n\n• Sehr gute Deutschkenntnisse sowie gute Französisch- und/oder Englischkenntnisse von Vorteil\n\n• Eine verantwortungsvolle Position mit Gestaltungsspielraum und Entwicklungsperspektive\n\n• Abwechslungsreiche Aufgaben, ein Team, auf das man zählen kann und eine Unternehmenskultur, die Initiative fördert\n\n• Spannende Themen an der Schnittstelle von Vorsorge, Recht, Finanzen und Kundenberatung\n\n• Ein wertschätzendes Umfeld mit flachen Hierarchien und kurzen Entscheidungswegen\n\n• Individuelle Förderung und Unterstützung bei Weiterbildungen\n\n• Ein eingespieltes Team, das sich gegenseitig unterstützt und gemeinsam etwas bewegen möchte",
-      "descriptionByLocale": {
-        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. Creiamo trasparenza nel mercato bancario e assicurativo e consigliamo ai nostri clienti in modo completo e neutrale. Mentre stiamo crescendo fortemente, stiamo cercando rinforzi per le nostre fondazioni pensionistiche presso la nostra sede a Paradeplatz a Zurigo.\n• Elaborerai in modo indipendente e qualitativo i diversi casi aziendali nel settore delle persone assicurate attive delle nostre fondazioni collettive e garantirai una corretta, efficiente e tempestiva elaborazione.\n• Fornire agli assicurati e ai datori di lavoro una consulenza competente sulle questioni pensionistiche e sostenerle con questioni complesse relative alle pensioni professionali.\n• Elabori richieste scritte e telefoniche esigenti da clienti in modo indipendente ed efficiente e quindi contribuisci in modo significativo ad un alto livello di soddisfazione del cliente.\n• Partecipate attivamente ai progetti, contribuite alle vostre idee e sostenete l'ulteriore sviluppo dei nostri servizi e processi.\n• A seconda del vostro impegno, interesse e sviluppo, si assumerà gradualmente la responsabilità personale e si posiziona come uno specialista interno.\n• Esperienza ben fondata nella fornitura professionale, idealmente nell'ambiente di fondazioni collettive\n• Formazione professionale come l'assicurazione sociale della carta speciale o la fornitura di personale specializzato\n• Metodi di lavoro indipendenti, strutturati e orientati alla soluzione, nonché la motivazione a assumersi la responsabilità e a formare attivamente argomenti specialistici\n• Conoscenza molto buona del tedesco e buona conoscenza del francese e/o inglese sono vantaggiose\n• Una posizione responsabile con spazio di manovra e prospettiva di sviluppo\n• Varie attività, un team su cui contare e una cultura aziendale che promuove l'iniziativa\n• Argomenti interessanti nell'interfaccia di prevenzione, legge, finanza e consulenza clienti\n• Un ambiente apprezzabile con gerarchie piatte e brevi percorsi decisionali\n• Promozione individuale e sostegno all'ulteriore istruzione\n• Un team esperto che si sostiene e vuole fare la differenza insieme",
-        "en": "VZ is the leading independent financial services provider in Switzerland. We create transparency in the banking and insurance market and advise our customers comprehensively and neutrally. As we are growing strongly, we are looking for reinforcements for our pension foundations at our headquarters at Paradeplatz in Zurich.\n• You will independently and qualitatively process the diverse business cases in the area of active insured persons of our collective foundations and ensure correct, efficient and timely processing.\n• You provide insured persons and employers with competent advice on pension issues and support them with complex issues relating to occupational pensions.\n• You process demanding written and telephone inquiries from customers independently and efficiently and thus contribute significantly to a high level of customer satisfaction.\n• You actively participate in projects, contribute your own ideas and support the further development of our services and processes.\n• Depending on your commitment, interest and development, you will gradually assume personal responsibility and position yourself as an internal specialist.\n• Well-founded experience in occupational provision, ideally in the environment of collective foundations\n• Professional training such as the specialty card social insurance or specialist personnel provision of advantage\n• Independent, structured and solution-oriented working methods as well as motivation to take on responsibility and actively shape specialist topics\n• Very good knowledge of German and good knowledge of French and/or English are advantageous\n• A responsible position with room for manoeuvre and development perspective\n• Varied tasks, a team to count on and a company culture that promotes initiative\n• Exciting topics at the interface of prevention, law, finance and customer advice\n• An appreciative environment with flat hierarchies and short decision paths\n• Individual promotion and support for further education\n• An experienced team that supports each other and wants to make a difference together",
-        "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du bearbeitest selbstständig und qualitativ anspruchsvoll die vielfältigen Geschäftsfälle im Bereich der aktiven Versicherten unserer Sammelstiftungen und stellst eine korrekte, effiziente und termingerechte Abwicklung sicher.\n\n• Du berätst Versicherte und Arbeitgeber kompetent zu Vorsorgethemen und unterstützt sie bei komplexen Fragestellungen rund um die berufliche Vorsorge.\n\n• Du bearbeitest anspruchsvolle schriftliche und telefonische Anfragen von Kundinnen und Kunden selbstständig, und effizient und trägst damit wesentlich zu einer hohen Kundenzufriedenheit bei.\n\n• Du arbeitest aktiv in Projekten mit, bringst eigene Ideen ein und unterstützt die Weiterentwicklung unserer Dienstleistungen und Prozesse.\n\n• Je nach Engagement, Interesse und Entwicklung übernimmst du schrittweise persönliche Fachverantwortung und positionierst dich als interne Fachperson.\n\n• Fundierte Erfahrung in der beruflichen Vorsorge, idealerweise im Umfeld von Sammelstiftungen\n\n• Fachliche Weiterbildungen wie beispielsweise der Fachausweis Sozialversicherungen oder Fachmann/-frau Personalvorsorge von Vorteil\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie Motivation, Verantwortung zu übernehmen und Fachthemen aktiv mitzugestalten\n\n• Sehr gute Deutschkenntnisse sowie gute Französisch- und/oder Englischkenntnisse von Vorteil\n\n• Eine verantwortungsvolle Position mit Gestaltungsspielraum und Entwicklungsperspektive\n\n• Abwechslungsreiche Aufgaben, ein Team, auf das man zählen kann und eine Unternehmenskultur, die Initiative fördert\n\n• Spannende Themen an der Schnittstelle von Vorsorge, Recht, Finanzen und Kundenberatung\n\n• Ein wertschätzendes Umfeld mit flachen Hierarchien und kurzen Entscheidungswegen\n\n• Individuelle Förderung und Unterstützung bei Weiterbildungen\n\n• Ein eingespieltes Team, das sich gegenseitig unterstützt und gemeinsam etwas bewegen möchte",
-        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Nous créons la transparence sur le marché bancaire et d'assurance et conseillons nos clients de manière complète et neutre. Au fur et à mesure que nous grandissons, nous cherchons des renforts pour nos fondations de retraite à notre siège social à Paradeplatz à Zurich.\n• Vous traiterez de façon indépendante et qualitative les diverses affaires dans le domaine des assurés actifs de nos fondations collectives et vous assurerez un traitement correct, efficace et opportun.\n• Vous fournissez aux assurés et aux employeurs des conseils compétents sur les questions de pension et les aidez à résoudre des questions complexes relatives aux pensions professionnelles.\n• Vous traitez les demandes de renseignements écrites et téléphoniques des clients de façon indépendante et efficace et contribuez ainsi de manière significative à un niveau élevé de satisfaction des clients.\n• Vous participez activement à des projets, apportez vos propres idées et soutenez le développement de nos services et de nos processus.\n• En fonction de votre engagement, de votre intérêt et de votre développement, vous assumerez progressivement votre responsabilité personnelle et vous positionnerez comme un spécialiste interne.\n• Expérience professionnelle bien fondée, idéalement dans l'environnement des fondations collectives\n• Formation professionnelle telle que l'assurance sociale par carte spécialisée ou la prestation d'avantages au personnel spécialisé\n• Méthodes de travail indépendantes, structurées et orientées vers la solution ainsi que motivation à assumer des responsabilités et à façonner activement des thèmes spécialisés\n• Très bonne connaissance de l'allemand et bonne connaissance du français et/ou de l'anglais sont avantageux\n• Une position responsable avec une marge de manœuvre et une perspective de développement\n• Des tâches variées, une équipe sur laquelle compter et une culture d'entreprise qui favorise l'initiative\n• Sujets passionnants à l'interface de la prévention, du droit, des finances et des conseils à la clientèle\n• Un environnement d'appréciation avec des hiérarchies plates et des chemins de décision courts\n• Promotion individuelle et soutien à la formation continue\n• Une équipe expérimentée qui se soutient et veut faire la différence ensemble"
-      },
-      "location": "Zürich, Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung/317c3f61-0a4d-4c1b-9942-ff6983b5e284",
-      "source": "VZ VermögensZentrum Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.862Z",
-      "addressLocality": "Zürich",
-      "postalCode": "8002",
-      "addressRegion": "Zürich",
-      "streetAddress": "Gotthardstrasse 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Clienti Corporate",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Wealth Management",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://vzjobs.abacuscity.ch/de/jobapplicationform?jobportal_id=2&jobportal_jobid=1006744",
-      "requirements": [
-        "• Fundierte Erfahrung in der beruflichen Vorsorge, idealerweise im Umfeld von Sammelstiftungen",
-        "• Fachliche Weiterbildungen wie beispielsweise der Fachausweis Sozialversicherungen oder Fachmann/-frau Personalvorsorge von Vorteil",
-        "• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie Motivation, Verantwortung zu übernehmen und Fachthemen aktiv mitzugestalten",
-        "• Sehr gute Deutschkenntnisse sowie gute Französisch- und/oder Englischkenntnisse von Vorteil"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Fundierte Erfahrung in der beruflichen Vorsorge, idealerweise im Umfeld von Sammelstiftungen",
-          "• Sehr gute Deutschkenntnisse sowie gute Französisch- und/oder Englischkenntnisse von Vorteil"
-        ]
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
-          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz"
-        ],
-        "it": [
-          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
-          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
-          "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich",
-          "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
-        "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
-        "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich",
-        "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich"
-      ],
-      "firstSeenAt": "2026-07-04T12:46:45.775Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -733,7 +648,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/netzwerkmanager-mit-flair-fuer-infrastrukturprojekte/2e19b692-9c50-477b-98c6-63afe1b1a69f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.861Z",
+      "crawledAt": "2026-09-13T13:56:06.589Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -786,6 +701,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:46:45.771Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -801,10 +717,102 @@
       }
     },
     {
+      "id": "vz-vermoegenszentrum-c6c11085934c",
+      "slug": "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich",
+      "slugByLocale": {
+        "it": "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich",
+        "en": "personnel-in-operations-pension-fund-with-specialist-responsibility-80-100-vz-vermogenszentrum-zurich-zurich",
+        "de": "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
+        "fr": "personnel-dans-la-caisse-de-retraite-des-operations-avec-responsabilite-specialisee-80-100-vz-vermogenszentrum-zurich"
+      },
+      "company": "VZ VermögensZentrum",
+      "companyKey": "vz-vermoegenszentrum",
+      "companyDomain": "vermoegenszentrum.ch",
+      "title": "Sachbearbeiter/-in Operations Pensionskasse (mit Fachverantwortung)",
+      "titleByLocale": {
+        "it": "Fondo Pensione Operazioni Personali (con responsabilità specialistica)",
+        "en": "Sachbearbeiter/-in Operations Pensionskasse (mit Fachverantwortung)",
+        "de": "Sachbearbeiter/-in Operations Pensionskasse (mit Fachverantwortung)",
+        "fr": "Personnel/dans la Caisse de retraite des opérations (avec responsabilité spécialisée), 80-100 %"
+      },
+      "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du bearbeitest selbstständig und qualitativ anspruchsvoll die vielfältigen Geschäftsfälle im Bereich der aktiven Versicherten unserer Sammelstiftungen und stellst eine korrekte, effiziente und termingerechte Abwicklung sicher.\n\n• Du berätst Versicherte und Arbeitgeber kompetent zu Vorsorgethemen und unterstützt sie bei komplexen Fragestellungen rund um die berufliche Vorsorge.\n\n• Du bearbeitest anspruchsvolle schriftliche und telefonische Anfragen von Kundinnen und Kunden selbstständig, und effizient und trägst damit wesentlich zu einer hohen Kundenzufriedenheit bei.\n\n• Du arbeitest aktiv in Projekten mit, bringst eigene Ideen ein und unterstützt die Weiterentwicklung unserer Dienstleistungen und Prozesse.\n\n• Je nach Engagement, Interesse und Entwicklung übernimmst du schrittweise persönliche Fachverantwortung und positionierst dich als interne Fachperson.\n\n• Fundierte Erfahrung in der beruflichen Vorsorge, idealerweise im Umfeld von Sammelstiftungen\n\n• Fachliche Weiterbildungen wie beispielsweise der Fachausweis Sozialversicherungen oder Fachmann/-frau Personalvorsorge von Vorteil\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie Motivation, Verantwortung zu übernehmen und Fachthemen aktiv mitzugestalten\n\n• Sehr gute Deutschkenntnisse sowie gute Französisch- und/oder Englischkenntnisse von Vorteil\n\n• Eine verantwortungsvolle Position mit Gestaltungsspielraum und Entwicklungsperspektive\n\n• Abwechslungsreiche Aufgaben, ein Team, auf das man zählen kann und eine Unternehmenskultur, die Initiative fördert\n\n• Spannende Themen an der Schnittstelle von Vorsorge, Recht, Finanzen und Kundenberatung\n\n• Ein wertschätzendes Umfeld mit flachen Hierarchien und kurzen Entscheidungswegen\n\n• Individuelle Förderung und Unterstützung bei Weiterbildungen\n\n• Ein eingespieltes Team, das sich gegenseitig unterstützt und gemeinsam etwas bewegen möchte",
+      "descriptionByLocale": {
+        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. Creiamo trasparenza nel mercato bancario e assicurativo e consigliamo ai nostri clienti in modo completo e neutrale. Mentre stiamo crescendo fortemente, stiamo cercando rinforzi per le nostre fondazioni pensionistiche presso la nostra sede a Paradeplatz a Zurigo.\n• Elaborerai in modo indipendente e qualitativo i diversi casi aziendali nel settore delle persone assicurate attive delle nostre fondazioni collettive e garantirai una corretta, efficiente e tempestiva elaborazione.\n• Fornire agli assicurati e ai datori di lavoro una consulenza competente sulle questioni pensionistiche e sostenerle con questioni complesse relative alle pensioni professionali.\n• Elabori richieste scritte e telefoniche esigenti da clienti in modo indipendente ed efficiente e quindi contribuisci in modo significativo ad un alto livello di soddisfazione del cliente.\n• Partecipate attivamente ai progetti, contribuite alle vostre idee e sostenete l'ulteriore sviluppo dei nostri servizi e processi.\n• A seconda del vostro impegno, interesse e sviluppo, si assumerà gradualmente la responsabilità personale e si posiziona come uno specialista interno.\n• Esperienza ben fondata nella fornitura professionale, idealmente nell'ambiente di fondazioni collettive\n• Formazione professionale come l'assicurazione sociale della carta speciale o la fornitura di personale specializzato\n• Metodi di lavoro indipendenti, strutturati e orientati alla soluzione, nonché la motivazione a assumersi la responsabilità e a formare attivamente argomenti specialistici\n• Conoscenza molto buona del tedesco e buona conoscenza del francese e/o inglese sono vantaggiose\n• Una posizione responsabile con spazio di manovra e prospettiva di sviluppo\n• Varie attività, un team su cui contare e una cultura aziendale che promuove l'iniziativa\n• Argomenti interessanti nell'interfaccia di prevenzione, legge, finanza e consulenza clienti\n• Un ambiente apprezzabile con gerarchie piatte e brevi percorsi decisionali\n• Promozione individuale e sostegno all'ulteriore istruzione\n• Un team esperto che si sostiene e vuole fare la differenza insieme",
+        "en": "VZ is the leading independent financial services provider in Switzerland. We create transparency in the banking and insurance market and advise our customers comprehensively and neutrally. As we are growing strongly, we are looking for reinforcements for our pension foundations at our headquarters at Paradeplatz in Zurich.\n• You will independently and qualitatively process the diverse business cases in the area of active insured persons of our collective foundations and ensure correct, efficient and timely processing.\n• You provide insured persons and employers with competent advice on pension issues and support them with complex issues relating to occupational pensions.\n• You process demanding written and telephone inquiries from customers independently and efficiently and thus contribute significantly to a high level of customer satisfaction.\n• You actively participate in projects, contribute your own ideas and support the further development of our services and processes.\n• Depending on your commitment, interest and development, you will gradually assume personal responsibility and position yourself as an internal specialist.\n• Well-founded experience in occupational provision, ideally in the environment of collective foundations\n• Professional training such as the specialty card social insurance or specialist personnel provision of advantage\n• Independent, structured and solution-oriented working methods as well as motivation to take on responsibility and actively shape specialist topics\n• Very good knowledge of German and good knowledge of French and/or English are advantageous\n• A responsible position with room for manoeuvre and development perspective\n• Varied tasks, a team to count on and a company culture that promotes initiative\n• Exciting topics at the interface of prevention, law, finance and customer advice\n• An appreciative environment with flat hierarchies and short decision paths\n• Individual promotion and support for further education\n• An experienced team that supports each other and wants to make a difference together",
+        "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du bearbeitest selbstständig und qualitativ anspruchsvoll die vielfältigen Geschäftsfälle im Bereich der aktiven Versicherten unserer Sammelstiftungen und stellst eine korrekte, effiziente und termingerechte Abwicklung sicher.\n\n• Du berätst Versicherte und Arbeitgeber kompetent zu Vorsorgethemen und unterstützt sie bei komplexen Fragestellungen rund um die berufliche Vorsorge.\n\n• Du bearbeitest anspruchsvolle schriftliche und telefonische Anfragen von Kundinnen und Kunden selbstständig, und effizient und trägst damit wesentlich zu einer hohen Kundenzufriedenheit bei.\n\n• Du arbeitest aktiv in Projekten mit, bringst eigene Ideen ein und unterstützt die Weiterentwicklung unserer Dienstleistungen und Prozesse.\n\n• Je nach Engagement, Interesse und Entwicklung übernimmst du schrittweise persönliche Fachverantwortung und positionierst dich als interne Fachperson.\n\n• Fundierte Erfahrung in der beruflichen Vorsorge, idealerweise im Umfeld von Sammelstiftungen\n\n• Fachliche Weiterbildungen wie beispielsweise der Fachausweis Sozialversicherungen oder Fachmann/-frau Personalvorsorge von Vorteil\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie Motivation, Verantwortung zu übernehmen und Fachthemen aktiv mitzugestalten\n\n• Sehr gute Deutschkenntnisse sowie gute Französisch- und/oder Englischkenntnisse von Vorteil\n\n• Eine verantwortungsvolle Position mit Gestaltungsspielraum und Entwicklungsperspektive\n\n• Abwechslungsreiche Aufgaben, ein Team, auf das man zählen kann und eine Unternehmenskultur, die Initiative fördert\n\n• Spannende Themen an der Schnittstelle von Vorsorge, Recht, Finanzen und Kundenberatung\n\n• Ein wertschätzendes Umfeld mit flachen Hierarchien und kurzen Entscheidungswegen\n\n• Individuelle Förderung und Unterstützung bei Weiterbildungen\n\n• Ein eingespieltes Team, das sich gegenseitig unterstützt und gemeinsam etwas bewegen möchte",
+        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Nous créons la transparence sur le marché bancaire et d'assurance et conseillons nos clients de manière complète et neutre. Au fur et à mesure que nous grandissons, nous cherchons des renforts pour nos fondations de retraite à notre siège social à Paradeplatz à Zurich.\n• Vous traiterez de façon indépendante et qualitative les diverses affaires dans le domaine des assurés actifs de nos fondations collectives et vous assurerez un traitement correct, efficace et opportun.\n• Vous fournissez aux assurés et aux employeurs des conseils compétents sur les questions de pension et les aidez à résoudre des questions complexes relatives aux pensions professionnelles.\n• Vous traitez les demandes de renseignements écrites et téléphoniques des clients de façon indépendante et efficace et contribuez ainsi de manière significative à un niveau élevé de satisfaction des clients.\n• Vous participez activement à des projets, apportez vos propres idées et soutenez le développement de nos services et de nos processus.\n• En fonction de votre engagement, de votre intérêt et de votre développement, vous assumerez progressivement votre responsabilité personnelle et vous positionnerez comme un spécialiste interne.\n• Expérience professionnelle bien fondée, idéalement dans l'environnement des fondations collectives\n• Formation professionnelle telle que l'assurance sociale par carte spécialisée ou la prestation d'avantages au personnel spécialisé\n• Méthodes de travail indépendantes, structurées et orientées vers la solution ainsi que motivation à assumer des responsabilités et à façonner activement des thèmes spécialisés\n• Très bonne connaissance de l'allemand et bonne connaissance du français et/ou de l'anglais sont avantageux\n• Une position responsable avec une marge de manœuvre et une perspective de développement\n• Des tâches variées, une équipe sur laquelle compter et une culture d'entreprise qui favorise l'initiative\n• Sujets passionnants à l'interface de la prévention, du droit, des finances et des conseils à la clientèle\n• Un environnement d'appréciation avec des hiérarchies plates et des chemins de décision courts\n• Promotion individuelle et soutien à la formation continue\n• Une équipe expérimentée qui se soutient et veut faire la différence ensemble"
+      },
+      "location": "Zürich, Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung/317c3f61-0a4d-4c1b-9942-ff6983b5e284",
+      "source": "VZ VermögensZentrum Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-13T13:56:06.589Z",
+      "addressLocality": "Zürich",
+      "postalCode": "8002",
+      "addressRegion": "Zürich",
+      "streetAddress": "Gotthardstrasse 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Clienti Corporate",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Wealth Management",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://vzjobs.abacuscity.ch/de/jobapplicationform?jobportal_id=2&jobportal_jobid=1006744",
+      "requirements": [
+        "• Fundierte Erfahrung in der beruflichen Vorsorge, idealerweise im Umfeld von Sammelstiftungen",
+        "• Fachliche Weiterbildungen wie beispielsweise der Fachausweis Sozialversicherungen oder Fachmann/-frau Personalvorsorge von Vorteil",
+        "• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie Motivation, Verantwortung zu übernehmen und Fachthemen aktiv mitzugestalten",
+        "• Sehr gute Deutschkenntnisse sowie gute Französisch- und/oder Englischkenntnisse von Vorteil"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Fundierte Erfahrung in der beruflichen Vorsorge, idealerweise im Umfeld von Sammelstiftungen",
+          "• Sehr gute Deutschkenntnisse sowie gute Französisch- und/oder Englischkenntnisse von Vorteil"
+        ]
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
+          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz"
+        ],
+        "it": [
+          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
+          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
+          "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich",
+          "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
+        "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
+        "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich",
+        "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich"
+      ],
+      "firstSeenAt": "2026-07-04T12:46:45.775Z",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "vz-vermoegenszentrum-dd25003702e5",
       "slug": "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona",
       "slugByLocale": {
-        "it": "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
+        "it": "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona",
         "en": "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
         "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
         "fr": "consultant-en-clientele-privee-80-100-vz-vermogenszentrum-rapperswil-jona-sankt-gallen"
@@ -831,7 +839,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/ca75c4c3-e622-428f-89e0-b099c4f6d87f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.860Z",
+      "crawledAt": "2026-09-13T13:56:06.588Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "addressRegion": "Sankt Gallen",
@@ -866,6 +874,7 @@
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
         "private-clients-consultant-vz-vermoegenszentrum-ch",
+        "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
         "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
@@ -873,10 +882,12 @@
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
           "private-clients-consultant-vz-vermoegenszentrum-ch",
+          "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
           "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
         ]
       },
       "firstSeenAt": "2026-07-10T22:31:21.324Z",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -906,7 +917,7 @@
       "title": "Private Clients Consultant, Start Januar 2027",
       "titleByLocale": {
         "it": "Private Clients Consulente, Start Januar 2027, 80-100%",
-        "en": "Private Clients Consultant, starting January 2027",
+        "en": "Private Clients Consultant, Start Januar 2027",
         "de": "Private Clients Berater, Start Januar 2027",
         "fr": "Consultant en clientèle privée, début janvier 2027, 80-100 %"
       },
@@ -922,7 +933,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant-start-januar-2027/efa19c25-d5b2-4f45-ad59-ad53bb838b5b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.859Z",
+      "crawledAt": "2026-09-13T13:56:06.587Z",
       "addressLocality": "Aarau",
       "postalCode": "5000",
       "addressRegion": "Aargau",
@@ -966,6 +977,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:14:04.955Z",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
@@ -1011,7 +1023,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mandatsleiter-in-corporate-insurance-management/734a991b-ab1c-4d4c-ae65-937e9072ebf5",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.858Z",
+      "crawledAt": "2026-09-13T13:56:06.586Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -1060,6 +1072,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:14:04.949Z",
+      "needsRetranslation": true,
       "salaryMin": 108500,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -1105,7 +1118,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/product-manager-products-customer-experience/6242c744-b38f-4f9b-ac48-50981c6a3448",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.856Z",
+      "crawledAt": "2026-09-13T13:56:06.585Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -1197,7 +1210,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/88021f17-636c-41cf-a978-26498edcfd5b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.855Z",
+      "crawledAt": "2026-09-13T13:56:06.584Z",
       "addressLocality": "Thun",
       "postalCode": "3600",
       "addressRegion": "Bern",
@@ -1237,6 +1250,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T12:09:12.091Z",
+      "needsRetranslation": true,
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -1255,10 +1269,10 @@
       "id": "vz-vermoegenszentrum-fe83f2ef1c8a",
       "slug": "senior-software-ingegnere-net-fullstack-vz-vermogenszentrum-zug",
       "slugByLocale": {
-        "it": "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
+        "it": "senior-software-ingegnere-net-fullstack-vz-vermogenszentrum-zug",
         "en": "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
         "de": "senior-software-engineer-net-fullstack-80-100-vz-vermoegenszentrum-ch",
-        "fr": "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug"
+        "fr": "senior-software-ingenieur-net-fullstack-vz-vermogenszentrum-zug"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1282,7 +1296,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/senior-software-engineer-net-fullstack/e991622e-27e0-469c-a51e-7c5c6a193a83",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.853Z",
+      "crawledAt": "2026-09-13T13:56:06.583Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -1312,16 +1326,19 @@
       "previousSlugs": [
         "senior-software-engineer-net-fullstack-80-100-vz-vermoegenszentrum-ch",
         "senior-software-engineer-net-fullstack-vz-vermoegenszentrum-ch",
-        "senior-software-ingenieur-net-fullstack-vz-vermogenszentrum-zug",
-        "senior-software-ingegnere-net-fullstack-vz-vermogenszentrum-zug"
+        "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
+        "senior-software-ingegnere-net-fullstack-vz-vermogenszentrum-zug",
+        "senior-software-ingenieur-net-fullstack-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-software-engineer-net-fullstack-80-100-vz-vermoegenszentrum-ch",
           "senior-software-engineer-net-fullstack-vz-vermoegenszentrum-ch",
+          "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
           "senior-software-ingegnere-net-fullstack-vz-vermogenszentrum-zug"
         ],
         "fr": [
+          "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
           "senior-software-ingenieur-net-fullstack-vz-vermogenszentrum-zug"
         ]
       },
@@ -1329,6 +1346,7 @@
       "localeMismatchSuppressedLen": 2490,
       "retranslationAttempts": 7,
       "firstSeenAt": "2026-07-17T11:36:57.056Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 195000,
       "salarySource": "estimated",
@@ -1347,10 +1365,10 @@
       "id": "vz-vermoegenszentrum-61cd5fa24e20",
       "slug": "successione-commerciale-m-a-vz-vermogenszentrum-bern",
       "slugByLocale": {
-        "it": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
+        "it": "successione-commerciale-m-a-vz-vermogenszentrum-bern",
         "en": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
         "de": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermoegenszentrum-ch",
-        "fr": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern"
+        "fr": "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1358,7 +1376,7 @@
       "title": "Consultant Unternehmensnachfolge / M&A",
       "titleByLocale": {
         "it": "Successione commerciale / M&A",
-        "en": "Consultant Business Succession / M&A",
+        "en": "Consultant Unternehmensnachfolge / M&A",
         "de": "Berater Unternehmensnachfolge / M&A",
         "fr": "(Aîné) Consultant Succession d'entreprise / M&A, 80-100 %"
       },
@@ -1374,7 +1392,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/consultant-unternehmensnachfolge-m-a/add696ae-f8b3-4c02-b1b9-adf35a4e1e74",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.852Z",
+      "crawledAt": "2026-09-13T13:56:06.582Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "Bern",
@@ -1412,7 +1430,8 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch"
+          "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
+          "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermoegenszentrum-ch"
         ],
         "it": [
           "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermoegenszentrum-ch",
@@ -1420,6 +1439,7 @@
           "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
           "senior-consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
           "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
+          "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
           "successione-commerciale-m-a-vz-vermogenszentrum-bern"
         ],
         "fr": [
@@ -1438,6 +1458,7 @@
         "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
       ],
       "firstSeenAt": "2026-07-30T22:18:33.770Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1483,7 +1504,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/779bbb02-01dd-4a21-b614-d28943d2190e",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.849Z",
+      "crawledAt": "2026-09-13T13:56:06.581Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "addressRegion": "Zürich",
@@ -1535,6 +1556,7 @@
         "entrata-in-consulenza-finanziaria-consulenza-indipendente-80-100-vz-vermogenszentrum-winterthur-zurich"
       ],
       "firstSeenAt": "2026-07-30T22:18:33.757Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -1564,7 +1586,7 @@
       "title": "IMS Praktikum Software Entwicklung",
       "titleByLocale": {
         "it": "Sviluppo software di stage IMS, 100%",
-        "en": "IMS Internship Software Development",
+        "en": "IMS Praktikum Software Entwicklung",
         "de": "IMS Praktikum Software Entwicklung",
         "fr": "Développement de logiciels de stage IMS, 100%"
       },
@@ -1580,7 +1602,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/ims-praktikum-software-entwicklung/3b5ae99d-59d0-46f1-bc37-a53785eee521",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.848Z",
+      "crawledAt": "2026-09-13T13:56:06.580Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -1629,6 +1651,7 @@
         ]
       },
       "firstSeenAt": "2026-08-02T22:02:02.737Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1647,10 +1670,10 @@
       "id": "vz-vermoegenszentrum-42a287e1cf5d",
       "slug": "private-clients-consulente-vz-vermogenszentrum-zurich",
       "slugByLocale": {
-        "it": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
+        "it": "private-clients-consulente-vz-vermogenszentrum-zurich",
         "en": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
         "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-        "fr": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich"
+        "fr": "consultant-client-prive-80-100-vz-vermogenszentrum-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1674,7 +1697,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/a61ff8a7-ad57-425a-b81e-8d017956f1e7",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.846Z",
+      "crawledAt": "2026-09-13T13:56:06.579Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -1720,6 +1743,7 @@
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
           "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
           "private-clients-consultant-vz-vermoegenszentrum-ch",
+          "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
           "private-clients-consulente-vz-vermogenszentrum-zurich"
         ],
         "fr": [
@@ -1729,6 +1753,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:52:40.710Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -1774,7 +1799,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/b43673c1-643f-4885-88d9-db21e5b0d57f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.844Z",
+      "crawledAt": "2026-09-13T13:56:06.578Z",
       "addressLocality": "Uster",
       "postalCode": "8610",
       "addressRegion": "Zürich",
@@ -1824,6 +1849,7 @@
         "entrata-in-consulenza-finanziaria-consulenza-indipendente-80-100-vz-vermogenszentrum-uster-zurich"
       ],
       "firstSeenAt": "2026-08-06T12:10:39.219Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -1843,7 +1869,7 @@
       "slug": "insegnamento-come-sviluppo-della-piattaforma-informatica-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
         "it": "insegnamento-come-sviluppo-della-piattaforma-informatica-vz-vermogenszentrum-zurich-zurich",
-        "en": "teaching-as-a-computer-scientist-in-platform-development-vz-vermogenszentrum-zurich-zurich",
+        "en": "lehre-als-informatiker-in-plattformentwicklung-vz-vermogenszentrum-zurich",
         "de": "lehre-als-informatiker-in-plattformentwicklung-vz-vermoegenszentrum-ch",
         "fr": "l-enseignement-en-tant-qu-informaticien-en-developpement-de-plateforme-vz-vermogenszentrum-zurich-zurich"
       },
@@ -1853,7 +1879,7 @@
       "title": "Lehre als Informatiker/-in Plattformentwicklung",
       "titleByLocale": {
         "it": "Insegnamento come sviluppo della piattaforma informatica",
-        "en": "Teaching as a computer scientist platform development",
+        "en": "Lehre als Informatiker/-in Plattformentwicklung",
         "de": "Lehre als Informatiker/-in Plattformentwicklung",
         "fr": "L'enseignement en tant qu'informaticien/en développement de plateforme"
       },
@@ -1869,7 +1895,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/lehre-als-informatiker-in-plattformentwicklung/b834a7c7-d15c-45e1-b666-39e73d434782",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.843Z",
+      "crawledAt": "2026-09-13T13:56:06.577Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -1922,6 +1948,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:41:35.295Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -1967,7 +1994,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/lehre-als-kauffrau-kaufmann-bank/da16ae70-026d-4c42-a7bc-66feed75cb20",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.840Z",
+      "crawledAt": "2026-09-13T13:56:06.576Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -2021,6 +2048,7 @@
         "apprendistato-come-un-commerciante-banca-commerciale-vz-vermogenszentrum-zug-zug"
       ],
       "firstSeenAt": "2026-08-14T21:41:35.303Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -2066,7 +2094,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-consultant-unabhaengige-vermoegensberatung/7a5911fc-256f-4946-9ca5-9c6c31a657c9",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.838Z",
+      "crawledAt": "2026-09-13T13:56:06.575Z",
       "addressLocality": "Basel",
       "postalCode": "4051",
       "addressRegion": "Basel-Stadt",
@@ -2100,6 +2128,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:19:05.458Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
@@ -2159,7 +2188,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-in-die-privatkundenberatung/b129d5fd-f685-48a7-b38c-178e9d4ef31d",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.837Z",
+      "crawledAt": "2026-09-13T13:56:06.574Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "addressRegion": "Sankt Gallen",
@@ -2213,6 +2242,7 @@
         "entrata-in-consulenza-clienti-privati-vz-vermogenszentrum-rapperswil-jona-sankt-gallen"
       ],
       "firstSeenAt": "2026-08-14T10:19:05.456Z",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -2232,7 +2262,7 @@
       "slug": "insegnamento-come-sviluppo-dell-applicazione-informatica-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
         "it": "insegnamento-come-sviluppo-dell-applicazione-informatica-vz-vermogenszentrum-zurich-zurich",
-        "en": "teaching-as-a-computer-scientist-in-application-development-vz-vermogenszentrum-zurich-zurich",
+        "en": "lehre-als-informatiker-in-applikationsentwicklung-vz-vermogenszentrum-zurich",
         "de": "lehre-als-informatiker-in-applikationsentwicklung-vz-vermoegenszentrum-ch",
         "fr": "enseignement-en-tant-qu-informaticien-en-developpement-d-applications-vz-vermogenszentrum-zurich-zurich"
       },
@@ -2242,7 +2272,7 @@
       "title": "Lehre als Informatiker/-in Applikationsentwicklung",
       "titleByLocale": {
         "it": "Insegnamento come sviluppo dell'applicazione informatica",
-        "en": "Teaching as computer science application development",
+        "en": "Lehre als Informatiker/-in Applikationsentwicklung",
         "de": "Lehre als Informatiker/-in Applikationsentwicklung",
         "fr": "Enseignement en tant qu'informaticien/en développement d'applications"
       },
@@ -2258,7 +2288,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/lehre-als-informatiker-in-applikationsentwicklung/2d89dc73-0b0f-4666-81be-55f20b3a98d6",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.835Z",
+      "crawledAt": "2026-09-13T13:56:06.573Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -2309,6 +2339,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:41:35.311Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -2319,202 +2350,6 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "vz-vermoegenszentrum-69544c981233",
-      "slug": "rischio-operativo-dell-agente-di-rischio-vz-vermogenszentrum-zug-zug",
-      "slugByLocale": {
-        "it": "rischio-operativo-dell-agente-di-rischio-vz-vermogenszentrum-zug-zug",
-        "en": "risk-officer-operational-risk-vz-vermogenszentrum-zug-zug",
-        "de": "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug",
-        "fr": "agent-des-risques-risque-operationnel-vz-vermogenszentrum-zug-zug"
-      },
-      "company": "VZ VermögensZentrum",
-      "companyKey": "vz-vermoegenszentrum",
-      "companyDomain": "vermoegenszentrum.ch",
-      "title": "Risk Officer operationelle Risiken",
-      "titleByLocale": {
-        "it": "Rischio operativo dell'agente di rischio",
-        "en": "Risk Officer Operational Risk",
-        "de": "Risk Officer operationelle Risiken",
-        "fr": "Agent des risques Risque opérationnel"
-      },
-      "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Das Risk Office der VZ Gruppe ist zuständig für zwei Banken in der Schweiz und in Deutschland sowie für je eine Versicherung in den Bereichen Sach-/Haftpflicht und Leben. Wir wachsen kräftig und suchen Verstärkung für unseren Hauptstandort im Zentrum von Zug.\n\n• Du entwickelst das operationelle Risikomanagement sowie die gruppenweite Risikokontrolle aktiv weiter.\n\n• Du führst Risikoassessments durch, entwickelst Risikoszenarien und verantwortest deren konsolidierte Auswertung.\n\n• Du führst unabhängige Reviews und Wirksamkeitsprüfungen durch, unter anderem im Bereich Audit Tracking und bei abgeschlossenen Massnahmen.\n\n• Du aggregierst und analysierst Risiko- und Kontrolldaten, entwickelst diese weiter und bereitest die Ergebnisse klar, verständlich und adressatengerecht auf.\n\n• Du führst Analysen zu wesentlichen eingetretenen Vorfällen durch und leitest daraus Empfehlungen zu Effizienz- und Effektivitätsverbesserungen ab.\n\n• Du nutzt moderne Tools zur Automatisierung und Visualisierung, entwickelst diese weiter und gestaltest Projekte, Prozesse sowie neue Lösungen aktiv mit.\n\n• Du verfügst über mehrjährige Berufserfahrung im operationellen Risikomanagement im Finanzbereich, in einer Second-Line-Funktion, im IKS oder in einem vergleichbaren Umfeld.\n\n• Du besitzt ein fundiertes Verständnis für Risiken, Kontrollen und Governance-Zusammenhänge und kannst komplexe Sachverhalte selbstständig beurteilen.\n\n• Du bist versiert in der Bearbeitung und Analyse grösserer Datenbestände und leitest daraus relevante Erkenntnisse ab.\n\n• Du verfügst über eine hohe Tool-Affinität und sehr gute Kenntnisse in der Automatisierung und Visualisierung von Daten; Erfahrung mit Power BI ist von Vorteil.\n\n• Du bereitest komplexe Inhalte strukturiert, verständlich und überzeugend für unterschiedliche Anspruchsgruppen auf.\n\n• Du arbeitest eigenverantwortlich und lösungsorientiert, trittst sicher auf und bringst dich engagiert in die Weiterentwicklung unseres wachsenden Unternehmens ein.\n\n• Spannende, abwechslungsreiche Aufgaben und ein kollegiales Team.\n\n• Das Risk Office ist verantwortlich für die Risikokontrolle der ganzen VZ Gruppe, zu der Banken, Vermögensverwalter, Versicherungen, Hypothekar-Vermittler, Vorsorge-Dienstleister sowie Stiftungen in der Schweiz, Deutschland und UK zählen.\n\n• Du arbeitest an einem modernen und klimatisierten Arbeitsplatz im Zentrum von Zug und hast die Möglichkeit auf zwei Tage Home-Office pro Woche.\n\n• In einem kollegialen Arbeitsumfeld mit regelmässigen Social Events erwartet dich ein spannendes Tätigkeitsgebiet sowie die Möglichkeit, Verantwortung zu übernehmen und selbstständig zu arbeiten.\n\n• Du arbeitest in einem Unternehmen, das von der Hochschule Luzern zu den digitalsten Banken der Schweiz gezählt wird.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil der VZ-Familie und erlebe es selbst!",
-      "descriptionByLocale": {
-        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. L'ufficio rischi del Gruppo VZ è responsabile di due banche in Svizzera e in Germania, nonché di una compagnia assicurativa nei settori della responsabilità e della vita. Stiamo crescendo fortemente e cercando rinforzi per la nostra posizione principale nel centro di Zug.\n\n• Si svilupperà attivamente la gestione dei rischi operativi e il controllo del rischio su scala di Gruppo.\n\n• Effettuare valutazioni dei rischi, sviluppare scenari di rischio e assumersi la responsabilità della loro valutazione consolidata.\n\n• Si effettuano recensioni indipendenti e controlli di efficacia, tra cui il monitoraggio di audit e le misure completate.\n\n• L'utente aggrega e analizza i dati di rischio e di controllo, lo sviluppa ulteriormente e prepara i risultati in modo chiaro, comprensibile e appropriato.\n\n• Effettuate analisi di incidenti importanti che si sono verificati e derivano raccomandazioni per migliorare l'efficienza e l'efficacia.\n\n• Si utilizzano strumenti moderni per l'automazione e la visualizzazione, svilupparli ulteriormente e attivamente modellare progetti, processi e nuove soluzioni.\n\n• Hai diversi anni di esperienza professionale nella gestione dei rischi operativi nel settore finanziario, in una funzione di seconda linea, in IKS o in un ambiente comparabile.\n\n• Hai una solida comprensione dei rischi, dei controlli e delle relazioni di governance e puoi valutare in modo indipendente questioni complesse.\n\n• Siete ben diversificati nel trattamento e nell'analisi di più grandi scorte di dati e ricavate informazioni pertinenti da loro.\n\n• Hai un'alta affinità degli strumenti e una buona conoscenza nell'automazione e nella visualizzazione dei dati; Esperienza con Power BI è un vantaggio.\n\n• Prepara contenuti complessi in modo strutturato, comprensibile e convincente per diversi stakeholder.\n\n• Si lavora in modo indipendente e orientato alla soluzione, eseguire con fiducia e si impegnano per l'ulteriore sviluppo della nostra azienda in crescita.\n\n• Attività emozionanti e varie e un team collegiale.\n\n• Il Risk Office è responsabile del controllo del rischio dell'intero Gruppo VZ, che comprende banche, asset manager, assicurazioni, broker ipotecari, fornitori di pensioni e fondazioni in Svizzera, Germania e Regno Unito.\n\n• Lavori in un luogo di lavoro moderno e climatizzato nel centro di Zug e hai la possibilità di due giorni di ufficio a settimana.\n\n• In un ambiente di lavoro collegiale con eventi sociali regolari, un eccitante campo di attività vi attende così come l'opportunità di assumersi la responsabilità e lavorare in modo indipendente.\n\n• Lavora in una società che Lucerna University of Applied Sciences conta come una delle banche più digitali in Svizzera.\n\n• Indagini mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte della famiglia VZ e sperimentalo per te!",
-        "en": "VZ is the leading independent financial services provider in Switzerland. The risk office of the VZ Group is responsible for two banks in Switzerland and Germany, as well as one insurance company in the areas of liability and life. We are growing strongly and looking for reinforcements for our main location in the centre of Zug.\n\n• You will actively develop operational risk management and Group-wide risk control.\n\n• You carry out risk assessments, develop risk scenarios and take responsibility for their consolidated evaluation.\n\n• You conduct independent reviews and effectiveness checks, including audit tracking and completed measures.\n\n• You aggregate and analyze risk and control data, develop it further and prepare the results clearly, comprehensibly and appropriately.\n\n• You carry out analyses of major incidents that have occurred and derive recommendations for efficiency and effectiveness improvements.\n\n• You use modern tools for automation and visualization, develop them further and actively shape projects, processes and new solutions.\n\n• You have several years of professional experience in operational risk management in the financial sector, in a second-line function, in the IKS or in a comparable environment.\n\n• You have a sound understanding of risks, controls and governance relationships and can independently assess complex issues.\n\n• You are well-versed in the processing and analysis of larger data stocks and derive relevant insights from them.\n\n• You have a high tool affinity and very good knowledge in the automation and visualization of data; Experience with Power BI is an advantage.\n\n• You prepare complex content in a structured, comprehensible and convincing way for different stakeholders.\n\n• You work independently and solution-oriented, perform confidently and are committed to the further development of our growing company.\n\n• Exciting, varied tasks and a collegial team.\n\n• The Risk Office is responsible for the risk control of the entire VZ Group, which includes banks, asset managers, insurance companies, mortgage brokers, pension providers and foundations in Switzerland, Germany and the UK.\n\n• You work at a modern and air-conditioned workplace in the centre of Zug and have the possibility of two days of home office per week.\n\n• In a collegial working environment with regular social events, an exciting field of activity awaits you as well as the opportunity to take on responsibility and work independently.\n\n• You work in a company that Lucerne University of Applied Sciences counts as one of the most digital banks in Switzerland.\n\n• Surveys regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of the VZ family and experience it for yourself!",
-        "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Das Risk Office der VZ Gruppe ist zuständig für zwei Banken in der Schweiz und in Deutschland sowie für je eine Versicherung in den Bereichen Sach-/Haftpflicht und Leben. Wir wachsen kräftig und suchen Verstärkung für unseren Hauptstandort im Zentrum von Zug.\n\n• Du entwickelst das operationelle Risikomanagement sowie die gruppenweite Risikokontrolle aktiv weiter.\n\n• Du führst Risikoassessments durch, entwickelst Risikoszenarien und verantwortest deren konsolidierte Auswertung.\n\n• Du führst unabhängige Reviews und Wirksamkeitsprüfungen durch, unter anderem im Bereich Audit Tracking und bei abgeschlossenen Massnahmen.\n\n• Du aggregierst und analysierst Risiko- und Kontrolldaten, entwickelst diese weiter und bereitest die Ergebnisse klar, verständlich und adressatengerecht auf.\n\n• Du führst Analysen zu wesentlichen eingetretenen Vorfällen durch und leitest daraus Empfehlungen zu Effizienz- und Effektivitätsverbesserungen ab.\n\n• Du nutzt moderne Tools zur Automatisierung und Visualisierung, entwickelst diese weiter und gestaltest Projekte, Prozesse sowie neue Lösungen aktiv mit.\n\n• Du verfügst über mehrjährige Berufserfahrung im operationellen Risikomanagement im Finanzbereich, in einer Second-Line-Funktion, im IKS oder in einem vergleichbaren Umfeld.\n\n• Du besitzt ein fundiertes Verständnis für Risiken, Kontrollen und Governance-Zusammenhänge und kannst komplexe Sachverhalte selbstständig beurteilen.\n\n• Du bist versiert in der Bearbeitung und Analyse grösserer Datenbestände und leitest daraus relevante Erkenntnisse ab.\n\n• Du verfügst über eine hohe Tool-Affinität und sehr gute Kenntnisse in der Automatisierung und Visualisierung von Daten; Erfahrung mit Power BI ist von Vorteil.\n\n• Du bereitest komplexe Inhalte strukturiert, verständlich und überzeugend für unterschiedliche Anspruchsgruppen auf.\n\n• Du arbeitest eigenverantwortlich und lösungsorientiert, trittst sicher auf und bringst dich engagiert in die Weiterentwicklung unseres wachsenden Unternehmens ein.\n\n• Spannende, abwechslungsreiche Aufgaben und ein kollegiales Team.\n\n• Das Risk Office ist verantwortlich für die Risikokontrolle der ganzen VZ Gruppe, zu der Banken, Vermögensverwalter, Versicherungen, Hypothekar-Vermittler, Vorsorge-Dienstleister sowie Stiftungen in der Schweiz, Deutschland und UK zählen.\n\n• Du arbeitest an einem modernen und klimatisierten Arbeitsplatz im Zentrum von Zug und hast die Möglichkeit auf zwei Tage Home-Office pro Woche.\n\n• In einem kollegialen Arbeitsumfeld mit regelmässigen Social Events erwartet dich ein spannendes Tätigkeitsgebiet sowie die Möglichkeit, Verantwortung zu übernehmen und selbstständig zu arbeiten.\n\n• Du arbeitest in einem Unternehmen, das von der Hochschule Luzern zu den digitalsten Banken der Schweiz gezählt wird.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil der VZ-Familie und erlebe es selbst!",
-        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Le bureau des risques du Groupe VZ est responsable de deux banques en Suisse et en Allemagne, ainsi que d'une compagnie d'assurance dans les domaines de la responsabilité et de la vie. Nous sommes en pleine croissance et nous cherchons des renforts pour notre emplacement principal au centre de Zug.\n\n• Vous développerez activement la gestion des risques opérationnels et le contrôle des risques à l'échelle du groupe.\n\n• Vous effectuez des évaluations des risques, élaborez des scénarios de risques et assumez la responsabilité de leur évaluation consolidée.\n\n• Vous effectuez des examens indépendants et des vérifications de l'efficacité, y compris le suivi des vérifications et les mesures terminées.\n\n• Vous regroupez et analysez les données sur les risques et les contrôles, vous les développez et vous préparez les résultats de façon claire, compréhensible et appropriée.\n\n• Vous effectuez des analyses des incidents majeurs survenus et vous formulez des recommandations pour améliorer l'efficacité et l'efficience.\n\n• Vous utilisez des outils modernes pour l'automatisation et la visualisation, les développer et façonner les projets, les processus et les nouvelles solutions.\n\n• Vous avez plusieurs années d'expérience professionnelle en gestion des risques opérationnels dans le secteur financier, dans une fonction de deuxième ligne, dans l'IKS ou dans un environnement comparable.\n\n• Vous avez une bonne compréhension des risques, des contrôles et des relations de gouvernance et pouvez évaluer de façon indépendante les questions complexes.\n\n• Vous êtes bien placé dans le traitement et l'analyse de stocks de données plus importants et en tirez des informations pertinentes.\n\n• Vous avez une grande affinité d'outil et une très bonne connaissance dans l'automatisation et la visualisation des données; Expérience avec Power BI est un avantage.\n\n• Vous préparez des contenus complexes de manière structurée, compréhensible et convaincante pour les différents acteurs.\n\n• Vous travaillez de façon indépendante et orientée vers la solution, vous effectuez avec confiance et vous êtes engagé dans le développement de notre entreprise en croissance.\n\n• Des tâches passionnantes, variées et une équipe collégiale.\n\n• Le Risk Office est responsable du contrôle des risques de l'ensemble du groupe VZ, qui comprend des banques, des gestionnaires d'actifs, des compagnies d'assurance, des courtiers hypothécaires, des prestataires de pensions et des fondations en Suisse, en Allemagne et au Royaume-Uni.\n\n• Vous travaillez dans un lieu de travail moderne et climatisé dans le centre de Zug et avez la possibilité de deux jours de bureau à domicile par semaine.\n\n• Dans un environnement de travail collégial avec des événements sociaux réguliers, un champ d'activité passionnant vous attend ainsi que l'occasion de prendre des responsabilités et de travailler indépendamment.\n\n• Vous travaillez dans une entreprise que Lucerne University of Applied Sciences compte parmi les banques les plus numériques de Suisse.\n\n• Les enquêtes montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Devenez membre de la famille VZ et vivez-le par vous-même!"
-      },
-      "location": "Zug, Zug",
-      "canton": "ZG",
-      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/risk-officer-operationelle-risiken/0c1e9f94-9f3a-42bb-bea0-6a59587764f8",
-      "source": "VZ VermögensZentrum Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.833Z",
-      "addressLocality": "Zug",
-      "postalCode": "6300",
-      "addressRegion": "Zug",
-      "streetAddress": "Innere Güterstrasse 2",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Wealth Management",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-16",
-      "applyUrl": "https://vzjobs.abacuscity.ch/de/jobapplicationform?jobportal_id=2&jobportal_jobid=1006893",
-      "requirements": [
-        "• Du verfügst über mehrjährige Berufserfahrung im operationellen Risikomanagement im Finanzbereich, in einer Second-Line-Funktion, im IKS oder in einem vergleichbaren Umfeld.",
-        "• Du besitzt ein fundiertes Verständnis für Risiken, Kontrollen und Governance-Zusammenhänge und kannst komplexe Sachverhalte selbstständig beurteilen.",
-        "• Du bist versiert in der Bearbeitung und Analyse grösserer Datenbestände und leitest daraus relevante Erkenntnisse ab.",
-        "• Du verfügst über eine hohe Tool-Affinität und sehr gute Kenntnisse in der Automatisierung und Visualisierung von Daten; Erfahrung mit Power BI ist von Vorteil.",
-        "• Du bereitest komplexe Inhalte strukturiert, verständlich und überzeugend für unterschiedliche Anspruchsgruppen auf.",
-        "• Du arbeitest eigenverantwortlich und lösungsorientiert, trittst sicher auf und bringst dich engagiert in die Weiterentwicklung unseres wachsenden Unternehmens ein."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du bist versiert in der Bearbeitung und Analyse grösserer Datenbestände und leitest daraus relevante Erkenntnisse ab.",
-          "• Du bereitest komplexe Inhalte strukturiert, verständlich und überzeugend für unterschiedliche Anspruchsgruppen auf."
-        ]
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "risk-officer-operationelle-risiken-vz-vermoegenszentrum-ch",
-          "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug"
-        ],
-        "it": [
-          "risk-officer-operationelle-risiken-vz-vermoegenszentrum-ch",
-          "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug",
-          "rischio-operativo-dell-agente-di-rischio-vz-vermogenszentrum-zug-zug"
-        ],
-        "en": [
-          "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug"
-        ],
-        "fr": [
-          "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug"
-        ]
-      },
-      "previousSlugs": [
-        "risk-officer-operationelle-risiken-vz-vermoegenszentrum-ch",
-        "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug",
-        "rischio-operativo-dell-agente-di-rischio-vz-vermogenszentrum-zug-zug"
-      ],
-      "firstSeenAt": "2026-08-17T10:11:03.272Z",
-      "salaryMin": 80000,
-      "salaryMax": 137000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 80000,
-          "maxValue": 137000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "vz-vermoegenszentrum-03b13df824a6",
-      "slug": "interno-hms-vz-vermogenszentrum-zurich-zurich",
-      "slugByLocale": {
-        "it": "interno-hms-vz-vermogenszentrum-zurich-zurich",
-        "en": "hms-internship-vz-vermogenszentrum-zurich-zurich",
-        "de": "hms-praktikum-vz-vermogenszentrum-zurich",
-        "fr": "stage-hms-vz-vermogenszentrum-zurich-zurich"
-      },
-      "company": "VZ VermögensZentrum",
-      "companyKey": "vz-vermoegenszentrum",
-      "companyDomain": "vermoegenszentrum.ch",
-      "title": "HMS-Praktikum",
-      "titleByLocale": {
-        "it": "Interno HMS",
-        "en": "HMS internship",
-        "de": "HMS-Praktikum",
-        "fr": "Stage HMS"
-      },
-      "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Wir bieten eine vielseitige Praxisausbildung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du bearbeitest die vielfältigen Geschäftsfälle unserer Sammelstiftungen gemeinsam mit deinem Team. Dazu gehören Ein- und Austritte von Versicherten, Pensionierungen, verschiedene Mutationsfälle und das Einpflegen von Neukunden.\n\n• Du bist die Anlaufstelle für interne und externe Kundinnen und Kunden und beantwortest deren Anfragen zeitnah und professionell.\n\n• Während deines Praktikums wirst du von erfahrenen Ausbilderinnen und Ausbildern begleitet.\n\n• Du bist im dritten Ausbildungsjahr in einer Handelsmittelschule HMS oder Wirtschaftsmittelschule WMS.\n\n• Du hast Freude an der Betreuung von Kundinnen und Kunden und du interessierst dich für Vorsorgethemen.\n\n• Du arbeitest gerne im Team, bist kommunikativ und kundenorientiert.\n\n• Du hast ein Flair für Zahlen, arbeitest sorgfältig und erkennst Zusammenhänge auch bei komplexeren Sachverhalten.\n\n• Du fühlst dich in einem dynamischen und dienstleistungsorientierten Umfeld wohl, gehst strukturiert vor und arbeitest auch in hektischen Zeiten zuverlässig und genau.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und bringst idealerweise auch Französisch- oder Englischkenntnisse mit.\n\n• Regelmässige Entwicklungsgespräche und individuelle Förderung\n\n• Viele Events, um dein Netzwerk zu erweitern\n\n• Gratis kalte Getränke, Kaffee, Tee und frische Früchte; im Sommer sogar Glacé\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeige regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-      "descriptionByLocale": {
-        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. Creiamo trasparenza nel mercato bancario e assicurativo e consigliamo ai nostri clienti in modo completo e neutrale. Offriamo una formazione pratica versatile per le nostre basi pensioni presso la nostra sede a Paradeplatz a Zurigo (a partire dal 2027 agosto).\n\n• Potrai gestire i vari casi di business delle nostre fondazioni di raccolta insieme al tuo team. Ciò include l'ingresso e l'uscita di persone assicurate, pensionati, vari casi di mutazione e l'introduzione di nuovi clienti.\n\n• Sei il punto di contatto per i clienti interni ed esterni e rispondere alle loro richieste in modo rapido e professionale.\n\n• Durante il vostro stage, sarete accompagnati da istruttori esperti.\n\n• Sei nel terzo anno di formazione in una scuola media commerciale HMS o Business Mid School WMS.\n\n• Ti piace prenderti cura dei clienti e sei interessato a temi di prevenzione.\n\n• Ti piace lavorare in un team, essendo comunicativo e orientato al cliente.\n\n• Hai un tocco per i numeri, lavorare con attenzione e riconoscere le connessioni anche in situazioni più complesse.\n\n• Ti senti a tuo agio in un ambiente dinamico e orientato al servizio, prendi un approccio strutturato e lavora in modo affidabile e preciso anche in tempi frenetici.\n\n• Hai eccellenti competenze tedesche e idealmente anche competenze francesi o inglesi.\n\n• Discussioni di sviluppo regolari e sostegno individuale\n\n• Molti eventi per espandere la rete\n\n• bevande fredde gratuite, caffè, tè e frutta fresca; Anche glacé in estate\n\n• Dopo il completamento dello stage, vi è la possibilità di un impiego permanente (anche parziale).\n\n• Indagini mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte di esso!",
-        "en": "VZ is the leading independent financial services provider in Switzerland. We create transparency in the banking and insurance market and advise our customers comprehensively and neutrally. We offer a versatile practical training for our pension foundations at our headquarters at Paradeplatz in Zurich (start August 2027).\n\n• You will handle the various business cases of our collection foundations together with your team. This includes entry and exit of insured persons, retirements, various mutation cases and the introduction of new customers.\n\n• You are the contact point for internal and external customers and answer their inquiries promptly and professionally.\n\n• During your internship, you will be accompanied by experienced instructors.\n\n• You are in the third year of training in a commercial middle school HMS or business middle school WMS.\n\n• You enjoy looking after customers and you are interested in preventive care topics.\n\n• You enjoy working in a team, being communicative and customer-oriented.\n\n• You have a flair for numbers, work carefully and recognize connections even in more complex situations.\n\n• You feel comfortable in a dynamic and service-oriented environment, take a structured approach and work reliably and accurately even in hectic times.\n\n• You have excellent German skills and ideally also French or English skills.\n\n• Regular development discussions and individual support\n\n• Many events to expand your network\n\n• Free cold drinks, coffee, tea and fresh fruits; Even glacé in summer\n\n• After completion of the internship, there is the possibility of permanent employment (also part-time).\n\n• Surveys regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of it!",
-        "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Wir bieten eine vielseitige Praxisausbildung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du bearbeitest die vielfältigen Geschäftsfälle unserer Sammelstiftungen gemeinsam mit deinem Team. Dazu gehören Ein- und Austritte von Versicherten, Pensionierungen, verschiedene Mutationsfälle und das Einpflegen von Neukunden.\n\n• Du bist die Anlaufstelle für interne und externe Kundinnen und Kunden und beantwortest deren Anfragen zeitnah und professionell.\n\n• Während deines Praktikums wirst du von erfahrenen Ausbilderinnen und Ausbildern begleitet.\n\n• Du bist im dritten Ausbildungsjahr in einer Handelsmittelschule HMS oder Wirtschaftsmittelschule WMS.\n\n• Du hast Freude an der Betreuung von Kundinnen und Kunden und du interessierst dich für Vorsorgethemen.\n\n• Du arbeitest gerne im Team, bist kommunikativ und kundenorientiert.\n\n• Du hast ein Flair für Zahlen, arbeitest sorgfältig und erkennst Zusammenhänge auch bei komplexeren Sachverhalten.\n\n• Du fühlst dich in einem dynamischen und dienstleistungsorientierten Umfeld wohl, gehst strukturiert vor und arbeitest auch in hektischen Zeiten zuverlässig und genau.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und bringst idealerweise auch Französisch- oder Englischkenntnisse mit.\n\n• Regelmässige Entwicklungsgespräche und individuelle Förderung\n\n• Viele Events, um dein Netzwerk zu erweitern\n\n• Gratis kalte Getränke, Kaffee, Tee und frische Früchte; im Sommer sogar Glacé\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeige regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Nous créons la transparence sur le marché bancaire et d'assurance et conseillons nos clients de manière complète et neutre. Nous offrons une formation pratique polyvalente pour nos fondations de retraite à notre siège social à Paradeplatz à Zurich (à partir d'août 2027).\n\n• Vous gérerez les différentes affaires de nos fondations de collection avec votre équipe. Cela inclut l'entrée et la sortie des assurés, les retraites, divers cas de mutation et l'introduction de nouveaux clients.\n\n• Vous êtes le point de contact pour les clients internes et externes et répondez à leurs demandes rapidement et professionnellement.\n\n• Pendant votre stage, vous serez accompagné d'instructeurs expérimentés.\n\n• Vous êtes en troisième année de formation dans un collège commercial HMS ou WMS.\n\n• Vous aimez prendre soin des clients et vous êtes intéressé par des sujets de soins préventifs.\n\n• Vous aimez travailler en équipe, être communicatif et orienté client.\n\n• Vous avez un goût pour les chiffres, travaillez soigneusement et reconnaissez les connexions même dans des situations plus complexes.\n\n• Vous vous sentez à l'aise dans un environnement dynamique et orienté vers le service, adoptez une approche structurée et travaillez de façon fiable et précise même en période agitée.\n\n• Vous avez d'excellentes compétences en allemand et idéalement aussi en français ou en anglais.\n\n• Discussions régulières sur le développement et soutien individuel\n\n• De nombreux événements pour élargir votre réseau\n\n• boissons froides gratuites, café, thé et fruits frais; Même glacé en été\n\n• Après le stage, il y a la possibilité d'un emploi permanent (également à temps partiel).\n\n• Les enquêtes montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Faites-en partie !"
-      },
-      "location": "Zürich, Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/hms-praktikum/bbd11028-aa1c-45cc-81a4-8a85fddb04d3",
-      "source": "VZ VermögensZentrum Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.831Z",
-      "addressLocality": "Zürich",
-      "postalCode": "8002",
-      "addressRegion": "Zürich",
-      "streetAddress": "Gotthardstrasse 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Finanza / Wealth Management",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-16",
-      "applyUrl": "https://vzjobs.abacuscity.ch/de/jobapplicationform?jobportal_id=2&jobportal_jobid=1006892",
-      "requirements": [
-        "• Du bist im dritten Ausbildungsjahr in einer Handelsmittelschule HMS oder Wirtschaftsmittelschule WMS.",
-        "• Du hast Freude an der Betreuung von Kundinnen und Kunden und du interessierst dich für Vorsorgethemen.",
-        "• Du arbeitest gerne im Team, bist kommunikativ und kundenorientiert.",
-        "• Du hast ein Flair für Zahlen, arbeitest sorgfältig und erkennst Zusammenhänge auch bei komplexeren Sachverhalten.",
-        "• Du fühlst dich in einem dynamischen und dienstleistungsorientierten Umfeld wohl, gehst strukturiert vor und arbeitest auch in hektischen Zeiten zuverlässig und genau.",
-        "• Du verfügst über ausgezeichnete Deutschkenntnisse und bringst idealerweise auch Französisch- oder Englischkenntnisse mit."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du bist im dritten Ausbildungsjahr in einer Handelsmittelschule HMS oder Wirtschaftsmittelschule WMS.",
-          "• Du hast Freude an der Betreuung von Kundinnen und Kunden und du interessierst dich für Vorsorgethemen.",
-          "• Du arbeitest gerne im Team, bist kommunikativ und kundenorientiert.",
-          "• Du hast ein Flair für Zahlen, arbeitest sorgfältig und erkennst Zusammenhänge auch bei komplexeren Sachverhalten."
-        ]
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "hms-praktikum-vz-vermoegenszentrum-ch",
-          "hms-praktikum-vz-vermogenszentrum-zurich"
-        ],
-        "it": [
-          "hms-praktikum-vz-vermoegenszentrum-ch",
-          "hms-praktikum-vz-vermogenszentrum-zurich",
-          "interno-hms-vz-vermogenszentrum-zurich-zurich"
-        ],
-        "en": [
-          "hms-praktikum-vz-vermogenszentrum-zurich"
-        ],
-        "fr": [
-          "hms-praktikum-vz-vermogenszentrum-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "hms-praktikum-vz-vermoegenszentrum-ch",
-        "hms-praktikum-vz-vermogenszentrum-zurich",
-        "interno-hms-vz-vermogenszentrum-zurich-zurich"
-      ],
-      "firstSeenAt": "2026-08-17T10:11:03.283Z",
-      "salaryMin": 63000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 116500,
           "unitText": "YEAR"
         }
       }
@@ -2550,7 +2385,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-kundenempfang/1214cbfc-7dfd-44e2-a393-99d56681ce51",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.830Z",
+      "crawledAt": "2026-09-13T13:56:06.572Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressRegion": "Zürich",
@@ -2608,6 +2443,7 @@
         "ricevimento-dei-dipendenti-clienti-vz-vermogenszentrum-horgen-zurich"
       ],
       "firstSeenAt": "2026-08-18T22:08:44.501Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2618,6 +2454,104 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "vz-vermoegenszentrum-69544c981233",
+      "slug": "rischio-operativo-dell-agente-di-rischio-vz-vermogenszentrum-zug-zug",
+      "slugByLocale": {
+        "it": "rischio-operativo-dell-agente-di-rischio-vz-vermogenszentrum-zug-zug",
+        "en": "risk-officer-operational-risk-vz-vermogenszentrum-zug-zug",
+        "de": "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug",
+        "fr": "agent-des-risques-risque-operationnel-vz-vermogenszentrum-zug-zug"
+      },
+      "company": "VZ VermögensZentrum",
+      "companyKey": "vz-vermoegenszentrum",
+      "companyDomain": "vermoegenszentrum.ch",
+      "title": "Risk Officer operationelle Risiken",
+      "titleByLocale": {
+        "it": "Rischio operativo dell'agente di rischio",
+        "en": "Risk Officer Operational Risk",
+        "de": "Risk Officer operationelle Risiken",
+        "fr": "Agent des risques Risque opérationnel"
+      },
+      "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Das Risk Office der VZ Gruppe ist zuständig für zwei Banken in der Schweiz und in Deutschland sowie für je eine Versicherung in den Bereichen Sach-/Haftpflicht und Leben. Wir wachsen kräftig und suchen Verstärkung für unseren Hauptstandort im Zentrum von Zug.\n\n• Du entwickelst das operationelle Risikomanagement sowie die gruppenweite Risikokontrolle aktiv weiter.\n\n• Du führst Risikoassessments durch, entwickelst Risikoszenarien und verantwortest deren konsolidierte Auswertung.\n\n• Du führst unabhängige Reviews und Wirksamkeitsprüfungen durch, unter anderem im Bereich Audit Tracking und bei abgeschlossenen Massnahmen.\n\n• Du aggregierst und analysierst Risiko- und Kontrolldaten, entwickelst diese weiter und bereitest die Ergebnisse klar, verständlich und adressatengerecht auf.\n\n• Du führst Analysen zu wesentlichen eingetretenen Vorfällen durch und leitest daraus Empfehlungen zu Effizienz- und Effektivitätsverbesserungen ab.\n\n• Du nutzt moderne Tools zur Automatisierung und Visualisierung, entwickelst diese weiter und gestaltest Projekte, Prozesse sowie neue Lösungen aktiv mit.\n\n• Du verfügst über mehrjährige Berufserfahrung im operationellen Risikomanagement im Finanzbereich, in einer Second-Line-Funktion, im IKS oder in einem vergleichbaren Umfeld.\n\n• Du besitzt ein fundiertes Verständnis für Risiken, Kontrollen und Governance-Zusammenhänge und kannst komplexe Sachverhalte selbstständig beurteilen.\n\n• Du bist versiert in der Bearbeitung und Analyse grösserer Datenbestände und leitest daraus relevante Erkenntnisse ab.\n\n• Du verfügst über eine hohe Tool-Affinität und sehr gute Kenntnisse in der Automatisierung und Visualisierung von Daten; Erfahrung mit Power BI ist von Vorteil.\n\n• Du bereitest komplexe Inhalte strukturiert, verständlich und überzeugend für unterschiedliche Anspruchsgruppen auf.\n\n• Du arbeitest eigenverantwortlich und lösungsorientiert, trittst sicher auf und bringst dich engagiert in die Weiterentwicklung unseres wachsenden Unternehmens ein.\n\n• Spannende, abwechslungsreiche Aufgaben und ein kollegiales Team.\n\n• Das Risk Office ist verantwortlich für die Risikokontrolle der ganzen VZ Gruppe, zu der Banken, Vermögensverwalter, Versicherungen, Hypothekar-Vermittler, Vorsorge-Dienstleister sowie Stiftungen in der Schweiz, Deutschland und UK zählen.\n\n• Du arbeitest an einem modernen und klimatisierten Arbeitsplatz im Zentrum von Zug und hast die Möglichkeit auf zwei Tage Home-Office pro Woche.\n\n• In einem kollegialen Arbeitsumfeld mit regelmässigen Social Events erwartet dich ein spannendes Tätigkeitsgebiet sowie die Möglichkeit, Verantwortung zu übernehmen und selbstständig zu arbeiten.\n\n• Du arbeitest in einem Unternehmen, das von der Hochschule Luzern zu den digitalsten Banken der Schweiz gezählt wird.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil der VZ-Familie und erlebe es selbst!",
+      "descriptionByLocale": {
+        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. L'ufficio rischi del Gruppo VZ è responsabile di due banche in Svizzera e in Germania, nonché di una compagnia assicurativa nei settori della responsabilità e della vita. Stiamo crescendo fortemente e cercando rinforzi per la nostra posizione principale nel centro di Zug.\n\n• Si svilupperà attivamente la gestione dei rischi operativi e il controllo del rischio su scala di Gruppo.\n\n• Effettuare valutazioni dei rischi, sviluppare scenari di rischio e assumersi la responsabilità della loro valutazione consolidata.\n\n• Si effettuano recensioni indipendenti e controlli di efficacia, tra cui il monitoraggio di audit e le misure completate.\n\n• L'utente aggrega e analizza i dati di rischio e di controllo, lo sviluppa ulteriormente e prepara i risultati in modo chiaro, comprensibile e appropriato.\n\n• Effettuate analisi di incidenti importanti che si sono verificati e derivano raccomandazioni per migliorare l'efficienza e l'efficacia.\n\n• Si utilizzano strumenti moderni per l'automazione e la visualizzazione, svilupparli ulteriormente e attivamente modellare progetti, processi e nuove soluzioni.\n\n• Hai diversi anni di esperienza professionale nella gestione dei rischi operativi nel settore finanziario, in una funzione di seconda linea, in IKS o in un ambiente comparabile.\n\n• Hai una solida comprensione dei rischi, dei controlli e delle relazioni di governance e puoi valutare in modo indipendente questioni complesse.\n\n• Siete ben diversificati nel trattamento e nell'analisi di più grandi scorte di dati e ricavate informazioni pertinenti da loro.\n\n• Hai un'alta affinità degli strumenti e una buona conoscenza nell'automazione e nella visualizzazione dei dati; Esperienza con Power BI è un vantaggio.\n\n• Prepara contenuti complessi in modo strutturato, comprensibile e convincente per diversi stakeholder.\n\n• Si lavora in modo indipendente e orientato alla soluzione, eseguire con fiducia e si impegnano per l'ulteriore sviluppo della nostra azienda in crescita.\n\n• Attività emozionanti e varie e un team collegiale.\n\n• Il Risk Office è responsabile del controllo del rischio dell'intero Gruppo VZ, che comprende banche, asset manager, assicurazioni, broker ipotecari, fornitori di pensioni e fondazioni in Svizzera, Germania e Regno Unito.\n\n• Lavori in un luogo di lavoro moderno e climatizzato nel centro di Zug e hai la possibilità di due giorni di ufficio a settimana.\n\n• In un ambiente di lavoro collegiale con eventi sociali regolari, un eccitante campo di attività vi attende così come l'opportunità di assumersi la responsabilità e lavorare in modo indipendente.\n\n• Lavora in una società che Lucerna University of Applied Sciences conta come una delle banche più digitali in Svizzera.\n\n• Indagini mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte della famiglia VZ e sperimentalo per te!",
+        "en": "VZ is the leading independent financial services provider in Switzerland. The risk office of the VZ Group is responsible for two banks in Switzerland and Germany, as well as one insurance company in the areas of liability and life. We are growing strongly and looking for reinforcements for our main location in the centre of Zug.\n\n• You will actively develop operational risk management and Group-wide risk control.\n\n• You carry out risk assessments, develop risk scenarios and take responsibility for their consolidated evaluation.\n\n• You conduct independent reviews and effectiveness checks, including audit tracking and completed measures.\n\n• You aggregate and analyze risk and control data, develop it further and prepare the results clearly, comprehensibly and appropriately.\n\n• You carry out analyses of major incidents that have occurred and derive recommendations for efficiency and effectiveness improvements.\n\n• You use modern tools for automation and visualization, develop them further and actively shape projects, processes and new solutions.\n\n• You have several years of professional experience in operational risk management in the financial sector, in a second-line function, in the IKS or in a comparable environment.\n\n• You have a sound understanding of risks, controls and governance relationships and can independently assess complex issues.\n\n• You are well-versed in the processing and analysis of larger data stocks and derive relevant insights from them.\n\n• You have a high tool affinity and very good knowledge in the automation and visualization of data; Experience with Power BI is an advantage.\n\n• You prepare complex content in a structured, comprehensible and convincing way for different stakeholders.\n\n• You work independently and solution-oriented, perform confidently and are committed to the further development of our growing company.\n\n• Exciting, varied tasks and a collegial team.\n\n• The Risk Office is responsible for the risk control of the entire VZ Group, which includes banks, asset managers, insurance companies, mortgage brokers, pension providers and foundations in Switzerland, Germany and the UK.\n\n• You work at a modern and air-conditioned workplace in the centre of Zug and have the possibility of two days of home office per week.\n\n• In a collegial working environment with regular social events, an exciting field of activity awaits you as well as the opportunity to take on responsibility and work independently.\n\n• You work in a company that Lucerne University of Applied Sciences counts as one of the most digital banks in Switzerland.\n\n• Surveys regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of the VZ family and experience it for yourself!",
+        "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Das Risk Office der VZ Gruppe ist zuständig für zwei Banken in der Schweiz und in Deutschland sowie für je eine Versicherung in den Bereichen Sach-/Haftpflicht und Leben. Wir wachsen kräftig und suchen Verstärkung für unseren Hauptstandort im Zentrum von Zug.\n\n• Du entwickelst das operationelle Risikomanagement sowie die gruppenweite Risikokontrolle aktiv weiter.\n\n• Du führst Risikoassessments durch, entwickelst Risikoszenarien und verantwortest deren konsolidierte Auswertung.\n\n• Du führst unabhängige Reviews und Wirksamkeitsprüfungen durch, unter anderem im Bereich Audit Tracking und bei abgeschlossenen Massnahmen.\n\n• Du aggregierst und analysierst Risiko- und Kontrolldaten, entwickelst diese weiter und bereitest die Ergebnisse klar, verständlich und adressatengerecht auf.\n\n• Du führst Analysen zu wesentlichen eingetretenen Vorfällen durch und leitest daraus Empfehlungen zu Effizienz- und Effektivitätsverbesserungen ab.\n\n• Du nutzt moderne Tools zur Automatisierung und Visualisierung, entwickelst diese weiter und gestaltest Projekte, Prozesse sowie neue Lösungen aktiv mit.\n\n• Du verfügst über mehrjährige Berufserfahrung im operationellen Risikomanagement im Finanzbereich, in einer Second-Line-Funktion, im IKS oder in einem vergleichbaren Umfeld.\n\n• Du besitzt ein fundiertes Verständnis für Risiken, Kontrollen und Governance-Zusammenhänge und kannst komplexe Sachverhalte selbstständig beurteilen.\n\n• Du bist versiert in der Bearbeitung und Analyse grösserer Datenbestände und leitest daraus relevante Erkenntnisse ab.\n\n• Du verfügst über eine hohe Tool-Affinität und sehr gute Kenntnisse in der Automatisierung und Visualisierung von Daten; Erfahrung mit Power BI ist von Vorteil.\n\n• Du bereitest komplexe Inhalte strukturiert, verständlich und überzeugend für unterschiedliche Anspruchsgruppen auf.\n\n• Du arbeitest eigenverantwortlich und lösungsorientiert, trittst sicher auf und bringst dich engagiert in die Weiterentwicklung unseres wachsenden Unternehmens ein.\n\n• Spannende, abwechslungsreiche Aufgaben und ein kollegiales Team.\n\n• Das Risk Office ist verantwortlich für die Risikokontrolle der ganzen VZ Gruppe, zu der Banken, Vermögensverwalter, Versicherungen, Hypothekar-Vermittler, Vorsorge-Dienstleister sowie Stiftungen in der Schweiz, Deutschland und UK zählen.\n\n• Du arbeitest an einem modernen und klimatisierten Arbeitsplatz im Zentrum von Zug und hast die Möglichkeit auf zwei Tage Home-Office pro Woche.\n\n• In einem kollegialen Arbeitsumfeld mit regelmässigen Social Events erwartet dich ein spannendes Tätigkeitsgebiet sowie die Möglichkeit, Verantwortung zu übernehmen und selbstständig zu arbeiten.\n\n• Du arbeitest in einem Unternehmen, das von der Hochschule Luzern zu den digitalsten Banken der Schweiz gezählt wird.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil der VZ-Familie und erlebe es selbst!",
+        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Le bureau des risques du Groupe VZ est responsable de deux banques en Suisse et en Allemagne, ainsi que d'une compagnie d'assurance dans les domaines de la responsabilité et de la vie. Nous sommes en pleine croissance et nous cherchons des renforts pour notre emplacement principal au centre de Zug.\n\n• Vous développerez activement la gestion des risques opérationnels et le contrôle des risques à l'échelle du groupe.\n\n• Vous effectuez des évaluations des risques, élaborez des scénarios de risques et assumez la responsabilité de leur évaluation consolidée.\n\n• Vous effectuez des examens indépendants et des vérifications de l'efficacité, y compris le suivi des vérifications et les mesures terminées.\n\n• Vous regroupez et analysez les données sur les risques et les contrôles, vous les développez et vous préparez les résultats de façon claire, compréhensible et appropriée.\n\n• Vous effectuez des analyses des incidents majeurs survenus et vous formulez des recommandations pour améliorer l'efficacité et l'efficience.\n\n• Vous utilisez des outils modernes pour l'automatisation et la visualisation, les développer et façonner les projets, les processus et les nouvelles solutions.\n\n• Vous avez plusieurs années d'expérience professionnelle en gestion des risques opérationnels dans le secteur financier, dans une fonction de deuxième ligne, dans l'IKS ou dans un environnement comparable.\n\n• Vous avez une bonne compréhension des risques, des contrôles et des relations de gouvernance et pouvez évaluer de façon indépendante les questions complexes.\n\n• Vous êtes bien placé dans le traitement et l'analyse de stocks de données plus importants et en tirez des informations pertinentes.\n\n• Vous avez une grande affinité d'outil et une très bonne connaissance dans l'automatisation et la visualisation des données; Expérience avec Power BI est un avantage.\n\n• Vous préparez des contenus complexes de manière structurée, compréhensible et convaincante pour les différents acteurs.\n\n• Vous travaillez de façon indépendante et orientée vers la solution, vous effectuez avec confiance et vous êtes engagé dans le développement de notre entreprise en croissance.\n\n• Des tâches passionnantes, variées et une équipe collégiale.\n\n• Le Risk Office est responsable du contrôle des risques de l'ensemble du groupe VZ, qui comprend des banques, des gestionnaires d'actifs, des compagnies d'assurance, des courtiers hypothécaires, des prestataires de pensions et des fondations en Suisse, en Allemagne et au Royaume-Uni.\n\n• Vous travaillez dans un lieu de travail moderne et climatisé dans le centre de Zug et avez la possibilité de deux jours de bureau à domicile par semaine.\n\n• Dans un environnement de travail collégial avec des événements sociaux réguliers, un champ d'activité passionnant vous attend ainsi que l'occasion de prendre des responsabilités et de travailler indépendamment.\n\n• Vous travaillez dans une entreprise que Lucerne University of Applied Sciences compte parmi les banques les plus numériques de Suisse.\n\n• Les enquêtes montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Devenez membre de la famille VZ et vivez-le par vous-même!"
+      },
+      "location": "Zug, Zug",
+      "canton": "ZG",
+      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/risk-officer-operationelle-risiken/0c1e9f94-9f3a-42bb-bea0-6a59587764f8",
+      "source": "VZ VermögensZentrum Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-13T13:56:06.572Z",
+      "addressLocality": "Zug",
+      "postalCode": "6300",
+      "addressRegion": "Zug",
+      "streetAddress": "Innere Güterstrasse 2",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Legale",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Wealth Management",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-16",
+      "applyUrl": "https://vzjobs.abacuscity.ch/de/jobapplicationform?jobportal_id=2&jobportal_jobid=1006893",
+      "requirements": [
+        "• Du verfügst über mehrjährige Berufserfahrung im operationellen Risikomanagement im Finanzbereich, in einer Second-Line-Funktion, im IKS oder in einem vergleichbaren Umfeld.",
+        "• Du besitzt ein fundiertes Verständnis für Risiken, Kontrollen und Governance-Zusammenhänge und kannst komplexe Sachverhalte selbstständig beurteilen.",
+        "• Du bist versiert in der Bearbeitung und Analyse grösserer Datenbestände und leitest daraus relevante Erkenntnisse ab.",
+        "• Du verfügst über eine hohe Tool-Affinität und sehr gute Kenntnisse in der Automatisierung und Visualisierung von Daten; Erfahrung mit Power BI ist von Vorteil.",
+        "• Du bereitest komplexe Inhalte strukturiert, verständlich und überzeugend für unterschiedliche Anspruchsgruppen auf.",
+        "• Du arbeitest eigenverantwortlich und lösungsorientiert, trittst sicher auf und bringst dich engagiert in die Weiterentwicklung unseres wachsenden Unternehmens ein."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Du bist versiert in der Bearbeitung und Analyse grösserer Datenbestände und leitest daraus relevante Erkenntnisse ab.",
+          "• Du bereitest komplexe Inhalte strukturiert, verständlich und überzeugend für unterschiedliche Anspruchsgruppen auf."
+        ]
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "risk-officer-operationelle-risiken-vz-vermoegenszentrum-ch",
+          "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug"
+        ],
+        "it": [
+          "risk-officer-operationelle-risiken-vz-vermoegenszentrum-ch",
+          "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug",
+          "rischio-operativo-dell-agente-di-rischio-vz-vermogenszentrum-zug-zug"
+        ],
+        "en": [
+          "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug"
+        ],
+        "fr": [
+          "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug"
+        ]
+      },
+      "previousSlugs": [
+        "risk-officer-operationelle-risiken-vz-vermoegenszentrum-ch",
+        "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug",
+        "rischio-operativo-dell-agente-di-rischio-vz-vermogenszentrum-zug-zug"
+      ],
+      "firstSeenAt": "2026-08-17T10:11:03.272Z",
+      "needsRetranslation": true,
+      "salaryMin": 80000,
+      "salaryMax": 137000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 80000,
+          "maxValue": 137000,
           "unitText": "YEAR"
         }
       }
@@ -2653,7 +2587,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/3105268e-748f-460d-9bc7-f74e4ce88f95",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.828Z",
+      "crawledAt": "2026-09-13T13:56:06.571Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -2703,6 +2637,7 @@
         "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-zurich-zurich"
       ],
       "firstSeenAt": "2026-08-20T10:11:08.043Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -2732,7 +2667,7 @@
       "title": "Private Clients Consultant (pour Bienne)",
       "titleByLocale": {
         "it": "Consulente clienti privato (per Biel)",
-        "en": "Private Client Consultant (for Bienne)",
+        "en": "Private Clients Consultant (pour Bienne)",
         "de": "Private Client Consultant (für Biel)",
         "fr": "Private Clients Consultant (pour Bienne)"
       },
@@ -2748,7 +2683,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant-pour-bienne/54843c65-a555-4056-b115-007a676821de",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:00:14.827Z",
+      "crawledAt": "2026-09-13T13:56:06.570Z",
       "addressLocality": "Biel",
       "postalCode": "2502",
       "addressRegion": "Bern",
@@ -2802,6 +2737,7 @@
         "consulente-clienti-privato-per-biel-vz-vermogenszentrum-biel-bern"
       ],
       "firstSeenAt": "2026-08-20T10:11:08.037Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -2847,7 +2783,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/premiere-experience-en-financial-consulting-pour-bienne/883f0431-8477-4643-b194-08ac2655fdf1",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:00:14.826Z",
+      "crawledAt": "2026-09-13T13:56:06.569Z",
       "addressLocality": "Biel",
       "postalCode": "2502",
       "addressRegion": "Bern",
@@ -2910,6 +2846,7 @@
         "prima-esperienza-in-financial-consulting-per-bienne-vz-vermogenszentrum-biel-bern"
       ],
       "firstSeenAt": "2026-08-20T10:11:08.033Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -2955,7 +2892,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/application-manager-banking/0bb97913-1a2a-480e-8e15-98af8a413c0f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.824Z",
+      "crawledAt": "2026-09-13T13:56:06.568Z",
       "addressLocality": "Baar",
       "postalCode": "6340",
       "addressRegion": "Zug",
@@ -3050,7 +2987,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/temporaerer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-maerz-2027/c5e428f0-317d-4fbe-8235-e63dd5b72619",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.823Z",
+      "crawledAt": "2026-09-13T13:56:06.567Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -3096,6 +3033,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:43:03.016Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3141,7 +3079,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/2a02e572-fe1e-48ba-b3dd-fa6a725f650b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.821Z",
+      "crawledAt": "2026-09-13T13:56:06.566Z",
       "addressLocality": "Kreuzlingen",
       "postalCode": "8280",
       "addressRegion": "Thurgau",
@@ -3193,6 +3131,7 @@
         "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-kreuzlingen-thurgau"
       ],
       "firstSeenAt": "2026-08-24T21:43:03.004Z",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -3222,7 +3161,7 @@
       "title": "Payroll Manager – Firmenkunden",
       "titleByLocale": {
         "it": "Payroll Manager – Clienti aziendali",
-        "en": "Payroll Manager – Corporate Clients",
+        "en": "Payroll Manager – Firmenkunden",
         "de": "Payroll Manager – Firmenkunden",
         "fr": "Gestionnaire de la paie – Clients ministériels"
       },
@@ -3238,7 +3177,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/payroll-manager-firmenkunden/b2b9444b-d2f1-4e5f-85a1-686041522e81",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.819Z",
+      "crawledAt": "2026-09-13T13:56:06.565Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -3289,6 +3228,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:54:04.863Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -3320,7 +3260,7 @@
         "it": "Stage WML in Financial Consulting (start 2027)",
         "en": "WML internship in Financial Consulting (start 2027)",
         "de": "WML-Praktikum im Financial Consulting (Start 2027)",
-        "fr": "Stage WML en conseil financier (début 2027)"
+        "fr": "WML-Praktikum im Financial Consulting (Start 2027)"
       },
       "description": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Für junge und engagierte Persönlichkeiten bieten wir im Rahmen des WML-Praktikums einen Einblick in die Kundenberatung.\n\n• Du unterstützt unser Team in der Niederlassung in Luzern und lernst den Alltag unserer Beraterinnen und Berater kennen.\n\n• Du erhältst Einblick in verschiedene Themen wie Vermögensmanagement, Anlageberatung, Steuerplanung, Nachlassregelung und Liegenschaftsfinanzierung.\n\n• Du arbeitest mit einem erfahrenen Consultant zusammen, den du bei den Kundenprojekten und Beratungsgesprächen begleitest.\n\n• Du besuchst die Wirtschaftsmittelschule und möchtest mit diesem Praktikum die Berufsmatura erlangen.\n\n• Finanzthemen wie Aktien und Obligationen sowie der Kundenkontakt machen dir Spass.\n\n• Du hast eine rasche Auffassungsgabe, ein Flair für Zahlen und bist eine motivierte und aufgestellte Persönlichkeit.\n\n• Du lernst täglich von unseren erfahrenen Beraterinnen und Beratern.\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können.",
       "descriptionByLocale": {
@@ -3334,7 +3274,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/wml-praktikum-im-financial-consulting-start-2027/2444213e-8f27-4910-a826-9ee237b483a4",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.816Z",
+      "crawledAt": "2026-09-13T13:56:06.564Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -3374,6 +3314,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:54:04.857Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -3405,7 +3346,7 @@
         "it": "Stage WML in Financial Consulting (start 2027)",
         "en": "WML internship in Financial Consulting (start 2027)",
         "de": "WML-Praktikum im Financial Consulting (Start 2027)",
-        "fr": "Stage WML en conseil financier (début 2027)"
+        "fr": "WML-Praktikum im Financial Consulting (Start 2027)"
       },
       "description": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Für junge und engagierte Persönlichkeiten bieten wir im Rahmen des WML-Praktikums einen Einblick in die Kundenberatung.\n\n• Du unterstützt unser Team in der Niederlassung in Sursee und lernst den Alltag unserer Beraterinnen und Berater kennen.\n\n• Du erhältst Einblick in verschiedene Themen wie Vermögensmanagement, Anlageberatung, Steuerplanung, Nachlassregelung und Liegenschaftsfinanzierung.\n\n• Du arbeitest mit einem erfahrenen Consultant zusammen, den du bei den Kundenprojekten und Beratungsgesprächen begleitest.\n\n• Du besuchst die Wirtschaftsmittelschule und möchtest mit diesem Praktikum die Berufsmatura erlangen.\n\n• Finanzthemen wie Aktien und Obligationen sowie der Kundenkontakt machen dir Spass.\n\n• Du hast eine rasche Auffassungsgabe, ein Flair für Zahlen und bist eine motivierte und aufgestellte Persönlichkeit.\n\n• Du lernst täglich von unseren erfahrenen Beraterinnen und Beratern.\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können.",
       "descriptionByLocale": {
@@ -3419,7 +3360,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/wml-praktikum-im-financial-consulting-start-2027/a7ef9b79-a415-4a89-82b7-092d3a2f915f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.805Z",
+      "crawledAt": "2026-09-13T13:56:06.562Z",
       "addressLocality": "Sursee",
       "postalCode": "6210",
       "addressRegion": "Luzern",
@@ -3459,6 +3400,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:39:40.361Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -3504,7 +3446,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/senior-investment-advisor/75bb75c9-aeda-47b0-8f5c-dea9bbe21eaf",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.798Z",
+      "crawledAt": "2026-09-13T13:56:06.557Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -3553,6 +3495,7 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:01:21.058Z",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000,
       "salarySource": "estimated",
@@ -3598,7 +3541,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-hr-services-praktikum-vom-september-26-bis-maerz-27/1524e845-a13c-445f-b6b1-c21869bac692",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.789Z",
+      "crawledAt": "2026-09-13T13:56:06.556Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -3696,7 +3639,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz/89a71544-45e2-47e5-905c-8e61b55fe94e",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.784Z",
+      "crawledAt": "2026-09-13T13:56:06.554Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -3796,7 +3739,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-process-automation-ai-engineer-financial-services/4e1487ac-cee4-472c-a506-0b5ff119d03f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.778Z",
+      "crawledAt": "2026-09-13T13:56:06.553Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -3872,7 +3815,7 @@
       "title": "Finanzmarktanalyst/-in & Redaktor/-in",
       "titleByLocale": {
         "it": "Analista del mercato finanziario e editore",
-        "en": "Financial market analyst and editor",
+        "en": "Finanzmarktanalyst/-in & Redaktor/-in",
         "de": "Finanzmarktanalyst/-in & Redaktor/-in",
         "fr": "Analyste des marchés financiers/dans & éditeur/dans"
       },
@@ -3888,7 +3831,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/finanzmarktanalyst-in-redaktor-in/d2ecf679-4118-4daa-bdc5-15e756e51fc4",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.774Z",
+      "crawledAt": "2026-09-13T13:56:06.551Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -3942,6 +3885,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:10.050Z",
+      "needsRetranslation": true,
       "salaryMin": 107500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -3987,7 +3931,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-tax-reporting-tax-reclaim/f13a2b36-88a8-4832-85e8-1853a52fd635",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.772Z",
+      "crawledAt": "2026-09-13T13:56:06.550Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -4038,6 +3982,7 @@
         "dipendenti-in-resoconto-fiscale-tax-reclaim-vz-vermogenszentrum-zurich-zurich"
       ],
       "firstSeenAt": "2026-08-31T17:11:10.049Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -4083,7 +4028,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-securities-settlement/3cf6d11f-996e-43a1-8872-38f5ac7c5bda",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.760Z",
+      "crawledAt": "2026-09-13T13:56:06.548Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -4138,6 +4083,7 @@
         "dipendenti-in-securities-settlement-vz-vermogenszentrum-zurich-zurich"
       ],
       "firstSeenAt": "2026-08-31T17:11:10.048Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -4183,7 +4129,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-privatversicherungen/2193a5de-94a2-4558-8528-463c5cdc1b70",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.758Z",
+      "crawledAt": "2026-09-13T13:56:06.547Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -4237,6 +4183,7 @@
         "assicurazione-personale-privato-vz-vermogenszentrum-zurich-zurich"
       ],
       "firstSeenAt": "2026-08-31T17:11:10.047Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 131000,
       "salarySource": "estimated",
@@ -4282,7 +4229,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-software-engineer-net-fullstack/5fd95b4e-9236-440d-8165-db037e71c219",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.752Z",
+      "crawledAt": "2026-09-13T13:56:06.545Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -4351,7 +4298,7 @@
       "title": "Professional Software Engineer .NET und Web",
       "titleByLocale": {
         "it": "Professional Software Ingegnere .NET e Web",
-        "en": "Professional Software Engineer .NET and Web",
+        "en": "Professional Software Engineer .NET und Web",
         "de": "Professional Software Ingenieur .NET und Web",
         "fr": "Ingénieur logiciel professionnel .NET et Web"
       },
@@ -4367,7 +4314,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-software-engineer-net-und-web/819bba91-eeca-4415-b23d-a032ef8a69f5",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.748Z",
+      "crawledAt": "2026-09-13T13:56:06.543Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -4410,6 +4357,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:10.042Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -4455,7 +4403,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung/df320118-b4a6-4c6e-ae46-6141e9c37afc",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.746Z",
+      "crawledAt": "2026-09-13T13:56:06.542Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -4561,7 +4509,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/316434ed-e2af-4bfc-aed6-706661099d27",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.744Z",
+      "crawledAt": "2026-09-13T13:56:06.540Z",
       "addressLocality": "Meilen",
       "postalCode": "8706",
       "addressRegion": "Zürich",
@@ -4617,6 +4565,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T14:16:53.113Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -4646,7 +4595,7 @@
       "title": "Private Clients Consultant, Start Januar 2027",
       "titleByLocale": {
         "it": "Private Clients Consulente, Start Januar 2027",
-        "en": "Private Clients Consultant, starting January 2027",
+        "en": "Private Clients Consultant, Start Januar 2027",
         "de": "Private Clients Berater, Start Januar 2027",
         "fr": "Consultant en clientèle privée, à compter de janvier 2027"
       },
@@ -4662,7 +4611,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant-start-januar-2027/d8935b60-c1c5-4544-846f-d005538e6749",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.737Z",
+      "crawledAt": "2026-09-13T13:56:06.539Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -4704,6 +4653,7 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:39:16.113Z",
+      "needsRetranslation": true,
       "salaryMin": 107500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -4733,7 +4683,7 @@
       "title": "Associate Consultant Unternehmensnachfolge",
       "titleByLocale": {
         "it": "Consulente associato Successione aziendale",
-        "en": "Associate Consultant Business Succession",
+        "en": "Associate Consultant Unternehmensnachfolge",
         "de": "Associate Berater Unternehmensnachfolge",
         "fr": "Consultant associé Succession d'affaires"
       },
@@ -4749,7 +4699,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/associate-consultant-unternehmensnachfolge/9298ae55-d19e-4a2b-a2f5-eb04605d680c",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.735Z",
+      "crawledAt": "2026-09-13T13:56:06.531Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -4801,6 +4751,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:16.194Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -4846,7 +4797,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/lehre-als-kauffrau-kaufmann-privatversicherung/4f6cc1b8-d946-4485-86c1-9a6b62d341ca",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.729Z",
+      "crawledAt": "2026-09-13T13:56:06.530Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -4894,6 +4845,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:49:31.367Z",
+      "needsRetranslation": true,
       "salaryMin": 64000,
       "salaryMax": 106500,
       "salarySource": "estimated",
@@ -4939,7 +4891,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/ac7b6302-7c87-4daf-b702-175fb76d919f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.722Z",
+      "crawledAt": "2026-09-13T13:56:06.526Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -4981,6 +4933,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:49:31.365Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -5026,7 +4979,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-consultant-unabhaengige-vermoegensberatung/fca6e094-6afb-42cc-a5b4-5b94a78dbc14",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.718Z",
+      "crawledAt": "2026-09-13T13:56:06.524Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -5068,6 +5021,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:49:31.352Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 131000,
       "salarySource": "estimated",
@@ -5113,7 +5067,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/fachspezialist-in-firmeneigene-pensionskassen/281a6b46-4c92-48a6-a67c-6265a337b093",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.714Z",
+      "crawledAt": "2026-09-13T13:56:06.522Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "Bern",
@@ -5162,6 +5116,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:06:36.439Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5207,7 +5162,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-berufliche-vorsorge/dfb10594-6716-4d31-855b-dee0d8b6734a",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:14.708Z",
+      "crawledAt": "2026-09-13T13:56:06.518Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "Bern",
@@ -5258,6 +5213,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:06:36.437Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -5271,6 +5227,107 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "vz-vermoegenszentrum-03b13df824a6",
+      "slug": "interno-hms-vz-vermogenszentrum-zurich-zurich",
+      "slugByLocale": {
+        "it": "interno-hms-vz-vermogenszentrum-zurich-zurich",
+        "en": "hms-internship-vz-vermogenszentrum-zurich-zurich",
+        "de": "hms-praktikum-vz-vermogenszentrum-zurich",
+        "fr": "stage-hms-vz-vermogenszentrum-zurich-zurich"
+      },
+      "company": "VZ VermögensZentrum",
+      "companyKey": "vz-vermoegenszentrum",
+      "companyDomain": "vermoegenszentrum.ch",
+      "title": "HMS-Praktikum",
+      "titleByLocale": {
+        "it": "Interno HMS",
+        "en": "HMS internship",
+        "de": "HMS-Praktikum",
+        "fr": "Stage HMS"
+      },
+      "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Wir bieten eine vielseitige Praxisausbildung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du bearbeitest die vielfältigen Geschäftsfälle unserer Sammelstiftungen gemeinsam mit deinem Team. Dazu gehören Ein- und Austritte von Versicherten, Pensionierungen, verschiedene Mutationsfälle und das Einpflegen von Neukunden.\n\n• Du bist die Anlaufstelle für interne und externe Kundinnen und Kunden und beantwortest deren Anfragen zeitnah und professionell.\n\n• Während deines Praktikums wirst du von erfahrenen Ausbilderinnen und Ausbildern begleitet.\n\n• Du bist im dritten Ausbildungsjahr in einer Handelsmittelschule HMS oder Wirtschaftsmittelschule WMS.\n\n• Du hast Freude an der Betreuung von Kundinnen und Kunden und du interessierst dich für Vorsorgethemen.\n\n• Du arbeitest gerne im Team, bist kommunikativ und kundenorientiert.\n\n• Du hast ein Flair für Zahlen, arbeitest sorgfältig und erkennst Zusammenhänge auch bei komplexeren Sachverhalten.\n\n• Du fühlst dich in einem dynamischen und dienstleistungsorientierten Umfeld wohl, gehst strukturiert vor und arbeitest auch in hektischen Zeiten zuverlässig und genau.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und bringst idealerweise auch Französisch- oder Englischkenntnisse mit.\n\n• Regelmässige Entwicklungsgespräche und individuelle Förderung\n\n• Viele Events, um dein Netzwerk zu erweitern\n\n• Gratis kalte Getränke, Kaffee, Tee und frische Früchte; im Sommer sogar Glacé\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeige regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
+      "descriptionByLocale": {
+        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. Creiamo trasparenza nel mercato bancario e assicurativo e consigliamo ai nostri clienti in modo completo e neutrale. Offriamo una formazione pratica versatile per le nostre basi pensioni presso la nostra sede a Paradeplatz a Zurigo (a partire dal 2027 agosto).\n\n• Potrai gestire i vari casi di business delle nostre fondazioni di raccolta insieme al tuo team. Ciò include l'ingresso e l'uscita di persone assicurate, pensionati, vari casi di mutazione e l'introduzione di nuovi clienti.\n\n• Sei il punto di contatto per i clienti interni ed esterni e rispondere alle loro richieste in modo rapido e professionale.\n\n• Durante il vostro stage, sarete accompagnati da istruttori esperti.\n\n• Sei nel terzo anno di formazione in una scuola media commerciale HMS o Business Mid School WMS.\n\n• Ti piace prenderti cura dei clienti e sei interessato a temi di prevenzione.\n\n• Ti piace lavorare in un team, essendo comunicativo e orientato al cliente.\n\n• Hai un tocco per i numeri, lavorare con attenzione e riconoscere le connessioni anche in situazioni più complesse.\n\n• Ti senti a tuo agio in un ambiente dinamico e orientato al servizio, prendi un approccio strutturato e lavora in modo affidabile e preciso anche in tempi frenetici.\n\n• Hai eccellenti competenze tedesche e idealmente anche competenze francesi o inglesi.\n\n• Discussioni di sviluppo regolari e sostegno individuale\n\n• Molti eventi per espandere la rete\n\n• bevande fredde gratuite, caffè, tè e frutta fresca; Anche glacé in estate\n\n• Dopo il completamento dello stage, vi è la possibilità di un impiego permanente (anche parziale).\n\n• Indagini mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte di esso!",
+        "en": "VZ is the leading independent financial services provider in Switzerland. We create transparency in the banking and insurance market and advise our customers comprehensively and neutrally. We offer a versatile practical training for our pension foundations at our headquarters at Paradeplatz in Zurich (start August 2027).\n\n• You will handle the various business cases of our collection foundations together with your team. This includes entry and exit of insured persons, retirements, various mutation cases and the introduction of new customers.\n\n• You are the contact point for internal and external customers and answer their inquiries promptly and professionally.\n\n• During your internship, you will be accompanied by experienced instructors.\n\n• You are in the third year of training in a commercial middle school HMS or business middle school WMS.\n\n• You enjoy looking after customers and you are interested in preventive care topics.\n\n• You enjoy working in a team, being communicative and customer-oriented.\n\n• You have a flair for numbers, work carefully and recognize connections even in more complex situations.\n\n• You feel comfortable in a dynamic and service-oriented environment, take a structured approach and work reliably and accurately even in hectic times.\n\n• You have excellent German skills and ideally also French or English skills.\n\n• Regular development discussions and individual support\n\n• Many events to expand your network\n\n• Free cold drinks, coffee, tea and fresh fruits; Even glacé in summer\n\n• After completion of the internship, there is the possibility of permanent employment (also part-time).\n\n• Surveys regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of it!",
+        "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Wir bieten eine vielseitige Praxisausbildung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du bearbeitest die vielfältigen Geschäftsfälle unserer Sammelstiftungen gemeinsam mit deinem Team. Dazu gehören Ein- und Austritte von Versicherten, Pensionierungen, verschiedene Mutationsfälle und das Einpflegen von Neukunden.\n\n• Du bist die Anlaufstelle für interne und externe Kundinnen und Kunden und beantwortest deren Anfragen zeitnah und professionell.\n\n• Während deines Praktikums wirst du von erfahrenen Ausbilderinnen und Ausbildern begleitet.\n\n• Du bist im dritten Ausbildungsjahr in einer Handelsmittelschule HMS oder Wirtschaftsmittelschule WMS.\n\n• Du hast Freude an der Betreuung von Kundinnen und Kunden und du interessierst dich für Vorsorgethemen.\n\n• Du arbeitest gerne im Team, bist kommunikativ und kundenorientiert.\n\n• Du hast ein Flair für Zahlen, arbeitest sorgfältig und erkennst Zusammenhänge auch bei komplexeren Sachverhalten.\n\n• Du fühlst dich in einem dynamischen und dienstleistungsorientierten Umfeld wohl, gehst strukturiert vor und arbeitest auch in hektischen Zeiten zuverlässig und genau.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und bringst idealerweise auch Französisch- oder Englischkenntnisse mit.\n\n• Regelmässige Entwicklungsgespräche und individuelle Förderung\n\n• Viele Events, um dein Netzwerk zu erweitern\n\n• Gratis kalte Getränke, Kaffee, Tee und frische Früchte; im Sommer sogar Glacé\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeige regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
+        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Nous créons la transparence sur le marché bancaire et d'assurance et conseillons nos clients de manière complète et neutre. Nous offrons une formation pratique polyvalente pour nos fondations de retraite à notre siège social à Paradeplatz à Zurich (à partir d'août 2027).\n\n• Vous gérerez les différentes affaires de nos fondations de collection avec votre équipe. Cela inclut l'entrée et la sortie des assurés, les retraites, divers cas de mutation et l'introduction de nouveaux clients.\n\n• Vous êtes le point de contact pour les clients internes et externes et répondez à leurs demandes rapidement et professionnellement.\n\n• Pendant votre stage, vous serez accompagné d'instructeurs expérimentés.\n\n• Vous êtes en troisième année de formation dans un collège commercial HMS ou WMS.\n\n• Vous aimez prendre soin des clients et vous êtes intéressé par des sujets de soins préventifs.\n\n• Vous aimez travailler en équipe, être communicatif et orienté client.\n\n• Vous avez un goût pour les chiffres, travaillez soigneusement et reconnaissez les connexions même dans des situations plus complexes.\n\n• Vous vous sentez à l'aise dans un environnement dynamique et orienté vers le service, adoptez une approche structurée et travaillez de façon fiable et précise même en période agitée.\n\n• Vous avez d'excellentes compétences en allemand et idéalement aussi en français ou en anglais.\n\n• Discussions régulières sur le développement et soutien individuel\n\n• De nombreux événements pour élargir votre réseau\n\n• boissons froides gratuites, café, thé et fruits frais; Même glacé en été\n\n• Après le stage, il y a la possibilité d'un emploi permanent (également à temps partiel).\n\n• Les enquêtes montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Faites-en partie !"
+      },
+      "location": "Zürich, Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/hms-praktikum/bbd11028-aa1c-45cc-81a4-8a85fddb04d3",
+      "source": "VZ VermögensZentrum Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-12T13:00:14.831Z",
+      "addressLocality": "Zürich",
+      "postalCode": "8002",
+      "addressRegion": "Zürich",
+      "streetAddress": "Gotthardstrasse 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Finanza / Wealth Management",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-16",
+      "applyUrl": "https://vzjobs.abacuscity.ch/de/jobapplicationform?jobportal_id=2&jobportal_jobid=1006892",
+      "requirements": [
+        "• Du bist im dritten Ausbildungsjahr in einer Handelsmittelschule HMS oder Wirtschaftsmittelschule WMS.",
+        "• Du hast Freude an der Betreuung von Kundinnen und Kunden und du interessierst dich für Vorsorgethemen.",
+        "• Du arbeitest gerne im Team, bist kommunikativ und kundenorientiert.",
+        "• Du hast ein Flair für Zahlen, arbeitest sorgfältig und erkennst Zusammenhänge auch bei komplexeren Sachverhalten.",
+        "• Du fühlst dich in einem dynamischen und dienstleistungsorientierten Umfeld wohl, gehst strukturiert vor und arbeitest auch in hektischen Zeiten zuverlässig und genau.",
+        "• Du verfügst über ausgezeichnete Deutschkenntnisse und bringst idealerweise auch Französisch- oder Englischkenntnisse mit."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Du bist im dritten Ausbildungsjahr in einer Handelsmittelschule HMS oder Wirtschaftsmittelschule WMS.",
+          "• Du hast Freude an der Betreuung von Kundinnen und Kunden und du interessierst dich für Vorsorgethemen.",
+          "• Du arbeitest gerne im Team, bist kommunikativ und kundenorientiert.",
+          "• Du hast ein Flair für Zahlen, arbeitest sorgfältig und erkennst Zusammenhänge auch bei komplexeren Sachverhalten."
+        ]
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "hms-praktikum-vz-vermoegenszentrum-ch",
+          "hms-praktikum-vz-vermogenszentrum-zurich"
+        ],
+        "it": [
+          "hms-praktikum-vz-vermoegenszentrum-ch",
+          "hms-praktikum-vz-vermogenszentrum-zurich",
+          "interno-hms-vz-vermogenszentrum-zurich-zurich"
+        ],
+        "en": [
+          "hms-praktikum-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "hms-praktikum-vz-vermogenszentrum-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hms-praktikum-vz-vermoegenszentrum-ch",
+        "hms-praktikum-vz-vermogenszentrum-zurich",
+        "interno-hms-vz-vermogenszentrum-zurich-zurich"
+      ],
+      "firstSeenAt": "2026-08-17T10:11:03.283Z",
+      "salaryMin": 63000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }

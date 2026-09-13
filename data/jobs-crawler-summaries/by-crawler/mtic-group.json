@@ -1,16 +1,20 @@
 {
   "key": "mtic-group",
   "label": "MTIC Group",
-  "generatedAt": "2026-09-12T13:00:32.519Z",
+  "generatedAt": "2026-09-13T13:56:19.593Z",
   "total": 0,
+  "discovered": 9,
+  "parsed": 0,
+  "written": 0,
+  "lastFetchOutcome": "filtered_empty",
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17758,
-  "avgDurationMs": 17758,
+  "durationMs": 15874,
+  "avgDurationMs": 15874,
   "durationHistory": [
-    17758
+    15874
   ],
   "newJobs": [],
   "updatedJobs": [],
