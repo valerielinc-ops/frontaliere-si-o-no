@@ -1,6 +1,6 @@
 {
   "crawlerKey": "c-and-a-schweiz",
-  "assembledAt": "2026-09-12T13:21:39.324Z",
+  "assembledAt": "2026-09-13T14:16:02.900Z",
   "jobs": [
     {
       "id": "c-and-a-schweiz-ea8e346e0da2",
@@ -16,10 +16,10 @@
       "companyDomain": "c-and-a.com",
       "title": "Mitarbeiter Verkauf (f/m/d) 50% mit Schwerpunkt Service in Gäupark",
       "titleByLocale": {
-        "it": "Addetto Vendite (f/m/d) 50% con Specializzazione Servizio a Gäupark",
-        "en": "Sales Employee (f/m/d) 50% with Service Focus in Gäupark",
+        "it": "Addetto/a alle vendite (f/m/d) 50% con Schwerpunkt Service in Gäupark",
+        "en": "Sales Associate (f/m/d) 50% mit Schwerpunkt Service in Gäupark",
         "de": "Mitarbeiter Verkauf (f/m/d) 50% mit Schwerpunkt Service in Gäupark",
-        "fr": "Collaborateur Ventes (f/m/d) 50% avec accent Service à Gäupark"
+        "fr": "Vendeur/se (f/m/d) 50% mit Schwerpunkt Service in Gäupark"
       },
       "description": "The future looks like you\n\nDeine Aufgaben\n\n• Proaktiver Kundenkontakt\n\n• Professionelle Beratung\n\n• Sicherstellen eines gepflegten Store-Auftritts\n\n• Botschafter unserer Marke\n\nWas du mitbringst\n\n• Leidenschaft für Mode und Menschen\n\n• Flexibel in Bezug auf Einsatzzeiten\n\n• Sehr gute Kommunikationsfähigkeit\n\n• Verkaufserfahrung in der Modebranche von Vorteil\n\nWas wir bieten\n\n• Spannendes und dynamisches Arbeitsumfeld\n\n• 30% Mitarbeiterrabatt in allen unseren Stores\n\n• 20% Mitarbeiterrabatt in unserem Onlineshop\n\n• Vorteilsportal mit Angeboten von Top-Markenanbietern\n\n• Bonus und Kompensierung von Überstunden\n\n• 5 Wochen Ferien\n\n• Feedbackkultur und Entwicklungsmöglichkeiten\n\nWir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Herkunft, Hautfarbe, Religion oder Weltanschauung, Elternschaft oder Familienstand oder einer anderen geschützten Eigenschaft. Wir freuen uns über Bewerbungen von Frauen, Männern und nicht-binären Personen aller ethnischen und sozioökonomischen Hintergründe.\nWir ermutigen insbesondere Menschen aus unterrepräsentierten Gruppen, sich zu bewerben.\nAuch wenn Du nicht jede Anforderung erfüllst, aber Dich in der Rolle siehst und einen Beitrag leisten möchtest, bewirb Dich gerne und hilf uns, eine inklusive Gemeinschaft aufzubauen",
       "descriptionByLocale": {
@@ -33,7 +33,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-fmd-50-mit-schwerpunkt-service-in-gaupark-65300-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:33.719Z",
+      "crawledAt": "2026-09-13T14:15:56.822Z",
       "addressLocality": "Egerkingen",
       "postalCode": "4622",
       "addressCountry": "CH",
@@ -50,11 +50,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch"
+        "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch",
+        "addetto-a-alle-vendite-m-w-d-50-con-schwerpunkt-service-in-gaupark-c-a-schweiz-egerkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch"
+          "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch",
+          "addetto-a-alle-vendite-m-w-d-50-con-schwerpunkt-service-in-gaupark-c-a-schweiz-egerkingen"
         ],
         "en": [
           "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch"
@@ -63,7 +65,11 @@
           "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1328,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-03T21:31:44.517Z",
+      "needsRetranslation": true,
       "salaryMin": 38800,
       "salaryMax": 59300,
       "salarySource": "estimated",
@@ -77,10 +83,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO",
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1328
+      "addressRegion": "SO"
     },
     {
       "id": "c-and-a-schweiz-af8ca323b18c",
@@ -113,7 +116,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-fmd-30-mit-schlusselfunktion-in-bremgarten-65404-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:33.369Z",
+      "crawledAt": "2026-09-13T14:15:56.474Z",
       "addressLocality": "Bremgarten",
       "postalCode": "5620",
       "addressCountry": "CH",
@@ -130,11 +133,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-verkauf-f-m-d-30-mit-schlusselfunktion-in-bremgarten-c-and-a-schweiz-ch"
+        "mitarbeiter-verkauf-f-m-d-30-mit-schlusselfunktion-in-bremgarten-c-and-a-schweiz-ch",
+        "addetto-a-alle-vendite-m-w-d-30-con-schlusselfunktion-in-bremgarten-c-a-schweiz-bremgarten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkauf-f-m-d-30-mit-schlusselfunktion-in-bremgarten-c-and-a-schweiz-ch"
+          "mitarbeiter-verkauf-f-m-d-30-mit-schlusselfunktion-in-bremgarten-c-and-a-schweiz-ch",
+          "addetto-a-alle-vendite-m-w-d-30-con-schlusselfunktion-in-bremgarten-c-a-schweiz-bremgarten"
         ],
         "en": [
           "mitarbeiter-verkauf-f-m-d-30-mit-schlusselfunktion-in-bremgarten-c-and-a-schweiz-ch"
@@ -189,7 +194,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-in-olten-salipark-65540-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:33.036Z",
+      "crawledAt": "2026-09-13T14:15:56.130Z",
       "addressLocality": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
@@ -206,14 +211,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-visual-merchandiser-f-m-d-60-in-olten-salipark-c-and-a-schweiz-ch"
+        "store-visual-merchandiser-f-m-d-60-in-olten-salipark-c-and-a-schweiz-ch",
+        "negozio-visual-merchandiser-f-m-d-60-in-olten-salipark-c-a-schweiz-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-visual-merchandiser-f-m-d-60-in-olten-salipark-c-and-a-schweiz-ch"
+          "store-visual-merchandiser-f-m-d-60-in-olten-salipark-c-and-a-schweiz-ch",
+          "negozio-visual-merchandiser-f-m-d-60-in-olten-salipark-c-a-schweiz-olten"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2485,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-03T21:31:42.735Z",
+      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400,
       "salarySource": "estimated",
@@ -227,10 +238,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO",
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2485
+      "addressRegion": "SO"
     },
     {
       "id": "c-and-a-schweiz-63f538a113af",
@@ -247,7 +255,7 @@
       "title": "Store Visual Merchandiser (f/m/d) 60% in Regensdorf",
       "titleByLocale": {
         "it": "Negozio Visual Merchandiser (f/m/d) 60% in Regensdorf",
-        "en": "Store Visual Merchandiser (m/f/d) 60% in Regensdorf",
+        "en": "Store Visual Merchandiser (f/m/d) 60% in Regensdorf",
         "de": "Store Visual Merchandiser (f/m/d) 60% in Regensdorf",
         "fr": "Magasiner le marchandage visuel (f/m/d) 60% à Regensdorf"
       },
@@ -263,7 +271,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-in-regensdorf-65298-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:32.704Z",
+      "crawledAt": "2026-09-13T14:15:55.794Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -280,14 +288,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-visual-merchandiser-f-m-d-60-in-regensdorf-c-and-a-schweiz-ch"
+        "store-visual-merchandiser-f-m-d-60-in-regensdorf-c-and-a-schweiz-ch",
+        "negozio-visual-merchandiser-f-m-d-60-in-regensdorf-c-a-schweiz-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-visual-merchandiser-f-m-d-60-in-regensdorf-c-and-a-schweiz-ch"
+          "store-visual-merchandiser-f-m-d-60-in-regensdorf-c-and-a-schweiz-ch",
+          "negozio-visual-merchandiser-f-m-d-60-in-regensdorf-c-a-schweiz-regensdorf"
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:42.352Z",
+      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "salarySource": "estimated",
@@ -334,7 +345,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-sihlcity-abend-und-samstags-65702-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:32.133Z",
+      "crawledAt": "2026-09-13T14:15:55.447Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -351,11 +362,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-30-fur-sihlcity-abend-und-samstags-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-30-fur-sihlcity-abend-und-samstags-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-30-per-sihlcity-abend-e-samstags-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-30-fur-sihlcity-abend-und-samstags-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-30-fur-sihlcity-abend-und-samstags-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-30-per-sihlcity-abend-e-samstags-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-30-fur-sihlcity-abend-und-samstags-c-and-a-schweiz-ch"
@@ -411,7 +424,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-fur-sihlcity-65701-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:31.742Z",
+      "crawledAt": "2026-09-13T14:15:55.083Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -428,11 +441,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-40-per-sihlcity-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-40-per-sihlcity-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch"
@@ -488,7 +503,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-fmd-100-fur-emmen-65892-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:31.393Z",
+      "crawledAt": "2026-09-13T14:15:54.743Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -506,12 +521,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "store-leader-assistant-f-m-d-100-fur-emmen-c-and-a-schweiz-ch",
-        "store-leader-assistant-m-w-d-100-per-emmen-c-a-schweiz-emmenbrucke"
+        "store-leader-assistant-m-w-d-100-per-emmen-c-a-schweiz-emmenbrucke",
+        "assistente-leader-di-negozio-m-f-d-100-per-emmen-c-a-schweiz-emmenbrucke-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "store-leader-assistant-f-m-d-100-fur-emmen-c-and-a-schweiz-ch",
-          "store-leader-assistant-m-w-d-100-per-emmen-c-a-schweiz-emmenbrucke"
+          "store-leader-assistant-m-w-d-100-per-emmen-c-a-schweiz-emmenbrucke",
+          "assistente-leader-di-negozio-m-f-d-100-per-emmen-c-a-schweiz-emmenbrucke-ch"
         ],
         "fr": [
           "store-leader-assistant-f-m-d-100-fur-emmen-c-and-a-schweiz-ch"
@@ -564,7 +581,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-mit-schlusselfunktion-mwd-30-fur-emmen-65780-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:31.069Z",
+      "crawledAt": "2026-09-13T14:15:54.391Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -584,12 +601,14 @@
         "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch",
         "addetto-a-alle-vendite-con-schlusselfunktion-m-w-d-30-per-emmen-c-a-schweiz-emmenbrucke",
         "sales-associate-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke-ch",
-        "vendeur-se-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke-ch"
+        "vendeur-se-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke-ch",
+        "vendita-dipendenti-con-funzione-chiave-m-f-d-30-per-emmen-c-a-schweiz-emmenbrucke-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch",
-          "addetto-a-alle-vendite-con-schlusselfunktion-m-w-d-30-per-emmen-c-a-schweiz-emmenbrucke"
+          "addetto-a-alle-vendite-con-schlusselfunktion-m-w-d-30-per-emmen-c-a-schweiz-emmenbrucke",
+          "vendita-dipendenti-con-funzione-chiave-m-f-d-30-per-emmen-c-a-schweiz-emmenbrucke-ch"
         ],
         "en": [
           "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch",
@@ -646,7 +665,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-mwd-60-schwerpunkt-service-in-zurich-city-65987-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:30.734Z",
+      "crawledAt": "2026-09-13T14:15:54.020Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressCountry": "CH",
@@ -667,7 +686,8 @@
         "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
         "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
         "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
-        "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
+        "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+        "addetto-a-alle-vendite-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -675,7 +695,8 @@
           "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
           "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
           "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
-          "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
+          "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+          "addetto-a-alle-vendite-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
@@ -736,7 +757,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-in-oerlikon-66092-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:30.390Z",
+      "crawledAt": "2026-09-13T14:15:53.684Z",
       "addressLocality": "Zürich",
       "postalCode": "8050",
       "addressCountry": "CH",
@@ -753,11 +774,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-50-in-oerlikon-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-50-in-oerlikon-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-50-in-oerlikon-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-50-in-oerlikon-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-50-in-oerlikon-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-50-in-oerlikon-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-50-in-oerlikon-c-and-a-schweiz-ch"
@@ -813,7 +836,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-20-fur-bern-66200-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:30.055Z",
+      "crawledAt": "2026-09-13T14:15:53.343Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -830,11 +853,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-20-fur-bern-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-20-fur-bern-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-20-per-bern-c-a-schweiz-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-20-fur-bern-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-20-fur-bern-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-20-per-bern-c-a-schweiz-bern"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-20-fur-bern-c-and-a-schweiz-ch"
@@ -890,7 +915,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-bern-66089-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:29.721Z",
+      "crawledAt": "2026-09-13T14:15:53.002Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -907,11 +932,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-30-fur-bern-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-30-fur-bern-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-30-per-bern-c-a-schweiz-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-30-fur-bern-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-30-fur-bern-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-30-per-bern-c-a-schweiz-bern"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-30-fur-bern-c-and-a-schweiz-ch"
@@ -967,7 +994,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-im-volkiland-66278-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:29.389Z",
+      "crawledAt": "2026-09-13T14:15:52.643Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -984,11 +1011,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-40-im-volkiland-c-a-schweiz-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-40-im-volkiland-c-a-schweiz-volketswil"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch"
@@ -1044,7 +1073,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-wmd-100-fur-bern-66275-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:29.046Z",
+      "crawledAt": "2026-09-13T14:15:52.308Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1094,7 +1123,7 @@
         "it": "collaboratore-trice-im-vendita-m-w-d-50-in-egerkingen-c-a-schweiz-egerkingen",
         "en": "mitarbeiter-im-sales-f-m-d-50-in-egerkingen-c-a-schweiz-egerkingen-ch",
         "de": "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch",
-        "fr": "mitarbeiter-im-vente-f-m-d-50-in-egerkingen-c-a-schweiz-egerkingen-ch"
+        "fr": "salaries-dans-les-ventes-m-w-d-50-en-egerkingen-c-a-schweiz-egerkingen"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -1118,7 +1147,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-fmd-50-in-egerkingen-66237-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:28.704Z",
+      "crawledAt": "2026-09-13T14:15:51.963Z",
       "addressLocality": "Egerkingen",
       "postalCode": "4622",
       "addressCountry": "CH",
@@ -1136,17 +1165,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch",
+        "mitarbeiter-im-vente-f-m-d-50-in-egerkingen-c-a-schweiz-egerkingen-ch",
+        "collaboratore-trice-im-vendita-m-w-d-50-in-egerkingen-c-a-schweiz-egerkingen",
         "salaries-dans-les-ventes-m-w-d-50-en-egerkingen-c-a-schweiz-egerkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-50-in-egerkingen-c-a-schweiz-egerkingen"
         ],
         "en": [
           "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch"
         ],
         "fr": [
           "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch",
+          "mitarbeiter-im-vente-f-m-d-50-in-egerkingen-c-a-schweiz-egerkingen-ch",
           "salaries-dans-les-ventes-m-w-d-50-en-egerkingen-c-a-schweiz-egerkingen"
         ]
       },
@@ -1181,7 +1214,7 @@
       "title": "Store Visual Merchandiser (f/m/d) 80-100% Chur",
       "titleByLocale": {
         "it": "Negozio Visual Merchandiser (f/m/d) 80-100% Chur",
-        "en": "Store Visual Merchandiser (m/f/d) 80-100% Chur",
+        "en": "Store Visual Merchandiser (f/m/d) 80-100% Chur",
         "de": "Store Visual Merchandiser (f/m/d) 80-100% Chur",
         "fr": "Magasiner les marchandises visuelles (f/m/j) 80-100% Chur"
       },
@@ -1197,7 +1230,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-80-100-chur-66218-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:28.379Z",
+      "crawledAt": "2026-09-13T14:15:51.627Z",
       "addressLocality": "Chur",
       "postalCode": "7001",
       "addressCountry": "CH",
@@ -1214,14 +1247,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-visual-merchandiser-f-m-d-80-100-chur-c-and-a-schweiz-ch"
+        "store-visual-merchandiser-f-m-d-80-100-chur-c-and-a-schweiz-ch",
+        "negozio-visual-merchandiser-f-m-d-80-100-chur-c-a-schweiz-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-visual-merchandiser-f-m-d-80-100-chur-c-and-a-schweiz-ch"
+          "store-visual-merchandiser-f-m-d-80-100-chur-c-and-a-schweiz-ch",
+          "negozio-visual-merchandiser-f-m-d-80-100-chur-c-a-schweiz-chur"
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:32.684Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1268,7 +1304,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-60-fur-mythencenter-schwyz-65340-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:28.047Z",
+      "crawledAt": "2026-09-13T14:15:51.261Z",
       "addressLocality": "Ibach",
       "postalCode": "6438",
       "addressCountry": "CH",
@@ -1288,12 +1324,14 @@
         "mitarbeiter-im-verkauf-w-m-d-60-fur-mythencenter-schwyz-c-and-a-schweiz-ch",
         "collaboratore-trice-im-vendita-m-w-d-60-per-mythencenter-schwyz-c-a-schweiz-ibach",
         "mitarbeiter-im-sales-w-m-d-60-fur-mythencenter-schwyz-c-a-schweiz-ibach",
-        "mitarbeiter-im-vente-w-m-d-60-fur-mythencenter-schwyz-c-a-schweiz-ibach"
+        "mitarbeiter-im-vente-w-m-d-60-fur-mythencenter-schwyz-c-a-schweiz-ibach",
+        "dipendenti-nelle-vendite-m-f-d-60-per-mythoscenter-schwyz-c-a-schweiz-ibach-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-im-verkauf-w-m-d-60-fur-mythencenter-schwyz-c-and-a-schweiz-ch",
-          "collaboratore-trice-im-vendita-m-w-d-60-per-mythencenter-schwyz-c-a-schweiz-ibach"
+          "collaboratore-trice-im-vendita-m-w-d-60-per-mythencenter-schwyz-c-a-schweiz-ibach",
+          "dipendenti-nelle-vendite-m-f-d-60-per-mythoscenter-schwyz-c-a-schweiz-ibach-ch"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-60-fur-mythencenter-schwyz-c-and-a-schweiz-ch",
@@ -1334,7 +1372,7 @@
       "title": "Store Visual Merchandiser (m/w/d) 60% in Liestal",
       "titleByLocale": {
         "it": "Negozio Visual Merchandiser (m/f/d) 60% in Liestal",
-        "en": "Store Visual Merchandiser (m/f/d) 60% in Liestal",
+        "en": "Store Visual Merchandiser (m/w/d) 60% in Liestal",
         "de": "Store Visual Merchandiser (m/w/d) 60% in Liestal",
         "fr": "Stocker le marchandiseur visuel (m/f/d) 60 % en liestal"
       },
@@ -1350,7 +1388,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-60-in-liestal-66554-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:27.718Z",
+      "crawledAt": "2026-09-13T14:15:50.910Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "addressCountry": "CH",
@@ -1367,14 +1405,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-visual-merchandiser-m-w-d-60-in-liestal-c-and-a-schweiz-ch"
+        "store-visual-merchandiser-m-w-d-60-in-liestal-c-and-a-schweiz-ch",
+        "negozio-visual-merchandiser-m-f-d-60-in-liestal-c-a-schweiz-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-visual-merchandiser-m-w-d-60-in-liestal-c-and-a-schweiz-ch"
+          "store-visual-merchandiser-m-w-d-60-in-liestal-c-and-a-schweiz-ch",
+          "negozio-visual-merchandiser-m-f-d-60-in-liestal-c-a-schweiz-liestal"
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:27.487Z",
+      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "salarySource": "estimated",
@@ -1421,7 +1462,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-fur-st-jakob-park-66586-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:27.396Z",
+      "crawledAt": "2026-09-13T14:15:50.582Z",
       "addressLocality": "Basel",
       "postalCode": "4052",
       "addressCountry": "CH",
@@ -1448,6 +1489,9 @@
           "store-visual-merchandiser-m-w-d-80-fur-st-jakob-park-c-and-a-schweiz-ch"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2485,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-03T21:31:26.328Z",
       "salaryMin": 49600,
       "salaryMax": 75200,
@@ -1462,10 +1506,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2485
+      "addressRegion": "BS"
     },
     {
       "id": "c-and-a-schweiz-71077fbf30bf",
@@ -1498,7 +1539,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-fur-st-gallen-arena-66648-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:27.064Z",
+      "crawledAt": "2026-09-13T14:15:50.244Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressCountry": "CH",
@@ -1525,6 +1566,9 @@
           "store-visual-merchandiser-m-w-d-100-fur-st-gallen-arena-c-and-a-schweiz-ch"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2485,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-13T13:03:25.994Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1539,10 +1583,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG",
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2485
+      "addressRegion": "SG"
     },
     {
       "id": "c-and-a-schweiz-4d5878cf9d48",
@@ -1575,7 +1616,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-100-fur-bern-66760-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:26.712Z",
+      "crawledAt": "2026-09-13T14:15:49.822Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1596,7 +1637,8 @@
         "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-20-in-lachen-c-a-schweiz-lachen",
         "mitarbeiter-im-sales-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen",
         "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch",
-        "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen"
+        "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-100-per-bern-c-a-schweiz-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1604,7 +1646,8 @@
           "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-20-in-lachen-c-a-schweiz-lachen",
           "mitarbeiter-im-sales-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen",
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch",
-          "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen"
+          "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen",
+          "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-100-per-bern-c-a-schweiz-bern"
         ],
         "en": [
           "mitarbeiter-im-sales-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen",
@@ -1665,7 +1708,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-mit-schlusselfunktion-in-regensdorf-66756-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:26.387Z",
+      "crawledAt": "2026-09-13T14:15:49.471Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -1694,7 +1737,8 @@
         "collaboratore-trice-im-vendita-m-w-d-60-con-schlusselfunktion-per-luzern-c-a-schweiz-luzern",
         "mitarbeiter-im-sales-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern",
         "mitarbeiter-im-verkauf-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-and-a-schweiz-ch",
-        "mitarbeiter-im-vente-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern"
+        "mitarbeiter-im-vente-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern",
+        "collaboratore-trice-im-vendita-m-w-d-40-con-schlusselfunktion-in-regensdorf-c-a-schweiz-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1710,7 +1754,8 @@
           "collaboratore-trice-im-vendita-m-w-d-60-con-schlusselfunktion-per-luzern-c-a-schweiz-luzern",
           "mitarbeiter-im-sales-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern",
           "mitarbeiter-im-verkauf-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-and-a-schweiz-ch",
-          "mitarbeiter-im-vente-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern"
+          "mitarbeiter-im-vente-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern",
+          "collaboratore-trice-im-vendita-m-w-d-40-con-schlusselfunktion-in-regensdorf-c-a-schweiz-regensdorf"
         ],
         "en": [
           "mitarbeiter-im-sales-w-m-d-40-mit-schlusselfunktion-in-regensdorf-befristet-bis-ende-feb-2027-c-a-schweiz-regensdorf",
@@ -1777,7 +1822,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-in-tivoli-spreitenbach-66734-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:26.045Z",
+      "crawledAt": "2026-09-13T14:15:49.134Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressCountry": "CH",
@@ -1802,7 +1847,8 @@
         "collaboratore-trice-im-vendita-m-w-d-20-per-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
         "mitarbeiter-im-sales-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
         "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch",
-        "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
+        "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+        "collaboratore-trice-im-vendita-m-w-d-40-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1814,7 +1860,8 @@
           "collaboratore-trice-im-vendita-m-w-d-20-per-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
           "mitarbeiter-im-sales-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
           "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch",
-          "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
+          "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+          "collaboratore-trice-im-vendita-m-w-d-40-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
         ],
         "en": [
           "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch",
@@ -1878,7 +1925,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-pilatusmarkt-befristet-bis-februar-2027-66800-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:25.722Z",
+      "crawledAt": "2026-09-13T14:15:48.791Z",
       "addressLocality": "Kriens",
       "postalCode": "6010",
       "addressCountry": "CH",
@@ -1903,7 +1950,8 @@
         "collaboratore-trice-im-vendita-m-w-d-30-per-pilatusmarkt-c-a-schweiz-kriens",
         "mitarbeiter-im-sales-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens",
         "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch",
-        "mitarbeiter-im-vente-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens"
+        "mitarbeiter-im-vente-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens",
+        "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1915,7 +1963,8 @@
           "collaboratore-trice-im-vendita-m-w-d-30-per-pilatusmarkt-c-a-schweiz-kriens",
           "mitarbeiter-im-sales-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens",
           "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch",
-          "mitarbeiter-im-vente-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens"
+          "mitarbeiter-im-vente-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens",
+          "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
         ],
         "en": [
           "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
@@ -1979,7 +2028,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiterin-verkauf-mwd-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-66805-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:25.404Z",
+      "crawledAt": "2026-09-13T14:15:48.463Z",
       "addressLocality": "Luzern",
       "postalCode": "6004",
       "addressCountry": "CH",
@@ -2000,7 +2049,8 @@
         "mitarbeiterin-vendita-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
         "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
         "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb",
-        "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens"
+        "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
+        "mitarbeiterin-vendita-m-w-d-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-c-a-schweiz-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2008,7 +2058,8 @@
           "mitarbeiterin-vendita-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
           "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
           "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb",
-          "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens"
+          "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
+          "mitarbeiterin-vendita-m-w-d-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-c-a-schweiz-luzern"
         ],
         "en": [
           "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
@@ -2052,10 +2103,10 @@
       "companyDomain": "c-and-a.com",
       "title": "Mitarbeiter im Verkauf mit Schlüsselfunktion (m/w/d) 25% im Letzipark",
       "titleByLocale": {
-        "it": "Collaboratore nelle vendite con funzione chiave (m/f/d) 25% nel Letzipark",
+        "it": "Collaboratore/trice im vendita con Schlüsselfunktion (m/w/d) 25% im Letzipark",
         "en": "Sales Associate – Key Role at Letzipark (25%)",
         "de": "Mitarbeiter im Verkauf mit Schlüsselfunktion (m/w/d) 25% im Letzipark",
-        "fr": "Collaborateur en Ventes avec Fonction Clé (H/F/X) 25% au Letzipark"
+        "fr": "Mitarbeiter im Vente mit Schlüsselfunktion (m/w/d) 25% im Letzipark"
       },
       "description": "The future looks like you\n\nDeine Aufgaben\n\n• Proaktiver Kundenkontakt\n\n• Professionelle Beratung\n\n• Sicherstellen eines gepflegten Store-Auftritts\n\n• Botschafter unserer Marke\n\n• Mitverantwortung für das Öffnen und Schliessen des Stores\n\nWas du mitbringst\n\n• Leidenschaft für Mode und Menschen\n\n• Flexibel in Bezug auf Einsatzzeiten\n\n• Sehr gute Kommunikationsfähigkeit\n\n• Verkaufserfahrung in der Modebranche von Vorteil\n\nWas wir bieten\n\n• Spannendes und dynamisches Arbeitsumfeld\n\n• 30% Mitarbeiterrabatt in allen unseren Stores\n\n• 20% Mitarbeiterrabatt in unserem Onlineshop\n\n• Vorteilsportal mit Angeboten von Top-Markenanbietern\n\n• Bonus und Kompensierung von Überstunden\n\n• 5 Wochen Ferien\n\n• Feedbackkultur und Entwicklungsmöglichkeiten\n\nWir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Herkunft, Hautfarbe, Religion oder Weltanschauung, Elternschaft oder Familienstand oder einer anderen geschützten Eigenschaft. Wir freuen uns über Bewerbungen von Frauen, Männern und nicht-binären Personen aller ethnischen und sozioökonomischen Hintergründe.\nWir ermutigen insbesondere Menschen aus unterrepräsentierten Gruppen, sich zu bewerben.\nAuch wenn Du nicht jede Anforderung erfüllst, aber Dich in der Rolle siehst und einen Beitrag leisten möchtest, bewirb Dich gerne und hilf uns, eine inklusive Gemeinschaft aufzubauen",
       "descriptionByLocale": {
@@ -2069,7 +2120,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-25-im-letzipark-66825-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:25.060Z",
+      "crawledAt": "2026-09-13T14:15:48.102Z",
       "addressLocality": "Zürich",
       "postalCode": "8048",
       "addressCountry": "CH",
@@ -2086,11 +2137,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-25-im-letzipark-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-25-im-letzipark-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-25-im-letzipark-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-25-im-letzipark-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-25-im-letzipark-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-25-im-letzipark-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-25-im-letzipark-c-and-a-schweiz-ch"
@@ -2099,7 +2152,11 @@
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-25-im-letzipark-c-and-a-schweiz-ch"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1389,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-28T22:08:09.251Z",
+      "needsRetranslation": true,
       "salaryMin": 20800,
       "salaryMax": 31900,
       "salarySource": "estimated",
@@ -2113,10 +2170,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1389
+      "addressRegion": "ZH"
     },
     {
       "id": "c-and-a-schweiz-055b73a29ec5",
@@ -2149,7 +2203,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-80-fur-sihlcity-66918-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:24.723Z",
+      "crawledAt": "2026-09-13T14:15:47.768Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -2166,11 +2220,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-80-per-sihlcity-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-80-per-sihlcity-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-c-and-a-schweiz-ch"
@@ -2226,7 +2282,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-in-regensdorf-66922-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:24.382Z",
+      "crawledAt": "2026-09-13T14:15:47.408Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -2243,11 +2299,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-regensdorf-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-regensdorf-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-50-in-regensdorf-c-a-schweiz-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-regensdorf-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-regensdorf-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-50-in-regensdorf-c-a-schweiz-regensdorf"
         ],
         "en": [
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-regensdorf-c-and-a-schweiz-ch"
@@ -2287,8 +2345,8 @@
       "title": "Store Visual Merchandiser (m/w/d) 100% im Volkiland",
       "titleByLocale": {
         "it": "Store Visual Merchandiser (m/w/d) 100% a Volketswil",
-        "en": "Store Visual Merchandiser (m/f/d) 100% in the Volkiland",
-        "de": "Visual Merchandiser (m/w/d) 100% im Land",
+        "en": "Store Visual Merchandiser (m/w/d) 100% im Volkiland",
+        "de": "Store Visual Merchandiser (m/w/d) 100% im Volkiland",
         "fr": "Store Visual Merchandiser (m/w/d) 100% à Volketswil"
       },
       "description": "The future looks like you\n\nSeit der Gründung durch die Brüder Clemens und August im Jahr 1841 ist C&A ein Vorreiter in Sachen Mode. Von der Einführung von Konfektionskleidung, als Massanfertigungen noch die Norm waren, über die Popularisierung von Miniröcken in den 60er Jahren, die Einführung des Com-Bi-Kini in den 70er Jahren, Bio-Baumwolle Anfang 2000, bis zum ersten Cradle-to-Cradle Gold-zertifizierten Kleidungsstück im Jahr 2017 - wir sind immer mit der Zeit gegangen und haben stilvolle und hochwertige Kleidung für alle möglich gemacht. Und während sich C&A und die Welt um uns herum im Laufe der Jahrzehnte verändert haben, ist eines gleichgeblieben: unser Engagement, nachhaltige und hochwertige Mode für die ganze Familie anzubieten.\nWir wünschen uns für die Zukunft eine Modeindustrie, die innovativer und nachhaltiger ist; eine, die sich auf eine zirkuläre Zukunft zubewegt und einen Kreislauf aus Nutzung, Wiederverwendung und Wiedergeburt von Kleidung fördert.\nIn der Schweiz ist C&A mit mehr als 90 Stores vertreten und beschäftigt über 1'300 Mitarbeitende.\n\nDeine Aufgaben\n\n• Visuelles Erscheinungsbild des Stores\n\n• Gestaltung der Schaufenster nach zentralen Vorgaben\n\n• Umsetzung einer optimalen Warenpräsentation in enger Zusammenarbeit mit dem Store Leader und dem Verkaufsteam\n\n• Botschafter unserer Marke\n\nWas du mitbringst\n\n• Leidenschaft für Mode und Menschen\n\n• Flexibel in Bezug auf Einsatzzeiten\n\n• Sehr gute Kommunikationsfähigkeit\n\n• Mehrjährige Berufserfahrung als Visual Merchandiser\n\nWas wir bieten\n\n• Spannendes und dynamisches Arbeitsumfeld\n\n• 30% Mitarbeiterrabatt in allen unseren Stores\n\n• 20% Mitarbeiterrabatt in unserem Onlineshop\n\n• Vorteilsportal mit Angeboten von Top-Markenanbietern\n\n• Bonus und Kompensierung von Überstunden\n\n• 5 Wochen Ferien\n\n• Feedbackkultur und Entwicklungsmöglichkeiten\n\nWir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Herkunft, Hautfarbe, Religion oder Weltanschauung, Elternschaft oder Familienstand oder einer anderen geschützten Eigenschaft. Wir freuen uns über Bewerbungen von Frauen, Männern und nicht-binären Personen aller ethnischen und sozioökonomischen Hintergründe.\nWir ermutigen insbesondere Menschen aus unterrepräsentierten Gruppen, sich zu bewerben.\nAuch wenn Du nicht jede Anforderung erfüllst, aber Dich in der Rolle siehst und einen Beitrag leisten möchtest, bewirb Dich gerne und hilf uns, eine inklusive Gemeinschaft aufzubauen",
@@ -2303,7 +2361,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-im-volkiland-66912-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:24.051Z",
+      "crawledAt": "2026-09-13T14:15:47.057Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -2320,14 +2378,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-visual-merchandiser-m-w-d-100-im-volkiland-c-and-a-schweiz-ch"
+        "store-visual-merchandiser-m-w-d-100-im-volkiland-c-and-a-schweiz-ch",
+        "negozio-visual-merchandiser-m-f-d-100-nel-volkiland-c-a-schweiz-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-visual-merchandiser-m-w-d-100-im-volkiland-c-and-a-schweiz-ch"
+          "store-visual-merchandiser-m-w-d-100-im-volkiland-c-and-a-schweiz-ch",
+          "negozio-visual-merchandiser-m-f-d-100-nel-volkiland-c-a-schweiz-volketswil"
         ]
       },
       "firstSeenAt": "2026-08-10T10:33:54.433Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2374,7 +2435,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-60-im-volkiland-66910-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:23.701Z",
+      "crawledAt": "2026-09-13T14:15:46.696Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -2391,11 +2452,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-60-im-volkiland-c-a-schweiz-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-60-im-volkiland-c-a-schweiz-volketswil"
         ],
         "en": [
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch"
@@ -2451,7 +2514,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-50-fur-emmen-66708-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:23.377Z",
+      "crawledAt": "2026-09-13T14:15:46.351Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -2469,12 +2532,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-im-verkauf-m-w-d-50-fur-emmen-c-and-a-schweiz-ch",
-        "collaboratore-trice-im-vendita-m-w-d-50-per-emmen-c-a-schweiz-emmenbrucke"
+        "collaboratore-trice-im-vendita-m-w-d-50-per-emmen-c-a-schweiz-emmenbrucke",
+        "dipendenti-nelle-vendite-m-f-d-50-per-emmen-c-a-schweiz-emmenbrucke-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-im-verkauf-m-w-d-50-fur-emmen-c-and-a-schweiz-ch",
-          "collaboratore-trice-im-vendita-m-w-d-50-per-emmen-c-a-schweiz-emmenbrucke"
+          "collaboratore-trice-im-vendita-m-w-d-50-per-emmen-c-a-schweiz-emmenbrucke",
+          "dipendenti-nelle-vendite-m-f-d-50-per-emmen-c-a-schweiz-emmenbrucke-ch"
         ],
         "en": [
           "mitarbeiter-im-verkauf-m-w-d-50-fur-emmen-c-and-a-schweiz-ch"
@@ -2504,7 +2569,7 @@
       "slugByLocale": {
         "it": "collaboratori-di-vendita-con-funzione-portachiavi-50-m-f-d-focus-sul-servizio-neuchatel-c-a-schweiz-neuchatel-ch",
         "en": "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel",
-        "de": "vertriebsmitarbeiter-mit-schlussel-carrying-funktion-50-servicefokus-m-w-d-neuenburg-c-a-schweiz-neuchatel-ch",
+        "de": "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-m-w-d-a-50-neuchatel-c-a-schweiz-neuchatel",
         "fr": "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel"
       },
       "company": "C&A Schweiz",
@@ -2512,10 +2577,10 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 50% - Neuchâtel",
       "titleByLocale": {
-        "it": "Collaboratori di vendita con funzione portachiavi - 50% (m/f/d) focus sul servizio - Neuchâtel",
-        "en": "Sales co-workers with key-carrying function - 50% (m/f/d) service focus - Neuchâtel",
-        "de": "Vertriebsmitarbeiter mit Schlüssel-Carrying-Funktion - 50% Servicefokus (m/w/d) - Neuenburg",
-        "fr": "Collaboratrice de vente avec fonction porteuse de clés - focus services (h/f/d) à 50% - Neuchâtel"
+        "en": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 50% - Neuchâtel",
+        "fr": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 50% - Neuchâtel",
+        "it": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 50% - Neuchâtel",
+        "de": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 50% - Neuchâtel"
       },
       "description": "The future looks like you\n\nYour responsibilities\n\nWhat you bring\n\nWhat we offer\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community.",
       "descriptionByLocale": {
@@ -2529,7 +2594,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-fmd-a-50-neuchatel-66987-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T13:21:23.024Z",
+      "crawledAt": "2026-09-13T14:15:45.988Z",
       "addressLocality": "Neuchatel",
       "postalCode": "2000",
       "addressCountry": "CH",
@@ -2545,6 +2610,22 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66987&career_ns=job_application&lang=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel",
+        "vertriebsmitarbeiter-mit-schlussel-carrying-funktion-50-servicefokus-m-w-d-neuenburg-c-a-schweiz-neuchatel-ch",
+        "collaboratori-di-vendita-con-funzione-portachiavi-50-m-f-d-focus-sul-servizio-neuchatel-c-a-schweiz-neuchatel-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel",
+          "collaboratori-di-vendita-con-funzione-portachiavi-50-m-f-d-focus-sul-servizio-neuchatel-c-a-schweiz-neuchatel-ch"
+        ],
+        "de": [
+          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel",
+          "vertriebsmitarbeiter-mit-schlussel-carrying-funktion-50-servicefokus-m-w-d-neuenburg-c-a-schweiz-neuchatel-ch"
+        ]
+      },
       "firstSeenAt": "2026-08-12T10:18:24.065Z",
       "salaryMin": 30300,
       "salaryMax": 45800,
@@ -2559,18 +2640,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "NE",
-      "previousSlugsByLocale": {
-        "it": [
-          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel"
-        ],
-        "de": [
-          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel"
-        ]
-      },
-      "previousSlugs": [
-        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel"
-      ]
+      "addressRegion": "NE"
     },
     {
       "id": "c-and-a-schweiz-207bf2c6892c",
@@ -2603,7 +2673,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-20-fur-schaffhausen-herblingen-67008-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:22.695Z",
+      "crawledAt": "2026-09-13T14:15:45.642Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressCountry": "CH",
@@ -2620,11 +2690,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-20-per-schaffhausen-herblingen-c-a-schweiz-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-20-per-schaffhausen-herblingen-c-a-schweiz-schaffhausen"
         ],
         "en": [
           "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch"
@@ -2680,7 +2752,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-30-fur-dietlikon-67007-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:22.359Z",
+      "crawledAt": "2026-09-13T14:15:45.282Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressCountry": "CH",
@@ -2697,11 +2769,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-30-per-dietlikon-c-a-schweiz-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-30-per-dietlikon-c-a-schweiz-dietlikon"
         ],
         "en": [
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch"
@@ -2740,7 +2814,7 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaboratrice de vente ( m/f/d) - Focus Service 20% CDD 3 mois - Crissier",
       "titleByLocale": {
-        "it": "Collaboratore di vendita (m/f/d) - Focus Service 20% CSD 3 mesi - Crack",
+        "it": "Collaboratrice de vente ( m/f/d) - Focus Service 20% CDD 3 mois - Crissier",
         "en": "Sales Collaborator (m/f/d) - Focus Service 20% CDD 3 months - Crack",
         "de": "Sales Collaborator (m/w/d) - Focus Service 20% CDD 3 Monate - Crack",
         "fr": "Collaboratrice de vente ( m/f/d) - Focus Service 20% CDD 3 mois - Crissier"
@@ -2757,7 +2831,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-mfd-focus-service-20-cdd-3-mois-crissier-67027-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:22.018Z",
+      "crawledAt": "2026-09-13T14:15:44.932Z",
       "addressLocality": "Crissier",
       "postalCode": "1023",
       "addressCountry": "CH",
@@ -2783,7 +2857,8 @@
         "sales-collaborator-focus-service-w-m-d-50-csd-3-monate-vevey-c-a-schweiz-vevey-ch",
         "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch",
         "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey",
-        "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch"
+        "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch",
+        "collaboratore-di-vendita-m-f-d-focus-service-20-cdd-3-mesi-crack-c-a-schweiz-crissier-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2796,7 +2871,8 @@
           "sales-collaborator-focus-service-w-m-d-50-csd-3-monate-vevey-c-a-schweiz-vevey-ch",
           "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch",
           "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey",
-          "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch"
+          "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch",
+          "collaboratore-di-vendita-m-f-d-focus-service-20-cdd-3-mesi-crack-c-a-schweiz-crissier-ch"
         ],
         "en": [
           "sales-collaborator-40-focus-service-csd-1-month-sion-c-a-schweiz-sion-ch",
@@ -2813,6 +2889,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:46:05.216Z",
+      "needsRetranslation": true,
       "salaryMin": 12100,
       "salaryMax": 18300,
       "salarySource": "estimated",
@@ -2832,7 +2909,7 @@
       "id": "c-and-a-schweiz-eacc5bc4a4ad",
       "slug": "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-a-schweiz-crissier",
       "slugByLocale": {
-        "it": "partner-di-vendita-portachiavi-80-csd-3-mesi-c-a-schweiz-crissier-ch",
+        "it": "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-a-schweiz-crissier",
         "en": "key-carrier-sales-partner-80-csd-3-months-c-a-schweiz-crissier-ch",
         "de": "key-carrier-vertriebspartner-80-csd-3-monate-c-a-schweiz-crissier-ch",
         "fr": "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
@@ -2842,7 +2919,7 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaboratrice de vente porteuse de clefs 80% - CDD 3 mois",
       "titleByLocale": {
-        "it": "Partner di vendita portachiavi 80% - CSD 3 mesi",
+        "it": "Collaboratrice de vente porteuse de clefs 80% - CDD 3 mois",
         "en": "Key carrier sales partner 80% - CSD 3 months",
         "de": "Key Carrier Vertriebspartner 80% - CSD 3 Monate",
         "fr": "Collaboratrice de vente porteuse de clefs 80% - CDD 3 mois"
@@ -2859,7 +2936,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-67028-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:21.681Z",
+      "crawledAt": "2026-09-13T14:15:44.588Z",
       "addressLocality": "Crissier",
       "postalCode": "1023",
       "addressCountry": "CH",
@@ -2876,11 +2953,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
+        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch",
+        "partner-di-vendita-portachiavi-80-csd-3-mesi-c-a-schweiz-crissier-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
+          "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch",
+          "partner-di-vendita-portachiavi-80-csd-3-mesi-c-a-schweiz-crissier-ch"
         ],
         "en": [
           "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
@@ -2890,6 +2969,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:46:04.894Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -2936,7 +3016,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/lehrstelle-ebaefz-detailhandel-tivoli-spreitenbach-start-1-august-2027-67070-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:21.350Z",
+      "crawledAt": "2026-09-13T14:15:44.218Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressCountry": "CH",
@@ -2953,17 +3033,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch"
+        "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch",
+        "apprendistato-afp-cfc-commercio-al-dettaglio-tivoli-spreitenbach-start-1-august-2027-c-a-schweiz-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch"
+          "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch",
+          "apprendistato-afp-cfc-commercio-al-dettaglio-tivoli-spreitenbach-start-1-august-2027-c-a-schweiz-spreitenbach"
         ],
         "fr": [
           "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch"
         ]
       },
       "firstSeenAt": "2026-08-20T21:32:23.669Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3000,9 +3083,9 @@
       },
       "description": "The future looks like you\n\nSeit der Gründung durch die Brüder Clemens und August im Jahr 1841 ist C&A ein Vorreiter in Sachen Mode. Von der Einführung von Konfektionskleidung, als Massanfertigungen noch die Norm waren, über die Popularisierung von Miniröcken in den 60er Jahren, die Einführung des Com-Bi-Kini in den 70er Jahren, Bio-Baumwolle Anfang 2000, bis zum ersten Cradle-to-Cradle Gold-zertifizierten Kleidungsstück im Jahr 2017 - wir sind immer mit der Zeit gegangen und haben stilvolle und hochwertige Kleidung für alle möglich gemacht. Und während sich C&A und die Welt um uns herum im Laufe der Jahrzehnte verändert haben, ist eines gleichgeblieben: unser Engagement, nachhaltige und hochwertige Mode für die ganze Familie anzubieten.\nWir wünschen uns für die Zukunft eine Modeindustrie, die innovativer und nachhaltiger ist; eine, die sich auf eine zirkuläre Zukunft zubewegt und einen Kreislauf aus Nutzung, Wiederverwendung und Wiedergeburt von Kleidung fördert.\nIn der Schweiz ist C&A mit mehr als 90 Stores vertreten und beschäftigt über 1'300 Mitarbeitende.\n\nDeine Aufgaben\n\n• Proaktiver Kundenkontakt\n\n• Professionelle Beratung\n\n• Sicherstellen eines gepflegten Store-Auftritts\n\n• Stellvertretung des Store Leaders\n\n• Botschafter unserer Marke\n\nWas du mitbringst\n\n• Leidenschaft für Mode und Menschen\n\n• Flexibel in Bezug auf Einsatzzeiten\n\n• Sehr gute Kommunikationsfähigkeit\n\n• Eigenverantwortliche und teamfähige Persönlichkeit\n\n• Erste Führungserfahrung als Stellvertretung wünschenswert\n\n• Verkaufserfahrung in der Modebranche von Vorteil\n\nWas wir bieten\n\n• Spannendes und dynamisches Arbeitsumfeld\n\n• 30% Mitarbeiterrabatt in allen unseren Stores\n\n• 20% Mitarbeiterrabatt in unserem Onlineshop\n\n• Vorteilsportal mit Angeboten von Top-Markenanbietern\n\n• Bonus und Kompensierung von Überstunden\n\n• 5 Wochen Ferien\n\n• Feedbackkultur und Entwicklungsmöglichkeiten\n\nWir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Herkunft, Hautfarbe, Religion oder Weltanschauung, Elternschaft oder Familienstand oder einer anderen geschützten Eigenschaft. Wir freuen uns über Bewerbungen von Frauen, Männern und nicht-binären Personen aller ethnischen und sozioökonomischen Hintergründe.\nWir ermutigen insbesondere Menschen aus unterrepräsentierten Gruppen, sich zu bewerben.\nAuch wenn Du nicht jede Anforderung erfüllst, aber Dich in der Rolle siehst und einen Beitrag leisten möchtest, bewirb Dich gerne und hilf uns, eine inklusive Gemeinschaft aufzubauen",
       "descriptionByLocale": {
-        "it": "Chi siamo\n\n Il futuro ti somiglia\n\n Fin dalla sua fondazione da parte dei fratelli Clemens e August nel 1841, C&A è stata un'azienda pionieristica nel mondo della moda. Dall'introduzione del prêt-à-porter in un'epoca in cui la sartoria su misura era ancora la norma, passando per la popolarizzazione delle minigonne negli anni '60, l'introduzione del bikini coordinato negli anni '70, il cotone biologico nei primi anni 2000, fino al primo capo certificato Cradle-to-Cradle Gold nel 2017, ci siamo sempre evoluti al passo con i tempi, rendendo accessibili a tutti capi eleganti e di alta qualità. E mentre C&A e il mondo intorno a noi sono cambiati nel corso dei decenni, una cosa è rimasta costante: il nostro impegno nell'offrire moda sostenibile e di alta qualità per tutta la famiglia.\n\n Per il futuro, immaginiamo un'industria della moda più innovativa e sostenibile; un'industria che si muova verso un futuro circolare e promuova un ciclo di utilizzo, riutilizzo e rinascita degli abiti.\n\n In Svizzera, C&A è presente con oltre 90 punti vendita e impiega più di 1.300 persone.\n\n I tuoi compiti\n\n - Contatto proattivo con il cliente\n - Consulenza professionale\n - Garantire un aspetto del negozio ben curato\n - Vice responsabile del negozio\n - Ambasciatori del nostro marchio\n\n Ciò che porti\n\n - Passione per la moda e per le persone\n - Flessibilità in termini di orario di lavoro\n - Ottime capacità comunicative\n - Personalità autonoma e orientata al lavoro di squadra\n - Primo",
+        "it": "Chi siamo\n\nIl futuro ti somiglia\n\nFin dalla sua fondazione da parte dei fratelli Clemens e August nel 1841, C&A è stata un'azienda pionieristica nel mondo della moda. Dall'introduzione del prêt-à-porter in un'epoca in cui la sartoria su misura era ancora la norma, passando per la popolarizzazione delle minigonne negli anni '60, l'introduzione del bikini coordinato negli anni '70, il cotone biologico nei primi anni 2000, fino al primo capo certificato Cradle-to-Cradle Gold nel 2017, ci siamo sempre evoluti al passo con i tempi, rendendo accessibili a tutti capi eleganti e di alta qualità. E mentre C&A e il mondo intorno a noi sono cambiati nel corso dei decenni, una cosa è rimasta costante: il nostro impegno nell'offrire moda sostenibile e di alta qualità per tutta la famiglia.\n\nPer il futuro, immaginiamo un'industria della moda più innovativa e sostenibile; un'industria che si muova verso un futuro circolare e promuova un ciclo di utilizzo, riutilizzo e rinascita degli abiti.\n\nIn Svizzera, C&A è presente con oltre 90 punti vendita e impiega più di 1.300 persone.\n\nI tuoi compiti\n\n- Contatto proattivo con il cliente\n- Consulenza professionale\n- Garantire un aspetto del negozio ben curato\n- Vice responsabile del negozio\n- Ambasciatori del nostro marchio\n\nCiò che porti\n\n- Passione per la moda e per le persone\n- Flessibilità in termini di orario di lavoro\n- Ottime capacità comunicative\n- Personalità autonoma e orientata al lavoro di squadra\n- Primo",
         "en": "About us\n\nThe future rico re you\n\nSince the foundation of the brothers Clemens and August in 1841, C&A has been a pioneer in fashion. From the introduction of clothing, when custom made products were still the norm, to the popularization of miniskirts in the 60s, the introduction of the Com-Bi-Kini in the 70s, organic cotton in the early 2000s, to the first Cradle-to-Cradle Gold-certified garment in 2017 - we have always gone with time and have made stylish and high-quality clothing possible for everyone.\n\nAnd while C&A and the world around us have changed over the decades, one thing has remained the same: our commitment to offering sustainable and high-quality fashion for the whole family.\n\nWe hope for the future that a fashion industry is more innovative and sustainable, one that moves towards a circular future and promotes a cycle of use, reuse and rebirth of clothing.\n\nIn Switzerland, C&A has more than 90 stores and employs over 1,300 people.\n\nYour Tasks\n\n- Proactive customer contact - Professional consultancy - Secure a well-kept store appearance - Store Leader's representative - Ambassadors of our brand\n\nWhat you're about to say\n\n- Passion for fashion and people - Flexible in terms of operating times - Very good communication skills - Self-responsible and able to work - First management experience as a representative desirable - Sales experience in the fashion industry beneficial\n\nWhat we offer\n\n- Exciting and dynamic working environment - 30% employee discount in all our stores - 20% employee discount in our online shop - Advantage portal with offers from top brand providers - Bonus and compensation of overtime hours - 5 weeks holidays - Feedback culture and development opportunities\n\nDiversity and Inclusion\n\nWe do not emulate the children of the children due to age, disability, gender identity, sexual orientation, ethnic origin, colour of the skin, religion or belief, parenthood or marital status or any other protected property. We are pleased to receive applications from women, men and non-binary persons of all ethnic and socio-economic backgrounds.\n\nWe encourage people from underrepresented groups in particular to apply.\n\nEven if you do not meet every requirement, but you see yourself in the role and want to make a contribution, you are welcome to apply and help us build an inclusive community",
-        "de": "Über uns\n\nThe future looks like you\n\nSeit der Gründung durch die Brüder Clemens und August im Jahr 1841 ist C&A ein Vorreiter in Sachen Mode. Von der Einführung von Konfektionskleidung, als Massanfertigungen noch die Norm waren, über die Popularisierung von Miniröcken in den 60er Jahren, die Einführung des Com-Bi-Kini in den 70er Jahren, Bio-Baumwolle Anfang 2000, bis zum ersten Cradle-to-Cradle Gold-zertifizierten Kleidungsstück im Jahr 2017 - wir sind immer mit der Zeit gegangen und haben stilvolle und hochwertige Kleidung für alle möglich gemacht. Und während sich C&A und die Welt um uns herum im Laufe der Jahrzehnte verändert haben, ist eines gleichgeblieben: unser Engagement, nachhaltige und hochwertige Mode für die ganze Familie anzubieten.\n\nWir wünschen uns für die Zukunft eine Modeindustrie, die innovativer und nachhaltiger ist; eine, die sich auf eine zirkuläre Zukunft zubewegt und einen Kreislauf aus Nutzung, Wiederverwendung und Wiedergeburt von Kleidung fördert.\n\nIn der Schweiz ist C&A mit mehr als 90 Stores vertreten und beschäftigt über 1'300 Mitarbeitende.\n\nDeine Aufgaben\n\n- Proaktiver Kundenkontakt\n- Professionelle Beratung\n- Sicherstellen eines gepflegten Store-Auftritts\n- Stellvertretung des Store Leaders\n- Botschafter unserer Marke\n\nWas du mitbringst\n\n- Leidenschaft für Mode und Menschen\n- Flexibel in Bezug auf Einsatzzeiten\n- Sehr gute Kommunikationsfähigkeit\n- Eigenverantwortliche und teamfähige Persönlichkeit\n- Erste Führungserfahrung als Stellvertretung wünschenswert\n- Verkaufserfahrung in der Modebranche von Vorteil\n\nWas wir bieten\n\n- Spannendes und dynamisches Arbeitsumfeld\n- 30% Mitarbeiterrabatt in allen unseren Stores\n- 20% Mitarbeiterrabatt in unserem Onlineshop\n- Vorteilsportal mit Angeboten von Top-Markenanbietern\n- Bonus und Kompensierung von Überstunden\n- 5 Wochen Ferien\n- Feedbackkultur und Entwicklungsmöglichkeiten\n\nVielfalt und Inklusion\n\nWir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Herkunft, Hautfarbe, Religion oder Weltanschauung, Elternschaft oder Familienstand oder einer anderen geschützten Eigenschaft. Wir freuen uns über Bewerbungen von Frauen, Männern und nicht-binären Personen aller ethnischen und sozioökonomischen Hintergründe.\n\nWir ermutigen insbesondere Menschen aus unterrepräsentierten Gruppen, sich zu bewerben.\n\nAuch wenn Du nicht jede Anforderung erfüllst, aber Dich in der Rolle siehst und einen Beitrag leisten möchtest, bewirb Dich gerne und hilf uns, eine inklusive Gemeinschaft aufzubauen",
+        "de": "The future looks like you\n\nSeit der Gründung durch die Brüder Clemens und August im Jahr 1841 ist C&A ein Vorreiter in Sachen Mode. Von der Einführung von Konfektionskleidung, als Massanfertigungen noch die Norm waren, über die Popularisierung von Miniröcken in den 60er Jahren, die Einführung des Com-Bi-Kini in den 70er Jahren, Bio-Baumwolle Anfang 2000, bis zum ersten Cradle-to-Cradle Gold-zertifizierten Kleidungsstück im Jahr 2017 - wir sind immer mit der Zeit gegangen und haben stilvolle und hochwertige Kleidung für alle möglich gemacht. Und während sich C&A und die Welt um uns herum im Laufe der Jahrzehnte verändert haben, ist eines gleichgeblieben: unser Engagement, nachhaltige und hochwertige Mode für die ganze Familie anzubieten.\nWir wünschen uns für die Zukunft eine Modeindustrie, die innovativer und nachhaltiger ist; eine, die sich auf eine zirkuläre Zukunft zubewegt und einen Kreislauf aus Nutzung, Wiederverwendung und Wiedergeburt von Kleidung fördert.\nIn der Schweiz ist C&A mit mehr als 90 Stores vertreten und beschäftigt über 1'300 Mitarbeitende.\n\nDeine Aufgaben\n\n• Proaktiver Kundenkontakt\n\n• Professionelle Beratung\n\n• Sicherstellen eines gepflegten Store-Auftritts\n\n• Stellvertretung des Store Leaders\n\n• Botschafter unserer Marke\n\nWas du mitbringst\n\n• Leidenschaft für Mode und Menschen\n\n• Flexibel in Bezug auf Einsatzzeiten\n\n• Sehr gute Kommunikationsfähigkeit\n\n• Eigenverantwortliche und teamfähige Persönlichkeit\n\n• Erste Führungserfahrung als Stellvertretung wünschenswert\n\n• Verkaufserfahrung in der Modebranche von Vorteil\n\nWas wir bieten\n\n• Spannendes und dynamisches Arbeitsumfeld\n\n• 30% Mitarbeiterrabatt in allen unseren Stores\n\n• 20% Mitarbeiterrabatt in unserem Onlineshop\n\n• Vorteilsportal mit Angeboten von Top-Markenanbietern\n\n• Bonus und Kompensierung von Überstunden\n\n• 5 Wochen Ferien\n\n• Feedbackkultur und Entwicklungsmöglichkeiten\n\nWir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Herkunft, Hautfarbe, Religion oder Weltanschauung, Elternschaft oder Familienstand oder einer anderen geschützten Eigenschaft. Wir freuen uns über Bewerbungen von Frauen, Männern und nicht-binären Personen aller ethnischen und sozioökonomischen Hintergründe.\nWir ermutigen insbesondere Menschen aus unterrepräsentierten Gruppen, sich zu bewerben.\nAuch wenn Du nicht jede Anforderung erfüllst, aber Dich in der Rolle siehst und einen Beitrag leisten möchtest, bewirb Dich gerne und hilf uns, eine inklusive Gemeinschaft aufzubauen",
         "fr": "À propos de nous\n\nLe futur rico re vous\n\nDepuis la fondation des frères Clemens et août 1841, C&A a été un pionnier de la mode. De l'introduction de vêtements, lorsque les produits sur mesure étaient encore la norme, à la popularisation des minijupes dans les années 60, l'introduction du Com-Bi-Kini dans les années 70, coton biologique au début des années 2000, au premier vêtement certifié Cradle-à-Cradle Gold en 2017 - nous avons toujours passé avec le temps et avons rendu des vêtements élégants et de haute qualité possible pour tout le monde.\n\nEt bien que C&A et le monde qui nous entoure aient changé au fil des décennies, une chose est restée la même : notre engagement à offrir une mode durable et de haute qualité à toute la famille.\n\nNous espérons que l'industrie de la mode sera plus innovante et durable, qui se dirigera vers un avenir circulaire et favorisera un cycle d'utilisation, de réutilisation et de renaissance des vêtements.\n\nEn Suisse, C&A compte plus de 90 magasins et emploie plus de 1 300 personnes.\n\nVos tâches\n\n- Contact client proactif - Conseil professionnel - Sécurité d'une apparence de magasin bien entretenue - Représentant de Store Leader - Ambassadeurs de notre marque\n\nCe que vous allez dire\n\n- Passion pour la mode et les gens - Flexible en termes de temps de fonctionnement - Très bonne capacité de communication - Auto-répondible et capable de travailler - Première expérience de gestion comme un représentant souhaitable - Expérience de vente dans l'industrie de la mode bénéfique\n\nCe que nous offrons\n\n- Environnement de travail passionnant et dynamique - 30 % de réduction pour les employés dans tous nos magasins - 20 % de réduction pour les employés dans notre boutique en ligne - Portail d'avantages avec les offres des meilleurs fournisseurs de marque - Bonus et rémunération des heures supplémentaires - 5 semaines de vacances - Rétroaction culture et opportunités de développement\n\nDiversité et inclusion\n\nNous ne faisons pas l'exemple des enfants des enfants en raison de leur âge, de leur handicap, de leur identité de genre, de leur orientation sexuelle, de leur origine ethnique, de leur couleur de peau, de leur religion ou de leurs convictions, de leur situation de parent ou de leur état matrimonial ou de tout autre bien protégé.\n\nNous encourageons les personnes appartenant à des groupes sous-représentés en particulier à présenter une demande.\n\nMême si vous ne répondez pas à toutes les exigences, mais que vous vous voyez dans le rôle et que vous voulez faire une contribution, vous êtes les bienvenus pour présenter une demande et nous aider à bâtir une communauté inclusive"
       },
       "location": "Schaffhausen (CH)",
@@ -3010,7 +3093,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-wmd-80-fur-schaffhausen-herblingen-67045-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:21.019Z",
+      "crawledAt": "2026-09-13T14:15:43.882Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressCountry": "CH",
@@ -3039,21 +3122,20 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T09:45:19.991Z",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
+      "salaryMin": 63200,
+      "salaryMax": 96000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 46000,
-          "maxValue": 69600,
+          "minValue": 63200,
+          "maxValue": 96000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SH",
-      "retranslationAttempts": 1
+      "addressRegion": "SH"
     },
     {
       "id": "c-and-a-schweiz-d557dd6a0e16",
@@ -3086,7 +3168,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-fur-thun-67136-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:20.666Z",
+      "crawledAt": "2026-09-13T14:15:43.521Z",
       "addressLocality": "Thun",
       "postalCode": "3601",
       "addressCountry": "CH",
@@ -3150,14 +3232,14 @@
         "it": "The future looks like you\n\nC&A è un'azienda a conduzione familiare fondata nel 1841, che si è affermata come uno dei leader mondiali nel settore della moda. Presente in 17 paesi in Europa, America Latina e Asia, C&A è orgogliosa della sua storia e del suo modello di business responsabile, incentrato sulla sostenibilità e l'inclusione.\n\nPioniera nel suo settore, l'azienda ha fatto dell'accessibilità, dell'etica e del rispetto dell'ambiente un vero e proprio impegno. Attraverso le sue collezioni, le sue iniziative di sostenibilità e il suo impegno per l'uguaglianza, C&A incarna una visione della moda che va oltre la semplice tendenza, valorizzando l'impatto sociale e ambientale.\n\nQuesti valori forti guidano ogni nostra azione e sono al centro dell'evoluzione della nostra cultura aziendale.\n\nYour responsibilities\n\n- Accogliere e accompagnare ogni cliente in modo personalizzato.\n- Raggiungere gli obiettivi commerciali applicando le tecniche di vendita appropriate.\n- Proporre abiti coordinati e adattati alle esigenze dei clienti.\n- Anticipare le aspettative per arricchire il carrello medio e aumentare il fatturato.\n- Valorizzare i prodotti, in particolare le nuove tendenze, e personalizzare l'esperienza del cliente.\n- Promuovere attivamente il programma di fidelizzazione.\n- Garantire una presentazione valorizzante dei nostri prodotti e una buona gestione delle scorte.\n- Partecipare alle operazioni commerciali per supportare",
         "en": "The future looks like you\n\nC&A is a family-owned business founded in 1841 and has established itself as one of the world's leading fashion industry companies. C&A is proud of its history and responsible business model, focused on sustainability and inclusion, and is active in 17 countries across Europe, Latin America and Asia.\n\nA pioneer in its sector, the company has made accessibility, ethics and respect for the environment a true commitment. Through its collections, sustainable development initiatives and its commitment to equality, C&A embodies a fashion vision that goes beyond mere trends, valuing social and environmental impact.\n\nThese strong values guide each of our actions and are at the heart of the evolution of our corporate culture.\n\nYour responsibilities\n\n- To welcome and accompany each customer in a personalized way. - To achieve the commercial objectives by applying the appropriate sales techniques. - To propose coordinated outfits adapted to the needs of the customers. - Anticipate expectations to enrich the average basket and increase the turnover. - To value the products, especially the new trends, and to customize the customer experience. - To actively promote the loyalty program. - To ensure a valuable presentation of our products and to ensure good inventory management.\n\n- Participate in commercial operations to support the store's activity. - Participate in the receipt and storage of delivered goods. - Manage and ensure the proper operation of the warehouses. - Perform operations related to the RFID system for the management of the items. - Respect and apply the security and safety rules in store. - Be able to perform ancillary operations related to the cashier.\n\nI'm not going to be here.\n\n- You are a proactive person, with a common sense of relationship and a true passion for fashion. You are motivated by the idea of contributing to the success of the team and the store. - You have an excellent sense of customer service and welcome. - With an experience in sales, ideally in the fashion sector, you master sales techniques, outfits association and personalized advice to maximize turnover.\n\n- With a curious and dynamic mind, you are looking to work in a stimulating environment that will offer you career opportunities. - You have basic knowledge of the fashion and ready-to-wear sector. - You master merchandising techniques: implantation, pancartage, restocking. - You are comfortable with the digital tools and internal software related to the function. - You know how to work as a team, demonstrate autonomy and initiative.\n\nThe Commission has decided to grant the aid to the applicant.\n\nAt C&A, we offer you more than just a job. Join a company that values its employees and offers real opportunities for change.\n\n- Titles-restaurant PLUXEE - Support 50% of your public transport or bicycle rental service - Privilege card with a 30% discount on our collections - Mutual and foresight - Integration and participation - Continuing training to develop your skills\n\nStart date: As soon as possible\n\nJoin us!\n\nAt C&A, every talent makes a difference. If you are ready to join an innovative, committed company and be part of our success, don't wait and apply now!\n\nNew opportunities\n\nC&A Scars equal opportunity for people of all backgrounds and heads. We are led by a gender-borough board that is committed to building a diverse and inclusive organization is all over the world can become more successful.\n\nWe do not philician on age, disability, gender identity, sexual orientation, culture, race, religion or belief, parent and family status, or any other protection effic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic-hrect. We encourage people, I to use it to encourage people, I to use it to help you understand the truth.\n\nSo if you don't check max box, but see Impost, full app and help us, build an inclusive community.",
         "de": "The future looks like you\n\nC&A ist ein 1841 gegründetes Familienunternehmen, das sich als eines der weltweit führenden Modeunternehmen etabliert hat. Mit Niederlassungen in 17 Ländern in Europa, Lateinamerika und Asien ist C&A stolz auf seine Geschichte und sein verantwortungsbewusstes Geschäftsmodell, das sich auf Nachhaltigkeit und Inklusion konzentriert.\n\nAls Pionier in seiner Branche hat das Unternehmen Zugänglichkeit, Ethik und Respekt für die Umwelt zu einem echten Engagement gemacht. Mit seinen Kollektionen, seinen Nachhaltigkeitsinitiativen und seinem Engagement für Gleichberechtigung verkörpert C&A eine Modevision, die über den einfachen Trend hinausgeht und die sozialen und ökologischen Auswirkungen hervorhebt.\n\nDiese starken Werte leiten jedes unserer Handlungen und stehen im Mittelpunkt der Entwicklung unserer Unternehmenskultur.\n\nYour responsibilities\n\n- Begrüßen und begleiten Sie jeden Kunden auf individuelle Weise.\n- Erreichen der Geschäftsziele durch Anwendung geeigneter Verkaufstechniken.\n- Schlagen Sie koordinierte und auf die Bedürfnisse der Kunden abgestimmte Outfits vor.\n- Erwartungen antizipieren, um den durchschnittlichen Warenkorb zu bereichern und den Umsatz zu steigern.\n- Wertschätzung der Produkte, insbesondere neuer Trends, und Personalisierung des Kundenerlebnisses.\n- Das Treueprogramm aktiv fördern.\n- Sorgen Sie für eine wertsteigernde Präsentation unserer Produkte und eine gute Bestandsverwaltung.\n- Teilnahme an Geschäftsvorgängen zur Unterstützung",
-        "fr": "The future looks like you\n\nC&A est une entreprise familiale fondée en 1841, qui s'est imposée comme l'un des leaders mondiaux de l'industrie de la mode. Présente dans 17 pays à travers l'Europe, l'Amérique latine et l'Asie, C&A est fière de son histoire et de son modèle d'entreprise responsable, axé sur la durabilité et l'inclusion.\n\nPionnière dans son secteur, l'entreprise a fait de l'accessibilité, de l'éthique et du respect de l'environnement un véritable engagement. À travers ses collections, ses initiatives en matière de développement durable et son engagement en faveur de l'égalité, C&A incarne une vision de la mode qui dépasse la simple tendance, en valorisant l'impact social et environnemental.\n\nCes valeurs fortes guident chacune de nos actions et sont au cœur de l'évolution de notre culture d'entreprise.\n\nYour responsibilities\n\n- Accueillir et accompagner chaque client de manière personnalisée.\n- Atteindre les objectifs commerciaux en appliquant les techniques de vente adaptées.\n- Proposer des tenues coordonnées et adaptées aux besoins des clients.\n- Anticiper les attentes pour enrichir le panier moyen et augmenter le chiffre d'affaires.\n- Valoriser les produits, notamment les nouvelles tendances, et personnaliser l'expérience client.\n- Promouvoir activement le programme de fidélisation.\n- Veiller à une présentation valorisante de nos produits et à une bonne gestion des stocks.\n- Participer aux opérations commerciales pour soutenir l'activité du magasin.\n- Participer à la réception et au stockage des marchandises livrées.\n- Assurer la gestion des cabines d'essayage et garantir leur bon fonctionnement.\n- Effectuer les opérations liées au système RFID pour la gestion des articles.\n- Respecter et appliquer les règles de sécurité et de sûreté en magasin.\n- Être en mesure de réaliser des opérations annexes liées à la caisse.\n\nWhat you bring\n\n- Vous êtes une personne proactive, avec un bon sens du relationnel et une vraie passion pour la mode. Vous êtes motivé(e) par l'idée de contribuer à la réussite de l'équipe et du magasin.\n- Vous êtes doté(e) d'un excellent sens du service clients et de l'accueil.\n- Fort(e) d'une expérience dans la vente, idéalement dans le secteur de la mode, vous maîtrisez les techniques de vente, l'association de tenues et le conseil personnalisé pour maximiser le chiffre d'affaires.\n- Doté(e) d'un esprit curieux et dynamique, vous cherchez à travailler dans un environnement stimulant qui vous offrira des perspectives d'évolution de carrière.\n- Vous possédez des connaissances basiques du secteur de la mode et du prêt-à-porter.\n- Vous maîtrisez les techniques de merchandising : implantation, pancartage, réassort.\n- Vous êtes à l'aise avec les outils digitaux et logiciels internes liés à la fonction.\n- Vous savez travailler en équipe, faire preuve d'autonomie et d'initiative.\n\nWhat we offer\n\nChez C&A, nous vous proposons bien plus qu'un simple emploi. Rejoignez une entreprise qui valorise ses collaborateurs et offre de véritables perspectives d'évolution.\n\n- Titres-restaurant PLUXEE\n- Prise en charge à 50 % de votre abonnement de transport ou service public de location de vélo\n- Carte privilège avec une réduction de 30 % sur nos collections\n- Mutuelle et prévoyance\n- Intéressement et participation\n- Formation continue pour développer vos compétences\n\nDate de démarrage : Dès que possible\n\nRejoignez-nous !\n\nChez C&A, chaque talent fait la différence. Si vous êtes prêt(e) à rejoindre une entreprise innovante, engagée, et à faire partie de notre succès, n'attendez plus et postulez dès maintenant !\n\nEqual opportunity\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\n\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\n\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community."
+        "fr": "The future looks like you\n\nC&A est une entreprise familiale fondée en 1841, qui s’est imposée comme l’un des leaders mondiaux de l’industrie de la mode. Présente dans 17 pays à travers l’Europe, l’Amérique latine et l’Asie, C&A est fière de son histoire et de son modèle d’entreprise responsable, axé sur la durabilité et l’inclusion.\nPionnière dans son secteur, l’entreprise a fait de l’accessibilité, de l’éthique et du respect de l’environnement un véritable engagement. À travers ses collections, ses initiatives en matière de développement durable et son engagement en faveur de l’égalité, C&A incarne une vision de la mode qui dépasse la simple tendance, en valorisant l’impact social et environnemental.\nCes valeurs fortes guident chacune de nos actions et sont au cœur de l’évolution de notre culture d’entreprise.\n\nYour responsibilities\n\n• Accueillir et accompagner chaque client de manière personnalisée.\n\n• Atteindre les objectifs commerciaux en appliquant les techniques de vente adaptées.\n\n• Proposer des tenues coordonnées et adaptées aux besoins des clients.\n\n• Anticiper les attentes pour enrichir le panier moyen et augmenter le chiffre d’affaires.\n\n• Valoriser les produits, notamment les nouvelles tendances, et personnaliser l’expérience client.\n\n• Promouvoir activement le programme de fidélisation.\n\n• Veiller à une présentation valorisante de nos produits et à une bonne gestion des stocks.\n\n• Participer aux opérations commerciales pour soutenir l’activité du magasin.\n\n• Participer à la réception et au stockage des marchandises livrées.\n\n• Assurer la gestion des cabines d’essayage et garantir leur bon fonctionnement.\n\n• Effectuer les opérations liées au système RFID pour la gestion des articles.\n\n• Respecter et appliquer les règles de sécurité et de sûreté en magasin.\n\n• Être en mesure de réaliser des opérations annexes liées à la caisse.\n\nWhat you bring\n\n• Vous êtes une personne proactive, avec un bon sens du relationnel et une vraie passion pour la mode. Vous êtes motivé(e) par l’idée de contribuer à la réussite de l’équipe et du magasin.\n\n• Vous êtes doté(e) d’un excellent sens du service clients et de l’accueil.\n\n• Fort(e) d’une expérience dans la vente, idéalement dans le secteur de la mode, vous maîtrisez les techniques de vente, l’association de tenues et le conseil personnalisé pour maximiser le chiffre d’affaires.\n\n• Doté(e) d’un esprit curieux et dynamique, vous cherchez à travailler dans un environnement stimulant qui vous offrira des perspectives d’évolution de carrière.\n\n• Vous possédez des connaissances basiques du secteur de la mode et du prêt-à-porter.\n\n• Vous maîtrisez les techniques de merchandising : implantation, pancartage, réassort.\n\n• Vous êtes à l’aise avec les outils digitaux et logiciels internes liés à la fonction.\n\n• Vous savez travailler en équipe, faire preuve d’autonomie et d’initiative.\n\nWhat we offer\n\nChez C&A, nous vous proposons bien plus qu’un simple emploi. Rejoignez une entreprise qui valorise ses collaborateurs et offre de véritables perspectives d’évolution.\n\n• Titres-restaurant PLUXEE\n\n• Prise en charge à 50 % de votre abonnement de transport ou service public de location de vélo\n\n• Carte privilège avec une réduction de 30 % sur nos collections\n\n• Mutuelle et prévoyance\n\n• Intéressement et participation\n\n• Formation continue pour développer vos compétences\nDate de démarrage : Dès que possible\nRejoignez-nous !\nChez C&A, chaque talent fait la différence. Si vous êtes prêt(e) à rejoindre une entreprise innovante, engagée, et à faire partie de notre succès, n'attendez plus et postulez dès maintenant !\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community."
       },
       "location": "Biel-Bienne (CH)",
       "canton": "BE",
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/ch-sales-assistant-service-67153-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:20.339Z",
+      "crawledAt": "2026-09-13T14:15:43.180Z",
       "addressLocality": "Biel-Bienne",
       "postalCode": "2504",
       "addressCountry": "CH",
@@ -3174,11 +3256,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ch-sales-assistant-service-c-and-a-schweiz-ch"
+        "ch-sales-assistant-service-c-and-a-schweiz-ch",
+        "ch-sales-assistant-servizio-c-a-schweiz-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ch-sales-assistant-service-c-and-a-schweiz-ch"
+          "ch-sales-assistant-service-c-and-a-schweiz-ch",
+          "ch-sales-assistant-servizio-c-a-schweiz-biel-bienne"
         ]
       },
       "needsRetranslation": true,
@@ -3196,8 +3280,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "retranslationAttempts": 1
+      "addressRegion": "BE"
     },
     {
       "id": "c-and-a-schweiz-936f1fd25082",
@@ -3230,7 +3313,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-50-fur-chur-67179-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:19.991Z",
+      "crawledAt": "2026-09-13T14:15:42.757Z",
       "addressLocality": "Chur",
       "postalCode": "7001",
       "addressCountry": "CH",
@@ -3250,12 +3333,14 @@
         "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch",
         "collaboratore-trice-im-vendita-m-w-d-50-per-chur-c-a-schweiz-chur",
         "mitarbeiter-im-sales-m-w-d-50-fur-chur-c-a-schweiz-chur-ch",
-        "mitarbeiter-im-vente-m-w-d-50-fur-chur-c-a-schweiz-chur-ch"
+        "mitarbeiter-im-vente-m-w-d-50-fur-chur-c-a-schweiz-chur-ch",
+        "dipendenti-in-vendita-m-f-d-50-per-chur-c-a-schweiz-chur-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch",
-          "collaboratore-trice-im-vendita-m-w-d-50-per-chur-c-a-schweiz-chur"
+          "collaboratore-trice-im-vendita-m-w-d-50-per-chur-c-a-schweiz-chur",
+          "dipendenti-in-vendita-m-f-d-50-per-chur-c-a-schweiz-chur-ch"
         ],
         "en": [
           "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch",
@@ -3313,7 +3398,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-fur-aarau-67178-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:19.661Z",
+      "crawledAt": "2026-09-13T14:15:42.413Z",
       "addressLocality": "Aarau",
       "postalCode": "5000",
       "addressCountry": "CH",
@@ -3380,24 +3465,24 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaborateur de vente- CDD 50 %- Lausanne",
       "titleByLocale": {
-        "it": "Collaboratore di vendita - CSD 50% - Losanna",
+        "it": "Collaborateur de vente- CDD 50 %- Lausanne",
         "en": "Sales Associate - Fixed-term Contract 50% - Lausanne",
         "de": "Verkaufsassistent - Befristeter Vertrag 50% - Lausanne",
         "fr": "Collaborateur de vente- CDD 50 %- Lausanne"
       },
       "description": "The future looks like you\n\nC&A est une entreprise familiale fondée en 1841, qui s’est imposée comme l’un des leaders mondiaux de l’industrie de la mode. Présente dans 17 pays à travers l’Europe, l’Amérique latine et l’Asie, C&A est fière de son histoire et de son modèle d’entreprise responsable, axé sur la durabilité et l’inclusion.\n Pionnière dans son secteur, l’entreprise a fait de l’accessibilité, de l’éthique et du respect de l’environnement un véritable engagement. À travers ses collections, ses initiatives en matière de développement durable et son engagement en faveur de l’égalité, C&A incarne une vision de la mode qui dépasse la simple tendance, en valorisant l’impact social et environnemental.\n Ces valeurs fortes guident chacune de nos actions et sont au cœur de l’évolution de notre culture d’entreprise.\n\nYour responsibilities\n\n• Accueillir et accompagner chaque client de manière personnalisée.\n\n• Atteindre les objectifs commerciaux en appliquant les techniques de vente adaptées.\n\n• Proposer des tenues coordonnées et adaptées aux besoins des clients.\n\n• Anticiper les attentes pour enrichir le panier moyen et augmenter le chiffre d’affaires.\n\n• Valoriser les produits, notamment les nouvelles tendances, et personnaliser l’expérience client.\n\n• Promouvoir activement le programme de fidélisation.\n\n• Veiller à une présentation valorisante de nos produits et à une bonne gestion des stocks.\n\n• Participer aux opérations commerciales pour soutenir l’activité du magasin.\n\n• Participer à la réception et au stockage des marchandises livrées.\n\n• Assurer la gestion des cabines d’essayage et garantir leur bon fonctionnement.\n\n• Effectuer les opérations liées au système RFID pour la gestion des articles.\n\n• Respecter et appliquer les règles de sécurité et de sûreté en magasin.\n\n• Être en mesure de réaliser des opérations annexes liées à la caisse.\n\nWhat you bring\n\n• Vous êtes une personne proactive, avec un bon sens du relationnel et une vraie passion pour la mode. Vous êtes motivé(e) par l’idée de contribuer à la réussite de l’équipe et du magasin.\n\n• Vous êtes doté(e) d’un excellent sens du service clients et de l’accueil.\n\n• Fort(e) d’une expérience dans la vente, idéalement dans le secteur de la mode, vous maîtrisez les techniques de vente, l’association de tenues et le conseil personnalisé pour maximiser le chiffre d’affaires.\n\n• Doté(e) d’un esprit curieux et dynamique, vous cherchez à travailler dans un environnement stimulant qui vous offrira des perspectives d’évolution de carrière.\n\n• Vous possédez des connaissances basiques du secteur de la mode et du prêt-à-porter.\n\n• Vous maîtrisez les techniques de merchandising : implantation, pancartage, réassort.\n\n• Vous êtes à l’aise avec les outils digitaux et logiciels internes liés à la fonction.\n\n• Vous savez travailler en équipe, faire preuve d’autonomie et d’initiative.\n\nWhat we offer\n\nChez C&A, nous vous proposons bien plus qu’un simple emploi. Rejoignez une entreprise qui valorise ses collaborateurs et offre de véritables perspectives d’évolution.\n\n• Titres-restaurant PLUXEE\n\n• Prise en charge à 50 % de votre abonnement de transport ou service public de location de vélo\n\n• Carte privilège avec une réduction de 30 % sur nos collections\n\n• Mutuelle et prévoyance\n\n• Intéressement et participation\n\n• Formation continue pour développer vos compétences\n Date de démarrage : Dès que possible\n Rejoignez-nous !\n Chez C&A, chaque talent fait la différence. Si vous êtes prêt(e) à rejoindre une entreprise innovante, engagée, et à faire partie de notre succès, n'attendez plus et postulez dès maintenant !\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community.",
       "descriptionByLocale": {
-        "it": "Il futuro ti somiglia\n\n C&A è un'azienda a conduzione familiare fondata nel 1841 che si è affermata come una delle aziende leader a livello mondiale nel settore della moda. Presente in 17 paesi tra Europa, America Latina e Asia, C&A è orgogliosa della sua storia e del suo modello di business responsabile, incentrato sulla sostenibilità e sull'inclusione.\n Pioniera nel suo settore, l'azienda ha fatto dell'accessibilità, dell'etica e del rispetto per l'ambiente un vero e proprio impegno. Attraverso le sue collezioni, le sue iniziative di sviluppo sostenibile e il suo impegno per la parità di genere, C&A incarna una visione della moda che va oltre le semplici tendenze, valorizzando l'impatto sociale e ambientale.\n Questi solidi valori guidano ogni nostra azione e sono al centro dell'evoluzione della nostra cultura aziendale.\n\n Le tue responsabilità\n\n - Accogliere e assistere ogni cliente in modo personalizzato.\n - Raggiungere gli obiettivi di vendita applicando tecniche di vendita appropriate.\n - Offrire abiti coordinati e adatti alle esigenze dei clienti.\n - Prevedere le aspettative per incrementare il valore medio dello scontrino e aumentare il fatturato.\n - Promuovere i prodotti, in particolare le nuove tendenze, e personalizzare l'esperienza del cliente.\n - Promuovere attivamente il programma fedeltà.\n - Garantire una presentazione accattivante dei nostri prodotti e una buona gestione delle scorte.\n - Partecipare alle operazioni commerciali a supporto",
+        "it": "Il futuro ti somiglia\n\nC&A è un'azienda a conduzione familiare fondata nel 1841 che si è affermata come una delle aziende leader a livello mondiale nel settore della moda. Presente in 17 paesi tra Europa, America Latina e Asia, C&A è orgogliosa della sua storia e del suo modello di business responsabile, incentrato sulla sostenibilità e sull'inclusione.\nPioniera nel suo settore, l'azienda ha fatto dell'accessibilità, dell'etica e del rispetto per l'ambiente un vero e proprio impegno. Attraverso le sue collezioni, le sue iniziative di sviluppo sostenibile e il suo impegno per la parità di genere, C&A incarna una visione della moda che va oltre le semplici tendenze, valorizzando l'impatto sociale e ambientale.\nQuesti solidi valori guidano ogni nostra azione e sono al centro dell'evoluzione della nostra cultura aziendale.\n\nLe tue responsabilità\n\n- Accogliere e assistere ogni cliente in modo personalizzato.\n- Raggiungere gli obiettivi di vendita applicando tecniche di vendita appropriate.\n- Offrire abiti coordinati e adatti alle esigenze dei clienti.\n- Prevedere le aspettative per incrementare il valore medio dello scontrino e aumentare il fatturato.\n- Promuovere i prodotti, in particolare le nuove tendenze, e personalizzare l'esperienza del cliente.\n- Promuovere attivamente il programma fedeltà.\n- Garantire una presentazione accattivante dei nostri prodotti e una buona gestione delle scorte.\n- Partecipare alle operazioni commerciali a supporto",
         "en": "The future looks like you\n\nC&A is a family-owned company founded in 1841 and has established itself as one of the world's leading fashion industry leaders. C&A is proud of its history and responsible business model, focused on sustainability and inclusion, and has been a pioneer in its sector and has made accessibility, ethics and environmental sustainability a true commitment.\n\nThrough its collections, sustainable development initiatives and its commitment to equality, C&A embodies a vision of fashion that goes beyond mere trends, valuing social and environmental impact. These strong values guide each of our actions and are at the heart of the evolution of our corporate culture.\n\nYour responsibilities\n\n- To welcome and accompany each customer in a personalized way. - To achieve the commercial objectives by applying the appropriate sales techniques. - To propose coordinated outfits adapted to the needs of the customers. - Anticipate expectations to enrich the average basket and increase the turnover. - To value the products, especially the new trends, and to customize the customer experience. - To actively promote the loyalty program. - To ensure a valuable presentation of our products and to ensure good inventory management.\n\n- Participate in commercial operations to support the store's activity. - Participate in the receipt and storage of delivered goods. - Manage and ensure the proper operation of the warehouses. - Perform operations related to the RFID system for the management of the items. - Respect and apply the security and safety rules in store. - Be able to perform ancillary operations related to the cashier.\n\nI'm not going to be here.\n\n- You are a proactive person, with a common sense of relationship and a true passion for fashion. You are motivated by the idea of contributing to the success of the team and the store. - You have an excellent sense of customer service and welcome. - With an experience in sales, ideally in the fashion sector, you master sales techniques, outfits association and personalized advice to maximize turnover.\n\n- With a curious and dynamic mind, you are looking to work in a stimulating environment that will offer you career opportunities. - You have basic knowledge of the fashion and ready-to-wear sector. - You master merchandising techniques: implantation, pancartage, restocking. - You are comfortable with the digital tools and internal software related to the function. - You know how to work as a team, demonstrate autonomy and initiative.\n\nThe Commission has decided to grant the aid to the applicant.\n\nAt C&A, we offer you more than just a job. Join a company that values its employees and offers real opportunities for change.\n\n- Titles-restaurant PLUXEE - Support 50% of your public transport or bicycle rental service - Privilege card with a 30% discount on our collections - Mutual and foresight - Integration and participation - Continuing training to develop your skills\n\nStart date: As soon as possible\n\nJoin us!\n\nAt C&A, every talent makes a difference. If you are ready to join an innovative, committed company and be part of our success, don't wait and apply now!\n\nDiversity and inclusion\n\nC&A Scars equal opportunity for people of all backgrounds and heads. We are led by a Gender-borough board that is committed to building a diverse and inclusive organization is all about being able to get the best results. We do not philicanthropic on age, disability, gender identity, sexual orientation, culture, religion or belief, parent and family status, or any other protection Testimonial. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic-headline. We encourage people to use People's Groups to apply.\n\nSo if you don't check max box, but see Impost, full app and help us, build an inclusive community.",
-        "de": "Die Zukunft sieht aus wie du\n\n C&A ist ein 1841 gegründetes Familienunternehmen, das sich zu einem der weltweit führenden Modeunternehmen entwickelt hat. Mit Niederlassungen in 17 Ländern in Europa, Lateinamerika und Asien ist C&A stolz auf seine Geschichte und sein verantwortungsvolles Geschäftsmodell, das auf Nachhaltigkeit und Inklusion ausgerichtet ist.\n Als Vorreiter in seiner Branche hat sich das Unternehmen Barrierefreiheit, ethisches Handeln und Umweltschutz fest zu eigen gemacht. Mit seinen Kollektionen, seinen Initiativen für nachhaltige Entwicklung und seinem Engagement für Gleichberechtigung verkörpert C&A eine Modevision, die über bloße Trends hinausgeht und soziale sowie ökologische Auswirkungen wertschätzt.\n Diese starken Werte leiten all unser Handeln und bilden den Kern der Entwicklung unserer Unternehmenskultur.\n\n Ihre Verantwortlichkeiten\n\n - Jeden Kunden individuell zu begrüßen und zu betreuen.\n - Erreichen der Umsatzziele durch Anwendung geeigneter Verkaufstechniken.\n - Auf die Bedürfnisse der Kunden abgestimmte, aufeinander abgestimmte Outfits anzubieten.\n - Erwartungen antizipieren, um den durchschnittlichen Warenkorbwert zu erhöhen und den Umsatz zu steigern.\n - Um Produkte, insbesondere neue Trends, zu bewerben und das Kundenerlebnis zu personalisieren.\n - Das Treueprogramm aktiv bewerben.\n - Für eine ansprechende Präsentation unserer Produkte und ein gutes Bestandsmanagement sorgen.\n - Beteiligung an kommerziellen Abläufen zur Unterstützung",
-        "fr": "The future looks like you\n\nC&A est une entreprise familiale fondée en 1841, qui s'est imposée comme l'un des leaders mondiaux de l'industrie de la mode. Présente dans 17 pays à travers l'Europe, l'Amérique latine et l'Asie, C&A est fière de son histoire et de son modèle d'entreprise responsable, axé sur la durabilité et l'inclusion.\nPionnière dans son secteur, l'entreprise a fait de l'accessibilité, de l'éthique et du respect de l'environnement un véritable engagement. À travers ses collections, ses initiatives en matière de développement durable et son engagement en faveur de l'égalité, C&A incarne une vision de la mode qui dépasse la simple tendance, en valorisant l'impact social et environnemental.\nCes valeurs fortes guident chacune de nos actions et sont au cœur de l'évolution de notre culture d'entreprise.\n\nYour responsibilities\n\n- Accueillir et accompagner chaque client de manière personnalisée.\n- Atteindre les objectifs commerciaux en appliquant les techniques de vente adaptées.\n- Proposer des tenues coordonnées et adaptées aux besoins des clients.\n- Anticiper les attentes pour enrichir le panier moyen et augmenter le chiffre d'affaires.\n- Valoriser les produits, notamment les nouvelles tendances, et personnaliser l'expérience client.\n- Promouvoir activement le programme de fidélisation.\n- Veiller à une présentation valorisante de nos produits et à une bonne gestion des stocks.\n- Participer aux opérations commerciales pour soutenir l'activité du magasin.\n- Participer à la réception et au stockage des marchandises livrées.\n- Assurer la gestion des cabines d'essayage et garantir leur bon fonctionnement.\n- Effectuer les opérations liées au système RFID pour la gestion des articles.\n- Respecter et appliquer les règles de sécurité et de sûreté en magasin.\n- Être en mesure de réaliser des opérations annexes liées à la caisse.\n\nWhat you bring\n\n- Vous êtes une personne proactive, avec un bon sens du relationnel et une vraie passion pour la mode. Vous êtes motivé(e) par l'idée de contribuer à la réussite de l'équipe et du magasin.\n- Vous êtes doté(e) d'un excellent sens du service clients et de l'accueil.\n- Fort(e) d'une expérience dans la vente, idéalement dans le secteur de la mode, vous maîtrisez les techniques de vente, l'association de tenues et le conseil personnalisé pour maximiser le chiffre d'affaires.\n- Doté(e) d'un esprit curieux et dynamique, vous cherchez à travailler dans un environnement stimulant qui vous offrira des perspectives d'évolution de carrière.\n- Vous possédez des connaissances basiques du secteur de la mode et du prêt-à-porter.\n- Vous maîtrisez les techniques de merchandising : implantation, pancartage, réassort.\n- Vous êtes à l'aise avec les outils digitaux et logiciels internes liés à la fonction.\n- Vous savez travailler en équipe, faire preuve d'autonomie et d'initiative.\n\nWhat we offer\n\nChez C&A, nous vous proposons bien plus qu'un simple emploi. Rejoignez une entreprise qui valorise ses collaborateurs et offre de véritables perspectives d'évolution.\n\n- Titres-restaurant PLUXEE\n- Prise en charge à 50 % de votre abonnement de transport ou service public de location de vélo\n- Carte privilège avec une réduction de 30 % sur nos collections\n- Mutuelle et prévoyance\n- Intéressement et participation\n- Formation continue pour développer vos compétences\n\nDate de démarrage : Dès que possible\n\nRejoignez-nous !\n\nChez C&A, chaque talent fait la différence. Si vous êtes prêt(e) à rejoindre une entreprise innovante, engagée, et à faire partie de notre succès, n'attendez plus et postulez dès maintenant !\n\nDiversity and inclusion\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community."
+        "de": "Die Zukunft sieht aus wie du\n\nC&A ist ein 1841 gegründetes Familienunternehmen, das sich zu einem der weltweit führenden Modeunternehmen entwickelt hat. Mit Niederlassungen in 17 Ländern in Europa, Lateinamerika und Asien ist C&A stolz auf seine Geschichte und sein verantwortungsvolles Geschäftsmodell, das auf Nachhaltigkeit und Inklusion ausgerichtet ist.\nAls Vorreiter in seiner Branche hat sich das Unternehmen Barrierefreiheit, ethisches Handeln und Umweltschutz fest zu eigen gemacht. Mit seinen Kollektionen, seinen Initiativen für nachhaltige Entwicklung und seinem Engagement für Gleichberechtigung verkörpert C&A eine Modevision, die über bloße Trends hinausgeht und soziale sowie ökologische Auswirkungen wertschätzt.\nDiese starken Werte leiten all unser Handeln und bilden den Kern der Entwicklung unserer Unternehmenskultur.\n\nIhre Verantwortlichkeiten\n\n- Jeden Kunden individuell zu begrüßen und zu betreuen.\n- Erreichen der Umsatzziele durch Anwendung geeigneter Verkaufstechniken.\n- Auf die Bedürfnisse der Kunden abgestimmte, aufeinander abgestimmte Outfits anzubieten.\n- Erwartungen antizipieren, um den durchschnittlichen Warenkorbwert zu erhöhen und den Umsatz zu steigern.\n- Um Produkte, insbesondere neue Trends, zu bewerben und das Kundenerlebnis zu personalisieren.\n- Das Treueprogramm aktiv bewerben.\n- Für eine ansprechende Präsentation unserer Produkte und ein gutes Bestandsmanagement sorgen.\n- Beteiligung an kommerziellen Abläufen zur Unterstützung",
+        "fr": "The future looks like you\n\nC&A est une entreprise familiale fondée en 1841, qui s’est imposée comme l’un des leaders mondiaux de l’industrie de la mode. Présente dans 17 pays à travers l’Europe, l’Amérique latine et l’Asie, C&A est fière de son histoire et de son modèle d’entreprise responsable, axé sur la durabilité et l’inclusion.\nPionnière dans son secteur, l’entreprise a fait de l’accessibilité, de l’éthique et du respect de l’environnement un véritable engagement. À travers ses collections, ses initiatives en matière de développement durable et son engagement en faveur de l’égalité, C&A incarne une vision de la mode qui dépasse la simple tendance, en valorisant l’impact social et environnemental.\nCes valeurs fortes guident chacune de nos actions et sont au cœur de l’évolution de notre culture d’entreprise.\n\nYour responsibilities\n\n• Accueillir et accompagner chaque client de manière personnalisée.\n\n• Atteindre les objectifs commerciaux en appliquant les techniques de vente adaptées.\n\n• Proposer des tenues coordonnées et adaptées aux besoins des clients.\n\n• Anticiper les attentes pour enrichir le panier moyen et augmenter le chiffre d’affaires.\n\n• Valoriser les produits, notamment les nouvelles tendances, et personnaliser l’expérience client.\n\n• Promouvoir activement le programme de fidélisation.\n\n• Veiller à une présentation valorisante de nos produits et à une bonne gestion des stocks.\n\n• Participer aux opérations commerciales pour soutenir l’activité du magasin.\n\n• Participer à la réception et au stockage des marchandises livrées.\n\n• Assurer la gestion des cabines d’essayage et garantir leur bon fonctionnement.\n\n• Effectuer les opérations liées au système RFID pour la gestion des articles.\n\n• Respecter et appliquer les règles de sécurité et de sûreté en magasin.\n\n• Être en mesure de réaliser des opérations annexes liées à la caisse.\n\nWhat you bring\n\n• Vous êtes une personne proactive, avec un bon sens du relationnel et une vraie passion pour la mode. Vous êtes motivé(e) par l’idée de contribuer à la réussite de l’équipe et du magasin.\n\n• Vous êtes doté(e) d’un excellent sens du service clients et de l’accueil.\n\n• Fort(e) d’une expérience dans la vente, idéalement dans le secteur de la mode, vous maîtrisez les techniques de vente, l’association de tenues et le conseil personnalisé pour maximiser le chiffre d’affaires.\n\n• Doté(e) d’un esprit curieux et dynamique, vous cherchez à travailler dans un environnement stimulant qui vous offrira des perspectives d’évolution de carrière.\n\n• Vous possédez des connaissances basiques du secteur de la mode et du prêt-à-porter.\n\n• Vous maîtrisez les techniques de merchandising : implantation, pancartage, réassort.\n\n• Vous êtes à l’aise avec les outils digitaux et logiciels internes liés à la fonction.\n\n• Vous savez travailler en équipe, faire preuve d’autonomie et d’initiative.\n\nWhat we offer\n\nChez C&A, nous vous proposons bien plus qu’un simple emploi. Rejoignez une entreprise qui valorise ses collaborateurs et offre de véritables perspectives d’évolution.\n\n• Titres-restaurant PLUXEE\n\n• Prise en charge à 50 % de votre abonnement de transport ou service public de location de vélo\n\n• Carte privilège avec une réduction de 30 % sur nos collections\n\n• Mutuelle et prévoyance\n\n• Intéressement et participation\n\n• Formation continue pour développer vos compétences\nDate de démarrage : Dès que possible\nRejoignez-nous !\nChez C&A, chaque talent fait la différence. Si vous êtes prêt(e) à rejoindre une entreprise innovante, engagée, et à faire partie de notre succès, n'attendez plus et postulez dès maintenant !\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community."
       },
       "location": "Lausanne (CH)",
       "canton": "VD",
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaborateur-de-vente-cdd-50-lausanne-67098-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:19.325Z",
+      "crawledAt": "2026-09-13T14:15:42.066Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressCountry": "CH",
@@ -3416,13 +3501,15 @@
       "previousSlugs": [
         "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch",
         "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2",
-        "collaborateur-de-vente-cdd-50-lausanne-c-a-schweiz-lausanne"
+        "collaborateur-de-vente-cdd-50-lausanne-c-a-schweiz-lausanne",
+        "collaboratore-di-vendita-csd-50-losanna-c-a-schweiz-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch",
           "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2",
-          "collaborateur-de-vente-cdd-50-lausanne-c-a-schweiz-lausanne"
+          "collaborateur-de-vente-cdd-50-lausanne-c-a-schweiz-lausanne",
+          "collaboratore-di-vendita-csd-50-losanna-c-a-schweiz-lausanne-ch"
         ],
         "en": [
           "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2"
@@ -3449,8 +3536,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "retranslationAttempts": 1
+      "addressRegion": "VD"
     },
     {
       "id": "c-and-a-schweiz-0257eafe406a",
@@ -3458,7 +3544,7 @@
       "slugByLocale": {
         "it": "collaboratrice-di-vendita-con-funzione-portatrice-di-chiavi-specializzazione-servizi-h-f-d-al-60-bienne-c-a-schweiz-biel",
         "en": "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c",
-        "de": "verkaufsassistentin-mit-schlusseltragerfunktion-servicebereich-f-m-d-60-biel-c-a-schweiz-biel-bienne-ch",
+        "de": "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-m-w-d-a-60-bienne-c-a-schweiz-biel-bienne",
         "fr": "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c"
       },
       "company": "C&A Schweiz",
@@ -3466,10 +3552,10 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
       "titleByLocale": {
-        "it": "Collaboratrice di vendita con funzione portatrice di chiavi - specializzazione servizi (h/f/d) al 60% - Bienne",
-        "en": "Sales co-operative with key-carrying function - 60% (m/f/d) service focus - Biel",
-        "de": "Verkaufsassistentin mit Schlüsseltragerfunktion - Servicebereich (f/m/d) 60% - Biel",
-        "fr": "Collaboratrice de vente avec fonction porteuse de clés - focus services (h/f/d) à 60% - Bienne"
+        "en": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
+        "fr": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
+        "it": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
+        "de": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne"
       },
       "description": "The future looks like you\n\nYour responsibilities\n\nWhat you bring\n\nWhat we offer\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community.",
       "descriptionByLocale": {
@@ -3483,7 +3569,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-fmd-a-60-bienne-67189-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T13:21:18.980Z",
+      "crawledAt": "2026-09-13T14:15:41.675Z",
       "addressLocality": "Biel-Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -3500,6 +3586,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
+      "previousSlugs": [
+        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c",
+        "verkaufsassistentin-mit-schlusseltragerfunktion-servicebereich-f-m-d-60-biel-c-a-schweiz-biel-bienne-ch",
+        "collaboratrice-di-vendita-con-funzione-portatrice-di-chiavi-specializzazione-servizi-h-f-d-al-60-bienne-c-a-schweiz-biel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c",
+          "collaboratrice-di-vendita-con-funzione-portatrice-di-chiavi-specializzazione-servizi-h-f-d-al-60-bienne-c-a-schweiz-biel"
+        ],
+        "de": [
+          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c",
+          "verkaufsassistentin-mit-schlusseltragerfunktion-servicebereich-f-m-d-60-biel-c-a-schweiz-biel-bienne-ch"
+        ]
+      },
       "firstSeenAt": "2026-09-02T13:54:12.370Z",
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -3514,19 +3615,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c"
-        ],
-        "de": [
-          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c"
-        ]
-      },
-      "previousSlugs": [
-        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c"
-      ]
+      "addressRegion": "BE"
     },
     {
       "id": "c-and-a-schweiz-e2bb41cf68bd",
@@ -3542,7 +3631,7 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaboratrice de vente 50% - CDD 4 mois",
       "titleByLocale": {
-        "it": "Operaio di vendita 50% - CSD 4 mesi",
+        "it": "Collaboratrice de vente 50% - CDD 4 mois",
         "en": "Sales co-operative 50% - CSD 4 months",
         "de": "Verkaufsmitarbeiter 50% - CSD 4 Monate",
         "fr": "Collaboratrice de vente 50% - CDD 4 mois"
@@ -3552,14 +3641,14 @@
         "it": "Il futuro ti assomiglia\n\nDescrizione\n\nC&A è un'azienda familiare fondata nel 1841, che si è affermata come uno dei leader mondiali nel settore della moda. Presente in 17 paesi tra Europa, America Latina e Asia, C&A è orgogliosa della sua storia e del suo modello di business responsabile, incentrato sulla sostenibilità e sull’inclusione.\n\nPioniere nel suo settore, l’azienda ha fatto dell’accessibilità, dell’etica e del rispetto dell’ambiente un vero e proprio impegno. Attraverso le sue collezioni, le sue iniziative di sviluppo sostenibile e il suo impegno per l'uguaglianza, C&A incarna una visione della moda che va oltre la semplice tendenza, promuovendo l'impatto sociale e ambientale.\n\nQuesti valori forti guidano ciascuna delle nostre azioni e sono al centro dell’evoluzione della nostra cultura aziendale.\n\nLe tue responsabilità\n\n- Sei una persona proattiva, con buone capacità relazionali e una vera passione per la moda. Sei motivato dall'idea di contribuire al successo della squadra e del negozio.\n- Hai un eccellente senso del servizio clienti e dell'ospitalità.\n- Con esperienza nelle vendite, idealmente nel settore della moda, padroneggi le tecniche di vendita, gli abbinamenti di abiti e la consulenza personalizzata per massimizzare il fatturato.\n- Con una mente curiosa e dinamica, stai cercando di lavorare in un ambiente stimolante che ti offra prospettive di sviluppo professionale.\n- Hai una conoscenza di base del settore della moda e del ready-to-wear.\n- Padroneggia le tecniche di merchandising: realizzazione, esposizione, riassortimento.\n- Hai dimestichezza con gli strumenti digitali e il software interno relativi alla funzione.\n- Sai lavorare in squadra, dimostrare autonomia e iniziativa.\n\nIl tuo profilo\n\nCosa ti offriamo\n\nIn C&A ti offriamo molto più di un semplice lavoro. Unisciti a un'azienda che valorizza i propri dipendenti e offre reali prospettive di avanzamento.\n\n- Carta Privilege con sconto del 30% sulle nostre collezioni\n- Assicurazione mutua e previdenziale\n- Interesse e partecipazione\n- Formazione continua per sviluppare le tue competenze\n\nData di inizio: il più presto possibile\n\nUnisciti a noi!\n\nIn C&A ogni talento fa la differenza. Se sei pronto per entrare a far parte di un'azienda innovativa e impegnata e far parte del nostro successo, non aspettare oltre e candidati ora!\n\nUguaglianza e inclusione\n\nC&A promuove le pari opportunità per le persone di ogni provenienza e identità. Siamo guidati da un Consiglio di amministrazione equilibrato dal punto di vista del genere, impegnato a costruire un'organizzazione diversificata e inclusiva in cui ognuno possa raggiungere il proprio pieno potenziale.\n\nNon discriminiamo in base a età, disabilità, identità di genere, orientamento sessuale, etnia, razza, religione o convinzioni personali, stato genitoriale o familiare o qualsiasi altra caratteristica protetta. Incoraggiamo le candidature di donne, uomini e persone non binarie di ogni provenienza etnica e socioeconomica. Incoraggiamo in particolare le persone appartenenti a gruppi sottorappresentati a presentare domanda.\n\nAnche se non soddisfi tutti i criteri, ma pensi di poter dare un contributo, non esitare a candidarti e aiutaci a costruire una comunità inclusiva.",
         "en": "The future looks like you\n\nDescription\n\nC&A is a family-owned business founded in 1841 and has established itself as one of the world's leading fashion industry companies. C&A is proud of its history and responsible business model, focused on sustainability and inclusion, and is active in 17 countries across Europe, Latin America and Asia.\n\nA pioneer in its sector, the company has made accessibility, ethics and respect for the environment a true commitment. Through its collections, sustainable development initiatives and its commitment to equality, C&A embodies a fashion vision that goes beyond mere trends, valuing social and environmental impact.\n\nThese strong values guide each of our actions and are at the heart of the evolution of our corporate culture.\n\nYour Responsibilities\n\n- You are a proactive person, with a common sense of relationship and a true passion for fashion. You are motivated by the idea of contributing to the success of the team and the store. - You have an excellent sense of customer service and welcome. - With an experience in sales, ideally in the fashion sector, you master sales techniques, outfits association and personalized advice to maximize turnover.\n\n- With a curious and dynamic mind, you are looking to work in a stimulating environment that will offer you career opportunities. - You have basic knowledge of the fashion and ready-to-wear sector. - You master merchandising techniques: implantation, pancartage, restocking. - You are comfortable with the digital tools and internal software related to the function. - You know how to work as a team, demonstrate autonomy and initiative.\n\nYour profile\n\nWhat we offer you\n\nAt C&A, we offer you more than just a job. Join a company that values its employees and offers real opportunities for change.\n\n- Privilege card with a 30% discount on our collections - Mutual and foresight - Interest and participation - Continuing training to develop your skills\n\nStart date: As soon as possible\n\nJoin us!\n\nAt C&A, every talent makes a difference. If you are ready to join an innovative, committed company and be part of our success, don't wait and apply now!\n\nEquality and inclusion\n\nC&A promotes equal opportunities for people of all backgrounds and identities, and we are led by a balanced board of directors in terms of gender, committed to building a diverse and inclusive organization where everyone can thrive.\n\nWe do not discriminate on the grounds of age, disability, gender identity, sexual orientation, ethnic origin, race, religion or belief, parental or family status, or any other protected characteristics, and we encourage applications from women, men and non-binary persons of all ethnic and socio-economic backgrounds, particularly those from under-represented groups to apply.\n\nEven if you do not meet all the criteria, but think you can make your contribution, do not hesitate to apply and help us build an inclusive community.",
         "de": "Die Zukunft sieht aus wie du\n\nBeschreibung\n\nC&A ist ein 1841 gegründetes Familienunternehmen, das sich zu einem der weltweit führenden Unternehmen der Modebranche etabliert hat. C&A ist in 17 Ländern in Europa, Lateinamerika und Asien vertreten und stolz auf seine Geschichte und sein verantwortungsvolles Geschäftsmodell, das auf Nachhaltigkeit und Inklusion ausgerichtet ist.\n\nAls Pionier seiner Branche hat das Unternehmen Barrierefreiheit, Ethik und Respekt für die Umwelt zu einer echten Verpflichtung gemacht. Durch seine Kollektionen, seine Initiativen zur nachhaltigen Entwicklung und sein Engagement für Gleichberechtigung verkörpert C&A eine Vision von Mode, die über einfache Trends hinausgeht, indem sie soziale und ökologische Auswirkungen fördert.\n\nDiese starken Werte leiten jedes unserer Handlungen und sind das Herzstück der Entwicklung unserer Unternehmenskultur.\n\nIhre Verantwortung\n\n- Du bist eine proaktive Person mit guten zwischenmenschlichen Fähigkeiten und einer echten Leidenschaft für Mode. Dich motiviert der Gedanke, zum Erfolg des Teams und des Stores beizutragen.\n- Sie haben ein ausgezeichnetes Gespür für Kundenservice und Gastfreundschaft.\n- Mit Erfahrung im Vertrieb, idealerweise im Modebereich, beherrschen Sie Verkaufstechniken, passende Outfits und individuelle Beratung zur Maximierung des Umsatzes.\n- Mit einem neugierigen und dynamischen Geist möchten Sie in einem anregenden Umfeld arbeiten, das Ihnen berufliche Entwicklungsperspektiven bietet.\n- Du verfügst über Grundkenntnisse im Fashion- und Ready-to-Wear-Bereich.\n- Sie beherrschen Merchandising-Techniken: Umsetzung, Präsentation, Wiederauffüllung.\n- Sie sind mit digitalen Tools und interner Software im Zusammenhang mit der Funktion vertraut.\n- Sie wissen, wie man im Team arbeitet, zeigen Autonomie und Initiative.\n\nIhr Profil\n\nWas wir Ihnen bieten\n\nBei C&A bieten wir Ihnen viel mehr als nur einen Job. Werden Sie Teil eines Unternehmens, das seine Mitarbeiter wertschätzt und echte Aufstiegschancen bietet.\n\n- Privilege-Karte mit 30 % Ermäßigung auf unsere Kollektionen\n- Gegenseitigkeits- und Vorsorgeversicherung\n- Interesse und Beteiligung\n- Weiterbildung zur Weiterentwicklung Ihrer Fähigkeiten\n\nStarttermin: So schnell wie möglich\n\nMachen Sie mit!\n\nBei C&A macht jedes Talent den Unterschied. Wenn Sie bereit sind, sich einem innovativen, engagierten Unternehmen anzuschließen und Teil unseres Erfolgs zu werden, warten Sie nicht länger und bewerben Sie sich jetzt!\n\nGleichberechtigung und Inklusion\n\nC&A fördert die Chancengleichheit für Menschen aller Hintergründe und Identitäten. Wir werden von einem Vorstand mit ausgewogenem Geschlechterverhältnis geleitet, der sich für den Aufbau einer vielfältigen und integrativen Organisation einsetzt, in der jeder sein volles Potenzial entfalten kann.\n\nWir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Zugehörigkeit, Rasse, Religion oder Weltanschauung, Eltern- oder Familienstand oder anderen geschützten Merkmalen. Wir freuen uns über Bewerbungen von Frauen, Männern und nicht-binären Menschen aller ethnischen und sozioökonomischen Hintergründe. Wir ermutigen insbesondere Menschen aus unterrepräsentierten Gruppen, sich zu bewerben.\n\nAuch wenn Sie nicht alle Kriterien erfüllen, aber glauben, einen Beitrag leisten zu können, zögern Sie bitte nicht, sich zu bewerben und uns beim Aufbau einer integrativen Gemeinschaft zu helfen.",
-        "fr": "The future looks like you\n\nDescription\n\nC&A est une entreprise familiale fondée en 1841, qui s'est imposée comme l'un des leaders mondiaux de l'industrie de la mode. Présente dans 17 pays à travers l'Europe, l'Amérique latine et l'Asie, C&A est fière de son histoire et de son modèle d'entreprise responsable, axé sur la durabilité et l'inclusion.\n\nPionnière dans son secteur, l'entreprise a fait de l'accessibilité, de l'éthique et du respect de l'environnement un véritable engagement. À travers ses collections, ses initiatives en matière de développement durable et son engagement en faveur de l'égalité, C&A incarne une vision de la mode qui dépasse la simple tendance, en valorisant l'impact social et environnemental.\n\nCes valeurs fortes guident chacune de nos actions et sont au cœur de l'évolution de notre culture d'entreprise.\n\nVos responsabilités\n\n- Vous êtes une personne proactive, avec un bon sens du relationnel et une vraie passion pour la mode. Vous êtes motivé(e) par l'idée de contribuer à la réussite de l'équipe et du magasin.\n- Vous êtes doté(e) d'un excellent sens du service clients et de l'accueil.\n- Fort(e) d'une expérience dans la vente, idéalement dans le secteur de la mode, vous maîtrisez les techniques de vente, l'association de tenues et le conseil personnalisé pour maximiser le chiffre d'affaires.\n- Doté(e) d'un esprit curieux et dynamique, vous cherchez à travailler dans un environnement stimulant qui vous offrira des perspectives d'évolution de carrière.\n- Vous possédez des connaissances basiques du secteur de la mode et du prêt-à-porter.\n- Vous maîtrisez les techniques de merchandising : implantation, pancartage, réassort.\n- Vous êtes à l'aise avec les outils digitaux et logiciels internes liés à la fonction.\n- Vous savez travailler en équipe, faire preuve d'autonomie et d'initiative.\n\nVotre profil\n\nCe que nous vous offrons\n\nChez C&A, nous vous proposons bien plus qu'un simple emploi. Rejoignez une entreprise qui valorise ses collaborateurs et offre de véritables perspectives d'évolution.\n\n- Carte privilège avec une réduction de 30 % sur nos collections\n- Mutuelle et prévoyance\n- Intéressement et participation\n- Formation continue pour développer vos compétences\n\nDate de démarrage : Dès que possible\n\nRejoignez-nous !\n\nChez C&A, chaque talent fait la différence. Si vous êtes prêt(e) à rejoindre une entreprise innovante, engagée, et à faire partie de notre succès, n'attendez plus et postulez dès maintenant !\n\nÉgalité et inclusion\n\nC&A favorise l'égalité des chances pour les personnes de tous horizons et identités. Nous sommes dirigés par un conseil d'administration équilibré en termes de genre, engagé à bâtir une organisation diversifiée et inclusive, où chacun peut s'épanouir pleinement.\n\nNous ne pratiquons aucune discrimination fondée sur l'âge, le handicap, l'identité de genre, l'orientation sexuelle, l'origine ethnique, la race, la religion ou les convictions, le statut parental ou familial, ou toute autre caractéristique protégée. Nous encourageons les candidatures de femmes, d'hommes et de personnes non binaires de toutes origines ethniques et socio-économiques. Nous incitons particulièrement les personnes issues de groupes sous-représentés à postuler.\n\nMême si vous ne remplissez pas tous les critères, mais que vous pensez pouvoir apporter votre contribution, n'hésitez pas à postuler et à nous aider à construire une communauté inclusive."
+        "fr": "The future looks like you\n\nC&A est une entreprise familiale fondée en 1841, qui s’est imposée comme l’un des leaders mondiaux de l’industrie de la mode. Présente dans 17 pays à travers l’Europe, l’Amérique latine et l’Asie, C&A est fière de son histoire et de son modèle d’entreprise responsable, axé sur la durabilité et l’inclusion.\nPionnière dans son secteur, l’entreprise a fait de l’accessibilité, de l’éthique et du respect de l’environnement un véritable engagement. À travers ses collections, ses initiatives en matière de développement durable et son engagement en faveur de l’égalité, C&A incarne une vision de la mode qui dépasse la simple tendance, en valorisant l’impact social et environnemental.\nCes valeurs fortes guident chacune de nos actions et sont au cœur de l’évolution de notre culture d’entreprise.\n\nVos responsabilités\n\n• Vous êtes une personne proactive, avec un bon sens du relationnel et une vraie passion pour la mode. Vous êtes motivé(e) par l’idée de contribuer à la réussite de l’équipe et du magasin.\n\n• Vous êtes doté(e) d’un excellent sens du service clients et de l’accueil.\n\n• Fort(e) d’une expérience dans la vente, idéalement dans le secteur de la mode, vous maîtrisez les techniques de vente, l’association de tenues et le conseil personnalisé pour maximiser le chiffre d’affaires.\n\n• Doté(e) d’un esprit curieux et dynamique, vous cherchez à travailler dans un environnement stimulant qui vous offrira des perspectives d’évolution de carrière.\n\n• Vous possédez des connaissances basiques du secteur de la mode et du prêt-à-porter.\n\n• Vous maîtrisez les techniques de merchandising : implantation, pancartage, réassort.\n\n• Vous êtes à l’aise avec les outils digitaux et logiciels internes liés à la fonction.\n\n• Vous savez travailler en équipe, faire preuve d’autonomie et d’initiative.\n\nVotre profil\n\nCe que nous vous offrons\n\nChez C&A, nous vous proposons bien plus qu’un simple emploi. Rejoignez une entreprise qui valorise ses collaborateurs et offre de véritables perspectives d’évolution.\n\n• Carte privilège avec une réduction de 30 % sur nos collections\n\n• Mutuelle et prévoyance\n\n• Intéressement et participation\n\n• Formation continue pour développer vos compétences\nDate de démarrage : Dès que possible\nRejoignez-nous !\nChez C&A, chaque talent fait la différence. Si vous êtes prêt(e) à rejoindre une entreprise innovante, engagée, et à faire partie de notre succès, n'attendez plus et postulez dès maintenant !\n\nC&A favorise l’égalité des chances pour les personnes de tous horizons et identités. Nous sommes dirigés par un conseil d’administration équilibré en termes de genre, engagé à bâtir une organisation diversifiée et inclusive, où chacun peut s’épanouir pleinement.\nNous ne pratiquons aucune discrimination fondée sur l’âge, le handicap, l’identité de genre, l’orientation sexuelle, l’origine ethnique, la race, la religion ou les convictions, le statut parental ou familial, ou toute autre caractéristique protégée. Nous encourageons les candidatures de femmes, d’hommes et de personnes non binaires de toutes origines ethniques et socio-économiques. Nous incitons particulièrement les personnes issues de groupes sous-représentés à postuler.\nMême si vous ne remplissez pas tous les critères, mais que vous pensez pouvoir apporter votre contribution, n’hésitez pas à postuler et à nous aider à construire une communauté inclusive."
       },
       "location": "Avry-sur-Matran (CH)",
       "canton": "FR",
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-50-cdd-4-mois-67181-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:18.642Z",
+      "crawledAt": "2026-09-13T14:15:41.336Z",
       "addressLocality": "Avry-sur-Matran",
       "postalCode": "1754",
       "addressCountry": "CH",
@@ -3577,12 +3666,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch",
-        "collaboratrice-de-vente-50-cdd-4-mois-c-a-schweiz-avry-sur-matran"
+        "collaboratrice-de-vente-50-cdd-4-mois-c-a-schweiz-avry-sur-matran",
+        "operaio-di-vendita-50-csd-4-mesi-c-a-schweiz-avry-sur-matran-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch",
-          "collaboratrice-de-vente-50-cdd-4-mois-c-a-schweiz-avry-sur-matran"
+          "collaboratrice-de-vente-50-cdd-4-mois-c-a-schweiz-avry-sur-matran",
+          "operaio-di-vendita-50-csd-4-mesi-c-a-schweiz-avry-sur-matran-ch"
         ],
         "en": [
           "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch"
@@ -3592,6 +3683,7 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:54:12.016Z",
+      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "salarySource": "estimated",
@@ -3638,7 +3730,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-fur-basel-67188-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:18.302Z",
+      "crawledAt": "2026-09-13T14:15:40.992Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "addressCountry": "CH",
@@ -3712,7 +3804,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-bern-67141-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:17.310Z",
+      "crawledAt": "2026-09-13T14:15:39.899Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -3735,7 +3827,8 @@
         "mitarbeiter-im-sales-w-m-d-50-fur-bern-c-a-schweiz-bern-ch",
         "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch",
         "mitarbeiter-im-vente-w-m-d-50-fur-bern-c-a-schweiz-bern-ch",
-        "collaboratore-trice-im-vendita-m-w-d-40-per-bern-c-a-schweiz-bern"
+        "collaboratore-trice-im-vendita-m-w-d-40-per-bern-c-a-schweiz-bern",
+        "dipendenti-in-vendita-m-f-d-40-per-bern-c-a-schweiz-bern-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3745,7 +3838,8 @@
           "mitarbeiter-im-sales-w-m-d-50-fur-bern-c-a-schweiz-bern-ch",
           "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch",
           "mitarbeiter-im-vente-w-m-d-50-fur-bern-c-a-schweiz-bern-ch",
-          "collaboratore-trice-im-vendita-m-w-d-40-per-bern-c-a-schweiz-bern"
+          "collaboratore-trice-im-vendita-m-w-d-40-per-bern-c-a-schweiz-bern",
+          "dipendenti-in-vendita-m-f-d-40-per-bern-c-a-schweiz-bern-ch"
         ],
         "en": [
           "mitarbeiter-im-sales-w-m-d-50-fur-bern-c-a-schweiz-bern-ch",
@@ -3789,7 +3883,7 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaboratrice de Vente (f/m/d) - CDD 40% - Rennaz",
       "titleByLocale": {
-        "it": "Collaboratore di vendita (m/f/d) - CSD 40% - Rennaz",
+        "it": "Collaboratrice de Vente (f/m/d) - CDD 40% - Rennaz",
         "en": "Sales Collaborator (m/f/d) - CSD 40% - Rennaz",
         "de": "Vertriebsmitarbeiter (m/w/d) - CSD 40% - Rennaz",
         "fr": "Collaboratrice de Vente (f/m/d) - CDD 40% - Rennaz"
@@ -3806,7 +3900,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-fmd-cdd-40-rennaz-67231-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:16.976Z",
+      "crawledAt": "2026-09-13T14:15:39.539Z",
       "addressLocality": "Rennaz",
       "postalCode": "1847",
       "addressCountry": "CH",
@@ -3824,12 +3918,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaboratrice-de-vente-f-m-d-cdd-40-rennaz-c-and-a-schweiz-ch",
-        "collaboratrice-de-vente-m-w-d-cdd-40-rennaz-c-a-schweiz-rennaz"
+        "collaboratrice-de-vente-m-w-d-cdd-40-rennaz-c-a-schweiz-rennaz",
+        "collaboratore-di-vendita-m-f-d-csd-40-rennaz-c-a-schweiz-rennaz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratrice-de-vente-f-m-d-cdd-40-rennaz-c-and-a-schweiz-ch",
-          "collaboratrice-de-vente-m-w-d-cdd-40-rennaz-c-a-schweiz-rennaz"
+          "collaboratrice-de-vente-m-w-d-cdd-40-rennaz-c-a-schweiz-rennaz",
+          "collaboratore-di-vendita-m-f-d-csd-40-rennaz-c-a-schweiz-rennaz-ch"
         ],
         "en": [
           "collaboratrice-de-vente-f-m-d-cdd-40-rennaz-c-and-a-schweiz-ch"
@@ -3839,6 +3935,7 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:25:14.841Z",
+      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "salarySource": "estimated",
@@ -3868,7 +3965,7 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaboratrice de vente 60% - CDD 3 mois",
       "titleByLocale": {
-        "it": "Collaboratore di vendita 60% - CSD 3 mesi",
+        "it": "Collaboratrice de vente 60% - CDD 3 mois",
         "en": "Sales Collaborator 60% - CSD 3 months",
         "de": "Sales Collaborator 60% - CSD 3 Monate",
         "fr": "Collaboratrice de vente 60% - CDD 3 mois"
@@ -3885,7 +3982,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-60-cdd-3-mois-67226-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:16.602Z",
+      "crawledAt": "2026-09-13T14:15:39.186Z",
       "addressLocality": "Yverdon-les-Bains",
       "postalCode": "1400",
       "addressCountry": "CH",
@@ -3904,13 +4001,15 @@
       "previousSlugs": [
         "collaboratrice-de-vente-60-cdd-3-mois-c-and-a-schweiz-ch",
         "vendite-collaboratore-60-csd-3-mesi-c-a-schweiz-yverdon-les-bains-ch",
-        "collaboratrice-de-vente-60-cdd-3-mois-c-a-schweiz-yverdon-les-bains"
+        "collaboratrice-de-vente-60-cdd-3-mois-c-a-schweiz-yverdon-les-bains",
+        "collaboratore-di-vendita-60-csd-3-mesi-c-a-schweiz-yverdon-les-bains-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratrice-de-vente-60-cdd-3-mois-c-and-a-schweiz-ch",
           "vendite-collaboratore-60-csd-3-mesi-c-a-schweiz-yverdon-les-bains-ch",
-          "collaboratrice-de-vente-60-cdd-3-mois-c-a-schweiz-yverdon-les-bains"
+          "collaboratrice-de-vente-60-cdd-3-mois-c-a-schweiz-yverdon-les-bains",
+          "collaboratore-di-vendita-60-csd-3-mesi-c-a-schweiz-yverdon-les-bains-ch"
         ],
         "en": [
           "collaboratrice-de-vente-60-cdd-3-mois-c-and-a-schweiz-ch"
@@ -3920,6 +4019,7 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:25:14.143Z",
+      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "salarySource": "estimated",
@@ -3950,7 +4050,7 @@
       "title": "Collaboratrice de vente Focus Gestion marchandise 30%",
       "titleByLocale": {
         "it": "Vendite Collaboratore Focus Gestione della Merchandise 30%",
-        "en": "Sales Collaborator Focus Merchandise Management 30%",
+        "en": "Collaboratrice de vente Focus Gestion marchandise 30%",
         "de": "Sales Collaboration Focus Merchandise Management 30 %",
         "fr": "Collaboratrice de vente Focus Gestion marchandise 30%"
       },
@@ -3966,7 +4066,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-focus-gestion-marchandise-30-67268-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:16.218Z",
+      "crawledAt": "2026-09-13T14:15:38.793Z",
       "addressLocality": "Marin",
       "postalCode": "2074",
       "addressCountry": "CH",
@@ -3983,11 +4083,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch"
+        "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch",
+        "vendite-collaboratore-focus-gestione-della-merchandise-30-c-a-schweiz-marin-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch"
+          "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch",
+          "vendite-collaboratore-focus-gestione-della-merchandise-30-c-a-schweiz-marin-ch"
         ],
         "en": [
           "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch"
@@ -3997,6 +4099,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:54:53.150Z",
+      "needsRetranslation": true,
       "salaryMin": 14900,
       "salaryMax": 22500,
       "salarySource": "estimated",
