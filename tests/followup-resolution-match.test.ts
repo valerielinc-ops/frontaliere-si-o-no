@@ -103,6 +103,26 @@ describe('citedFiles', () => {
     expect(citedFiles(body, fileExists).sort()).toEqual(['components/Bar.tsx', 'scripts/ci/foo.mjs']);
   });
 
+  it('recovers a legacy quoted source path without widening token scope', () => {
+    const target = '.github/workflows/crawler-group-01.yml';
+    const body = [
+      '### 1. Legacy crawler item',
+      '- Original text:',
+      `  > \`${target}:L261-L267\`: the old call site drops the exit code`,
+      '- Suggested action: preserve `git-commit-data.sh --extra-only` while handling its result.',
+    ].join('\n');
+    expect(citedFiles(body, (path) => path === target)).toEqual([target]);
+  });
+
+  it('resolves a plain path in an explicit Suggested action', () => {
+    const target = 'scripts/ci/verify-crawler-contract-provenance.mjs';
+    const body = [
+      '### 1. Runtime provenance item',
+      `- Suggested action: extend (${target}) with \`createRawFetcher(\` and \`CONTRACT.siteRuntimePaths\`.`,
+    ].join('\n');
+    expect(citedFiles(body, (path) => path === target)).toEqual([target]);
+  });
+
   it('does not treat an incidental prose path as a cited file without Suggested action', () => {
     const body = 'Rationale: the already-fixed twin is documented in `scripts/ci/foo.mjs`.';
     expect(citedFiles(body, fileExists)).toEqual([]);
