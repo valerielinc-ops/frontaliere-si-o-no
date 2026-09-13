@@ -1,0 +1,94 @@
+name: Loop fleet ledger audit
+
+# Read-only coverage and retention audit. It measures the state of the
+# already-reviewed ledger/artifacts; it never deletes artifacts, opens a PR or
+# changes published, commercial or production surfaces.
+on:
+  schedule:
+    - cron: '37 7 * * *'
+  workflow_dispatch:
+    inputs:
+      strict:
+        description: 'Fallire se copertura o retention non sono completamente osservate'
+        required: false
+        default: false
+        type: boolean
+  push:
+    branches: [main]
+    paths:
+      - 'data/loop-fleet/loop-registry.json'
+      - 'data/loop-fleet/ledger/**'
+      - 'scripts/ci/loop-fleet-ledger-audit.mjs'
+      - 'scripts/ci/loop-fleet-ledger-reconcile.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - '.github/workflows/loop-fleet-ledger-audit.yml'
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: loop-fleet-ledger-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout audit contract
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /data/loop-fleet/loop-registry.json
+            /data/loop-fleet/ledger/
+            /scripts/ci/loop-fleet-ledger-audit.mjs
+            /scripts/ci/loop-fleet-ledger-reconcile.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /.github/workflows/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Read Actions artifact metadata
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          ARTIFACTS_JSON: ${{ runner.temp }}/loop-fleet-artifacts.json
+        run: |
+          set +e
+          gh api --paginate --slurp "repos/${GITHUB_REPOSITORY}/actions/artifacts?per_page=100" > "$ARTIFACTS_JSON"
+          api_status=$?
+          set -e
+          if [ "$api_status" -ne 0 ]; then
+            echo '{"available":false,"error":"GitHub artifact metadata request failed"}' > "$ARTIFACTS_JSON"
+          fi
+
+      - name: Build read-only coverage report
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-ledger-audit
+        run: |
+          set -o pipefail
+          args=(--registry data/loop-fleet/loop-registry.json --ledger-dir data/loop-fleet/ledger --workflow-dir .github/workflows --artifacts "$RUNNER_TEMP/loop-fleet-artifacts.json" --out-dir "$REPORT_DIR")
+          if [ "${{ inputs.strict }}" = "true" ]; then
+            args+=(--strict)
+          fi
+          set +e
+          node scripts/ci/loop-fleet-ledger-audit.mjs "${args[@]}" | tee "$REPORT_DIR/stdout.txt" | tee -a "$GITHUB_STEP_SUMMARY"
+          audit_status=${PIPESTATUS[0]}
+          set -e
+          exit "$audit_status"
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: loop-fleet-ledger-audit-${{ github.run_id }}
+          path: ${{ runner.temp }}/loop-fleet-ledger-audit/
+          retention-days: 90
+          if-no-files-found: error
