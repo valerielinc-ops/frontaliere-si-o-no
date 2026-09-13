@@ -17,7 +17,10 @@ const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const OBJECT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const CRAWLER_ID_RE = /^[a-z0-9][a-z0-9._-]{0,127}$/;
 const MAX_FILES = 128;
-const MAX_COMMIT_MESSAGE_BYTES = 128 * 1024;
+// Linux MAX_ARG_STRLEN is 128 KiB including the terminating NUL. Keep the
+// exported payload cap one byte below it because git receives the assembled
+// message as one argv element.
+export const MAX_COMMIT_MESSAGE_BYTES = (128 * 1024) - 1;
 export const MAX_RECEIPT_BYTES = 32 * 1024;
 const MAX_DESCRIPTOR_BYTES = 256 * 1024;
 const MAX_HASHED_SLICE_BYTES = 128 * 1024 * 1024;
