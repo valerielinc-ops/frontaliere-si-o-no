@@ -6343,6 +6343,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.f35a-prezzo-incerto-politica.title': 'F-35A: Fixed Price Doubts and Parliamentary Reactions',
     'blog.article.f35a-prezzo-incerto-politica.excerpt': 'The report on the lack of a fixed price for the F-35A shocks Parliament. Green toward the ICC, while the center-right brakes.',
     'blog.article.f35a-prezzo-incerto-politica.imageAlt': 'Federal Palace in Bern, seat of the Swiss Parliament.',
+    'blog.article.licenziamento-crans-montana-falsificazione.title': 'Crans-Montana: fired employee for building fakes',
+    'blog.article.licenziamento-crans-montana-falsificazione.excerpt': 'The Municipality of Crans-Montana has dismissed a collaborator of the Technical Office for the falsification of documents relating to a terrace.',
+    'blog.article.licenziamento-crans-montana-falsificazione.imageAlt': 'Municipal building in Switzerland representing local institutions',
 };
 
 export default blogMetaChEn;

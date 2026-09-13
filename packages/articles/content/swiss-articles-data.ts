@@ -19027,6 +19027,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'licenziamento-crans-montana-falsificazione',
+    category: 'novita',
+    date: '2026-09-13T06:58:29.163Z',
+    image: '/images/blog/licenziamento-crans-montana-falsificazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

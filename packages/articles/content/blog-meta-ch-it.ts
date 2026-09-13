@@ -6343,6 +6343,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.f35a-prezzo-incerto-politica.title': 'F-35A: dubbi sul prezzo fisso e reazioni parlamentari',
     'blog.article.f35a-prezzo-incerto-politica.excerpt': 'Il rapporto sulla mancanza di un prezzo fisso per gli F-35A scuote il Parlamento. Verdi verso la CPI, mentre il centro-destra frena.',
     'blog.article.f35a-prezzo-incerto-politica.imageAlt': 'Palazzo federale a Berna, sede del Parlamento svizzero.',
+    'blog.article.licenziamento-crans-montana-falsificazione.title': 'Crans-Montana: licenziato dipendente per falsi edilizi',
+    'blog.article.licenziamento-crans-montana-falsificazione.excerpt': 'Il Comune di Crans-Montana ha licenziato un collaboratore dell\'Ufficio tecnico per la falsificazione di documenti relativi a una terrazza.',
+    'blog.article.licenziamento-crans-montana-falsificazione.imageAlt': 'Edificio comunale in Svizzera rappresentativo delle istituzioni',
 };
 
 export default blogMetaChIt;

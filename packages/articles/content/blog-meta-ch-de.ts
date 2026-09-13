@@ -6343,6 +6343,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.f35a-prezzo-incerto-politica.title': 'F-35A: Zweifel am Festpreis und parlamentarische Reaktionen',
     'blog.article.f35a-prezzo-incerto-politica.excerpt': 'Der Bericht über das Fehlen eines Festpreises für F-35A erschüttert das Parlament. Grün in Richtung ICC, während die Mitte-rechts bremst.',
     'blog.article.f35a-prezzo-incerto-politica.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Parlaments.',
+    'blog.article.licenziamento-crans-montana-falsificazione.title': 'Crans-Montana: Mitarbeiter wegen falscher Bauten entlassen',
+    'blog.article.licenziamento-crans-montana-falsificazione.excerpt': 'Die Gemeinde Crans-Montana hat einen Mitarbeiter des Technischen Büros für die Fälschung von Dokumenten im Zusammenhang mit einer Terrasse entlassen.',
+    'blog.article.licenziamento-crans-montana-falsificazione.imageAlt': 'Gemeindegebäude in der Schweiz, das die lokalen Institutionen repräsentiert',
 };
 
 export default blogMetaChDe;
