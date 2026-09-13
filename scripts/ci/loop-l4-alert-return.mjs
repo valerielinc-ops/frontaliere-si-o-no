@@ -9,7 +9,7 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
-  loadLoopPolicy,
+  loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -366,13 +366,13 @@ export async function runL4({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
-  let loopRegistry = null;
-  let loopPolicy = null;
-  let actionPolicy = null;
-  let candidatePolicy = null;
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
-    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     verdict = validateAlertReturn({
       config: readJson(configPath, 'alert config'),
       snoozes: readJson(snoozesPath, 'alert snoozes'),
@@ -383,42 +383,34 @@ export async function runL4({
       sourcePath: configPath,
       snoozesPath,
       outcomePath,
-      minimumSample,
+      minimumSample: policyMinimumSample,
     });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: configPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
   const actionClass = verdict.ok ? 'observe' : 'suppress+defer+issue';
-  if (loopRegistry && loopPolicy) {
-    try {
-      actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
-      if (!verdict.ok) candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'suppress+defer');
-      verdict = {
-        ...verdict,
-        candidates: verdict.candidates.map((candidate) => ({
-          ...candidate,
-          actionClass: 'suppress+defer',
-          autonomy: candidatePolicy?.requiredAutonomy || null,
-        })),
-        snapshot: {
-          ...verdict.snapshot,
-          registry: {
-            loopId: LOOP_ID,
-            maxAutonomy: loopPolicy.maxAutonomy,
-            actionClass,
-            requiredAutonomy: actionPolicy.requiredAutonomy,
-            actionClasses: loopPolicy.actionClasses,
-          },
-        },
-      };
-    } catch (error) {
-      loopRegistry = null;
-      loopPolicy = null;
-      actionPolicy = null;
-      candidatePolicy = null;
-      verdict = baseVerdict({ sourcePath: configPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
-    }
-  }
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+  const candidatePolicy = !verdict.ok
+    ? validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'suppress+defer')
+    : null;
+  verdict = {
+    ...verdict,
+    candidates: verdict.candidates.map((candidate) => ({
+      ...candidate,
+      actionClass: 'suppress+defer',
+      autonomy: candidatePolicy?.requiredAutonomy || null,
+    })),
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   const measurable = verdict.quality === 'observed';
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
@@ -426,9 +418,9 @@ export async function runL4({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Alert to Return',
-    owner: loopPolicy?.owner || 'Chief Retention / CRM',
-    oracle: loopPolicy?.oracle || 'consent/delivery event export plus independent return cohort',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'An alert is useful only when a consented recipient receives a deduplicated message and voluntarily returns within the declared window.',
     sourceSnapshot: verdict.snapshot || { source: 'alert-config-and-snoozes', configPath, snoozesPath, outcomePath },
     observationWindow: {
@@ -439,18 +431,18 @@ export async function runL4({
     cohort: 'consented-alert-eligible-users-with-seven-day-return',
     numerator: measurable ? verdict.snapshot.outcomes?.returningUsers7d ?? 0 : null,
     denominator: measurable ? verdict.snapshot.outcomes?.eligibleConsentedUsers ?? 0 : null,
-    primaryMetric: loopPolicy?.primaryMetric || 'returning_users_7d_per_1000_consented_eligible_users',
-    guardrails: loopPolicy?.guardrails || ['consent required', 'idempotent delivery', 'quiet hours', 'suppress/defer before send'],
-    minimumSample: loopPolicy?.minimumSample || minimumSample,
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Alert to Return',
-    owner: loopPolicy?.owner || 'Chief Retention / CRM',
-    oracle: loopPolicy?.oracle || 'consent/delivery event export plus independent return cohort',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
@@ -459,7 +451,7 @@ export async function runL4({
     actionClass,
     rollbackPlan: 'remove runner-local suppression/defer recommendations; leave external delivery and recipient state unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 24) * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);

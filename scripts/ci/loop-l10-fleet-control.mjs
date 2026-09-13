@@ -17,7 +17,7 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
-  loadLoopPolicy,
+  loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
@@ -556,11 +556,13 @@ export async function runL10({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
-  let loopRegistry = null;
-  let loopPolicy = null;
   try {
-    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     const quota = readJsonl(quotaPath, 'quota history');
     const health = readJsonl(healthPath, 'loop health history');
     verdict = validateFleetControl({ registry: loopRegistry, quota, health }, {
@@ -569,7 +571,7 @@ export async function runL10({
       registryPath,
       quotaPath,
       healthPath,
-      minimumSample,
+      minimumSample: policyMinimumSample,
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -593,6 +595,22 @@ export async function runL10({
       }],
     });
   }
+  const actionClass = verdict.ok ? 'observe' : 'route+lock+retry+follow-up';
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+  verdict = {
+    ...verdict,
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        ...(verdict.snapshot?.registry || {}),
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const health = verdict.snapshot?.health || {};
   const candidateStarts = [
@@ -604,36 +622,36 @@ export async function runL10({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Engineering Learning / Fleet Control',
-    owner: loopPolicy?.owner || 'COO / Fleet Controller',
-    oracle: loopPolicy?.oracle || 'registered loop execution, GitHub gate and quota ledgers',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'A loop decision is operationally useful only when its execution, artifact writes, retries, quota usage and gate status are independently auditable.',
     sourceSnapshot: verdict.snapshot || { registryPath, quotaPath, healthPath },
     observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'non-skipped-loop-executions-with-verifiable-artifacts',
     numerator: measurable ? health.verifiedDecisions : null,
     denominator: measurable ? health.eligibleRuns : null,
-    primaryMetric: loopPolicy?.primaryMetric || 'verified_decision_throughput',
-    guardrails: loopPolicy?.guardrails || ['one writer per artifact', 'bounded queues', 'never bypass a gate', 'missing health is not success'],
-    minimumSample: loopPolicy?.minimumSample || minimumSample,
-    actionClass: verdict.ok ? 'observe' : 'route+lock+retry+follow-up',
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
+    actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Engineering Learning / Fleet Control',
-    owner: loopPolicy?.owner || 'COO / Fleet Controller',
-    oracle: loopPolicy?.oracle || 'registered loop execution, GitHub gate and quota ledgers',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.ok ? 'observe' : 'route+lock+retry+follow-up',
+    actionClass,
     rollbackPlan: 'remove runner-local queue/lock plans and reports; never bypass a gate or rewrite a published artifact',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 24) * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);

@@ -9,7 +9,7 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
-  loadLoopPolicy,
+  loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -201,12 +201,13 @@ export async function runL0({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
-  let loopRegistry = null;
-  let loopPolicy = null;
-  let actionPolicy = null;
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID);
   let verdict;
   try {
-    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     const manifest = await fetchManifest({ url, fetchImpl });
     verdict = validateManifest(manifest, { now, maxAgeHours, url });
   } catch (error) {
@@ -219,21 +220,7 @@ export async function runL0({
     });
   }
   const actionClass = verdict.ok ? 'observe' : 'issue+quarantine';
-  if (loopRegistry && loopPolicy) {
-    try {
-      actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
-    } catch (error) {
-      loopRegistry = null;
-      loopPolicy = null;
-      verdict = baseVerdict({
-        url,
-        now,
-        quality: 'unmeasurable',
-        ok: false,
-        reason: error.message,
-      });
-    }
-  }
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
   const measurable = verdict.quality !== 'unmeasurable' && verdict.quality !== 'partial' && verdict.quality !== 'missing';
   const generatedAt = finiteDate(verdict.manifest?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
@@ -241,27 +228,27 @@ export async function runL0({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Data Truth & Freshness',
-    owner: loopPolicy?.owner || 'CDO / Chief Trust',
-    oracle: loopPolicy?.oracle || 'independent corpus manifest and HTTP contract',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'A complete, fresh manifest is required before downstream data decisions.',
     sourceSnapshot: verdict.manifest || { source: 'corpus-api', url, commit: null },
     observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'published-corpus-manifest',
     numerator: measurable ? (verdict.ok ? 1 : 0) : null,
     denominator: measurable ? 1 : null,
-    primaryMetric: loopPolicy?.primaryMetric || 'fresh_complete_manifest_rate',
-    guardrails: loopPolicy?.guardrails || ['missing is not zero', 'last valid surface remains untouched'],
-    minimumSample: loopPolicy?.minimumSample || 1,
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Data Truth & Freshness',
-    owner: loopPolicy?.owner || 'CDO / Chief Trust',
-    oracle: loopPolicy?.oracle || 'independent corpus manifest and HTTP contract',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
@@ -270,7 +257,7 @@ export async function runL0({
     actionClass,
     rollbackPlan: 'discard runner-local quarantine evidence; keep the previous published surface',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 2) * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);

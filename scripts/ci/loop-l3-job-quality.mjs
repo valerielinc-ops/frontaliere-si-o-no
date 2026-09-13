@@ -9,7 +9,7 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
-  loadLoopPolicy,
+  loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -480,13 +480,13 @@ export async function runL3({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
-  let loopRegistry = null;
-  let loopPolicy = null;
-  let actionPolicy = null;
-  let candidatePolicy = null;
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
-    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     const summaries = readSummaries(summaryDir);
     const outcomes = readOptionalJson(outcomePath);
     verdict = validateJobSummaries(summaries, {
@@ -495,42 +495,34 @@ export async function runL3({
       maxAgeHours,
       sourcePath: summaryDir,
       outcomePath,
-      minimumSample,
+      minimumSample: policyMinimumSample,
     });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: summaryDir, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
   const actionClass = verdict.candidates.length ? 'quarantine+candidate+issue' : 'issue';
-  if (loopRegistry && loopPolicy) {
-    try {
-      actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
-      if (verdict.candidates.length) candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'quarantine+pr');
-      verdict = {
-        ...verdict,
-        candidates: verdict.candidates.map((candidate) => ({
-          ...candidate,
-          actionClass: 'quarantine+pr',
-          autonomy: candidatePolicy?.requiredAutonomy || null,
-        })),
-        snapshot: {
-          ...verdict.snapshot,
-          registry: {
-            loopId: LOOP_ID,
-            maxAutonomy: loopPolicy.maxAutonomy,
-            actionClass,
-            requiredAutonomy: actionPolicy.requiredAutonomy,
-            actionClasses: loopPolicy.actionClasses,
-          },
-        },
-      };
-    } catch (error) {
-      loopRegistry = null;
-      loopPolicy = null;
-      actionPolicy = null;
-      candidatePolicy = null;
-      verdict = baseVerdict({ sourcePath: summaryDir, now, quality: 'unmeasurable', ok: false, reason: error.message });
-    }
-  }
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+  const candidatePolicy = verdict.candidates.length
+    ? validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'quarantine+pr')
+    : null;
+  verdict = {
+    ...verdict,
+    candidates: verdict.candidates.map((candidate) => ({
+      ...candidate,
+      actionClass: 'quarantine+pr',
+      autonomy: candidatePolicy?.requiredAutonomy || null,
+    })),
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   // A zero-sized outcome cohort is not evidence of a zero handoff rate. Keep
   // metrics null until the observed outcome sample is complete and usable.
   const measurable = verdict.quality === 'observed' && verdict.ok;
@@ -540,9 +532,9 @@ export async function runL3({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Job Quality to Apply',
-    owner: loopPolicy?.owner || 'CPO / Customer Value + CTO / Reliability',
-    oracle: loopPolicy?.oracle || 'crawler summary integrity plus independent apply outcome export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'A job is useful only when its identity, source, apply URL and handoff outcome are independently verifiable.',
     sourceSnapshot: verdict.snapshot || { source: 'job-crawler-summaries', path: summaryDir, outcomePath },
     observationWindow: {
@@ -553,18 +545,18 @@ export async function runL3({
     cohort: 'eligible-job-detail-sessions-with-valid-apply-handoff',
     numerator: measurable ? verdict.snapshot.outcomes?.validHandoffs ?? 0 : null,
     denominator: measurable ? verdict.snapshot.outcomes?.eligibleJobSessions ?? 0 : null,
-    primaryMetric: loopPolicy?.primaryMetric || 'valid_apply_handoff_per_1000_eligible_job_sessions',
-    guardrails: loopPolicy?.guardrails || ['applyUrl required', 'redirect is not an application', 'invalid records stay quarantined'],
-    minimumSample: loopPolicy?.minimumSample || minimumSample,
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Job Quality to Apply',
-    owner: loopPolicy?.owner || 'CPO / Customer Value + CTO / Reliability',
-    oracle: loopPolicy?.oracle || 'crawler summary integrity plus independent apply outcome export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
@@ -573,7 +565,7 @@ export async function runL3({
     actionClass,
     rollbackPlan: 'discard runner-local actions/quarantine artifacts; leave published job records unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 24) * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);

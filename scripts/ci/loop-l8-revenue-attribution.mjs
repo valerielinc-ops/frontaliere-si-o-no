@@ -17,7 +17,7 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
-  loadLoopPolicy,
+  loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 import {
@@ -511,12 +511,13 @@ export async function runL8({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
-  let loopRegistry = null;
-  let loopPolicy = null;
-  let actionPolicy = null;
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
-    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     const history = readJsonl(historyPath, 'revenue history');
     const affiliate = readOptionalJson(affiliatePath);
     verdict = validateRevenueAttribution({ history, affiliate }, {
@@ -524,7 +525,7 @@ export async function runL8({
       maxAgeHours,
       historyPath,
       affiliatePath,
-      minimumSample,
+      minimumSample: policyMinimumSample,
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -547,40 +548,32 @@ export async function runL8({
     });
   }
   const actionClass = 'reconcile+issue';
-  if (loopRegistry && loopPolicy) {
-    try {
-      actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, verdict.ok ? 'observe' : actionClass);
-      for (const candidate of verdict.candidates) {
-        validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidate.actionClass || 'recommend');
-      }
-      verdict = {
-        ...verdict,
-        candidates: verdict.candidates.map((candidate) => {
-          const candidateActionClass = candidate.actionClass || 'recommend';
-          return {
-            ...candidate,
-            actionClass: candidateActionClass,
-            autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass).requiredAutonomy,
-          };
-        }),
-        snapshot: {
-          ...verdict.snapshot,
-          registry: {
-            loopId: LOOP_ID,
-            maxAutonomy: loopPolicy.maxAutonomy,
-            actionClass: verdict.ok ? 'observe' : actionClass,
-            requiredAutonomy: actionPolicy.requiredAutonomy,
-            actionClasses: loopPolicy.actionClasses,
-          },
-        },
-      };
-    } catch (error) {
-      loopRegistry = null;
-      loopPolicy = null;
-      actionPolicy = null;
-      verdict = baseVerdict({ sourcePath: historyPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
-    }
+  const effectiveActionClass = verdict.ok ? 'observe' : actionClass;
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, effectiveActionClass);
+  for (const candidate of verdict.candidates) {
+    validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidate.actionClass || 'recommend');
   }
+  verdict = {
+    ...verdict,
+    candidates: verdict.candidates.map((candidate) => {
+      const candidateActionClass = candidate.actionClass || 'recommend';
+      return {
+        ...candidate,
+        actionClass: candidateActionClass,
+        autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass).requiredAutonomy,
+      };
+    }),
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass: effectiveActionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   const commercial = verdict.snapshot?.commercial;
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const candidateStarts = [
@@ -592,9 +585,9 @@ export async function runL8({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Revenue & Attribution Reconciliation',
-    owner: loopPolicy?.owner || 'CRO / Monetization + CFO',
-    oracle: loopPolicy?.oracle || 'revenue monitor plus independent authorised commercial export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'A surface creates economic value only when approved money and its relevant exposure denominator reconcile independently.',
     sourceSnapshot: verdict.snapshot || { historyPath, affiliatePath },
     observationWindow: {
@@ -605,28 +598,28 @@ export async function runL8({
     cohort: 'relevant-web-or-email-exposures-with-authorised-approved-money-ledger',
     numerator: measurable ? commercial.approvedNetChf ?? 0 : null,
     denominator: measurable ? commercial.exposures?.relevant ?? 0 : null,
-    primaryMetric: loopPolicy?.primaryMetric || 'approved_net_chf_per_1000_relevant_exposures',
-    guardrails: loopPolicy?.guardrails || ['approved differs from pending and reversed', 'export must be authorised and fresh', 'Auto Ads stays enabled', 'no partner or price mutation'],
-    minimumSample: loopPolicy?.minimumSample || minimumSample,
-    actionClass: verdict.ok ? 'observe' : actionClass,
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
+    actionClass: effectiveActionClass,
     quality: verdict.quality,
     allowNumeratorExceedDenominator: true,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Revenue & Attribution Reconciliation',
-    owner: loopPolicy?.owner || 'CRO / Monetization + CFO',
-    oracle: loopPolicy?.oracle || 'revenue monitor plus independent authorised commercial export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.ok ? 'observe' : actionClass,
+    actionClass: effectiveActionClass,
     rollbackPlan: 'delete only runner-local reconciliation artifacts; leave Auto Ads, partners, prices, published snapshots and commercial systems unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 7 * 24) * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);

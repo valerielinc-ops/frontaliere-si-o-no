@@ -150,7 +150,7 @@ describe('L6 Content Learning & Factuality', () => {
     const l6 = registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L6');
     l6.actionClasses = l6.actionClasses.filter((actionClass: string) => actionClass !== 'quarantine');
     fs.writeFileSync(registryPath, `${JSON.stringify(registry)}\n`);
-    const result = await runL6({
+    await expect(runL6({
       now: NOW,
       historyPath: files.historyPath,
       outcomePath: files.outcomePath,
@@ -158,10 +158,8 @@ describe('L6 Content Learning & Factuality', () => {
       reportDir: files.reportDir,
       apply: true,
       logger: { log() {} },
-    });
-    expect(result.verdict).toMatchObject({ ok: false, quality: 'unmeasurable' });
-    expect(result.actionsWritten).toBe(false);
-    expect(result.verdict.reason).toContain('quarantine');
+    })).rejects.toThrow('quarantine');
+    expect(fs.existsSync(files.reportDir)).toBe(false);
   });
 
   it('persists a separate result after issue creation succeeds', async () => {

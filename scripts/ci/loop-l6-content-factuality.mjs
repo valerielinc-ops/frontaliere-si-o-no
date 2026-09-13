@@ -9,7 +9,7 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
-  loadLoopPolicy,
+  loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -409,11 +409,13 @@ export async function runL6({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
-  let loopRegistry = null;
-  let loopPolicy = null;
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
-    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     verdict = validateContentFactuality({
       historyText: readText(historyPath, 'quality alert history'),
       outcomes: readOptionalJson(outcomePath),
@@ -422,32 +424,9 @@ export async function runL6({
       maxAgeHours,
       sourcePath: historyPath,
       outcomePath,
-      minimumSample,
+      minimumSample: policyMinimumSample,
     });
-    const actionClass = verdict.ok ? 'observe' : 'quarantine+candidate+issue';
-    const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
-    const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate');
-    verdict = {
-      ...verdict,
-      candidates: verdict.candidates.map((candidate) => ({
-        ...candidate,
-        actionClass: 'candidate',
-        autonomy: candidatePolicy.requiredAutonomy,
-      })),
-      snapshot: {
-        ...verdict.snapshot,
-        registry: {
-          loopId: LOOP_ID,
-          maxAutonomy: loopPolicy.maxAutonomy,
-          actionClass,
-          requiredAutonomy: actionPolicy.requiredAutonomy,
-          actionClasses: loopPolicy.actionClasses,
-        },
-      },
-    };
   } catch (error) {
-    loopRegistry = null;
-    loopPolicy = null;
     verdict = baseVerdict({
       sourcePath: historyPath,
       now,
@@ -458,15 +437,35 @@ export async function runL6({
   }
   const measurable = verdict.quality === 'observed';
   const actionClass = verdict.ok ? 'observe' : 'quarantine+candidate+issue';
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+  const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate');
+  verdict = {
+    ...verdict,
+    candidates: verdict.candidates.map((candidate) => ({
+      ...candidate,
+      actionClass: 'candidate',
+      autonomy: candidatePolicy.requiredAutonomy,
+    })),
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
     ? generatedAt.toISOString()
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Content Learning and Factuality',
-    owner: loopPolicy?.owner || 'Chief Trust / Accuracy',
-    oracle: loopPolicy?.oracle || 'independent source evidence and locale verification export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'A content defect is actionable only when an external source confirms the claim and the correction preserves the intended locale.',
     sourceSnapshot: verdict.snapshot || { source: 'quality-alerts-history', historyPath, outcomePath },
     observationWindow: {
@@ -477,18 +476,18 @@ export async function runL6({
     cohort: 'articles-reviewed-against-independent-external-source',
     numerator: measurable ? verdict.snapshot.outcomes?.confirmedDefects ?? 0 : null,
     denominator: measurable ? verdict.snapshot.outcomes?.reviewedArticles ?? 0 : null,
-    primaryMetric: loopPolicy?.primaryMetric || 'confirmed_content_defect_rate_per_reviewed_article',
-    guardrails: loopPolicy?.guardrails || ['generator output is not the oracle', 'external source required', 'source and locale must agree', 'published content stays untouched until review'],
-    minimumSample: loopPolicy?.minimumSample || minimumSample,
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Content Learning and Factuality',
-    owner: loopPolicy?.owner || 'Chief Trust / Accuracy',
-    oracle: loopPolicy?.oracle || 'independent source evidence and locale verification export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
@@ -497,7 +496,7 @@ export async function runL6({
     actionClass,
     rollbackPlan: 'discard runner-local candidates and quarantine; leave published content and source history unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 24) * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);

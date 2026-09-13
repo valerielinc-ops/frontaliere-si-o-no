@@ -9,7 +9,7 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
-  loadLoopPolicy,
+  loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -193,15 +193,16 @@ export async function runL1({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
-  let loopRegistry = null;
-  let loopPolicy = null;
-  let actionPolicy = null;
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
-    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     if (!fs.existsSync(path.resolve(sourcePath))) throw new Error(`telemetry source is missing: ${sourcePath}`);
     const telemetry = JSON.parse(fs.readFileSync(path.resolve(sourcePath), 'utf8'));
-    verdict = validateTelemetry(telemetry, { now, maxAgeHours, sourcePath, minimumSample });
+    verdict = validateTelemetry(telemetry, { now, maxAgeHours, sourcePath, minimumSample: policyMinimumSample });
   } catch (error) {
     verdict = baseVerdict({
       sourcePath,
@@ -212,15 +213,7 @@ export async function runL1({
     });
   }
   const actionClass = verdict.ok ? 'observe' : 'issue+suspend-canary';
-  if (loopRegistry && loopPolicy) {
-    try {
-      actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
-    } catch (error) {
-      loopRegistry = null;
-      loopPolicy = null;
-      verdict = baseVerdict({ sourcePath, now, quality: 'unmeasurable', ok: false, reason: error.message });
-    }
-  }
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
 
   const measurable = verdict.quality === 'observed' || verdict.quality === 'zero';
   const numerator = measurable ? verdict.snapshot.errorFreeUsefulSessions : null;
@@ -231,9 +224,9 @@ export async function runL1({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Reliability & UX',
-    owner: loopPolicy?.owner || 'CTO / Reliability',
-    oracle: loopPolicy?.oracle || 'independent synthetic path and error telemetry',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'A complete, fresh useful-session export is required before reliability changes are proposed.',
     sourceSnapshot: verdict.snapshot || { source: 'error-ux-telemetry', path: sourcePath },
     observationWindow: {
@@ -244,18 +237,18 @@ export async function runL1({
     cohort: 'useful-sessions-without-observed-error',
     numerator,
     denominator,
-    primaryMetric: loopPolicy?.primaryMetric || 'error_free_useful_session_rate',
-    guardrails: loopPolicy?.guardrails || ['one anomaly is not a rollback', 'Auto Ads stays enabled'],
-    minimumSample: loopPolicy?.minimumSample || minimumSample,
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Reliability & UX',
-    owner: loopPolicy?.owner || 'CTO / Reliability',
-    oracle: loopPolicy?.oracle || 'independent synthetic path and error telemetry',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
@@ -264,7 +257,7 @@ export async function runL1({
     actionClass,
     rollbackPlan: 'remove the runner-local hold marker; leave the user path and Auto Ads unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 24) * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
 

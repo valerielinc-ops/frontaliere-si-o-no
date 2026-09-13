@@ -10,7 +10,7 @@ import {
   buildDecision,
   buildObservation,
   validateActionClassAgainstPolicy,
-  loadLoopPolicy,
+  loadLoopPolicyForRun,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L7';
@@ -408,54 +408,69 @@ export async function runL7({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
-  let loopRegistry = null;
-  let loopPolicy = null;
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
-    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     verdict = validateExperimentAllocator({
       registry: readJson(candidatesPath, 'experimental candidates'),
       outcomes: readOptionalJson(outcomePath),
-    }, { now, maxAgeHours, sourcePath: candidatesPath, outcomePath, minimumSample, loopRegistry });
+    }, {
+      now,
+      maxAgeHours,
+      sourcePath: candidatesPath,
+      outcomePath,
+      minimumSample: policyMinimumSample,
+      loopRegistry,
+    });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: candidatesPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
   const actionClass = verdict.ok ? 'observe' : 'candidate+stop+issue';
-  if (loopRegistry && loopPolicy) {
-    try {
-      validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
-    } catch (error) {
-      loopRegistry = null;
-      loopPolicy = null;
-      verdict = baseVerdict({ sourcePath: candidatesPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
-    }
-  }
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+  verdict = {
+    ...verdict,
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        ...(verdict.snapshot?.registry || {}),
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime() ? generatedAt.toISOString() : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Experiment Allocator',
-    owner: loopPolicy?.owner || 'CEO / Chief Mission',
-    oracle: loopPolicy?.oracle || 'independent assignment, exposure, outcome and guardrail ledger',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'Only an experiment with persistent assignment, sufficient exposure, explicit outcome and clean guardrails merits more traffic.',
     sourceSnapshot: verdict.snapshot || { source: 'experimental-candidates', candidatesPath, outcomePath },
     observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'pre-registered-experiment-eligible-cohort',
     numerator: measurable ? verdict.snapshot.outcomes?.primaryOutcomes ?? 0 : null,
     denominator: measurable ? verdict.snapshot.outcomes?.eligibleCohort ?? 0 : null,
-    primaryMetric: loopPolicy?.primaryMetric || 'registered_outcome_per_eligible_cohort',
-    guardrails: loopPolicy?.guardrails || ['persistent assignment', 'minimum sample', 'explicit expiry', 'no contamination', 'no automatic price change'],
-    minimumSample: loopPolicy?.minimumSample || minimumSample,
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Experiment Allocator',
-    owner: loopPolicy?.owner || 'CEO / Chief Mission',
-    oracle: loopPolicy?.oracle || 'independent assignment, exposure, outcome and guardrail ledger',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
@@ -464,7 +479,7 @@ export async function runL7({
     actionClass,
     rollbackPlan: 'discard runner-local allocation recommendations; stop/restore only through the registered canary owner and expiry policy',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 7 * 24) * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);

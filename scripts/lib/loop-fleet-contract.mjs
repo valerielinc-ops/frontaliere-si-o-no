@@ -233,6 +233,30 @@ export function loadLoopPolicy(registryPath, loopId) {
   return { registry: validated, policy };
 }
 
+/**
+ * Load the policy used by a runner and make its minimum sample authoritative.
+ * A CLI/test override may strengthen the caller's request, but it may never
+ * lower the floor declared by the registry.
+ */
+export function loadLoopPolicyForRun(registryPath, loopId, requestedMinimumSample) {
+  const loaded = loadLoopPolicy(registryPath, loopId);
+  const policyMinimumSample = loaded.policy.minimumSample;
+  if (requestedMinimumSample !== undefined) {
+    if (!Number.isInteger(requestedMinimumSample) || requestedMinimumSample < 1) {
+      fail(`${loopId} minimumSample override must be a positive integer`);
+    }
+    if (requestedMinimumSample < policyMinimumSample) {
+      fail(`${loopId} minimumSample override ${requestedMinimumSample} is below registry minimum ${policyMinimumSample}`);
+    }
+  }
+  return {
+    ...loaded,
+    minimumSample: requestedMinimumSample === undefined
+      ? policyMinimumSample
+      : Math.max(policyMinimumSample, requestedMinimumSample),
+  };
+}
+
 export function validateActionClassAgainstPolicy(registry, loopId, actionClass) {
   const validated = validateLoopRegistry(registry);
   const policy = validated.loops.find((loop) => loop.loopId === loopId);

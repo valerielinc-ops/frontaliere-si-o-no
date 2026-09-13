@@ -16,7 +16,7 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
-  loadLoopPolicy,
+  loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -613,13 +613,14 @@ export async function runL9({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
-  let loopRegistry = null;
-  let loopPolicy = null;
-  let actionPolicy = null;
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   const outcomePresent = fs.existsSync(path.resolve(outcomePath));
   try {
-    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     verdict = validateEmployerActivation({
       profiles: readJson(profilesPath, 'employer profiles'),
       outcomes: readOptionalJson(outcomePath),
@@ -629,7 +630,7 @@ export async function runL9({
       maxAgeHours,
       sourcePath: profilesPath,
       outcomePath,
-      minimumSample,
+      minimumSample: policyMinimumSample,
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -653,40 +654,31 @@ export async function runL9({
     });
   }
   const actionClass = verdict.ok ? 'observe' : 'candidate+pr+draft-outreach';
-  if (loopRegistry && loopPolicy) {
-    try {
-      actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
-      for (const candidate of verdict.candidates) {
-        validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidate.actionClass || 'pr');
-      }
-      verdict = {
-        ...verdict,
-        candidates: verdict.candidates.map((candidate) => {
-          const candidateActionClass = candidate.actionClass || 'pr';
-          return {
-            ...candidate,
-            actionClass: candidateActionClass,
-            autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass).requiredAutonomy,
-          };
-        }),
-        snapshot: {
-          ...verdict.snapshot,
-          registry: {
-            loopId: LOOP_ID,
-            maxAutonomy: loopPolicy.maxAutonomy,
-            actionClass,
-            requiredAutonomy: actionPolicy.requiredAutonomy,
-            actionClasses: loopPolicy.actionClasses,
-          },
-        },
-      };
-    } catch (error) {
-      loopRegistry = null;
-      loopPolicy = null;
-      actionPolicy = null;
-      verdict = baseVerdict({ sourcePath: profilesPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
-    }
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+  for (const candidate of verdict.candidates) {
+    validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidate.actionClass || 'pr');
   }
+  verdict = {
+    ...verdict,
+    candidates: verdict.candidates.map((candidate) => {
+      const candidateActionClass = candidate.actionClass || 'pr';
+      return {
+        ...candidate,
+        actionClass: candidateActionClass,
+        autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass).requiredAutonomy,
+      };
+    }),
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const outcomes = verdict.snapshot?.outcomes || {};
   const candidateStarts = [
@@ -698,27 +690,27 @@ export async function runL9({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Employer Supply to Paid Activation',
-    owner: loopPolicy?.owner || 'CRO / Monetization',
-    oracle: loopPolicy?.oracle || 'independent checkout and subscription state ledger',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'Employer supply creates commercial value only when eligible accounts, funnel transitions and paid activations reconcile independently.',
     sourceSnapshot: verdict.snapshot || { profilesPath, outcomePath },
     observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'eligible-employer-accounts-with-factual-profile-inventory',
     numerator: measurable ? outcomes.paidActivations : null,
     denominator: measurable ? outcomes.eligibleEmployerAccounts : null,
-    primaryMetric: loopPolicy?.primaryMetric || 'paid_activation_rate',
-    guardrails: loopPolicy?.guardrails || ['inventory is not revenue', 'no real outreach without approval', 'no automatic price change', 'independent checkout/subscription ledger required'],
-    minimumSample: loopPolicy?.minimumSample || minimumSample,
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Employer Supply to Paid Activation',
-    owner: loopPolicy?.owner || 'CRO / Monetization',
-    oracle: loopPolicy?.oracle || 'independent checkout and subscription state ledger',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
@@ -727,7 +719,7 @@ export async function runL9({
     actionClass,
     rollbackPlan: 'discard runner-local employer briefs and PR proposals; send no outreach and leave prices, inventory and subscription state unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 7 * 24) * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);

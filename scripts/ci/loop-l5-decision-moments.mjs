@@ -11,7 +11,7 @@ import {
   actionAutonomy,
   buildDecision,
   buildObservation,
-  loadLoopPolicy,
+  loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
@@ -434,57 +434,72 @@ export async function runL5({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
-  let loopRegistry = null;
-  let loopPolicy = null;
+  const {
+    registry: loopRegistry,
+    policy: loopPolicy,
+    minimumSample: policyMinimumSample,
+  } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
   try {
-    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     verdict = validateDecisionMoments({
       fuel: readJson(fuelPath, 'fuel source'),
       border: readJson(borderPath, 'border source'),
       pharmacies: readJson(pharmacyPath, 'pharmacy source'),
       duties: readJson(dutyPath, 'pharmacy duty source'),
       outcomes: readOptionalJson(outcomePath),
-    }, { now, maxAgeHours, sourcePath: fuelPath, outcomePath, minimumSample, registry: loopRegistry });
+    }, {
+      now,
+      maxAgeHours,
+      sourcePath: fuelPath,
+      outcomePath,
+      minimumSample: policyMinimumSample,
+      registry: loopRegistry,
+    });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: fuelPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
   const actionClass = verdict.ok ? 'observe' : 'stale-label+candidate+issue';
-  if (loopRegistry && loopPolicy) {
-    try {
-      validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
-    } catch (error) {
-      loopRegistry = null;
-      loopPolicy = null;
-      verdict = baseVerdict({ sourcePath: fuelPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
-    }
-  }
+  const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+  verdict = {
+    ...verdict,
+    snapshot: {
+      ...verdict.snapshot,
+      registry: {
+        ...(verdict.snapshot?.registry || {}),
+        loopId: LOOP_ID,
+        maxAutonomy: loopPolicy.maxAutonomy,
+        actionClass,
+        requiredAutonomy: actionPolicy.requiredAutonomy,
+        actionClasses: loopPolicy.actionClasses,
+      },
+    },
+  };
   const measurable = verdict.quality === 'observed';
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime() ? generatedAt.toISOString() : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Decision Moments',
-    owner: loopPolicy?.owner || 'CPO / Customer Value',
-    oracle: loopPolicy?.oracle || 'fresh utility surface snapshots plus independent next-action outcome export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     hypothesis: 'A contextual bridge is useful only after a verified calculation/comparison/check and an explicit next-action outcome.',
     sourceSnapshot: verdict.snapshot || { source: 'decision-surfaces', path: fuelPath, outcomePath },
     observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'completed-decision-surface-sessions-with-next-useful-action',
     numerator: measurable ? verdict.snapshot.outcomes?.nextUsefulActions ?? 0 : null,
     denominator: measurable ? verdict.snapshot.outcomes?.eligibleDecisionSessions ?? 0 : null,
-    primaryMetric: loopPolicy?.primaryMetric || 'next_useful_action_per_1000_completed_decision_sessions',
-    guardrails: loopPolicy?.guardrails || ['no dark patterns', 'source freshness required', 'same-corridor bridge only', 'no invasive personalization'],
-    minimumSample: loopPolicy?.minimumSample || minimumSample,
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    minimumSample: policyMinimumSample,
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: loopPolicy?.goal || 'Decision Moments',
-    owner: loopPolicy?.owner || 'CPO / Customer Value',
-    oracle: loopPolicy?.oracle || 'fresh utility surface snapshots plus independent next-action outcome export',
+    goal: loopPolicy.goal,
+    owner: loopPolicy.owner,
+    oracle: loopPolicy.oracle,
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
@@ -493,7 +508,7 @@ export async function runL5({
     actionClass,
     rollbackPlan: 'remove runner-local stale labels/bridge recommendations; leave published surfaces unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 7 * 24) * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + loopPolicy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);
