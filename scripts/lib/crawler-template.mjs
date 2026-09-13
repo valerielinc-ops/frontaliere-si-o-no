@@ -173,11 +173,13 @@ import {
 } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
 export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
 export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+export { assertFeedEndpointHost };
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -758,6 +760,13 @@ export function exitCrawlerOnError(err, label = 'crawler') {
     );
     process.exit(0);
   }
+  // Feed endpoint redirected off its own host (feed-endpoint-guard.mjs, #7853)
+  // — same keep-the-slice semantics as the pipeline catch in
+  // runStandardCrawlerPipeline, for runners that drive their own pipeline.
+  if (err?.feedEndpointUnavailable) {
+    console.log(`\n⚠️ ${label}: ${err?.message || err}. Keeping existing jobs (no de-index).`);
+    process.exit(0);
+  }
   console.error(`❌ ${label} crawler failed: ${err?.message || err}`);
   process.exit(1);
 }
@@ -998,6 +1007,16 @@ export async function runStandardCrawlerPipeline(config) {
     if (isConnectionLevelFetchError(err)) {
       console.log(
         `\n⚠️ ${companyLabel}: connection-level fetch failure after retries + proxy fallback (${err.message}). Keeping existing jobs.`,
+      );
+      return;
+    }
+    // The vendor feed answered from a DIFFERENT host — the ATS was taken
+    // offline and its feed URL now redirects to a corporate marketing page.
+    // No response about jobs was received, so preserve the indexed slice and
+    // let crawler-health surface persistence instead of de-indexing the employer.
+    if (err?.feedEndpointUnavailable) {
+      console.log(
+        `\n⚠️ ${companyLabel}: ${err.message}. Keeping existing jobs.`,
       );
       return;
     }

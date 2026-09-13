@@ -7,6 +7,11 @@ import {
   runStandardCrawlerPipeline,
   exitCrawlerOnError,
 } from '../scripts/lib/crawler-template.mjs';
+import {
+  FeedEndpointUnavailableError,
+  assertFeedBodyLooksLikeXml,
+  assertFeedEndpointHost,
+} from '../scripts/lib/feed-endpoint-guard.mjs';
 
 function makeRoot(): string {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-guard-'));
@@ -80,6 +85,64 @@ describe('runStandardCrawlerPipeline — connection-level fetch guard', () => {
       }),
     ).resolves.toBeUndefined();
   });
+
+  it('preserves existing jobs when the feed endpoint redirected off its own host (#7853)', async () => {
+    const root = makeRoot();
+    await expect(
+      runStandardCrawlerPipeline({
+        companyKey: 'test-co',
+        companyLabel: 'Test Co',
+        isCompanyJob: () => false,
+        fetchJobs: async () => {
+          throw new FeedEndpointUnavailableError('[test-co] feed endpoint redirected off feed.test');
+        },
+        root,
+      }),
+    ).resolves.toBeUndefined();
+  });
+});
+
+describe('feed-endpoint-guard (#7853)', () => {
+  it('flags a response that came back from another host', () => {
+    expect(() =>
+      assertFeedEndpointHost(
+        'nord-anglia',
+        'careers.nordangliaeducation.com',
+        'https://www.nordangliaeducation.com/careers',
+      ),
+    ).toThrow(/redirected off careers\.nordangliaeducation\.com to www\.nordangliaeducation\.com/);
+  });
+
+  it('accepts the feed host and tolerates a Response without a URL', () => {
+    expect(() =>
+      assertFeedEndpointHost(
+        'nord-anglia',
+        'careers.nordangliaeducation.com',
+        'https://careers.nordangliaeducation.com/services/rss/job/',
+      ),
+    ).not.toThrow();
+    expect(() =>
+      assertFeedEndpointHost('nord-anglia', 'careers.nordangliaeducation.com', ''),
+    ).not.toThrow();
+  });
+
+  it('flags an HTML document served in place of the feed, but not malformed XML', () => {
+    expect(() =>
+      assertFeedBodyLooksLikeXml(
+        'careers',
+        'careers.orior.ch',
+        '<!DOCTYPE html><html><body>&nope</body></html>',
+      ),
+    ).toThrow(/answered with an HTML document/);
+    expect(() =>
+      assertFeedBodyLooksLikeXml('careers', 'careers.orior.ch', '<?xml version="1.0"?><rss><channel>'),
+    ).not.toThrow();
+  });
+
+  it('marks its errors as soft-exitable for the crawler pipeline', () => {
+    const err = new FeedEndpointUnavailableError('boom');
+    expect(err.feedEndpointUnavailable).toBe(true);
+  });
 });
 
 describe('exitCrawlerOnError — custom-main terminal catch', () => {
@@ -92,6 +155,19 @@ describe('exitCrawlerOnError — custom-main terminal catch', () => {
       throw new Error(`exit:${code}`);
     }) as never);
     expect(() => exitCrawlerOnError(new TypeError('fetch failed'), 'Test Co')).toThrow('exit:0');
+    expect(exit).toHaveBeenCalledWith(0);
+  });
+
+  it('exits 0 (soft, preserve) when the feed endpoint is unavailable (#7853)', () => {
+    const exit = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
+      throw new Error(`exit:${code}`);
+    }) as never);
+    expect(() =>
+      exitCrawlerOnError(
+        new FeedEndpointUnavailableError('[test-co] feed endpoint redirected off feed.test'),
+        'Test Co',
+      ),
+    ).toThrow('exit:0');
     expect(exit).toHaveBeenCalledWith(0);
   });
 

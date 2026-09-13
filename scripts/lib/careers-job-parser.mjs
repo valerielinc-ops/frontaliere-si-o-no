@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
+import { assertFeedBodyLooksLikeXml } from './feed-endpoint-guard.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertRssChannelItems } from './assert-json-list-shape.mjs';
 
@@ -24,6 +25,7 @@ export const CAREERS_COMPANY_NAME = 'lepatron';
 export const CAREERS_COMPANY_DOMAIN = 'careers.orior.ch';
 
 const CAREERS_RSS_URL = 'https://careers.orior.ch/services/rss/category/?catid=4574301';
+const CAREERS_RSS_HOST = 'careers.orior.ch';
 const MAX_ITEM_DROP_RATIO = 0.5;
 const RSS_ITEM_STATS = Symbol('careersRssItemStats');
 const CAREERS_EMPTY_RSS_CHANNEL_KEYS = new Set([
@@ -283,6 +285,10 @@ async function fetchJobListings() {
   const xml = await fetchHtml(CAREERS_RSS_URL, {
     headers: { Accept: 'application/rss+xml,application/xml,text/xml,*/*' },
   });
+  // fetchHtml returns only the body, so identify a marketing/maintenance HTML
+  // document before XMLValidator reports it as malformed XML. This preserves
+  // the shared fetchHtml/Jina rescue path while naming the endpoint failure.
+  assertFeedBodyLooksLikeXml('careers', CAREERS_RSS_HOST, xml);
   return parseCareersRss(xml);
 }
 

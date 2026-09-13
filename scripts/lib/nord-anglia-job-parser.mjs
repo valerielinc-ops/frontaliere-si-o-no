@@ -48,6 +48,7 @@ import { createHash } from 'node:crypto';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 import { httpFetchWithRetry } from './transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -320,6 +321,11 @@ async function fetchJobListings() {
   if (!res.ok) {
     throw new Error(`Nord Anglia RSS feed returned HTTP ${res.status}`);
   }
+
+  // The jobs2web tenant now redirects the retired ATS host to the group
+  // marketing page. `fetch` follows that redirect silently; catch it before
+  // marketing HTML reaches XMLValidator and is misdiagnosed as malformed XML.
+  assertFeedEndpointHost('nord-anglia', ATS_HOST, res.url);
 
   const xml = await res.text();
   return parseNordAngliaRss(xml);
