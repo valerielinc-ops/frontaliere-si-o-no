@@ -162,6 +162,45 @@ describe('native auto-merge gate (#8512)', () => {
       headSha: 'not-a-sha',
     })).toThrow(/HEAD SHA/);
   });
+
+  it('revalidates review and checks after the final HEAD read and before native opt-in', () => {
+    const gateSource = readFileSync(new URL('../scripts/ci/native-automerge-gate.mjs', import.meta.url), 'utf8');
+    const headRead = gateSource.indexOf('current = ghJson');
+    const finalReviewRead = gateSource.indexOf('finalReviews = loadReviews');
+    const finalCheckRead = gateSource.indexOf('finalCheckRuns = loadCheckRuns');
+    const finalGate = gateSource.indexOf('const finalDecision = revalidateNativeAutoMerge');
+    const nativeOptIn = gateSource.indexOf("execFileSync('gh', nativeAutoMergeArgs");
+
+    expect(headRead).toBeGreaterThanOrEqual(0);
+    expect(finalReviewRead).toBeGreaterThan(headRead);
+    expect(finalCheckRead).toBeGreaterThan(finalReviewRead);
+    expect(finalGate).toBeGreaterThan(finalCheckRead);
+    expect(nativeOptIn).toBeGreaterThan(finalGate);
+    expect(gateSource).toContain("if (finalDecision.action === 'revoke')");
+  });
+
+  it('fails closed when the final same-HEAD snapshot gains a finding or check failure', () => {
+    const initial = revalidateNativeAutoMerge({
+      pr: pr(),
+      reviews: [review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    });
+    expect(initial).toMatchObject({ allow: true, action: 'enable' });
+
+    const final = revalidateNativeAutoMerge({
+      pr: pr(),
+      reviews: [
+        review(CLEAN_BODY, HEAD, '2026-09-13T12:00:00Z'),
+        review(
+          '## Findings (Important: 1, Nit: 0)\n\n🔴 Important: stale gate.\n\n## LGTM',
+          HEAD,
+          '2026-09-13T12:02:00Z',
+        ),
+      ],
+      checkRuns: [vitest({ conclusion: 'failure' })],
+    });
+    expect(final).toMatchObject({ allow: false, action: 'skip' });
+  });
 });
 
 describe('native auto-merge workflow wiring (#8512)', () => {

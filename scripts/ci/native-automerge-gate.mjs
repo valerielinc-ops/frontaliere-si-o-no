@@ -284,6 +284,38 @@ function main() {
     }
     return skip('HEAD/stato cambiato dopo i gate; serve una nuova review exact-head');
   }
+
+  // Review and checks can change without a HEAD change. Re-read them after
+  // confirming the HEAD and immediately before the native opt-in; the first
+  // snapshot is not allowed to authorize a stale verdict.
+  let finalReviews;
+  let finalCheckRuns;
+  try {
+    finalReviews = loadReviews(repo, prNumber);
+    finalCheckRuns = loadCheckRuns(repo, current.headRefOid);
+  } catch (error) {
+    if (current.autoMergeRequest !== null) {
+      revokeExistingAutoMerge(repo, current, 'review/check exact-head non leggibili prima dell’opt-in');
+      return;
+    }
+    console.error(`::error::native auto-merge guard: rilettura review/check fallita: ${String(error).slice(0, 240)}`);
+    process.exitCode = 1;
+    return;
+  }
+
+  const finalDecision = revalidateNativeAutoMerge({
+    pr: current,
+    reviews: finalReviews,
+    checkRuns: finalCheckRuns,
+  });
+  console.log(`Native auto-merge guard PR #${prNumber} final gate: ${finalDecision.reason}`);
+  if (finalDecision.action === 'revoke') {
+    revokeExistingAutoMerge(repo, current, `fresh gate finale fallito: ${finalDecision.reason}`);
+    return;
+  }
+  if (!finalDecision.allow) {
+    return skip('review/check cambiati o non più validi prima dell’opt-in; nessun merge.');
+  }
   if (current.autoMergeRequest !== null) {
     return skip('native auto-merge già abilitato e rivalidato sulla HEAD corrente');
   }
