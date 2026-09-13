@@ -163,6 +163,12 @@ describe('migrate-prospected-slugs', () => {
 
     expect(workflow).toContain('workflow_dispatch:');
     expect(workflow).not.toContain('schedule:');
+    expect(workflow).toContain('ref: main');
+    expect(workflow).toMatch(/if \[ "\$\{GITHUB_REF:-\}" != "refs\/heads\/main" \]; then/);
+    const refGuard = workflow.indexOf('Require main dispatch ref');
+    expect(refGuard).toBeGreaterThanOrEqual(0);
+    expect(refGuard).toBeLessThan(workflow.indexOf('name: Checkout'));
+    expect(refGuard).toBeLessThan(workflow.indexOf('Prepare Firebase credentials'));
     expect(workflow).toContain('group: jobs-data-pipeline');
     expect(workflow).toContain('contents: write');
     expect(workflow).toContain('node scripts/migrate-prospected-slugs.mjs --apply');
