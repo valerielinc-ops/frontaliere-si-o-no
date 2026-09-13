@@ -6352,6 +6352,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dazi-usa-seco-commercio.title': 'Neue US-Zölle und SECO-VEREINBARUNGEN für Schweizer Unternehmen',
     'blog.article.dazi-usa-seco-commercio.excerpt': 'Die USA führen zusätzliche Zölle von bis zu 12,5% auf Schweizer Waren ein. Das SECO überwacht die Auswirkungen und die Entwicklung der Produktionsketten.',
     'blog.article.dazi-usa-seco-commercio.imageAlt': 'SECO Hauptsitz in der Schweiz',
+    'blog.article.furto-apparecchiature-mediche-roma.title': 'Schweizer Firma in Rom ausgeraubt: Instrumentierung gefunden',
+    'blog.article.furto-apparecchiature-mediche-roma.excerpt': 'Am Donnerstagmorgen wurden in Rom die medizinischen Geräte eines Schweizer Unternehmens gestohlen. Die Instrumente wurden von der örtlichen Polizei geborgen.',
+    'blog.article.furto-apparecchiature-mediche-roma.imageAlt': 'Medizinische Geräte eines Schweizer Unternehmens in Rom gefunden',
 };
 
 export default blogMetaChDe;

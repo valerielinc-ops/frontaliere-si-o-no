@@ -6352,6 +6352,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dazi-usa-seco-commercio.title': 'Nuovi dazi USA e accordi SECO per le aziende svizzere',
     'blog.article.dazi-usa-seco-commercio.excerpt': 'Gli Stati Uniti introducono dazi aggiuntivi fino al 12,5% sui beni svizzeri. La SECO monitora gli impatti e l\'evoluzione delle catene produttive.',
     'blog.article.dazi-usa-seco-commercio.imageAlt': 'Sede della SECO in Svizzera',
+    'blog.article.furto-apparecchiature-mediche-roma.title': 'Azienda svizzera derubata a Roma: ritrovata la strumentazione',
+    'blog.article.furto-apparecchiature-mediche-roma.excerpt': 'Ritrovate a Roma le apparecchiature mediche di un\'azienda svizzera rubate giovedì mattina. La strumentazione è stata recuperata dalla polizia locale.',
+    'blog.article.furto-apparecchiature-mediche-roma.imageAlt': 'Apparecchiature mediche di un\'azienda svizzera ritrovate a Roma',
 };
 
 export default blogMetaChIt;
