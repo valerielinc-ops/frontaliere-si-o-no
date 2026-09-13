@@ -6325,6 +6325,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-lavoro-seco-luglio-2026.title': 'SECO Arbeitsmarkt: 3% Arbeitslosigkeit im Juli 2026',
     'blog.article.mercato-lavoro-seco-luglio-2026.excerpt': 'Die SECO-Daten für Juli 2026 wurden veröffentlicht: Arbeitslosenquote von 3%, Zunahme der Arbeitslosen um 7,8% gegenüber dem Vorjahr und 45\'156 registrierte offene Stellen.',
     'blog.article.mercato-lavoro-seco-luglio-2026.imageAlt': 'SECO Arbeitsmarktstatistik in der Schweiz im Juli 2026',
+    'blog.article.esercito-polizia-berna-droni.title': 'Armee und Polizei trainieren Infrastrukturschutz',
+    'blog.article.esercito-polizia-berna-droni.excerpt': 'Im Kanton Bern läuft eine viertägige gemeinsame Übung zur Verteidigung kritischer Infrastrukturen gegen Drohnen.',
+    'blog.article.esercito-polizia-berna-droni.imageAlt': 'Gemeinsame Polizei- und Militärübung gegen Drohnen in Bern',
 };
 
 export default blogMetaChDe;
