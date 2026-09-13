@@ -414,7 +414,7 @@ export function useNavigationState(): NavigationState {
  // Update SEO meta tags — use 404-specific noindex for unrecognized routes
  if (parsedNotFoundPath) {
  applyNotFoundSeo(parsedNotFoundPath);
- } else if (!route.pharmacyPath) {
+ } else {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
