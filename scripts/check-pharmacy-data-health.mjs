@@ -72,6 +72,22 @@ const SECONDARY_FIELDS = Object.freeze([
   ['openingHours', (pharmacy) => Array.isArray(pharmacy?.openingHours) && pharmacy.openingHours.length > 0],
   ['services', (pharmacy) => Array.isArray(pharmacy?.services) && pharmacy.services.length > 0],
 ]);
+const BORDER_ITALY_PROVINCES = new Set(['CO', 'VA', 'VB']);
+const OFFICIAL_RECORD_FIELD_ALLOWLIST = Object.freeze({
+  // OFCT/Ticino snapshots historically carry official phone numbers and a
+  // subset of coordinates without fieldSources; every other optional value
+  // must retain field-level provenance.
+  'ticino-complete': new Set(['phone', 'coordinates']),
+  // The Ministry catalogue publishes the coordinates in the primary record;
+  // unlike phone/website/opening-hours enrichments, they do not need an
+  // additional fieldSources entry when the record-level official source and
+  // verified availability agree.
+  'italy-border': new Set(['coordinates']),
+});
+const OFFICIAL_RECORD_SOURCE_HOSTS = Object.freeze({
+  'ticino-complete': new Set(['www.ofct.ch', 'www4.ti.ch']),
+  'italy-border': new Set(['www.dati.salute.gov.it']),
+});
 
 // ── Pure logic (unit-tested; NO IO) ─────────────────────────────────
 
@@ -235,6 +251,9 @@ function borderAge(doc, source, nowMs) {
     return { fetchedAt, ageHours: (nowMs - parsed) / 3600e3, maxAgeHours, stale: true, reason: '`fetchFrequency` mancante o non parsabile' };
   }
   const ageHours = (nowMs - parsed) / 3600e3;
+  if (ageHours < 0) {
+    return { fetchedAt, ageHours: Math.round(ageHours * 10) / 10, maxAgeHours, stale: true, reason: '`_fetchedAt` nel futuro rispetto al controllo' };
+  }
   const stale = ageHours > maxAgeHours;
   return {
     fetchedAt,
@@ -243,6 +262,17 @@ function borderAge(doc, source, nowMs) {
     stale,
     reason: stale ? `età ${Math.round(ageHours / 24)}g oltre lo SLA di ${Math.round(maxAgeHours / 24)}g` : null,
   };
+}
+
+function officialRecordFieldAllowed(sourceKey, field, pharmacy) {
+  if (!OFFICIAL_RECORD_FIELD_ALLOWLIST[sourceKey]?.has(field)) return false;
+  if (pharmacy?.sourceType !== 'official' || pharmacy?.dataAvailability?.[field] !== 'verified') return false;
+  try {
+    const hostname = new URL(pharmacy.sourceUrl).hostname.toLowerCase();
+    return OFFICIAL_RECORD_SOURCE_HOSTS[sourceKey]?.has(hostname) === true;
+  } catch {
+    return false;
+  }
 }
 
 /** Cross-dataset identity collisions: a record must not appear twice under a different jurisdiction. */
@@ -273,15 +303,18 @@ export function detectBorderIdentityCollisions(records) {
 /** Secondary values are facts only when their field-level source is complete. */
 export function detectMissingSecondaryProvenance(records) {
   const missing = [];
-  for (const { jurisdiction, pharmacy } of records) {
+  for (const { jurisdiction, sourceKey, pharmacy } of records) {
     for (const [field, present] of SECONDARY_FIELDS) {
       if (!present(pharmacy)) continue;
       const source = pharmacy?.fieldSources?.[field];
-      // Optional values emitted directly by a declared official record source
-      // use the record-level provenance. Only secondary/enriched values need a
-      // separate field source; otherwise the current official Ticino phone
-      // numbers and Ministry coordinates would be reported as false gaps.
-      if (!source && pharmacy?.sourceType === 'official' && typeof pharmacy?.sourceUrl === 'string' && pharmacy.sourceUrl.trim() !== '') continue;
+      if (pharmacy?.dataAvailability?.[field] !== 'verified') {
+        missing.push({ jurisdiction, pharmacyId: pharmacy?.id || null, field });
+        continue;
+      }
+      // Only this explicit, source-host-bound allowlist can use record-level
+      // provenance. Enriched values and official fields outside the allowlist
+      // must have a complete fieldSources entry.
+      if (!source && officialRecordFieldAllowed(sourceKey, field, pharmacy)) continue;
       const validUrl = typeof source?.url === 'string' && source.url.trim() !== '';
       const validCheckedAt = Number.isFinite(Date.parse(source?.checkedAt));
       const validType = typeof source?.sourceType === 'string' && source.sourceType.trim() !== '';
@@ -299,10 +332,21 @@ export function findBorderOutOfScopeRecords(records) {
   return records
     .filter(({ pharmacy }) => {
       if (pharmacy?.country === 'CH') return pharmacy.canton !== 'Ticino';
-      if (pharmacy?.country === 'IT') return !['CO', 'VA', 'VB'].includes(pharmacy.province);
+      if (pharmacy?.country === 'IT') return !BORDER_ITALY_PROVINCES.has(pharmacy.province);
       return true;
     })
     .map(({ jurisdiction, pharmacy }) => ({ jurisdiction, pharmacyId: pharmacy?.id || null, name: pharmacy?.name || null, country: pharmacy?.country || null, province: pharmacy?.province || null }));
+}
+
+/** A record can be in scope globally but still be in the wrong source snapshot. */
+export function findBorderSourceMismatches(records) {
+  return records
+    .filter(({ sourceKey, pharmacy }) => {
+      if (sourceKey === 'ticino-complete') return pharmacy?.country !== 'CH' || pharmacy?.canton !== 'Ticino';
+      if (sourceKey === 'italy-border') return pharmacy?.country !== 'IT' || !BORDER_ITALY_PROVINCES.has(pharmacy?.province);
+      return true;
+    })
+    .map(({ jurisdiction, sourceKey, pharmacy }) => ({ jurisdiction, sourceKey, pharmacyId: pharmacy?.id || null, name: pharmacy?.name || null, country: pharmacy?.country || null, canton: pharmacy?.canton || null, province: pharmacy?.province || null }));
 }
 
 /**
@@ -314,8 +358,8 @@ export function evaluateBorderHealth({ sources, ticino, italy, duties = null, no
   const sourceMap = borderSourceRegistry(sources);
   const docs = { 'ticino-complete': normalizedBorderDoc(ticino), 'italy-border': normalizedBorderDoc(italy) };
   const records = [
-    ...pharmacyRecords(ticino).map((pharmacy) => ({ jurisdiction: 'CH-TI', pharmacy })),
-    ...pharmacyRecords(italy).map((pharmacy) => ({ jurisdiction: 'IT', pharmacy })),
+    ...pharmacyRecords(ticino).map((pharmacy) => ({ jurisdiction: 'CH-TI', sourceKey: 'ticino-complete', pharmacy })),
+    ...pharmacyRecords(italy).map((pharmacy) => ({ jurisdiction: 'IT', sourceKey: 'italy-border', pharmacy })),
   ];
   const jurisdictions = BORDER_JURISDICTIONS.map((definition) => {
     const doc = docs[definition.sourceKey];
@@ -361,6 +405,7 @@ export function evaluateBorderHealth({ sources, ticino, italy, duties = null, no
     totalRecords: jurisdictions.reduce((sum, jurisdiction) => sum + jurisdiction.recordCount, 0),
     fetchErrors,
     outOfScopeRecords: findBorderOutOfScopeRecords(records),
+    sourceMismatches: findBorderSourceMismatches(records),
     identityCollisions: detectBorderIdentityCollisions(records),
     missingSecondaryProvenance: detectMissingSecondaryProvenance(records),
     validationErrors,
@@ -476,6 +521,7 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
     }
     for (const error of borderHealth.fetchErrors) problems.push(`${error.count} errore/i di fetch nel dataset perimetro ${error.key}`);
     if (borderHealth.outOfScopeRecords.length) problems.push(`${borderHealth.outOfScopeRecords.length} record fuori perimetro nelle snapshot farmacie`);
+    if (borderHealth.sourceMismatches.length) problems.push(`${borderHealth.sourceMismatches.length} record nella snapshot della fonte errata`);
     if (borderHealth.identityCollisions.length) problems.push(`${borderHealth.identityCollisions.length} collisioni di identità nelle snapshot farmacie`);
     if (borderHealth.missingSecondaryProvenance.length) problems.push(`${borderHealth.missingSecondaryProvenance.length} campi secondari senza provenienza completa`);
     for (const error of borderHealth.validationErrors) problems.push(`validazione perimetro: ${error}`);
@@ -525,6 +571,7 @@ export function formatReport(report) {
     }
     lines.push(`Errori fetch perimetro: ${report.border.fetchErrors.reduce((n, e) => n + e.count, 0)}`);
     lines.push(`Record fuori perimetro: ${report.border.outOfScopeRecords.length}`);
+    lines.push(`Record nella snapshot della fonte errata: ${report.border.sourceMismatches.length}`);
     lines.push(`Collisioni identità perimetro: ${report.border.identityCollisions.length}`);
     lines.push(`Campi secondari senza provenienza: ${report.border.missingSecondaryProvenance.length}`);
   }

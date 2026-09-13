@@ -14,6 +14,7 @@ import {
   evaluateBorderHealth,
   evaluateFreshness,
   findBorderOutOfScopeRecords,
+  findBorderSourceMismatches,
   normalizeIdentityField,
   formatReport,
   parseIsoDurationMs,
@@ -130,6 +131,7 @@ describe('evaluateBorderHealth', () => {
     expect(health.totalRecords).toBe(749);
     expect(health.fetchErrors).toEqual([]);
     expect(health.outOfScopeRecords).toEqual([]);
+    expect(health.sourceMismatches).toEqual([]);
     expect(health.identityCollisions).toEqual([]);
     expect(health.missingSecondaryProvenance).toEqual([]);
     expect(health.validationErrors).toEqual([]);
@@ -162,6 +164,20 @@ describe('evaluateBorderHealth', () => {
     expect(health.missingSecondaryProvenance).toEqual([{ jurisdiction: 'IT', pharmacyId: 'it-c', field: 'phone' }]);
     expect(health.fetchErrors).toMatchObject([{ key: 'italy-border', count: 1 }]);
   });
+
+  it('rejects a snapshot timestamp in the future', () => {
+    const health = evaluateBorderHealth({
+      sources: borderSources,
+      ticino: { ...ticino, _fetchedAt: new Date(NOW + 3600e3).toISOString() },
+      italy: { ...italy, _fetchedAt: iso(1) },
+      duties: borderDuties,
+      nowMs: NOW,
+    });
+    expect(health.jurisdictions.find((entry) => entry.key === 'CH-TI')).toMatchObject({
+      stale: true,
+      reason: expect.stringContaining('futuro'),
+    });
+  });
 });
 
 describe('border sync cadence', () => {
@@ -169,6 +185,7 @@ describe('border sync cadence', () => {
     const workflow = readFileSync(BORDER_SYNC_WORKFLOW, 'utf8');
     expect(borderSources.sources['italy-border'].fetchFrequency).toBe('P1D');
     expect(workflow).toContain("cron: '23 4 * * *'");
+    expect(readFileSync(PHARMACY_WORKFLOW, 'utf8')).toContain("cron: '10 6 * * *'");
   });
 });
 
@@ -181,6 +198,35 @@ describe('border identity and provenance helpers', () => {
     ];
     expect(detectBorderIdentityCollisions(records).map((collision) => collision.field)).toEqual(['id', 'identity']);
     expect(findBorderOutOfScopeRecords(records)).toEqual([]);
+    expect(findBorderSourceMismatches([
+      { jurisdiction: 'CH-TI', sourceKey: 'ticino-complete', pharmacy: { id: 'it-in-ch', name: 'Italia in Ticino', country: 'IT', province: 'CO' } },
+      { jurisdiction: 'IT', sourceKey: 'italy-border', pharmacy: { id: 'ch-in-it', name: 'Svizzera in Italia', country: 'CH', canton: 'Ticino' } },
+    ])).toHaveLength(2);
+  });
+
+  it('only permits explicitly whitelisted official record fields without fieldSources', () => {
+    expect(detectMissingSecondaryProvenance([{
+      jurisdiction: 'CH-TI',
+      sourceKey: 'ticino-complete',
+      pharmacy: {
+        id: 'official-phone',
+        phone: '+41 91 000 00 00',
+        sourceType: 'official',
+        sourceUrl: 'https://www.ofct.ch/luganese/',
+        dataAvailability: { phone: 'verified' },
+      },
+    }])).toEqual([]);
+    expect(detectMissingSecondaryProvenance([{
+      jurisdiction: 'IT',
+      sourceKey: 'italy-border',
+      pharmacy: {
+        id: 'unlisted-phone',
+        phone: '+39 000 000 000',
+        sourceType: 'official',
+        sourceUrl: 'https://www.dati.salute.gov.it/it/dataset/farmacie/',
+        dataAvailability: { phone: 'verified' },
+      },
+    }])).toEqual([{ jurisdiction: 'IT', pharmacyId: 'unlisted-phone', field: 'phone' }]);
   });
 });
 
@@ -311,13 +357,37 @@ describe('report payload consumed by the workflow', () => {
       duties: { ticino: { _fetchedAt: iso(1), duties: [] } },
       knownCantonCount: 26,
       nowMs: NOW,
-      border: { sources: borderSources, ticino, italy, duties: borderDuties },
+      border: {
+        sources: borderSources,
+        ticino: { ...ticino, _fetchedAt: iso(1) },
+        italy: { ...italy, _fetchedAt: iso(1) },
+        duties: borderDuties,
+      },
     });
     expect(report.healthy).toBe(true);
     expect(report.border).toMatchObject({ totalRecords: 749, outOfScopeRecords: [], identityCollisions: [], missingSecondaryProvenance: [] });
     expect(report.dashboard.join('\n')).toContain('Perimetro operativo: 4 giurisdizioni · 749 record');
     expect(report.dashboard.join('\n')).toContain('IT-CO [active] — 193 record');
     expect(report.dashboard.join('\n')).toContain('Errori fetch perimetro: 0');
+    expect(report.dashboard.join('\n')).toContain('Record nella snapshot della fonte errata: 0');
+  });
+
+  it('turns a border health failure into an unhealthy build report', () => {
+    const report = buildReport({
+      registry,
+      datasets: { ticino: anagrafica() },
+      duties: { ticino: { _fetchedAt: iso(1), duties: [] } },
+      knownCantonCount: 26,
+      nowMs: NOW,
+      border: {
+        sources: borderSources,
+        ticino: { ...ticino, _fetchedAt: iso(70) },
+        italy: { ...italy, _fetchedAt: iso(1) },
+        duties: borderDuties,
+      },
+    });
+    expect(report.healthy).toBe(false);
+    expect(report.problems.join('\n')).toContain('dataset perimetro CH-TI stale');
   });
 });
 
