@@ -41,6 +41,19 @@ describe('pickClusterSeeds', () => {
       'imposta alla fonte ticino frontalieri',
     ]);
   });
+
+  it('does not turn nullish, boolean or blank p50 evidence into zero', () => {
+    const stats = {
+      fiscale: { p50: null },
+      salute: { p50: false },
+      lavoro: { p50: ' ' },
+      pensioni: { p50: 120 },
+    };
+    expect(pickClusterSeeds(stats)).toEqual([
+      'avs lpp frontalieri svizzera',
+      'secondo pilastro frontalieri svizzera',
+    ]);
+  });
 });
 
 describe('fetchSuggestDiscoveryCandidates', () => {

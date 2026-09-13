@@ -15,6 +15,7 @@
 
 import { fetchSuggestCandidates } from '../../topic-sources/googleSuggest.mjs';
 import { anchorSeed, hasDomainAnchor } from '../domainAnchor.mjs';
+import { safeNumber } from '../../scoring/constants.mjs';
 
 const SOURCE_TAG = 'suggest';
 const MAX_SEEDS = 8;
@@ -49,8 +50,8 @@ const CLUSTER_SEED_TEMPLATES = {
 export function pickClusterSeeds(clusterStats) {
   if (!clusterStats || typeof clusterStats !== 'object') return [];
   const entries = Object.entries(clusterStats)
-    .filter(([name, stats]) => name !== 'generic' && stats && Number.isFinite(Number(stats.p50)))
-    .map(([name, stats]) => ({ name, p50: Number(stats.p50) }));
+    .map(([name, stats]) => ({ name, p50: safeNumber(stats?.p50, null) }))
+    .filter(({ name, p50 }) => name !== 'generic' && p50 !== null);
   entries.sort((a, b) => b.p50 - a.p50);
   const seeds = [];
   for (const e of entries) {
