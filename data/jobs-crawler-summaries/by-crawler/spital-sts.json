@@ -1,21 +1,21 @@
 {
   "key": "spital-sts",
   "label": "Spital STS",
-  "generatedAt": "2026-09-12T13:00:14.238Z",
-  "total": 11,
+  "generatedAt": "2026-09-13T13:56:35.706Z",
+  "total": 10,
   "discovered": null,
   "parsed": 10,
   "lastFetchOutcome": null,
-  "written": 11,
+  "written": 10,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8659,
-  "avgDurationMs": 8659,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 8520,
+  "avgDurationMs": 8520,
   "durationHistory": [
-    8659
+    8520
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/cd19526d-68be-4e8f-8eb4-801b4e12c98a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:03.203Z",
+      "crawledAt": "2026-09-13T13:56:23.800Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/b0c03a03-b14d-4f8f-9b06-c1891cfefebe/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:03.700Z",
+      "crawledAt": "2026-09-13T13:56:24.290Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/45ab28a8-55ed-4e1f-b55c-d66a4e6476cc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:04.161Z",
+      "crawledAt": "2026-09-13T13:56:24.771Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -143,7 +143,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1cfaa927-c56f-41d4-98b5-a90c9031cc90/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:04.620Z",
+      "crawledAt": "2026-09-13T13:56:25.182Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/9378e829-2288-4254-a9dd-4b7059b675e7/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:05.287Z",
+      "crawledAt": "2026-09-13T13:56:25.658Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -217,7 +217,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e3b9ec4f-9c75-49f9-a2ae-95eed3456ca7/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:05.732Z",
+      "crawledAt": "2026-09-13T13:56:26.041Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c6125f64-2b40-499e-9bc6-2890e9d2ecb5/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:06.189Z",
+      "crawledAt": "2026-09-13T13:56:26.434Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -291,7 +291,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4a5e872a-75e2-44df-85ca-24f2d03af648/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:06.738Z",
+      "crawledAt": "2026-09-13T13:56:26.899Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -328,7 +328,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/ef097c63-0366-45fd-829c-ad48b2eac151/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:07.193Z",
+      "crawledAt": "2026-09-13T13:56:27.327Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -365,7 +365,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b8100c4-fe74-471a-a9b1-6a5e650f3f9b/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:00:07.613Z",
+      "crawledAt": "2026-09-13T13:56:27.731Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -390,8 +390,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "spital-sts-758caf44a350",
       "slug": "centro-di-emergenza-sanitaria-professionale-spital-sts-thun",
@@ -433,5 +432,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

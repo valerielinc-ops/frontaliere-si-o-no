@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ermenegildo-zegna-logistica",
-  "assembledAt": "2026-09-12T13:00:25.688Z",
+  "assembledAt": "2026-09-13T13:56:48.308Z",
   "jobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=272704425&Team=231361273",
@@ -78,7 +78,8 @@
       "previousSlugs": [
         "store-style-advisor-zurich-airport-zegna"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=272160171&Team=231361271",
@@ -98,7 +99,7 @@
       },
       "titleByLocale": {
         "it": "Back Office Tirocinante - Ufficio Modelli",
-        "en": "Back Office Intern - Model Office",
+        "en": "Back Office Intern - Ufficio Modelli",
         "de": "Back Office-Praktikant",
         "fr": "Back Office Stagiaire - Ufficio Modelli"
       },
@@ -142,7 +143,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-07-31T11:54:47.257Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     }
   ]
 }
