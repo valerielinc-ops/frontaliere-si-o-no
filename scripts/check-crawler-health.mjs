@@ -66,12 +66,14 @@
  *
  * Fetch outcome (issue #7897): a summary slice MAY report `lastFetchOutcome`,
  * the run's own verdict on WHY it ended up empty — `ok`, `anti_bot_block`,
- * `selector_miss` or `filtered_empty`. It answers on the FIRST observation the
+ * `selector_miss`, `filtered_empty`, `connection_error` or
+ * `feed_endpoint_unavailable`. It answers on the FIRST observation the
  * question the empty-streak gate can only guess at after three days, and even
  * then only as "0 jobs, cause unknown": a source that refused the fetch, a
  * parser whose selectors stopped matching, and a source that is legitimately
- * quiet all publish the same `total: 0`. `selector_miss`/`anti_bot_block` are
- * a proof of breakage, so they flag `broken` immediately and NAME the cause;
+ * quiet all publish the same `total: 0`. `selector_miss`/`anti_bot_block`,
+ * `connection_error` and `feed_endpoint_unavailable` are proof of a broken
+ * refresh, so they flag `broken` immediately and NAME the cause;
  * `filtered_empty` is the same evidence as the `discovered > 0, written === 0`
  * signal above and clears the streak. Like `discovered`/`written`, the field is
  * OPTIONAL: a slice without it — every historical slice included — is read
@@ -1369,8 +1371,9 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
 
   // A proven fetch failure cancels every empty-ok signal, including a manual
   // EMPTY_OK_CRAWLERS entry. Those signals all mean "this zero is not evidence
-  // of breakage"; `anti_bot_block`/`selector_miss` are evidence of breakage, on
-  // the run's own report. Letting the allowlist win would mask exactly the case
+  // of breakage"; `anti_bot_block`/`selector_miss` plus the explicit transport
+  // and endpoint outcomes are evidence of breakage, on the run's own report.
+  // Letting the allowlist win would mask exactly the case
   // #6496 is about — a listed source that has actually died — and would also
   // reset the streak that must keep growing while it stays broken. Same
   // reasoning as `abortedRun` below, one step earlier in the pipeline.
@@ -1508,9 +1511,15 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     // and the reason can send triage to the right layer instead of the parser
     // by default.
     status = 'broken';
-    reason = fetchOutcome === 'anti_bot_block'
-      ? 'run reported lastFetchOutcome=anti_bot_block with 0 jobs — the source refused the fetch (WAF/anti-bot/IP reputation) and the selectors were never exercised; look at the fetch transport, not at the parser'
-      : 'run reported lastFetchOutcome=selector_miss with 0 jobs — the fetch succeeded and the parser matched nothing it used to match (selector/label drift); look at the parser config, the source is reachable';
+    if (fetchOutcome === 'anti_bot_block') {
+      reason = 'run reported lastFetchOutcome=anti_bot_block with 0 jobs — the source refused the fetch (WAF/anti-bot/IP reputation) and the selectors were never exercised; look at the fetch transport, not at the parser';
+    } else if (fetchOutcome === 'selector_miss') {
+      reason = 'run reported lastFetchOutcome=selector_miss with 0 jobs — the fetch succeeded and the parser matched nothing it used to match (selector/label drift); look at the parser config, the source is reachable';
+    } else if (fetchOutcome === 'connection_error') {
+      reason = 'run reported lastFetchOutcome=connection_error with 0 jobs — retries and proxy fallback never observed the source; look at crawler egress/transport, not at selectors';
+    } else {
+      reason = 'run reported lastFetchOutcome=feed_endpoint_unavailable with 0 jobs — the expected feed host answered with a redirect or HTML document; look at the vendor endpoint, not at XML selectors';
+    }
   } else if (lastObservedJobs === 0 && emptyOk) {
     status = 'healthy';
     reason = null;

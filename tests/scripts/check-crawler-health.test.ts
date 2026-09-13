@@ -1271,6 +1271,22 @@ describe('nextCrawlerState — self-reported fetch outcome (#7897)', () => {
     expect(state._lastObservedFetchOutcome).toBe('selector_miss');
   });
 
+  it.each([
+    ['connection_error', /crawler egress\/transport/],
+    ['feed_endpoint_unavailable', /vendor endpoint/],
+  ])('flags %s immediately with layer-specific triage', (outcome, expectedReason) => {
+    const { status, reason, state } = nextCrawlerState(
+      undefined,
+      obsWithOutcome(0, outcome),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(reason).toContain(`lastFetchOutcome=${outcome}`);
+    expect(reason).toMatch(expectedReason);
+    expect(state._lastObservedFetchOutcome).toBe(outcome);
+  });
+
   it('treats filtered_empty as healthy and clears a broken-eligible streak', () => {
     // Same claim as the #5945 `discovered > 0, written === 0` pair, made
     // directly by the run instead of inferred from two counts.

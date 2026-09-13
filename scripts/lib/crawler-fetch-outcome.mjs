@@ -35,6 +35,12 @@ export const CRAWLER_FETCH_OUTCOMES = new Set([
   // …) dropped all of them. Not a failure — the same evidence as a
   // `discovered > 0, written === 0` slice (#5945), stated directly.
   'filtered_empty',
+  // The crawler exhausted transport retries without observing the source.
+  // This is distinct from selector drift: the parser never received a page.
+  'connection_error',
+  // The expected feed host answered with a redirect/HTML maintenance page.
+  // This is an upstream endpoint outage, not malformed XML or selector drift.
+  'feed_endpoint_unavailable',
 ]);
 
 /**
@@ -43,7 +49,12 @@ export const CRAWLER_FETCH_OUTCOMES = new Set([
  * `ok` and `filtered_empty` are the opposite claim: they assert the zero is
  * legitimate.
  */
-export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set(['anti_bot_block', 'selector_miss']);
+export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set([
+  'anti_bot_block',
+  'selector_miss',
+  'connection_error',
+  'feed_endpoint_unavailable',
+]);
 
 /**
  * Read a slice's (or parser's) self-reported outcome, or `null` when it is
@@ -51,7 +62,7 @@ export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set(['anti_bot_block', 'select
  * reading it as evidence would let a typo (`selector-miss`) flip a verdict.
  *
  * @param {unknown} value
- * @returns {'ok'|'anti_bot_block'|'selector_miss'|'filtered_empty'|null}
+ * @returns {'ok'|'anti_bot_block'|'selector_miss'|'filtered_empty'|'connection_error'|'feed_endpoint_unavailable'|null}
  */
 export function normalizeFetchOutcome(value) {
   return typeof value === 'string' && CRAWLER_FETCH_OUTCOMES.has(value) ? value : null;
