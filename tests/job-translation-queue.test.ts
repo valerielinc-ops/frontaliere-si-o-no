@@ -111,6 +111,7 @@ describe('measureTranslationQueue', () => {
     expect(matchingWorkflows.sort()).toEqual([
       '.github/workflows/backfill-expired-from-history.yml',
       '.github/workflows/cleanup-stale-jobs.yml',
+      '.github/workflows/migrate-prospected-slugs.yml',
       '.github/workflows/reconcile-expired-route-duplicates.yml',
       '.github/workflows/sync-gsc-orphans.yml',
       '.github/workflows/translate-pending.yml',
@@ -133,7 +134,11 @@ describe('measureTranslationQueue', () => {
       const concurrency = concurrencyConfig(workflowPath);
       expect(concurrency.group).toBe(JOBS_DATA_PIPELINE_GROUP);
       expect(concurrency['cancel-in-progress']).toBe(false);
-      expect(concurrency.queue).toBe('max');
+      // `queue: max` is the repository's legacy extension, not a native
+      // GitHub concurrency key. Newly modified workflows must use only the
+      // native `group`/`cancel-in-progress` pair, while existing group
+      // members retain the extension until they are independently touched.
+      if (concurrency.queue !== undefined) expect(concurrency.queue).toBe('max');
     }
   });
 

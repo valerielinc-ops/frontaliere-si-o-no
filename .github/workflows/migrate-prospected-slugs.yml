@@ -88,13 +88,13 @@ jobs:
             esac
           }
 
-          while IFS= read -r changed; do
+          while IFS= read -r -u 9 changed; do
             [ -n "$changed" ] || continue
             if ! is_target_path "$changed"; then
               echo "::error::migration changed an unexpected path: $changed"
               exit 1
             fi
-          done < <(git diff --name-only | sort)
+          done 9< <(git diff --name-only | sort)
 
       - name: Test gate for bot-direct data write
         if: ${{ inputs.dry_run != true }}
@@ -118,13 +118,13 @@ jobs:
             esac
           }
 
-          while IFS= read -r changed; do
+          while IFS= read -r -u 9 changed; do
             [ -n "$changed" ] || continue
             if ! is_target_path "$changed"; then
               echo "::error::test or migration changed an unexpected path: $changed"
               exit 1
             fi
-          done < <(git diff --name-only | sort)
+          done 9< <(git diff --name-only | sort)
 
           git add -- \
             data/jobs/by-crawler/accor.json \
@@ -135,13 +135,13 @@ jobs:
             data/jobs/by-crawler/recruitingapp-2649.json
 
           staged_paths="$(git diff --cached --name-only | sort)"
-          while IFS= read -r staged; do
+          while IFS= read -r -u 9 staged; do
             [ -n "$staged" ] || continue
             if ! is_target_path "$staged"; then
               echo "::error::staging selected an unexpected path: $staged"
               exit 1
             fi
-          done <<< "$staged_paths"
+          done 9<<< "$staged_paths"
 
           if [ -z "$staged_paths" ]; then
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
