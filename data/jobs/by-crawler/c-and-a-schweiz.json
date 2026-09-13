@@ -2954,12 +2954,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch",
-        "partner-di-vendita-portachiavi-80-csd-3-mesi-c-a-schweiz-crissier-ch"
+        "partner-di-vendita-portachiavi-80-csd-3-mesi-c-a-schweiz-crissier-ch",
+        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-a-schweiz-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch",
-          "partner-di-vendita-portachiavi-80-csd-3-mesi-c-a-schweiz-crissier-ch"
+          "partner-di-vendita-portachiavi-80-csd-3-mesi-c-a-schweiz-crissier-ch",
+          "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-a-schweiz-crissier"
         ],
         "en": [
           "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
@@ -2969,7 +2971,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:46:04.894Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -2983,7 +2984,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "c-and-a-schweiz-d8d7eefea51b",
@@ -3223,7 +3225,7 @@
       "title": "CH_Sales Assistant - Service",
       "titleByLocale": {
         "it": "CH Sales Assistant - Servizio",
-        "en": "CH Sales Assistant - Service",
+        "en": "Sales Assistant - Service",
         "de": "CH_Sales Assistent - Service",
         "fr": "CH_Sales Assistant - Service"
       },
@@ -3280,7 +3282,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "retranslationAttempts": 2
     },
     {
       "id": "c-and-a-schweiz-936f1fd25082",
@@ -3552,17 +3555,17 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
       "titleByLocale": {
-        "en": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
-        "fr": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
         "it": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
-        "de": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne"
+        "en": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
+        "de": "Kooperationspartner mit Schlüsseldienstfunktion - Focus Services (m/w/d) zu 60 % - Biel",
+        "fr": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne"
       },
       "description": "The future looks like you\n\nYour responsibilities\n\nWhat you bring\n\nWhat we offer\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community.",
       "descriptionByLocale": {
         "it": "Il futuro ti assomiglia\n\nLe tue responsabilità\n\nCosa porti\n\nCosa offriamo\n\nC&A promuove le pari opportunità per le persone di ogni provenienza e identità. Siamo guidati da un consiglio di amministrazione equilibrato dal punto di vista del genere che si impegna a costruire un'organizzazione diversificata e inclusiva in cui tutti possano diventare il meglio di sé.\nNon discriminiamo in base all'età, alla disabilità, all'identità di genere, all'orientamento sessuale, all'etnia, alla razza, alla religione o alle convinzioni personali, allo stato genitoriale e familiare o a qualsiasi altra caratteristica protetta. Accogliamo con favore le candidature di donne, uomini e candidati non binari di tutte le etnie e background socio-economici. Incoraggiamo le persone appartenenti a gruppi sottorappresentati a candidarsi.\nAnche se non selezioni tutte le caselle, ma ti accorgi di contribuire, ti preghiamo di candidarti e di aiutarci a costruire una community inclusiva.",
         "en": "The future looks like you\n\nYour responsibilities\n\nWhat you bring\n\nWhat we offer\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community.",
-        "de": "Die Zukunft sieht aus wie du\n\nIhre Verantwortung\n\nWas du mitbringst\n\nWas wir anbieten\n\nC&A fördert die Chancengleichheit für Menschen aller Herkunft und Identitäten. Wir werden von einem geschlechter-balanced Board geführt, das sich für den Aufbau einer vielfältigen und inklusiven Organisation einsetzt, in der jeder sein bestes Selbst werden kann. Wir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Zugehörigkeit, Rasse, Religion oder Weltanschauung, elterlicher und familiärer Stellung oder irgendeiner anderen geschützten Eigenschaft. Wir begrüßen Bewerbungen von Frauen, Männern und nicht-binären Kandidaten aller ethnischen und sozioökonomischen Herkunft. Wir ermutigen Menschen, die zu unterrepräsentierten Gruppen gehören, sich zu bewerben.\n\nSelbst wenn Sie nicht jedes Kästchen überprüfen, aber sehen Sie sich selbst beitragen, bitte bewerben und helfen Sie uns, eine inklusive Gemeinschaft zu bauen.",
-        "fr": "Le futur te ressemble\n\nVos responsabilités\n\nCe que vous apportez\n\nCe que nous offrons\n\nNous sommes dirigés par un conseil équilibré entre les sexes qui s'engage à créer une organisation diversifiée et inclusive où chacun peut devenir son meilleur individu. Nous ne faisons pas de discrimination fondée sur l'âge, le handicap, l'identité de genre, l'orientation sexuelle, l'appartenance ethnique, la race, la religion ou les convictions, la situation parentale et familiale ou toute autre caractéristique protégée. Nous accueillons favorablement les candidatures des femmes, des hommes et des candidats non binaires de toutes les ethnies et de tous les milieux socio-économiques.\n\nMême si vous ne cochez pas chaque case, mais voyez-vous vous-même contribuer, veuillez postuler et nous aider à construire une communauté inclusive."
+        "de": "Die Zukunft sieht aus wie du\n\nIhre Verantwortung\n\nWas du mitbringst\n\nWas wir anbieten\n\nC&A fördert die Chancengleichheit für Menschen aller Herkunft und Identitäten. Wir werden von einem geschlechter-balanced Board geführt, das sich für den Aufbau einer vielfältigen und inklusiven Organisation einsetzt, in der jeder sein bestes Selbst werden kann. Wir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Zugehörigkeit, Rasse, Religion oder Weltanschauung, elterlicher und familiärer Stellung oder irgendeiner anderen geschützten Eigenschaft. Wir begrüßen Bewerbungen von Frauen, Männern und nicht-binären Kandidaten aller ethnischen und sozioökonomischen Herkunft. Wir ermutigen Menschen, die zu unterrepräsentierten Gruppen gehören, sich zu bewerben.\n\nSelbst wenn Sie nicht jedes Kästchen überprüfen, aber sehen Sie sich selbst beitragen, bitte bewerben Sie sich und helfen Sie uns, eine inklusive Gemeinschaft aufzubauen.",
+        "fr": "Le futur te ressemble\n\nVos responsabilités\n\nCe que vous apportez\n\nCe que nous offrons\n\nNous sommes dirigés par un conseil équilibré entre les sexes qui s'engage à créer une organisation diversifiée et inclusive où chacun peut devenir son meilleur individu. Nous ne faisons pas de discrimination fondée sur l'âge, le handicap, l'identité de genre, l'orientation sexuelle, l'ethnicité, la race, la religion ou les convictions, la situation parentale et familiale ou toute autre caractéristique protégée. Nous accueillons favorablement les candidatures des femmes, des hommes et des candidats non binaires de toutes les ethnies et de tous les milieux socio-économiques.\n\nMême si vous ne cochez pas chaque case, mais voyez-vous vous-même contribuer, veuillez postuler et nous aider à construire une communauté inclusive."
       },
       "location": "Biel-Bienne (CH)",
       "canton": "BE",
@@ -3586,21 +3589,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "previousSlugs": [
-        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c",
-        "verkaufsassistentin-mit-schlusseltragerfunktion-servicebereich-f-m-d-60-biel-c-a-schweiz-biel-bienne-ch",
-        "collaboratrice-di-vendita-con-funzione-portatrice-di-chiavi-specializzazione-servizi-h-f-d-al-60-bienne-c-a-schweiz-biel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c",
-          "collaboratrice-di-vendita-con-funzione-portatrice-di-chiavi-specializzazione-servizi-h-f-d-al-60-bienne-c-a-schweiz-biel"
-        ],
-        "de": [
-          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c",
-          "verkaufsassistentin-mit-schlusseltragerfunktion-servicebereich-f-m-d-60-biel-c-a-schweiz-biel-bienne-ch"
-        ]
-      },
       "firstSeenAt": "2026-09-02T13:54:12.370Z",
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -3615,7 +3603,23 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c",
+          "collaboratrice-di-vendita-con-funzione-portatrice-di-chiavi-specializzazione-servizi-h-f-d-al-60-bienne-c-a-schweiz-biel"
+        ],
+        "de": [
+          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c",
+          "verkaufsassistentin-mit-schlusseltragerfunktion-servicebereich-f-m-d-60-biel-c-a-schweiz-biel-bienne-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c",
+        "verkaufsassistentin-mit-schlusseltragerfunktion-servicebereich-f-m-d-60-biel-c-a-schweiz-biel-bienne-ch",
+        "collaboratrice-di-vendita-con-funzione-portatrice-di-chiavi-specializzazione-servizi-h-f-d-al-60-bienne-c-a-schweiz-biel"
+      ]
     },
     {
       "id": "c-and-a-schweiz-e2bb41cf68bd",

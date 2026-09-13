@@ -982,17 +982,6 @@
         "accountName": "Non-Management",
         "publishEndDate": ""
       },
-      "previousSlugs": [
-        "f-b-service-shiftleader-marriott-zurich",
-        "leader-del-servizio-f-b-marriott-international-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "f-b-service-shiftleader-marriott-zurich",
-          "leader-del-servizio-f-b-marriott-international-zurich"
-        ]
-      },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:23:18.813Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
@@ -1007,7 +996,17 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-shiftleader-marriott-zurich",
+          "leader-del-servizio-f-b-marriott-international-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-shiftleader-marriott-zurich",
+        "leader-del-servizio-f-b-marriott-international-zurich"
+      ]
     },
     {
       "id": "marriott-a44b3d5abcbf",
@@ -1168,7 +1167,6 @@
           "event-service-shiftleader-marriott-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:38:15.928Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
