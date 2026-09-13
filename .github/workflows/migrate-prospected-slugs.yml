@@ -1,0 +1,184 @@
+name: Migrate Prospected Slugs
+
+# One-shot, manually dispatched migration for the six prospected crawler
+# families. The script is read-only by default; the apply path is guarded by a
+# complete cross-slice preflight, a full test gate and an exact-path check
+# before it can push the six cron-managed slices to main.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Preflight only — do not write or push migrated slugs'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: jobs-data-pipeline
+  cancel-in-progress: false
+  queue: max
+
+permissions:
+  contents: write
+  issues: write
+
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials for push auth
+        if: ${{ inputs.dry_run != true }}
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        if: ${{ inputs.dry_run != true }}
+        run: node scripts/load-rc-env.mjs
+
+      - name: Cross-slice migration preflight
+        run: |
+          set -euo pipefail
+          node scripts/migrate-prospected-slugs.mjs \
+            | tee /tmp/prospected-slug-migration-preflight.txt
+
+      - name: Apply and validate migration
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          set -euo pipefail
+          node scripts/migrate-prospected-slugs.mjs --apply
+          node scripts/migrate-prospected-slugs.mjs \
+            | tee /tmp/prospected-slug-migration-postflight.txt
+          grep -Eq '^Dry run prospected slug migration: 0 of [0-9]+ jobs, 6 slices\.$' \
+            /tmp/prospected-slug-migration-postflight.txt
+
+          is_target_path() {
+            case "$1" in
+              data/jobs/by-crawler/accor.json \
+                | data/jobs/by-crawler/ete.json \
+                | data/jobs/by-crawler/gmo.json \
+                | data/jobs/by-crawler/michaelpage.json \
+                | data/jobs/by-crawler/okjob.json \
+                | data/jobs/by-crawler/recruitingapp-2649.json) return 0 ;;
+              *) return 1 ;;
+            esac
+          }
+
+          while IFS= read -r changed; do
+            [ -n "$changed" ] || continue
+            if ! is_target_path "$changed"; then
+              echo "::error::migration changed an unexpected path: $changed"
+              exit 1
+            fi
+          done < <(git diff --name-only | sort)
+
+      - name: Test gate for bot-direct data write
+        if: ${{ inputs.dry_run != true }}
+        run: npm test
+
+      - name: Commit and push exact migration paths
+        if: ${{ inputs.dry_run != true }}
+        id: commit
+        run: |
+          set -euo pipefail
+
+          is_target_path() {
+            case "$1" in
+              data/jobs/by-crawler/accor.json \
+                | data/jobs/by-crawler/ete.json \
+                | data/jobs/by-crawler/gmo.json \
+                | data/jobs/by-crawler/michaelpage.json \
+                | data/jobs/by-crawler/okjob.json \
+                | data/jobs/by-crawler/recruitingapp-2649.json) return 0 ;;
+              *) return 1 ;;
+            esac
+          }
+
+          while IFS= read -r changed; do
+            [ -n "$changed" ] || continue
+            if ! is_target_path "$changed"; then
+              echo "::error::test or migration changed an unexpected path: $changed"
+              exit 1
+            fi
+          done < <(git diff --name-only | sort)
+
+          git add -- \
+            data/jobs/by-crawler/accor.json \
+            data/jobs/by-crawler/ete.json \
+            data/jobs/by-crawler/gmo.json \
+            data/jobs/by-crawler/michaelpage.json \
+            data/jobs/by-crawler/okjob.json \
+            data/jobs/by-crawler/recruitingapp-2649.json
+
+          staged_paths="$(git diff --cached --name-only | sort)"
+          while IFS= read -r staged; do
+            [ -n "$staged" ] || continue
+            if ! is_target_path "$staged"; then
+              echo "::error::staging selected an unexpected path: $staged"
+              exit 1
+            fi
+          done <<< "$staged_paths"
+
+          if [ -z "$staged_paths" ]; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            echo "No prospected slug changes to commit"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(data): migrate prospected job slugs"
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+
+          # Re-run the deterministic migration after a ref race. The helper
+          # resets to the newest main, applies the same validated plan and
+          # stages only these six paths before retrying the push.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd 'node scripts/migrate-prospected-slugs.mjs --apply && git add -- data/jobs/by-crawler/accor.json data/jobs/by-crawler/ete.json data/jobs/by-crawler/gmo.json data/jobs/by-crawler/michaelpage.json data/jobs/by-crawler/okjob.json data/jobs/by-crawler/recruitingapp-2649.json'
+
+      - name: Trigger deploy after migration
+        if: steps.commit.outputs.has_changes == 'true'
+        run: bash scripts/lib/trigger-deploy.sh
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - name: Report workflow failure
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
