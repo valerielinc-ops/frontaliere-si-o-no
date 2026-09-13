@@ -11,6 +11,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
   classifyCredential,
+  classifyUnsubscribeWriter,
   aggregate,
   fallbackRate,
   DUPLICATE_EVENT_WINDOW_MS,
@@ -37,6 +38,28 @@ describe('unsubscribeCredentialMetrics — classifyCredential', () => {
     expect(classifyCredential(null)).toBe('missing');
     expect(classifyCredential('')).toBe('missing');
     expect(classifyCredential('something_else')).toBe('missing');
+  });
+});
+
+describe('unsubscribeCredentialMetrics — classifyUnsubscribeWriter', () => {
+  it('uses only the disjoint persisted writer signatures', () => {
+    expect(classifyUnsubscribeWriter({ unsubscribe_method: 'GET', unsubscribe_ip: '203.0.113.0' }))
+      .toBe('cloud_function');
+    expect(classifyUnsubscribeWriter({ user_id: null, metadata: null, source_page: null }))
+      .toBe('spa');
+    expect(classifyUnsubscribeWriter({ unsubscribe_method: 'GET', metadata: null }))
+      .toBe('unknown');
+    expect(classifyUnsubscribeWriter({ credential: 'autologin_code' })).toBe('unknown');
+  });
+
+  it('does not copy raw forensic values into the aggregate diagnostic', () => {
+    const agg = aggregate([
+      { credential: 'email_token', writer: 'cloud_function', unsubscribe_ip: '203.0.113.0' },
+      { credential: 'autologin_code', writer: 'spa', metadata: { email: 'do-not-copy' } },
+    ]);
+    expect(agg.writerCounts).toEqual({ cloud_function: 1, spa: 1, unknown: 0 });
+    expect(JSON.stringify(agg)).not.toContain('203.0.113.0');
+    expect(JSON.stringify(agg)).not.toContain('do-not-copy');
   });
 });
 
@@ -302,6 +325,21 @@ describe('check-unsubscribe-credential-rate — runCheck (synthetic Firestore, n
     expect(result.verdict.alert).toBe(false);
     expect(result.alertWritten).toBe(false);
     expect(existsSync(result.alertPath)).toBe(false);
+  }));
+
+  it('keeps a privacy-safe writer split beside the credential counts', async () => withTmpOutDir(async (outDir) => {
+    const events: FakeEvent[][] = [
+      ...Array.from({ length: 10 }, () => [unsubEvent('email_token', '2026-08-13T10:00:00.000Z', {
+        unsubscribe_method: 'GET', unsubscribe_ip: '203.0.113.0',
+      })]),
+      ...Array.from({ length: 10 }, () => [unsubEvent('email_token', '2026-08-13T10:00:00.000Z', {
+        user_id: null, metadata: null, source_page: '/',
+      })]),
+    ];
+    const result = await runCheck({ db: createFakeDb(events), hours: 168, outDir, now: NOW });
+    expect(result.agg.writerCounts).toEqual({ cloud_function: 10, spa: 10, unknown: 0 });
+    const history = JSON.parse(readFileSync(result.historyPath, 'utf8'));
+    expect(history.days.at(-1).writerCounts).toEqual({ cloud_function: 10, spa: 10, unknown: 0 });
   }));
 
   it('THE MUTATION-KILLING CASE: fallback rate over URGENT actually writes an alert.json whose title matches the workflow\'s own closer prefix', async () => withTmpOutDir(async (outDir) => {

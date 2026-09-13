@@ -126,6 +126,7 @@ import {
   FALLBACK_RATE_URGENT,
   MIN_SAMPLE,
   CREDENTIAL_LINK_CHANNEL,
+  classifyUnsubscribeWriter,
 } from './lib/unsubscribeCredentialMetrics.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 
@@ -218,7 +219,14 @@ async function readUnsubscribeLinkEvents(db, sinceDate) {
     // `email` feeds aggregate()'s dedup (#6361): repeats of the same email +
     // credential within DUPLICATE_EVENT_WINDOW_MS are one retried action
     // (scanner refetch, doubled tap), not two people relying on the fallback.
-    records.push({ credential: data.credential ?? null, email: typeof data.email === 'string' ? data.email : null, occurredAt });
+    records.push({
+      credential: data.credential ?? null,
+      email: typeof data.email === 'string' ? data.email : null,
+      occurredAt,
+      // Keep only the enum. The classifier intentionally looks at field
+      // presence, never copies the forensic values into the report/history.
+      writer: classifyUnsubscribeWriter(data),
+    });
   }
   // The cap drops the OLDEST events (the query is ordered newest-first), so a
   // saturated read silently shortens the window rather than failing. Say so.
@@ -251,6 +259,12 @@ function report(agg, verdict, hours, scannedEvents, hadFallbackBefore) {
   lines.push(`| autologin_code (fallback) | ${agg.counts.autologin_code} | **numeratore** |`);
   lines.push(`| legacy_auth_token (link \`at\`/\`authToken\`) | ${agg.counts.legacy_auth_token} | denominatore |`);
   lines.push(`| missing (nessun campo \`credential\`) | ${agg.counts.missing} | no — vedi \`uncredentialed_share\` |`);
+  lines.push('');
+  lines.push('| writer osservato (solo firma campi) | conteggio |');
+  lines.push('|---|---:|');
+  lines.push(`| cloud_function | ${agg.writerCounts.cloud_function} |`);
+  lines.push(`| spa | ${agg.writerCounts.spa} |`);
+  lines.push(`| unknown/ambiguo | ${agg.writerCounts.unknown} |`);
   lines.push('');
   lines.push(`**quota fallback: ${pct(agg.fallbackRate)}** su ${agg.graded} unsubscribe graduati (${agg.total} eventi \`unsubscribe_link\` totali nella finestra${agg.duplicatesDropped ? `, ${agg.duplicatesDropped} scartati come ripetizioni della stessa email+credential entro 15 minuti` : ''}).`);
   lines.push(`Fallback \`autologin_code\` osservato prima d'ora: ${hadFallbackBefore ? 'sì' : 'no (baseline a zero)'}.`);
@@ -294,6 +308,7 @@ export async function runCheck({ db, hours = DEFAULT_HOURS, outDir = DEFAULT_OUT
       date: today,
       windowHours: hours,
       counts: agg.counts,
+      writerCounts: agg.writerCounts,
       graded: agg.graded,
       fallbackRate: agg.fallbackRate,
       findings: verdict.findings.map((f) => f.code),

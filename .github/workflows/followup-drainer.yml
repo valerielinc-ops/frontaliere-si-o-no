@@ -193,6 +193,10 @@ jobs:
           # e il cap resta bounded; claim e quota Codex evitano collisioni con
           # la flotta locale. Il default del modulo resta 5 per run manuali.
           FOLLOWUP_MAX_INFLIGHT_FIX: '7'
+          # Ledger append-only condiviso con issue-fix e con l'adapter dei due
+          # PR fixer; lease scaduti non bloccano il tick successivo.
+          QUOTA_FLOOR_LEDGER_ISSUE: '8306'
+          QUOTA_FLOOR_LEASE_TTL_SEC: '21600'
           # Fairness di quota (2026-08-21): la quota Claude è condivisa coi run
           # del corpus, e il beacon peer è a senso unico (il corpus cede al
           # sito). Misurato: il sito consuma ogni finestra di reset e il corpus
