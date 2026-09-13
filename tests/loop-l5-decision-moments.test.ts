@@ -28,7 +28,17 @@ function duties(overrides: Record<string, unknown> = {}) {
 }
 
 function outcomes(overrides: Record<string, unknown> = {}) {
-  return { generatedAt: NOW.toISOString(), eligibleDecisionSessions: 120, nextUsefulActions: 45, ...overrides };
+  return {
+    generatedAt: NOW.toISOString(),
+    independent: true,
+    evidence: {
+      source: 'posthog-decision-surface-export',
+      sourceRefs: ['decision-surfaces', 'posthog'],
+    },
+    eligibleDecisionSessions: 120,
+    nextUsefulActions: 45,
+    ...overrides,
+  };
 }
 
 function tempSource(outcomeValue: unknown = null) {
@@ -68,6 +78,13 @@ describe('L5 Decision Moments', () => {
     const verdict = validate({}, null);
     expect(verdict.quality).toBe('partial');
     expect(verdict.snapshot.outcomes.nextUsefulActions).toBeNull();
+    expect(verdict.snapshot.outcomes.independent).toBe(false);
+  });
+
+  it('requires an explicit independent evidence assertion', () => {
+    const verdict = validate({}, outcomes({ independent: false }));
+    expect(verdict.ok).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('independent must be explicitly true');
   });
 
   it('rejects an unreconciled crossing and an impossible useful-action count', () => {
@@ -89,6 +106,7 @@ describe('L5 Decision Moments', () => {
     const source = tempSource(outcomes({ eligibleDecisionSessions: 0, nextUsefulActions: 0 }));
     const result = await runL5({ now: NOW, fuelPath: source.files.fuel, borderPath: source.files.border, pharmacyPath: source.files.pharmacies, dutyPath: source.files.duties, outcomePath: source.files.outcomes, logger: { log() {} } });
     expect(result.verdict.quality).toBe('zero');
+    expect(result.outcome).toMatchObject({ status: 'partial', independent: false });
     expect(result.observation.numerator).toBeNull();
     expect(result.observation.denominator).toBeNull();
   });
@@ -104,6 +122,33 @@ describe('L5 Decision Moments', () => {
     expect(actions.actions[0]).toMatchObject({ autonomy: 'A3', publishedDataUntouched: true });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l5-result.json'), 'utf8'))).toMatchObject({ ok: false, issued: true, actionsWritten: true });
     expect(issues).toHaveLength(1);
+  });
+
+  it('exports an explicit partial outcome when telemetry is unavailable', async () => {
+    const source = tempSource(null);
+    const reportDir = path.join(source.dir, 'report');
+    const result = await runL5({
+      now: NOW,
+      fuelPath: source.files.fuel,
+      borderPath: source.files.border,
+      pharmacyPath: source.files.pharmacies,
+      dutyPath: source.files.duties,
+      outcomePath: source.files.outcomes,
+      reportDir,
+      logger: { log() {} },
+    });
+    expect(result.outcome).toMatchObject({
+      loopId: 'L5',
+      status: 'partial',
+      independent: false,
+      metrics: { eligibleDecisionSessions: null, nextUsefulActions: null },
+      safeToAct: false,
+      publishedDataUntouched: true,
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l5-outcome.json'), 'utf8')))
+      .toMatchObject({ loopId: 'L5', status: 'partial', independent: false });
+    expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l5-result.json'), 'utf8')).outcome)
+      .toMatchObject({ loopId: 'L5', status: 'partial' });
   });
 
   it('does not claim issue persistence when the issue writer declines it', async () => {
