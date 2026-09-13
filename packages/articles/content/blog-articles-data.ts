@@ -34950,6 +34950,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'savoia-avanti-ticino-lavoro',
+ category: 'novita',
+ date: '2026-09-13T06:38:21.092Z',
+ image: '/images/blog/savoia-avanti-ticino-lavoro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
