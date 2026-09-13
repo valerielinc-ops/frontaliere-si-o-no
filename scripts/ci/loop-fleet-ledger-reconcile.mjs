@@ -180,6 +180,11 @@ export function selectRecoveryCandidates(candidates, { maxDispatches = 3 } = {})
     .slice(0, cap);
 }
 
+export function hasActiveBridgeRun(runs) {
+  return (runs || []).some((run) => new Set(['queued', 'in_progress', 'pending', 'requested'])
+    .has(String(run?.status || '')));
+}
+
 function runList(definition, limit) {
   const raw = gh([
     'run', 'list', '--workflow', definition.workflowFile, '--branch', 'main',
@@ -212,6 +217,14 @@ function dispatchBridge(candidate) {
     '-f', `sha=${String(candidate.run.headSha).toLowerCase()}`,
   ];
   return Boolean(gh(args, { allowFailure: true }));
+}
+
+function activeBridgeRun() {
+  const raw = gh([
+    'run', 'list', '--workflow', 'loop-fleet-ledger.yml', '--limit', '20', '--json', 'status,databaseId',
+  ], { allowFailure: true });
+  const runs = parseJson(raw, []);
+  return Array.isArray(runs) && hasActiveBridgeRun(runs);
 }
 
 function valueAfter(argv, flag, fallback = null) {
@@ -247,6 +260,8 @@ export function reconcileLoopFleetLedger({
   }
 
   const selected = selectRecoveryCandidates(candidates, { maxDispatches });
+  const bridgeActive = activeBridgeRun();
+  if (bridgeActive) log.log('loop-fleet-ledger-reconcile: bridge già in coda o in esecuzione; nessun dispatch duplicato.');
   const dispatched = [];
   for (const candidate of selected) {
     const runId = String(candidate.run.databaseId || candidate.run.id || '');
@@ -254,6 +269,7 @@ export function reconcileLoopFleetLedger({
       log.log(`[dry-run] bridge richiesto per ${candidate.definition.loopId} run ${runId}`);
       continue;
     }
+    if (bridgeActive) continue;
     if (dispatchBridge(candidate)) dispatched.push({ loopId: candidate.definition.loopId, runId });
     else log.log(`::warning::bridge dispatch fallito per ${candidate.definition.loopId} run ${runId}; il prossimo tick riprova.`);
   }
@@ -268,6 +284,7 @@ export function reconcileLoopFleetLedger({
       runId: String(candidate.run.databaseId || candidate.run.id || ''),
       missingRecords: candidate.missing,
     })),
+    bridgeActive,
     dispatched,
     tempRoot,
   };

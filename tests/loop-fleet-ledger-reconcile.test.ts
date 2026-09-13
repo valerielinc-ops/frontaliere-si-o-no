@@ -8,6 +8,7 @@ import {
   SOURCE_LOOPS,
   durableRecordIds,
   eligibleSourceRun,
+  hasActiveBridgeRun,
   missingEvidenceRecordIds,
   selectRecoveryCandidates,
   sourceArtifactName,
@@ -125,6 +126,14 @@ describe('loop-fleet-ledger-reconcile', () => {
     ];
     expect(selectRecoveryCandidates(candidates, { maxDispatches: 2 }).map((candidate: any) => candidate.run.databaseId))
       .toEqual([1, 2]);
+  });
+
+  it('does not treat completed bridge runs as active', () => {
+    expect(hasActiveBridgeRun([{ status: 'completed' }])).toBe(false);
+    expect(hasActiveBridgeRun([{ status: 'queued' }])).toBe(true);
+    expect(hasActiveBridgeRun([{ status: 'in_progress' }])).toBe(true);
+    expect(hasActiveBridgeRun([{ status: 'pending' }])).toBe(true);
+    expect(hasActiveBridgeRun([{ status: 'requested' }])).toBe(true);
   });
 
   it('reads durable IDs from all three canonical ledgers', () => {
