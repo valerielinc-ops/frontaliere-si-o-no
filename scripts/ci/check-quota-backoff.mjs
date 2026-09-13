@@ -45,10 +45,12 @@
  * `codex_fallback=true`, lasciando partire l'action locale che decide una sola
  * esecuzione Codex. Il comportamento predefinito resta il backoff storico.
  *
- * PROCEED-SAFE (stesso contratto di check-issue-already-resolved.mjs /
- * check-workflows-scope.mjs / claim-issue-in-flight.mjs): qualunque errore
- * gh/API/parse → `quota_blocked=false`. Un gate rotto non deve MAI congelare la
- * coda; al massimo si torna al comportamento pre-fix (una run sprecata).
+ * Il chiamante può anche richiedere il lease condiviso del floor con
+ * `QUOTA_FLOOR_REQUIRED=1`. Questo ramo è volutamente FAIL-CLOSED: un ledger
+ * illeggibile o una mutazione non verificabile emette
+ * `quota_floor_admit=false`, così il workflow può fermarsi prima di spendere
+ * un provider attempt. Il comportamento beacon storico resta invariato quando
+ * il requisito non è impostato.
  *
  * Env:
  *   GH_TOKEN                  necessario per gh (Actions GITHUB_TOKEN basta).
@@ -68,7 +70,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
-import { intFromEnv } from '../lib/int-from-env.mjs';
+import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
+import {
+  acquireQuotaFloorLease,
+  quotaFloorLeaseDecision,
+  quotaFloorLeaseExpiry,
+  quotaFloorLeaseOwner,
+  QUOTA_FLOOR_LEDGER_ISSUE,
+  QUOTA_FLOOR_LEASE_TTL_SEC,
+  readQuotaFloorLedger,
+  releaseQuotaFloorLease,
+} from './quota-floor-lease.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const CODEX_FALLBACK_MODE = process.env.CODEX_FALLBACK_MODE === '1';
@@ -88,6 +100,10 @@ const LBL_ACTIVE = process.env.QUOTA_LBL_ACTIVE || LBL_FIX;
 const LBL_REQUEUE = process.env.QUOTA_LBL_REQUEUE || LBL_QUEUED;
 const LBL_DECOMP = 'agent:decompose';
 const LBL_DECOMP_QUEUED = 'agent:decompose-queued';
+const FLOOR_REQUIRED = process.env.QUOTA_FLOOR_REQUIRED === '1';
+const FLOOR_ACTION = process.env.QUOTA_FLOOR_ACTION === 'release' ? 'release' : 'acquire';
+const FLOOR_KIND = process.env.QUOTA_FLOOR_KIND || 'issue-fix';
+const FLOOR_LEDGER_ISSUE = process.env.QUOTA_FLOOR_LEDGER_ISSUE || QUOTA_FLOOR_LEDGER_ISSUE;
 
 const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
 
@@ -100,14 +116,109 @@ function gh(args, { allowFail = true } = {}) {
   }
 }
 
-function setOutput(blocked, resetsAt, codexFallback = false) {
+function setOutput(blocked, resetsAt, codexFallback = false, floor = {}) {
+  const floorAdmit = floor.admit !== false;
+  const floorReason = String(floor.reason || (FLOOR_REQUIRED ? '' : 'not-required')).replace(/[\r\n]/gu, ' ');
+  const floorOwner = String(floor.owner || '').replace(/[\r\n]/gu, ' ');
+  const floorAcquired = floor.acquired === true;
   console.log(`quota_blocked=${blocked} codex_fallback=${codexFallback} resets_at=${resetsAt || ''}`);
+  console.log(`quota_floor_admit=${floorAdmit} quota_floor_lease_acquired=${floorAcquired} quota_floor_lease_owner=${floorOwner} quota_floor_reason=${floorReason}`);
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(
       process.env.GITHUB_OUTPUT,
       `quota_blocked=${blocked}\ncodex_fallback=${codexFallback}\nresets_at=${resetsAt || ''}\n`
+      + `quota_floor_admit=${floorAdmit}\nquota_floor_lease_acquired=${floorAcquired}\nquota_floor_lease_owner=${floorOwner}\nquota_floor_reason=${floorReason}\n`,
     );
   }
+}
+
+function floorRunJson(args) {
+  return JSON.parse(gh(args, { allowFail: false }));
+}
+
+function floorRunCommand(args) {
+  return gh(args, { allowFail: false });
+}
+
+/**
+ * Acquire/reuse/release the shared lease used by the issue-fix producer.
+ * @param {{nowSec?: number, required?: boolean, action?: string, kind?: string, ledgerIssue?: string, repo?: string, subject?: string, owner?: string, runId?: string, attempt?: string, ttlSec?: number, dryRun?: boolean, runJson?: (args: string[]) => any, runCommand?: (args: string[]) => any}} [options]
+ */
+export function quotaFloorLeaseAdmission({
+  nowSec,
+  required = FLOOR_REQUIRED,
+  action = FLOOR_ACTION,
+  kind = FLOOR_KIND,
+  ledgerIssue = FLOOR_LEDGER_ISSUE,
+  repo = process.env.GH_REPO || '',
+  subject = process.env.QUOTA_FLOOR_SUBJECT
+    || (ISSUE && /^\d+$/.test(String(ISSUE)) ? `issue-${ISSUE}` : ''),
+  owner: requestedOwner = process.env.QUOTA_FLOOR_OWNER || '',
+  runId = process.env.GITHUB_RUN_ID || 'manual',
+  attempt = process.env.GITHUB_RUN_ATTEMPT || '1',
+  ttlSec = positiveIntFromEnv('QUOTA_FLOOR_LEASE_TTL_SEC', QUOTA_FLOOR_LEASE_TTL_SEC),
+  dryRun = DRY_RUN,
+  runJson = floorRunJson,
+  runCommand = floorRunCommand,
+} = {}) {
+  if (!required) return { admit: true, acquired: false, reason: 'not-required' };
+  if (!repo || !subject) return { admit: false, reason: 'quota floor context missing' };
+
+  const ledger = readQuotaFloorLedger({
+    repo,
+    ledgerIssue,
+    nowSec,
+    runJson,
+  });
+  if (!ledger.ok) return { admit: false, reason: ledger.reason };
+
+  const decision = quotaFloorLeaseDecision(ledger, { kind, subject });
+  if (!decision.admit) return { admit: false, reason: decision.reason };
+
+  if (action === 'release') {
+    const releaseOwner = String(requestedOwner || '').trim();
+    if (decision.existing && !releaseOwner) {
+      return { admit: false, reason: 'quota floor release owner missing' };
+    }
+    if (decision.existing && releaseOwner !== decision.existing.owner) {
+      return { admit: false, reason: 'quota floor release owner mismatch' };
+    }
+    const owners = decision.existing ? [decision.existing.owner] : [];
+    // No active lease is a valid idempotent release. A matching lease is
+    // released only after the ledger was read and parsed successfully.
+    for (const owner of owners) {
+      const released = releaseQuotaFloorLease({
+        repo,
+        ledgerIssue,
+        owner,
+        runCommand,
+      });
+      if (!released.ok) return { admit: false, reason: released.reason };
+    }
+    return { admit: true, acquired: false, owner: owners[0] || '', reason: owners.length ? 'lease released' : 'no active subject lease' };
+  }
+
+  const owner = decision.existing?.owner || quotaFloorLeaseOwner({
+    kind,
+    subject,
+    runId,
+    attempt,
+  });
+  if (decision.existing || dryRun) {
+    return { admit: true, acquired: true, owner, reason: decision.existing ? 'existing lease reused' : 'dry-run lease preview' };
+  }
+  const acquired = acquireQuotaFloorLease({
+    repo,
+    ledgerIssue,
+    kind,
+    subject,
+    owner,
+    expiresAt: quotaFloorLeaseExpiry(nowSec, ttlSec),
+    runCommand,
+  });
+  return acquired.ok
+    ? { admit: true, acquired: true, owner, reason: 'new lease acquired' }
+    : { admit: false, reason: acquired.reason };
 }
 
 /**
@@ -192,6 +303,20 @@ function main() {
   const nowMs = Date.now();
   const nowSec = Math.floor(nowMs / 1000);
 
+  const floor = quotaFloorLeaseAdmission({ nowSec });
+  if (!floor.admit) {
+    console.error(`::error::Quota floor fail-closed: ${floor.reason}`);
+    setOutput(false, '', false, floor);
+    if (FLOOR_ACTION === 'release') process.exitCode = 1;
+    return;
+  }
+  // Release mode is a terminal cleanup operation, not another beacon scan.
+  if (FLOOR_REQUIRED && FLOOR_ACTION === 'release') {
+    console.log(`Quota floor lease cleanup: ${floor.reason}.`);
+    setOutput(false, '', false, floor);
+    return;
+  }
+
   const candidates = beaconCandidates(
     [listIssues(LBL_FIX), listIssues(LBL_QUEUED), listIssues(LBL_DECOMP), listIssues(LBL_DECOMP_QUEUED)],
     { now: nowMs, lookbackH: LOOKBACK_H, max: MAX_ISSUES }
@@ -199,7 +324,7 @@ function main() {
 
   if (!candidates.length) {
     console.log('Nessuna issue in lavorazione/coda toccata di recente → nessun beacon di quota. Procedo.');
-    setOutput(false, '');
+    setOutput(false, '', false, floor);
     return;
   }
 
@@ -215,7 +340,7 @@ function main() {
 
   if (resetsAt === null) {
     console.log(`Nessun beacon di quota attivo fra ${candidates.length} issue ispezionate → procedo.`);
-    setOutput(false, '');
+    setOutput(false, '', false, floor);
     return;
   }
 
@@ -230,7 +355,7 @@ function main() {
   });
   if (projection.codexFallback) {
     console.log('Fallback Codex abilitato: nessuna ri-accodatura, l’action provider-neutral tenterà una sola esecuzione.');
-    setOutput(false, resetsAt, true);
+    setOutput(false, resetsAt, true, floor);
     return;
   }
 
@@ -256,18 +381,22 @@ function main() {
     gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', LBL_REQUEUE, '--remove-label', LBL_ACTIVE]);
   }
 
-  setOutput(true, resetsAt, false);
+  setOutput(true, resetsAt, false, floor);
 }
 
-// TOTAL / PROCEED-SAFE: un throw non gestito non deve mai lasciare la issue
-// bloccata né congelare la coda → quota_blocked=false, exit 0 → il fixer gira
-// invariato (comportamento identico a prima che questo gate esistesse).
+// The historical beacon remains proceed-safe when the optional floor is off.
+// A required floor is different: an unhandled read/mutation error must not
+// let a provider start without a reservation.
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     main();
   } catch (e) {
-    console.error('Quota backoff gate error — procedo (fixer normale):', e && e.message ? e.message : e);
-    setOutput(false, '');
-    process.exit(0);
+    console.error(FLOOR_REQUIRED
+      ? 'Quota backoff/floor gate error — fail-closed:'
+      : 'Quota backoff gate error — procedo (fixer normale):', e && e.message ? e.message : e);
+    setOutput(false, '', false, FLOOR_REQUIRED
+      ? { admit: false, reason: 'gate crashed; fail-closed' }
+      : { admit: true, reason: 'gate crashed; fail-open' });
+    if (FLOOR_REQUIRED) process.exitCode = 1;
   }
 }
