@@ -6319,6 +6319,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.condanne-banche-svizzera-corruzione.title': 'Condamnations contre les banques en Suisse pour corruption',
     'blog.article.condanne-banche-svizzera-corruzione.excerpt': 'Six banques suisses ont récemment été condamnées par la justice fédérale pour des affaires de corruption ou de blanchiment. Analysons la tendance avec des experts.',
     'blog.article.condanne-banche-svizzera-corruzione.imageAlt': 'Bâtiments de banques suisses en Suisse',
+    'blog.article.traffico-merci-alpi-semestre-2026.title': 'Trafic marchandises transalpin : données et croissance en 2026',
+    'blog.article.traffico-merci-alpi-semestre-2026.excerpt': 'Croissance du trafic marchandises transalpin de 3,1 % au premier semestre 2026. La part du rail s\'élève à 68 %, tandis que les camions se développent.',
+    'blog.article.traffico-merci-alpi-semestre-2026.imageAlt': 'Trafic de marchandises ferroviaire et routier a travers les Alpes suisses',
 };
 
 export default blogMetaChFr;

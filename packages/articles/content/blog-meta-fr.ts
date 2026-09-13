@@ -11703,6 +11703,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pognana-lario-frontaliere-ticino-guida.title': 'Vivre à Pognana Lario et travailler au Tessin',
     'blog.article.pognana-lario-frontaliere-ticino-guida.excerpt': 'Guide pratique pour les frontaliers à Pognana Lario : trajets vers Chiasso, taxes, accord fiscal et gestion du budget.',
     'blog.article.pognana-lario-frontaliere-ticino-guida.imageAlt': 'Vue du lac pres de Pognana Lario vers la frontiere suisse',
+    'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.title': 'Speedaf en Suisse : 50’000 colis par jour',
+    'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.excerpt': 'Speedaf, filiale suisse fondée en avril, vise à gérer jusqu\'à 50’000 envois par jour avec des centres à Zurich, Berne et Lausanne et son siège à Fribourg.',
+    'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.imageAlt': 'Image éditoriale relative à: Speedaf in Svizzera: 50’000 pacchi al giorno',
 };
 
 export default blogMetaFr;

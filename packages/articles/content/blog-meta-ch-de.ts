@@ -6319,6 +6319,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.condanne-banche-svizzera-corruzione.title': 'Verurteilungen von Banken in der Schweiz wegen Bestechung',
     'blog.article.condanne-banche-svizzera-corruzione.excerpt': 'Sechs Schweizer Banken wurden kürzlich von der Bundesjustiz wegen Korruption oder Geldwäsche verurteilt. Lassen Sie uns den Trend mit den Experten besprechen.',
     'blog.article.condanne-banche-svizzera-corruzione.imageAlt': 'Schweizer Bankgebäude in der Schweiz',
+    'blog.article.traffico-merci-alpi-semestre-2026.title': 'Transalpiner Güterverkehr: Daten und Wachstum im Jahr 2026',
+    'blog.article.traffico-merci-alpi-semestre-2026.excerpt': 'Wachstum des alpenquerenden Güterverkehrs um 3,1% im ersten Halbjahr 2026. Der Anteil der Bahn liegt bei 68%, während die Lkw wachsen.',
+    'blog.article.traffico-merci-alpi-semestre-2026.imageAlt': 'Schienen- und Strassenhueftverkehr ueber die Schweizer Alpen',
 };
 
 export default blogMetaChDe;
