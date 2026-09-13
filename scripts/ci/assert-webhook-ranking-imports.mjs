@@ -9,6 +9,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const WEBHOOK_CORES = [
@@ -31,6 +32,11 @@ for (const filename of WEBHOOK_CORES) {
   }
   if (source.includes('parseJobRankingClick') || source.includes("./lib/jobEmailRanking.js")) {
     failures.push(`${filename}: bypasses the store ranking boundary`);
+  }
+  try {
+    await import(pathToFileURL(path.join(ROOT, 'functions', 'src', filename)).href);
+  } catch (error) {
+    failures.push(`${filename}: functions runtime import failed: ${error?.message || error}`);
   }
 }
 

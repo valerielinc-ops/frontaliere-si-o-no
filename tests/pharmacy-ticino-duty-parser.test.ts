@@ -46,6 +46,15 @@ describe('OFCT Ticino duty parser', () => {
     expect(result.skipped).toBe(1);
   });
 
+  it('treats an invalid local datetime as a missing boundary, not an inferred end', () => {
+    const html = `<table id="tabella_mese_corrente_compatta"><tr><td class="cella_farma_compatta_data">08/09/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Alchemilla</td><td class="cella_farma_compatta_localita">6850 Mendrisio</td></tr><tr><td class="cella_farma_compatta_data">31/02/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Riga con data impossibile</td><td class="cella_farma_compatta_localita">6826 Riva San Vitale</td></tr><tr><td class="cella_farma_compatta_data">12/09/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Amavita</td><td class="cella_farma_compatta_localita">6826 Riva San Vitale</td></tr></table>`;
+    const result = buildPharmacyDuties(html, REGION, '2026-09-09T00:00:00.000Z');
+
+    expect(result.skipped).toBe(1);
+    expect(result.duties).toHaveLength(0);
+    expect(result.warnings).toContain('mendrisiotto: missing duty boundary before row 1');
+  });
+
   it('does not treat valid out-of-order rows as a malformed source gap', () => {
     const html = `<table id="tabella_mese_corrente_compatta"><tr><td class="cella_farma_compatta_data">12/09/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Amavita</td><td class="cella_farma_compatta_localita">6826 Riva San Vitale</td></tr><tr><td class="cella_farma_compatta_data">20/09/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Farmacia Centro</td><td class="cella_farma_compatta_localita">6900 Lugano</td></tr><tr><td class="cella_farma_compatta_data">08/09/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Alchemilla</td><td class="cella_farma_compatta_localita">6850 Mendrisio</td></tr></table>`;
     const result = buildPharmacyDuties(html, REGION, '2026-09-09T00:00:00.000Z');
