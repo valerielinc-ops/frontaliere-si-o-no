@@ -6328,6 +6328,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esercito-polizia-berna-droni.title': 'Esercito e polizia allenano protezione infrastrutture',
     'blog.article.esercito-polizia-berna-droni.excerpt': 'Nel Canton Berna è in corso un\'esercitazione congiunta di quattro giorni focalizzata sulla difesa delle infrastrutture critiche contro i droni.',
     'blog.article.esercito-polizia-berna-droni.imageAlt': 'Esercitazione congiunta di polizia ed esercito contro i droni a Berna',
+    'blog.article.difesa-droni-infrastrutture-berna.title': 'Difesa dai droni in Svizzera: al via l\'esercitazione a Berna',
+    'blog.article.difesa-droni-infrastrutture-berna.excerpt': 'Partita una quattro-giorni di esercitazione congiunta nel Canton Berna dedicata alla protezione delle infrastrutture critiche e degli impianti energetici dai velivoli senza pilota.',
+    'blog.article.difesa-droni-infrastrutture-berna.imageAlt': 'Torre di trasmissione sul Bantiger nel Canton Berna durante un esercizio di sicurezza',
 };
 
 export default blogMetaChIt;

@@ -6328,6 +6328,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esercito-polizia-berna-droni.title': 'Army and police train infrastructure protection',
     'blog.article.esercito-polizia-berna-droni.excerpt': 'A four-day joint exercise focused on defending critical infrastructure against drones is underway in the Canton of Bern.',
     'blog.article.esercito-polizia-berna-droni.imageAlt': 'Joint police and military exercise against drones in Bern',
+    'blog.article.difesa-droni-infrastrutture-berna.title': 'Drone defense in Switzerland: the exercise in Bern kicks off',
+    'blog.article.difesa-droni-infrastrutture-berna.excerpt': 'A four-day joint exercise starts in the Canton of Bern dedicated to the protection of critical infrastructure and power plants from unmanned aircraft.',
+    'blog.article.difesa-droni-infrastrutture-berna.imageAlt': 'Transmission tower on the Bantiger in Canton Bern during a security exercise',
 };
 
 export default blogMetaChEn;

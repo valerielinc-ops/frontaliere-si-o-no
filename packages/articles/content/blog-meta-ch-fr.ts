@@ -6328,6 +6328,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.esercito-polizia-berna-droni.title': 'L\'armée et la police entraînent la protection des infrastructures',
     'blog.article.esercito-polizia-berna-droni.excerpt': 'Un exercice conjoint de quatre jours axé sur la défense des infrastructures critiques contre les drones est en cours dans le canton de Berne.',
     'blog.article.esercito-polizia-berna-droni.imageAlt': 'Exercice conjoint de la police et de l\'armée contre les drones à Berne',
+    'blog.article.difesa-droni-infrastrutture-berna.title': 'Défense contre les drones en Suisse : début de l\'exercice à Berne',
+    'blog.article.difesa-droni-infrastrutture-berna.excerpt': 'Partition d\'un exercice conjoint de quatre jours dans le canton de Berne consacré à la protection des infrastructures critiques et des installations énergétiques des avions sans pilote.',
+    'blog.article.difesa-droni-infrastrutture-berna.imageAlt': 'Tour de transmission sur le Bantiger dans le canton de Berne lors d\'un exercice de sécurité',
 };
 
 export default blogMetaChFr;
