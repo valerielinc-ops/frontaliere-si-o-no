@@ -181,6 +181,10 @@ export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnect
 export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
 export { assertFeedEndpointHost };
 
+function isRetryBudgetExhaustedError(err) {
+  return err?.retryBudgetExhausted === true || err?.response?.retryBudgetExhausted === true;
+}
+
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
 /**
@@ -760,6 +764,12 @@ export function exitCrawlerOnError(err, label = 'crawler') {
     );
     process.exit(0);
   }
+  if (isRetryBudgetExhaustedError(err)) {
+    console.log(
+      `\n⚠️ ${label}: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    process.exit(0);
+  }
   if (err?.feedEndpointUnavailable) {
     console.log(
       `\n⚠️ ${label}: ${err?.message || err}. Keeping existing jobs (no de-index).`,
@@ -1008,6 +1018,12 @@ export async function runStandardCrawlerPipeline(config) {
       counts.lastFetchOutcome = 'connection_error';
       console.log(
         `\n⚠️ ${companyLabel}: connection-level fetch failure after retries + proxy fallback (${err.message}). Keeping existing jobs.`,
+      );
+      return;
+    }
+    if (isRetryBudgetExhaustedError(err)) {
+      console.log(
+        `\n⚠️ ${companyLabel}: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs.`,
       );
       return;
     }
