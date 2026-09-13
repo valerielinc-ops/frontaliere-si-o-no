@@ -26,9 +26,21 @@ function flattenPages(value) {
 }
 
 function reviewTimestamp(review) {
-  const raw = review?.submitted_at || review?.created_at || '';
-  const timestamp = Date.parse(raw);
-  return Number.isFinite(timestamp) ? timestamp : null;
+  const timestamps = [
+    review?.edited_at,
+    review?.editedAt,
+    review?.event_at,
+    review?.eventAt,
+    review?.updated_at,
+    review?.updatedAt,
+    review?.submitted_at,
+    review?.submittedAt,
+    review?.created_at,
+    review?.createdAt,
+  ]
+    .map((value) => Date.parse(value || ''))
+    .filter(Number.isFinite);
+  return timestamps.length > 0 ? Math.max(...timestamps) : null;
 }
 
 /** Return the latest reviewer-bot review that is anchored to `head`. */
@@ -39,7 +51,8 @@ export function latestBotReviewOnHead(reviews, head) {
     .filter(({ review, timestamp }) => isReviewerBot(review?.user) && review?.commit_id === head
       && timestamp !== null)
     .sort((left, right) => left.timestamp - right.timestamp
-      || Number(left.review.id || left.index) - Number(right.review.id || right.index));
+      || (Number(left.review.id || left.index) || left.index)
+        - (Number(right.review.id || right.index) || right.index));
   return candidates.at(-1)?.review || null;
 }
 
@@ -161,10 +174,52 @@ function ghJson(args) {
   }));
 }
 
+const REVIEW_METADATA_QUERY = [
+  'query($owner:String!,$name:String!,$number:Int!,$endCursor:String){',
+  'repository(owner:$owner,name:$name){pullRequest(number:$number){',
+  'reviews(first:100,after:$endCursor){nodes{',
+  'id databaseId createdAt submittedAt updatedAt',
+  '}pageInfo{hasNextPage endCursor}}}}}',
+].join('');
+
+function loadReviewMetadata(repo, pr) {
+  const [owner, name] = String(repo).split('/');
+  if (!owner || !name) throw new Error('repository non valido per la metadata review');
+  const pages = ghJson([
+    'api', 'graphql', '--paginate', '--slurp',
+    '-f', `query=${REVIEW_METADATA_QUERY}`,
+    '-F', `owner=${owner}`,
+    '-F', `name=${name}`,
+    '-F', `number=${pr}`,
+  ]);
+  return flattenPages(pages)
+    .flatMap((page) => page?.data?.repository?.pullRequest?.reviews?.nodes || []);
+}
+
 function loadReviews(repo, pr) {
-  return flattenPages(ghJson([
+  const reviews = flattenPages(ghJson([
     'api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp',
   ]));
+  const metadataById = new Map();
+  for (const metadata of loadReviewMetadata(repo, pr)) {
+    if (metadata?.databaseId !== null && metadata?.databaseId !== undefined) {
+      metadataById.set(String(metadata.databaseId), metadata);
+    }
+    if (metadata?.id) metadataById.set(String(metadata.id), metadata);
+  }
+  return reviews.map((review) => {
+    const metadata = metadataById.get(String(review?.id))
+      || metadataById.get(String(review?.node_id));
+    if (!metadata) {
+      throw new Error(`metadata temporale mancante per review ${review?.id || 'sconosciuta'}`);
+    }
+    return {
+      ...review,
+      created_at: metadata.createdAt || review.created_at,
+      submitted_at: metadata.submittedAt || review.submitted_at,
+      updated_at: metadata.updatedAt || review.updated_at,
+    };
+  });
 }
 
 function loadCheckRuns(repo, head) {

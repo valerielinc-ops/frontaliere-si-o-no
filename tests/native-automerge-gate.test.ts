@@ -14,7 +14,12 @@ const HEAD = 'a'.repeat(40);
 const OLD_HEAD = 'b'.repeat(40);
 const CLEAN_BODY = '## Findings (Important: 0, Nit: 0)\n\n## LGTM';
 
-function review(body: string, commit_id = HEAD, submitted_at = '2026-09-13T12:00:00Z') {
+function review(
+  body: string,
+  commit_id = HEAD,
+  submitted_at = '2026-09-13T12:00:00Z',
+  overrides: Record<string, unknown> = {},
+) {
   return {
     id: 1,
     user: { type: 'Bot', login: 'claude[bot]' },
@@ -22,6 +27,7 @@ function review(body: string, commit_id = HEAD, submitted_at = '2026-09-13T12:00
     body,
     commit_id,
     submitted_at,
+    ...overrides,
   };
 }
 
@@ -84,6 +90,21 @@ describe('native auto-merge gate (#8512)', () => {
         HEAD,
         '2026-09-13T12:02:00Z',
       ),
+    ];
+
+    expect(latestBotReviewOnHead(reviews, HEAD)?.body).toContain('Important: 1');
+    expect(evaluateNativeAutoMerge({ pr: pr(), reviews, checkRuns: [vitest()] }).allow).toBe(false);
+  });
+
+  it('orders an edited older review after a newer submitted verdict', () => {
+    const reviews = [
+      review(
+        '## Findings (Important: 1, Nit: 0)\n\n🔴 Important: edit regression.\n\n## LGTM',
+        HEAD,
+        '2026-09-13T12:00:00Z',
+        { id: 1, updated_at: '2026-09-13T12:04:00Z' },
+      ),
+      review(CLEAN_BODY, HEAD, '2026-09-13T12:03:00Z', { id: 2 }),
     ];
 
     expect(latestBotReviewOnHead(reviews, HEAD)?.body).toContain('Important: 1');
