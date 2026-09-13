@@ -6325,6 +6325,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-lavoro-seco-luglio-2026.title': 'Dry labour market: 3% unemployment in July 2026',
     'blog.article.mercato-lavoro-seco-luglio-2026.excerpt': 'SECO data for July 2026 published: unemployment rate at 3%, unemployed increasing by 7.8% on an annual basis and 45,156 registered vacancies.',
     'blog.article.mercato-lavoro-seco-luglio-2026.imageAlt': 'SECO labour market statistics in Switzerland in July 2026',
+    'blog.article.esercito-polizia-berna-droni.title': 'Army and police train infrastructure protection',
+    'blog.article.esercito-polizia-berna-droni.excerpt': 'A four-day joint exercise focused on defending critical infrastructure against drones is underway in the Canton of Bern.',
+    'blog.article.esercito-polizia-berna-droni.imageAlt': 'Joint police and military exercise against drones in Bern',
 };
 
 export default blogMetaChEn;

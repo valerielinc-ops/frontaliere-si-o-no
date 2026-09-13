@@ -6325,6 +6325,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-lavoro-seco-luglio-2026.title': 'Mercato del lavoro SECO: disoccupazione al 3% a luglio 2026',
     'blog.article.mercato-lavoro-seco-luglio-2026.excerpt': 'Pubblicati i dati SECO di luglio 2026: tasso di disoccupazione al 3%, disoccupati in aumento del 7,8% su base annua e 45\'156 posti vacanti registrati.',
     'blog.article.mercato-lavoro-seco-luglio-2026.imageAlt': 'Statistiche mercato del lavoro SECO in Svizzera a luglio 2026',
+    'blog.article.esercito-polizia-berna-droni.title': 'Esercito e polizia allenano protezione infrastrutture',
+    'blog.article.esercito-polizia-berna-droni.excerpt': 'Nel Canton Berna è in corso un\'esercitazione congiunta di quattro giorni focalizzata sulla difesa delle infrastrutture critiche contro i droni.',
+    'blog.article.esercito-polizia-berna-droni.imageAlt': 'Esercitazione congiunta di polizia ed esercito contro i droni a Berna',
 };
 
 export default blogMetaChIt;
