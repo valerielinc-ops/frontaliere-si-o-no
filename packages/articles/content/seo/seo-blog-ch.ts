@@ -81959,6 +81959,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banda-larga-regioni-periferiche-berna': {
+    title: 'Banda larga nelle regioni periferiche: 365 milioni da Berna',
+    description: 'Il Consiglio federale stanzia 365 milioni di franchi per la banda ultra larga nelle regioni periferiche della Svizzera. Leggi tutti i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, banda, larga, nelle, regioni',
+    ogTitle: 'Banda larga nelle regioni periferiche: 365 milioni da Berna',
+    ogDescription: 'L\'iniziativa cantonale ticinese di Bruno Storni diventa una proposta di legge federale con 365 milioni di franchi stanziati per la banda ultra larga.',
+    canonicalPath: '/articoli-svizzera/banda-larga-regioni-periferiche-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banda larga nelle regioni periferiche: 365 milioni da Berna",
+      "description": "Il Consiglio federale stanzia 365 milioni di franchi per la banda ultra larga nelle regioni periferiche della Svizzera. Leggi tutti i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/banda-larga-regioni-periferiche-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna dove si discutono le proposte di legge sulla banda larga"
+      },
+      "datePublished": "2026-09-13T00:07:17+00:00",
+      "dateModified": "2026-09-13T00:07:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/banda-larga-regioni-periferiche-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

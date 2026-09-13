@@ -6313,6 +6313,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-giura-domanda.title': 'Assegni familiari Canton Giura: importi e domanda',
     'blog.article.assegni-familiari-giura-domanda.excerpt': 'Guida pratica agli assegni familiari e di formazione nel Canton Giura: requisiti, importi mensili e procedura di domanda presso la cassa competente.',
     'blog.article.assegni-familiari-giura-domanda.imageAlt': 'Ufficio amministrativo svizzero per le domande di assegni familiari',
+    'blog.article.banda-larga-regioni-periferiche-berna.title': 'Banda larga nelle regioni periferiche: 365 milioni da Berna',
+    'blog.article.banda-larga-regioni-periferiche-berna.excerpt': 'L\'iniziativa cantonale ticinese diventa una proposta di legge federale per la banda ultra larga su tutto il territorio nazionale.',
+    'blog.article.banda-larga-regioni-periferiche-berna.imageAlt': 'Palazzo federale a Berna dove si discutono le proposte di legge sulla banda larga',
 };
 
 export default blogMetaChIt;

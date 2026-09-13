@@ -11692,6 +11692,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.title': 'Stabio-Gaggiolo speed bump: queues and anger from cross-border workers',
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.excerpt': 'Reports about the speed bump just beyond Gaggiolo customs describe more than ten extra minutes every day. Official counts show a crossing already under pressure.',
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.imageAlt': 'Cars queuing between Gaggiolo customs and Stabio after the speed bump',
+    'blog.article.serbatoio-bella-cima-stabio.title': 'New tank in Stabio: water for the Mendrisiotto',
+    'blog.article.serbatoio-bella-cima-stabio.excerpt': 'The new 4 million franc water system for security of supply in Mendrisiotto was inaugurated in Bella Cima.',
+    'blog.article.serbatoio-bella-cima-stabio.imageAlt': 'The new Bella Cima water reservoir in Stabio',
 };
 
 export default blogMetaEn;

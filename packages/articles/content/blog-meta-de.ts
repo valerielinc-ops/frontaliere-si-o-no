@@ -11691,6 +11691,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.title': 'Verkehrsschwelle Stabio-Gaggiolo: Stau und Ärger der Grenzgänger',
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.excerpt': 'Meldungen zur Verkehrsschwelle direkt hinter dem Zoll Gaggiolo sprechen von mehr als zehn zusätzlichen Minuten täglich. Offizielle Zählungen zeigen einen bereits stark belasteten Übergang.',
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.imageAlt': 'Autoschlange zwischen dem Zoll Gaggiolo und Stabio nach der Verkehrsschwelle',
+    'blog.article.serbatoio-bella-cima-stabio.title': 'Neuer Wassertank in Stabio: das Wasser für den Mendrisiotto',
+    'blog.article.serbatoio-bella-cima-stabio.excerpt': 'In Bella Cima wurde das neue 4 Millionen Franken teure Wasserwerk für die Versorgungssicherheit im Mendrisiotto eingeweiht.',
+    'blog.article.serbatoio-bella-cima-stabio.imageAlt': 'Das neue Wasserreservoir Bella Cima in Stabio',
 };
 
 export default blogMetaDe;

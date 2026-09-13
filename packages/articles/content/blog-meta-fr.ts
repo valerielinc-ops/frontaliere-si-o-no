@@ -11694,6 +11694,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.title': 'Ralentisseur Stabio-Gaggiolo : files et colère des frontaliers',
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.excerpt': 'Les signalements sur le ralentisseur juste après la douane de Gaggiolo parlent de plus de dix minutes supplémentaires chaque jour. Les comptages officiels montrent un passage déjà sous pression.',
     'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.imageAlt': 'File de voitures entre la douane de Gaggiolo et Stabio après le ralentisseur',
+    'blog.article.serbatoio-bella-cima-stabio.title': 'Nouveau réservoir à Stabio : l\'eau pour le Mendrisiotto',
+    'blog.article.serbatoio-bella-cima-stabio.excerpt': 'Inauguration à Bella Cima de la nouvelle installation d\'eau de 4 millions de francs pour la sécurité de l\'approvisionnement dans le Mendrisiotto.',
+    'blog.article.serbatoio-bella-cima-stabio.imageAlt': 'Le nouveau réservoir d\'eau de Bella Cima à Stabio',
 };
 
 export default blogMetaFr;
