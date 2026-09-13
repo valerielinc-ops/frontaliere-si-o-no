@@ -6313,6 +6313,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-giura-domanda.title': 'Allocations familiales Canton du Jura : montants et demande',
     'blog.article.assegni-familiari-giura-domanda.excerpt': 'Guide pratique des allocations familiales et de formation dans le canton du Jura : exigences, montants mensuels et procédure de demande auprès de la caisse compétente.',
     'blog.article.assegni-familiari-giura-domanda.imageAlt': 'Bureau administratif suisse pour les demandes d\'allocations familiales',
+    'blog.article.banda-larga-regioni-periferiche-berna.title': 'Haut débit dans les régions périphériques : 365 millions de Berne',
+    'blog.article.banda-larga-regioni-periferiche-berna.excerpt': 'L\'initiative cantonale tessinoise devient une proposition de loi fédérale pour l\'ultra haut débit sur l\'ensemble du territoire national.',
+    'blog.article.banda-larga-regioni-periferiche-berna.imageAlt': 'Palais fédéral à Berne où les propositions de loi sur le haut débit sont discutées',
 };
 
 export default blogMetaChFr;

@@ -11690,6 +11690,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-12.imageAlt': 'I numeri del giorno per i frontalieri – 12 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-12.seoDescription': 'Bollettino frontalieri del 12 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-12.ogDescription': 'I numeri del 12 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.title': 'Dosso al Gaggiolo: code e rabbia dei frontalieri a Stabio',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.excerpt': 'Le segnalazioni sul dosso subito dopo la dogana di Gaggiolo parlano di oltre dieci minuti in più ogni giorno. I dati ufficiali mostrano un valico già molto carico.',
+    'blog.article.dosso-dogana-stabio-gaggiolo-traffico-frontalieri.imageAlt': 'Auto in coda tra la dogana di Gaggiolo e Stabio dopo il dosso stradale',
+    'blog.article.serbatoio-bella-cima-stabio.title': 'Nuovo serbatoio a Stabio: l\'acqua per il Mendrisiotto',
+    'blog.article.serbatoio-bella-cima-stabio.excerpt': 'Inaugurato a Bella Cima il nuovo impianto idrico da 4 milioni di franchi per la sicurezza dell\'approvvigionamento nel Mendrisiotto.',
+    'blog.article.serbatoio-bella-cima-stabio.imageAlt': 'Il nuovo serbatoio idrico di Bella Cima a Stabio',
 };
 
 export default blogMetaIt;

@@ -34887,6 +34887,24 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'dosso-dogana-stabio-gaggiolo-traffico-frontalieri',
+ category: 'novita',
+ date: '2026-09-12T21:09:02.036Z',
+ image: '/images/places/mendrisio.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'serbatoio-bella-cima-stabio',
+ category: 'novita',
+ date: '2026-09-13T00:04:13.562Z',
+ image: '/images/blog/serbatoio-bella-cima-stabio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

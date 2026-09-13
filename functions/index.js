@@ -86,8 +86,48 @@ import { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } from './s
 import { handleNewsletterSubscriberCreated } from './src/jobAlertBackfillTrigger.js';
 import { signalTierChanged, getSignalTier } from './src/jobAlertBackfillCore.js';
 import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
+import { handlePetitionSign } from './src/petitionSign.js';
 
 ensureAdminApp();
+
+/**
+ * Authenticated petition signature endpoint.
+ * POST { petitionId, locale, sourcePath } with a Firebase ID token.
+ * The signature is accepted only when the same verified account has an active,
+ * consent-backed newsletter record. The endpoint never returns the total count.
+ */
+export const signStabioDossoPetition = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+  let token = null;
+  try {
+   const header = req.get('Authorization') || req.get('authorization') || '';
+   const match = header.match(/^Bearer\s+(.+)$/i);
+   if (match) token = await getAuth().verifyIdToken(match[1]);
+  } catch {
+   token = null;
+  }
+
+  try {
+   const result = await handlePetitionSign({
+    method: req.method,
+    token,
+    petitionId: req.body?.petitionId,
+    locale: req.body?.locale,
+    sourcePath: req.body?.sourcePath,
+   });
+   res.status(result.status).json(result.body);
+  } catch (error) {
+   console.error('[signStabioDossoPetition] Error:', error instanceof Error ? error.message : String(error));
+   res.status(500).json({ success: false, error: 'internal_error' });
+  }
+ },
+);
 
 // Generic Gemini text generation (feedback "AI optimize", newsletter preview).
 // Keeps GEMINI_API_KEY server-side.

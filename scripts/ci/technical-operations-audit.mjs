@@ -157,6 +157,35 @@ function staticWorkingDirectory(root, rawWorkingDirectory) {
   return resolved;
 }
 
+function staticCheckoutPath(rawPath) {
+  if (typeof rawPath !== 'string' || !rawPath.trim()) return null;
+  const value = rawPath.trim().replaceAll('\\', '/');
+  if (value.includes('${{') || value.includes('$(') || value.startsWith('/')) return null;
+  const normalized = path.posix.normalize(value);
+  if (normalized === '..' || normalized.startsWith('../')) return null;
+  return normalized === '.' ? '.' : normalized.replace(/^\.\//u, '');
+}
+
+function checkoutPathFromStep(step) {
+  if (!isRecord(step) || typeof step.uses !== 'string') return null;
+  const action = step.uses.split('@', 1)[0].toLowerCase();
+  return action === 'actions/checkout' ? staticCheckoutPath(step.with?.path) : null;
+}
+
+function checkoutPathForWorkingDirectory(root, workingRoot, checkoutPaths) {
+  if (workingRoot === null) return null;
+  const relative = path.relative(root, workingRoot).split(path.sep).join('/');
+  return [...checkoutPaths]
+    .filter((checkoutPath) => checkoutPath !== '.'
+      && (relative === checkoutPath || relative.startsWith(`${checkoutPath}/`)))
+    .sort((a, b) => b.length - a.length)[0] || null;
+}
+
+function localReusableWorkflowPath(value) {
+  if (typeof value !== 'string' || !value.startsWith('./.github/workflows/')) return null;
+  return value.split('@', 1)[0].slice(2);
+}
+
 function extractCommandPaths(run) {
   const paths = [];
   const source = String(run || '');
@@ -410,14 +439,15 @@ function validateWorkflowLevel(workflow, file, source, findings) {
   }
   if (isRecord(workflow.concurrency)) {
     for (const key of Object.keys(workflow.concurrency)) {
-      if (!['group', 'cancel-in-progress'].includes(key)) {
+      const queueExtension = key === 'queue' && workflow.concurrency[key] === 'max';
+      if (!['group', 'cancel-in-progress'].includes(key) && !queueExtension) {
         findings.push(finding(file, 'workflow.concurrency-key', 'error', `chiave concurrency non supportata: ${key}`, lineFor(source, key)));
       }
     }
   }
 }
 
-function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, findings) {
+function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, findings, reusableWorkflowOutputs) {
   const jobs = isRecord(workflow.jobs) ? workflow.jobs : {};
   const jobNames = new Set(Object.keys(jobs));
   const inputNames = inputDefinitions(normalizeTriggers(workflow.on));
@@ -432,7 +462,13 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
     const outputsForJob = new Map();
     const backgroundIndexes = [];
     const waitIndexes = [];
-    jobOutputMap.set(jobName, isRecord(job.outputs) ? new Set(Object.keys(job.outputs)) : new Set());
+    const reusable = typeof job.uses === 'string';
+    const localReusable = reusable ? localReusableWorkflowPath(job.uses) : null;
+    jobOutputMap.set(jobName, isRecord(job.outputs)
+      ? new Set(Object.keys(job.outputs))
+      : localReusable && reusableWorkflowOutputs.has(localReusable)
+        ? reusableWorkflowOutputs.get(localReusable)
+        : new Set());
     jobContexts.set(jobName, {
       jobName,
       job,
@@ -450,7 +486,6 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
       findings.push(finding(file, 'workflow.needs-shape', 'error', `needs del job ${jobName} deve essere stringa o array`, lineFor(source, 'needs:')));
     }
 
-    const reusable = typeof job.uses === 'string';
     if (!reusable && job['runs-on'] === undefined) {
       findings.push(finding(file, 'workflow.runs-on', 'error', `job ${jobName} senza runs-on`, lineFor(source, `${jobName}:`)));
     }
@@ -466,6 +501,7 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
       findings.push(finding(file, 'workflow.steps', 'error', `job ${jobName} senza steps`, lineFor(source, `${jobName}:`)));
       continue;
     }
+    const checkoutPaths = new Set();
 
     job.steps.forEach((rawStep, index) => {
       const stepLine = lineFor(source, typeof rawStep?.name === 'string' ? rawStep.name : '- name:');
@@ -477,6 +513,8 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
       const isWait = Object.prototype.hasOwnProperty.call(rawStep, 'wait-all');
       const hasRun = typeof rawStep.run === 'string';
       const hasUses = typeof rawStep.uses === 'string';
+      const checkoutPath = hasUses ? checkoutPathFromStep(rawStep) : null;
+      if (checkoutPath) checkoutPaths.add(checkoutPath);
       if (isWait) {
         waitIndexes.push(index);
         if (rawStep['wait-all'] !== true) findings.push(finding(file, 'workflow.wait-all-value', 'error', '`wait-all` deve essere true letterale', stepLine));
@@ -496,15 +534,19 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
           const workingRoot = staticWorkingDirectory(root, rawStep['working-directory']);
           const dynamicDirectory = workingRoot === null
             || /\b(?:cd|pushd)\s+["']?\$(?:\{)?[A-Za-z_][A-Za-z0-9_]*(?:\})?|\bgit\s+clone\b/i.test(rawStep.run);
+          const runtimeCheckout = checkoutPathForWorkingDirectory(root, workingRoot, checkoutPaths);
           for (const candidate of extractCommandPaths(rawStep.run)) {
             const inWorkingDirectory = workingRoot !== null && exists(path.resolve(workingRoot, candidate));
             if (!inWorkingDirectory) {
+              const runtimeOnly = dynamicDirectory || runtimeCheckout;
               findings.push(finding(
                 file,
                 'workflow.script-reference',
-                dynamicDirectory ? 'warning' : 'error',
-                dynamicDirectory
-                  ? `script referenziato in una directory dinamica, non verificabile dal checkout statico: ${candidate}`
+                runtimeOnly ? 'warning' : 'error',
+                runtimeOnly
+                  ? runtimeCheckout
+                    ? `script referenziato in una directory popolata da actions/checkout (${runtimeCheckout}), non verificabile dal checkout statico: ${candidate}`
+                    : `script referenziato in una directory dinamica, non verificabile dal checkout statico: ${candidate}`
                   : `script referenziato ma non trovato: ${candidate}`,
                 stepLine,
                 rawStep.run.trim().slice(0, 300),
@@ -567,6 +609,7 @@ export function auditWorkflowText(file, source, {
   root = ROOT,
   exists = fs.existsSync,
   knownWorkflowNames = new Set(),
+  reusableWorkflowOutputs = new Map(),
 } = {}) {
   const findings = [];
   let document;
@@ -590,7 +633,7 @@ export function auditWorkflowText(file, source, {
   validateTriggers(triggers, knownWorkflowNames, file, source, findings);
   const inputNames = validateInputs(triggers, file, source, findings);
   validatePermissions(workflow, file, source, findings);
-  validateJobs(workflow, file, source, root, exists, knownWorkflowNames, findings);
+  validateJobs(workflow, file, source, root, exists, knownWorkflowNames, findings, reusableWorkflowOutputs);
   void inputNames;
   return dedupeFindings(findings);
 }
@@ -599,6 +642,7 @@ export function auditWorkflowFiles(root = ROOT) {
   const files = workflowFiles(root);
   const contents = new Map();
   const names = new Set();
+  const reusableWorkflowOutputs = new Map();
   const parseFindings = [];
   for (const file of files) {
     const absolute = path.join(root, file);
@@ -608,7 +652,13 @@ export function auditWorkflowFiles(root = ROOT) {
       const document = parseDocument(source, { prettyErrors: true });
       if ((document.errors || []).length === 0) {
         const workflow = document.toJS({ mapAsMap: false });
-        if (isRecord(workflow) && typeof workflow.name === 'string' && workflow.name.trim()) names.add(workflow.name.trim());
+        if (isRecord(workflow)) {
+          if (typeof workflow.name === 'string' && workflow.name.trim()) names.add(workflow.name.trim());
+          const workflowCall = normalizeTriggers(workflow.on).workflow_call;
+          if (isRecord(workflowCall) && isRecord(workflowCall.outputs)) {
+            reusableWorkflowOutputs.set(file, new Set(Object.keys(workflowCall.outputs)));
+          }
+        }
       }
     } catch (error) {
       parseFindings.push(finding(file, 'yaml.parse', 'error', `YAML non parsabile: ${error.message}`, 1));
@@ -616,7 +666,11 @@ export function auditWorkflowFiles(root = ROOT) {
   }
   const findings = [...parseFindings];
   for (const [file, source] of contents) {
-    findings.push(...auditWorkflowText(file, source, { root, knownWorkflowNames: names }));
+    findings.push(...auditWorkflowText(file, source, {
+      root,
+      knownWorkflowNames: names,
+      reusableWorkflowOutputs,
+    }));
   }
   return {
     generatedAt: new Date().toISOString(),
