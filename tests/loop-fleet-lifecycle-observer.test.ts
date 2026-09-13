@@ -3,7 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — the lifecycle observer is a dependency-free ESM CI script.
-import { observeLifecycle } from '../scripts/ci/observe-loop-fleet-lifecycle.mjs';
+import { explicitTerminalEvidence, observeLifecycle } from '../scripts/ci/observe-loop-fleet-lifecycle.mjs';
 // @ts-expect-error — the lifecycle appender is a dependency-free ESM CI script.
 import { appendLoopFleetLifecycle } from '../scripts/ci/append-loop-fleet-lifecycle.mjs';
 import { buildLifecycleEvent } from '../scripts/lib/loop-fleet-contract.mjs';
@@ -148,6 +148,105 @@ describe('loop-fleet independent lifecycle observer', () => {
       now: NOW,
     });
     expect(result.events.map((event: { eventType: string }) => event.eventType)).toEqual(['pr_opened']);
+  });
+
+  it('accepts only explicit terminal markers from trusted repository collaborators', () => {
+    const pr = fleetPr({
+      comments: [
+        {
+          body: '<!-- loop-fleet-lifecycle: rolled_back candidate=lf-decision-observer-test -->',
+          createdAt: '2026-09-11T11:30:00.000Z',
+          url: 'https://github.com/example/frontaliere/pull/999#issuecomment-1',
+          authorAssociation: 'MEMBER',
+        },
+        {
+          body: '<!-- loop-fleet-lifecycle: inconclusive candidate=lf-decision-observer-test -->',
+          createdAt: '2026-09-11T11:31:00.000Z',
+          url: 'https://github.com/example/frontaliere/pull/999#issuecomment-2',
+          authorAssociation: 'NONE',
+        },
+        {
+          body: '<!-- loop-fleet-lifecycle: rollback_requested candidate=lf-decision-observer-test -->',
+          createdAt: '2026-09-11T11:32:00.000Z',
+          url: 'https://github.com/example/frontaliere/pull/999#issuecomment-3',
+          authorAssociation: 'COLLABORATOR',
+        },
+      ],
+    });
+    expect(explicitTerminalEvidence(pr, 'lf-decision-observer-test', NOW)).toEqual({
+      rolled_back: {
+        eventType: 'rolled_back',
+        occurredAt: '2026-09-11T11:30:00.000Z',
+        artifactOrPr: 'https://github.com/example/frontaliere/pull/999#issuecomment-1',
+      },
+      rollback_requested: {
+        eventType: 'rollback_requested',
+        occurredAt: '2026-09-11T11:32:00.000Z',
+        artifactOrPr: 'https://github.com/example/frontaliere/pull/999#issuecomment-3',
+      },
+    });
+  });
+
+  it('records explicit rollback lifecycle evidence without inferring it', () => {
+    const result = observeLifecycle({
+      registry,
+      lifecycleEvents: [candidate()],
+      pullRequests: [fleetPr({
+        comments: [
+          {
+            body: '<!-- loop-fleet-lifecycle: rollback_requested candidate=lf-decision-observer-test -->',
+            createdAt: '2026-09-11T11:30:00.000Z',
+            url: 'https://github.com/example/frontaliere/pull/999#issuecomment-1',
+            authorAssociation: 'MEMBER',
+          },
+          {
+            body: '<!-- loop-fleet-lifecycle: rolled_back candidate=lf-decision-observer-test -->',
+            createdAt: '2026-09-11T11:31:00.000Z',
+            url: 'https://github.com/example/frontaliere/pull/999#issuecomment-2',
+            authorAssociation: 'OWNER',
+          },
+        ],
+      })],
+      postMergeRuns: [],
+      execution: observerExecution(),
+      now: NOW,
+    });
+    expect(result.events.map((event: { eventType: string }) => event.eventType)).toEqual([
+      'pr_opened',
+      'tests_passed',
+      'review_approved',
+      'merged',
+      'rollback_requested',
+      'rolled_back',
+    ]);
+  });
+
+  it('observes a trusted inconclusive marker for the addressed candidate only', () => {
+    const result = observeLifecycle({
+      registry,
+      lifecycleEvents: [candidate()],
+      pullRequests: [fleetPr({
+        comments: [
+          {
+            body: '<!-- loop-fleet-lifecycle: inconclusive candidate=another-candidate -->',
+            createdAt: '2026-09-11T11:30:00.000Z',
+            url: 'https://github.com/example/frontaliere/pull/999#issuecomment-1',
+            authorAssociation: 'OWNER',
+          },
+          {
+            body: '<!-- loop-fleet-lifecycle: inconclusive candidate=lf-decision-observer-test -->',
+            createdAt: '2026-09-11T11:31:00.000Z',
+            url: 'https://github.com/example/frontaliere/pull/999#issuecomment-2',
+            authorAssociation: 'COLLABORATOR',
+          },
+        ],
+      })],
+      execution: observerExecution(),
+      now: NOW,
+    });
+    expect(result.events.map((event: { eventType: string }) => event.eventType)).toContain('inconclusive');
+    expect(result.events.find((event: { eventType: string }) => event.eventType === 'inconclusive'))
+      .toMatchObject({ candidateId: 'lf-decision-observer-test' });
   });
 
   it('persists observed events idempotently and rejects recorder-owned events', () => {
