@@ -32,7 +32,7 @@ jobs:
           fetch-depth: 1
           sparse-checkout: |
             scripts/runtime-reliability-watch.mjs
-            scripts/cf-purge-cache.mjs
+            scripts/
             scripts/load-rc-env.mjs
             scripts/lib/**
             infra/cloudflare-worker/**
