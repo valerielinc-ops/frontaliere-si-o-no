@@ -35,6 +35,7 @@
 
 import { isStorageAvailable } from '@/services/storageAvailability';
 import { reportCaughtError } from '@/services/errorReporter';
+import { isIndexedDbError } from '@/services/benignErrorPatterns';
 import type { Firestore } from 'firebase/firestore';
 
 export const SAVED_JOBS_STORAGE_KEY = 'frontaliere_saved_jobs';
@@ -125,12 +126,6 @@ let db: Firestore | null = null;
 /** Discard the cached Firestore instance to force a fresh connection (iOS Safari IndexedDB loss). */
 function resetFirestoreConnection(): void {
   db = null;
-}
-
-function isIndexedDbError(error: unknown): boolean {
-  const msg = error instanceof Error ? error.message : String(error || '');
-  return msg.includes('Indexed Database') || msg.includes('IDBDatabase')
-    || msg.includes('IndexedDB') || msg.includes('internal error was encountered');
 }
 
 async function getDb(): Promise<Firestore> {

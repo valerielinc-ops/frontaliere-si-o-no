@@ -45,6 +45,11 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBeNull();
   });
 
+  it('drops the Safari IndexedDB object-store wording', () => {
+    const event = makeExceptionEvent('InvalidStateError: Object store cannot be found in the database');
+    expect(filter(event)).toBeNull();
+  });
+
   it('drops AbortError from aborted signals', () => {
     const event = makeExceptionEvent('AbortError: signal is aborted without reason');
     expect(filter(event)).toBeNull();

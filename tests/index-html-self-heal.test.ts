@@ -60,6 +60,10 @@ describe('index.html inline bootstrap self-heal', () => {
     expect(BOOTSTRAP_SCRIPT).toMatch(/Importing a module script failed/);
   });
 
+  it('includes the Safari IndexedDB object-store wording in its early listener', () => {
+    expect(BOOTSTRAP_SCRIPT).toContain('Object store cannot be found in the database');
+  });
+
   describe('runtime behaviour', () => {
     beforeAll(() => {
       loadBootstrap();
@@ -83,6 +87,13 @@ describe('index.html inline bootstrap self-heal', () => {
       await vi.waitFor(() => expect(reloadBudgetTotal()).toBe(1));
       const info = JSON.parse(sessionStorage.getItem('_forceReloadInfo') || '{}');
       expect(info.source).toBe('index_html_import');
+    });
+
+    it('prevents an IndexedDB object-store rejection from surfacing before Analytics mounts', () => {
+      const reason = new Error('InvalidStateError: Object store cannot be found in the database');
+      const event = Object.assign(new Event('unhandledrejection', { cancelable: true }), { reason });
+
+      expect(window.dispatchEvent(event)).toBe(false);
     });
 
     it('reloads on a link-time module-export skew SyntaxError', async () => {

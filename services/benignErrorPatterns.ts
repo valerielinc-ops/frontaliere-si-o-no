@@ -40,6 +40,21 @@
  * `[context] …` variants emitted by `reportCaughtError` still report.
  */
 
+export const INDEXED_DB_OBJECT_STORE_ERROR_MESSAGE = 'Object store cannot be found in the database';
+
+const INDEXED_DB_ERROR_MARKERS: readonly string[] = [
+  'Indexed Database',
+  'IDBDatabase',
+  'IndexedDB',
+  INDEXED_DB_OBJECT_STORE_ERROR_MESSAGE,
+];
+
+/** True when the browser/Firebase reports an IndexedDB lifecycle failure. */
+export function isIndexedDbError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error || '');
+  return INDEXED_DB_ERROR_MARKERS.some((marker) => message.includes(marker));
+}
+
 /** Benign in every client error pipeline ($exception autocapture + app_error). */
 export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   // ── Browser-internal layout signal — not a bug ──
@@ -69,6 +84,7 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   /Failed to execute 'transaction' on 'IDBDatabase'/i,
   /InvalidStateError.*IDBDatabase/i,
   /UnknownError.*IDBDatabase/i,
+  new RegExp(INDEXED_DB_OBJECT_STORE_ERROR_MESSAGE, 'i'),
   /Database deleted by request of the user/i,
 
   // ── Bare transport failures with no actionable source ──

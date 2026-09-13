@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { isBenignErrorMessage } from '@/services/benignErrorPatterns';
+import { isBenignErrorMessage, isIndexedDbError } from '@/services/benignErrorPatterns';
 
 describe('isBenignErrorMessage()', () => {
   describe('drops confirmed-benign environmental noise', () => {
@@ -15,6 +15,7 @@ describe('isBenignErrorMessage()', () => {
       'Installations: Application offline (installations/app-offline).',
       'Connection to Indexed Database server lost. Refresh the page to try again',
       "Failed to execute 'transaction' on 'IDBDatabase': The database connection is closing.",
+      'InvalidStateError: Object store cannot be found in the database',
       'Database deleted by request of the user',
       'TypeError: Load failed',
       '[exchangeRate.twelveDataFetch] Failed to fetch',
@@ -63,5 +64,10 @@ describe('isBenignErrorMessage()', () => {
     ])('keeps: %s', (msg) => {
       expect(isBenignErrorMessage(msg)).toBe(false);
     });
+  });
+
+  it('recognizes the browser wording used when an IndexedDB object store is missing', () => {
+    expect(isIndexedDbError(new Error('InvalidStateError: Object store cannot be found in the database'))).toBe(true);
+    expect(isIndexedDbError(new Error('TypeError: Cannot read properties of undefined'))).toBe(false);
   });
 });
