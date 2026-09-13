@@ -2133,6 +2133,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'banda-larga-regioni-periferiche-berna': { it: 'banda-larga-regioni-periferiche-berna', en: 'broadband-periphery-regions-bern', de: 'breitband-periphere-regionen-bern', fr: 'haut-debit-regions-peripheriques-berne' },
  'condanne-banche-svizzera-corruzione': { it: 'condanne-banche-svizzera-corruzione', en: 'banks-convictions-switzerland-corruption', de: 'banken-verurteilungen-schweiz-korruption', fr: 'condamnations-banques-suisse-corruption' },
  'traffico-merci-alpi-semestre-2026': { it: 'traffico-merci-alpi-semestre-2026', en: 'freight-traffic-alps-semester-2026', de: 'gueterverkehr-alpen-halbjahr-2026', fr: 'trafic-marchandises-alpes-semestre-2026' },
+ 'mercato-lavoro-seco-luglio-2026': { it: 'mercato-lavoro-seco-luglio-2026', en: 'seco-labour-market-july-2026', de: 'seco-arbeitsmarkt-juli-2026', fr: 'marche-travail-seco-juillet-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

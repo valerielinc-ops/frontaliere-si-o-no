@@ -6322,6 +6322,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.traffico-merci-alpi-semestre-2026.title': 'Transalpine freight traffic: data and growth in 2026',
     'blog.article.traffico-merci-alpi-semestre-2026.excerpt': 'Growth in transalpine freight traffic of 3.1% in the first half of 2026. The share of the railroad stands at 68%, while trucks are growing.',
     'blog.article.traffico-merci-alpi-semestre-2026.imageAlt': 'Rail and road freight traffic across the Swiss Alps',
+    'blog.article.mercato-lavoro-seco-luglio-2026.title': 'Dry labour market: 3% unemployment in July 2026',
+    'blog.article.mercato-lavoro-seco-luglio-2026.excerpt': 'SECO data for July 2026 published: unemployment rate at 3%, unemployed increasing by 7.8% on an annual basis and 45,156 registered vacancies.',
+    'blog.article.mercato-lavoro-seco-luglio-2026.imageAlt': 'SECO labour market statistics in Switzerland in July 2026',
 };
 
 export default blogMetaChEn;
