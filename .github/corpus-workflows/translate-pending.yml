@@ -185,11 +185,11 @@ jobs:
           echo "🧹 Running housekeeping (no slug hardening — deferred to Phase 3)..."
           for slice in data/jobs/by-crawler/*.json; do
             [ -f "$slice" ] || continue
-            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true
+            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs
           done
           echo "✅ Housekeeping complete"
       - name: Commit housekeeping
-        if: always() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: success() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
       - name: Install Argos Translate (local MT engine)
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
