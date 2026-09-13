@@ -51,6 +51,7 @@ import {
 import { SITE_MAP_PAGE_DIR } from '../../build-plugins/shared/siteMapPageDir';
 import { buildFaqHubPath } from '../../data/faq-hub/routes';
 import { PHARMACY_HUB_PATH } from '../../services/pharmacies/types';
+import { COMMUNICATIONS_PAGE_PATH } from '../../services/communicationChannels';
 
 /** Minimal stand-in for the mirrored IT root the ratchet starts from. */
 const SHELL = '<html lang="it"><body><div id="root"><main id="main-content"></main></div></body></html>';
@@ -96,6 +97,17 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(NAV_LABELS[locale]).toEqual(
       expect.arrayContaining([{ href: PHARMACY_HUB_PATH[locale], label: expect.any(String) }]),
     );
+  });
+
+  it.each(['it', ...NON_IT_LOCALES] as const)('%s homepage nav links its communications page', (locale) => {
+    expect(NAV_LABELS[locale]).toEqual(
+      expect.arrayContaining([{ href: COMMUNICATIONS_PAGE_PATH[locale], label: expect.any(String) }]),
+    );
+  });
+
+  it.each(NON_IT_LOCALES)('/%s/ emits a static anchor to its communications page', (locale) => {
+    const html = renderLocaleRoot(locale);
+    expect(html).toContain(`href="${COMMUNICATIONS_PAGE_PATH[locale]}"`);
   });
 
   // The DE slug is called out on its own because it is the one that had
