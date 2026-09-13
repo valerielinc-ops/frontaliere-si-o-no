@@ -127,7 +127,7 @@ export const HEAD_PREFIX = `<meta charset="utf-8">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests;">
  <meta http-equiv="X-Content-Type-Options" content="nosniff">
  <meta name="referrer" content="strict-origin-when-cross-origin">
- <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+ <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self)">
  ${FAVICON_LINKS}`;
 
 /**
