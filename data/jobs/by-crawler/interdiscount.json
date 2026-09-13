@@ -5063,7 +5063,7 @@
         "it": "I need to check the current job titles in the repository to see what needs translating. <function_calls> <invoke name=\"bash\"> <parameter name=\"command\">find /home/runner/work/frontaliere-articles/frontaliere-articles/data -name \"*.json\" -type f | head -5</parameter> </invoke> </function_calls> <function_calls> <invoke name=\"bash\"> <parameter name=\"command\">grep -r \"de.*it\" /home/runner/work/frontaliere-articles/frontaliere-articles/data/jobs/by-crawler/ 2>/dev/null | head -20</parameter> </invoke> </function_calls> Let me look at the modified files from git status to find the job titles that need translation: <function_calls> <invoke name=\"read\"> <parameter name=\"path\">/home/runner/work/frontaliere-articles/frontaliere-articles/data/jobs/by-crawler</parameter> </invoke> </function_calls> Let me check one of the modified job files: <function_calls> <invoke name=\"bash\"> <parameter name=\"command\">head -100 /home/runner/work/frontaliere-articles/frontaliere-articles/data/jobs/by-crawler/pemsa.json</parameter> </invoke> </function_calls> I need to see the structure better. Let me check for Italian translations that are still in German: <function_calls> <invoke name=\"bash\"> <parameter name=\"command\">jq '.[] | select(.title_it != null) | {title_de, title_it}' /home/runner/work/frontaliere-articles/frontaliere-articles/data/jobs/by-crawler/pemsa.json 2>/dev/null | head -50</parameter> </invoke> </function_calls> Can you provide the specific job title or file you're referring to? Based on the modified files in git status, it seems there are several job files updated. Please share which exact title needs to be translated from German to Italian, and I'll provide the complete Italian translation.",
         "en": "I need to see the actual job title that needs translation. Let me check the modified files to find the job entry. Reading the modified job files to locate the German title that needs translation to English. Looking at the git status, I can see several job files have been modified. Let me check one of them to find the German title you're referring to. Could you either: 1. Point me to the specific file and job entry, or 2. Provide the exact German title you need translated? Once I locate it, I'll provide a complete English translation.",
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Vendeuse:vendeur CFC « Créer des expériences d'achat »"
+        "fr": "Spécialiste de la vente au détail CFC « Créer des expériences d'achat »"
       },
       "description": "## Deine Aufgaben\n- Du lernst kompetente Kundenberatung und verkaufst unsere Produkte mit viel Freude.\n- Du führst engagierte Beratungs- und Verkaufsgespräche.\n- Du nimmst Bestellungen und Reparaturaufträge unserer Kundinnen und Kunden entgegen.\n- Du hilfst beim Bearbeiten von Wareneingang und Retouren mit.\n- Du unterstützt bei Inventuren sowie beim Aufräumen von Laden und Lager.\n\n## Das bringst du mit\n- Freude im Umgang mit Kundinnen und Kunden.\n- Kommunikationsfähigkeit, Zuverlässigkeit und Hilfsbereitschaft.\n- Begeisterung für die neusten Techniktrends.\n- Bereitschaft Verantwortung zu übernehmen.\n- Schulabschluss mit guten Leistungen.\n\n## Das bieten wir dir\n- Dynamisches und unternehmerisches Arbeitsumfeld\n- Du-Kultur und \"offene Türen\"\n- Möglichkeit auf Berufsmatur oder Zusatzlehre\n- Unterstützung durch professionelle Lernbegleitung\n- Chance auf Weiterbeschäftigung und Karriere\n- 6 Wochen Ferien\n- Grosszügige Personalrabatte in verschiedenen Coop-Formaten\n- ÖV-Beitrag an GA\n- Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör\nBirger Hogrefe\nHR Berufsbildung\nUnseren Kundinnen und Kunden bieten wir von Interdiscount das beste Einkaufserlebnis in der Schweiz. Und dir einen genialen Berufseinstieg in ein dynamisches Arbeitsumfeld voller Entwicklungsmöglichkeiten.",
       "descriptionByLocale": {
@@ -5149,7 +5149,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "interdiscount-d309a550-f11",
@@ -6921,7 +6921,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-27",
@@ -6961,8 +6960,7 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "interdiscount-d5b62ed7-3b9",
@@ -7294,10 +7292,10 @@
       "companyDomain": "jobs.interdiscount.ch",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "titleByLocale": {
-        "it": "I need to see the current job data to find this title and translate it properly. Let me check the relevant files. I can see this is a German job title that needs to be translated to Italian. Let me translate it: **Specialista in Vendita al Dettaglio AFC \"Creazione di Esperienze di Acquisto\"** Breaking down the translation: - \"Detailhandelsfachfrau:mann EFZ\" → \"Specialista in Vendita al Dettaglio AFC\" (EFZ/AFC are equivalent Swiss apprenticeship certificates) - \"Gestalten von Einkaufserlebnissen\" → \"Creazione di Esperienze di Acquisto\" (designing/creating shopping experiences)",
+        "it": "Specialista nel commercio al dettaglio EFZ \"Creazione di esperienze di acquisto",
         "en": "Retail specialist EFZ \"Designing shopping experiences",
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "I'll translate this job title to French following the rules. The title is in German and needs to be fully translated to French: - \"Detailhandelsfachfrau:mann EFZ\" = \"Vendeuse:vendeur CFC\" (retail specialist EFZ/CFC certification) - \"Gestalten von Einkaufserlebnissen\" = \"Concevoir des expériences d'achat\" (designing shopping experiences) Vendeuse:vendeur CFC « Concevoir des expériences d'achat »"
+        "fr": "Vendeuse/Vendeur CFC « Créer des expériences d'achat »"
       },
       "description": "## Deine Aufgaben\n- Du lernst kompetente Kundenberatung und verkaufst unsere Produkte mit viel Freude.\n- Du führst engagierte Beratungs- und Verkaufsgespräche.\n- Du nimmst Bestellungen und Reparaturaufträge unserer Kundinnen und Kunden entgegen.\n- Du hilfst beim Bearbeiten von Wareneingang und Retouren mit.\n- Du unterstützt bei Inventuren sowie beim Aufräumen von Laden und Lager.\n\n## Das bringst du mit\n- Freude im Umgang mit Kundinnen und Kunden.\n- Kommunikationsfähigkeit, Zuverlässigkeit und Hilfsbereitschaft.\n- Begeisterung für die neusten Techniktrends.\n- Bereitschaft Verantwortung zu übernehmen.\n- Schulabschluss mit guten Leistungen.\n\n## Das bieten wir dir\n- Dynamisches und unternehmerisches Arbeitsumfeld\n- Du-Kultur und \"offene Türen\"\n- Möglichkeit auf Berufsmatur oder Zusatzlehre\n- Unterstützung durch professionelle Lernbegleitung\n- Chance auf Weiterbeschäftigung und Karriere\n- 6 Wochen Ferien\n- Grosszügige Personalrabatte in verschiedenen Coop-Formaten\n- ÖV-Beitrag an GA\n- Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör\nBirger Hogrefe\nHR Berufsbildung\nUnseren Kundinnen und Kunden bieten wir von Interdiscount das beste Einkaufserlebnis in der Schweiz. Und dir einen genialen Berufseinstieg in ein dynamisches Arbeitsumfeld voller Entwicklungsmöglichkeiten.",
       "descriptionByLocale": {
@@ -7344,7 +7342,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-31",
@@ -7384,8 +7381,7 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "interdiscount-805b4958-3bd",
@@ -7713,10 +7709,10 @@
       "companyDomain": "jobs.interdiscount.ch",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "titleByLocale": {
-        "it": "I'll translate this job title to Italian, keeping brand names and acronyms unchanged while translating all role/function words. The title breaks down as: - \"Detailhandelsfachfrau:mann EFZ\" = retail specialist apprenticeship - \"Gestalten von Einkaufserlebnissen\" = creating/designing shopping experiences Specialista nel commercio al dettaglio EFZ \"Creazione di esperienze di acquisto",
+        "it": "I'll translate this job title to Italian. Commessa/Commesso di vendita al dettaglio CFP \"Creazione di esperienze di acquisto",
         "en": "Retail specialist EFZ \"Designing shopping experiences",
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "I'll translate this job title to French following the rules. The title is in German and needs to be fully translated to French: - \"Detailhandelsfachfrau:mann EFZ\" = \"Vendeuse:vendeur CFC\" (retail specialist EFZ/CFC certification) - \"Gestalten von Einkaufserlebnissen\" = \"Concevoir des expériences d'achat\" (designing shopping experiences) Vendeuse:vendeur CFC « Concevoir des expériences d'achat »"
+        "fr": "Spécialiste de la vente au détail CFC « Créer des expériences d'achat »"
       },
       "description": "## Deine Aufgaben\n- Du lernst kompetente Kundenberatung und verkaufst unsere Produkte mit viel Freude.\n- Du führst engagierte Beratungs- und Verkaufsgespräche.\n- Du nimmst Bestellungen und Reparaturaufträge unserer Kundinnen und Kunden entgegen.\n- Du hilfst beim Bearbeiten von Wareneingang und Retouren mit.\n- Du unterstützt bei Inventuren sowie beim Aufräumen von Laden und Lager.\n\n## Das bringst du mit\n- Freude im Umgang mit Kundinnen und Kunden.\n- Kommunikationsfähigkeit, Zuverlässigkeit und Hilfsbereitschaft.\n- Begeisterung für die neusten Techniktrends.\n- Bereitschaft Verantwortung zu übernehmen.\n- Schulabschluss mit guten Leistungen.\n\n## Das bieten wir dir\n- Dynamisches und unternehmerisches Arbeitsumfeld\n- Du-Kultur und \"offene Türen\"\n- Möglichkeit auf Berufsmatur oder Zusatzlehre\n- Unterstützung durch professionelle Lernbegleitung\n- Chance auf Weiterbeschäftigung und Karriere\n- 6 Wochen Ferien\n- Grosszügige Personalrabatte in verschiedenen Coop-Formaten\n- ÖV-Beitrag an GA\n- Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör\nLea Helena Bucher\nHR Berufsbildung\nUnseren Kundinnen und Kunden bieten wir von Interdiscount das beste Einkaufserlebnis in der Schweiz. Und dir einen genialen Berufseinstieg in ein dynamisches Arbeitsumfeld voller Entwicklungsmöglichkeiten.",
       "descriptionByLocale": {
@@ -7763,7 +7759,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-33",
@@ -7803,8 +7798,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "interdiscount-87cc48b9-ea5",
@@ -8973,7 +8967,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "de": [
@@ -9011,8 +9004,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "interdiscount-cec937ed-2d6",
@@ -9028,17 +9020,17 @@
       "companyDomain": "jobs.interdiscount.ch",
       "title": "Detailhandelsfachfrau:mann",
       "titleByLocale": {
-        "it": "Esperto del commercio al dettaglio:mann",
-        "en": "Retail trade expert:mann",
+        "it": "Commessa:o al dettaglio",
+        "en": "Retail specialist",
         "de": "Detailhandelsfachfrau:mann",
-        "fr": "Spécialiste du commerce de détail:mann"
+        "fr": "I need to check the existing translations in the repository to understand the pattern and provide an accurate French translation. Let me look at the translation cache and job files to see how similar titles are being translated. I can see there are translation files in the repository. Let me check the actual job data to find the title you're referring to and see the existing translation pattern. Could you provide either: 1. The exact job file or ID containing this title, or 2. The current translation that's showing as \"de\" instead of \"fr\" This will help me locate the exact entry and provide the correct French translation following the established pattern in your codebase."
       },
       "description": "## Deine Aufgaben\n- Du lernst den Verkaufsalltag in der Filiale kennen.\n- Du stellst Fragen, bist motiviert und neugierig.\n\n## Das bringst du mit\n- Du bist begeistert von neusten Techniktrends.\n- Du interessierst dich für eine Berufslehre bei uns.\n- Du bist mindestens 13 Jahre alt.\n\n## Das bieten wir dir\n- Dynamisches und unternehmerisches Arbeitsumfeld\n- Du-Kultur und \"offene Türen\"\n- Möglichkeit auf Berufsmatur oder Zusatzlehre\n- Unterstützung durch professionelle Lernbegleitung\n- Chance auf Weiterbeschäftigung und Karriere\n- 6 Wochen Ferien\n- Grosszügige Personalrabatte in verschiedenen Coop-Formaten\n- ÖV-Beitrag an GA\n- Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör\nLea Helena Bucher\nHR Berufsbildung\nDu willst einen ersten Einblick in den Berufsalltag erhalten? Entdecke im Schnuppertag die Welt von Interdiscount.",
       "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Si arriva a conoscere le vendite quotidiane nel negozio.\n- Fai domande, sei motivato e curioso.\n\n## Lo porti con te.\n- Sei entusiasta delle ultime tendenze tecnologiche.\n- Sei interessato a un apprendistato professionale con noi.\n- Hai almeno 13 anni.\n\n## Questo è ciò che vi offriamo\n- Ambiente di lavoro dinamico e imprenditoriale\n- Du-culture e \"porte aperte\"\n- Possibilità di formazione professionale o di apprendistato supplementare\n- Supporto tramite supporto di apprendimento professionale\n- Possibilità di occupazione e carriera continua\n- 6 settimane di vacanza\n- Generosi sconti personali in vari formati co-op\n- Contributo dei trasporti pubblici al GA\n- Buono da CHF 500.- come parte per un notebook, tablet o accessorio\nLea Helena Bucher\nFormazione professionale\nVuoi ottenere una prima visione del lavoro quotidiano? Scopri il mondo di Interdiscount nel giorno del processo.",
-        "en": "## Your tasks\n- You get to know the everyday sales in the store.\n- You ask questions, are motivated and curious.\n\n## You bring that with you\n- You are excited about the latest technology trends.\n- You are interested in a vocational apprenticeship with us.\n- You are at least 13 years old.\n\n## This is what we offer you\n- Dynamic and entrepreneurial working environment\n- Du-culture and \"open doors\"\n- Possibility of vocational training or additional apprenticeship\n- Support through professional learning support\n- Chance of continued employment and career\n- 6 weeks holiday\n- Generous personal discounts in various co-op formats\n- Public transport contribution to GA\n- Voucher worth CHF 500.- as a share for a notebook, tablet or accessory\nLea Helena Bucher\nHR Vocational training\nDo you want to get a first insight into everyday work? Discover the world of Interdiscount in the trial day.",
+        "it": "I vostri compiti - si arriva a conoscere la routine di vendita nel ramo. - Si fanno domande, sono motivati e curiosi.\n\nSei entusiasta delle ultime tendenze tecnologiche. - Sei interessato ad un apprendistato professionale con noi. - Hai almeno 13 anni.\n\nVi offriamo questo - Ambiente di lavoro dinamico e imprenditoriale - Cultura du e \"porte aperte\" - possibilità di lavoro o apprendistato aggiuntivo - supporto attraverso il supporto professionale di apprendimento - possibilità di occupazione e carriera continua - 6 settimane di vacanze - sconti generosi del personale in diversi formati coop - contributo dei trasporti pubblici a GA - buono del valore di CHF 500.- come quota per un notebook, tablet o accessori Lea Helena Bucher HR Formazione professionale Vuoi avere una prima visione della vita lavorativa quotidiana? Scopri il mondo di Interdiscount nel piccolo giorno.",
+        "en": "Your tasks - you get to know the sales routine in the branch. - You ask questions, are motivated and curious.\n\nYou're excited about the latest technology trends. - You are interested in a professional apprenticeship with us. - You are at least 13 years old.\n\nWe offer you this - Dynamic and entrepreneurial work environment - Du culture and \"open doors\" - possibility of working or additional apprenticeship - support through professional learning support - chance of continued employment and career - 6 weeks holidays - generous staff discounts in different coop formats - public transport contribution to GA - voucher worth CHF 500.- as a share for a notebook, tablet or accessories Lea Helena Bucher HR Vocational training Do you want to get a first insight into everyday working life? Discover the world of Interdiscount in the small day.",
         "de": "## Deine Aufgaben\n- Du lernst den Verkaufsalltag in der Filiale kennen.\n- Du stellst Fragen, bist motiviert und neugierig.\n\n## Das bringst du mit\n- Du bist begeistert von neusten Techniktrends.\n- Du interessierst dich für eine Berufslehre bei uns.\n- Du bist mindestens 13 Jahre alt.\n\n## Das bieten wir dir\n- Dynamisches und unternehmerisches Arbeitsumfeld\n- Du-Kultur und \"offene Türen\"\n- Möglichkeit auf Berufsmatur oder Zusatzlehre\n- Unterstützung durch professionelle Lernbegleitung\n- Chance auf Weiterbeschäftigung und Karriere\n- 6 Wochen Ferien\n- Grosszügige Personalrabatte in verschiedenen Coop-Formaten\n- ÖV-Beitrag an GA\n- Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör\nLea Helena Bucher\nHR Berufsbildung\nDu willst einen ersten Einblick in den Berufsalltag erhalten? Entdecke im Schnuppertag die Welt von Interdiscount.",
-        "fr": "## Vos tâches\n- Vous apprenez à connaître les ventes quotidiennes dans le magasin.\n- Vous posez des questions, êtes motivés et curieux.\n\n## Apporte ça avec toi.\n- Vous êtes excité par les dernières tendances technologiques.\n- Vous êtes intéressé par un apprentissage professionnel avec nous.\n- Vous avez au moins 13 ans.\n\n## C'est ce que nous vous offrons.\n- Environnement de travail dynamique et entrepreneurial\n- Du-culture et \"portes ouvertes\"\n- Possibilité de formation professionnelle ou d'apprentissage complémentaire\n- Soutien par le biais d'un soutien à l'apprentissage professionnel\n- Possibilité de poursuivre l'emploi et la carrière\n- 6 semaines de vacances\n- De généreuses réductions personnelles en divers formats de coop\n- Contribution des transports publics à l'AG\n- Bon d'achat d'une valeur de CHF 500.- en part pour un portable, une tablette ou un accessoire\nLea Helena Bucher\nRH Formation professionnelle\nVoulez-vous avoir un premier aperçu du travail quotidien? Découvrez le monde de l'Interdiscount lors de la journée d'essai."
+        "fr": "Vos tâches - vous apprenez à connaître la routine de vente dans la branche. - Vous posez des questions, sont motivés et curieux.\n\nVous êtes excité par les dernières tendances technologiques.\n\nNous vous offrons ceci - Environnement de travail dynamique et entrepreneurial - Du culture et portes ouvertes - possibilité de travailler ou d'apprentissage supplémentaire - soutien par le biais d'un support d'apprentissage professionnel - chance de poursuivre un emploi et une carrière - 6 semaines de vacances - généreux rabais du personnel dans différents formats de coop - contribution des transports publics à GA - bon d'une valeur de CHF 500.- en partage pour un carnet, tablette ou accessoires Lea Helena Bucher HR Formation professionnelle Voulez-vous avoir un premier aperçu de la vie quotidienne? Découvrez le monde de l'Interdiscount en petite journée."
       },
       "location": "Lyssach",
       "canton": "BE",
@@ -9112,7 +9104,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "interdiscount-10bc308a-402",
@@ -9428,17 +9421,17 @@
       "companyDomain": "jobs.interdiscount.ch",
       "title": "Detailhandelsfachfrau:mann",
       "titleByLocale": {
-        "it": "Esperto del commercio al dettaglio:mann",
-        "en": "Retail trade expert:mann",
+        "it": "I don't see a job title in your message to translate. Could you please provide the specific job title you'd like translated to Italian (it)?",
+        "en": "Retail Specialist",
         "de": "Detailhandelsfachfrau:mann",
-        "fr": "Spécialiste du commerce de détail:mann"
+        "fr": "Vendeuse:vendeur spécialisé:e"
       },
       "description": "## Deine Aufgaben\n- Du lernst den Verkaufsalltag in der Filiale kennen.\n- Du stellst Fragen, bist motiviert und neugierig.\n\n## Das bringst du mit\n- Du bist begeistert von neusten Techniktrends.\n- Du interessierst dich für eine Berufslehre bei uns.\n- Du bist mindestens 13 Jahre alt.\n\n## Das bieten wir dir\n- Dynamisches und unternehmerisches Arbeitsumfeld\n- Du-Kultur und \"offene Türen\"\n- Möglichkeit auf Berufsmatur oder Zusatzlehre\n- Unterstützung durch professionelle Lernbegleitung\n- Chance auf Weiterbeschäftigung und Karriere\n- 6 Wochen Ferien\n- Grosszügige Personalrabatte in verschiedenen Coop-Formaten\n- ÖV-Beitrag an GA\n- Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör\nLea Helena Bucher\nHR Berufsbildung\nDu willst einen ersten Einblick in den Berufsalltag erhalten? Entdecke im Schnuppertag die Welt von Interdiscount.",
       "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Si arriva a conoscere le vendite quotidiane nel negozio.\n- Fai domande, sei motivato e curioso.\n\n## Lo porti con te.\n- Sei entusiasta delle ultime tendenze tecnologiche.\n- Sei interessato a un apprendistato professionale con noi.\n- Hai almeno 13 anni.\n\n## Questo è ciò che vi offriamo\n- Ambiente di lavoro dinamico e imprenditoriale\n- Du-culture e \"porte aperte\"\n- Possibilità di formazione professionale o di apprendistato supplementare\n- Supporto tramite supporto di apprendimento professionale\n- Possibilità di occupazione e carriera continua\n- 6 settimane di vacanza\n- Generosi sconti personali in vari formati co-op\n- Contributo dei trasporti pubblici al GA\n- Buono da CHF 500.- come parte per un notebook, tablet o accessorio\nLea Helena Bucher\nFormazione professionale\nVuoi ottenere una prima visione del lavoro quotidiano? Scopri il mondo di Interdiscount nel giorno del processo.",
-        "en": "## Your tasks\n- You get to know the everyday sales in the store.\n- You ask questions, are motivated and curious.\n\n## You bring that with you\n- You are excited about the latest technology trends.\n- You are interested in a vocational apprenticeship with us.\n- You are at least 13 years old.\n\n## This is what we offer you\n- Dynamic and entrepreneurial working environment\n- Du-culture and \"open doors\"\n- Possibility of vocational training or additional apprenticeship\n- Support through professional learning support\n- Chance of continued employment and career\n- 6 weeks holiday\n- Generous personal discounts in various co-op formats\n- Public transport contribution to GA\n- Voucher worth CHF 500.- as a share for a notebook, tablet or accessory\nLea Helena Bucher\nHR Vocational training\nDo you want to get a first insight into everyday work? Discover the world of Interdiscount in the trial day.",
+        "it": "I vostri compiti - si arriva a conoscere la routine di vendita nel ramo. - Si fanno domande, sono motivati e curiosi.\n\nSei entusiasta delle ultime tendenze tecnologiche. - Sei interessato ad un apprendistato professionale con noi. - Hai almeno 13 anni.\n\nVi offriamo questo - Ambiente di lavoro dinamico e imprenditoriale - Cultura du e \"porte aperte\" - possibilità di lavoro o apprendistato aggiuntivo - supporto attraverso il supporto professionale di apprendimento - possibilità di occupazione e carriera continua - 6 settimane di vacanze - sconti generosi del personale in diversi formati coop - contributo dei trasporti pubblici a GA - buono del valore di CHF 500.- come quota per un notebook, tablet o accessori Lea Helena Bucher HR Formazione professionale Vuoi avere una prima visione della vita lavorativa quotidiana? Scopri il mondo di Interdiscount nel piccolo giorno.",
+        "en": "Your tasks - you get to know the sales routine in the branch. - You ask questions, are motivated and curious.\n\nYou're excited about the latest technology trends. - You are interested in a professional apprenticeship with us. - You are at least 13 years old.\n\nWe offer you this - Dynamic and entrepreneurial work environment - Du culture and \"open doors\" - possibility of working or additional apprenticeship - support through professional learning support - chance of continued employment and career - 6 weeks holidays - generous staff discounts in different coop formats - public transport contribution to GA - voucher worth CHF 500.- as a share for a notebook, tablet or accessories Lea Helena Bucher HR Vocational training Do you want to get a first insight into everyday working life? Discover the world of Interdiscount in the small day.",
         "de": "## Deine Aufgaben\n- Du lernst den Verkaufsalltag in der Filiale kennen.\n- Du stellst Fragen, bist motiviert und neugierig.\n\n## Das bringst du mit\n- Du bist begeistert von neusten Techniktrends.\n- Du interessierst dich für eine Berufslehre bei uns.\n- Du bist mindestens 13 Jahre alt.\n\n## Das bieten wir dir\n- Dynamisches und unternehmerisches Arbeitsumfeld\n- Du-Kultur und \"offene Türen\"\n- Möglichkeit auf Berufsmatur oder Zusatzlehre\n- Unterstützung durch professionelle Lernbegleitung\n- Chance auf Weiterbeschäftigung und Karriere\n- 6 Wochen Ferien\n- Grosszügige Personalrabatte in verschiedenen Coop-Formaten\n- ÖV-Beitrag an GA\n- Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör\nLea Helena Bucher\nHR Berufsbildung\nDu willst einen ersten Einblick in den Berufsalltag erhalten? Entdecke im Schnuppertag die Welt von Interdiscount.",
-        "fr": "## Vos tâches\n- Vous apprenez à connaître les ventes quotidiennes dans le magasin.\n- Vous posez des questions, êtes motivés et curieux.\n\n## Apporte ça avec toi.\n- Vous êtes excité par les dernières tendances technologiques.\n- Vous êtes intéressé par un apprentissage professionnel avec nous.\n- Vous avez au moins 13 ans.\n\n## C'est ce que nous vous offrons.\n- Environnement de travail dynamique et entrepreneurial\n- Du-culture et \"portes ouvertes\"\n- Possibilité de formation professionnelle ou d'apprentissage complémentaire\n- Soutien par le biais d'un soutien à l'apprentissage professionnel\n- Possibilité de poursuivre l'emploi et la carrière\n- 6 semaines de vacances\n- De généreuses réductions personnelles en divers formats de coop\n- Contribution des transports publics à l'AG\n- Bon d'achat d'une valeur de CHF 500.- en part pour un portable, une tablette ou un accessoire\nLea Helena Bucher\nRH Formation professionnelle\nVoulez-vous avoir un premier aperçu du travail quotidien? Découvrez le monde de l'Interdiscount lors de la journée d'essai."
+        "fr": "Vos tâches - vous apprenez à connaître la routine de vente dans la branche. - Vous posez des questions, sont motivés et curieux.\n\nVous êtes excité par les dernières tendances technologiques.\n\nNous vous offrons ceci - Environnement de travail dynamique et entrepreneurial - Du culture et portes ouvertes - possibilité de travailler ou d'apprentissage supplémentaire - soutien par le biais d'un support d'apprentissage professionnel - chance de poursuivre un emploi et une carrière - 6 semaines de vacances - généreux rabais du personnel dans différents formats de coop - contribution des transports publics à GA - bon d'une valeur de CHF 500.- en partage pour un carnet, tablette ou accessoires Lea Helena Bucher HR Formation professionnelle Voulez-vous avoir un premier aperçu de la vie quotidienne? Découvrez le monde de l'Interdiscount en petite journée."
       },
       "location": "Meilen",
       "canton": "ZH",
@@ -9512,7 +9505,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "interdiscount-dd6e385c-a11",
