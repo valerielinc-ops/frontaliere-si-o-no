@@ -65,6 +65,12 @@ describe('orphan-canton-paths — inferCantonFromSlug', () => {
     ).toBe('GR');
   });
 
+  it('strips the 8-hex URL disambiguator used by dedicated prospectors', () => {
+    expect(
+      inferCantonFromSlug('product-manager-ferrovia-retica-rhb-chur-1aa2bc0c', cityIndex),
+    ).toBe('GR');
+  });
+
   it('returns null when the trailing token is not a known city', () => {
     expect(inferCantonFromSlug('blah-blah-noplaceknown', cityIndex)).toBeNull();
   });
