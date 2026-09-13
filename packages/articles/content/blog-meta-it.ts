@@ -11723,6 +11723,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inaugurazione-campus-smart-valley-daverio.title': 'Inaugurato a Daverio il campus Smart Valley per le imprese',
     'blog.article.inaugurazione-campus-smart-valley-daverio.excerpt': 'Inaugurato a Daverio il campus Smart Valley, uno spazio di cinquemila metri quadri per la formazione specialistica e il collegamento tra giovani e imprese.',
     'blog.article.inaugurazione-campus-smart-valley-daverio.imageAlt': 'Campus Smart Valley inaugurato nell\'area industriale di Daverio',
+    'blog.article.franchigia-frontalieri-casalzuigno.title': 'Nuova franchigia 10.000 € per frontalieri da Casalzuigno',
+    'blog.article.franchigia-frontalieri-casalzuigno.excerpt': 'Il Nuovo Accordo Frontalieri in vigore dal 2024 introduce una franchigia di 10.000 € per i nuovi residenti in Italia che lavorano in Ticino.',
+    'blog.article.franchigia-frontalieri-casalzuigno.imageAlt': 'Veduta di Casalzuigno vicino al confine con Mendrisio e il Ticino',
 };
 
 export default blogMetaIt;

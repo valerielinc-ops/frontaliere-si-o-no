@@ -11724,6 +11724,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inaugurazione-campus-smart-valley-daverio.title': 'Inauguré à Daverio le campus Smart Valley pour les entreprises',
     'blog.article.inaugurazione-campus-smart-valley-daverio.excerpt': 'Inauguré à Daverio, le campus Smart Valley, un espace de cinq mille mètres carrés pour la formation spécialisée et la connexion entre les jeunes et les entreprises.',
     'blog.article.inaugurazione-campus-smart-valley-daverio.imageAlt': 'Campus Smart Valley inauguré dans la zone industrielle de Daverio',
+    'blog.article.franchigia-frontalieri-casalzuigno.title': 'Nouvelle franchise 10 000 € pour les frontaliers de Casalzuigno',
+    'blog.article.franchigia-frontalieri-casalzuigno.excerpt': 'Le nouvel accord frontalier en vigueur depuis 2024 introduit une franchise de 10 000 € pour les nouveaux résidents en Italie qui travaillent au Tessin.',
+    'blog.article.franchigia-frontalieri-casalzuigno.imageAlt': 'Vue de Casalzuigno près de la frontière avec Mendrisio et le Tessin',
 };
 
 export default blogMetaFr;

@@ -90280,6 +90280,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franchigia-frontalieri-casalzuigno': {
+    title: 'Nuova franchigia 10.000 € per frontalieri da Casalzuigno',
+    description: 'Dal 2024 i nuovi frontalieri da Casalzuigno beneficiano di una franchigia di 10.000 €. Scopri le differenze con il vecchio regime e la procedura fiscale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, franchigia, casalzuigno, nuovo',
+    ogTitle: 'Nuova franchigia 10.000 € per frontalieri da Casalzuigno',
+    ogDescription: 'Il Nuovo Accordo Frontalieri in vigore dal 1° gennaio 2024 introduce una franchigia di 10.000 euro per i nuovi residenti in Italia. Analizziamo le regole fiscali per chi vive a Casalzuigno e lavora in Ticino.',
+    canonicalPath: '/articoli-frontaliere/franchigia-frontalieri-casalzuigno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova franchigia 10.000 € per frontalieri da Casalzuigno",
+      "description": "Dal 2024 i nuovi frontalieri da Casalzuigno beneficiano di una franchigia di 10.000 €. Scopri le differenze con il vecchio regime e la procedura fiscale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franchigia-frontalieri-casalzuigno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Casalzuigno vicino al confine con Mendrisio e il Ticino"
+      },
+      "datePublished": "2026-09-13T07:32:34+00:00",
+      "dateModified": "2026-09-13T07:32:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franchigia-frontalieri-casalzuigno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
