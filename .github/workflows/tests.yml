@@ -1555,27 +1555,39 @@ jobs:
                   echo "::error::$label did not publish a PID"
                   failures=1
                 fi
+                gate_waited=0
+                gate_wait_limit=300
+                launcher_gone_reported=0
                 while [ ! -s "$status_file" ]; do
                   if [ ! -s "$pid_file" ]; then
                     echo "::error::$label cannot be monitored because its PID is missing"
                     failures=1
                     break
                   fi
-                  pid="$(cat "$pid_file" 2>/dev/null || true)"
-                  if ! kill -0 "$pid" 2>/dev/null; then
-                    for retry in 1 2 3 4 5; do
-                      [ -s "$status_file" ] && break
-                      echo "waiting for $label status (attempt $retry/5)"
-                      sleep 1
-                    done
-                    if [ ! -s "$status_file" ]; then
-                      echo "::error::$label exited without publishing a status"
-                      failures=1
-                      break
-                    fi
-                  else
-                    sleep 1
+                  if [ "$gate_waited" -ge "$gate_wait_limit" ]; then
+                    echo "::error::$label did not publish a status within ${gate_wait_limit}s"
+                    echo "[$label] launcher log:"
+                    cat "$state_dir/$label.log" 2>/dev/null || true
+                    failures=1
+                    break
                   fi
+                  pid="$(cat "$pid_file" 2>/dev/null || true)"
+                  if ! printf '%s\n' "$pid" | grep -Eq '^[0-9]+$'; then
+                    echo "::error::$label published an invalid launcher PID: $pid"
+                    echo "[$label] launcher log:"
+                    cat "$state_dir/$label.log" 2>/dev/null || true
+                    failures=1
+                    break
+                  fi
+                  # The launcher PID is advisory: setsid can hand the actual
+                  # wrapper to a child while that child still writes status.
+                  # Wait on the atomic status file, but keep the wait bounded.
+                  if ! kill -0 "$pid" 2>/dev/null && [ "$launcher_gone_reported" -eq 0 ]; then
+                    echo "::warning::$label launcher PID ended; waiting for the wrapper status file up to ${gate_wait_limit}s"
+                    launcher_gone_reported=1
+                  fi
+                  sleep 1
+                  gate_waited=$((gate_waited + 1))
                 done
                 if [ -s "$status_file" ]; then
                   status="$(cat "$status_file" 2>/dev/null || true)"
