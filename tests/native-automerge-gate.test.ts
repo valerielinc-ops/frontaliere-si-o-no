@@ -134,6 +134,14 @@ describe('native auto-merge gate (#8512)', () => {
 
     expect(result).toMatchObject({ allow: true, action: 'retain' });
   });
+
+  it('revokes an inherited native opt-in through the GitHub API instead of trusting persistence', () => {
+    const gateSource = readFileSync(new URL('../scripts/ci/native-automerge-gate.mjs', import.meta.url), 'utf8');
+
+    expect(gateSource).toContain('disablePullRequestAutoMerge');
+    expect(gateSource).toContain('revokeExistingAutoMerge');
+    expect(gateSource).not.toContain('if (pr.autoMergeRequest !== null) return skip');
+  });
 });
 
 describe('native auto-merge workflow wiring (#8512)', () => {
