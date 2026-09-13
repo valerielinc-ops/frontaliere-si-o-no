@@ -132,6 +132,8 @@ describe('loop fleet status', () => {
     expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
       policyCompliant: false,
       lifecycleCompliant: false,
+      lifecycleState: 'unavailable',
+      lifecycleEventCount: null,
       evidenceError: 'canonical lifecycle evidence is missing or noncompliant',
       issue: 'canonical lifecycle evidence is missing or noncompliant',
     });

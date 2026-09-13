@@ -283,7 +283,11 @@ function downloadEvidence(loopId, run, tempRoot, registry) {
         return event;
       })
       : null;
-    return { evidence: { ...evidence, health }, lifecycleEvents: summarizeLifecycleEvents(lifecycleEvents), error: null };
+    return {
+      evidence: { ...evidence, health },
+      lifecycleEvents: lifecycleEvents ? summarizeLifecycleEvents(lifecycleEvents) : null,
+      error: null,
+    };
   } catch (error) {
     return { evidence: null, error: `canonical evidence is invalid JSON: ${error.message}` };
   }
