@@ -11709,6 +11709,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.teleriscaldamento-varese-porte-aperte.title': 'Chauffage urbain Varèse : portes ouvertes à la centrale',
     'blog.article.teleriscaldamento-varese-porte-aperte.excerpt': 'Journée portes ouvertes à la centrale de chauffage urbain de Varese le samedi 19 septembre. Réservations obligatoires sur Eventbrite.',
     'blog.article.teleriscaldamento-varese-porte-aperte.imageAlt': 'Centrale de chauffage urbain à Varèse (Varese)',
+    'blog.article.inaugurazione-campus-smartt-valley.title': 'Daverio : le nouveau campus SMARTT VAlley a été inauguré',
+    'blog.article.inaugurazione-campus-smartt-valley.excerpt': 'Ouvert à Daverio, le campus de 5000 m ² dédié à la formation et à l\'innovation. Investissement de 4,5 millions d\'euros pour combler l\'écart entre l\'école et l\'usine.',
+    'blog.article.inaugurazione-campus-smartt-valley.imageAlt': 'Campus SMARTT VAlley à Daverio',
 };
 
 export default blogMetaFr;

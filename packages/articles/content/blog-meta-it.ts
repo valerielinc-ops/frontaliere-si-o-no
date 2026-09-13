@@ -11708,6 +11708,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.teleriscaldamento-varese-porte-aperte.title': 'Teleriscaldamento Varese: porte aperte alla centrale',
     'blog.article.teleriscaldamento-varese-porte-aperte.excerpt': 'Giornata porte aperte alla centrale di teleriscaldamento di Varese sabato 19 settembre. Prenotazioni obbligatorie su Eventbrite.',
     'blog.article.teleriscaldamento-varese-porte-aperte.imageAlt': 'Centrale di teleriscaldamento a Varese',
+    'blog.article.inaugurazione-campus-smartt-valley.title': 'Daverio: inaugurato il nuovo campus SMARTT VAlley',
+    'blog.article.inaugurazione-campus-smartt-valley.excerpt': 'Aperto a Daverio il campus di 5000 mq dedicato a formazione e innovazione. Investimento da 4,5 milioni di euro per colmare il divario tra scuola e fabbrica.',
+    'blog.article.inaugurazione-campus-smartt-valley.imageAlt': 'Campus SMARTT VAlley a Daverio',
 };
 
 export default blogMetaIt;

@@ -11706,6 +11706,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.teleriscaldamento-varese-porte-aperte.title': 'Fernwärme Varese: Türen zur Zentrale geöffnet',
     'blog.article.teleriscaldamento-varese-porte-aperte.excerpt': 'Tag der offenen Tür zur Fernwärmezentrale von Varese am Samstag, den 19. September. Obligatorische Reservierungen auf Eventbrite.',
     'blog.article.teleriscaldamento-varese-porte-aperte.imageAlt': 'Fernheizwerk in Varese',
+    'blog.article.inaugurazione-campus-smartt-valley.title': 'Daverio: Neuer Smartt VAlley Campus eingeweiht',
+    'blog.article.inaugurazione-campus-smartt-valley.excerpt': 'Der 5000 m ² große Campus, der der Ausbildung und Innovation gewidmet ist, wurde in Daverio eröffnet. Investition von 4,5 Millionen Euro, um die Lücke zwischen Schule und Fabrik zu schließen.',
+    'blog.article.inaugurazione-campus-smartt-valley.imageAlt': 'SMARTT VAlley Campus in Daverio',
 };
 
 export default blogMetaDe;
