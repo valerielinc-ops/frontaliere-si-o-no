@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-09-11T23:05:46.160Z",
+  "generatedAt": "2026-09-13T13:52:14.102Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -10,12 +10,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2283,
-  "avgDurationMs": 2283,
+  "durationMs": 1973,
+  "avgDurationMs": 1973,
   "durationHistory": [
-    2283
+    1973
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://climeworks.recruitee.com/o/science-manager-nature-based-solutions-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:05:42.190Z",
+      "crawledAt": "2026-09-13T13:52:11.041Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -45,7 +45,6 @@
       "postedDate": "2026-09-07",
       "applyUrl": "https://climeworks.recruitee.com/o/science-manager-nature-based-solutions-80-100",
       "remote": true,
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-07T15:04:05.559Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -67,7 +66,7 @@
       "url": "https://climeworks.recruitee.com/o/senior-strategic-partnership-manager-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:05:42.196Z",
+      "crawledAt": "2026-09-13T13:52:11.045Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -103,7 +102,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:05:42.199Z",
+      "crawledAt": "2026-09-13T13:52:11.046Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -117,7 +116,6 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "remote": true,
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-08T22:24:43.541Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -139,7 +137,7 @@
       "url": "https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:05:42.201Z",
+      "crawledAt": "2026-09-13T13:52:11.049Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -175,7 +173,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:05:42.205Z",
+      "crawledAt": "2026-09-13T13:52:11.050Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -189,7 +187,6 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "remote": true,
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:37:32.360Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -211,7 +208,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T23:05:42.207Z",
+      "crawledAt": "2026-09-13T13:52:11.051Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -225,7 +222,6 @@
       "postedDate": "2026-02-10",
       "applyUrl": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "remote": true,
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:37:32.367Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -236,48 +232,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "climeworks-be6687f2b9e4",
-      "slug": "responsabile-senior-dello-sviluppo-delle-partnership-100-climeworks-opfikon-zurich",
-      "company": "Climeworks",
-      "companyKey": "climeworks",
-      "companyDomain": "climeworks.com",
-      "title": "Senior Partnership Development Manager (100%)",
-      "location": "Opfikon, Zurich",
-      "canton": "ZH",
-      "url": "https://climeworks.recruitee.com/o/senior-partnership-development-manager-100",
-      "source": "Climeworks Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:03:47.553Z",
-      "addressLocality": "Opfikon, Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Clima e Sostenibilità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-04",
-      "applyUrl": "https://climeworks.recruitee.com/o/senior-partnership-development-manager-100",
-      "remote": true,
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-04T13:26:53.279Z",
-      "salaryMin": 117000,
-      "salaryMax": 180000,
-      "salarySource": "estimated",
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
