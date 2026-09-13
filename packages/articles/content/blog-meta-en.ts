@@ -11728,6 +11728,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ospedale-del-ponte-terzo-lotto.title': 'Del Ponte Hospital: no block for the third batch',
     'blog.article.ospedale-del-ponte-terzo-lotto.excerpt': 'Asst Seven Lakes denies the blockade of the third lot of the Del Ponte Hospital of Varese. Loans of 13.6 million already in cash and work started.',
     'blog.article.ospedale-del-ponte-terzo-lotto.imageAlt': 'Filippo Del Ponte hospital in Varese',
+    'blog.article.bollettino-frontaliere-2026-09-13.title': 'Cross-border daily brief – September 13, 2026: franc at €1.0596',
+    'blog.article.bollettino-frontaliere-2026-09-13.excerpt': 'Today\'s numbers, September 13, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-13.imageAlt': 'The day\'s numbers for cross-border commuters – September 13, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-13.seoDescription': 'Cross-border brief, September 13, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-13.ogDescription': 'The numbers for September 13, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;

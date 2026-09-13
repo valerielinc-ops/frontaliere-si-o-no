@@ -13,6 +13,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   buildDecision,
   buildObservation,
@@ -332,6 +333,22 @@ export function validateEmployerFunnelOutcomes(outcomes, {
   const warnings = [];
   const generatedAt = finiteDate(outcomes.generatedAt || outcomes._meta?.generatedAt);
   if (!generatedAt) issues.push('employer funnel outcomes generatedAt is missing or invalid');
+  const exportEvidence = outcomes.export;
+  const anonymousFunnelExcluded = exportEvidence?.anonymousFunnelExcluded === true;
+  if (exportEvidence !== undefined) {
+    if (!object(exportEvidence)) {
+      issues.push('outcomes.export is not an object');
+    } else {
+      for (const field of ['inventoryUntouched', 'subscriptionStateUntouched', 'pricesUntouched', 'outreachSent']) {
+        const expected = field === 'outreachSent' ? false : true;
+        if (exportEvidence[field] !== expected) issues.push(`outcomes.export.${field} must be ${expected}`);
+      }
+      if (!text(exportEvidence.accountIdentity)) issues.push('outcomes.export.accountIdentity is missing');
+      if (anonymousFunnelExcluded && !text(exportEvidence.anonymousFunnelReason)) {
+        issues.push('outcomes.export.anonymousFunnelReason is missing');
+      }
+    }
+  }
   const values = {
     eligibleEmployerAccounts: outcomeValue(outcomes, 'eligibleEmployerAccounts', [], issues),
     profileViewAccounts: outcomeValue(outcomes, 'profileViewAccounts', ['employerProfileViewAccounts'], issues),
@@ -377,6 +394,11 @@ export function validateEmployerFunnelOutcomes(outcomes, {
     ['paidActivations', 'checkoutStartAccounts'],
   ];
   for (const [numerator, denominator] of orderedRelations) {
+    // The browser employer CTA events carry no publisherUid. A zero here is a
+    // measured lower bound, not a claim that the anonymous funnel had no
+    // viewers/leads; do not manufacture cardinality failures by comparing it
+    // with the authenticated Firestore ledger.
+    if (anonymousFunnelExcluded && ['profileViewAccounts', 'leadAccounts'].includes(denominator)) continue;
     if (integer(values[numerator]) && integer(values[denominator]) && values[numerator] > values[denominator]) {
       issues.push(`outcomes.${numerator} exceeds outcomes.${denominator}`);
     }
@@ -412,6 +434,7 @@ export function validateEmployerFunnelOutcomes(outcomes, {
       profileCount: integer(inventoryScope.profileCount) ? inventoryScope.profileCount : null,
       profileGeneratedAt: finiteDate(inventoryScope.profileGeneratedAt)?.toISOString() || null,
     } : null,
+    export: exportEvidence && object(exportEvidence) ? exportEvidence : null,
   };
   let quality = 'observed';
   if (!generatedAt || Object.values(values).some((value) => !integer(value)) || !finiteNumber(mrrRecognizedChf)) quality = 'partial';
@@ -705,6 +728,19 @@ export async function runL9({
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
+  });
+  observation.outcome = buildValidatedLoopOutcome({
+    registry: loopRegistry,
+    loopId: LOOP_ID,
+    quality: verdict.quality,
+    independent: verdict.ok,
+    numerator: verdict.ok ? outcomes.paidActivations : null,
+    denominator: verdict.ok ? outcomes.eligibleEmployerAccounts : null,
+    observedAt: finiteDate(outcomes.generatedAt)?.toISOString() || null,
+    reason: verdict.ok
+      ? 'employer profile inventory and the independent funnel/subscription ledger agree'
+      : `paid employer outcome is ${verdict.quality}; inventory is not treated as revenue`,
+    now,
   });
   const decision = buildDecision({
     loopId: LOOP_ID,

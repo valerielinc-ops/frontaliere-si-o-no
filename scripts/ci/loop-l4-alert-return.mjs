@@ -6,6 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   buildDecision,
   buildObservation,
@@ -151,6 +152,23 @@ function validateOutcomes(outcomes, { now, maxAgeHours, sourcePath, minimumSampl
     suppressedWithoutConsent: outcomes.suppressedWithoutConsent ?? outcomes.metrics?.suppressedWithoutConsent,
     deferredAlerts: outcomes.deferredAlerts ?? outcomes.metrics?.deferredAlerts,
   };
+  const exportEvidence = outcomes.export;
+  if (exportEvidence !== undefined) {
+    if (!exportEvidence || typeof exportEvidence !== 'object' || Array.isArray(exportEvidence)) {
+      issues.push('outcomes.export is not an object');
+    } else {
+      for (const field of ['consentChecked', 'deduplicationChecked', 'quietHoursChecked', 'externalDeliveryUntouched']) {
+        if (exportEvidence[field] !== true) issues.push(`outcomes.export.${field} must be true`);
+      }
+      if (!text(exportEvidence.quietHoursEvidence)) issues.push('outcomes.export.quietHoursEvidence is missing');
+      if (exportEvidence.unattributedDeliveries !== undefined && !integer(exportEvidence.unattributedDeliveries)) {
+        issues.push('outcomes.export.unattributedDeliveries is not a non-negative integer');
+      }
+      if (integer(exportEvidence.unattributedDeliveries) && exportEvidence.unattributedDeliveries > 0) {
+        issues.push(`outcomes.export.unattributedDeliveries is ${exportEvidence.unattributedDeliveries}`);
+      }
+    }
+  }
   if (!generatedAt) issues.push('outcomes.generatedAt is missing or invalid');
   for (const [name, value] of Object.entries({ eligibleConsentedUsers, deliveredAlerts, openedAlerts, clickedAlerts, returningUsers7d })) {
     if (!integer(value)) issues.push(`outcomes.${name} is missing or not a non-negative integer`);
@@ -185,6 +203,9 @@ function validateOutcomes(outcomes, { now, maxAgeHours, sourcePath, minimumSampl
     consentViolations: integer(optional.consentViolations) ? optional.consentViolations : null,
     suppressedWithoutConsent: integer(optional.suppressedWithoutConsent) ? optional.suppressedWithoutConsent : null,
     deferredAlerts: integer(optional.deferredAlerts) ? optional.deferredAlerts : null,
+    export: exportEvidence && typeof exportEvidence === 'object' && !Array.isArray(exportEvidence)
+      ? exportEvidence
+      : null,
   };
   let quality = 'observed';
   if (!generatedAt || !integer(eligibleConsentedUsers) || !integer(deliveredAlerts)
@@ -437,6 +458,19 @@ export async function runL4({
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
+  });
+  observation.outcome = buildValidatedLoopOutcome({
+    registry: loopRegistry,
+    loopId: LOOP_ID,
+    quality: verdict.quality,
+    independent: verdict.ok,
+    numerator: verdict.ok ? verdict.snapshot.outcomes?.returningUsers7d ?? 0 : null,
+    denominator: verdict.ok ? verdict.snapshot.outcomes?.eligibleConsentedUsers ?? 0 : null,
+    observedAt: generatedAt?.toISOString() || null,
+    reason: verdict.ok
+      ? 'consent, delivery and return sources agree on the seven-day cohort'
+      : `alert-return outcome is ${verdict.quality}; no unsourced message is sent`,
+    now,
   });
   const decision = buildDecision({
     loopId: LOOP_ID,

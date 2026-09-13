@@ -6,6 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   buildDecision,
   buildObservation,
@@ -243,6 +244,19 @@ export async function runL1({
     actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
+  });
+  observation.outcome = buildValidatedLoopOutcome({
+    registry: loopRegistry,
+    loopId: LOOP_ID,
+    quality: verdict.quality,
+    independent: verdict.ok,
+    numerator: verdict.ok ? numerator : null,
+    denominator: verdict.ok ? denominator : null,
+    observedAt: generatedAt?.toISOString() || null,
+    reason: verdict.ok
+      ? 'fresh PostHog useful-session export contains the complete session outcome'
+      : `useful-session outcome is ${verdict.quality}; no reliability change is authorized`,
+    now,
   });
   const decision = buildDecision({
     loopId: LOOP_ID,

@@ -13,7 +13,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
-  REQUIRED_LIFECYCLE_EVENT_TYPES,
+  summarizeLifecycleEvents as summarizeLifecycleEventsContract,
   validateActionClassAgainstPolicy,
   validateLifecycleEvent,
   validateLoopRegistry,
@@ -148,43 +148,7 @@ function readDurableHealth(ledgerDir, registry) {
   }
 }
 
-export function summarizeLifecycleEvents(events) {
-  const byCandidate = new Map();
-  for (const event of events || []) {
-    const candidateId = text(event?.candidateId);
-    if (!candidateId) continue;
-    if (!byCandidate.has(candidateId)) byCandidate.set(candidateId, []);
-    byCandidate.get(candidateId).push(event);
-  }
-  const candidates = [...byCandidate.entries()].map(([candidateId, candidateEvents]) => {
-    const eventTypes = [...new Set(candidateEvents.map((event) => event.eventType))];
-    const missing = REQUIRED_LIFECYCLE_EVENT_TYPES.filter((eventType) => !eventTypes.includes(eventType));
-    const sorted = [...candidateEvents].sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt));
-    return {
-      candidateId,
-      owner: candidateEvents[0].owner,
-      eventTypes,
-      missing,
-      complete: missing.length === 0,
-      lastEvent: sorted.at(-1) ? {
-        eventType: sorted.at(-1).eventType,
-        occurredAt: sorted.at(-1).occurredAt,
-      } : null,
-    };
-  });
-  const last = [...(events || [])].sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt)).at(-1);
-  return {
-    available: true,
-    eventCount: (events || []).length,
-    candidateCount: candidates.length,
-    complete: candidates.length ? candidates.every((candidate) => candidate.complete) : null,
-    state: candidates.length === 0
-      ? 'no_candidate'
-      : (candidates.every((candidate) => candidate.complete) ? 'verified' : 'candidate'),
-    lastEvent: last ? { eventType: last.eventType, occurredAt: last.occurredAt } : null,
-    candidates,
-  };
-}
+export const summarizeLifecycleEvents = summarizeLifecycleEventsContract;
 
 function readDurableLifecycle(ledgerDir, registry) {
   const file = path.resolve(ledgerDir, 'lifecycle-events.jsonl');

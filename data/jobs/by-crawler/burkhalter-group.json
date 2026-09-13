@@ -8601,7 +8601,7 @@
       "titleByLocale": {
         "it": "Informatico/a per edifici (100%)",
         "en": "Gebäudeinformatiker/in (100%)",
-        "de": "Gebäudeinformatiker/in (100 %)",
+        "de": "Gebäudeinformatiker/in (100%) This title is already in German and all words are properly translated, so no changes are needed.",
         "fr": "Informaticien/ne du bâtiment (100%)"
       },
       "descriptionByLocale": {
@@ -8613,7 +8613,7 @@
       "slugByLocale": {
         "it": "informatico-a-per-edifici-100-bassi-elektro-ag-arosa",
         "en": "gebaudeinformatiker-in-100-bassi-elektro-ag-arosa",
-        "de": "gebaudeinformatiker-in-100-bassi-elektro-ag-arosa",
+        "de": "gebaudeinformatiker-in-100-this-title-is-already-in-german-and-all-words-are-properly-translated-so-no-changes-are",
         "fr": "informaticien-ne-du-batiment-100-bassi-elektro-ag-arosa"
       },
       "crawledAt": "2026-09-12T13:09:02.839Z",
@@ -8647,13 +8647,16 @@
         ],
         "fr": [
           "gebaudeinformatiker-in-100-bassi-elektro-ag-arosa"
+        ],
+        "de": [
+          "gebaudeinformatiker-in-100-bassi-elektro-ag-arosa"
         ]
       },
       "previousSlugs": [
         "building-it-specialist-100-bassi-elektro-ag-arosa",
         "gebaudeinformatiker-in-100-bassi-elektro-ag-arosa"
       ],
-      "retranslationAttempts": 0,
+      "retranslationAttempts": 1,
       "salarySource": "reported",
       "needsRetranslation": true
     },
@@ -18982,7 +18985,7 @@
       "titleByLocale": {
         "it": "Installatore/trice elettrico/a/in CFC (100%)",
         "en": "Electrical Installer EFZ (100%)",
-        "de": "Elektroinstallateur/in EFZ (100 %)",
+        "de": "Elektroinstallateur / in EFZ (100%)",
         "fr": "Installateur/trice électricien/ne EFZ (100%)"
       },
       "descriptionByLocale": {

@@ -7,6 +7,7 @@ import {
   runL1,
   validateTelemetry,
 } from '../scripts/ci/loop-l1-reliability.mjs';
+import { buildL1TelemetryExport } from '../scripts/ci/export-loop-outcomes.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 
@@ -27,6 +28,19 @@ describe('L1 Reliability & UX', () => {
     expect(verdict.ok).toBe(true);
     expect(verdict.quality).toBe('observed');
     expect(verdict.snapshot.errorFreeUsefulSessions).toBe(194);
+  });
+
+  it('accepts the exporter shape with session-level fields at the source root', () => {
+    const telemetry = buildL1TelemetryExport({}, {
+      usefulSessions: 200,
+      errorFreeUsefulSessions: 194,
+      observedErrorEvents: 6,
+      generatedAt: NOW.toISOString(),
+      telemetryWindow: { start: '2026-09-08T00:00:00.000Z', end: NOW.toISOString() },
+    });
+    const verdict = validateTelemetry(telemetry, { now: NOW });
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
+    expect(telemetry.observedErrorEvents).toBe(6);
   });
 
   it('does not infer error-free sessions from an event-only baseline', () => {

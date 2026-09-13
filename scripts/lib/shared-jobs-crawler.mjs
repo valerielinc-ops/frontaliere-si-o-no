@@ -4350,6 +4350,10 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
     featured: false,
     postedDate: dateOnly(seedMeta?.postedDate || node.datePosted || Date.now()),
     url,
+    // The generic parser exposes the canonical detail URL as the handoff
+    // target when JSON-LD does not publish a separate application URL. This
+    // is only a navigable handoff; L3 must never count it as an application.
+    applyUrl: url,
     source: 'Company Careers Crawler',
     ...(seedMetaRelevant ? {
       _targetScope: {
@@ -4597,6 +4601,10 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
     featured: false,
     postedDate: dateOnly(seedMeta?.postedDate || Date.now()),
     url: pageUrl,
+    // HTML-only pages have the same explicit handoff contract as JSON-LD
+    // pages. The URL is evidence of where a user can continue, not a submit
+    // event or a commercial outcome.
+    applyUrl: pageUrl,
     source: 'Company Careers Crawler',
     ...(seedMetaRelevant ? {
       _targetScope: {

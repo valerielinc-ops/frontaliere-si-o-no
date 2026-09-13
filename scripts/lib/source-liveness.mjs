@@ -274,6 +274,7 @@ export const POSTHOG_MONITORS = [
   { path: 'scripts/profession-keyword-opportunities.mjs', guarded: true, emits: 'workflow opens a deduped SEO issue' },
   { path: 'scripts/revenue-monitor.mjs', guarded: true, emits: 'CLS verdict table + history jsonl' },
   { path: 'scripts/build-employer-insights.mjs', guarded: false, emits: 'scheduled employer-insights snapshot (GA4/PostHog source)' },
+  { path: 'scripts/ci/export-loop-outcomes.mjs', guarded: false, emits: 'scheduled L1/L4/L9 outcome ledgers (source evidence)' },
   { path: 'scripts/funnel-metrics-snapshot.mjs', guarded: false, emits: 'comments on tracker issues #886/#855/#888/#857' },
   { path: 'scripts/build-evidence-index.mjs', guarded: true, emits: 'data/evidence-index.json (drives thin-page filtering)' },
   { path: 'scripts/fetch-thin-page-promotions.mjs', guarded: false, emits: 'exit 2/3 + promotion URL set' },

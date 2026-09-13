@@ -30,11 +30,35 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('gates the three repaired loops on a runner-local fail-closed outcome export', () => {
+    const contracts = [
+      ['loop-l3-job-quality.yml', 'l3-outcome.json', 'handoffIsNotApplication', 'validate_l3_outcome'],
+      ['loop-l8-revenue-attribution.yml', 'l8-outcome.json', 'externalCommercialStateUntouched', 'validate_l8_outcome'],
+      ['loop-l10-fleet-control.yml', 'l10-outcome.json', 'ledgerWriteMode', 'validate_l10_outcome'],
+    ];
+    for (const [name, outcomeFile, marker, validatorId] of contracts) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain(`test -s \"$REPORT_DIR/${outcomeFile}\"`);
+      expect(source, name).toContain(marker);
+      expect(source, name).toContain('if: always()');
+      expect(source, name).toContain(`id: ${validatorId}`);
+      expect(source, name).toContain(`steps.${validatorId}.outcome == 'success'`);
+    }
+  });
+
   it('uploads lifecycle evidence for every loop', () => {
     for (const name of loopWorkflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
       expect(uploadsWholeDirectory || source.includes('lifecycle-events.jsonl'), name).toBe(true);
+    }
+  });
+
+  it('uploads one canonical outcome artifact for every loop', () => {
+    for (const name of loopWorkflows) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
+      expect(uploadsWholeDirectory || source.includes('loop-fleet-outcome.json'), name).toBe(true);
     }
   });
 

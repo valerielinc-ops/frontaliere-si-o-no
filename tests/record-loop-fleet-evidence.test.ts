@@ -104,11 +104,25 @@ describe('record-loop-fleet-evidence', () => {
     expect(fs.readFileSync(path.join(dir, 'loop-observations.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     expect(fs.readFileSync(path.join(dir, 'loop-decisions.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     expect(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
+    expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-fleet-outcome.json'), 'utf8')))
+      .toMatchObject({
+        recordType: 'outcome',
+        outcomeId: 'error-free-useful-session',
+        status: 'partial',
+        independent: false,
+        loopId: 'L1',
+      });
+    expect(first.summary.outcomeArtifact).toBe('loop-fleet-outcome.json');
     const lifecycle = fs.readFileSync(path.join(dir, 'lifecycle-events.jsonl'), 'utf8').trim().split('\n').map((line) => JSON.parse(line));
     expect(lifecycle).toHaveLength(2);
     expect(lifecycle.map((event: any) => event.eventType)).toEqual(['candidate', 'owner_assigned']);
     expect(lifecycle.every((event: any) => validateLifecycleEvent(registry, 'L1', event))).toBe(true);
     expect(() => validateLifecycleEvent(registry, 'L1', { ...lifecycle[0], recordId: undefined })).toThrow(/recordId/);
+    expect(() => validateLifecycleEvent(registry, 'L1', { ...lifecycle[0], recordedAt: undefined })).toThrow(/recordedAt/);
+    expect(() => validateLifecycleEvent(registry, 'L1', (() => {
+      const { recordedAt, ...withoutRecordedAt } = lifecycle[0];
+      return withoutRecordedAt;
+    })())).toThrow(/recordedAt/);
     expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8')))
       .toMatchObject({ loopId: 'L1', quality: 'partial', ok: false, issueCount: 1, warningCount: 2, sourceRefs: registry.loops.find((loop: any) => loop.loopId === 'L1').sourceRefs, outcome: { outcomeId: 'error-free-useful-session', status: 'partial', independent: false } });
   });
