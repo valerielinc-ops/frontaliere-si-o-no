@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { detectAggregate } from '../scripts/ci/detect-aggregate.mjs';
+import { chmodSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { detectAggregate, parseIssuePayload } from '../scripts/ci/detect-aggregate.mjs';
 import { isAggregate } from '../scripts/ci/check-issue-already-resolved.mjs';
 
 const workflow = readFileSync('.github/workflows/issue-fix.yml', 'utf8');
@@ -47,6 +50,48 @@ describe('issue-fix aggregate detector site port (#986)', () => {
 
   it('usa la direzione reversibile quando la issue non è leggibile', () => {
     expect(detectAggregate({ readable: false })).toEqual({ aggregate: true, fallback: true });
+  });
+
+  it('tratta un payload gh vuoto come lettura degradata, non come issue singola', () => {
+    const parsed = parseIssuePayload({ title: '', body: '' });
+    expect(parsed.readable).toBe(false);
+    expect(detectAggregate(parsed)).toEqual({ aggregate: true, fallback: true });
+  });
+
+  it('propaga il fallimento se la scrittura su GITHUB_OUTPUT fa throw', () => {
+    const sandbox = mkdtempSync(join(tmpdir(), 'detect-aggregate-'));
+    try {
+      const fakeGh = join(sandbox, 'gh');
+      writeFileSync(fakeGh, '#!/bin/sh\nprintf \'%s\' \'{"title":"fix: one item","body":"Suggested action: one change"}\'\n');
+      chmodSync(fakeGh, 0o755);
+      const outputDirectory = join(sandbox, 'github-output');
+      mkdirSync(outputDirectory);
+
+      const result = spawnSync(
+        process.execPath,
+        ['scripts/ci/detect-aggregate.mjs'],
+        {
+          cwd: process.cwd(),
+          encoding: 'utf8',
+          env: {
+            ...process.env,
+            PATH: `${sandbox}:${process.env.PATH || ''}`,
+            REPO: 'owner/repo',
+            ISSUE_NUMBER: '1176',
+            GITHUB_OUTPUT: outputDirectory,
+          },
+        },
+      );
+
+      // stdout documents the conservative decision, but it cannot populate
+      // `steps.tier.outputs`. The caller must fail instead of continuing with
+      // the missing output interpreted as false.
+      expect(result.status).not.toBe(0);
+      expect(result.stdout).toContain('is_aggregate=true');
+      expect(result.stderr).toContain('errore non gestito');
+    } finally {
+      rmSync(sandbox, { recursive: true, force: true });
+    }
   });
 
   it('mantiene il conteggio di vecchie righe shell fuori dal workflow', () => {
