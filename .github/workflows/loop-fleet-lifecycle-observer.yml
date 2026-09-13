@@ -1,0 +1,188 @@
+name: Loop fleet independent lifecycle observer
+
+# Reconstructs only GitHub-observable downstream lifecycle events. The
+# observer is read-only; persistence, when needed, goes through the same
+# reviewed ledger branch/PR used by the durable evidence bridge.
+on:
+  schedule:
+    - cron: '41 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+
+# Serialize with the durable ledger bridge because both may update the same
+# reviewed ledger branch. Neither workflow can write main directly.
+concurrency:
+  group: loop-fleet-durable-ledger
+  cancel-in-progress: false
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout lifecycle contract
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /data/loop-fleet/loop-registry.json
+            /data/loop-fleet/ledger/
+            /scripts/ci/observe-loop-fleet-lifecycle.mjs
+            /scripts/ci/append-loop-fleet-lifecycle.mjs
+            /scripts/ci/mint-app-token.mjs
+            /scripts/ci/pr-body-check-gate.mjs
+            /scripts/ci/lib/hook-exit-codes.mjs
+            /scripts/ci/lib/hook-target-cwd.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/githubApiHeaders.mjs
+            /scripts/lib/google-service-account-token.mjs
+            /scripts/lib/pr-body-sections-check.mjs
+            /scripts/ci/lib/false-positive-declaration.mjs
+            /functions/src/githubApiHeaders.js
+            /scripts/load-rc-env.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Observe PR, Actions and post-merge evidence
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-lifecycle-observer
+        run: |
+          set -euo pipefail
+          node scripts/ci/observe-loop-fleet-lifecycle.mjs \
+            --registry data/loop-fleet/loop-registry.json \
+            --ledger-dir data/loop-fleet/ledger \
+            --out-dir "$REPORT_DIR" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload lifecycle observation
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: loop-fleet-lifecycle-observer-${{ github.run_id }}
+          path: ${{ runner.temp }}/loop-fleet-lifecycle-observer/
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::warning::Firebase service account is unavailable; reviewed lifecycle PR writes will fail closed."
+          else
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load reviewed write credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Mint App token for the reviewed PR path
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Persist lifecycle evidence through a reviewed PR
+        env:
+          EVENT_FILE: ${{ runner.temp }}/loop-fleet-lifecycle-observer/lifecycle-events.jsonl
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [ ! -s "$EVENT_FILE" ]; then
+            echo 'No new independently observed lifecycle events; no PR update needed.'
+            exit 0
+          fi
+
+          write_token="${APP_TOKEN:-${GITHUB_PAT:-}}"
+          if [ -z "$write_token" ]; then
+            echo '::error::No reviewed App/PAT token; refusing to push a lifecycle ledger branch or open a PR.'
+            exit 1
+          fi
+          export GH_TOKEN="$write_token"
+
+          git config user.name 'frontaliere-automation[bot]'
+          git config user.email '41898282+frontaliere-automation[bot]@users.noreply.github.com'
+          git fetch origin main
+          git checkout --detach origin/main
+
+          base_branch='chore/loop-fleet-ledger'
+          open_pr=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --head "$base_branch" --json number --jq '.[0].number // ""')
+          branch="$base_branch"
+          merged_dir="$RUNNER_TEMP/loop-fleet-lifecycle-merged"
+          rm -rf "$merged_dir"
+          mkdir -p "$merged_dir"
+
+          if [ -n "$open_pr" ]; then
+            git fetch origin "$base_branch"
+            if git cat-file -e "origin/$base_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" 2>/dev/null; then
+              git show "origin/$base_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" > "$merged_dir/lifecycle-events.jsonl"
+            fi
+          elif git ls-remote --exit-code origin "refs/heads/$base_branch" >/dev/null 2>&1; then
+            branch="${base_branch}-lifecycle-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          fi
+
+          node scripts/ci/append-loop-fleet-lifecycle.mjs \
+            --events-file "$EVENT_FILE" \
+            --ledger-dir "$merged_dir" \
+            --registry data/loop-fleet/loop-registry.json
+
+          if [ -n "$open_pr" ]; then
+            git checkout -b "$branch" "origin/$base_branch"
+          else
+            git checkout -b "$branch"
+          fi
+          mkdir -p data/loop-fleet/ledger
+          cp "$merged_dir/lifecycle-events.jsonl" data/loop-fleet/ledger/lifecycle-events.jsonl
+
+          if git diff --quiet -- data/loop-fleet/ledger/lifecycle-events.jsonl \
+              && [ -z "$(git ls-files --others --exclude-standard data/loop-fleet/ledger/lifecycle-events.jsonl)" ]; then
+            echo 'Observed lifecycle events are already present on the reviewed branch.'
+            exit 0
+          fi
+
+          git add data/loop-fleet/ledger/lifecycle-events.jsonl
+          git commit -m 'chore(loop-fleet): persist observed lifecycle evidence'
+          push_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git -c http.https://github.com/.extraheader= push --set-upstream "$push_url" "$branch"
+
+          body="$RUNNER_TEMP/loop-fleet-lifecycle-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated from an independent GitHub PR/Actions lifecycle observation run [${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
+
+          ## Implementato
+          - In questa PR persiste gli eventi downstream verificati indipendentemente: PR aperta, test conclusi, review `## LGTM`, merge e verifica post-merge sullo SHA del merge.
+          - In questa PR conserva l’identità della run dell’osservatore, il riferimento alla PR/run GitHub e la deduplicazione append-only; non ricostruisce rollback o decisioni locali.
+
+          ## Non implementato (ancora)
+          - Rollback e stop di dominio richiedono una prova esplicita e un owner autorizzato — blocked: questo osservatore legge GitHub e non inventa eventi terminali né mutazioni di dominio.
+          - Scritture dirette su main, corpus, shard, contenuti pubblicati, prezzi, commissioni, partner, subscription, advertising layout, outreach e revenue restano disabilitate — per scelta: la persistenza passa soltanto dalla PR ledger revisionata.
+          EOF
+          node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
+          if [ -n "$open_pr" ]; then
+            gh pr edit "$open_pr" --repo "$GITHUB_REPOSITORY" --body-file "$body"
+          else
+            gh pr create \
+              --repo "$GITHUB_REPOSITORY" \
+              --base main \
+              --head "$branch" \
+              --title 'chore(loop-fleet): persist observed lifecycle evidence' \
+              --body-file "$body"
+          fi
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
