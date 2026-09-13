@@ -89,8 +89,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
-      - name: Record canonical L3 evidence
+      - name: Validate runner-local L3 outcome export
+        id: validate_l3_outcome
         if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l3
+        run: |
+          test -s "$REPORT_DIR/l3-outcome.json"
+          jq -e '(.loopId == "L3" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .handoffIsNotApplication == true and .runnerLocalQuarantine == true and .publishedDataUntouched == true)' "$REPORT_DIR/l3-outcome.json" >/dev/null
+      - name: Record canonical L3 evidence
+        if: ${{ always() && steps.validate_l3_outcome.outcome == 'success' }}
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l3
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L3 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json

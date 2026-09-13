@@ -118,6 +118,11 @@ describe('record-loop-fleet-evidence', () => {
     expect(lifecycle.map((event: any) => event.eventType)).toEqual(['candidate', 'owner_assigned']);
     expect(lifecycle.every((event: any) => validateLifecycleEvent(registry, 'L1', event))).toBe(true);
     expect(() => validateLifecycleEvent(registry, 'L1', { ...lifecycle[0], recordId: undefined })).toThrow(/recordId/);
+    expect(() => validateLifecycleEvent(registry, 'L1', { ...lifecycle[0], recordedAt: undefined })).toThrow(/recordedAt/);
+    expect(() => validateLifecycleEvent(registry, 'L1', (() => {
+      const { recordedAt, ...withoutRecordedAt } = lifecycle[0];
+      return withoutRecordedAt;
+    })())).toThrow(/recordedAt/);
     expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8')))
       .toMatchObject({ loopId: 'L1', quality: 'partial', ok: false, issueCount: 1, warningCount: 2, sourceRefs: registry.loops.find((loop: any) => loop.loopId === 'L1').sourceRefs, outcome: { outcomeId: 'error-free-useful-session', status: 'partial', independent: false } });
   });

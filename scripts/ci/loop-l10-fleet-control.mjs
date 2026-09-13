@@ -118,6 +118,8 @@ function emptyQuotaSnapshot(sourcePath) {
 function emptyHealthSnapshot(sourcePath) {
   return {
     path: sourcePath,
+    missing: true,
+    quality: 'unmeasurable',
     rowCount: null,
     validRowCount: 0,
     invalidRowCount: null,
@@ -340,6 +342,7 @@ function validateHealthHistory(history, { now, maxAgeHours, sourcePath, loopIds,
     warnings,
     snapshot: {
       path: sourcePath,
+      missing: false,
       rowCount: records.length,
       validRowCount,
       invalidRowCount: records.length - validRowCount,
@@ -354,6 +357,7 @@ function validateHealthHistory(history, { now, maxAgeHours, sourcePath, loopIds,
       retries,
       quotaUnits: Number(quotaUnits.toFixed(3)),
       artifactCollisions,
+      quality,
     },
   };
 }
@@ -468,6 +472,65 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
+function buildFleetControlOutcome({ verdict, policy, registry, now }) {
+  const health = verdict.snapshot?.health || {};
+  const generatedAt = finiteDate(health.latestAt);
+  const eligibleRuns = integer(health.eligibleRuns) ? health.eligibleRuns : null;
+  const verifiedDecisions = integer(health.verifiedDecisions) ? health.verifiedDecisions : null;
+  const measurable = verdict.ok
+    && health.quality === 'observed'
+    && eligibleRuns !== null
+    && verifiedDecisions !== null;
+  const outcomeQuality = health.quality || verdict.quality || 'unmeasurable';
+  const status = measurable
+    ? 'observed'
+    : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
+  const outcome = buildValidatedLoopOutcome({
+    registry,
+    loopId: LOOP_ID,
+    quality: status,
+    independent: measurable,
+    numerator: verifiedDecisions,
+    denominator: eligibleRuns,
+    observedAt: generatedAt?.toISOString() || null,
+    reason: measurable
+      ? 'fresh health ledger confirms eligible runs, verified decisions and gate-preserving artifacts'
+      : `fleet control outcome is ${status}; no throughput is inferred from missing or invalid health rows`,
+    now,
+  });
+  return {
+    ...outcome,
+    loopId: LOOP_ID,
+    generatedAt: generatedAt?.toISOString() || null,
+    metrics: {
+      eligibleRuns,
+      verifiedDecisions,
+      successfulRuns: integer(health.successfulRuns) ? health.successfulRuns : null,
+      failedRuns: integer(health.failedRuns) ? health.failedRuns : null,
+      timeoutRuns: integer(health.timeoutRuns) ? health.timeoutRuns : null,
+      skippedRuns: integer(health.skippedRuns) ? health.skippedRuns : null,
+      retries: integer(health.retries) ? health.retries : null,
+      quotaUnits: finiteNumber(health.quotaUnits) ? health.quotaUnits : null,
+      artifactCollisions: integer(health.artifactCollisions) ? health.artifactCollisions : null,
+    },
+    evidence: {
+      source: 'loop-health-history',
+      sourcePath: health.path,
+      sourceRefs: policy.outcome.sourceRefs,
+      status: measurable ? 'verified' : 'unverified',
+    },
+    evidenceStatus: health.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
+    sourcePath: health.path,
+    safeToAct: false,
+    oneWriterPerArtifact: true,
+    boundedRetries: true,
+    ledgerWriteMode: 'serialized-atomic',
+    gateBypass: false,
+    supervisorL11Separate: true,
+    publishedDataUntouched: true,
+  };
+}
+
 function writeReports(reportDir, verdict, observation, decision) {
   if (!reportDir) return [];
   const dir = path.resolve(reportDir);
@@ -475,6 +538,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   const files = [
     ['l10-observation.json', observation],
     ['l10-decision.json', decision],
+    ['l10-outcome.json', observation.outcome],
     ['l10-report.md', reportMarkdown(verdict, observation, decision)],
   ];
   for (const [name, content] of files) {
@@ -510,7 +574,7 @@ function writeActions(reportDir, verdict, now, registry) {
   return file;
 }
 
-function writeResult(reportDir, { verdict, issued, actionsWritten }) {
+function writeResult(reportDir, { verdict, issued, actionsWritten, outcome }) {
   if (!reportDir) return null;
   const file = path.join(path.resolve(reportDir), 'l10-result.json');
   fs.writeFileSync(file, `${JSON.stringify({
@@ -522,6 +586,7 @@ function writeResult(reportDir, { verdict, issued, actionsWritten }) {
     candidateCount: verdict.candidates.length,
     issued,
     actionsWritten,
+    outcome,
   }, null, 2)}\n`);
   return file;
 }
@@ -612,6 +677,7 @@ export async function runL10({
       },
     },
   };
+  const outcome = buildFleetControlOutcome({ verdict, policy: loopPolicy, registry: loopRegistry, now });
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const health = verdict.snapshot?.health || {};
   const candidateStarts = [
@@ -639,19 +705,7 @@ export async function runL10({
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
-  observation.outcome = buildValidatedLoopOutcome({
-    registry: loopRegistry,
-    loopId: LOOP_ID,
-    quality: verdict.quality,
-    independent: verdict.ok,
-    numerator: verdict.ok ? health.verifiedDecisions : null,
-    denominator: verdict.ok ? health.eligibleRuns : null,
-    observedAt: finiteDate(health.latestAt)?.toISOString() || null,
-    reason: verdict.ok
-      ? 'GitHub run, PR and quota/health ledgers reconcile the verified decision count'
-      : `fleet health outcome is ${verdict.quality}; no execution is counted as verified`,
-    now,
-  });
+  observation.outcome = outcome;
   const decision = buildDecision({
     loopId: LOOP_ID,
     goal: loopPolicy.goal,
@@ -686,10 +740,10 @@ export async function runL10({
     });
     issued = true;
   }
-  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten });
+  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);
   logger.log(`[L10] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
-  return { verdict, observation, decision, files, issued, actionsWritten };
+  return { verdict, observation, decision, outcome, files, issued, actionsWritten };
 }
 
 function parseArgs(argv) {
@@ -726,6 +780,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
     verdict: result.verdict,
     observation: result.observation,
     decision: result.decision,
+    outcome: result.outcome,
     issued: result.issued,
     actionsWritten: result.actionsWritten,
   }, null, 2));

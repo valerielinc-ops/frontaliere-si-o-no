@@ -15,7 +15,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   actionAutonomy,
-  appendJsonl,
+  appendJsonlSerialized,
   buildDecision,
   buildLifecycleEvent,
   buildOutcome,
@@ -123,26 +123,7 @@ function buildCandidateLifecycleEvents({ policy, decision, context, now }) {
 }
 
 function appendUnique(file, record) {
-  const absolute = path.resolve(file);
-  if (fs.existsSync(absolute)) {
-    const lines = fs.readFileSync(absolute, 'utf8').split('\n').filter(Boolean);
-    for (const line of lines) {
-      let existing;
-      try {
-        existing = JSON.parse(line);
-      } catch (error) {
-        throw new Error(`ledger ${file} contains invalid JSON: ${error.message}`);
-      }
-      if (existing.recordId === record.recordId) {
-        if (JSON.stringify(existing) !== JSON.stringify(record)) {
-          throw new Error(`ledger ${file} contains conflicting duplicate ${record.recordId}`);
-        }
-        return false;
-      }
-    }
-  }
-  appendJsonl(absolute, record);
-  return true;
+  return appendJsonlSerialized(file, record, { label: `ledger ${file}` }).appended;
 }
 
 function validateRecord(record, type, loopId) {
