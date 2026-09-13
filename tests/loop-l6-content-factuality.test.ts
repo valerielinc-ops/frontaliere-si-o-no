@@ -32,6 +32,13 @@ function historyText(...rows: unknown[]) {
 function outcomes(overrides: Record<string, unknown> = {}) {
   return {
     generatedAt: NOW.toISOString(),
+    independent: true,
+    evidence: {
+      source: 'editorial-source-review-ledger',
+      sourceRefs: ['editorial-source-evidence', 'quality-alert-history'],
+      externalSourceVerified: true,
+      localeVerified: true,
+    },
     reviewedArticles: 120,
     confirmedDefects: 12,
     externallyVerifiedDefects: 12,
@@ -74,6 +81,16 @@ describe('L6 Content Learning & Factuality', () => {
     }, { now: NOW });
     expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
     expect(verdict.snapshot.outcomes.reviewedArticles).toBeNull();
+    expect(verdict.snapshot.outcomes.independent).toBe(false);
+  });
+
+  it('requires explicit independent source and locale evidence', () => {
+    const verdict = validateContentFactuality({
+      historyText: historyText(historyRow()),
+      outcomes: outcomes({ independent: false }),
+    }, { now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('independent must be explicitly true');
   });
 
   it('does not treat a zero reviewed cohort as a measurable zero rate', async () => {
@@ -86,6 +103,7 @@ describe('L6 Content Learning & Factuality', () => {
       logger: { log() {} },
     });
     expect(result.verdict.quality).toBe('zero');
+    expect(result.outcome).toMatchObject({ status: 'partial', independent: false });
     expect(result.observation.numerator).toBeNull();
     expect(result.observation.denominator).toBeNull();
   });
@@ -119,6 +137,27 @@ describe('L6 Content Learning & Factuality', () => {
       appliesToPublishedContent: false,
     });
     expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l6-quarantine.json'), 'utf8')).publishedContentUntouched).toBe(true);
+  });
+
+  it('exports a source-independent partial verdict without changing published content', async () => {
+    const files = tempFiles({ outcome: null });
+    const result = await runL6({
+      now: NOW,
+      historyPath: files.historyPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      logger: { log() {} },
+    });
+    expect(result.outcome).toMatchObject({
+      loopId: 'L6',
+      status: 'partial',
+      independent: false,
+      generatorIsNotOracle: true,
+      publishedContentUntouched: true,
+      safeToAct: false,
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l6-outcome.json'), 'utf8')))
+      .toMatchObject({ loopId: 'L6', status: 'partial', independent: false });
   });
 
   it('derives candidate autonomy from the loop registry', async () => {

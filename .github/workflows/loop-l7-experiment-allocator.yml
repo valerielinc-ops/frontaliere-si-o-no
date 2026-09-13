@@ -86,6 +86,13 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
+      - name: Validate runner-local L7 outcome export
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l7
+        run: |
+          test -s "$REPORT_DIR/l7-outcome.json"
+          jq -e '(.loopId == "L7" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .allocationPlan.persistent == true and .allocationPlan.boundedCanary.enabled == false and .trafficMutationAllowed == false and .priceMutationAllowed == false and .noAutomaticPriceChange == true)' "$REPORT_DIR/l7-outcome.json" >/dev/null
       - name: Record canonical L7 evidence
         if: always()
         env:

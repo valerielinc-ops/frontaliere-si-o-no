@@ -9,6 +9,7 @@ import {
 } from '../scripts/ci/loop-l7-experiment-allocator.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
+const GUARDRAILS = ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'];
 
 function candidate(overrides: Record<string, unknown> = {}) {
   return {
@@ -36,6 +37,27 @@ function registry(overrides: Record<string, unknown> = {}) {
 function outcomes(overrides: Record<string, unknown> = {}) {
   return {
     generatedAt: NOW.toISOString(),
+    independent: true,
+    evidence: {
+      source: 'experiment-assignment-exposure-ledger',
+      sourceRefs: ['experiment-assignment-exposure-outcome'],
+    },
+    preRegistration: {
+      outcomeId: 'registered-experiment-outcome',
+      primaryMetric: 'registered_outcome_per_eligible_cohort',
+      minimumSample: 200,
+      guardrails: GUARDRAILS,
+      expiresAt: new Date(NOW.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+    },
+    assignmentLedger: {
+      persistent: true,
+      method: 'stable-sha256',
+      key: 'experiment-session-id',
+    },
+    contaminationPolicy: {
+      controlled: true,
+      key: 'experiment-session-id',
+    },
     eligibleCohort: 300,
     assignments: 300,
     exposures: 280,
@@ -79,6 +101,15 @@ describe('L7 Experiment Allocator', () => {
     expect(verdict.warnings.join(' ')).toContain('no independent');
   });
 
+  it('requires an explicit independent ledger with reviewable experiment metadata', () => {
+    const verdict = validateExperimentAllocator({
+      registry: registry(),
+      outcomes: outcomes({ independent: false }),
+    }, { now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('independent must be explicitly true');
+  });
+
   it('does not turn an empty eligible cohort into a measurable zero outcome', async () => {
     const files = tempFiles(registry(), outcomes({
       eligibleCohort: 0,
@@ -95,6 +126,7 @@ describe('L7 Experiment Allocator', () => {
       logger: { log() {} },
     });
     expect(result.verdict.quality).toBe('zero');
+    expect(result.outcome).toMatchObject({ status: 'partial', independent: false });
     expect(result.observation.numerator).toBeNull();
     expect(result.observation.denominator).toBeNull();
   });
@@ -180,6 +212,61 @@ describe('L7 Experiment Allocator', () => {
     });
     expect(actions.actions.find((action: { actionClass: string }) => action.actionClass === 'candidate'))
       .toMatchObject({ autonomy: 'A1' });
+  });
+
+  it('exports a persistent, bounded, review-only allocation plan with the outcome ledger', async () => {
+    const files = tempFiles(registry(), null);
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      logger: { log() {} },
+    });
+    expect(result.outcome).toMatchObject({
+      loopId: 'L7',
+      status: 'partial',
+      independent: false,
+      metrics: {
+        eligibleCohort: null,
+        assignments: null,
+        exposures: null,
+      },
+      safeToAct: false,
+      appliesToTraffic: false,
+      trafficMutationAllowed: false,
+      priceMutationAllowed: false,
+      noAutomaticPriceChange: true,
+      allocationPlan: {
+        persistent: true,
+        assignmentMethod: 'stable-sha256',
+        assignmentKey: 'experiment-session-id',
+        boundedCanary: { enabled: false, maxExposure: 0, requiresReviewedApproval: true },
+        preRegistration: {
+          outcomeId: 'registered-experiment-outcome',
+          primaryMetric: 'registered_outcome_per_eligible_cohort',
+          minimumSample: 200,
+          guardrails: GUARDRAILS,
+        },
+        contaminationPolicy: {
+          controlled: true,
+          rejectReassignment: true,
+          rejectCrossCandidateExposure: true,
+        },
+      },
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l7-outcome.json'), 'utf8')))
+      .toMatchObject({ loopId: 'L7', safeToAct: false, allocationPlan: { persistent: true } });
+  });
+
+  it('keeps the allocation seed deterministic for the same registry snapshot', async () => {
+    const first = tempFiles(registry(), null);
+    const second = tempFiles(registry(), null);
+    const [firstResult, secondResult] = await Promise.all([
+      runL7({ now: NOW, candidatesPath: first.candidatesPath, outcomePath: first.outcomePath, logger: { log() {} } }),
+      runL7({ now: NOW, candidatesPath: second.candidatesPath, outcomePath: second.outcomePath, logger: { log() {} } }),
+    ]);
+    expect(firstResult.allocationPlan).toEqual(secondResult.allocationPlan);
   });
 
   it('persists a separate result after a deduplicated issue succeeds', async () => {

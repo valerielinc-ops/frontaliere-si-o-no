@@ -8,6 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
+  buildOutcome,
   buildObservation,
   loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
@@ -78,11 +79,15 @@ function candidateFor(record) {
     severity: record.severity,
     articleId: evidence.articleId ?? evidence.slug ?? evidence.path ?? null,
     locale: evidence.locale ?? null,
+    sourceUrl: text(evidence.sourceUrl) ? evidence.sourceUrl.trim() : null,
     actionClass: 'candidate',
     action: 'candidate-only: verify the claim against an external source and open a reviewed PR with a regression test',
     reversible: true,
     generatorIsNotOracle: true,
     publishedContentUntouched: true,
+    requiresExternalSource: true,
+    requiresLocaleVerification: true,
+    requiresRegressionTest: true,
   };
 }
 
@@ -182,15 +187,37 @@ function validateOutcomes(outcomes, {
       issues: ['content factuality outcome export is missing'],
       snapshot: {
         path: sourcePath,
+        missing: true,
+        independent: false,
+        evidence: null,
         generatedAt: null,
         reviewedArticles: null,
         confirmedDefects: null,
         externallyVerifiedDefects: null,
         reopenedDefects: null,
+        quality: 'partial',
       },
     };
   }
   const issues = [];
+  const evidence = outcomes.evidence || outcomes.provenance;
+  if (outcomes.independent !== true) {
+    issues.push('outcomes.independent must be explicitly true for an independent factuality verdict');
+  }
+  if (!evidence || typeof evidence !== 'object' || Array.isArray(evidence)) {
+    issues.push('outcomes.evidence is missing or not an object');
+  } else {
+    if (!text(evidence.source)) issues.push('outcomes.evidence.source is missing');
+    if (!Array.isArray(evidence.sourceRefs) || evidence.sourceRefs.length === 0 || evidence.sourceRefs.some((sourceRef) => !text(sourceRef))) {
+      issues.push('outcomes.evidence.sourceRefs must be a non-empty array of text');
+    }
+    if (evidence.externalSourceVerified !== true && evidence.sourceVerified !== true) {
+      issues.push('outcomes.evidence.externalSourceVerified must be explicitly true');
+    }
+    if (evidence.localeVerified !== true && evidence.localeChecked !== true) {
+      issues.push('outcomes.evidence.localeVerified must be explicitly true');
+    }
+  }
   const generatedAt = finiteDate(outcomes.generatedAt || outcomes._meta?.generatedAt);
   const reviewedArticles = outcomes.reviewedArticles ?? outcomes.metrics?.reviewedArticles;
   const confirmedDefects = outcomes.confirmedDefects ?? outcomes.metrics?.confirmedDefects;
@@ -214,6 +241,16 @@ function validateOutcomes(outcomes, {
   }
   const snapshot = {
     path: sourcePath,
+    missing: false,
+    independent: outcomes.independent === true,
+    evidence: evidence && typeof evidence === 'object' && !Array.isArray(evidence)
+      ? {
+        source: text(evidence.source) ? evidence.source.trim() : null,
+        sourceRefs: Array.isArray(evidence.sourceRefs) ? evidence.sourceRefs.filter(text).map((sourceRef) => sourceRef.trim()) : [],
+        externalSourceVerified: evidence.externalSourceVerified === true || evidence.sourceVerified === true,
+        localeVerified: evidence.localeVerified === true || evidence.localeChecked === true,
+      }
+      : null,
     generatedAt: generatedAt?.toISOString() || null,
     ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
     reviewedArticles: integer(reviewedArticles) ? reviewedArticles : null,
@@ -227,6 +264,7 @@ function validateOutcomes(outcomes, {
   else if (ageHours < -0.0834 || ageHours > maxAgeHours) quality = 'stale';
   else if (reviewedArticles === 0 && issues.length === 0) quality = 'zero';
   else if (reviewedArticles < minimumSample || issues.length) quality = 'partial';
+  snapshot.quality = quality;
   return { quality, issues, snapshot };
 }
 
@@ -305,6 +343,71 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
+function buildContentFactualityOutcome({ source, verdict, policy, now }) {
+  const outcomeSnapshot = verdict.snapshot?.outcomes || {};
+  const generatedAt = finiteDate(outcomeSnapshot.generatedAt);
+  const reviewedArticles = integer(outcomeSnapshot.reviewedArticles) ? outcomeSnapshot.reviewedArticles : null;
+  const confirmedDefects = integer(outcomeSnapshot.confirmedDefects) ? outcomeSnapshot.confirmedDefects : null;
+  const explicitIndependent = source?.independent === true;
+  const outcomeQuality = outcomeSnapshot.quality || 'partial';
+  const measurable = outcomeQuality === 'observed'
+    && explicitIndependent
+    && reviewedArticles !== null
+    && confirmedDefects !== null;
+  const status = measurable
+    ? 'observed'
+    : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
+  const requiredFieldsPresent = measurable
+    ? policy.outcome.requiredFields.slice()
+    : (generatedAt ? ['generatedAt'] : []);
+  const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
+  const outcome = buildOutcome({
+    outcomeId: policy.outcome.outcomeId,
+    status,
+    independent: measurable,
+    sourceRefs: policy.outcome.sourceRefs,
+    primaryMetric: policy.primaryMetric,
+    numerator: measurable ? confirmedDefects : null,
+    denominator: measurable ? reviewedArticles : null,
+    requiredFieldsPresent,
+    missingFields,
+    reason: measurable
+      ? 'explicit independent source verdict with reviewed article and confirmed-defect counts'
+      : `content factuality outcome is ${status}; published content remains unchanged`,
+    observedAt: generatedAt?.toISOString() || null,
+    allowNumeratorExceedDenominator: false,
+    recordedAt: now.toISOString(),
+  });
+  return {
+    ...outcome,
+    loopId: LOOP_ID,
+    generatedAt: generatedAt?.toISOString() || null,
+    reviewedArticles,
+    confirmedDefects,
+    externallyVerifiedDefects: integer(outcomeSnapshot.externallyVerifiedDefects) ? outcomeSnapshot.externallyVerifiedDefects : null,
+    reopenedDefects: integer(outcomeSnapshot.reopenedDefects) ? outcomeSnapshot.reopenedDefects : null,
+    metrics: {
+      reviewedArticles,
+      confirmedDefects,
+      externallyVerifiedDefects: integer(outcomeSnapshot.externallyVerifiedDefects) ? outcomeSnapshot.externallyVerifiedDefects : null,
+      reopenedDefects: integer(outcomeSnapshot.reopenedDefects) ? outcomeSnapshot.reopenedDefects : null,
+    },
+    evidence: outcomeSnapshot.evidence || {
+      status: 'missing',
+      sourcePath: outcomeSnapshot.path,
+      sourceRefs: policy.outcome.sourceRefs,
+    },
+    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (measurable ? 'verified' : 'unverified'),
+    sourcePath: outcomeSnapshot.path,
+    generatorIsNotOracle: true,
+    publishedContentUntouched: true,
+    safeToAct: false,
+    requiresExternalSource: true,
+    requiresLocaleVerification: true,
+    requiresRegressionTest: true,
+  };
+}
+
 function writeReports(reportDir, verdict, observation, decision) {
   if (!reportDir) return [];
   const dir = path.resolve(reportDir);
@@ -312,6 +415,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   const files = [
     ['l6-observation.json', observation],
     ['l6-decision.json', decision],
+    ['l6-outcome.json', observation.outcome],
     ['l6-report.md', reportMarkdown(verdict, observation, decision)],
   ];
   for (const [name, content] of files) {
@@ -364,7 +468,7 @@ function writeQuarantine(reportDir, verdict, now) {
   return file;
 }
 
-function writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten }) {
+function writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten, outcome }) {
   if (!reportDir) return null;
   const file = path.join(path.resolve(reportDir), 'l6-result.json');
   fs.writeFileSync(file, `${JSON.stringify({
@@ -377,6 +481,7 @@ function writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWri
     issued,
     actionsWritten,
     quarantineWritten,
+    outcome,
   }, null, 2)}\n`);
   return file;
 }
@@ -415,10 +520,12 @@ export async function runL6({
     minimumSample: policyMinimumSample,
   } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
+  let sourceOutcomes = null;
   try {
+    sourceOutcomes = readOptionalJson(outcomePath);
     verdict = validateContentFactuality({
       historyText: readText(historyPath, 'quality alert history'),
-      outcomes: readOptionalJson(outcomePath),
+      outcomes: sourceOutcomes,
     }, {
       now,
       maxAgeHours,
@@ -457,6 +564,7 @@ export async function runL6({
       },
     },
   };
+  const outcome = buildContentFactualityOutcome({ source: sourceOutcomes, verdict, policy: loopPolicy, now });
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
     ? generatedAt.toISOString()
@@ -483,6 +591,7 @@ export async function runL6({
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
+  observation.outcome = outcome;
   const decision = buildDecision({
     loopId: LOOP_ID,
     goal: loopPolicy.goal,
@@ -524,10 +633,10 @@ export async function runL6({
     }
     issued = true;
   }
-  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten });
+  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten, outcome });
   if (resultFile) files.push(resultFile);
   logger.log(`[L6] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
-  return { verdict, observation, decision, files, issued, actionsWritten, quarantineWritten };
+  return { verdict, observation, decision, outcome, files, issued, actionsWritten, quarantineWritten };
 }
 
 function parseArgs(argv) {
@@ -564,6 +673,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
     verdict: result.verdict,
     observation: result.observation,
     decision: result.decision,
+    outcome: result.outcome,
     issued: result.issued,
     actionsWritten: result.actionsWritten,
     quarantineWritten: result.quarantineWritten,

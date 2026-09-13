@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 /** L7 — Experiment Allocator. */
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -8,6 +9,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
+  buildOutcome,
   buildObservation,
   validateActionClassAgainstPolicy,
   loadLoopPolicyForRun,
@@ -20,6 +22,10 @@ export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-regis
 export const DEFAULT_MAX_AGE_HOURS = 192;
 export const MINIMUM_SAMPLE = 200;
 export const MAX_CANDIDATES = 50;
+const DEFAULT_PRIMARY_METRIC = 'registered_outcome_per_eligible_cohort';
+const DEFAULT_GUARDRAILS = ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'];
+const DEFAULT_ASSIGNMENT_METHOD = 'stable-sha256';
+const DEFAULT_ASSIGNMENT_KEY = 'experiment-session-id';
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 
 function finiteDate(value) {
@@ -59,6 +65,45 @@ function summarizeIssues(issues, quality) {
   if (!issues.length) return `experiment allocator quality is ${quality}`;
   const visible = issues.slice(0, 12).join('; ');
   return issues.length > 12 ? `${visible}; (+${issues.length - 12} further findings in the report)` : visible;
+}
+
+function buildAllocationPlan({ registry, policy, now }) {
+  const candidateIds = (Array.isArray(registry?.candidates) ? registry.candidates : [])
+    .map((candidate) => text(candidate?.id) ? candidate.id.trim() : null)
+    .filter(Boolean)
+    .sort();
+  const basis = [LOOP_ID, registry?.generatedAt || 'missing-generated-at', ...candidateIds].join('|');
+  const seed = crypto.createHash('sha256').update(basis).digest('hex').slice(0, 24);
+  const expiresAt = new Date(now.getTime() + (policy.lifecycle?.candidateTtlHours || 168) * 3_600_000).toISOString();
+  return {
+    schemaVersion: 1,
+    assignmentMethod: DEFAULT_ASSIGNMENT_METHOD,
+    assignmentKey: DEFAULT_ASSIGNMENT_KEY,
+    seed,
+    candidateIds,
+    persistent: true,
+    boundedCanary: {
+      enabled: false,
+      maxExposure: 0,
+      requiresReviewedApproval: true,
+    },
+    preRegistration: {
+      outcomeId: policy.outcome.outcomeId,
+      primaryMetric: policy.primaryMetric,
+      minimumSample: policy.minimumSample,
+      guardrails: [...policy.guardrails],
+      expiresAt,
+    },
+    contaminationPolicy: {
+      controlled: true,
+      key: DEFAULT_ASSIGNMENT_KEY,
+      rejectReassignment: true,
+      rejectCrossCandidateExposure: true,
+    },
+    trafficMutationAllowed: false,
+    priceMutationAllowed: false,
+    noAutomaticPriceChange: true,
+  };
 }
 
 function candidateAction(candidate, rowIssues = []) {
@@ -161,6 +206,9 @@ function validateOutcomes(outcomes, {
   maxAgeHours,
   sourcePath,
   minimumSample,
+  primaryMetric = DEFAULT_PRIMARY_METRIC,
+  guardrails = DEFAULT_GUARDRAILS,
+  candidateTtlHours = 168,
 } = {}) {
   if (!object(outcomes)) {
     return {
@@ -168,6 +216,12 @@ function validateOutcomes(outcomes, {
       issues: ['experiment outcome ledger is missing'],
       snapshot: {
         path: sourcePath,
+        missing: true,
+        independent: false,
+        evidence: null,
+        preRegistration: null,
+        assignmentLedger: null,
+        contaminationPolicy: null,
         generatedAt: null,
         eligibleCohort: null,
         assignments: null,
@@ -177,10 +231,64 @@ function validateOutcomes(outcomes, {
         persistentAssignments: null,
         contaminatedAssignments: null,
         durationDays: null,
+        quality: 'partial',
       },
     };
   }
   const issues = [];
+  const evidence = outcomes.evidence || outcomes.provenance;
+  if (outcomes.independent !== true) {
+    issues.push('outcomes.independent must be explicitly true for an independent experiment ledger');
+  }
+  if (!evidence || typeof evidence !== 'object' || Array.isArray(evidence)) {
+    issues.push('outcomes.evidence is missing or not an object');
+  } else {
+    if (!text(evidence.source)) issues.push('outcomes.evidence.source is missing');
+    if (!Array.isArray(evidence.sourceRefs) || evidence.sourceRefs.length === 0 || evidence.sourceRefs.some((sourceRef) => !text(sourceRef))) {
+      issues.push('outcomes.evidence.sourceRefs must be a non-empty array of text');
+    }
+  }
+  const preRegistration = outcomes.preRegistration || outcomes.preregistration;
+  if (!object(preRegistration)) {
+    issues.push('outcomes.preRegistration is missing or not an object');
+  } else {
+    if (preRegistration.primaryMetric !== primaryMetric) {
+      issues.push(`outcomes.preRegistration.primaryMetric must be ${primaryMetric}`);
+    }
+    if (!integer(preRegistration.minimumSample) || preRegistration.minimumSample < minimumSample) {
+      issues.push(`outcomes.preRegistration.minimumSample must be at least ${minimumSample}`);
+    }
+    if (!Array.isArray(preRegistration.guardrails) || preRegistration.guardrails.length === 0
+        || preRegistration.guardrails.some((guardrail) => !text(guardrail))) {
+      issues.push('outcomes.preRegistration.guardrails must be a non-empty array of text');
+    } else {
+      for (const guardrail of guardrails) {
+        if (!preRegistration.guardrails.includes(guardrail)) {
+          issues.push(`outcomes.preRegistration.guardrails is missing ${guardrail}`);
+        }
+      }
+    }
+    const expiresAt = finiteDate(preRegistration.expiresAt);
+    if (!expiresAt) issues.push('outcomes.preRegistration.expiresAt is missing or invalid');
+    else if (expiresAt.getTime() > now.getTime() + candidateTtlHours * 3_600_000) {
+      issues.push(`outcomes.preRegistration.expiresAt exceeds candidate TTL of ${candidateTtlHours} hours`);
+    }
+  }
+  const assignmentLedger = outcomes.assignmentLedger || outcomes.assignment;
+  if (!object(assignmentLedger)) {
+    issues.push('outcomes.assignmentLedger is missing or not an object');
+  } else {
+    if (assignmentLedger.persistent !== true) issues.push('outcomes.assignmentLedger.persistent must be explicitly true');
+    if (!text(assignmentLedger.method)) issues.push('outcomes.assignmentLedger.method is missing');
+    if (!text(assignmentLedger.key)) issues.push('outcomes.assignmentLedger.key is missing');
+  }
+  const contaminationPolicy = outcomes.contaminationPolicy || outcomes.contamination;
+  if (!object(contaminationPolicy)) {
+    issues.push('outcomes.contaminationPolicy is missing or not an object');
+  } else {
+    if (contaminationPolicy.controlled !== true) issues.push('outcomes.contaminationPolicy.controlled must be explicitly true');
+    if (!text(contaminationPolicy.key)) issues.push('outcomes.contaminationPolicy.key is missing');
+  }
   const generatedAt = finiteDate(outcomes.generatedAt || outcomes._meta?.generatedAt);
   const values = {
     eligibleCohort: outcomes.eligibleCohort ?? outcomes.metrics?.eligibleCohort,
@@ -224,6 +332,35 @@ function validateOutcomes(outcomes, {
   }
   const snapshot = {
     path: sourcePath,
+    missing: false,
+    independent: outcomes.independent === true,
+    evidence: evidence && typeof evidence === 'object' && !Array.isArray(evidence)
+      ? {
+        source: text(evidence.source) ? evidence.source.trim() : null,
+        sourceRefs: Array.isArray(evidence.sourceRefs) ? evidence.sourceRefs.filter(text).map((sourceRef) => sourceRef.trim()) : [],
+      }
+      : null,
+    preRegistration: preRegistration && typeof preRegistration === 'object' && !Array.isArray(preRegistration)
+      ? {
+        primaryMetric: text(preRegistration.primaryMetric) ? preRegistration.primaryMetric.trim() : null,
+        minimumSample: integer(preRegistration.minimumSample) ? preRegistration.minimumSample : null,
+        guardrails: Array.isArray(preRegistration.guardrails) ? preRegistration.guardrails.filter(text).map((guardrail) => guardrail.trim()) : [],
+        expiresAt: finiteDate(preRegistration.expiresAt)?.toISOString() || null,
+      }
+      : null,
+    assignmentLedger: assignmentLedger && typeof assignmentLedger === 'object' && !Array.isArray(assignmentLedger)
+      ? {
+        persistent: assignmentLedger.persistent === true,
+        method: text(assignmentLedger.method) ? assignmentLedger.method.trim() : null,
+        key: text(assignmentLedger.key) ? assignmentLedger.key.trim() : null,
+      }
+      : null,
+    contaminationPolicy: contaminationPolicy && typeof contaminationPolicy === 'object' && !Array.isArray(contaminationPolicy)
+      ? {
+        controlled: contaminationPolicy.controlled === true,
+        key: text(contaminationPolicy.key) ? contaminationPolicy.key.trim() : null,
+      }
+      : null,
     generatedAt: generatedAt?.toISOString() || null,
     ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
     ...Object.fromEntries(Object.entries(values).map(([name, value]) => [name, integer(value) ? value : null])),
@@ -234,6 +371,7 @@ function validateOutcomes(outcomes, {
   else if (ageHours < -0.0834 || ageHours > maxAgeHours) quality = 'stale';
   else if ((values.eligibleCohort === 0 || values.assignments === 0 || values.exposures === 0) && issues.length === 0) quality = 'zero';
   else if (issues.length) quality = 'partial';
+  snapshot.quality = quality;
   return { quality, issues, snapshot };
 }
 
@@ -246,7 +384,18 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   loopRegistry = null,
 } = {}) {
   const candidateVerdict = validateCandidateRegistry(registry, { now, maxAgeHours, sourcePath });
-  const outcomeVerdict = validateOutcomes(outcomes, { now, maxAgeHours, sourcePath: outcomePath, minimumSample });
+  const loopPolicy = Array.isArray(loopRegistry?.loops)
+    ? loopRegistry.loops.find((loop) => loop.loopId === LOOP_ID)
+    : null;
+  const outcomeVerdict = validateOutcomes(outcomes, {
+    now,
+    maxAgeHours,
+    sourcePath: outcomePath,
+    minimumSample,
+    primaryMetric: loopPolicy?.primaryMetric || DEFAULT_PRIMARY_METRIC,
+    guardrails: loopPolicy?.guardrails || DEFAULT_GUARDRAILS,
+    candidateTtlHours: loopPolicy?.lifecycle?.candidateTtlHours || 168,
+  });
   const issues = [...candidateVerdict.issues, ...outcomeVerdict.issues];
   const warnings = [...candidateVerdict.warnings];
   let candidates = candidateVerdict.candidates;
@@ -321,6 +470,89 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
+function buildExperimentOutcome({ source, verdict, policy, plan, now }) {
+  const outcomeSnapshot = verdict.snapshot?.outcomes || {};
+  const generatedAt = finiteDate(outcomeSnapshot.generatedAt);
+  const values = {
+    eligibleCohort: integer(outcomeSnapshot.eligibleCohort) ? outcomeSnapshot.eligibleCohort : null,
+    assignments: integer(outcomeSnapshot.assignments) ? outcomeSnapshot.assignments : null,
+    exposures: integer(outcomeSnapshot.exposures) ? outcomeSnapshot.exposures : null,
+    primaryOutcomes: integer(outcomeSnapshot.primaryOutcomes) ? outcomeSnapshot.primaryOutcomes : null,
+    guardrailBreaches: integer(outcomeSnapshot.guardrailBreaches) ? outcomeSnapshot.guardrailBreaches : null,
+    persistentAssignments: integer(outcomeSnapshot.persistentAssignments) ? outcomeSnapshot.persistentAssignments : null,
+    contaminatedAssignments: integer(outcomeSnapshot.contaminatedAssignments) ? outcomeSnapshot.contaminatedAssignments : null,
+  };
+  const explicitIndependent = source?.independent === true;
+  const metadataComplete = Boolean(
+    outcomeSnapshot.preRegistration
+      && outcomeSnapshot.assignmentLedger
+      && outcomeSnapshot.contaminationPolicy,
+  );
+  const measured = outcomeSnapshot.quality === 'observed'
+    && explicitIndependent
+    && metadataComplete
+    && Object.values(values).every((value) => value !== null);
+  const status = measured
+    ? 'observed'
+    : (outcomeSnapshot.quality === 'stale'
+      ? 'stale'
+      : (outcomeSnapshot.quality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
+  const requiredFieldsPresent = measured
+    ? policy.outcome.requiredFields.slice()
+    : (generatedAt ? ['generatedAt'] : []);
+  const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
+  const outcome = buildOutcome({
+    outcomeId: policy.outcome.outcomeId,
+    status,
+    independent: measured,
+    sourceRefs: policy.outcome.sourceRefs,
+    primaryMetric: policy.primaryMetric,
+    numerator: measured ? values.primaryOutcomes : null,
+    denominator: measured ? values.eligibleCohort : null,
+    requiredFieldsPresent,
+    missingFields,
+    reason: measured
+      ? 'explicit independent experiment ledger with persistent assignment, guardrails and expiry'
+      : `experiment outcome is ${status}; no traffic or price change is authorized`,
+    observedAt: generatedAt?.toISOString() || null,
+    allowNumeratorExceedDenominator: false,
+    recordedAt: now.toISOString(),
+  });
+  return {
+    ...outcome,
+    loopId: LOOP_ID,
+    generatedAt: generatedAt?.toISOString() || null,
+    eligibleCohort: values.eligibleCohort,
+    assignments: values.assignments,
+    exposures: values.exposures,
+    primaryOutcomes: values.primaryOutcomes,
+    guardrailBreaches: values.guardrailBreaches,
+    persistentAssignments: values.persistentAssignments,
+    contaminatedAssignments: values.contaminatedAssignments,
+    metrics: values,
+    evidence: outcomeSnapshot.evidence || {
+      status: 'missing',
+      sourcePath: outcomeSnapshot.path,
+      sourceRefs: policy.outcome.sourceRefs,
+    },
+    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (measured ? 'verified' : 'unverified'),
+    sourcePath: outcomeSnapshot.path,
+    preRegistration: outcomeSnapshot.preRegistration || plan.preRegistration,
+    assignmentLedger: outcomeSnapshot.assignmentLedger || {
+      persistent: plan.persistent,
+      method: plan.assignmentMethod,
+      key: plan.assignmentKey,
+    },
+    contaminationPolicy: outcomeSnapshot.contaminationPolicy || plan.contaminationPolicy,
+    allocationPlan: plan,
+    safeToAct: false,
+    appliesToTraffic: false,
+    trafficMutationAllowed: false,
+    priceMutationAllowed: false,
+    noAutomaticPriceChange: true,
+  };
+}
+
 function writeReports(reportDir, verdict, observation, decision) {
   if (!reportDir) return [];
   const dir = path.resolve(reportDir);
@@ -328,6 +560,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   const files = [
     ['l7-observation.json', observation],
     ['l7-decision.json', decision],
+    ['l7-outcome.json', observation.outcome],
     ['l7-report.md', reportMarkdown(verdict, observation, decision)],
   ];
   for (const [name, content] of files) fs.writeFileSync(path.join(dir, name), typeof content === 'string' ? content : `${JSON.stringify(content, null, 2)}\n`);
@@ -364,7 +597,7 @@ function writeActions(reportDir, verdict, now, loopRegistry) {
   return file;
 }
 
-function writeResult(reportDir, { verdict, issued, actionsWritten }) {
+function writeResult(reportDir, { verdict, issued, actionsWritten, outcome }) {
   if (!reportDir) return null;
   const file = path.join(path.resolve(reportDir), 'l7-result.json');
   fs.writeFileSync(file, `${JSON.stringify({
@@ -376,6 +609,7 @@ function writeResult(reportDir, { verdict, issued, actionsWritten }) {
     candidateCount: verdict.candidates.length,
     issued,
     actionsWritten,
+    outcome,
   }, null, 2)}\n`);
   return file;
 }
@@ -414,10 +648,14 @@ export async function runL7({
     minimumSample: policyMinimumSample,
   } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
+  let sourceRegistry = null;
+  let sourceOutcomes = null;
   try {
+    sourceRegistry = readJson(candidatesPath, 'experimental candidates');
+    sourceOutcomes = readOptionalJson(outcomePath);
     verdict = validateExperimentAllocator({
-      registry: readJson(candidatesPath, 'experimental candidates'),
-      outcomes: readOptionalJson(outcomePath),
+      registry: sourceRegistry,
+      outcomes: sourceOutcomes,
     }, {
       now,
       maxAgeHours,
@@ -445,6 +683,8 @@ export async function runL7({
       },
     },
   };
+  const allocationPlan = buildAllocationPlan({ registry: sourceRegistry, policy: loopPolicy, now });
+  const outcome = buildExperimentOutcome({ source: sourceOutcomes, verdict, policy: loopPolicy, plan: allocationPlan, now });
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime() ? generatedAt.toISOString() : now.toISOString();
@@ -466,6 +706,7 @@ export async function runL7({
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
+  observation.outcome = outcome;
   const decision = buildDecision({
     loopId: LOOP_ID,
     goal: loopPolicy.goal,
@@ -503,10 +744,10 @@ export async function runL7({
     }
     issued = true;
   }
-  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten });
+  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);
   logger.log(`[L7] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
-  return { verdict, observation, decision, files, issued, actionsWritten };
+  return { verdict, observation, decision, outcome, allocationPlan, files, issued, actionsWritten };
 }
 
 function parseArgs(argv) {
@@ -541,6 +782,8 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
     verdict: result.verdict,
     observation: result.observation,
     decision: result.decision,
+    outcome: result.outcome,
+    allocationPlan: result.allocationPlan,
     issued: result.issued,
     actionsWritten: result.actionsWritten,
   }, null, 2));

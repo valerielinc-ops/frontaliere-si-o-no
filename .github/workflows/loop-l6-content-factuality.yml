@@ -86,6 +86,13 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
+      - name: Validate runner-local L6 outcome export
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l6
+        run: |
+          test -s "$REPORT_DIR/l6-outcome.json"
+          jq -e '(.loopId == "L6" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .generatorIsNotOracle == true and .publishedContentUntouched == true)' "$REPORT_DIR/l6-outcome.json" >/dev/null
       - name: Record canonical L6 evidence
         if: always()
         env:
