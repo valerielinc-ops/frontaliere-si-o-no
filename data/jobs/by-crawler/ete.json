@@ -72,7 +72,6 @@
         "operatore-logistico-e-manutenzione-negozio-automatizzato-emil-egger-ag-lugano"
       ],
       "firstSeenAt": "2026-08-23T21:34:46.434Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -698,7 +697,7 @@
       "companyDomain": "ete.ch",
       "title": "Transport Disponent/in",
       "titleByLocale": {
-        "it": "Transport Disponent/in",
+        "it": "Smaltimento dei trasporti",
         "en": "Transport Disposal",
         "de": "Transport Disponent/in",
         "fr": "Détecteur de transport"
@@ -1039,7 +1038,7 @@
       "companyDomain": "ete.ch",
       "title": "Disponent / in LW-Krane 100%",
       "titleByLocale": {
-        "it": "Disponent / in LW-Krane 100%",
+        "it": "dotato / in gru LW 100%",
         "en": "Equipped / in LW-Krane 100%",
         "de": "Disponent / in LW-Krane 100%",
         "fr": "Équipé / en LW-Krane 100%"
@@ -1075,19 +1074,26 @@
       "previousSlugsByLocale": {
         "it": [
           "disponent-in-lw-krane-100-ete-ch",
-          "disponent-in-lw-krane-100-emil-egger-ag-lugano"
+          "disponent-in-lw-krane-100-emil-egger-ag-lugano",
+          "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
+          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen"
         ],
         "de": [
-          "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano"
+          "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
+          "disponent-in-industrieumzuge-100-ete-ch-st-gallen"
+        ],
+        "fr": [
+          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen"
         ]
       },
       "previousSlugs": [
         "disponent-in-lw-krane-100-ete-ch",
         "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
-        "disponent-in-lw-krane-100-emil-egger-ag-lugano"
+        "disponent-in-lw-krane-100-emil-egger-ag-lugano",
+        "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
+        "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen"
       ],
       "firstSeenAt": "2026-08-23T21:34:42.782Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1773,7 +1779,7 @@
       "companyDomain": "ete.ch",
       "title": "Logisticien/ne de nuit",
       "titleByLocale": {
-        "it": "Logisticien/ne de nuit",
+        "it": "Logisticista",
         "en": "Logistician",
         "de": "Logistiker",
         "fr": "Logisticien/ne de nuit"
