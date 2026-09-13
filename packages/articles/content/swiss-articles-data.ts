@@ -19018,6 +19018,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'f35a-prezzo-incerto-politica',
+    category: 'novita',
+    date: '2026-09-13T06:50:41.060Z',
+    image: '/images/blog/f35a-prezzo-incerto-politica.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

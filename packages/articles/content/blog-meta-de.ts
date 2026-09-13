@@ -11712,6 +11712,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.savoia-avanti-ticino-lavoro.title': 'Savoyen Kandidat mit Avanti Ticino und Lavoro',
     'blog.article.savoia-avanti-ticino-lavoro.excerpt': 'Die politische Kandidatur von Sergio Savoia für die Liste Avanti con Ticino e Lavoro in Lugano führt zu Online-Debatten, Kontroversen und Klärungen.',
     'blog.article.savoia-avanti-ticino-lavoro.imageAlt': 'Politische Kandidatur von Sergio Savoia für Avanti con Ticino e Lavoro in Lugano',
+    'blog.article.verbania-lavori-ponte-san-giovanni.title': 'Verbania, Arbeiten an der San Giovanni-Brücke: veränderter Verkehr',
+    'blog.article.verbania-lavori-ponte-san-giovanni.excerpt': 'Nächtliche Eingriffe von Acqua Novara.VCO auf der Brücke San Giovanni in Verbania vom 14. bis 18. September mit Einbahnstraße.',
+    'blog.article.verbania-lavori-ponte-san-giovanni.imageAlt': 'Nächtliche Bauarbeiten und Verkehrsänderungen an der San-Giovanni-Brücke in Verbania',
 };
 
 export default blogMetaDe;

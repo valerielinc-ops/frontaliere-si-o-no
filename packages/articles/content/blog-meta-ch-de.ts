@@ -6340,6 +6340,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parmelin-tag-der-wirtschaft.title': 'Tag der Wirtschaft: Guy Parmelins Luzerner Rede',
     'blog.article.parmelin-tag-der-wirtschaft.excerpt': 'Bundesrat Guy Parmelin spricht auf dem Tag der Wirtschaft in Luzern und zieht Bilanz über die wirtschaftliche Widerstandsfähigkeit der Schweiz und die Freihandelsabkommen.',
     'blog.article.parmelin-tag-der-wirtschaft.imageAlt': 'Bundesrat Guy Parmelin am Tag der Wirtschaft',
+    'blog.article.f35a-prezzo-incerto-politica.title': 'F-35A: Zweifel am Festpreis und parlamentarische Reaktionen',
+    'blog.article.f35a-prezzo-incerto-politica.excerpt': 'Der Bericht über das Fehlen eines Festpreises für F-35A erschüttert das Parlament. Grün in Richtung ICC, während die Mitte-rechts bremst.',
+    'blog.article.f35a-prezzo-incerto-politica.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Parlaments.',
 };
 
 export default blogMetaChDe;

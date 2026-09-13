@@ -6340,6 +6340,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parmelin-tag-der-wirtschaft.title': 'Tag der Wirtschaft : le discours de Guy Parmelin à Lucerne',
     'blog.article.parmelin-tag-der-wirtschaft.excerpt': 'Le conseiller fédéral Guy Parmelin intervient au Tag der Wirtschaft de Lucerne, dressant un bilan sur la résilience économique suisse et les accords de libre-échange.',
     'blog.article.parmelin-tag-der-wirtschaft.imageAlt': 'Le conseiller federal Guy Parmelin au Tag der Wirtschaft',
+    'blog.article.f35a-prezzo-incerto-politica.title': 'F-35A : doutes sur le prix fixe et réactions parlementaires',
+    'blog.article.f35a-prezzo-incerto-politica.excerpt': 'Le rapport sur l\'absence de prix fixe pour les F-35A secoue le Parlement. Verts vers la CPI, tandis que le centre-droit freine.',
+    'blog.article.f35a-prezzo-incerto-politica.imageAlt': 'Palais fédéral à Berne, siège du Parlement suisse.',
 };
 
 export default blogMetaChFr;
