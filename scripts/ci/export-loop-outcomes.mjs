@@ -106,6 +106,42 @@ function authJwt(serviceAccount) {
   return `${unsigned}.${signature}`;
 }
 
+/**
+ * Firestore REST `runQuery` is a streaming endpoint: the HTTP body contains
+ * one RunQueryResponse JSON object per line, not one JSON array.  Keep the
+ * parser explicit so a valid empty result and a malformed stream cannot be
+ * confused with one another by a caller that is building an outcome ledger.
+ */
+export function parseRunQueryResponse(payload) {
+  if (Array.isArray(payload)) return payload;
+  if (isObject(payload)) return [payload];
+  if (typeof payload !== 'string') return [];
+  const raw = payload.trim();
+  if (!raw) return [];
+  try {
+    return parseRunQueryResponse(JSON.parse(raw));
+  } catch (error) {
+    const records = [];
+    for (const [index, line] of raw.split(/\r?\n/).entries()) {
+      if (!line.trim()) continue;
+      try {
+        const parsed = JSON.parse(line);
+        if (Array.isArray(parsed)) records.push(...parsed);
+        else records.push(parsed);
+      } catch (lineError) {
+        throw new Error(`Firestore runQuery returned invalid JSON stream at record ${index + 1}: ${lineError.message}`, { cause: error });
+      }
+    }
+    return records;
+  }
+}
+
+async function responseText(response) {
+  if (typeof response.text === 'function') return response.text();
+  const body = await response.json().catch(() => ({}));
+  return JSON.stringify(body);
+}
+
 /** Minimal authenticated Google REST client used by the sparse workflows. */
 export class GoogleDataClient {
   constructor({ serviceAccount = readServiceAccount(), fetchImpl = fetch } = {}) {
@@ -161,17 +197,22 @@ export class GoogleDataClient {
     if (fieldPaths.length) structuredQuery.select = { fields: fieldPaths.map((fieldPath) => ({ fieldPath })) };
     if (where) structuredQuery.where = where;
     const parent = `projects/${this.serviceAccount.project_id}/databases/(default)/documents`;
-    const body = await this.request(
+    const response = await this.fetchImpl(
       `https://firestore.googleapis.com/v1/${parent}:runQuery`,
       {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
+        headers: {
+          Authorization: `Bearer ${await this.accessToken()}`,
+          'content-type': 'application/json',
+        },
         body: JSON.stringify({ structuredQuery }),
       },
     );
-    return Array.isArray(body)
-      ? body.filter((row) => row?.document).map((row) => firestoreRow(row.document))
-      : [];
+    const raw = await responseText(response);
+    if (!response.ok) throw new Error(`google api ${response.status}: ${raw.slice(0, 300)}`);
+    return parseRunQueryResponse(raw)
+      .filter((row) => row?.document)
+      .map((row) => firestoreRow(row.document));
   }
 
   async remoteConfig() {

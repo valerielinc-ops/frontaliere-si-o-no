@@ -3,6 +3,7 @@ import {
   buildL1TelemetryExport,
   buildL4OutcomeLedger,
   buildL9OutcomeLedger,
+  GoogleDataClient,
 } from '../scripts/ci/export-loop-outcomes.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
@@ -13,6 +14,28 @@ function row(path: string, data: Record<string, unknown>) {
 }
 
 describe('read-only loop outcome exporters', () => {
+  it('parses Firestore runQuery streamed response records', async () => {
+    const stream = [
+      JSON.stringify({
+        document: {
+          name: `${ROOT}/job_alert_subscribers/user@example.test`,
+          fields: { active: { booleanValue: true } },
+        },
+      }),
+      JSON.stringify({ done: true }),
+    ].join('\n');
+    const client = new GoogleDataClient({
+      serviceAccount: { project_id: 'test', client_email: 'test@example.test', private_key: 'unused' },
+      fetchImpl: async () => ({ ok: true, text: async () => stream }),
+    });
+    (client as any).token = { value: 'test-token', expiresAt: Date.now() + 120_000 };
+
+    await expect(client.runQuery({ collectionId: 'job_alert_subscribers' })).resolves.toEqual([{
+      name: `${ROOT}/job_alert_subscribers/user@example.test`,
+      data: { active: true },
+    }]);
+  });
+
   it('adds fresh L1 session fields without discarding the existing baseline', () => {
     const output = buildL1TelemetryExport({ _meta: { issue: 4304 }, oldFact: true }, {
       usefulSessions: 18595,

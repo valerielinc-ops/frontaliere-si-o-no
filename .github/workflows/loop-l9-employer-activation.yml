@@ -101,7 +101,7 @@ jobs:
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else
-            args+=(--dry-run)
+            args+=(--dry-run --strict)
           fi
           set +e
           node scripts/ci/loop-l9-employer-activation.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
