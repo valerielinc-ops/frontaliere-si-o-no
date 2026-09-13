@@ -11700,6 +11700,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.formazione-lavoro-ticino.title': 'Formation et travail au Tessin : les défis de l\'insertion',
     'blog.article.formazione-lavoro-ticino.excerpt': 'Cotti et Capoferri interpellent le gouvernement sur les défis de l\'insertion professionnelle après l\'école, en tenant compte également de la variable de l\'intelligence artificielle.',
     'blog.article.formazione-lavoro-ticino.imageAlt': 'Formation et travail au Tessin',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.title': 'Vivre à Pognana Lario et travailler au Tessin',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.excerpt': 'Guide pratique pour les frontaliers à Pognana Lario : trajets vers Chiasso, taxes, accord fiscal et gestion du budget.',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.imageAlt': 'Vue du lac pres de Pognana Lario vers la frontiere suisse',
 };
 
 export default blogMetaFr;

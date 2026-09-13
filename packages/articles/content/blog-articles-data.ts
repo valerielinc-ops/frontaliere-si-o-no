@@ -34914,6 +34914,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pognana-lario-frontaliere-ticino-guida',
+ category: 'pratico',
+ date: '2026-09-13T00:50:56.034Z',
+ image: '/images/blog/pognana-lario-frontaliere-ticino-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
