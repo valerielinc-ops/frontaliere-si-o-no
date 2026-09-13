@@ -168,8 +168,26 @@ export interface PeerComparisonLabels {
   peerNoun: string;
 }
 
+/**
+ * Branded type for a German noun that has passed the dative-plural gate.
+ * Callers that build labels dynamically can retain the refinement returned by
+ * isGermanDativePluralNoun instead of relying on the prose comment alone.
+ */
+export type GermanDativePluralNoun = string & {
+  readonly __germanDativePluralNoun: unique symbol;
+};
+
+/**
+ * Executable approximation of the morphology promised by the German prose
+ * template: a single German word ending in -n/-en. Unicode letters keep
+ * valid forms such as "Männern" in the accepted set.
+ */
+export function isGermanDativePluralNoun(value: unknown): value is GermanDativePluralNoun {
+  return typeof value === 'string' && /^\p{L}+(?:en|n)$/u.test(value.trim());
+}
+
 function assertPeerNounContract(locale: PeerLocale, peerNoun: string): void {
-  if (locale !== 'de' || /(?:en|n)$/i.test(String(peerNoun).trim())) return;
+  if (locale !== 'de' || isGermanDativePluralNoun(peerNoun)) return;
   throw new Error(
     `peerNoun in de must be a German dative plural ending in -n/-en (dativo plurale): ${peerNoun}`,
   );
