@@ -52,6 +52,8 @@ describe('record-loop-fleet-evidence', () => {
     expect(registry.sourceCatalog['manifest-api-corpus']).toBeTruthy();
     expect(registry.loops.every((loop: any) => loop.sourceRefs.length > 0)).toBe(true);
     expect(registry.loops.every((loop: any) => loop.outcome?.outcomeId && loop.outcome.requiredFields.length > 0)).toBe(true);
+    expect(registry.loops.find((loop: any) => loop.loopId === 'L7')?.actionPolicy)
+      .toEqual({ healthy: 'observe', needsReview: 'candidate+stop+issue', guardrail: 'stop', candidate: 'candidate' });
     expect(actionAutonomy('issue+suspend-canary', registry.actionAutonomy)).toBe('A2');
     expect(validateActionClassAgainstPolicy(registry, 'L1', 'issue+suspend-canary'))
       .toMatchObject({ requiredAutonomy: 'A2', maxAutonomy: 'A2' });
@@ -86,6 +88,16 @@ describe('record-loop-fleet-evidence', () => {
 
     const stale = { ...registry, actionAutonomy: { ...registry.actionAutonomy, obsolete: 'A1' } };
     expect(() => validateLoopRegistry(stale)).toThrow(/obsolete is not declared/);
+  });
+
+  it('fails closed when a configured action policy exceeds the loop action classes', () => {
+    const invalid = {
+      ...registry,
+      loops: registry.loops.map((loop: any) => loop.loopId === 'L7'
+        ? { ...loop, actionPolicy: { ...loop.actionPolicy, needsReview: 'block-publication' } }
+        : loop),
+    };
+    expect(() => validateLoopRegistry(invalid)).toThrow(/L7\.actionPolicy\.needsReview is not allowed/);
   });
 
   it('writes one canonical line per ledger and is idempotent for a rerun', () => {

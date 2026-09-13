@@ -262,6 +262,12 @@
       "minimumSample": 200,
       "maxAutonomy": "A3",
       "actionClasses": ["observe", "candidate", "canary", "stop", "issue", "recommend"],
+      "actionPolicy": {
+        "healthy": "observe",
+        "needsReview": "candidate+stop+issue",
+        "guardrail": "stop",
+        "candidate": "candidate"
+      },
       "guardrails": ["persistent assignment", "minimum sample", "explicit expiry", "no automatic price change"],
       "lifecycle": {
         "candidateTtlHours": 168,

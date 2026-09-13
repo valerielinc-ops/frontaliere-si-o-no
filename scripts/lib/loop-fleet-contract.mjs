@@ -177,6 +177,19 @@ function requireSourceCatalog(value) {
   return catalog;
 }
 
+function requireActionPolicy(value, name) {
+  if (value === undefined) return null;
+  if (!value || typeof value !== 'object' || Array.isArray(value)) fail(`${name} must be an object`);
+  const entries = Object.entries(value);
+  if (entries.length === 0) fail(`${name} must not be empty`);
+  const policy = {};
+  for (const [key, actionClass] of entries) {
+    const policyKey = requireText(key, `${name} key`);
+    policy[policyKey] = requireText(actionClass, `${name}.${policyKey}`);
+  }
+  return policy;
+}
+
 function finiteOrNull(value, name) {
   if (value !== null && (!Number.isFinite(value) || typeof value !== 'number')) {
     fail(`${name} must be a finite number or null`);
@@ -232,12 +245,19 @@ export function validateLoopRegistry(registry) {
       if (!loop.sourceRefs.includes(sourceRef)) fail(`${id}.outcome.sourceRefs is not declared by ${id}.sourceRefs: ${sourceRef}`);
     }
     const lifecycle = requireLifecycle(loop.lifecycle, `${id}.lifecycle`);
+    const actionPolicy = requireActionPolicy(loop.actionPolicy, `${id}.actionPolicy`);
     for (const actionClass of loop.actionClasses) {
       for (const part of actionClass.split('+').map((value) => value.trim()).filter(Boolean)) {
         declaredActionClasses.add(part);
       }
     }
-    normalizedLoops.push({ ...loop, sourceRefs: [...loop.sourceRefs], outcome, lifecycle });
+    normalizedLoops.push({
+      ...loop,
+      sourceRefs: [...loop.sourceRefs],
+      outcome,
+      lifecycle,
+      ...(actionPolicy ? { actionPolicy } : {}),
+    });
   }
   const actionAutonomyMap = registry.actionAutonomy;
   if (!actionAutonomyMap || typeof actionAutonomyMap !== 'object' || Array.isArray(actionAutonomyMap)) {
@@ -250,6 +270,19 @@ export function validateLoopRegistry(registry) {
   }
   for (const actionClass of declaredActionClasses) {
     if (!Object.hasOwn(actionAutonomyMap, actionClass)) fail(`actionAutonomy is missing ${actionClass}`);
+  }
+  for (const loop of normalizedLoops) {
+    for (const [key, actionClass] of Object.entries(loop.actionPolicy || {})) {
+      const parts = actionClassParts(actionClass);
+      const unsupported = parts.filter((part) => !loop.actionClasses.includes(part));
+      if (unsupported.length) {
+        fail(`${loop.loopId}.actionPolicy.${key} is not allowed by registry: ${unsupported.join(', ')}`);
+      }
+      const requiredAutonomy = actionAutonomy(actionClass, actionAutonomyMap);
+      if (AUTONOMY_ORDER[requiredAutonomy] > AUTONOMY_ORDER[loop.maxAutonomy]) {
+        fail(`${loop.loopId}.actionPolicy.${key} requires ${requiredAutonomy}, registry maximum is ${loop.maxAutonomy}`);
+      }
+    }
   }
   return { ...registry, sourceCatalog, loops: normalizedLoops, actionAutonomy: { ...actionAutonomyMap } };
 }
