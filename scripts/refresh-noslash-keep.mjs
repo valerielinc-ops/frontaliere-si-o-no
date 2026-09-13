@@ -189,7 +189,13 @@ async function fetchPosthog(startDate, endDate) {
     FROM events
     WHERE event = '$pageview'
       AND properties.$pathname IS NOT NULL
-      AND properties.$pathname LIKE '/cerca-lavoro-%' OR properties.$pathname LIKE '/en/find-jobs-%' OR properties.$pathname LIKE '/de/jobs-im-%' OR properties.$pathname LIKE '/fr/trouver-emploi-%'
+      AND (
+        properties.$pathname LIKE '/cerca-lavoro-%'
+        OR properties.$pathname LIKE '/en/find-jobs-%'
+        OR properties.$pathname LIKE '/de/jobs-im-%'
+        OR properties.$pathname LIKE '/de/jobs-in-%'
+        OR properties.$pathname LIKE '/fr/trouver-emploi-%'
+      )
       AND timestamp >= toDateTime('${startDate} 00:00:00')
       AND timestamp <= toDateTime('${endDate} 23:59:59')
     GROUP BY path
