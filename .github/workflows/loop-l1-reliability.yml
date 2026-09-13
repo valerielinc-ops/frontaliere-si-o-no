@@ -13,6 +13,7 @@ on:
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l1-reliability.yml'
   pull_request:
@@ -24,6 +25,7 @@ on:
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l1-reliability.yml'
   workflow_dispatch:
@@ -58,6 +60,7 @@ jobs:
             /scripts/ci/export-loop-outcomes.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
             /scripts/lib/posthog-client.mjs
             /.github/workflows/loop-l1-reliability.yml

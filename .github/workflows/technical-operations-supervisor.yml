@@ -101,6 +101,7 @@ jobs:
             ${{ runner.temp }}/l11-observation.json
             ${{ runner.temp }}/l11-decision.json
             ${{ runner.temp }}/l11-result.json
+            ${{ runner.temp }}/loop-fleet-outcome.json
             ${{ runner.temp }}/loop-observations.jsonl
             ${{ runner.temp }}/loop-decisions.jsonl
             ${{ runner.temp }}/loop-health-history.jsonl

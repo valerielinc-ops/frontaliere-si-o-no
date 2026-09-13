@@ -9,11 +9,11 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
-  buildOutcome,
   buildObservation,
   validateActionClassAgainstPolicy,
   loadLoopPolicyForRun,
 } from '../lib/loop-fleet-contract.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 
 export const LOOP_ID = 'L7';
 export const DEFAULT_CANDIDATES_PATH = path.join('data', 'experimental-candidates.json');
@@ -470,7 +470,7 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
-function buildExperimentOutcome({ source, verdict, policy, plan, now }) {
+function buildExperimentOutcome({ source, verdict, policy, registry, plan, now }) {
   const outcomeSnapshot = verdict.snapshot?.outcomes || {};
   const generatedAt = finiteDate(outcomeSnapshot.generatedAt);
   const values = {
@@ -497,26 +497,18 @@ function buildExperimentOutcome({ source, verdict, policy, plan, now }) {
     : (outcomeSnapshot.quality === 'stale'
       ? 'stale'
       : (outcomeSnapshot.quality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
-  const requiredFieldsPresent = measured
-    ? policy.outcome.requiredFields.slice()
-    : (generatedAt ? ['generatedAt'] : []);
-  const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
-  const outcome = buildOutcome({
-    outcomeId: policy.outcome.outcomeId,
-    status,
+  const outcome = buildValidatedLoopOutcome({
+    registry,
+    loopId: LOOP_ID,
+    quality: status,
     independent: measured,
-    sourceRefs: policy.outcome.sourceRefs,
-    primaryMetric: policy.primaryMetric,
-    numerator: measured ? values.primaryOutcomes : null,
-    denominator: measured ? values.eligibleCohort : null,
-    requiredFieldsPresent,
-    missingFields,
+    numerator: values.primaryOutcomes,
+    denominator: values.eligibleCohort,
+    observedAt: generatedAt?.toISOString() || null,
     reason: measured
       ? 'explicit independent experiment ledger with persistent assignment, guardrails and expiry'
       : `experiment outcome is ${status}; no traffic or price change is authorized`,
-    observedAt: generatedAt?.toISOString() || null,
-    allowNumeratorExceedDenominator: false,
-    recordedAt: now.toISOString(),
+    now,
   });
   return {
     ...outcome,
@@ -535,7 +527,7 @@ function buildExperimentOutcome({ source, verdict, policy, plan, now }) {
       sourcePath: outcomeSnapshot.path,
       sourceRefs: policy.outcome.sourceRefs,
     },
-    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (measured ? 'verified' : 'unverified'),
+    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
     sourcePath: outcomeSnapshot.path,
     preRegistration: outcomeSnapshot.preRegistration || plan.preRegistration,
     assignmentLedger: outcomeSnapshot.assignmentLedger || {
@@ -684,7 +676,7 @@ export async function runL7({
     },
   };
   const allocationPlan = buildAllocationPlan({ registry: sourceRegistry, policy: loopPolicy, now });
-  const outcome = buildExperimentOutcome({ source: sourceOutcomes, verdict, policy: loopPolicy, plan: allocationPlan, now });
+  const outcome = buildExperimentOutcome({ source: sourceOutcomes, verdict, policy: loopPolicy, registry: loopRegistry, plan: allocationPlan, now });
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime() ? generatedAt.toISOString() : now.toISOString();

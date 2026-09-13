@@ -280,6 +280,7 @@ function sourceWorkflowRows({ workflowDir, sourceLoops, expectedRetentionDays })
         retentionDays: [],
         uploadsEvidence: false,
         uploadsLifecycle: false,
+        uploadsOutcome: false,
         artifactNaming: false,
         status: 'missing',
         issues: ['workflow file is missing'],
@@ -290,11 +291,13 @@ function sourceWorkflowRows({ workflowDir, sourceLoops, expectedRetentionDays })
     const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
     const uploadsEvidence = uploadsWholeDirectory || source.includes('loop-fleet-evidence.json');
     const uploadsLifecycle = uploadsWholeDirectory || source.includes('lifecycle-events.jsonl');
+    const uploadsOutcome = uploadsWholeDirectory || source.includes('loop-fleet-outcome.json');
     const artifactNaming = source.includes(`${definition.artifactPrefix}-`) && /\$\{\{\s*github\.run_id\s*\}\}/u.test(source);
     if (!retentionDays.length) issues.push('artifact retention-days is missing');
     if (retentionDays.some((days) => days !== expectedRetentionDays)) issues.push(`retention-days is not uniformly ${expectedRetentionDays}`);
     if (!uploadsEvidence) issues.push('canonical loop-fleet-evidence.json is not uploaded');
     if (!uploadsLifecycle) issues.push('lifecycle-events.jsonl is not uploaded');
+    if (!uploadsOutcome) issues.push('canonical loop-fleet-outcome.json is not uploaded');
     if (!artifactNaming) issues.push('artifact name/run identity is not recognizable');
     return {
       ...definition,
@@ -303,6 +306,7 @@ function sourceWorkflowRows({ workflowDir, sourceLoops, expectedRetentionDays })
       retentionDays,
       uploadsEvidence,
       uploadsLifecycle,
+      uploadsOutcome,
       artifactNaming,
       status: issues.length ? 'incomplete' : 'ok',
       issues,
@@ -481,8 +485,8 @@ export function renderMarkdown(report) {
     `- Retention configurata conforme: ${report.workflows.summary.compliantCount}/${report.workflows.summary.loopCount} loop`,
     `- Retention live misurata: ${report.artifacts.summary.measuredLoopCount}/${report.artifacts.loops.length} loop`,
     '',
-    '| Loop | Ledger | Run completi | Ultimo run completo | Lifecycle | Outcome indipendente | Retention configurata | Retention live |',
-    '| --- | --- | ---: | --- | --- | ---: | --- | --- |',
+    '| Loop | Ledger | Run completi | Ultimo run completo | Lifecycle | Outcome indipendente | Outcome artifact | Retention configurata | Retention live |',
+    '| --- | --- | ---: | --- | --- | ---: | --- | --- | --- |',
   ];
   const artifactByLoop = new Map(report.artifacts.loops.map((row) => [row.loopId, row]));
   const workflowByLoop = new Map(report.workflows.loops.map((row) => [row.loopId, row]));
@@ -490,7 +494,7 @@ export function renderMarkdown(report) {
     const artifact = artifactByLoop.get(row.loopId);
     const workflow = workflowByLoop.get(row.loopId);
     const latest = row.latestCompleteRun ? `${row.latestCompleteRun.runId} @ ${row.latestCompleteRun.recordedAt}` : 'n/d';
-    lines.push(`| ${row.loopId} | ${row.coverageState} | ${row.completeRunCount} | ${latest} | ${row.lifecycle.state} (${row.lifecycle.eventCount}) | ${row.independentOutcomeCount} | ${workflow?.status || 'n/d'} | ${artifact?.status || 'unmeasurable'} (${artifact?.artifactCount || 0}) |`);
+    lines.push(`| ${row.loopId} | ${row.coverageState} | ${row.completeRunCount} | ${latest} | ${row.lifecycle.state} (${row.lifecycle.eventCount}) | ${row.independentOutcomeCount} | ${workflow?.uploadsOutcome ? 'yes' : 'no'} | ${workflow?.status || 'n/d'} | ${artifact?.status || 'unmeasurable'} (${artifact?.artifactCount || 0}) |`);
   }
   if (report.errors.length) {
     lines.push('', '### Errori strutturali', '', ...report.errors.map((error) => `- ${error}`));

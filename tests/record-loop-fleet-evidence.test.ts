@@ -104,6 +104,15 @@ describe('record-loop-fleet-evidence', () => {
     expect(fs.readFileSync(path.join(dir, 'loop-observations.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     expect(fs.readFileSync(path.join(dir, 'loop-decisions.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     expect(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
+    expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-fleet-outcome.json'), 'utf8')))
+      .toMatchObject({
+        recordType: 'outcome',
+        outcomeId: 'error-free-useful-session',
+        status: 'partial',
+        independent: false,
+        loopId: 'L1',
+      });
+    expect(first.summary.outcomeArtifact).toBe('loop-fleet-outcome.json');
     const lifecycle = fs.readFileSync(path.join(dir, 'lifecycle-events.jsonl'), 'utf8').trim().split('\n').map((line) => JSON.parse(line));
     expect(lifecycle).toHaveLength(2);
     expect(lifecycle.map((event: any) => event.eventType)).toEqual(['candidate', 'owner_assigned']);
