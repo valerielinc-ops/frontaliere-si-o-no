@@ -6322,6 +6322,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.traffico-merci-alpi-semestre-2026.title': 'Transalpiner Güterverkehr: Daten und Wachstum im Jahr 2026',
     'blog.article.traffico-merci-alpi-semestre-2026.excerpt': 'Wachstum des alpenquerenden Güterverkehrs um 3,1% im ersten Halbjahr 2026. Der Anteil der Bahn liegt bei 68%, während die Lkw wachsen.',
     'blog.article.traffico-merci-alpi-semestre-2026.imageAlt': 'Schienen- und Strassenhueftverkehr ueber die Schweizer Alpen',
+    'blog.article.mercato-lavoro-seco-luglio-2026.title': 'SECO Arbeitsmarkt: 3% Arbeitslosigkeit im Juli 2026',
+    'blog.article.mercato-lavoro-seco-luglio-2026.excerpt': 'Die SECO-Daten für Juli 2026 wurden veröffentlicht: Arbeitslosenquote von 3%, Zunahme der Arbeitslosen um 7,8% gegenüber dem Vorjahr und 45\'156 registrierte offene Stellen.',
+    'blog.article.mercato-lavoro-seco-luglio-2026.imageAlt': 'SECO Arbeitsmarktstatistik in der Schweiz im Juli 2026',
 };
 
 export default blogMetaChDe;
