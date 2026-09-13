@@ -12,7 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
-  appendJsonl,
+  appendJsonlSerialized,
   validateActionClassAgainstPolicy,
   validateDecisionLifecycle,
   validateLifecycleEvent,
@@ -173,9 +173,10 @@ function mergeRecords({ target, label, records, registry, loopId, type }) {
       skipped += 1;
       continue;
     }
-    appendJsonl(target, record);
+    const write = appendJsonlSerialized(target, record, { label });
     byId.set(record.recordId, record);
-    appended += 1;
+    if (write.appended) appended += 1;
+    else skipped += 1;
   }
   return { appended, skipped, existing: existing.length };
 }

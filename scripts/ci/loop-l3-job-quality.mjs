@@ -8,6 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
+  buildOutcome,
   buildObservation,
   loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
@@ -36,6 +37,10 @@ function integer(value) {
 
 function text(value) {
   return typeof value === 'string' && value.trim().length > 0;
+}
+
+function object(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
 
 function httpsUrl(value) {
@@ -147,14 +152,36 @@ function normalizeCandidate(file, section, index, job, issues) {
 }
 
 function validateOutcome(outcomes, { now, maxAgeHours, sourcePath, minimumSample }) {
-  if (!outcomes || typeof outcomes !== 'object' || Array.isArray(outcomes)) {
+  if (!object(outcomes)) {
     return {
       quality: 'partial',
       issues: ['job-apply outcome export is missing'],
-      snapshot: { path: sourcePath, generatedAt: null, eligibleJobSessions: null, validHandoffs: null, applications: null },
+      snapshot: {
+        path: sourcePath,
+        missing: true,
+        independent: false,
+        evidence: null,
+        generatedAt: null,
+        eligibleJobSessions: null,
+        validHandoffs: null,
+        applications: null,
+        quality: 'partial',
+      },
     };
   }
   const issues = [];
+  const evidence = outcomes.evidence || outcomes.provenance;
+  if (outcomes.independent !== true) {
+    issues.push('outcomes.independent must be explicitly true for an independent apply-handoff verdict');
+  }
+  if (!object(evidence)) {
+    issues.push('outcomes.evidence is missing or not an object');
+  } else {
+    if (!text(evidence.source)) issues.push('outcomes.evidence.source is missing');
+    if (!Array.isArray(evidence.sourceRefs) || evidence.sourceRefs.length === 0 || evidence.sourceRefs.some((sourceRef) => !text(sourceRef))) {
+      issues.push('outcomes.evidence.sourceRefs must be a non-empty array of text');
+    }
+  }
   const generatedAt = finiteDate(outcomes.generatedAt || outcomes._meta?.generatedAt);
   const eligibleJobSessions = outcomes.eligibleJobSessions ?? outcomes.metrics?.eligibleJobSessions;
   const validHandoffs = outcomes.validHandoffs ?? outcomes.metrics?.validHandoffs;
@@ -182,6 +209,14 @@ function validateOutcome(outcomes, { now, maxAgeHours, sourcePath, minimumSample
   }
   const snapshot = {
     path: sourcePath,
+    missing: false,
+    independent: outcomes.independent === true,
+    evidence: object(evidence)
+      ? {
+        source: text(evidence.source) ? evidence.source.trim() : null,
+        sourceRefs: Array.isArray(evidence.sourceRefs) ? evidence.sourceRefs.filter(text).map((sourceRef) => sourceRef.trim()) : [],
+      }
+      : null,
     generatedAt: generatedAt?.toISOString() || null,
     ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
     eligibleJobSessions: integer(eligibleJobSessions) ? eligibleJobSessions : null,
@@ -191,8 +226,10 @@ function validateOutcome(outcomes, { now, maxAgeHours, sourcePath, minimumSample
   let quality = 'observed';
   if (!generatedAt || !integer(eligibleJobSessions) || !integer(validHandoffs)) quality = 'partial';
   else if (ageHours < -0.0834 || ageHours > maxAgeHours) quality = 'stale';
+  else if (issues.length) quality = 'partial';
   else if (eligibleJobSessions === 0) quality = 'zero';
   else if (eligibleJobSessions < minimumSample) quality = 'partial';
+  snapshot.quality = quality;
   return { quality, issues, snapshot };
 }
 
@@ -385,6 +422,79 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
+function buildJobQualityOutcome({ verdict, policy, now }) {
+  const outcomeSnapshot = verdict.snapshot?.outcomes || {};
+  const generatedAt = finiteDate(outcomeSnapshot.generatedAt);
+  const eligibleJobSessions = integer(outcomeSnapshot.eligibleJobSessions)
+    ? outcomeSnapshot.eligibleJobSessions
+    : null;
+  const validHandoffs = integer(outcomeSnapshot.validHandoffs)
+    ? outcomeSnapshot.validHandoffs
+    : null;
+  const applications = integer(outcomeSnapshot.applications)
+    ? outcomeSnapshot.applications
+    : null;
+  const evidence = outcomeSnapshot.evidence;
+  const evidenceComplete = Boolean(
+    object(evidence)
+      && text(evidence.source)
+      && Array.isArray(evidence.sourceRefs)
+      && evidence.sourceRefs.length > 0,
+  );
+  const measurable = verdict.ok
+    && outcomeSnapshot.quality === 'observed'
+    && outcomeSnapshot.independent === true
+    && evidenceComplete
+    && eligibleJobSessions !== null
+    && validHandoffs !== null;
+  const outcomeQuality = outcomeSnapshot.quality || 'partial';
+  const status = measurable
+    ? 'observed'
+    : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
+  const requiredFieldsPresent = measurable
+    ? policy.outcome.requiredFields.slice()
+    : (generatedAt ? ['generatedAt'] : []);
+  const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
+  const outcome = buildOutcome({
+    outcomeId: policy.outcome.outcomeId,
+    status,
+    independent: measurable,
+    sourceRefs: policy.outcome.sourceRefs,
+    primaryMetric: policy.primaryMetric,
+    numerator: measurable ? validHandoffs : null,
+    denominator: measurable ? eligibleJobSessions : null,
+    requiredFieldsPresent,
+    missingFields,
+    reason: measurable
+      ? 'explicit independent apply-handoff export with eligible-session and valid-handoff counts'
+      : `job apply outcome is ${status}; no application event is inferred from crawler counts, URLs or clicks`,
+    observedAt: generatedAt?.toISOString() || null,
+    allowNumeratorExceedDenominator: false,
+    recordedAt: now.toISOString(),
+  });
+  return {
+    ...outcome,
+    loopId: LOOP_ID,
+    generatedAt: generatedAt?.toISOString() || null,
+    eligibleJobSessions,
+    validHandoffs,
+    applications,
+    metrics: { eligibleJobSessions, validHandoffs, applications },
+    evidence: outcomeSnapshot.evidence || {
+      status: 'missing',
+      sourcePath: outcomeSnapshot.path,
+      sourceRefs: policy.outcome.sourceRefs,
+    },
+    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (measurable ? 'verified' : 'unverified'),
+    sourcePath: outcomeSnapshot.path,
+    handoffIsNotApplication: true,
+    runnerLocalQuarantine: true,
+    publishedDataUntouched: true,
+    safeToAct: false,
+    requiresIndependentOutcome: true,
+  };
+}
+
 function writeReports(reportDir, verdict, observation, decision) {
   if (!reportDir) return [];
   const dir = path.resolve(reportDir);
@@ -392,6 +502,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   const files = [
     ['l3-observation.json', observation],
     ['l3-decision.json', decision],
+    ['l3-outcome.json', observation.outcome],
     ['l3-report.md', reportMarkdown(verdict, observation, decision)],
   ];
   for (const [name, content] of files) {
@@ -434,7 +545,7 @@ function writeQuarantine(reportDir, verdict, now) {
   return file;
 }
 
-function writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten }) {
+function writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten, outcome }) {
   if (!reportDir) return null;
   const file = path.join(path.resolve(reportDir), 'l3-result.json');
   fs.writeFileSync(file, `${JSON.stringify({
@@ -446,6 +557,7 @@ function writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWri
     issued,
     actionsWritten,
     quarantineWritten,
+    outcome,
   }, null, 2)}\n`);
   return file;
 }
@@ -486,11 +598,12 @@ export async function runL3({
     minimumSample: policyMinimumSample,
   } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
+  let sourceOutcomes = null;
   try {
     const summaries = readSummaries(summaryDir);
-    const outcomes = readOptionalJson(outcomePath);
+    sourceOutcomes = readOptionalJson(outcomePath);
     verdict = validateJobSummaries(summaries, {
-      outcomes,
+      outcomes: sourceOutcomes,
       now,
       maxAgeHours,
       sourcePath: summaryDir,
@@ -523,6 +636,7 @@ export async function runL3({
       },
     },
   };
+  const outcome = buildJobQualityOutcome({ verdict, policy: loopPolicy, now });
   // A zero-sized outcome cohort is not evidence of a zero handoff rate. Keep
   // metrics null until the observed outcome sample is complete and usable.
   const measurable = verdict.quality === 'observed' && verdict.ok;
@@ -552,6 +666,7 @@ export async function runL3({
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
+  observation.outcome = outcome;
   const decision = buildDecision({
     loopId: LOOP_ID,
     goal: loopPolicy.goal,
@@ -590,10 +705,10 @@ export async function runL3({
     });
     issued = true;
   }
-  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten });
+  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten, outcome });
   if (resultFile) files.push(resultFile);
   logger.log(`[L3] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
-  return { verdict, observation, decision, files, issued, actionsWritten, quarantineWritten };
+  return { verdict, observation, decision, outcome, files, issued, actionsWritten, quarantineWritten };
 }
 
 function parseArgs(argv) {
@@ -630,6 +745,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
     verdict: result.verdict,
     observation: result.observation,
     decision: result.decision,
+    outcome: result.outcome,
     issued: result.issued,
     actionsWritten: result.actionsWritten,
     quarantineWritten: result.quarantineWritten,

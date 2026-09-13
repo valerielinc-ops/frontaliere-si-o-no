@@ -774,12 +774,124 @@ export function ratio(numerator, denominator) {
   return numerator / denominator;
 }
 
-/** Append exactly one JSON record. The file is never rewritten by this helper. */
-export function appendJsonl(file, record) {
+let serializedJsonlSequence = 0;
+
+function sleepSync(milliseconds) {
+  if (milliseconds <= 0) return;
+  const signal = new Int32Array(new SharedArrayBuffer(4));
+  Atomics.wait(signal, 0, 0, milliseconds);
+}
+
+function readJsonlForSerializedAppend(target, label) {
+  if (!fs.existsSync(target)) return '';
+  const content = fs.readFileSync(target, 'utf8');
+  for (const [index, line] of content.split(/\r?\n/u).entries()) {
+    if (!line.trim()) continue;
+    try {
+      JSON.parse(line);
+    } catch (error) {
+      throw new Error(`${label} contains invalid JSON at line ${index + 1}: ${error.message}`);
+    }
+  }
+  return content;
+}
+
+/**
+ * Append one JSONL record while serialising competing writers and committing
+ * the resulting file with temp+rename. A duplicate recordId is idempotent;
+ * a conflicting one fails closed. Lock acquisition is deliberately bounded so
+ * a dead runner cannot make a workflow wait forever.
+ */
+export function appendJsonlSerialized(file, record, {
+  maxAttempts = 5,
+  retryDelayMs = 25,
+  lockStaleMs = 120_000,
+  label = file,
+} = {}) {
+  if (!Number.isInteger(maxAttempts) || maxAttempts < 1) fail('serialized JSONL maxAttempts must be a positive integer');
+  if (!Number.isFinite(retryDelayMs) || retryDelayMs < 0) fail('serialized JSONL retryDelayMs must be non-negative');
+  if (!Number.isFinite(lockStaleMs) || lockStaleMs <= 0) fail('serialized JSONL lockStaleMs must be positive');
+  const encoded = JSON.stringify(record);
+  if (encoded === undefined) fail('serialized JSONL record must be JSON-serializable');
+
   const target = path.resolve(file);
+  const lock = `${target}.lock`;
   fs.mkdirSync(path.dirname(target), { recursive: true });
-  fs.appendFileSync(target, `${JSON.stringify(record)}\n`, { encoding: 'utf8', flag: 'a' });
-  return target;
+  let lockAcquired = false;
+  let lockFd = null;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    let openedByUs = false;
+    try {
+      lockFd = fs.openSync(lock, 'wx');
+      openedByUs = true;
+      fs.writeSync(lockFd, `${JSON.stringify({ pid: process.pid, acquiredAt: new Date().toISOString() })}\n`);
+      fs.closeSync(lockFd);
+      lockFd = null;
+      lockAcquired = true;
+      break;
+    } catch (error) {
+      if (lockFd !== null) {
+        try { fs.closeSync(lockFd); } catch { /* best effort */ }
+        lockFd = null;
+      }
+      if (openedByUs) {
+        try { fs.unlinkSync(lock); } catch { /* best effort */ }
+      }
+      if (error.code !== 'EEXIST') throw error;
+      try {
+        if (Date.now() - fs.statSync(lock).mtimeMs > lockStaleMs) fs.unlinkSync(lock);
+      } catch { /* another writer may have released it */ }
+      if (attempt === maxAttempts) {
+        throw new Error(`${label} could not acquire its lock after ${maxAttempts} bounded attempts`);
+      }
+      sleepSync(retryDelayMs);
+    }
+  }
+
+  try {
+    const existingText = readJsonlForSerializedAppend(target, label);
+    const existingRecords = existingText
+      .split(/\r?\n/u)
+      .filter((line) => line.trim())
+      .map((line) => JSON.parse(line));
+    const previous = record?.recordId === undefined
+      ? null
+      : existingRecords.find((candidate) => candidate?.recordId === record.recordId);
+    if (previous) {
+      if (JSON.stringify(previous) !== encoded) {
+        throw new Error(`${label} contains conflicting duplicate ${record.recordId}`);
+      }
+      return { target, appended: false };
+    }
+
+    const prefix = existingText && !existingText.endsWith('\n') ? `${existingText}\n` : existingText;
+    const content = `${prefix}${encoded}\n`;
+    const temporary = `${target}.${process.pid}.${serializedJsonlSequence++}.tmp`;
+    try {
+      const temporaryFd = fs.openSync(temporary, 'wx');
+      try {
+        fs.writeSync(temporaryFd, content, null, 'utf8');
+        fs.fsyncSync(temporaryFd);
+      } finally {
+        fs.closeSync(temporaryFd);
+      }
+      fs.renameSync(temporary, target);
+    } catch (error) {
+      try { fs.unlinkSync(temporary); } catch { /* best effort */ }
+      throw error;
+    }
+    return { target, appended: true };
+  } finally {
+    if (lockAcquired) {
+      try { fs.unlinkSync(lock); } catch { /* best effort */ }
+    }
+  }
+}
+
+/** Append exactly one JSON record through the serialized atomic writer. */
+export function appendJsonl(file, record) {
+  appendJsonlSerialized(file, record);
+  return path.resolve(file);
 }
 
 export function readJson(file) {

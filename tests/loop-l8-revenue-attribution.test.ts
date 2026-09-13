@@ -45,6 +45,12 @@ function history(...rows: Record<string, unknown>[]) {
 function affiliate(overrides: Record<string, unknown> = {}) {
   return {
     generatedAt: '2026-09-12T11:00:00.000Z',
+    independent: true,
+    evidence: {
+      source: 'authorized-network-export',
+      sourceRefs: ['authorised-affiliate-commercial-export'],
+    },
+    clicks: { web: 100, relevant: 100, total: 100 },
     amountFormat: 'decimal',
     period: { from: '2026-09-01', to: '2026-09-12' },
     exposures: { web: 100 },
@@ -99,12 +105,34 @@ describe('L8 Revenue & Attribution', () => {
       pendingChf: 5,
       reversedChf: 2,
       exposures: { web: 100, email: null, relevant: 100 },
+      clicks: { web: 100, email: null, relevant: 100, total: 100 },
+      statusCounts: { pending: 1, approved: 1, reversed: 1 },
     });
     expect(verdict.snapshot.commercial.byCurrency.CHF).toMatchObject({
       approved: 250,
       pending: 5,
       reversed: 2,
     });
+  });
+
+  it('keeps monitor clicks separate from the authorised commercial export', () => {
+    const verdict = validateRevenueAttribution({
+      history: history(),
+      affiliate: affiliate({ clicks: undefined }),
+    }, { now: NOW });
+    expect(verdict.ok).toBe(true);
+    expect(verdict.quality).toBe('observed');
+    expect(verdict.snapshot.commercial.clicks.relevant).toBeNull();
+    expect(verdict.snapshot.history.gsc.clicksPerDay).toBe(250);
+  });
+
+  it('accepts a scalar click count when the authorised export provides one', () => {
+    const verdict = validateRevenueAttribution({
+      history: history(),
+      affiliate: affiliate({ clicks: 100 }),
+    }, { now: NOW });
+    expect(verdict.ok).toBe(true);
+    expect(verdict.snapshot.commercial.clicks).toMatchObject({ relevant: 100, total: 100 });
   });
 
   it('does not count duplicate history dates as valid observations', () => {
@@ -141,6 +169,16 @@ describe('L8 Revenue & Attribution', () => {
     const verdict = validateRevenueAttribution({ history: history(), affiliate: null }, { now: NOW });
     expect(verdict).toMatchObject({ ok: false, quality: 'unmeasurable' });
     expect(verdict.snapshot.commercial).toMatchObject({ approvedNetChf: null, pendingChf: null });
+  });
+
+  it('does not turn an export without transaction rows into zero approved revenue', () => {
+    const verdict = validateRevenueAttribution({
+      history: history(),
+      affiliate: affiliate({ transactions: undefined }),
+    }, { now: NOW });
+    expect(verdict.quality).toBe('partial');
+    expect(verdict.snapshot.commercial.approvedNetChf).toBeNull();
+    expect(verdict.issues.join(' ')).toContain('transactions/rows is missing');
   });
 
   it('requires a currency conversion oracle for approved non-CHF money', () => {
@@ -185,6 +223,8 @@ describe('L8 Revenue & Attribution', () => {
       .toMatchObject({ externalCommercialStateUntouched: true, autoAdsUntouched: true });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l8-result.json'), 'utf8')))
       .toMatchObject({ ok: false, issued: true, actionsWritten: true });
+    expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l8-outcome.json'), 'utf8')))
+      .toMatchObject({ loopId: 'L8', safeToAct: false, autoAdsUntouched: true, externalCommercialStateUntouched: true });
   });
 
   it('does not persist a result when issue creation fails', async () => {

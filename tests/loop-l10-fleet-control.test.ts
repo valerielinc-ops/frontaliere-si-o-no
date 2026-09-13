@@ -197,6 +197,16 @@ describe('L10 Engineering Learning / Fleet Control', () => {
       .toMatchObject({ oneWriterPerArtifact: true, boundedQueues: true, gateBypass: false });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l10-result.json'), 'utf8')))
       .toMatchObject({ ok: false, issued: true, actionsWritten: true });
+    expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l10-outcome.json'), 'utf8')))
+      .toMatchObject({
+        loopId: 'L10',
+        safeToAct: false,
+        oneWriterPerArtifact: true,
+        boundedRetries: true,
+        ledgerWriteMode: 'serialized-atomic',
+        gateBypass: false,
+        supervisorL11Separate: true,
+      });
   });
 
   it('does not persist a result when issue creation fails', async () => {

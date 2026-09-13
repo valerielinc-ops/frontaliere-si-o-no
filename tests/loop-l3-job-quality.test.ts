@@ -49,6 +49,11 @@ function summary(overrides: Record<string, unknown> = {}) {
 function outcomes(overrides: Record<string, unknown> = {}) {
   return {
     generatedAt: NOW.toISOString(),
+    independent: true,
+    evidence: {
+      source: 'job-apply-telemetry',
+      sourceRefs: ['job-crawler-summaries', 'application-handoff'],
+    },
     eligibleJobSessions: 120,
     validHandoffs: 90,
     applications: 12,
@@ -71,6 +76,16 @@ describe('L3 Job Quality → Apply', () => {
     const verdict = validateJobSummaries([summary()], { outcomes: outcomes(), now: NOW });
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
     expect(verdict.snapshot.outcomes).toMatchObject({ eligibleJobSessions: 120, validHandoffs: 90 });
+  });
+
+  it('does not treat a numerically complete export as independent without its provenance contract', () => {
+    const verdict = validateJobSummaries([summary()], {
+      outcomes: outcomes({ independent: false }),
+      now: NOW,
+    });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.snapshot.outcomes.independent).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('independent must be explicitly true');
   });
 
   it('does not turn job counts or URLs into application outcomes', () => {
@@ -170,6 +185,8 @@ describe('L3 Job Quality → Apply', () => {
       .toMatchObject({ publishedSourceUntouched: true, records: [{ reversible: true }] });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l3-result.json'), 'utf8')))
       .toMatchObject({ ok: false, issued: true, actionsWritten: true, quarantineWritten: true });
+    expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l3-outcome.json'), 'utf8')))
+      .toMatchObject({ loopId: 'L3', safeToAct: false, handoffIsNotApplication: true, publishedDataUntouched: true });
     expect(issues).toHaveLength(1);
   });
 
