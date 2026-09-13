@@ -19627,10 +19627,10 @@
         "it": "consulente-di-vendita-famiglia-coop-genossenschaft-zug"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/consulente-di-vendita-famiglia-coop-genossenschaft-zug",
-        "en": "/en/find-jobs-bern/consulente-di-vendita-famiglia-coop-genossenschaft-zug",
-        "de": "/de/jobs-in-bern/consulente-di-vendita-famiglia-coop-genossenschaft-zug",
-        "fr": "/fr/trouver-emploi-berne/consulente-di-vendita-famiglia-coop-genossenschaft-zug"
+        "it": "/cerca-lavoro-argovia/consulente-di-vendita-famiglia-coop-genossenschaft-zug",
+        "en": "/en/find-jobs-aargau/consulente-di-vendita-famiglia-coop-genossenschaft-zug",
+        "de": "/de/jobs-im-aargau/consulente-di-vendita-famiglia-coop-genossenschaft-zug",
+        "fr": "/fr/trouver-emploi-argovie/consulente-di-vendita-famiglia-coop-genossenschaft-zug"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -42836,7 +42836,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-caisse-supermarche-50-vevey-collaborateurtrice-caisse-supermarche"
+        "it": "manor-collaborateur-trice-caisse-supermarche-50-vevey-collaborateurtrice-caisse-supermarche",
+        "de": "kollaborateur-trice-caisse-supermarche-50-manor-ag-vevey",
+        "fr": "collaborateur-couche-caisse-supermarche-50-manor-ag-vevey",
+        "en": "cashier-supermarket-50-manor-ag-vevey"
       },
       "localePaths": {
         "it": "/cerca-lavoro-vaud/manor-collaborateur-trice-caisse-supermarche-50-vevey-collaborateurtrice-caisse-supermarche",
@@ -46556,9 +46559,8 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "mitarbeiter-in-vente-home-und-haushalt-50-manor-ag-liestal",
-        "en": "mitarbeiter-in-vente-home-und-haushalt-50-manor-ag-liestal",
-        "de": "mitarbeiter-in-vente-home-und-haushalt-50-manor-ag-liestal",
+        "it": "manor-mitarbeiter-in-verkauf-home-und-haushalt-50-liestal-mitarbeiterin-verkauf-home",
+        "en": "mitarbeiter-in-sales-home-und-haushalt-50-manor-ag-liestal",
         "fr": "mitarbeiter-in-vente-home-und-haushalt-50-manor-ag-liestal"
       },
       "localePaths": {
@@ -46573,6 +46575,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -54862,9 +54865,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "psicologo-scolastico-80-stadt-zurich-zurich",
-        "en": "psicologo-scolastico-80-stadt-zurich-zurich",
-        "de": "psicologo-scolastico-80-stadt-zurich-zurich",
-        "fr": "psicologo-scolastico-80-stadt-zurich-zurich"
+        "en": "school-psychologist-80-stadt-zurich-zurich",
+        "de": "schulpsycholog-in-80-stadt-zuerich-zurigo-51556",
+        "fr": "psychologue-scolaire-80-stadt-zurich-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/psicologo-scolastico-80-stadt-zurich-zurich",
@@ -54878,6 +54881,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -56666,10 +56670,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "regulatory-affairs-intern-roche-ch",
+        "it": "regulatory-affairs-intern-roche-ch-2",
         "en": "regulatory-affairs-intern-roche-ch",
-        "de": "regulatory-affairs-intern-roche-ch",
-        "fr": "regulatory-affairs-intern-roche-ch"
+        "de": "regulatory-affairs-intern-roche-ch-2",
+        "fr": "regulatory-affairs-intern-roche-ch-2"
       },
       "localePaths": {
         "it": "/cerca-lavoro-friburgo/regulatory-affairs-intern-roche-ch",
@@ -56683,6 +56687,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

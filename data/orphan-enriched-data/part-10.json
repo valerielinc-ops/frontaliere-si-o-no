@@ -2865,6 +2865,63 @@
       ]
     },
     {
+      "slug": "alpnach",
+      "locale": "en",
+      "path": "/en/find-jobs-obwalden/alpnach/",
+      "observedPaths": {
+        "en": "/en/find-jobs-obwalden/alpnach/"
+      },
+      "queries": [
+        {
+          "query": "jobs alpnach",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "jobs alpnach",
+      "title": "Alpnach",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "alpnach",
+        "en": "alpnach",
+        "de": "alpnach",
+        "fr": "alpnach"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-obvaldo/alpnach",
+        "en": "/en/find-jobs-obwalden/alpnach",
+        "de": "/de/jobs-im-obwalden/alpnach",
+        "fr": "/fr/trouver-emploi-obwald/alpnach"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "altersheime-thurgau-jobs",
       "locale": "it",
       "path": "/de/jobs-im-thurgau/altersheime-thurgau-jobs",
@@ -3006,9 +3063,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "ambassadeur-d-ecole-stadt-zurich-zurich",
-        "en": "ambassadeur-d-ecole-stadt-zurich-zurich",
-        "de": "ambassadeur-d-ecole-stadt-zurich-zurich",
+        "it": "ambasciatore-di-scuola-stadt-zurich-zurich",
+        "en": "school-ambassador-stadt-zurich-zurich",
+        "de": "schulbotschafter-in-stadt-zuerich-zurigo-51505",
         "fr": "ambassadeur-d-ecole-stadt-zurich-zurich"
       },
       "localePaths": {
@@ -3023,6 +3080,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -45096,9 +45154,8 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "mitarbeiter-in-vente-papeterie-multimedia-70-manor-ag-chur",
-        "en": "mitarbeiter-in-vente-papeterie-multimedia-70-manor-ag-chur",
-        "de": "mitarbeiter-in-vente-papeterie-multimedia-70-manor-ag-chur",
+        "it": "manor-mitarbeiter-in-verkauf-papeterie-multimedia-70-chur-mitarbeiterin-verkauf-papeteriemultimedia",
+        "en": "mitarbeiter-in-sales-papeterie-multimedia-70-manor-ag-chur",
         "fr": "mitarbeiter-in-vente-papeterie-multimedia-70-manor-ag-chur"
       },
       "localePaths": {
@@ -45113,6 +45170,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -54487,10 +54545,10 @@
         "fr": "responsabile-di-filiale-in-formazione-denner-chur"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/responsabile-di-filiale-in-formazione-denner-chur",
-        "en": "/en/find-jobs-lucerne/responsabile-di-filiale-in-formazione-denner-chur",
-        "de": "/de/jobs-in-luzern/responsabile-di-filiale-in-formazione-denner-chur",
-        "fr": "/fr/trouver-emploi-lucerne/responsabile-di-filiale-in-formazione-denner-chur"
+        "it": "/cerca-lavoro-basilea/responsabile-di-filiale-in-formazione-denner-chur",
+        "en": "/en/find-jobs-basel/responsabile-di-filiale-in-formazione-denner-chur",
+        "de": "/de/jobs-in-basel/responsabile-di-filiale-in-formazione-denner-chur",
+        "fr": "/fr/trouver-emploi-bale/responsabile-di-filiale-in-formazione-denner-chur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59340,10 +59398,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "school-ambassador-stadt-zurich-zurich",
+        "it": "ambasciatore-di-scuola-stadt-zurich-zurich",
         "en": "school-ambassador-stadt-zurich-zurich",
-        "de": "school-ambassador-stadt-zurich-zurich",
-        "fr": "school-ambassador-stadt-zurich-zurich"
+        "de": "schulbotschafter-in-stadt-zuerich-zurigo-51505",
+        "fr": "ambassadeur-d-ecole-stadt-zurich-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/school-ambassador-stadt-zurich-zurich",
@@ -59357,6 +59415,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -60567,10 +60626,10 @@
         "fr": "seller-in-in-hourly-wage-denner-effretikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/seller-in-in-hourly-wage-denner-effretikon",
-        "en": "/en/find-jobs-zurich/seller-in-in-hourly-wage-denner-effretikon",
-        "de": "/de/jobs-in-zurich/seller-in-in-hourly-wage-denner-effretikon",
-        "fr": "/fr/trouver-emploi-zurich/seller-in-in-hourly-wage-denner-effretikon"
+        "it": "/cerca-lavoro-turgovia/seller-in-in-hourly-wage-denner-effretikon",
+        "en": "/en/find-jobs-thurgau/seller-in-in-hourly-wage-denner-effretikon",
+        "de": "/de/jobs-im-thurgau/seller-in-in-hourly-wage-denner-effretikon",
+        "fr": "/fr/trouver-emploi-thurgovie/seller-in-in-hourly-wage-denner-effretikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -65183,10 +65242,10 @@
         "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-sciaffusa/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
-        "en": "/en/find-jobs-schaffhausen/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
-        "de": "/de/jobs-in-schaffhausen/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
-        "fr": "/fr/trouver-emploi-schaffhouse/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
+        "it": "/cerca-lavoro-soletta/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
+        "en": "/en/find-jobs-solothurn/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
+        "de": "/de/jobs-in-solothurn/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
+        "fr": "/fr/trouver-emploi-soleure/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
       },
       "sourceUrl": "https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000136025409-facharztin-facharzt-fur-allgemeine-innere-medizin",
       "googleStatus": "unknown",
@@ -74241,10 +74300,10 @@
         "fr": "vendita-in-cassa-servizi-coop-genossenschaft-selzach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-soletta/vendita-in-cassa-servizi-coop-genossenschaft-selzach",
-        "en": "/en/find-jobs-solothurn/vendita-in-cassa-servizi-coop-genossenschaft-selzach",
+        "it": "/cerca-lavoro-argovia/vendita-in-cassa-servizi-coop-genossenschaft-selzach",
+        "en": "/en/find-jobs-aargau/vendita-in-cassa-servizi-coop-genossenschaft-selzach",
         "de": "/de/jobs-im-zurich/vendita-in-cassa-servizi-coop-genossenschaft-selzach",
-        "fr": "/fr/trouver-emploi-soleure/vendita-in-cassa-servizi-coop-genossenschaft-selzach"
+        "fr": "/fr/trouver-emploi-argovie/vendita-in-cassa-servizi-coop-genossenschaft-selzach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75422,10 +75481,10 @@
         "fr": "verkaufer-in-food-coop-genossenschaft-ilanz-glion-4eve14"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/verkaufer-in-food-coop-genossenschaft-ilanz-glion-4eve14",
-        "en": "/en/find-jobs-ticino/verkaufer-in-food-coop-genossenschaft-ilanz-glion-4eve14",
-        "de": "/de/jobs-im-tessin/verkaufer-in-food-coop-genossenschaft-ilanz-glion-4eve14",
-        "fr": "/fr/trouver-emploi-tessin/verkaufer-in-food-coop-genossenschaft-ilanz-glion-4eve14"
+        "it": "/cerca-lavoro-grigioni/verkaufer-in-food-coop-genossenschaft-ilanz-glion-4eve14",
+        "en": "/en/find-jobs-graubunden/verkaufer-in-food-coop-genossenschaft-ilanz-glion-4eve14",
+        "de": "/de/jobs-in-graubunden/verkaufer-in-food-coop-genossenschaft-ilanz-glion-4eve14",
+        "fr": "/fr/trouver-emploi-grisons/verkaufer-in-food-coop-genossenschaft-ilanz-glion-4eve14"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78328,6 +78387,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "wollerau",
+      "locale": "it",
+      "path": "/cerca-lavoro-svitto/wollerau/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-svitto/wollerau/"
+      },
+      "queries": [
+        {
+          "query": "wollerau",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "wollerau",
+      "title": "Wollerau",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "wollerau",
+        "en": "wollerau",
+        "de": "wollerau",
+        "fr": "wollerau"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-svitto/wollerau",
+        "en": "/en/find-jobs-schwyz/wollerau",
+        "de": "/de/jobs-im-schwyz/wollerau",
+        "fr": "/fr/trouver-emploi-schwytz/wollerau"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
