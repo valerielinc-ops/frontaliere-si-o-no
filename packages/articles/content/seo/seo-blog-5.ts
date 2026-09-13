@@ -89968,6 +89968,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pognana-lario-frontaliere-ticino-guida': {
+    title: 'Vivere a Pognana Lario e lavorare in Ticino | Frontaliere Ticino',
+    description: 'Vivere a Pognana Lario e lavorare in Ticino: tempi per Brogeda, permesso G, franchigia fiscale di €10\'000 e contributi AVS e LPP. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, pognana, lario, lavorare',
+    ogTitle: 'Vivere a Pognana Lario e lavorare in Ticino',
+    ogDescription: 'Tutto su collegamenti stradali verso Chiasso, accordo fiscale Italia-Svizzera, franchigia di €10\'000 e gestione contributi per frontalieri a Pognana Lario.',
+    canonicalPath: '/articoli-frontaliere/pognana-lario-frontaliere-ticino-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Pognana Lario e lavorare in Ticino",
+      "description": "Vivere a Pognana Lario e lavorare in Ticino: tempi per Brogeda, permesso G, franchigia fiscale di €10'000 e contributi AVS e LPP. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pognana-lario-frontaliere-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scorcio del lago vicino a Pognana Lario verso il confine svizzero"
+      },
+      "datePublished": "2026-09-13T00:50:56+00:00",
+      "dateModified": "2026-09-13T00:50:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pognana-lario-frontaliere-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

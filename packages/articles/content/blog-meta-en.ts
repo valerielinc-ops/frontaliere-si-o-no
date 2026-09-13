@@ -11698,6 +11698,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.formazione-lavoro-ticino.title': 'Training and work in Ticino: the challenges of integration',
     'blog.article.formazione-lavoro-ticino.excerpt': 'Cotti and Capoferri question the government on the challenges of professional integration after school, also considering the variable of artificial intelligence.',
     'blog.article.formazione-lavoro-ticino.imageAlt': 'Education and work in Ticino',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.title': 'Living in Pognana Lario and working in Ticino',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.excerpt': 'Practical guide for border workers at Pognana Lario: journeys to Chiasso, taxes, tax agreement and budget management.',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.imageAlt': 'View of the lake near Pognana Lario towards the Swiss border',
 };
 
 export default blogMetaEn;

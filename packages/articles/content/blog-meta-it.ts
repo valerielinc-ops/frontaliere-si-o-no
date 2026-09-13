@@ -11699,6 +11699,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.formazione-lavoro-ticino.title': 'Formazione e lavoro in Ticino: le sfide dell\'inserimento',
     'blog.article.formazione-lavoro-ticino.excerpt': 'Cotti e Capoferri interpellano il governo sulle sfide dell inserimento professionale dopo la scuola, considerando anche la variabile dell intelligenza artificiale.',
     'blog.article.formazione-lavoro-ticino.imageAlt': 'Formazione e lavoro in Ticino',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.title': 'Vivere a Pognana Lario e lavorare in Ticino',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.excerpt': 'Guida pratica per frontalieri a Pognana Lario: tragitti verso Chiasso, imposte, accordo fiscale e gestione del budget.',
+    'blog.article.pognana-lario-frontaliere-ticino-guida.imageAlt': 'Scorcio del lago vicino a Pognana Lario verso il confine svizzero',
 };
 
 export default blogMetaIt;
