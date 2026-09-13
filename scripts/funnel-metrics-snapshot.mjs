@@ -72,6 +72,14 @@ const posthog = cur.posthog || null;
 const errors = Array.isArray(cur.errors) ? cur.errors : [];
 const warnings = Array.isArray(cur.warnings) ? cur.warnings : [];
 
+function adsenseNumber(source, canonical, legacy) {
+  return source?.[canonical] ?? source?.[legacy] ?? null;
+}
+
+const adsenseCurrencyCode = adsense
+  ? String(adsense.currencyCode || 'EUR').toUpperCase()
+  : null;
+
 // Compact snapshot: only the fields the trackers care about.
 const snapshot = {
   date: new Date().toISOString().slice(0, 10),
@@ -96,9 +104,15 @@ const snapshot = {
   // AdSense exposes here — true per-category RPM is not available via the API).
   adsense: adsense
     ? {
-        rpmCHF: adsense.rpmCHF ?? null,
-        desktopRpmCHF: adsense.desktopRpmCHF ?? null,
-        revenuePerDayCHF: adsense.revenuePerDayCHF ?? null,
+        currencyCode: adsenseCurrencyCode,
+        rpm: adsenseNumber(adsense, 'rpm', 'rpmCHF'),
+        desktopRpm: adsenseNumber(adsense, 'desktopRpm', 'desktopRpmCHF'),
+        revenuePerDay: adsenseNumber(adsense, 'revenuePerDay', 'revenuePerDayCHF'),
+        // Legacy aliases remain in the persisted shape for older issue
+        // comments/readers; they deliberately do not imply CHF anymore.
+        rpmCHF: adsense.rpmCHF ?? adsense.rpm ?? null,
+        desktopRpmCHF: adsense.desktopRpmCHF ?? adsense.desktopRpm ?? null,
+        revenuePerDayCHF: adsense.revenuePerDayCHF ?? adsense.revenuePerDay ?? null,
       }
     : null,
   sourcesOk: {
@@ -139,6 +153,10 @@ function fmt(v, unit = '') {
 }
 
 const prev = history.entries.length >= 2 ? history.entries[history.entries.length - 2] : null;
+const previousAdsense = snapshot.adsense
+  && prev?.adsense?.currencyCode === snapshot.adsense.currencyCode
+  ? prev.adsense
+  : null;
 function delta(curV, prevV, { higherIsBetter = true } = {}) {
   if (curV == null || prevV == null) return '';
   const d = curV - prevV;
@@ -183,9 +201,10 @@ lines.push('');
 
 lines.push('**AdSense RPM (last 7d)** — #857');
 if (snapshot.adsense) {
-  lines.push(`- RPM (CHF): \`${fmt(snapshot.adsense.rpmCHF)}\`${delta(snapshot.adsense.rpmCHF, prev?.adsense?.rpmCHF, { higherIsBetter: true })}`);
-  lines.push(`- Desktop RPM (CHF): \`${fmt(snapshot.adsense.desktopRpmCHF)}\`${delta(snapshot.adsense.desktopRpmCHF, prev?.adsense?.desktopRpmCHF, { higherIsBetter: true })}`);
-  lines.push(`- Revenue/day (CHF): \`${fmt(snapshot.adsense.revenuePerDayCHF)}\``);
+  const currency = snapshot.adsense.currencyCode;
+  lines.push(`- RPM (${currency}): \`${fmt(snapshot.adsense.rpm)}\`${delta(snapshot.adsense.rpm, previousAdsense?.rpm, { higherIsBetter: true })}`);
+  lines.push(`- Desktop RPM (${currency}): \`${fmt(snapshot.adsense.desktopRpm)}\`${delta(snapshot.adsense.desktopRpm, previousAdsense?.desktopRpm, { higherIsBetter: true })}`);
+  lines.push(`- Revenue/day (${currency}): \`${fmt(snapshot.adsense.revenuePerDay)}\``);
   lines.push('- _Note: AdSense exposes RPM per platform (mobile/desktop), not per content category. For content-mix dilution use CTR-by-bucket above as the category proxy._');
 } else {
   lines.push('- _unavailable this run (AdSense source skipped/errored — see notes)_');
