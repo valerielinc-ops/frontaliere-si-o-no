@@ -38,6 +38,33 @@ export const AUTONOMY_LEVELS = Object.freeze(['A0', 'A1', 'A2', 'A3', 'A4']);
 
 export const AUTONOMY_ORDER = Object.freeze({ A0: 0, A1: 1, A2: 2, A3: 3, A4: 4 });
 
+// Lifecycle events are deliberately narrower than the loop state machine:
+// the first two are emitted by the recorder, while the remaining events can
+// only be asserted by an independent PR/Actions observer.  In particular,
+// the recorder must never infer a merge or a rollback from a local decision.
+export const LIFECYCLE_EVENT_TYPES = Object.freeze([
+  'candidate',
+  'owner_assigned',
+  'pr_opened',
+  'tests_passed',
+  'review_approved',
+  'merged',
+  'post_merge_verified',
+  'rollback_requested',
+  'rolled_back',
+  'inconclusive',
+]);
+
+export const REQUIRED_LIFECYCLE_EVENT_TYPES = Object.freeze([
+  'candidate',
+  'owner_assigned',
+  'pr_opened',
+  'tests_passed',
+  'review_approved',
+  'merged',
+  'post_merge_verified',
+]);
+
 const NON_MEASURABLE_QUALITY = new Set(['missing', 'partial', 'unmeasurable']);
 const REQUIRED_LOOP_FIELDS = [
   'loopId',
@@ -378,6 +405,67 @@ export function validateDecisionLifecycle(registry, loopId, decision) {
     lifecycle: policy.lifecycle,
     withinCandidateTtl: true,
   };
+}
+
+export function buildLifecycleEvent({
+  eventType,
+  loopId,
+  candidateId,
+  owner,
+  sourceRecordId,
+  sourceRefs,
+  lifecycle,
+  occurredAt,
+  artifactOrPr = null,
+  recordedAt = new Date().toISOString(),
+}) {
+  if (!LIFECYCLE_EVENT_TYPES.includes(eventType)) fail(`unknown lifecycle event type ${eventType}`);
+  requireText(loopId, 'lifecycle event loopId');
+  requireText(candidateId, 'lifecycle event candidateId');
+  requireText(owner, 'lifecycle event owner');
+  requireText(sourceRecordId, 'lifecycle event sourceRecordId');
+  requireTextArray(sourceRefs, 'lifecycle event sourceRefs');
+  const normalizedLifecycle = requireLifecycle(lifecycle, 'lifecycle event lifecycle');
+  requireIso(occurredAt, 'lifecycle event occurredAt');
+  if (artifactOrPr !== null) requireText(artifactOrPr, 'lifecycle event artifactOrPr');
+  requireIso(recordedAt, 'lifecycle event recordedAt');
+  return {
+    recordType: 'lifecycle-event',
+    schemaVersion: 1,
+    eventType,
+    loopId: loopId.trim(),
+    candidateId: candidateId.trim(),
+    owner: owner.trim(),
+    sourceRecordId: sourceRecordId.trim(),
+    sourceRefs: [...sourceRefs],
+    lifecycle: normalizedLifecycle,
+    occurredAt,
+    artifactOrPr,
+    recordedAt,
+  };
+}
+
+export function validateLifecycleEvent(registry, loopId, event) {
+  const policy = findLoopPolicy(registry, loopId);
+  if (!event || typeof event !== 'object' || Array.isArray(event)) {
+    fail(`${loopId}.lifecycle event must be an object`);
+  }
+  if (event.recordType !== 'lifecycle-event') {
+    fail(`${loopId}.lifecycle event recordType is ${event.recordType || 'missing'}`);
+  }
+  if (event.schemaVersion !== 1) fail(`${loopId}.lifecycle event schemaVersion must be 1`);
+  if (event.loopId !== loopId) fail(`${loopId}.lifecycle event belongs to ${event.loopId || 'unknown'}`);
+  requireText(event.recordId, `${loopId}.lifecycle event recordId`);
+  const normalized = buildLifecycleEvent(event);
+  const missingSourceRefs = policy.sourceRefs.filter((sourceRef) => !normalized.sourceRefs.includes(sourceRef));
+  const extraSourceRefs = normalized.sourceRefs.filter((sourceRef) => !policy.sourceRefs.includes(sourceRef));
+  if (missingSourceRefs.length || extraSourceRefs.length) {
+    fail(`${loopId}.lifecycle event sourceRefs must exactly match the registry declaration`);
+  }
+  if (JSON.stringify(normalized.lifecycle) !== JSON.stringify(policy.lifecycle)) {
+    fail(`${loopId}.lifecycle event lifecycle metadata does not match the registry`);
+  }
+  return { loopId, policy, event: normalized };
 }
 
 export function buildObservation({

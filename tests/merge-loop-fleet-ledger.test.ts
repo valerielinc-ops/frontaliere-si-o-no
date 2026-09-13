@@ -78,10 +78,11 @@ describe('merge-loop-fleet-ledger', () => {
         inputDir,
         ledgerDir,
       });
-      expect(first.inputRecords).toEqual({ observation: 1, decision: 1, health: 1 });
+      expect(first.inputRecords).toEqual({ observation: 1, decision: 1, health: 1, lifecycle: 2 });
       expect(first.results.observation.appended).toBe(1);
       expect(first.results.decision.appended).toBe(1);
       expect(first.results.health.appended).toBe(1);
+      expect(first.results.lifecycle.appended).toBe(2);
 
       const second = mergeLedger({
         loopId: 'L1',
@@ -94,6 +95,7 @@ describe('merge-loop-fleet-ledger', () => {
         observation: { appended: 0, skipped: 1 },
         decision: { appended: 0, skipped: 1 },
         health: { appended: 0, skipped: 1 },
+        lifecycle: { appended: 0, skipped: 2 },
       });
       expect(fs.readFileSync(path.join(ledgerDir, 'loop-health-history.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     } finally {

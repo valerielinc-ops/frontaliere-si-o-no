@@ -123,6 +123,7 @@ export function durableRecordIds(ledgerDir) {
     observation: recordIds(ledgerDir, 'loop-observations.jsonl'),
     decision: recordIds(ledgerDir, 'loop-decisions.jsonl'),
     health: recordIds(ledgerDir, 'loop-health-history.jsonl'),
+    lifecycle: recordIds(ledgerDir, 'lifecycle-events.jsonl'),
   };
 }
 
@@ -146,6 +147,7 @@ export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, s
     observation: 'loop-observations.jsonl',
     decision: 'loop-decisions.jsonl',
     health: 'loop-health-history.jsonl',
+    lifecycle: 'lifecycle-events.jsonl',
   })) {
     const file = findFile(inputDir, fileName);
     records[type] = file ? jsonlRecords(file) : [];

@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 // @ts-expect-error — the recorder is a dependency-free ESM CI script.
 import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs';
 // @ts-expect-error — the shared loop contract is a dependency-free ESM module.
-import { actionAutonomy, buildOutcome, validateActionClassAgainstPolicy, validateLoopRegistry, validateOutcomeAgainstPolicy } from '../scripts/lib/loop-fleet-contract.mjs';
+import { actionAutonomy, buildOutcome, validateActionClassAgainstPolicy, validateLifecycleEvent, validateLoopRegistry, validateOutcomeAgainstPolicy } from '../scripts/lib/loop-fleet-contract.mjs';
 
 const registry = JSON.parse(fs.readFileSync(path.resolve('data/loop-fleet/loop-registry.json'), 'utf8'));
 const NOW = new Date('2026-09-12T12:00:00.000Z');
@@ -100,10 +100,15 @@ describe('record-loop-fleet-evidence', () => {
       policyCompliant: true,
       requiredAutonomy: 'A2',
     });
-    expect(second.summary.written).toEqual({ observation: false, decision: false, health: false });
+    expect(second.summary.written).toEqual({ observation: false, decision: false, health: false, lifecycle: 0 });
     expect(fs.readFileSync(path.join(dir, 'loop-observations.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     expect(fs.readFileSync(path.join(dir, 'loop-decisions.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     expect(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
+    const lifecycle = fs.readFileSync(path.join(dir, 'lifecycle-events.jsonl'), 'utf8').trim().split('\n').map((line) => JSON.parse(line));
+    expect(lifecycle).toHaveLength(2);
+    expect(lifecycle.map((event: any) => event.eventType)).toEqual(['candidate', 'owner_assigned']);
+    expect(lifecycle.every((event: any) => validateLifecycleEvent(registry, 'L1', event))).toBe(true);
+    expect(() => validateLifecycleEvent(registry, 'L1', { ...lifecycle[0], recordId: undefined })).toThrow(/recordId/);
     expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8')))
       .toMatchObject({ loopId: 'L1', quality: 'partial', ok: false, issueCount: 1, warningCount: 2, sourceRefs: registry.loops.find((loop: any) => loop.loopId === 'L1').sourceRefs, outcome: { outcomeId: 'error-free-useful-session', status: 'partial', independent: false } });
   });
@@ -233,5 +238,6 @@ describe('record-loop-fleet-evidence', () => {
       .toMatchObject({ loopId: 'L11', quality: 'partial', numerator: null, denominator: null });
     expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8')))
       .toMatchObject({ loopId: 'L11', issueCount: 2, warningCount: 1, issued: false });
+    expect(fs.readFileSync(path.join(dir, 'lifecycle-events.jsonl'), 'utf8').trim().split('\n')).toHaveLength(2);
   });
 });

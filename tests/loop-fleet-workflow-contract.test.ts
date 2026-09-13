@@ -50,6 +50,7 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain("!= 'main'");
     expect(source).not.toMatch(/contents:\s*write/u);
     expect(source).toContain('Direct writes to main');
+    expect(source).toContain('lifecycle-events.jsonl');
   });
 
   it('keeps the automatic ledger recovery probe bounded and unable to write repository content', () => {

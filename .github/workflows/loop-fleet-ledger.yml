@@ -213,7 +213,7 @@ jobs:
           branch="$base_branch"
           if [ -n "$open_pr" ]; then
             git fetch origin "$base_branch"
-            for ledger_file in loop-observations.jsonl loop-decisions.jsonl loop-health-history.jsonl; do
+            for ledger_file in loop-observations.jsonl loop-decisions.jsonl loop-health-history.jsonl lifecycle-events.jsonl; do
               if git cat-file -e "origin/$base_branch:data/loop-fleet/ledger/$ledger_file" 2>/dev/null; then
                 mkdir -p data/loop-fleet/ledger
                 git show "origin/$base_branch:data/loop-fleet/ledger/$ledger_file" > "data/loop-fleet/ledger/$ledger_file"
@@ -258,7 +258,7 @@ jobs:
           Auto-generated from immutable run [${SOURCE_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}) for ${SOURCE_LOOP}.
 
           ## Implementato
-          - Appended the validated observation, decision and health records for ${SOURCE_LOOP} to the durable JSONL ledger; duplicate record IDs are idempotent and conflicting duplicates fail closed.
+          - Appended the validated observation, decision, health and lifecycle records for ${SOURCE_LOOP} to the durable JSONL ledger; duplicate record IDs are idempotent and conflicting duplicates fail closed.
           - Preserved the independent-outcome status, registry autonomy ceiling, source references and lifecycle evidence from the source artifact.
 
           ## Non implementato (ancora)
