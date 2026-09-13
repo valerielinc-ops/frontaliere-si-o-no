@@ -439,6 +439,43 @@ async function probePages(entries, {
   };
 }
 
+function cloudflareRowKey(row) {
+  return [row?.status, row?.host || '', row?.path || ''].join('|');
+}
+
+/**
+ * Keep every 5xx count attributable to one of three states: recovered by a
+ * live probe, confirmed persistent, or unresolved.  `fetchErrorPaths()` is
+ * capped at 10k rows and this runner deliberately probes only a smaller
+ * bounded sample, so neither truncation may be mistaken for a transient
+ * recovery.
+ */
+export function summarizeCloudflareProbeCoverage({ total5xx = 0, paths = [], probes = [] } = {}) {
+  const pathRows = Array.isArray(paths) ? paths : [];
+  const probeRows = Array.isArray(probes) ? probes : [];
+  const path5xx = pathRows.reduce((sum, row) => sum + Number(row?.count || 0), 0);
+  const sampledPath5xx = probeRows.reduce((sum, row) => sum + Number(row?.count || 0), 0);
+  const probedKeys = new Set(probeRows.map(cloudflareRowKey));
+  const sampledOutPath5xx = pathRows
+    .filter((row) => !probedKeys.has(cloudflareRowKey(row)))
+    .reduce((sum, row) => sum + Number(row?.count || 0), 0);
+  const transient5xx = probeRows
+    .filter((row) => Number(row?.probeStatus) > 0 && Number(row?.probeStatus) < 500)
+    .reduce((sum, row) => sum + Number(row?.count || 0), 0);
+  const probeFailure5xx = probeRows
+    .filter((row) => Number(row?.probeStatus) === 0)
+    .reduce((sum, row) => sum + Number(row?.count || 0), 0);
+  const unprobed5xx = Math.max(0, Number(total5xx || 0) - path5xx);
+  return {
+    path5xx,
+    sampledPath5xx,
+    transient5xx,
+    unverified5xx: sampledOutPath5xx + probeFailure5xx,
+    unprobed5xx,
+    unresolved5xx: sampledOutPath5xx + probeFailure5xx + unprobed5xx,
+  };
+}
+
 async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, errorSample = DEFAULT_ERROR_SAMPLE } = {}) {
   const startedAt = new Date().toISOString();
   if (!process.env.CF_API_TOKEN) {
@@ -450,6 +487,7 @@ async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOU
       transient5xx: null,
       unverified5xx: null,
       unprobed5xx: null,
+      unresolved5xx: null,
       diagnostics: [],
       paths: [],
       confirmedPersistent: [],
@@ -462,7 +500,6 @@ async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOU
       fetchErrorPaths(process.env.CF_API_TOKEN, zoneId, { hours: 23, minStatus: 500, limit: 10_000 }),
     ]);
     const total5xx = diagnostics.reduce((sum, row) => sum + Number(row.count || 0), 0);
-    const path5xx = paths.reduce((sum, row) => sum + Number(row.count || 0), 0);
     const topPaths = [...paths].sort((a, b) => Number(b.count || 0) - Number(a.count || 0)).slice(0, finitePositive(errorSample, DEFAULT_ERROR_SAMPLE));
     const probes = await mapConcurrent(topPaths, 4, async (row) => {
       const host = row.host || SITE_HOST;
@@ -472,15 +509,7 @@ async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOU
       return { ...row, url, probeStatus: response.status, probeError: response.error || null, attempts: response.attempts };
     });
     const confirmedPersistent = probes.filter((row) => Number(row.probeStatus) >= 500);
-    // A path is transient only when its own live probe recovered.  Counts for
-    // unprobed paths and failed probes remain explicit instead of becoming a
-    // false green remainder of the aggregate total.
-    const transient5xx = probes
-      .filter((row) => Number(row.probeStatus) > 0 && Number(row.probeStatus) < 500)
-      .reduce((sum, row) => sum + Number(row.count || 0), 0);
-    const unverified5xx = probes
-      .filter((row) => Number(row.probeStatus) === 0)
-      .reduce((sum, row) => sum + Number(row.count || 0), 0);
+    const coverage = summarizeCloudflareProbeCoverage({ total5xx, paths, probes });
     const bySurface = {};
     for (const row of paths) {
       const surface = classifySurface({ host: row.host, path: row.path });
@@ -494,10 +523,11 @@ async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOU
       available: true,
       total5xx,
       synthesized5xx: diagnostics.filter(isSynthesizedByEdge).reduce((sum, row) => sum + Number(row.count || 0), 0),
-      sampledPath5xx: topPaths.reduce((sum, row) => sum + Number(row.count || 0), 0),
-      transient5xx,
-      unverified5xx,
-      unprobed5xx: Math.max(0, total5xx - path5xx),
+      sampledPath5xx: coverage.sampledPath5xx,
+      transient5xx: coverage.transient5xx,
+      unverified5xx: coverage.unverified5xx,
+      unprobed5xx: coverage.unprobed5xx,
+      unresolved5xx: coverage.unresolved5xx,
       bySurface,
       diagnostics,
       paths: paths.slice(0, 100),
@@ -513,6 +543,7 @@ async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOU
       transient5xx: null,
       unverified5xx: null,
       unprobed5xx: null,
+      unresolved5xx: null,
       diagnostics: [],
       paths: [],
       confirmedPersistent: [],
@@ -707,6 +738,14 @@ export async function runSeoHealthLoop({
     url: row.url || `https://${row.host}${row.path}`,
     detail: `edge=${row.status} count=${row.count} live=${row.probeStatus} surface=${classifySurface({ host: row.host, path: row.path })}`,
   }));
+  const unresolved5xx = Number(cloudflare.unresolved5xx || 0);
+  if (unresolved5xx > 0) {
+    cfFindings.push({
+      code: 'cloudflare-5xx-unverified',
+      url: 'source:cloudflare-5xx-unverified',
+      detail: `count=${unresolved5xx} sampled-out-or-unprobed; no live recovery asserted`,
+    });
+  }
   const sourceFindings = [];
   const sources = {
     sitemap: graph.source,
@@ -745,7 +784,7 @@ export async function runSeoHealthLoop({
     demandPhase.status = 'degraded';
     demandPhase.observed = demandOpportunityCount;
   }
-  const resiliencePhase = phaseStatus(allFindings, ['cloudflare-5xx-persistent', 'news-sitemap-invalid', 'source-unavailable'], actionableKeys, (finding) => finding.code !== 'source-unavailable' || finding.url === 'source:cloudflare-analytics');
+  const resiliencePhase = phaseStatus(allFindings, ['cloudflare-5xx-persistent', 'cloudflare-5xx-unverified', 'news-sitemap-invalid', 'source-unavailable'], actionableKeys, (finding) => finding.code !== 'source-unavailable' || finding.url === 'source:cloudflare-analytics');
   const transient5xxCount = Number(cloudflare.transient5xx || 0);
   if (resiliencePhase.status === 'pass' && Number(cloudflare.total5xx || 0) > 0) {
     resiliencePhase.status = 'degraded';
@@ -801,6 +840,7 @@ export async function runSeoHealthLoop({
         transient5xx: transient5xxCount > 0 ? transient5xxCount : 0,
         unverified5xx: cloudflare.unverified5xx ?? null,
         unprobed5xx: cloudflare.unprobed5xx ?? null,
+        unresolved5xx: cloudflare.unresolved5xx ?? null,
         bySurface: cloudflare.bySurface || {},
         topPaths: cloudflare.paths || [],
         confirmedPersistent: cloudflare.confirmedPersistent || [],

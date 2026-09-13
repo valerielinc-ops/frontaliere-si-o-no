@@ -17,7 +17,7 @@ import {
   parseSitemapUrlSet,
   sourceResult,
 } from '../../scripts/lib/seo-health-contract.mjs';
-import { fetchWithRetry, loadSitemapGraph, runSeoHealthLoop } from '../../scripts/seo/seo-health-loop.mjs';
+import { fetchWithRetry, loadSitemapGraph, runSeoHealthLoop, summarizeCloudflareProbeCoverage } from '../../scripts/seo/seo-health-loop.mjs';
 
 const ORIGIN = 'https://fixture.test';
 const NOSLASH_SOURCE = readFileSync(new URL('../../scripts/refresh-noslash-keep.mjs', import.meta.url), 'utf8');
@@ -118,6 +118,26 @@ describe('SEO health contract', () => {
       .toContain("report.findings.observed.length === 0");
     expect(readFileSync(new URL('../../scripts/seo/seo-health-loop.mjs', import.meta.url), 'utf8'))
       .toContain('resolveGithubIssue');
+  });
+
+  it('keeps Cloudflare paths outside the live sample unresolved', () => {
+    const coverage = summarizeCloudflareProbeCoverage({
+      total5xx: 10,
+      paths: [
+        { status: 502, host: 'fixture.test', path: '/hot/', count: 7 },
+        { status: 503, host: 'fixture.test', path: '/long-tail/', count: 1 },
+      ],
+      probes: [
+        { status: 502, host: 'fixture.test', path: '/hot/', count: 7, probeStatus: 200 },
+      ],
+    });
+    expect(coverage).toMatchObject({
+      sampledPath5xx: 7,
+      transient5xx: 7,
+      unverified5xx: 1,
+      unprobed5xx: 2,
+      unresolved5xx: 3,
+    });
   });
 });
 
