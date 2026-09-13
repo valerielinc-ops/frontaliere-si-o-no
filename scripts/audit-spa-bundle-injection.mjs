@@ -466,7 +466,14 @@ console.log(
   `[audit:spa-bundle-injection] scanned ${scanned} index.html files (skipped ${skippedExplicit} via SKIP_PATHS, ${skippedRedirect} as redirect-shape)`,
 );
 
-const sortedGroups = Array.from(groups.entries()).sort((a, b) => b[1].count - a[1].count);
+// Sort by severity first, then by the same UTF-16 key order used by the
+// bounded retained-key heap. The tie-break keeps both the JSON insertion order
+// and the top regression slice reproducible when groups have equal counts.
+const sortedGroups = Array.from(groups.entries()).sort((a, b) => {
+  const countDelta = b[1].count - a[1].count;
+  if (countDelta !== 0) return countDelta;
+  return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0;
+});
 const groupsObject = Object.fromEntries(
   sortedGroups.map(([key, { count }]) => [key, count]),
 );

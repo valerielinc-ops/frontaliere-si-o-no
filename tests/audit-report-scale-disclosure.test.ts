@@ -104,4 +104,24 @@ describe('audit report discloses its own scale and truncation', () => {
     expect(r.offendersTotal).toBe(12);
     expect(r.byFeature).toEqual({ rare: 5, bulk: 7 });
   });
+
+  it('preserves explicit totals and opaque overflow labels when offenders are capped', async () => {
+    await writeAuditReport({
+      audit: AUDIT,
+      passed: false,
+      offenders: offenders(250),
+      byFeature: { '<other>': 3 },
+      extra: {
+        offendersTotal: 12_345,
+        offendersTotalExtrapolated: 67_890,
+      },
+    });
+    const r = read();
+
+    expect(r.topOffenders.length).toBe(100);
+    expect(r.topOffendersTruncated).toBe(true);
+    expect(r.offendersTotal).toBe(12_345);
+    expect(r.offendersTotalExtrapolated).toBe(67_890);
+    expect(r.byFeature).toEqual({ '<other>': 3 });
+  });
 });
