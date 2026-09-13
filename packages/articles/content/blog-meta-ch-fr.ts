@@ -6331,6 +6331,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.difesa-droni-infrastrutture-berna.title': 'Défense contre les drones en Suisse : début de l\'exercice à Berne',
     'blog.article.difesa-droni-infrastrutture-berna.excerpt': 'Partition d\'un exercice conjoint de quatre jours dans le canton de Berne consacré à la protection des infrastructures critiques et des installations énergétiques des avions sans pilote.',
     'blog.article.difesa-droni-infrastrutture-berna.imageAlt': 'Tour de transmission sur le Bantiger dans le canton de Berne lors d\'un exercice de sécurité',
+    'blog.article.hormuz-petrolio-200-dollari.title': 'Pétrole à 200 dollars : risques pour l\'économie et la Suisse',
+    'blog.article.hormuz-petrolio-200-dollari.excerpt': 'Risque d\'effondrement conjoncturel mondial et de pétrole jusqu\'à 200 dollars si le détroit d\'Ormuz reste fermé. L\'analyse d\'UBS et les signaux pour la Suisse.',
+    'blog.article.hormuz-petrolio-200-dollari.imageAlt': 'Analyste financier examinant les graphiques du pétrole et des marchés',
 };
 
 export default blogMetaChFr;

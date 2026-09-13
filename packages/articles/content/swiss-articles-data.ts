@@ -18991,6 +18991,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'hormuz-petrolio-200-dollari',
+    category: 'novita',
+    date: '2026-09-13T06:00:40.376Z',
+    image: '/images/blog/hormuz-petrolio-200-dollari.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
