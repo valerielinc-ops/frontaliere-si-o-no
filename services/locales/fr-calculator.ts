@@ -450,6 +450,13 @@ const frCalculator: Record<string, string> = {
  'results.salaryAlert.error': "Impossible de cr\u00e9er l'alerte. R\u00e9essaie.",
  'results.salaryAlert.successTitle': 'Alerte activ\u00e9e \u2713',
  'results.salaryAlert.successBody': "On t'\u00e9crit d\u00e8s que des offres au Tessin avec net \u2265 {amount} apparaissent.",
+ 'results.salaryAlert.capture.title': 'Enregistre cette alerte en quelques secondes',
+ 'results.salaryAlert.capture.body': 'Continue avec Google ou LinkedIn, ou re\u00e7ois un lien de connexion s\u00fbr par e-mail. L\u2019alerte sera activ\u00e9e apr\u00e8s la connexion.',
+ 'results.salaryAlert.capture.or': 'ou par e-mail',
+ 'results.salaryAlert.capture.emailLabel': 'Ton adresse e-mail',
+ 'results.salaryAlert.capture.emailCta': 'Recevoir le lien de connexion',
+ 'results.salaryAlert.capture.checkEmailTitle': 'V\u00e9rifie ta bo\u00eete mail',
+ 'results.salaryAlert.capture.checkEmailBody': 'Nous t\u2019avons envoy\u00e9 un lien. Ouvre-le pour te connecter et activer automatiquement cette alerte salaire.',
 
  // Multi-canton net comparison (#4471)
  'results.cantonCompare.title': 'Le m\u00eame emploi dans d\'autres cantons',

@@ -673,6 +673,16 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  </div>
  </div>
 
+ {/* Salary alert: place the high-intent next step directly under the completed
+     result, before monetization and the long comparison. The Suspense reserve
+     mirrors SalaryAlertCTA's threshold guard so the lazy chunk cannot introduce
+     a post-result layout shift. */}
+ {itResident.netIncomeMonthly >= 100 && (
+ <Suspense fallback={<div aria-hidden="true" className="mb-6 min-h-[190px] rounded-2xl bg-surface-raised animate-pulse" />}>
+ <SalaryAlertCTA netMonthlyCHF={itResident.netIncomeMonthly} />
+ </Suspense>
+ )}
+
  {/* AdSense: compact multiplex immediately after the net-advantage summary.
      This is the first completed-result moment, before the long comparison and
      secondary widgets; its fixed reserve keeps the move CLS-safe. */}
@@ -811,19 +821,6 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  </p>
  </button>
  </div>
- )}
-
- {/* Salary alert — one-tap "avvisami per netto ≥ X" (issue #4469).
- CLS fix (CWV regression on `/`, issue #4678): `fallback={null}` reserved
- zero space, so this card's own lazy-chunk resolution (not just its
- internal state) popped ~190px into the results flow after first paint —
- real CLS regardless of the component's "renders unconditionally" claim.
- Mirrors the internal `threshold <= 0` early-return here so the reserved
- slot only appears when the real component is guaranteed to render. */}
- {itResident.netIncomeMonthly >= 100 && (
- <Suspense fallback={<div aria-hidden="true" className="mb-6 min-h-[190px] rounded-2xl bg-surface-raised animate-pulse" />}>
- <SalaryAlertCTA netMonthlyCHF={itResident.netIncomeMonthly} />
- </Suspense>
  )}
 
  {/* E3: Post-simulation consulting CTA — inline box pointing to /consulenza.
