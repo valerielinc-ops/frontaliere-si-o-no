@@ -24,16 +24,16 @@
  *
  * WHAT THIS ADDS, AND WHY IT SURVIVES BOTH MASKS
  * ---------------------------------------------------------------------------
- * The block names the page's NEIGHBOURS in the cohort ranking — the peers
- * immediately above and below it on the metric, plus the two extremes. Mask
- * no. 2 folds only the page's OWN identity tokens (its `<title>`, `<h1>` and
- * slug) to `@`; a sibling's name is left standing, by design — the doc calls a
- * table naming the neighbours «differenziazione vera [che] deve sopravvivere
- * alla misura». And the WINDOW around the current row is different for every
- * page in the cohort by construction, so the surviving names differ too. Same
- * movement as `nearestMunicipalityComparison.ts` did for the six municipality
- * families in #5002; different neighbour relation, because these families have
- * no geography — the peer of a page here is the row next to it in the ranking.
+ * The block names the page's PEERS in the cohort ranking — the rows strictly
+ * ahead and behind it on the metric, equal-value rows as ties, plus the two
+ * extremes. Mask no. 2 folds only the page's OWN identity tokens (its
+ * `<title>`, `<h1>` and slug) to `@`; a sibling's name is left standing, by
+ * design — the doc calls a table naming the neighbours «differenziazione vera
+ * [che] deve sopravvivere alla misura». The ranking order is deterministic,
+ * but it never decides whether equal values are ahead or behind. Same movement
+ * as `nearestMunicipalityComparison.ts` did for the six municipality families
+ * in #5002; different neighbour relation, because these families have no
+ * geography — the peer of a page here is another row in the ranking.
  *
  * WHY NOT REUSE `nearestMunicipalityComparison.ts`
  * ---------------------------------------------------------------------------
@@ -185,9 +185,10 @@ function assertPeerNounContract(locale: PeerLocale, peerNoun: string): void {
  * for the other — in four languages, silently, on a thousand pages.
  *
  * Three claims, all computed and all falsifiable from the cohort: where this
- * page sits, who is immediately on either side of it (named), and how wide the
- * cohort is (extremes named). A sentence that would read the same on a sibling
- * page would defeat the purpose of the block, so nothing here is editorial.
+ * page sits, which rows are strictly ahead/behind or tied with it (named), and
+ * how wide the cohort is (extremes named). A sentence that would read the same
+ * on a sibling page would defeat the purpose of the block, so nothing here is
+ * editorial.
  */
 export function buildPeerProse(params: {
   locale: PeerLocale;
@@ -195,10 +196,12 @@ export function buildPeerProse(params: {
   currentKey: string;
   labels: PeerComparisonLabels;
   formatValue: (value: number, locale: PeerLocale) => string;
-  /** Same window the table shows, so the prose names every row it displays. */
+  /** Same direction used to produce `ranked`, so ahead/behind stays truthful. */
+  higherIsBetter?: boolean;
+  /** Kept for API symmetry with `renderPeerComparison`; prose names the full strict partitions. */
   windowSize?: number;
 }): string[] {
-  const { locale, ranked, currentKey, labels, formatValue, windowSize = 2 } = params;
+  const { locale, ranked, currentKey, labels, formatValue, higherIsBetter = true } = params;
   assertPeerNounContract(locale, labels.peerNoun);
   const index = ranked.findIndex((row) => row.key === currentKey);
   if (index < 0 || ranked.length < 3) return [];
@@ -218,18 +221,18 @@ export function buildPeerProse(params: {
   };
   sentences.push(position[locale]);
 
-  // The two rosters — who is ahead, who is behind — NAMED and in ranking
-  // order. They are what carries the block past the floor, and the reason is
-  // mechanical: mask no. 1 turns every figure into `#`, so inside one segment
-  // only NAMES can differ between siblings, and only a segment holding SEVERAL
-  // names in a page-specific ORDER is different on every page of the cohort. A
-  // row saying "Lugano, two places ahead, six listings more" masks down to the
-  // same string on every page Lugano is ahead of; "ahead: Lugano, Bellinzona"
-  // does not. Split in two sentences, not one, because each is then its own
-  // segment for the metric — and because "who is ahead" and "who is behind"
-  // are two different questions for a reader.
-  const aheadNames = ranked.slice(0, index).map((row) => row.name);
-  const behindNames = ranked.slice(index + 1).map((row) => row.name);
+  // Rank ties are deterministic in the table (their key breaks the display
+  // order), but that order is not a value comparison. Partition by strict
+  // value so equal rows are never published as ahead/behind merely because a
+  // key sorts before or after the current row.
+  const isAhead = (row: RankedRow): boolean =>
+    higherIsBetter ? row.value > current.value : row.value < current.value;
+  const isBehind = (row: RankedRow): boolean =>
+    higherIsBetter ? row.value < current.value : row.value > current.value;
+  const peers = ranked.filter((row) => row.key !== currentKey);
+  const aheadNames = peers.filter(isAhead).map((row) => row.name);
+  const behindNames = peers.filter(isBehind).map((row) => row.name);
+  const tiedRows = peers.filter((row) => row.value === current.value);
   if (aheadNames.length > 0) {
     const roster: Record<PeerLocale, string> = {
       it: `Davanti in classifica, nell’ordine: ${joinNames(aheadNames, locale)}.`,
@@ -248,12 +251,23 @@ export function buildPeerProse(params: {
     };
     sentences.push(roster[locale]);
   }
+  if (tiedRows.length > 0) {
+    const tied = tiedRows.map((row) => `${row.name} (${fmt(row.value)})`);
+    const ties: Record<PeerLocale, string> = {
+      it: `A pari merito con questa pagina: ${joinNames(tied, locale)}.`,
+      en: `Tied with this page: ${joinNames(tied, locale)}.`,
+      de: `Punktgleich mit dieser Seite: ${joinNames(tied, locale)}.`,
+      fr: `À égalité avec cette page : ${joinNames(tied, locale)}.`,
+    };
+    sentences.push(ties[locale]);
+  }
 
-  // The immediate neighbours, named with their figure — the ranking read at
-  // arm's length, which the rosters above do not give.
+  // The immediate neighbours, named with their figure — but only when their
+  // value is strictly ahead/behind. A tied row stays in the tie sentence even
+  // when the deterministic key puts it directly above or below this page.
   const above = ranked[index - 1];
   const below = ranked[index + 1];
-  if (above) {
+  if (above && isAhead(above)) {
     const ahead: Record<PeerLocale, string> = {
       it: `subito davanti c’è ${above.name} (${fmt(above.value)})`,
       en: `just ahead is ${above.name} (${fmt(above.value)})`,
@@ -262,7 +276,7 @@ export function buildPeerProse(params: {
     };
     sentences.push(ahead[locale]);
   }
-  if (below) {
+  if (below && isBehind(below)) {
     const behind: Record<PeerLocale, string> = {
       it: `subito dietro ${below.name} (${fmt(below.value)})`,
       en: `just behind is ${below.name} (${fmt(below.value)})`,
@@ -271,29 +285,32 @@ export function buildPeerProse(params: {
     };
     sentences.push(behind[locale]);
   }
-  const first = ranked[0];
-  const last = ranked[ranked.length - 1];
+  // Choose the actual value extremes, not the first/last rows of the
+  // direction-dependent ranking. In particular, lower-is-better ranks the
+  // minimum first but the copy must still call the maximum "highest".
+  const highest = ranked.reduce((best, row) => (row.value > best.value ? row : best));
+  const lowest = ranked.reduce((best, row) => (row.value < best.value ? row : best));
   // Gli estremi del gruppo, nominati. La frase NON usa `metricLabel` come
   // soggetto: l'etichetta è un sintagma che il chiamante sceglie e può essere
   // singolare («la spesa») o plurale («annunci attivi»), e una sola frase non
   // può concordare con entrambi. Il valore, che è quello che si confronta, è
   // soggetto in ogni lingua.
-  if (first.value !== last.value) {
+  if (highest.value !== lowest.value) {
     const spread: Record<PeerLocale, string> = {
-      it: `Nel gruppo il valore più alto è ${fmt(first.value)} (${first.name}), il più basso ${fmt(last.value)} (${last.name}).`,
-      en: `Across the group the highest value is ${fmt(first.value)} (${first.name}) and the lowest ${fmt(last.value)} (${last.name}).`,
-      de: `In der Gruppe ist der höchste Wert ${fmt(first.value)} (${first.name}), der niedrigste ${fmt(last.value)} (${last.name}).`,
-      fr: `Dans le groupe, la valeur la plus haute est ${fmt(first.value)} (${first.name}) et la plus basse ${fmt(last.value)} (${last.name}).`,
+      it: `Nel gruppo il valore più alto è ${fmt(highest.value)} (${highest.name}), il più basso ${fmt(lowest.value)} (${lowest.name}).`,
+      en: `Across the group the highest value is ${fmt(highest.value)} (${highest.name}) and the lowest ${fmt(lowest.value)} (${lowest.name}).`,
+      de: `In der Gruppe ist der höchste Wert ${fmt(highest.value)} (${highest.name}), der niedrigste ${fmt(lowest.value)} (${lowest.name}).`,
+      fr: `Dans le groupe, la valeur la plus haute est ${fmt(highest.value)} (${highest.name}) et la plus basse ${fmt(lowest.value)} (${lowest.name}).`,
     };
     sentences.push(spread[locale]);
   } else {
     // A flat cohort is itself information: it says this figure is not the lever
     // to move on — the opposite of what a page showing the figure alone implies.
     const flat: Record<PeerLocale, string> = {
-      it: `Nel gruppo il valore è identico ovunque (${fmt(first.value)}): qui non è questa voce a fare la differenza.`,
-      en: `Across the group the value is the same everywhere (${fmt(first.value)}): it is not the line that makes the difference here.`,
-      de: `In der Gruppe ist der Wert überall gleich (${fmt(first.value)}): Hier ist es nicht der entscheidende Posten.`,
-      fr: `Dans le groupe, la valeur est identique partout (${fmt(first.value)}) : ce n’est pas ce poste qui fait la différence ici.`,
+      it: `Nel gruppo il valore è identico ovunque (${fmt(highest.value)}): qui non è questa voce a fare la differenza.`,
+      en: `Across the group the value is the same everywhere (${fmt(highest.value)}): it is not the line that makes the difference here.`,
+      de: `In der Gruppe ist der Wert überall gleich (${fmt(highest.value)}): Hier ist es nicht der entscheidende Posten.`,
+      fr: `Dans le groupe, la valeur est identique partout (${fmt(highest.value)}) : ce n’est pas ce poste qui fait la différence ici.`,
     };
     sentences.push(flat[locale]);
   }
@@ -326,7 +343,7 @@ export function renderPeerComparison(params: {
   const ranked = rankPeerRows(rows, higherIsBetter);
   if (ranked.length < 3 || !ranked.some((row) => row.key === currentKey)) return '';
 
-  const sentences = buildPeerProse({ locale, ranked, currentKey, labels, formatValue, windowSize });
+  const sentences = buildPeerProse({ locale, ranked, currentKey, labels, formatValue, higherIsBetter, windowSize });
   if (sentences.length === 0) return '';
   const prose = sentences.map((s) => `<p class="mt-2 text-sm text-body">${esc(s)}</p>`).join('\n        ');
 

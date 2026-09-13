@@ -13,9 +13,16 @@ import {
   MIN_SESSIONS_FOR_VERDICT,
 } from '../scripts/lib/ga4-engagement-reliability.mjs';
 import {
+  buildAiChannelHistoryEntry,
+  buildAiChannelTrend,
+  selectPreviousReliableAiChannelEntry,
+} from '../scripts/lib/ai-channel-history.mjs';
+import {
   ANALYTICS_PROCESSING_LAG_DAYS,
+  countInclusiveUtcDays,
   fmtUtcDate,
   isSettledDate,
+  scaleSessionThreshold,
   settledDays,
   settledEndDate,
   settledWindow,
@@ -260,7 +267,7 @@ describe("i rami d'errore del riepilogo GA4 marcano il verdetto come non calcola
     'utf8',
   );
   const start = src.indexOf('// ── 3a. Overall metrics');
-  const end = src.indexOf('// ── 3b.', start);
+  const end = src.indexOf('// ── 3a-bis.', start);
   const block = src.slice(start, end);
 
   it('il blocco riepilogo e ancora delimitabile nel sorgente', () => {
@@ -428,6 +435,117 @@ describe('finestra assestata — il lag di elaborazione vive in un helper solo',
   });
 });
 
+describe('AI channel history — persistenza diagnostica e trend fail-closed', () => {
+  const src = readFileSync(
+    new URL('../scripts/analytics-report.mjs', import.meta.url),
+    'utf8',
+  );
+  const workflow = readFileSync(
+    new URL('../.github/workflows/analytics.yml', import.meta.url),
+    'utf8',
+  );
+
+  it('conserva un record anche con verdetto full-window inaffidabile', () => {
+    const entry = buildAiChannelHistoryEntry({
+      date: '2026-09-13',
+      windowDays: 30,
+      sessions: 120,
+      engagedSessions: 12,
+      engagementRate: 0.1,
+      bySource: [{ source: 'chatgpt.com', sessions: 120, users: 100 }],
+      fullWindowVerdict: {
+        reliable: false,
+        reason: '20260912: elaborazione incompleta',
+        unreliableDates: ['20260912'],
+      },
+      settledWindowVerdict: { reliable: true, reason: null, unreliableDates: [] },
+      highBouncePaths: [{ path: '/a' }, { path: '/b' }],
+    });
+
+    expect(entry).toMatchObject({
+      engagementReliable: false,
+      engagementUnreliableReason: '20260912: elaborazione incompleta',
+      highBouncePathsCount: 2,
+      highBouncePathsSuppressedByFullWindow: 2,
+      fullWindowVerdict: {
+        reliable: false,
+        unreliableDates: ['20260912'],
+      },
+      settledWindowVerdict: { reliable: true },
+      bySource: [{ source: 'chatgpt.com', sessions: 120 }],
+    });
+  });
+
+  it('sceglie solo il precedente affidabile della stessa finestra e calcola il trend', () => {
+    const entries = [
+      { date: '2026-09-11', windowDays: 30, sessions: 80, engagementRate: 0.2, engagementReliable: true },
+      { date: '2026-09-12', windowDays: 30, sessions: 90, engagementRate: 0.1, engagementReliable: false },
+      { date: '2026-09-10', windowDays: 7, sessions: 999, engagementRate: 0.9, engagementReliable: true },
+    ];
+    const previous = selectPreviousReliableAiChannelEntry(entries, '2026-09-13', 30);
+
+    expect(previous).toEqual(entries[0]);
+    expect(buildAiChannelTrend({
+      current: { sessions: 120, engagementRate: 0.25, engagementReliable: true },
+      previous,
+    })).toEqual({
+      previousDate: '2026-09-11',
+      sessionsDelta: 40,
+      engagementRateDelta: 0.05,
+    });
+    expect(buildAiChannelTrend({
+      current: { sessions: 120, engagementRate: 0.25, engagementReliable: true },
+      previous: entries[1],
+    })).toBeNull();
+  });
+
+  it('il consumer appende sempre e il workflow committa solo il JSONL', () => {
+    expect(src).toContain("from './lib/ai-channel-history.mjs'");
+    expect(src).toContain('aiChannelHistoryContext = { ...historyContext, previous };');
+    expect(src).toContain('append conservato con engagement inaffidabile');
+    expect(src).not.toContain('append saltato');
+
+    expect(workflow).toContain('concurrency:');
+    expect(workflow).toContain('group: analytics-report');
+    expect(workflow).toContain('contents: write');
+    expect(workflow).toContain('git add -- data/ai-channel-history.jsonl');
+    expect(workflow).toContain('git-push-with-retry.sh');
+    expect(workflow).toContain('resolve_append_conflicts');
+    expect(workflow).toContain('staged_paths');
+    expect(readFileSync(new URL('../data/ai-channel-history.jsonl', import.meta.url), 'utf8').trim()).toBe(
+      '{"_schema":"ai-channel-history.v1"}',
+    );
+    expect(execFileSync('git', ['ls-files', '--error-unmatch', 'data/ai-channel-history.jsonl'], {
+      cwd: process.cwd(),
+      encoding: 'utf8',
+    }).trim()).toBe('data/ai-channel-history.jsonl');
+  });
+});
+
+describe('soglie high-bounce — proporzionate alla durata effettiva assestata', () => {
+  it('conta gli estremi inclusivi in UTC e scala senza abbassare il floor positivo', () => {
+    expect(countInclusiveUtcDays('2026-09-01', '2026-09-30')).toBe(30);
+    expect(countInclusiveUtcDays('2026-09-01', '2026-10-01')).toBe(31);
+    expect(countInclusiveUtcDays('2026-10-01', '2026-09-30')).toBeNull();
+    expect(scaleSessionThreshold(50, 31, 29)).toBe(47);
+    expect(scaleSessionThreshold(10, 31, 29)).toBe(10);
+    expect(scaleSessionThreshold(50, null, 29)).toBe(50);
+  });
+
+  it('una pagina alla soglia critica riscalata resta nella raccomandazione', () => {
+    const criticalMinSessions = scaleSessionThreshold(50, 31, 29);
+    const pages = [
+      { path: '/soglia', sessions: criticalMinSessions, bounceRate: 0.71 },
+      { path: '/sotto-soglia', sessions: criticalMinSessions - 1, bounceRate: 0.71 },
+    ];
+    const criticalBounce = pages.filter(
+      (page) => page.sessions >= criticalMinSessions && page.bounceRate > 0.7,
+    );
+
+    expect(criticalBounce.map((page) => page.path)).toEqual(['/soglia']);
+  });
+});
+
 describe('analytics-report interroga e giudica la finestra assestata per il canale per-path', () => {
   const src = readFileSync(
     new URL('../scripts/analytics-report.mjs', import.meta.url),
@@ -448,6 +566,16 @@ describe('analytics-report interroga e giudica la finestra assestata per il cana
     expect(block).toContain('...settledRequest,');
     expect(block).not.toContain('...baseRequest,');
     expect(block).toContain('result.highBouncePaths = highBouncePages;');
+  });
+
+  it('scala filtri e messaggi sulle giornate effettivamente interrogate', () => {
+    expect(src).toContain('const fullWindowDays = countInclusiveUtcDays(');
+    expect(src).toContain('const settledWindowDays = countInclusiveUtcDays(');
+    expect(src).toContain('p.sessions >= highBounceMinSessions');
+    expect(src).toContain('p.sessions >= criticalBounceMinSessions');
+    expect(src).toContain('≥${highBounceMinSessions} sessions');
+    expect(src).toContain('≥${criticalBounceMinSessions} sessioni');
+    expect(src).not.toContain('p.sessions >= 50');
   });
 
   it('il guard delle raccomandazioni legge il verdetto delle giornate assestate', () => {

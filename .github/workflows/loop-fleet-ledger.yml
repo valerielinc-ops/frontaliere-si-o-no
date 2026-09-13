@@ -1,0 +1,282 @@
+name: Loop fleet durable ledger
+
+# Each loop writes only a runner-local artifact. This workflow is the narrow
+# persistence bridge: it validates one completed artifact, appends it to a
+# dedicated ledger branch and opens/updates a normal PR. It never pushes main,
+# publishes data, changes exposure, or calls a commercial/communication API.
+on:
+  workflow_run:
+    workflows:
+      - Loop L0 data truth
+      - Loop L1 reliability
+      - Loop L2 demand to utility
+      - Loop L3 job quality to apply
+      - Loop L4 alert to return
+      - Loop L5 decision moments
+      - Loop L6 content learning and factuality
+      - Loop L7 experiment allocator
+      - Loop L8 revenue and attribution reconciliation
+      - Loop L9 employer supply to paid activation
+      - Loop L10 fleet control
+      - Technical operations supervisor
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      loop:
+        description: 'Loop ID whose immutable artifact should be recovered'
+        required: true
+        type: choice
+        options: [L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11]
+      run_id:
+        description: 'Completed source run ID'
+        required: true
+        type: string
+      sha:
+        description: '40-character source commit SHA'
+        required: true
+        type: string
+
+# The GITHUB_TOKEN is read-only. A reviewed App/PAT token is required only for
+# the explicit branch push and PR API call below, so missing write authority
+# fails closed before any remote write.
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+
+concurrency:
+  group: loop-fleet-durable-ledger
+  cancel-in-progress: false
+
+jobs:
+  persist:
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event != 'pull_request' && github.event.workflow_run.conclusion != 'cancelled')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout ledger contract
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /data/loop-fleet/loop-registry.json
+            /data/loop-fleet/ledger/
+            /scripts/ci/merge-loop-fleet-ledger.mjs
+            /scripts/ci/mint-app-token.mjs
+            /scripts/ci/pr-body-check-gate.mjs
+            /scripts/ci/lib/hook-exit-codes.mjs
+            /scripts/ci/lib/hook-target-cwd.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/githubApiHeaders.mjs
+            /scripts/lib/google-service-account-token.mjs
+            /scripts/lib/pr-body-sections-check.mjs
+            /scripts/ci/lib/false-positive-declaration.mjs
+            /functions/src/githubApiHeaders.js
+            /scripts/load-rc-env.mjs
+            /.github/workflows/loop-fleet-ledger.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Resolve source loop and artifact
+        id: source
+        env:
+          SOURCE_WORKFLOW: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.name || '' }}
+          SOURCE_RUN_ID: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || inputs.run_id }}
+          SOURCE_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.sha }}
+          INPUT_LOOP: ${{ inputs.loop || '' }}
+        run: |
+          set -euo pipefail
+          loop=''
+          artifact=''
+          case "$SOURCE_WORKFLOW" in
+            'Loop L0 data truth') loop='L0'; artifact="loop-l0-data-truth-${SOURCE_RUN_ID}" ;;
+            'Loop L1 reliability') loop='L1'; artifact="loop-l1-reliability-${SOURCE_RUN_ID}" ;;
+            'Loop L2 demand to utility') loop='L2'; artifact="loop-l2-demand-utility-${SOURCE_RUN_ID}" ;;
+            'Loop L3 job quality to apply') loop='L3'; artifact="loop-l3-job-quality-${SOURCE_RUN_ID}" ;;
+            'Loop L4 alert to return') loop='L4'; artifact="loop-l4-alert-return-${SOURCE_RUN_ID}" ;;
+            'Loop L5 decision moments') loop='L5'; artifact="loop-l5-decision-moments-${SOURCE_RUN_ID}" ;;
+            'Loop L6 content learning and factuality') loop='L6'; artifact="loop-l6-content-factuality-${SOURCE_RUN_ID}" ;;
+            'Loop L7 experiment allocator') loop='L7'; artifact="loop-l7-experiment-allocator-${SOURCE_RUN_ID}" ;;
+            'Loop L8 revenue and attribution reconciliation') loop='L8'; artifact="loop-l8-revenue-attribution-${SOURCE_RUN_ID}" ;;
+            'Loop L9 employer supply to paid activation') loop='L9'; artifact="loop-l9-employer-activation-${SOURCE_RUN_ID}" ;;
+            'Loop L10 fleet control') loop='L10'; artifact="loop-l10-fleet-control-${SOURCE_RUN_ID}" ;;
+            'Technical operations supervisor') loop='L11'; artifact="technical-operations-audit-${SOURCE_RUN_ID}" ;;
+            '')
+              case "$INPUT_LOOP" in
+                L0) loop='L0'; artifact="loop-l0-data-truth-${SOURCE_RUN_ID}" ;;
+                L1) loop='L1'; artifact="loop-l1-reliability-${SOURCE_RUN_ID}" ;;
+                L2) loop='L2'; artifact="loop-l2-demand-utility-${SOURCE_RUN_ID}" ;;
+                L3) loop='L3'; artifact="loop-l3-job-quality-${SOURCE_RUN_ID}" ;;
+                L4) loop='L4'; artifact="loop-l4-alert-return-${SOURCE_RUN_ID}" ;;
+                L5) loop='L5'; artifact="loop-l5-decision-moments-${SOURCE_RUN_ID}" ;;
+                L6) loop='L6'; artifact="loop-l6-content-factuality-${SOURCE_RUN_ID}" ;;
+                L7) loop='L7'; artifact="loop-l7-experiment-allocator-${SOURCE_RUN_ID}" ;;
+                L8) loop='L8'; artifact="loop-l8-revenue-attribution-${SOURCE_RUN_ID}" ;;
+                L9) loop='L9'; artifact="loop-l9-employer-activation-${SOURCE_RUN_ID}" ;;
+                L10) loop='L10'; artifact="loop-l10-fleet-control-${SOURCE_RUN_ID}" ;;
+                L11) loop='L11'; artifact="technical-operations-audit-${SOURCE_RUN_ID}" ;;
+                *) echo "::error::manual source loop is invalid"; exit 2 ;;
+              esac
+              ;;
+            *) echo "::error::unrecognized source workflow: $SOURCE_WORKFLOW"; exit 2 ;;
+          esac
+          if [[ ! "$SOURCE_RUN_ID" =~ ^[0-9]+$ ]]; then
+            echo "::error::source run ID is not numeric"; exit 2
+          fi
+          if [[ ! "$SOURCE_SHA" =~ ^[0-9a-fA-F]{40}$ ]]; then
+            echo "::error::source SHA is not a 40-character commit SHA"; exit 2
+          fi
+          {
+            echo "loop=$loop"
+            echo "run_id=$SOURCE_RUN_ID"
+            echo "sha=${SOURCE_SHA,,}"
+            echo "artifact=$artifact"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Download immutable source artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
+          SOURCE_ARTIFACT: ${{ steps.source.outputs.artifact }}
+          INPUT_DIR: ${{ runner.temp }}/loop-fleet-ledger-input
+        run: |
+          set -euo pipefail
+          mkdir -p "$INPUT_DIR"
+          gh run download "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --name "$SOURCE_ARTIFACT" --dir "$INPUT_DIR"
+
+      - name: Validate source run provenance
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
+          SOURCE_SHA: ${{ steps.source.outputs.sha }}
+        run: |
+          set -euo pipefail
+          source_run=$(gh run view "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --json event,headBranch,headSha,conclusion)
+          source_event=$(jq -r '.event // ""' <<<"$source_run")
+          source_branch=$(jq -r '.headBranch // ""' <<<"$source_run")
+          source_sha=$(jq -r '.headSha // ""' <<<"$source_run")
+          source_conclusion=$(jq -r '.conclusion // ""' <<<"$source_run")
+          if [ "$source_branch" != 'main' ] || [ "$source_event" = 'pull_request' ] || [ "$source_sha" != "$SOURCE_SHA" ] || [ "$source_conclusion" = 'cancelled' ]; then
+            echo "::error::source run is not an eligible completed main run; refusing durable persistence"
+            exit 1
+          fi
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::warning::Firebase service account is unavailable; reviewed branch/PR writes will fail closed."
+          else
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load reviewed write credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Mint App token for the reviewed PR path
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Append ledger and open or update PR
+        env:
+          SOURCE_LOOP: ${{ steps.source.outputs.loop }}
+          SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
+          SOURCE_SHA: ${{ steps.source.outputs.sha }}
+          INPUT_DIR: ${{ runner.temp }}/loop-fleet-ledger-input
+        run: |
+          set -euo pipefail
+          write_token="${APP_TOKEN:-${GITHUB_PAT:-}}"
+          if [ -z "$write_token" ]; then
+            echo "::error::No reviewed App/PAT token; refusing to push a ledger branch or open a PR."
+            exit 1
+          fi
+          export GH_TOKEN="$write_token"
+
+          git config user.name 'frontaliere-automation[bot]'
+          git config user.email '41898282+frontaliere-automation[bot]@users.noreply.github.com'
+          git fetch origin main
+          git checkout --detach origin/main
+
+          base_branch='chore/loop-fleet-ledger'
+          open_pr=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --head "$base_branch" --json number --jq '.[0].number // ""')
+          branch="$base_branch"
+          if [ -n "$open_pr" ]; then
+            git fetch origin "$base_branch"
+            for ledger_file in loop-observations.jsonl loop-decisions.jsonl loop-health-history.jsonl; do
+              if git cat-file -e "origin/$base_branch:data/loop-fleet/ledger/$ledger_file" 2>/dev/null; then
+                mkdir -p data/loop-fleet/ledger
+                git show "origin/$base_branch:data/loop-fleet/ledger/$ledger_file" > "data/loop-fleet/ledger/$ledger_file"
+              fi
+            done
+          elif git ls-remote --exit-code origin "refs/heads/$base_branch" >/dev/null 2>&1; then
+            branch="${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          fi
+
+          node scripts/ci/merge-loop-fleet-ledger.mjs \
+            --loop "$SOURCE_LOOP" \
+            --run-id "$SOURCE_RUN_ID" \
+            --sha "$SOURCE_SHA" \
+            --input-dir "$INPUT_DIR" \
+            --ledger-dir data/loop-fleet/ledger \
+            --registry data/loop-fleet/loop-registry.json
+
+          merged_dir="$RUNNER_TEMP/loop-fleet-ledger-merged"
+          rm -rf "$merged_dir"
+          mv data/loop-fleet/ledger "$merged_dir"
+          if [ -n "$open_pr" ]; then
+            git checkout -b "$branch" "origin/$base_branch"
+          else
+            git checkout -b "$branch"
+          fi
+          mkdir -p data/loop-fleet/ledger
+          cp -R "$merged_dir"/. data/loop-fleet/ledger/
+
+          if git diff --quiet -- data/loop-fleet/ledger \
+              && [ -z "$(git ls-files --others --exclude-standard data/loop-fleet/ledger)" ]; then
+            echo 'Source run already exists in the durable ledger; no PR update needed.'
+            exit 0
+          fi
+
+          git add data/loop-fleet/ledger
+          git commit -m "chore(loop-fleet): persist ${SOURCE_LOOP} evidence from run ${SOURCE_RUN_ID}"
+          push_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git -c http.https://github.com/.extraheader= push --set-upstream "$push_url" "$branch"
+
+          body="$RUNNER_TEMP/loop-fleet-ledger-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated from immutable run [${SOURCE_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}) for ${SOURCE_LOOP}.
+
+          ## Implementato
+          - Appended the validated observation, decision and health records for ${SOURCE_LOOP} to the durable JSONL ledger; duplicate record IDs are idempotent and conflicting duplicates fail closed.
+          - Preserved the independent-outcome status, registry autonomy ceiling, source references and lifecycle evidence from the source artifact.
+
+          ## Non implementato (ancora)
+          - Domain-specific independent exports remain unmeasurable until their authorized owners provide a fresh joined source — blocked: the source export/consent is external to this repository.
+          - Direct writes to main, published surfaces, prices, commissions, partners, subscriptions, advertising layout, outreach and revenue systems remain disabled — per scelta: the fleet control plane is limited to reviewed ledger PRs and bounded evidence.
+          EOF
+          node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
+          if [ -n "$open_pr" ]; then
+            gh pr edit "$open_pr" --repo "$GITHUB_REPOSITORY" --body-file "$body"
+          else
+            gh pr create \
+              --repo "$GITHUB_REPOSITORY" \
+              --base main \
+              --head "$branch" \
+              --title "chore(loop-fleet): persist ${SOURCE_LOOP} durable evidence" \
+              --body-file "$body"
+          fi
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json

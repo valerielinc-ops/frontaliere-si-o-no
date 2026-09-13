@@ -210,6 +210,7 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(preflight).not.toHaveProperty('continue-on-error');
     expect(dispatch.id).toBe('generation_wave');
     expect(dispatch.if).toBe("steps.generation_preflight.outputs.ready == 'true'");
+    expect(dispatch.if).not.toMatch(/reasons|warnings|length/);
     expect(dispatch.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-groups');
     expect(dispatch.run).toContain('--corpus-code-commit "$CORPUS_CODE_COMMIT"');
     expect(dispatch.env.CORPUS_CODE_COMMIT).toContain('steps.generation_preflight.outputs.corpus_commit');

@@ -82,6 +82,11 @@
       "sourceRefs": ["manifest-api-corpus"],
       "cadence": "2h / daily",
       "primaryMetric": "fresh_complete_manifest_rate",
+      "outcome": {
+        "outcomeId": "fresh-complete-published-data",
+        "sourceRefs": ["manifest-api-corpus"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
       "minimumSample": 1,
       "maxAutonomy": "A4",
       "actionClasses": ["observe", "issue", "quarantine", "block-publication"],
@@ -105,6 +110,11 @@
       "sourceRefs": ["posthog-error-telemetry"],
       "cadence": "hourly / daily",
       "primaryMetric": "error_free_useful_session_rate",
+      "outcome": {
+        "outcomeId": "error-free-useful-session",
+        "sourceRefs": ["posthog-error-telemetry"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
       "minimumSample": 100,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "issue", "pr", "suspend-canary"],
@@ -124,6 +134,11 @@
       "sourceRefs": ["gsc", "posthog-landing-path"],
       "cadence": "daily / weekly",
       "primaryMetric": "useful_action_per_1000_eligible_landing_sessions",
+      "outcome": {
+        "outcomeId": "useful-action",
+        "sourceRefs": ["gsc", "posthog-landing-path"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
       "minimumSample": 1000,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "candidate", "issue", "pr"],
@@ -143,6 +158,11 @@
       "sourceRefs": ["job-crawler-summaries", "application-handoff"],
       "cadence": "daily",
       "primaryMetric": "valid_application_handoff_per_1000_qualified_job_sessions",
+      "outcome": {
+        "outcomeId": "valid-application-handoff",
+        "sourceRefs": ["job-crawler-summaries", "application-handoff"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
       "minimumSample": 100,
       "maxAutonomy": "A4",
       "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr"],
@@ -162,6 +182,11 @@
       "sourceRefs": ["consent-delivery", "posthog-return"],
       "cadence": "event + daily",
       "primaryMetric": "attributed_return_per_1000_eligible_recipients",
+      "outcome": {
+        "outcomeId": "attributed-return",
+        "sourceRefs": ["consent-delivery", "posthog-return"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
       "minimumSample": 100,
       "maxAutonomy": "A4",
       "actionClasses": ["observe", "suppress", "defer", "issue"],
@@ -181,6 +206,11 @@
       "sourceRefs": ["decision-surfaces", "posthog"],
       "cadence": "weekly",
       "primaryMetric": "next_useful_action_per_1000_completions",
+      "outcome": {
+        "outcomeId": "next-useful-action",
+        "sourceRefs": ["decision-surfaces", "posthog"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
       "minimumSample": 100,
       "maxAutonomy": "A3",
       "actionClasses": ["observe", "candidate", "canary", "stop", "stale-label", "issue", "recommend"],
@@ -200,6 +230,11 @@
       "sourceRefs": ["editorial-source-evidence", "quality-alert-history"],
       "cadence": "per generation + daily",
       "primaryMetric": "confirmed_defect_rate",
+      "outcome": {
+        "outcomeId": "confirmed-factuality-defect",
+        "sourceRefs": ["editorial-source-evidence", "quality-alert-history"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
       "minimumSample": 1,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr", "lesson"],
@@ -219,6 +254,11 @@
       "sourceRefs": ["experiment-assignment-exposure-outcome"],
       "cadence": "weekly",
       "primaryMetric": "registered_outcome_per_eligible_cohort",
+      "outcome": {
+        "outcomeId": "registered-experiment-outcome",
+        "sourceRefs": ["experiment-assignment-exposure-outcome"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
       "minimumSample": 200,
       "maxAutonomy": "A3",
       "actionClasses": ["observe", "candidate", "canary", "stop", "issue", "recommend"],
@@ -238,6 +278,12 @@
       "sourceRefs": ["adsense", "gsc", "posthog", "publisher", "authorised-affiliate-commercial-export", "revenue-monitor"],
       "cadence": "daily / weekly",
       "primaryMetric": "approved_net_chf_per_1000_relevant_exposures",
+      "outcome": {
+        "outcomeId": "approved-commercial-attribution",
+        "sourceRefs": ["adsense", "gsc", "posthog", "publisher", "authorised-affiliate-commercial-export", "revenue-monitor"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"],
+        "allowNumeratorExceedDenominator": true
+      },
       "minimumSample": 100,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "reconcile", "issue", "recommend"],
@@ -257,6 +303,11 @@
       "sourceRefs": ["employer-funnel", "stripe-subscription-ledger"],
       "cadence": "weekly",
       "primaryMetric": "paid_activation_rate",
+      "outcome": {
+        "outcomeId": "paid-employer-activation",
+        "sourceRefs": ["employer-funnel", "stripe-subscription-ledger"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
       "minimumSample": 20,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "candidate", "pr", "draft-outreach"],
@@ -276,6 +327,11 @@
       "sourceRefs": ["github-actions", "pr-issue", "quota-health-ledger"],
       "cadence": "continuous + daily",
       "primaryMetric": "verified_decision_throughput",
+      "outcome": {
+        "outcomeId": "verified-decision-throughput",
+        "sourceRefs": ["github-actions", "pr-issue", "quota-health-ledger"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
       "minimumSample": 1,
       "maxAutonomy": "A4",
       "actionClasses": ["observe", "route", "lock", "retry", "follow-up"],
@@ -295,6 +351,11 @@
       "sourceRefs": ["workflow-inventory"],
       "cadence": "daily + PR",
       "primaryMetric": "healthy_reachable_workflow_rate",
+      "outcome": {
+        "outcomeId": "healthy-reachable-workflow",
+        "sourceRefs": ["workflow-inventory"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
       "minimumSample": 1,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "issue", "pr", "block-proven-defect"],

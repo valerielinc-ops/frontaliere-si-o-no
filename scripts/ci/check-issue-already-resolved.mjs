@@ -54,7 +54,14 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { dailyBucketInfo, detectAlreadyResolved, closingMergedPr } from './followup-resolution-match.mjs';
+import {
+  AGGREGATE_ITEM_COUNT_RE,
+  AGGREGATE_KEYWORD_RE,
+  dailyBucketInfo,
+  detectAlreadyResolved,
+  closingMergedPr,
+  maskInlineCodeSpans,
+} from './followup-resolution-match.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const ISSUE = process.env.ISSUE_NUMBER;
@@ -173,10 +180,6 @@ function stripFencedBlocks(text) {
   return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
 }
 
-function maskInlineCodeSpans(text) {
-  return String(text || '').replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
-}
-
 export function hasEnumeratedItems(body) {
   const b = stripFencedBlocks(body);
   const numberedSections = (b.match(/^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length;
@@ -210,14 +213,19 @@ function isBoldTitleLead(rest, lines = [], start = 0) {
 /**
  * Aggregate follow-up: never short-circuit on one match (one item resolved ≠ all). Three
  * detectors, OR'd: explicit title count, keyword fallback, body enumeration.
+ *
+ * The pre-flight gate treats aggregate keywords in the body as live evidence. Analytics
+ * deliberately opts out of that one signal: its historical contract counted `batch` /
+ * `sweep` / `bulk` only in the title, while still sharing the count and enumeration
+ * detectors. This prevents ordinary body prose from hiding a single-item burn metric.
  */
-export function isAggregate(title, body) {
+function isAggregateWithKeywordScope(title, body, { includeBodyKeywords = true } = {}) {
   const titleText = maskInlineCodeSpans(stripFencedBlocks(title));
   // Daily buckets are aggregates even when their current count is one. Keep
   // this shared predicate aligned with the issue-fix closing-ref generator so
   // a fallback path can never emit `Closes #N` for a daily bucket.
   if (dailyBucketInfo(titleText)) return true;
-  const m = titleText.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
+  const m = titleText.match(AGGREGATE_ITEM_COUNT_RE);
   // An explicit count is authoritative once stated — trust it fully rather
   // than falling through to the keyword heuristic below, which exists ONLY
   // for aggregates that never state a count (e.g. "Sweep: ~30 crawlers").
@@ -229,8 +237,18 @@ export function isAggregate(title, body) {
   // (#3378).
   if (m) return Number(m[1]) >= 2;
   const bodyText = maskInlineCodeSpans(stripFencedBlocks(body));
-  if (/\b(?:sweep|batch|bulk)\b/i.test(`${titleText}\n${bodyText}`)) return true;
+  const keywordText = includeBodyKeywords ? `${titleText}\n${bodyText}` : titleText;
+  if (AGGREGATE_KEYWORD_RE.test(keywordText)) return true;
   return hasEnumeratedItems(body);
+}
+
+export function isAggregate(title, body) {
+  return isAggregateWithKeywordScope(title, body);
+}
+
+/** Aggregate classifier for analytics, preserving its title-only keyword contract. */
+export function isAggregateForAnalytics(title, body) {
+  return isAggregateWithKeywordScope(title, body, { includeBodyKeywords: false });
 }
 
 function main() {

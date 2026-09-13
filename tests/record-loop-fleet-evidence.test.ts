@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 // @ts-expect-error — the recorder is a dependency-free ESM CI script.
 import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs';
 // @ts-expect-error — the shared loop contract is a dependency-free ESM module.
-import { actionAutonomy, validateActionClassAgainstPolicy, validateLoopRegistry } from '../scripts/lib/loop-fleet-contract.mjs';
+import { actionAutonomy, buildOutcome, validateActionClassAgainstPolicy, validateLoopRegistry, validateOutcomeAgainstPolicy } from '../scripts/lib/loop-fleet-contract.mjs';
 
 const registry = JSON.parse(fs.readFileSync(path.resolve('data/loop-fleet/loop-registry.json'), 'utf8'));
 const NOW = new Date('2026-09-12T12:00:00.000Z');
@@ -51,6 +51,7 @@ describe('record-loop-fleet-evidence', () => {
     expect(() => validateLoopRegistry(registry)).not.toThrow();
     expect(registry.sourceCatalog['manifest-api-corpus']).toBeTruthy();
     expect(registry.loops.every((loop: any) => loop.sourceRefs.length > 0)).toBe(true);
+    expect(registry.loops.every((loop: any) => loop.outcome?.outcomeId && loop.outcome.requiredFields.length > 0)).toBe(true);
     expect(actionAutonomy('issue+suspend-canary', registry.actionAutonomy)).toBe('A2');
     expect(validateActionClassAgainstPolicy(registry, 'L1', 'issue+suspend-canary'))
       .toMatchObject({ requiredAutonomy: 'A2', maxAutonomy: 'A2' });
@@ -104,7 +105,81 @@ describe('record-loop-fleet-evidence', () => {
     expect(fs.readFileSync(path.join(dir, 'loop-decisions.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     expect(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8')))
-      .toMatchObject({ loopId: 'L1', quality: 'partial', ok: false, issueCount: 1, warningCount: 2, sourceRefs: registry.loops.find((loop: any) => loop.loopId === 'L1').sourceRefs });
+      .toMatchObject({ loopId: 'L1', quality: 'partial', ok: false, issueCount: 1, warningCount: 2, sourceRefs: registry.loops.find((loop: any) => loop.loopId === 'L1').sourceRefs, outcome: { outcomeId: 'error-free-useful-session', status: 'partial', independent: false } });
+  });
+
+  it('validates a measured outcome against the loop-specific independent source contract', () => {
+    const outcome = buildOutcome({
+      outcomeId: 'error-free-useful-session',
+      status: 'observed',
+      independent: true,
+      sourceRefs: ['posthog-error-telemetry'],
+      primaryMetric: 'error_free_useful_session_rate',
+      numerator: 95,
+      denominator: 100,
+      requiredFieldsPresent: ['generatedAt', 'numerator', 'denominator'],
+      missingFields: [],
+      reason: 'fresh independent telemetry export',
+      observedAt: NOW.toISOString(),
+      recordedAt: NOW.toISOString(),
+    });
+    expect(validateOutcomeAgainstPolicy(registry, 'L1', outcome).missingRequiredFields).toEqual([]);
+    expect(() => buildOutcome({
+      ...outcome,
+      independent: false,
+      status: 'observed',
+    })).not.toThrow();
+    expect(() => validateOutcomeAgainstPolicy(registry, 'L1', {
+      ...outcome,
+      independent: false,
+    })).toThrow(/must be independent/);
+  });
+
+  it('does not infer independence when measured evidence omits the explicit assertion', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-independent-'));
+    writeL1Evidence(dir);
+    const observation = JSON.parse(fs.readFileSync(path.join(dir, 'l1-observation.json'), 'utf8'));
+    observation.outcome = {
+      status: 'observed',
+      numerator: 95,
+      denominator: 100,
+      generatedAt: NOW.toISOString(),
+    };
+    fs.writeFileSync(path.join(dir, 'l1-observation.json'), `${JSON.stringify(observation, null, 2)}\n`);
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary.outcome).toMatchObject({ status: 'partial', independent: false, missingFields: [] });
+    expect(result.health.ok).toBe(false);
+  });
+
+  it('uses a durable ledger only when the caller explicitly opts in', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-durable-'));
+    const durableDir = path.join(dir, 'durable');
+    writeL1Evidence(dir);
+    const previous = process.env.LOOP_FLEET_LEDGER_DIR;
+    process.env.LOOP_FLEET_LEDGER_DIR = durableDir;
+    try {
+      const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+      expect(result.summary.ledgerScope).toBe('configured-durable-ledger');
+      expect(fs.existsSync(path.join(durableDir, 'loop-health-history.jsonl'))).toBe(true);
+      expect(fs.existsSync(path.join(dir, 'loop-health-history.jsonl'))).toBe(false);
+    } finally {
+      if (previous === undefined) delete process.env.LOOP_FLEET_LEDGER_DIR;
+      else process.env.LOOP_FLEET_LEDGER_DIR = previous;
+    }
+  });
+
+  it('rejects a conflicting duplicate instead of rewriting an immutable record', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-conflict-'));
+    writeL1Evidence(dir);
+    recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+    const observation = JSON.parse(fs.readFileSync(path.join(dir, 'l1-observation.json'), 'utf8'));
+    observation.cohort = 'different-input';
+    fs.writeFileSync(path.join(dir, 'l1-observation.json'), `${JSON.stringify(observation)}\n`);
+
+    expect(() => recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW }))
+      .toThrow(/conflicting duplicate/);
   });
 
   it('fails closed when a decision exceeds the registry TTL', () => {
