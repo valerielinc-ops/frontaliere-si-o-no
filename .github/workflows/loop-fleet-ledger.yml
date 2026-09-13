@@ -62,6 +62,7 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /data/loop-fleet/ledger/
             /scripts/ci/merge-loop-fleet-ledger.mjs
+            /scripts/ci/append-loop-fleet-pr-event.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/hook-exit-codes.mjs
@@ -268,13 +269,36 @@ jobs:
           node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
           if [ -n "$open_pr" ]; then
             gh pr edit "$open_pr" --repo "$GITHUB_REPOSITORY" --body-file "$body"
+            pr_number="$open_pr"
           else
-            gh pr create \
+            pr_url=$(gh pr create \
               --repo "$GITHUB_REPOSITORY" \
               --base main \
               --head "$branch" \
               --title "chore(loop-fleet): persist ${SOURCE_LOOP} durable evidence" \
-              --body-file "$body"
+              --body-file "$body" | tail -n 1)
+            pr_number="${pr_url##*/}"
+          fi
+
+          pr_info=$(gh pr view "$pr_number" --repo "$GITHUB_REPOSITORY" --json url,createdAt)
+          pr_url=$(jq -r '.url // ""' <<<"$pr_info")
+          pr_created_at=$(jq -r '.createdAt // ""' <<<"$pr_info")
+          if [ -z "$pr_url" ] || [ -z "$pr_created_at" ]; then
+            echo '::error::GitHub returned no verifiable PR URL/createdAt; refusing lifecycle append.'
+            exit 1
+          fi
+          node scripts/ci/append-loop-fleet-pr-event.mjs \
+            --loop "$SOURCE_LOOP" \
+            --run-id "$SOURCE_RUN_ID" \
+            --sha "$SOURCE_SHA" \
+            --ledger-dir data/loop-fleet/ledger \
+            --registry data/loop-fleet/loop-registry.json \
+            --pr-url "$pr_url" \
+            --pr-created-at "$pr_created_at"
+          if ! git diff --quiet -- data/loop-fleet/ledger/lifecycle-events.jsonl; then
+            git add data/loop-fleet/ledger/lifecycle-events.jsonl
+            git commit -m "chore(loop-fleet): record durable ledger PR lifecycle"
+            git -c http.https://github.com/.extraheader= push "$push_url" "$branch"
           fi
 
       - name: Cleanup Firebase credentials
