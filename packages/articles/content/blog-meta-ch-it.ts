@@ -6346,6 +6346,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.licenziamento-crans-montana-falsificazione.title': 'Crans-Montana: licenziato dipendente per falsi edilizi',
     'blog.article.licenziamento-crans-montana-falsificazione.excerpt': 'Il Comune di Crans-Montana ha licenziato un collaboratore dell\'Ufficio tecnico per la falsificazione di documenti relativi a una terrazza.',
     'blog.article.licenziamento-crans-montana-falsificazione.imageAlt': 'Edificio comunale in Svizzera rappresentativo delle istituzioni',
+    'blog.article.attacco-hacker-salt-dati-clienti.title': 'Salt: attacco informatico e furto dati clienti mobili',
+    'blog.article.attacco-hacker-salt-dati-clienti.excerpt': 'L\'operatore telefonico Salt vittima di un attacco informatico. Sottratti dati personali di alcuni clienti mobili in Svizzera. Avvisato l\'Incaricato federale.',
+    'blog.article.attacco-hacker-salt-dati-clienti.imageAlt': 'Sede di un operatore di telefonia mobile in Svizzera coinvolto in un attacco informatico',
 };
 
 export default blogMetaChIt;
