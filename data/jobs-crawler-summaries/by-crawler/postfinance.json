@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-09-12T13:03:11.053Z",
-  "total": 19,
+  "generatedAt": "2026-09-13T14:01:33.784Z",
+  "total": 17,
   "newCount": 0,
-  "updatedCount": 19,
-  "removedCount": 0,
+  "updatedCount": 17,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 31319,
-  "avgDurationMs": 31319,
+  "durationMs": 31882,
+  "avgDurationMs": 31882,
   "durationHistory": [
-    31319
+    31882
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -696,7 +696,9 @@
         "translation": 25,
         "completeness": 9
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74485-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74485-de_DE",
@@ -790,6 +792,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
