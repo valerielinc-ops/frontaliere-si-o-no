@@ -6337,6 +6337,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rischio-petrolio-hormuz-svizzera.title': '$200 Oil and Risks to the Global Economy',
     'blog.article.rischio-petrolio-hormuz-svizzera.excerpt': 'UBS analysis of the potential closure of the Strait of Hormuz: from crude oil prices to the economic and economic outlook in Switzerland.',
     'blog.article.rischio-petrolio-hormuz-svizzera.imageAlt': 'Economic analysis and financial markets in Switzerland',
+    'blog.article.parmelin-tag-der-wirtschaft.title': 'Tag der Wirtschaft: Guy Parmelin\'s speech in Lucerne',
+    'blog.article.parmelin-tag-der-wirtschaft.excerpt': 'Federal Councillor Guy Parmelin speaks at the Tag der Wirtschaft in Lucerne, taking stock of Switzerland\'s economic resilience and free trade agreements.',
+    'blog.article.parmelin-tag-der-wirtschaft.imageAlt': 'Federal Councillor Guy Parmelin at Tag der Wirtschaft',
 };
 
 export default blogMetaChEn;

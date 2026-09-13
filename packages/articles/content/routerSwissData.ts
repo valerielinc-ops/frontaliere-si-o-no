@@ -2138,6 +2138,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'difesa-droni-infrastrutture-berna': { it: 'difesa-droni-infrastrutture-berna', en: 'drone-defense-infrastructure-bern', de: 'drohnenabwehr-infrastruktur-bern', fr: 'defense-drones-infrastructure-berne' },
  'hormuz-petrolio-200-dollari': { it: 'hormuz-petrolio-200-dollari', en: 'hormuz-oil-200-dollars', de: 'hormuz-oel-200-dollar', fr: 'hormuz-petrole-200-dollars' },
  'rischio-petrolio-hormuz-svizzera': { it: 'rischio-petrolio-hormuz-svizzera', en: 'oil-risk-hormuz-switzerland', de: 'oel-risiko-hormus-schweiz', fr: 'risque-petrole-hormuz-suisse' },
+ 'parmelin-tag-der-wirtschaft': { it: 'parmelin-tag-der-wirtschaft', en: 'parmelin-tag-der-wirtschaft-en', de: 'parmelin-tag-der-wirtschaft-de', fr: 'parmelin-tag-der-wirtschaft-fr' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
