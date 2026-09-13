@@ -11695,6 +11695,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.serbatoio-bella-cima-stabio.title': 'New tank in Stabio: water for the Mendrisiotto',
     'blog.article.serbatoio-bella-cima-stabio.excerpt': 'The new 4 million franc water system for security of supply in Mendrisiotto was inaugurated in Bella Cima.',
     'blog.article.serbatoio-bella-cima-stabio.imageAlt': 'The new Bella Cima water reservoir in Stabio',
+    'blog.article.formazione-lavoro-ticino.title': 'Training and work in Ticino: the challenges of integration',
+    'blog.article.formazione-lavoro-ticino.excerpt': 'Cotti and Capoferri question the government on the challenges of professional integration after school, also considering the variable of artificial intelligence.',
+    'blog.article.formazione-lavoro-ticino.imageAlt': 'Education and work in Ticino',
 };
 
 export default blogMetaEn;

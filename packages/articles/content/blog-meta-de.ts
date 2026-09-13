@@ -11694,6 +11694,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.serbatoio-bella-cima-stabio.title': 'Neuer Wassertank in Stabio: das Wasser für den Mendrisiotto',
     'blog.article.serbatoio-bella-cima-stabio.excerpt': 'In Bella Cima wurde das neue 4 Millionen Franken teure Wasserwerk für die Versorgungssicherheit im Mendrisiotto eingeweiht.',
     'blog.article.serbatoio-bella-cima-stabio.imageAlt': 'Das neue Wasserreservoir Bella Cima in Stabio',
+    'blog.article.formazione-lavoro-ticino.title': 'Ausbildung und Arbeit im Tessin: Herausforderungen der Eingliederung',
+    'blog.article.formazione-lavoro-ticino.excerpt': 'Cotti und Capoferri befragen die Regierung zu den Herausforderungen der beruflichen Eingliederung nach der Schule, auch unter Berücksichtigung der Variablen der künstlichen Intelligenz.',
+    'blog.article.formazione-lavoro-ticino.imageAlt': 'Bildung und Arbeit im Tessin',
 };
 
 export default blogMetaDe;

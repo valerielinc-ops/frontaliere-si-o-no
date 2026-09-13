@@ -11696,6 +11696,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.serbatoio-bella-cima-stabio.title': 'Nuovo serbatoio a Stabio: l\'acqua per il Mendrisiotto',
     'blog.article.serbatoio-bella-cima-stabio.excerpt': 'Inaugurato a Bella Cima il nuovo impianto idrico da 4 milioni di franchi per la sicurezza dell\'approvvigionamento nel Mendrisiotto.',
     'blog.article.serbatoio-bella-cima-stabio.imageAlt': 'Il nuovo serbatoio idrico di Bella Cima a Stabio',
+    'blog.article.formazione-lavoro-ticino.title': 'Formazione e lavoro in Ticino: le sfide dell\'inserimento',
+    'blog.article.formazione-lavoro-ticino.excerpt': 'Cotti e Capoferri interpellano il governo sulle sfide dell inserimento professionale dopo la scuola, considerando anche la variabile dell intelligenza artificiale.',
+    'blog.article.formazione-lavoro-ticino.imageAlt': 'Formazione e lavoro in Ticino',
 };
 
 export default blogMetaIt;

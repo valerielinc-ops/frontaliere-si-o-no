@@ -89929,6 +89929,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-formazione-lavoro-ticino': {
+    title: 'Formazione e lavoro in Ticino: le sfide dell\'inserimento',
+    description: 'Cotti e Capoferri interpellano il governo sulle sfide dell inserimento professionale dopo la scuola e sull impatto dell intelligenza artificiale in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, lavoro, sfide, dell',
+    ogTitle: 'Formazione e lavoro in Ticino: le sfide dell inserimento',
+    ogDescription: 'Approfondimento sull interrogazione di Cotti e Capoferri al governo ticinese riguardo alle sfide dell inserimento professionale e all impatto dell intelligenza artificiale.',
+    canonicalPath: '/articoli-frontaliere/formazione-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione e lavoro in Ticino: le sfide dell'inserimento",
+      "description": "Cotti e Capoferri interpellano il governo sulle sfide dell inserimento professionale dopo la scuola e sull impatto dell intelligenza artificiale in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/formazione-lavoro-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Formazione e lavoro in Ticino"
+      },
+      "datePublished": "2026-09-13T00:17:00+00:00",
+      "dateModified": "2026-09-13T00:17:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/formazione-lavoro-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
