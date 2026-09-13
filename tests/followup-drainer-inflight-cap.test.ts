@@ -10,8 +10,9 @@
  * limite teorico lontano.
  *
  * Dal 2026-09-04 il tetto è `FOLLOWUP_MAX_INFLIGHT_FIX` e il drain riempie gli
- * slot liberi invece di promuovere sempre uno solo. Il default è 5: è il massimo
- * misurato come stabile dalla flotta locale; `=3` resta un override più prudente.
+ * slot liberi invece di promuovere sempre uno solo. Il default locale è 5: è il
+ * massimo misurato come stabile dalla flotta locale; il workflow remoto usa 7.
+ * `=3` resta un override più prudente.
  *
  * Quel tetto è rimasto nominale fino al 2026-09-05: `issue-fix.yml` serializzava
  * su un `concurrency` group COSTANTE, che tiene una sola pending e sfratta ogni
@@ -29,6 +30,8 @@
  */
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
@@ -37,6 +40,7 @@ vi.mock('node:child_process', () => {
 });
 
 const REPO = 'o/r';
+const DRAINER_WORKFLOW = fileURLToPath(new URL('../.github/workflows/followup-drainer.yml', import.meta.url));
 const BODY_OK =
   '## Origine\n\nQualcosa di reale qui — testo abbastanza lungo da superare la '
   + 'soglia dei 50 caratteri che il detector di body malformati richiede.';
@@ -103,6 +107,11 @@ beforeEach(() => {
 });
 
 describe('cap delle run issue-fix in volo', () => {
+  it('il workflow remoto configura sette slot e lascia 5 solo come fallback locale', () => {
+    const workflow = readFileSync(DRAINER_WORKFLOW, 'utf8');
+    expect(workflow).toMatch(/FOLLOWUP_MAX_INFLIGHT_FIX:\s*'7'/);
+  });
+
   it('col default promuove fino a 5 quando gli slot sono vuoti e la coda è lunga', async () => {
     execFileSync.mockImplementation(makeDispatch(0, 5));
     const lines = await runDrainCapturingLogs();
@@ -137,7 +146,7 @@ describe('cap delle run issue-fix in volo', () => {
     expect(promotions(lines)).toHaveLength(1);
   });
 
-  it('FOLLOWUP_MAX_INFLIGHT_FIX=3 ripristina il parallelismo precedente', async () => {
+  it('FOLLOWUP_MAX_INFLIGHT_FIX=3 limita esplicitamente il parallelismo', async () => {
     process.env.FOLLOWUP_MAX_INFLIGHT_FIX = '3';
     execFileSync.mockImplementation(makeDispatch(0, 5));
     const lines = await runDrainCapturingLogs();
