@@ -1,6 +1,6 @@
 {
   "crawlerKey": "capri-holdings",
-  "assembledAt": "2026-09-12T13:12:50.789Z",
+  "assembledAt": "2026-09-13T14:09:13.910Z",
   "jobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
@@ -105,7 +105,7 @@
         "it": "Senior General Ledger Contabile",
         "en": "Senior General Ledger Accountant",
         "de": "Senior General Ledger Buchhalter",
-        "fr": "Directeur général principal comptable"
+        "fr": "Senior General Ledger Accountant"
       },
       "slug": "senior-general-ledger-contabile-capri-holdings-michael-kors-versace-manno",
       "slugByLocale": {
@@ -142,6 +142,7 @@
       },
       "firstSeenAt": "2026-07-27T22:07:37.799Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "currency": "CHF",
