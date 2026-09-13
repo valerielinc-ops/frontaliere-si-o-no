@@ -1810,4 +1810,24 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(job.needs).toBeUndefined();
     }
   });
+
+  it('i waiter propagano il launch outcome e falliscono subito senza stato ne PID', () => {
+    const { contract, outDir } = generateArtifacts();
+    for (const artifact of contract.artifacts.filter((item: any) => item.members.length > 0)) {
+      const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      const job: any = Object.values(doc.jobs)[0];
+      for (const member of artifact.members) {
+        const result = job.steps.find((step: any) => step.id === `crawler-${member}`);
+        expect(result, `${artifact.file}: missing waiter for ${member}`).toBeDefined();
+        expect(result.env?.CRAWLER_LAUNCH_OUTCOME).toBe(
+          `\${{ steps['crawler-launch-${member}'].outcome }}`,
+        );
+        expect(result.run).toContain('if [ "$launch_outcome" != "success" ]; then');
+        expect(result.run).toContain('if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then');
+        expect(result.run).toContain('invalid detached crawler PID');
+        expect(result.run).not.toContain("steps['crawler-launch-vf'].outcome");
+        expect(result.run).not.toContain("steps['crawler-launch-guess'].outcome");
+      }
+    }
+  });
 });
