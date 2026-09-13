@@ -621,6 +621,41 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
     expect(hasDeferredCompanyAlertWork([persistedAlert])).toBe(true);
   });
 
+  it('preserves failure attempts through a capacity defer before the next failure', () => {
+    const sourceJob = job('b6-capacity-then-failure-job', 'Acme', 'acme');
+    const sourceAlert = alert('b6-capacity-then-failure', 'Acme', {
+      deliveryLedger: {
+        [sourceJob.id]: {
+          state: DELIVERY_STATES.FAILED,
+          at: NOW,
+          attempts: 1,
+        },
+      },
+    });
+    const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
+    const [capacityWrite] = planDeferredDeliveryWrites([section], NOW + 1, 'per-run-cap');
+
+    expect(capacityWrite).not.toHaveProperty('deliveryDeferredAttempts');
+    expect(capacityWrite.deliveryLedger[sourceJob.id]).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED,
+      attempts: 1,
+    });
+
+    const [failureWrite] = planDeferredDeliveryWrites([{
+      alert: { ...sourceAlert, deliveryLedger: capacityWrite.deliveryLedger },
+      jobs: [sourceJob],
+    }], NOW + 2, 'consent-lookup-failed');
+
+    expect(failureWrite).toMatchObject({
+      deliveryDeferredAttempts: 1,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED,
+    });
+    expect(failureWrite.deliveryLedger[sourceJob.id]).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED,
+      attempts: 2,
+    });
+  });
+
   it.each([DELIVERY_STATES.CLAIMED, DELIVERY_STATES.FAILED])(
     'increments a failure deferral from a prior %s entry',
     (priorState) => {

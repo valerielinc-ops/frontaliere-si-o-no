@@ -5,6 +5,8 @@
 
 export const PHARMACY_TIME_ZONE = 'Europe/Zurich';
 
+const HOUR_MS = 60 * 60 * 1000;
+
 const PARTS_FORMATTER = new Intl.DateTimeFormat('en-GB', {
   timeZone: PHARMACY_TIME_ZONE,
   year: 'numeric',
@@ -56,21 +58,38 @@ export function localDateTimeToIso(dateText, timeText) {
     throw new Error(`Invalid Zurich local datetime: ${dateText} ${timeText}`);
   }
   const localAsUtc = Date.UTC(yearNumber, monthNumber - 1, dayNumber, hourNumber, minuteNumber);
+
+  const expected = {
+    year: yearNumber,
+    month: monthNumber,
+    day: dayNumber,
+    hour: hourNumber,
+    minute: minuteNumber,
+    second: 0,
+  };
+  const matchesExpected = (parts) => Object.entries(expected)
+    .every(([key, value]) => parts[key] === value);
+
+  // During the autumn transition the same wall-clock value has two valid
+  // instants. Do not let the fixed-point iteration silently choose one: the
+  // source has no disambiguating offset, so choosing would invent a boundary.
+  const offsets = new Set([-48, -24, 0, 24, 48]
+    .map((deltaHours) => timeZoneOffsetMs(new Date(localAsUtc + deltaHours * HOUR_MS))));
+  const exactCandidates = [...offsets]
+    .map((offsetMs) => new Date(localAsUtc - offsetMs))
+    .filter((date) => matchesExpected(partsFor(date)));
+  if (exactCandidates.length > 1) {
+    throw new Error(`Ambiguous Zurich local datetime: ${dateText} ${timeText}`);
+  }
+  if (exactCandidates.length === 1) return exactCandidates[0].toISOString();
+
   let candidate = localAsUtc;
   for (let i = 0; i < 4; i += 1) {
     candidate = localAsUtc - timeZoneOffsetMs(new Date(candidate));
   }
 
   const resolved = partsFor(new Date(candidate));
-  const expected = {
-    year: Number(year),
-    month: Number(month),
-    day: Number(day),
-    hour: Number(hour),
-    minute: Number(minute),
-    second: 0,
-  };
-  if (Object.entries(expected).some(([key, value]) => resolved[key] !== value)) {
+  if (!matchesExpected(resolved)) {
     const resolvedLocalAsUtc = Date.UTC(
       resolved.year,
       resolved.month - 1,
@@ -80,7 +99,7 @@ export function localDateTimeToIso(dateText, timeText) {
       resolved.second,
     );
     const springGapMs = resolvedLocalAsUtc - localAsUtc;
-    if (springGapMs > 0 && springGapMs <= 2 * 60 * 60 * 1000) {
+    if (springGapMs > 0 && springGapMs <= 2 * HOUR_MS) {
       return new Date(candidate).toISOString();
     }
     throw new Error(`Non-existent or ambiguous Zurich local datetime: ${dateText} ${timeText}`);
