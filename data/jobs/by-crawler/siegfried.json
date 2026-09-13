@@ -1430,9 +1430,9 @@
     },
     {
       "id": "siegfried-a24d8567fb98",
-      "slug": "expert-lab-technician-drug-product-r-d-siegfried-ch",
+      "slug": "tecnico-di-laboratorio-esperto-ricerca-e-sviluppo-di-prodotti-farmaceutici-siegfried-zofingen",
       "slugByLocale": {
-        "it": "expert-lab-technician-drug-product-r-d-siegfried-ch",
+        "it": "tecnico-di-laboratorio-esperto-ricerca-e-sviluppo-di-prodotti-farmaceutici-siegfried-zofingen",
         "en": "expert-lab-technician-drug-product-r-d-siegfried-ch",
         "de": "expert-lab-technician-drug-product-r-d-siegfried-ch",
         "fr": "expert-lab-technicien-drug-product-r-d-siegfried-zofingen"
@@ -1490,7 +1490,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-lab-technician-drug-product-r-d-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expert-lab-technician-drug-product-r-d-siegfried-ch"
+      ]
     },
     {
       "id": "siegfried-dd76b266a230",
