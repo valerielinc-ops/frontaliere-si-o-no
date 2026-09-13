@@ -12,7 +12,7 @@ import { RHEINMETALL_AIR_DEFENCE_COMPANY_DOMAIN } from '../scripts/lib/rheinmeta
 import { KSGL_COMPANY_DOMAIN } from '../scripts/lib/ksgl-job-parser.mjs';
 import { LUPS_COMPANY_DOMAIN } from '../scripts/lib/lups-job-parser.mjs';
 import { normalizeSourceHost } from '../scripts/lib/crawler-source-hosts.mjs';
-import { normalizeHost } from '../scripts/lib/prospector/registrable.mjs';
+import { normalizeHost, registrableDomain, stripPublicSuffix } from '../scripts/lib/prospector/registrable.mjs';
 
 const jobUrlHostSource = readFileSync(resolve(__dirname, '../scripts/lib/job-url-host.mjs'), 'utf8');
 
@@ -88,6 +88,14 @@ describe('keyless fallback with a scheme-less URL', () => {
       expect(isIpersonalJob({ url })).toBe(false);
       expect(isMedIpersonalJob({ url })).toBe(false);
     }
+  });
+
+  it.each(['%2F', '%40', '%3A', '%5C'])('rejects an encoded authority delimiter before claiming a parser owner (%s)', (encoded) => {
+    const url = `https://evil.com${encoded}med-ipersonal.ch/jobs/1`;
+
+    expect(jobUrlHost(url)).toBe('');
+    expect(isIpersonalJob({ url })).toBe(false);
+    expect(isMedIpersonalJob({ url })).toBe(false);
   });
 
   it('does not let the host override a declared companyKey', () => {
@@ -219,7 +227,11 @@ describe('canonicalJobHost', () => {
 
 describe('IDN hosts across the host normalisers', () => {
   it('normalises a bare host with a backslash separator before extracting the registrable name', () => {
-    expect(normalizeHost('evil.com\\med-ipersonal.ch')).toBe('evil.com');
+    const raw = 'evil.com\\med-ipersonal.ch';
+
+    expect(normalizeHost(raw)).toBe('evil.com');
+    expect(registrableDomain(raw)).toBe('evil.com');
+    expect(stripPublicSuffix(raw)).toBe('evil');
   });
 
   it('claims a scheme-less IDN row instead of dropping it for its alphabet', () => {

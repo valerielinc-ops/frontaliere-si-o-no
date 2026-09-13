@@ -16,6 +16,7 @@
  *    (F8 ↔ F6 bidirectional link)
  */
 
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   BORDER_WAIT_CROSSINGS,
@@ -36,11 +37,17 @@ import {
 import {
   generateBorderWaitArchives,
   generateBorderWaitPages,
+  buildEmbedWidgetSnapshot,
   renderFastestCrossingCard,
   type BorderWaitCurrent,
   type BorderWaitHistoryDay,
 } from '../build-plugins/borderWaitPagesPlugin';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
+
+const BORDER_WAIT_WIDGET_SOURCE = readFileSync(
+  new URL('../public/embed/border-wait-widget.html', import.meta.url),
+  'utf8',
+);
 
 const MINIMAL_CURRENT: BorderWaitCurrent = {
   updatedAt: '2026-04-21T06:00:00.000Z',
@@ -193,6 +200,22 @@ describe('borderWaitPagesPlugin — page generation', () => {
     expect(html).toContain('0 min');
   });
 
+  it('keeps an unavailable reading distinct from green in the embed snapshot', () => {
+    const snapshot = buildEmbedWidgetSnapshot({ updatedAt: null, perCrossing: {} });
+
+    expect(snapshot.crossings).toHaveLength(TOP_5_CROSSINGS.length);
+    expect(snapshot.crossings.every((crossing) => (
+      crossing.waitMinutes === null && crossing.status === null
+    ))).toBe(true);
+  });
+
+  it('keeps an unavailable widget reading out of the green status branch', () => {
+    expect(BORDER_WAIT_WIDGET_SOURCE).toContain(
+      "var status = STATUS_LABEL[c.status] ? c.status : 'unknown';",
+    );
+    expect(BORDER_WAIT_WIDGET_SOURCE).toContain("unknown: 'non disponibile'");
+  });
+
   const today = new Date('2026-04-21T06:00:00.000Z');
   const pages = generateBorderWaitPages({ current: MINIMAL_CURRENT, history: [], today });
 
@@ -317,6 +340,35 @@ describe('borderWaitPagesPlugin — page generation', () => {
     const html = pages[buildOggiPath('it', 'crociale-dei-mulini')];
     expect(html).toContain('Dati statistici');
     expect(html).toContain('Tempi di attesa non disponibili');
+  });
+
+  it('uses the unavailable branch on root, regional, and leaf surfaces', () => {
+    const partialCurrent: BorderWaitCurrent = {
+      updatedAt: '2026-04-21T06:00:00.000Z',
+      perCrossing: {
+        'chiasso-brogeda': {
+          waitTimeMinutes: 0,
+          source: 'tomtom',
+          lastUpdate: '2026-04-21T06:00:00.000Z',
+          status: 'green',
+        },
+      },
+    };
+    const partialPages = generateBorderWaitPages({ current: partialCurrent, history: [], today });
+
+    expect(partialPages[buildRootHubPath('it')]).toContain('Tempi di attesa non disponibili');
+    expect(partialPages[buildRegionalHubPath('it', 'ticino-como')]).toContain('Tempi di attesa non disponibili');
+    expect(partialPages[buildOggiPath('it', 'crociale-dei-mulini')]).toContain('Tempi di attesa non disponibili');
+    expect(partialPages[buildRootHubPath('it')]).not.toContain('Traffico fluido su tutti i valichi');
+
+    const leaf = partialPages[buildOggiPath('it', 'crociale-dei-mulini')];
+    const currentStatusMarker = 'aria-labelledby=currentStatus';
+    const currentCard = leaf.slice(
+      leaf.indexOf(currentStatusMarker),
+      leaf.indexOf('</section>', leaf.indexOf(currentStatusMarker)),
+    );
+    expect(currentCard).toContain('background:var(--color-surface-alt)');
+    expect(currentCard).not.toContain('background:var(--color-success-subtle)');
   });
 
   it('leaf pages without history show the "storico in accumulo" notice', () => {

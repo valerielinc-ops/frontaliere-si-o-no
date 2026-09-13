@@ -472,14 +472,20 @@ const COLOR_WARN_TEXT = 'var(--color-warning)';
 const COLOR_BAD_BG = 'var(--color-danger-subtle)';
 const COLOR_BAD_BORDER = 'var(--color-danger-border)';
 const COLOR_BAD_TEXT = 'var(--color-danger)';
+const COLOR_UNKNOWN_BG = 'var(--color-surface-alt)';
+const COLOR_UNKNOWN_BORDER = 'var(--color-edge)';
+const COLOR_UNKNOWN_TEXT = 'var(--color-subtle)';
 
 function statusColor(waitMinutes: number | null): {
   bg: string;
   border: string;
   text: string;
-  label: 'ok' | 'warn' | 'bad';
+  label: 'ok' | 'warn' | 'bad' | 'unknown';
 } {
-  if (waitMinutes === null || waitMinutes < 5) {
+  if (waitMinutes === null) {
+    return { bg: COLOR_UNKNOWN_BG, border: COLOR_UNKNOWN_BORDER, text: COLOR_UNKNOWN_TEXT, label: 'unknown' };
+  }
+  if (waitMinutes < 5) {
     return { bg: COLOR_OK_BG, border: COLOR_OK_BORDER, text: COLOR_OK_TEXT, label: 'ok' };
   }
   if (waitMinutes < 15) {
@@ -1635,14 +1641,14 @@ interface LeafInputs {
  * snapshot and is correct for SEO/zero-JS visitors.
  */
 function renderAdviceBanner(
-  status: 'ok' | 'warn' | 'bad',
+  status: 'ok' | 'warn' | 'bad' | 'unknown',
   liveWait: number | null,
   bestHour: string,
   worstHour: string,
   copy: Copy,
 ): string {
   const tile =
-    liveWait === null
+    liveWait === null || status === 'unknown'
       ? STAT_TILE_WARNING
       : status === 'ok'
         ? STAT_TILE_SUCCESS
@@ -1650,7 +1656,7 @@ function renderAdviceBanner(
           ? STAT_TILE_WARNING
           : STAT_TILE_DANGER;
   const text =
-    liveWait === null
+    liveWait === null || status === 'unknown'
       ? copy.advice.unknown
       : status === 'ok'
         ? copy.advice.ok(bestHour)
@@ -1658,7 +1664,7 @@ function renderAdviceBanner(
           ? copy.advice.warn(worstHour)
           : copy.advice.bad(bestHour);
   const eyebrow = copy.advice.eyebrow;
-  const dataStatus = liveWait === null ? 'unknown' : status;
+  const dataStatus = liveWait === null || status === 'unknown' ? 'unknown' : status;
   return `<aside data-bw-advice data-bw-advice-status="${esc(dataStatus)}" aria-label="${esc(eyebrow)}" style="${tile};margin:0 0 18px">
     <div class="s-a8IQOM">${esc(eyebrow)}</div>
     <p class="s-f49tDp" data-bw-advice-text>${esc(text)}</p>
@@ -2965,7 +2971,7 @@ export interface BorderWaitWidgetSnapshot {
     slug: BorderCrossingSlug;
     name: string;
     waitMinutes: number | null;
-    status: 'green' | 'yellow' | 'red';
+    status: 'green' | 'yellow' | 'red' | null;
   }>;
 }
 
@@ -2986,7 +2992,7 @@ export function buildEmbedWidgetSnapshot(current: BorderWaitCurrent): BorderWait
         slug,
         name: BORDER_CROSSING_DISPLAY[slug],
         waitMinutes: liveWait === null ? null : Math.round(liveWait),
-        status: colorLabel === 'ok' ? 'green' : colorLabel === 'warn' ? 'yellow' : 'red',
+        status: colorLabel === 'unknown' ? null : colorLabel === 'ok' ? 'green' : colorLabel === 'warn' ? 'yellow' : 'red',
       };
     }),
   };
