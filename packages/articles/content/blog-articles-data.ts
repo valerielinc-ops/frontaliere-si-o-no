@@ -34986,6 +34986,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'franchigia-frontalieri-casalzuigno',
+ category: 'fiscale',
+ date: '2026-09-13T07:32:34.199Z',
+ image: '/images/blog/franchigia-frontalieri-casalzuigno.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

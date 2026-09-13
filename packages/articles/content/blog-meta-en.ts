@@ -11722,6 +11722,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inaugurazione-campus-smart-valley-daverio.title': 'Smart Valley campus for businesses inaugurated in Daverio',
     'blog.article.inaugurazione-campus-smart-valley-daverio.excerpt': 'The Smart Valley campus was inaugurated at Daverio, a space of five thousand square meters for specialized training and the connection between young people and companies.',
     'blog.article.inaugurazione-campus-smart-valley-daverio.imageAlt': 'Smart Valley campus inaugurated in the industrial area of Daverio',
+    'blog.article.franchigia-frontalieri-casalzuigno.title': 'New €10,000 deductible for border workers from Casalzuigno',
+    'blog.article.franchigia-frontalieri-casalzuigno.excerpt': 'The New Frontier Agreement in force since 2024 introduces a deductible of €10,000 for new residents in Italy working in Ticino.',
+    'blog.article.franchigia-frontalieri-casalzuigno.imageAlt': 'View of Casalzuigno near the border with Mendrisio and Ticino',
 };
 
 export default blogMetaEn;
