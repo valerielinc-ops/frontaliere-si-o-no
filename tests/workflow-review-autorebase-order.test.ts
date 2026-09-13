@@ -11,8 +11,25 @@ const autoMergeEval = readFileSync(new URL('../scripts/ci/auto-merge-eval.mjs', 
 const nativeAutoMerge = readFileSync(new URL('../.github/workflows/enable-native-automerge.yml', import.meta.url), 'utf8');
 const nativeAutoMergeRetry = readFileSync(new URL('../.github/workflows/retry-native-automerge.yml', import.meta.url), 'utf8');
 const redflagFixer = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
+const translatePendingLogic = readFileSync(new URL('../.github/workflows/translate-pending-logic.yml', import.meta.url), 'utf8');
 
 describe('review → autorebase ordering', () => {
+  it('keeps delegated daily housekeeping fail-closed before committing', () => {
+    const housekeepingStart = translatePendingLogic.indexOf('name: "Phase 1: Housekeeping"');
+    const commitStart = translatePendingLogic.indexOf('name: Commit housekeeping');
+    const housekeepingBlock = translatePendingLogic.slice(housekeepingStart, commitStart);
+    const commitBlock = translatePendingLogic.slice(commitStart, translatePendingLogic.indexOf('\n      - name:', commitStart + 1));
+    const commitIf = commitBlock.split('\n').find((line) => /^\s+if:/.test(line));
+
+    expect(housekeepingStart).toBeGreaterThanOrEqual(0);
+    expect(commitStart).toBeGreaterThan(housekeepingStart);
+    expect(housekeepingBlock).toContain('JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs');
+    expect(housekeepingBlock).not.toContain('JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true');
+    expect(housekeepingBlock).not.toContain('continue-on-error: true');
+    expect(commitIf).toContain('success()');
+    expect(commitIf).not.toContain('always()');
+  });
+
   it('consuma stale-review dopo un re-trigger riuscito, senza perdere il rescue se fallisce', () => {
     expect(autorebase).toContain("'--remove-label', 'stale-review'");
     expect(autorebase).toContain('function clearStaleReviewLabel');
