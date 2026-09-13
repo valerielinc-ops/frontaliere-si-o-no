@@ -9,8 +9,11 @@ on:
       - 'data/error-triage-baseline.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l1-reliability.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l1-reliability.yml'
   pull_request:
@@ -18,8 +21,11 @@ on:
       - 'data/error-triage-baseline.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l1-reliability.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l1-reliability.yml'
   workflow_dispatch:
@@ -51,15 +57,33 @@ jobs:
             /data/error-triage-baseline.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l1-reliability.mjs
+            /scripts/ci/export-loop-outcomes.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/posthog-client.mjs
             /.github/workflows/loop-l1-reliability.yml
           sparse-checkout-cone-mode: false
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+      - name: Prepare read-only Firebase credentials
+        if: github.event_name != 'pull_request'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          chmod 600 /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Export fresh L1 telemetry
+        if: github.event_name != 'pull_request'
+        run: node scripts/ci/export-loop-outcomes.mjs --loop L1 --input data/error-triage-baseline.json --out "$RUNNER_TEMP/error-triage-baseline.json"
       - name: Audit reliability telemetry
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -68,7 +92,9 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --telemetry data/error-triage-baseline.json)
+          telemetry_path=data/error-triage-baseline.json
+          if [ "${{ github.event_name }}" != "pull_request" ]; then telemetry_path="$RUNNER_TEMP/error-triage-baseline.json"; fi
+          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --telemetry "$telemetry_path")
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else

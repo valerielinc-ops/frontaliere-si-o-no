@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Install Headroom into the runner. Extracted from action.yml so that a caller
-# which wants the install to overlap other work can run it as a `background:`
-# step (`run:` steps only — `background:` on a `uses:` step is unsupported and
-# breaks the whole workflow file). The composite action and pr-review-loop.yml
-# both source THIS script, so there is exactly one install implementation.
+# which wants to reuse the installation can invoke it before the composite
+# action and then pass `skip-install=true` to that action. The composite action
+# and pr-review-loop.yml both source THIS script, so there is exactly one
+# install implementation.
 #
 # Fail-open by design: every failure path exits 0. A missing Headroom must never
 # block a review/fix gate — start.sh then leaves ANTHROPIC_BASE_URL unset and

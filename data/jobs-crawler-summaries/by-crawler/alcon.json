@@ -1,21 +1,21 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-09-12T13:18:16.744Z",
-  "total": 5,
+  "generatedAt": "2026-09-13T14:11:12.250Z",
+  "total": 4,
   "discovered": null,
   "parsed": 4,
   "lastFetchOutcome": null,
-  "written": 5,
+  "written": 4,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6858,
-  "avgDurationMs": 6858,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 9258,
+  "avgDurationMs": 9258,
   "durationHistory": [
-    6858
+    9258
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Manager--Accounting---Reporting_R-2026-49365-2",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T13:18:09.753Z",
+      "crawledAt": "2026-09-13T14:11:00.225Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Professional-Education---Development-Manager--m-w-d----Vision-Care-DACH_R-2026-48937-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:18:10.430Z",
+      "crawledAt": "2026-09-13T14:11:00.833Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T13:18:09.082Z",
+      "crawledAt": "2026-09-13T14:10:59.604Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -143,7 +143,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T13:18:11.094Z",
+      "crawledAt": "2026-09-13T14:11:01.438Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -168,8 +168,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "alcon-9ebeaed89713",
       "slug": "gestione-dei-materiali-senior-manager-m-f-d-alcon-schaffhausen",
@@ -211,5 +210,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-09-12T12:54:55.172Z",
+  "assembledAt": "2026-09-13T13:53:44.458Z",
   "jobs": [
     {
       "id": "vaxcyte-f558683786d7",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T12:54:44.198Z",
+      "crawledAt": "2026-09-13T13:53:34.057Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -72,6 +72,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T23:32:47.249Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -117,7 +118,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T12:54:44.167Z",
+      "crawledAt": "2026-09-13T13:53:34.031Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -201,7 +202,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T12:54:44.157Z",
+      "crawledAt": "2026-09-13T13:53:34.026Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -283,7 +284,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T12:54:44.093Z",
+      "crawledAt": "2026-09-13T13:53:33.944Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -305,10 +306,14 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "firstSeenAt": "2026-09-11T23:06:18.703Z",
+      "previousSlugs": [
+        "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch",
+        "senior-bioprocess-ingegnere-ii-msat-proteins-vaxcyte-visp"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch"
+          "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch",
+          "senior-bioprocess-ingegnere-ii-msat-proteins-vaxcyte-visp"
         ],
         "de": [
           "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch"
@@ -317,9 +322,8 @@
           "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch"
-      ],
+      "firstSeenAt": "2026-09-11T23:06:18.703Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",

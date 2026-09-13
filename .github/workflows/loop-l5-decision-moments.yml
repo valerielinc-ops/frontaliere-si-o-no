@@ -15,6 +15,7 @@ on:
       - 'scripts/ci/loop-l5-decision-moments.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l5-decision-moments.yml'
   pull_request:
@@ -28,6 +29,7 @@ on:
       - 'scripts/ci/loop-l5-decision-moments.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l5-decision-moments.yml'
   workflow_dispatch:
@@ -65,6 +67,7 @@ jobs:
             /scripts/ci/loop-l5-decision-moments.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l5-decision-moments.yml
           sparse-checkout-cone-mode: false

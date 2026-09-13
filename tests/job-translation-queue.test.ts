@@ -134,10 +134,10 @@ describe('measureTranslationQueue', () => {
       const concurrency = concurrencyConfig(workflowPath);
       expect(concurrency.group).toBe(JOBS_DATA_PIPELINE_GROUP);
       expect(concurrency['cancel-in-progress']).toBe(false);
-      // `queue: max` is the repository's legacy extension, not a native
-      // GitHub concurrency key. Newly modified workflows must use only the
-      // native `group`/`cancel-in-progress` pair, while existing group
-      // members retain the extension until they are independently touched.
+      // `queue: max` is supported by GitHub Actions and is used by the
+      // scheduled translation/backfill population. The one-shot migration is
+      // intentionally allowed to retain the native default until it is
+      // independently reviewed.
       if (concurrency.queue !== undefined) expect(concurrency.queue).toBe('max');
     }
   });

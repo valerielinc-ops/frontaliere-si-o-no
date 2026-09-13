@@ -117,9 +117,8 @@ jobs:
         uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-      - name: Run coop
-        id: crawler-coop
-        background: true
+      - name: Launch coop
+        id: crawler-launch-coop
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-coop.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -132,7 +131,17 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/coop-ticino.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-01"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/coop.sh"
+          launcher_path="$state_dir/coop.launcher.sh"
+          log_path="$state_dir/coop.log"
+          pid_path="$state_dir/coop.pid"
+          status_path="$state_dir/coop.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- coop: run crawler (verbatim from original workflow) ----
@@ -147,7 +156,7 @@ jobs:
 
           # ---- coop: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Coop jobs (dedicated crawler)"'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Coop jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
@@ -168,16 +177,70 @@ jobs:
             echo "⚠️ coop: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::coop: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::coop: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ coop: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Wait for all crawlers in this group
-        wait-all: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-01/coop.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-01/coop.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-01/coop.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Run coop
+        id: crawler-coop
+        if: always()
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-01"
+          status_file="$state_dir/coop.status"
+          pid_file="$state_dir/coop.pid"
+          log_file="$state_dir/coop.log"
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::coop: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::coop: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::coop: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::coop: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
       - name: Commit crawler group data atomically
         if: always()
         run: |-

@@ -91,12 +91,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MANUAL_SET: ${{ github.event.inputs.set }}
         run: |
-          ARGS="--alert"
+          args=(--alert)
           if [ -n "$MANUAL_SET" ]; then
-            ARGS="$ARGS --set $MANUAL_SET"
+            args+=(--set "$MANUAL_SET")
           fi
           set +e
-          node scripts/reconcile-here-usage.mjs $ARGS
+          node scripts/reconcile-here-usage.mjs "${args[@]}"
           code=$?
           set -e
           if [ "$code" = "2" ]; then

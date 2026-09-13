@@ -65,10 +65,10 @@ jobs:
         id: changes
         run: |
           if git diff --quiet -- public/data/switzerland-unemployment-rate.json; then
-            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
             echo "ℹ️ No changes in unemployment dataset."
           else
-            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
             echo "📊 Unemployment data updated"
           fi
 
@@ -107,4 +107,3 @@ jobs:
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
-

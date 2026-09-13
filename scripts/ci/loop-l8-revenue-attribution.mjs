@@ -14,6 +14,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   buildDecision,
   buildObservation,
@@ -63,6 +64,10 @@ function nonNegativeInteger(value) {
 
 function text(value) {
   return typeof value === 'string' && value.trim().length > 0;
+}
+
+function object(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
 
 function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], warnings = [], snapshot = null, candidates = [] }) {
@@ -219,18 +224,49 @@ function emptyAffiliateSnapshot(sourcePath) {
   return {
     source: 'authorised-commercial-export',
     path: sourcePath,
+    missing: true,
+    independent: false,
+    evidence: null,
     generatedAt: null,
     ageHours: null,
     rowCount: null,
     invalidRows: null,
     deduplicatedTransactions: null,
     conversions: null,
+    clicks: { web: null, email: null, relevant: null, total: null },
     exposures: { web: null, email: null, relevant: null },
     byCurrency: {},
+    statusCounts: { pending: null, approved: null, reversed: null },
     approvedNetChf: null,
     pendingChf: null,
     reversedChf: null,
   };
+}
+
+function parseExplicitClicks(raw) {
+  const value = raw?.clicks ?? raw?.metrics?.clicks ?? raw?.clickCount;
+  if (value === null || value === undefined) return null;
+  if (nonNegativeNumber(value)) {
+    const count = Number(value);
+    return { web: null, email: null, relevant: count, total: count };
+  }
+  if (!object(value)) return { invalid: true };
+  const parsed = { web: null, email: null, relevant: null, total: null };
+  for (const key of Object.keys(parsed)) {
+    if (value[key] !== undefined && !nonNegativeNumber(value[key])) return { invalid: true };
+    if (value[key] !== undefined) parsed[key] = Number(value[key]);
+  }
+  if (parsed.relevant === null && parsed.total !== null) parsed.relevant = parsed.total;
+  if (Object.values(parsed).every((entry) => entry === null)) return { invalid: true };
+  return parsed;
+}
+
+function statusCountsFromCurrency(byCurrency) {
+  const counts = { pending: 0, approved: 0, reversed: 0 };
+  for (const bucket of Object.values(byCurrency || {})) {
+    for (const status of Object.keys(counts)) counts[status] += Number(bucket?.[`${status}Conversions`] || 0);
+  }
+  return counts;
 }
 
 function validateAffiliateExport(raw, { now, maxAgeHours, sourcePath, minimumSample }) {
@@ -244,6 +280,24 @@ function validateAffiliateExport(raw, { now, maxAgeHours, sourcePath, minimumSam
   }
   const issues = [];
   const warnings = [];
+  const evidence = raw.evidence || raw.provenance;
+  if (raw.independent !== true) {
+    issues.push('commercial export independent must be explicitly true');
+  }
+  if (!object(evidence)) {
+    issues.push('commercial export evidence is missing or not an object');
+  } else {
+    if (!text(evidence.source)) issues.push('commercial export evidence.source is missing');
+    if (!Array.isArray(evidence.sourceRefs) || evidence.sourceRefs.length === 0 || evidence.sourceRefs.some((sourceRef) => !text(sourceRef))) {
+      issues.push('commercial export evidence.sourceRefs must be a non-empty array of text');
+    }
+  }
+  const clicks = parseExplicitClicks(raw);
+  if (clicks?.invalid) {
+    issues.push('commercial export clicks are invalid');
+  } else if (clicks && clicks.relevant === null) {
+    issues.push('commercial export clicks.relevant or clicks.total is missing');
+  }
   const generatedAt = finiteDate(raw?.generatedAt || raw?._meta?.generatedAt);
   if (!generatedAt) issues.push('commercial export generatedAt is missing or invalid');
   const rawRows = Array.isArray(raw)
@@ -291,12 +345,22 @@ function validateAffiliateExport(raw, { now, maxAgeHours, sourcePath, minimumSam
   const hasNonChfApproved = currenciesWithRows.some((currency) => currency !== 'CHF' && (byCurrency[currency]?.approvedConversions || 0) > 0);
   if (hasNonChfApproved) issues.push('approved non-CHF commissions require an explicit currency conversion oracle');
   if (report.conversions > 0 && !byCurrency.CHF) issues.push('commercial export has no CHF ledger for the approved-net metric');
-  if (report.status === 'unmeasurable' && rawRows.length > 0) issues.push(report.reason || 'commercial export cannot be reconciled');
+  if (report.status === 'unmeasurable' && Array.isArray(rawRows) && rawRows.length > 0) {
+    issues.push(report.reason || 'commercial export cannot be reconciled');
+  }
 
   const chf = byCurrency.CHF || null;
   const snapshot = {
     source: 'authorised-commercial-export',
     path: sourcePath,
+    missing: false,
+    independent: raw.independent === true,
+    evidence: object(evidence)
+      ? {
+        source: text(evidence.source) ? evidence.source.trim() : null,
+        sourceRefs: Array.isArray(evidence.sourceRefs) ? evidence.sourceRefs.filter(text).map((sourceRef) => sourceRef.trim()) : [],
+      }
+      : null,
     generatedAt: generatedAt?.toISOString() || null,
     ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
     rowCount: Array.isArray(rawRows) ? rawRows.length : null,
@@ -304,9 +368,11 @@ function validateAffiliateExport(raw, { now, maxAgeHours, sourcePath, minimumSam
     invalidReasons: report.invalidReasons || [],
     deduplicatedTransactions: report.deduplicatedTransactions,
     conversions: report.conversions,
+    clicks: clicks && !clicks.invalid ? clicks : { web: null, email: null, relevant: null, total: null },
     exposures: { ...exposures, relevant },
     byCurrency,
-    approvedNetChf: chf ? chf.approved : report.conversions === 0 && report.invalidRows === 0 ? 0 : null,
+    statusCounts: statusCountsFromCurrency(byCurrency),
+    approvedNetChf: chf ? chf.approved : Array.isArray(rawRows) && report.conversions === 0 && report.invalidRows === 0 ? 0 : null,
     pendingChf: chf ? chf.pending : null,
     reversedChf: chf ? chf.reversed : null,
     approvedConversionsChf: chf ? chf.approvedConversions : null,
@@ -315,9 +381,10 @@ function validateAffiliateExport(raw, { now, maxAgeHours, sourcePath, minimumSam
   };
   let quality = 'observed';
   if (!generatedAt || relevant === null || report.status === 'unmeasurable') quality = 'unmeasurable';
-  else if (relevant === 0) quality = 'zero';
   else if (ageHours < -CLOCK_SKEW_HOURS || ageHours > maxAgeHours) quality = 'stale';
   else if (issues.length) quality = 'partial';
+  else if (relevant === 0) quality = 'zero';
+  snapshot.quality = quality;
   return { quality, issues, warnings, snapshot };
 }
 
@@ -410,6 +477,8 @@ function reportMarkdown(verdict, observation, decision) {
     `- Approved CHF: ${commercial.approvedNetChf ?? 'unmeasurable'}`,
     `- Pending CHF: ${commercial.pendingChf ?? 'unmeasurable'}`,
     `- Reversed CHF: ${commercial.reversedChf ?? 'unmeasurable'}`,
+    `- Export clicks: ${commercial.clicks?.relevant ?? commercial.clicks?.total ?? 'not supplied'}`,
+    `- Monitor clicks/day: ${history.gsc?.clicksPerDay ?? 'unmeasurable'}`,
     `- Relevant exposures: ${commercial.exposures?.relevant ?? 'unmeasurable'}`,
     `- Decision: **${decision.decision}** (${decision.actionClass})`,
     `- Rollback: ${decision.rollbackPlan}`,
@@ -419,6 +488,85 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
+function buildRevenueOutcome({ source, verdict, policy, registry, now }) {
+  const commercial = verdict.snapshot?.commercial || {};
+  const generatedAt = finiteDate(commercial.generatedAt);
+  const approvedNetChf = nonNegativeNumber(commercial.approvedNetChf)
+    ? commercial.approvedNetChf
+    : null;
+  const relevantExposures = nonNegativeNumber(commercial.exposures?.relevant)
+    ? commercial.exposures.relevant
+    : null;
+  const monitorClicksPerDay = nonNegativeNumber(verdict.snapshot?.history?.gsc?.clicksPerDay)
+    ? verdict.snapshot.history.gsc.clicksPerDay
+    : null;
+  const evidence = commercial.evidence;
+  const evidenceComplete = Boolean(
+    object(evidence)
+      && text(evidence.source)
+      && Array.isArray(evidence.sourceRefs)
+      && evidence.sourceRefs.length > 0,
+  );
+  const measurable = verdict.ok
+    && commercial.quality === 'observed'
+    && commercial.independent === true
+    && source?.independent === true
+    && evidenceComplete
+    && approvedNetChf !== null
+    && relevantExposures !== null;
+  const outcomeQuality = commercial.quality || 'unmeasurable';
+  const status = measurable
+    ? 'observed'
+    : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
+  const outcome = buildValidatedLoopOutcome({
+    registry,
+    loopId: LOOP_ID,
+    quality: status,
+    independent: measurable,
+    numerator: approvedNetChf,
+    denominator: relevantExposures,
+    observedAt: generatedAt?.toISOString() || null,
+    reason: measurable
+      ? 'explicit independent authorized export with pending, approved and reversed states reconciled separately; monitor click telemetry remains separate'
+      : `revenue attribution outcome is ${status}; no commercial amount is inferred from monitor clicks or missing exports`,
+    now,
+  });
+  return {
+    ...outcome,
+    loopId: LOOP_ID,
+    generatedAt: generatedAt?.toISOString() || null,
+    clicks: commercial.clicks || { web: null, email: null, relevant: null, total: null },
+    monitorClicksPerDay,
+    pendingChf: commercial.pendingChf,
+    approvedNetChf: commercial.approvedNetChf,
+    reversedChf: commercial.reversedChf,
+    statusCounts: commercial.statusCounts || { pending: null, approved: null, reversed: null },
+    metrics: {
+      clicks: commercial.clicks || { web: null, email: null, relevant: null, total: null },
+      monitorClicksPerDay,
+      relevantExposures: commercial.exposures?.relevant ?? null,
+      pendingChf: commercial.pendingChf,
+      approvedChf: commercial.approvedNetChf,
+      reversedChf: commercial.reversedChf,
+      statusCounts: commercial.statusCounts || { pending: null, approved: null, reversed: null },
+    },
+    evidence: commercial.evidence || {
+      status: 'missing',
+      sourcePath: commercial.path,
+      sourceRefs: policy.outcome.sourceRefs,
+    },
+    evidenceStatus: commercial.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
+    sourcePath: commercial.path,
+    safeToAct: false,
+    autoAdsUntouched: true,
+    externalCommercialStateUntouched: true,
+    publishedDataUntouched: true,
+    partnerStateUntouched: true,
+    pricesUntouched: true,
+    recipientsUntouched: true,
+  };
+}
+
 function writeReports(reportDir, verdict, observation, decision) {
   if (!reportDir) return [];
   const dir = path.resolve(reportDir);
@@ -426,6 +574,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   const files = [
     ['l8-observation.json', observation],
     ['l8-decision.json', decision],
+    ['l8-outcome.json', observation.outcome],
     ['l8-report.md', reportMarkdown(verdict, observation, decision)],
   ];
   for (const [name, content] of files) {
@@ -466,7 +615,7 @@ function writeActions(reportDir, verdict, now, loopRegistry) {
   return file;
 }
 
-function writeResult(reportDir, { verdict, issued, actionsWritten }) {
+function writeResult(reportDir, { verdict, issued, actionsWritten, outcome }) {
   if (!reportDir) return null;
   const file = path.join(path.resolve(reportDir), 'l8-result.json');
   fs.writeFileSync(file, `${JSON.stringify({
@@ -477,6 +626,7 @@ function writeResult(reportDir, { verdict, issued, actionsWritten }) {
     warningCount: verdict.warnings.length,
     issued,
     actionsWritten,
+    outcome,
   }, null, 2)}\n`);
   return file;
 }
@@ -517,10 +667,11 @@ export async function runL8({
     minimumSample: policyMinimumSample,
   } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
+  let sourceAffiliate = null;
   try {
     const history = readJsonl(historyPath, 'revenue history');
-    const affiliate = readOptionalJson(affiliatePath);
-    verdict = validateRevenueAttribution({ history, affiliate }, {
+    sourceAffiliate = readOptionalJson(affiliatePath);
+    verdict = validateRevenueAttribution({ history, affiliate: sourceAffiliate }, {
       now,
       maxAgeHours,
       historyPath,
@@ -574,6 +725,7 @@ export async function runL8({
       },
     },
   };
+  const outcome = buildRevenueOutcome({ source: sourceAffiliate, verdict, policy: loopPolicy, registry: loopRegistry, now });
   const commercial = verdict.snapshot?.commercial;
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const candidateStarts = [
@@ -606,6 +758,7 @@ export async function runL8({
     allowNumeratorExceedDenominator: true,
     recordedAt: now.toISOString(),
   });
+  observation.outcome = outcome;
   const decision = buildDecision({
     loopId: LOOP_ID,
     goal: loopPolicy.goal,
@@ -640,10 +793,10 @@ export async function runL8({
     });
     issued = true;
   }
-  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten });
+  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);
   logger.log(`[L8] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
-  return { verdict, observation, decision, files, issued, actionsWritten };
+  return { verdict, observation, decision, outcome, files, issued, actionsWritten };
 }
 
 function parseArgs(argv) {
@@ -680,6 +833,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
     verdict: result.verdict,
     observation: result.observation,
     decision: result.decision,
+    outcome: result.outcome,
     issued: result.issued,
     actionsWritten: result.actionsWritten,
   }, null, 2));

@@ -355,6 +355,7 @@ describe('toJobFromJsonLd — explicit adapter detail URLs', () => {
     expect(result.reason).toBeNull();
     expect(result.job).toMatchObject({
       url: frenchFustUrl,
+      applyUrl: frenchFustUrl,
       company: 'Fust',
       location: 'Crissier, VD',
       canton: 'VD',

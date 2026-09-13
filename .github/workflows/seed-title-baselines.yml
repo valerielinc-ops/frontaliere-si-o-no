@@ -145,7 +145,7 @@ jobs:
           mkdir -p dist
           tar -xf "${{ steps.pages.outputs.tar-path }}" -C dist
           echo "dist/ tree (top level):"
-          ls dist/ | head
+          find dist -maxdepth 1 -mindepth 1 -print | head
           echo ""
           echo "Total HTML files:"
           find dist -name '*.html' | wc -l

@@ -184,6 +184,7 @@ jobs:
                 | grep -vE '^(engine/|index\.ts$|articleSections\.ts$)' || true)
           if [ -n "$bad" ]; then
             echo "::error::the engine mirror staged paths outside engine/ — refusing"
+            # shellcheck disable=SC2001
             echo "$bad" | sed 's/^/  offending: /'
             exit 1
           fi
@@ -313,6 +314,8 @@ jobs:
                                 END { if (n > 25) printf ", and %d more", n - 25; print "" }')
 
           body=$(mktemp)
+          # The single-quoted Markdown fragments must remain literal text.
+          # shellcheck disable=SC2016
           printf '%s\n' \
             'Automated by `mirror-articles-engine.yml` in valerielinc-ops/frontaliere-si-o-no.' \
             '' \
@@ -329,16 +332,20 @@ jobs:
             '' \
             '## Implementato' \
             > "$body"
+          # shellcheck disable=SC2016
           printf -- '- Lockstep of `engine/` (plus `index.ts` and `articleSections.ts`) with valerielinc-ops/frontaliere-si-o-no@%s — %s path(s) updated in this repo, %s removed.\n' \
             "${SHA:0:8}" "$n_changed" "$n_deleted" >> "$body"
           if [ -n "${carried:-}" ]; then
+            # shellcheck disable=SC2016
             printf '%s\n' '- Site commits this PR carries down, newest first (paths `packages/articles/engine/`, `index.ts`, `articleSections.ts`):' >> "$body"
             printf '%s\n' "$carried" \
               | awk 'NF { s = $1; $1 = ""; sub(/^ /, ""); printf "  - `%s` — %s\n", s, $0 }' >> "$body"
           fi
           if [ -n "${paths_inline:-}" ]; then
+            # shellcheck disable=SC2016
             printf -- '- Paths updated here: %s\n' "$paths_inline" >> "$body"
           fi
+          # shellcheck disable=SC2016
           printf '%s\n' \
             '' \
             '## Non implementato (ancora)' \

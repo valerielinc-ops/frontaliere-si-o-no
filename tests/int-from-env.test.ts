@@ -141,7 +141,7 @@ items.slice(0, limit);`;
     const workflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
     expect(workflow).toMatch(/\n  push:\n    branches: \[main\]/);
     expect(workflow).toMatch(/\n  merge_group:\n/);
-    const stepStart = workflow.indexOf('- name: Forbid the NaN-producing env fallback inside Number()');
+    const stepStart = workflow.indexOf('- name: Run source guards in parallel');
     expect(stepStart).toBeGreaterThanOrEqual(0);
     const step = workflow.slice(stepStart, workflow.indexOf('\n\n', stepStart));
     expect(step).toContain("github.event_name == 'push'");

@@ -558,8 +558,12 @@ jobs:
           # niente annotazione, solo il banner generico). Stesso testo, calcolato
           # in bash invece che nell'espressione: il prompt lo legge da un output.
           if [ "${APP_TOKEN_WORKFLOWS:-}" = "true" ]; then
+            # This text intentionally contains literal backticks and shell-like
+            # fragments that must be passed through to Claude unchanged.
+            # shellcheck disable=SC2016
             GUARD_TEXT='il push di questo run usa il token della GitHub App, e la risposta API del conio ha CONFERMATO `permissions.workflows == write` (letto, non dedotto dalla presenza del token): modificare file in `.github/workflows/**` è consentito e il `git push` passa. Trattali come qualunque altro file — non auto-bloccarti su quel path.'
           else
+            # shellcheck disable=SC2016
             GUARD_TEXT='il push di questo run NON ha lo scope `workflows`: o non esiste un token App, o il token è stato coniato ma il permesso `workflows` non risulta concesso sulla installazione (verificato leggendo `permissions` dalla risposta API). Dai path target estratti dal body: se il fix richiederebbe di modificare file in `.github/workflows/**` → il `git push` fallirebbe sempre (push di workflow rifiutato senza scope `workflows`) → niente PR. Allora NON implementare: posta un commento col diff/azione proposta + "blocco scope `workflows`: serve la GitHub App abilitata o mano umana" e TERMINA SUBITO.'
           fi
           {
@@ -569,6 +573,8 @@ jobs:
           } >> "$GITHUB_OUTPUT"
           # Stessa mossa, testo statico (nessun ternario): anche questo pezzo
           # viveva inline nel prompt e contribuiva al totale del blocco.
+          # This prompt fragment is deliberately a literal single-quoted value.
+          # shellcheck disable=SC2016
           SECRETS_NOTE='**I SEGRETI CI SONO** (decisione del proprietario del 2026-08-24, registro in DECISIONS.md): questo run carica Remote Config prima di partire, quindi `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri ~90 parametri sono in `process.env`. Un fix che richiede una credenziale va IMPLEMENTATO, non documentato: `blocked-secrets` non è più un verdetto strutturale e va usato SOLO se leggi la variabile e la trovi davvero vuota — in quel caso dillo con il nome esatto della variabile mancante, perché è un difetto della mappa `RC_TO_ENV`, non un limite di capacità. Resta valido il freno sulle **repo-setting/branch-protection/admin-API** (es. `gh api .../branches/main/protection` → 403): là il PAT c'\''è ma il permesso è un'\''altra cosa, e vale ancora `blocked-admin-settings`. Razionale invariato: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983), quindi le capability si valutano a turno 1 — solo che ora la risposta sui segreti è «sì».'
           {
             echo "secrets_note<<SECRETS_NOTE_EOF"
@@ -578,8 +584,9 @@ jobs:
           if echo "$body" | grep -qiE 'crawler|parser|build-plugin|\.github/workflows/|test gate|validator|migrator' \
              || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)' \
              || echo "$body" | grep -qiE 'seo-[a-z0-9]|audit-dist|validate-dist'; then
-            echo "tier=high" >> "$GITHUB_OUTPUT"
-            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
+            {
+              echo "tier=high"
+              echo "model=claude-opus-5"
             # 40->50 (misurato 06-12): 44 run/7gg morti error_max_turns a
             # num_turns=41 (es. run 27386343034) = run opus intera bruciata,
             # 0 PR, issue ri-accodata -> retry = doppio burn. Il cap esiste
@@ -588,10 +595,12 @@ jobs:
             # 50->70 (2026-07-17, owner): bump fleet-wide di tutti i cap Claude
             # dopo l'ennesimo error_max_turns (pr-review-loop tier high, run
             # 29556645538) — stessa regola: cap sopra il p99, mai budget.
-            echo "max_turns=70" >> "$GITHUB_OUTPUT"
+              echo "max_turns=70"
+            } >> "$GITHUB_OUTPUT"
           else
-            echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
+            {
+              echo "tier=normal"
+              echo "model=claude-opus-5"
             # 30->40 (misurato 2026-06-12 post-#1919): 3 run tier=normal morti
             # error_max_turns al cap nella sola finestra 06:00-07:30Z (run
             # 27397873962/27399888568/27400421268, follow-up #1918/#1931) —
@@ -599,7 +608,8 @@ jobs:
             # 7gg aveva mostrato solo morti opus (bias). Stessa regola: cap
             # anti-runaway sopra il p99 dei run sani, non budget di lavoro.
             # 40->55 (2026-07-17, owner): bump fleet-wide, vedi tier high sopra.
-            echo "max_turns=55" >> "$GITHUB_OUTPUT"
+              echo "max_turns=55"
+            } >> "$GITHUB_OUTPUT"
           fi
           echo "Fix tier: $(grep tier= "$GITHUB_OUTPUT" | head -1)"
           # Aggregate detection belongs to the shared Node predicate. Keeping
@@ -865,9 +875,11 @@ jobs:
             --json number --jq '.[].number' > "$baseline_file"
           ln -sf "$GITHUB_WORKSPACE/scripts/gh-pr-body-check.mjs" "$gate_dir/gh"
           echo "$gate_dir" >> "$GITHUB_PATH"
-          echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
-          echo "PR_BODY_GATE_STATUS_FILE=$status_file" >> "$GITHUB_ENV"
-          echo "PR_BODY_GATE_BASELINE_FILE=$baseline_file" >> "$GITHUB_ENV"
+          {
+            echo "PR_BODY_GATE_BIN=$gate_dir"
+            echo "PR_BODY_GATE_STATUS_FILE=$status_file"
+            echo "PR_BODY_GATE_BASELINE_FILE=$baseline_file"
+          } >> "$GITHUB_ENV"
 
       - name: Run Claude fix
         # Tetto sullo step (classe #7310). Il cap del job è 360min e in pratica

@@ -515,6 +515,9 @@ jobs:
             echo "::warning::R2 credentials absent — the ticker keeps serving the previously pushed copy"
             exit 0
           fi
+          # The single-quoted argument is JavaScript source; its template
+          # literals must expand in Node, not in the surrounding shell.
+          # shellcheck disable=SC2016
           node -e '
             const fs = require("node:fs");
             const parsed = JSON.parse(fs.readFileSync("public/news-ticker-live.json", "utf-8"));
