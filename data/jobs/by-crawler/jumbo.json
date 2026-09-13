@@ -17602,12 +17602,12 @@
     },
     {
       "id": "jumbo-5912630d-2b9",
-      "slug": "verkaufer-in-kassen-services-jumbo-widnau",
+      "slug": "vendita-cassa-servizi-jumbo-widnau",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-widnau",
-        "it": "verkaufer-in-kassen-services-jumbo-widnau",
-        "en": "verkaufer-in-kassen-services-jumbo-widnau",
-        "fr": "verkaufer-in-kassen-services-jumbo-widnau"
+        "it": "vendita-cassa-servizi-jumbo-widnau",
+        "en": "seller-cash-register-services-jumbo-widnau",
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-widnau"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17700,13 +17700,16 @@
           "verkaufer-in-kassen-services-jumbo-widnau-sankt-gallen-yqxwqj",
           "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-widnau",
           "vendeur-dans-les-caisses-enregistreuses-services-jumbo-rickenbach",
-          "vendita-cassa-servizi-jumbo-widnau"
+          "vendita-cassa-servizi-jumbo-widnau",
+          "verkaufer-in-kassen-services-jumbo-widnau"
         ],
         "en": [
-          "seller-cash-register-services-jumbo-widnau"
+          "seller-cash-register-services-jumbo-widnau",
+          "verkaufer-in-kassen-services-jumbo-widnau"
         ],
         "fr": [
-          "caisse-enregistreuse-services-du-vendeur-jumbo-widnau"
+          "caisse-enregistreuse-services-du-vendeur-jumbo-widnau",
+          "verkaufer-in-kassen-services-jumbo-widnau"
         ]
       },
       "previousSlugs": [
@@ -17730,7 +17733,8 @@
         "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-widnau",
         "vendeur-dans-les-caisses-enregistreuses-services-jumbo-rickenbach",
         "vendita-cassa-servizi-jumbo-widnau",
-        "seller-cash-register-services-jumbo-widnau"
+        "seller-cash-register-services-jumbo-widnau",
+        "verkaufer-in-kassen-services-jumbo-widnau"
       ]
     }
   ]

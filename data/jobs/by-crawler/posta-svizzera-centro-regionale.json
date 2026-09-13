@@ -1688,9 +1688,9 @@
       "slug": "housekeeper-in-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "housekeeper-in-die-schweizerische-post-bern",
-        "en": "building-custodian-postparc-bern-die-schweizerische-post-bern",
+        "en": "hauswart-in-post",
         "de": "hauswart-in-die-schweizerische-post-bern",
-        "fr": "concierge-gardien-postparc-berne-die-schweizerische-post-bern"
+        "fr": "femme-de-menage-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -1714,12 +1714,10 @@
         "fr": [
           "hauswart-in-postparc-bern-die-schweizerische-post-bern",
           "menageur-a-postparc-bern-die-schweizerische-post-bern",
-          "femme-de-menage-die-schweizerische-post-bern",
           "concierge-gardien-postparc-berne-die-schweizerische-post-bern"
         ],
         "en": [
           "housekeeper-in-postparc-bern-die-schweizerische-post-bern",
-          "hauswart-in-post",
           "building-custodian-postparc-bern-die-schweizerische-post-bern"
         ]
       },
@@ -1728,8 +1726,6 @@
         "hauswart-in-postparc-bern-die-schweizerische-post-bern",
         "menageur-a-postparc-bern-die-schweizerische-post-bern",
         "housekeeper-in-postparc-bern-die-schweizerische-post-bern",
-        "hauswart-in-post",
-        "femme-de-menage-die-schweizerische-post-bern",
         "concierge-gardien-postparc-berne-die-schweizerische-post-bern",
         "building-custodian-postparc-bern-die-schweizerische-post-bern"
       ],
@@ -3146,7 +3142,7 @@
       },
       "slug": "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen",
       "slugByLocale": {
-        "it": "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen",
+        "it": "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen",
         "en": "delivery-in-newspaper-the-message-in-the-hourly-wage-die-schweizerische-post-dottingen",
         "de": "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
         "fr": "livraison-dans-les-journaux-le-message-dans-le-salaire-horaire-die-schweizerische-post-dottingen"
@@ -3186,15 +3182,11 @@
       "firstSeenAt": "2026-09-01T14:21:32.831Z",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
-          "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen",
-          "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen"
+          "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
-        "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen",
-        "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen"
+        "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
       ]
     },
     {
@@ -5246,7 +5238,7 @@
       },
       "slug": "information-security-officer-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "information-security-officer-die-schweizerische-post-bern",
+        "it": "responsabile-della-sicurezza-die-schweizerische-post-bellinzona",
         "en": "information-security-officer-post",
         "de": "information-security-officer-post",
         "fr": "specialiste-de-la-securite-informatique-die-schweizerische-post-bellinzona"
@@ -5288,8 +5280,7 @@
       "previousSlugsByLocale": {
         "it": [
           "information-security-officer-post",
-          "information-security-officer-die-schweizerische-post-bellinzona",
-          "responsabile-della-sicurezza-die-schweizerische-post-bellinzona"
+          "information-security-officer-die-schweizerische-post-bellinzona"
         ],
         "fr": [
           "information-security-officer-post"
@@ -5297,8 +5288,7 @@
       },
       "previousSlugs": [
         "information-security-officer-post",
-        "information-security-officer-die-schweizerische-post-bellinzona",
-        "responsabile-della-sicurezza-die-schweizerische-post-bellinzona"
+        "information-security-officer-die-schweizerische-post-bellinzona"
       ],
       "salarySource": "reported",
       "retranslationAttempts": 3,
@@ -5579,9 +5569,9 @@
       "slug": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
       "slugByLocale": {
         "it": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
-        "en": "client-advisors-die-schweizerische-post-emmenbrucke",
+        "en": "customer-advisor-in-die-schweizerische-post-emmenbrucke",
         "de": "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "fr": "conseillers-clients-die-schweizerische-post-emmenbrucke"
+        "fr": "conseiller-client-in-die-schweizerische-post-emmenbrucke"
       },
       "sourceLang": "de",
       "department": "",
@@ -5604,20 +5594,16 @@
         ],
         "en": [
           "kundenberater-in-die-schweizerische-post-emmenbrucke",
-          "customer-advisor-in-die-schweizerische-post-emmenbrucke",
           "client-advisors-die-schweizerische-post-emmenbrucke"
         ],
         "fr": [
           "kundenberater-in-die-schweizerische-post-emmenbrucke",
-          "conseiller-client-in-die-schweizerische-post-emmenbrucke",
           "conseillers-clients-die-schweizerische-post-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-post",
         "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "customer-advisor-in-die-schweizerische-post-emmenbrucke",
-        "conseiller-client-in-die-schweizerische-post-emmenbrucke",
         "client-advisors-die-schweizerische-post-emmenbrucke",
         "conseillers-clients-die-schweizerische-post-emmenbrucke"
       ],
@@ -6623,7 +6609,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ehrendingen",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ehrendingen",
-        "en": "letter-and-parcel-courier-die-schweizerische-post-ehrendingen",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-ehrendingen",
         "de": "zusteller-in-briefe-und-pakete-post-2",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-ehrendingen"
       },
@@ -6668,7 +6654,6 @@
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-ehrendingen",
           "delivery-in-letters-and-packages-die-schweizerische-post-degersheim",
-          "delivery-in-letters-and-packages-die-schweizerische-post-ehrendingen",
           "letter-and-parcel-courier-die-schweizerische-post-ehrendingen"
         ],
         "fr": [
@@ -6710,7 +6695,6 @@
         "zusteller-in-briefe-und-pakete-post-13",
         "zusteller-in-briefe-und-pakete-post-15",
         "zusteller-in-briefe-und-pakete-post-16",
-        "delivery-in-letters-and-packages-die-schweizerische-post-ehrendingen",
         "letter-and-parcel-courier-die-schweizerische-post-ehrendingen"
       ],
       "id": "posta-svizzera-centro-regionale-7deddf12aeb4",
@@ -7350,7 +7334,7 @@
         "it": "apprendistato-come-automatikmonteur-in-cfc-die-schweizerische-post-zurich-mulligen",
         "en": "teaching-as-an-automatic-installer-in-efz-die-schweizerische-post-zurich-mulligen",
         "de": "lehre-als-automatikmonteur-in-efz-post",
-        "fr": "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
+        "fr": "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -7372,13 +7356,11 @@
           "lehre-als-automatikmonteur-in-efz-post"
         ],
         "fr": [
-          "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen",
           "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
         ]
       },
       "previousSlugs": [
         "lehre-als-automatikmonteur-in-efz-post",
-        "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen",
         "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
       ],
       "id": "posta-svizzera-centro-regionale-e28dce826ade",
@@ -8211,12 +8193,12 @@
         "en": "EFZ Distribution mixed delivery (letters and packages)",
         "fr": "EFZ Distribution livraison mixte (lettres et colis)"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-084e5c",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-084e5c",
+        "en": "efz-distribution-mixed-delivery-letters-and-packages-die-schweizerische-post-dattwil-ag",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "efz-distribution-livraison-mixte-lettres-et-colis-die-schweizerische-post-dattwil-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -8250,7 +8232,21 @@
       },
       "addressLocality": "Dättwil AG",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-09-13T14:02:37.296Z"
+      "firstSeenAt": "2026-09-13T14:02:37.296Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73867-de_DE",
@@ -8590,8 +8586,7 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-nm88xs"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
       "id": "posta-svizzera-centro-regionale-86dfc6ed05e3",
       "salaryMin": 52000,
@@ -9428,7 +9423,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -9452,7 +9447,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -9461,8 +9455,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -13541,9 +13534,9 @@
         "de": "Kundenberater",
         "fr": "Conseillère/Conseiller à la clientèle"
       },
-      "slug": "consigliere-clienti-la-poste-suisse-st-imier",
+      "slug": "consulente-clienti-la-poste-suisse-st-imier",
       "slugByLocale": {
-        "it": "consigliere-clienti-la-poste-suisse-st-imier",
+        "it": "consulente-clienti-la-poste-suisse-st-imier",
         "en": "client-advisor-la-poste-suisse-st-imier",
         "de": "kundenberater-la-poste-suisse-st-imier",
         "fr": "conseillere-conseiller-a-la-clientele-la-poste-suisse-st-imier"
@@ -13584,7 +13577,7 @@
       "previousSlugsByLocale": {
         "it": [
           "conseillere-conseiller-a-la-clientele-post",
-          "consulente-clienti-la-poste-suisse-st-imier"
+          "consigliere-clienti-la-poste-suisse-st-imier"
         ],
         "en": [
           "conseillere-conseiller-a-la-clientele-post"
@@ -13595,7 +13588,7 @@
       },
       "previousSlugs": [
         "conseillere-conseiller-a-la-clientele-post",
-        "consulente-clienti-la-poste-suisse-st-imier"
+        "consigliere-clienti-la-poste-suisse-st-imier"
       ]
     },
     {
@@ -14650,7 +14643,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -14674,7 +14667,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },
