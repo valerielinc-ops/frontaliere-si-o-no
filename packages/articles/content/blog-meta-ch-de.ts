@@ -6328,6 +6328,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esercito-polizia-berna-droni.title': 'Armee und Polizei trainieren Infrastrukturschutz',
     'blog.article.esercito-polizia-berna-droni.excerpt': 'Im Kanton Bern läuft eine viertägige gemeinsame Übung zur Verteidigung kritischer Infrastrukturen gegen Drohnen.',
     'blog.article.esercito-polizia-berna-droni.imageAlt': 'Gemeinsame Polizei- und Militärübung gegen Drohnen in Bern',
+    'blog.article.difesa-droni-infrastrutture-berna.title': 'Drohnenabwehr in der Schweiz: Die Übung in Bern startet',
+    'blog.article.difesa-droni-infrastrutture-berna.excerpt': 'Start einer viertägigen gemeinsamen Übung im Kanton Bern zum Schutz kritischer Infrastrukturen und Energieanlagen vor unbemannten Flugzeugen.',
+    'blog.article.difesa-droni-infrastrutture-berna.imageAlt': 'Sendeturm auf dem Bantiger im Kanton Bern während einer Sicherheitsübung',
 };
 
 export default blogMetaChDe;
