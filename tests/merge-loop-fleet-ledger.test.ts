@@ -168,4 +168,75 @@ describe('merge-loop-fleet-ledger', () => {
       }
     }
   });
+
+  it('accepts valid historical records from another loop in the shared ledger', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-cross-loop-'));
+    const historicalDir = path.join(root, 'historical');
+    const currentDir = path.join(root, 'current');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(historicalDir);
+    fs.mkdirSync(currentDir);
+    writeL1Evidence(historicalDir);
+    writeJson(currentDir, 'l2-observation.json', {
+      recordType: 'observation',
+      schemaVersion: 1,
+      loopId: 'L2',
+      actionClass: 'candidate',
+      quality: 'partial',
+      recordedAt: NOW.toISOString(),
+    });
+    writeJson(currentDir, 'l2-decision.json', {
+      recordType: 'decision',
+      schemaVersion: 1,
+      loopId: 'L2',
+      actionClass: 'candidate',
+      decision: 'candidate',
+      startedAt: NOW.toISOString(),
+      expiresAt: new Date(NOW.getTime() + 24 * 3_600_000).toISOString(),
+      decidedAt: NOW.toISOString(),
+    });
+    writeJson(currentDir, 'l2-result.json', {
+      loopId: 'L2',
+      ok: false,
+      quality: 'partial',
+    });
+
+    const previous = {
+      GITHUB_REPOSITORY: process.env.GITHUB_REPOSITORY,
+      GITHUB_WORKFLOW: process.env.GITHUB_WORKFLOW,
+      GITHUB_EVENT_NAME: process.env.GITHUB_EVENT_NAME,
+      GITHUB_REF: process.env.GITHUB_REF,
+      GITHUB_SHA: process.env.GITHUB_SHA,
+      GITHUB_RUN_ID: process.env.GITHUB_RUN_ID,
+      GITHUB_RUN_ATTEMPT: process.env.GITHUB_RUN_ATTEMPT,
+    };
+    Object.assign(process.env, {
+      GITHUB_REPOSITORY: 'example/frontaliere',
+      GITHUB_WORKFLOW: 'Loop L1 reliability',
+      GITHUB_EVENT_NAME: 'schedule',
+      GITHUB_REF: 'refs/heads/main',
+      GITHUB_SHA: SHA,
+      GITHUB_RUN_ID: '12345',
+      GITHUB_RUN_ATTEMPT: '1',
+    });
+    try {
+      recordEvidence({ loopId: 'L1', reportDir: historicalDir, now: NOW });
+      mergeLedger({ loopId: 'L1', runId: '12345', sha: SHA, inputDir: historicalDir, ledgerDir });
+
+      Object.assign(process.env, {
+        GITHUB_WORKFLOW: 'Loop L2 demand to utility',
+        GITHUB_RUN_ID: '12346',
+      });
+      recordEvidence({ loopId: 'L2', reportDir: currentDir, now: NOW });
+      const result = mergeLedger({ loopId: 'L2', runId: '12346', sha: SHA, inputDir: currentDir, ledgerDir });
+
+      expect(result.results.observation.appended).toBe(1);
+      expect(fs.readFileSync(path.join(ledgerDir, 'loop-observations.jsonl'), 'utf8').trim().split('\n')).toHaveLength(2);
+    } finally {
+      for (const [key, value] of Object.entries(previous)) {
+        if (value === undefined) delete process.env[key];
+        else process.env[key] = value;
+      }
+    }
+  });
 });
