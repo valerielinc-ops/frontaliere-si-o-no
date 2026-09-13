@@ -125,15 +125,17 @@ function checkFreshness(value, label, { now, maxAgeHours, issues }) {
     return null;
   }
   const ageHours = hoursBetween(now, date);
-  if (ageHours < -0.0834) issues.push(`${label} is in the future`);
-  if (ageHours > maxAgeHours) issues.push(`${label} is ${ageHours.toFixed(1)}h old (max ${maxAgeHours}h)`);
-  return { iso: date.toISOString(), ageHours: Number(ageHours.toFixed(3)) };
+  const future = ageHours < -0.0834;
+  const stale = ageHours > maxAgeHours;
+  if (future) issues.push(`${label} is in the future`);
+  if (stale) issues.push(`${label} is ${ageHours.toFixed(1)}h old (max ${maxAgeHours}h)`);
+  return { iso: date.toISOString(), ageHours: Number(ageHours.toFixed(3)), future, stale };
 }
 
 function validateFuel(fuel, { now, maxAgeHours, issues }) {
   if (!fuel || typeof fuel !== 'object' || Array.isArray(fuel)) {
     issues.push('fuel source is not a JSON object');
-    return { present: false, generatedAt: null, municipalityCount: null };
+    return { present: false, generatedAt: null, municipalityCount: null, stale: false, future: false };
   }
   const freshness = checkFreshness(fuel.generatedAt, 'fuel.generatedAt', { now, maxAgeHours, issues });
   const summary = fuel.summary;
@@ -155,22 +157,32 @@ function validateFuel(fuel, { now, maxAgeHours, issues }) {
     ageHours: freshness?.ageHours ?? null,
     swissUpdate: swissUpdate?.iso || null,
     municipalityCount: integer(summary?.municipalityCount) ? summary.municipalityCount : null,
+    stale: Boolean(freshness?.stale || swissUpdate?.stale),
+    future: Boolean(freshness?.future || swissUpdate?.future),
   };
 }
 
 function validateBorder(border, { now, maxAgeHours, issues, candidates }) {
   if (!border || typeof border !== 'object' || Array.isArray(border)) {
     issues.push('border source is not a JSON object');
-    return { present: false, updatedAt: null, crossings: null };
+    return { present: false, updatedAt: null, crossings: null, stale: false, future: false };
   }
   const freshness = checkFreshness(border.updatedAt, 'border.updatedAt', { now, maxAgeHours, issues });
   const crossings = border.perCrossing;
   if (!crossings || typeof crossings !== 'object' || Array.isArray(crossings)) {
     issues.push('border.perCrossing is missing or not an object');
-    return { present: true, updatedAt: freshness?.iso || null, crossings: null };
+    return {
+      present: true,
+      updatedAt: freshness?.iso || null,
+      crossings: null,
+      stale: Boolean(freshness?.stale),
+      future: Boolean(freshness?.future),
+    };
   }
   const statuses = new Set(['green', 'yellow', 'orange', 'red', 'unknown']);
   let valid = 0;
+  let stale = Boolean(freshness?.stale);
+  let future = Boolean(freshness?.future);
   for (const [key, entry] of Object.entries(crossings)) {
     const prefix = `border.perCrossing.${key}`;
     if (!integer(entry?.waitTimeMinutes) || !integer(entry?.approachMinutes) || !integer(entry?.totalCrossingMinutes)) {
@@ -180,7 +192,9 @@ function validateBorder(border, { now, maxAgeHours, issues, candidates }) {
     if (entry.totalCrossingMinutes !== entry.waitTimeMinutes + entry.approachMinutes) issues.push(`${prefix}: total minutes do not reconcile with wait plus approach`);
     if (!statuses.has(entry.status)) issues.push(`${prefix}: status is invalid`);
     if (!text(entry.source)) issues.push(`${prefix}: source is missing`);
-    checkFreshness(entry.lastUpdate, `${prefix}.lastUpdate`, { now, maxAgeHours, issues });
+    const crossingFreshness = checkFreshness(entry.lastUpdate, `${prefix}.lastUpdate`, { now, maxAgeHours, issues });
+    stale ||= Boolean(crossingFreshness?.stale);
+    future ||= Boolean(crossingFreshness?.future);
     valid += 1;
   }
   if (valid === 0) issues.push('border has no valid crossing records');
@@ -191,13 +205,20 @@ function validateBorder(border, { now, maxAgeHours, issues, candidates }) {
     action: 'reorder a sourced same-corridor bridge or CTA through a reviewed PR',
     reversible: true,
   })));
-  return { present: true, updatedAt: freshness?.iso || null, crossings: Object.keys(crossings).length, validCrossings: valid };
+  return {
+    present: true,
+    updatedAt: freshness?.iso || null,
+    crossings: Object.keys(crossings).length,
+    validCrossings: valid,
+    stale,
+    future,
+  };
 }
 
 function validatePharmacies(pharmacies, { now, maxAgeHours, issues, candidates }) {
   if (!pharmacies || typeof pharmacies !== 'object' || Array.isArray(pharmacies)) {
     issues.push('pharmacy source is not a JSON object');
-    return { present: false, fetchedAt: null, pharmacies: null };
+    return { present: false, fetchedAt: null, pharmacies: null, stale: false, future: false };
   }
   const freshness = checkFreshness(pharmacies._fetchedAt, 'pharmacies._fetchedAt', { now, maxAgeHours: Math.max(maxAgeHours, 96), issues });
   if (!Array.isArray(pharmacies.pharmacies)) issues.push('pharmacies.pharmacies is missing or not an array');
@@ -223,13 +244,20 @@ function validatePharmacies(pharmacies, { now, maxAgeHours, issues, candidates }
     action: 'add a sourced freshness reminder or related tool bridge through a reviewed PR',
     reversible: true,
   })));
-  return { present: true, fetchedAt: freshness?.iso || null, pharmacies: Array.isArray(pharmacies.pharmacies) ? pharmacies.pharmacies.length : null, validPharmacies: valid };
+  return {
+    present: true,
+    fetchedAt: freshness?.iso || null,
+    pharmacies: Array.isArray(pharmacies.pharmacies) ? pharmacies.pharmacies.length : null,
+    validPharmacies: valid,
+    stale: Boolean(freshness?.stale),
+    future: Boolean(freshness?.future),
+  };
 }
 
 function validateDuties(duties, { now, maxAgeHours, issues }) {
   if (!duties || typeof duties !== 'object' || Array.isArray(duties)) {
     issues.push('pharmacy duty source is not a JSON object');
-    return { present: false, fetchedAt: null, duties: null };
+    return { present: false, fetchedAt: null, duties: null, stale: false, future: false };
   }
   const freshness = checkFreshness(duties._fetchedAt, 'duties._fetchedAt', { now, maxAgeHours: Math.max(maxAgeHours, 96), issues });
   if (!Array.isArray(duties.duties)) issues.push('duties.duties is missing or not an array');
@@ -245,10 +273,17 @@ function validateDuties(duties, { now, maxAgeHours, issues }) {
     if (duty?.status !== 'verified' && duty?.status !== 'expired') issues.push(`${prefix}: status is invalid`);
     if (starts && ends && ends.getTime() > starts.getTime() && httpsUrl(duty?.sourceUrl)) valid += 1;
   }
-  return { present: true, fetchedAt: freshness?.iso || null, duties: Array.isArray(duties.duties) ? duties.duties.length : null, validDuties: valid };
+  return {
+    present: true,
+    fetchedAt: freshness?.iso || null,
+    duties: Array.isArray(duties.duties) ? duties.duties.length : null,
+    validDuties: valid,
+    stale: Boolean(freshness?.stale),
+    future: Boolean(freshness?.future),
+  };
 }
 
-function validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, outcomePath }) {
+function validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, outcomePath, requiredSourceRefs = [] }) {
   if (!outcomes || typeof outcomes !== 'object' || Array.isArray(outcomes)) {
     issues.push('decision-moment outcome export is missing');
     return {
@@ -266,15 +301,31 @@ function validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, o
     };
   }
   const evidence = outcomes.evidence || outcomes.provenance;
+  const independent = outcomes.independent === true;
+  let evidenceValid = false;
   if (outcomes.independent !== true) {
     issues.push('outcomes.independent must be explicitly true for a measured decision-moment export');
   }
   if (!evidence || typeof evidence !== 'object' || Array.isArray(evidence)) {
     issues.push('outcomes.evidence is missing or not an object');
   } else {
-    if (!text(evidence.source)) issues.push('outcomes.evidence.source is missing');
-    if (!Array.isArray(evidence.sourceRefs) || evidence.sourceRefs.length === 0 || evidence.sourceRefs.some((sourceRef) => !text(sourceRef))) {
+    const sourceValid = text(evidence.source);
+    if (!sourceValid) issues.push('outcomes.evidence.source is missing');
+    const sourceRefsValid = Array.isArray(evidence.sourceRefs)
+      && evidence.sourceRefs.length > 0
+      && evidence.sourceRefs.every((sourceRef) => text(sourceRef));
+    if (!sourceRefsValid) {
       issues.push('outcomes.evidence.sourceRefs must be a non-empty array of text');
+    } else {
+      const sourceRefs = evidence.sourceRefs.map((sourceRef) => sourceRef.trim());
+      // Counts plus an independent flag are not enough: the export must name
+      // every evidence source required by the active loop contract.
+      const missingSourceRefs = requiredSourceRefs.filter((sourceRef) => !sourceRefs.includes(sourceRef));
+      if (missingSourceRefs.length) {
+        issues.push(`outcomes.evidence.sourceRefs must include registry source refs: ${missingSourceRefs.join(', ')}`);
+      } else if (sourceValid) {
+        evidenceValid = true;
+      }
     }
   }
   const generated = checkFreshness(outcomes.generatedAt || outcomes._meta?.generatedAt, 'outcomes.generatedAt', { now, maxAgeHours, issues });
@@ -287,7 +338,7 @@ function validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, o
   const snapshot = {
     path: outcomePath,
     missing: false,
-    independent: outcomes.independent === true,
+    independent,
     evidence: evidence && typeof evidence === 'object' && !Array.isArray(evidence)
       ? {
         source: text(evidence.source) ? evidence.source.trim() : null,
@@ -300,7 +351,7 @@ function validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, o
     nextUsefulActions: integer(nextUsefulActions) ? nextUsefulActions : null,
   };
   let quality = 'observed';
-  if (!generated || !integer(eligibleDecisionSessions) || !integer(nextUsefulActions)) quality = 'partial';
+  if (!independent || !evidenceValid || !generated || !integer(eligibleDecisionSessions) || !integer(nextUsefulActions)) quality = 'partial';
   else if ((generated.ageHours ?? 0) < -0.0834 || (generated.ageHours ?? 0) > maxAgeHours) quality = 'stale';
   else if (eligibleDecisionSessions === 0) quality = 'zero';
   else if (eligibleDecisionSessions < minimumSample) quality = 'partial';
@@ -324,7 +375,20 @@ export function validateDecisionMoments({ fuel, border, pharmacies, duties, outc
   const borderSnapshot = validateBorder(border, { now, maxAgeHours, issues, candidates });
   const pharmacySnapshot = validatePharmacies(pharmacies, { now, maxAgeHours, issues, candidates });
   const dutySnapshot = validateDuties(duties, { now, maxAgeHours, issues });
-  const outcomeVerdict = validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, outcomePath });
+  const registryLoop = Array.isArray(registry?.loops)
+    ? registry.loops.find((loop) => loop.loopId === LOOP_ID)
+    : null;
+  const requiredSourceRefs = Array.isArray(registryLoop?.outcome?.sourceRefs)
+    ? registryLoop.outcome.sourceRefs
+    : [];
+  const outcomeVerdict = validateOutcomes(outcomes, {
+    now,
+    maxAgeHours,
+    minimumSample,
+    issues,
+    outcomePath,
+    requiredSourceRefs,
+  });
   if (!outcomes) warnings.push('decision outcome join is missing; bridge candidates stay review-only');
   const registryResult = applyRegistryPolicy(candidates, registry, issues);
   const snapshot = {
@@ -340,7 +404,8 @@ export function validateDecisionMoments({ fuel, border, pharmacies, duties, outc
   };
   let quality = 'observed';
   if (!registryResult.valid || !fuelSnapshot.present || !borderSnapshot.present || !pharmacySnapshot.present || !dutySnapshot.present) quality = 'unmeasurable';
-  else if (outcomeVerdict.quality === 'stale') quality = 'stale';
+  else if ([fuelSnapshot, borderSnapshot, pharmacySnapshot, dutySnapshot].some((source) => source.stale || source.future)
+      || outcomeVerdict.quality === 'stale') quality = 'stale';
   else if (outcomeVerdict.quality === 'zero') quality = 'zero';
   else if (issues.length || outcomeVerdict.quality !== 'observed') quality = 'partial';
   const ok = quality === 'observed' && issues.length === 0;
@@ -402,13 +467,18 @@ function buildDecisionMomentOutcome({ source, verdict, policy, registry, now }) 
     : null;
   const explicitIndependent = source?.independent === true;
   const outcomeQuality = outcomeSnapshot.quality || 'partial';
-  const measured = outcomeQuality === 'observed'
+  // A valid outcome export must not mask a stale or malformed decision
+  // surface. Keep the metrics null until the complete verdict is observed.
+  const measured = verdict.ok
+    && outcomeQuality === 'observed'
     && explicitIndependent
     && eligibleDecisionSessions !== null
     && nextUsefulActions !== null;
   const status = measured
     ? 'observed'
-    : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
+    : (verdict.quality === 'stale' || outcomeQuality === 'stale'
+      ? 'stale'
+      : (verdict.quality === 'unmeasurable' || outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
   const outcome = buildValidatedLoopOutcome({
     registry,
     loopId: LOOP_ID,
