@@ -1120,7 +1120,7 @@ jobs:
             else
               nohup bash "$script" > "$state_dir/$label.log" 2>&1 < /dev/null &
             fi
-            printf '%s\\n' "$!" > "$state_dir/$label.pid"
+            printf '%s\n' "$!" > "$state_dir/$label.pid"
           }
           if [ "$RUN_TSC" = "true" ]; then
             start_gate tsc 'env NODE_OPTIONS=--max-old-space-size=8192 bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate'
