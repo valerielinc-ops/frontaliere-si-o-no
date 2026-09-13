@@ -10,12 +10,12 @@ import {
   AUTONOMY_ORDER,
   actionAutonomy,
   buildDecision,
-  buildOutcome,
   buildObservation,
   loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 
 export const LOOP_ID = 'L5';
 export const DEFAULT_FUEL_PATH = path.join('data', 'fuel-prices.json');
@@ -391,7 +391,7 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
-function buildDecisionMomentOutcome({ source, verdict, policy, now }) {
+function buildDecisionMomentOutcome({ source, verdict, policy, registry, now }) {
   const outcomeSnapshot = verdict.snapshot?.outcomes || {};
   const generatedAt = finiteDate(outcomeSnapshot.generatedAt);
   const eligibleDecisionSessions = integer(outcomeSnapshot.eligibleDecisionSessions)
@@ -409,26 +409,18 @@ function buildDecisionMomentOutcome({ source, verdict, policy, now }) {
   const status = measured
     ? 'observed'
     : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
-  const requiredFieldsPresent = measured
-    ? policy.outcome.requiredFields.slice()
-    : (generatedAt ? ['generatedAt'] : []);
-  const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
-  const outcome = buildOutcome({
-    outcomeId: policy.outcome.outcomeId,
-    status,
+  const outcome = buildValidatedLoopOutcome({
+    registry,
+    loopId: LOOP_ID,
+    quality: status,
     independent: measured,
-    sourceRefs: policy.outcome.sourceRefs,
-    primaryMetric: policy.primaryMetric,
-    numerator: measured ? nextUsefulActions : null,
-    denominator: measured ? eligibleDecisionSessions : null,
-    requiredFieldsPresent,
-    missingFields,
+    numerator: nextUsefulActions,
+    denominator: eligibleDecisionSessions,
+    observedAt: generatedAt?.toISOString() || null,
     reason: measured
       ? 'explicit independent decision-surface export with eligible sessions and next useful actions'
       : `decision-moment outcome is ${status}; no bridge or freshness claim is authorized`,
-    observedAt: generatedAt?.toISOString() || null,
-    allowNumeratorExceedDenominator: false,
-    recordedAt: now.toISOString(),
+    now,
   });
   return {
     ...outcome,
@@ -445,7 +437,7 @@ function buildDecisionMomentOutcome({ source, verdict, policy, now }) {
       sourcePath: outcomeSnapshot.path,
       sourceRefs: policy.outcome.sourceRefs,
     },
-    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (measured ? 'verified' : 'unverified'),
+    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
     sourcePath: outcomeSnapshot.path,
     safeToAct: false,
     publishedDataUntouched: true,
@@ -576,7 +568,7 @@ export async function runL5({
     },
   };
   const measurable = verdict.quality === 'observed';
-  const outcome = buildDecisionMomentOutcome({ source: sourceOutcomes, verdict, policy: loopPolicy, now });
+  const outcome = buildDecisionMomentOutcome({ source: sourceOutcomes, verdict, policy: loopPolicy, registry: loopRegistry, now });
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime() ? generatedAt.toISOString() : now.toISOString();
   const observation = buildObservation({
