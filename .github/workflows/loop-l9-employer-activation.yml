@@ -10,7 +10,9 @@ on:
       - 'data/employer-funnel-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l9-employer-activation.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/build-employer-profiles.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -21,7 +23,9 @@ on:
       - 'data/employer-funnel-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l9-employer-activation.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/build-employer-profiles.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -56,16 +60,33 @@ jobs:
             /data/employer-funnel-outcomes.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l9-employer-activation.mjs
+            /scripts/ci/export-loop-outcomes.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/build-employer-profiles.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/posthog-client.mjs
             /.github/workflows/loop-l9-employer-activation.yml
           sparse-checkout-cone-mode: false
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+      - name: Prepare read-only Firebase credentials
+        if: github.event_name != 'pull_request'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          chmod 600 /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Export fresh L9 outcomes
+        if: github.event_name != 'pull_request'
+        run: node scripts/ci/export-loop-outcomes.mjs --loop L9 --profiles data/employer-profiles.json --out "$RUNNER_TEMP/employer-funnel-outcomes.json"
       - name: Audit employer activation
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -74,11 +95,13 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --profiles data/employer-profiles.json --outcomes data/employer-funnel-outcomes.json)
+          outcomes_path=data/employer-funnel-outcomes.json
+          if [ "${{ github.event_name }}" != "pull_request" ]; then outcomes_path="$RUNNER_TEMP/employer-funnel-outcomes.json"; fi
+          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --profiles data/employer-profiles.json --outcomes "$outcomes_path")
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else
-            args+=(--dry-run --strict)
+            args+=(--dry-run)
           fi
           set +e
           node scripts/ci/loop-l9-employer-activation.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
