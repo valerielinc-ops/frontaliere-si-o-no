@@ -8,7 +8,7 @@ on:
     paths:
       - 'data/fuel-prices.json'
       - 'data/border-wait-current.json'
-      - 'data/pharmacies-ticino.json'
+      - 'data/pharmacies-ticino-complete.json'
       - 'data/pharmacy-duties-ticino.json'
       - 'data/decision-moment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
@@ -21,7 +21,7 @@ on:
     paths:
       - 'data/fuel-prices.json'
       - 'data/border-wait-current.json'
-      - 'data/pharmacies-ticino.json'
+      - 'data/pharmacies-ticino-complete.json'
       - 'data/pharmacy-duties-ticino.json'
       - 'data/decision-moment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
@@ -58,7 +58,7 @@ jobs:
           sparse-checkout: |
             /data/fuel-prices.json
             /data/border-wait-current.json
-            /data/pharmacies-ticino.json
+            /data/pharmacies-ticino-complete.json
             /data/pharmacy-duties-ticino.json
             /data/decision-moment-outcomes.json
             /data/loop-fleet/loop-registry.json
@@ -80,7 +80,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --fuel data/fuel-prices.json --border data/border-wait-current.json --pharmacies data/pharmacies-ticino.json --duties data/pharmacy-duties-ticino.json --outcomes data/decision-moment-outcomes.json --registry data/loop-fleet/loop-registry.json)
+          args=(--json --apply --report-dir "$REPORT_DIR" --fuel data/fuel-prices.json --border data/border-wait-current.json --pharmacies data/pharmacies-ticino-complete.json --duties data/pharmacy-duties-ticino.json --outcomes data/decision-moment-outcomes.json --registry data/loop-fleet/loop-registry.json)
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else

@@ -20,7 +20,7 @@ import {
 export const LOOP_ID = 'L5';
 export const DEFAULT_FUEL_PATH = path.join('data', 'fuel-prices.json');
 export const DEFAULT_BORDER_PATH = path.join('data', 'border-wait-current.json');
-export const DEFAULT_PHARMACY_PATH = path.join('data', 'pharmacies-ticino.json');
+export const DEFAULT_PHARMACY_PATH = path.join('data', 'pharmacies-ticino-complete.json');
 export const DEFAULT_DUTY_PATH = path.join('data', 'pharmacy-duties-ticino.json');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'decision-moment-outcomes.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');

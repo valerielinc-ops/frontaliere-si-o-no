@@ -2434,7 +2434,7 @@ export function parsePath(pathname: string): ParseResult {
 
  // Pharmacy coverage hub — /farmacie/ + locale twins (#6399). Source of
  // truth for the four paths: services/pharmacies/types.ts
- // PHARMACY_HUB_PATH, which build-plugins/pharmacyHubPlugin.ts emits from.
+ // PHARMACY_HUB_PATH, which build-plugins/pharmacyDirectoryPagesPlugin.ts emits from.
  // Without staticOverlay the SPA would treat the URL as unknown on
  // hydrate, hide `main.seo-static-content` and render NotFoundSuggestions
  // over a page that exists. Routed to `vita` for back-nav: daily-life
@@ -3734,6 +3734,7 @@ export function buildAllLocalePaths(route: AppRoute): Record<Locale, string> {
 }
 
 export function getSeoSection(route: AppRoute): string {
+ if (route.pharmacyPath) return `pharmacy-${route.pharmacyPath.kind}`;
  switch (route.activeTab) {
  case 'calculator': {
  if (route.seoLanding) return `landing-${route.seoLanding}`;
@@ -3983,6 +3984,9 @@ export function updatePathForLocale(newLocale: Locale): void {
  return;
  }
  let nextRoute = route;
+ if (route.pharmacyPath) {
+ nextRoute = { ...route, pharmacyPath: { ...route.pharmacyPath, locale: newLocale } };
+ }
  // When switching locale from a root path on the homepage, navigate to the new locale's root
  if (isLocaleRoot(currentPath) && isDefaultHome(route)) {
  const newRoot = newLocale === 'it' ? '/' : `/${newLocale}/`;
