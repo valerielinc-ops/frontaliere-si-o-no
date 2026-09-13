@@ -51,4 +51,15 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toMatch(/contents:\s*write/u);
     expect(source).toContain('Direct writes to main');
   });
+
+  it('keeps the automatic ledger recovery probe bounded and unable to write repository content', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger-reconcile.yml'), 'utf8');
+    expect(source).toContain("cron: '*/20 * * * *'");
+    expect(source).toContain('actions: write');
+    expect(source).toContain('contents: read');
+    expect(source).not.toMatch(/contents:\s*write/u);
+    expect(source).not.toMatch(/pull-requests:\s*write/u);
+    expect(source).toContain('LOOP_FLEET_RECONCILE_MAX_DISPATCHES: \'3\'');
+    expect(source).toContain('loop-fleet-ledger-reconcile.mjs');
+  });
 });
