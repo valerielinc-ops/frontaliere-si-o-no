@@ -235,6 +235,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
       if (qualityIssues.length > 0) {
         console.warn(`[refreshPlateAuctions:${key}] quality issues`, qualityIssues.map((item) => item.code).join(','));
       }
+      const sourceDisappeared = qualityIssues.some((item) => item.code === 'source-disappeared');
       const writes = [];
       for (const row of rows) {
         const old = previousById.get(row.id) || {};
@@ -255,14 +256,15 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
         writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), record, merge: true });
         writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}-closed`), record });
       }
-      for (const [id, old] of previousById) {
-        // A non-empty successful feed is authoritative for its current
-        // catalogue. If an active row disappears before its deadline, remove
-        // it from the current view but keep the last observation in history;
-        // absence is not evidence of a sale or a final price.
-        if (currentIds.has(id) || !['active', 'upcoming'].includes(old.auctionStatus)
-          || (old.endsAt && Date.parse(old.endsAt) <= now.getTime())) continue;
-        writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), delete: true });
+      if (!sourceDisappeared) {
+        for (const [id, old] of previousById) {
+          // A non-empty successful feed is authoritative for its current
+          // catalogue only when quality checks find no source disappearance.
+          // A partial catalogue must not erase an unexpired live observation.
+          if (currentIds.has(id) || !['active', 'upcoming'].includes(old.auctionStatus)
+            || (old.endsAt && Date.parse(old.endsAt) <= now.getTime())) continue;
+          writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), delete: true });
+        }
       }
       // Firestore batches are capped at 500 writes. Keep the collector safe
       // when a canton publishes a larger catalogue than today's fixture.
@@ -275,8 +277,11 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
         }
         await batch.commit();
       }
-      await sourceRef.set(sourceDocument(config, fetchedAt, { status: 'active', rowCount: rows.length, lastSuccessAt: fetchedAt, errorCode: null }), { merge: true });
-      summaries[key] = { status: 'active', rowCount: rows.length };
+      const sourcePatch = sourceDisappeared
+        ? { status: 'degraded', rowCount: rows.length, errorCode: 'source_disappeared' }
+        : { status: 'active', rowCount: rows.length, lastSuccessAt: fetchedAt, errorCode: null };
+      await sourceRef.set(sourceDocument(config, fetchedAt, sourcePatch), { merge: true });
+      summaries[key] = { status: sourcePatch.status, rowCount: rows.length, ...(sourceDisappeared ? { errorCode: 'source_disappeared' } : {}) };
     } catch (error) {
       await db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key).set(sourceDocument(config, fetchedAt, { status: 'degraded', errorCode: 'fetch_failed', errorMessage: error instanceof Error ? error.message.slice(0, 180) : 'unknown_error' }), { merge: true });
       summaries[key] = { status: 'degraded', errorCode: 'fetch_failed' };

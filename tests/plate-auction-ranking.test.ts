@@ -42,4 +42,9 @@ describe('plate-auction rankings', () => {
     ];
     expect(rankPlateAuctions(rows, { mode: 'current', now }).map((row) => row.auction.id)).toEqual(['usable']);
   });
+
+  it('ranks a no-bid current listing by its official starting price', () => {
+    const row = auction({ id: 'no-bid', currentBidChf: undefined, startingPriceChf: 9000, bidCount: 0 });
+    expect(rankPlateAuctions([row], { mode: 'current', now })).toMatchObject([{ auction: { id: 'no-bid' }, amountChf: 9000 }]);
+  });
 });

@@ -39,6 +39,13 @@ function readPrevious(path) {
 function sourceStatus(source, result) {
   const base = { ...source, rowCount: result.fetchedRowCount, lastFetchedAt: result.fetchedAt };
   if (result.error) return { ...base, status: 'degraded', rowCount: result.previousRows.length, errorCode: 'fetch_failed', lastSuccessAt: result.previousSuccessAt };
+  if (result.sourceDisappeared) return {
+    ...base,
+    status: 'degraded',
+    rowCount: result.rows.length,
+    errorCode: 'source_disappeared',
+    lastSuccessAt: result.previousSuccessAt,
+  };
   if (result.zeroRows && source.status === 'active') return { ...base, status: 'degraded', errorCode: 'zero_rows' };
   return { ...base, status: source.status, lastSuccessAt: result.fetchedAt };
 }
@@ -86,6 +93,12 @@ function closeExpiredObservation(row, now) {
   };
 }
 
+function isUnexpiredActiveObservation(row, now) {
+  if (!['active', 'upcoming'].includes(row.auctionStatus)) return false;
+  const endsAt = row?.endsAt ? Date.parse(row.endsAt) : NaN;
+  return !Number.isFinite(endsAt) || endsAt > now.getTime();
+}
+
 /**
  * @param {{
  *   fetchers?: Record<string, () => Promise<any[]>>,
@@ -109,26 +122,36 @@ export async function collectPlateAuctions({
     try {
       const rows = await fetchers[key]();
       const previousForSource = previousRows.filter((row) => row.sourceKey === source.plateCode);
+      const previousSuccessAt = previous?.sources?.[key]?.lastSuccessAt || previous?.generatedAt;
       const mergedRows = mergeWithPrevious(rows, previousRows, source.plateCode);
       const quality = applyQualityPolicy(mergedRows, previousForSource, now);
       const normalizedRows = quality.rows;
+      const sourceDisappeared = rows.length > 0 && quality.issues.some((item) => item.code === 'source-disappeared');
       const fetchedIds = new Set(normalizedRows.map((row) => row.id));
-      const expiredCarry = previousForSource
-        .filter((row) => !fetchedIds.has(row.id))
+      const missingPreviousRows = previousForSource.filter((row) => !fetchedIds.has(row.id));
+      const expiredCarry = missingPreviousRows
         .map((row) => closeExpiredObservation(row, now))
         .filter((row, index, all) => row.auctionStatus === 'closed' && all.findIndex((candidate) => candidate.id === row.id) === index);
-      const displayRows = [...normalizedRows, ...expiredCarry];
+      const preservedMissing = sourceDisappeared
+        ? missingPreviousRows
+          .filter((row) => isUnexpiredActiveObservation(row, now))
+          .map((row) => ({
+            ...row,
+            dataConfidence: row.dataConfidence === 'verified' ? 'partial' : row.dataConfidence,
+          }))
+        : [];
+      const displayRows = [...normalizedRows, ...expiredCarry, ...preservedMissing];
       // An empty response is degraded and preserves the last good snapshot.
-      // A non-empty response is authoritative even when every previous row
-      // disappeared; keeping the old rows in that case would publish stale
-      // listings after a valid catalogue refresh.
+      // A non-empty response is authoritative when quality checks do not flag
+      // a source disappearance. A partial catalogue must retain unexpired
+      // live rows so a markup regression cannot erase the public view.
       const outputRows = rows.length === 0
         ? previousForSource.map((row) => closeExpiredObservation(row, now))
         : displayRows;
-      results[key] = { rows: outputRows, fetchedAt, fetchedRowCount: rows.length, previousRows: previousForSource, zeroRows: rows.length === 0, qualityIssues: quality.issues, error: null };
+      results[key] = { rows: outputRows, fetchedAt, fetchedRowCount: rows.length, previousRows: previousForSource, previousSuccessAt, zeroRows: rows.length === 0, sourceDisappeared, qualityIssues: quality.issues, error: null };
     } catch (error) {
       const previousForSource = previousRows.filter((row) => row.sourceKey === source.plateCode);
-      results[key] = { rows: [], fetchedAt, fetchedRowCount: 0, previousRows: previousForSource, previousSuccessAt: previous?.generatedAt, error };
+      results[key] = { rows: [], fetchedAt, fetchedRowCount: 0, previousRows: previousForSource, previousSuccessAt: previous?.sources?.[key]?.lastSuccessAt || previous?.generatedAt, error };
     }
   }
 

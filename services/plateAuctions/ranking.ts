@@ -91,9 +91,9 @@ function dateForAuction(auction: PlateAuction): number | null {
 }
 
 function currentAmount(auction: PlateAuction): number | undefined {
-  // A direct-sale catalogue may expose only its fixed amount. It is still a
-  // current public price, but never a final auction result.
-  return auction.currentBidChf ?? (auction.listingType === 'fixed-price' ? auction.startingPriceChf : undefined);
+  // No-bid current listings use the official starting price when that is the
+  // only public amount. This is a current price, never a final auction result.
+  return auction.currentBidChf ?? auction.startingPriceChf;
 }
 
 function latestRecordById(auctions: readonly PlateAuction[]): PlateAuction[] {

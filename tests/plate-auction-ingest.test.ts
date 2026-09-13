@@ -33,7 +33,7 @@ describe('plate-auction ingest resilience', () => {
     expect(snapshot.sources.gr).toMatchObject({ status: 'degraded', errorCode: 'fetch_failed', rowCount: 1 });
   });
 
-  it('removes a non-expired row missing from a successful non-empty feed', async () => {
+  it('preserves a non-expired row missing from a degraded non-empty feed', async () => {
     const replacement = {
       ...previousRow,
       id: 'gr-2',
@@ -53,12 +53,12 @@ describe('plate-auction ingest resilience', () => {
       },
       now: NOW,
     });
-    expect(snapshot.auctions.map((auction) => auction.id)).toEqual(['gr-2']);
-    expect(snapshot.history.map((auction) => auction.id)).toEqual(['gr-1', 'gr-2']);
-    expect(snapshot.sources.gr).toMatchObject({ status: 'active', rowCount: 1 });
+    expect(snapshot.auctions.map((auction) => auction.id)).toEqual(['gr-2', 'gr-1']);
+    expect(snapshot.history.map((auction) => auction.id)).toEqual(['gr-2', 'gr-1']);
+    expect(snapshot.sources.gr).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared', rowCount: 2 });
   });
 
-  it('removes all old rows when a successful non-empty feed replaces the catalogue', async () => {
+  it('preserves all old live rows when a non-empty feed is flagged as incomplete', async () => {
     const replacement = {
       ...previousRow,
       id: 'gr-2',
@@ -74,12 +74,16 @@ describe('plate-auction ingest resilience', () => {
       fetchers: { gr: async () => [replacement] },
       previous: {
         generatedAt: '2026-09-12T12:00:00.000Z',
-        auctions: [{ ...previousRow, id: 'gr-1', endsAt: '2026-09-14T18:00:00.000Z' }],
+        auctions: [
+          { ...previousRow, id: 'gr-1', endsAt: '2026-09-14T18:00:00.000Z' },
+          { ...previousRow, id: 'gr-3', plateNumber: '3', normalizedPlate: 'GR3', endsAt: '2026-09-15T18:00:00.000Z' },
+        ],
       },
       now: NOW,
     });
-    expect(snapshot.auctions.map((auction) => auction.id)).toEqual(['gr-2']);
-    expect(snapshot.history.map((auction) => auction.id)).toEqual(['gr-1', 'gr-2']);
+    expect(snapshot.auctions.map((auction) => auction.id)).toEqual(['gr-2', 'gr-1', 'gr-3']);
+    expect(snapshot.history.map((auction) => auction.id)).toEqual(['gr-2', 'gr-1', 'gr-3']);
+    expect(snapshot.sources.gr).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared', rowCount: 3 });
   });
 
   it('downgrades an incoherent fetched price before publishing the snapshot', async () => {

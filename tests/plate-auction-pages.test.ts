@@ -32,6 +32,9 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).toContain('GR7');
     expect(rendered.html).not.toContain('GR8');
     expect(rendered.html).toContain('https://frontaliereticino.ch/aste-targhe-svizzera/classifiche/');
+    expect(rendered.html).toContain('id=root');
+    expect(rendered.html).toContain('class=seo-static-content');
+    expect(rendered.html).not.toContain('<main><nav');
   });
 
   it('renders an empty, explicit detail page when a historical URL has no live row', () => {
