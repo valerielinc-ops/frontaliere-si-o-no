@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-09-11T23:06:07.808Z",
+  "generatedAt": "2026-09-13T13:53:56.653Z",
   "total": 3,
   "discovered": null,
   "parsed": 2,
@@ -12,10 +12,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6290,
-  "avgDurationMs": 6290,
+  "durationMs": 6915,
+  "avgDurationMs": 6915,
   "durationHistory": [
-    6290
+    6915
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:05:56.082Z",
+      "crawledAt": "2026-09-13T13:53:43.319Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -72,7 +72,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T23:05:56.564Z",
+      "crawledAt": "2026-09-13T13:53:43.874Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -109,7 +109,6 @@
       "companyKey": "privatklinik-hohenegg",
       "companyDomain": "hohenegg.ch",
       "title": "Mitarbeitende Hotellerie (auf Abruf)",
-      "needsRetranslation": true,
       "location": "Meilen",
       "canton": "ZH",
       "url": "https://apply.refline.ch/640332/0063/pub/3/index.html",
@@ -137,7 +136,7 @@
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
