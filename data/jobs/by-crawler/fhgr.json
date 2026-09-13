@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-09-12T13:07:39.228Z",
+  "assembledAt": "2026-09-13T14:02:10.856Z",
   "jobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:07:31.826Z",
+      "crawledAt": "2026-09-13T14:02:04.390Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -81,16 +81,21 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "bauingenieur-in-fhgr-ch"
+          "bauingenieur-in-fhgr-ch",
+          "bauingenieur-in-fachhochschule-graubunden-chur"
         ],
         "it": [
-          "bauingenieur-in-fhgr-ch"
+          "bauingenieur-in-fhgr-ch",
+          "ingegnere-civile-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "bauingenieur-in-fhgr-ch"
+        "bauingenieur-in-fhgr-ch",
+        "bauingenieur-in-fachhochschule-graubunden-chur",
+        "ingegnere-civile-fachhochschule-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -112,7 +117,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur",
         "en": "project-manager-administrative-directorate-fachhochschule-graubunden-chur",
-        "de": "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
+        "de": "projektleiter-in-verwaltungsdirektion-fhgr-ch",
         "fr": "gestionnaire-de-projet-direction-administrative-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
@@ -137,7 +142,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/797/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:07:30.803Z",
+      "crawledAt": "2026-09-13T14:02:03.587Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -155,25 +160,28 @@
       "requirementsByLocale": {},
       "department": "Zentrale Dienste",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "projektleiter-in-verwaltungsdirektion-fhgr-ch",
-        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
+          "projektleiter-in-verwaltungsdirektion-fhgr-ch"
+        ],
         "it": [
           "projektleiter-in-verwaltungsdirektion-fhgr-ch",
-          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
+          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
+          "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
-        ],
-        "de": [
-          "projektleiter-in-verwaltungsdirektion-fhgr-ch"
         ],
         "fr": [
           "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
         ]
       },
+      "previousSlugs": [
+        "projektleiter-in-verwaltungsdirektion-fhgr-ch",
+        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
+        "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur"
+      ],
       "firstSeenAt": "2026-08-28T05:26:57.952Z",
       "salaryMin": 73000,
       "salaryMax": 135000,
@@ -196,7 +204,7 @@
       "slugByLocale": {
         "it": "assistente-hr-fachhochschule-graubunden-chur",
         "en": "hr-assistant-fachhochschule-graubunden-chur",
-        "de": "hr-assistent-in-fachhochschule-graubunden-chur",
+        "de": "hr-assistent-in-fhgr-ch",
         "fr": "assistant-rh-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
@@ -221,7 +229,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/808/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:07:29.998Z",
+      "crawledAt": "2026-09-13T14:02:02.782Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -239,24 +247,29 @@
       "requirementsByLocale": {},
       "department": "Personal",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "hr-assistent-in-fhgr-ch"
-      ],
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
+          "hr-assistent-in-fachhochschule-graubunden-chur",
           "hr-assistent-in-fhgr-ch"
+        ],
+        "it": [
+          "hr-assistent-in-fhgr-ch",
+          "assistente-hr-fachhochschule-graubunden-chur"
         ],
         "en": [
-          "hr-assistent-in-fhgr-ch"
-        ],
-        "de": [
           "hr-assistent-in-fhgr-ch"
         ],
         "fr": [
           "hr-assistent-in-fhgr-ch"
         ]
       },
+      "previousSlugs": [
+        "hr-assistent-in-fhgr-ch",
+        "hr-assistent-in-fachhochschule-graubunden-chur",
+        "assistente-hr-fachhochschule-graubunden-chur"
+      ],
       "firstSeenAt": "2026-09-08T23:31:09.494Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -274,9 +287,9 @@
     },
     {
       "id": "fhgr-30b6daabed80",
-      "slug": "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
+      "slug": "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich",
       "slugByLocale": {
-        "it": "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
+        "it": "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich",
         "en": "study-operations-coordinator-fachhochschule-graubunden-zurich",
         "de": "studienbetriebskoordinator-in-fhgr-ch",
         "fr": "coordonnateur-des-operations-d-etude-fachhochschule-graubunden-zurich"
@@ -286,7 +299,7 @@
       "companyDomain": "fhgr.ch",
       "title": "Studienbetriebskoordinator/-in",
       "titleByLocale": {
-        "it": "Coordinatore delle operazioni di studio",
+        "it": "Studienbetriebskoordinator/-in",
         "en": "Study Operations Coordinator",
         "de": "Studienbetriebskoordinator/-in",
         "fr": "Coordonnateur des opérations d'étude"
@@ -303,7 +316,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/807/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:07:28.937Z",
+      "crawledAt": "2026-09-13T14:02:01.802Z",
       "addressLocality": "Zürich",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -323,11 +336,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "studienbetriebskoordinator-in-fhgr-ch",
+        "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
         "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studienbetriebskoordinator-in-fhgr-ch",
+          "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
           "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
         ],
         "en": [
@@ -338,6 +353,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:41:07.210Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",

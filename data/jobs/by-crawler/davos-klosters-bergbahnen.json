@@ -1,6 +1,6 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-09-12T13:08:08.960Z",
+  "assembledAt": "2026-09-13T14:02:41.444Z",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-b351d51b46e0",
@@ -43,23 +43,26 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-Montana_j_3885730",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:08:01.288Z",
+      "crawledAt": "2026-09-13T14:02:36.354Z",
       "previousSlugs": [
         "mitarbeiter-in-front-office-hotel-montana-davos-klosters-bergbahnen-davos",
         "mitarbeiter-in-front-office-hotel-ochsen-davos-klosters-bergbahnen-davos",
-        "collaboratore-trice-front-office-hotel-ochsen-davos-klosters-bergbahnen-ag-davos"
+        "collaboratore-trice-front-office-hotel-ochsen-davos-klosters-bergbahnen-ag-davos",
+        "collaboratore-trice-front-office-hotel-montana-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-front-office-hotel-montana-davos-klosters-bergbahnen-davos",
           "mitarbeiter-in-front-office-hotel-ochsen-davos-klosters-bergbahnen-davos",
-          "collaboratore-trice-front-office-hotel-ochsen-davos-klosters-bergbahnen-ag-davos"
+          "collaboratore-trice-front-office-hotel-ochsen-davos-klosters-bergbahnen-ag-davos",
+          "collaboratore-trice-front-office-hotel-montana-davos-klosters-bergbahnen-ag-davos"
         ],
         "de": [
           "mitarbeiter-in-front-office-hotel-ochsen-davos-klosters-bergbahnen-davos"
         ]
       },
       "firstSeenAt": "2026-09-10T23:18:06.827Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -116,16 +119,19 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-Joseph-s-House_j_2808394",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:08:01.019Z",
+      "crawledAt": "2026-09-13T14:02:36.042Z",
       "previousSlugs": [
-        "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos"
+        "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos",
+        "collaboratore-trice-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos"
+          "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos",
+          "collaboratore-trice-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-ag-davos"
         ]
       },
       "firstSeenAt": "2026-09-10T23:18:06.529Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -182,16 +188,19 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:08:00.765Z",
+      "crawledAt": "2026-09-13T14:02:35.734Z",
       "previousSlugs": [
-        "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos"
+        "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos",
+        "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos"
+          "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos",
+          "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos"
         ]
       },
       "firstSeenAt": "2026-09-10T23:18:06.222Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -248,7 +257,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Bahnanlagen_j_3929717",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:08:00.505Z",
+      "crawledAt": "2026-09-13T14:02:35.427Z",
       "previousSlugs": [
         "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
         "collaboratore-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos",
@@ -269,7 +278,8 @@
         "chef-de-cabinet-davos-klosters-bergbahnen-ag-davos",
         "technischer-responsabile-davos-klosters-bergbahnen-ag-davos",
         "technischer-leiter-in-davos-klosters-bergbahnen-davos",
-        "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-ag-davos"
+        "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-ag-davos",
+        "personale-ferroviario-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -290,7 +300,8 @@
           "chef-de-cabinet-davos-klosters-bergbahnen-ag-davos",
           "technischer-responsabile-davos-klosters-bergbahnen-ag-davos",
           "technischer-leiter-in-davos-klosters-bergbahnen-davos",
-          "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-ag-davos"
+          "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-ag-davos",
+          "personale-ferroviario-davos-klosters-bergbahnen-ag-davos"
         ],
         "en": [
           "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
@@ -370,15 +381,17 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Kabinenfuehrer-in-Jakobshorn_j_3891467",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:08:00.250Z",
+      "crawledAt": "2026-09-13T14:02:35.113Z",
       "previousSlugs": [
         "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos",
-        "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos-17xp4g"
+        "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos-17xp4g",
+        "operatore-della-cabina-in-jakobshorn-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos",
-          "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos-17xp4g"
+          "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos-17xp4g",
+          "operatore-della-cabina-in-jakobshorn-davos-klosters-bergbahnen-ag-davos"
         ],
         "de": [
           "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos-17xp4g"
@@ -405,7 +418,7 @@
       "slug": "housekeeping-allrounder-in-rinerhorn-davos-klosters-bergbahnen-davos",
       "slugByLocale": {
         "it": "housekeeping-allrounder-in-rinerhorn-davos-klosters-bergbahnen-davos",
-        "en": "housekeeping-all-rounder-in-rinerhorn-davos-klosters-bergbahnen-ag-davos",
+        "en": "housekeeping-allrounder-in-rinerhorn-davos-klosters-bergbahnen-ag-davos",
         "de": "housekeeping-allrounder-in-rinerhorn-davos-klosters-bergbahnen-davos",
         "fr": "entretien-menager-rinerhorn-davos-klosters-bergbahnen-ag-davos"
       },
@@ -415,7 +428,7 @@
       "title": "Housekeeping/ Allrounder:in Rinerhorn",
       "titleByLocale": {
         "it": "Pulizia/Allrounder: a Rinerhorn",
-        "en": "Housekeeping/ all-rounder:in Rinerhorn",
+        "en": "Housekeeping/ Allrounder:in Rinerhorn",
         "de": "Housekeeping/ Allrounder:in Rinerhorn",
         "fr": "Entretien ménager/Rinerhorn"
       },
@@ -441,17 +454,19 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Housekeeping-Allrounder-in-Rinerhorn_j_3922189",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:07:59.985Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T21:51:52.120Z",
+      "crawledAt": "2026-09-13T14:02:34.802Z",
+      "previousSlugs": [
+        "housekeeping-all-rounder-in-rinerhorn-davos-klosters-bergbahnen-ag-davos",
+        "housekeeping-allrounder-in-rinerhorn-davos-klosters-bergbahnen-ag-davos"
+      ],
       "previousSlugsByLocale": {
         "en": [
+          "housekeeping-all-rounder-in-rinerhorn-davos-klosters-bergbahnen-ag-davos",
           "housekeeping-allrounder-in-rinerhorn-davos-klosters-bergbahnen-ag-davos"
         ]
       },
-      "previousSlugs": [
-        "housekeeping-allrounder-in-rinerhorn-davos-klosters-bergbahnen-ag-davos"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:51:52.120Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -508,13 +523,15 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:07:59.727Z",
+      "crawledAt": "2026-09-13T14:02:34.486Z",
       "previousSlugs": [
-        "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
+        "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
+        "elettricista-commerciale-a-parsenn-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
+          "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
+          "elettricista-commerciale-a-parsenn-davos-klosters-bergbahnen-ag-davos"
         ],
         "en": [
           "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
@@ -524,6 +541,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T08:24:48.842Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -580,14 +598,15 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:07:59.422Z",
+      "crawledAt": "2026-09-13T14:02:34.147Z",
       "previousSlugs": [
         "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
         "azienda-carpenter-in-manutenzione-immobiliare-davos-klosters-bergbahnen-ag-davos",
         "company-carpenter-in-real-estate-maintenance-davos-klosters-bergbahnen-ag-davos",
         "betriebsschreiner-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
         "societe-charpentier-dans-l-entretien-immobilier-davos-klosters-bergbahnen-ag-davos",
-        "betriebselektriker-in-davos-klosters-bergbahnen-davos"
+        "betriebselektriker-in-davos-klosters-bergbahnen-davos",
+        "elettricisti-di-affari-in-manutenzione-immobiliare-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -596,7 +615,8 @@
           "company-carpenter-in-real-estate-maintenance-davos-klosters-bergbahnen-ag-davos",
           "betriebsschreiner-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
           "societe-charpentier-dans-l-entretien-immobilier-davos-klosters-bergbahnen-ag-davos",
-          "betriebselektriker-in-davos-klosters-bergbahnen-davos"
+          "betriebselektriker-in-davos-klosters-bergbahnen-davos",
+          "elettricisti-di-affari-in-manutenzione-immobiliare-davos-klosters-bergbahnen-ag-davos"
         ],
         "en": [
           "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
@@ -667,13 +687,15 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Aushilfe-Kasse-im-Stundenlohn_j_3013470",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:07:59.155Z",
+      "crawledAt": "2026-09-13T14:02:33.707Z",
       "previousSlugs": [
-        "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos"
+        "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos",
+        "salario-orario-cassiere-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos"
+          "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos",
+          "salario-orario-cassiere-davos-klosters-bergbahnen-ag-davos"
         ],
         "en": [
           "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos"
@@ -683,6 +705,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:32:17.296Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",

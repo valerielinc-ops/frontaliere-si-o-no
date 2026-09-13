@@ -1,16 +1,16 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-09-12T13:07:47.288Z",
+  "generatedAt": "2026-09-13T14:02:24.211Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 18073,
-  "avgDurationMs": 18073,
+  "unchangedCount": 0,
+  "durationMs": 22041,
+  "avgDurationMs": 22041,
   "durationHistory": [
-    18073
+    22041
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +30,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-12T13:07:40.014Z",
+      "crawledAt": "2026-09-13T14:02:16.761Z",
       "firstSeenAt": "2026-09-08T23:31:23.092Z",
       "sourceLang": "it",
       "salaryMin": 108673,
@@ -41,6 +41,7 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4272",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -67,7 +68,7 @@
       "salaryMax": 99178,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-12T13:07:40.014Z",
+      "crawledAt": "2026-09-13T14:02:16.761Z",
       "firstSeenAt": "2026-09-06T22:58:39.168Z",
       "sourceLang": "it",
       "salarySource": "reported",
@@ -76,6 +77,7 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4271",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -103,7 +105,7 @@
       "salaryMax": 192731,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-12T13:07:40.014Z",
+      "crawledAt": "2026-09-13T14:02:16.761Z",
       "firstSeenAt": "2026-09-03T13:43:17.776Z",
       "sourceLang": "it",
       "salarySource": "reported",
@@ -112,6 +114,7 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4269",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -120,46 +123,6 @@
         "completeness": 25
       }
     },
-    {
-      "id": "company-213j37",
-      "slug": "candidature-spontanee-per-stage-durante-e-post-studi-universitari-presso-l-amministrazione-cantonale-amministrazione-cantonale-ti-2026-indie-213j37",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Candidature spontanee per stage durante e post-studi universitari presso l'Amministrazione cantonale",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "other",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-31",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4063",
-      "source": "Company Careers Crawler",
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-12T13:07:40.014Z",
-      "firstSeenAt": "2026-07-06T22:31:01.671Z",
-      "sourceLang": "it",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salarySource": "estimated",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "id": "company-213hls",
       "slug": "assistente-di-farmacia-a-tempo-parziale-50-presso-l-ufficio-del-farmacista-cantonale",
@@ -178,7 +141,7 @@
       "salaryMax": 72822,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-12T13:07:40.014Z",
+      "crawledAt": "2026-09-13T14:02:16.761Z",
       "firstSeenAt": "2026-08-28T05:27:13.245Z",
       "sourceLang": "it",
       "streetAddress": "Piazza Governo",
@@ -187,6 +150,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4264",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -213,7 +177,7 @@
       "salaryMax": 167309,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-12T13:07:40.014Z",
+      "crawledAt": "2026-09-13T14:02:16.761Z",
       "firstSeenAt": "2026-08-28T05:27:13.245Z",
       "sourceLang": "it",
       "streetAddress": "Piazza Governo",
@@ -222,10 +186,49 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4265",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-213j37",
+      "slug": "candidature-spontanee-per-stage-durante-e-post-studi-universitari-presso-l-amministrazione-cantonale-amministrazione-cantonale-ti-2026-indie-213j37",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Candidature spontanee per stage durante e post-studi universitari presso l'Amministrazione cantonale",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "other",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-31",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4063",
+      "source": "Company Careers Crawler",
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-09-13T14:02:16.761Z",
+      "firstSeenAt": "2026-07-06T22:31:01.671Z",
+      "sourceLang": "it",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "salarySource": "estimated",
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4063",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -248,7 +251,7 @@
       "salaryMax": 64005,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-12T13:07:40.014Z",
+      "crawledAt": "2026-09-13T14:02:16.761Z",
       "firstSeenAt": "2026-05-31T13:06:08.322Z",
       "sourceLang": "it",
       "streetAddress": "Piazza Governo",
@@ -259,6 +262,7 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
       "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -286,7 +290,7 @@
       "salaryMax": 72822,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-12T13:07:40.014Z",
+      "crawledAt": "2026-09-13T14:02:16.761Z",
       "firstSeenAt": "2026-05-31T13:06:08.322Z",
       "sourceLang": "it",
       "streetAddress": "Piazza Governo",
@@ -297,6 +301,7 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=3994",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -305,5 +310,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
