@@ -6316,6 +6316,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.banda-larga-regioni-periferiche-berna.title': 'Broadband in peripheral regions: 365 million from Bern',
     'blog.article.banda-larga-regioni-periferiche-berna.excerpt': 'The Ticino cantonal initiative becomes a federal bill for ultra-broadband throughout the national territory.',
     'blog.article.banda-larga-regioni-periferiche-berna.imageAlt': 'Federal Palace in Bern where broadband legislation proposals are discussed',
+    'blog.article.condanne-banche-svizzera-corruzione.title': 'Convictions against banks in Switzerland for corruption',
+    'blog.article.condanne-banche-svizzera-corruzione.excerpt': 'Six Swiss banks recently convicted by the federal justice for corruption or money laundering cases. Let\'s discuss the trend with the experts.',
+    'blog.article.condanne-banche-svizzera-corruzione.imageAlt': 'Swiss bank buildings in Switzerland',
 };
 
 export default blogMetaChEn;

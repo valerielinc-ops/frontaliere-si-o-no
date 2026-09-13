@@ -6316,6 +6316,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.banda-larga-regioni-periferiche-berna.title': 'Banda larga nelle regioni periferiche: 365 milioni da Berna',
     'blog.article.banda-larga-regioni-periferiche-berna.excerpt': 'L\'iniziativa cantonale ticinese diventa una proposta di legge federale per la banda ultra larga su tutto il territorio nazionale.',
     'blog.article.banda-larga-regioni-periferiche-berna.imageAlt': 'Palazzo federale a Berna dove si discutono le proposte di legge sulla banda larga',
+    'blog.article.condanne-banche-svizzera-corruzione.title': 'Condanne contro le banche in Svizzera per corruzione',
+    'blog.article.condanne-banche-svizzera-corruzione.excerpt': 'Sei banche elvetiche condannate di recente dalla giustizia federale per casi di corruzione o riciclaggio. Analizziamo la tendenza con gli esperti.',
+    'blog.article.condanne-banche-svizzera-corruzione.imageAlt': 'Edifici di banche svizzere in Svizzera',
 };
 
 export default blogMetaChIt;
