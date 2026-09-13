@@ -141,9 +141,9 @@ import {
  type LocationPartition,
 } from './jobEditorialLanding';
 import {
- JOBS_SEO_RETENTION_PROBE_ENV,
- parseJobsSeoRetentionProbe,
- shouldReleaseJobsSeoRetentionCandidate,
+  JOBS_SEO_RETENTION_PROBE_ENV,
+  jobsSeoRetentionReleasePlan,
+  parseJobsSeoRetentionProbe,
 } from './shared/jobsSeoRetentionProbe';
 import {
  CITY_HUB_KEYS,
@@ -6766,10 +6766,11 @@ ${staticAnalyticsHtml}
  // the canton-hub phase so later phases do not carry their job-bearing graph.
  // JOBS_SEO_RETENTION_PROBE is intentionally opt-in: a probe run releases
  // exactly one candidate, while the default build releases both.
- if (shouldReleaseJobsSeoRetentionCandidate(retentionProbeCandidate, 'careClusterPartition')) {
+ const retentionReleasePlan = jobsSeoRetentionReleasePlan(retentionProbeCandidate);
+ if (retentionReleasePlan.includes('careClusterPartition')) {
  releaseCareClusterPartition();
  }
- if (shouldReleaseJobsSeoRetentionCandidate(retentionProbeCandidate, 'locationPartition')) {
+ if (retentionReleasePlan.includes('locationPartition')) {
  releaseLocationPartition();
  }
 

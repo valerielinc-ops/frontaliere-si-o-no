@@ -34,3 +34,14 @@ export function shouldReleaseJobsSeoRetentionCandidate(
 ): boolean {
   return probe === null || probe === candidate;
 }
+
+/**
+ * Materialize the release plan once so a probe can never accidentally release
+ * two candidates. The empty/default plan deliberately contains both entries.
+ */
+export function jobsSeoRetentionReleasePlan(
+  probe: JobsSeoRetentionProbeCandidate | null,
+): JobsSeoRetentionProbeCandidate[] {
+  return JOBS_SEO_RETENTION_PROBE_CANDIDATES.filter((candidate) =>
+    shouldReleaseJobsSeoRetentionCandidate(probe, candidate));
+}
