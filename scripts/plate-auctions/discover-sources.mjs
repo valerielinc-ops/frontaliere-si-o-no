@@ -6,6 +6,7 @@
  * review; only a separately reviewed registry edit can activate a connector.
  */
 import registry from '../../data/plate-auction-sources-registry.json' with { type: 'json' };
+import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DEFAULT_TIMEOUT_MS = 12_000;
 const AUCTION_TERMS = /\b(auktion|eauktion|auction|asta|ench[eè]re|ecari|offert(?:e|en)?|angebot(?:e|en)?)\b/i;
@@ -81,7 +82,7 @@ export async function discoverSources({
 
 async function main() {
   const results = await discoverSources({
-    timeoutMs: Number(process.env.PLATE_AUCTION_DISCOVERY_TIMEOUT_MS || DEFAULT_TIMEOUT_MS),
+    timeoutMs: intFromEnv('PLATE_AUCTION_DISCOVERY_TIMEOUT_MS', DEFAULT_TIMEOUT_MS),
   });
   console.log(JSON.stringify({ generatedAt: new Date().toISOString(), results }, null, 2));
 }
