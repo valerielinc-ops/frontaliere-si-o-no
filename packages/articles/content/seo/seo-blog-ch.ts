@@ -82427,6 +82427,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dazi-usa-seco-commercio': {
+    title: 'Nuovi dazi USA e accordi SECO per le aziende svizzere',
+    description: 'Scopri i dettagli sui dazi aggiuntivi statunitensi fino al 12,5% per i beni svizzeri, la chiusura dei negoziati SECO e gli impatti sulle catene produttive.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovi, dazi, accordi, seco',
+    ogTitle: 'Dazi USA e SECO: nuove regole per le aziende svizzere',
+    ogDescription: 'Analisi delle nuove misure doganali statunitensi sui beni svizzeri con aliquote fino al 12,5% e il ruolo della SECO nella gestione dei dossier commerciali e dei negoziati di libero scambio.',
+    canonicalPath: '/articoli-svizzera/dazi-usa-seco-commercio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovi dazi USA e accordi SECO per le aziende svizzere",
+      "description": "Scopri i dettagli sui dazi aggiuntivi statunitensi fino al 12,5% per i beni svizzeri, la chiusura dei negoziati SECO e gli impatti sulle catene produttive.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dazi-usa-seco-commercio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede della SECO in Svizzera"
+      },
+      "datePublished": "2026-09-13T07:38:12+00:00",
+      "dateModified": "2026-09-13T07:38:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dazi-usa-seco-commercio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

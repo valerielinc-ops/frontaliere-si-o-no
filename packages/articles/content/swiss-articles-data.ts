@@ -19045,6 +19045,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dazi-usa-seco-commercio',
+    category: 'novita',
+    date: '2026-09-13T07:38:12.713Z',
+    image: '/images/blog/dazi-usa-seco-commercio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

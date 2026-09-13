@@ -6349,6 +6349,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.attacco-hacker-salt-dati-clienti.title': 'Salt: cyber attack and theft of mobile customer data',
     'blog.article.attacco-hacker-salt-dati-clienti.excerpt': 'The Salt telephone operator victim of a cyber-attack. Personal data of some mobile customers in Switzerland was stolen. The Federal Appointee has been notified.',
     'blog.article.attacco-hacker-salt-dati-clienti.imageAlt': 'Headquarters of a mobile telecommunication operator in Switzerland involved in a cyber attack',
+    'blog.article.dazi-usa-seco-commercio.title': 'New US Tariffs and SECO Agreements for Swiss Companies',
+    'blog.article.dazi-usa-seco-commercio.excerpt': 'The United States introduces additional duties of up to 12.5% on Swiss goods. SECO monitors the impacts and evolution of production chains.',
+    'blog.article.dazi-usa-seco-commercio.imageAlt': 'SECO headquarters in Switzerland',
 };
 
 export default blogMetaChEn;
