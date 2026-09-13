@@ -76,6 +76,7 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('gate_wait_limit=300');
     expect(source).toContain('launcher_gone_reported=0');
     expect(source).not.toContain('for retry in 1 2 3 4 5');
+    expect(source).toContain("printf '%s\\n' \"\$!\" > \"\$state_dir/\$label.pid\"");
   });
 
   it('persists only through a reviewed branch and PR', () => {
