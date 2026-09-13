@@ -35013,6 +35013,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-veleso-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-09-13T23:27:03.887Z',
+ image: '/images/blog/vivere-veleso-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
