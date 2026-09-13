@@ -9,6 +9,7 @@ const staleRescuer = readFileSync(new URL('../.github/workflows/stale-pr-rescuer
 const autorebase = readFileSync(new URL('../scripts/ci/pr-autorebase.mjs', import.meta.url), 'utf8');
 const autoMergeEval = readFileSync(new URL('../scripts/ci/auto-merge-eval.mjs', import.meta.url), 'utf8');
 const nativeAutoMerge = readFileSync(new URL('../.github/workflows/enable-native-automerge.yml', import.meta.url), 'utf8');
+const nativeAutoMergeRetry = readFileSync(new URL('../.github/workflows/retry-native-automerge.yml', import.meta.url), 'utf8');
 const redflagFixer = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
 
 describe('review → autorebase ordering', () => {
@@ -72,6 +73,10 @@ describe('review → autorebase ordering', () => {
     expect(nativeAutoMerge).toContain('gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto');
     expect(nativeAutoMerge).toContain('types: [opened, reopened, ready_for_review, synchronize]');
     expect(nativeAutoMerge).toContain('jq -e \'.autoMergeRequest != null\'');
+    expect(nativeAutoMergeRetry).toContain("cron: '*/20 * * * *'");
+    expect(nativeAutoMergeRetry).toContain('gh pr list');
+    expect(nativeAutoMergeRetry).toContain('MAX_PR_RETRIES: \'10\'');
+    expect(nativeAutoMergeRetry).toContain('jq -e \'.autoMergeRequest != null\'');
     expect(nativeAutoMerge).not.toContain('auto-merge-eval.mjs');
   });
 

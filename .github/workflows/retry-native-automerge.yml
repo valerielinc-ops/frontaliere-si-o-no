@@ -1,0 +1,103 @@
+name: Retry native auto-merge opt-in
+
+# This is a bounded recovery loop for a transient GitHub API failure while
+# opting a PR into native auto-merge. Native auto-merge still owns the wait and
+# merge decision; this workflow never pushes a branch or merges directly.
+on:
+  schedule:
+    - cron: '*/20 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: retry-native-automerge
+  cancel-in-progress: false
+
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download workflow helpers
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          helper_dir="${RUNNER_TEMP}/native-automerge-helpers"
+          mkdir -p "$helper_dir/lib"
+          gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/load-rc-env.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$helper_dir/load-rc-env.mjs"
+          gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/lib/google-service-account-token.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$helper_dir/lib/google-service-account-token.mjs"
+          echo "NATIVE_AUTOMERGE_HELPER_DIR=$helper_dir" >> "$GITHUB_ENV"
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "FIREBASE_SERVICE_ACCOUNT_JSON is not configured" >&2
+            exit 1
+          fi
+          printf %s "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load PAT from Remote Config
+        run: node "$NATIVE_AUTOMERGE_HELPER_DIR/load-rc-env.mjs"
+
+      - name: Retry bounded native auto-merge opt-in
+        env:
+          REPOSITORY: ${{ github.repository }}
+          MAX_PR_RETRIES: '10'
+        run: |
+          set -euo pipefail
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "GITHUB_PAT was not loaded from Remote Config" >&2
+            exit 1
+          fi
+
+          open_prs=$(GH_TOKEN="$GITHUB_PAT" gh pr list \
+            --repo "$REPOSITORY" --state open --base main --limit 100 \
+            --json number,isDraft,createdAt)
+          pr_numbers=$(jq -r --argjson max "$MAX_PR_RETRIES" \
+            '[.[] | select(.isDraft == false)] | sort_by(.createdAt) | .[:$max][] | .number' \
+            <<<"$open_prs")
+          attempted=0
+          failed=0
+          while IFS= read -r -u 9 pr_number; do
+            [ -n "$pr_number" ] || continue
+            if ! [[ "$pr_number" =~ ^[0-9]+$ ]]; then
+              echo "::warning::skipping malformed PR number from GitHub API: $pr_number"
+              continue
+            fi
+            if ! current=$(GH_TOKEN="$GITHUB_PAT" gh pr view "$pr_number" --repo "$REPOSITORY" \
+              --json state,isDraft,baseRefName,autoMergeRequest); then
+              echo "::warning::could not read PR #$pr_number; the next scheduled tick will retry"
+              failed=$((failed + 1))
+              continue
+            fi
+            if jq -e '(.state != "OPEN") or (.isDraft == true) or (.baseRefName != "main")' \
+              <<<"$current" >/dev/null; then
+              continue
+            fi
+            if jq -e '.autoMergeRequest != null' <<<"$current" >/dev/null; then
+              continue
+            fi
+            attempted=$((attempted + 1))
+            if GH_TOKEN="$GITHUB_PAT" gh pr merge "$pr_number" --repo "$REPOSITORY" \
+              --auto --squash --delete-branch; then
+              echo "Native auto-merge enabled for PR #$pr_number"
+            else
+              echo "::warning::native auto-merge opt-in failed for PR #$pr_number; the next scheduled tick will retry"
+              failed=$((failed + 1))
+            fi
+          done 9<<<"$pr_numbers"
+          echo "Bounded native auto-merge retry attempted $attempted PR(s); $failed transient failure(s)"
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
