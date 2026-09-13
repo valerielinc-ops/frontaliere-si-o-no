@@ -11714,6 +11714,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.savoia-avanti-ticino-lavoro.title': 'Savoia candidato con Avanti Ticino e Lavoro',
     'blog.article.savoia-avanti-ticino-lavoro.excerpt': 'La candidatura politica di Sergio Savoia per la lista Avanti con Ticino e Lavoro a Lugano genera dibattito online, polemiche e chiarimenti.',
     'blog.article.savoia-avanti-ticino-lavoro.imageAlt': 'Candidatura politica di Sergio Savoia per Avanti con Ticino e Lavoro a Lugano',
+    'blog.article.verbania-lavori-ponte-san-giovanni.title': 'Verbania, lavori sul ponte San Giovanni: traffico modificato',
+    'blog.article.verbania-lavori-ponte-san-giovanni.excerpt': 'Interventi notturni di Acqua Novara.VCO sul ponte San Giovanni a Verbania dal 14 al 18 settembre con senso unico alternato.',
+    'blog.article.verbania-lavori-ponte-san-giovanni.imageAlt': 'Lavori notturni e viabilità modificata sul ponte San Giovanni a Verbania',
 };
 
 export default blogMetaIt;

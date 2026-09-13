@@ -82310,6 +82310,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-f35a-prezzo-incerto-politica': {
+    title: 'F-35A: dubbi sul prezzo fisso e reazioni parlamentari',
+    description: 'Il rapporto sulla mancanza di un prezzo fisso per gli F-35A scuote il Parlamento. Verdi verso la CPI, mentre il centro-destra frena. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, f-35a, dubbi, prezzo, fisso',
+    ogTitle: 'F-35A: dubbi sul prezzo fisso e reazioni parlamentari',
+    ogDescription: 'Il rapporto della Commissione della gestione del Consiglio nazionale sull\'acquisizione degli F-35A rivela l\'assenza di un prezzo fisso. Dibattito acceso tra CPI e crediti supplementari.',
+    canonicalPath: '/articoli-svizzera/f35a-prezzo-incerto-politica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "F-35A: dubbi sul prezzo fisso e reazioni parlamentari",
+      "description": "Il rapporto sulla mancanza di un prezzo fisso per gli F-35A scuote il Parlamento. Verdi verso la CPI, mentre il centro-destra frena. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/f35a-prezzo-incerto-politica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Parlamento svizzero."
+      },
+      "datePublished": "2026-09-13T06:50:41+00:00",
+      "dateModified": "2026-09-13T06:50:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/f35a-prezzo-incerto-politica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
