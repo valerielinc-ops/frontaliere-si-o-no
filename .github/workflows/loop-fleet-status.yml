@@ -16,6 +16,7 @@ on:
     branches: [main]
     paths:
       - 'data/loop-fleet/loop-registry.json'
+      - 'data/loop-fleet/ledger/**'
       - 'scripts/ci/loop-fleet-status.mjs'
       - '.github/workflows/loop-fleet-status.yml'
 
@@ -38,6 +39,7 @@ jobs:
           fetch-depth: 1
           sparse-checkout: |
             /data/loop-fleet/loop-registry.json
+            /data/loop-fleet/ledger/
             /scripts/ci/loop-fleet-status.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /.github/workflows/loop-fleet-status.yml
@@ -51,7 +53,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-status
-        run: node scripts/ci/loop-fleet-status.mjs --registry data/loop-fleet/loop-registry.json --out-dir "$REPORT_DIR" ${{ inputs.strict && '--strict' || '' }}
+        run: node scripts/ci/loop-fleet-status.mjs --registry data/loop-fleet/loop-registry.json --ledger-dir data/loop-fleet/ledger --out-dir "$REPORT_DIR" ${{ inputs.strict && '--strict' || '' }}
       - name: Upload fleet status
         if: always()
         uses: actions/upload-artifact@v6
