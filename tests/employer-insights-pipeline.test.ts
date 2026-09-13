@@ -272,13 +272,14 @@ describe('employer insights event coverage', () => {
     const result = aggregateEmployerEvents([
       event({ timestamp: null }),
       event({ timestamp: 'not-a-timestamp' }),
+      event({ timestamp: { toDate: () => { throw new Error('malformed timestamp'); } } }),
     ], { window: WINDOW, catalog: buildIdentityCatalog([job()]) });
 
     expect(result.coverage).toMatchObject({
-      observed: 2,
+      observed: 3,
       attributed: 0,
-      residualTotal: 2,
-      residuals: { invalid_timestamp: 2 },
+      residualTotal: 3,
+      residuals: { invalid_timestamp: 3 },
       invariant: true,
     });
     expect(result.states.size).toBe(0);
@@ -863,6 +864,9 @@ describe('employer insights technical deduplication', () => {
       { name: 'pagePath' },
     ]);
     expect(buildGa4EventQueryBody(ga4Window).dimensionFilter).toMatchObject({ orGroup: { expressions: expect.any(Array) } });
+    expect(buildGa4EventQueryBody(ga4Window).dateRanges).toEqual([
+      { startDate: '2026-09-01', endDate: '2026-09-03' },
+    ]);
     expect(result).toMatchObject({
       coverage: {
         totalRows: 3,

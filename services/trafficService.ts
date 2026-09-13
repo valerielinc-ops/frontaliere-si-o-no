@@ -59,6 +59,12 @@ function finiteNumber(value: unknown): number | undefined {
  return typeof value === 'number' && Number.isFinite(value) ? value : undefined;
 }
 
+function normalizedTrafficStatus(value: unknown): TrafficStatus | undefined {
+ return typeof value === 'string' && TRAFFIC_STATUSES.includes(value as TrafficStatus)
+  ? value as TrafficStatus
+  : undefined;
+}
+
 /** Total crossing time wins, while preserving a missing reading as missing. */
 export function effectiveTrafficWaitMinutes(
  data: Pick<TrafficData, 'waitTimeMinutes' | 'totalCrossingMinutes'> | null | undefined,
@@ -80,9 +86,7 @@ export function buildFallbackTrafficData(
  const totalCrossingMinutes = finiteNumber(entry?.totalCrossingMinutes);
  if (waitTimeMinutes === undefined && totalCrossingMinutes === undefined) return null;
 
- const status = entry?.status && TRAFFIC_STATUSES.includes(entry.status as TrafficStatus)
-  ? entry.status as TrafficStatus
-  : undefined;
+ const status = normalizedTrafficStatus(entry?.status);
  return {
   crossingName,
   ...(waitTimeMinutes === undefined ? {} : { waitTimeMinutes }),
@@ -90,7 +94,7 @@ export function buildFallbackTrafficData(
   lastUpdate: new Date(entry?.lastUpdate ?? snapshotUpdate ?? Date.now()),
   source: 'mock',
   approachMinutes: entry?.approachMinutes,
-  totalCrossingMinutes,
+  ...(totalCrossingMinutes === undefined ? {} : { totalCrossingMinutes }),
  };
 }
 
@@ -217,19 +221,23 @@ class TrafficService {
  return;
  }
 
- if (!Number.isFinite(lastUpdate.getTime()) || typeof d.waitTimeMinutes !== 'number' || !['green', 'yellow', 'red'].includes(d.status)) {
+ const waitTimeMinutes = finiteNumber(d.waitTimeMinutes);
+ const totalCrossingMinutes = finiteNumber(d.totalCrossingMinutes);
+ if (!Number.isFinite(lastUpdate.getTime()) || (waitTimeMinutes === undefined && totalCrossingMinutes === undefined)) {
  console.warn(`[trafficService] Incomplete traffic reading for Firestore doc ${docSnap.id}`);
  return;
  }
 
+ const status = normalizedTrafficStatus(d.status);
+
  results.push({
- crossingName: d.crossingName,
- waitTimeMinutes: d.waitTimeMinutes,
- status: d.status as TrafficStatus,
- lastUpdate,
- source: 'firestore',
- approachMinutes: d.approachMinutes,
- totalCrossingMinutes: d.totalCrossingMinutes,
+  crossingName: d.crossingName,
+  ...(waitTimeMinutes === undefined ? {} : { waitTimeMinutes }),
+  ...(status === undefined ? {} : { status }),
+  lastUpdate,
+  source: 'firestore',
+  approachMinutes: d.approachMinutes,
+  ...(totalCrossingMinutes === undefined ? {} : { totalCrossingMinutes }),
  });
  });
 
