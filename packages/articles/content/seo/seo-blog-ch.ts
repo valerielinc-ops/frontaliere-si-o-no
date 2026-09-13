@@ -82232,6 +82232,44 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rischio-petrolio-hormuz-svizzera': {
+    title: 'Petrolio a 200 dollari e rischi per l\'economia globale',
+    description: 'Analisi di UBS sui rischi legati alla chiusura dello Stretto di Hormuz, petrolio a 200 dollari, recessione globale e segnali congiunturali in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, petrolio, dollari, rischi, economia',
+    ogTitle: 'Petrolio a 200 dollari e recessione globale: l\'analisi UBS',
+    ogDescription: 'Scopri l\'analisi di Alessandro Bee di UBS sui rischi geopolitici ed energetici legati alla chiusura dello Stretto di Hormuz e le prospettive congiunturali per l\'economia elvetica.',
+    canonicalPath: '/articoli-svizzera/rischio-petrolio-hormuz-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Petrolio a 200 dollari e rischi per l'economia globale",
+      "description": "Analisi di UBS sui rischi legati alla chiusura dello Stretto di Hormuz, petrolio a 200 dollari, recessione globale e segnali congiunturali in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rischio-petrolio-hormuz-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Analisi economica e mercati finanziari in Svizzera"
+      },
+      "datePublished": "2026-09-13T06:31:08+00:00",
+      "dateModified": "2026-09-13T06:31:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rischio-petrolio-hormuz-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;
