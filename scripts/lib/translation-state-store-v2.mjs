@@ -5,7 +5,9 @@ import { join } from 'node:path';
 import { promisify } from 'node:util';
 import {
   createEmptyTranslationMemoryV2,
+  invalidateTranslationCandidateV2,
   serializeTranslationMemoryV2,
+  TRANSLATION_MEMORY_INVALIDATION_OUTCOMES_V2,
   validateTranslationMemoryV2,
 } from './content-addressed-translation-memory-v2.mjs';
 import {
@@ -760,6 +762,60 @@ async function putImmutable(git, tip, changes, path, content) {
   return true;
 }
 
+function validateMemoryUpdate(input, patch, reasonCode) {
+  const memory = validateTranslationMemoryV2(input);
+  const record = memory.records.find((item) => item.identity.key === patch.identity.key);
+  const candidate = record?.candidates.find((item) => item.candidateId === patch.candidate.candidateId);
+  if (!record || !candidate) {
+    throw new TypeError('translation memory invalidation does not contain its patch candidate');
+  }
+  const expected = invalidateTranslationCandidateV2({
+    schemaVersion: createEmptyTranslationMemoryV2().schemaVersion,
+    records: [{ identity: patch.identity, candidates: [patch.candidate] }],
+  }, {
+    candidateId: patch.candidate.candidateId,
+    identityKey: patch.identity.key,
+    reasonCode,
+  }).records[0].candidates[0];
+  if (canonicalTranslationJsonV2(candidate) !== canonicalTranslationJsonV2(expected)) {
+    throw new TypeError('translation memory invalidation does not match its patch candidate');
+  }
+  return { candidate, identity: record.identity };
+}
+
+async function replaceMemoryCandidate(git, tip, changes, patch, update) {
+  const path = memoryPath(patch);
+  const raw = await readPath(git, tip, path);
+  if (raw === null) throw new TypeError('translation memory candidate to invalidate was not found');
+  let stored;
+  try {
+    stored = JSON.parse(raw);
+  } catch {
+    throw new TypeError(`translation state artifact ${path} is not JSON`);
+  }
+  const memory = validateTranslationMemoryV2(stored);
+  if (memory.records.length !== 1 || memory.records[0].identity.key !== patch.identity.key
+      || memory.records[0].candidates.length !== 1) {
+    throw new TypeError('translation memory candidate shard has an invalid record boundary');
+  }
+  const current = memory.records[0].candidates[0];
+  if (
+    canonicalTranslationJsonV2(current) !== canonicalTranslationJsonV2(patch.candidate)
+    && canonicalTranslationJsonV2(current) !== canonicalTranslationJsonV2(update.candidate)
+  ) {
+    throw new TypeError('translation memory candidate does not match its patch');
+  }
+  if (canonicalTranslationJsonV2(current) === canonicalTranslationJsonV2(update.candidate)) return false;
+  const content = candidateMemoryRecord(memory.records[0].identity, update.candidate);
+  const pending = changes.find((change) => change.path === path);
+  if (pending) {
+    if (pending.content !== content) throw new TypeError(`translation state conflict at ${path}`);
+    return false;
+  }
+  changes.push({ path, content });
+  return true;
+}
+
 function validateStateSchema(value) {
   assertTranslationPlainObjectV2(value, 'translation state schema');
   assertTranslationExactKeysV2(value, ['layout', 'schemaVersion'], 'translation state schema');
@@ -1375,6 +1431,13 @@ export function createTranslationStateStoreV2(options) {
       const patch = validateTranslationDerivedPatchV2(ack.patch);
       const slicePath = validateTranslationSlicePathV2(ack.slicePath);
       if (!OUTCOMES.has(ack.outcome)) throw new TypeError('translation acknowledgment outcome is invalid');
+      const requiresMemoryInvalidation = TRANSLATION_MEMORY_INVALIDATION_OUTCOMES_V2.includes(ack.outcome);
+      if (requiresMemoryInvalidation && ack.memoryUpdate === undefined) {
+        throw new TypeError(`translation acknowledgment outcome ${ack.outcome} requires memory invalidation`);
+      }
+      if (!requiresMemoryInvalidation && ack.memoryUpdate !== undefined) {
+        throw new TypeError('translation acknowledgment memory invalidation is not applicable');
+      }
       const mainCommit = validateSha(ack.mainCommit, 'translation acknowledgment mainCommit');
       const publishedCommit = validateSha(
         ack.publishedCommit,
@@ -1390,7 +1453,10 @@ export function createTranslationStateStoreV2(options) {
       if (ack.outcome === 'applied' && publishedCommit === null) {
         throw new TypeError('applied translation acknowledgment requires a publish intent');
       }
-      return { patch, payload: {
+      const memoryUpdate = requiresMemoryInvalidation
+        ? validateMemoryUpdate(ack.memoryUpdate, patch, ack.outcome)
+        : null;
+      return { patch, memoryUpdate, payload: {
         schemaVersion: 2,
         crawlerKey: patch.target.crawlerKey,
         slicePath,
@@ -1414,7 +1480,7 @@ export function createTranslationStateStoreV2(options) {
     const transaction = await transact('translation-state-v2: acknowledge batch', async (tip) => {
       const changes = [];
       const receipts = [];
-      for (const { patch, payload } of acknowledgments) {
+      for (const { patch, memoryUpdate, payload } of acknowledgments) {
         const queued = await parsePath(git, tip, queuePath(patch));
         const queueIndex = await parsePath(git, tip, queueIndexPath(patch));
         if ((queued === null) !== (queueIndex === null)) {
@@ -1436,6 +1502,7 @@ export function createTranslationStateStoreV2(options) {
           const match = existing.find((receipt) => Object.entries(payload)
             .every(([key, value]) => canonicalTranslationJsonV2(receipt[key]) === canonicalTranslationJsonV2(value)));
           if (!match) throw queueConflict('translation acknowledgment requires a queued patch');
+          if (memoryUpdate !== null) await replaceMemoryCandidate(git, tip, changes, patch, memoryUpdate);
           receipts.push(match);
           continue;
         }
@@ -1464,6 +1531,7 @@ export function createTranslationStateStoreV2(options) {
           ackPath(patch.patchHash, receipt.ackHash),
           canonicalArtifact(receipt),
         );
+        if (memoryUpdate !== null) await replaceMemoryCandidate(git, tip, changes, patch, memoryUpdate);
         changes.push({ path: queuePath(patch), content: null });
         changes.push({ path: queueIndexPath(patch), content: null });
         receipts.push(receipt);
