@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   evaluateNativeAutoMerge,
   latestBotReviewOnHead,
+  nativeAutoMergeArgs,
   requiredVitestDecision,
   revalidateNativeAutoMerge,
   reviewHasLgtm,
@@ -141,6 +142,25 @@ describe('native auto-merge gate (#8512)', () => {
     expect(gateSource).toContain('disablePullRequestAutoMerge');
     expect(gateSource).toContain('revokeExistingAutoMerge');
     expect(gateSource).not.toContain('if (pr.autoMergeRequest !== null) return skip');
+  });
+
+  it('binds the native opt-in to the exact HEAD that passed the gate', () => {
+    const gateSource = readFileSync(new URL('../scripts/ci/native-automerge-gate.mjs', import.meta.url), 'utf8');
+
+    expect(gateSource).toContain("nativeAutoMergeArgs({ repo, prNumber, headSha: pr.headRefOid })");
+    expect(nativeAutoMergeArgs({
+      repo: 'valerielinc-ops/frontaliere-si-o-no',
+      prNumber: '8517',
+      headSha: HEAD,
+    })).toEqual([
+      'pr', 'merge', '8517', '--repo', 'valerielinc-ops/frontaliere-si-o-no',
+      '--auto', '--squash', '--delete-branch', '--match-head-commit', HEAD,
+    ]);
+    expect(() => nativeAutoMergeArgs({
+      repo: 'valerielinc-ops/frontaliere-si-o-no',
+      prNumber: '8517',
+      headSha: 'not-a-sha',
+    })).toThrow(/HEAD SHA/);
   });
 });
 

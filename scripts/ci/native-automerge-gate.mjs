@@ -208,6 +208,17 @@ function skip(reason) {
   console.log(`Native auto-merge guard: ${reason} — nessun merge.`);
 }
 
+/** Bind the native opt-in to the exact HEAD that passed the gate. */
+export function nativeAutoMergeArgs({ repo, prNumber, headSha } = {}) {
+  if (!/^[0-9a-f]{40}$/i.test(headSha || '')) {
+    throw new Error('HEAD SHA verificato mancante o non valido');
+  }
+  return [
+    'pr', 'merge', prNumber, '--repo', repo, '--auto', '--squash', '--delete-branch',
+    '--match-head-commit', headSha,
+  ];
+}
+
 function main() {
   const repo = process.argv[2] || process.env.REPOSITORY || process.env.GITHUB_REPOSITORY || '';
   const prNumber = process.argv[3] || process.env.PR_NUMBER || '';
@@ -278,9 +289,11 @@ function main() {
   }
 
   try {
-    execFileSync('gh', [
-      'pr', 'merge', prNumber, '--repo', repo, '--auto', '--squash', '--delete-branch',
-    ], { encoding: 'utf8', stdio: 'inherit', env: { ...process.env } });
+    execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: pr.headRefOid }), {
+      encoding: 'utf8',
+      stdio: 'inherit',
+      env: { ...process.env },
+    });
   } catch (error) {
     console.error(`::error::native auto-merge opt-in fallito: ${String(error).slice(0, 240)}`);
     process.exitCode = 1;
