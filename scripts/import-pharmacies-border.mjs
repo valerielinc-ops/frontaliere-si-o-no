@@ -37,6 +37,16 @@ const ITALY_OUTPUT_PATH = resolve(DATA_DIR, 'pharmacies-italy-border.json');
 const DUTIES_PATH = resolve(DATA_DIR, 'pharmacy-duties-ticino.json');
 const USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 
+// Floors deliberately leave room below the current snapshots (207 Ticino;
+// 542 Italy: CO 193, VA 266, VB 83) while rejecting the partial feeds that
+// otherwise look like a successful refresh. Keep these values in one place so
+// the importer and its integrity checker enforce the same declared perimeter.
+export const BORDER_MINIMUMS = Object.freeze({
+  ticino: 200,
+  italy: 400,
+  italyByProvince: Object.freeze({ CO: 150, VA: 200, VB: 50 }),
+});
+
 function option(name) {
   const index = process.argv.indexOf(name);
   return index >= 0 ? process.argv[index + 1] : undefined;
@@ -52,6 +62,21 @@ const noTicinoPdf = process.argv.includes('--no-ticino-pdf');
 
 async function readJsonFile(filePath) {
   return JSON.parse(await readFile(resolve(filePath), 'utf8'));
+}
+
+async function readPreviousSnapshot(filePath, label) {
+  try {
+    const snapshot = await readJsonFile(filePath);
+    if (!snapshot || typeof snapshot !== 'object' || Array.isArray(snapshot) || !Array.isArray(snapshot.pharmacies)) {
+      throw new Error(`${label} snapshot must contain a pharmacies array`);
+    }
+    return snapshot;
+  } catch (error) {
+    // Only an absent snapshot means first execution. A parse error or any I/O
+    // error must stop before a refresh can drop stable IDs, slugs or duties.
+    if (error && typeof error === 'object' && error.code === 'ENOENT') return null;
+    throw error;
+  }
 }
 
 function recordsFromPayload(payload) {
@@ -146,19 +171,13 @@ async function readTicinoPdfText() {
   }
 }
 
-async function readPrevious() {
-  let complete;
-  try {
-    complete = await readJsonFile(TICINO_OUTPUT_PATH);
-  } catch {
-    complete = null;
-  }
-  let legacy;
-  try {
-    legacy = await readJsonFile(TICINO_CURRENT_PATH);
-  } catch {
-    legacy = null;
-  }
+export async function readPreviousTicino(filePath = TICINO_OUTPUT_PATH) {
+  return (await readPreviousSnapshot(filePath, 'Ticino')) || { pharmacies: [] };
+}
+
+export async function readPreviousTicinoSnapshots({ completePath = TICINO_OUTPUT_PATH, legacyPath = TICINO_CURRENT_PATH } = {}) {
+  const complete = await readPreviousSnapshot(completePath, 'Ticino');
+  const legacy = await readPreviousSnapshot(legacyPath, 'Ticino legacy');
   if (!complete) return legacy || { pharmacies: [] };
   if (!legacy?.pharmacies?.length) return complete;
   const knownIds = new Set((complete.pharmacies || []).map((pharmacy) => pharmacy.id));
@@ -169,24 +188,15 @@ async function readPrevious() {
 }
 
 export async function readPreviousItaly(filePath = ITALY_OUTPUT_PATH) {
-  try {
-    return await readJsonFile(filePath);
-  } catch (error) {
-    // An absent snapshot is the expected first-run case. Parse and I/O errors
-    // must abort before publication: silently rebuilding without the prior
-    // snapshot would also discard the URL aliases that protect indexed pages.
-    if (error && typeof error === 'object' && error.code === 'ENOENT') return { pharmacies: [] };
-    throw error;
-  }
+  return (await readPreviousSnapshot(filePath, 'Italy')) || { pharmacies: [] };
 }
 
-async function readDutyPharmacyIds() {
-  try {
-    const dataset = await readJsonFile(DUTIES_PATH);
-    return [...new Set((dataset.duties || []).map((duty) => duty.pharmacyId).filter(Boolean))];
-  } catch {
-    return [];
+export async function readDutyPharmacyIds(filePath = DUTIES_PATH) {
+  const dataset = await readJsonFile(filePath);
+  if (!dataset || typeof dataset !== 'object' || !Array.isArray(dataset.duties)) {
+    throw new Error('Ticino duties snapshot must contain a duties array');
   }
+  return [...new Set(dataset.duties.map((duty) => duty?.pharmacyId).filter(Boolean))];
 }
 
 async function writeJson(filePath, payload) {
@@ -201,6 +211,9 @@ function assertBorderRecords(records) {
   for (const pharmacy of records) {
     for (const field of ['id', 'name', 'slug', 'address', 'postalCode', 'city', 'country', 'sourceUrl', 'lastVerifiedAt']) {
       if (!String(pharmacy[field] || '').trim()) throw new Error(`Cross-border pharmacy is missing ${field}: ${JSON.stringify(pharmacy)}`);
+    }
+    if (pharmacy.country === 'IT' && !String(pharmacy.ministryId || '').trim()) {
+      throw new Error(`Italian pharmacy is missing ministryId: ${pharmacy.id || pharmacy.name || '<unknown>'}`);
     }
     if (ids.has(pharmacy.id)) throw new Error(`Duplicate pharmacy id: ${pharmacy.id}`);
     if (slugs.has(pharmacy.slug)) throw new Error(`Duplicate pharmacy slug: ${pharmacy.slug}`);
@@ -217,7 +230,7 @@ async function main() {
     readItalyInput(),
     readOsmInput(),
     readTicinoPdfText(),
-    readPrevious(),
+    readPreviousTicinoSnapshots(),
     readPreviousItaly(),
     readDutyPharmacyIds(),
   ]);
@@ -225,7 +238,7 @@ async function main() {
   const ticinoParsed = parseTicinoPdfText(ticinoInput.text);
   const ticinoWarnings = [...ticinoParsed.warnings];
   let ticinoPharmacies;
-  if (ticinoParsed.rows.length >= 150) {
+  if (ticinoParsed.rows.length >= BORDER_MINIMUMS.ticino) {
     ticinoPharmacies = buildTicinoCompleteRecords(ticinoParsed.rows, {
       previous: previous.pharmacies || [],
       fetchedAt,
@@ -237,8 +250,8 @@ async function main() {
     ticinoPharmacies = previous.pharmacies || [];
   }
 
-  if (ticinoPharmacies.length < 150) {
-    throw new Error(`Ticino import produced only ${ticinoPharmacies.length} records; refusing to publish a truncated dataset`);
+  if (ticinoPharmacies.length < BORDER_MINIMUMS.ticino) {
+    throw new Error(`Ticino import produced only ${ticinoPharmacies.length} records; refusing to publish a truncated dataset (minimum ${BORDER_MINIMUMS.ticino})`);
   }
 
   const italianPharmacies = buildItalianBorderRecords(italy.records, {
@@ -248,8 +261,14 @@ async function main() {
     datasetUrl: ITALY_PHARMACY_DATASET_PAGE,
     previous: previousItaly.pharmacies || [],
   });
-  if (italianPharmacies.length < 400) {
-    throw new Error(`Italian border filter produced only ${italianPharmacies.length} records; refusing to publish a truncated dataset`);
+  if (italianPharmacies.length < BORDER_MINIMUMS.italy) {
+    throw new Error(`Italian border filter produced only ${italianPharmacies.length} records; refusing to publish a truncated dataset (minimum ${BORDER_MINIMUMS.italy})`);
+  }
+  for (const [province, minimum] of Object.entries(BORDER_MINIMUMS.italyByProvince)) {
+    const count = italianPharmacies.filter((pharmacy) => pharmacy.province === province).length;
+    if (count < minimum) {
+      throw new Error(`Italian border filter produced only ${count} records for ${province}; refusing to publish a truncated dataset (minimum ${minimum})`);
+    }
   }
   assertBorderRecords([...ticinoPharmacies, ...italianPharmacies]);
 
