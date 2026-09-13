@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 /**
  * IndexNow Submission Script
- * Reads sub-sitemaps (sitemap-pages.xml, sitemap-blog.xml, sitemap-glossario.xml)
- * protocol for instant indexing.
+ * Reads the site's content sub-sitemaps for the IndexNow protocol.
  *
  * Additionally, it can submit a SMALL subset to the Bing Webmaster URL
  * Submission API to avoid daily quota issues (default: only the newly
@@ -19,8 +18,8 @@
  * No hardcoded URL list — the sitemap is the single source of truth.
  */
 
-import { readFileSync, existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { readFileSync, existsSync, realpathSync } from 'node:fs';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { getBingUrlSubmissionQuota } from './lib/bing-webmaster.mjs';
 import { CORE_SITEMAPS } from './lib/sitemap-files.mjs';
@@ -28,6 +27,11 @@ import { CORE_SITEMAPS } from './lib/sitemap-files.mjs';
 // submitter and the fast-publish direct-URL submitter can never drift on the
 // key or payload shape (issue #4837).
 import { INDEXNOW_KEY, HOST, KEY_LOCATION } from './lib/indexnow-submit.mjs';
+
+// `CORE_SITEMAPS` is also consumed by the Google submitter. The pharmacy hub
+// is an IndexNow surface emitted only at build time, so keep its inclusion
+// local to the IndexNow flow rather than widening the shared Google list.
+export const INDEXNOW_SITEMAPS = [...CORE_SITEMAPS, 'sitemap-farmacie.xml'];
 
 const MAX_RETRIES = 2;
 const BATCH_SIZE = 500; // conservative batch size
@@ -56,7 +60,20 @@ function toBase64Utf8(s) {
 // ── Parse sitemaps to extract all unique URLs ──────────────
 // Reads from dist/ (post-build output = what was actually deployed).
 // Falls back to public/ for local development / manual runs.
-function getUrlsFromSitemaps() {
+export function extractUrls(xml, urls) {
+  let count = 0;
+  for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    urls.add(m[1].trim());
+    count++;
+  }
+  for (const m of xml.matchAll(/hreflang="[^"]*"\s+href="([^"]+)"/g)) {
+    urls.add(m[1].trim());
+    count++;
+  }
+  return count;
+}
+
+export function getUrlsFromSitemaps() {
   const __dirname = dirname(fileURLToPath(import.meta.url));
   const rootDir = resolve(__dirname, '..');
   const urls = new Set();
@@ -67,19 +84,18 @@ function getUrlsFromSitemaps() {
     : resolve(rootDir, 'public');
 
   // sitemap.xml is now a sitemap index — read all sub-sitemaps
-  const subSitemaps = CORE_SITEMAPS;
+  const subSitemaps = INDEXNOW_SITEMAPS;
   for (const file of subSitemaps) {
     try {
       const xml = readFileSync(resolve(sitemapDir, file), 'utf-8');
-      for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) urls.add(m[1].trim());
-      for (const m of xml.matchAll(/hreflang="[^"]*"\s+href="([^"]+)"/g)) urls.add(m[1].trim());
+      extractUrls(xml, urls);
     } catch { /* sub-sitemap may not exist */ }
   }
 
   // News sitemap: <loc> URLs for articles
   try {
     const newsXml = readFileSync(resolve(sitemapDir, 'sitemap-news.xml'), 'utf-8');
-    for (const m of newsXml.matchAll(/<loc>([^<]+)<\/loc>/g)) urls.add(m[1].trim());
+    extractUrls(newsXml, urls);
   } catch { /* sitemap-news.xml may not exist */ }
 
   return [...urls].sort();
@@ -141,7 +157,7 @@ function readPublicXml(file) {
 // public/ <url> block. Never removes URLs.
 function expandWithPublicAlternates(urls) {
   if (urls.length === 0) return urls;
-  const publicXml = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-news.xml']
+  const publicXml = [...INDEXNOW_SITEMAPS, 'sitemap-news.xml']
     .map(f => { try { return readPublicXml(f); } catch { return ''; } }).join('\n');
   const expanded = new Set(urls);
   const targets = new Set(urls);
@@ -224,7 +240,7 @@ async function getDeployedUrls() {
 
   // 2. Fallback: fetch from live site (unreliable after deploy)
   console.log('⚠️  No pre-deploy snapshot found — fetching live sitemaps (may be already updated)');
-  const sitemapFiles = [...CORE_SITEMAPS, 'sitemap-news.xml'];
+  const sitemapFiles = [...INDEXNOW_SITEMAPS, 'sitemap-news.xml'];
   const urls = new Set();
 
   for (const file of sitemapFiles) {
@@ -234,8 +250,7 @@ async function getDeployedUrls() {
       });
       if (!res.ok) continue;
       const xml = await res.text();
-      for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) urls.add(m[1].trim());
-      for (const m of xml.matchAll(/hreflang="[^"]*"\s+href="([^"]+)"/g)) urls.add(m[1].trim());
+      extractUrls(xml, urls);
     } catch { /* sitemap may not exist on deployed site */ }
   }
 
@@ -596,4 +611,9 @@ async function submitToIndexNow() {
   // fans out to all IndexNow partners including You.com.
 }
 
-submitToIndexNow().catch(console.error);
+const invokedDirectly = (() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
+  catch { return false; }
+})();
+
+if (invokedDirectly) submitToIndexNow().catch(console.error);

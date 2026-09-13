@@ -11,6 +11,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { BORDER_MINIMUMS } from './import-pharmacies-border.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TICINO_PATH = path.join(ROOT, 'data', 'pharmacies-ticino-complete.json');
@@ -67,17 +68,21 @@ export function validateBorderSnapshot({ ticino, italy, duties }) {
   if (italy?._pharmacyCount !== (italy?.pharmacies || []).length) {
     fail(`Italian snapshot _pharmacyCount ${(italy?._pharmacyCount ?? '<missing>')} does not match ${(italy?.pharmacies || []).length} records`);
   }
-  if ((ticino?.pharmacies || []).length < 200) fail(`Ticino snapshot has only ${(ticino?.pharmacies || []).length} records (minimum 200)`);
-  if ((italy?.pharmacies || []).length < 400) fail(`Italian snapshot has only ${(italy?.pharmacies || []).length} records (minimum 400)`);
+  if ((ticino?.pharmacies || []).length < BORDER_MINIMUMS.ticino) fail(`Ticino snapshot has only ${(ticino?.pharmacies || []).length} records (minimum ${BORDER_MINIMUMS.ticino})`);
+  if ((italy?.pharmacies || []).length < BORDER_MINIMUMS.italy) fail(`Italian snapshot has only ${(italy?.pharmacies || []).length} records (minimum ${BORDER_MINIMUMS.italy})`);
   for (const province of PROVINCES) {
     const count = (italy?.pharmacies || []).filter((pharmacy) => pharmacy.province === province).length;
-    if (!count) fail(`Italian snapshot has no records for ${province}`);
+    const minimum = BORDER_MINIMUMS.italyByProvince[province];
+    if (count < minimum) fail(`Italian snapshot has only ${count} records for ${province} (minimum ${minimum})`);
   }
 
   for (const pharmacy of all) {
     const label = pharmacy?.id || pharmacy?.name || '<unknown>';
     for (const field of ['id', 'name', 'slug', 'address', 'postalCode', 'city', 'country', 'sourceUrl', 'lastVerifiedAt']) {
       if (typeof pharmacy?.[field] !== 'string' || pharmacy[field].trim() === '') fail(`${label}: missing ${field}`);
+    }
+    if (pharmacy.country === 'IT' && (typeof pharmacy.ministryId !== 'string' || pharmacy.ministryId.trim() === '')) {
+      fail(`${label}: missing ministryId`);
     }
     if (ids.has(pharmacy.id)) fail(`${label}: duplicate id`);
     if (slugs.has(pharmacy.slug)) fail(`${label}: duplicate slug`);
