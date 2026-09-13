@@ -286,4 +286,46 @@ describe('loop-fleet independent lifecycle observer', () => {
     fs.writeFileSync(eventsFile, `${JSON.stringify(recorderEvent)}\n`);
     expect(() => appendLoopFleetLifecycle({ eventsFile, ledgerDir })).toThrow('must be a downstream event');
   });
+
+  it('persists all explicit terminal events and remains idempotent', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-terminal-events-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const policy = registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L0');
+    const events = ['rollback_requested', 'rolled_back', 'inconclusive'].map((eventType, index) => ({
+      ...buildLifecycleEvent({
+        eventType,
+        loopId: 'L0',
+        candidateId: `lf-terminal-appender-test-${index}`,
+        owner: policy.owner,
+        sourceRecordId: `terminal-appender-test-${index}`,
+        sourceRefs: policy.sourceRefs,
+        lifecycle: policy.lifecycle,
+        occurredAt: '2026-09-11T11:30:00.000Z',
+        artifactOrPr: `https://github.com/example/frontaliere/pull/999#issuecomment-${index}`,
+        recordedAt: '2026-09-11T11:31:00.000Z',
+      }),
+      recordId: `lf-terminal-appender-record-${index}`,
+      execution: {
+        loopId: 'L0',
+        repository: 'example/frontaliere',
+        workflow: 'Loop fleet independent lifecycle observer',
+        runId: String(10_000 + index),
+        sha: OBSERVER_SHA,
+      },
+    }));
+    fs.writeFileSync(eventsFile, `${events.map((event) => JSON.stringify(event)).join('\n')}\n`);
+
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 3, appended: 3, skipped: 0 });
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 3, appended: 0, skipped: 3 });
+  });
 });
