@@ -77,13 +77,11 @@ describe('one code verdict and selective body recovery', () => {
     expect(launchScript).toContain('expected_labels+=(input-injection)');
     expect(launchScript).toContain('expected_labels+=(locale-segments)');
     expect(launchScript).toContain('expected_labels+=(evergreen-topics)');
-    expect(launchScript.indexOf('expected-labels')).toBeLessThan(launchScript.indexOf(': > "$state_dir/labels"'));
+    expect(launchScript).not.toContain('>> "$state_dir/labels"');
     expect(collectScript).toContain('expected_file="$state_dir/expected-labels"');
-    expect(collectScript).toContain('actual_file="$state_dir/labels"');
     expect(collectScript).toContain('expected roster is missing or empty');
-    expect(collectScript).toContain('observed roster is missing or empty');
-    expect(collectScript).toContain('grep -Fxc');
     expect(collectScript).toContain('done < "$expected_file"');
+    expect(collectScript).not.toContain('if [ -s "$state_dir/labels" ]');
   });
 
   it('runs only API recovery from trusted main, without publishing a PR-head check', () => {

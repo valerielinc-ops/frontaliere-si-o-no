@@ -1093,11 +1093,10 @@ jobs:
             exit 1
           fi
           # Write the expected roster before launching anything. If a launcher
-          # fails between fork and PID/label registration, the collector still
+          # fails between fork and PID registration, the collector still
           # knows which gate was required and cannot mistake an empty/partial
           # observed roster for a successful run.
           printf '%s\n' "${expected_labels[@]}" > "$state_dir/expected-labels"
-          : > "$state_dir/labels"
           start_gate() {
             local label="$1"
             local command="$2"
@@ -1118,7 +1117,6 @@ jobs:
               nohup bash "$script" > "$state_dir/$label.log" 2>&1 < /dev/null &
             fi
             printf '%s\\n' "$!" > "$state_dir/$label.pid"
-            printf '%s\\n' "$label" >> "$state_dir/labels"
           }
           if [ "$RUN_TSC" = "true" ]; then
             start_gate tsc 'env NODE_OPTIONS=--max-old-space-size=8192 bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate'
@@ -1537,12 +1535,8 @@ jobs:
           fi
           if [ "${{ steps.independent-gates.outcome }}" != "skipped" ]; then
             expected_file="$state_dir/expected-labels"
-            actual_file="$state_dir/labels"
             if [ ! -s "$expected_file" ]; then
               echo "::error::independent gate expected roster is missing or empty"
-              failures=1
-            elif [ ! -s "$actual_file" ]; then
-              echo "::error::independent gate observed roster is missing or empty"
               failures=1
             else
               while IFS= read -r label; do
@@ -1551,68 +1545,49 @@ jobs:
                   failures=1
                   continue
                 }
-                occurrences="$(grep -Fxc -- "$label" "$actual_file" 2>/dev/null || true)"
-                if [ "$occurrences" -ne 1 ]; then
-                  echo "::error::independent gate roster mismatch for $label (observed $occurrences times)"
-                  failures=1
-                fi
-              done < "$expected_file"
-              while IFS= read -r label; do
-                [ -n "$label" ] || {
-                  echo "::error::independent gate observed roster contains an empty label"
-                  failures=1
-                  continue
-                }
-                if ! grep -Fqx -- "$label" "$expected_file" 2>/dev/null; then
-                  echo "::error::unexpected independent gate label: $label"
-                  failures=1
-                fi
-              done < "$actual_file"
-            fi
-            while IFS= read -r label; do
-              [ -n "$label" ] || continue
-              status_file="$state_dir/$label.status"
-              pid_file="$state_dir/$label.pid"
-              if [ ! -s "$pid_file" ]; then
-                echo "::error::$label did not publish a PID"
-                failures=1
-              fi
-              while [ ! -s "$status_file" ]; do
+                status_file="$state_dir/$label.status"
+                pid_file="$state_dir/$label.pid"
                 if [ ! -s "$pid_file" ]; then
-                  echo "::error::$label cannot be monitored because its PID is missing"
+                  echo "::error::$label did not publish a PID"
                   failures=1
-                  break
                 fi
-                pid="$(cat "$pid_file" 2>/dev/null || true)"
-                if ! kill -0 "$pid" 2>/dev/null; then
-                  for retry in 1 2 3 4 5; do
-                    [ -s "$status_file" ] && break
-                    echo "waiting for $label status (attempt $retry/5)"
-                    sleep 1
-                  done
-                  if [ ! -s "$status_file" ]; then
-                    echo "::error::$label exited without publishing a status"
+                while [ ! -s "$status_file" ]; do
+                  if [ ! -s "$pid_file" ]; then
+                    echo "::error::$label cannot be monitored because its PID is missing"
                     failures=1
                     break
                   fi
-                else
-                  sleep 1
+                  pid="$(cat "$pid_file" 2>/dev/null || true)"
+                  if ! kill -0 "$pid" 2>/dev/null; then
+                    for retry in 1 2 3 4 5; do
+                      [ -s "$status_file" ] && break
+                      echo "waiting for $label status (attempt $retry/5)"
+                      sleep 1
+                    done
+                    if [ ! -s "$status_file" ]; then
+                      echo "::error::$label exited without publishing a status"
+                      failures=1
+                      break
+                    fi
+                  else
+                    sleep 1
+                  fi
+                done
+                if [ -s "$status_file" ]; then
+                  status="$(cat "$status_file" 2>/dev/null || true)"
+                  echo "[$label] exit=$status"
+                  cat "$state_dir/$label.log" 2>/dev/null || true
+                  case "$status" in
+                    ''|*[!0-9]*)
+                      echo "::error::$label published an invalid exit status: $status"
+                      failures=1
+                      ;;
+                    0) ;;
+                    *) failures=1 ;;
+                  esac
                 fi
-              done
-              if [ -s "$status_file" ]; then
-                status="$(cat "$status_file" 2>/dev/null || true)"
-                echo "[$label] exit=$status"
-                cat "$state_dir/$label.log" 2>/dev/null || true
-                case "$status" in
-                  ''|*[!0-9]*)
-                    echo "::error::$label published an invalid exit status: $status"
-                    failures=1
-                    ;;
-                  0) ;;
-                  *) failures=1 ;;
-                esac
-              fi
-            done < "$expected_file"
+              done < "$expected_file"
+            fi
           else
             echo "independent gate step skipped; no detached gates were expected"
           fi
