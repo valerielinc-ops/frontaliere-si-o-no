@@ -45,6 +45,9 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('--ledger-dir data/loop-fleet/ledger');
     expect(source).toContain('git checkout -b "$branch"');
     expect(source).toContain('gh pr create');
+    expect(source).toContain('Validate source run provenance');
+    expect(source).toContain('source_branch');
+    expect(source).toContain("!= 'main'");
     expect(source).not.toMatch(/contents:\s*write/u);
     expect(source).toContain('Direct writes to main');
   });

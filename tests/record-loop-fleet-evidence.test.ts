@@ -152,6 +152,18 @@ describe('record-loop-fleet-evidence', () => {
     }
   });
 
+  it('rejects a conflicting duplicate instead of rewriting an immutable record', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-conflict-'));
+    writeL1Evidence(dir);
+    recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+    const observation = JSON.parse(fs.readFileSync(path.join(dir, 'l1-observation.json'), 'utf8'));
+    observation.cohort = 'different-input';
+    fs.writeFileSync(path.join(dir, 'l1-observation.json'), `${JSON.stringify(observation)}\n`);
+
+    expect(() => recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW }))
+      .toThrow(/conflicting duplicate/);
+  });
+
   it('fails closed when a decision exceeds the registry TTL', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-ttl-'));
     writeL1Evidence(dir);

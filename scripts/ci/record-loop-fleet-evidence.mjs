@@ -102,7 +102,12 @@ function appendUnique(file, record) {
       } catch (error) {
         throw new Error(`ledger ${file} contains invalid JSON: ${error.message}`);
       }
-      if (existing.recordId === record.recordId) return false;
+      if (existing.recordId === record.recordId) {
+        if (JSON.stringify(existing) !== JSON.stringify(record)) {
+          throw new Error(`ledger ${file} contains conflicting duplicate ${record.recordId}`);
+        }
+        return false;
+      }
     }
   }
   appendJsonl(absolute, record);
