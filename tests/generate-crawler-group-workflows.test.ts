@@ -21,7 +21,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -714,6 +714,19 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     // failure-report gate never fires. This is the mechanism that silenced
     // ~160 "Crawler Failure" issues overnight post-#3701.
     expect(stdout).not.toContain('REPORTED_FAILURE');
+  });
+});
+
+describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
+  it('does not pass RUNNER_TRACKING_ID to either detached launcher branch', () => {
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'tracking-isolated',
+      runStep: { env: {}, run: 'true' },
+      postSteps: [],
+    }, 1);
+
+    expect(body).toContain('env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path"');
+    expect(body).toContain('env -u RUNNER_TRACKING_ID nohup bash "$launcher_path"');
   });
 });
 

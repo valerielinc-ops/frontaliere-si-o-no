@@ -681,8 +681,10 @@ export function buildL9OutcomeLedger({ profiles, publisherRows = [], orderRows =
     const status = String(data.status || '').toLowerCase();
     const tier = String(data.tier || '').toLowerCase();
     if (status === 'paid') {
+      // A paid inventory job proves attachment only. Billing activation must
+      // come from the authoritative order/subscription ledger above; joining
+      // this set here would turn inventory into a false paid outcome.
       livePaidJobs.add(row.name || documentId(row));
-      if (id) paidAccounts.add(id);
     }
     const key = companyKeyFor(row, publishers);
     if (!profileKeys.has(key)) continue;
