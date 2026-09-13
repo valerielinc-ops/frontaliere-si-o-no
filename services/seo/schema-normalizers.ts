@@ -1,4 +1,63 @@
 import { TYPES_ACCEPT_IN_LANGUAGE } from './inlanguage-whitelist';
+import { ORGANIZATION_ID, ORGANIZATION_LD } from './organizationLd';
+
+const ARTICLE_SCHEMA_TYPES = new Set(['Article', 'NewsArticle', 'BlogPosting']);
+const DEFAULT_ARTICLE_IMAGE = 'https://frontaliereticino.ch/og-image.png';
+
+const DEFAULT_ARTICLE_AUTHOR = {
+ '@type': 'Organization',
+ '@id': ORGANIZATION_ID,
+ name: ORGANIZATION_LD.name,
+ url: ORGANIZATION_LD.url,
+} as const;
+
+function isRecord(value: unknown): value is Record<string, any> {
+ return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+function isArticleSchema(record: Record<string, any>): boolean {
+ const typeValue = record['@type'];
+ return typeof typeValue === 'string'
+  ? ARTICLE_SCHEMA_TYPES.has(typeValue)
+  : Array.isArray(typeValue) && typeValue.some((type) => ARTICLE_SCHEMA_TYPES.has(type));
+}
+
+function normalizeArticleEntity(
+ value: unknown,
+ fallback: Record<string, any>,
+): Record<string, any> {
+ if (!isRecord(value)) return { ...fallback };
+
+ const out = { ...fallback, ...value };
+ if (!out.name) out.name = fallback.name;
+ if (!out.url) out.url = fallback.url;
+ return out;
+}
+
+function normalizeArticleNode(record: Record<string, any>): Record<string, any> {
+ if (!isArticleSchema(record)) return record;
+
+ // Static SEO pages are standalone documents. A bare #organization pointer is
+ // resolvable in the SPA graph but not by a page-local crawler, so expand it to
+ // the same named entities used by the rest of the site.
+ record.author = normalizeArticleEntity(record.author, DEFAULT_ARTICLE_AUTHOR);
+ record.publisher = normalizeArticleEntity(record.publisher, ORGANIZATION_LD);
+
+ // Keep the source's specific image (and its dimensions/license metadata), but
+ // make legacy ImageObjects self-contained and provide the safe site fallback
+ // for older Article entries that had no image at all.
+ if (!record.image) {
+  record.image = DEFAULT_ARTICLE_IMAGE;
+ } else if (isRecord(record.image) && record.image['@type'] === 'ImageObject') {
+  const imageUrl = record.image.contentUrl ?? record.image.url;
+  if (imageUrl) {
+   record.image.contentUrl ??= imageUrl;
+   record.image.url ??= imageUrl;
+  }
+ }
+
+ return record;
+}
 
 const DEFAULT_DATASET_LICENSE = 'https://creativecommons.org/licenses/by-nc/4.0/';
 const DEFAULT_APP_CATEGORY = 'FinanceApplication';
@@ -89,4 +148,25 @@ export function normalizeStructuredData<T>(value: T): T {
   cloned[key] = normalizeStructuredData(nested);
  }
  return normalizeSchemaObject(cloned) as T;
+}
+
+/**
+ * Completes Article-like nodes emitted by the legacy static SEO registry.
+ *
+ * Newer emitters construct these fields explicitly; this pass is the safety
+ * net for older hand-authored entries and for translated locale variants.
+ * It is intentionally separate from the generic schema normalizer so a
+ * missing Article field cannot silently be invented in unrelated schema types.
+ */
+export function normalizeArticleStructuredData<T>(value: T): T {
+ if (Array.isArray(value)) {
+  return value.map((item) => normalizeArticleStructuredData(item)) as T;
+ }
+ if (!isRecord(value)) return value;
+
+ const cloned: Record<string, any> = {};
+ for (const [key, nested] of Object.entries(value)) {
+  cloned[key] = normalizeArticleStructuredData(nested);
+ }
+ return normalizeArticleNode(cloned) as T;
 }
