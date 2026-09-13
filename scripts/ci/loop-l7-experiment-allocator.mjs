@@ -468,13 +468,16 @@ export async function runL7({
   }
   let issued = false;
   if (issue && !verdict.ok) {
-    await createIssueImpl({
+    const issueResult = await createIssueImpl({
       title: 'L7 Experiment Allocator: outcome or guardrail ledger is not trustworthy',
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'experiments', 'loop-l7'],
       workflow: 'Loop L7 Experiment Allocator',
     });
+    if (!issueResult || issueResult.persisted !== true) {
+      throw new Error('L7 issue persistence failed: createGithubIssue did not confirm persisted=true');
+    }
     issued = true;
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten });

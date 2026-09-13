@@ -97,13 +97,20 @@ describe('L5 Decision Moments', () => {
     const source = tempSource(null);
     const reportDir = path.join(source.dir, 'report');
     const issues: unknown[] = [];
-    const result = await runL5({ now: NOW, fuelPath: source.files.fuel, borderPath: source.files.border, pharmacyPath: source.files.pharmacies, dutyPath: source.files.duties, outcomePath: source.files.outcomes, reportDir, apply: true, issue: true, createIssueImpl: async (payload) => { issues.push(payload); }, logger: { log() {} } });
+    const result = await runL5({ now: NOW, fuelPath: source.files.fuel, borderPath: source.files.border, pharmacyPath: source.files.pharmacies, dutyPath: source.files.duties, outcomePath: source.files.outcomes, reportDir, apply: true, issue: true, createIssueImpl: async (payload) => { issues.push(payload); return { persisted: true }; }, logger: { log() {} } });
     expect(result.actionsWritten).toBe(true);
     const actions = JSON.parse(fs.readFileSync(path.join(reportDir, 'l5-safe-actions.json'), 'utf8'));
     expect(actions).toMatchObject({ noDarkPatterns: true });
     expect(actions.actions[0]).toMatchObject({ autonomy: 'A3', publishedDataUntouched: true });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l5-result.json'), 'utf8'))).toMatchObject({ ok: false, issued: true, actionsWritten: true });
     expect(issues).toHaveLength(1);
+  });
+
+  it('does not claim issue persistence when the issue writer declines it', async () => {
+    const source = tempSource();
+    const reportDir = path.join(source.dir, 'report');
+    await expect(runL5({ now: NOW, fuelPath: source.files.fuel, borderPath: source.files.border, pharmacyPath: source.files.pharmacies, dutyPath: source.files.duties, outcomePath: source.files.outcomes, reportDir, issue: true, createIssueImpl: async () => ({ persisted: false }), logger: { log() {} } })).rejects.toThrow('L5 issue persistence failed');
+    expect(fs.existsSync(path.join(reportDir, 'l5-result.json'))).toBe(false);
   });
 
   it('keeps missing source unmeasurable', async () => {

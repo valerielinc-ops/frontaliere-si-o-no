@@ -190,11 +190,25 @@ describe('L7 Experiment Allocator', () => {
       outcomePath: files.outcomePath,
       reportDir: files.reportDir,
       issue: true,
-      createIssueImpl: async () => {},
+      createIssueImpl: async () => ({ persisted: true }),
       logger: { log() {} },
     });
     expect(result.issued).toBe(true);
     expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l7-result.json'), 'utf8'))).toMatchObject({ loopId: 'L7', issued: true });
+  });
+
+  it('does not claim issue persistence when the issue writer declines it', async () => {
+    const files = tempFiles(registry(), null);
+    await expect(runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      issue: true,
+      createIssueImpl: async () => ({ persisted: false }),
+      logger: { log() {} },
+    })).rejects.toThrow('L7 issue persistence failed');
+    expect(fs.existsSync(path.join(files.reportDir, 'l7-result.json'))).toBe(false);
   });
 
   it('does not write a success result if issue persistence fails', async () => {
