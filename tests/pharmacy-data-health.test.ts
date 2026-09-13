@@ -2,20 +2,29 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
+  BORDER_SLA_TOLERANCE,
   DEFAULT_ANAGRAFICA_MAX_AGE_HOURS,
   buildReport,
   countSwissCantons,
   detectAnagraficaConflicts,
+  detectBorderIdentityCollisions,
+  detectMissingSecondaryProvenance,
   detectDutyConflicts,
   evaluateCoverage,
+  evaluateBorderHealth,
   evaluateFreshness,
+  findBorderOutOfScopeRecords,
   normalizeIdentityField,
   formatReport,
   parseIsoDurationMs,
 } from '../scripts/check-pharmacy-data-health.mjs';
 import ticino from '../data/pharmacies-ticino-complete.json';
+import italy from '../data/pharmacies-italy-border.json';
+import borderSources from '../data/pharmacy-border-sources.json';
+import borderDuties from '../data/pharmacy-duties-ticino.json';
 
 const PHARMACY_WORKFLOW = join(__dirname, '..', '.github', 'workflows', 'pharmacy-data-health-monitor.yml');
+const BORDER_SYNC_WORKFLOW = join(__dirname, '..', '.github', 'workflows', 'sync-pharmacies-border.yml');
 
 /**
  * Osservatore della dashboard dati farmacie (#6753). Il punto misurato: le
@@ -100,6 +109,78 @@ describe('evaluateFreshness', () => {
   it('flags a missing or unparsable _fetchedAt as stale', () => {
     const res = evaluateFreshness(registry, { ticino: anagrafica({ _fetchedAt: undefined }) }, {}, NOW);
     expect(res.entries[0]).toMatchObject({ stale: true, ageHours: null });
+  });
+});
+
+describe('evaluateBorderHealth', () => {
+  it('reports all four policy jurisdictions and their real record counts', () => {
+    const health = evaluateBorderHealth({
+      sources: borderSources,
+      ticino,
+      italy,
+      duties: borderDuties,
+      nowMs: Date.parse(ticino._fetchedAt) + 3600e3,
+    });
+    expect(health.jurisdictions).toMatchObject([
+      { key: 'CH-TI', sourceStatus: 'active', recordCount: 207 },
+      { key: 'IT-CO', sourceStatus: 'active', recordCount: 193 },
+      { key: 'IT-VA', sourceStatus: 'active', recordCount: 266 },
+      { key: 'IT-VB', sourceStatus: 'active', recordCount: 83 },
+    ]);
+    expect(health.totalRecords).toBe(749);
+    expect(health.fetchErrors).toEqual([]);
+    expect(health.outOfScopeRecords).toEqual([]);
+    expect(health.identityCollisions).toEqual([]);
+    expect(health.missingSecondaryProvenance).toEqual([]);
+    expect(health.validationErrors).toEqual([]);
+    expect(health.jurisdictions[1].maxAgeHours).toBe(24 * BORDER_SLA_TOLERANCE);
+  });
+
+  it('fails closed on stale snapshots, out-of-scope records and secondary values without provenance', () => {
+    const stale = {
+      _fetchedAt: iso(3),
+      _errors: ['timeout'],
+      pharmacies: [
+        { id: 'it-a', slug: 'a', name: 'Alfa', address: 'Via 1', postalCode: '1', city: 'Como', country: 'IT', province: 'CO', sourceType: 'official', sourceUrl: 'https://source.test' },
+        { id: 'it-b', slug: 'b', name: 'Beta', address: 'Via 2', postalCode: '2', city: 'Novara', country: 'IT', province: 'NO', sourceType: 'official', sourceUrl: 'https://source.test' },
+        { id: 'it-c', slug: 'c', name: 'Gamma', address: 'Via 3', postalCode: '3', city: 'Como', country: 'IT', province: 'CO', phone: '+39 1', sourceType: 'directory', sourceUrl: 'https://source.test' },
+      ],
+    };
+    const health = evaluateBorderHealth({
+      sources: { sources: {
+        'ticino-complete': { status: 'active', fetchFrequency: 'P30D', officialSourceUrl: 'https://source.test' },
+        'italy-border': { status: 'active', fetchFrequency: 'P1D', officialSourceUrl: 'https://source.test' },
+        'osm-enrichment': { status: 'active', fetchFrequency: 'P30D', officialSourceUrl: 'https://source.test', license: 'ODbL 1.0' },
+      } },
+      ticino: { _fetchedAt: iso(1), pharmacies: [] },
+      italy: stale,
+      duties: { duties: [] },
+      nowMs: NOW,
+    });
+    expect(health.jurisdictions.find((entry) => entry.key === 'IT-CO')).toMatchObject({ stale: true, fetchErrorCount: 1 });
+    expect(health.outOfScopeRecords).toHaveLength(1);
+    expect(health.missingSecondaryProvenance).toEqual([{ jurisdiction: 'IT', pharmacyId: 'it-c', field: 'phone' }]);
+    expect(health.fetchErrors).toMatchObject([{ key: 'italy-border', count: 1 }]);
+  });
+});
+
+describe('border sync cadence', () => {
+  it('keeps the daily Italian source aligned with a daily catalogue workflow', () => {
+    const workflow = readFileSync(BORDER_SYNC_WORKFLOW, 'utf8');
+    expect(borderSources.sources['italy-border'].fetchFrequency).toBe('P1D');
+    expect(workflow).toContain("cron: '23 4 * * *'");
+  });
+});
+
+describe('border identity and provenance helpers', () => {
+  it('detects cross-jurisdiction collisions without flagging distinct records', () => {
+    const records = [
+      { jurisdiction: 'CH-TI', pharmacy: { id: 'same', slug: 'same', name: 'Alfa', postalCode: '6900', address: 'Via 1', country: 'CH', canton: 'Ticino' } },
+      { jurisdiction: 'IT-CO', pharmacy: { id: 'same', slug: 'other', name: 'Alfa', postalCode: '6900', address: 'Via 1', country: 'IT', province: 'CO' } },
+      { jurisdiction: 'IT-VA', pharmacy: { id: 'different', slug: 'different', name: 'Beta', postalCode: '1', address: 'Via 2', country: 'IT', province: 'VA' } },
+    ];
+    expect(detectBorderIdentityCollisions(records).map((collision) => collision.field)).toEqual(['id', 'identity']);
+    expect(findBorderOutOfScopeRecords(records)).toEqual([]);
   });
 });
 
@@ -221,6 +302,22 @@ describe('report payload consumed by the workflow', () => {
       nowMs: NOW,
     });
     expect(report.problems.join('\n')).toContain('sync-pharmacies-border');
+  });
+
+  it('includes the border health panel in the machine-readable report and dashboard', () => {
+    const report = buildReport({
+      registry,
+      datasets: { ticino: anagrafica() },
+      duties: { ticino: { _fetchedAt: iso(1), duties: [] } },
+      knownCantonCount: 26,
+      nowMs: NOW,
+      border: { sources: borderSources, ticino, italy, duties: borderDuties },
+    });
+    expect(report.healthy).toBe(true);
+    expect(report.border).toMatchObject({ totalRecords: 749, outOfScopeRecords: [], identityCollisions: [], missingSecondaryProvenance: [] });
+    expect(report.dashboard.join('\n')).toContain('Perimetro operativo: 4 giurisdizioni · 749 record');
+    expect(report.dashboard.join('\n')).toContain('IT-CO [active] — 193 record');
+    expect(report.dashboard.join('\n')).toContain('Errori fetch perimetro: 0');
   });
 });
 
