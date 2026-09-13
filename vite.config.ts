@@ -126,6 +126,7 @@ import { bfsSalaryLandingsPlugin } from './build-plugins/bfsSalaryLandingsPlugin
 import { bfsSalaryLinksPlugin } from './build-plugins/bfsSalaryLinksPlugin';
 import { minimumWageLandingsPlugin } from './build-plugins/minimumWageLandingsPlugin';
 import { sectionPagesPlugin } from './build-plugins/sectionPagesPlugin';
+import { plateAuctionsPagesPlugin } from './build-plugins/plateAuctionsPagesPlugin';
 import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
 import { localeTableCompletenessPlugin } from './build-plugins/localeTableCompletenessPlugin';
 import { withProfile, profileSummaryPlugin } from './build-plugins/profilePlugin';
@@ -309,6 +310,7 @@ export default defineConfig(({ mode }) => {
  // static HTML aggregator pages listing the latest 20 matching blog
  // articles per section. Static-only (no SPA route, no nav-tab impact).
  ...(process.env.SKIP_SECTION_PAGES !== '1' ? [sectionPagesPlugin()] : []),
+ plateAuctionsPagesPlugin(__dirname),
  orphanQueryLandingPlugin(__dirname),
  // staticPagesPlugin emits the section-landing index.html files
  // (/cerca-lavoro-ticino/, /en/find-jobs-ticino/, etc.) that

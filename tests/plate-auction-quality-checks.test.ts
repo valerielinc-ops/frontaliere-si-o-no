@@ -8,9 +8,8 @@ import type { PlateAuction } from '../services/plateAuctions/types';
 
 /**
  * Data-quality checks (#6360, residuo #4854 — "Controlli qualità dato") run
- * on synthetic fixtures: no connector produces real `PlateAuction` records
- * yet (every source in the registry is still `unverified`), so this suite is
- * the observer that guards the check logic itself ahead of live data.
+ * on synthetic fixtures plus connector-shaped records, so this suite is the
+ * observer that guards the check logic independently of live fetches.
  */
 
 const NOW = new Date('2026-08-27T12:00:00.000Z');
@@ -79,6 +78,15 @@ describe('checkPlateAuctionQuality', () => {
     const auction = makeAuction({ auctionStatus: 'closed', endsAt: '2026-08-20T00:00:00.000Z' });
     const issues = checkPlateAuctionQuality([auction], undefined, NOW);
     expect(issues.filter((i) => i.code === 'deadline-passed')).toEqual([]);
+  });
+
+  it('requires a verified final for every terminal status', () => {
+    for (const auctionStatus of ['closed', 'sold', 'unsold'] as const) {
+      const issues = checkPlateAuctionQuality([makeAuction({ auctionStatus })], undefined, NOW);
+      expect(issues).toEqual([
+        expect.objectContaining({ id: 'ti-2026-001', code: 'missing-final' }),
+      ]);
+    }
   });
 
   it('flags a non-finite numeric field', () => {
