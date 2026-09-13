@@ -6,6 +6,7 @@ import {
   dailyEngagementConsistency,
   deriveDateRangeDays,
   fetchDailyEngagementVerdict,
+  GA4_EMPTY_DAILY_ROWS_REASON,
   engagementUnreliableNote,
   engagementUnreliableNoteFromReason,
   GA4_ENGAGED_SESSION_MIN_SECONDS,
@@ -373,6 +374,12 @@ describe('il mirror Apps Script della soglia di affidabilita non drifta', () => 
     expect(gs).toContain("['date']");
     expect(gs).toContain('engagementConsistency(rows[i][1], rows[i][2], rows[i][3])');
   });
+
+  it('windowEngagementVerdict distingue una risposta GA4 200 senza righe', () => {
+    expect(gs).toContain('if (rows.length === 0)');
+    expect(gs).toContain('GA4_EMPTY_DAILY_ROWS_REASON');
+    expect(gs).toContain('reliable: false');
+  });
 });
 
 // #7510: il verdetto di finestra e' all-or-nothing (una giornata incoerente
@@ -588,6 +595,21 @@ describe('analytics-report interroga e giudica la finestra assestata per il cana
     const block = src.slice(start, src.indexOf('};', start));
     expect(block).toContain('result.summary?.engagementReliable !== false');
   });
+
+  it('una risposta 200 con zero righe per-giorno è non calcolata e sopprime l engagement', () => {
+    const start = src.indexOf('let dailyEngagement =');
+    const end = src.indexOf('\n\n  // #7510', start);
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    const block = src.slice(start, end);
+    expect(block).toContain('const dailyRows = Array.isArray(data.rows) ? data.rows : [];');
+    expect(block).toContain('if (dailyEngagementRows.length === 0) {');
+    expect(block).toContain('dailyEngagement = markEngagementNotComputed(GA4_EMPTY_DAILY_ROWS_REASON);');
+    expect(src).toContain('GA4_EMPTY_DAILY_ROWS_REASON');
+    expect(src).toContain('const engagementVerdict = dailyEngagement.reliable ? aggregateVerdict : dailyEngagement;');
+    expect(src).toContain('if (result.summary.engagementReliable !== false && bounceRate > 0.5) {');
+    expect(src).toContain('if (result.summary.engagementReliable !== false && result.summary.avgSessionDuration < 60) {');
+  });
 });
 
 describe('il lag di revenue-monitor e lo stesso helper, non una copia', () => {
@@ -741,6 +763,18 @@ describe('fetchDailyEngagementVerdict — richiesta per-giorno condivisa', () =>
     expect(seen[0].dimensionFilter).toBe(filter);
     expect(seen[0].limit).toBe(35);
     expect(seen[0].orderBys).toEqual([{ dimension: { dimensionName: 'date' }, desc: false }]);
+  });
+
+  it('una risposta 200 senza righe per-giorno è non calcolata, non affidabile per default', async () => {
+    const result = await fetchDailyEngagementVerdict({
+      dateRanges,
+      runReport: async () => ({ ok: true, status: 200, json: async () => ({ rows: [] }) }),
+    });
+    expect(result).toEqual({
+      reliable: false,
+      reason: `verdetto non calcolato: ${GA4_EMPTY_DAILY_ROWS_REASON}`,
+      unreliableDates: [],
+    });
   });
 
   it('somma più intervalli assoluti e usa windowDays solo per date relative', async () => {

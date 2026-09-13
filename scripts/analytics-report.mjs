@@ -42,7 +42,12 @@ import {
 } from './lib/analytics-opportunity-utils.mjs';
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
-import { engagementConsistency, dailyEngagementConsistency, engagementUnreliableNoteFromReason } from './lib/ga4-engagement-reliability.mjs';
+import {
+  engagementConsistency,
+  dailyEngagementConsistency,
+  engagementUnreliableNoteFromReason,
+  GA4_EMPTY_DAILY_ROWS_REASON,
+} from './lib/ga4-engagement-reliability.mjs';
 import {
   buildAiChannelHistoryEntry,
   buildAiChannelTrend,
@@ -832,6 +837,17 @@ async function reportGA4(token) {
     return rows;
   };
 
+  // #7508: a failed engagement measurement is a negative verdict, not an
+  // absent field. This is declared before the daily query because a successful
+  // GA4 response with zero rows is also a measurement failure (#7823).
+  const markEngagementNotComputed = (cause) => {
+    if (!result.summary) result.summary = {};
+    const reason = `verdetto non calcolato: ${cause}`;
+    result.summary.engagementReliable = false;
+    result.summary.engagementUnreliableReason = reason;
+    return { reliable: false, reason, unreliableDates: [] };
+  };
+
   const defaultGaEvents = new Set([
     'page_view',
     'session_start',
@@ -871,13 +887,19 @@ async function reportGA4(token) {
     );
     if (res.ok) {
       const data = await res.json();
-      dailyEngagementRows = (data.rows || []).map((r) => ({
+      const dailyRows = Array.isArray(data.rows) ? data.rows : [];
+      dailyEngagementRows = dailyRows.map((r) => ({
         date: r.dimensionValues?.[0]?.value || '?',
         sessions: parseInt(r.metricValues?.[0]?.value || '0', 10),
         engagedSessions: parseInt(r.metricValues?.[1]?.value || '0', 10),
         averageSessionDuration: parseFloat(r.metricValues?.[2]?.value || '0'),
       }));
-      dailyEngagement = dailyEngagementConsistency(dailyEngagementRows);
+      if (dailyEngagementRows.length === 0) {
+        dailyEngagement = markEngagementNotComputed(GA4_EMPTY_DAILY_ROWS_REASON);
+        log('⚠️', `GA4 engagement per-giorno: ${GA4_EMPTY_DAILY_ROWS_REASON}`);
+      } else {
+        dailyEngagement = dailyEngagementConsistency(dailyEngagementRows);
+      }
     } else {
       log('⚠️', `GA4 engagement per-giorno: ${res.status} — sanity-check #6703 non applicato`);
     }
@@ -908,19 +930,6 @@ async function reportGA4(token) {
   // committed row explain how many settled-window paths the full-window
   // verdict would have suppressed.
   let aiChannelHistoryContext = null;
-
-  // #7508: `engagementReliable` era assegnato in un punto solo, sul percorso
-  // felice del riepilogo. Sui rami d'errore (403, non-ok, throw) il campo
-  // restava `undefined`, e i guard a valle lo testano con `!== false`: un
-  // verdetto mai calcolato passava per «affidabile» e le raccomandazioni da
-  // bounce/durata tornavano a essere emesse proprio quando la rilevazione era
-  // rotta — il caso #6703 che il guard esiste per neutralizzare. «Non
-  // calcolato» e' un verdetto negativo, non un'assenza: lo si scrive.
-  const markEngagementNotComputed = (cause) => {
-    if (!result.summary) result.summary = {};
-    result.summary.engagementReliable = false;
-    result.summary.engagementUnreliableReason = `verdetto non calcolato: ${cause}`;
-  };
 
   // ── 3a. Overall metrics ─────────────────
   try {

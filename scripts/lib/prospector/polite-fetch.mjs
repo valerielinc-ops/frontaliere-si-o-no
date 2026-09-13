@@ -15,7 +15,7 @@
 import { fetch as undiciFetch } from 'undici';
 import { UA, HOST_DELAY_MS, FETCH_TIMEOUT_MS } from './config.mjs';
 import { normalizeHost } from './registrable.mjs';
-import { RETRYABLE_STATUS, transportErrorKind } from '../transient-fetch.mjs';
+import { RETRYABLE_STATUS, parseRetryAfterMs, transportErrorKind } from '../transient-fetch.mjs';
 import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirectsWithUrl,
@@ -95,14 +95,7 @@ async function throttle(host, sleepImpl = sleep, nowImpl = Date.now, deadline) {
 
 function boundedRetryAfterMs(value, fallbackMs, now) {
   const fallback = Number.isFinite(fallbackMs) ? Math.max(0, fallbackMs) : 0;
-  const raw = String(value || '').trim();
-  let requested = null;
-  if (/^\d+$/.test(raw)) {
-    requested = Number(raw) * 1_000;
-  } else if (raw) {
-    const parsed = Date.parse(raw);
-    if (Number.isFinite(parsed) && parsed > now) requested = parsed - now;
-  }
+  const requested = parseRetryAfterMs(value, { nowMs: now, capMs: RETRY_AFTER_CAP_MS });
   // An explicit, valid Retry-After always wins over the scaled local
   // fallback — including when it is SHORTER, since the host is telling us
   // exactly how long to wait and HOST_DELAY_MS in throttle() still floors

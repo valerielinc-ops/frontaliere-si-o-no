@@ -26,6 +26,10 @@
 // CONFIGURATION — Edit these values
 // ════════════════════════════════════════════
 
+// Kept in sync with the site GA4 reliability module; Apps Script is a
+// standalone runtime and cannot import that ES module.
+const GA4_EMPTY_DAILY_ROWS_REASON = 'GA4 ha risposto 200 con zero righe per-giorno';
+
 const CONFIG = {
   // Your GA4 Property ID (find in GA4 → Admin → Property Settings → Property ID)
   // Format: just the number, e.g., '123456789'
@@ -225,6 +229,12 @@ function windowEngagementVerdict(startDate, endDate) {
       ['date'],
       ['sessions', 'engagementRate', 'averageSessionDuration']
     );
+    if (rows.length === 0) {
+      verdict = {
+        reliable: false,
+        reason: GA4_EMPTY_DAILY_ROWS_REASON,
+      };
+    }
     const bad = [];
     for (let i = 0; i < rows.length; i++) {
       const day = engagementConsistency(rows[i][1], rows[i][2], rows[i][3]);
