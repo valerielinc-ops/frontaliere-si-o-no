@@ -193,8 +193,9 @@ const _cascadeStats = {
   // salvato.
   tierPassthroughs: {},
   // I testi lunghi attraversano MyMemory a chunk: un eco qui è un tentativo
-  // per segmento, non un tentativo per campo. Tenerlo separato evita di
-  // confrontare cardinalità diverse quando si calibra il pavimento sotto.
+  // per segmento, non un tentativo per campo. Ogni eco entra comunque nel
+  // bucket canonico `tierPassthroughs` (contratto #1210); questo sotto-bucket
+  // conserva la cardinalità per segmento per la calibrazione del pavimento.
   tierPassthroughChunks: {},
   // Per-field-type split of calls/successes. The cumulative `successes` above is
   // summed across every field type, so a run that translates short titles fine
@@ -414,10 +415,10 @@ function isSubstantivePassthroughChunk(text) {
  * dentro il loop delle chiavi, prima che `tryTier` veda qualcosa. Passando di
  * qui la FORMULA resta una sola — era duplicata a mano in sei tier, ed e' il
  * tipo di duplicazione che deriva in silenzio — e soprattutto il conteggio
- * finisce nello stesso bucket, invece che sparire. I passthrough a campo e
- * quelli a chunk hanno invece granularita' diverse: il secondo va in
- * `tierPassthroughChunks`, altrimenti il numero su cui si decide la taratura
- * sarebbe sbilanciato senza dirlo.
+ * finisce nello stesso bucket, invece che sparire. Un echo a chunk aggiorna
+ * sia il conteggio canonico `tierPassthroughs` sia la sua dimensione
+ * diagnostica `tierPassthroughChunks`: il primo soddisfa il contratto di
+ * passthrough, il secondo evita di perdere la granularita' utile alla taratura.
  *
  * @param {string} tierName
  * @param {string} source  testo dato in pasto al motore
@@ -427,8 +428,10 @@ function isSubstantivePassthroughChunk(text) {
  */
 function rejectedAsPassthrough(tierName, source, out, outcome = null, granularity = 'field') {
   if (!out || !isSourcePassthrough(source, out)) return false;
-  const bucket = granularity === 'chunk' ? _cascadeStats.tierPassthroughChunks : _cascadeStats.tierPassthroughs;
-  bucket[tierName] = (bucket[tierName] || 0) + 1;
+  _cascadeStats.tierPassthroughs[tierName] = (_cascadeStats.tierPassthroughs[tierName] || 0) + 1;
+  if (granularity === 'chunk') {
+    _cascadeStats.tierPassthroughChunks[tierName] = (_cascadeStats.tierPassthroughChunks[tierName] || 0) + 1;
+  }
   noteTranslationOutcome(outcome, 'passthroughs');
   return true;
 }
@@ -1464,7 +1467,7 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
     }
     // `return joined` e non un confronto locale: questo e' il ramo dei testi
     // lunghi, cioe' dei body. Gli echo per segmento sono gia' nel bucket
-    // `tierPassthroughChunks`, senza confonderli con i passthrough a campo.
+    // `tierPassthroughChunks`, oltre al conteggio canonico richiesto da #1210.
     return normalizeBlock(parts.join(' '));
   });
   if (t2) return finalize(t2);
