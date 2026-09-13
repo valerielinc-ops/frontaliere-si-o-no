@@ -75,7 +75,7 @@ export function hasAiSearchOptimization(body1) {
  *
  * @param {object} params
  * @param {string[]} params.tldr — 3-4 short bullet points (≤80 chars each)
- * @param {Array<{term: string, value: string}>} params.keyFacts — 5-8 facts
+ * @param {Array<{term: string, value: string}>} params.keyFacts — 3-8 facts
  * @param {'it'|'en'|'de'|'fr'} [params.locale='it']
  * @returns {string} markdown block ending with `\n\n`
  */
@@ -125,13 +125,14 @@ OGNI articolo DEVE includere all'inizio di body1, PRIMA del lead giornalistico:
    - <punto chiave 2>
    - <punto chiave 3>
 
-2) FATTI CHIAVE — sezione "## Fatti chiave" con 5-8 coppie termine→valore:
+2) FATTI CHIAVE — sezione "## Fatti chiave" con 3-8 coppie termine→valore, solo fatti presenti nella fonte:
    ## Fatti chiave
    - **Cosa**: <descrizione breve>
    - **Quando**: <data o periodo dalla fonte>
    - **Dove**: <luogo specifico>
    - **Chi**: <ente o soggetto>
    - **Importo**: <cifra o percentuale, se presente nella fonte>
+   Se un campo non è nella fonte, OMETTILO. Non scrivere placeholder come "non specificato", "not specified", "nicht angegeben" o "non spécifié".
 
 DOPO queste due sezioni, prosegui con il lead giornalistico normale di body1.
 Le sezioni TL;DR + Fatti chiave NON contano verso il minimo parole di body1.
@@ -157,10 +158,11 @@ ${langInstr}
 
 Dato il seguente articolo, estrai:
 1) Un TL;DR (3-4 bullet, max 80 caratteri ciascuno) — i punti chiave più importanti.
-2) Una lista di "Fatti chiave" (5-8 coppie {term, value}) — dati strutturati: cosa, quando, dove, chi, importo, scadenza, ecc.
+2) Una lista di "Fatti chiave" (3-8 coppie {term, value}) — solo dati presenti nel testo: cosa, quando, dove, chi, importo, scadenza, ecc. Se un campo non compare nell'articolo, OMETTILO.
 
 REGOLE:
 - Ogni fatto DEVE essere presente nel testo dell'articolo. NON inventare nulla.
+- Non scrivere placeholder come "non specificato", "not specified", "nicht angegeben" o "non spécifié" per i campi assenti: OMETTILI.
 - Bullet TL;DR: brevi, autoconclusivi, leggibili da soli.
 - "term" max 25 caratteri; "value" max 120 caratteri.
 - NON includere markdown nei valori (no **bold**, no link).

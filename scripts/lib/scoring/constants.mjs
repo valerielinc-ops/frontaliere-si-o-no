@@ -165,3 +165,23 @@ export const TOPIC_CANDIDATE_DUP_JACCARD_CEILING = 0.88;
 export function computeAdaptiveTopicCandidateDupJaccard(corpusSize) {
   return scaleSaturationThreshold(TOPIC_CANDIDATE_DUP_JACCARD, TOPIC_CANDIDATE_DUP_JACCARD_CEILING, corpusSize);
 }
+
+/**
+ * Coerce an optional numeric input without turning nullish placeholders into
+ * fabricated zeroes. Numeric strings remain accepted because the evidence
+ * indexes can come from JSON/GA4 exports; blank strings and booleans are not
+ * numeric evidence.
+ *
+ * @param {unknown} value
+ * @param {number|null} fallback
+ * @returns {number|null}
+ */
+export function safeNumber(value, fallback) {
+  if (
+    value === null
+    || typeof value === 'boolean'
+    || (typeof value === 'string' && value.trim() === '')
+  ) return fallback;
+  const n = Number(value);
+  return Number.isFinite(n) ? n : fallback;
+}

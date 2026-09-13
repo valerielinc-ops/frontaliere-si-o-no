@@ -53,6 +53,16 @@ describe('synthesizeHistoricalHeadlines', () => {
     const out = synthesizeHistoricalHeadlines(perf, 60);
     expect(out[0].actualSessions).toBe(42);
   });
+
+  it('falls back to top-level sessions when metrics.sessions is null', () => {
+    const perf = {
+      articles: [
+        { title: 'X', slug: 'x', publishedAt: new Date().toISOString(), metrics: { sessions: null }, sessions: 42 },
+      ],
+    };
+    const out = synthesizeHistoricalHeadlines(perf, 60);
+    expect(out[0].actualSessions).toBe(42);
+  });
 });
 
 describe('lookupActualSessions', () => {
@@ -63,6 +73,18 @@ describe('lookupActualSessions', () => {
   it('finds slug under /articoli-frontaliere/<slug>/', () => {
     const evidence = {
       ga4: { pages: { '/articoli-frontaliere/foo/': { sessions: 222 } } },
+    };
+    expect(lookupActualSessions('foo', evidence)).toBe(222);
+  });
+
+  it('skips a null first path and tries the next canonical path', () => {
+    const evidence = {
+      ga4: {
+        pages: {
+          '/articoli-frontaliere/foo/': { sessions: null },
+          '/articoli-frontaliere/foo': { sessions: 222 },
+        },
+      },
     };
     expect(lookupActualSessions('foo', evidence)).toBe(222);
   });

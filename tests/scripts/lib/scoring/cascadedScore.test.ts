@@ -10,6 +10,7 @@ import {
   cascadedScore,
   scoreFromGsc,
   scoreFromCluster,
+  __internals,
   __resetHeadlineCache,
 } from '../../../../scripts/lib/scoring/cascadedScore.mjs';
 import { extractTerms } from '../../../../scripts/lib/scoring/termExtractor.mjs';
@@ -127,6 +128,38 @@ describe('scoreFromCluster', () => {
     // 'fiscale' classification, but stats.fiscale is missing → falls
     // back to generic.p50 / divisor.
     expect(out.rawScore).toBe(80 / GENERIC_FLOOR_DIVISOR);
+  });
+
+  it('uses generic fallback when the cluster p50 is null, blank, or boolean', () => {
+    for (const p50 of [null, '', true, false]) {
+      const out = scoreFromCluster('Tasse svizzera', {
+        fiscale: { p50 },
+        generic: { p50: 80 },
+      });
+      expect(out.rawScore).toBe(80 / GENERIC_FLOOR_DIVISOR);
+    }
+  });
+
+  it('uses generic fallback when global p50 is null, blank, or boolean', () => {
+    for (const p50 of [null, '', true, false]) {
+      const out = scoreFromCluster('Tasse svizzera', {
+        global: { p50 },
+        generic: { p50: 80 },
+      });
+      expect(out.rawScore).toBe(80 / GENERIC_FLOOR_DIVISOR);
+    }
+  });
+});
+
+describe('lookupSessionsForSlug', () => {
+  it('skips null, blank, and boolean sessions and tries the next path', () => {
+    for (const sessions of [null, '', true, false]) {
+      const pages = {
+        '/articoli-frontaliere/foo/': { sessions },
+        '/articoli-frontaliere/foo': { sessions: 42 },
+      };
+      expect(__internals.lookupSessionsForSlug('foo', pages)).toBe(42);
+    }
   });
 });
 

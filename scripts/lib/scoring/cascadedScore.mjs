@@ -25,6 +25,7 @@ import {
   POS_DECAY_MIN,
   POS_DECAY_PIVOT,
   HEADLINE_EMBED_CACHE_SIZE,
+  safeNumber,
 } from './constants.mjs';
 
 // ── Per-process LRU for embedded headlines ─────────────────────────
@@ -237,7 +238,8 @@ function lookupSessionsForSlug(slug, ga4Pages) {
   ];
   for (const path of candidates) {
     const entry = ga4Pages[path];
-    if (entry && Number.isFinite(Number(entry.sessions))) return Number(entry.sessions);
+    const sessions = safeNumber(entry?.sessions, null);
+    if (sessions !== null) return sessions;
   }
   return null;
 }
@@ -257,12 +259,12 @@ export function scoreFromCluster(headline, clusterStats) {
   const stats = clusterStats || {};
   const cluster = classifyByRegex(String(headline || ''));
   const entry = stats[cluster];
-  let p50;
-  if (entry && Number.isFinite(Number(entry.p50))) {
-    p50 = Number(entry.p50);
-  } else {
-    const fallback = stats.global || stats.generic;
-    p50 = fallback && Number.isFinite(Number(fallback.p50)) ? Number(fallback.p50) / GENERIC_FLOOR_DIVISOR : 0;
+  let p50 = safeNumber(entry?.p50, null);
+  if (p50 === null) {
+    const globalP50 = safeNumber(stats.global?.p50, null);
+    const genericP50 = safeNumber(stats.generic?.p50, null);
+    const fallbackP50 = globalP50 ?? genericP50;
+    p50 = fallbackP50 === null ? 0 : fallbackP50 / GENERIC_FLOOR_DIVISOR;
   }
 
   let rawScore;

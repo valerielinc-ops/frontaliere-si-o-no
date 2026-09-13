@@ -28,6 +28,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { cascadedScore } from './lib/scoring/cascadedScore.mjs';
+import { safeNumber } from './lib/scoring/constants.mjs';
 
 const REPO_ROOT = resolve(new URL('..', import.meta.url).pathname);
 const DEFAULT_PERF = resolve(REPO_ROOT, 'data/article-performance.json');
@@ -81,9 +82,8 @@ export function synthesizeHistoricalHeadlines(perf, windowDays) {
       headline: title,
       slug: art?.slug || null,
       publishedAt: art?.publishedAt || null,
-      actualSessions: Number.isFinite(Number(art?.metrics?.sessions))
-        ? Number(art.metrics.sessions)
-        : (Number.isFinite(Number(art?.sessions)) ? Number(art.sessions) : null),
+      actualSessions: safeNumber(art?.metrics?.sessions, null)
+        ?? safeNumber(art?.sessions, null),
     });
   }
   return out;
@@ -105,7 +105,8 @@ export function lookupActualSessions(slug, evidence) {
   ];
   for (const path of candidates) {
     const entry = pages[path];
-    if (entry && Number.isFinite(Number(entry.sessions))) return Number(entry.sessions);
+    const sessions = safeNumber(entry?.sessions, null);
+    if (sessions !== null) return sessions;
   }
   return null;
 }

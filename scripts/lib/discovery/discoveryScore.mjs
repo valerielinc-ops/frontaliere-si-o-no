@@ -11,6 +11,7 @@
 
 import { classifyByRegex } from '../cluster-classifier-prompt.mjs';
 import { hasDomainAnchor } from './domainAnchor.mjs';
+import { safeNumber } from '../scoring/constants.mjs';
 
 const ORPHAN_CONFIDENCE = 1.0;
 const SUGGEST_CONFIDENCE = 0.6;
@@ -28,13 +29,7 @@ const WINDOW_DAYS_DEFAULT = 90;
 
 function clusterP50(evidence, cluster) {
   const stats = evidence?.clusterStats?.[cluster];
-  const p50 = stats && Number.isFinite(Number(stats.p50)) ? Number(stats.p50) : NaN;
-  return Number.isFinite(p50) ? p50 : CLUSTER_FALLBACK_P50;
-}
-
-function safeNumber(value, fallback) {
-  const n = Number(value);
-  return Number.isFinite(n) ? n : fallback;
+  return safeNumber(stats?.p50, CLUSTER_FALLBACK_P50);
 }
 
 /**
