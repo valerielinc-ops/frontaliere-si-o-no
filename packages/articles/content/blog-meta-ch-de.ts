@@ -6361,6 +6361,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.title': 'Lebensmittelverschwendung in der Schweiz: Nationale Woche startet',
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.excerpt': 'Eine Woche voller Initiativen in der ganzen Schweiz zur Reduzierung der Lebensmittelverschwendung steht auf dem Programm: Die Verwertung von Millionen von Mahlzeiten steht auf dem Spiel.',
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.imageAlt': 'Nationale Woche gegen Lebensmittelverschwendung in der Schweiz',
+    'blog.article.record-imprese-culturali-svizzera.title': 'Kulturunternehmensrekord in der Schweiz im Jahr 2024',
+    'blog.article.record-imprese-culturali-svizzera.excerpt': 'Im Jahr 2024 verzeichnete die Schweiz 69 441 aktive Kulturunternehmen, ein Plus von 27% gegenüber 2011, obwohl die Beschäftigung zurückging.',
+    'blog.article.record-imprese-culturali-svizzera.imageAlt': 'Kulturunternehmen in der Schweiz gemäss BFS-Daten',
 };
 
 export default blogMetaChDe;

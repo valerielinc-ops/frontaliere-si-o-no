@@ -6361,6 +6361,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.title': 'Food waste in Switzerland: national week kicks off',
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.excerpt': 'A week of initiatives throughout Switzerland to reduce food waste is underway: the recovery of millions of meals is up for grabs.',
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.imageAlt': 'National food waste reduction week in Switzerland',
+    'blog.article.record-imprese-culturali-svizzera.title': 'Record number of cultural enterprises in Switzerland in 2024',
+    'blog.article.record-imprese-culturali-svizzera.excerpt': 'In 2024, Switzerland registered 69,441 active cultural enterprises, an increase of 27% compared to 2011, although employment has decreased.',
+    'blog.article.record-imprese-culturali-svizzera.imageAlt': 'Cultural enterprises in Switzerland according to FSO data',
 };
 
 export default blogMetaChEn;

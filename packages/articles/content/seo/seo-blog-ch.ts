@@ -82583,6 +82583,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-record-imprese-culturali-svizzera': {
+    title: 'Record di imprese culturali in Svizzera nel 2024',
+    description: 'Nel 2024 la Svizzera ha raggiunto 69 441 imprese culturali, +27% sul 2011. Dati statistici ufficiali UST su occupazione e settori. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, record, imprese, culturali, registrato',
+    ogTitle: 'Record di imprese culturali in Svizzera nel 2024',
+    ogDescription: 'Nuovo record nel 2024 per le imprese culturali in Svizzera con 69 441 unità attive, in crescita del 27% rispetto al 2011. Tutti i dati della statistica dell\'Ufficio federale di statistica.',
+    canonicalPath: '/articoli-svizzera/record-imprese-culturali-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Record di imprese culturali in Svizzera nel 2024",
+      "description": "Nel 2024 la Svizzera ha raggiunto 69 441 imprese culturali, +27% sul 2011. Dati statistici ufficiali UST su occupazione e settori. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/record-imprese-culturali-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imprese culturali in Svizzera secondo i dati UST"
+      },
+      "datePublished": "2026-09-13T08:54:06+00:00",
+      "dateModified": "2026-09-13T08:54:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/record-imprese-culturali-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

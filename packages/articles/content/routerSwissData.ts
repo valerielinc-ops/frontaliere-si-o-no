@@ -2146,6 +2146,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'furto-apparecchiature-mediche-roma': { it: 'furto-apparecchiature-mediche-roma', en: 'theft-medical-equipment-roma', de: 'diebstahl-medizinische-geraete-rom', fr: 'vol-equipement-medical-rome' },
  'allarme-medici-frontalieri-ticino': { it: 'allarme-medici-frontalieri-ticino', en: 'alarm-cross-border-doctors-ticino', de: 'alarm-grenzgaenger-aerzte-tessin', fr: 'alerte-medecins-frontaliers-tessin' },
  'settimana-contro-lo-spreco-alimentare-svizzera': { it: 'settimana-contro-lo-spreco-alimentare-svizzera', en: 'food-waste-reduction-week-switzerland', de: 'woche-gegen-lebensmittelverschwendung-schweiz', fr: 'semaine-contre-le-gaspillage-alimentaire-suisse' },
+ 'record-imprese-culturali-svizzera': { it: 'record-imprese-culturali-svizzera', en: 'record-cultural-enterprises-switzerland', de: 'rekord-kulturunternehmen-schweiz', fr: 'record-entreprises-culturelles-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

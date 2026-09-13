@@ -6361,6 +6361,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.title': 'Gaspillage alimentaire en Suisse : début de la semaine nationale',
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.excerpt': 'Une semaine d\'initiatives dans toute la Suisse pour réduire le gaspillage alimentaire : la récupération de millions de repas est en jeu.',
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.imageAlt': 'Semaine nationale contre le gaspillage alimentaire en Suisse',
+    'blog.article.record-imprese-culturali-svizzera.title': 'Record d\'entreprises culturelles en Suisse en 2024',
+    'blog.article.record-imprese-culturali-svizzera.excerpt': 'En 2024, la Suisse a enregistré 69 441 entreprises culturelles actives, soit une augmentation de 27 % par rapport à 2011, bien que les emplois aient diminué.',
+    'blog.article.record-imprese-culturali-svizzera.imageAlt': 'Entreprises culturelles en Suisse selon les données de l\'OFS',
 };
 
 export default blogMetaChFr;

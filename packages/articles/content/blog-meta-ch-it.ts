@@ -6361,6 +6361,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.title': 'Spreco alimentare in Svizzera: al via la settimana nazionale',
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.excerpt': 'Al via una settimana di iniziative in tutta la Svizzera per ridurre lo spreco alimentare: in palio il recupero di milioni di pasti.',
     'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.imageAlt': 'Settimana nazionale contro lo spreco alimentare in Svizzera',
+    'blog.article.record-imprese-culturali-svizzera.title': 'Record di imprese culturali in Svizzera nel 2024',
+    'blog.article.record-imprese-culturali-svizzera.excerpt': 'Nel 2024 la Svizzera ha registrato 69 441 imprese culturali attive, segnando un aumento del 27% rispetto al 2011, sebbene gli impieghi siano diminuiti.',
+    'blog.article.record-imprese-culturali-svizzera.imageAlt': 'Imprese culturali in Svizzera secondo i dati UST',
 };
 
 export default blogMetaChIt;
