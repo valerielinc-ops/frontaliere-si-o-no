@@ -33,7 +33,10 @@
  */
 
 import { extractKeywords } from './newsletter-content.mjs';
-import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import {
+  canonicalCompanyProfileSlug,
+  companyDisplayIdentityKeys,
+} from '../build-plugins/shared/companyProfileSlug.mjs';
 import { locTokenHit } from './locToken.mjs';
 import { municipalityToCantons } from './provinceCantonAffinity.ts';
 
@@ -153,36 +156,17 @@ function canonicalCompanyToken(value) {
   return normalizeCompanyToken(value);
 }
 
-const LEGAL_FORM_SUFFIXES = new Set([
-  'ag', 'bv', 'gmbh', 'inc', 'ltd', 'nv', 'plc', 'sa', 'sagl', 'sarl', 'spa', 'srl',
-]);
-
 /**
- * Resolve the only safe bridge between a display label and a crawler key:
- * an exact display slug with a trailing legal-form suffix removed. This keeps
- * `Board International SA` + `board-international` compatible without treating
- * an arbitrary shared crawler key as an employer alias.
+ * Resolve the exact canonical display identities accepted by a company pin.
+ * The shared crawler key is intentionally absent: one key can cover several
+ * employer labels, while legal-form and declared-brand variants are resolved
+ * by the shared display-identity helper.
  *
  * @param {object|null|undefined} job
  * @returns {string[]}
  */
 function pinnedCompanyIdentityKeys(job) {
-  const displaySlug = canonicalCompanyProfileSlug(job?.company, job?.company);
-  if (!displaySlug) return [];
-
-  const keys = [canonicalCompanyToken(displaySlug)];
-  const crawlerSlug = canonicalCompanyProfileSlug(job?.companyKey, job?.companyKey);
-  const displayParts = displaySlug.split('-');
-  while (
-    displayParts.length > 1
-    && LEGAL_FORM_SUFFIXES.has(displayParts[displayParts.length - 1])
-  ) {
-    displayParts.pop();
-  }
-  if (crawlerSlug && displayParts.join('-') === crawlerSlug) {
-    keys.push(canonicalCompanyToken(crawlerSlug));
-  }
-  return [...new Set(keys.filter(Boolean))];
+  return companyDisplayIdentityKeys(job?.company).map(canonicalCompanyToken);
 }
 
 /**

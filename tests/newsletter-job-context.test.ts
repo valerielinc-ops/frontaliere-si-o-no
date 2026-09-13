@@ -39,6 +39,30 @@ const JOBS = [
 ];
 
 describe('prepareNewsletterJobContext', () => {
+  it('usa la display identity canonica e non una crawler key condivisa', () => {
+    const collisionJobs = [
+      {
+        ...JOBS[0],
+        title: 'Sviluppatore Galaxus',
+        company: 'Galaxus',
+        companyKey: 'migros-ticino',
+        slug: 'sviluppatore-galaxus',
+      },
+      {
+        ...JOBS[0],
+        title: 'Sviluppatore Migros',
+        company: 'Migros Ticino SA',
+        companyKey: 'migros-ticino',
+        slug: 'sviluppatore-migros',
+      },
+    ];
+
+    const matched = matchJobsForSubscriber({ job_company: 'Migros' }, collisionJobs, 1, 'it');
+
+    expect(matched).toHaveLength(1);
+    expect(matched[0].company).toBe('Migros Ticino SA');
+  });
+
   it('preserva esattamente il ranking del percorso legacy per profili diversi', () => {
     const recent = ['sviluppatore-backend-tech'];
     const prepared = prepareNewsletterJobContext(JOBS, recent);

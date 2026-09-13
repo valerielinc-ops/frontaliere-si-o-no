@@ -24,6 +24,7 @@ import { readNewsletterDataset } from './newsletter-datasets.mjs';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
 import { locTokenHit, normalizeLocToken } from './locToken.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
+import { sameCompanyDisplayIdentity } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { JOB_BOARD_SECTION_RX } from '../scripts/lib/jobBoardSections.mjs';
 import { nlNormLocale } from './newsletter-template.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
@@ -448,15 +449,10 @@ function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany, subsc
   let score = 0;
   const jobTitle = String(job.titleByLocale?.it || job.title || '').toLowerCase();
   const jobCategory = String(job.category || job.sector || '').toLowerCase();
-  const jobCompanyKey = (job.companyKey || job.company || '').toLowerCase();
 
-  // Company match: strong signal (same employer → highly relevant)
-  if (subscriberCompany) {
-    const subComp = subscriberCompany.toLowerCase();
-    if (jobCompanyKey.includes(subComp) || subComp.includes(jobCompanyKey)) {
-      score += 4;
-    }
-  }
+  // Company match: strong signal. Compare canonical display identities only:
+  // one crawler key can cover unrelated employer labels (e.g. Migros/Galaxus).
+  if (subscriberCompany && sameCompanyDisplayIdentity(subscriberCompany, job.company)) score += 4;
 
   // Keyword overlap with job title
   if (subscriberKeywords.size > 0) {
