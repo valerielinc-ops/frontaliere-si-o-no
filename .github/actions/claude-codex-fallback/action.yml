@@ -107,6 +107,12 @@ outputs:
   repair_quota_held:
     description: "true when a PR repair was held by the zero-Claude allocation floor."
     value: ${{ steps.repair_quota.outputs.held }}
+  repair_quota_lease_acquired:
+    description: "true when this action acquired or reused a repair quota-floor lease."
+    value: ${{ steps.repair_quota.outputs.lease_acquired }}
+  repair_quota_lease_owner:
+    description: "Owner token of the repair quota-floor lease, when admitted."
+    value: ${{ steps.repair_quota.outputs.lease_owner }}
 
 runs:
   using: composite
@@ -1304,16 +1310,38 @@ runs:
           *) echo "::warning::unexpected Codex primary runtime snapshot path; leaving it untouched" ;;
         esac
 
+    - name: Release repair quota-floor lease (zero-Claude)
+      id: release_repair_quota
+      if: always() && steps.repair_quota.outputs.lease_acquired == 'true'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github_token || github.token }}
+        GH_REPO: ${{ github.repository }}
+        QUOTA_FLOOR_REQUIRED: '1'
+        QUOTA_FLOOR_ACTION: release
+        QUOTA_FLOOR_KIND: repair
+        QUOTA_FLOOR_LEDGER_ISSUE: '8306'
+        QUOTA_FLOOR_SUBJECT: ${{ steps.repair_quota.outputs.lease_subject }}
+        QUOTA_FLOOR_OWNER: ${{ steps.repair_quota.outputs.lease_owner }}
+      run: node "$GITHUB_WORKSPACE/scripts/ci/check-quota-backoff.mjs"
+
     - name: Preserve primary/fallback outcome
       if: always()
       shell: bash
       env:
         REPAIR_QUOTA_HELD: ${{ steps.repair_quota.outputs.held }}
+        REPAIR_QUOTA_LEASE_ACQUIRED: ${{ steps.repair_quota.outputs.lease_acquired }}
+        REPAIR_QUOTA_RELEASE_OUTCOME: ${{ steps.release_repair_quota.outcome }}
       run: |
         set -uo pipefail
         if [ "${REPAIR_QUOTA_HELD:-false}" = 'true' ]; then
           echo '✓ PR repair held by the zero-Claude quota admission floor.'
           exit 0
+        fi
+        if [ "${REPAIR_QUOTA_LEASE_ACQUIRED:-false}" = 'true' ] \
+          && [ "${REPAIR_QUOTA_RELEASE_OUTCOME:-skipped}" != 'success' ]; then
+          echo "::error::Repair quota-floor lease cleanup failed (outcome=${REPAIR_QUOTA_RELEASE_OUTCOME:-unknown})."
+          exit 1
         fi
         finalize_outcome="${{ steps.finalize.outcome }}"
         action_success="${{ steps.finalize.outputs.action_success }}"

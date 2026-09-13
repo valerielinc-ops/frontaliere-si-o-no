@@ -178,6 +178,10 @@ jobs:
           GH_REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           CODEX_FALLBACK_MODE: '1'
+          QUOTA_FLOOR_REQUIRED: '1'
+          QUOTA_FLOOR_KIND: issue-fix
+          QUOTA_FLOOR_LEDGER_ISSUE: '8306'
+          QUOTA_FLOOR_SUBJECT: issue-${{ github.event.issue.number }}
         # STRUCTURAL fix per l'escalation misurata sul tracker #1951 (failure-rate
         # issue-fix acceso da ≥7 report settimanali consecutivi). Scaricando i log
         # di TUTTE e 61 le run fallite della finestra 7gg (2026-07-29 → 08-05):
@@ -194,8 +198,21 @@ jobs:
         # scripts/ci/claude-rate-limit.mjs.
         run: node scripts/ci/check-quota-backoff.mjs
 
-      - name: Install dependencies
+      - name: Enforce shared quota-floor lease (fail-closed)
         if: always()
+        env:
+          QUOTA_FLOOR_ADMIT: ${{ steps.quota.outputs.quota_floor_admit }}
+          QUOTA_FLOOR_REASON: ${{ steps.quota.outputs.quota_floor_reason }}
+        run: |
+          set -euo pipefail
+          if [ "${QUOTA_FLOOR_ADMIT:-false}" != 'true' ]; then
+            echo "::error::Issue-fix fermo prima del provider: quota-floor lease non disponibile (${QUOTA_FLOOR_REASON:-telemetria assente})."
+            exit 1
+          fi
+          echo "Quota-floor lease issue-fix acquisito/verificato: ${QUOTA_FLOOR_REASON:-ok}."
+
+      - name: Install dependencies
+        if: steps.quota.outputs.quota_floor_admit == 'true'
         run: npm ci
 
       # DECISIONE DEL PROPRIETARIO, 2026-08-24 (registro in DECISIONS.md): l'uso dei
@@ -1345,3 +1362,17 @@ jobs:
           CLAIM_ACTION: release
           CLAIM_OWNER: remote
         run: node scripts/ci/claim-issue-in-flight.mjs
+
+      - name: Release issue-fix quota-floor lease (zero-Claude)
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          QUOTA_FLOOR_REQUIRED: '1'
+          QUOTA_FLOOR_ACTION: release
+          QUOTA_FLOOR_KIND: issue-fix
+          QUOTA_FLOOR_LEDGER_ISSUE: '8306'
+          QUOTA_FLOOR_SUBJECT: issue-${{ github.event.issue.number }}
+          QUOTA_FLOOR_OWNER: ${{ steps.quota.outputs.quota_floor_lease_owner }}
+        run: node scripts/ci/check-quota-backoff.mjs

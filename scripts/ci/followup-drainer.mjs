@@ -65,6 +65,17 @@ import {
   maxQuotaResetsAt,
 } from './claude-rate-limit.mjs';
 import { quotaFallbackDecision } from './check-quota-backoff.mjs';
+import {
+  acquireQuotaFloorLease,
+  quotaFloorFairnessDecision,
+  quotaFloorLeaseExpiry,
+  quotaFloorLeaseOwner,
+  QUOTA_FLOOR_LEDGER_ISSUE,
+  QUOTA_FLOOR_LEASE_TTL_SEC,
+  quotaFloorLeaseDecision,
+  readQuotaFloorLedger,
+  releaseQuotaFloorLease,
+} from './quota-floor-lease.mjs';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { runBudgetFromEnv } from './lib/run-budget.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
@@ -191,6 +202,8 @@ const REPO = process.env.GITHUB_REPOSITORY || '';
 // drainer must apply the same provider contract: a Claude-only beacon is not a
 // reason to starve the queue when the primary provider can still make one try.
 const CODEX_FALLBACK_MODE = process.env.FOLLOWUP_CODEX_FALLBACK_MODE === '1';
+const QUOTA_FLOOR_LEDGER = process.env.QUOTA_FLOOR_LEDGER_ISSUE || QUOTA_FLOOR_LEDGER_ISSUE;
+const QUOTA_FLOOR_TTL_SEC = Number(process.env.QUOTA_FLOOR_LEASE_TTL_SEC || QUOTA_FLOOR_LEASE_TTL_SEC);
 // Exported (#5524 item 3) so a test can tie this number to the `fu-attempt:N`
 // labels that actually exist in the repo (`ROUTING_LABELS` in
 // triage-sweep.mjs) instead of the two constants drifting apart in silence —
@@ -2433,7 +2446,7 @@ function editChecked(num, { add = [], remove = [] }) {
   const args = ['issue', 'edit', String(num), '--repo', REPO];
   for (const l of add) args.push('--add-label', l);
   for (const l of remove) args.push('--remove-label', l);
-  if (DRY) { console.log(`[dry] edit checked #${num} +[${add}] -[${remove}]`); return true; }
+  if (DRY) { console.log(`[dry] edit #${num} +[${add}] -[${remove}]`); return true; }
   try {
     gh(args, { json: false });
     return true;
@@ -3761,17 +3774,26 @@ export function runDrain() {
   let fairnessHold = false;
   {
     const fairnessPeer = process.env.FAIRNESS_PEER_REPO || '';
-    const fairnessHours = String(process.env.FAIRNESS_HOURS_UTC || '')
-      .split(',').map((s) => parseInt(s, 10)).filter(Number.isInteger);
-    if (fairnessPeer && !quotaBlocksPromotions && fairnessHours.includes(new Date().getUTCHours())) {
+    const fairnessHours = String(process.env.FAIRNESS_HOURS_UTC || '');
+    const currentHour = new Date().getUTCHours();
+    if (fairnessPeer && !quotaBlocksPromotions && fairnessHours.trim()) {
       try {
         const pq = gh(['issue', 'list', '--repo', fairnessPeer, '--state', 'open', '--label', LBL_QUEUED, '--json', 'number', '--limit', '50']);
         const minQ = intFromEnv('FAIRNESS_PEER_QUEUE_MIN', 10);
-        if (Array.isArray(pq) && pq.length >= minQ) {
+        const fairness = quotaFloorFairnessDecision({
+          nowHour: currentHour,
+          reservedHours: fairnessHours,
+          peerQueue: Array.isArray(pq) ? pq.length : null,
+          peerQueueMin: minQ,
+        });
+        if (!fairness.ok || fairness.hold) {
           fairnessHold = true;
-          console.log(`FAIRNESS: ora UTC ${new Date().getUTCHours()} riservata al peer ${fairnessPeer} (coda peer=${pq.length} ≥ ${minQ}) → nessuna promozione (fix né decompose) in questo tick.`);
+          console.log(`FAIRNESS: ora UTC ${currentHour} riservata al peer ${fairnessPeer} (${fairness.reason}) → nessuna promozione (fix né decompose) in questo tick.`);
         }
-      } catch { /* peer illeggibile → non trattenere (bias a promuovere) */ }
+      } catch (error) {
+        fairnessHold = true;
+        console.log(`::warning::FAIRNESS: coda peer non leggibile (${String(error).slice(0, 160)}) → fail-closed, nessuna promozione in questa finestra.`);
+      }
     }
   }
 
@@ -4186,6 +4208,74 @@ export function runDrain() {
     .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
   if (!queued.length) { console.log('coda vuota → niente da promuovere.'); return; }
 
+  // The issue-fix preflight reuses the reservation written here. The ledger is
+  // read only after the queue is known to be non-empty, so a temporary GitHub
+  // outage cannot affect rescue/age-out work or an idle drain. A bad ledger is
+  // fail-closed for promotions: no label is changed until the shared floor can
+  // be observed.
+  const floorLedger = readQuotaFloorLedger({
+    repo: REPO,
+    ledgerIssue: QUOTA_FLOOR_LEDGER,
+    nowSec: Math.floor(Date.now() / 1000),
+    runJson: (args) => gh(args),
+  });
+  if (!floorLedger.ok) {
+    console.log(`::warning::quota floor telemetry unavailable (${floorLedger.reason}) → nessuna promozione in questo tick.`);
+    return;
+  }
+  if (!Number.isSafeInteger(QUOTA_FLOOR_TTL_SEC) || QUOTA_FLOOR_TTL_SEC <= 0) {
+    console.log('::warning::quota floor lease TTL non valido → nessuna promozione in questo tick.');
+    return;
+  }
+  console.log(`quota floor telemetry: active repair=${floorLedger.activeCounts.repair}, active issue-fix=${floorLedger.activeCounts['issue-fix']}`);
+
+  const floorReservations = new Map();
+  const reserveIssueFixFloor = (subject) => {
+    const existingReservation = floorReservations.get(subject);
+    if (existingReservation) return existingReservation;
+    const decision = quotaFloorLeaseDecision(floorLedger, { kind: 'issue-fix', subject });
+    if (!decision.admit) return { ok: false, reason: decision.reason };
+    const owner = decision.existing?.owner || quotaFloorLeaseOwner({
+      kind: 'issue-fix',
+      subject,
+      runId: `drainer-${process.env.GITHUB_RUN_ID || 'local'}`,
+      attempt: process.env.GITHUB_RUN_ATTEMPT || '1',
+    });
+    if (!decision.existing && !DRY) {
+      const lease = acquireQuotaFloorLease({
+        repo: REPO,
+        ledgerIssue: QUOTA_FLOOR_LEDGER,
+        kind: 'issue-fix',
+        subject,
+        owner,
+        expiresAt: quotaFloorLeaseExpiry(Math.floor(Date.now() / 1000), QUOTA_FLOOR_TTL_SEC),
+        runCommand: (args) => gh(args, { json: false }),
+      });
+      if (!lease.ok) return { ok: false, reason: lease.reason };
+      floorLedger.activeLeases.push({ kind: 'issue-fix', subject, owner, expiresAt: Infinity, released: false });
+    }
+    const reservation = { ok: true, owner, existing: !!decision.existing };
+    floorReservations.set(subject, reservation);
+    if (DRY) console.log(`[dry] quota floor lease issue-fix ${subject} → ${owner}`);
+    return reservation;
+  };
+  const releaseIssueFixFloor = (subject) => {
+    const reservation = floorReservations.get(subject);
+    if (!reservation || DRY || reservation.existing) return true;
+    const released = releaseQuotaFloorLease({
+      repo: REPO,
+      ledgerIssue: QUOTA_FLOOR_LEDGER,
+      owner: reservation.owner,
+      runCommand: (args) => gh(args, { json: false }),
+    });
+    if (!released.ok) {
+      console.log(`::error::${released.reason}`);
+      return false;
+    }
+    floorReservations.delete(subject);
+    return true;
+  };
+
   let overlapSkipped = 0;
   let prFilesMap = null; // lazy: caricato al primo candidato con path estratti, poi cached
   let dailyOpenPrScan = null; // complete/paginated scan; null means not needed yet
@@ -4558,24 +4648,37 @@ export function runDrain() {
       }
     }
 
+    const floorSubject = `issue-${cand.number}`;
+    const floorReservation = reserveIssueFixFloor(floorSubject);
+    if (!floorReservation.ok) {
+      console.log(`::warning::quota floor lease non acquisibile per #${cand.number} (${floorReservation.reason}) → coda intatta, nessuna promozione ulteriore.`);
+      return;
+    }
+
     if (plannedGroup
       && Number(cand.number) === Number(plannedGroup.issues[0]?.number)
       && groupStates.get(plannedGroup.label) === 'failed') {
       const groupLabel = prepareIssueGroup(plannedGroup);
       if (!groupLabel) {
         console.log(`::warning::GROUP-SKIP #${cand.number}: applicazione della label di gruppo fallita, membri lasciati in coda per il retry; nessuna promozione parziale.`);
+        releaseIssueFixFloor(floorSubject);
         continue;
       }
       if (!editChecked(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] })) {
         console.log(`::warning::GROUP-SKIP #${cand.number}: promozione del leader fallita, membri lasciati in coda.`);
         groupStates.set(groupLabel, 'failed');
+        releaseIssueFixFloor(floorSubject);
         continue;
       }
       groupStates.set(groupLabel, 'promoted');
       console.log(`PROMUOVO GRUPPO ${groupLabel} (${plannedGroup.issues.length} issue, chiave ${plannedGroup.source}) → leader #${cand.number} [${promoted + 1}/${promoteBudget}]`);
     } else {
       console.log(`PROMUOVO #${cand.number} (${has(cand, 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_FIX} [${promoted + 1}/${promoteBudget}]`);
-      edit(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] });
+      if (!editChecked(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] })) {
+        releaseIssueFixFloor(floorSubject);
+        console.log(`::warning::promozione #${cand.number} non verificata → coda intatta, nessuna promozione ulteriore.`);
+        return;
+      }
     }
     promoted += 1;
     // Si riempiono gli slot liberi calcolati in cima, non uno solo. Il conteggio
