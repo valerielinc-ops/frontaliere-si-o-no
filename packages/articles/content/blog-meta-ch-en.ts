@@ -6334,6 +6334,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.hormuz-petrolio-200-dollari.title': 'Oil at 200 dollars: risks for the economy and Switzerland',
     'blog.article.hormuz-petrolio-200-dollari.excerpt': 'Risk of global economic collapse and oil up to $200 if the Strait of Hormuz remains closed. UBS analysis and signals for Switzerland.',
     'blog.article.hormuz-petrolio-200-dollari.imageAlt': 'Financial analyst examining oil and global market charts',
+    'blog.article.rischio-petrolio-hormuz-svizzera.title': '$200 Oil and Risks to the Global Economy',
+    'blog.article.rischio-petrolio-hormuz-svizzera.excerpt': 'UBS analysis of the potential closure of the Strait of Hormuz: from crude oil prices to the economic and economic outlook in Switzerland.',
+    'blog.article.rischio-petrolio-hormuz-svizzera.imageAlt': 'Economic analysis and financial markets in Switzerland',
 };
 
 export default blogMetaChEn;

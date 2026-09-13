@@ -6334,6 +6334,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.hormuz-petrolio-200-dollari.title': 'Pétrole à 200 dollars : risques pour l\'économie et la Suisse',
     'blog.article.hormuz-petrolio-200-dollari.excerpt': 'Risque d\'effondrement conjoncturel mondial et de pétrole jusqu\'à 200 dollars si le détroit d\'Ormuz reste fermé. L\'analyse d\'UBS et les signaux pour la Suisse.',
     'blog.article.hormuz-petrolio-200-dollari.imageAlt': 'Analyste financier examinant les graphiques du pétrole et des marchés',
+    'blog.article.rischio-petrolio-hormuz-svizzera.title': 'Pétrole à 200 dollars et risques pour l\'économie mondiale',
+    'blog.article.rischio-petrolio-hormuz-svizzera.excerpt': 'Analyse d\'UBS sur la fermeture potentielle du détroit d\'Ormuz : des prix du pétrole brut aux perspectives conjoncturelles et économiques en Suisse.',
+    'blog.article.rischio-petrolio-hormuz-svizzera.imageAlt': 'Analyse économique et marchés financiers en Suisse',
 };
 
 export default blogMetaChFr;

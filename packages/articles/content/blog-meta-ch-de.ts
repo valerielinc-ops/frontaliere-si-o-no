@@ -6334,6 +6334,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.hormuz-petrolio-200-dollari.title': '200-Dollar-Öl: Risiken für die Wirtschaft und die Schweiz',
     'blog.article.hormuz-petrolio-200-dollari.excerpt': 'Weltweite Konjunkturkollapsgefahr und Öl bis zu 200 Dollar, wenn die Straße von Hormus geschlossen bleibt. Die Analyse der UBS und die Signale für die Schweiz.',
     'blog.article.hormuz-petrolio-200-dollari.imageAlt': 'Finanzanalyst untersucht Öl- und globale Marktdiagramme',
+    'blog.article.rischio-petrolio-hormuz-svizzera.title': '200-Dollar-Öl und Risiken für die Weltwirtschaft',
+    'blog.article.rischio-petrolio-hormuz-svizzera.excerpt': 'UBS-Analyse zur möglichen Schliessung der Straße von Hormus: Von den Rohölpreisen zu den Konjunktur- und Wirtschaftsaussichten in der Schweiz.',
+    'blog.article.rischio-petrolio-hormuz-svizzera.imageAlt': 'Wirtschaftliche Analyse und Finanzmärkte in der Schweiz',
 };
 
 export default blogMetaChDe;
