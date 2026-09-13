@@ -1,0 +1,23 @@
+{
+  "companyKey": "cudos",
+  "companyName": "Cudos AG",
+  "companyHost": "cudos.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://cudos.ch/de/jobs/"
+  ],
+  "detailTemplate": "/de/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "<source data-srcset=\"https://media.cudos.ch/filer_public_thumbnails/filer_public/d1/de/d1de86c6-25bd-40ab-973f-08cc0536c7bb/cudos-arbeitssituationen-allink_h8a1",
+    "<source data-srcset=\"https://media.cudos.ch/filer_public_thumbnails/filer_public/33/6f/336fe83f-2f6d-483b-8cc4-02c0aa270322/cudos-jobs-allinkchristianhecht_h8a0",
+    "<source data-srcset=\"https://media.cudos.ch/filer_public_thumbnails/filer_public/02/80/02802cd1-c02c-4055-949a-d56dc23700e1/cudos-jobs-allink_h8a0499.jpg__1500x",
+    "<source data-srcset=\"https://media.cudos.ch/filer_public_thumbnails/filer_public/2f/a1/2fa1b017-52fe-4a15-8a89-07a6d448c3ba/cudos-tatkraft-allink_h8a1166.jpg__1"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-13T09:12:16.891Z"
+}
