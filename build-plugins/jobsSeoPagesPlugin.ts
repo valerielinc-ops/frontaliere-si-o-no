@@ -10648,10 +10648,11 @@ ${staticAnalyticsHtml}
        canton: entry.key,
        locale: entry.locale,
        display,
-       jobsCount: totalJobs,
-       totalPages: cantonTotalPages,
-       archiveBaseHref,
-     });
+      jobsCount: totalJobs,
+      totalPages: cantonTotalPages,
+      archiveNavigablePages: entry.key === AGGREGATE_KEY ? 1 : cantonTotalPages,
+      archiveBaseHref,
+    });
      // Mirror the staticPagesPlugin auto-`<p>`-wrap regex so plain-text
      // prose paragraphs (entries 3-6 in the non-TI helper output) become
      // proper paragraphs instead of leaking into a flat string. Block-level
