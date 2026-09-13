@@ -11729,6 +11729,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ospedale-del-ponte-terzo-lotto.title': 'Ospedale Del Ponte: nessun blocco per il terzo lotto',
     'blog.article.ospedale-del-ponte-terzo-lotto.excerpt': 'Asst Sette Laghi smentisce il blocco del terzo lotto dell\'Ospedale Del Ponte di Varese. Finanziamenti da 13,6 milioni già in cassa e lavori avviati.',
     'blog.article.ospedale-del-ponte-terzo-lotto.imageAlt': 'Ospedale Filippo Del Ponte a Varese',
+    'blog.article.bollettino-frontaliere-2026-09-13.title': 'Bollettino del frontaliere – 13 settembre 2026: franco a 1.0596 €',
+    'blog.article.bollettino-frontaliere-2026-09-13.excerpt': 'I numeri di oggi, 13 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-13.imageAlt': 'I numeri del giorno per i frontalieri – 13 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-13.seoDescription': 'Bollettino frontalieri del 13 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-13.ogDescription': 'I numeri del 13 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
