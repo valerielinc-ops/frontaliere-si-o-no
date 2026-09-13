@@ -106,7 +106,10 @@ describe('buildPeerProse', () => {
       labels,
       formatValue: fmt,
     }).join(' ');
-    expect(prose).toContain('stesso valore ovunque');
+    // La frase sugli estremi non usa più `metricLabel` come soggetto (non si
+    // può concordare con un'etichetta che il chiamante sceglie singolare o
+    // plurale), ma dice la stessa cosa: il gruppo è piatto.
+    expect(prose).toContain('identico ovunque');
   });
 
   it('never bends the metric label into a verb, so a plural label stays grammatical', () => {
