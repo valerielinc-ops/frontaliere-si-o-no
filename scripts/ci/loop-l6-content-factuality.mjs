@@ -9,9 +9,8 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
-  findLoopPolicy,
+  loadLoopPolicy,
   validateActionClassAgainstPolicy,
-  validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L6';
@@ -284,16 +283,6 @@ function readText(filePath, label) {
   return fs.readFileSync(absolute, 'utf8');
 }
 
-function readJson(filePath, label) {
-  const absolute = path.resolve(filePath);
-  if (!fs.existsSync(absolute)) throw new Error(`${label} is missing: ${filePath}`);
-  try {
-    return JSON.parse(fs.readFileSync(absolute, 'utf8'));
-  } catch (error) {
-    throw new Error(`${label} is invalid JSON: ${error.message}`);
-  }
-}
-
 function readOptionalJson(filePath) {
   const absolute = path.resolve(filePath);
   return fs.existsSync(absolute) ? JSON.parse(fs.readFileSync(absolute, 'utf8')) : null;
@@ -424,8 +413,7 @@ export async function runL6({
   let loopPolicy = null;
   let verdict;
   try {
-    loopRegistry = validateLoopRegistry(readJson(registryPath, 'loop registry'));
-    loopPolicy = findLoopPolicy(loopRegistry, LOOP_ID);
+    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     verdict = validateContentFactuality({
       historyText: readText(historyPath, 'quality alert history'),
       outcomes: readOptionalJson(outcomePath),

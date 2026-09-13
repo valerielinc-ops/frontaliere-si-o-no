@@ -11,6 +11,8 @@ import {
   actionAutonomy,
   buildDecision,
   buildObservation,
+  loadLoopPolicy,
+  validateActionClassAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -186,7 +188,6 @@ function validateBorder(border, { now, maxAgeHours, issues, candidates }) {
     landingPath: surface.path,
     actionClass: 'candidate',
     action: 'reorder a sourced same-corridor bridge or CTA through a reviewed PR',
-    autonomy: 'A2',
     reversible: true,
   })));
   return { present: true, updatedAt: freshness?.iso || null, crossings: Object.keys(crossings).length, validCrossings: valid };
@@ -219,7 +220,6 @@ function validatePharmacies(pharmacies, { now, maxAgeHours, issues, candidates }
     landingPath: surface.path,
     actionClass: 'candidate',
     action: 'add a sourced freshness reminder or related tool bridge through a reviewed PR',
-    autonomy: 'A2',
     reversible: true,
   })));
   return { present: true, fetchedAt: freshness?.iso || null, pharmacies: Array.isArray(pharmacies.pharmacies) ? pharmacies.pharmacies.length : null, validPharmacies: valid };
@@ -370,34 +370,27 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now) {
-  if (!reportDir || verdict.ok) return null;
-  const registry = verdict.snapshot?.registry;
-  if (!registry || !Object.hasOwn(AUTONOMY_ORDER, registry.maxAutonomy)
-      || !Array.isArray(registry.actionClasses) || !registry.actionAutonomy) return null;
-  const allowed = (action) => {
-    const actionClass = action.actionClass || 'candidate';
-    if (!registry.actionClasses.includes(actionClass)) return false;
-    let requiredAutonomy;
-    try {
-      requiredAutonomy = actionAutonomy(actionClass, registry.actionAutonomy);
-    } catch {
-      return false;
-    }
-    return action.autonomy === requiredAutonomy
-      && AUTONOMY_ORDER[requiredAutonomy] <= AUTONOMY_ORDER[registry.maxAutonomy];
-  };
-  const file = path.join(path.resolve(reportDir), 'l5-safe-actions.json');
+function writeActions(reportDir, verdict, now, loopRegistry) {
+  if (!reportDir || verdict.ok || !loopRegistry) return null;
   const actions = [
     {
-      autonomy: registry.actionAutonomy['stale-label'],
       actionClass: 'stale-label',
       action: 'label a stale or incomplete surface and suppress any unsupported freshness promise',
       reversible: true,
       publishedDataUntouched: true,
     },
     ...verdict.candidates,
-  ].filter(allowed);
+  ].map((action) => {
+    const actionClass = action.actionClass || 'candidate';
+    const policy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+    return {
+      ...action,
+      actionClass,
+      autonomy: policy.requiredAutonomy,
+      maxAutonomy: policy.maxAutonomy,
+    };
+  });
+  const file = path.join(path.resolve(reportDir), 'l5-safe-actions.json');
   fs.writeFileSync(file, `${JSON.stringify({ loopId: LOOP_ID, generatedAt: now.toISOString(), noDarkPatterns: true, actions }, null, 2)}\n`);
   return file;
 }
@@ -441,60 +434,72 @@ export async function runL5({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
+  let loopRegistry = null;
+  let loopPolicy = null;
   let verdict;
   try {
-    const registry = readJson(registryPath, 'loop registry');
+    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     verdict = validateDecisionMoments({
       fuel: readJson(fuelPath, 'fuel source'),
       border: readJson(borderPath, 'border source'),
       pharmacies: readJson(pharmacyPath, 'pharmacy source'),
       duties: readJson(dutyPath, 'pharmacy duty source'),
       outcomes: readOptionalJson(outcomePath),
-    }, { now, maxAgeHours, sourcePath: fuelPath, outcomePath, minimumSample, registry });
+    }, { now, maxAgeHours, sourcePath: fuelPath, outcomePath, minimumSample, registry: loopRegistry });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: fuelPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
+  }
+  const actionClass = verdict.ok ? 'observe' : 'stale-label+candidate+issue';
+  if (loopRegistry && loopPolicy) {
+    try {
+      validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+    } catch (error) {
+      loopRegistry = null;
+      loopPolicy = null;
+      verdict = baseVerdict({ sourcePath: fuelPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
+    }
   }
   const measurable = verdict.quality === 'observed';
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime() ? generatedAt.toISOString() : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: 'Decision Moments',
-    owner: 'CPO / Customer Value',
-    oracle: 'fresh utility surface snapshots plus independent next-action outcome export',
+    goal: loopPolicy?.goal || 'Decision Moments',
+    owner: loopPolicy?.owner || 'CPO / Customer Value',
+    oracle: loopPolicy?.oracle || 'fresh utility surface snapshots plus independent next-action outcome export',
     hypothesis: 'A contextual bridge is useful only after a verified calculation/comparison/check and an explicit next-action outcome.',
     sourceSnapshot: verdict.snapshot || { source: 'decision-surfaces', path: fuelPath, outcomePath },
     observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'completed-decision-surface-sessions-with-next-useful-action',
     numerator: measurable ? verdict.snapshot.outcomes?.nextUsefulActions ?? 0 : null,
     denominator: measurable ? verdict.snapshot.outcomes?.eligibleDecisionSessions ?? 0 : null,
-    primaryMetric: 'next_useful_action_per_1000_completed_decision_sessions',
-    guardrails: ['no dark patterns', 'source freshness required', 'same-corridor bridge only', 'no invasive personalization'],
-    minimumSample,
-    actionClass: verdict.ok ? 'observe' : 'stale-label+candidate+issue',
+    primaryMetric: loopPolicy?.primaryMetric || 'next_useful_action_per_1000_completed_decision_sessions',
+    guardrails: loopPolicy?.guardrails || ['no dark patterns', 'source freshness required', 'same-corridor bridge only', 'no invasive personalization'],
+    minimumSample: loopPolicy?.minimumSample || minimumSample,
+    actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: 'Decision Moments',
-    owner: 'CPO / Customer Value',
-    oracle: 'fresh utility surface snapshots plus independent next-action outcome export',
+    goal: loopPolicy?.goal || 'Decision Moments',
+    owner: loopPolicy?.owner || 'CPO / Customer Value',
+    oracle: loopPolicy?.oracle || 'fresh utility surface snapshots plus independent next-action outcome export',
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.ok ? 'observe' : 'stale-label+candidate+issue',
+    actionClass,
     rollbackPlan: 'remove runner-local stale labels/bridge recommendations; leave published surfaces unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + 7 * 24 * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 7 * 24) * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }

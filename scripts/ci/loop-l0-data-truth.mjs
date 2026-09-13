@@ -9,9 +9,12 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
+  loadLoopPolicy,
+  validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L0';
+export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 48;
 export const REQUIRED_COUNTS = Object.freeze([
   'articles',
@@ -189,6 +192,7 @@ function writeResult(reportDir, { verdict, issued, quarantined }) {
 export async function runL0({
   now = new Date(),
   url = `${ARTICLES_API_BASE}/manifest.json`,
+  registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   fetchImpl = globalThis.fetch,
   issue = false,
@@ -197,8 +201,12 @@ export async function runL0({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
+  let loopRegistry = null;
+  let loopPolicy = null;
+  let actionPolicy = null;
   let verdict;
   try {
+    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     const manifest = await fetchManifest({ url, fetchImpl });
     verdict = validateManifest(manifest, { now, maxAgeHours, url });
   } catch (error) {
@@ -210,6 +218,22 @@ export async function runL0({
       reason: error.message,
     });
   }
+  const actionClass = verdict.ok ? 'observe' : 'issue+quarantine';
+  if (loopRegistry && loopPolicy) {
+    try {
+      actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+    } catch (error) {
+      loopRegistry = null;
+      loopPolicy = null;
+      verdict = baseVerdict({
+        url,
+        now,
+        quality: 'unmeasurable',
+        ok: false,
+        reason: error.message,
+      });
+    }
+  }
   const measurable = verdict.quality !== 'unmeasurable' && verdict.quality !== 'partial' && verdict.quality !== 'missing';
   const generatedAt = finiteDate(verdict.manifest?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
@@ -217,47 +241,50 @@ export async function runL0({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: 'Data Truth & Freshness',
-    owner: 'CDO / Chief Trust',
-    oracle: 'independent corpus manifest and HTTP contract',
+    goal: loopPolicy?.goal || 'Data Truth & Freshness',
+    owner: loopPolicy?.owner || 'CDO / Chief Trust',
+    oracle: loopPolicy?.oracle || 'independent corpus manifest and HTTP contract',
     hypothesis: 'A complete, fresh manifest is required before downstream data decisions.',
     sourceSnapshot: verdict.manifest || { source: 'corpus-api', url, commit: null },
     observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'published-corpus-manifest',
     numerator: measurable ? (verdict.ok ? 1 : 0) : null,
     denominator: measurable ? 1 : null,
-    primaryMetric: 'fresh_complete_manifest_rate',
-    guardrails: ['missing is not zero', 'last valid surface remains untouched'],
-    minimumSample: 1,
-    actionClass: verdict.ok ? 'observe' : 'issue+quarantine',
+    primaryMetric: loopPolicy?.primaryMetric || 'fresh_complete_manifest_rate',
+    guardrails: loopPolicy?.guardrails || ['missing is not zero', 'last valid surface remains untouched'],
+    minimumSample: loopPolicy?.minimumSample || 1,
+    actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: 'Data Truth & Freshness',
-    owner: 'CDO / Chief Trust',
-    oracle: 'independent corpus manifest and HTTP contract',
+    goal: loopPolicy?.goal || 'Data Truth & Freshness',
+    owner: loopPolicy?.owner || 'CDO / Chief Trust',
+    oracle: loopPolicy?.oracle || 'independent corpus manifest and HTTP contract',
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.ok ? 'observe' : 'issue+quarantine',
+    actionClass,
     rollbackPlan: 'discard runner-local quarantine evidence; keep the previous published surface',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + 2 * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 2) * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);
   let issued = false;
   let quarantined = false;
-  if (apply && !verdict.ok && reportDir) {
+  if (apply && !verdict.ok && reportDir && actionPolicy) {
     fs.writeFileSync(path.join(path.resolve(reportDir), 'l0-quarantine.json'), `${JSON.stringify({
       loopId: LOOP_ID,
       quarantinedAt: now.toISOString(),
       source: verdict.url,
       reason: verdict.reason,
+      actionClass,
+      requiredAutonomy: actionPolicy.requiredAutonomy,
+      maxAutonomy: loopPolicy.maxAutonomy,
       previousSurfaceUntouched: true,
     }, null, 2)}\n`);
     quarantined = true;
@@ -294,6 +321,7 @@ function parseArgs(argv) {
     strict: argv.includes('--strict'),
     dryRun: argv.includes('--dry-run'),
     url: valueAfter('--url', `${ARTICLES_API_BASE}/manifest.json`),
+    registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
     maxAgeHours,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP ? path.join(process.env.RUNNER_TEMP, 'loop-fleet-l0') : null),
   };

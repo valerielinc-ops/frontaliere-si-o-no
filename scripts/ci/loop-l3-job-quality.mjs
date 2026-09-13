@@ -9,11 +9,14 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
   buildObservation,
+  loadLoopPolicy,
+  validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L3';
 export const DEFAULT_SUMMARY_DIR = path.join('data', 'jobs-crawler-summaries', 'by-crawler');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'job-apply-outcome-baseline.json');
+export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 100;
 export const MAX_CANDIDATES = 50;
@@ -138,7 +141,7 @@ function normalizeCandidate(file, section, index, job, issues) {
     action: issues.some((issue) => /applyUrl/i.test(issue))
       ? 'quarantine record and fix the crawler applyUrl mapping through a reviewed PR'
       : 'quarantine record and add a parser/assembler regression test through a reviewed PR',
-    autonomy: 'A2',
+    actionClass: 'quarantine+pr',
     reversible: true,
   };
 }
@@ -399,16 +402,21 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now) {
-  if (!reportDir || !verdict.candidates.length) return null;
+function writeActions(reportDir, verdict, now, candidatePolicy) {
+  if (!reportDir || !verdict.candidates.length || !candidatePolicy) return null;
   const file = path.join(path.resolve(reportDir), 'l3-actions.json');
   fs.writeFileSync(file, `${JSON.stringify({
     loopId: LOOP_ID,
     generatedAt: now.toISOString(),
-    autonomy: 'A2',
+    actionClass: candidatePolicy.actionClass,
+    autonomy: candidatePolicy.requiredAutonomy,
     reversible: true,
     appliesToPublishedData: false,
-    actions: verdict.candidates,
+    actions: verdict.candidates.map((candidate) => ({
+      ...candidate,
+      actionClass: 'quarantine+pr',
+      autonomy: candidatePolicy.requiredAutonomy,
+    })),
   }, null, 2)}\n`);
   return file;
 }
@@ -463,6 +471,7 @@ export async function runL3({
   now = new Date(),
   summaryDir = DEFAULT_SUMMARY_DIR,
   outcomePath = DEFAULT_OUTCOME_PATH,
+  registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample = MINIMUM_SAMPLE,
   issue = false,
@@ -471,8 +480,13 @@ export async function runL3({
   createIssueImpl = createGithubIssue,
   logger = console,
 } = {}) {
+  let loopRegistry = null;
+  let loopPolicy = null;
+  let actionPolicy = null;
+  let candidatePolicy = null;
   let verdict;
   try {
+    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     const summaries = readSummaries(summaryDir);
     const outcomes = readOptionalJson(outcomePath);
     verdict = validateJobSummaries(summaries, {
@@ -486,6 +500,37 @@ export async function runL3({
   } catch (error) {
     verdict = baseVerdict({ sourcePath: summaryDir, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
+  const actionClass = verdict.candidates.length ? 'quarantine+candidate+issue' : 'issue';
+  if (loopRegistry && loopPolicy) {
+    try {
+      actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+      if (verdict.candidates.length) candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'quarantine+pr');
+      verdict = {
+        ...verdict,
+        candidates: verdict.candidates.map((candidate) => ({
+          ...candidate,
+          actionClass: 'quarantine+pr',
+          autonomy: candidatePolicy?.requiredAutonomy || null,
+        })),
+        snapshot: {
+          ...verdict.snapshot,
+          registry: {
+            loopId: LOOP_ID,
+            maxAutonomy: loopPolicy.maxAutonomy,
+            actionClass,
+            requiredAutonomy: actionPolicy.requiredAutonomy,
+            actionClasses: loopPolicy.actionClasses,
+          },
+        },
+      };
+    } catch (error) {
+      loopRegistry = null;
+      loopPolicy = null;
+      actionPolicy = null;
+      candidatePolicy = null;
+      verdict = baseVerdict({ sourcePath: summaryDir, now, quality: 'unmeasurable', ok: false, reason: error.message });
+    }
+  }
   // A zero-sized outcome cohort is not evidence of a zero handoff rate. Keep
   // metrics null until the observed outcome sample is complete and usable.
   const measurable = verdict.quality === 'observed' && verdict.ok;
@@ -495,9 +540,9 @@ export async function runL3({
     : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: 'Job Quality to Apply',
-    owner: 'CPO / Customer Value + CTO / Reliability',
-    oracle: 'crawler summary integrity plus independent apply outcome export',
+    goal: loopPolicy?.goal || 'Job Quality to Apply',
+    owner: loopPolicy?.owner || 'CPO / Customer Value + CTO / Reliability',
+    oracle: loopPolicy?.oracle || 'crawler summary integrity plus independent apply outcome export',
     hypothesis: 'A job is useful only when its identity, source, apply URL and handoff outcome are independently verifiable.',
     sourceSnapshot: verdict.snapshot || { source: 'job-crawler-summaries', path: summaryDir, outcomePath },
     observationWindow: {
@@ -508,35 +553,35 @@ export async function runL3({
     cohort: 'eligible-job-detail-sessions-with-valid-apply-handoff',
     numerator: measurable ? verdict.snapshot.outcomes?.validHandoffs ?? 0 : null,
     denominator: measurable ? verdict.snapshot.outcomes?.eligibleJobSessions ?? 0 : null,
-    primaryMetric: 'valid_apply_handoff_per_1000_eligible_job_sessions',
-    guardrails: ['applyUrl required', 'redirect is not an application', 'invalid records stay quarantined'],
-    minimumSample,
-    actionClass: verdict.candidates.length ? 'quarantine+candidate+issue' : 'issue',
+    primaryMetric: loopPolicy?.primaryMetric || 'valid_apply_handoff_per_1000_eligible_job_sessions',
+    guardrails: loopPolicy?.guardrails || ['applyUrl required', 'redirect is not an application', 'invalid records stay quarantined'],
+    minimumSample: loopPolicy?.minimumSample || minimumSample,
+    actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: 'Job Quality to Apply',
-    owner: 'CPO / Customer Value + CTO / Reliability',
-    oracle: 'crawler summary integrity plus independent apply outcome export',
+    goal: loopPolicy?.goal || 'Job Quality to Apply',
+    owner: loopPolicy?.owner || 'CPO / Customer Value + CTO / Reliability',
+    oracle: loopPolicy?.oracle || 'crawler summary integrity plus independent apply outcome export',
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.candidates.length ? 'quarantine+candidate+issue' : 'issue',
+    actionClass,
     rollbackPlan: 'discard runner-local actions/quarantine artifacts; leave published job records unchanged',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + 24 * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 24) * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   let quarantineWritten = false;
   if (apply && reportDir) {
-    const actionsFile = writeActions(reportDir, verdict, now);
-    const quarantineFile = writeQuarantine(reportDir, verdict, now);
+    const actionsFile = writeActions(reportDir, verdict, now, candidatePolicy);
+    const quarantineFile = candidatePolicy ? writeQuarantine(reportDir, verdict, now) : null;
     actionsWritten = Boolean(actionsFile);
     quarantineWritten = Boolean(quarantineFile);
     if (actionsFile) files.push(actionsFile);
@@ -576,6 +621,7 @@ function parseArgs(argv) {
     dryRun: argv.includes('--dry-run'),
     summaryDir: valueAfter('--summary-dir', DEFAULT_SUMMARY_DIR),
     outcomePath: valueAfter('--outcomes', DEFAULT_OUTCOME_PATH),
+    registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP

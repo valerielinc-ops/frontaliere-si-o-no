@@ -7,12 +7,10 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
-  actionAutonomy,
   buildDecision,
   buildObservation,
-  findLoopPolicy,
   validateActionClassAgainstPolicy,
-  validateLoopRegistry,
+  loadLoopPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L7';
@@ -347,7 +345,7 @@ function writeActions(reportDir, verdict, now, loopRegistry) {
       || (integer(contaminatedAssignments) && contaminatedAssignments > 0)) {
     actions.push({
       actionClass: 'stop',
-      autonomy: actionAutonomy('stop', loopRegistry.actionAutonomy),
+      autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'stop').requiredAutonomy,
       action: 'recommend stopping the affected bounded canary pending guardrail and contamination review',
       reversible: true,
       appliesToTraffic: false,
@@ -411,10 +409,10 @@ export async function runL7({
   logger = console,
 } = {}) {
   let loopRegistry = null;
+  let loopPolicy = null;
   let verdict;
   try {
-    loopRegistry = validateLoopRegistry(readJson(registryPath, 'loop registry'));
-    findLoopPolicy(loopRegistry, LOOP_ID);
+    ({ registry: loopRegistry, policy: loopPolicy } = loadLoopPolicy(registryPath, LOOP_ID));
     verdict = validateExperimentAllocator({
       registry: readJson(candidatesPath, 'experimental candidates'),
       outcomes: readOptionalJson(outcomePath),
@@ -422,41 +420,51 @@ export async function runL7({
   } catch (error) {
     verdict = baseVerdict({ sourcePath: candidatesPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
+  const actionClass = verdict.ok ? 'observe' : 'candidate+stop+issue';
+  if (loopRegistry && loopPolicy) {
+    try {
+      validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
+    } catch (error) {
+      loopRegistry = null;
+      loopPolicy = null;
+      verdict = baseVerdict({ sourcePath: candidatesPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
+    }
+  }
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime() ? generatedAt.toISOString() : now.toISOString();
   const observation = buildObservation({
     loopId: LOOP_ID,
-    goal: 'Experiment Allocator',
-    owner: 'CEO / Chief Mission',
-    oracle: 'independent assignment, exposure, outcome and guardrail ledger',
+    goal: loopPolicy?.goal || 'Experiment Allocator',
+    owner: loopPolicy?.owner || 'CEO / Chief Mission',
+    oracle: loopPolicy?.oracle || 'independent assignment, exposure, outcome and guardrail ledger',
     hypothesis: 'Only an experiment with persistent assignment, sufficient exposure, explicit outcome and clean guardrails merits more traffic.',
     sourceSnapshot: verdict.snapshot || { source: 'experimental-candidates', candidatesPath, outcomePath },
     observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'pre-registered-experiment-eligible-cohort',
     numerator: measurable ? verdict.snapshot.outcomes?.primaryOutcomes ?? 0 : null,
     denominator: measurable ? verdict.snapshot.outcomes?.eligibleCohort ?? 0 : null,
-    primaryMetric: 'registered_outcome_per_eligible_cohort',
-    guardrails: ['persistent assignment', 'minimum sample', 'explicit expiry', 'no contamination', 'no automatic price change'],
-    minimumSample,
-    actionClass: verdict.ok ? 'observe' : 'candidate+stop+issue',
+    primaryMetric: loopPolicy?.primaryMetric || 'registered_outcome_per_eligible_cohort',
+    guardrails: loopPolicy?.guardrails || ['persistent assignment', 'minimum sample', 'explicit expiry', 'no contamination', 'no automatic price change'],
+    minimumSample: loopPolicy?.minimumSample || minimumSample,
+    actionClass,
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
   const decision = buildDecision({
     loopId: LOOP_ID,
-    goal: 'Experiment Allocator',
-    owner: 'CEO / Chief Mission',
-    oracle: 'independent assignment, exposure, outcome and guardrail ledger',
+    goal: loopPolicy?.goal || 'Experiment Allocator',
+    owner: loopPolicy?.owner || 'CEO / Chief Mission',
+    oracle: loopPolicy?.oracle || 'independent assignment, exposure, outcome and guardrail ledger',
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
     decision: verdict.ok ? 'observing' : 'candidate',
     reason: verdict.reason,
-    actionClass: verdict.ok ? 'observe' : 'candidate+stop+issue',
+    actionClass,
     rollbackPlan: 'discard runner-local allocation recommendations; stop/restore only through the registered canary owner and expiry policy',
     startedAt: observation.observationWindow.start,
-    expiresAt: new Date(now.getTime() + 7 * 86_400_000).toISOString(),
+    expiresAt: new Date(now.getTime() + (loopPolicy?.lifecycle.candidateTtlHours || 7 * 24) * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   const files = writeReports(reportDir, verdict, observation, decision);

@@ -217,6 +217,22 @@ export function findLoopPolicy(registry, loopId) {
   return policy;
 }
 
+/** Load and validate one loop policy from a repository-local registry file. */
+export function loadLoopPolicy(registryPath, loopId) {
+  const absolute = path.resolve(registryPath);
+  if (!fs.existsSync(absolute)) fail(`registry is missing: ${registryPath}`);
+  let registry;
+  try {
+    registry = JSON.parse(fs.readFileSync(absolute, 'utf8'));
+  } catch (error) {
+    fail(`registry is invalid JSON: ${error.message}`);
+  }
+  const validated = validateLoopRegistry(registry);
+  const policy = validated.loops.find((loop) => loop.loopId === requireText(loopId, 'loopId'));
+  if (!policy) fail(`registry has no policy for ${loopId}`);
+  return { registry: validated, policy };
+}
+
 export function validateActionClassAgainstPolicy(registry, loopId, actionClass) {
   const validated = validateLoopRegistry(registry);
   const policy = validated.loops.find((loop) => loop.loopId === loopId);

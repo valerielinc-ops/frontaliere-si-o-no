@@ -64,7 +64,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --strict --apply --report-dir "$REPORT_DIR")
+          args=(--json --strict --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json)
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue)
           else
