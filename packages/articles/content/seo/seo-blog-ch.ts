@@ -82544,6 +82544,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-settimana-contro-lo-spreco-alimentare-svizzera': {
+    title: 'Spreco alimentare in Svizzera: al via la settimana nazionale',
+    description: 'Al via in Svizzera la settimana nazionale contro lo spreco alimentare: 30 milioni di pasti salvabili e dati su consumi e costi per le famiglie. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, spreco, alimentare, settimana, nazionale',
+    ogTitle: 'Spreco alimentare in Svizzera: al via la settimana nazionale',
+    ogDescription: 'Dal 12 al 20 settembre oltre 50 organizzazioni in Svizzera sensibilizzano contro lo spreco alimentare: 2,8 milioni di tonnellate perse ogni anno e 600 franchi sprecati pro capite.',
+    canonicalPath: '/articoli-svizzera/settimana-contro-lo-spreco-alimentare-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spreco alimentare in Svizzera: al via la settimana nazionale",
+      "description": "Al via in Svizzera la settimana nazionale contro lo spreco alimentare: 30 milioni di pasti salvabili e dati su consumi e costi per le famiglie. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/settimana-contro-lo-spreco-alimentare-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Settimana nazionale contro lo spreco alimentare in Svizzera"
+      },
+      "datePublished": "2026-09-13T08:29:13+00:00",
+      "dateModified": "2026-09-13T08:29:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/settimana-contro-lo-spreco-alimentare-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

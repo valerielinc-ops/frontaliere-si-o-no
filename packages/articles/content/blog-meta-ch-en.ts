@@ -6358,6 +6358,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.allarme-medici-frontalieri-ticino.title': 'Ticino, medical alarm: Teeth ask border crossers for limits',
     'blog.article.allarme-medici-frontalieri-ticino.excerpt': 'The president of the Order of Doctors of Ticino Franco Denti warns: Ticino has one doctor for every 900 inhabitants, at Como one for every 2,000. Ethical reflection is needed.',
     'blog.article.allarme-medici-frontalieri-ticino.imageAlt': 'View of a medical center in Ticino with modern architecture',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.title': 'Food waste in Switzerland: national week kicks off',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.excerpt': 'A week of initiatives throughout Switzerland to reduce food waste is underway: the recovery of millions of meals is up for grabs.',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.imageAlt': 'National food waste reduction week in Switzerland',
 };
 
 export default blogMetaChEn;

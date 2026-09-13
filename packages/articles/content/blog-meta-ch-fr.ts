@@ -6358,6 +6358,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.allarme-medici-frontalieri-ticino.title': 'Tessin, alarmes médicales : Denti demande des limites aux frontaliers',
     'blog.article.allarme-medici-frontalieri-ticino.excerpt': 'Le président de l\'Ordre des médecins tessinois Franco Denti prévient : le Tessin a un médecin pour 900 habitants, à Como un pour 2000. Il faut une réflexion éthique.',
     'blog.article.allarme-medici-frontalieri-ticino.imageAlt': 'Vue d\'un centre médical au Tessin avec une architecture moderne',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.title': 'Gaspillage alimentaire en Suisse : début de la semaine nationale',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.excerpt': 'Une semaine d\'initiatives dans toute la Suisse pour réduire le gaspillage alimentaire : la récupération de millions de repas est en jeu.',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.imageAlt': 'Semaine nationale contre le gaspillage alimentaire en Suisse',
 };
 
 export default blogMetaChFr;

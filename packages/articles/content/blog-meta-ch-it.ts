@@ -6358,6 +6358,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.allarme-medici-frontalieri-ticino.title': 'Ticino, allarme medici: Denti chiede limiti ai frontalieri',
     'blog.article.allarme-medici-frontalieri-ticino.excerpt': 'Il presidente dell\'Ordine dei medici ticinesi Franco Denti avverte: il Ticino ha un medico ogni 900 abitanti, a Como uno ogni 2.000. Serve una riflessione etica.',
     'blog.article.allarme-medici-frontalieri-ticino.imageAlt': 'Veduta di un centro medico nel Ticino con architettura moderna',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.title': 'Spreco alimentare in Svizzera: al via la settimana nazionale',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.excerpt': 'Al via una settimana di iniziative in tutta la Svizzera per ridurre lo spreco alimentare: in palio il recupero di milioni di pasti.',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.imageAlt': 'Settimana nazionale contro lo spreco alimentare in Svizzera',
 };
 
 export default blogMetaChIt;

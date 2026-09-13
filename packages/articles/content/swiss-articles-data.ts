@@ -19072,6 +19072,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'settimana-contro-lo-spreco-alimentare-svizzera',
+    category: 'novita',
+    date: '2026-09-13T08:29:13.077Z',
+    image: '/images/blog/settimana-contro-lo-spreco-alimentare-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

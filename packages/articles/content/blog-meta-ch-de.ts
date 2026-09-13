@@ -6358,6 +6358,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.allarme-medici-frontalieri-ticino.title': 'Tessin, ärztlicher Alarm: Denti fordert Grenzüberschreitungen von Grenzgängern',
     'blog.article.allarme-medici-frontalieri-ticino.excerpt': 'Der Präsident der Tessiner Ärztekammer Franco Denti warnt: Das Tessin hat einen Arzt pro 900 Einwohner, Como einen pro 2.000. Es bedarf einer ethischen Reflexion.',
     'blog.article.allarme-medici-frontalieri-ticino.imageAlt': 'Ansicht eines medizinischen Zentrums im Tessin mit moderner Architektur',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.title': 'Lebensmittelverschwendung in der Schweiz: Nationale Woche startet',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.excerpt': 'Eine Woche voller Initiativen in der ganzen Schweiz zur Reduzierung der Lebensmittelverschwendung steht auf dem Programm: Die Verwertung von Millionen von Mahlzeiten steht auf dem Spiel.',
+    'blog.article.settimana-contro-lo-spreco-alimentare-svizzera.imageAlt': 'Nationale Woche gegen Lebensmittelverschwendung in der Schweiz',
 };
 
 export default blogMetaChDe;
