@@ -182,6 +182,7 @@ import {
 } from '@/build-plugins/shared/jobDescription/parser';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
+import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 import {
  isMultiLocation,
  normalizeJobCategory,
@@ -3385,6 +3386,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isJobDetailView = selectedJob !== null;
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
+ const appliedAlertSurfaceVisible = Boolean(
+  appliedJobId && selectedJob && appliedJobId === selectedJob.id,
+ );
+ const appliedAlertKeyword = appliedAlertSurfaceVisible && selectedJob
+  ? (t(categoryTranslationKey(selectedJob)) || '').trim()
+  : '';
+ const appliedAlertEligible = useJobAlertEligibility({
+  enabled: enableJobAlerts && appliedAlertSurfaceVisible,
+  authResolved,
+  userId,
+  keyword: appliedAlertKeyword,
+  surface: 'job_detail_button',
+ });
+ const appliedAlertCtaVisible = appliedAlertSurfaceVisible && appliedAlertEligible === true;
 
  // Job-match profile, part 2: merge in the newsletter_subscribers doc's
  // sector_interest/location_interest for logged-in subscribers (issue #3648
@@ -3764,10 +3779,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // rendered directly under the button the user just pressed — it is on screen by
  // construction, so an in-view check would add machinery without adding truth.
  useEffect(() => {
- if (!appliedJobId || !selectedJob || appliedJobId !== selectedJob.id) return;
- Analytics.trackJobAlertCtaShown('job_detail_button', (t(categoryTranslationKey(selectedJob)) || '').trim());
- // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [appliedJobId, selectedJob?.id]);
+ if (!appliedAlertCtaVisible) return;
+ Analytics.trackJobAlertCtaShown('job_detail_button', appliedAlertKeyword);
+ }, [appliedAlertCtaVisible, appliedAlertKeyword]);
 
  // Drop the applied receipt when the user moves to a different job / leaves the
  // detail view, so it never leaks onto an unrelated listing.
@@ -6231,17 +6245,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ]);
  const firestore = getFirestore(await getApp());
  if (!firestore) return;
- // Fifth sibling of the auto-subscribe guard (App.tsx, hooks/useUserState.ts,
- // services/authService.ts, PublisherPublishPage) and the same reasoning
- // (#5672). Two of this function's four callers are social sign-in unlocks
- // that promote (`isActive`/`status: 'confirmed'` below when the source is
- // Google/Facebook), which is the ring exactly: open an old email → the
- // never-expiring `ac` code signs you in → unlock a job → subscribed again.
- // The other two land `pending` and so are never promoted, but the upsert
- // still records a `subscribe_completed` event on an opted-out document, and
- // that event is the signal a genuine re-subscription is recognised by. The
- // localStorage flag above cannot cover either case: the unsubscribe handler
- // deletes it.
+ // This is an explicit job-access gate, not a generic authentication hook.
+ // Two callers are social sign-in unlocks that promote
+ // (`isActive`/`status: 'confirmed'` below when the source is Google/Facebook)
+ // because the gate displays the communications notice before the click. The
+ // other two land `pending` and require the DOI link; none is triggered by a
+ // page visit or by a global auth listener.
  //
  // Returning here also skips `markNewsletterSubscribedLocally()` below, which
  // is intended: that flag is what grants offerwall access, and granting a
@@ -6252,9 +6261,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { isNewsletterOptedOut, isNewsletterAccountDeleted } = await import('@/services/newsletterSubscribers');
  if (localStorage.getItem('newsletter_subscribed') === 'true'
  && !(await isNewsletterAccountDeleted(firestore, email))) return;
- if (await isNewsletterOptedOut(firestore, email)) return;
  const normalizedSource = String(source || 'job_board_auth').toLowerCase();
  const isTrustedAuthSource = normalizedSource.includes('google') || normalizedSource.includes('facebook');
+ // Social sign-in is authentication, not renewed newsletter consent. An
+ // explicit email gate, however, may start a fresh DOI cycle after an opt-out;
+ // the confirmation link remains the only thing that lifts the suppression.
+ if (isTrustedAuthSource && await isNewsletterOptedOut(firestore, email)) return;
  const focusedJob = selectedJob || sortedJobs[0] || null;
  const jobContext = focusedJob
  ? {
@@ -6288,6 +6300,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  locationInterest: jobContext.location,
  sectorInterest: jobContext.category,
  locale: navigator.language || 'it-IT',
+ reconsent: !isTrustedAuthSource,
  isActive: isTrustedAuthSource,
  status: isTrustedAuthSource ? 'confirmed' : 'pending',
  // Two different acts, ONE sentence (#5678, #5712, #5765). Each of the two
@@ -6620,7 +6633,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // mounted JobAlertForm, which owns auth + email capture, using the same
  // queued-request + backToList hand-off SavedJobsAlertNudge already uses from
  // the detail view.
- const appliedNoticeJsx = (appliedJobId && selectedJob && appliedJobId === selectedJob.id) ? (
+ const appliedNoticeJsx = appliedAlertSurfaceVisible ? (
  <div
  role="status"
  className="rounded-xl border border-success-border bg-success-subtle p-3 space-y-2"
@@ -6635,6 +6648,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
  <div className="flex flex-wrap gap-2">
+ {appliedAlertCtaVisible && (
  <button
  type="button"
  onClick={() => {
@@ -6648,6 +6662,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <BellRing className="w-3.5 h-3.5" aria-hidden="true" />
  {t('jobBoard.applied.alertCta')}
  </button>
+ )}
  <button
  type="button"
  onClick={() => handleApply(selectedJob)}
@@ -10299,13 +10314,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {enableJobAlerts && filteredJobs.length >= 3 && (
  <Suspense fallback={<div className="mt-6 rounded-2xl border border-edge bg-surface-raised animate-pulse min-h-[280px]" aria-hidden="true" />}>
- <JobAlertEndCard keyword={deferredSearchQuery.trim()} />
+ <JobAlertEndCard
+ keyword={deferredSearchQuery.trim()}
+ userId={userId}
+ authResolved={authResolved}
+ />
  </Suspense>
  )}
 
  {enableJobAlerts && (
  <Suspense fallback={null}>
- <JobAlertStickyBanner />
+ <JobAlertStickyBanner
+ userId={userId}
+ authResolved={authResolved}
+ keyword={deferredSearchQuery.trim()}
+ />
  </Suspense>
  )}
 

@@ -723,14 +723,15 @@ describe('the SPA keeps the exit open when the exchange refuses', () => {
     // and it is stricter than the pre-#5685 code, which fell through without
     // ever checking the verdict.
     const guard = guardSrc();
-    expect(guard).toMatch(/\} else if \(codeForged \|\| !autologinCode\) \{/);
+    expect(guard).toMatch(/\}\s*else if \(\s*codeForged/);
+    expect(guard).toContain("!autologinCode && !(action === 'resubscribe' && urlParams.get('token'))");
     expect(appSrc).toMatch(/codeForged = result\.error === 'invalid_auth_code'/);
   });
 
   it('accepts a link that carries only the email token — the #5672 dead end', () => {
     // `?action=unsubscribe&email=…&token=…` with no `ac` used to be rejected
     // before any request was made. It must now reach the fallback.
-    expect(appSrc).toMatch(/else if \(!\(action === 'unsubscribe' && urlParams\.get\('token'\)\)\)/);
+    expect(appSrc).toMatch(/else if \(!\(\s*\(action === 'unsubscribe' \|\| action === 'resubscribe'\)\s*&&\s*urlParams\.get\('token'\)\s*\)\)/);
   });
 });
 

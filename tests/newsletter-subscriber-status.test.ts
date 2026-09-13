@@ -35,15 +35,15 @@ describe('inferNewsletterSubscriptionState', () => {
     });
   });
 
-  it('keeps authenticated sources confirmed/active', () => {
+  it('does not infer confirmation from an authenticated-looking source', () => {
     expect(
       inferNewsletterSubscriptionState({
         email: 'user@example.com',
         source: 'signup',
       }, undefined),
     ).toEqual({
-      status: 'confirmed',
-      isActive: true,
+      status: 'pending',
+      isActive: false,
     });
   });
 
@@ -102,8 +102,8 @@ describe('inferNewsletterSubscriptionState', () => {
    email: 'user@example.com',
    source: 'signup',
   }, tombstone)).toEqual({
-   status: 'confirmed',
-   isActive: true,
+   status: 'pending',
+   isActive: false,
   });
  });
 

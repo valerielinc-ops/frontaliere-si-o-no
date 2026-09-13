@@ -1,23 +1,24 @@
 {
   "key": "suchtfachstelle-zuerich",
   "label": "Suchtfachstelle Zürich",
-  "generatedAt": "2026-09-11T13:49:20.330Z",
+  "generatedAt": "2026-09-12T13:07:37.874Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "written": 1,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5772,
-  "avgDurationMs": 5772,
+  "durationMs": 5988,
+  "avgDurationMs": 5988,
   "durationHistory": [
-    5772
+    5988
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "suchtfachstelle-zuerich-00660b78150c",
       "slug": "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zuerich",
@@ -25,13 +26,13 @@
       "companyKey": "suchtfachstelle-zuerich",
       "companyDomain": "suchtfachstelle.zuerich",
       "title": "Fachperson für Psychotherapie und Suchtberatung 60-80 %",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.suchtfachstelle.zuerich/stellenausschreibung-fachperson-fuer-psychotherapie-60-80",
       "source": "Suchtfachstelle Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:49:09.473Z",
+      "crawledAt": "2026-09-12T13:07:28.193Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -46,16 +47,16 @@
       "featured": false,
       "postedDate": "2026-09-11",
       "applyUrl": "https://www.suchtfachstelle.zuerich/stellenausschreibung-fachperson-fuer-psychotherapie-60-80",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-09-11T13:49:09.473Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

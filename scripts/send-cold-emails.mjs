@@ -352,7 +352,8 @@ async function run() {
     console.error('report senza finestra esplicita: nessuna attività di outreach eseguita');
     process.exit(1);
   }
-  const periodLabel = formatItalianPeriodLabel(`${report.window.from} → ${report.window.to}`);
+  const periodWindow = { ...report.window, inclusive: report.window.inclusive || '[from,to)' };
+  const periodLabel = formatItalianPeriodLabel(periodWindow, { strict: true });
   const contacts = loadJson(contactsPath, {});
   // Overlay admin-edited contacts (Firestore) on the local file so the recipient
   // / personalization fixed in the dashboard actually reaches dry-run, test and
@@ -393,7 +394,7 @@ async function run() {
       company: e.name,
       metricValue: metric?.value,
       metricLabel: metric?.label,
-      periodLabel,
+      periodLabel: periodWindow,
       contactName: c.contactName,
       topRole: c.topRole,
     });

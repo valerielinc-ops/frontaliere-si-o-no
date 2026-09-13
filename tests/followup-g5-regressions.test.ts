@@ -7,6 +7,7 @@ import {
 import {
   hasEnumeratedItems as preflightHasEnumeratedItems,
   isAggregate,
+  isAggregateForAnalytics,
 } from '../scripts/ci/check-issue-already-resolved.mjs';
 import {
   hasEnumeratedItems as harvestHasEnumeratedItems,
@@ -75,6 +76,26 @@ describe('G5 — follow-up detector regressions', () => {
     expect(isAggregateTitle('follow-up(#1): cleanup', headings)).toBe(true);
   });
 
+  it('condivide la grammatica per dash senza spazio, anni e quarto livello (#8030)', () => {
+    const noSpaceAfterDash = '## Item 1—Primo item\n### 2—Secondo item';
+    expect(countAggregateItems(noSpaceAfterDash)).toBe(2);
+    expect(preflightHasEnumeratedItems(noSpaceAfterDash)).toBe(true);
+    expect(harvestHasEnumeratedItems(noSpaceAfterDash)).toBe(true);
+    expect(reconcileHasEnumeratedItems(noSpaceAfterDash)).toBe(true);
+
+    const yearHeadings = '## 2026 — Retro\n### 2025—Retro';
+    expect(countAggregateItems(yearHeadings)).toBe(0);
+    expect(preflightHasEnumeratedItems(yearHeadings)).toBe(false);
+    expect(harvestHasEnumeratedItems(yearHeadings)).toBe(false);
+    expect(reconcileHasEnumeratedItems(yearHeadings)).toBe(false);
+
+    const levelFour = '#### 1. Primo item\n#### 2. Secondo item';
+    expect(countAggregateItems(levelFour)).toBe(0);
+    expect(preflightHasEnumeratedItems(levelFour)).toBe(false);
+    expect(harvestHasEnumeratedItems(levelFour)).toBe(false);
+    expect(reconcileHasEnumeratedItems(levelFour)).toBe(false);
+  });
+
   it('non lascia che un conteggio nel body sopprima gli item enumerati', () => {
     expect(isAggregate('follow-up(#1): cleanup', `${G5_BODY}\n1 item deferred`)).toBe(true);
   });
@@ -103,6 +124,24 @@ describe('G5 — follow-up detector regressions', () => {
     expect(isAvoidableMaxTurns('follow-up(#1): cleanup', ['follow-up'], false, G5_BODY)).toBe(false);
     expect(isAvoidableAlreadyFixed('follow-up(#1): 3 item deferiti — a, b, c', ['follow-up'])).toBe(false);
     expect(isAvoidableMaxTurns('follow-up(#1): 3 item deferiti — a, b, c', ['follow-up'])).toBe(false);
+  });
+
+  it('tratta un daily bucket a un solo item come aggregate anche nell’analytics', () => {
+    const title = 'follow-up(daily:2026-09-13): 1 item — owner/repo';
+
+    expect(isAggregate(title, '')).toBe(true);
+    expect(isAvoidableAlreadyFixed(title, ['follow-up'])).toBe(false);
+    expect(isAvoidableMaxTurns(title, ['follow-up'], false)).toBe(false);
+  });
+
+  it('mantiene il keyword body-only fuori dal burn analytics, ma non dal pre-flight', () => {
+    const title = 'follow-up(#1): cleanup';
+    const body = 'The single item has a batch-related note in ordinary prose.';
+
+    expect(isAggregate(title, body)).toBe(true);
+    expect(isAggregateForAnalytics(title, body)).toBe(false);
+    expect(isAvoidableAlreadyFixed(title, ['follow-up'], body)).toBe(true);
+    expect(isAvoidableMaxTurns(title, ['follow-up'], false, body)).toBe(true);
   });
 });
 

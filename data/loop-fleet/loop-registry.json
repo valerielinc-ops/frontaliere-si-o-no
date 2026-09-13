@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "2026-09-12",
+  "states": [
+    "unmeasurable",
+    "observing",
+    "candidate",
+    "canary",
+    "adopted",
+    "rolled_back",
+    "inconclusive"
+  ],
+  "qualityStates": [
+    "observed",
+    "zero",
+    "missing",
+    "stale",
+    "partial",
+    "unmeasurable"
+  ],
+  "autonomyLevels": {
+    "A0": "observe",
+    "A1": "recommend",
+    "A2": "change-via-review",
+    "A3": "bounded-canary",
+    "A4": "safe-automation"
+  },
+  "actionAutonomy": {
+    "observe": "A0",
+    "issue": "A1",
+    "candidate": "A1",
+    "recommend": "A1",
+    "draft-outreach": "A1",
+    "follow-up": "A1",
+    "lesson": "A1",
+    "pr": "A2",
+    "reconcile": "A2",
+    "canary": "A3",
+    "stop": "A3",
+    "suspend-canary": "A2",
+    "stale-label": "A3",
+    "quarantine": "A2",
+    "block-publication": "A4",
+    "block-proven-defect": "A4",
+    "suppress": "A4",
+    "defer": "A4",
+    "route": "A4",
+    "lock": "A4",
+    "retry": "A4"
+  },
+  "sourceCatalog": {
+    "manifest-api-corpus": "Published corpus/API manifest",
+    "posthog-error-telemetry": "PostHog error and useful-session telemetry",
+    "gsc": "Google Search Console snapshot",
+    "posthog-landing-path": "PostHog landing-path and useful-action telemetry",
+    "job-crawler-summaries": "Job crawler summary snapshots",
+    "application-handoff": "Application handoff reachability evidence",
+    "consent-delivery": "Consent and alert delivery ledger",
+    "posthog-return": "PostHog attributed-return telemetry",
+    "decision-surfaces": "Decision-surface task and next-action evidence",
+    "posthog": "PostHog product telemetry",
+    "editorial-source-evidence": "Editorial source evidence independent of generation",
+    "quality-alert-history": "Content quality-alert history",
+    "experiment-assignment-exposure-outcome": "Pre-registered experiment assignment, exposure and outcome ledger",
+    "adsense": "AdSense revenue snapshot",
+    "publisher": "Publisher commercial snapshot",
+    "authorised-affiliate-commercial-export": "Authorised affiliate/commercial export",
+    "revenue-monitor": "Revenue monitor history",
+    "employer-funnel": "Employer funnel and activation ledger",
+    "stripe-subscription-ledger": "Stripe/subscription state ledger",
+    "github-actions": "GitHub Actions run evidence",
+    "pr-issue": "GitHub PR and issue evidence",
+    "quota-health-ledger": "Quota and fleet health ledgers",
+    "workflow-inventory": "Repository workflow inventory and output reconciliation"
+  },
+  "loops": [
+    {
+      "loopId": "L0",
+      "goal": "Data Truth & Freshness",
+      "owner": "CDO / Chief Trust",
+      "oracle": "independent corpus manifest and HTTP contract",
+      "sourceRefs": ["manifest-api-corpus"],
+      "cadence": "2h / daily",
+      "primaryMetric": "fresh_complete_manifest_rate",
+      "outcome": {
+        "outcomeId": "fresh-complete-published-data",
+        "sourceRefs": ["manifest-api-corpus"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
+      "minimumSample": 1,
+      "maxAutonomy": "A4",
+      "actionClasses": ["observe", "issue", "quarantine", "block-publication"],
+      "guardrails": [
+        "missing or stale data is never emitted as zero",
+        "site and corpus communicate only over HTTP",
+        "the last valid published surface remains untouched on failure"
+      ],
+      "lifecycle": {
+        "candidateTtlHours": 2,
+        "ownerSlaHours": 4,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "CDO / Chief Trust"
+      }
+    },
+    {
+      "loopId": "L1",
+      "goal": "Reliability & UX",
+      "owner": "CTO / Reliability",
+      "oracle": "independent synthetic path and error telemetry",
+      "sourceRefs": ["posthog-error-telemetry"],
+      "cadence": "hourly / daily",
+      "primaryMetric": "error_free_useful_session_rate",
+      "outcome": {
+        "outcomeId": "error-free-useful-session",
+        "sourceRefs": ["posthog-error-telemetry"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
+      "minimumSample": 100,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "issue", "pr", "suspend-canary"],
+      "guardrails": ["one anomaly is not a rollback", "Auto Ads stays enabled"],
+      "lifecycle": {
+        "candidateTtlHours": 24,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "CTO / Reliability"
+      }
+    },
+    {
+      "loopId": "L2",
+      "goal": "Demand to Utility",
+      "owner": "Chief Growth / SEO",
+      "oracle": "GSC snapshot plus landing-path evidence",
+      "sourceRefs": ["gsc", "posthog-landing-path"],
+      "cadence": "daily / weekly",
+      "primaryMetric": "useful_action_per_1000_eligible_landing_sessions",
+      "outcome": {
+        "outcomeId": "useful-action",
+        "sourceRefs": ["gsc", "posthog-landing-path"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
+      "minimumSample": 1000,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "candidate", "issue", "pr"],
+      "guardrails": ["no thin pages", "no keyword stuffing", "source required"],
+      "lifecycle": {
+        "candidateTtlHours": 168,
+        "ownerSlaHours": 48,
+        "postMergeVerificationHours": 48,
+        "rollbackOwner": "Chief Growth / SEO"
+      }
+    },
+    {
+      "loopId": "L3",
+      "goal": "Job Quality to Apply",
+      "owner": "CPO / Customer Value",
+      "oracle": "job contract and destination reachability checks",
+      "sourceRefs": ["job-crawler-summaries", "application-handoff"],
+      "cadence": "daily",
+      "primaryMetric": "valid_application_handoff_per_1000_qualified_job_sessions",
+      "outcome": {
+        "outcomeId": "valid-application-handoff",
+        "sourceRefs": ["job-crawler-summaries", "application-handoff"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
+      "minimumSample": 100,
+      "maxAutonomy": "A4",
+      "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr"],
+      "guardrails": ["handoff is not an application submission", "never invent apply events"],
+      "lifecycle": {
+        "candidateTtlHours": 24,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "CPO / Customer Value"
+      }
+    },
+    {
+      "loopId": "L4",
+      "goal": "Alert to Return",
+      "owner": "Chief Retention / CRM",
+      "oracle": "consent, delivery and return attribution ledger",
+      "sourceRefs": ["consent-delivery", "posthog-return"],
+      "cadence": "event + daily",
+      "primaryMetric": "attributed_return_per_1000_eligible_recipients",
+      "outcome": {
+        "outcomeId": "attributed-return",
+        "sourceRefs": ["consent-delivery", "posthog-return"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
+      "minimumSample": 100,
+      "maxAutonomy": "A4",
+      "actionClasses": ["observe", "suppress", "defer", "issue"],
+      "guardrails": ["consent is purpose-specific", "idempotent delivery", "quiet hours"],
+      "lifecycle": {
+        "candidateTtlHours": 24,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "Chief Retention / CRM"
+      }
+    },
+    {
+      "loopId": "L5",
+      "goal": "Decision Moments",
+      "owner": "CPO / Customer Value",
+      "oracle": "completed task and next-action event contract",
+      "sourceRefs": ["decision-surfaces", "posthog"],
+      "cadence": "weekly",
+      "primaryMetric": "next_useful_action_per_1000_completions",
+      "outcome": {
+        "outcomeId": "next-useful-action",
+        "sourceRefs": ["decision-surfaces", "posthog"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
+      "minimumSample": 100,
+      "maxAutonomy": "A3",
+      "actionClasses": ["observe", "candidate", "canary", "stop", "stale-label", "issue", "recommend"],
+      "guardrails": ["no dark patterns", "no unsupported timing promise", "no invasive personalization"],
+      "lifecycle": {
+        "candidateTtlHours": 168,
+        "ownerSlaHours": 48,
+        "postMergeVerificationHours": 48,
+        "rollbackOwner": "CPO / Customer Value"
+      }
+    },
+    {
+      "loopId": "L6",
+      "goal": "Content Learning & Factuality",
+      "owner": "Chief Trust / Accuracy",
+      "oracle": "source evidence independent of the generator",
+      "sourceRefs": ["editorial-source-evidence", "quality-alert-history"],
+      "cadence": "per generation + daily",
+      "primaryMetric": "confirmed_defect_rate",
+      "outcome": {
+        "outcomeId": "confirmed-factuality-defect",
+        "sourceRefs": ["editorial-source-evidence", "quality-alert-history"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
+      "minimumSample": 1,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr", "lesson"],
+      "guardrails": ["model output is not the oracle", "source and locale must agree"],
+      "lifecycle": {
+        "candidateTtlHours": 24,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "Chief Trust / Accuracy"
+      }
+    },
+    {
+      "loopId": "L7",
+      "goal": "Experiment Allocator",
+      "owner": "CEO / Chief Mission",
+      "oracle": "pre-registered assignment, outcome and guardrail ledger",
+      "sourceRefs": ["experiment-assignment-exposure-outcome"],
+      "cadence": "weekly",
+      "primaryMetric": "registered_outcome_per_eligible_cohort",
+      "outcome": {
+        "outcomeId": "registered-experiment-outcome",
+        "sourceRefs": ["experiment-assignment-exposure-outcome"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
+      "minimumSample": 200,
+      "maxAutonomy": "A3",
+      "actionClasses": ["observe", "candidate", "canary", "stop", "issue", "recommend"],
+      "guardrails": ["persistent assignment", "minimum sample", "explicit expiry", "no automatic price change"],
+      "lifecycle": {
+        "candidateTtlHours": 168,
+        "ownerSlaHours": 48,
+        "postMergeVerificationHours": 48,
+        "rollbackOwner": "CEO / Chief Mission"
+      }
+    },
+    {
+      "loopId": "L8",
+      "goal": "Revenue & Attribution Reconciliation",
+      "owner": "CRO / Monetization + CFO",
+      "oracle": "approved-source exports and independent join checks",
+      "sourceRefs": ["adsense", "gsc", "posthog", "publisher", "authorised-affiliate-commercial-export", "revenue-monitor"],
+      "cadence": "daily / weekly",
+      "primaryMetric": "approved_net_chf_per_1000_relevant_exposures",
+      "outcome": {
+        "outcomeId": "approved-commercial-attribution",
+        "sourceRefs": ["adsense", "gsc", "posthog", "publisher", "authorised-affiliate-commercial-export", "revenue-monitor"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"],
+        "allowNumeratorExceedDenominator": true
+      },
+      "minimumSample": 100,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "reconcile", "issue", "recommend"],
+      "guardrails": ["missing export is unmeasurable", "approved differs from pending/reversed", "Auto Ads stays enabled"],
+      "lifecycle": {
+        "candidateTtlHours": 168,
+        "ownerSlaHours": 48,
+        "postMergeVerificationHours": 48,
+        "rollbackOwner": "CRO / Monetization + CFO"
+      }
+    },
+    {
+      "loopId": "L9",
+      "goal": "Employer Supply to Paid Activation",
+      "owner": "CRO / Monetization",
+      "oracle": "checkout and subscription state ledger",
+      "sourceRefs": ["employer-funnel", "stripe-subscription-ledger"],
+      "cadence": "weekly",
+      "primaryMetric": "paid_activation_rate",
+      "outcome": {
+        "outcomeId": "paid-employer-activation",
+        "sourceRefs": ["employer-funnel", "stripe-subscription-ledger"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
+      "minimumSample": 20,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "candidate", "pr", "draft-outreach"],
+      "guardrails": ["no real outreach without approval", "inventory is not revenue", "no automatic price change"],
+      "lifecycle": {
+        "candidateTtlHours": 168,
+        "ownerSlaHours": 72,
+        "postMergeVerificationHours": 72,
+        "rollbackOwner": "CRO / Monetization"
+      }
+    },
+    {
+      "loopId": "L10",
+      "goal": "Engineering Learning / Fleet Control",
+      "owner": "COO / Fleet Controller",
+      "oracle": "GitHub run, PR, issue and quota ledger",
+      "sourceRefs": ["github-actions", "pr-issue", "quota-health-ledger"],
+      "cadence": "continuous + daily",
+      "primaryMetric": "verified_decision_throughput",
+      "outcome": {
+        "outcomeId": "verified-decision-throughput",
+        "sourceRefs": ["github-actions", "pr-issue", "quota-health-ledger"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
+      "minimumSample": 1,
+      "maxAutonomy": "A4",
+      "actionClasses": ["observe", "route", "lock", "retry", "follow-up"],
+      "guardrails": ["one writer per artifact", "bounded queues", "never bypass a gate"],
+      "lifecycle": {
+        "candidateTtlHours": 24,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "COO / Fleet Controller"
+      }
+    },
+    {
+      "loopId": "L11",
+      "goal": "Technical Operations Assurance",
+      "owner": "Chief Operations Assurance",
+      "oracle": "workflow syntax, reachability and output reconciliation",
+      "sourceRefs": ["workflow-inventory"],
+      "cadence": "daily + PR",
+      "primaryMetric": "healthy_reachable_workflow_rate",
+      "outcome": {
+        "outcomeId": "healthy-reachable-workflow",
+        "sourceRefs": ["workflow-inventory"],
+        "requiredFields": ["generatedAt", "numerator", "denominator"]
+      },
+      "minimumSample": 1,
+      "maxAutonomy": "A2",
+      "actionClasses": ["observe", "issue", "pr", "block-proven-defect"],
+      "guardrails": ["ambiguous findings stay observe-only", "no error-to-warning downgrade", "no auto-merge of uncertain fixes"],
+      "lifecycle": {
+        "candidateTtlHours": 72,
+        "ownerSlaHours": 24,
+        "postMergeVerificationHours": 24,
+        "rollbackOwner": "Chief Operations Assurance"
+      }
+    }
+  ]
+}

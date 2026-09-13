@@ -1,0 +1,98 @@
+name: Loop L2 demand to utility
+
+on:
+  schedule:
+    - cron: '47 7 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'data/gsc-orphan-queries-clusters.json'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l2-demand-utility.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/loop-l2-demand-utility.yml'
+  pull_request:
+    paths:
+      - 'data/gsc-orphan-queries-clusters.json'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l2-demand-utility.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/loop-l2-demand-utility.yml'
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: 'Create/update one deduplicated issue when the outcome join is not measurable'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: loop-l2-demand-utility
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout demand inputs
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /data/gsc-orphan-queries-clusters.json
+            /data/loop-fleet/loop-registry.json
+            /scripts/ci/loop-l2-demand-utility.mjs
+            /scripts/ci/record-loop-fleet-evidence.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/github-issue-creator.mjs
+            /.github/workflows/loop-l2-demand-utility.yml
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Audit demand to utility
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l2
+        run: |
+          set -o pipefail
+          mkdir -p "$REPORT_DIR"
+          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --source data/gsc-orphan-queries-clusters.json)
+          if [ "$ISSUE_ENABLED" = "true" ]; then
+            args+=(--issue --strict)
+          else
+            args+=(--dry-run)
+          fi
+          set +e
+          node scripts/ci/loop-l2-demand-utility.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
+          run_code=${PIPESTATUS[0]}
+          set -e
+          if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l2-result.json" >/dev/null 2>&1; then
+            echo 'L2 finding persisted as a deduplicated issue; no unreviewed landing change was applied.' | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ "$run_code" -ne 0 ]; then
+            exit "$run_code"
+          fi
+      - name: Record canonical L2 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l2
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L2 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
+      - name: Upload L2 observation and candidates
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: loop-l2-demand-utility-${{ github.run_id }}
+          path: ${{ runner.temp }}/loop-fleet-l2/
+          retention-days: 90
+          if-no-files-found: error

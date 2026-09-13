@@ -520,21 +520,26 @@ function cacheDirFor(rootDir: string, cacheKey: string): string {
   return path.join(rootDir, '.cache', 'related-search-clusters', cacheKey);
 }
 
+function readCacheManifest(rootDir: string, cacheKey: string): CacheManifest | null {
+  const manifestPath = path.join(cacheDirFor(rootDir, cacheKey), 'manifest.json');
+  if (!fs.existsSync(manifestPath)) return null;
+  try {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8')) as CacheManifest;
+    if (manifest.version !== CACHE_VERSION || !Array.isArray(manifest.files)) return null;
+    return manifest;
+  } catch {
+    return null;
+  }
+}
+
 export async function tryRestoreFromCache(
   rootDir: string,
   distDir: string,
   cacheKey: string,
 ): Promise<CacheManifest | null> {
   const cacheDir = cacheDirFor(rootDir, cacheKey);
-  const manifestPath = path.join(cacheDir, 'manifest.json');
-  if (!fs.existsSync(manifestPath)) return null;
-  let manifest: CacheManifest;
-  try {
-    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
-  } catch {
-    return null;
-  }
-  if (manifest.version !== CACHE_VERSION) return null;
+  const manifest = readCacheManifest(rootDir, cacheKey);
+  if (!manifest) return null;
 
   // Streamed disk-to-disk copy in parallel batches. Bypasses the
   // WriteCollector path on purpose: that path buffers each file's content
@@ -595,12 +600,26 @@ export async function tryRestoreFromCache(
   // same.
   // A partial restore is indistinguishable from a complete one downstream —
   // the plan is registered from `manifest.files`, not from what landed on
-  // disk — so the only honest fallback is to re-emit. The already-copied
-  // files are harmless: the emit path rewrites the same set.
+  // disk — so the only honest fallback is to re-emit. Ordinary emitted files
+  // are harmless because the emit path rewrites the same set; historical
+  // retirement files need the explicit replay below because the current
+  // candidate set may no longer enumerate the doorway.
   if (missing > 0) {
     console.warn(
       `\x1b[33m[related-search-clusters]\x1b[0m cache INVALID (key=${cacheKey}): ${missing}/${files.length} manifest entries failed to restore — falling back to a full emit`,
     );
+    // A partial restore may already have copied a stale WITHDRAWAL document,
+    // while the full emit below can no longer discover the old junk candidate
+    // (the current candidate list and the historical manifest are different
+    // populations). Re-apply the manifest's retired files before returning
+    // null, so the fallback cannot leave a live doorway behind; the caller
+    // also carries these rels into the next cache save.
+    const reapplied = reapplyRetiredManifestFiles(distDir, manifest.retiredFiles ?? []);
+    if (reapplied > 0) {
+      console.warn(
+        `\x1b[33m[related-search-clusters]\x1b[0m cache INVALID (key=${cacheKey}): re-applied ${reapplied} manifest retirement file(s) before full emit`,
+      );
+    }
     return null;
   }
 
@@ -878,6 +897,7 @@ export function loadPreviouslyEmittedClusterKeys(rootDir: string): Set<string> {
     try {
       assertNoRestoredRetirementCollision(manifest.files, manifest.retiredFiles);
     } catch (err) {
+      if (!(err instanceof RestoredRetirementCollisionError)) throw err;
       if (manifest.version === CACHE_VERSION) throw err;
       console.warn(
         `[related-search-clusters] ignoring collision in historical retirement manifest ${manifestPath}:`,
@@ -1910,6 +1930,22 @@ export function restoredRetiredLandingPaths(
 }
 
 /**
+ * Retirement paths a cache-HIT build must register from both its restored
+ * manifest and the current junk-candidate evidence. A shard's manifest only
+ * contains files that shard emitted, while the current retirement enumeration
+ * knows about indexed siblings owned by other locale shards (issue #8070).
+ */
+export function cacheHitRetiredLandingPaths(
+  currentRetirements: ReadonlyArray<JunkRetirement>,
+  restoredRetiredFiles: ReadonlyArray<string> = [],
+): string[] {
+  return Array.from(new Set([
+    ...restoredRetiredLandingPaths(restoredRetiredFiles),
+    ...currentRetirements.flatMap((retirement) => retirement.paths.map(normalizeLandingPath)),
+  ]));
+}
+
+/**
  * Fail the build when a junk withdrawal would land on a path a LIVE cluster
  * also emits (issue #7752).
  *
@@ -1958,6 +1994,25 @@ export function assertRetirementsDisjointFromPlan(
   }
 }
 
+function assertManifestRetirementsDisjointFromPlan(
+  retiredPaths: ReadonlyArray<string>,
+  plannedPaths: ReadonlyArray<string>,
+): void {
+  if (retiredPaths.length === 0 || plannedPaths.length === 0) return;
+  const planned = new Set(plannedPaths.map(normalizeLandingPath));
+  const collisions = Array.from(new Set(
+    retiredPaths
+      .map(normalizeLandingPath)
+      .filter((retiredPath) => planned.has(retiredPath)),
+  ));
+  if (collisions.length > 0) {
+    throw new Error(
+      `[related-search-clusters] ${collisions.length} cache manifest retirement path(s) collide with live cluster landings ` +
+      `— the invalidated withdrawal would overwrite a page this build also emits (issue #8071):\n  ${collisions.join('\n  ')}`,
+    );
+  }
+}
+
 /**
  * The cache-HIT half of the same invariant (issue #7752).
  *
@@ -1973,6 +2028,13 @@ export function assertRetirementsDisjointFromPlan(
  * deliberately not flagged: that is the half-tagged pair of issue #7751, whose
  * documented behaviour is to re-plan the landing, not to fail the build.
  */
+class RestoredRetirementCollisionError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'RestoredRetirementCollisionError';
+  }
+}
+
 function assertNoRestoredRetirementCollision(
   files: ReadonlyArray<string>,
   retiredFiles: ReadonlyArray<string>,
@@ -1988,7 +2050,7 @@ function assertNoRestoredRetirementCollision(
   }
   if (collisions.size > 0) {
     const list = Array.from(collisions).sort();
-    throw new Error(
+    throw new RestoredRetirementCollisionError(
       `[related-search-clusters] restored manifest has ${list.length} landing path(s) that are BOTH a junk-doorway ` +
       `withdrawal and a live cluster page (issue #7752) — rebuild with a cache MISS to re-derive it:\n  ${list.join('\n  ')}`,
     );
@@ -2084,7 +2146,7 @@ function normalizeJunkRetirementPath(retiredPath: string): string | null {
   // grammar as the publication-evidence parser. This rejects arbitrary
   // external data before it can become a second dist write.
   if (!clusterKeyFromAnyPath(normalized)) return null;
-  return normalized;
+  return normalized.toLowerCase();
 }
 
 export function junkRetirementWrites(
@@ -2098,6 +2160,68 @@ export function junkRetirementWrites(
     { rel: `${stem}/index.html`, html: retirementHtml },
     { rel: `${stem}.html`, html: buildFlatBridgeFromSibling(retirementHtml, `${BASE_URL}/${stem}/`) },
   ];
+}
+
+/**
+ * Rebuild the withdrawal bytes for the retired files in a cache manifest.
+ *
+ * A valid manifest can outlive the candidate that originally caused a
+ * withdrawal. When a restore is invalidated midway, those exact rels are the
+ * only reliable record that the doorway was published and then retired. Keep
+ * the list exact (an index-only, half-tagged historical pair must not create a
+ * new flat file) while deriving each document through the same retirement
+ * writer used by the normal emit path.
+ */
+export function retiredManifestWrites(
+  retiredFiles: ReadonlyArray<string>,
+): { rel: string; html: string }[] {
+  const writes: { rel: string; html: string }[] = [];
+  const seen = new Set<string>();
+  const htmlByLocale = new Map<Locale, string>();
+  for (const raw of Array.isArray(retiredFiles) ? retiredFiles : []) {
+    if (typeof raw !== 'string') continue;
+    const rel = raw.replaceAll('\\', '/');
+    // Manifests are internal data, but a corrupt entry must never turn a
+    // cache fallback into a write outside dist/.
+    if (
+      rel === ''
+      || rel.startsWith('/')
+      || rel.includes('\0')
+      || rel !== path.posix.normalize(rel)
+      || rel.split('/').includes('..')
+      || !rel.endsWith('.html')
+    ) continue;
+    if (seen.has(rel)) continue;
+
+    const landingPath = landingPathFromDistRelative(rel);
+    const locale = localeOfDistPath(rel, '') as Locale;
+    let html = htmlByLocale.get(locale);
+    if (html === undefined) {
+      html = buildJunkRetirementHtml(locale);
+      htmlByLocale.set(locale, html);
+    }
+    const write = junkRetirementWrites(`${landingPath}/`, html).find((candidate) => candidate.rel === rel);
+    if (!write) continue;
+    seen.add(rel);
+    writes.push(write);
+  }
+  return writes;
+}
+
+function reapplyRetiredManifestFiles(
+  distDir: string,
+  retiredFiles: ReadonlyArray<string>,
+): number {
+  const writes = retiredManifestWrites(retiredFiles);
+  const distRoot = path.resolve(distDir);
+  for (const write of writes) {
+    const outFile = path.resolve(distDir, write.rel);
+    const relative = path.relative(distRoot, outFile);
+    if (relative.startsWith('..') || path.isAbsolute(relative)) continue;
+    fs.mkdirSync(path.dirname(outFile), { recursive: true });
+    fs.writeFileSync(outFile, write.html, 'utf-8');
+  }
+  return writes.length;
 }
 
 /**
@@ -3666,6 +3790,26 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       let clusterNoindexCount = 0;
       let clusterBytesSaved = 0;
 
+      // These inputs are needed even on a cache HIT: the cache manifest is
+      // shard-local, but a newly classified junk doorway can have live indexed
+      // siblings emitted by another locale shard (issue #8070). Load the
+      // evidence before the early return so the HIT can recalculate the full
+      // retirement set. The expensive enriched/jobs inputs remain MISS-only.
+      const __tLoadCandidates = profileStart();
+      const candidates = filterAndDedupeCandidates(loadCandidates(rootDir));
+      profileRecord('load-candidates', __tLoadCandidates);
+      const __tLoadIndexed = profileStart();
+      const indexedClusterUrlsByKey = loadIndexedClusterUrls(rootDir);
+      profileRecord('load-indexed-cluster-urls', __tLoadIndexed);
+      const __tPublished = profileStart();
+      const publishedClusterKeys = loadPreviouslyEmittedClusterKeys(rootDir);
+      profileRecord('load-published-cluster-keys', __tPublished);
+      const junkRetirements = enumerateJunkRetirements(
+        candidates,
+        indexedClusterUrlsByKey,
+        publishedClusterKeys,
+      );
+
       // Cache fast path. If inputs haven't changed since the last emit,
       // restore the cluster + hub HTML + sitemap fragment from disk, run
       // the cross-plugin patches (master sitemap + hub-link injection)
@@ -3681,6 +3825,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const __tCacheKey = profileStart();
       const cacheKey = cacheEnabled ? computeCacheKey(rootDir) : '';
       profileRecord('cache-key', __tCacheKey);
+      let invalidatedRetirementWrites: { rel: string; html: string }[] = [];
       if (cacheEnabled) {
         const __tCacheRestore = profileStart();
         const restored = await tryRestoreFromCache(rootDir, distDir, cacheKey);
@@ -3721,7 +3866,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           // The same rels, declared EMITTED-but-unplanned so a live sibling of a
           // retired locale keeps its own block (issue #7756).
           registerRetiredKeywordLandingPaths(
-            restoredRetiredLandingPaths(restored.retiredFiles ?? []),
+            cacheHitRetiredLandingPaths(junkRetirements, restored.retiredFiles ?? []),
           );
           await jobsSeoPagesFlushed;
           await reconcileSitemapJobsWithDist(distDir, restored.crossSectionMirrorLocs ?? []);
@@ -3732,12 +3877,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           printRelatedSearchProfile();
           return;
         }
+        const invalidatedManifest = readCacheManifest(rootDir, cacheKey);
+        invalidatedRetirementWrites = retiredManifestWrites(invalidatedManifest?.retiredFiles ?? []);
         console.log(`\x1b[36m[related-search-clusters]\x1b[0m cache MISS (key=${cacheKey}): full emit`);
       }
 
-      const __tLoadCandidates = profileStart();
-      const candidates = filterAndDedupeCandidates(loadCandidates(rootDir));
-      profileRecord('load-candidates', __tLoadCandidates);
       if (candidates.length === 0) {
         console.log('\x1b[36m[related-search-clusters]\x1b[0m 0 candidates after filtering — nothing to emit');
         printRelatedSearchProfile();
@@ -3749,26 +3893,6 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const __tLoadJobs = profileStart();
       const jobs = loadJobs(rootDir);
       profileRecord('load-jobs', __tLoadJobs);
-      // GSC/GA4/PostHog-driven mirror paths, keyed by `${locale}::${slug}`.
-      // Empty map when the data file is missing or hasn't been populated yet
-      // (cron `.github/workflows/refresh-indexed-cluster-urls.yml` runs
-      // weekly; first run after deploy populates it). Empty map is safe:
-      // the emit loop still produces the TI + legacyCantonGroup default
-      // mirrors for every cluster.
-      const indexedClusterUrlsByKey = loadIndexedClusterUrls(rootDir);
-      // Doorways whose keyword the junk denylist now rejects (issue #7316).
-      // `buildClusterContext` stops emitting them; that alone leaves the
-      // already-published copy live, orphaned and indexable, because the
-      // served corpus is reassembled across deploys. Enumerated here so the
-      // withdrawal document below can overwrite those exact paths.
-      // Only for doorways with evidence of publication (issue #7753): a
-      // candidate the audit added but no build ever emitted has nothing live to
-      // withdraw, and synthesizing one would CREATE the thin page instead of
-      // retiring it.
-      const __tPublished = profileStart();
-      const publishedClusterKeys = loadPreviouslyEmittedClusterKeys(rootDir);
-      profileRecord('load-published-cluster-keys', __tPublished);
-      const junkRetirements = enumerateJunkRetirements(candidates, indexedClusterUrlsByKey, publishedClusterKeys);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys, ${publishedClusterKeys.size} previously-emitted cluster keys`);
 
       // Inverted token index: lazy posting lists per (locale, token), shared
@@ -3958,13 +4082,19 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // named instead of resolving itself as "whoever writes last wins"
       // (issue #7752).
       assertRetirementsDisjointFromPlan(junkRetirements, plannedPaths);
+      const invalidatedRetirementPaths = invalidatedRetirementWrites.map((write) =>
+        landingPathFromDistRelative(write.rel));
+      assertManifestRetirementsDisjointFromPlan(invalidatedRetirementPaths, plannedPaths);
       registerKeywordLandingPaths('related-search-clusters', plannedPaths);
       // Withdrawals are EMITTED, just never advertised: declaring them keeps
       // the hreflang gate from reading "unplanned" as "written nowhere" and
       // stripping the whole block off every live sibling (issue #7756). All
       // locales, not just this shard's — the IT shard has to know the FR
       // withdrawal exists to keep the alternate pointing at it.
-      registerRetiredKeywordLandingPaths(junkRetirements.flatMap((r) => r.paths));
+      registerRetiredKeywordLandingPaths([
+        ...junkRetirements.flatMap((r) => r.paths),
+        ...invalidatedRetirementPaths,
+      ]);
       profileRecord('register-landing-plan', __tPlan);
       console.log(
         `\x1b[36m[related-search-clusters]\x1b[0m registered ${plannedPaths.length} planned keyword-landing path(s) (plan total ${keywordLandingPlanSize()})`,
@@ -4044,8 +4174,20 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // withdrawal instead of resurrecting the doorway.
       const __tRetire = profileStart();
       const retirementHtmlByLocale = new Map<Locale, string>();
+      const retiredFileSet = new Set<string>();
       let retiredPathCount = 0;
       let retiredSlugCount = 0;
+      // A cache invalidation can leave the current candidate set without the
+      // slug that produced an old retirement. Carry the exact manifest rels
+      // through this emit too, so saveToCache cannot forget the withdrawal on
+      // the next build.
+      for (const write of invalidatedRetirementWrites) {
+        const outFile = path.join(distDir, write.rel);
+        collector.add(outFile, write.html);
+        emittedFiles.push(write.rel);
+        retiredFiles.push(write.rel);
+        retiredFileSet.add(write.rel);
+      }
       for (const retirement of junkRetirements) {
         // Same locale-shard rule as the cluster loop: only the shard that owns
         // the locale writes its HTML.
@@ -4062,16 +4204,18 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           // (issue #7751) — see `junkRetirementWrites`.
           for (const write of junkRetirementWrites(retiredPath, html)) {
             const outFile = path.join(distDir, write.rel);
-            collector.add(outFile, write.html);
             const rel = path.relative(distDir, outFile);
-            emittedFiles.push(rel);
             // Tagged so the cache-hit path can restore the file WITHOUT
             // registering it as a planned keyword landing (issue #7316).
             // The flat sibling MUST be tagged too: `landingPathFromDistRelative`
             // maps `<path>.html` and `<path>/index.html` to the SAME landing
             // path, so an untagged flat would re-plan the withdrawal as a live
             // keyword landing on every cache HIT.
+            if (retiredFileSet.has(rel)) continue;
+            collector.add(outFile, write.html);
+            emittedFiles.push(rel);
             retiredFiles.push(rel);
+            retiredFileSet.add(rel);
           }
           // Same backpressure cadence as the per-cluster loop: bound the
           // in-flight write closures instead of queueing tens of thousands.

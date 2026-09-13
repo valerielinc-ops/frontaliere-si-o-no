@@ -173,9 +173,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  sourceComponent: compact ? 'NewsletterCompact' : 'Newsletter',
  sourceRouteFamily: compact ? 'footer' : 'newsletter',
  locale: navigator.language || 'it-IT',
- isActive: false, // pending until double opt-in confirmed
- status: 'pending',
- // #5678/#5712. This form has no consent checkbox (unlike SubscriptionCTA),
+        isActive: false, // pending until double opt-in confirmed
+        status: 'pending',
+        // A fresh form submission may renew an old opt-out, but only through
+        // the new confirmation link sent by the server.
+        reconsent: true,
+        // #5678/#5712. This form has no consent checkbox (unlike SubscriptionCTA),
  // so `consentGiven` stays unset — but the notice IS rendered in both form
  // variants below, in this locale, so what is stored is what was read.
  ...consentProof('communicationsOptIn', 'email_submit', locale),
@@ -183,7 +186,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  8000,
  'newsletter_upsert',
  );
- if (upsert.existed) {
+ if (upsert.existed && upsert.status !== 'pending') {
  console.log('[Newsletter] Email already subscribed');
  setStatus('exists');
  Analytics.trackNewsletter('error', email.split('@')[1]);
@@ -205,7 +208,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  }
  };
 
- // Don't show if already subscribed or if user is signed in (auto-subscribed on signup)
+ // Don't show if already subscribed or during an authenticated session.
  if (user) return null;
  if (alreadySubscribed && status === 'idle') return null;
 

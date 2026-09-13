@@ -44,6 +44,21 @@ const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])
 const CODEX_REVIEWER_LOGIN_RE = /^(?:github-actions\[bot\]|frontaliere-automation\[bot\])$/iu;
 export const CODEX_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
+
+/**
+ * Some review clients serialize the Markdown body as one JSON-like string and
+ * send literal `\\n` separators to GitHub. Treat that shape as Markdown only
+ * when it is unmistakably a complete review; arbitrary prose containing the
+ * two characters `\\n` must remain untouched. Without this normalization the
+ * gate cannot see section boundaries or the explicit `Fix di ...: ok.`
+ * confirmations, so it resurrects already-fixed historical findings.
+ */
+export function normalizeReviewBody(body) {
+  const text = String(body || '');
+  if (/\r?\n/u.test(text) || !text.includes('\\n')) return text;
+  if (!text.includes('## Findings') && !text.includes('## LGTM')) return text;
+  return text.replace(/\\r\\n/gu, '\n').replace(/\\n/gu, '\n');
+}
 // L'alternanza delle estensioni e' first-match-wins: senza il lookahead finale
 // `ts` vince su `tsx` e `js` su `json`/`jsx`, e la citazione viene troncata a un
 // path che non esiste (`Foo.tsx:L107` -> `Foo.ts`). Un path non risolvibile e'
@@ -52,7 +67,7 @@ const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
 // li', e rende l'ordine delle alternative irrilevante. I caratteri validi nei
 // nomi file dopo l'estensione sono esclusi: altrimenti `foo.ts.bak` verrebbe
 // ancora letto come la citazione troncata `foo.ts`.
-const FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9_.@-]))(?:`?[:#]L?\d+(?:[-–]\d+)?)?/giu;
+const FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|rules|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9_.@-]))(?:`?[:#]L?\d+(?:[-–]\d+)?)?/giu;
 
 /**
  * Normalize a review citation without turning an unsafe/ambiguous path into a
@@ -167,7 +182,7 @@ function importantFindingLine(line, { inLgtm = false } = {}) {
  * leak paths into the previous finding.
  */
 function parseImportantFindings(body, extractCitations) {
-  const lines = String(body || '').split(/\r?\n/u);
+  const lines = normalizeReviewBody(body).split(/\r?\n/u);
   const markerLines = lines
     .map((line, index) => ({ line, index, marker: firstFindingMarker(line) }))
     .filter(({ marker }) => marker);
@@ -259,7 +274,7 @@ function emptyClassification(findings = []) {
 // outside-only exception is safe without `## LGTM` only when the reviewer
 // explicitly disposes of every question as non-funnel/deferred.
 function hasUnresolvedFunnelQuestion(body) {
-  return String(body || '').split(/\r?\n/u).some((line) =>
+  return normalizeReviewBody(body).split(/\r?\n/u).some((line) =>
     QUESTION_MARKER_RE.test(line) && !NON_FUNNEL_QUESTION_RE.test(line));
 }
 
@@ -501,7 +516,7 @@ function prBodyAnchor(text) {
 
 function fixConfirmations(body) {
   const confirmations = [];
-  for (const line of String(body || '').split(/\r?\n/u)) {
+  for (const line of normalizeReviewBody(body).split(/\r?\n/u)) {
     const match = line.match(FIX_CONFIRMATION_RE);
     if (!match) continue;
     const text = match[1].trim();
@@ -593,14 +608,40 @@ export function citationConfirmed(
   }));
 }
 
-function findingConfirmed(finding, confirmations, openFindings = [finding]) {
+function findingConfirmed(
+  finding,
+  confirmations,
+  openFindings = [finding],
+  { repositoryPaths = null } = {},
+) {
   if (finding.citations.length === 0) {
     const bodyAnchor = prBodyAnchor(finding.line);
     return confirmations.some((confirmation) => confirmation.key === findingKey(finding)
       || (bodyAnchor !== null && confirmation.bodyAnchor === bodyAnchor));
   }
+  const preciseCitations = finding.citations.filter((citation) => citation.line !== null);
+  const preciseAnchorsConfirmed = preciseCitations.length > 0
+    && preciseCitations.every((citation) => citationConfirmed(
+      citation,
+      confirmations,
+      finding,
+      openFindings,
+    ))
+    && (!Array.isArray(repositoryPaths) || preciseCitations.every((citation) =>
+      resolveCitedPath(citation, repositoryPaths).status === 'resolved'));
   return finding.citations.every((citation) => {
     const isBareCompanion = citation.line === null && citation.path.includes('/');
+    // Review prose often uses illustrative paths that are not repository
+    // files. Once every precise repository anchor is confirmed, a bare path
+    // with no HEAD-tree match is context rather than a second edit target.
+    // Keep the default strict when the tree is unavailable, and never apply
+    // this exception to precise or resolvable paths.
+    const isUnresolvableBareContext = isBareCompanion
+      && preciseAnchorsConfirmed
+      && Array.isArray(repositoryPaths)
+      && resolveCitedPath(citation, repositoryPaths).status === 'non-risolubile'
+      && resolveCitedPath(citation, repositoryPaths).candidates.length === 0;
+    if (isUnresolvableBareContext) return true;
     const otherAnchorsConfirmed = isBareCompanion
       && finding.citations
         .filter((other) => other !== citation)
@@ -622,7 +663,11 @@ function findingConfirmed(finding, confirmations, openFindings = [finding]) {
  */
 export function historicalImportantFindings(
   reviews,
-  { includeLatest = false, citationExtractor = extractFileCitations } = {},
+  {
+    includeLatest = false,
+    citationExtractor = extractFileCitations,
+    repositoryPaths = null,
+  } = {},
 ) {
   const bots = reviewerList(reviews).filter((review) =>
     review?.user?.type === 'Bot' && REVIEWER_LOGIN_RE.test(review.user.login || ''),
@@ -636,7 +681,7 @@ export function historicalImportantFindings(
     const openFindings = [...open.values()].map(({ finding }) => finding);
     for (const [key, entry] of open.entries()) {
       if (entry.reviewIndex >= index) continue;
-      if (findingConfirmed(entry.finding, confirmations, openFindings)) {
+      if (findingConfirmed(entry.finding, confirmations, openFindings, { repositoryPaths })) {
         open.delete(key);
       }
     }
@@ -798,13 +843,6 @@ function fetchRepositoryTreePaths(repo, sha) {
   }
 }
 
-function fetchRepositoryPaths(repo, pr) {
-  const base = String(gh([
-    'api', `repos/${repo}/pulls/${pr}`, '--jq', '.base.sha',
-  ], { json: false })).trim();
-  return fetchRepositoryTreePaths(repo, base);
-}
-
 function fetchRepositoryHeadPaths(repo, pr) {
   const head = String(gh([
     'api', `repos/${repo}/pulls/${pr}`, '--jq', '.head.sha',
@@ -849,7 +887,7 @@ function staleFallbackCarryForward({
   headSha,
   changedPathsFn = changedPathsBetween,
 } = {}) {
-  const latestBody = String(latest?.body || '');
+  const latestBody = normalizeReviewBody(latest?.body || '');
   if (!latestBody.includes(CODEX_REVIEW_MARKER)
       || /^##\s+LGTM\b/imu.test(latestBody)) return null;
 
@@ -1039,6 +1077,7 @@ export async function classifyAndMintReview(body, {
   mutate = true,
   reviewCommit,
   headSha,
+  repositoryPaths: suppliedRepositoryPaths,
 } = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || ''))) {
     throw new Error('repo o PR number non valido');
@@ -1063,8 +1102,10 @@ export async function classifyAndMintReview(body, {
   }
 
   const changed = fetchPrFiles(Number(pr), gh, repo);
-  const repositoryPaths = changed.complete === true && changed.files.length > 0
-    ? fetchRepositoryPaths(repo, pr)
+  const repositoryPaths = suppliedRepositoryPaths !== undefined
+    ? suppliedRepositoryPaths
+    : changed.complete === true && changed.files.length > 0
+      ? fetchRepositoryHeadPaths(repo, pr)
     : null;
   const classification = classifyReview(body, {
     files: changed.files,
@@ -1098,6 +1139,7 @@ export async function runReviewGate({
   reviews,
   codexEvidence,
   codexEvidenceFile,
+  repositoryPaths,
   fingerprintFn = fingerprint,
   changedPathsFn = changedPathsBetween,
   classifyAndMintReviewFn = classifyAndMintReview,
@@ -1125,7 +1167,7 @@ export async function runReviewGate({
   }
   const latest = codexReview || latestReviewer(reviewHistory);
   if (!latest) return { approved: false, reason: 'nessuna review Claude leggibile' };
-  const body = String(latest.body || '');
+  const body = normalizeReviewBody(latest.body || '');
   const staleCarry = staleFallbackCarryForward({
     reviews: reviewHistory,
     latest,
@@ -1143,7 +1185,9 @@ export async function runReviewGate({
       staleFindings: staleCarry.findings,
     };
   }
-  const historical = historicalImportantFindings(reviewHistory);
+  const historical = historicalImportantFindings(reviewHistory, {
+    repositoryPaths: repositoryPaths ?? null,
+  });
   const effectiveBody = reviewBodyWithHistoricalFindings(body, historical);
   const findings = importantFindings(effectiveBody);
   const reviewCommit = String(latest.commit_id || '');
@@ -1154,12 +1198,14 @@ export async function runReviewGate({
   // the gate correctly blocks on the changed contribution.
   const applies = reviewAppliesToHead(reviewCommit, headSha, fingerprintFn);
   if (findings.length > 0 && applies) {
-    classification = await classifyAndMintReviewFn(effectiveBody, {
+    const classificationOptions = {
       repo,
       pr,
       prUrl: prUrl || process.env.PR_URL,
       mutate,
-    });
+    };
+    if (repositoryPaths !== undefined) classificationOptions.repositoryPaths = repositoryPaths;
+    classification = await classifyAndMintReviewFn(effectiveBody, classificationOptions);
   } else if (findings.length > 0 && !applies) {
     classification = {
       ...emptyClassification(findings),
@@ -1206,12 +1252,14 @@ async function main() {
   const repo = process.env.REPO || process.env.GITHUB_REPOSITORY || '';
   const pr = process.env.PR_NUMBER || '';
   const headSha = process.env.HEAD_SHA || '';
+  const repositoryPaths = fetchRepositoryHeadPaths(repo, pr);
   const result = await runReviewGate({
     repo,
     pr,
     headSha,
     runUrl: process.env.RUN_URL,
     prUrl: process.env.PR_URL,
+    repositoryPaths,
   });
   writeApproved(result.approved);
   if (!result.approved) {

@@ -111,3 +111,15 @@ describe('staticPagesPlugin — locale-root skip guard (issue #5468, repaired in
     expect(SOURCE.slice(ratchetIdx, ratchetIdx + 2000)).toContain('renderLocaleRootShell');
   });
 });
+
+describe('staticPagesPlugin — locale navigation fails closed', () => {
+  it('freezes the shared navigation table and every locale list', () => {
+    expect(SOURCE).toContain('Object.freeze(NAV_LABELS)');
+    expect((SOURCE.match(/Object\.freeze\(\[/g) || []).length).toBeGreaterThanOrEqual(4);
+  });
+
+  it('does not silently substitute Italian navigation for an unknown locale', () => {
+    expect(SOURCE).not.toContain('NAV_LABELS[locale] ?? NAV_LABELS.it');
+    expect(SOURCE).toContain('Object.hasOwn(NAV_LABELS, locale)');
+  });
+});

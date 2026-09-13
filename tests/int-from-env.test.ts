@@ -42,10 +42,12 @@ describe('intFromEnv — comportamento', () => {
     expect(intFromEnv('BUDGET', 4500, { env: { BUDGET: '' }, warn: vi.fn() })).toBe(4500);
   });
 
-  it('accetta interi validi, con spazi e segno; rifiuta i frazionari', () => {
+  it('accetta interi non negativi, con spazi e segno positivo; rifiuta negativi e frazionari', () => {
+    const warn = vi.fn();
     expect(intFromEnv('X', 1, { env: { X: '2000' } })).toBe(2000);
     expect(intFromEnv('X', 1, { env: { X: ' 2000 ' } })).toBe(2000);
-    expect(intFromEnv('X', 1, { env: { X: '-5' } })).toBe(-5);
+    expect(intFromEnv('X', 1, { env: { X: '-5' }, warn })).toBe(1);
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('non negativo'));
     expect(intFromEnv('X', 1, { env: { X: '12.5' }, warn: vi.fn() })).toBe(1);
     expect(intFromEnv('X', 1, { env: { X: 'Infinity' }, warn: vi.fn() })).toBe(1);
   });
@@ -117,6 +119,20 @@ describe('check-number-env-fallback — il gate che impedisce il rientro', () =>
     )).toEqual([]);
   });
 
+  it('non perde il raw assignment dopo una regex che contiene slash da commento', () => {
+    const source = String.raw`const commentLike = /\/\*|\/\//g;
+const limit = Number(process.env.LIMIT);
+items.slice(0, limit);`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
+  });
+
+  it('applica il parser raw solo a sorgenti JavaScript/TypeScript', () => {
+    const source = 'const limit = Number(process.env.LIMIT);\nitems.slice(0, limit);';
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.yml')).toEqual([]);
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.json')).toEqual([]);
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
+  });
+
   it('l albero corrente non contiene piu il costrutto', () => {
     expect(findViolations()).toEqual([]);
   }, 30_000);
@@ -135,15 +151,17 @@ describe('check-number-env-fallback — il gate che impedisce il rientro', () =>
 });
 
 /**
- * Corpus #884 — `intFromEnv` chiude il buco del `NaN`, ma un conteggio
- * NEGATIVO o ZERO e' un intero finito: lo attraversa e spegne comunque la
- * regola. `slice(0, -5)` scarta dalla coda, `i += 0` non avanza mai.
+ * Corpus #884 — `intFromEnv` chiude il buco del `NaN` e dei negativi, ma un
+ * conteggio ZERO e' ancora un intero finito: lo attraversa e spegne comunque
+ * la regola. `slice(0, -5)` resta coperto dal rifiuto dei negativi, mentre
+ * `i += 0` non avanza mai.
  */
 describe('positiveIntFromEnv — il conteggio che non puo essere <= 0', () => {
-  it('rifiuta zero e negativi, che intFromEnv accetta come interi validi', () => {
+  it('rifiuta zero e negativi, mentre intFromEnv rifiuta gia i negativi', () => {
     const warn = vi.fn();
-    // La differenza col fratello: qui e' proprio questo il difetto da chiudere.
-    expect(intFromEnv('MAX', 100, { env: { MAX: '-5' }, warn: vi.fn() })).toBe(-5);
+    // La differenza col fratello resta lo zero: qui e' proprio questo il
+    // difetto da chiudere.
+    expect(intFromEnv('MAX', 100, { env: { MAX: '-5' }, warn: vi.fn() })).toBe(100);
     expect(positiveIntFromEnv('MAX', 100, { env: { MAX: '-5' }, warn })).toBe(100);
     expect(positiveIntFromEnv('MAX', 100, { env: { MAX: '0' }, warn })).toBe(100);
     expect(warn).toHaveBeenCalledTimes(2);

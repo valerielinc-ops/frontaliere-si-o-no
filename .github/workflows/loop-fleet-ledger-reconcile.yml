@@ -1,0 +1,53 @@
+name: Loop fleet ledger reconcile
+
+# Recupera gli eventi workflow_run persi o ritardati. Il job è un probe bounded:
+# scarica artifact immutabili e può soltanto dispatchare il bridge revisionato.
+# Non ha permessi contents/pull-requests e non scrive branch, main o superfici
+# pubblicate.
+on:
+  schedule:
+    - cron: '*/20 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Solo ispezione, senza dispatch del bridge'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: loop-fleet-durable-ledger
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout reconciliation probe
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /data/loop-fleet/ledger/
+            /scripts/ci/loop-fleet-ledger-reconcile.mjs
+            /.github/workflows/loop-fleet-ledger-reconcile.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Reconcile missing immutable evidence
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          DRY_RUN: ${{ inputs.dry_run == true && '1' || '0' }}
+          LOOP_FLEET_RECONCILE_MAX_RUNS: '12'
+          LOOP_FLEET_RECONCILE_MAX_DISPATCHES: '3'
+        run: node scripts/ci/loop-fleet-ledger-reconcile.mjs --ledger-dir data/loop-fleet/ledger

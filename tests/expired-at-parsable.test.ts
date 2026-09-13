@@ -5,6 +5,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import {
   archiveRemovedJobsToSlice,
+  deterministicExpiredAt,
   isParsableExpiredAt,
   normalizeExpiredAtEntries,
   // @ts-expect-error — .mjs module without type declarations
@@ -22,6 +23,11 @@ import { compareExpiredAt } from '../scripts/lib/compare-expired-at.mjs';
  * observers that keep both halves of that claim honest.
  */
 describe('expiredAt parsability — normalization at ingress', () => {
+  it('uses code-unit order when both expiredAt values are unparseable', () => {
+    expect(compareExpiredAt('ä', 'z')).toBeGreaterThan(0);
+    expect(compareExpiredAt('z', 'ä')).toBeLessThan(0);
+  });
+
   it('classifies the values the sort cannot order', () => {
     expect(isParsableExpiredAt('2026-09-06T10:00:00.000Z')).toBe(true);
     expect(isParsableExpiredAt(undefined)).toBe(false);
@@ -52,6 +58,16 @@ describe('expiredAt parsability — normalization at ingress', () => {
     expect(normalizeExpiredAtEntries(entries, { now: '2027-01-01T00:00:00.000Z', source: 'test' })).toBe(0);
     const reordered = [...entries].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)).map((e) => e.slug);
     expect(reordered).toEqual(order);
+  });
+
+  it('derives the fallback from entry identity, not the wall clock', () => {
+    const first = [{ slug: 'a', expiredAt: 'not-a-date' }, { slug: 'b' }];
+    const second = structuredClone(first);
+    normalizeExpiredAtEntries(first, { source: 'test' });
+    normalizeExpiredAtEntries(second, { source: 'test' });
+    expect(first).toEqual(second);
+    expect(deterministicExpiredAt({ slug: 'a' })).toBe(first[0].expiredAt);
+    expect(deterministicExpiredAt({ slug: 'b' })).toBe(second[1].expiredAt);
   });
 
   it('tolerates a non-array and non-object members', () => {
@@ -106,6 +122,15 @@ describe('archiveRemovedJobsToSlice — repairs the slice it reads back', () => 
 });
 
 describe('assemble ingress repair — persists the repaired source slice', () => {
+  it('keeps the source-slice repair wired to the atomic writer', () => {
+    const source = fs.readFileSync(
+      path.resolve(__dirname, '..', 'scripts', 'assemble-jobs-dataset.mjs'),
+      'utf8',
+    );
+    expect(source).toContain("writeJsonAtomic as writeJson");
+    expect(source).toContain('if (repaired > 0) writeJson(slicePath, entries);');
+  });
+
   it('writes the normalized value back before the aggregate cap can cut it', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'assemble-expired-repair-'));
     const slicePath = path.join(dir, 'acme.json');
@@ -170,6 +195,35 @@ describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
       expect(res.stderr).toContain(`cwd=${fs.realpathSync(dir)}`);
     } finally {
       fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('enumerates every workflow caller and requires the full archive checkout', () => {
+    const workflowsDir = path.resolve(__dirname, '..', '.github', 'workflows');
+    const callers = fs.readdirSync(workflowsDir)
+      .filter((file) => /\.ya?ml$/.test(file))
+      .map((file) => ({
+        file,
+        source: fs.readFileSync(path.join(workflowsDir, file), 'utf8'),
+      }))
+      .filter(({ source }) => source.split('\n').some((line) => (
+        !line.trim().startsWith('#')
+        && /audit:expired-at-parsable|scripts\/audit-expired-at-parsable\.mjs/.test(line)
+      )));
+
+    expect(callers.map(({ file }) => file)).toEqual(['reconcile-expired-route-duplicates.yml']);
+    for (const { source } of callers) {
+      const checkoutStart = source.indexOf('- name: Checkout');
+      const setupStart = source.indexOf('- name: Setup Node.js', checkoutStart);
+      expect(checkoutStart).toBeGreaterThanOrEqual(0);
+      expect(setupStart).toBeGreaterThan(checkoutStart);
+      const checkout = source.slice(checkoutStart, setupStart);
+      const auditAt = source.indexOf('scripts/audit-expired-at-parsable.mjs');
+      expect(checkout).toContain('uses: actions/checkout@v5');
+      expect(checkout).not.toMatch(/sparse-checkout/);
+      expect(checkout).not.toMatch(/filter\s*:/);
+      expect(source).toContain('data/jobs/expired/by-crawler');
+      expect(auditAt).toBeGreaterThan(setupStart);
     }
   });
 });

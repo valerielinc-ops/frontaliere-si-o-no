@@ -16,8 +16,10 @@
  * a oltranza pur con i test verdi (l'auto-merge è event-driven e non ri-valuta
  * da solo). La selezione "ultimo COMPLETATO con verdetto per completed_at" è
  * invariante all'ordine API e ai duplicati: vince il verdetto finito più fresco
- * per il codice all'HEAD. Un job `skipped` è completato ma non è un verdetto e
- * viene escluso.
+ * per il codice all'HEAD. Per i consumer Vitest un job `skipped` è completato
+ * ma non è un verdetto e viene escluso. La generalizzazione per nomi arbitrari
+ * mantiene invece il verdetto `skipped`, salvo richiesta esplicita, perché il
+ * gate `generator-ci` deve distinguere «skipped» da «nessun run concluso».
  *
  * I run in-progress/queued (senza `completed_at`) sono ignorati di proposito:
  * un dispatch manuale appeso non deve bloccare il merge per sempre. Se NESSUN
@@ -29,6 +31,66 @@ import {
   VITEST_EXECUTION_JOB_NAME,
   VITEST_SHARD_NAME_RE,
 } from './constants.mjs';
+
+const RED_CHECK_CONCLUSIONS = new Set(['failure', 'timed_out', 'cancelled']);
+
+/**
+ * Riprova una lettura sincrona finche' il dato e' utilizzabile.
+ *
+ * Un errore del reader (incluso un 404/403/rate-limit) attraversa il helper:
+ * non e' una risposta vuota e non va trasformato in un verdetto ambiguo.
+ * Anche `{ ok: false }` e' un errore esplicito, perche' i consumer usano
+ * proprio liste vuote per distinguere un head orfano da un'API non disponibile.
+ *
+ * @template T
+ * @param {{read: () => T, ready: (value: T) => boolean, attempts?: number,
+ *          delayMs?: number, sleep?: (delayMs: number) => void}} options
+ * @returns {T}
+ */
+export function pollUntil({ read, ready, attempts = 3, delayMs = 0, sleep = () => {} } = {}) {
+  if (typeof read !== 'function' || typeof ready !== 'function') {
+    throw new TypeError('pollUntil richiede funzioni read e ready');
+  }
+  const maxAttempts = Math.max(1, Math.trunc(Number(attempts) || 1));
+  let value;
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    value = read();
+    if (value && typeof value === 'object' && value.ok === false) {
+      const status = value.status === undefined ? '' : ` (HTTP ${value.status})`;
+      const error = new Error(`GitHub API ha restituito ok:false${status}`);
+      if (value.status !== undefined) error.status = value.status;
+      throw error;
+    }
+    if (ready(value)) return value;
+    if (attempt + 1 < maxAttempts) sleep(delayMs);
+  }
+  return value;
+}
+
+/** Un check-run vitest/esecuzione ha raggiunto un verdetto terminale. */
+export function vitestJobIsConcluded(job) {
+  return Boolean(job && job.status === 'completed' && job.conclusion);
+}
+
+/**
+ * Dice se la risposta dei check-run deve essere letta di nuovo.
+ * Una lista vuota o un vitest ancora queued/in_progress non autorizzano a
+ * classificare l'head usando dati vecchi.
+ */
+export function vitestCheckNeedsPolling(checkRuns) {
+  if (!Array.isArray(checkRuns)) return true;
+  const vitestRuns = checkRuns.filter(
+    (check) => check && (check.name === VITEST_CHECK_NAME || VITEST_SHARD_NAME_RE.test(check.name || '')),
+  );
+  if (vitestRuns.length === 0) return true;
+  return vitestRuns.some((check) => check.status !== 'completed' || !check.conclusion || !check.completed_at);
+}
+
+/** Due conclusioni sono intercambiabili solo se sono entrambe rosse. */
+export function areEquivalentCheckConclusions(left, right) {
+  if (!left || !right) return false;
+  return left === right || (RED_CHECK_CONCLUSIONS.has(left) && RED_CHECK_CONCLUSIONS.has(right));
+}
 
 /**
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
@@ -53,7 +115,7 @@ export function latestCompletedVitestConclusion(checkRuns) {
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string}|null}
  */
 export function latestCompletedVitestRun(checkRuns) {
-  return latestCompletedRunByName(checkRuns, VITEST_CHECK_NAME);
+  return latestCompletedRunByName(checkRuns, VITEST_CHECK_NAME, { excludeSkipped: true });
 }
 
 /**
@@ -65,7 +127,7 @@ export function latestCompletedVitestRun(checkRuns) {
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string, details_url?: string}|null}
  */
 export function latestCompletedVitestExecutionRun(checkRuns) {
-  return latestCompletedRunByName(checkRuns, VITEST_EXECUTION_JOB_NAME);
+  return latestCompletedRunByName(checkRuns, VITEST_EXECUTION_JOB_NAME, { excludeSkipped: true });
 }
 
 /**
@@ -76,21 +138,25 @@ export function latestCompletedVitestExecutionRun(checkRuns) {
  * check-run con lo stesso nome, es. un `workflow_dispatch` manuale sullo
  * stesso branch). Usata anche per `GENERATOR_CI_JOB_NAME` (#242: il gate
  * dell'auto-merge sul check "test" di generator-ci.yml non deve ripetere il
- * bug del `[0]` arbitrario che questo modulo esiste per chiudere).
+ * bug del `[0]` arbitrario che questo modulo esiste per chiudere). Per
+ * preservare il verdetto del consumer generico, `skipped` viene escluso solo
+ * quando `excludeSkipped` è esplicitamente true.
  *
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  * @param {string} name
+ * @param {{excludeSkipped?: boolean}} [options]
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string}|null}
  */
-export function latestCompletedRunByName(checkRuns, name) {
+export function latestCompletedRunByName(checkRuns, name, options = {}) {
   if (!Array.isArray(checkRuns)) return null;
+  const { excludeSkipped = false } = options || {};
   const completed = checkRuns
     .filter(
       (c) =>
         c &&
         c.name === name &&
         c.status === 'completed' &&
-        c.conclusion !== 'skipped' &&
+        (!excludeSkipped || c.conclusion !== 'skipped') &&
         typeof c.completed_at === 'string' &&
         c.completed_at,
     )
@@ -105,10 +171,11 @@ export function latestCompletedRunByName(checkRuns, name) {
  *
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  * @param {string} name
+ * @param {{excludeSkipped?: boolean}} [options]
  * @returns {string}
  */
-export function latestCompletedConclusionByName(checkRuns, name) {
-  const last = latestCompletedRunByName(checkRuns, name);
+export function latestCompletedConclusionByName(checkRuns, name, options = {}) {
+  const last = latestCompletedRunByName(checkRuns, name, options);
   return last ? last.conclusion || '' : '';
 }
 
@@ -475,9 +542,10 @@ export function jobRefFromCheckRun(checkRun) {
  * In più due controlli di IDENTITÀ, perché «attempt corrente» non implica
  * «lo stesso verdetto su cui stiamo decidendo»: il job dev'essere `completed`
  * (una lista di step parziale non dimostra niente) e la sua `conclusion` e il
- * suo `head_sha` devono coincidere con quelli del check-run selezionato. Se
- * divergono, i due oggetti descrivono esecuzioni diverse e vale il
- * fail-CLOSED.
+ * suo `head_sha` devono riferirsi allo stesso verdetto del check-run selezionato.
+ * Le tre conclusioni rosse di Actions (`failure`, `timed_out`, `cancelled`)
+ * sono equivalenti per questo accoppiamento; un rosso non diventa verde per
+ * errore di normalizzazione dell'API.
  *
  * Pura: nessuna I/O. Il chiamante fetcha la lista dei job.
  *
@@ -492,7 +560,7 @@ export function currentAttemptJobSteps({ checkRun, jobId, jobs }) {
   const job = jobs.find((j) => j && String(j.id) === String(jobId));
   if (!job) return []; // attempt superato: il job non è più fra i correnti.
   if (job.status !== 'completed') return [];
-  if (!checkRun.conclusion || job.conclusion !== checkRun.conclusion) return [];
+  if (!areEquivalentCheckConclusions(checkRun.conclusion, job.conclusion)) return [];
   if (checkRun.head_sha && job.head_sha && job.head_sha !== checkRun.head_sha) return [];
   return Array.isArray(job.steps) ? job.steps : [];
 }

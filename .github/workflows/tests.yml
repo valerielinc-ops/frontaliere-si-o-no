@@ -289,6 +289,9 @@ jobs:
                 }
                 return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
               }
+              function maskInlineCodeSpans(text) {
+                return String(text || '').replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
+              }
               function isBoldTitleLead(rest, lines = [], start = 0) {
                 const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
                 let candidate = String(rest || '');
@@ -303,7 +306,7 @@ jobs:
               }
               function hasEnumeratedItems(body) {
                 const clean = stripFencedBlocks(body);
-                if ((clean.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length >= 2) return true;
+                if ((clean.match(/^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length >= 2) return true;
                 const lines = clean.split('\n');
                 let ordered = 0;
                 let bullets = 0;
@@ -315,12 +318,12 @@ jobs:
                 }
                 return ordered >= 2 || bullets >= 2;
               }
-              const title = String(t || '');
+              const title = maskInlineCodeSpans(stripFencedBlocks(t));
               const m = title.match(/\b(\d+)\s+items?\s+deferred\b/i);
               if (m) return Number(m[1]) >= 2;
-              const bodyText = stripFencedBlocks(b);
+              const bodyText = maskInlineCodeSpans(stripFencedBlocks(b));
               if (/\b(?:sweep|batch|bulk)\b/i.test(title + '\n' + bodyText)) return true;
-              return hasEnumeratedItems(bodyText);
+              return hasEnumeratedItems(b);
             };
             // Strip code-formatted text first: GitHub does NOT honour a closing
             // keyword inside a fenced block or inline `code` span, so neither should
@@ -551,6 +554,7 @@ jobs:
             # bundles change. The services/locales/blog-body symlink is in the
             # checkout, but its corpus target is otherwise excluded.
             /packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts
+            /packages/articles/content/blog-body-ch/de/naturalizzazione-canton-san-gallo-procedura.ts
             # Type-only dependency imported by the SEO modules above; keep it
             # file-scoped so the article corpus remains excluded.
             /packages/articles/content/seo/seoMetadataType.ts

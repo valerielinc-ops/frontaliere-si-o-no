@@ -7,6 +7,10 @@
  * still sort by actual recency instead of lexicographic order. A value that
  * parses is treated as later than one that doesn't.
  */
+function compareCodeUnits(a, b) {
+  return a < b ? -1 : a > b ? 1 : 0;
+}
+
 export function compareExpiredAt(a, b) {
   const aTime = Date.parse(a || '');
   const bTime = Date.parse(b || '');
@@ -14,5 +18,5 @@ export function compareExpiredAt(a, b) {
   const bValid = Number.isFinite(bTime);
   if (aValid && bValid) return aTime - bTime;
   if (aValid !== bValid) return aValid ? 1 : -1;
-  return String(a || '').localeCompare(String(b || ''));
+  return compareCodeUnits(String(a || ''), String(b || ''));
 }

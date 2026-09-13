@@ -9,6 +9,7 @@ import {
   buildGa4EventQueryBody,
   buildInsightsDocuments,
   collapseTechnicalDuplicates,
+  loadApplicationRecords,
   queryGa4EventRows,
   queryEventRows,
   resolveEventIdentity,
@@ -252,7 +253,8 @@ describe('employer insights event coverage', () => {
 
     expect(doc.totals.adsCount).toBe(1);
     expect(doc.ads).toHaveLength(1);
-    expect(doc.ads[0]).toMatchObject({ views: 0, applyClicks: 1, eventsObserved: 1 });
+    expect(doc.ads[0]).toMatchObject({ views: 0, applyClicks: 1, applyClickUsers: 1, eventsObserved: 1 });
+    expect(doc.totals.applyClickUsers).toBe(1);
   });
 
   it('excludes an event outside the explicit documentable window', () => {
@@ -264,6 +266,37 @@ describe('employer insights event coverage', () => {
     expect(doc.totals.applyClicks).toBe(1);
     expect(doc.coverage.observed).toBe(1);
     expect(doc.window).toMatchObject({ from: WINDOW.from, to: WINDOW.to });
+  });
+
+  it('fails closed for missing or malformed event timestamps', () => {
+    const result = aggregateEmployerEvents([
+      event({ timestamp: null }),
+      event({ timestamp: 'not-a-timestamp' }),
+    ], { window: WINDOW, catalog: buildIdentityCatalog([job()]) });
+
+    expect(result.coverage).toMatchObject({
+      observed: 2,
+      attributed: 0,
+      residualTotal: 2,
+      residuals: { invalid_timestamp: 2 },
+      invariant: true,
+    });
+    expect(result.states.size).toBe(0);
+  });
+
+  it('keeps applications without a valid timestamp in the residual ledger', () => {
+    const result = aggregateApplicationEvidence([
+      { id: 'application-missing-date', jobSlug: 'role-it' },
+      { id: 'application-bad-date', jobSlug: 'role-it', createdAt: 'not-a-timestamp' },
+    ], { window: WINDOW, catalog: buildIdentityCatalog([job()]) });
+
+    expect(result).toMatchObject({
+      observed: 2,
+      attributed: 0,
+      residualTotal: 2,
+      residuals: { invalid_timestamp: 2 },
+      invariant: true,
+    });
   });
 
   it('serializes more than 100 ads and declares that no ad cap applies', () => {
@@ -440,6 +473,60 @@ describe('employer insights event coverage', () => {
       delivery: 'non disponibile',
     });
     expect(doc.totals).not.toHaveProperty('lost');
+  });
+
+  it('orders application pages by document name and reads every page beyond 500 records', async () => {
+    const firstPage = Array.from({ length: 500 }, (_, index) => ({
+      id: `application-${index}`,
+      data: () => ({ jobSlug: 'role-it', createdAt: IN_WINDOW_TIMESTAMP }),
+    }));
+    const secondPage = [{
+      id: 'application-500',
+      data: () => ({ jobSlug: 'role-it', createdAt: IN_WINDOW_TIMESTAMP }),
+    }];
+    const calls: string[] = [];
+    let page = 0;
+    let query: any;
+    query = {
+      select: (...fields: string[]) => {
+        calls.push(`select:${fields.join(',')}`);
+        return query;
+      },
+      orderBy: (field: string) => {
+        calls.push(`orderBy:${field}`);
+        return query;
+      },
+      limit: (size: number) => {
+        calls.push(`limit:${size}`);
+        return query;
+      },
+      startAfter: (doc: { id: string }) => {
+        calls.push(`startAfter:${doc.id}`);
+        page = 1;
+        return query;
+      },
+      get: async () => {
+        const docs = page === 0 ? firstPage : secondPage;
+        return { docs, empty: docs.length === 0, size: docs.length };
+      },
+    };
+    const db = {
+      collection: (name: string) => {
+        expect(name).toBe('applications');
+        return query;
+      },
+    };
+
+    const records = await loadApplicationRecords(db);
+    expect(records).toHaveLength(501);
+    expect(calls.indexOf('orderBy:__name__')).toBeGreaterThanOrEqual(0);
+    expect(calls.indexOf('orderBy:__name__')).toBeLessThan(calls.indexOf('startAfter:application-499'));
+
+    const evidence = aggregateApplicationEvidence(records, {
+      window: WINDOW,
+      catalog: buildIdentityCatalog([job()]),
+    });
+    expect(evidence).toMatchObject({ observed: 501, attributed: 501, residualTotal: 0 });
   });
 });
 
@@ -634,6 +721,7 @@ describe('employer insights technical deduplication', () => {
 
     expect(result.rows.map((row) => row[0])).toEqual(['slot-a', 'slot-b', 'slot-c']);
     expect(result.coverage).toMatchObject({ pages: 2, rowsReturned: 3, truncated: false });
+    expect(pageQueries[0]).toContain('toString(timestamp) AS timestamp');
     expect(pageQueries.every((query) => !query.includes('OFFSET'))).toBe(true);
     expect(pageQueries[1]).toContain('timestamp >');
     expect(pageQueries[1]).toContain("2026-09-01 12:00:01.000000");
@@ -711,6 +799,20 @@ describe('employer insights technical deduplication', () => {
 
     await expect(queryEventRows(WINDOW, { query: runQuery, pageSize: 1 }))
       .rejects.toThrow('posthog page missing keyset cursor');
+  });
+
+  it('filters array rows by the selected timestamp instead of a missing placeholder', () => {
+    const arrayRow = (timestamp: string) => [
+      '', 'job_apply', '2026-09-01', '', 'role-it', '', '', '', '', '',
+      1, 1, 1, 0, 1, '', timestamp,
+    ];
+    const result = aggregateEmployerEvents([
+      arrayRow(IN_WINDOW_TIMESTAMP),
+      arrayRow(OUTSIDE_WINDOW_TIMESTAMP),
+    ], { window: WINDOW, catalog: buildIdentityCatalog([job()]) });
+
+    expect(result.coverage).toMatchObject({ observed: 1, attributed: 1, residualTotal: 0 });
+    expect(result.coverage.invariant).toBe(true);
   });
 
   it('reads paginated GA4 pageview/apply rows with explicit employer identity', async () => {
@@ -792,10 +894,16 @@ describe('employer insights technical deduplication', () => {
     });
     expect(doc).toMatchObject({
       companyKey: 'acme',
-      totals: { views: 7, applyClicks: 1, profileViews: 2 },
+      totals: { views: 7, applyClicks: 1, applyClickUsers: 1, profileViews: 2 },
       source: 'ga4',
     });
-    expect(doc.ads[0]).toMatchObject({ views: 7, applyClicks: 1 });
+    expect(doc.trend).toContainEqual({ week: '2026-08-31', views: 7, applyClicks: 1 });
+    expect(doc.ads[0]).toMatchObject({ views: 7, applyClicks: 1, applyClickUsers: 1 });
+    expect(doc.coverage.identityResolution.applyClickUsers).toMatchObject({
+      identifier: 'person_id',
+      globalUnique: false,
+      pii: false,
+    });
   });
 
   it('marks a short or data-loss GA4 page as truncated instead of declaring full coverage', async () => {
@@ -826,6 +934,21 @@ describe('employer insights technical deduplication', () => {
       truncated: true,
       dataLossFromOtherRow: true,
     });
+  });
+
+  it('does not attribute a sector-hub pageview to a job with the same short alias', () => {
+    const catalog = buildIdentityCatalog([job({ slug: 'infermieri' })]);
+    const result = aggregateEmployerEvents([{
+      event: 'page_view',
+      path: '/cerca-lavoro-ticino/infermieri/',
+      observed: 4487,
+      views: 4487,
+      persons: 759,
+      timestamp: IN_WINDOW_TIMESTAMP,
+    }], { catalog, window: WINDOW, source: 'ga4' });
+
+    expect(result.states.size).toBe(0);
+    expect(result.coverage.residuals.unidentified_event).toBe(4487);
   });
 });
 

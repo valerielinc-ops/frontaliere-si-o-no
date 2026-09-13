@@ -55,7 +55,10 @@ describe('scan-job-timeouts — annotazioni non-array', () => {
     { message: 'The job running on runner ubuntu-latest has exceeded the maximum execution time of 45 minutes.' },
   ];
 
-  const mockGh = (annotationPayload: unknown = [ANNOTATIONS]) => {
+  const mockGh = (
+    annotationPayload: unknown = [ANNOTATIONS],
+    annotationError: Error | null = null,
+  ) => {
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] === 'api') {
         const path = args[1];
@@ -65,7 +68,10 @@ describe('scan-job-timeouts — annotazioni non-array', () => {
         if (path === 'https://api.github.com/repos/o/r/check-runs/1/annotations') {
           return JSON.stringify([{ message: 'Not Found', documentation_url: 'https://docs.github.com/rest' }]);
         }
-        if (path.endsWith('/annotations')) return JSON.stringify(annotationPayload);
+        if (path.endsWith('/annotations')) {
+          if (annotationError) throw annotationError;
+          return JSON.stringify(annotationPayload);
+        }
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') return '[]';
@@ -124,5 +130,20 @@ describe('scan-job-timeouts — annotazioni non-array', () => {
     // `lighthouse-probe`, quindi il controllo va fatto sul nome intero.
     expect(body).not.toContain('lighthouse-probe');
     expect(warning).toHaveBeenCalledWith(expect.stringContaining('lighthouse-probe'));
+  });
+
+  it('avvisa quando gh api --paginate --slurp fallisce sotto allowFailure', async () => {
+    const failure = Object.assign(new Error('gh api failed'), {
+      stderr: 'gh: unknown flag: --slurp',
+      status: 2,
+    });
+    mockGh(undefined, failure);
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await expect(main()).resolves.not.toThrow();
+
+    expect(warning).toHaveBeenCalledWith(expect.stringContaining('gh: unknown flag: --slurp'));
+    expect(callsFor('create')).toHaveLength(0);
   });
 });

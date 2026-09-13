@@ -67,12 +67,59 @@ const testFixtureRe = /^tests\/.+\.json$/i;
 const assetLiteralRe = /(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
 const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
+// A related-test verdict is only meaningful when the generated runtime data
+// used by the selected tests is present. The CI checkout materializes these
+// sentinels; a local sparse worktree does not. Keep `--select-only` and the
+// local dry-run seam usable for inspecting the graph, but never let a real
+// Vitest invocation turn missing artifacts into application regressions.
+const REQUIRED_FULL_CHECKOUT_ARTIFACTS = Object.freeze([
+  'data/blog-articles-data.ts',
+  'data/swiss-articles-data.ts',
+  'public/.nojekyll',
+]);
+function missingFullCheckoutArtifacts() {
+  return REQUIRED_FULL_CHECKOUT_ARTIFACTS.filter((relative) => !existsSync(relative));
+}
+function requireFullCheckoutForVerdict() {
+  const missing = missingFullCheckoutArtifacts();
+  const localInspection = selectionOnly
+    || (process.env.VITEST_RELATED_DRY_RUN === 'true' && process.env.GITHUB_ACTIONS !== 'true');
+  if (missing.length === 0 || localInspection) return;
+  console.error('BLOCKED: related-test verdict requires a full checkout; generated runtime artifacts are missing.');
+  console.error(`  Artefacts mancanti: ${missing.join(', ')}`);
+  console.error('  È un problema di ambiente, non di codice: esegui il comando in CI o da un checkout PIENO con data/ e public/ materializzati.');
+  process.exit(2);
+}
 // These dependencies are wired by Vitest/configuration or executed through a
 // path string, so no static import edge can reliably reach their consumers.
 const importRe = /(?:import\s+(?:[^'";]*?\s+from\s+)?|export\s+[^'";]*?\s+from\s+|import\s*\(|require\s*\()(['"])([^'"]+)\1/g;
 const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.svelte'];
 
 const normalize = (file) => file.replaceAll('\\', '/').replace(/^\.\//, '');
+const NAME_STATUS_RE = /^[ACDMRTUXB](?:\d+)?$/;
+
+/**
+ * Parse the NUL-delimited `git diff --name-status -z` stream defensively.
+ * A rename/copy normally carries two paths, but a pathspec can leave only one
+ * side visible. If the next field is itself a status token, do not consume it
+ * as the second path or every following entry shifts by one field.
+ */
+function parseNameStatusZ(fields) {
+  const entries = [];
+  for (let i = 0; i < fields.length;) {
+    const status = fields[i++];
+    const firstPath = fields[i++];
+    if (firstPath === undefined) break;
+    const paths = [firstPath];
+    if (/^[RC]/.test(status)
+      && fields[i] !== undefined
+      && !NAME_STATUS_RE.test(fields[i])) {
+      paths.push(fields[i++]);
+    }
+    entries.push(paths);
+  }
+  return entries;
+}
 const changed = readFileSync(changedPathFile, 'utf8').split(/\r?\n/).map((p) => normalize(p.trim())).filter(Boolean);
 let changedStatus = 'complete';
 try { changedStatus = readFileSync(changedStatusFile, 'utf8').trim() || 'error'; } catch {}
@@ -267,6 +314,7 @@ const candidates = [...new Set(changed.filter((file) =>
     && (sourceRe.test(file) || githubAssetRe.test(file) || testFixtureRe.test(file))
     && !alwaysExcludedTests.has(file)))];
 const forceFull = changedStatus !== 'complete';
+requireFullCheckoutForVerdict();
 if (candidates.length === 0 && !forceFull) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
   if (selectionOnly) writeAssembleDecision([]);
@@ -296,11 +344,9 @@ function changedAssetsFromDiff() {
         'diff', '--name-status', '--no-renames', '-z', base, '--', '.github', 'tests',
       ], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).split('\0').filter(Boolean);
       const assets = [];
-      for (let i = 0; i < fields.length;) {
-        const status = fields[i++];
-        const pathCount = /^[RC]/.test(status) ? 2 : 1;
-        for (let j = 0; j < pathCount && i < fields.length; j++) {
-          const file = normalize(fields[i++]);
+      for (const paths of parseNameStatusZ(fields)) {
+        for (const filePath of paths) {
+          const file = normalize(filePath);
           if (githubAssetRe.test(file) || testFixtureRe.test(file)) assets.push(file);
         }
       }
@@ -325,6 +371,16 @@ if (unreadable.length > 0) {
   console.log(`⚠️ ${unreadable.length} tracked file(s) unreadable in this working tree (sparse checkout?) — dropped from the import graph, so the selection may be incomplete:`);
   for (const file of unreadable.slice(0, 10)) console.log(`   ${file}`);
   if (unreadable.length > 10) console.log(`   … and ${unreadable.length - 10} more`);
+  // A sparse checkout is useful for inspecting a selection, but it cannot
+  // produce a trustworthy related-test verdict. Keep the explicit local
+  // dry-run seam for that inspection and fail closed for every real run.
+  const sparseInspection = process.env.VITEST_RELATED_DRY_RUN === 'true'
+    && process.env.GITHUB_ACTIONS !== 'true';
+  if (!sparseInspection && process.env.VITEST_RELATED_DRY_RUN !== 'true') {
+    console.error('BLOCKED: related-test verdict requires a full checkout; missing tracked imports make the static graph incomplete.');
+    console.error('Run this command in CI or from a full checkout with data/ and public/ materialized.');
+    process.exit(2);
+  }
 }
 const isRunnableTest = (file) => testRe.test(file) && !corpusWideTests.has(file) && !alwaysExcludedTests.has(file);
 const allTests = tracked.filter(isRunnableTest);

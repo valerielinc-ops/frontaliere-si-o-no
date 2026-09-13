@@ -91,31 +91,31 @@ const DEFAULT_WINDOW_H = readDefaultWindowHours();
 
 /**
  * Finestre più strette del default, ammesse UNA PER UNA con il motivo.
- * Chiave: `<path>:<ore>`. Aggiungerne una senza motivo è il punto: si scrive
+ * Chiave: `<path>:<linea>:<ore>`. Aggiungerne una senza motivo è il punto: si scrive
  * il motivo o si toglie la finestra.
  */
 const NARROWING_ALLOWLIST: Record<string, string> = {
-  '.github/workflows/post-deploy-validate-dist.yml:6':
+  '.github/workflows/post-deploy-validate-dist.yml:2391:6':
     'validatore post-deploy: collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941). Passa anche --build-sha, quindi ha il guard anti-latenza #5539.',
-  '.github/workflows/post-deploy-validate-live.yml:6':
+  '.github/workflows/post-deploy-validate-live.yml:497:6':
     'stessa famiglia post-deploy del precedente: la ricaduta che conta è quella dentro il ciclo, non quella a giorni.',
-  '.github/workflows/deploy-publish.yml:6':
+  '.github/workflows/deploy-publish.yml:358:6':
     'riporta l esito della pubblicazione dello stesso deploy: oltre il ciclo corrente la condizione non è più la stessa.',
-  '.github/workflows/lighthouse-ci.yml:6':
+  '.github/workflows/lighthouse-ci.yml:377:6':
     'gira per PR: due run della stessa PR sono lo stesso incidente, due PR diverse no.',
-  '.github/workflows/cwv-field-criterion.yml:24':
+  '.github/workflows/cwv-field-criterion.yml:163:24':
     'cadenza giornaliera del criterio di campo: la finestra segue il cron.',
-  '.github/workflows/cwv-field-criterion.yml:168':
+  '.github/workflows/cwv-field-criterion.yml:185:168':
     'la seconda soglia dello stesso workflow lavora su finestra settimanale: 168h = il suo periodo.',
-  '.github/workflows/cf-otto-route-monitor.yml:24':
+  '.github/workflows/cf-otto-route-monitor.yml:133:24':
     'monitor giornaliero delle route: finestra allineata al cron.',
-  '.github/workflows/job-description-locale-audit.yml:72':
+  '.github/workflows/job-description-locale-audit.yml:283:72':
     'audit ogni 3 giorni: 72h = il suo periodo.',
-  '.github/workflows/job-title-locale-audit.yml:336':
+  '.github/workflows/job-title-locale-audit.yml:234:336':
     'audit quindicinale: 336h = il suo periodo.',
-  'scripts/ci/report-validate-dist-failure.mjs:6':
+  'scripts/ci/report-validate-dist-failure.mjs:566:6':
     'ramo `reportValidateDist` (post-deploy, con buildSha): è il caso benedetto dei 6h. Il ramo `reportBuild` dello stesso file NON nomina più la finestra ed eredita il default.',
-  'scripts/ci/review-gate.mjs:0':
+  'scripts/ci/review-gate.mjs:1032:0':
     'follow-up di scope già drenata: una issue completata non deve riaprirsi e reinserire finding già risolti nel ciclo successivo.',
 };
 
@@ -152,6 +152,22 @@ function cliBlockAt(lines: string[], i: number): string {
   return block;
 }
 
+/**
+ * Legge la proprietà JS anche quando il formatter la divide su più righe.
+ * Un valore non valutabile resta una finestra non classificabile (`null`): non
+ * deve sparire dallo scan, né diventare un restringimento inventato.
+ */
+function jsWindowAt(lines: string[], i: number): { hours: number | null; raw: string } | null {
+  let block = '';
+  for (let j = i; j < lines.length && j - i < 50; j++) {
+    block += (j > i ? '\n' : '') + lines[j];
+    const match = block.match(/\breopenWithinHours\s*:\s*([^,]+)/s);
+    if (match) return { hours: numOrNull(match[1]), raw: lines[i].trim() };
+    if (j > i && /^\s*[}\]]/.test(lines[j])) break;
+  }
+  return null;
+}
+
 function scan(): { creates: Site[]; windows: Site[] } {
   const creates: Site[] = [];
   const windows: Site[] = [];
@@ -179,8 +195,10 @@ function scan(): { creates: Site[]; windows: Site[] } {
       // trovato eseguendolo, non ragionandoci.
       if (/^\s*(#|\/\/|\*|\/\*)/.test(lines[i])) continue;
       // (b) opzione passata come proprietà dai chiamanti JS
-      const js = lines[i].match(/\breopenWithinHours\s*:\s*([^,\n]+)/);
-      if (js) windows.push({ file, line: i + 1, hours: numOrNull(js[1]), raw: lines[i].trim() });
+      if (/\breopenWithinHours\s*:/.test(lines[i])) {
+        const js = jsWindowAt(lines, i);
+        if (js) windows.push({ file, line: i + 1, hours: js.hours, raw: js.raw });
+      }
       // (c) input della composite action, e chi lo passa da un workflow
       const yml = lines[i].match(/^\s*reopen-within-hours:\s*'?([^'\s#]+)'?/);
       if (yml) windows.push({ file, line: i + 1, hours: numOrNull(yml[1]), raw: lines[i].trim() });
@@ -219,6 +237,16 @@ describe('lo scanner trova davvero i call site (anti-gate-vacuo)', () => {
     const deep = windows.filter((w) => w.file.endsWith('post-deploy-validate-dist.yml'));
     expect(deep.length).toBeGreaterThanOrEqual(1);
     expect(deep[0].hours).toBe(6);
+  });
+
+  it('legge una proprietà JS spezzata su più righe', () => {
+    const parsed = jsWindowAt([
+      'const options = {',
+      '  reopenWithinHours:',
+      '    6,',
+      '};',
+    ], 1);
+    expect(parsed?.hours).toBe(6);
   });
 });
 
@@ -299,7 +327,7 @@ describe('ogni restringimento della finestra è dichiarato e motivato', () => {
 
   it('nessuna finestra più stretta del default fuori dall allowlist', () => {
     const undeclared = narrowings
-      .map((w) => ({ key: `${w.file}:${w.hours}`, at: `${w.file}:${w.line}` }))
+      .map((w) => ({ key: `${w.file}:${w.line}:${w.hours}`, at: `${w.file}:${w.line}` }))
       .filter((w) => !(w.key in NARROWING_ALLOWLIST));
     expect(undeclared).toEqual([]);
   });
@@ -312,7 +340,7 @@ describe('ogni restringimento della finestra è dichiarato e motivato', () => {
   });
 
   it('nessuna voce orfana: l allowlist descrive call site vivi', () => {
-    const live = new Set(narrowings.map((w) => `${w.file}:${w.hours}`));
+    const live = new Set(narrowings.map((w) => `${w.file}:${w.line}:${w.hours}`));
     const orphans = Object.keys(NARROWING_ALLOWLIST).filter((k) => !live.has(k));
     expect(orphans).toEqual([]);
   });

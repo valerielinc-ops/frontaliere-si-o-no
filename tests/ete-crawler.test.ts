@@ -10,6 +10,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/ete-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { buildSlug } from '../scripts/lib/regenerate-slugs-helpers.mjs';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
 
 const SEED_URL = 'https://www.ete.ch/unternehmen/jobs/';
@@ -175,7 +176,13 @@ describe('Emil Egger AG crawler parser', () => {
       for (const job of jobs) {
         const urlHash = createHash('sha1').update(job.url).digest('hex').slice(0, 12);
         expect(job.id).toBe(`ete-${urlHash}`);
-        expect(job.slug).toBe(slugify(`${job.title} ete ch ${job.location}`));
+        expect(job.slugDisambiguator).toBe(urlHash.slice(0, 8));
+        expect(job.slug).toBe(buildSlug(
+          job.title,
+          ETE_COMPANY_NAME,
+          job.location,
+          job.slugDisambiguator,
+        ));
         expect(job.description.length).toBeGreaterThan(120);
       }
       expect(new Set(jobs.map((job) => job.slug)).size).toBe(2);

@@ -192,6 +192,11 @@ const _cascadeStats = {
   // questo bucket dice se e dove il fenomeno esiste, non quante pagine ha
   // salvato.
   tierPassthroughs: {},
+  // I testi lunghi attraversano MyMemory a chunk: un eco qui è un tentativo
+  // per segmento, non un tentativo per campo. Ogni eco entra comunque nel
+  // bucket canonico `tierPassthroughs` (contratto #1210); questo sotto-bucket
+  // conserva la cardinalità per segmento per la calibrazione del pavimento.
+  tierPassthroughChunks: {},
   // Per-field-type split of calls/successes. The cumulative `successes` above is
   // summed across every field type, so a run that translates short titles fine
   // but has every (long) description rejected by all providers still reports
@@ -260,6 +265,12 @@ export function logCascadeSummary() {
   const pass = Object.entries(s.tierPassthroughs).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
   if (pass.length) {
     console.log('   Tier passthrough (sorgente resa verbatim, scartata): ' + pass.map(([k, v]) => `${k}=${v}`).join(', '));
+  }
+  const passChunks = Object.entries(s.tierPassthroughChunks)
+    .filter(([, v]) => v > 0)
+    .sort((a, b) => b[1] - a[1]);
+  if (passChunks.length) {
+    console.log('   Tier passthrough (chunk, sorgente resa verbatim): ' + passChunks.map(([k, v]) => `${k}=${v}`).join(', '));
   }
   const health = getInstanceHealthStats();
   const down = Object.entries(health).filter(([, h]) => h.failures >= HEALTH_FAILURE_THRESHOLD);
@@ -375,6 +386,25 @@ export function isSourcePassthrough(sourceText, translatedText) {
   return src === normalizeBlock(translatedText).toLowerCase();
 }
 
+// Un segmento breve puo' essere un titolo, una URL o un placeholder che il
+// motore lascia intatto senza indicare che il body intero sia un passthrough.
+// Solo un segmento con abbastanza parole traducibili puo' quindi invalidare il
+// campo a chunk; l'eventuale eco breve resta nell'assemblato e viene giudicato
+// dal confronto sul campo intero in `tryTier`.
+// Misura corpus 2026-09-12 (content/blog-body{,-ch}):
+//   blog-body:    15'476 file, 46'524 campi, 48'298 chunk → 119 brevi / 48'179 sostanziosi
+//   blog-body-ch:  8'388 file, 25'164 campi, 25'589 chunk →  37 brevi / 25'552 sostanziosi
+//   totale:       23'864 file, 71'688 campi, 73'887 chunk → 156 brevi / 73'731 sostanziosi
+const MIN_SUBSTANTIVE_PASSTHROUGH_WORDS = 8;
+const TRANSLATABLE_WORD_RE = /[\p{L}\p{M}]+(?:['’\-][\p{L}\p{M}]+)*/gu;
+
+function isSubstantivePassthroughChunk(text) {
+  const candidate = normalizeBlock(text)
+    .replace(/https?:\/\/\S+/gi, ' ')
+    .replace(/\bZQX\d+XQZ\b/gi, ' ');
+  return (candidate.match(TRANSLATABLE_WORD_RE) || []).length >= MIN_SUBSTANTIVE_PASSTHROUGH_WORDS;
+}
+
 /**
  * `isSourcePassthrough` piu' la contabilita', per i tier che il passthrough lo
  * devono intercettare da soli.
@@ -385,19 +415,23 @@ export function isSourcePassthrough(sourceText, translatedText) {
  * dentro il loop delle chiavi, prima che `tryTier` veda qualcosa. Passando di
  * qui la FORMULA resta una sola — era duplicata a mano in sei tier, ed e' il
  * tipo di duplicazione che deriva in silenzio — e soprattutto il conteggio
- * finisce nello stesso bucket, invece che sparire: un passthrough consumato
- * dentro il tier senza contarlo rendeva `tierPassthroughs` strutturalmente
- * parziale, cieco proprio sui tier di qualita' migliore, e il numero su cui si
- * decide la taratura sarebbe stato sbilanciato senza dirlo.
+ * finisce nello stesso bucket, invece che sparire. Un echo a chunk aggiorna
+ * sia il conteggio canonico `tierPassthroughs` sia la sua dimensione
+ * diagnostica `tierPassthroughChunks`: il primo soddisfa il contratto di
+ * passthrough, il secondo evita di perdere la granularita' utile alla taratura.
  *
  * @param {string} tierName
  * @param {string} source  testo dato in pasto al motore
  * @param {string} out     testo reso dal motore
+ * @param {string} [granularity='field']  `chunk` per il ramo a segmenti
  * @returns {boolean} true se `out` e' la sorgente (e il tier e' stato contato)
  */
-function rejectedAsPassthrough(tierName, source, out, outcome = null) {
+function rejectedAsPassthrough(tierName, source, out, outcome = null, granularity = 'field') {
   if (!out || !isSourcePassthrough(source, out)) return false;
   _cascadeStats.tierPassthroughs[tierName] = (_cascadeStats.tierPassthroughs[tierName] || 0) + 1;
+  if (granularity === 'chunk') {
+    _cascadeStats.tierPassthroughChunks[tierName] = (_cascadeStats.tierPassthroughChunks[tierName] || 0) + 1;
+  }
   noteTranslationOutcome(outcome, 'passthroughs');
   return true;
 }
@@ -1422,16 +1456,18 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
         noteTranslationOutcome(_outcome, 'incomplete');
         return ''; // quota hit mid-chunk, abort
       }
-      // One verbatim chunk is enough to invalidate the whole field. Comparing
-      // only the joined output lets a translated chunk mask an echoed one and
-      // publishes a mixed-language body as a successful translation.
+      // Un eco sostanzioso invalida l'intero campo: assemblarlo con chunk
+      // tradotti produrrebbe testo misto. Un resto breve (titolo, URL o
+      // placeholder) resta invece nell'assemblato e viene giudicato da
+      // `tryTier` sul campo completo, senza buttare via le traduzioni buone.
       const normalized = normalizeBlock(mm);
-      if (rejectedAsPassthrough('myMemory', chunk, normalized, _outcome)) return '';
+      if (rejectedAsPassthrough('myMemory', chunk, normalized, _outcome, 'chunk')
+        && isSubstantivePassthroughChunk(chunk)) return '';
       parts.push(normalized);
     }
     // `return joined` e non un confronto locale: questo e' il ramo dei testi
-    // lunghi, cioe' dei body, cioe' esattamente dei 27 passthrough misurati.
-    // Consumandolo qui il bucket `tierPassthroughs` non li avrebbe visti mai.
+    // lunghi, cioe' dei body. Gli echo per segmento sono gia' nel bucket
+    // `tierPassthroughChunks`, oltre al conteggio canonico richiesto da #1210.
     return normalizeBlock(parts.join(' '));
   });
   if (t2) return finalize(t2);

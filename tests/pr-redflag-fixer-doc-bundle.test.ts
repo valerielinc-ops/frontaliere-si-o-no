@@ -8,6 +8,7 @@ import {
   REQUIRED_SECTIONS,
   buildRedflagDocumentSections,
   extractSectionByHeading,
+  indentAndValidateRedflagDocumentSections,
 } from '../scripts/ci/redflag-doc-sections.mjs';
 
 const ROOT = process.cwd();
@@ -174,6 +175,12 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
     }
   });
 
+  it('bounds the indented prompt value after adding the per-line indent', () => {
+    const document = 'x'.repeat(16_380);
+    expect(() => indentAndValidateRedflagDocumentSections(document)).toThrow(/Indented redflag document too large/);
+    expect(indentAndValidateRedflagDocumentSections('ok', '  ')).toBe('  ok');
+  });
+
   it('extracts by heading and fails when a required heading disappears', () => {
     const fixture = [
       '# Document',
@@ -199,10 +206,43 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
     );
   });
 
+  it('recognizes setext headings and stops at the next setext boundary', () => {
+    const fixture = [
+      '# Document',
+      '',
+      'Privacy',
+      '-------',
+      'binding content',
+      '',
+      'Next section',
+      '-------',
+      'after',
+    ].join('\n');
+
+    expect(extractSectionByHeading(fixture, '## Privacy')).toBe('binding content');
+  });
+
   it('fails closed on an unclosed fence instead of swallowing the rest of the document', () => {
     expect(() => extractSectionByHeading('## Severity\n```\nnot finished', '## Severity')).toThrow(
       /Unclosed fenced code block/,
     );
+  });
+
+  it('does not close a longer fence with a shorter same-character marker', () => {
+    const fixture = [
+      '## Wrapper',
+      '',
+      '````md',
+      '## Privacy',
+      '```',
+      '## Still inside',
+      '````',
+      '',
+      '## Privacy',
+      'binding content',
+    ].join('\n');
+
+    expect(extractSectionByHeading(fixture, '## Privacy')).toBe('binding content');
   });
 
   it('does not silently accept an empty required section', () => {

@@ -54,6 +54,17 @@ describe('buildEscalationSignals — contratto reporter zero-Claude (#6685)', ()
     expect(signals.evidenza).toEqual(expect.arrayContaining(['esempi=#101, #202']));
     expect(signals.evidenza.join('\n')).not.toContain('#undefined');
   });
+
+  it('preserva gli id numerici zero nell evidenza', () => {
+    const signals = buildEscalationSignals({
+      source: 'reviewer-finding',
+      key: 'pr-body-contract',
+      count: 2,
+      examples: [{ pr: 0 }, { issue: 0 }, { pr: '', issue: null }],
+    });
+
+    expect(signals.evidenza).toEqual(expect.arrayContaining(['esempi=#0, #0']));
+  });
 });
 
 describe('isEscalationDriver — no-root-cause non può più driveare un\'escalation (#4750)', () => {

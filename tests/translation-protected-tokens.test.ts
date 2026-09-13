@@ -466,8 +466,15 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       ['Projektingenieur/-in Leittechnik', 'Projektingenieur Leittechnik'],
       ['Leiter/-in Rechnungswesen', 'Leiter Rechnungswesen'],
       ['Technische*r Sterilisationsassistent*in AEMP', 'Technischer Sterilisationsassistent AEMP'],
+      ['TECHNISCHE*R STERILISATIONSASSISTENT*IN AEMP', 'TECHNISCHER STERILISATIONSASSISTENT AEMP'],
       ['Fachfrau/-mann Gesundheit', 'Fachmann Gesundheit'],
       ['Dipl. Pflegefachfrau_mann Endoskopie', 'Dipl. Pflegefachmann Endoskopie'],
+      ['Detailhandelsfachmann/-frau Verkauf', 'Detailhandelsfachmann Verkauf'],
+      ['Unterhaltsfachmann/frau, Servicetechniker/in', 'Unterhaltsfachmann, Servicetechniker'],
+      ['Mitarbeiter*innen Dispensation', 'Mitarbeiter Dispensation'],
+      ['Leiter/-innen Rechnungswesen', 'Leiter Rechnungswesen'],
+      ['Kolleg:innen im Team', 'Kolleg im Team'],
+      ['MitarbeiterIn Dispensation', 'MitarbeiterIn Dispensation'],
       ['Zimmermann/Zimmerin fuer Holzbau', 'Zimmermann fuer Holzbau'],
       // The existing trigraph guard still masks (w/m/d); the distinct jobs
       // around it must remain byte-identical.
@@ -563,10 +570,12 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'classifyMopupWrite',
       'createFreshCoverageMeter',
       'finalizeMopupTranslation',
+      'languageAwareOverwriteEnabled',
       'masculineGermanTitle',
       'missingSlots',
       'needsWork',
       'orderMopupJobsByTraffic',
+      'shouldApplyMopupWrite',
     ]);
   });
 });

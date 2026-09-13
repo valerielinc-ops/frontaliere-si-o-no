@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-09-11T13:55:44.316Z",
+  "assembledAt": "2026-09-12T13:22:02.088Z",
   "jobs": [
     {
       "id": "abraxas-4ce365f7ce53",
@@ -33,7 +33,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/wms-praktikum-im-bereich-human-resources-4960",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:37.994Z",
+      "crawledAt": "2026-09-12T13:21:56.979Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -56,11 +56,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "wms-praktikum-im-bereich-human-resources-abraxas-st-gallen"
+        "wms-praktikum-im-bereich-human-resources-abraxas-st-gallen",
+        "internship-wms-nelle-risorse-umane-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wms-praktikum-im-bereich-human-resources-abraxas-st-gallen"
+          "wms-praktikum-im-bereich-human-resources-abraxas-st-gallen",
+          "internship-wms-nelle-risorse-umane-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "wms-praktikum-im-bereich-human-resources-abraxas-st-gallen"
@@ -82,8 +84,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-d6bc90937a78",
@@ -116,7 +117,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-3988",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:37.545Z",
+      "crawledAt": "2026-09-12T13:21:56.558Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -139,11 +140,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-engineer-80-100-abraxas-st-gallen"
+        "software-engineer-80-100-abraxas-st-gallen",
+        "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-80-100-abraxas-st-gallen"
+          "software-engineer-80-100-abraxas-st-gallen",
+          "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "software-engineer-80-100-abraxas-st-gallen"
@@ -162,8 +165,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-4186cb192b04",
@@ -180,7 +182,7 @@
       "title": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales",
       "titleByLocale": {
         "it": "Software Solution Architetto 80-100% con focus su pre-vendita",
-        "en": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales",
+        "en": "Software Solution Architect 80-100% with focus on pre-sales",
         "de": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales",
         "fr": "Architecte de solutions logicielles : de 80 à 100 % avec un accent sur la prévente"
       },
@@ -196,7 +198,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-1974",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:37.094Z",
+      "crawledAt": "2026-09-12T13:21:56.133Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -219,11 +221,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen"
+        "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
+        "software-solution-architetto-80-100-con-focus-su-pre-vendita-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen"
+          "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
+          "software-solution-architetto-80-100-con-focus-su-pre-vendita-abraxas-informatik-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-27T01:00:11.845Z",
@@ -239,8 +243,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-da4c2d5af7c6",
@@ -273,7 +276,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-6005",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:36.642Z",
+      "crawledAt": "2026-09-12T13:21:55.694Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -308,8 +311,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-d642a88d6587",
@@ -342,7 +344,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-2052",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:36.192Z",
+      "crawledAt": "2026-09-12T13:21:55.271Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -365,11 +367,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
+        "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
+          "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
@@ -391,8 +395,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-d662a9d15c0a",
@@ -409,7 +412,7 @@
       "title": "Software Architekt mit Fokus KI im SSDLC 80–100 %",
       "titleByLocale": {
         "it": "Architetto software con focus su AI nel SSDLC 80-100%",
-        "en": "Software Architekt mit Fokus KI im SSDLC 80–100 %",
+        "en": "Software architect with focus on AI in the SSDLC 80-100%",
         "de": "Software Architekt mit Fokus KI im SSDLC 80–100 %",
         "fr": "Architecte logiciel avec accent sur l'IA dans le SSDLC 80-100%"
       },
@@ -425,7 +428,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architekt-mit-fokus-ki-im-ssdlc-80-100-3313",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:35.740Z",
+      "crawledAt": "2026-09-12T13:21:54.845Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -449,11 +452,13 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
-        "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-informatik-ag-st-gallen"
+        "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-informatik-ag-st-gallen",
+        "architetto-software-con-focus-su-ai-nel-ssdlc-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen"
+          "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
+          "architetto-software-con-focus-su-ai-nel-ssdlc-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
@@ -476,8 +481,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-5d8d6c85cc23",
@@ -510,7 +514,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:35.289Z",
+      "crawledAt": "2026-09-12T13:21:54.420Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -533,11 +537,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
+        "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+        "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
+          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+          "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
@@ -556,8 +562,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-ff54e957aa41",
@@ -590,7 +595,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:34.837Z",
+      "crawledAt": "2026-09-12T13:21:53.995Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -619,7 +624,8 @@
         "senior-openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
         "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
         "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -629,7 +635,8 @@
           "senior-openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
           "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
           "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-          "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
+          "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "de": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
@@ -652,8 +659,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-77b5af7a4ae0",
@@ -686,7 +692,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-servicenow-ki-engineer-80-100-1142",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:34.387Z",
+      "crawledAt": "2026-09-12T13:21:53.563Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -709,11 +715,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
@@ -732,8 +740,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-cbaf62d04181",
@@ -766,7 +773,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-6736",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:33.935Z",
+      "crawledAt": "2026-09-12T13:21:53.137Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -790,11 +797,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
+        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+        "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
+          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+          "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
@@ -849,7 +858,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-6985",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:33.485Z",
+      "crawledAt": "2026-09-12T13:21:52.712Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -872,14 +881,26 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
+        "senior-linux-engineer-abraxas-zurich-flughafen",
+        "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
+          "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
+          "senior-linux-engineer-abraxas-zurich-flughafen",
+          "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
-          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen"
+        ],
+        "de": [
+          "senior-linux-engineer-abraxas-zurich-flughafen"
         ]
       },
       "firstSeenAt": "2026-08-18T21:41:19.258Z",
@@ -895,8 +916,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-8533e30a2142",
@@ -904,7 +924,7 @@
       "slugByLocale": {
         "it": "linux-ingegnere-con-aws-e-kubernetes-erfahrung-80-100-abraxas-informatik-ag-bern",
         "en": "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern",
-        "de": "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern",
+        "de": "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen",
         "fr": "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern"
       },
       "company": "Abraxas Informatik AG",
@@ -913,7 +933,7 @@
       "title": "Linux Engineer mit AWS- und Kubernetes-Erfahrung 80–100 %",
       "titleByLocale": {
         "it": "Ingegnere Linux con AWS e Kubernetes esperienza 80-100%",
-        "en": "Linux Engineer mit AWS- und Kubernetes-Erfahrung 80–100 %",
+        "en": "Linux Engineer with AWS and Kubernetes experience 80-100%",
         "de": "Linux Ingenieur mit AWS- und Kubernetes-Erfahrung 80–100 %",
         "fr": "Ingénieur Linux avec AWS et Kubernetes expérience 80-100%"
       },
@@ -924,19 +944,18 @@
         "de": "Im Team Customer Solutions BUND unterstützen wir unsere Kundinnen und Kunden beim Betrieb und der Weiterentwicklung moderner Plattformen und Applikationen. Mit DevOps-Prinzipien, Cloud-Technologien und Automatisierung schaffen wir stabile, skalierbare und effiziente Betriebsumgebungen. Zur Verstärkung unseres Teams suchen wir eine engagierte Persönlichkeit, die Linux-Systeme, AWS-Services und Kubernetes-Plattformen professionell betreibt und weiterentwickelt.\nDeine Rolle\n• Betrieb, Überwachung und Weiterentwicklung von Linux-Systemlandschaften\n• Administration von Linux-Umgebungen in On-Premises-, Cloud- und Hybrid-Szenarien\n• Aufbau und Betrieb von AWS-Infrastrukturen sowie Kubernetes-/OpenShift-Plattformen\n• Automatisierung von Betriebs- und Deployment-Prozessen mittels Infrastructure as Code\n• Mitarbeit bei der Weiterentwicklung von CI/CD-Pipelines und DevOps-Prozessen\n• Analyse und Behebung von Störungen sowie Sicherstellung von Verfügbarkeit, Performance und Sicherheit\n• Unterstützung bei Migrationen und Modernisierungsvorhaben\n• Beratung unserer Kundinnen und Kunden bei technischen Fragestellungen\n• Mitarbeit im Bereitschafts- bzw. Pikettdienst\nDein Profil\n• Ausbildung oder Weiterbildung im Bereich Informatik oder vergleichbare Qualifikation\n• Mind. 3 Jahre Erfahrung im Betrieb und in der Administration von Linux-Systemen\n• Kenntnisse in AWS sowie Kubernetes oder OpenShift\n• Erfahrung mit Automatisierung und Infrastructure as Code (z. B. Ansible, Terraform oder vergleichbare Tools)\n• Verständnis für Netzwerk-, Security- und Monitoring-Themen\n• Selbstständige, lösungsorientierte Arbeitsweise sowie Freude an der Zusammenarbeit mit Kundinnen, Kunden und im Team\n• Sehr gute Deutschkenntnisse (mind. C1-Niveau) und gute Englischkenntnisse\nVon Vorteil\n• Zertifizierungen in AWS oder Kubernetes (z. B. CKA, CKAD)\n• Erfahrung mit GitOps-Tools wie Argo CD oder Flux\n• Kenntnisse in Monitoring- und Logging-Lösungen wie Prometheus, Grafana oder Elastic\nDeine Benefits\n• Bis zu 60% Home-Office bei einem 100% Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBei uns pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
         "fr": "Dans l'équipe Solutions Clients BUND, nous accompagnons nos clients dans l'exploitation et le développement de plateformes et d'applications modernes. Avec les principes DevOps, les technologies cloud et l'automatisation, nous créons des environnements d'exploitation stables, évolutives et efficaces. Pour renforcer notre équipe, nous recherchons une personnalité dédiée qui fonctionnera et développera professionnellement les systèmes Linux, les services AWS et les plateformes Kubernetes.\nVotre rôle\n• Fonctionnement, suivi et développement des paysages du système Linux\n• Administration d'environnements Linux sur site, cloud et scénarios hybrides\n• Création et exploitation d'infrastructures AWS et de plateformes Kubernetes/OpenShift\n• Automatisation des processus opérationnels et de déploiement en utilisant l'infrastructure comme code\n• Coopération dans le développement des pipelines CI/CD et des processus DevOps\n• Analyse et résolution des perturbations et garantie de disponibilité, performance et sécurité\n• Soutien aux projets de migration et de modernisation\n• Conseiller nos clients sur des questions techniques\n• Coopération en attente ou en service Pictet\nVotre profil\n• Formation en technologie de l'information ou qualifications équivalentes\n• De rien. 3 ans d'expérience dans le fonctionnement et l'administration des systèmes Linux\n• Connaissance des AWS et Kubernetes ou OpenShift\n• Expérience de l'automatisation et de l'infrastructure comme code (p. ex. outils Ansibles, Terraform ou outils similaires)\n• Comprendre les questions de réseau, de sécurité et de surveillance\n• Méthode de travail indépendante et axée sur la solution ainsi que la jouissance de travailler avec les clients et en équipe\n• Très bonne connaissance de l'allemand (niveau minimum C1) et bonne connaissance de l'anglais\nAvantages\n• Certifications en AWS ou Kubernetes (p. ex. CKA, CKAD)\n• Expérience avec des outils GitOps tels que Argo CD ou Flux\n• Connaissance des solutions de surveillance et d'exploitation comme Prométhée, Grafana ou Elastic\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Mind. 25 jours de congé par an Soutien à la formation 100% financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
-      "location": "Bern",
-      "canton": "BE",
+      "location": "St. Gallen",
+      "canton": "SG",
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-2438",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:33.035Z",
-      "needsRetranslation": true,
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
+      "crawledAt": "2026-09-12T13:21:52.288Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3000",
-      "streetAddress": "",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
       "category": "IT / Sicurezza",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -952,27 +971,32 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern",
-        "linux-ingegnere-con-aws-e-kubernetes-erfahrung-80-100-abraxas-informatik-ag-bern"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern"
+        ],
         "it": [
           "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern",
+          "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen",
           "linux-ingegnere-con-aws-e-kubernetes-erfahrung-80-100-abraxas-informatik-ag-bern"
         ]
       },
+      "previousSlugs": [
+        "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern",
+        "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen",
+        "linux-ingegnere-con-aws-e-kubernetes-erfahrung-80-100-abraxas-informatik-ag-bern"
+      ],
       "firstSeenAt": "2026-09-10T23:39:30.166Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
+      "salaryMin": 60000,
+      "salaryMax": 102000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
+          "minValue": 60000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       }
@@ -1008,7 +1032,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:32.580Z",
+      "crawledAt": "2026-09-12T13:21:51.863Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1036,7 +1060,8 @@
         "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen",
         "junior-solution-architect-80-100-abraxas-informatik-ag-st-gallen",
         "junior-solution-architekt-80-100-abraxas-st-gallen",
-        "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen"
+        "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen",
+        "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1044,7 +1069,8 @@
           "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen",
           "junior-solution-architect-80-100-abraxas-informatik-ag-st-gallen",
           "junior-solution-architekt-80-100-abraxas-st-gallen",
-          "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen"
+          "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen",
+          "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "leiter-in-solution-architektur-80-100-abraxas-st-gallen",
@@ -1104,7 +1130,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lead-software-engineer-data-migration-80-100-1887",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:32.128Z",
+      "crawledAt": "2026-09-12T13:21:51.439Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1139,8 +1165,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-f8a55d71589b",
@@ -1173,7 +1198,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:31.671Z",
+      "crawledAt": "2026-09-12T13:21:51.015Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1196,14 +1221,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
+        "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
+        "ict-system-engineer-devops-80-100-abraxas-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
+          "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
+          "ict-system-engineer-devops-80-100-abraxas-zurich-flughafen"
         ],
         "fr": [
-          "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
+          "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
+          "ict-system-engineer-devops-80-100-abraxas-zurich-flughafen"
         ]
       },
       "firstSeenAt": "2026-07-23T22:07:23.364Z",
@@ -1219,8 +1247,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-89bf50cea9b8",
@@ -1237,7 +1264,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT System Engineer Operation 80-100%",
-        "en": "ICT-System Engineer Betrieb 80–100 %",
+        "en": "ICT System Engineer Operation 80-100%",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "Ingénieur système des TIC Fonctionnement 80-100%"
       },
@@ -1253,7 +1280,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-6332",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:31.221Z",
+      "crawledAt": "2026-09-12T13:21:50.589Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1278,12 +1305,14 @@
       "previousSlugs": [
         "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
         "ict-system-ingenieur-betrieb-80-100-abraxas-informatik-ag-st-gallen",
-        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
+        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
+        "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen-82091c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
-          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
+          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
+          "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen-82091c"
         ],
         "fr": [
           "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
@@ -1303,8 +1332,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-0b494c346556",
@@ -1337,7 +1365,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:30.758Z",
+      "crawledAt": "2026-09-12T13:21:50.165Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1372,15 +1400,14 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-47fd29e94ecf",
       "slug": "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
         "it": "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "dwh-softwareengineer-80-100-abraxas-zurich-flughafen",
+        "en": "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
         "de": "dwh-softwareengineer-80-100-abraxas-zurich-flughafen",
         "fr": "dwh-softwareenginer-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
@@ -1406,8 +1433,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/dwh-softwareengineer-80-100-9720",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:30.296Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-12T13:21:49.740Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1429,6 +1455,19 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "dwh-softwareengineer-80-100-abraxas-zurich-flughafen",
+        "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dwh-softwareengineer-80-100-abraxas-zurich-flughafen",
+          "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
+        ],
+        "en": [
+          "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
+        ]
+      },
       "firstSeenAt": "2026-09-03T13:52:33.602Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -1442,15 +1481,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
-        ]
-      },
-      "previousSlugs": [
-        "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
-      ]
+      }
     },
     {
       "id": "abraxas-2df18bcf819d",
@@ -1467,7 +1498,7 @@
       "title": "Business-Analyst im Bereich Steuern 80–100 %",
       "titleByLocale": {
         "it": "Analizzatore fiscale 80-100%",
-        "en": "Business-Analyst im Bereich Steuern 80–100 %",
+        "en": "Tax Business Analyst 80-100%",
         "de": "Business-Analyst im Bereich Steuern 80–100 %",
         "fr": "Analyste des entreprises fiscales 80-100%"
       },
@@ -1483,7 +1514,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/business-analyst-im-bereich-steuern-80-100-2625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:29.829Z",
+      "crawledAt": "2026-09-12T13:21:49.316Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1508,12 +1539,14 @@
       "previousSlugs": [
         "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
         "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
-        "business-analyste-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld"
+        "business-analyste-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
+        "analizzatore-fiscale-80-100-abraxas-informatik-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
-          "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld"
+          "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
+          "analizzatore-fiscale-80-100-abraxas-informatik-ag-frauenfeld"
         ],
         "fr": [
           "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
@@ -1533,8 +1566,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-b1585a9e182d",
@@ -1567,7 +1599,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/bereichscontrollerin-60-80-7586",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:29.377Z",
+      "crawledAt": "2026-09-12T13:21:48.892Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1617,7 +1649,8 @@
         "specialista-della-protezione-dei-dati-nel-50-abraxas-informatik-ag-st-gallen",
         "data-protection-specialist-in-50-abraxas-informatik-ag-st-gallen",
         "datenschutzspezialist-in-50-abraxas-st-gallen",
-        "specialiste-de-la-protection-des-donnees-en-50-abraxas-informatik-ag-st-gallen"
+        "specialiste-de-la-protection-des-donnees-en-50-abraxas-informatik-ag-st-gallen",
+        "area-controller-in-60-80-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1639,7 +1672,8 @@
           "devops-engineer-80-100-abraxas-st-gallen",
           "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
           "datenschutzspezialist-in-50-abraxas-informatik-ag-st-gallen",
-          "specialista-della-protezione-dei-dati-nel-50-abraxas-informatik-ag-st-gallen"
+          "specialista-della-protezione-dei-dati-nel-50-abraxas-informatik-ag-st-gallen",
+          "area-controller-in-60-80-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
@@ -1700,7 +1734,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5415",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:28.926Z",
+      "crawledAt": "2026-09-12T13:21:48.415Z",
       "needsRetranslation": true,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1726,13 +1760,15 @@
       "previousSlugs": [
         "application-supporter-in-epsipol-ordnungsbussen-german-french-80-100-abraxas-informatik-ag-munchenstein",
         "supporter-l-application-en-epsipol-ordnungsbussen-allemand-et-francais-80-100-abraxas-informatik-ag-munchenstein",
-        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+        "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
           "application-supporter-in-epsipol-ordnungsbussen-german-french-80-100-abraxas-informatik-ag-munchenstein",
           "supporter-l-application-en-epsipol-ordnungsbussen-allemand-et-francais-80-100-abraxas-informatik-ag-munchenstein",
-          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+          "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
         ],
         "en": [
           "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
@@ -1771,7 +1807,7 @@
       "title": "Applikations-Manager:in 80–100 %",
       "titleByLocale": {
         "it": "Gestione applicazioni 80-100%",
-        "en": "Applikations-Manager:in 80–100 %",
+        "en": "Application Manager 80-100%",
         "de": "Applikations-Manager:in 80–100 %",
         "fr": "Gestionnaire d'applications : en 80-100%"
       },
@@ -1787,7 +1823,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-managerin-80-100-4224",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:28.460Z",
+      "crawledAt": "2026-09-12T13:21:47.982Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1810,11 +1846,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "applikations-manager-in-80-100-abraxas-st-gallen"
+        "applikations-manager-in-80-100-abraxas-st-gallen",
+        "gestione-delle-applicazioni-in-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-manager-in-80-100-abraxas-st-gallen"
+          "applikations-manager-in-80-100-abraxas-st-gallen",
+          "gestione-delle-applicazioni-in-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "applikations-manager-in-80-100-abraxas-st-gallen"
@@ -1833,8 +1871,7 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-c3450fe11f56",
@@ -1867,8 +1904,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/account-manager-100-1448",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:28.004Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-12T13:21:47.552Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1936,7 +1972,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:27.548Z",
+      "crawledAt": "2026-09-12T13:21:47.126Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1959,11 +1995,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+        "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+        "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+          "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+          "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-teamleiter-in-80-100-abraxas-st-gallen"
@@ -1985,8 +2023,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-b714d0c47ab1",
@@ -2019,7 +2056,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-7621",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:27.085Z",
+      "crawledAt": "2026-09-12T13:21:46.698Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2044,13 +2081,15 @@
       "previousSlugs": [
         "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
         "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+        "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
           "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
@@ -2072,8 +2111,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-e12391c35b27",
@@ -2106,8 +2144,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:55:26.502Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-12T13:21:46.174Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2166,155 +2203,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "abraxas-1220cfbd005b",
-      "slug": "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
-      "slugByLocale": {
-        "it": "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
-        "en": "senior-linux-engineer-abraxas-zurich-flughafen",
-        "de": "senior-linux-engineer-abraxas-zurich-flughafen",
-        "fr": "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Senior Linux Engineer",
-      "titleByLocale": {
-        "it": "Senior Linux Ingegnere",
-        "en": "Senior Linux Engineer",
-        "de": "Senior Linux Ingenieur",
-        "fr": "Senior Linux Ingénieur"
-      },
-      "description": "Du gestaltest die Zukunft unserer OpenStack-Plattform . Als erfahrener Linux Engineer übernimmst du eine zentrale Rolle beim Design, Betrieb und der Weiterentwicklung unserer Infrastruktur und arbeitest aktiv am Ausbau der Umgebung mit. Dabei erhältst du die Möglichkeit, dein bestehendes Linux-Know-how gezielt in Richtung Cloud- und OpenStack-Technologien weiterzuentwickeln.\nZur Verstärkung unseres Teams am Standort Zürich Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als Senior Linux Engineer (Bereich OpenStack).\nDeine Rolle\n• Verantwortung für den Betrieb, die Weiterentwicklung und die Automatisierung unserer Cloud Plattformen\n• Mitarbeit beim Design, Aufbau und der Optimierung unserer OpenStack-Umgebung\n• Planung und Umsetzung von Infrastruktur- und Automatisierungslösungen mit modernen Tools wie Ansible, OpenTofu oder Terraform\n• Sicherstellung eines stabilen und effizienten Betriebs sowie kontinuierliche Optimierung von Performance, Verfügbarkeit und Security\n• Analyse und Behebung komplexer Störungen im 2nd- und 3rd-Level-Support\n• Enge Zusammenarbeit mit Infrastruktur-, Netzwerk- und Storage-Teams\n• Mitwirkung bei Architektur- und Technologieentscheiden sowie aktive Gestaltung unserer zukünftigen Cloud-Plattform\n• Schrittweise Übernahme von Verantwortung im OpenStack-Umfeld und Weiterentwicklung zum OpenStack-Spezialisten\nDein Profil\n• Abgeschlossenes Studium in Informatik oder eine vergleichbare Aus-/Weiterbildung\n• Mehrjährige Erfahrung als Linux System Engineer, Linux Platform Engineer oder Linux Administrator in anspruchsvollen Enterprise-Umgebungen\n• Erfahrung mit Automatisierungs- und Konfigurationsmanagement-Tools\n• Vertiefte Kenntnisse über Cloud-Plattformen, Virtualisierung, Container-Technologien und Infrastructure as Code\n• Verständnis von Netzwerken, Storage-Technologien und hochverfügbaren Infrastrukturen\n• Analytische, strukturierte und lösungsorientierte Arbeitsweise\n• Sehr gute Deutschkenntnisse auf C1-Level sowie gute Englischkenntnisse\n• Bereitschaft zum Pikettdienst\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur. Fühl dich also frei, uns deine Bewerbung direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "Stai modellando il futuro della nostra piattaforma OpenStack. Come esperto ingegnere Linux, assumete un ruolo centrale nella progettazione, nel funzionamento e nello sviluppo ulteriore della nostra infrastruttura e partecipate attivamente all'espansione dell'ambiente. Ottieni l'opportunità di sviluppare ulteriormente il tuo know-how Linux esistente nella direzione delle tecnologie cloud e OpenStack.\nAl fine di rafforzare il nostro team nella posizione dell'aeroporto di Zurigo, stiamo cercando una personalità impegnata e competente come Senior Linux Engineer (area OpenStack) immediatamente o con accordo.\nIl tuo ruolo\n• Responsabilità per il funzionamento, lo sviluppo e l'automazione delle nostre piattaforme cloud\n• Partecipazione alla progettazione, costruzione e ottimizzazione del nostro ambiente OpenStack\n• Progettazione e realizzazione di soluzioni infrastrutturali e di automazione con strumenti moderni come Ansible, OpenTofu o Terraform\n• Garantire un funzionamento stabile ed efficiente nonché una continua ottimizzazione delle prestazioni, della disponibilità e della sicurezza\n• Analisi e risoluzione di disordini complessi nel supporto di secondo e terzo livello\n• Una stretta collaborazione con i team di infrastruttura, rete e storage\n• Partecipazione a decisioni di architettura e tecnologia e progettazione attiva della nostra futura piattaforma cloud\n• Presunzione graduale di responsabilità nell'ambiente OpenStack e ulteriore sviluppo in uno specialista OpenStack\nIl tuo profilo\n• Laurea completa in scienze informatiche o formazione comparabile\n• Diversi anni di esperienza come Linux System Engineer, Linux Platform Engineer o Linux Administrator in ambienti aziendali esigenti\n• Esperienza con strumenti di automazione e gestione delle configurazioni\n• Conoscenza approfondita delle piattaforme cloud, virtualizzazione, tecnologie dei container e infrastrutture come codice\n• Comprendere reti, tecnologie di storage e infrastrutture altamente disponibili\n• Metodo di lavoro analitico, strutturato e orientato alla soluzione\n• Molto buona conoscenza del tedesco a livello C1 e buona conoscenza dell'inglese\n• Prontezza per Picetting\nI vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nAbbiamo una cultura aperta. Quindi sentitevi liberi di inviarci la vostra domanda direttamente nel modulo You.",
-        "en": "You are shaping the future of our OpenStack platform. As an experienced Linux engineer, you take on a central role in the design, operation and further development of our infrastructure and actively participate in the expansion of the environment. You get the opportunity to further develop your existing Linux know-how in the direction of cloud and OpenStack technologies.\nIn order to strengthen our team at the Zurich Airport location, we are looking for a committed and competent personality as a Senior Linux Engineer (OpenStack area) immediately or by agreement.\nYour role\n• Responsibility for the operation, development and automation of our cloud platforms\n• Participation in the design, construction and optimization of our OpenStack environment\n• Planning and implementation of infrastructure and automation solutions with modern tools such as Ansible, OpenTofu or Terraform\n• Ensuring stable and efficient operation as well as continuous optimization of performance, availability and security\n• Analysis and resolution of complex disruptions in 2nd and 3rd level support\n• Close cooperation with infrastructure, network and storage teams\n• Participation in architecture and technology decisions and active design of our future cloud platform\n• Gradual assumption of responsibility in the OpenStack environment and further development into an OpenStack specialist\nYour profile\n• Completed degree in computer science or comparable education/training\n• Several years of experience as a Linux System Engineer, Linux Platform Engineer or Linux Administrator in demanding enterprise environments\n• Experience with automation and configuration management tools\n• In-depth knowledge of cloud platforms, virtualization, container technologies and infrastructure as code\n• Understanding networks, storage technologies and highly available infrastructures\n• Analytical, structured and solution-oriented working method\n• Very good knowledge of German at C1 level and good knowledge of English\n• Readiness for Picetting\nYour benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe have an open du culture. So feel free to send us your application directly in the You form.",
-        "de": "Du gestaltest die Zukunft unserer OpenStack-Plattform . Als erfahrener Linux Engineer übernimmst du eine zentrale Rolle beim Design, Betrieb und der Weiterentwicklung unserer Infrastruktur und arbeitest aktiv am Ausbau der Umgebung mit. Dabei erhältst du die Möglichkeit, dein bestehendes Linux-Know-how gezielt in Richtung Cloud- und OpenStack-Technologien weiterzuentwickeln.\nZur Verstärkung unseres Teams am Standort Zürich Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als Senior Linux Engineer (Bereich OpenStack).\nDeine Rolle\n• Verantwortung für den Betrieb, die Weiterentwicklung und die Automatisierung unserer Cloud Plattformen\n• Mitarbeit beim Design, Aufbau und der Optimierung unserer OpenStack-Umgebung\n• Planung und Umsetzung von Infrastruktur- und Automatisierungslösungen mit modernen Tools wie Ansible, OpenTofu oder Terraform\n• Sicherstellung eines stabilen und effizienten Betriebs sowie kontinuierliche Optimierung von Performance, Verfügbarkeit und Security\n• Analyse und Behebung komplexer Störungen im 2nd- und 3rd-Level-Support\n• Enge Zusammenarbeit mit Infrastruktur-, Netzwerk- und Storage-Teams\n• Mitwirkung bei Architektur- und Technologieentscheiden sowie aktive Gestaltung unserer zukünftigen Cloud-Plattform\n• Schrittweise Übernahme von Verantwortung im OpenStack-Umfeld und Weiterentwicklung zum OpenStack-Spezialisten\nDein Profil\n• Abgeschlossenes Studium in Informatik oder eine vergleichbare Aus-/Weiterbildung\n• Mehrjährige Erfahrung als Linux System Engineer, Linux Platform Engineer oder Linux Administrator in anspruchsvollen Enterprise-Umgebungen\n• Erfahrung mit Automatisierungs- und Konfigurationsmanagement-Tools\n• Vertiefte Kenntnisse über Cloud-Plattformen, Virtualisierung, Container-Technologien und Infrastructure as Code\n• Verständnis von Netzwerken, Storage-Technologien und hochverfügbaren Infrastrukturen\n• Analytische, strukturierte und lösungsorientierte Arbeitsweise\n• Sehr gute Deutschkenntnisse auf C1-Level sowie gute Englischkenntnisse\n• Bereitschaft zum Pikettdienst\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur. Fühl dich also frei, uns deine Bewerbung direkt in der Du-Form zu schicken.",
-        "fr": "Vous façonnez l'avenir de notre plateforme OpenStack. En tant qu'ingénieur Linux expérimenté, vous assumez un rôle central dans la conception, le fonctionnement et le développement de notre infrastructure et participez activement à l'expansion de l'environnement. Vous avez l'occasion de développer votre savoir-faire Linux existant en direction du cloud et des technologies OpenStack.\nAfin de renforcer notre équipe à l'aéroport de Zurich, nous recherchons une personnalité engagée et compétente en tant qu'ingénieur Linux senior (zone OpenStack) immédiatement ou par accord.\nVotre rôle\n• Responsabilité de l'exploitation, du développement et de l'automatisation de nos plateformes cloud\n• Participation à la conception, la construction et l'optimisation de notre environnement OpenStack\n• Planification et mise en œuvre de solutions d'infrastructure et d'automatisation avec des outils modernes comme Ansible, OpenTofu ou Terraform\n• Assurer un fonctionnement stable et efficace ainsi qu'une optimisation continue des performances, de la disponibilité et de la sécurité\n• Analyse et résolution des perturbations complexes dans l'appui aux 2e et 3e niveaux\n• Coopération étroite avec les équipes d'infrastructure, de réseau et de stockage\n• Participation aux décisions en matière d'architecture et de technologie et conception active de notre future plateforme cloud\n• Prise en charge progressive de la responsabilité dans l'environnement OpenStack et développement ultérieur d'un spécialiste OpenStack\nVotre profil\n• Diplôme d'informatique ou d'enseignement/formation comparable\n• Plusieurs années d'expérience en tant qu'ingénieur système Linux, ingénieur plate-forme Linux ou administrateur Linux dans des environnements d'entreprise exigeants\n• Expérience des outils d'automatisation et de gestion de configuration\n• Connaissance approfondie des plateformes cloud, de la virtualisation, des technologies de conteneurs et de l'infrastructure en tant que code\n• Comprendre les réseaux, les technologies de stockage et les infrastructures hautement disponibles\n• Méthode de travail analytique, structurée et orientée vers la solution\n• Très bonne connaissance de l'allemand au niveau C1 et bonne connaissance de l'anglais\n• Préparation pour Picetting\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF demi-ax gratuit pour tous les salariés\nNous avons une culture ouverte. N'hésitez donc pas à nous envoyer votre demande directement dans le formulaire Vous."
-      },
-      "location": "Zürich-Flughafen",
-      "canton": "ZH",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-linux-engineer-9441",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-10T23:40:13.794Z",
-      "addressLocality": "Zürich-Flughafen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8058",
-      "streetAddress": "",
-      "category": "IT / Sicurezza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://apply.refline.ch/215876/2524/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2524",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "senior-linux-engineer-abraxas-zurich-flughafen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-linux-engineer-abraxas-zurich-flughafen"
-        ],
-        "fr": [
-          "senior-linux-engineer-abraxas-zurich-flughafen"
-        ]
-      },
-      "firstSeenAt": "2026-08-18T21:41:18.784Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 121500,
-          "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "abraxas-2ee0dcad4ad9",
-      "slug": "ict-system-engineer-devops-80-100-abraxas-zurich-flughafen",
-      "slugByLocale": {
-        "it": "ict-system-engineer-devops-80-100-abraxas-zurich-flughafen",
-        "en": "ict-system-engineer-devops-80-100-abraxas-zurich-flughafen",
-        "de": "ict-system-engineer-devops-80-100-abraxas-zurich-flughafen",
-        "fr": "ict-system-engineer-devops-80-100-abraxas-zurich-flughafen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "ICT System Engineer DevOps 80–100 %",
-      "titleByLocale": {
-        "it": "ICT System Ingegnere DevOps 80–100 %",
-        "en": "ICT System Engineer DevOps 80-100%",
-        "de": "ICT System Ingenieur DevOps 80–100 %",
-        "fr": "ICT System Ingénieur DevOps 80–100 %"
-      },
-      "description": "Unser Team unterstützt hinsichtlich der Integration und der Auslieferung unserer Lösungen auf den eigenen Betriebsplattformen oder auf den Systemen der Kunden, sowie die Entwicklungsteams bei technischen Anliegen. Es nimmt dabei eine beratende Position zwischen Entwicklern, Kunden und den internen Fachteams ein. Gemeinsam mit deinen Teamkollegen gewährleistest du einen stabilen, zuverlässigen und performanten Betrieb der Applikationen.\nDu bearbeitest 2nd Level Anfragen, unterstützt die Weiterentwicklung und den Betrieb unserer Applikationsplattformen und leitest kleinere Teilprojekte.\nFür unseren Standort am Zürich-Flughafen suchen wir per 1. September 2026 oder nach Vereinbarung eine engagierte Person als ICT System Engineer DevOps.\nDeine Rolle\n• Betrieb unserer Entwicklungsapplikationen basierend auf VMware oder Kubernetes / Rancher\n• Betreuung unserer DevOps-Stacks (Gitlab, Nexus, Harbor, Minio, Dependency-Track, Sonarqube, TestRail, Jenkins)\n• Mitverantwortung des Betriebs des Atlassian Tool Stacks (Jira, Confluence, Crowd) für den gesamten Abraxas Konzern\n• Administration von virtuellen Linux- und Windows-Servern der Abraxas-Entwicklungsinfrastruktur auf VMware und HyperV\n• Entwicklung von Automatisierungen (Python, Ansible, Rundeck, Bash)\n• Überwachung der Systemlandschaft mittels CheckMK, Performanceanalysen mittels Prometheus / Grafana\n• 2nd und 3rd Level Support der Systemintegration einer etablierten Enterprise Applikation für Kunden in der gesamten Schweiz\nDein Profil\n• Mindestens drei Jahre Erfahrung in der Administration von Linux Enterprise Systemen\n• Know-how im Betrieb von Applikationsservern\n• Gewandter Umgang mit Datenbanken (PostgreSQL)\n• Erfahrung im Automatisieren mittels Scripting (Ansible, Python, Bash)\n• Erfahrung im Umgang und Betrieb von Atlassian Produkten\n• Kenntnisse in folgenden Technologien erwünscht: Kubernetes, Windows Server, CheckMK, Devops-Themen (CI/CD), NGNIX, Oracle Datenbanken\n• Freude an neuen Technologien und die Bereitschaft sich weiterzubilden\nDeine Benefits\n• Bis zu 60% Home-Office bei einem 100% Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBei uns pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
-      "descriptionByLocale": {
-        "it": "Il nostro team supporta l'integrazione e la consegna delle nostre soluzioni sulle nostre piattaforme operative o sui sistemi dei clienti, così come i team di sviluppo con problemi tecnici. Si assume una posizione di consulenza tra sviluppatori, clienti e team specializzati interni. Insieme ai tuoi compagni di squadra, hai garantito un funzionamento stabile, affidabile e ad alte prestazioni delle applicazioni. Elaborerai indagini di secondo livello, supporterai l'ulteriore sviluppo e il funzionamento delle nostre piattaforme applicative e gestirai sottoprogetti più piccoli. Per la nostra posizione all'aeroporto di Zurigo stiamo cercando 1. Settembre 2026 o per accordo una persona dedicata come ICT System Engineer DevOps. Il tuo ruolo\n• Funzionamento delle nostre applicazioni di sviluppo basate su VMware o Kubernetes / Rancher\n• Supporto dei nostri stack DevOps (Gitlab, Nexus, Harbor, Minio, Dependency Track, Sonarqube, TestRail, Jenkins)\n• Co-responsabilità per il funzionamento degli Stack Atlanti (Jira, Confluence, Crowd) per l'intero Gruppo Abraxas\n• Amministrazione di server virtuali Linux e Windows dell'infrastruttura di sviluppo di Abraxas su VMware e HyperV\n• Sviluppo delle automazioni (Python, Ansible, Rundeck, Bash)\n• Monitoraggio del paesaggio di sistema tramite CheckMK, analisi delle prestazioni tramite Prometheus / Grafana\n• 2 ° e 3 ° livello di supporto per l'integrazione di sistema di un'applicazione aziendale consolidata per i clienti in tutta la Svizzera Il tuo profilo\n• Almeno tre anni di esperienza nell'amministrazione di Linux Enterprise Systems\n• Competenza nel funzionamento dei server di applicazione\n• Utilizzo pratico di database (PostgreSQL)\n• Esperienza nell'automazione dello scripting (Ansible, Python, Bash)\n• Esperienza nella gestione e nella gestione dei prodotti Atlassian\n• Conoscenza delle seguenti tecnologie desiderate: Kubernetes, Windows Server, CheckMK, Devops argomenti (CI/CD), NGNIX, Oracle database\n• La gioia delle nuove tecnologie e la volontà di imparare I tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "Our team supports the integration and delivery of our solutions on our own operating platforms or on customer systems, as well as the development teams with technical issues. It assumes an advisory position between developers, customers and the internal specialist teams. Together with your teammates, you ensured a stable, reliable and high-performance operation of the applications. You will process 2nd level inquiries, support the further development and operation of our application platforms and manage smaller sub-projects. For our location at Zurich Airport we are looking for 1. September 2026 or by arrangement a dedicated person as ICT System Engineer DevOps. Your role\n• Operation of our development applications based on VMware or Kubernetes / Rancher\n• Support of our DevOps stacks (Gitlab, Nexus, Harbor, Minio, Dependency Track, Sonarqube, TestRail, Jenkins)\n• Co-responsibility for the operation of the Atlassian Tool Stacks (Jira, Confluence, Crowd) for the entire Abraxas Group\n• Administration of virtual Linux and Windows servers of Abraxas development infrastructure on VMware and HyperV\n• Development of automations (Python, Ansible, Rundeck, Bash)\n• System landscape monitoring by means of CheckMK, performance analyses by means of Prometheus / Grafana\n• 2nd and 3rd level support for the system integration of an established enterprise application for customers throughout Switzerland Your profile\n• At least three years of experience in administration of Linux Enterprise Systems\n• Expertise in the operation of application servers\n• Practical use of databases (PostgreSQL)\n• Experience in scripting automation (Ansible, Python, Bash)\n• Experience in handling and operating Atlassian products\n• Knowledge of the following technologies desired: Kubernetes, Windows Server, CheckMK, Devops topics (CI/CD), NGNIX, Oracle databases\n• The joy of new technologies and the willingness to learn Your Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Unser Team unterstützt hinsichtlich der Integration und der Auslieferung unserer Lösungen auf den eigenen Betriebsplattformen oder auf den Systemen der Kunden, sowie die Entwicklungsteams bei technischen Anliegen. Es nimmt dabei eine beratende Position zwischen Entwicklern, Kunden und den internen Fachteams ein. Gemeinsam mit deinen Teamkollegen gewährleistest du einen stabilen, zuverlässigen und performanten Betrieb der Applikationen.\nDu bearbeitest 2nd Level Anfragen, unterstützt die Weiterentwicklung und den Betrieb unserer Applikationsplattformen und leitest kleinere Teilprojekte.\nFür unseren Standort am Zürich-Flughafen suchen wir per 1. September 2026 oder nach Vereinbarung eine engagierte Person als ICT System Engineer DevOps.\nDeine Rolle\n• Betrieb unserer Entwicklungsapplikationen basierend auf VMware oder Kubernetes / Rancher\n• Betreuung unserer DevOps-Stacks (Gitlab, Nexus, Harbor, Minio, Dependency-Track, Sonarqube, TestRail, Jenkins)\n• Mitverantwortung des Betriebs des Atlassian Tool Stacks (Jira, Confluence, Crowd) für den gesamten Abraxas Konzern\n• Administration von virtuellen Linux- und Windows-Servern der Abraxas-Entwicklungsinfrastruktur auf VMware und HyperV\n• Entwicklung von Automatisierungen (Python, Ansible, Rundeck, Bash)\n• Überwachung der Systemlandschaft mittels CheckMK, Performanceanalysen mittels Prometheus / Grafana\n• 2nd und 3rd Level Support der Systemintegration einer etablierten Enterprise Applikation für Kunden in der gesamten Schweiz\nDein Profil\n• Mindestens drei Jahre Erfahrung in der Administration von Linux Enterprise Systemen\n• Know-how im Betrieb von Applikationsservern\n• Gewandter Umgang mit Datenbanken (PostgreSQL)\n• Erfahrung im Automatisieren mittels Scripting (Ansible, Python, Bash)\n• Erfahrung im Umgang und Betrieb von Atlassian Produkten\n• Kenntnisse in folgenden Technologien erwünscht: Kubernetes, Windows Server, CheckMK, Devops-Themen (CI/CD), NGNIX, Oracle Datenbanken\n• Freude an neuen Technologien und die Bereitschaft sich weiterzubilden\nDeine Benefits\n• Bis zu 60% Home-Office bei einem 100% Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBei uns pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
-        "fr": "Notre équipe soutient l'intégration et la livraison de nos solutions sur nos propres plateformes d'exploitation ou sur les systèmes clients, ainsi que les équipes de développement avec des problèmes techniques. Il assume une position consultative entre les développeurs, les clients et les équipes internes de spécialistes. Avec vos coéquipiers, vous avez assuré un fonctionnement stable, fiable et performant des applications. Vous traiterez les demandes de renseignements de 2e niveau, soutiendra le développement et le fonctionnement de nos plateformes d'application et gérerez des sous-projets plus petits. Pour notre emplacement à l'aéroport de Zurich nous cherchons 1. Septembre 2026 ou par arrangement une personne dédiée comme ICT System Engineer DevOps. Votre rôle\n• Fonctionnement de nos applications de développement basées sur VMware ou Kubernetes / Rancher\n• Support de nos piles DevOps (Gitlab, Nexus, Harbor, Minio, Dependency Track, Sonarqube, TestRail, Jenkins)\n• Coresponsabilité pour le fonctionnement de l'ensemble du groupe Abraxas\n• Administration des serveurs virtuels Linux et Windows de l'infrastructure de développement Abraxas sur VMware et HyperV\n• Développement d'automatisations (Python, Ansible, Rundeck, Bash)\n• Surveillance du paysage système au moyen de CheckMK, analyses de performance au moyen de Prométheus / Grafana\n• Support de 2ème et 3ème niveaux pour l'intégration du système d'une application d'entreprise établie pour les clients dans toute la Suisse Votre profil\n• Au moins trois ans d'expérience dans l'administration de Linux Enterprise Systems\n• Expertise dans le fonctionnement des serveurs d'application\n• Utilisation pratique des bases de données (PostgreSQL)\n• Expérience dans l'automatisation du script (Ansible, Python, Bash)\n• Expérience dans la manipulation et l'exploitation des produits Atlassian\n• Connaissance des technologies suivantes souhaitées: Kubernetes, Windows Server, CheckMK, Devops sujets (CI/CD), NGNIX, bases de données Oracle\n• La joie des nouvelles technologies et la volonté d'apprendre Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
-      },
-      "location": "Zürich-Flughafen",
-      "canton": "ZH",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:25:46.900Z",
-      "addressLocality": "Zürich-Flughafen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8058",
-      "streetAddress": "",
-      "category": "IT / Infrastruttura",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2479/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2479",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "firstSeenAt": "2026-07-04T09:59:59.787Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

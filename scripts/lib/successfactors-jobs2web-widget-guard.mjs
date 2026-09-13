@@ -298,14 +298,15 @@ export function hasSuccessFactorsMoreLocationsInRow(rowHtml) {
  * different problems, and callers already treat `''` as "no location".
  *
  * @param {unknown} value
+ * @param {{warn?: boolean}} [options] Emit the discarded-office warning (default: true).
  * @returns {string}
  */
-export function stripSuccessFactorsMoreLocations(value) {
+export function stripSuccessFactorsMoreLocations(value, { warn = true } = {}) {
   if (typeof value !== 'string') return '';
   const normalized = normalizeMarkerChars(value);
   const withoutTail = normalized.replace(SF_J2W_MORE_LOCATIONS_RE, '').trim();
   if (withoutTail || !normalized.trim()) {
-    if (withoutTail) warnOnDiscardedOffices(normalized, withoutTail);
+    if (withoutTail && warn) warnOnDiscardedOffices(normalized, withoutTail);
     return withoutTail;
   }
   return normalized
@@ -377,4 +378,3 @@ function warnOnDiscardedOffices(normalized, kept) {
     `\u{1F9ED} j2w multi-segment location cell: kept "${kept}", dropped "${tail}" (from "${normalized.trim()}")`,
   );
 }
-

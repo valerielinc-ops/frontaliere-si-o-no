@@ -84,6 +84,24 @@ function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
+function requirePublicMirror() {
+  const parent = path.dirname(PUBLIC_JOBS);
+  try {
+    return fs.statSync(parent).isDirectory();
+  } catch (error) {
+    if (error?.code === 'ENOENT') return false;
+    throw new Error('Baronie public mirror parent is unusable: ' + parent + ' (' + (error instanceof Error ? error.message : String(error)) + ')');
+  }
+}
+
+function removeStalePublicMirror() {
+  try {
+    fs.rmSync(PUBLIC_JOBS, { force: true });
+  } catch (error) {
+    throw new Error('Unable to remove stale Baronie public mirror ' + PUBLIC_JOBS + ': ' + (error instanceof Error ? error.message : String(error)));
+  }
+}
+
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
@@ -215,8 +233,14 @@ function mergeJobs(discoveredJobs) {
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
-  if (fs.existsSync(path.dirname(PUBLIC_JOBS))) {
+  if (requirePublicMirror()) {
     writeJson(PUBLIC_JOBS, allJobs);
+  } else {
+    // The scratch file remains the canonical downstream input
+    // (writeJobsCrawlerSlice/assemble read DATA_JOBS); never leave an old
+    // optional mirror that could be mistaken for this crawl's output.
+    removeStalePublicMirror();
+    console.warn('⚠️ Baronie public mirror unavailable; retained ' + DATA_JOBS + ' for downstream assembly.');
   }
 
   const afterSnapshot = snapshotJobSlugs(mergedTarget);

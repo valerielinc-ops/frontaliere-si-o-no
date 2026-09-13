@@ -11,6 +11,7 @@ import {
   importantFindings,
   logClassification,
   CODEX_REVIEW_MARKER,
+  normalizeReviewBody,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
 
@@ -829,6 +830,36 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 describe('review gate: citazioni e conferme', () => {
   const bot = (body: string) => ({ user: { type: 'Bot', login: 'claude[bot]' }, body, commit_id: 'c'.repeat(40) });
 
+  it('decodifica i separatori newline serializzati dalla review automation', async () => {
+    const escaped = [
+      CODEX_REVIEW_MARKER,
+      '## Findings (Important: 0, Nit: 0)',
+      'Fix di `src/changed.mjs:L12`: ok.',
+      '## LGTM',
+    ].join('\\n');
+
+    expect(normalizeReviewBody(escaped)).toContain('\n## Findings');
+    expect(normalizeReviewBody(escaped)).toContain('\nFix di');
+
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[
+        historicalImportantReview,
+        {
+          ...approvingBotReview,
+          body: escaped,
+          commit_id: HEAD_SHA,
+        },
+      ]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
+  });
+
   it('keeps findingKey() and citationConfirmed() as direct moved-anchor contracts', () => {
     const citation = { path: 'scripts/ci/review-gate.mjs', line: 431 };
     const finding = { citations: [citation], text: 'moved review anchor' };
@@ -870,12 +901,44 @@ describe('review gate: citazioni e conferme', () => {
     expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
   });
 
+  it('riconosce le citazioni delle Firebase rules nelle conferme storiche', () => {
+    const opened = bot('## Findings (Important: 1, Nit: 0)\n\nfirestore.rules:L148: 🔴 Important: la regola di conferma non è coerente.');
+    expect(extractFileCitations(opened.body)).toEqual([
+      { path: 'firestore.rules', line: 148 },
+    ]);
+    expect(importantFindings(opened.body)[0].citations).toEqual([
+      { path: 'firestore.rules', line: 148 },
+    ]);
+    const confirmed = bot('## Findings (Important: 0, Nit: 0)\nFix di `firestore.rules:L148`: ok.\n## LGTM');
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
   it('retains every precise anchor and explicit companion path until each is confirmed', () => {
     const opened = bot('## Findings\n🔴 Important: `src/a.ts:L3` and `src/b.ts:L4` are broken; also fix `src/helper.ts`.');
     const partial = bot('## Findings\nFix di `src/a.ts:L3`: ok.\n## LGTM');
     const remaining = historicalImportantFindings([opened, partial], { includeLatest: true });
     expect(remaining).toHaveLength(1);
     expect(remaining[0].citations).toHaveLength(3);
+  });
+
+  it('ignora i path-esempio nudi assenti dal tree dopo la conferma dell’anchor preciso', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`src/changed.mjs:L12`: 🔴 Important: the root fallback accepts `scripts/foo.mjs` even when `subdir/scripts/foo.mjs` is missing.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `src/changed.mjs:L12`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([opened, confirmed], {
+      includeLatest: true,
+      repositoryPaths: ['src/changed.mjs'],
+    })).toHaveLength(0);
   });
 
   it('closes a unique bare companion path when the follow-up confirms its fix line', () => {

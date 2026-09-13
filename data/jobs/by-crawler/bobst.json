@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bobst",
-  "assembledAt": "2026-09-11T13:54:07.659Z",
+  "assembledAt": "2026-09-12T13:08:18.212Z",
   "jobs": [
     {
       "id": "bobst-6b9490c1deb3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bobst.com/Vacancies/4997/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:54:02.146Z",
+      "crawledAt": "2026-09-12T13:08:13.058Z",
       "addressLocality": "India (Pune)",
       "addressCountry": "CH",
       "country": "CH",
@@ -71,8 +71,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-602bfc3d2267",
@@ -105,7 +104,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6868/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:54:01.554Z",
+      "crawledAt": "2026-09-12T13:08:12.273Z",
       "addressLocality": "Thailand (Bangkok)",
       "addressCountry": "CH",
       "country": "CH",
@@ -168,8 +167,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-81f8bbcbde85",
@@ -186,7 +184,7 @@
       "title": "Field Service Technician (m/w/d)",
       "titleByLocale": {
         "it": "Servizio di campo tecnico (m/f/d)",
-        "en": "Automotive Technician (m/f/d)",
+        "en": "Field Service Technician (m/f/d)",
         "de": "Field Service Techniker (m/w/d)",
         "fr": "Field Service Technicien (m/w/d)"
       },
@@ -202,7 +200,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8700/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:54:00.974Z",
+      "crawledAt": "2026-09-12T13:08:11.470Z",
       "addressLocality": "Germany (Bielefeld)",
       "addressCountry": "CH",
       "country": "CH",
@@ -262,14 +260,15 @@
           "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld",
           "field-service-technician-m-w-d-bobst-germany-bielefeld"
         ],
+        "en": [
+          "field-service-technician-m-w-d-bobst-ch",
+          "field-service-technician-m-w-d-bobst-germany-bielefeld"
+        ],
         "de": [
           "feldservicetechniker-m-w-d-bobst-germany-bielefeld"
         ],
         "fr": [
           "technicien-de-service-sur-site-h-f-bobst-germany-bielefeld"
-        ],
-        "en": [
-          "field-service-technician-m-w-d-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:35:06.831Z",
@@ -286,15 +285,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-349233cc077a",
       "slug": "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld-ca0680",
       "slugByLocale": {
         "it": "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld-ca0680",
-        "en": "automotive-technician-m-f-d-bobst-germany-bielefeld-ca0680",
+        "en": "field-service-technician-m-f-d-bobst-germany-bielefeld",
         "de": "field-service-technician-m-w-d-bobst-ch",
         "fr": "field-service-technicien-m-w-d-bobst-germany-bielefeld"
       },
@@ -304,7 +302,7 @@
       "title": "Field Service Technician (m/w/d)",
       "titleByLocale": {
         "it": "Servizio di campo tecnico (m/f/d)",
-        "en": "Automotive Technician (m/f/d)",
+        "en": "Field Service Technician (m/f/d)",
         "de": "Field Service Techniker (m/w/d)",
         "fr": "Field Service Technicien (m/w/d)"
       },
@@ -320,7 +318,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8701/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:54:00.182Z",
+      "crawledAt": "2026-09-12T13:08:10.688Z",
       "addressLocality": "Germany (Bielefeld)",
       "addressCountry": "CH",
       "country": "CH",
@@ -371,7 +369,9 @@
         "field-service-technician-m-w-d-bobst-ch-2",
         "field-service-technician-m-w-d-bobst-ch",
         "servizio-tecnico-m-f-d-bobst-germany-bielefeld",
-        "field-service-technician-bobst-germany-bielefeld"
+        "field-service-technician-bobst-germany-bielefeld",
+        "field-service-technician-m-w-d-bobst-germany-bielefeld-ca0680",
+        "automotive-technician-m-f-d-bobst-germany-bielefeld-ca0680"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -381,7 +381,9 @@
           "field-service-technician-bobst-germany-bielefeld"
         ],
         "en": [
-          "field-service-technician-m-w-d-bobst-ch-2"
+          "field-service-technician-m-w-d-bobst-ch-2",
+          "field-service-technician-m-w-d-bobst-germany-bielefeld-ca0680",
+          "automotive-technician-m-f-d-bobst-germany-bielefeld-ca0680"
         ]
       },
       "firstSeenAt": "2026-05-19T21:41:59.424Z",
@@ -398,8 +400,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-cdbe6d66b7ea",
@@ -432,7 +433,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8661/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:59.363Z",
+      "crawledAt": "2026-09-12T13:08:09.892Z",
       "addressLocality": "Germany (Meerbusch)",
       "addressCountry": "CH",
       "country": "CH",
@@ -509,8 +510,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-7a741f10e50b",
@@ -543,7 +543,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8519/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:58.565Z",
+      "crawledAt": "2026-09-12T13:08:09.122Z",
       "addressLocality": "Poland (Lodz)",
       "addressCountry": "CH",
       "country": "CH",
@@ -616,8 +616,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-4d8db0b4e002",
@@ -650,7 +649,7 @@
       "url": "https://jobs.bobst.com/Vacancies/3098/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:57.765Z",
+      "crawledAt": "2026-09-12T13:08:08.333Z",
       "addressLocality": "Germany (Meerbusch)",
       "addressCountry": "CH",
       "country": "CH",
@@ -719,8 +718,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-17eb037c0ecb",
@@ -737,7 +735,7 @@
       "title": "Technical Support Specialist 100% - Maschinen- & Anlagenbau",
       "titleByLocale": {
         "it": "Specialista di Supporto Tecnico al 100% - Ingegneria Meccanica e Impianti",
-        "en": "Technical Support Specialist 100% - Maschinen- & Anlagenbau",
+        "en": "Technical Support Specialist 100% - Mechanical & Plant Engineering",
         "de": "Technical Support Spezialist 100% - Maschinen- & Anlagenbau",
         "fr": "Spécialiste Support Technique 100% - Machines et Installations"
       },
@@ -753,7 +751,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7707/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:56.938Z",
+      "crawledAt": "2026-09-12T13:08:07.525Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -829,8 +827,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO",
-      "needsRetranslation": true
+      "addressRegion": "SO"
     },
     {
       "id": "bobst-f254d67b8a12",
@@ -847,7 +844,7 @@
       "title": "Field Application Engineer 100% – Kaschierprozesse & -anlagen",
       "titleByLocale": {
         "it": "Field Application Engineer 100% – Processi e impianti di laminazione",
-        "en": "Field Application Engineer 100% – Laminating Processes & Systems",
+        "en": "Field Application Engineer 100% – Laminating Processes & Facilities",
         "de": "Field Application Ingenieur 100% – Kaschierprozesse & -anlagen",
         "fr": "Field Application Engineer 100% – Processus et installations de contrecollage"
       },
@@ -863,7 +860,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:56.132Z",
+      "crawledAt": "2026-09-12T13:08:06.755Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -943,8 +940,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO",
-      "needsRetranslation": true
+      "addressRegion": "SO"
     },
     {
       "id": "bobst-a50d899700e3",
@@ -977,7 +973,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8743/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:55.317Z",
+      "crawledAt": "2026-09-12T13:08:06.203Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1049,8 +1045,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-8310954fed26",
@@ -1067,7 +1062,7 @@
       "title": "Servicetechniker im Aussendienst / Field Service Technician - Electrical 100%",
       "titleByLocale": {
         "it": "Tecnico di assistenza sul campo - Elettrico 100%",
-        "en": "Servicetechniker im Aussendienst / Field Service Technician - Electrical 100%",
+        "en": "Field Service Technician - Electrical 100%",
         "de": "Servicetechniker im Aussendienst / Field Service Techniker - Electrical 100%",
         "fr": "Technicien de service terrain - Électrique 100%"
       },
@@ -1083,7 +1078,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8736/Description/1",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:54.454Z",
+      "crawledAt": "2026-09-12T13:08:05.364Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1149,8 +1144,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO",
-      "needsRetranslation": true
+      "addressRegion": "SO"
     },
     {
       "id": "bobst-fb32aad751a0",
@@ -1184,7 +1178,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8868/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:53.174Z",
+      "crawledAt": "2026-09-12T13:08:04.091Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1262,7 +1256,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9036/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:52.369Z",
+      "crawledAt": "2026-09-12T13:08:03.277Z",
       "addressLocality": "India (Pune)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1325,7 +1319,7 @@
         "it": "Direttore della tecnologia IoT",
         "en": "IoT Technology Director",
         "de": "IoT-Technologiedirektor",
-        "fr": "IoT Technology Director"
+        "fr": "Directeur de la technologie IoT"
       },
       "description": "IoT Technology Director BSA - Bobst Mex SA Apply now Shape the Future of Connected Packaging Industry At BOBST, we are transforming the packaging world through digitalization, connectivity and data-driven services. Our IoT ecosystem, BOBST Connect , enables customers worldwide to optimize performance, increase productivity and unlock the power of their data. To support our ambitious growth journey, we are looking for an IoT Technology Director to lead the development of our cloud platform, data capabilities and operations teams. This is a high-impact leadership role at the crossroads of technology, innovation and business transformation. You will lead a multidisciplinary organization of more than 40 engineers and specialists and play a key role in defining the future of BOBST's digital solutions. Your Mission As a member of the IoT Leadership Team, you will drive the technology strategy, architecture and delivery of the BOBST Connect platform while partnering closely with the Iot Product Director to bring innovative solutions to market. You will lead teams based in Switzerland and Morocco and report directly to the Chief Technology Officer (CTO). Key responsibilities Lead and inspire Lead, develop and grow multidisciplinary IoT, Data Science and Operations teams (+40 people).\n\nFoster a culture of agility, collaboration, innovation and continuous improvement.\n\nCoach leaders and technical experts, ensuring the organization is equipped to deliver on its ambitions.\n\nOwn the technology roadmap and execution of the BOBST Connect platform together with the Iot Product Director.\n\nDefine architecture, technology stack, cybersecurity and cloud strategies that ensure scalability, reliability and performance.\n\nPromote modern engineering practices including Agile, DevSecOps, CI/CD and AI-enabled development approaches.\n\nPartner with Product Lines, Business Units and commercial teams to maximize customer value.\n\nTranslate business needs into innovative digital solutions and services.",
       "descriptionByLocale": {
@@ -1339,7 +1333,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:51.535Z",
+      "crawledAt": "2026-09-12T13:08:02.518Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1407,8 +1401,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-aa776ad9783b",
@@ -1424,7 +1417,7 @@
       "companyDomain": "bobst.com",
       "title": "IT Test & Release Manager",
       "titleByLocale": {
-        "it": "IT Test & Release Manager",
+        "it": "IT Test &amp; Release Manager",
         "en": "IT Test & Release Manager",
         "de": "IT-Test- und Release-Manager",
         "fr": "Gestionnaire de test et de sortie IT"
@@ -1441,7 +1434,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9034/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:50.703Z",
+      "crawledAt": "2026-09-12T13:08:01.725Z",
       "addressLocality": "India (Pune)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1479,8 +1472,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-42d29368f8b4",
@@ -1513,7 +1505,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:49.891Z",
+      "crawledAt": "2026-09-12T13:08:00.948Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1573,8 +1565,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-50839470eb27",
@@ -1591,7 +1582,7 @@
       "title": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
       "titleByLocale": {
         "it": "Account Manager - Cartone Ondulato",
-        "en": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
+        "en": "Account Manager (m/f/d) - Corrugated Board (m/f/d)",
         "de": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
         "fr": "Account Manager - Carton Ondulé"
       },
@@ -1608,7 +1599,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9039/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:49.300Z",
+      "crawledAt": "2026-09-12T13:08:00.175Z",
       "addressLocality": "Germany (Meerbusch)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1714,7 +1705,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8728/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:48.445Z",
+      "crawledAt": "2026-09-12T13:07:59.404Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1758,15 +1749,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-596ff28a5bae",
       "slug": "customer-care-specialista-m-w-d-bobst-germany-meerbusch",
       "slugByLocale": {
         "it": "customer-care-specialista-m-w-d-bobst-germany-meerbusch",
-        "en": "quality-assurance-specialist-m-f-d-bobst-germany-meerbusch",
+        "en": "customer-care-specialist-m-f-d-bobst-germany-meerbusch",
         "de": "customer-care-specialist-m-w-d-bobst-ch",
         "fr": "customer-care-specialiste-m-w-d-bobst-germany-meerbusch"
       },
@@ -1776,7 +1766,7 @@
       "title": "Customer Care Specialist (m/w/d)",
       "titleByLocale": {
         "it": "Customer Care Specialista (m/w/d)",
-        "en": "Quality Assurance Specialist (m/f/d)",
+        "en": "Customer Care Specialist (m/f/d)",
         "de": "Customer Care Spezialist (m/w/d)",
         "fr": "Customer Care Spécialiste (m/w/d)"
       },
@@ -1792,7 +1782,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6329/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:53:47.612Z",
+      "crawledAt": "2026-09-12T13:07:58.648Z",
       "addressLocality": "Germany (Meerbusch)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1828,16 +1818,20 @@
       },
       "department": "Customer Service",
       "previousSlugs": [
-        "customer-care-specialist-m-w-d-bobst-ch"
+        "customer-care-specialist-m-w-d-bobst-ch",
+        "customer-care-specialist-m-w-d-bobst-germany-meerbusch",
+        "quality-assurance-specialist-m-f-d-bobst-germany-meerbusch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-care-specialist-m-w-d-bobst-ch"
         ],
-        "fr": [
-          "customer-care-specialist-m-w-d-bobst-ch"
-        ],
         "en": [
+          "customer-care-specialist-m-w-d-bobst-ch",
+          "customer-care-specialist-m-w-d-bobst-germany-meerbusch",
+          "quality-assurance-specialist-m-f-d-bobst-germany-meerbusch"
+        ],
+        "fr": [
           "customer-care-specialist-m-w-d-bobst-ch"
         ]
       },
@@ -1855,8 +1849,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-bdedce751de6",
@@ -1889,7 +1882,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9221/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:46.786Z",
+      "crawledAt": "2026-09-12T13:07:57.835Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1964,8 +1957,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-855585a4eeb5",
@@ -1999,7 +1991,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9220/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:45.921Z",
+      "crawledAt": "2026-09-12T13:07:57.008Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2077,7 +2069,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9222/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:45.082Z",
+      "crawledAt": "2026-09-12T13:07:56.188Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2154,7 +2146,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9223/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:44.289Z",
+      "crawledAt": "2026-09-12T13:07:55.392Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2220,8 +2212,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-49bee4b2fcbf",
@@ -2254,7 +2245,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9225/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:43.471Z",
+      "crawledAt": "2026-09-12T13:07:54.620Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2314,8 +2305,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-ca582ec179f7",
@@ -2348,7 +2338,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9227/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:42.624Z",
+      "crawledAt": "2026-09-12T13:07:53.805Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2411,8 +2401,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-10e0ab0d935a",
@@ -2445,7 +2434,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9228/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:41.767Z",
+      "crawledAt": "2026-09-12T13:07:53.030Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2520,8 +2509,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-9b1013c9b68b",
@@ -2554,7 +2542,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9229/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:40.967Z",
+      "crawledAt": "2026-09-12T13:07:52.220Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2629,8 +2617,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-7953b2006541",
@@ -2664,7 +2651,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9230/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:40.125Z",
+      "crawledAt": "2026-09-12T13:07:51.473Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2774,7 +2761,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9231/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:39.313Z",
+      "crawledAt": "2026-09-12T13:07:50.727Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2831,8 +2818,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-06d7cab87f11",
@@ -2866,7 +2852,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6267/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:38.491Z",
+      "crawledAt": "2026-09-12T13:07:49.943Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2944,7 +2930,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8613/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:53:37.669Z",
+      "crawledAt": "2026-09-12T13:07:49.120Z",
       "addressLocality": "Italy (San Giorgio Monferrato)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3007,7 +2993,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8748/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:53:36.826Z",
+      "crawledAt": "2026-09-12T13:07:48.315Z",
       "addressLocality": "Italy (San Giorgio Monferrato)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3023,6 +3009,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Engineering",
+      "previousSlugs": [
+        "auxiliary-system-engineer-bobst-italy-san-giorgio-monferrato"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "auxiliary-system-engineer-bobst-italy-san-giorgio-monferrato"
+        ]
+      },
       "firstSeenAt": "2026-09-03T23:26:40.228Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -3037,15 +3031,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-5d45230d402d",
       "slug": "hardware-pneumatic-engineer-bobst-ch",
       "slugByLocale": {
         "it": "hardware-pneumatic-engineer-bobst-ch",
-        "en": "hardare-bobst-italy-san-giorgio-monferrato",
+        "en": "hardware-pneumatic-engineer-bobst-italy-san-giorgio-monferrato",
         "de": "hardware-pneumatic-ingenieur-bobst-italy-san-giorgio-monferrato",
         "fr": "hardware-pneumatic-ingenieur-bobst-italy-san-giorgio-monferrato"
       },
@@ -3055,7 +3048,7 @@
       "title": "Hardware & Pneumatic Engineer",
       "titleByLocale": {
         "it": "Hardware & Pneumatic Ingegnere",
-        "en": "Hardare",
+        "en": "Hardware and Pneumatic Engineer",
         "de": "Hardware & Pneumatic Ingenieur",
         "fr": "Hardware & Pneumatic Ingénieur"
       },
@@ -3071,7 +3064,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8798/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:53:35.985Z",
+      "crawledAt": "2026-09-12T13:07:47.533Z",
       "addressLocality": "Italy (San Giorgio Monferrato)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3087,6 +3080,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Engineering",
+      "previousSlugs": [
+        "hardare-bobst-italy-san-giorgio-monferrato"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "hardare-bobst-italy-san-giorgio-monferrato"
+        ]
+      },
       "firstSeenAt": "2026-09-03T23:26:39.344Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -3101,8 +3102,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-acce54a576d2",
@@ -3130,13 +3130,13 @@
         "de": "Group Purchasing Analyst BES - Bobst Iberica S.L. Bewerben Sie sich jetzt Der Group Purchasing Analyst fördert die Kohärenz der Einkaufsdaten durch Zusammenarbeit, Prozesse und intelligente Datenausführung. Sie/Er unterstützt Einkaufsaktivitäten am zugewiesenen Perimeter und Gatekeeper zum Einkauf von Daten Sauberkeit Key Responsibles Act als Fachexpertin für Einkaufssysteme und Einkauf von Daten\n\nGewährleistung der Genauigkeit der SAP-Daten, Koordinierung der Datenbereinigung und -aktualisierung\n\nHandeln Sie als Einstiegspunkt für P2P-Fragen und / oder Schulungen\n\nArbeiten für die gesamte Einkaufsgemeinschaft (Local, Central)\n\nBereitstellung von internen und Marktanalysen zur Unterstützung der Strategieentwicklung, als Fachexperte für die Ausgabenanalyse\n\nUnterstützung des Einkaufsteams bei administrativen\n• Aufgaben\n\nBehalten Sie den KPI bei operativen Einkaufsaktivitäten\n\nSichere Datenkohärenz im System und Eigentümer wichtiger Einkaufsdaten als Lieferantenstammdaten",
         "fr": "Analyste d'achat de groupe BES - Bobst Iberica S.L. Postuler maintenant L'analyste d'achat de groupe conduit à l'achat de la cohérence des données via la collaboration, les processus d'application et l'exécution de données intelligentes. Il appuie les activités d'achat sur le périmètre assigné et veille à la propreté des données d'achat.\n\nAssurer l'exactitude des données SAP, coordonner le nettoyage et la mise à jour des données\n\nAgir comme point d'entrée pour les questions et/ou la formation P2P\n\nTravailler pour l'ensemble de la communauté d'achats (local, central)\n\nFournir des analyses internes et du marché pour appuyer l'élaboration de la stratégie, agir en tant qu'expert en matière d'analyse des dépenses\n\nSoutenir l'équipe d'achat sur les tâches administratives\n\nTenir les KPI sur les activités d'achat opérationnelles\n\nSécurité de la cohérence des données dans le système et le propriétaire des données clés d'achat en tant que données maîtresses du fournisseur"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Spain (Barcelona)",
       "canton": "VD",
       "url": "https://jobs.bobst.com/Vacancies/9240/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:35.150Z",
+      "crawledAt": "2026-09-12T13:07:46.751Z",
       "addressLocality": "Spain (Barcelona)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3159,10 +3159,10 @@
         "it": [
           "group-purchasing-analyst-bobst-ch"
         ],
-        "fr": [
+        "de": [
           "group-purchasing-analyst-bobst-ch"
         ],
-        "de": [
+        "fr": [
           "group-purchasing-analyst-bobst-ch"
         ]
       },
@@ -3208,13 +3208,12 @@
         "de": "Area Sales Manager - Canada BNA - Bobst North America Apply jetzt Bobst sucht außergewöhnliche Talente für unsere kanadischen Kunden zu betreuen und unseren aktuellen Markt zu erweitern Der Area Sales Manager wird voraussichtlich der Experte für das Produktangebot der Gruppe sein. Diese Person wird Anwendungsprobleme mit Kunden, Interessenten und Empfehlungsquellen präsentieren, aufklären und lösen. Der Area Sales Manager demonstriert die Fähigkeit, die Produktionsprozesse des Kunden zu analysieren und Lösungen auf der Grundlage von Produkt- und technischem Wissen anzubieten. Sie müssen die Verkaufsziele erreichen und übertreffen und Vorschläge entwickeln und einreichen. Die Rolle erfordert umfangreiche Reisen innerhalb des Territoriums, um die Produktpalette zu präsentieren und Kunden zu besuchen, um ihre Bedürfnisse zu verstehen. Dieser Job erfordert einen Bachelor-Abschluss oder gleichwertig. Die Bewerber müssen mindestens 5 Jahre Erfahrung im Verkauf von High-End-Produkten in der Wellpappedruck- und -verarbeitungsindustrie haben. Um in dieser Rolle erfolgreich zu sein, verfügen Sie über folgende Kompetenzen: Technical and Process Knowledge Sales Skills Customer Focus fördert Qualitäts- und Value Time Priority Management Computer Skills/Database Management Schließen Sie sich uns an – und wachsen Sie mit uns. BOBST ist ein Ingenieurunternehmen, das zukunftsweisende intelligente Lösungen entwickelt, die die Zukunft der Verpackungswelt gestalten. Bei BOBST machen Sie Einfluss auf globaler Ebene – durch Innovation und fortschrittliche Technologie. Sie wachsen, indem Sie Herausforderungen meistern – in einem Team, das nach Exzellenz strebt. Und Sie genießen die Kultur eines Familienunternehmens, in dem Werte wirklich gelebt werden. Mit den vereinten Kräften von mehr als 6400 Mitarbeitern und Geschäftsaktivitäten in mehr als 50 Ländern sind wir als Innovationsführer in unserer Branche positioniert. Jetzt bewerben Folgen Sie uns",
         "fr": "Gestionnaire des ventes de secteur - Canada BNA - Bobst North America Postulez maintenant Bobst cherche à embaucher des talents exceptionnels pour desservir nos clients canadiens et élargir notre marché actuel Le Gestionnaire des ventes de secteur devrait être l'expert sur l'offre de produits du Groupe. Cette personne présentera, éduquera et réglera les problèmes d'application avec les clients, les perspectives et les sources de référence. Le responsable des ventes de secteur démontrera la capacité d'analyser les processus de production des clients et de fournir des solutions basées sur les connaissances techniques et des produits. Ils devront atteindre et dépasser les objectifs de vente et élaborer et soumettre des propositions. Le rôle exige des voyages importants sur le territoire pour présenter la gamme de produits et pour visiter les clients afin de comprendre leurs besoins. Ce poste nécessite un diplôme de premier cycle ou l'équivalent. Les candidats doivent avoir au moins 5 ans d'expérience commerciale liée à la vente de produits haut de gamme dans l'industrie de l'impression et de la conversion ondulées Pour réussir dans ce rôle, vous aurez les compétences suivantes : Connaissances techniques et de processus Compétences en vente Focus client Promotion de la qualité et de la valeur Gestion du temps prioritaire Compétences informatiques / Gestion de la base de données Rejoignez-nous – et développez avec nous. BOBST est une entreprise d'ingénierie, pionnier de solutions intelligentes qui façonnent l'avenir du monde de l'emballage. Chez BOBST, vous faites un impact à l'échelle mondiale – par l'innovation et la technologie de pointe. Vous grandissez en maîtrisant les défis – dans une équipe qui s'efforce d'atteindre l'excellence. Et vous appréciez une culture d'entreprise familiale, où les valeurs sont réellement vécues. Avec les forces combinées de plus de 6400 personnes et des activités commerciales dans plus de 50 pays, nous sommes le leader de l'innovation dans notre industrie. Postuler Suivez-nous"
       },
-      "needsRetranslation": true,
       "location": "USA (Parsippany)",
       "canton": "VD",
       "url": "https://jobs.bobst.com/Vacancies/9247/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:53:34.355Z",
+      "crawledAt": "2026-09-12T13:07:46.011Z",
       "addressLocality": "USA (Parsippany)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3230,6 +3229,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Sales",
+      "previousSlugs": [
+        "area-sales-manager-canada-bobst-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "area-sales-manager-canada-bobst-ch"
+        ]
+      },
       "firstSeenAt": "2026-09-08T13:51:12.137Z",
       "salaryMin": 101500,
       "salaryMax": 156000,
@@ -3244,15 +3251,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "previousSlugsByLocale": {
-        "it": [
-          "area-sales-manager-canada-bobst-ch"
-        ]
-      },
-      "previousSlugs": [
-        "area-sales-manager-canada-bobst-ch"
-      ]
+      "addressRegion": "VD"
     },
     {
       "id": "bobst-54b2a93e6104",
@@ -3286,7 +3285,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9224/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T13:53:33.550Z",
+      "crawledAt": "2026-09-12T13:07:45.255Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3358,13 +3357,12 @@
         "de": "Qualitätssicherung Ingenieur BSG - Bobst Italia Bewerben Sie sich jetzt bei uns – und wachsen Sie mit uns. „BOBST ist ein Ingenieurunternehmen, das zukunftsweisende intelligente Lösungen entwickelt, die die Zukunft der Verpackungswelt gestalten. Bei BOBST machen Sie Einfluss auf globaler Ebene – durch Innovation und fortschrittliche Technologie. Sie wachsen, indem Sie Herausforderungen meistern - in einem Team, das für Exzellenz lehrt. Und Sie genießen die Kultur eines Familienunternehmens, in dem Werte wirklich gelebt werden. Mit den vereinten Kräften von mehr als 6400 Mitarbeitern und Geschäftsaktivitäten in mehr als 50 Ländern sind wir als Innovationsführer in unserer Branche positioniert. Für unsere Website von San Giorgio Monferrato (AL) suchen wir einen Qualitätssicherungsingenieur, der für die Qualitätssicherung der gesamten Lebensdauer des Produkts vom Design bis zur Akzeptanz beim Kunden verantwortlich ist. Es wird sicherstellen, dass die angebotenen Produkte und Komponenten/Dienstleistungen der Standardprodukt- und Prozessqualität entsprechen. Er wird mit Teamservice, R&D, Produktion und Lieferanten zusammenarbeiten, um die Leistung während der gesamten Lebensdauer des Produkts kontinuierlich zu überwachen, zu bewerten und zu verbessern. Hauptaktivitäten: Bewertung und Qualifizierung neuer Fertigungsprozesse vom Design bis zur Produktion und Lieferung an den Kunden.\n\nDefinieren Sie das jährliche Programm der internen Audits mit dem Ziel, eine Qualität der Komponente / Dienstleistungen / Prozess während der gesamten Lebensdauer des Produkts zu gewährleisten.\n\nVerwaltung interner und externer Verstöße.\n\nDefinieren und aktualisieren Sie Qualitäts- und/oder Kontroll- und/oder Inspektionspläne entsprechend dem Risikoniveau des jeweiligen Produkts.\n\nUnterstützen Sie das Entwicklungs- und Industrialisierungsteam für die richtige Qualität während der Industrialisierung und / oder Produktentwicklung.\n\nFörderer und Koordinator von Initiativen zur kontinuierlichen Verbesserung der Herstellungs- und Kontrollprozesse, intern und mit Lieferanten.\n\nISO 9001 und/oder IATF16949 oder ähnliche Kenntnisse und verwandte verfahrenstechnische Aspekte.\n\nKenntnis und direkte Erfahrung der wichtigsten Qualitätsmethoden.",
         "fr": "Ingénieur d'assurance qualité BSG - Bobst Italia Postulez maintenant Rejoignez-nous – et grandissez avec nous. \"BOBST est une société d'ingénierie, pionnier des solutions intelligentes qui façonnent l'avenir du monde de l'emballage. Chez BOBST, vous faites un impact à l'échelle mondiale – par l'innovation et la technologie de pointe. Vous grandissez en maîtrisant les défis – dans une équipe qui enseigne l'excellence. Et vous aimez une culture d'entreprise familiale, où les valeurs sont réellement vécues. Avec les forces combinées de plus de 6400 personnes et des activités commerciales dans plus de 50 pays, nous sommes positionnés comme le leader de l'innovation dans notre industrie». Pour notre site web de San Giorgio Monferrato (AL), nous recherchons un ingénieur de l'assurance qualité qui sera responsable de l'assurance qualité de toute la vie du produit, de la conception à l'acceptation auprès du client. Il veillera à ce que les produits et composants/services fournis soient conformes à la qualité standard du produit et du procédé. Il s'associera au service d'équipe, à la R-D, à la production et aux fournisseurs pour surveiller, évaluer et améliorer continuellement le rendement tout au long de la vie du produit. Activités principales : Évaluer et qualifier les nouveaux procédés de fabrication de la conception à la production et à la livraison au client.\n\nDéfinir le programme annuel d'audits internes dans le but d'assurer la qualité du composant, des services et du processus pendant toute la durée de vie du produit.\n\nGérer les non-conformités internes et externes.\n\nDéfinir et mettre à jour des plans de qualité et/ou de contrôle et/ou d'inspection en fonction du niveau de risque du produit en question.\n\nSoutenir l'équipe de développement et d'industrialisation pour la qualité correcte pendant l'industrialisation et/ou le développement de produits.\n\nPromouvoir et coordonner les initiatives d'amélioration continue des procédés de fabrication et de contrôle, internes et avec les fournisseurs.\n\nISO 9001 et/ou IATF16949 ou connaissances similaires et aspects procéduraux connexes.\n\nConnaissance et expérience directe des principales méthodologies de qualité."
       },
-      "needsRetranslation": true,
       "location": "Italy (San Giorgio Monferrato)",
       "canton": "VD",
       "url": "https://jobs.bobst.com/Vacancies/7731/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:53:32.719Z",
+      "crawledAt": "2026-09-12T13:07:44.426Z",
       "addressLocality": "Italy (San Giorgio Monferrato)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3427,7 +3425,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6722/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-11T13:53:31.854Z",
+      "crawledAt": "2026-09-12T13:07:43.639Z",
       "addressLocality": "Italy (San Giorgio Monferrato)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3495,81 +3493,84 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
-      "id": "bobst-82f75cd8c8a7",
-      "slug": "tecnico-di-servizio-in-campo-field-service-technician-100-meccanico-bobst-switzerland-grenchen",
+      "id": "bobst-06929a5d0973",
+      "slug": "area-sales-manager-imballaggi-flessibili-bobst-mexico-mexico-city",
       "slugByLocale": {
-        "it": "tecnico-di-servizio-in-campo-field-service-technician-100-meccanico-bobst-switzerland-grenchen",
-        "en": "field-services-technician-mechanisch-100-bobst-switzerland-grenchen",
-        "de": "servicetechniker-im-aussendienst-field-service-technician-100-mechanisch-bobst-ch",
-        "fr": "technicien-de-service-sur-site-field-service-technician-100-mecanique-bobst-switzerland-grenchen"
+        "it": "area-sales-manager-imballaggi-flessibili-bobst-mexico-mexico-city",
+        "en": "area-sales-manager-flexible-packaging-bobst-ch",
+        "de": "area-sales-manager-flexible-verpackungen-bobst-mexico-mexico-city",
+        "fr": "gestionnaire-des-ventes-emballage-flexible-bobst-mexico-mexico-city"
       },
       "company": "Bobst",
       "companyKey": "bobst",
       "companyDomain": "bobst.com",
-      "title": "Field Services Technician - mechanisch 100%",
+      "title": "Area Sales Manager - Flexible Packaging",
       "titleByLocale": {
-        "it": "Servizi sul campo Tecnico - meccanico 100%",
-        "en": "Field Services Technician - mechanisch 100%",
-        "de": "Field Services Techniker - mechanisch 100%",
-        "fr": "Technicien des services sur le terrain - mécanique 100%"
+        "it": "Area Sales Manager - Imballaggi flessibili",
+        "en": "Area Sales Manager - Flexible Packaging",
+        "de": "Area Sales Manager - Flexible Verpackungen",
+        "fr": "Gestionnaire des ventes - Emballage flexible"
       },
-      "description": "Ihr Browser kann leider keine eingebetteten Frames anzeigen",
+      "description": "Area Sales Manager - Flexible Packaging BLN - Bobst Latino America Norte SA de CV Apply now Bobst is on the search for outstanding talent to enhance our customer service and grow our market share in the Bobst North Latam. If you are driven by innovation and excel in a dynamic sales environment, we want to hear from you!\n• Product Expertise: Become the go-to expert on Bobst’s flexible packaging solutions, showcasing our product range to both current and prospective customers.\n• Customer Interaction: Actively engage with customers and referral sources to address application challenges, provide technical support, and deliver solutions.\n• Sales Performance: Achieve and surpass sales targets, consistently driving revenue growth within the assigned territory.\n• Proposal Development: Craft and present tailored proposals that meet customer needs and drive business opportunities.\n• Territory Management: Conduct extensive travel within the respective region to build and maintain customer relationships, understand their needs, and present product offerings. As an Area Sales Manager at Bobst, you will be the cornerstone between our cutting-edge product offerings and the diverse needs of our clients in the flexible packaging sector. Your primary role will be to represent and educate on our products, solve application issues, and provide tailored solutions that align with customer requirements. You will leverage your expertise to analyze customer production processes and exceed sales objectives by developing and submitting compelling proposals.\n• An undergraduate degree or equivalent.\n• A minimum of 5 years of sales experience within the flexible packaging sector or related industries.\n• Proven track in related field.\n• Technical and Process Knowledge: In-depth understanding of flexible packaging products and production processes.\n• Customer Focus Mindset: Strong commitment to meeting customer needs and enhancing their satisfaction.\n• Promotes Quality and Value: Ability to convey the quality and value of our solutions effectively.\n• Time Priority Management: Excellent organizational skills with the ability to manage multiple priorities and deadlines.\n• Computer Skills/Database Management: Proficiency Spanish: Native or Professional Working Proficiency\n\nEnglish: Advanced or Professional Working Proficiency\n\nEducation: Bachelor's Degree in a related field",
       "descriptionByLocale": {
-        "de": "Ihr Browser kann leider keine eingebetteten Frames anzeigen"
+        "it": "Area Sales Manager - Flessibile Packaging BLN - Bobst Latino America Norte SA de CV Applicare ora Bobst è alla ricerca di un talento eccezionale per migliorare il nostro servizio clienti e aumentare la nostra quota di mercato nel Latam di Bobst North. Se siete guidati dall'innovazione e eccellete in un ambiente di vendita dinamico, vogliamo sentire da voi!\n• Competenza del prodotto: Diventa l'esperto di packaging flessibile di Bobst, mostrando la nostra gamma di prodotti sia ai clienti attuali che potenziali.\n• Interazione del cliente: impegnarsi attivamente con i clienti e fonti di riferimento per affrontare le sfide delle applicazioni, fornire supporto tecnico e fornire soluzioni.\n• Prestazioni di vendita: raggiungere e superare gli obiettivi di vendita, guidando costantemente la crescita dei ricavi all'interno del territorio assegnato.\n• Sviluppo della proposta: Artigianato e presentare proposte su misura che soddisfano le esigenze dei clienti e alle opportunità di business.\n• Territory Management: Condurre un ampio viaggio all'interno della rispettiva regione per costruire e mantenere i rapporti con i clienti, comprendere le loro esigenze e presentare offerte di prodotto. Come Area Sales Manager di Bobst, sarai la pietra angolare tra le nostre offerte di prodotti all'avanguardia e le diverse esigenze dei nostri clienti nel settore dell'imballaggio flessibile. Il vostro ruolo primario sarà quello di rappresentare ed educare sui nostri prodotti, risolvere i problemi di applicazione e fornire soluzioni su misura che allineano con i requisiti del cliente. Leverai le tue competenze per analizzare i processi di produzione dei clienti e superare gli obiettivi di vendita sviluppando e presentando proposte convincenti.\n• Una laurea o equivalente.\n• Un minimo di 5 anni di esperienza di vendita all'interno del settore dell'imballaggio flessibile o delle industrie connesse.\n• Provato traccia in campo correlato.\n• Conoscenza tecnica e dei processi: comprensione approfondita dei prodotti di imballaggio flessibili e dei processi produttivi.\n• Customer Focus Mindset: forte impegno per soddisfare le esigenze dei clienti e migliorare la loro soddisfazione.\n• Promuove la qualità e il valore: Capacità di trasmettere efficacemente la qualità e il valore delle nostre soluzioni.\n• Time Priority Management: eccellenti capacità organizzative con la capacità di gestire più priorità e scadenze.\n• Gestione delle competenze informatiche/Database: spagnolo di competenza: competenza professionale o professionale\n\nInglese: Avanzato o Professionale\n\nIstruzione: Laurea in un campo relativo",
+        "en": "Area Sales Manager - Flexible Packaging BLN - Bobst Latino America Norte SA de CV Apply now Bobst is on the search for outstanding talent to enhance our customer service and grow our market share in the Bobst North Latam. If you are driven by innovation and excel in a dynamic sales environment, we want to hear from you!\n• Product Expertise: Become the go-to expert on Bobst’s flexible packaging solutions, showcasing our product range to both current and prospective customers.\n• Customer Interaction: Actively engage with customers and referral sources to address application challenges, provide technical support, and deliver solutions.\n• Sales Performance: Achieve and surpass sales targets, consistently driving revenue growth within the assigned territory.\n• Proposal Development: Craft and present tailored proposals that meet customer needs and drive business opportunities.\n• Territory Management: Conduct extensive travel within the respective region to build and maintain customer relationships, understand their needs, and present product offerings. As an Area Sales Manager at Bobst, you will be the cornerstone between our cutting-edge product offerings and the diverse needs of our clients in the flexible packaging sector. Your primary role will be to represent and educate on our products, solve application issues, and provide tailored solutions that align with customer requirements. You will leverage your expertise to analyze customer production processes and exceed sales objectives by developing and submitting compelling proposals.\n• An undergraduate degree or equivalent.\n• A minimum of 5 years of sales experience within the flexible packaging sector or related industries.\n• Proven track in related field.\n• Technical and Process Knowledge: In-depth understanding of flexible packaging products and production processes.\n• Customer Focus Mindset: Strong commitment to meeting customer needs and enhancing their satisfaction.\n• Promotes Quality and Value: Ability to convey the quality and value of our solutions effectively.\n• Time Priority Management: Excellent organizational skills with the ability to manage multiple priorities and deadlines.\n• Computer Skills/Database Management: Proficiency Spanish: Native or Professional Working Proficiency\n\nEnglish: Advanced or Professional Working Proficiency\n\nEducation: Bachelor's Degree in a related field",
+        "de": "Area Sales Manager - Flexible Packaging BLN - Bobst Latino America Norte SA de CV Jetzt bewerben Bobst ist auf der Suche nach herausragenden Talenten, um unseren Kundenservice zu verbessern und unseren Marktanteil im Bobst North Latam zu erhöhen. Wenn Sie von Innovationen angetrieben sind und sich in einem dynamischen Verkaufsumfeld auszeichnen, möchten wir von Ihnen hören!\n• Produktkompetenz: Werden Sie zum Experten für die flexiblen Verpackungslösungen von Bobst und präsentieren Sie unsere Produktpalette sowohl aktuellen als auch potenziellen Kunden.\n• Kundeninteraktion: Aktive Interaktion mit Kunden und Empfehlungsquellen, um Anwendungsherausforderungen anzugehen, technischen Support bereitzustellen und Lösungen zu liefern.\n• Umsatzleistung: Erreichen und Übertreffen der Umsatzziele und stetiges Umsatzwachstum innerhalb des zugewiesenen Gebiets.\n• Vorschlagsentwicklung: Erstellen und Präsentieren Sie maßgeschneiderte Vorschläge, die den Kundenbedürfnissen entsprechen und Geschäftsmöglichkeiten fördern.\n• Territory Management: Führen Sie umfangreiche Reisen innerhalb der jeweiligen Region durch, um Kundenbeziehungen aufzubauen und zu pflegen, ihre Bedürfnisse zu verstehen und Produktangebote zu präsentieren. Als Area Sales Manager bei Bobst sind Sie der Eckpfeiler zwischen unseren innovativen Produktangeboten und den vielfältigen Bedürfnissen unserer Kunden im Bereich flexible Verpackungen. Ihre Hauptaufgabe besteht darin, unsere Produkte zu vertreten und zu informieren, Anwendungsprobleme zu lösen und maßgeschneiderte Lösungen anzubieten, die den Kundenanforderungen entsprechen. Sie werden Ihr Fachwissen nutzen, um die Produktionsprozesse der Kunden zu analysieren und die Verkaufsziele zu übertreffen, indem Sie überzeugende Vorschläge entwickeln und einreichen.\n• Ein Bachelor-Abschluss oder gleichwertig.\n• Mindestens 5 Jahre Verkaufserfahrung in der flexiblen Verpackungsbranche oder verwandten Branchen.\n• Bewährte Spur in verwandtem Bereich.\n• Technisches und Prozesswissen: Tiefes Verständnis von flexiblen Verpackungsprodukten und Produktionsprozessen.\n• Customer Focus Mindset: Starkes Engagement für die Erfüllung der Kundenbedürfnisse und die Steigerung ihrer Zufriedenheit.\n• Förderung von Qualität und Wert: Fähigkeit, die Qualität und den Wert unserer Lösungen effektiv zu vermitteln.\n• Zeitprioritätsmanagement: Hervorragende organisatorische Fähigkeiten mit der Fähigkeit, mehrere Prioritäten und Fristen zu verwalten.\n• Computer Skills/Database Management: Proficiency Spanisch: Native oder Professional Working Proficiency\n\nEnglisch: Advanced oder Professional Working Proficiency\n\nAusbildung: Bachelor-Abschluss in einem verwandten Bereich",
+        "fr": "Area Sales Manager - Flexible Packaging BLN - Bobst Latino America Norte SA de CV Postulez Bobst est à la recherche de talents exceptionnels pour améliorer notre service à la clientèle et augmenter notre part de marché dans le Latam du Nord de Bobst. Si vous êtes animé par l'innovation et excellez dans un environnement de vente dynamique, nous voulons vous entendre !\n• Expertise du produit: Devenez expert sur les solutions d'emballage flexibles de Bobst, mettant en valeur notre gamme de produits pour les clients actuels et potentiels.\n• Interaction avec les clients : Interagir activement avec les clients et les sources de référence pour relever les défis de l'application, fournir un soutien technique et fournir des solutions.\n• Performance des ventes : Atteindre et dépasser les objectifs des ventes, ce qui entraîne systématiquement une croissance des revenus sur le territoire assigné.\n• Élaboration de propositions : Craft et présente des propositions sur mesure qui répondent aux besoins des clients et stimulent les occasions d'affaires.\n• Gestion du territoire : Effectuer des déplacements importants dans la région respective pour établir et maintenir des relations avec la clientèle, comprendre leurs besoins et présenter des offres de produits. En tant que responsable commercial régional chez Bobst, vous serez la pierre angulaire entre nos offres de produits de pointe et les différents besoins de nos clients dans le secteur de l'emballage flexible. Votre rôle principal sera de représenter et d'éduquer nos produits, de résoudre les problèmes d'application et de fournir des solutions adaptées aux besoins des clients. Vous tirerez parti de votre expertise pour analyser les processus de production des clients et dépasser les objectifs de vente en élaborant et en soumettant des propositions convaincantes.\n• Diplôme de premier cycle ou équivalent.\n• Un minimum de 5 ans d'expérience de vente dans le secteur de l'emballage flexible ou les industries connexes.\n• Voie éprouvée dans le domaine connexe.\n• Connaissances techniques et des procédés : Compréhension approfondie des produits d'emballage et des procédés de production flexibles.\n• Focus client Mindset: Un engagement fort pour répondre aux besoins des clients et améliorer leur satisfaction.\n• Promotion de la qualité et de la valeur : Capacité de transmettre efficacement la qualité et la valeur de nos solutions.\n• Gestion des priorités de temps : Excellentes compétences organisationnelles avec la capacité de gérer plusieurs priorités et échéances.\n• Compétences en informatique/gestion des bases de données: Compétences en espagnol: Compétences en travail natives ou professionnelles\n\nAnglais: Compétence professionnelle supérieure\n\nÉducation: Licence dans un domaine connexe"
       },
-      "needsRetranslation": true,
-      "location": "Switzerland (Grenchen)",
-      "canton": "SO",
-      "url": "https://jobs.bobst.com/Vacancies/4667/Description/1",
+      "location": "Mexico (Mexico city)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9218/Description/2",
       "source": "Bobst Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:18:35.196Z",
-      "addressLocality": "Switzerland (Grenchen)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-12T13:07:42.824Z",
+      "addressLocality": "Mexico (Mexico city)",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Tecnica",
+      "category": "Commerciale",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "21.05.2026",
-      "applyUrl": "https://jobs.bobst.com/Vacancies/4667/Description/1",
+      "postedDate": "11.09.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9218/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "department": "Customer Service",
+      "department": "Sales",
+      "previousSlugs": [
+        "area-sales-manager-flexible-packaging-bobst-ch"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "field-services-technician-mechanisch-100-bobst-ch"
-        ],
         "it": [
-          "field-services-technician-mechanisch-100-bobst-ch"
+          "area-sales-manager-flexible-packaging-bobst-ch"
+        ],
+        "fr": [
+          "area-sales-manager-flexible-packaging-bobst-ch"
+        ],
+        "de": [
+          "area-sales-manager-flexible-packaging-bobst-ch"
         ]
       },
-      "previousSlugs": [
-        "field-services-technician-mechanisch-100-bobst-ch"
-      ],
-      "firstSeenAt": "2026-09-08T13:51:38.504Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
+      "firstSeenAt": "2026-09-11T23:22:05.515Z",
+      "salaryMin": 101500,
+      "salaryMax": 156000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
+          "minValue": 101500,
+          "maxValue": 156000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO",
-      "crawlerMissStreak": 2
+      "addressRegion": "VD"
     }
   ]
 }

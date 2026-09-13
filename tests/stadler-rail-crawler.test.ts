@@ -1,13 +1,21 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   STADLER_RAIL_KEY,
   STADLER_RAIL_COMPANY_NAME,
+  fetchAllStadlerRailJobs,
   isStadlerRailJob,
   isTrustedDomain,
 } from '../scripts/lib/stadler-rail-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { __resetJinaBreaker } from '../scripts/lib/jina-proxy.mjs';
 
 describe('Stadler Rail crawler parser', () => {
+  afterEach(() => {
+    __resetJinaBreaker();
+    vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(STADLER_RAIL_KEY).toBe('stadler-rail');
@@ -78,6 +86,35 @@ describe('Stadler Rail crawler parser', () => {
       const long = 'a'.repeat(200);
       expect(slugify(long).length).toBeLessThanOrEqual(90);
     });
+  });
+
+  it('uses the shared Jina fallback when the origin TLS connection fails', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubEnv('JOBS_JINA_RETRIES', '0');
+    vi.stubEnv('JOBS_JINA_RETRY_BASE_MS', '0');
+    vi.stubEnv('JOBS_JINA_BREAKER_THRESHOLD', '0');
+    vi.stubEnv('JOBS_CRAWLER_TIMEOUT_MS', '100');
+
+    const fixture = '<a class="jobTitle-link" href="/job/Bussnang-Test-Position-TG-T-9565/123456789/">Test Position</a>'
+      + `<p>${'Test description '.repeat(30)}</p>`;
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      if (String(input).startsWith('https://r.jina.ai/')) {
+        return new Response(fixture, { status: 200 });
+      }
+      const error = new TypeError('fetch failed');
+      error.cause = { code: 'CERT_HAS_EXPIRED' };
+      throw error;
+    }));
+
+    await expect(fetchAllStadlerRailJobs()).resolves.toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          title: 'Test Position',
+          url: 'https://careers.stadlerrail.com/job/Bussnang-Test-Position-TG-T-9565/123456789/',
+        }),
+      ]),
+    );
   });
 
   // ── Job Shape Validation ──

@@ -45,6 +45,13 @@ afterEach(() => {
 });
 
 describe('cascade company artifact', () => {
+  it('flushes outside the normal tail and uses the compensated run clock', () => {
+    const runtime = fs.readFileSync(path.join(root, 'scripts/relocalize-pending-jobs.mjs'), 'utf8');
+    expect(runtime).toMatch(/finally \{\s+if \(thinkingAb\) \{\s+flushThinkingArtifacts\(\);/);
+    expect(runtime).toContain('new Date(LEGACY_CLOCK.now()).toISOString()');
+    expect(runtime).toContain("process.once('SIGTERM', onTermination)");
+  });
+
   it('publishes the in-progress phase before the first crawler call', () => {
     const runtime = fs.readFileSync(path.join(root, 'scripts/relocalize-pending-jobs.mjs'), 'utf8');
     const active = runtime.indexOf('phase.stopReason = window.stopReason;');
@@ -107,49 +114,54 @@ describe('cascade company artifact', () => {
       descriptionByLocale: {},
     }];
 
-    const originalExistsSync = fs.existsSync.bind(fs);
-    const originalReadFileSync = fs.readFileSync.bind(fs);
-    const originalWriteFileSync = fs.writeFileSync.bind(fs);
-    const originalRenameSync = fs.renameSync.bind(fs);
-    const originalUnlinkSync = fs.unlinkSync.bind(fs);
+    vi.resetModules();
+    const runtimeFs = (await import('node:fs')).default;
+    const originalExistsSync = runtimeFs.existsSync.bind(runtimeFs);
+    const originalReadFileSync = runtimeFs.readFileSync.bind(runtimeFs);
+    const originalWriteFileSync = runtimeFs.writeFileSync.bind(runtimeFs);
+    const originalRenameSync = runtimeFs.renameSync.bind(runtimeFs);
+    const originalUnlinkSync = runtimeFs.unlinkSync.bind(runtimeFs);
     const isDataPath = (file: fs.PathLike) => {
       const filePath = path.resolve(String(file));
       return filePath === dataRoot || filePath.startsWith(`${dataRoot}${path.sep}`);
     };
-    vi.spyOn(fs, 'existsSync').mockImplementation((file) => {
+    vi.spyOn(runtimeFs, 'existsSync').mockImplementation((file) => {
       const filePath = String(file);
       if (filePath === dataJobsPath) return true;
       if (filePath === byCrawlerPath) return false;
       return originalExistsSync(file);
     });
-    vi.spyOn(fs, 'readFileSync').mockImplementation((file, options) => {
+    vi.spyOn(runtimeFs, 'readFileSync').mockImplementation((file, options) => {
       const filePath = String(file);
       if (filePath === dataJobsPath) return JSON.stringify(jobs) as never;
       if (filePath === popularityPath) return '{}' as never;
       if (filePath === companySkipStatePath) return '{"run":0,"companies":{}}' as never;
       return originalReadFileSync(file, options) as never;
     });
-    vi.spyOn(fs, 'writeFileSync').mockImplementation((file, data, options) => {
+    vi.spyOn(runtimeFs, 'writeFileSync').mockImplementation((file, data, options) => {
       if (String(file).startsWith(`${companySkipStatePath}.`)) return;
       if (isDataPath(file)) throw new Error(`unexpected data write: ${String(file)}`);
       return originalWriteFileSync(file, data, options);
     });
-    vi.spyOn(fs, 'renameSync').mockImplementation((from, to) => {
+    vi.spyOn(runtimeFs, 'renameSync').mockImplementation((from, to) => {
       if (String(from).startsWith(`${companySkipStatePath}.`) && String(to) === companySkipStatePath) return;
       if (isDataPath(from) || isDataPath(to)) throw new Error(`unexpected data rename: ${String(from)} -> ${String(to)}`);
       return originalRenameSync(from, to);
     });
-    vi.spyOn(fs, 'unlinkSync').mockImplementation((file) => {
+    vi.spyOn(runtimeFs, 'unlinkSync').mockImplementation((file) => {
       if (String(file).startsWith(`${companySkipStatePath}.`)) return;
       if (isDataPath(file)) throw new Error(`unexpected data unlink: ${String(file)}`);
       return originalUnlinkSync(file);
     });
 
+    const guardProbe = path.join(dataRoot, '__relocalize-data-guard-probe__', 'write.json');
+    expect(() => runtimeFs.writeFileSync(guardProbe, '')).toThrow(
+      `unexpected data write: ${guardProbe}`,
+    );
     crawler.runSharedCrawlerPipeline.mockImplementation(async () => {
       crawlerCompanyKeys = process.env.JOBS_CRAWLER_COMPANY_KEYS || '';
       throw new Error('first company failure');
     });
-    vi.resetModules();
     const { runRelocalization } = await import('../scripts/relocalize-pending-jobs.mjs');
     const phase = {
       name: 'cascade',
@@ -167,11 +179,13 @@ describe('cascade company artifact', () => {
     expect(crawler.runSharedCrawlerPipeline).toHaveBeenCalledTimes(1);
     expect(crawlerCompanyKeys).toBe('first-company');
     const artifactPath = path.join(runnerTemp, 'translation-cascade-companies.json');
-    expect(fs.existsSync(artifactPath)).toBe(true);
-    const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8'));
+    expect(runtimeFs.existsSync(artifactPath)).toBe(true);
+    const artifact = JSON.parse(runtimeFs.readFileSync(artifactPath, 'utf8'));
     expect(artifact.rows).toEqual([]);
     expect(artifact.cascadeStop).toBe('company failure');
     expect(artifact.companiesQueued).toBe(1);
     expect(artifact.companiesProcessed).toBe(0);
+    expect(artifact.companiesFailed).toBe(1);
+    expect(artifact.generatedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
   });
 });

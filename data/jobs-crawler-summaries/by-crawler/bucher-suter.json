@@ -1,21 +1,21 @@
 {
   "key": "bucher-suter",
   "label": "Bucher + Suter AG",
-  "generatedAt": "2026-09-11T13:50:11.507Z",
-  "total": 2,
+  "generatedAt": "2026-09-12T13:08:27.837Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6873,
-  "avgDurationMs": 6873,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5557,
+  "avgDurationMs": 5557,
   "durationHistory": [
-    6873
+    5557
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://www.bucher-suter.com/jobs/salesforce-business-consultant-agentforce-contact-center-service-cloud-ch/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:50:04.545Z",
+      "crawledAt": "2026-09-12T13:08:22.169Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -58,8 +58,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "bucher-suter-e0ead8bbd6a9",
       "slug": "capo-squadra-operations-people-process-business-applications-bucher-suter-ag-bern",
@@ -92,7 +91,7 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -101,5 +100,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

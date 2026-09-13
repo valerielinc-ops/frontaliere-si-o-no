@@ -48,8 +48,9 @@ on:
 # ogni run avrebbe invece una chiave propria.
 #
 # A limitare la parallelizzazione torna a essere un numero tarabile da un umano:
-# `FOLLOWUP_MAX_INFLIGHT_FIX` in `scripts/ci/followup-drainer.mjs` (default 1),
-# che conta le run in volo e promuove al massimo N. Il drainer clampa quel numero
+# `FOLLOWUP_MAX_INFLIGHT_FIX` in `scripts/ci/followup-drainer.mjs` (default 5),
+# cap misurato come stabile dalla flotta locale e bounded anche per il pool remoto.
+# Il drainer conta le run in volo e promuove al massimo N. Il drainer clampa quel numero
 # a `fixQueueDepth()`, che legge il `group:` qui sotto: finché la chiave è
 # per-issue il clamp non morde, e se qualcuno la rende di nuovo costante il cap
 # torna automaticamente a 1 invece di ricreare gli sfratti.
@@ -69,6 +70,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: read
   pull-requests: write
   issues: write
   id-token: write
@@ -318,14 +320,15 @@ jobs:
       - name: Pre-flight — in-progress claim gate (zero-Claude, mutex)
         id: claim
         if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
-        # PROCEED-SAFE, same contract as `preflight`/`scope_guard` above: the script is
-        # total (catches its own throws → emits in_flight=false), continue-on-error is
-        # belt-and-suspenders so an infra fault never strands the issue.
-        continue-on-error: true
+        # FAIL-CLOSED: the script emits `in_flight=true` on a GitHub/API/parse
+        # fault. A runner failure is also allowed to fail this job rather than
+        # letting an unreadable mutex reach the fixer.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CLAIM_ACTION: acquire
+          CLAIM_OWNER: remote
         # STRUCTURAL fix per #4788/#4793: due sessioni (una interattiva locale, una questo
         # fixer autonomo) hanno lavorato la STESSA issue in parallelo → due PR competitive,
         # merge in conflitto. L'unica difesa esistente era un controllo prompt-level DENTRO
@@ -598,40 +601,10 @@ jobs:
             echo "max_turns=55" >> "$GITHUB_OUTPUT"
           fi
           echo "Fix tier: $(grep tier= "$GITHUB_OUTPUT" | head -1)"
-          # Aggregate detection (deterministic, da titolo "N item deferred", N>=2).
-          # Il parsing dei singoli item dal body è freeform/fragile → ci basiamo
-          # sul COUNT nel titolo (affidabile) per attivare il circuit-breaker
-          # one-item nel prompt (R3-A): il prompt-only R2-A non sempre teneva
-          # (#1172 error_max_turns post-merge). is_aggregate guida l'istruzione
-          # forte "fixa 1 item poi STOP".
-          # `items?` (not just `item`): il titolo è LLM-generated dal template
-          # FOLLOWUP.md; per N>=2 il fraseggio naturale è il plurale "2 items
-          # deferred". Senza la `s?` opzionale il match fallisce → is_aggregate
-          # falso negativo → circuit-breaker one-item no-op → error_max_turns su
-          # aggregate (#1172-class, ~2M token). Cfr. #1201 item 1.
-          N=$(printf '%s' "$body" | grep -oiE '[0-9]+ items? deferred' | head -1 | grep -oE '^[0-9]+' || true)
-          # Fallback SWEEP/BATCH (2026-06-14): le issue "sweep" multi-target NON
-          # usano il fraseggio "N items deferred" del template FOLLOWUP.md →
-          # is_aggregate=false → circuit-breaker one-item MUTO → il fixer tenta
-          # tutti i target e muore error_max_turns ANCHE a cap 50 (osservato
-          # #1826 "Sweep: ~30 ... crawlers": 7 run bruciati, fu-attempt:2). Una
-          # sweep e' multi-item by-definition: la cura e' decomposizione (fixa 1,
-          # deferisci il resto), non un cap piu' alto. Cattura la keyword
-          # sweep|batch|bulk + un conteggio ~?N di target plurali tipici; senza
-          # conteggio leggibile tratta come aggregate minimo (N=2). I target-noun
-          # sono ancorati (no match su "30 seconds"/"0 jobs" → niente falsi
-          # positivi su issue single, verificato sui titoli reali del backlog).
-          if [ -z "${N:-}" ] && printf '%s' "$body" | grep -qiE '\b(sweep|batch|bulk)\b'; then
-            N=$(printf '%s' "$body" | grep -oiE '~?[0-9]+ +([a-z*-]+ +)?(crawler|file|page|parser|script|adapter|component|endpoint|workflow|job|company|landing)s?' | head -1 | grep -oE '[0-9]+' | head -1 || true)
-            N=${N:-2}
-          fi
-          if [ "${N:-0}" -ge 2 ] 2>/dev/null; then
-            echo "is_aggregate=true" >> "$GITHUB_OUTPUT"
-            echo "agg_count=${N}" >> "$GITHUB_OUTPUT"
-          else
-            echo "is_aggregate=false" >> "$GITHUB_OUTPUT"
-            echo "agg_count=0" >> "$GITHUB_OUTPUT"
-          fi
+          # Aggregate detection belongs to the shared Node predicate. Keeping
+          # it out of this YAML prevents a fourth shell rule from drifting away
+          # from `isAggregate()` and makes API failure fail conservative.
+          node scripts/ci/detect-aggregate.mjs
           # Daily buckets are aggregates even when their current count is 1. The
           # fixer must select exactly the first stable open FU item; it never receives
           # permission to work the whole bucket or to group it with another issue.
@@ -647,7 +620,6 @@ jobs:
           console.log(`daily_key=${info?.dailyKey || ''}`);
           console.log(`selected_item_id=${open?.id || ''}`);
           console.log(`is_aggregate=true`);
-          console.log(`agg_count=${items.length}`);
           NODE
           else
             echo "is_daily_bucket=false" >> "$GITHUB_OUTPUT"
@@ -876,13 +848,25 @@ jobs:
 
       - name: Install deterministic PR body gate
         if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
         run: |
           set -euo pipefail
           gate_dir="$RUNNER_TEMP/pr-body-gate-bin"
           mkdir -p "$gate_dir"
+          status_file="$RUNNER_TEMP/pr-body-gate-status"
+          : > "$status_file"
+          baseline_file="$RUNNER_TEMP/pr-body-gate-existing-prs"
+          : > "$baseline_file"
+          gh pr list --repo "$REPO" --head "fix/issue-$ISSUE" --state all \
+            --json number --jq '.[].number' > "$baseline_file"
           ln -sf "$GITHUB_WORKSPACE/scripts/gh-pr-body-check.mjs" "$gate_dir/gh"
           echo "$gate_dir" >> "$GITHUB_PATH"
           echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
+          echo "PR_BODY_GATE_STATUS_FILE=$status_file" >> "$GITHUB_ENV"
+          echo "PR_BODY_GATE_BASELINE_FILE=$baseline_file" >> "$GITHUB_ENV"
 
       - name: Run Claude fix
         # Tetto sullo step (classe #7310). Il cap del job è 360min e in pratica
@@ -991,7 +975,7 @@ jobs:
 
             **Daily bucket:** se il titolo usa il protocollo daily, lavora SOLO l'item selezionato `${{ steps.tier.outputs.selected_item_id }}` (primo `State: open`); mai `Closes`.
 
-            **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }} (count=${{ steps.tier.outputs.agg_count }}):** se `is_aggregate=true` questa issue ha ${{ steps.tier.outputs.agg_count }} item distinti e tentarli TUTTI in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi (osservato #1095/#1101/#1172). **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI (per una issue *sweep/batch* "item" = UN singolo target/file: es. "~30 crawlers" → fixa 1 crawler, deferisci gli altri 29). Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret (NON abortire l'intera issue), (b) scegli il PRIMO item in-capability a massimo valore funnel, (c) implementa SOLO quello, (d) **appena la PR per quell'unico item è aperta → STOP IMMEDIATO, non iniziare un secondo item** (anche se hai turni residui), (e) elenca tutti gli altri item in `## Non implementato (ancora)`, ognuno con lo STATO LETTERALE del passo 9 (per un item deferito a un ciclo successivo: `blocked: <causa>` se sospeso su una causa esterna, altrimenti `PR concatenata #N` quando il numero esiste). **Due errori di stato che non convergono mai, in direzioni opposte:** un item che hai saltato perché uno stato CHIUDENTE della PR d'origine lo copre va ri-elencato con QUELLO stato (`per scelta` / `by construction` / `blocked: decisione del proprietario`) — riscritto come `blocked: <causa tecnica>` viene riaperto da `followup-has-candidates.mjs` a ogni ciclo, per sempre; e viceversa non dare MAI uno stato chiudente a un item che stai solo rimandando, perché lo toglie dalla coda e il ciclo lo perde. → `post-merge-followup` li ri-accoda come nuova follow-up (re-queue esistente; ogni ciclo chiude ≥1 item → converge). Se `is_aggregate=false`: issue singola, comportamento invariato (capability guard whole-issue come sopra). Razionale: il budget di turni basta per 1 item con margine; 2+ item lo bruciano.
+            **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }}:** se `is_aggregate=true` questa issue contiene più item distinti e tentarli TUTTI in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi (osservato #1095/#1101/#1172). **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI (per una issue *sweep/batch* "item" = UN singolo target/file: es. "~30 crawlers" → fixa 1 crawler, deferisci gli altri 29). Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret (NON abortire l'intera issue), (b) scegli il PRIMO item in-capability a massimo valore funnel, (c) implementa SOLO quello, (d) **appena la PR per quell'unico item è aperta → STOP IMMEDIATO, non iniziare un secondo item** (anche se hai turni residui), (e) elenca tutti gli altri item in `## Non implementato (ancora)`, ognuno con lo STATO LETTERALE del passo 9 (per un item deferito a un ciclo successivo: `blocked: <causa>` se sospeso su una causa esterna, altrimenti `PR concatenata #N` quando il numero esiste). **Due errori di stato che non convergono mai, in direzioni opposte:** un item che hai saltato perché uno stato CHIUDENTE della PR d'origine lo copre va ri-elencato con QUELLO stato (`per scelta` / `by construction` / `blocked: decisione del proprietario`) — riscritto come `blocked: <causa tecnica>` viene riaperto da `followup-has-candidates.mjs` a ogni ciclo, per sempre; e viceversa non dare MAI uno stato chiudente a un item che stai solo rimandando, perché lo toglie dalla coda e il ciclo lo perde. → `post-merge-followup` li ri-accoda come nuova follow-up (re-queue esistente; ogni ciclo chiude ≥1 item → converge). Se `is_aggregate=false`: issue singola, comportamento invariato (capability guard whole-issue come sopra). Razionale: il budget di turni basta per 1 item con margine; 2+ item lo bruciano.
 
             **Fix flow (vedi ISSUES.md):**
             1. Branch isolato — **resume-aware** (`resume=${{ steps.resume.outputs.resume }}`): se `resume=false`, `git checkout -b fix/issue-$ISSUE_NUMBER` (fresh, come sempre). Se `resume=true` esiste già un branch `fix/issue-$ISSUE_NUMBER` su origin (lasciato da un run precedente morto per max-turns DOPO il checkpoint WIP, vedi step 4) — fai `git fetch origin fix/issue-$ISSUE_NUMBER && git checkout fix/issue-$ISSUE_NUMBER` invece di ricreare da zero. Ispeziona cosa c'è già (`git log --oneline origin/main..HEAD --stat`): se il diff è pertinente alla issue corrente, CONTINUA da lì (non ridiagnosticare/rifare il lavoro già presente). Se il diff sembra stale/scollegato dal body della issue attuale → `git reset --hard origin/main` e riparti pulito — usa giudizio, non è un automatismo cieco.
@@ -1119,6 +1103,82 @@ jobs:
             echo "::warning::wip-salvage: push di $BRANCH fallito — il lavoro resta solo nel container e andrà perso."
           fi
 
+      - name: Verify best-effort PR writes (zero-Claude)
+        # Il wrapper mantiene best-effort il lavoro già eseguito, ma registra
+        # una scrittura remota fallita. In quel caso il job non può classificare
+        # un'assenza di PR come terminale legittimo: verifica il branch e fallisce
+        # se la consegna non esiste.
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
+        run: |
+          set -euo pipefail
+          BRANCH="fix/issue-$ISSUE"
+          status_file="${PR_BODY_GATE_STATUS_FILE:-}"
+          baseline_file="${PR_BODY_GATE_BASELINE_FILE:-}"
+          claude_outcome="${CLAUDE_OUTCOME:-}"
+          if [ -z "$status_file" ] || [ ! -s "$status_file" ]; then
+            if [ "$claude_outcome" = "failure" ]; then
+              echo "::error::gh-pr-body-check ha fallito senza poter registrare lo stato della delivery."
+              exit 1
+            fi
+            exit 0
+          fi
+          if ! grep -Fxq 'best-effort-failed' "$status_file"; then
+            exit 0
+          fi
+          if [ -z "$baseline_file" ] || [ ! -r "$baseline_file" ]; then
+            echo "::error::baseline delle PR sul branch $BRANCH non disponibile: delivery non verificabile."
+            exit 1
+          fi
+
+          CANDIDATES=$(gh pr list --repo "$REPO" --head "$BRANCH" --state all --json number,state,createdAt \
+            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | sort_by(.createdAt) | reverse | .[].number') || {
+            echo "::error::gh pr list non ha potuto verificare la consegna su $BRANCH."
+            exit 1
+          }
+          PR=$(while IFS= read -r candidate; do
+            [ -z "$candidate" ] && continue
+            if grep -Fxq "$candidate" "$baseline_file"; then
+              continue
+            fi
+            printf '%s\n' "$candidate"
+            break
+          done <<< "$CANDIDATES")
+          if [ -n "${PR:-}" ]; then
+            echo "best-effort PR write verificata: nuova #$PR su $BRANCH."
+            exit 0
+          fi
+          echo "::error::gh-pr-body-check ha registrato una scrittura remota fallita e non esiste una nuova PR su $BRANCH."
+          exit 1
+
+      - name: Mark autonomous PR provenance (zero-Claude)
+        # `fix/*` identifies the deterministic fixer path. Persist the same
+        # provenance label explicitly so downstream reviewer/fixer jobs do not
+        # have to guess from the owner author alone. The local `/fix-issue`
+        # command applies this label after its own PR creation.
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          set -uo pipefail
+          PR=$(gh pr list --repo "$REPO" --head "fix/issue-$ISSUE" --state open --json number,createdAt \
+            --jq 'sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
+          if [ -z "${PR:-}" ]; then
+            echo "provenance: nessuna PR aperta su fix/issue-$ISSUE da marcare."
+            exit 0
+          fi
+          gh label create agent:autofix --repo "$REPO" --color 1d76db \
+            --description 'PR prodotta dal loop autonomo issue-fix' --force >/dev/null 2>&1 || true
+          gh pr edit "$PR" --repo "$REPO" --add-label agent:autofix
+          echo "provenance: PR #$PR marcata agent:autofix."
+
       - name: Claude usage metrics
         # Run only when the Claude fallback actually ran and produced an execution file.
         if: always() && steps.claude_review.outputs.claude_used == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
@@ -1174,19 +1234,31 @@ jobs:
         # marker prompt on main yet posted none). This backstop guarantees the
         # lessons-harvester always has a queryable marker: pr-created if this run
         # opened a PR on fix/issue-<N>, else a coarse no-pr-unspecified. It never
-        # overwrites the agent's own granular marker. Best-effort: never fails.
+        # overwrites a granular marker from the CURRENT run. Historical markers
+        # must not suppress telemetry for this run. Best-effort: never fails.
         if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
         run: |
           set -uo pipefail
-          HAS=$(gh issue view "$ISSUE" --json comments --jq '[.comments[].body | select(test("<!-- FIX_OUTCOME:"))] | length' 2>/dev/null || echo 0)
-          if [ "${HAS:-0}" != "0" ]; then
-            echo "FIX_OUTCOME marker already present (agent-posted) — no backstop needed."
+          RUN_STARTED_AT=$(gh api "repos/$REPO/actions/runs/$GITHUB_RUN_ID" \
+            --jq '.run_started_at // .created_at' 2>/dev/null || true)
+          if [ -z "${RUN_STARTED_AT:-}" ]; then
+            echo "::warning::RUN_STARTED_AT non disponibile: backstop non emesso."
             exit 0
           fi
-          PR=$(gh pr list --head "fix/issue-$ISSUE" --state open --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          COMMENTS=$(gh issue view "$ISSUE" --json comments 2>/dev/null || echo '{"comments":[]}')
+          HAS=$(printf '%s\n' "$COMMENTS" | jq -r --arg started "$RUN_STARTED_AT" \
+            '[.comments[] | select((.createdAt // "") >= $started) | select((.body // "") | test("<!-- FIX_OUTCOME:"))] | length' \
+            2>/dev/null || echo 0)
+          if [ "${HAS:-0}" != "0" ]; then
+            echo "FIX_OUTCOME marker already present in this run — no backstop needed."
+            exit 0
+          fi
+          PR=$(gh pr list --head "fix/issue-$ISSUE" --state open --json number,createdAt \
+            --jq 'sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
           if [ -n "${PR:-}" ]; then OUT=pr-created; else OUT=no-pr-unspecified; fi
           echo "FIX_OUTCOME issue=$ISSUE outcome=$OUT (deterministic backstop)"
           gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")" || true
@@ -1216,8 +1288,8 @@ jobs:
         run: |
           set -uo pipefail
           # PR aperta o gia' mergiata sul branch di questa issue (head esatto).
-          PR_STATE=$(gh pr list --head "fix/issue-$ISSUE" --state all --json number,state \
-            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | .[0].number // empty' 2>/dev/null || true)
+          PR_STATE=$(gh pr list --head "fix/issue-$ISSUE" --state all --json number,state,createdAt \
+            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
           echo "issue=$ISSUE pr(head fix/issue-$ISSUE, open|merged)=${PR_STATE:-<none>} claude=$CLAUDE_OUTCOME"
           if [ -n "${PR_STATE:-}" ]; then
             echo "✓ PR #$PR_STATE esiste (open/merged) per la issue → run SUCCESS. Job verde anche se la CLI e' uscita '$CLAUDE_OUTCOME' (false-failure: lavoro consegnato)."
@@ -1248,15 +1320,15 @@ jobs:
         # Symmetric to the claim step above: runs on EVERY terminal path (success,
         # blocked-workflows-scope, already-resolved, error_max_turns, infra fail) so a
         # dead/failed run never leaves `agent:in-progress` stuck forever. Gated on
-        # `steps.claim.outcome != 'skipped'` (this run must have actually executed the
-        # claim step — i.e. wasn't itself short-circuited by an earlier gate) AND
-        # `in_flight != 'true'` (this run was the one that ADDED the label, not a run
-        # that saw it already there and deferred to someone else's claim). Never removes
-        # a claim this run didn't set.
-        if: always() && steps.claim.outcome != 'skipped' && steps.claim.outputs.in_flight != 'true'
+        # `claim_acquired=true` is stronger than `in_flight=false`: it proves
+        # this run wrote and re-read the remote-owned claim. Never remove a
+        # local claim, a contended claim, or a claim that this run did not own.
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE: ${{ github.event.issue.number }}
-        run: |
-          gh issue edit "$ISSUE" --remove-label agent:in-progress 2>/dev/null || true
-          echo "Released agent:in-progress claim on issue #$ISSUE (best-effort)."
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CLAIM_ACTION: release
+          CLAIM_OWNER: remote
+        run: node scripts/ci/claim-issue-in-flight.mjs

@@ -8,11 +8,13 @@
  *   - fetchAllGmoJobs()  — Fetch and parse all jobs
  *   - isGmoJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *   - stripHtml()                — Re-exported from crawler-template.mjs
+ *   - buildSlug()                — Shared canonical slug base and disambiguator
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
+import { stripHtml } from './crawler-template.mjs';
+import { buildSlug } from './regenerate-slugs-helpers.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
@@ -156,16 +158,22 @@ export async function fetchAllGmoJobs() {
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
     const publicUrl = listing.url;
+    const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'fr');
-    const jobSlug = slugify(`${title} gmo ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const slugDisambiguator = urlHash.slice(0, 8);
+    const jobSlug = appendSlugDisambiguator(
+      buildSlug(title, GMO_COMPANY_NAME, location),
+      slugDisambiguator,
+    );
 
     const job = {
       // ── Required fields ──
       id: `gmo-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
+      slugDisambiguator,
       company: GMO_COMPANY_NAME,
       companyKey: GMO_KEY,
       companyDomain: GMO_COMPANY_DOMAIN,
@@ -188,8 +196,8 @@ export async function fetchAllGmoJobs() {
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',

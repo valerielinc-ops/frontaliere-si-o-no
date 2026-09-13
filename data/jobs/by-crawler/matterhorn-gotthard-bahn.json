@@ -1,6 +1,6 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-09-11T13:54:34.013Z",
+  "assembledAt": "2026-09-12T13:21:00.758Z",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-e76867f15e75",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Instandhaltung-MGB-mwd-de-j705.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:54:27.988Z",
+      "crawledAt": "2026-09-12T13:20:55.601Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -71,20 +71,17 @@
       },
       "previousSlugs": [
         "mitarbeiter-instandhaltung-mgb-m-w-d-matterhorn-gotthard-bahn-ch",
-        "mitarbeiter-instandhaltung-mgb-m-w-d-matterhorn-gotthard-bahn-zermatt",
-        "collaboratore-trice-instandhaltung-mgb-m-w-d-matterhorn-gotthard-bahn-zermatt"
+        "mitarbeiter-instandhaltung-mgb-m-w-d-matterhorn-gotthard-bahn-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-instandhaltung-mgb-m-w-d-matterhorn-gotthard-bahn-ch",
-          "collaboratore-trice-instandhaltung-mgb-m-w-d-matterhorn-gotthard-bahn-zermatt"
+          "mitarbeiter-instandhaltung-mgb-m-w-d-matterhorn-gotthard-bahn-ch"
         ],
         "fr": [
           "mitarbeiter-instandhaltung-mgb-m-w-d-matterhorn-gotthard-bahn-zermatt"
         ]
       },
       "firstSeenAt": "2026-09-07T15:24:45.039Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -131,7 +128,7 @@
       "url": "https://jobs.bvzholding.ch/Lokfuehrerin-MGBahn-mwd-de-j725.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:54:26.955Z",
+      "crawledAt": "2026-09-12T13:20:54.666Z",
       "addressLocality": "Brig, Zermatt, Oberwald, Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -168,13 +165,11 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "driver-del-treno-mgbahn-m-f-d-matterhorn-gotthard-bahn-brig-zermatt-oberwald-andermatt"
+        "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-          "driver-del-treno-mgbahn-m-f-d-matterhorn-gotthard-bahn-brig-zermatt-oberwald-andermatt"
+          "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
           "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -184,7 +179,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:24:55.229Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -202,36 +196,36 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-0faaff93f37f",
-      "slug": "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt",
+      "slug": "testa-di-tunnel-mattertale-m-f-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt",
       "slugByLocale": {
-        "de": "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
-        "it": "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt",
+        "it": "testa-di-tunnel-mattertale-m-f-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt",
         "en": "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
-        "fr": "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
+        "de": "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
+        "fr": "tunnel-de-tete-de-la-matiere-h-f-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
       "companyDomain": "bvzholding.ch",
       "title": "Leiter Mattertal Tunnel (m/w/d), 80-100%",
       "titleByLocale": {
+        "it": "Testa di Tunnel Mattertale (m/f/d), 80-100 %",
+        "en": "Head of Mattertal Tunnel (m/f/d), 80-100 %",
         "de": "Leiter Mattertal Tunnel (m/w/d), 80-100%",
-        "it": "Leiter Mattertal Tunnel (m/w/d), 80-100%",
-        "en": "Leiter Mattertal Tunnel (m/w/d), 80-100%",
-        "fr": "Leiter Mattertal Tunnel (m/w/d), 80-100%"
+        "fr": "Tunnel de tête de la matière (h/f/d), 80-100 %"
       },
       "description": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Für den Mattertal Tunnel, der künftig die ganzjährige &Ouml;V-Verbindung zwischen Täsch und Zermatt sicherstellt, setzen wir in der Planung auf BIM. Dafür suchen wir eine initiative Persönlichkeit in Brig/Glisergrund und/oder Täsch/Zermatt als Leiter Mattertal Tunnel (m/w/d). Dein Wirkungsfeld\n\n• Du übernimmst die Gesamtprojektleitung seitens Bauherrn für das Projekt Mattertal Tunnel von der Planung über die Ausführung bis zur Inbetriebnahme\n\n• Du führst ein interdisziplinäres Team von internen Mitarbeitenden und externen Partnerfirmen und arbeitest aktiv im Leitungsteam des Bereichs Infrastruktur mit\n\n• Du leitest, koordinierst und überwachst Planungs-, Ausschreibungs- und Bauarbeiten und verantwortest die Kommunikation mit Behörden sowie externen Stakeholdern\n\n• Du stellst die Projektabwicklung gemäss Projektmanagement-Konzept der BVZ/MGB-Gruppe sicher und sorgst dafür, dass Budget, Termine und Qualität eingehalten werden und übernimmst das Vertrags‑ und Nachtragsmanagement\n\n• Du wirkst in weiteren Bahninfrastrukturprojekten hauptsächlich im Bereich Tunnelbau mit (je nach Verfügbarkeit)\n Dein Profil\n\n• Du verfügst über einen Abschluss als Bau- oder Elektroingenieur an einer Universität / Fachhochschule oder über eine vergleichbare Ausbildung – idealerweise ergänzt durch Weiterbildungen in Betriebswirtschaft und Projektmanagement.\n\n• Ausgewiesene Berufserfahrungen in der Leitung von grossen Bauprojekten, idealerweise im Bereich Tunnel- und Bahnbau sind ein Muss\n\n• Du hast ein sehr gutes technisches Verständnis, fundierte Kenntnisse der Bahninfrastruktur und ein grosses Interesse für die Mobilität der Zukunft.\n\n• Du bringst viel Eigeninitiative, Umsetzungsstärke, ein vernetztes und ausgeprägtes unternehmerisches Denken und hohe Sozialkompetenz mit\n\n• Du bist eine gewinnende Person mit guten Kommunikationsfähigkeiten\n\n• Als belastbare Persönlichkeit mit zuverlässiger Arbeitsweise konntest du deine Führungs- und Projektleitungserfahrung bereits in einer ähnlichen Branche unter Beweis stellen.\n Deine Vorteile\n\n• Eine herausfordernde Schlüsselrolle für eines der bedeutendsten Infrastrukturprojekte in der Geschichte der MGBahn\n\n• Hohen Gestaltungsspielraum und Aufbau eines Teams in einem multidisziplinären Umfeld\n\n• Zusammenarbeit mit engagierten Fachleuten und Entscheidungsträger:innen\n\n• Flexibles Arbeiten von unterwegs und von zu Hause möglich\n\n• GA-FVP und weitere attraktive Benefits für dich und deine Familie\n\nMotivationsschreiben sind von gestern! Wir freuen uns über deine kurzen und knackigen Antworten zu folgenden Fragen:\n\n• Was ist dein Antrieb, bei der MGBahn diese Funktion als Leiter Mattertal Tunnel zu übernehmen?\n\n• Was ist dir in einem Team wichtig?\n\n• Du bist einzigartig! Was sollten wir unbedingt über dich wissen?",
       "descriptionByLocale": {
-        "de": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Für den Mattertal Tunnel, der künftig die ganzjährige &Ouml;V-Verbindung zwischen Täsch und Zermatt sicherstellt, setzen wir in der Planung auf BIM. Dafür suchen wir eine initiative Persönlichkeit in Brig/Glisergrund und/oder Täsch/Zermatt als Leiter Mattertal Tunnel (m/w/d). Dein Wirkungsfeld\n\n• Du übernimmst die Gesamtprojektleitung seitens Bauherrn für das Projekt Mattertal Tunnel von der Planung über die Ausführung bis zur Inbetriebnahme\n\n• Du führst ein interdisziplinäres Team von internen Mitarbeitenden und externen Partnerfirmen und arbeitest aktiv im Leitungsteam des Bereichs Infrastruktur mit\n\n• Du leitest, koordinierst und überwachst Planungs-, Ausschreibungs- und Bauarbeiten und verantwortest die Kommunikation mit Behörden sowie externen Stakeholdern\n\n• Du stellst die Projektabwicklung gemäss Projektmanagement-Konzept der BVZ/MGB-Gruppe sicher und sorgst dafür, dass Budget, Termine und Qualität eingehalten werden und übernimmst das Vertrags‑ und Nachtragsmanagement\n\n• Du wirkst in weiteren Bahninfrastrukturprojekten hauptsächlich im Bereich Tunnelbau mit (je nach Verfügbarkeit)\n Dein Profil\n\n• Du verfügst über einen Abschluss als Bau- oder Elektroingenieur an einer Universität / Fachhochschule oder über eine vergleichbare Ausbildung – idealerweise ergänzt durch Weiterbildungen in Betriebswirtschaft und Projektmanagement.\n\n• Ausgewiesene Berufserfahrungen in der Leitung von grossen Bauprojekten, idealerweise im Bereich Tunnel- und Bahnbau sind ein Muss\n\n• Du hast ein sehr gutes technisches Verständnis, fundierte Kenntnisse der Bahninfrastruktur und ein grosses Interesse für die Mobilität der Zukunft.\n\n• Du bringst viel Eigeninitiative, Umsetzungsstärke, ein vernetztes und ausgeprägtes unternehmerisches Denken und hohe Sozialkompetenz mit\n\n• Du bist eine gewinnende Person mit guten Kommunikationsfähigkeiten\n\n• Als belastbare Persönlichkeit mit zuverlässiger Arbeitsweise konntest du deine Führungs- und Projektleitungserfahrung bereits in einer ähnlichen Branche unter Beweis stellen.\n Deine Vorteile\n\n• Eine herausfordernde Schlüsselrolle für eines der bedeutendsten Infrastrukturprojekte in der Geschichte der MGBahn\n\n• Hohen Gestaltungsspielraum und Aufbau eines Teams in einem multidisziplinären Umfeld\n\n• Zusammenarbeit mit engagierten Fachleuten und Entscheidungsträger:innen\n\n• Flexibles Arbeiten von unterwegs und von zu Hause möglich\n\n• GA-FVP und weitere attraktive Benefits für dich und deine Familie\n\nMotivationsschreiben sind von gestern! Wir freuen uns über deine kurzen und knackigen Antworten zu folgenden Fragen:\n\n• Was ist dein Antrieb, bei der MGBahn diese Funktion als Leiter Mattertal Tunnel zu übernehmen?\n\n• Was ist dir in einem Team wichtig?\n\n• Du bist einzigartig! Was sollten wir unbedingt über dich wissen?",
-        "it": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Für den Mattertal Tunnel, der künftig die ganzjährige &Ouml;V-Verbindung zwischen Täsch und Zermatt sicherstellt, setzen wir in der Planung auf BIM. Dafür suchen wir eine initiative Persönlichkeit in Brig/Glisergrund und/oder Täsch/Zermatt als Leiter Mattertal Tunnel (m/w/d). Dein Wirkungsfeld\n\n• Du übernimmst die Gesamtprojektleitung seitens Bauherrn für das Projekt Mattertal Tunnel von der Planung über die Ausführung bis zur Inbetriebnahme\n\n• Du führst ein interdisziplinäres Team von internen Mitarbeitenden und externen Partnerfirmen und arbeitest aktiv im Leitungsteam des Bereichs Infrastruktur mit\n\n• Du leitest, koordinierst und überwachst Planungs-, Ausschreibungs- und Bauarbeiten und verantwortest die Kommunikation mit Behörden sowie externen Stakeholdern\n\n• Du stellst die Projektabwicklung gemäss Projektmanagement-Konzept der BVZ/MGB-Gruppe sicher und sorgst dafür, dass Budget, Termine und Qualität eingehalten werden und übernimmst das Vertrags‑ und Nachtragsmanagement\n\n• Du wirkst in weiteren Bahninfrastrukturprojekten hauptsächlich im Bereich Tunnelbau mit (je nach Verfügbarkeit)\n Dein Profil\n\n• Du verfügst über einen Abschluss als Bau- oder Elektroingenieur an einer Universität / Fachhochschule oder über eine vergleichbare Ausbildung – idealerweise ergänzt durch Weiterbildungen in Betriebswirtschaft und Projektmanagement.\n\n• Ausgewiesene Berufserfahrungen in der Leitung von grossen Bauprojekten, idealerweise im Bereich Tunnel- und Bahnbau sind ein Muss\n\n• Du hast ein sehr gutes technisches Verständnis, fundierte Kenntnisse der Bahninfrastruktur und ein grosses Interesse für die Mobilität der Zukunft.\n\n• Du bringst viel Eigeninitiative, Umsetzungsstärke, ein vernetztes und ausgeprägtes unternehmerisches Denken und hohe Sozialkompetenz mit\n\n• Du bist eine gewinnende Person mit guten Kommunikationsfähigkeiten\n\n• Als belastbare Persönlichkeit mit zuverlässiger Arbeitsweise konntest du deine Führungs- und Projektleitungserfahrung bereits in einer ähnlichen Branche unter Beweis stellen.\n Deine Vorteile\n\n• Eine herausfordernde Schlüsselrolle für eines der bedeutendsten Infrastrukturprojekte in der Geschichte der MGBahn\n\n• Hohen Gestaltungsspielraum und Aufbau eines Teams in einem multidisziplinären Umfeld\n\n• Zusammenarbeit mit engagierten Fachleuten und Entscheidungsträger:innen\n\n• Flexibles Arbeiten von unterwegs und von zu Hause möglich\n\n• GA-FVP und weitere attraktive Benefits für dich und deine Familie\n\nMotivationsschreiben sind von gestern! Wir freuen uns über deine kurzen und knackigen Antworten zu folgenden Fragen:\n\n• Was ist dein Antrieb, bei der MGBahn diese Funktion als Leiter Mattertal Tunnel zu übernehmen?\n\n• Was ist dir in einem Team wichtig?\n\n• Du bist einzigartig! Was sollten wir unbedingt über dich wissen?",
-        "en": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Für den Mattertal Tunnel, der künftig die ganzjährige &Ouml;V-Verbindung zwischen Täsch und Zermatt sicherstellt, setzen wir in der Planung auf BIM. Dafür suchen wir eine initiative Persönlichkeit in Brig/Glisergrund und/oder Täsch/Zermatt als Leiter Mattertal Tunnel (m/w/d). Dein Wirkungsfeld\n\n• Du übernimmst die Gesamtprojektleitung seitens Bauherrn für das Projekt Mattertal Tunnel von der Planung über die Ausführung bis zur Inbetriebnahme\n\n• Du führst ein interdisziplinäres Team von internen Mitarbeitenden und externen Partnerfirmen und arbeitest aktiv im Leitungsteam des Bereichs Infrastruktur mit\n\n• Du leitest, koordinierst und überwachst Planungs-, Ausschreibungs- und Bauarbeiten und verantwortest die Kommunikation mit Behörden sowie externen Stakeholdern\n\n• Du stellst die Projektabwicklung gemäss Projektmanagement-Konzept der BVZ/MGB-Gruppe sicher und sorgst dafür, dass Budget, Termine und Qualität eingehalten werden und übernimmst das Vertrags‑ und Nachtragsmanagement\n\n• Du wirkst in weiteren Bahninfrastrukturprojekten hauptsächlich im Bereich Tunnelbau mit (je nach Verfügbarkeit)\n Dein Profil\n\n• Du verfügst über einen Abschluss als Bau- oder Elektroingenieur an einer Universität / Fachhochschule oder über eine vergleichbare Ausbildung – idealerweise ergänzt durch Weiterbildungen in Betriebswirtschaft und Projektmanagement.\n\n• Ausgewiesene Berufserfahrungen in der Leitung von grossen Bauprojekten, idealerweise im Bereich Tunnel- und Bahnbau sind ein Muss\n\n• Du hast ein sehr gutes technisches Verständnis, fundierte Kenntnisse der Bahninfrastruktur und ein grosses Interesse für die Mobilität der Zukunft.\n\n• Du bringst viel Eigeninitiative, Umsetzungsstärke, ein vernetztes und ausgeprägtes unternehmerisches Denken und hohe Sozialkompetenz mit\n\n• Du bist eine gewinnende Person mit guten Kommunikationsfähigkeiten\n\n• Als belastbare Persönlichkeit mit zuverlässiger Arbeitsweise konntest du deine Führungs- und Projektleitungserfahrung bereits in einer ähnlichen Branche unter Beweis stellen.\n Deine Vorteile\n\n• Eine herausfordernde Schlüsselrolle für eines der bedeutendsten Infrastrukturprojekte in der Geschichte der MGBahn\n\n• Hohen Gestaltungsspielraum und Aufbau eines Teams in einem multidisziplinären Umfeld\n\n• Zusammenarbeit mit engagierten Fachleuten und Entscheidungsträger:innen\n\n• Flexibles Arbeiten von unterwegs und von zu Hause möglich\n\n• GA-FVP und weitere attraktive Benefits für dich und deine Familie\n\nMotivationsschreiben sind von gestern! Wir freuen uns über deine kurzen und knackigen Antworten zu folgenden Fragen:\n\n• Was ist dein Antrieb, bei der MGBahn diese Funktion als Leiter Mattertal Tunnel zu übernehmen?\n\n• Was ist dir in einem Team wichtig?\n\n• Du bist einzigartig! Was sollten wir unbedingt über dich wissen?",
-        "fr": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Für den Mattertal Tunnel, der künftig die ganzjährige &Ouml;V-Verbindung zwischen Täsch und Zermatt sicherstellt, setzen wir in der Planung auf BIM. Dafür suchen wir eine initiative Persönlichkeit in Brig/Glisergrund und/oder Täsch/Zermatt als Leiter Mattertal Tunnel (m/w/d). Dein Wirkungsfeld\n\n• Du übernimmst die Gesamtprojektleitung seitens Bauherrn für das Projekt Mattertal Tunnel von der Planung über die Ausführung bis zur Inbetriebnahme\n\n• Du führst ein interdisziplinäres Team von internen Mitarbeitenden und externen Partnerfirmen und arbeitest aktiv im Leitungsteam des Bereichs Infrastruktur mit\n\n• Du leitest, koordinierst und überwachst Planungs-, Ausschreibungs- und Bauarbeiten und verantwortest die Kommunikation mit Behörden sowie externen Stakeholdern\n\n• Du stellst die Projektabwicklung gemäss Projektmanagement-Konzept der BVZ/MGB-Gruppe sicher und sorgst dafür, dass Budget, Termine und Qualität eingehalten werden und übernimmst das Vertrags‑ und Nachtragsmanagement\n\n• Du wirkst in weiteren Bahninfrastrukturprojekten hauptsächlich im Bereich Tunnelbau mit (je nach Verfügbarkeit)\n Dein Profil\n\n• Du verfügst über einen Abschluss als Bau- oder Elektroingenieur an einer Universität / Fachhochschule oder über eine vergleichbare Ausbildung – idealerweise ergänzt durch Weiterbildungen in Betriebswirtschaft und Projektmanagement.\n\n• Ausgewiesene Berufserfahrungen in der Leitung von grossen Bauprojekten, idealerweise im Bereich Tunnel- und Bahnbau sind ein Muss\n\n• Du hast ein sehr gutes technisches Verständnis, fundierte Kenntnisse der Bahninfrastruktur und ein grosses Interesse für die Mobilität der Zukunft.\n\n• Du bringst viel Eigeninitiative, Umsetzungsstärke, ein vernetztes und ausgeprägtes unternehmerisches Denken und hohe Sozialkompetenz mit\n\n• Du bist eine gewinnende Person mit guten Kommunikationsfähigkeiten\n\n• Als belastbare Persönlichkeit mit zuverlässiger Arbeitsweise konntest du deine Führungs- und Projektleitungserfahrung bereits in einer ähnlichen Branche unter Beweis stellen.\n Deine Vorteile\n\n• Eine herausfordernde Schlüsselrolle für eines der bedeutendsten Infrastrukturprojekte in der Geschichte der MGBahn\n\n• Hohen Gestaltungsspielraum und Aufbau eines Teams in einem multidisziplinären Umfeld\n\n• Zusammenarbeit mit engagierten Fachleuten und Entscheidungsträger:innen\n\n• Flexibles Arbeiten von unterwegs und von zu Hause möglich\n\n• GA-FVP und weitere attraktive Benefits für dich und deine Familie\n\nMotivationsschreiben sind von gestern! Wir freuen uns über deine kurzen und knackigen Antworten zu folgenden Fragen:\n\n• Was ist dein Antrieb, bei der MGBahn diese Funktion als Leiter Mattertal Tunnel zu übernehmen?\n\n• Was ist dir in einem Team wichtig?\n\n• Du bist einzigartig! Was sollten wir unbedingt über dich wissen?"
+        "it": "Il tuo drive\nIl cuore di BVZ Holding è la compagnia ferroviaria Matterhorn Gotthard Bahn e le migliori marche internazionali Gornergrat Bahn e Glacier Express. Dipendenti appassionati e qualificati costituiscono la base del nostro successo. Ogni giorno circa 700 dipendenti si impegnano a offrire ai nostri ospiti un'esperienza di prima classe. Viviamo la diversità e abbiamo una cosa in comune: le emozioni sono la nostra unità. Qual e' la tua macchina? Per il Tunnel Mattertal, che in futuro garantirà il collegamento annuale &Ouml;V tra Täsch e Zermatt, ci affidiamo al BIM nella pianificazione. Per questo siamo alla ricerca di una personalità di iniziativa in Brig/Glisergrund e/o Täsch/Zermatt come capo del Tunnel Mattertal (m/f/d). Il tuo campo di attività\n\n• Si occupa della gestione complessiva del progetto da parte del cliente per il progetto Mattertal Tunnel dalla pianificazione all'esecuzione alla messa in servizio\n\n• Lei guida un team interdisciplinare di dipendenti interni e aziende partner esterne e lavora attivamente nel team di gestione del reparto infrastrutture\n\n• Potrai guidare, coordinare e monitorare la pianificazione, l'offerta e i lavori di costruzione ed essere responsabile della comunicazione con le autorità e gli stakeholder esterni\n\n• Assicurate l'implementazione del progetto secondo il concetto di gestione del progetto del Gruppo BVZ/MGB e assicuratevi che il budget, le scadenze e la qualità siano rispettate e prendano in consegna il contratto e la gestione degli integratori\n\n• Sei coinvolto in altri progetti di infrastrutture ferroviarie principalmente nel settore del tunnelling (soggetto alla disponibilità)\nIl tuo profilo\n\n• Hai una laurea come ingegnere civile o elettrico in un'università / università di scienze applicate o un'educazione comparabile - idealmente completato da ulteriore formazione in amministrazione aziendale e gestione del progetto.\n\n• Prove esperienze professionali nella gestione di grandi progetti di costruzione, idealmente nel settore del tunneling e della costruzione ferroviaria sono un must\n\n• Hai una buona comprensione tecnica, una conoscenza approfondita dell'infrastruttura ferroviaria e un grande interesse per la mobilità del futuro.\n\n• Porti un sacco di iniziativa, forza di implementazione, un pensiero imprenditoriale in rete e forte e alte competenze sociali\n\n• Sei una persona vincente con buone capacità di comunicazione\n\n• Come persona resiliente con un modo affidabile di lavorare, hai già dimostrato la tua esperienza di leadership e project management in un settore simile.\nI vantaggi\n\n• Un ruolo chiave impegnativo per uno dei progetti infrastrutturali più importanti nella storia di MGBahn\n\n• Grande portata per progettare e costruire un team in un ambiente multidisciplinare\n\n• Collaborazione con esperti impegnati e decisori:\n\n• Lavoro flessibile da casa e sulla strada\n\n• GA-FVP e altri benefici interessanti per voi e la vostra famiglia\n\nLe lettere di motivazione sono di ieri! Diamo il benvenuto alle vostre risposte brevi e croccanti alle seguenti domande:\n\n• Che cosa ti spinge a prendere in consegna questa funzione come capo del Tunnel Mattertale a MGBahn?\n\n• Cosa c'è di importante in una squadra?\n\n• Sei unico! Cosa dovremmo sapere su di te?",
+        "en": "Your drive\nThe heart of BVZ Holding is the railway company Matterhorn Gotthard Bahn and the international top brands Gornergrat Bahn and Glacier Express. Passionate and qualified employees form the basis of our success. Every day, around 700 employees are committed to offering our guests a first-class experience. We live diversity and have one thing in common: emotions are our drive. What is your drive? For the Mattertal Tunnel, which will in future ensure the year-round &Ouml;V connection between Täsch and Zermatt, we rely on BIM in the planning. For this we are looking for an initiative personality in Brig/Glisergrund and/or Täsch/Zermatt as head of Mattertal Tunnel (m/f/d). Your field of activity\n\n• You take over the overall project management on the part of the client for the Mattertal Tunnel project from planning to execution to commissioning\n\n• You lead an interdisciplinary team of internal employees and external partner companies and work actively in the management team of the infrastructure department\n\n• You will lead, coordinate and monitor planning, tendering and construction works and be responsible for communication with authorities and external stakeholders\n\n• You ensure the project implementation according to the project management concept of the BVZ/MGB Group and ensure that budget, deadlines and quality are adhered to and take over the contract and supplement management\n\n• You are involved in other railway infrastructure projects mainly in the area of tunnelling (subject to availability)\nYour profile\n\n• You have a degree as a civil or electrical engineer at a university / university of applied sciences or a comparable education – ideally supplemented by further training in business administration and project management.\n\n• Proven professional experience in the management of large construction projects, ideally in the field of tunneling and railway construction are a must\n\n• You have a very good technical understanding, in-depth knowledge of the railway infrastructure and a great interest in the mobility of the future.\n\n• You bring a lot of initiative, implementation strength, a networked and strong entrepreneurial thinking and high social skills\n\n• You are a winning person with good communication skills\n\n• As a resilient person with a reliable way of working, you have already proven your leadership and project management experience in a similar industry.\nYour advantages\n\n• A challenging key role for one of the most important infrastructure projects in the history of MGBahn\n\n• Great scope for design and building a team in a multidisciplinary environment\n\n• Collaboration with committed experts and decision-makers:\n\n• Flexible working from home and on the road\n\n• GA-FVP and other attractive benefits for you and your family\n\nMotivation letters are from yesterday! We welcome your short and crisp answers to the following questions:\n\n• What drives you to take over this function as head of the Mattertal Tunnel at MGBahn?\n\n• What is important to you in a team?\n\n• You are unique! What should we know about you?",
+        "de": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Für den Mattertal Tunnel, der künftig die ganzjährige &Ouml;V-Verbindung zwischen Täsch und Zermatt sicherstellt, setzen wir in der Planung auf BIM. Dafür suchen wir eine initiative Persönlichkeit in Brig/Glisergrund und/oder Täsch/Zermatt als Leiter Mattertal Tunnel (m/w/d). Dein Wirkungsfeld\n\n• Du übernimmst die Gesamtprojektleitung seitens Bauherrn für das Projekt Mattertal Tunnel von der Planung über die Ausführung bis zur Inbetriebnahme\n\n• Du führst ein interdisziplinäres Team von internen Mitarbeitenden und externen Partnerfirmen und arbeitest aktiv im Leitungsteam des Bereichs Infrastruktur mit\n\n• Du leitest, koordinierst und überwachst Planungs-, Ausschreibungs- und Bauarbeiten und verantwortest die Kommunikation mit Behörden sowie externen Stakeholdern\n\n• Du stellst die Projektabwicklung gemäss Projektmanagement-Konzept der BVZ/MGB-Gruppe sicher und sorgst dafür, dass Budget, Termine und Qualität eingehalten werden und übernimmst das Vertrags‑ und Nachtragsmanagement\n\n• Du wirkst in weiteren Bahninfrastrukturprojekten hauptsächlich im Bereich Tunnelbau mit (je nach Verfügbarkeit)\nDein Profil\n\n• Du verfügst über einen Abschluss als Bau- oder Elektroingenieur an einer Universität / Fachhochschule oder über eine vergleichbare Ausbildung – idealerweise ergänzt durch Weiterbildungen in Betriebswirtschaft und Projektmanagement.\n\n• Ausgewiesene Berufserfahrungen in der Leitung von grossen Bauprojekten, idealerweise im Bereich Tunnel- und Bahnbau sind ein Muss\n\n• Du hast ein sehr gutes technisches Verständnis, fundierte Kenntnisse der Bahninfrastruktur und ein grosses Interesse für die Mobilität der Zukunft.\n\n• Du bringst viel Eigeninitiative, Umsetzungsstärke, ein vernetztes und ausgeprägtes unternehmerisches Denken und hohe Sozialkompetenz mit\n\n• Du bist eine gewinnende Person mit guten Kommunikationsfähigkeiten\n\n• Als belastbare Persönlichkeit mit zuverlässiger Arbeitsweise konntest du deine Führungs- und Projektleitungserfahrung bereits in einer ähnlichen Branche unter Beweis stellen.\nDeine Vorteile\n\n• Eine herausfordernde Schlüsselrolle für eines der bedeutendsten Infrastrukturprojekte in der Geschichte der MGBahn\n\n• Hohen Gestaltungsspielraum und Aufbau eines Teams in einem multidisziplinären Umfeld\n\n• Zusammenarbeit mit engagierten Fachleuten und Entscheidungsträger:innen\n\n• Flexibles Arbeiten von unterwegs und von zu Hause möglich\n\n• GA-FVP und weitere attraktive Benefits für dich und deine Familie\n\nMotivationsschreiben sind von gestern! Wir freuen uns über deine kurzen und knackigen Antworten zu folgenden Fragen:\n\n• Was ist dein Antrieb, bei der MGBahn diese Funktion als Leiter Mattertal Tunnel zu übernehmen?\n\n• Was ist dir in einem Team wichtig?\n\n• Du bist einzigartig! Was sollten wir unbedingt über dich wissen?",
+        "fr": "Votre disque\nLe cœur de BVZ Holding est la compagnie ferroviaire Matterhorn Gotthard Bahn et les grandes marques internationales Gornergrat Bahn et Glacier Express. Des employés passionnés et qualifiés constituent la base de notre succès. Chaque jour, environ 700 employés s'engagent à offrir à leurs clients une expérience de première classe. Nous vivons la diversité et avons une chose en commun: les émotions sont notre moteur. Quelle est votre conduite? Pour le tunnel de la Mattertal, qui assurera à l'avenir la liaison à longueur d'année entre Täsch et Zermatt, nous comptons sur BIM dans la planification. Pour cela, nous recherchons une personnalité d'initiative à Brig/Glisergrund et/ou Täsch/Zermatt en tant que chef du tunnel de la matière (h/f/d). Votre domaine d'activité\n\n• Vous prenez en charge la gestion globale du projet du client pour le projet du tunnel de la Mattertal de la planification à l'exécution à la mise en service\n\n• Vous dirigez une équipe interdisciplinaire d'employés internes et d'entreprises partenaires externes et travaillez activement dans l'équipe de gestion du département infrastructure\n\n• Vous dirigerez, coordonnerez et surveillerez les travaux de planification, d'appel d'offres et de construction et serez responsable de la communication avec les autorités et les intervenants externes.\n\n• Vous assurez la mise en œuvre du projet selon le concept de gestion de projet du groupe BVZ/MGB et vous assurez que le budget, les délais et la qualité sont respectés et prenez en charge la gestion du contrat et du supplément\n\n• Vous participez à d'autres projets d'infrastructure ferroviaire principalement dans le domaine du tunnel (sous réserve de disponibilité)\nVotre profil\n\n• Vous avez un diplôme d'ingénieur civil ou électrique dans une université / université des sciences appliquées ou une formation comparable – idéalement complétée par une formation continue en administration des affaires et gestion de projets.\n\n• Expérience professionnelle éprouvée dans la gestion de grands projets de construction, idéalement dans le domaine du tunnel et de la construction ferroviaire\n\n• Vous avez une très bonne compréhension technique, une connaissance approfondie de l'infrastructure ferroviaire et un grand intérêt pour la mobilité de l'avenir.\n\n• Vous apportez beaucoup d'initiative, de force de mise en œuvre, une pensée entrepreneuriale en réseau et forte et des compétences sociales élevées\n\n• Vous êtes une personne gagnante avec de bonnes compétences en communication\n\n• En tant que personne résiliente ayant une façon fiable de travailler, vous avez déjà prouvé votre expérience de leadership et de gestion de projet dans une industrie similaire.\nVos avantages\n\n• Un rôle clé difficile pour l'un des projets d'infrastructure les plus importants de l'histoire de MGBahn\n\n• Grandes possibilités pour concevoir et construire une équipe dans un environnement multidisciplinaire\n\n• Collaboration avec des experts et des décideurs engagés:\n\n• Travail flexible à domicile et sur la route\n\n• GA-FVP et autres avantages intéressants pour vous et votre famille\n\nLes lettres de motivation datent d'hier! Nous nous félicitons de vos réponses brèves et nettes aux questions suivantes:\n\n• Qu'est-ce qui vous pousse à prendre cette fonction comme chef du tunnel de la Mattertal à MGBahn?\n\n• Qu'est-ce qui est important pour vous dans une équipe?\n\n• Vous êtes unique! Que devrions-nous savoir sur vous?"
       },
       "location": "Glis (Glisergrund), Zermatt",
       "canton": "VS",
       "url": "https://jobs.bvzholding.ch/Leiter-Mattertal-Tunnel-mwd-80-100-de-j726.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:54:26.069Z",
+      "crawledAt": "2026-09-12T13:20:53.836Z",
       "addressLocality": "Glis (Glisergrund), Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -257,12 +251,8 @@
       ],
       "requirementsByLocale": {
         "de": [
-          "Du verfügst über einen Abschluss als Bau- oder Elektroingenieur an einer Universität / Fachhochschule oder über eine vergleichbare Ausbildung – idealerweise ergänzt durch Weiterbildungen in Betriebswirtschaft und Projektmanagement.",
-          "Ausgewiesene Berufserfahrungen in der Leitung von grossen Bauprojekten, idealerweise im Bereich Tunnel- und Bahnbau sind ein Muss",
-          "Du hast ein sehr gutes technisches Verständnis, fundierte Kenntnisse der Bahninfrastruktur und ein grosses Interesse für die Mobilität der Zukunft.",
-          "Du bringst viel Eigeninitiative, Umsetzungsstärke, ein vernetztes und ausgeprägtes unternehmerisches Denken und hohe Sozialkompetenz mit",
           "Du bist eine gewinnende Person mit guten Kommunikationsfähigkeiten",
-          "Als belastbare Persönlichkeit mit zuverlässiger Arbeitsweise konntest du deine Führungs- und Projektleitungserfahrung bereits in einer ähnlichen Branche unter Beweis stellen."
+          "Du bist eine gewinnende Person mit guten Kommunikationsf higkeiten"
         ]
       },
       "_mgbMeta": {
@@ -270,15 +260,20 @@
         "identifier": "PERS-761",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
+        "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
+          "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt"
+        ],
+        "fr": [
           "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
         ]
       },
-      "previousSlugs": [
-        "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
-      ],
+      "firstSeenAt": "2026-09-11T13:54:26.069Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -292,8 +287,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-09-11T13:54:26.069Z"
+      "addressRegion": "VS"
     },
     {
       "id": "matterhorn-gotthard-bahn-f35332cd9cf0",
@@ -326,7 +320,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Polymechaniker-mwd-in-Andermatt-de-j719.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:54:25.028Z",
+      "crawledAt": "2026-09-12T13:20:52.897Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -368,13 +362,11 @@
       },
       "previousSlugs": [
         "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-ch",
-        "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt",
-        "apprendistato-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
+        "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-ch",
-          "apprendistato-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
+          "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
           "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
@@ -384,7 +376,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:48:35.668Z",
-      "needsRetranslation": true,
       "salaryMin": 54000,
       "salaryMax": 82000,
       "salarySource": "estimated",
@@ -431,7 +422,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Logistiker-EFZ-Lager-mwd-de-j710.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:54:23.993Z",
+      "crawledAt": "2026-09-12T13:20:51.958Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -470,17 +461,14 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "lehrstelle-logistiker-efz-lager-m-w-d-matterhorn-gotthard-bahn-ch",
-        "apprendistato-logistiker-cfc-magazzino-m-w-d-matterhorn-gotthard-bahn-glis-glisergrund"
+        "lehrstelle-logistiker-efz-lager-m-w-d-matterhorn-gotthard-bahn-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-efz-lager-m-w-d-matterhorn-gotthard-bahn-ch",
-          "apprendistato-logistiker-cfc-magazzino-m-w-d-matterhorn-gotthard-bahn-glis-glisergrund"
+          "lehrstelle-logistiker-efz-lager-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
       "firstSeenAt": "2026-09-04T13:48:34.523Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -500,7 +488,7 @@
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
       "slug": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
-        "it": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
+        "it": "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
         "en": "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
         "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
@@ -527,7 +515,7 @@
       "url": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-j689.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:54:22.938Z",
+      "crawledAt": "2026-09-12T13:20:51.021Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -568,20 +556,15 @@
       },
       "previousSlugs": [
         "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-        "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
-        "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig"
+        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
-          "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig"
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
         ]
       },
       "firstSeenAt": "2026-09-07T15:24:41.109Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -628,7 +611,7 @@
       "url": "https://jobs.bvzholding.ch/Career-Starter-Oberwallis-Dein-Sprungbrett-in-die-Zukunft-de-j723.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:54:21.893Z",
+      "crawledAt": "2026-09-12T13:20:50.091Z",
       "addressLocality": "Brig, Visp, Naters",
       "addressCountry": "CH",
       "country": "CH",
@@ -667,13 +650,11 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "career-starter-oberwallis-dein-sprungbrett-in-die-zukunft-matterhorn-gotthard-bahn-ch",
-        "career-starter-oberwallis-dein-sprungbrett-in-la-zukunft-matterhorn-gotthard-bahn-brig-visp-naters"
+        "career-starter-oberwallis-dein-sprungbrett-in-die-zukunft-matterhorn-gotthard-bahn-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "career-starter-oberwallis-dein-sprungbrett-in-die-zukunft-matterhorn-gotthard-bahn-ch",
-          "career-starter-oberwallis-dein-sprungbrett-in-la-zukunft-matterhorn-gotthard-bahn-brig-visp-naters"
+          "career-starter-oberwallis-dein-sprungbrett-in-die-zukunft-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
           "career-starter-oberwallis-dein-sprungbrett-in-die-zukunft-matterhorn-gotthard-bahn-ch"

@@ -42,6 +42,8 @@ import {
   QUOTA_DEFERRAL_MIN_TRANSIENT_SHARE,
   isInputCapDeferralVeto,
   inputCapVetoSummary,
+  isTransientMajority,
+  providerCooldownEchoOnlySummary,
   isLegitimateQuotaDeferral,
   quotaDeferralShare,
 } from '../scripts/lib/exhaustion-disposition.mjs';
@@ -139,7 +141,63 @@ describe('isInputCapDeferralVeto — il pareggio non differisce piu\'', () => {
   it('inputCapVetoSummary dice DI QUANTO tagliare', () => {
     // Il numero azionabile non deve dipendere da chi legge la prosa.
     const s = inputCapVetoSummary(cascata({ transient: 53, persistent: 53, capCount: 38, est: 9740, best: 8000 }));
-    expect(s).toEqual({ estimatedRequestTokens: 9740, maxSkippedReqLimit: 8000, over: 1740, refusals: 38 });
+    expect(s).toEqual({
+      estimatedRequestTokens: 9740,
+      maxSkippedReqLimit: 8000,
+      over: 1740,
+      refusals: 38,
+      transient: 53,
+      persistent: 53,
+      providerCooldownSkips: 0,
+      echoDominated: false,
+      decidedBy: 'net',
+      netEvidence: 106,
+      echoHiddenInBuckets: 0,
+      marginAttribution: 'persistent',
+      votedTransient: 53,
+      votedPersistent: 53,
+    });
+  });
+
+  it('rifiuta il replay all-echo legacy senza i due contatori di split', () => {
+    for (const providerCooldownSkips of [
+      { total: 5 },
+      { total: 5, transient: 0 },
+      { total: 5, persistent: 0 },
+    ]) {
+      const err = {
+        code: 'ALL_MODELS_EXHAUSTED',
+        exhaustionBreakdown: {
+          transient: 0,
+          persistent: 0,
+          total: 5,
+          providerCooldownSkips,
+        },
+      };
+      expect(providerCooldownEchoOnlySummary(err)).toBeNull();
+    }
+  });
+
+  it('veta il replay quando gli echi non possono stare nel bucket persistente', () => {
+    const breakdown = {
+      transient: 60,
+      persistent: 40,
+      total: 100,
+      providerCooldownSkips: { total: 100 },
+    };
+    const err: any = cascata({ transient: 60, persistent: 40, total: 100, capCount: 1 });
+    err.exhaustionBreakdown = breakdown;
+
+    expect(isTransientMajority(breakdown, {
+      tie: 'persistent',
+      marginAttribution: 'persistent',
+    })).toBe(false);
+    expect(isInputCapDeferralVeto(err)).toBe(true);
+    expect(inputCapVetoSummary(err)).toMatchObject({
+      decidedBy: 'margin',
+      echoHiddenInBuckets: 100,
+      votedPersistent: 0,
+    });
   });
 });
 

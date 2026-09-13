@@ -293,6 +293,8 @@ describe('gate sul conio — pin sul sorgente', () => {
     expect(wf).toContain('GH_REPO: nanakokyobashi-rgb/frontaliere-articles');
     expect(wf).toContain('GH_TOKEN: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}');
     expect(wf).toContain('GATE_PR_REPO: ${{ github.repository }}');
+    expect(src).toContain('GATE_PR_TOKEN');
+    expect(src).toContain('function ghPr(');
     expect(wf).toMatch(/if \[ -z "\$\{GH_TOKEN:-\}" \]/);
     expect(src).toContain("const prRepoArgs = process.env.GATE_PR_REPO ? ['--repo', process.env.GATE_PR_REPO] : repoArgs;");
     expect(src).toContain("['pr', 'comment', String(pr), ...prRepoArgs");

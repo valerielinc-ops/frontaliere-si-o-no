@@ -1,5 +1,5 @@
 /**
- * employerInsights — typed data contract + fetch stub for the per-company
+ * employerInsights — typed data contract + HTTP client for the per-company
  * "wow" traffic report (cold-outreach insights centrepiece).
  *
  * The data lives in Firestore `employer_insights/{companyKey}` and is served
@@ -7,9 +7,8 @@
  * boundary: `EmployerInsightsPage` imports `fetchInsights` and the types from
  * here, so the page never talks to Firestore/HTTP directly.
  *
- * NOTE: `fetchInsights` is intentionally a STUB. The real implementation
- * (CF endpoint URL + token validation + Firestore read) is wired separately —
- * see the TODO below. Keep the signature stable: the page depends on it.
+ * The Cloud Function owns token validation and the Firestore read; this module
+ * keeps that transport boundary stable for the page.
  */
 
 import { FUNCTIONS_BASE } from './functionsBase';
@@ -22,6 +21,15 @@ export interface EmployerInsightsWindow {
   inclusive?: string;
 }
 
+/** One weekly bucket from the provider-backed report. */
+export interface EmployerInsightsTrendPoint {
+  week: string;
+  views: number;
+  visitors?: number;
+  applyClicks?: number;
+  profileViews?: number;
+}
+
 /** A single ad row for the employer. */
 export interface EmployerAd {
   jobId?: string;
@@ -31,13 +39,15 @@ export interface EmployerAd {
   views: number;
   visitors: number;
   applyClicks: number;
+  /** Provider-observed user units associated with apply clicks; not a global unique union. */
+  applyClickUsers?: number | null;
   applications: number | null;
   applicationsStatus?: string;
   eventsObserved?: number;
   eventTypes?: Record<string, number>;
   forwardedAt?: string | null;
   delivery?: string | null;
-  trend?: { week: string; views: number }[];
+  trend?: EmployerInsightsTrendPoint[];
 }
 
 /** Aggregate totals across all of the company's ads for the report window. */
@@ -47,6 +57,8 @@ export interface EmployerInsightsTotals {
   profileViews?: number | null;
   profileVisitors?: number | null;
   applyClicks?: number | null;
+  /** Provider-observed user units associated with apply clicks; never PII or a global unique count. */
+  applyClickUsers?: number | null;
   applications?: number | null;
   applicationsStatus?: string;
   adsCount: number;
@@ -93,7 +105,11 @@ export interface EmployerEventsCoverage {
 export interface EmployerInsightsWindowSummary {
   window: EmployerInsightsWindow;
   totals: EmployerInsightsTotals;
-  trend: { week: string; views: number }[];
+  trend: EmployerInsightsTrendPoint[];
+  topAd?: { slug: string; title: string; views: number } | null;
+  ads?: EmployerAd[];
+  profileTrend?: EmployerInsightsTrendPoint[];
+  applicationsCoverage?: EmployerApplicationsCoverage;
   coverage?: Record<string, unknown>;
   limits?: Record<string, unknown>;
 }
@@ -112,8 +128,8 @@ export interface EmployerInsights {
   /** Sorted by views desc. */
   ads: EmployerAd[];
   /** Weekly buckets, oldest → newest. */
-  trend: { week: string; views: number }[];
-  profileTrend?: { week: string; views: number }[];
+  trend: EmployerInsightsTrendPoint[];
+  profileTrend?: EmployerInsightsTrendPoint[];
   coverage?: EmployerEventsCoverage;
   applicationsCoverage?: EmployerApplicationsCoverage;
   provenance?: {
@@ -122,6 +138,26 @@ export interface EmployerInsights {
     [key: string]: unknown;
   };
   additionalWindows?: Record<string, EmployerInsightsWindowSummary>;
+}
+
+type LocaleCode = 'it' | 'en' | 'de' | 'fr';
+
+/** Friendly provider name for the single source badge shown in the report. */
+export function humanizeInsightsSource(source: string | null | undefined, locale: LocaleCode = 'it'): string {
+  const normalized = String(source || '').trim().toLowerCase();
+  if (normalized === 'ga4') {
+    return 'Google Analytics';
+  }
+  if (normalized === 'posthog') {
+    return 'PostHog';
+  }
+  if (normalized === 'firestore') {
+    if (locale === 'de') return 'Anwendungsdatenbank';
+    if (locale === 'fr') return 'Base des candidatures';
+    if (locale === 'en') return 'Application database';
+    return 'Archivio candidature';
+  }
+  return String(source || '').trim();
 }
 
 /**

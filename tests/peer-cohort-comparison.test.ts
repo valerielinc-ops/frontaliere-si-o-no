@@ -106,7 +106,10 @@ describe('buildPeerProse', () => {
       labels,
       formatValue: fmt,
     }).join(' ');
-    expect(prose).toContain('stesso valore ovunque');
+    // La frase sugli estremi non usa più `metricLabel` come soggetto (non si
+    // può concordare con un'etichetta che il chiamante sceglie singolare o
+    // plurale), ma dice la stessa cosa: il gruppo è piatto.
+    expect(prose).toContain('identico ovunque');
   });
 
   it('never bends the metric label into a verb, so a plural label stays grammatical', () => {
@@ -129,9 +132,59 @@ describe('buildPeerProse', () => {
       expect(prose.every((s) => s.trim().length > 0)).toBe(true);
     }
   });
+
+  it('renders equal-value peers as tied, never as ahead or behind', () => {
+    const tiedRows: PeerRow[] = [
+      { key: 'a', name: 'Alfa', value: 10 },
+      { key: 'b', name: 'Bravo', value: 20 },
+      { key: 'c', name: 'Charlie', value: 20 },
+      { key: 'd', name: 'Delta', value: 30 },
+    ];
+    const prose = buildPeerProse({
+      locale: 'it',
+      ranked: rankPeerRows(tiedRows, true),
+      currentKey: 'b',
+      labels,
+      formatValue: fmt,
+      higherIsBetter: true,
+    }).join(' ');
+
+    expect(prose).toContain('A pari merito con questa pagina: Charlie (20).');
+    expect(prose).toContain('Davanti in classifica, nell’ordine: Delta.');
+    expect(prose).toContain('Più indietro in classifica: Alfa.');
+    expect(prose).not.toContain('Davanti in classifica, nell’ordine: Delta, Charlie');
+    expect(prose).not.toContain('Più indietro in classifica: Charlie');
+  });
+
+  it('labels actual value extremes when lower values rank first', () => {
+    const ranked = rankPeerRows(rows, false);
+    const prose = buildPeerProse({
+      locale: 'it',
+      ranked,
+      currentKey: 'c',
+      labels,
+      formatValue: fmt,
+      higherIsBetter: false,
+    }).join(' ');
+
+    expect(prose).toContain('il valore più alto è 50 (Echo), il più basso 10 (Alfa).');
+    expect(prose).not.toContain('il valore più alto è 10 (Alfa)');
+    expect(prose).not.toContain('il più basso 50 (Echo)');
+  });
 });
 
 describe('renderPeerComparison', () => {
+  it('accetta un nuovo sostantivo tedesco nella forma del dativo plurale', () => {
+    const html = renderPeerComparison({
+      locale: 'de',
+      currentKey: 'c',
+      rows,
+      labels: { ...labels, peerNoun: 'Gemeinden' },
+      formatValue: fmt,
+    });
+    expect(html).toContain('Gemeinden');
+  });
+
   it('rifiuta un nominativo tedesco dove il template richiede il dativo plurale', () => {
     expect(() => renderPeerComparison({
       locale: 'de',
@@ -147,6 +200,18 @@ describe('renderPeerComparison', () => {
     expect(html).toContain('data-peer-comparison="1"');
     expect(html).toContain('href="/delta/"');
     expect(html).toContain('Confronto');
+  });
+
+  it('passes lower-is-better direction into prose without reversing extrema', () => {
+    const html = renderPeerComparison({
+      locale: 'it',
+      currentKey: 'c',
+      rows,
+      labels,
+      formatValue: fmt,
+      higherIsBetter: false,
+    });
+    expect(html).toContain('il valore più alto è 50 (Echo), il più basso 10 (Alfa).');
   });
 
   it('is byte-stable across two builds with the rows in a different order', () => {

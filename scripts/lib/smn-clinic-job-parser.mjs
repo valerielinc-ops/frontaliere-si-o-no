@@ -117,14 +117,15 @@ export function extractPostingDepartmentLabels(posting = {}) {
  * shout "likely ATS label drift — update departmentLabels" at clinics whose
  * board was simply empty (issue #7320).
  *
- * Two distinct label sets go in, because the two checks do NOT have the same
- * semantics. `targets` (own + city-scoped) is what attribution used on the
- * payload, so it is what the `matched` branch must reuse. The directory
- * comparison instead takes ONLY the clinic's own labels: city-scoped labels are
- * network brands (e.g. "Réseau de l'Arc") that stay listed in the tenant
- * directory whatever happens to the clinic, so feeding them to the directory
- * check would answer "still listed" for a clinic that was genuinely renamed —
- * i.e. permanently disable drift detection for every city-scoped clinic.
+ * The payload evidence has two different scopes, because the two checks do
+ * NOT have the same semantics. `targets` (own + city-scoped) is what
+ * attribution used on the payload, but city-scoped evidence is valid only from
+ * the clinic's home city. The directory comparison instead takes ONLY the
+ * clinic's own labels: city-scoped labels are network brands (e.g. "Réseau de
+ * l'Arc") that stay listed in the tenant directory whatever happens to the
+ * clinic, so feeding them to the directory check would answer "still listed"
+ * for a clinic that was genuinely renamed — i.e. permanently disable drift
+ * detection for every city-scoped clinic.
  *
  * @param {Object} input
  * @param {Iterable<string>} input.targets          Configured labels, normalised.
@@ -133,7 +134,13 @@ export function extractPostingDepartmentLabels(posting = {}) {
  *                                                  normalised, to compare against
  *                                                  the directory. Defaults to
  *                                                  `targets`.
+ * @param {Iterable<string>|null} [input.cityScopedTargets]
+ *                                                  Network-wide labels whose
+ *                                                  payload evidence is valid only
+ *                                                  when seen in the home city.
  * @param {Set<string>} input.seenLabels            Labels seen in the payload, normalised.
+ * @param {Set<string>} [input.seenHomeCityLabels]  Labels seen on postings in
+ *                                                  the clinic's home city.
  * @param {Set<string>|null} input.directoryLabels  Non-archived tenant departments,
  *                                                  normalised; `null` when the
  *                                                  directory could not be read.
@@ -142,20 +149,37 @@ export function extractPostingDepartmentLabels(posting = {}) {
 export function classifyZeroMatchRun({
   targets = [],
   directoryTargets = null,
+  cityScopedTargets = null,
   seenLabels = new Set(),
+  seenHomeCityLabels = new Set(),
   directoryLabels = null,
 } = {}) {
   const configured = [...targets].filter(Boolean);
-  if (configured.some((target) => seenLabels.has(target))) return 'matched';
+  const owned = [...(directoryTargets ?? targets)].filter(Boolean);
+  const cityScoped = cityScopedTargets === null
+    ? configured.filter((target) => !owned.includes(target))
+    : [...cityScopedTargets].filter(Boolean);
+  const homeCitySeen = seenHomeCityLabels ?? new Set();
+  const payloadMatched = owned.some((target) => seenLabels.has(target))
+    || cityScoped.some((target) => homeCitySeen.has(target));
+  if (payloadMatched) return 'matched';
   // An EMPTY directory is a non-observation, not evidence of a rename:
   // `fetchListPage` warns and returns `[]` on an unexpected envelope instead of
   // throwing (`assert-json-list-shape.mjs`), so a degraded fetch and a truly
   // empty tenant directory are indistinguishable here. Calling it `label-drift`
   // would resurrect the exact false warning this classifier exists to kill.
   if (!directoryLabels || directoryLabels.size === 0) return 'unverified';
-  const owned = [...(directoryTargets ?? targets)].filter(Boolean);
   if (owned.length === 0) return 'unverified';
-  return owned.some((target) => directoryLabels.has(target)) ? 'empty-board' : 'label-drift';
+  const directoryHasTarget = (target) => {
+    const normalizedOwnedTarget = normalizeClinicLabel(target);
+    if (!normalizedOwnedTarget) return false;
+    return [...directoryLabels].some((directoryLabel) => {
+      const normalizedDirectoryLabel = normalizeClinicLabel(directoryLabel);
+      return normalizedDirectoryLabel === normalizedOwnedTarget
+        || normalizedDirectoryLabel.startsWith(`${normalizedOwnedTarget} `);
+    });
+  };
+  return owned.some(directoryHasTarget) ? 'empty-board' : 'label-drift';
 }
 
 /**
@@ -184,6 +208,15 @@ export function fetchOutcomeForZeroMatch(verdict) {
   // Fetch and parse both worked; the board is simply empty.
   if (verdict === 'matched' || verdict === 'empty-board') return 'ok';
   return null;
+}
+
+/**
+ * Keep fetch metadata beside, rather than on, the jobs array. Array helpers
+ * return a new array and do not preserve custom properties, so the structured
+ * result is the stable transport boundary for `lastFetchOutcome` (issue #8069).
+ */
+export function buildSmnClinicFetchResult(jobs, fetchOutcome = null) {
+  return { jobs, fetchOutcome };
 }
 
 /**
@@ -344,14 +377,18 @@ export function createSmnClinicParser(config) {
   // failure mode that killed the old ?clinic= HTML filter, issues 3857/3859).
   let scannedPostings = 0;
   const seenDepartmentLabels = new Set();
+  const seenHomeCityLabels = new Set();
 
   function matchesClinicPosting(posting) {
     scannedPostings += 1;
     const labels = extractPostingDepartmentLabels(posting);
     for (const label of labels) seenDepartmentLabels.add(label);
+    const postingCity = normalizeClinicLabel(posting?.location?.city);
+    if (postingCity === homeCity) {
+      for (const label of labels) seenHomeCityLabels.add(label);
+    }
     if (labels.some((label) => departmentTargets.has(label))) return true;
     if (cityScopedTargets.size > 0 && homeCity) {
-      const postingCity = normalizeClinicLabel(posting?.location?.city);
       if (postingCity === homeCity && labels.some((label) => cityScopedTargets.has(label))) {
         return true;
       }
@@ -395,6 +432,7 @@ export function createSmnClinicParser(config) {
     let detailHits = 0;
     scannedPostings = 0;
     seenDepartmentLabels.clear();
+    seenHomeCityLabels.clear();
 
     const postings = fetchSmartRecruitersJobs(SMN_SR_COMPANY_ID, {
       company: companyName,
@@ -480,9 +518,16 @@ export function createSmnClinicParser(config) {
       // Only the ambiguous case (no configured label anywhere in the payload)
       // needs the extra directory call — one request, once per empty run.
       let departments = null;
-      if (!targets.some((t) => seenDepartmentLabels.has(t))) {
+      const payloadHasConfiguredEvidence = ownTargets.some((target) => seenDepartmentLabels.has(target))
+        || [...cityScopedTargets].some((target) => seenHomeCityLabels.has(target));
+      if (!payloadHasConfiguredEvidence) {
         try {
-          departments = await fetchSmartRecruitersDepartments(SMN_SR_COMPANY_ID);
+          const directoryResult = await fetchSmartRecruitersDepartments(SMN_SR_COMPANY_ID);
+          if (directoryResult?.complete === true && Array.isArray(directoryResult.departments)) {
+            departments = directoryResult.departments;
+          } else {
+            console.warn('   ⚠️ Tenant department directory incomplete; drift-vs-empty is unverified.');
+          }
         } catch (err) {
           console.warn(`   ⚠️ Tenant department directory unreachable: ${err?.message || err}`);
         }
@@ -496,7 +541,9 @@ export function createSmnClinicParser(config) {
       const verdict = classifyZeroMatchRun({
         targets,
         directoryTargets: ownTargets,
+        cityScopedTargets,
         seenLabels: seenDepartmentLabels,
+        seenHomeCityLabels,
         directoryLabels,
       });
       // Hand the verdict to the pipeline, not just to the log (#7897).
@@ -520,11 +567,9 @@ export function createSmnClinicParser(config) {
     }
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${jobs.length} with rich detail content)`);
-    // Same optional-property channel `runStandardCrawlerPipeline` already reads
-    // `discoveredCount` through, so the verdict survives the zero-job soft exit
-    // and reaches the summary slice the exit guard writes.
-    if (fetchOutcome) jobs.fetchOutcome = fetchOutcome;
-    return jobs;
+    // Keep the verdict outside the array: a consumer can filter/map/spread
+    // `result.jobs` without losing the value that reaches the summary slice.
+    return buildSmnClinicFetchResult(jobs, fetchOutcome);
   }
 
   return { fetchAllJobs, isCompanyJob, isTrustedDomain, LISTING_URL, matchesClinicPosting };

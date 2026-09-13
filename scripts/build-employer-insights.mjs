@@ -21,6 +21,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { writeEmployerInsightsDocuments } from './lib/employer-insights-firestore.mjs';
 import { assertEmployerInsightsSource } from './lib/employer-insights-contract.mjs';
 import {
   GA4_READONLY_SCOPE,
@@ -38,6 +39,7 @@ import {
   canonicalCompanyProfileSlug,
   rawCompanySlug,
 } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { isJobBoardSectorHubPath } from '../build-plugins/shared/jobSectorSlugs.mjs';
 
 export const INSIGHTS_SCHEMA_VERSION = 2;
 export const DELIVERY_UNAVAILABLE = 'non disponibile';
@@ -143,11 +145,12 @@ function toIso(value) {
 
 function inWindow(timestamp, window) {
   const iso = toIso(timestamp);
-  if (!iso) return true;
-  const from = Date.parse(window.from);
-  const to = Date.parse(window.to);
+  if (!iso) return false;
+  const from = Date.parse(window?.from);
+  const to = Date.parse(window?.to);
   const time = Date.parse(iso);
-  return Number.isFinite(time) && time >= from && time < to;
+  return Number.isFinite(from) && Number.isFinite(to)
+    && Number.isFinite(time) && time >= from && time < to;
 }
 
 function weekStart(timestamp) {
@@ -361,7 +364,7 @@ function normalizeEventRow(source) {
   return {
     emissionId: normalizeText(read(['emissionId', 'emission_id', 'actionId', 'action_id'], 15)),
     event: eventName,
-    timestamp: Array.isArray(source) ? null : toIso(read(['timestamp', 'occurredAt', 'createdAt'], undefined)),
+    timestamp: toIso(read(['timestamp', 'occurredAt', 'createdAt'], 16)),
     week: normalizeWeek(read(['week', 'wk'], 2)),
     path: normalizeText(read(['path', '$pathname', 'pathname'], 3)),
     jobSlug: normalizeText(read(['jobSlug', 'job_slug', 'slug'], 4)),
@@ -475,6 +478,12 @@ function pathSegments(pathname) {
 
 function routeIdentity(pathname) {
   const segments = pathSegments(pathname);
+  // Sector hubs deliberately share the `/section/<slug>/` shape with job
+  // details. Their page views have no employer/job identity and must remain
+  // residual traffic; resolving the hub slug against the job catalog would
+  // inflate an employer's denominator (e.g. `/infermieri/` versus the LIS
+  // detail slug) while apply clicks remain correctly attributed.
+  if (isJobBoardSectorHubPath(pathname)) return null;
   for (const segment of segments) {
     const prefix = COMPANY_HUB_PREFIXES.find((candidate) => segment.startsWith(candidate) && segment.length > candidate.length);
     if (prefix) return { kind: 'company', alias: segment.slice(prefix.length) };
@@ -578,9 +587,11 @@ function ensureCompanyState(states, catalog, companyKey) {
       profileViews: 0,
       profileVisitors: 0,
       applyClicks: 0,
+      applyClickUsers: 0,
       eventsObserved: 0,
       eventTypes: new Map(),
       trend: new Map(),
+      applyClickTrend: new Map(),
       profileTrend: new Map(),
       companyPaths: new Set(),
     });
@@ -609,6 +620,7 @@ function ensureAd(state, job) {
       views: 0,
       visitors: 0,
       applyClicks: 0,
+      applyClickUsers: 0,
       eventsObserved: 0,
       eventTypes: new Map(),
       trend: new Map(),
@@ -634,12 +646,17 @@ function addResidual(residuals, reason, amount) {
 export function aggregateEmployerEvents(inputRows = [], { catalog, window, source = 'posthog' } = {}) {
   catalog ||= buildIdentityCatalog();
   const effectiveWindow = window || { from: '1970-01-01T00:00:00.000Z', to: '9999-01-01T00:00:00.000Z' };
-  const windowRows = inputRows
-    .map(normalizeEventRow)
-    .filter((row) => inWindow(row.timestamp, effectiveWindow));
+  const normalizedRows = inputRows.map(normalizeEventRow);
+  const invalidTimestampRows = normalizedRows.filter((row) => !row.timestamp);
+  const windowRows = normalizedRows
+    .filter((row) => row.timestamp && inWindow(row.timestamp, effectiveWindow));
   const deduped = collapseTechnicalDuplicates(windowRows);
+  const invalidTimestampDeduped = collapseTechnicalDuplicates(invalidTimestampRows);
   const states = new Map();
   const residuals = residualLedger();
+  for (const sourceRow of invalidTimestampDeduped.rows) {
+    addResidual(residuals, 'invalid_timestamp', Math.max(0, numberOr(sourceRow.observed, 1)));
+  }
   let attributed = 0;
   let eventRowsAttributed = 0;
 
@@ -667,7 +684,12 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
     const views = pageview ? (sourceRow.views == null ? count : numberOr(sourceRow.views, count)) : 0;
     const visitors = pageview ? numberOr(sourceRow.visitors || sourceRow.persons, 0) : 0;
     const clicks = applyClick ? (sourceRow.clicks == null ? count : numberOr(sourceRow.clicks, count)) : 0;
+    // GA4/PostHog expose users per grouped row, not a cross-window user union.
+    // Keep the observed units for context, but never present them as named or
+    // globally unique people.
+    const applyClickUsers = applyClick ? numberOr(sourceRow.persons, 0) : 0;
     state.applyClicks += clicks;
+    state.applyClickUsers += applyClickUsers;
     if (job) {
       state.views += views;
       state.visitors += visitors;
@@ -677,8 +699,10 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
       ad.views += views;
       ad.visitors += visitors;
       ad.applyClicks += clicks;
-      const week = sourceRow.week || (pageview ? weekStart(sourceRow.timestamp) : null);
+      ad.applyClickUsers += applyClickUsers;
+      const week = sourceRow.week || ((pageview || applyClick) ? weekStart(sourceRow.timestamp) : null);
       if (pageview && week) addMetric(ad.trend, week, views);
+      if (applyClick && week) addMetric(state.applyClickTrend, week, clicks);
     } else if (pageview) {
       state.profileViews += views;
       state.profileVisitors += visitors;
@@ -688,22 +712,24 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
   }
 
   const residualTotal = Object.values(residuals).reduce((sum, value) => sum + value, 0);
+  const rawObserved = deduped.rawObserved + invalidTimestampDeduped.rawObserved;
+  const observed = deduped.observed + invalidTimestampDeduped.observed;
   const coverage = {
     source,
-    status: deduped.observed > 0 ? 'observed' : 'zero_observed',
-    rawObserved: deduped.rawObserved,
-    observed: deduped.observed,
+    status: observed > 0 ? 'observed' : 'zero_observed',
+    rawObserved,
+    observed,
     attributed,
     residuals,
     residualTotal,
-    technicalDuplicatesRemoved: deduped.removed,
-    dedupUnavailable: deduped.dedupUnavailable,
+    technicalDuplicatesRemoved: deduped.removed + invalidTimestampDeduped.removed,
+    dedupUnavailable: deduped.dedupUnavailable + invalidTimestampDeduped.dedupUnavailable,
     deduplication: {
       key: 'emission_id',
-      status: deduped.dedupUnavailable > 0 ? 'dedup non disponibile' : 'available',
-      unavailableCount: deduped.dedupUnavailable,
+      status: (deduped.dedupUnavailable + invalidTimestampDeduped.dedupUnavailable) > 0 ? 'dedup non disponibile' : 'available',
+      unavailableCount: deduped.dedupUnavailable + invalidTimestampDeduped.dedupUnavailable,
     },
-    invariant: attributed + residualTotal === deduped.observed,
+    invariant: attributed + residualTotal === observed,
     attributedRows: eventRowsAttributed,
   };
   return { states, coverage, dedupedRows: deduped.rows };
@@ -739,7 +765,12 @@ export function aggregateApplicationEvidence(records = [], { window, catalog } =
     }
     if (id) seenIds.add(id);
     const createdAt = toIso(source?.createdAt || source?.submittedAt);
-    if (createdAt && !inWindow(createdAt, window)) continue;
+    if (!createdAt) {
+      evidence.observed += 1;
+      addResidual(evidence.residuals, 'invalid_timestamp', 1);
+      continue;
+    }
+    if (!inWindow(createdAt, window)) continue;
     evidence.observed += 1;
     const jobIdResult = resolveJobById(catalog, source?.jobId || source?.publisherJobId);
     const slugResult = !jobIdResult ? resolveUnique(catalog.jobAliasToIds, source?.jobSlug || source?.slug) : null;
@@ -773,10 +804,20 @@ function serializeEventTypes(types) {
   return Object.fromEntries([...types.entries()].sort(([a], [b]) => a.localeCompare(b)));
 }
 
-function serializeTrend(trend) {
-  return [...trend.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([week, views]) => ({ week, views }));
+function serializeTrend(trend, extras = {}) {
+  const weeks = new Set(trend.keys());
+  for (const extra of Object.values(extras)) {
+    for (const week of extra.keys()) weeks.add(week);
+  }
+  return [...weeks]
+    .sort((a, b) => a.localeCompare(b))
+    .map((week) => {
+      const point = { week, views: trend.get(week) || 0 };
+      for (const [name, extra] of Object.entries(extras)) {
+        if (extra.has(week)) point[name] = extra.get(week) || 0;
+      }
+      return point;
+    });
 }
 
 function queryCoverageOrDefault(queryCoverage, coverage, window) {
@@ -865,6 +906,10 @@ function selectWindowSummary(doc) {
     window: doc.window,
     totals: doc.totals,
     trend: doc.trend,
+    topAd: doc.topAd,
+    ads: doc.ads,
+    profileTrend: doc.profileTrend,
+    applicationsCoverage: doc.applicationsCoverage,
     coverage: doc.coverage,
     limits: doc.limits,
   };
@@ -936,6 +981,7 @@ export function buildInsightsDocuments({
         views: ad.views,
         visitors: ad.visitors,
         applyClicks: ad.applyClicks,
+        applyClickUsers: ad.applyClickUsers,
         eventsObserved: ad.eventsObserved,
         eventTypes: serializeEventTypes(ad.eventTypes),
         applications: app ? app.applications : unavailable.applications,
@@ -951,7 +997,7 @@ export function buildInsightsDocuments({
     const forwardedAt = ads.map((ad) => ad.forwardedAt).filter(Boolean).sort().at(-1) || null;
     const jobTrend = ads.flatMap((ad) => ad.trend);
     for (const point of jobTrend) addMetric(state.trend, point.week, point.views);
-    const trend = serializeTrend(state.trend);
+    const trend = serializeTrend(state.trend, { applyClicks: state.applyClickTrend });
     const profileTrend = serializeTrend(state.profileTrend);
     const eventLimits = queryCoverageOrDefault(queryCoverage, aggregate.coverage, window);
     const doc = {
@@ -967,6 +1013,7 @@ export function buildInsightsDocuments({
         profileViews: state.profileViews,
         profileVisitors: state.profileVisitors,
         applyClicks: state.applyClicks,
+        applyClickUsers: state.applyClickUsers,
         adsCount: ads.length,
         applications: totalsApplications,
         applicationsStatus: evidence.status === 'source_unavailable'
@@ -993,6 +1040,12 @@ export function buildInsightsDocuments({
             identifier: 'person_id',
             aggregation: 'sum_distinct_per_event_group',
             globalUnique: false,
+          },
+          applyClickUsers: {
+            identifier: 'person_id',
+            aggregation: 'sum_per_apply_event_group',
+            globalUnique: false,
+            pii: false,
           },
         },
       },
@@ -1194,7 +1247,7 @@ function eventSelect(window, cursor = null) {
       countIf(event IN ('$pageview', 'pageview')) AS views,
       countIf(event = 'job_apply' OR (event = 'select_content' AND properties.content_type IN ('job_board_apply','job_board_apply_header_logo','job_board_apply_header_title'))) AS clicks,
       coalesce(toString(properties.emission_id), '') AS emission_id,
-      toString(timestamp) AS cursor_timestamp,
+      toString(timestamp) AS timestamp,
       ${cursorSelect}
     FROM events
     WHERE timestamp >= toDateTime('${from}') AND timestamp < toDateTime('${to}')${cursorFilter}
@@ -1501,10 +1554,12 @@ function ga4SettledExclusiveEnd(now = new Date()) {
   return new Date(end).toISOString();
 }
 
-async function loadApplicationRecords() {
-  const db = await getFirestoreDb();
+export async function loadApplicationRecords(db = null) {
+  const firestore = db || await getFirestoreDb();
   const records = [];
-  let query = db.collection('applications').select('jobId', 'jobSlug', 'createdAt', 'forwardedAt');
+  let query = firestore.collection('applications')
+    .select('jobId', 'jobSlug', 'createdAt', 'forwardedAt')
+    .orderBy('__name__');
   while (true) {
     const snapshot = await query.limit(500).get();
     for (const doc of snapshot.docs) records.push({ id: doc.id, ...doc.data() });
@@ -1515,21 +1570,9 @@ async function loadApplicationRecords() {
 }
 
 async function writeDocuments(docs) {
-  const { FieldValue } = await import('firebase-admin/firestore');
   const db = await getFirestoreDb();
-  let written = 0;
-  for (let i = 0; i < docs.length; i += 400) {
-    const batch = db.batch();
-    for (const document of docs.slice(i, i + 400)) {
-      batch.set(db.collection('employer_insights').doc(document.companyKey), {
-        ...document,
-        updatedAt: FieldValue.serverTimestamp(),
-      });
-      written += 1;
-    }
-    await batch.commit();
-  }
-  return written;
+  const result = await writeEmployerInsightsDocuments(db, docs);
+  return result.documentsWritten;
 }
 
 async function main() {

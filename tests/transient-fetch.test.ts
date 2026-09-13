@@ -4,6 +4,9 @@ import {
   isConnectionLevelFetchError,
   fetchWithRetry,
   httpFetchWithRetry,
+  markRetryExhaustedError,
+  MAX_RETRY_AFTER_MS,
+  parseRetryAfterMs,
   RETRYABLE_STATUS,
   transportErrorKind,
   TLS_ERROR_CODES,
@@ -113,6 +116,63 @@ describe('isConnectionLevelFetchError (Jina egress fallback gate)', () => {
 });
 
 describe('fetchWithRetry', () => {
+  it('parses Retry-After delta-seconds and HTTP-date with the shared cap', () => {
+    const now = Date.parse('2026-09-13T08:00:00.000Z');
+    expect(parseRetryAfterMs('5', { nowMs: now })).toBe(5_000);
+    expect(parseRetryAfterMs(new Date(now + 5_000).toUTCString(), { nowMs: now })).toBe(5_000);
+    expect(parseRetryAfterMs('86400', { nowMs: now })).toBe(MAX_RETRY_AFTER_MS);
+    expect(parseRetryAfterMs('not-a-date', { nowMs: now })).toBeNull();
+    expect(parseRetryAfterMs(new Date(now - 1_000).toUTCString(), { nowMs: now })).toBeNull();
+  });
+
+  it('waits at least the Retry-After delay when a response carries one', async () => {
+    vi.useFakeTimers();
+    const random = vi.spyOn(Math, 'random').mockReturnValue(0);
+    try {
+      const response = {
+        headers: { get: (name: string) => name === 'retry-after' ? '5' : null },
+      };
+      const attempt = vi
+        .fn()
+        .mockRejectedValueOnce(Object.assign(new Error('HTTP 429'), { retryable: true, response }))
+        .mockResolvedValueOnce('ok');
+      const pending = fetchWithRetry(attempt, { retries: 1, retryBaseMs: 100 });
+
+      await vi.advanceTimersByTimeAsync(4_999);
+      expect(attempt).toHaveBeenCalledTimes(1);
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(pending).resolves.toBe('ok');
+      expect(attempt).toHaveBeenCalledTimes(2);
+    } finally {
+      random.mockRestore();
+      vi.useRealTimers();
+    }
+  });
+
+  it('caps an oversized Retry-After at two minutes including jitter', async () => {
+    vi.useFakeTimers();
+    const random = vi.spyOn(Math, 'random').mockReturnValue(0.99);
+    try {
+      const response = {
+        headers: { get: (name: string) => name === 'retry-after' ? '86400' : null },
+      };
+      const attempt = vi
+        .fn()
+        .mockRejectedValueOnce(Object.assign(new Error('HTTP 429'), { retryable: true, response }))
+        .mockResolvedValueOnce('ok');
+      const pending = fetchWithRetry(attempt, { retries: 1, retryBaseMs: 1_000 });
+
+      await vi.advanceTimersByTimeAsync(MAX_RETRY_AFTER_MS - 1);
+      expect(attempt).toHaveBeenCalledTimes(1);
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(pending).resolves.toBe('ok');
+      expect(attempt).toHaveBeenCalledTimes(2);
+    } finally {
+      random.mockRestore();
+      vi.useRealTimers();
+    }
+  });
+
   it('retries a transient failure then succeeds', async () => {
     const attempt = vi
       .fn()
@@ -155,6 +215,19 @@ describe('fetchWithRetry', () => {
     await expect(fetchWithRetry(vi.fn().mockRejectedValue(persistent), { retries: 0, retryBaseMs: 0 }))
       .rejects.toBe(persistent);
     expect((persistent as Error & { retryExhausted?: boolean }).retryExhausted).toBeUndefined();
+  });
+
+  it('marks a frozen terminal error through a descriptor-preserving clone', async () => {
+    const frozen = Object.freeze(Object.assign(new Error('HTTP 503'), { status: 503 }));
+    const marked = markRetryExhaustedError(frozen) as Error & { retryExhausted?: boolean; status?: number };
+    expect(marked).not.toBe(frozen);
+    expect(marked).toBeInstanceOf(Error);
+    expect(marked.message).toBe('HTTP 503');
+    expect(marked.status).toBe(503);
+    expect(marked.retryExhausted).toBe(true);
+
+    await expect(fetchWithRetry(vi.fn().mockRejectedValue(frozen), { retries: 0, retryBaseMs: 0 }))
+      .rejects.toMatchObject({ message: 'HTTP 503', retryExhausted: true });
   });
 
   it('supports a custom isTransient predicate', async () => {

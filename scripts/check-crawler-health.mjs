@@ -90,6 +90,7 @@ import {
   CRAWLER_FETCH_FAILURE_OUTCOMES,
   normalizeFetchOutcome,
 } from './lib/crawler-fetch-outcome.mjs';
+import { detailDropFromSummary, detailDropAdvisoryReason } from './lib/crawler-detail-drop.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -948,6 +949,7 @@ async function inspectCrawler(slug) {
     summary && typeof summary === 'object' && Number.isFinite(Number(summary.parsed))
       ? Number(summary.parsed)
       : null;
+  const detailDrop = detailDropFromSummary(summary);
   // Source-proven empty state (crawler-template `evaluateAuthoritativeSnapshot`):
   // absent for crawlers without an authoritative-snapshot validator.
   const authoritativeEmpty =
@@ -1004,6 +1006,7 @@ async function inspectCrawler(slug) {
     discovered,
     written,
     parsed,
+    detailDrop,
     authoritativeEmpty,
     lastFetchOutcome,
     earlyExit,
@@ -1087,6 +1090,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     summary.parsed >= 0
       ? summary.parsed
       : null;
+  const detailDrop = detailDropFromSummary(summary);
   const authoritativeEmpty = summary.authoritativeEmptySnapshot === true;
   // Same fetch verdict as `inspectCrawler` (#7897), mirrored here for the same
   // reason the counts above are: the corpus republishes the slice verbatim, and
@@ -1116,6 +1120,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     discovered,
     written,
     parsed,
+    detailDrop,
     authoritativeEmpty,
     lastFetchOutcome,
     earlyExit,
@@ -1213,10 +1218,41 @@ async function inspectCorpusRecoveryBatch(
   return results;
 }
 
+const OBSERVATION_DIAGNOSTIC_FIELDS = [
+  'authoritativeEmpty',
+  'authoritativeEmptySnapshot',
+  'lastFetchOutcome',
+  'earlyExit',
+  'exitCode',
+  'detailDrop',
+];
+
+/**
+ * Keep the winning observation's freshness and counts, while carrying forward
+ * diagnostic evidence that the winning producer did not publish. A newer
+ * slice must never inherit an older count, but losing a diagnostic such as an
+ * exit code would turn an observed bail-out into `unknown`.
+ */
+function mergeMissingObservationDiagnostics(winner, loser) {
+  let merged = winner;
+  for (const field of OBSERVATION_DIAGNOSTIC_FIELDS) {
+    if (merged?.[field] !== null && merged?.[field] !== undefined) continue;
+    const fallback = loser?.[field];
+    if (fallback === null || fallback === undefined) continue;
+    // `false` is the absence of positive evidence for these boolean fields;
+    // copying it into a legacy observation would only create a needless clone.
+    if (fallback === false) continue;
+    if (merged === winner) merged = { ...winner };
+    merged[field] = fallback;
+  }
+  return merged;
+}
+
 /**
  * Prefer recovery evidence only when it is strictly newer than the canonical
  * site observation. Counts are deliberately not part of the choice: a newer
- * corpus zero is a real empty run and must remain visible.
+ * corpus zero is a real empty run and must remain visible. Missing diagnostic
+ * fields are filled from the other observation after the winner is chosen.
  */
 function selectNewestCrawlerObservation(
   siteObservation,
@@ -1231,8 +1267,11 @@ function selectNewestCrawlerObservation(
   // indefinitely. Five minutes tolerates ordinary clock skew without trusting
   // an impossible observation.
   if (corpusAt > nowMs + 5 * 60 * 1000) return siteObservation;
-  if (Number.isFinite(siteAt) && siteAt >= corpusAt) return siteObservation;
-  return corpusObservation;
+  const winner = Number.isFinite(siteAt) && siteAt >= corpusAt
+    ? siteObservation
+    : corpusObservation;
+  const loser = winner === siteObservation ? corpusObservation : siteObservation;
+  return mergeMissingObservationDiagnostics(winner, loser);
 }
 
 /**
@@ -1308,7 +1347,10 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // `EMPTY_OK_CRAWLERS` entry that keeps masking the slug after the source
   // really dies. This signal cannot: the proof is re-established every run or
   // the crawler throws.
-  const authoritativeEmpty = observation.authoritativeEmpty === true && lastObservedJobs === 0;
+  const authoritativeEmpty =
+    (observation.authoritativeEmpty === true ||
+      observation.authoritativeEmptySnapshot === true) &&
+    lastObservedJobs === 0;
 
   // The run's own verdict on WHY it is empty (#7897). Every signal above is
   // the monitor INFERRING a cause from counts it can compare; this one is the
@@ -1415,13 +1457,19 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     : lastObservedJobs > 0
       ? 0
       : (previous.consecutiveEmptyOkRuns ?? 0) + 1;
-  const advisory =
+  let advisory =
     lastObservedJobs === 0 &&
     emptyOk &&
     consecutiveEmptyOkRuns >= EMPTY_OK_ADVISORY_AFTER_RUNS;
-  const advisoryReason = advisory
+  let advisoryReason = advisory
     ? `${consecutiveEmptyOkRuns} consecutive empty-ok runs (>= ${EMPTY_OK_ADVISORY_AFTER_RUNS}) — verify the source is still alive, not just "legitimately quiet"`
     : null;
+
+  const detailDropReason = detailDropAdvisoryReason(observation.detailDrop);
+  if (!advisory && detailDropReason !== null) {
+    advisory = true;
+    advisoryReason = detailDropReason;
+  }
 
   const lastNonZeroJobs =
     lastObservedJobs > 0 ? lastObservedJobs : (previous.lastNonZeroJobs ?? 0);
@@ -1516,6 +1564,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _lastObservedDiscoveredCount: hasDiscoveredSignal ? observation.discovered : null,
       _lastObservedWrittenCount: observation.written ?? null,
       _lastObservedParsedCount: hasParsedSignal ? observation.parsed : null,
+      _lastObservedDetailDrop: observation.detailDrop ?? null,
       _autoFilteredEmpty: autoFilteredEmpty,
       _pipelineDroppedAll: pipelineDroppedAll,
       _authoritativeEmptySnapshot: authoritativeEmpty,

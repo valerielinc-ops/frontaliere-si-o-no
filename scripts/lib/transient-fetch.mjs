@@ -45,6 +45,11 @@ export const RETRYABLE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
  */
 export const WAF_IP_BLOCK_STATUS = new Set([403, 406, 415, 451]);
 
+// Vendors use Retry-After for both short rate-limit windows and absurd values
+// such as 86400 seconds. Keep one ceiling for the shared transport and the AI
+// callers that already use the same two-minute safety bound.
+export const MAX_RETRY_AFTER_MS = 2 * 60 * 1000;
+
 /**
  * Node/undici error codes that mean "TLS refused this certificate".
  *
@@ -99,6 +104,33 @@ export function transportErrorKind(error) {
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Parse an HTTP Retry-After value into milliseconds.
+ *
+ * Delta-seconds are the common form; HTTP-date is accepted as required by the
+ * header contract. Missing, malformed, or already-expired dates return null
+ * so callers can use their normal local backoff. A caller may provide a
+ * smaller cap for a narrower policy (the prospector uses 60 seconds).
+ */
+export function parseRetryAfterMs(
+  value,
+  { nowMs = Date.now(), capMs = MAX_RETRY_AFTER_MS } = {},
+) {
+  const cap = Number.isFinite(capMs) ? Math.max(0, capMs) : MAX_RETRY_AFTER_MS;
+  const raw = String(value ?? '').trim();
+  if (!raw) return null;
+
+  if (/^\d+$/.test(raw)) {
+    const seconds = Number(raw);
+    if (!Number.isFinite(seconds)) return null;
+    return Math.min(cap, seconds * 1000);
+  }
+
+  const parsed = Date.parse(raw);
+  if (!Number.isFinite(parsed) || parsed <= nowMs) return null;
+  return Math.min(cap, parsed - nowMs);
+}
 
 /**
  * Whether a thrown fetch error is a transient network/timeout failure that is
@@ -189,6 +221,42 @@ export function isConnectionLevelFetchError(err) {
 }
 
 /**
+ * Mark a terminal retry error without assuming third-party errors are
+ * extensible. Frozen errors are cloned with their prototype and own property
+ * descriptors intact, so callers still receive an Error-shaped value with the
+ * original message/stack/cause and a reliable marker.
+ */
+export function markRetryExhaustedError(error) {
+  if (!error || (typeof error !== 'object' && typeof error !== 'function')) return error;
+  try {
+    error.retryExhausted = true;
+    if (error.retryExhausted === true) return error;
+  } catch {
+    // Fall through to a descriptor-preserving replacement.
+  }
+
+  const replacement = Object.create(Object.getPrototypeOf(error));
+  for (const key of Reflect.ownKeys(error)) {
+    if (key === 'retryExhausted') continue;
+    const descriptor = Object.getOwnPropertyDescriptor(error, key);
+    if (!descriptor) continue;
+    try {
+      Object.defineProperty(replacement, key, descriptor);
+    } catch {
+      // A hostile exotic error may expose an uncopyable own property; the
+      // terminal marker and normal Error fields are still preserved below.
+    }
+  }
+  Object.defineProperty(replacement, 'retryExhausted', {
+    configurable: true,
+    enumerable: true,
+    value: true,
+    writable: true,
+  });
+  return replacement;
+}
+
+/**
  * Run an async fetch operation with exponential backoff + jitter on transient
  * failures (429/5xx, network errors, timeouts). 4xx and other persistent
  * errors fail fast. Defaults: 3 retries → backoff 1s/2s/4s (+ jitter).
@@ -224,25 +292,27 @@ export async function fetchWithRetry(attemptFn, opts = {}) {
       const retryable = transient(err);
       if (!retryable) throw err;
       if (attempt >= maxRetries) {
-        if (err && (typeof err === 'object' || typeof err === 'function')) {
-          try {
-            err.retryExhausted = true;
-          } catch {
-            // A frozen third-party error remains fail-closed for callers that
-            // require this marker; it is still rethrown unchanged below.
-          }
-        }
-        throw err;
+        throw markRetryExhaustedError(err);
       }
-      const delay = baseMs * 2 ** attempt;
+      const exponentialDelay = baseMs * 2 ** attempt;
+      const retryAfterMs = parseRetryAfterMs(
+        err?.response?.headers?.get?.('retry-after') ?? err?.retryAfter,
+      );
+      const delay = Math.max(exponentialDelay, retryAfterMs ?? 0);
       const jitter = Math.floor(Math.random() * baseMs);
+      // Keep the existing exponential+jitter behaviour when the local
+      // backoff wins. When Retry-After is the governing delay, cap the total
+      // wait (including jitter) at the shared ceiling.
+      const waitMs = retryAfterMs !== null && retryAfterMs >= exponentialDelay
+        ? Math.min(MAX_RETRY_AFTER_MS, delay + jitter)
+        : delay + jitter;
       if (opts.label) {
         console.warn(
           `[fetchWithRetry] ${opts.label}: transient failure (${String(err?.message || err)}), `
-          + `retry ${attempt + 1}/${maxRetries} in ${delay + jitter}ms`,
+          + `retry ${attempt + 1}/${maxRetries} in ${waitMs}ms`,
         );
       }
-      await sleep(delay + jitter);
+      await sleep(waitMs);
     }
   }
   throw lastErr;

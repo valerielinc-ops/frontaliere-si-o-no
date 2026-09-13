@@ -1,10 +1,11 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   createSmnClinicParser,
   normalizeClinicLabel,
   extractPostingDepartmentLabels,
   classifyZeroMatchRun,
   fetchOutcomeForZeroMatch,
+  buildSmnClinicFetchResult,
   suggestDirectoryLabels,
 } from '../scripts/lib/smn-clinic-job-parser.mjs';
 import {
@@ -13,6 +14,13 @@ import {
 import {
   matchesKlinikSiloahPosting,
 } from '../scripts/lib/klinik-siloah-job-parser.mjs';
+import {
+  fetchSmartRecruitersDepartments,
+} from '../scripts/lib/ats-clients/smartrecruiters-client.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 /**
  * Since July 2026 the SMN clinic factory filters the SmartRecruiters
@@ -211,9 +219,22 @@ describe('classifyZeroMatchRun (drift vs empty board, issue #7320)', () => {
     expect(classifyZeroMatchRun({
       targets: ['hopital de moutier', 'reseau de l arc'],
       directoryTargets: ['hopital de moutier'],
+      cityScopedTargets: ['reseau de l arc'],
       seenLabels: new Set(['reseau de l arc']),
+      seenHomeCityLabels: new Set(['reseau de l arc']),
       directoryLabels: new Set(['reseau de l arc']),
     })).toBe('matched');
+  });
+
+  it('does not treat a city-scoped label seen outside the home city as a match', () => {
+    expect(classifyZeroMatchRun({
+      targets: ['hopital de moutier', 'reseau de l arc'],
+      directoryTargets: ['hopital de moutier'],
+      cityScopedTargets: ['reseau de l arc'],
+      seenLabels: new Set(['reseau de l arc']),
+      seenHomeCityLabels: new Set(),
+      directoryLabels: new Set(['centre medical moutier']),
+    })).toBe('label-drift');
   });
 
   it('ignores a city-scoped network brand in the DIRECTORY check (drift stays detectable)', () => {
@@ -267,6 +288,142 @@ describe('classifyZeroMatchRun (drift vs empty board, issue #7320)', () => {
   it('defaults to "unverified" on empty input rather than throwing', () => {
     expect(classifyZeroMatchRun()).toBe('unverified');
   });
+
+  it('accepts hierarchical and suffixed directory labels at a token boundary', () => {
+    expect(classifyZeroMatchRun({
+      targets: ['clinique de montchoisi'],
+      seenLabels: new Set(['motionlab']),
+      directoryLabels: new Set(['clinique de montchoisi radiologie']),
+    })).toBe('empty-board');
+    expect(classifyZeroMatchRun({
+      targets: ['clinique de valere'],
+      seenLabels: new Set(['motionlab']),
+      directoryLabels: new Set(['clinique de valere vs']),
+    })).toBe('empty-board');
+  });
+
+  it('keeps a real rename as drift and does not accept a substring', () => {
+    expect(classifyZeroMatchRun({
+      targets: ['clinique de montchoisi'],
+      seenLabels: new Set(['motionlab']),
+      directoryLabels: new Set(['centre medical montchoisi']),
+    })).toBe('label-drift');
+    expect(classifyZeroMatchRun({
+      targets: ['clinique de montchoisi'],
+      seenLabels: new Set(['motionlab']),
+      directoryLabels: new Set(['clinique de montchoisiradiologie']),
+    })).toBe('label-drift');
+  });
+});
+
+describe('fetchSmartRecruitersDepartments completeness', () => {
+  const jsonResponse = (body: unknown) => ({
+    ok: true,
+    status: 200,
+    statusText: 'OK',
+    json: async () => body,
+  });
+
+  it('counts archived and blank rows toward totalFound', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(jsonResponse({
+        totalFound: 4,
+        content: [
+          { id: 1, label: 'Active one' },
+          { id: 2, label: 'Archived one', archived: true },
+        ],
+      }))
+      .mockResolvedValueOnce(jsonResponse({
+        totalFound: 4,
+        content: [
+          { id: 3, label: '' },
+          { id: 4, label: 'Active two' },
+        ],
+      }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchSmartRecruitersDepartments('SwissMedicalNetwork1'))
+      .resolves.toEqual({
+        departments: [
+          { id: 1, label: 'Active one', archived: false },
+          { id: 4, label: 'Active two', archived: false },
+        ],
+        complete: true,
+      });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('declares a non-empty partial directory incomplete after an empty page', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(jsonResponse({
+        totalFound: 40,
+        content: Array.from({ length: 20 }, (_, index) => ({
+          id: index + 1,
+          label: `Department ${index + 1}`,
+        })),
+      }))
+      .mockResolvedValueOnce(jsonResponse({
+        error: 'degraded envelope',
+      }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const result = await fetchSmartRecruitersDepartments('SwissMedicalNetwork1');
+
+    expect(result.complete).toBe(false);
+    expect(result.departments).toHaveLength(20);
+    const directoryLabels = result.complete
+      ? new Set(result.departments.map(({ label }) => normalizeClinicLabel(label)))
+      : null;
+    expect(classifyZeroMatchRun({
+      targets: ['clinic missing from partial directory'],
+      seenLabels: new Set(['motionlab']),
+      directoryLabels,
+    })).toBe('unverified');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe('createSmnClinicParser zero-match evidence', () => {
+  const jsonResponse = (body: unknown) => ({
+    ok: true,
+    status: 200,
+    statusText: 'OK',
+    json: async () => body,
+  });
+
+  it('still checks the directory when a city-scoped label appears outside home city', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(jsonResponse({
+        totalFound: 1,
+        content: [posting({
+          department: { label: "Réseau de l'Arc" },
+          customField: [{ fieldLabel: 'Department', valueLabel: "Réseau de l'Arc" }],
+          location: { city: 'Saint-Imier', country: 'ch' },
+        })],
+      }))
+      .mockResolvedValueOnce(jsonResponse({
+        totalFound: 1,
+        content: [{ id: 'renamed', label: 'Centre médical Moutier' }],
+      }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const parser = createSmnClinicParser({
+      companyKey: 'hopital-de-moutier',
+      companyName: 'Hôpital de Moutier',
+      clinicCode: 'MOU',
+      companyDomain: 'swissmedical.net',
+      defaultCanton: 'JU',
+      defaultCity: 'Moutier',
+      defaultPostalCode: '2740',
+      cityScopedDepartmentLabels: ["Réseau de l'Arc"],
+    });
+
+    const result = await parser.fetchAllJobs();
+
+    expect(result.jobs).toEqual([]);
+    expect(result.fetchOutcome).toBe('selector_miss');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
 });
 
 describe('suggestDirectoryLabels', () => {
@@ -316,5 +473,19 @@ describe('fetchOutcomeForZeroMatch (slice lastFetchOutcome, issue #7897)', () =>
 
   it('omits the field for an unknown verdict rather than inventing one', () => {
     expect(fetchOutcomeForZeroMatch(undefined as unknown as 'matched')).toBeNull();
+  });
+});
+
+describe('buildSmnClinicFetchResult (metadata survives array transforms, issue #8069)', () => {
+  it('keeps the verdict outside the jobs array', () => {
+    const result = buildSmnClinicFetchResult([
+      { id: 'job-1' },
+      { id: 'job-2' },
+    ], 'selector_miss');
+    const filteredJobs = result.jobs.filter((job) => job.id === 'job-2');
+
+    expect(filteredJobs).toEqual([{ id: 'job-2' }]);
+    expect(result.fetchOutcome).toBe('selector_miss');
+    expect(filteredJobs.fetchOutcome).toBeUndefined();
   });
 });

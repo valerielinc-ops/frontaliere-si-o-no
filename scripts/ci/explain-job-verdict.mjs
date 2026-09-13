@@ -68,6 +68,7 @@ export function selectCurrentJob(
     (runnerId && String(job?.runner_id) === String(runnerId))
       || (runnerName && job?.runner_name === runnerName)
   ));
+  const runnerIdentityProvided = Boolean(runnerId || runnerName);
   const candidates = runnerMatches.length > 0 ? runnerMatches : matches;
   const selected = candidates.reduce((latest, job) => (
     jobRecencyMs(job) > jobRecencyMs(latest)
@@ -78,7 +79,11 @@ export function selectCurrentJob(
   console.warn(
     `::warning::[explain-job-verdict] ${matches.length} job omonimi "${jobName}" `
       + `nell'attempt: selezionato id=${selected.id ?? '?'} `
-      + (runnerMatches.length > 0 ? 'sul runner corrente.' : 'più recente.'),
+      + (runnerMatches.length > 0
+        ? 'sul runner corrente.'
+        : runnerIdentityProvided
+          ? 'nessun match del runner corrente (RUNNER_ID/RUNNER_NAME); fallback più recente.'
+          : 'runner corrente non identificato (RUNNER_ID/RUNNER_NAME assenti); fallback più recente.'),
   );
   return selected;
 }

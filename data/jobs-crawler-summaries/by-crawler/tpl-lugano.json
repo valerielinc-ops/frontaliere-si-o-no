@@ -1,18 +1,56 @@
 {
   "key": "tpl-lugano",
   "label": "TPL Lugano",
-  "generatedAt": "2026-09-09T23:08:58.349Z",
-  "total": 0,
-  "discovered": 0,
-  "written": 0,
-  "sourceProvenEmpty": true,
-  "newCount": 0,
+  "generatedAt": "2026-09-12T13:03:27.821Z",
+  "total": 1,
+  "discovered": 1,
+  "written": 1,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "newJobs": [],
+  "durationMs": 7088,
+  "avgDurationMs": 7088,
+  "durationHistory": [
+    7088
+  ],
+  "newJobs": [
+    {
+      "title": "Addetto/a rimessa",
+      "company": "TPL - Trasporti Pubblici Luganesi",
+      "companyKey": "tpl-trasporti-pubblici-luganesi",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "url": "https://www.tplsa.ch/2/50/candidati/?idhr=769",
+      "applyUrl": "https://www.tplsa.ch/2/50/tpl-lavora-con-noi.html",
+      "category": "health",
+      "sector": "Trasporti pubblici / Mobilita",
+      "employmentType": "FULL_TIME",
+      "source": "tpl-lugano-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-09-12",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "postalCode": "6900",
+      "streetAddress": "Via Campagna 15",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "slug": "addetto-a-rimessa-tpl-lugano",
+      "id": "tpl-trasporti-pubblici-luganesi-38d6a2d08982",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "durationMs": 6772
+  "unchangedJobs": []
 }

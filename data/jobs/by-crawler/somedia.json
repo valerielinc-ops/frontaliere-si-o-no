@@ -1,6 +1,6 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-09-11T18:31:49.752Z",
+  "assembledAt": "2026-09-12T13:03:07.839Z",
   "jobs": [
     {
       "id": "somedia-9a0ca8ab845a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:15.821Z",
+      "crawledAt": "2026-09-12T13:02:57.208Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -91,7 +91,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:04:21.105Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -122,7 +121,7 @@
       "title": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
       "titleByLocale": {
         "it": "Apprendistato come Impiegato/a EFZ Marketing & Comunicazione 2027",
-        "en": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
+        "en": "Apprenticeship as a businessman EFZ Marketing & Communication 2027",
         "de": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
         "fr": "Alternance en tant que Commercial/e EFZ Marketing & Communication 2027"
       },
@@ -138,7 +137,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:14.903Z",
+      "crawledAt": "2026-09-12T13:02:56.341Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -195,7 +194,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T23:08:48.087Z",
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 70500,
       "salarySource": "estimated",
@@ -216,7 +214,7 @@
       "slug": "video-editoriale-40-somedia-ag-glarus",
       "slugByLocale": {
         "it": "video-editoriale-40-somedia-ag-glarus",
-        "en": "redaktor-in-video-40-somedia-ag-glarus",
+        "en": "editorial-video-40-somedia-ag-glarus",
         "de": "redaktor-in-video-40-somedia-ch",
         "fr": "editeur-en-video-40-somedia-ag-glarus"
       },
@@ -226,7 +224,7 @@
       "title": "Redaktor/in Video (40%)",
       "titleByLocale": {
         "it": "Video Editoriale (40%)",
-        "en": "Redaktor/in Video (40%)",
+        "en": "Editorial Video (40%)",
         "de": "Redaktor/in Video (40%)",
         "fr": "Éditeur/en vidéo (40%)"
       },
@@ -242,7 +240,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:13.968Z",
+      "crawledAt": "2026-09-12T13:02:55.491Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -287,9 +285,8 @@
       "previousSlugs": [
         "redaktor-in-video-40-somedia-ch",
         "editor-in-video-40-somedia-ag-glarus",
-        "editorial-video-40-somedia-ag-glarus",
-        "video-editoriale-40-somedia-ag-glarus",
-        "redaktor-in-video-40-somedia-ag-glarus"
+        "redaktor-in-video-40-somedia-ag-glarus",
+        "video-editoriale-40-somedia-ag-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -298,7 +295,6 @@
           "video-editoriale-40-somedia-ag-glarus"
         ],
         "en": [
-          "editorial-video-40-somedia-ag-glarus",
           "redaktor-in-video-40-somedia-ag-glarus"
         ],
         "fr": [
@@ -337,7 +333,7 @@
       "title": "Sales Manager/in Aussendienst (80-100%)",
       "titleByLocale": {
         "it": "Sales Manager Field Service (80-100%)",
-        "en": "Sales Manager/in Aussendienst (80-100%)",
+        "en": "Sales Manager Field Service (80-100%)",
         "de": "Sales Manager/in Aussendienst (80-100%)",
         "fr": "Directeur des ventes Service mobile (80-100 %)"
       },
@@ -353,7 +349,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:44:12.856Z",
+      "crawledAt": "2026-09-12T13:02:54.343Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -389,16 +385,17 @@
         "identifier": "",
         "hiringOrganization": "Somedia Promotion AG"
       },
-      "firstSeenAt": "2026-09-10T23:15:11.091Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "sales-manager-in-aussendienst-80-100-somedia-ch",
+        "sales-manager-field-service-80-100-somedia-ag-glarus"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-in-aussendienst-80-100-somedia-ch"
+          "sales-manager-in-aussendienst-80-100-somedia-ch",
+          "sales-manager-field-service-80-100-somedia-ag-glarus"
         ]
       },
-      "previousSlugs": [
-        "sales-manager-in-aussendienst-80-100-somedia-ch"
-      ],
+      "firstSeenAt": "2026-09-10T23:15:11.091Z",
       "salaryMin": 100000,
       "salaryMax": 152000,
       "salarySource": "estimated",

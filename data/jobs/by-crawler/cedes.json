@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-09-11T13:33:55.194Z",
+  "assembledAt": "2026-09-12T12:55:21.196Z",
   "jobs": [
     {
       "id": "cedes-697abaeca835",
@@ -12,7 +12,7 @@
         "fr": "developpement-des-entreprises-reseau-professionnel-ea-cedes-ag-landquart"
       },
       "company": "CEDES AG",
-      "companyKey": "cedes",
+      "companyKey": "cedes-ag",
       "companyDomain": "cedes.com",
       "title": "Business Development EA Professional Network",
       "titleByLocale": {
@@ -43,13 +43,15 @@
       "url": "https://www.cedes.com/en/career/jobs/business-development-ea-professional-network/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:48.946Z",
+      "crawledAt": "2026-09-12T12:55:14.956Z",
       "previousSlugs": [
-        "business-development-ea-professional-network-cedes-landquart"
+        "business-development-ea-professional-network-cedes-landquart",
+        "sviluppo-aziendale-ea-rete-professionale-cedes-ag-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-development-ea-professional-network-cedes-landquart"
+          "business-development-ea-professional-network-cedes-landquart",
+          "sviluppo-aziendale-ea-rete-professionale-cedes-ag-landquart"
         ],
         "de": [
           "business-development-ea-professional-network-cedes-landquart"
@@ -84,7 +86,7 @@
         "fr": "electronique-acheteur-principal-cedes-ag-landquart"
       },
       "company": "CEDES AG",
-      "companyKey": "cedes",
+      "companyKey": "cedes-ag",
       "companyDomain": "cedes.com",
       "title": "Lead Buyer Electronics",
       "titleByLocale": {
@@ -115,13 +117,15 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:48.507Z",
+      "crawledAt": "2026-09-12T12:55:14.654Z",
       "previousSlugs": [
-        "lead-buyer-electronics-cedes-landquart"
+        "lead-buyer-electronics-cedes-landquart",
+        "elettronica-degli-acquirenti-di-piombo-cedes-ag-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-buyer-electronics-cedes-landquart"
+          "lead-buyer-electronics-cedes-landquart",
+          "elettronica-degli-acquirenti-di-piombo-cedes-ag-landquart"
         ],
         "de": [
           "lead-buyer-electronics-cedes-landquart"
@@ -130,7 +134,6 @@
           "lead-buyer-electronics-cedes-landquart"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
@@ -157,7 +160,7 @@
         "fr": "software-test-engineer-80-100-cedes-landquart"
       },
       "company": "CEDES AG",
-      "companyKey": "cedes",
+      "companyKey": "cedes-ag",
       "companyDomain": "cedes.com",
       "title": "Software Test Engineer (80 – 100%)",
       "titleByLocale": {
@@ -188,7 +191,7 @@
       "url": "https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:48.016Z",
+      "crawledAt": "2026-09-12T12:55:14.343Z",
       "firstSeenAt": "2026-07-15T22:20:19.070Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -215,7 +218,7 @@
         "fr": "candidatures-non-sollicitees-cedes-ag-landquart"
       },
       "company": "CEDES AG",
-      "companyKey": "cedes",
+      "companyKey": "cedes-ag",
       "companyDomain": "cedes.com",
       "title": "Unsolicited applications",
       "titleByLocale": {
@@ -246,15 +249,17 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-11T13:33:47.533Z",
+      "crawledAt": "2026-09-12T12:55:14.031Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
-        "unsolicited-applications-cedes-landquart"
+        "unsolicited-applications-cedes-landquart",
+        "candidature-non-richiesta-cedes-ag-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unsolicited-applications-cedes-ag-landquart",
-          "unsolicited-applications-cedes-landquart"
+          "unsolicited-applications-cedes-landquart",
+          "candidature-non-richiesta-cedes-ag-landquart"
         ],
         "de": [
           "unsolicited-applications-cedes-ag-landquart",
@@ -279,8 +284,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     }
   ]
 }

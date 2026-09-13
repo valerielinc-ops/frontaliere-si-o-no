@@ -45,6 +45,7 @@ describe('isDistinctiveToken', () => {
   it('rejects file line anchors as citation metadata, not code tokens', () => {
     expect(isDistinctiveToken('scripts/ci/review-gate.mjs:L410')).toBe(false);
     expect(isDistinctiveToken('scripts/ci/review-gate.mjs:431')).toBe(false);
+    expect(isDistinctiveToken('scripts/ci/review-gate.mjs:L410-L431')).toBe(false);
   });
 
   it('rejects bare funnel field/helper names — they occur in cited files independent of any fix (#1647)', () => {
@@ -98,8 +99,41 @@ describe('citedFiles', () => {
   const fileExists = (p: string) => p === 'scripts/ci/foo.mjs' || p === 'components/Bar.tsx';
 
   it('extracts backticked paths that resolve, stripping :Lnnn suffix', () => {
-    const body = 'fix in `scripts/ci/foo.mjs:L42` and `components/Bar.tsx`';
+    const body = 'Suggested action: fix in `scripts/ci/foo.mjs:L42-L48` and `components/Bar.tsx`';
     expect(citedFiles(body, fileExists).sort()).toEqual(['components/Bar.tsx', 'scripts/ci/foo.mjs']);
+  });
+
+  it('recovers a legacy quoted source path without widening token scope', () => {
+    const target = '.github/workflows/crawler-group-01.yml';
+    const body = [
+      '### 1. Legacy crawler item',
+      '- Original text:',
+      `  > \`${target}:L261-L267\`: the old call site drops the exit code`,
+      '- Suggested action: preserve `git-commit-data.sh --extra-only` while handling its result.',
+    ].join('\n');
+    expect(citedFiles(body, (path) => path === target)).toEqual([target]);
+  });
+
+  it('resolves a plain path in an explicit Suggested action', () => {
+    const target = 'scripts/ci/verify-crawler-contract-provenance.mjs';
+    const body = [
+      '### 1. Runtime provenance item',
+      `- Suggested action: extend (${target}) with \`createRawFetcher(\` and \`CONTRACT.siteRuntimePaths\`.`,
+    ].join('\n');
+    expect(citedFiles(body, (path) => path === target)).toEqual([target]);
+  });
+
+  it('resolves plain paths before sentence periods and closing Markdown brackets', () => {
+    const target = 'scripts/ci/verify-crawler-contract-provenance.mjs';
+    for (const suffix of ['.', ']']) {
+      const body = `- Suggested action: update ${target}${suffix}`;
+      expect(citedFiles(body, (path) => path === target)).toEqual([target]);
+    }
+  });
+
+  it('does not treat an incidental prose path as a cited file without Suggested action', () => {
+    const body = 'Rationale: the already-fixed twin is documented in `scripts/ci/foo.mjs`.';
+    expect(citedFiles(body, fileExists)).toEqual([]);
   });
 
   it('ignores paths without a slash and non-existent files', () => {
@@ -374,6 +408,10 @@ describe('closingMergedPr (explicit done-but-open via merged PR cross-ref)', () 
 
   it('does NOT flag when the keyword and ref are on DIFFERENT lines', () => {
     expect(closingMergedPr(7, [{ number: 9, body: 'Closes #8\nUnrelated note about #7' }])).toBeNull();
+  });
+
+  it('does not continue a closing list across a newline', () => {
+    expect(closedIssueRefs('Closes #12\n#99 resta aperta')).toEqual([12]);
   });
 
   it('does NOT flag when a word breaks the ref-run (`Fixes #8 and touches #N`) — adv #2', () => {

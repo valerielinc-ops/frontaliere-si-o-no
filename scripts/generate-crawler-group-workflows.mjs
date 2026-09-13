@@ -103,6 +103,47 @@ const TRANSLATE_LOGIC_PATH = path.join(WORKFLOWS_DIR, 'translate-pending-logic.y
 export const CRAWLER_GENERATION_TOKEN_EXPR =
   "${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}";
 export const CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR = CRAWLER_GENERATION_TOKEN_EXPR;
+
+// Runtime overrides used by the legacy crawler shell fragments. Declare them
+// in both workflow forms and address them through the portable `inputs`
+// context: `github.event.inputs` exists for workflow_dispatch only, while the
+// same generated job is also emitted as a workflow_call reusable workflow.
+const CRAWLER_RUNTIME_INPUTS = Object.freeze({
+  timeout_ms: {
+    description: 'Per-crawler timeout override in milliseconds (empty uses the crawler default)',
+    required: false,
+    default: '',
+    type: 'string',
+  },
+  strict_localization: {
+    description: 'Require localized job data (empty uses the crawler default; 1=yes, 0=no)',
+    required: false,
+    default: '',
+    type: 'string',
+  },
+  scan_start_id: {
+    description: 'Optional source cursor for the Armani crawler (empty uses the default)',
+    required: false,
+    default: '',
+    type: 'string',
+  },
+});
+
+function normalizeCrawlerInputReferences(value) {
+  return typeof value === 'string'
+    ? value
+      .replaceAll('github.event.inputs.skip_ai_translation', 'inputs.skip_ai_translation')
+      .replaceAll('github.event.inputs.timeout_ms', 'inputs.timeout_ms')
+      .replaceAll('github.event.inputs.strict_localization', 'inputs.strict_localization')
+      .replaceAll('github.event.inputs.scan_start_id', 'inputs.scan_start_id')
+    : value;
+}
+
+function crawlerRuntimeInputsForGroup(members) {
+  const inputs = structuredClone(CRAWLER_RUNTIME_INPUTS);
+  if (!members.some((member) => member.slug === 'giorgio-armani')) delete inputs.scan_start_id;
+  return inputs;
+}
 const PORTABLE_CORPUS_DIR = path.join(REPO_ROOT, '.github/corpus-workflows');
 const PORTABLE_CONTRACT_PATH = path.join(PORTABLE_CORPUS_DIR, 'contract.json');
 const CORPUS_OBSERVER_SITE_SOURCES = new Map([
@@ -856,7 +897,9 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   // maps, so a crawler cannot accidentally replace the capability reference
   // with a job-wide variable or a user-controlled value.
   merged.CODEX_AUTH_BROKER_SOCKET = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
-  return merged;
+  return Object.fromEntries(
+    Object.entries(merged).map(([key, value]) => [key, normalizeCrawlerInputReferences(value)]),
+  );
 }
 
 function crawlerGenerationMembers(group) {
@@ -1006,6 +1049,7 @@ function npmScriptsForAnalyzer() {
 /** Build the YAML object (as a JS object, serialized via `yaml` lib) for one group workflow. */
 function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnoreScripts) {
   const groupName = `crawler-group-${String(groupIndex).padStart(2, '0')}`;
+  const runtimeInputs = crawlerRuntimeInputsForGroup(group.members);
 
   const steps = [];
 
@@ -1173,6 +1217,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
             required: true,
             type: 'string',
           },
+          ...runtimeInputs,
         },
       },
     },
@@ -1305,19 +1350,18 @@ function normalizedCrawlerStep(step) {
   const env = Object.fromEntries(
     Object.entries(copy.env ?? {})
       .filter(([key]) => key !== 'GH_TOKEN')
-      .map(([key, value]) => [
-        key,
-        typeof value === 'string'
-          ? value.replaceAll('github.event.inputs.skip_ai_translation', 'inputs.skip_ai_translation')
-          : value,
-      ]),
+      .map(([key, value]) => [key, normalizeCrawlerInputReferences(value)]),
   );
   copy.env = env;
   return copy;
 }
 
+function crawlerLogicWorkflowName(nn) {
+  return `Crawler Group ${nn} logic (reusable workflow)`;
+}
+
 function logicPreamble(existingText, nn) {
-  const bodyAt = existingText?.search(/^on:\s*$/m) ?? -1;
+  const bodyAt = existingText?.search(/^(?:name:\s*Crawler Group \d+ logic.*|on:)\s*$/m) ?? -1;
   if (bodyAt >= 0) return existingText.slice(0, bodyAt);
   return [
     `# Crawler Group ${nn} logic — generated source for corpus execution.`,
@@ -1403,13 +1447,12 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
     if (step?.background !== true) continue;
     delete step.env?.GH_TOKEN;
     for (const [key, value] of Object.entries(step.env ?? {})) {
-      if (typeof value === 'string') {
-        step.env[key] = value.replaceAll('github.event.inputs.skip_ai_translation', 'inputs.skip_ai_translation');
-      }
+      step.env[key] = normalizeCrawlerInputReferences(value);
     }
   }
 
   const body = YAML.stringify({
+    name: crawlerLogicWorkflowName(nn),
     on: workflow.on,
     permissions: workflow.permissions,
     env: workflow.env,
@@ -1528,7 +1571,7 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
   const generatedKeys = Object.keys(generatedWorkflow).sort();
   const logicKeys = Object.keys(logicWorkflow).sort();
   if (JSON.stringify(generatedKeys) !== JSON.stringify(['concurrency', 'env', 'jobs', 'name', 'on', 'permissions']) ||
-      JSON.stringify(logicKeys) !== JSON.stringify(['env', 'jobs', 'on', 'permissions'])) {
+      JSON.stringify(logicKeys) !== JSON.stringify(['env', 'jobs', 'name', 'on', 'permissions'])) {
     throw new Error(`${fileName}: undeclared top-level workflow metadata`);
   }
   const generatedJobName = Object.keys(generatedWorkflow.jobs ?? {})[0] ?? '';
@@ -1536,6 +1579,7 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
   const generatedMembers = Object.values(generatedWorkflow.jobs ?? {})[0]?.steps
     ?.filter((step) => step?.background === true).length;
   if (!nn || generatedWorkflow.name !== `Crawler Group ${nn} (${generatedMembers} crawlers)` ||
+      logicWorkflow.name !== crawlerLogicWorkflowName(nn) ||
       JSON.stringify(generatedWorkflow.concurrency) !== JSON.stringify({
     group: `jobs-crawler-group-${nn}`,
     'cancel-in-progress': false,
@@ -1778,6 +1822,12 @@ export function buildStandaloneCrossRepoWorkflow({
 
 function groupTrigger(logic) {
   const inputs = structuredClone(logic.on.workflow_call.inputs);
+  const runtimeInputs = {};
+  for (const input of Object.keys(CRAWLER_RUNTIME_INPUTS)) {
+    if (!Object.hasOwn(inputs, input)) continue;
+    runtimeInputs[input] = inputs[input];
+    delete inputs[input];
+  }
   // Standalone corpus callers have exactly one supported caller: the site
   // orchestrator, which always passes the correlation token. Keep this input
   // required and without a default; the reusable site workflow remains
@@ -1797,18 +1847,7 @@ function groupTrigger(logic) {
           default: '',
           type: 'string',
         },
-        timeout_ms: {
-          description: 'Per-crawler timeout override in milliseconds (empty uses the crawler default)',
-          required: false,
-          default: '',
-          type: 'string',
-        },
-        strict_localization: {
-          description: 'Require localized job data (1=yes)',
-          required: false,
-          default: '1',
-          type: 'string',
-        },
+        ...runtimeInputs,
       },
     },
   };

@@ -222,9 +222,15 @@ export function stepTimingLines(job, { maxSteps = MAX_TIMED_STEPS, nowMs = Date.
   if (timed.length === 0) return [];
 
   const firstStepStartMs = timed.reduce((min, step) => Math.min(min, step.startedAt), Infinity);
-  const jobStartMs = Number.isFinite(Date.parse(job?.started_at || ''))
+  const reportedJobStartMs = Number.isFinite(Date.parse(job?.started_at || ''))
     ? Date.parse(job.started_at)
     : firstStepStartMs;
+  const firstStepPrecedesJobStart = Number.isFinite(reportedJobStartMs)
+    && firstStepStartMs < reportedJobStartMs;
+  // GitHub can stamp setup steps a few seconds before `job.started_at`. Use the
+  // earliest observable timestamp as the attribution window's start; otherwise
+  // a complete first step can be longer than the reported job life.
+  const jobStartMs = firstStepPrecedesJobStart ? firstStepStartMs : reportedJobStartMs;
   const jobWindowMs = Number.isFinite(jobStartMs) && jobEndMs >= jobStartMs
     ? jobEndMs - jobStartMs
     : 0;
@@ -238,6 +244,17 @@ export function stepTimingLines(job, { maxSteps = MAX_TIMED_STEPS, nowMs = Date.
 
   const totalMs = timed.reduce((acc, s) => acc + s.durationMs, 0);
   const unattributedMs = Math.max(0, jobWindowMs - totalMs);
+  // Steps are normally sequential, but the API can expose overlapping setup
+  // work. Never let their summed percentages exceed 100%.
+  const attributionWindowMs = Math.max(jobWindowMs, totalMs);
+  const timingNotes = [
+    firstStepPrecedesJobStart
+      ? '⚠️ finestra estesa all’avvio del primo step: gli step precedono `started_at` del job'
+      : '',
+    totalMs > jobWindowMs
+      ? 'percentuali rapportate al tempo attribuito per evitare valori oltre il 100%'
+      : '',
+  ].filter(Boolean);
   const ranked = [...timed].sort((a, b) => b.durationMs - a.durationMs);
   const shown = ranked.slice(0, maxSteps);
   const omitted = ranked.slice(maxSteps);
@@ -247,10 +264,13 @@ export function stepTimingLines(job, { maxSteps = MAX_TIMED_STEPS, nowMs = Date.
     `**Dove è finito il tempo** (${formatDurationMs(jobWindowMs)} di vita del job; `
       + `${formatDurationMs(totalMs)} attribuiti agli step; `
       + `${formatDurationMs(unattributedMs)} non attribuiti, `
+      + (timingNotes.length > 0 ? `${timingNotes.join('; ')}; ` : '')
       + 'ordinati per durata; ✂️ = lo step in corso quando il cap ha tagliato):',
   ];
   for (const step of shown) {
-    const share = jobWindowMs > 0 ? ` (${Math.round((step.durationMs / jobWindowMs) * 100)}%)` : '';
+    const share = attributionWindowMs > 0
+      ? ` (${Math.round((step.durationMs / attributionWindowMs) * 100)}%)`
+      : '';
     lines.push(
       `- ${step === cut ? '✂️ ' : ''}${markdownCodeSpan(step.name)} — **${formatDurationMs(step.durationMs)}**${share}`,
     );
@@ -268,15 +288,24 @@ function repoPath(suffix) {
   return REPO ? `repos/${REPO}/${suffix}` : `repos/{owner}/{repo}/${suffix}`;
 }
 
-function gh(args, { allowFailure = false } = {}) {
+function gh(args, { allowFailure = false, warnOnFailure = false } = {}) {
   try {
     return execFileSync('gh', args, {
       encoding: 'utf8',
       maxBuffer: 50 * 1024 * 1024,
-      stdio: ['ignore', 'pipe', 'inherit'],
+      stdio: ['ignore', 'pipe', warnOnFailure ? 'pipe' : 'inherit'],
     }).trim();
   } catch (err) {
-    if (allowFailure) return null;
+    if (allowFailure) {
+      if (warnOnFailure) {
+        const stderr = String(err?.stderr ?? '').trim();
+        const detail = stderr || `exit status ${err?.status ?? 'sconosciuto'}`;
+        console.warn(
+          `::warning::[scan-job-timeouts] lettura annotazioni fallita con gh api --paginate --slurp: ${detail}`,
+        );
+      }
+      return null;
+    }
     throw err;
   }
 }
@@ -297,7 +326,7 @@ function readPaginatedAnnotations(job) {
     `${job.check_run_url}/annotations`,
     '--paginate',
     '--slurp',
-  ], { allowFailure: true });
+  ], { allowFailure: true, warnOnFailure: true });
   if (!out) return null;
 
   let pages;
@@ -584,7 +613,11 @@ export async function main() {
     }
     emittedByTitle.set(title, {
       ...issue,
-      state: 'OPEN',
+      // `createGithubIssue` can return a persisted CLOSED issue when a stale
+      // build is observed inside the deploy-latency window. Preserve that
+      // authoritative state so the next same-title hit calls the creator again
+      // instead of commenting on a closed canonical.
+      state: issue.state || 'OPEN',
       persistedRunUrl: runUrl,
     });
   }

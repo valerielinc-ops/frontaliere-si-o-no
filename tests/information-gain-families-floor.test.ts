@@ -54,6 +54,7 @@ import { renderProfessionCantonPage } from '@/build-plugins/professionCantonLand
 import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from '@/build-plugins/professionCantonData';
 import { ALL_CANTON_PROFESSION_IDS, type AnyProfessionId } from '@/build-plugins/professionLandingsData';
 import type { ProfessionJobsSnapshot } from '@/build-plugins/professionJobsAggregate';
+import { renderWeeklyEmployersCorpus } from './weekly-employers-peer-fixture';
 
 const DIST = '/tmp/information-gain-families';
 
@@ -224,6 +225,17 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
     // e sopra il 6,2 % che la stessa famiglia dà senza il blocco.
     minMedian: 8.7,
     render: renderProfessionCantonFamily,
+  },
+  {
+    // Non è una famiglia comunale: è la griglia città × settimana di
+    // `/aziende-che-assumono/` (issue #7595), che aveva lo stesso difetto —
+    // payload interamente numerico, quindi invisibile dopo la maschera n. 1.
+    // Il corpus è una fixture deterministica (vedi il modulo importato): sulle
+    // pagine LIVE la mediana misurata era 4,6 %, sulla fixture 2,7 %, e il
+    // blocco del confronto fra città pari vale +4 punti su entrambe.
+    name: 'aziende-che-assumono',
+    minMedian: 5.7, // misurato 6,7 % sulla fixture (era 2,7 %)
+    render: () => renderWeeklyEmployersCorpus(),
   },
   {
     name: 'vivere-in-austria',

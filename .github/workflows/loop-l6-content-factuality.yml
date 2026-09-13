@@ -1,0 +1,101 @@
+name: Loop L6 content learning and factuality
+
+on:
+  schedule:
+    - cron: '17 9 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'data/quality-alerts-history.jsonl'
+      - 'data/content-factuality-outcomes.json'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l6-content-factuality.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/loop-l6-content-factuality.yml'
+  pull_request:
+    paths:
+      - 'data/quality-alerts-history.jsonl'
+      - 'data/content-factuality-outcomes.json'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l6-content-factuality.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/loop-l6-content-factuality.yml'
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: 'Create/update one deduplicated issue when source verification is not trustworthy'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: loop-l6-content-factuality
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout content quality inputs
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /data/quality-alerts-history.jsonl
+            /data/content-factuality-outcomes.json
+            /data/loop-fleet/loop-registry.json
+            /scripts/ci/loop-l6-content-factuality.mjs
+            /scripts/ci/record-loop-fleet-evidence.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/github-issue-creator.mjs
+            /.github/workflows/loop-l6-content-factuality.yml
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Audit content learning and factuality
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l6
+        run: |
+          set -o pipefail
+          mkdir -p "$REPORT_DIR"
+          args=(--json --apply --report-dir "$REPORT_DIR" --history data/quality-alerts-history.jsonl --outcomes data/content-factuality-outcomes.json --registry data/loop-fleet/loop-registry.json)
+          if [ "$ISSUE_ENABLED" = "true" ]; then
+            args+=(--issue --strict)
+          else
+            args+=(--dry-run)
+          fi
+          set +e
+          node scripts/ci/loop-l6-content-factuality.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
+          run_code=${PIPESTATUS[0]}
+          set -e
+          if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l6-result.json" >/dev/null 2>&1; then
+            echo 'L6 finding persisted as a deduplicated issue; candidate fixes remain runner-local and source-independent.' | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ "$run_code" -ne 0 ]; then
+            exit "$run_code"
+          fi
+      - name: Record canonical L6 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l6
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L6 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
+      - name: Upload L6 observation and actions
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: loop-l6-content-factuality-${{ github.run_id }}
+          path: ${{ runner.temp }}/loop-fleet-l6/
+          retention-days: 90
+          if-no-files-found: error

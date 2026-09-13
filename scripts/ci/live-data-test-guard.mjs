@@ -181,6 +181,9 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/job-locale-consistency.test.ts', roots: ['data/jobs/'], transitive: true },
   { file: 'tests/job-locale-mark-persistence.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/news-ticker-data.test.ts', roots: ['packages/articles/'] },
+  // Corpus genuinely the subject: #8205's regression guard reads the checked-in
+  // locale source to verify every audience-facing newsletter title stays neutral.
+  { file: 'tests/newsletter-title-neutrality.test.ts', roots: ['services/locales/'] },
   { file: 'tests/packages-articles-confinement.test.ts', roots: ['packages/articles/'] },
   // Corpus genuinely the subject: the rejection CLI guard asserts that its
   // terminal transition never mutates the committed candidate registry.

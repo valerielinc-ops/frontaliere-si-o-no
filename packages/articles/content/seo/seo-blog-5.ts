@@ -64618,17 +64618,17 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-vivere-courmayeur-e-lavorare-vallese-da-frontaliere': {
-    title: 'Frontaliere Ticino: lavorare in Vallese da Courmayeur',
-    description: 'Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, vallese, courmayeur, informazioni',
+    title: 'Courmayeur: lavorare in Vallese vivendo in Valle d’Aosta',
+    description: 'Come valutare un pendolarismo tra Courmayeur e il Vallese: percorsi, residenza e verifiche da fare prima di accettare un lavoro.',
+    keywords: 'frontalieri, valle d’Aosta, courmayeur, vallese, valais, lavoro transfrontaliero',
     ogTitle: 'Vivere a Courmayeur e lavorare in Vallese da frontaliere: cosa fare e dove andare.',
     ogDescription: 'Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata.',
     canonicalPath: '/articoli-frontaliere/vivere-courmayeur-e-lavorare-vallese-da-frontaliere',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontaliere Ticino: lavorare in Vallese da Courmayeur",
-      "description": "Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "headline": "Courmayeur: lavorare in Vallese vivendo in Valle d’Aosta",
+      "description": "Come valutare un pendolarismo tra Courmayeur e il Vallese: percorsi, residenza e verifiche da fare prima di accettare un lavoro.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -89379,6 +89379,747 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-s10-bus-chiasso-melide/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-2030-riforma-previdenza': {
+    title: 'AVS 2030: la riforma della previdenza svizzera',
+    description: 'Scopri i dettagli della riforma AVS 2030 presentata a Berna dal Consiglio federale. Entrate extra, età minima e reazioni della politica svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, riforma, previdenza, presentata, berna',
+    ogTitle: 'AVS 2030: la riforma della previdenza svizzera',
+    ogDescription: 'Analisi completa sulla riforma AVS 2030 presentata a Berna. Scopri tutte le misure previste dal Consiglio federale per la previdenza svizzera, le entrate stimate a 600 milioni annui e le posizioni dei partiti politici.',
+    canonicalPath: '/articoli-frontaliere/avs-2030-riforma-previdenza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS 2030: la riforma della previdenza svizzera",
+      "description": "Scopri i dettagli della riforma AVS 2030 presentata a Berna dal Consiglio federale. Entrate extra, età minima e reazioni della politica svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-2030-riforma-previdenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna dove si discute la riforma AVS 2030"
+      },
+      "datePublished": "2026-09-12T00:03:42+00:00",
+      "dateModified": "2026-09-12T00:03:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/avs-2030-riforma-previdenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-pigra-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Pigra, lavorare in Ticino: la guida | Frontaliere Ticino',
+    description: 'Guida completa per chi vive a Pigra e lavora in Ticino: collegamenti, tempi di percorrenza, costo vita, fiscalità (Nuovo Accordo Frontalieri), assicurazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, pigra, lavorare, scopri',
+    ogTitle: 'Vivere a Pigra, lavorare in Ticino: guida per frontalieri',
+    ogDescription: 'Tutto quello che devi sapere se vivi a Pigra e lavori in Ticino. Analizziamo collegamenti, costo della vita, fiscalità con il nuovo accordo frontalieri 2024, e assicurazioni. Pianifica la tua scelta.',
+    canonicalPath: '/articoli-frontaliere/vivere-pigra-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Pigra, lavorare in Ticino: la guida",
+      "description": "Guida completa per chi vive a Pigra e lavora in Ticino: collegamenti, tempi di percorrenza, costo vita, fiscalità (Nuovo Accordo Frontalieri), assicurazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-pigra-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Pigra e del Lago di Lugano con il panorama alpino del Ticino."
+      },
+      "datePublished": "2026-09-12T00:39:24+00:00",
+      "dateModified": "2026-09-12T00:39:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-pigra-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-laveno-mombello-ticino': {
+    title: 'Frontalieri a Laveno-Mombello: guida e fisco in Ticino',
+    description: 'Vivere a Laveno-Mombello e fare il frontaliere in Ticino: guida su imposte alla fonte, franchigie IRPEF, contributi AVS e gestione dei valichi di confine.',
+    keywords: 'frontalieri, ticino, svizzera, italia, laveno-mombello, fisco, vivere, lavorare',
+    ogTitle: 'Frontalieri Laveno-Mombello: fisco e guida per il Ticino',
+    ogDescription: 'Tutto su collegamenti, imposte alla fonte e previdenza svizzera per chi risiede a Laveno-Mombello e lavora nel Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-laveno-mombello-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri a Laveno-Mombello: guida e fisco in Ticino",
+      "description": "Vivere a Laveno-Mombello e fare il frontaliere in Ticino: guida su imposte alla fonte, franchigie IRPEF, contributi AVS e gestione dei valichi di confine.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-laveno-mombello-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Lago Maggiore vicino a Laveno-Mombello per frontalieri in Ticino"
+      },
+      "datePublished": "2026-09-12T01:10:28+00:00",
+      "dateModified": "2026-09-12T01:10:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-laveno-mombello-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-indice-rischio-geopolitico-ticino': {
+    title: 'Ticino misura il rischio geopolitico con un nuovo indice',
+    description: 'Un nuovo documento di 54 pagine valuta le tensioni globali e l\'impatto sull\'economia ticinese, offrendo analisi e previsioni per le imprese. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, misura, rischio, geopolitico, nuovo',
+    ogTitle: 'Ticino misura il rischio geopolitico con un nuovo indice',
+    ogDescription: 'Scopri come il nuovo indice di rischio geopolitico valuta l\'impatto delle tensioni globali e dei dazi sull\'economia e sulle industrie ticinesi.',
+    canonicalPath: '/articoli-frontaliere/indice-rischio-geopolitico-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino misura il rischio geopolitico con un nuovo indice",
+      "description": "Un nuovo documento di 54 pagine valuta le tensioni globali e l'impatto sull'economia ticinese, offrendo analisi e previsioni per le imprese. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indice-rischio-geopolitico-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano e del lago con cielo nuvoloso"
+      },
+      "datePublished": "2026-09-12T01:19:13+00:00",
+      "dateModified": "2026-09-12T01:19:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/indice-rischio-geopolitico-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-guasto-ferrovia-melegnano-settembre': {
+    title: 'Guasto ferroviario a Melegnano: ritardi e variazioni',
+    description: 'Guasto agli impianti a Melegnano sulla linea Saronno-Lodi: ritardi medi di 30 minuti e variazioni sulle linee S1 e S12. Scopri tutte le modifiche.',
+    keywords: 'frontalieri, ticino, svizzera, italia, guasto, ferroviario, melegnano, ritardi',
+    ogTitle: 'Guasto alla linea ferroviaria a Melegnano: ritardi e modifiche',
+    ogDescription: 'Un guasto agli impianti di circolazione a Melegnano causa ritardi e variazioni di percorso sulle linee suburbane S1 e S12 della direttrice Saronno-Lodi.',
+    canonicalPath: '/articoli-frontaliere/guasto-ferrovia-melegnano-settembre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guasto ferroviario a Melegnano: ritardi e variazioni",
+      "description": "Guasto agli impianti a Melegnano sulla linea Saronno-Lodi: ritardi medi di 30 minuti e variazioni sulle linee S1 e S12. Scopri tutte le modifiche.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guasto-ferrovia-melegnano-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno regionale fermo in stazione a causa di un guasto tecnico"
+      },
+      "datePublished": "2026-09-12T01:27:53+00:00",
+      "dateModified": "2026-09-12T01:27:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guasto-ferrovia-melegnano-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-traffico-merci-alpi-ferrovia-camion': {
+    title: 'Traffico merci sulle Alpi: il treno arretra e i camion crescono',
+    description: 'L\'Ufficio federale dei trasporti segnala una crescita del 7% per i camion e del 3,1% per i treni. Tutti i dati sul trasporto merci transalpino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, merci, sulle, alpi',
+    ogTitle: 'Traffico merci sulle Alpi: il trasporto su gomma supera la ferrovia',
+    ogDescription: 'I dati semestrali dell\'UFT mostrano una crescita del 7% per i camion contro il 3,1% dei treni. Quota ferroviaria al 68% a causa dei cantieri in Germania.',
+    canonicalPath: '/articoli-frontaliere/traffico-merci-alpi-ferrovia-camion',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico merci sulle Alpi: il treno arretra e i camion crescono",
+      "description": "L'Ufficio federale dei trasporti segnala una crescita del 7% per i camion e del 3,1% per i treni. Tutti i dati sul trasporto merci transalpino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-merci-alpi-ferrovia-camion.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico di merci e autocarri lungo i valichi alpini in Svizzera"
+      },
+      "datePublished": "2026-09-12T02:10:13+00:00",
+      "dateModified": "2026-09-12T02:10:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-merci-alpi-ferrovia-camion/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-voto-pecc-gran-consiglio-ticino': {
+    title: 'Voto sul Pecc in Gran Consiglio: la scelta economica',
+    description: 'Appello al Gran Consiglio ticinese per l\'approvazione del Piano energetico e climatico cantonale. Scopri i dettagli economici e la transizione energetica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, pecc, gran, consiglio',
+    ogTitle: 'Voto Pecc in Gran Consiglio: la scelta economica in Ticino',
+    ogDescription: 'Le organizzazioni economiche e ambientaliste ticinesi chiedono al Gran Consiglio di approvare il Piano energetico e climatico cantonale (Pecc) per ridurre la dipendenza dai combustibili fossili e investire nelle risorse locali.',
+    canonicalPath: '/articoli-frontaliere/voto-pecc-gran-consiglio-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto sul Pecc in Gran Consiglio: la scelta economica",
+      "description": "Appello al Gran Consiglio ticinese per l'approvazione del Piano energetico e climatico cantonale. Scopri i dettagli economici e la transizione energetica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/voto-pecc-gran-consiglio-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castello di Bellinzona in Ticino"
+      },
+      "datePublished": "2026-09-12T02:18:52+00:00",
+      "dateModified": "2026-09-12T02:18:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/voto-pecc-gran-consiglio-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-cucciago-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Cucciago e lavorare in Ticino da frontaliere',
+    description: 'Scopri i vantaggi e gli svantaggi di vivere a Cucciago e lavorare in Ticino come frontaliere. Informazioni su trasporti, costo della vita e tasse.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cucciago, lavorare, scopri',
+    ogTitle: 'Vivere a Cucciago e lavorare in Ticino da frontaliere',
+    ogDescription: 'Scopri i vantaggi e gli svantaggi di vivere a Cucciago e lavorare in Ticino come frontaliere. Informazioni su trasporti, costo della vita e tasse.',
+    canonicalPath: '/articoli-frontaliere/vivere-cucciago-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cucciago e lavorare in Ticino da frontaliere",
+      "description": "Scopri i vantaggi e gli svantaggi di vivere a Cucciago e lavorare in Ticino come frontaliere. Informazioni su trasporti, costo della vita e tasse.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cucciago-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cucciago e il suo castello"
+      },
+      "datePublished": "2026-09-12T03:30:18+00:00",
+      "dateModified": "2026-09-12T03:30:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cucciago-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assunzioni-alto-piemonte-settembre-2026': {
+    title: 'Alto Piemonte: 6.470 assunzioni previste a settembre 2026',
+    description: 'Scopri i dati di Unioncamere sulle 6.470 assunzioni programmate a settembre 2026 nell\'Alto Piemonte tra Biella, Novara, Verbano Cusio Ossola e Vercelli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alto, piemonte, assunzioni, previste',
+    ogTitle: 'Assunzioni Alto Piemonte settembre 2026: 6.470 contratti previsti',
+    ogDescription: 'Analisi delle previsioni di assunzione per il mese di settembre 2026 nell\'Alto Piemonte. Scopri i dati suddivisi per provincia, tipologia contrattuale e le principali criticità nel reperimento del personale secondo il sistema Excelsior.',
+    canonicalPath: '/articoli-frontaliere/assunzioni-alto-piemonte-settembre-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alto Piemonte: 6.470 assunzioni previste a settembre 2026",
+      "description": "Scopri i dati di Unioncamere sulle 6.470 assunzioni programmate a settembre 2026 nell'Alto Piemonte tra Biella, Novara, Verbano Cusio Ossola e Vercelli.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assunzioni-alto-piemonte-settembre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Previsioni assunzioni nell'Alto Piemonte per settembre"
+      },
+      "datePublished": "2026-09-12T04:26:11+00:00",
+      "dateModified": "2026-09-12T04:26:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assunzioni-alto-piemonte-settembre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imprese-culturali-svizzera-2024': {
+    title: 'Cultura in Svizzera, record di imprese ma calano gli impieghi',
+    description: 'Nel 2024 le imprese culturali in Svizzera toccano il record di 69\'441 unità. Crescita aziendale ma calano gli impieghi e le dimensioni medie. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cultura, record, imprese, calano',
+    ogTitle: 'Cultura in Svizzera: record di imprese ma calano gli impieghi nel 2024',
+    ogDescription: 'Il settore culturale svizzero segna un record di 69\'441 imprese nel 2024, superando la crescita dell\'economia totale. Tuttavia, si registra una flessione dei posti di lavoro e una riduzione delle dimensioni aziendali secondo i dati dell\'Ufficio',
+    canonicalPath: '/articoli-frontaliere/imprese-culturali-svizzera-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cultura in Svizzera, record di imprese ma calano gli impieghi",
+      "description": "Nel 2024 le imprese culturali in Svizzera toccano il record di 69'441 unità. Crescita aziendale ma calano gli impieghi e le dimensioni medie. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imprese-culturali-svizzera-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imprese culturali in Svizzera nel 2024"
+      },
+      "datePublished": "2026-09-12T04:52:17+00:00",
+      "dateModified": "2026-09-12T04:52:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imprese-culturali-svizzera-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-benzina-riserve-svizzera-frontalieri': {
+    title: 'Benzina in Svizzera: aperte le riserve, effetti sui prezzi',
+    description: 'La Svizzera apre le riserve di benzina e diesel dall\'8 al 20 settembre 2026. Fermo raffineria Cressier e Reno basso: cosa cambia per i frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, aperte, riserve, effetti',
+    ogTitle: 'Benzina in Svizzera: aperte le riserve, effetti sui prezzi',
+    ogDescription: 'Dal 8 al 20 settembre 2026 la Confederazione preleva fino a 30.000 m³ di benzina e gasolio dalle scorte obbligatorie. Fermo Cressier e Reno a secco: consigli pratici per i frontalieri che fanno rifornimento in Ticino.',
+    canonicalPath: '/articoli-frontaliere/benzina-riserve-svizzera-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina in Svizzera: aperte le riserve, effetti sui prezzi",
+      "description": "La Svizzera apre le riserve di benzina e diesel dall'8 al 20 settembre 2026. Fermo raffineria Cressier e Reno basso: cosa cambia per i frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/benzina-riserve-svizzera-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto a una stazione di servizio a Mendrisio con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-09-12T08:27:30+00:00",
+      "dateModified": "2026-09-12T08:27:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benzina-riserve-svizzera-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-09-12': {
+    title: 'Bollettino del frontaliere – 12 settembre 2026: 1802 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 12 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 12 settembre 2026: 1802 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 12 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-09-12',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 12 settembre 2026: 1802 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 12 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-09-12.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 12 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-09-12T09:07:30+00:00",
+      "dateModified": "2026-09-12T09:07:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-09-12/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dosso-dogana-stabio-gaggiolo-traffico-frontalieri': {
+    title: 'Dosso al Gaggiolo: code e rabbia dei frontalieri',
+    description: 'Segnalazioni sul dosso tra Gaggiolo e Stabio, dati OASI sul traffico e richiesta dei frontalieri di una verifica tecnica trasparente.',
+    keywords: 'dosso Gaggiolo, Stabio, traffico frontalieri, dogana Gaggiolo, code confine, viabilità Ticino',
+    ogTitle: 'Dosso al Gaggiolo: code e rabbia dei frontalieri',
+    ogDescription: 'Cosa documentano i dati sul traffico e cosa chiedono i frontalieri sul dosso tra Gaggiolo e Stabio.',
+    canonicalPath: '/articoli-frontaliere/dosso-dogana-stabio-gaggiolo-traffico-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dosso al Gaggiolo: code e rabbia dei frontalieri",
+      "description": "Segnalazioni sul dosso tra Gaggiolo e Stabio, dati OASI sul traffico e richiesta dei frontalieri di una verifica tecnica trasparente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/mendrisio.webp`,
+        "width": 1200,
+        "height": 563,
+        "caption": "Auto in coda tra la dogana di Gaggiolo e Stabio dopo il dosso stradale"
+      },
+      "datePublished": "2026-09-12T23:09:02+02:00",
+      "dateModified": "2026-09-12T23:09:02+02:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dosso-dogana-stabio-gaggiolo-traffico-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-serbatoio-bella-cima-stabio': {
+    title: 'Nuovo serbatoio a Stabio: l\'acqua per il Mendrisiotto',
+    description: 'Inaugurato a Stabio il nuovo serbatoio idrico di Bella Cima: opera da 4 milioni di franchi per la sicurezza dell\'approvvigionamento nel Mendrisiotto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, serbatoio, stabio, acqua',
+    ogTitle: 'Nuovo serbatoio Bella Cima a Stabio per il Mendrisiotto',
+    ogDescription: 'Inaugurato a Stabio il nuovo impianto idrico di Bella Cima. Un investimento da 4 milioni di franchi per potenziare la sicurezza dell\'approvvigionamento idrico in tutto il Mendrisiotto, in vista anche del futuro completamento dell\'acquedotto a lago.',
+    canonicalPath: '/articoli-frontaliere/serbatoio-bella-cima-stabio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo serbatoio a Stabio: l'acqua per il Mendrisiotto",
+      "description": "Inaugurato a Stabio il nuovo serbatoio idrico di Bella Cima: opera da 4 milioni di franchi per la sicurezza dell'approvvigionamento nel Mendrisiotto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/serbatoio-bella-cima-stabio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il nuovo serbatoio idrico di Bella Cima a Stabio"
+      },
+      "datePublished": "2026-09-13T00:04:13+00:00",
+      "dateModified": "2026-09-13T00:04:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/serbatoio-bella-cima-stabio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-formazione-lavoro-ticino': {
+    title: 'Formazione e lavoro in Ticino: le sfide dell\'inserimento',
+    description: 'Cotti e Capoferri interpellano il governo sulle sfide dell inserimento professionale dopo la scuola e sull impatto dell intelligenza artificiale in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, lavoro, sfide, dell',
+    ogTitle: 'Formazione e lavoro in Ticino: le sfide dell inserimento',
+    ogDescription: 'Approfondimento sull interrogazione di Cotti e Capoferri al governo ticinese riguardo alle sfide dell inserimento professionale e all impatto dell intelligenza artificiale.',
+    canonicalPath: '/articoli-frontaliere/formazione-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione e lavoro in Ticino: le sfide dell'inserimento",
+      "description": "Cotti e Capoferri interpellano il governo sulle sfide dell inserimento professionale dopo la scuola e sull impatto dell intelligenza artificiale in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/formazione-lavoro-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Formazione e lavoro in Ticino"
+      },
+      "datePublished": "2026-09-13T00:17:00+00:00",
+      "dateModified": "2026-09-13T00:17:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/formazione-lavoro-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pognana-lario-frontaliere-ticino-guida': {
+    title: 'Vivere a Pognana Lario e lavorare in Ticino | Frontaliere Ticino',
+    description: 'Vivere a Pognana Lario e lavorare in Ticino: tempi per Brogeda, permesso G, franchigia fiscale di €10\'000 e contributi AVS e LPP. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, pognana, lario, lavorare',
+    ogTitle: 'Vivere a Pognana Lario e lavorare in Ticino',
+    ogDescription: 'Tutto su collegamenti stradali verso Chiasso, accordo fiscale Italia-Svizzera, franchigia di €10\'000 e gestione contributi per frontalieri a Pognana Lario.',
+    canonicalPath: '/articoli-frontaliere/pognana-lario-frontaliere-ticino-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Pognana Lario e lavorare in Ticino",
+      "description": "Vivere a Pognana Lario e lavorare in Ticino: tempi per Brogeda, permesso G, franchigia fiscale di €10'000 e contributi AVS e LPP. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pognana-lario-frontaliere-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scorcio del lago vicino a Pognana Lario verso il confine svizzero"
+      },
+      "datePublished": "2026-09-13T00:50:56+00:00",
+      "dateModified": "2026-09-13T00:50:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pognana-lario-frontaliere-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-speedaf-in-svizzera-50-000-pacchi-al-giorno': {
+    title: 'Speedaf in Svizzera: 50’000 pacchi al giorno | Frontaliere Ticino',
+    description: 'Speedaf, filiale svizzera fondata ad aprile, punta a gestire fino a 50’000 invii al giorno con centri a Zurigo, Berna e Losanna e sede a Friburgo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, speedaf, pacchi, giorno, filiale',
+    ogTitle: 'Speedaf in Svizzera: 50’000 pacchi al giorno',
+    ogDescription: 'Speedaf, filiale svizzera fondata ad aprile, punta a gestire fino a 50’000 invii al giorno con centri a Zurigo, Berna e Losanna e sede a Friburgo.',
+    canonicalPath: '/articoli-frontaliere/speedaf-in-svizzera-50-000-pacchi-al-giorno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Speedaf in Svizzera: 50’000 pacchi al giorno",
+      "description": "Speedaf, filiale svizzera fondata ad aprile, punta a gestire fino a 50’000 invii al giorno con centri a Zurigo, Berna e Losanna e sede a Friburgo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/speedaf-in-svizzera-50-000-pacchi-al-giorno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Speedaf in Svizzera: 50’000 pacchi al giorno"
+      },
+      "datePublished": "2026-09-13T01:04:04+00:00",
+      "dateModified": "2026-09-13T01:04:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/speedaf-in-svizzera-50-000-pacchi-al-giorno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-teleriscaldamento-varese-porte-aperte': {
+    title: 'Teleriscaldamento Varese: porte aperte alla centrale',
+    description: 'Scopri la centrale di teleriscaldamento di Varese di Acinque. Porte aperte sabato 19 settembre con prenotazione obbligatoria su Eventbrite. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, teleriscaldamento, varese, porte, aperte',
+    ogTitle: 'Teleriscaldamento di Varese: prenotazioni aperte per visitare la centrale',
+    ogDescription: 'Torna Impianti Aperti con il Gruppo Acinque. Sabato 19 settembre visite guidate alla centrale di teleriscaldamento di Varese in via Ottorino Rossi. Prenotazione obbligatoria su Eventbrite.',
+    canonicalPath: '/articoli-frontaliere/teleriscaldamento-varese-porte-aperte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Teleriscaldamento Varese: porte aperte alla centrale",
+      "description": "Scopri la centrale di teleriscaldamento di Varese di Acinque. Porte aperte sabato 19 settembre con prenotazione obbligatoria su Eventbrite. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/teleriscaldamento-varese-porte-aperte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centrale di teleriscaldamento a Varese"
+      },
+      "datePublished": "2026-09-13T01:12:30+00:00",
+      "dateModified": "2026-09-13T01:12:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/teleriscaldamento-varese-porte-aperte/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-inaugurazione-campus-smartt-valley': {
+    title: 'Daverio: inaugurato il nuovo campus SMARTT VAlley',
+    description: 'Inaugurato a Daverio il campus SMARTT VAlley: 5000 mq per formare le nuove competenze industriali. Investimento di 4,5 milioni di euro per scuola e lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, daverio, inaugurato, nuovo, campus',
+    ogTitle: 'Daverio: inaugurato il nuovo campus SMARTT VAlley',
+    ogDescription: 'Inaugurato a Daverio il campus SMARTT VAlley: 5000 mq per formare le nuove competenze industriali. Investimento di 4,5 milioni di euro per scuola e lavoro.',
+    canonicalPath: '/articoli-frontaliere/inaugurazione-campus-smartt-valley',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Daverio: inaugurato il nuovo campus SMARTT VAlley",
+      "description": "Inaugurato a Daverio il campus SMARTT VAlley: 5000 mq per formare le nuove competenze industriali. Investimento di 4,5 milioni di euro per scuola e lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/inaugurazione-campus-smartt-valley.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus SMARTT VAlley a Daverio"
+      },
+      "datePublished": "2026-09-13T01:23:00+00:00",
+      "dateModified": "2026-09-13T01:23:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inaugurazione-campus-smartt-valley/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
