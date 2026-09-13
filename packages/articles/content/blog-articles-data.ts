@@ -34941,6 +34941,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'inaugurazione-campus-smartt-valley',
+ category: 'novita',
+ date: '2026-09-13T01:22:59.968Z',
+ image: '/images/blog/inaugurazione-campus-smartt-valley.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

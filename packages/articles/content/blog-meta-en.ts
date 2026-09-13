@@ -11707,6 +11707,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.teleriscaldamento-varese-porte-aperte.title': 'Varese district heating: doors open to the power plant',
     'blog.article.teleriscaldamento-varese-porte-aperte.excerpt': 'Open day at the Varese district heating plant on Saturday 19 September. Required reservations on Eventbrite.',
     'blog.article.teleriscaldamento-varese-porte-aperte.imageAlt': 'District heating plant in Varese',
+    'blog.article.inaugurazione-campus-smartt-valley.title': 'Daverio: the new smartt VAlley campus has been inaugurated',
+    'blog.article.inaugurazione-campus-smartt-valley.excerpt': 'The 5000 sqm campus dedicated to training and innovation is open at Daverio. Investment of 4.5 million euros to bridge the gap between school and factory.',
+    'blog.article.inaugurazione-campus-smartt-valley.imageAlt': 'SMARTT VAlley campus in Daverio',
 };
 
 export default blogMetaEn;
