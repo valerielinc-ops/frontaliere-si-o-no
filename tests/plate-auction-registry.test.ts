@@ -8,10 +8,9 @@ import {
 
 /**
  * Schema guard for `data/plate-auction-sources-registry.json` (#6355, prereq
- * for the #4854 plate-auction connectors). Fase 0 only populates TI/GR/VS as
- * `status: "unverified"` config — no auction data lives here — but every
- * entry must still carry the full source-config shape so a future connector
- * has a common contract to read.
+ * for the #4854 plate-auction connectors). The registry is complete for all
+ * 26 cantons: discovery status is explicit, and only sources with a verified
+ * public catalogue are activated.
  */
 describe('plate-auction sources registry schema', () => {
   it('passes full-registry validation with zero errors', () => {
@@ -19,31 +18,61 @@ describe('plate-auction sources registry schema', () => {
     expect(errors).toEqual([]);
   });
 
-  it('covers exactly the Fase 0/1 cantons: Ticino, Grigioni, Vallese', () => {
+  it('covers all 26 Swiss cantons while keeping source status explicit', () => {
     const cantons = Object.values(registry.sources).map((s) => s.canton).sort();
-    expect(cantons).toEqual(['Grigioni', 'Ticino', 'Vallese']);
+    expect(cantons).toEqual([
+      'Appenzello Esterno',
+      'Appenzello Interno',
+      'Argovia',
+      'Basilea Campagna',
+      'Basilea Città',
+      'Berna',
+      'Friburgo',
+      'Ginevra',
+      'Giura',
+      'Glarona',
+      'Grigioni',
+      'Lucerna',
+      'Neuchâtel',
+      'Nidvaldo',
+      'Obvaldo',
+      'San Gallo',
+      'Sciaffusa',
+      'Soletta',
+      'Svitto',
+      'Ticino',
+      'Turgovia',
+      'Uri',
+      'Vallese',
+      'Vaud',
+      'Zugo',
+      'Zurigo',
+    ]);
   });
 
-  it('every entry has a valid status (cantons move out of "unverified" as Fase 0 verifies each source)', () => {
-    const validStatuses = ['unverified', 'active', 'blocked', 'degraded'];
+  it('every entry has a valid explicit discovery status', () => {
+    const validStatuses = ['unverified', 'active', 'blocked', 'degraded', 'not-discovered', 'no-public-auction'];
     for (const [key, entry] of Object.entries(registry.sources)) {
       expect(validStatuses, `${key} status "${entry.status}" should be a known value`).toContain(entry.status);
     }
   });
 
-  it('vallese is verified and active (#6358: eCari public "Enchères en cours" table, scrapable)', () => {
-    expect(registry.sources.vallese.status).toBe('active');
-    expect(registry.sources.vallese.accessMethod).toBe('html-scrape');
+  it('verified public catalogues are active and TI remains explicitly blocked', () => {
+    expect(registry.sources.vs.status).toBe('active');
+    expect(registry.sources.vs.accessMethod).toBe('html-scrape');
+    expect(registry.sources.gr.status).toBe('active');
+    expect(registry.sources.zh.status).toBe('active');
+    expect(registry.sources.ti.status).toBe('blocked');
   });
 
   it('rejects an entry missing a required field', () => {
-    const incomplete = { ...registry.sources.ticino, owner: '' };
+    const incomplete = { ...registry.sources.ti, owner: '' };
     const errors = validatePlateAuctionSourceEntry('ticino', incomplete);
     expect(errors.some((e) => e.includes('owner'))).toBe(true);
   });
 
   it('rejects an entry with an invalid status', () => {
-    const invalid = { ...registry.sources.ticino, status: 'bogus' };
+    const invalid = { ...registry.sources.ti, status: 'bogus' };
     const errors = validatePlateAuctionSourceEntry('ticino', invalid);
     expect(errors.some((e) => e.includes('status'))).toBe(true);
   });

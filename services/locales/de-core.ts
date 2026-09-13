@@ -34,6 +34,8 @@ const deCore: Record<string, string> = {
  'nav.guida': 'Praxis-Leitfaden',
  'nav.vita': 'Alltag',
  'nav.stats': 'Statistiken',
+ 'nav.plateAuctions': 'Kontrollschildauktionen',
+ 'nav.plateAuctions.mobile': 'Schilder',
  'nav.simulator.mobile': 'Rechner',
  'nav.confronti.mobile': 'Vergleich',
  'nav.fisco.mobile': 'Steuer',
