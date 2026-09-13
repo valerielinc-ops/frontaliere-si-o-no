@@ -2495,11 +2495,11 @@
     },
     {
       "id": "c-and-a-schweiz-99ea228dc21b",
-      "slug": "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel",
+      "slug": "collaboratori-di-vendita-con-funzione-portachiavi-50-m-f-d-focus-sul-servizio-neuchatel-c-a-schweiz-neuchatel-ch",
       "slugByLocale": {
-        "it": "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel",
+        "it": "collaboratori-di-vendita-con-funzione-portachiavi-50-m-f-d-focus-sul-servizio-neuchatel-c-a-schweiz-neuchatel-ch",
         "en": "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel",
-        "de": "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel",
+        "de": "vertriebsmitarbeiter-mit-schlussel-carrying-funktion-50-servicefokus-m-w-d-neuenburg-c-a-schweiz-neuchatel-ch",
         "fr": "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel"
       },
       "company": "C&A Schweiz",
@@ -2556,7 +2556,18 @@
         }
       },
       "addressRegion": "NE",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel"
+        ],
+        "de": [
+          "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel"
+      ]
     },
     {
       "id": "c-and-a-schweiz-207bf2c6892c",
@@ -2862,13 +2873,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch",
-        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-a-schweiz-crissier"
+        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch",
-          "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-a-schweiz-crissier"
+          "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
         ],
         "en": [
           "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
@@ -2900,7 +2909,7 @@
         "it": "apprendistato-afp-cfc-commercio-al-dettaglio-tivoli-spreitenbach-start-1-august-2027-c-a-schweiz-spreitenbach",
         "en": "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch",
         "de": "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch",
-        "fr": "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch"
+        "fr": "eba-efz-departement-du-commerce-de-detail-tivoli-spreitbach-debut-1er-aout-2027-c-a-schweiz-spreitenbach-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -2945,6 +2954,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch"
+        ],
+        "fr": [
           "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch"
         ]
       },
