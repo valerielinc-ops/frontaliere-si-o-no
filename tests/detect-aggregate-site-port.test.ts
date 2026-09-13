@@ -58,7 +58,7 @@ describe('issue-fix aggregate detector site port (#986)', () => {
     expect(detectAggregate(parsed)).toEqual({ aggregate: true, fallback: true });
   });
 
-  it('non lascia in-flight la issue se anche la scrittura su GITHUB_OUTPUT fa throw', () => {
+  it('propaga il fallimento se la scrittura su GITHUB_OUTPUT fa throw', () => {
     const sandbox = mkdtempSync(join(tmpdir(), 'detect-aggregate-'));
     try {
       const fakeGh = join(sandbox, 'gh');
@@ -83,7 +83,10 @@ describe('issue-fix aggregate detector site port (#986)', () => {
         },
       );
 
-      expect(result.status).toBe(0);
+      // stdout documents the conservative decision, but it cannot populate
+      // `steps.tier.outputs`. The caller must fail instead of continuing with
+      // the missing output interpreted as false.
+      expect(result.status).not.toBe(0);
       expect(result.stdout).toContain('is_aggregate=true');
       expect(result.stderr).toContain('errore non gestito');
     } finally {

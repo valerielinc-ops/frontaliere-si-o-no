@@ -79,13 +79,15 @@ function emitSafeFallback(issue, error) {
   );
   console.log('is_aggregate=true');
   // The output file itself can be the thing that failed (for example, a stale
-  // path or a directory). Best effort only: stdout still makes the safe
-  // decision visible and the caller exits successfully instead of stranding
-  // the in-flight issue.
+  // path or a directory). Stdout is useful for diagnosis, but it does not
+  // populate `steps.tier.outputs`; report the write failure to the caller so
+  // the workflow cannot continue with an implicit `false`.
   try {
     if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, 'is_aggregate=true\n');
+    return true;
   } catch (outputError) {
     console.error(`detect-aggregate: impossibile scrivere GITHUB_OUTPUT (${outputError?.message || outputError})`);
+    return false;
   }
 }
 
@@ -93,7 +95,10 @@ if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) {
   try {
     main();
   } catch (err) {
-    emitSafeFallback(process.env.ISSUE_NUMBER || '', err?.message || String(err));
-    process.exit(0);
+    const emitted = emitSafeFallback(process.env.ISSUE_NUMBER || '', err?.message || String(err));
+    // A fallback without the Actions output is not a safe fallback: later
+    // steps read `steps.tier.outputs.is_aggregate`, not stdout. Fail the step
+    // and let the workflow caller apply its normal failure/cleanup path.
+    process.exit(emitted ? 0 : 1);
   }
 }
