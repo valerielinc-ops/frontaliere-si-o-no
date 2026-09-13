@@ -76,6 +76,7 @@ const REQUIRED_LOOP_FIELDS = [
   'minimumSample',
   'maxAutonomy',
   'actionClasses',
+  'actionPolicy',
   'guardrails',
   'sourceRefs',
   'outcome',
@@ -178,7 +179,6 @@ function requireSourceCatalog(value) {
 }
 
 function requireActionPolicy(value, name) {
-  if (value === undefined) return null;
   if (!value || typeof value !== 'object' || Array.isArray(value)) fail(`${name} must be an object`);
   const entries = Object.entries(value);
   if (entries.length === 0) fail(`${name} must not be empty`);
@@ -256,7 +256,7 @@ export function validateLoopRegistry(registry) {
       sourceRefs: [...loop.sourceRefs],
       outcome,
       lifecycle,
-      ...(actionPolicy ? { actionPolicy } : {}),
+      actionPolicy,
     });
   }
   const actionAutonomyMap = registry.actionAutonomy;
@@ -306,6 +306,15 @@ export function actionAutonomy(actionClass, actionAutonomyMap) {
     if (!AUTONOMY_LEVELS.includes(level)) fail(`actionAutonomy.${part} is not A0-A4`);
     return AUTONOMY_ORDER[level] > AUTONOMY_ORDER[highest] ? level : highest;
   }, 'A0');
+}
+
+/** Resolve one producer action from the validated loop registry policy. */
+export function actionClassForPolicy(policy, key) {
+  if (!policy || typeof policy !== 'object' || Array.isArray(policy)) fail('loop policy is required');
+  const policyKey = requireText(key, 'actionPolicy key');
+  const actionClass = policy.actionPolicy?.[policyKey];
+  if (actionClass === undefined) fail(`${policy.loopId}.actionPolicy.${policyKey} is missing`);
+  return requireText(actionClass, `${policy.loopId}.actionPolicy.${policyKey}`);
 }
 
 export function findLoopPolicy(registry, loopId) {

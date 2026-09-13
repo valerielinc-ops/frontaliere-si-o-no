@@ -8,6 +8,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   validateActionClassAgainstPolicy,
@@ -55,12 +56,6 @@ function text(value) {
 
 function object(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
-}
-
-function configuredActionClass(policy, key) {
-  const actionClass = policy?.actionPolicy?.[key];
-  if (!text(actionClass)) throw new Error(`L7 registry actionPolicy.${key} is missing`);
-  return actionClass.trim();
 }
 
 function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], warnings = [], snapshot = null, candidates = [] }) {
@@ -394,7 +389,7 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
     ? loopRegistry.loops.find((loop) => loop.loopId === LOOP_ID)
     : null;
   const candidateActionClass = loopRegistry && loopPolicy
-    ? configuredActionClass(loopPolicy, 'candidate')
+    ? actionClassForPolicy(loopPolicy, 'candidate')
     : null;
   const candidateVerdict = validateCandidateRegistry(registry, {
     now,
@@ -417,7 +412,7 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   if (loopRegistry) {
     try {
       const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass);
-      validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, configuredActionClass(loopPolicy, 'needsReview'));
+      validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClassForPolicy(loopPolicy, 'needsReview'));
       candidates = candidates.map((candidate) => ({
         ...candidate,
         autonomy: candidatePolicy.requiredAutonomy,
@@ -583,7 +578,7 @@ function writeActions(reportDir, verdict, now, loopRegistry, loopPolicy) {
   const actions = [];
   if ((integer(guardrailBreaches) && guardrailBreaches > 0)
       || (integer(contaminatedAssignments) && contaminatedAssignments > 0)) {
-    const guardrailActionClass = configuredActionClass(loopPolicy, 'guardrail');
+    const guardrailActionClass = actionClassForPolicy(loopPolicy, 'guardrail');
     actions.push({
       actionClass: guardrailActionClass,
       autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, guardrailActionClass).requiredAutonomy,
@@ -676,8 +671,8 @@ export async function runL7({
     verdict = baseVerdict({ sourcePath: candidatesPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
   const actionClass = verdict.ok
-    ? configuredActionClass(loopPolicy, 'healthy')
-    : configuredActionClass(loopPolicy, 'needsReview');
+    ? actionClassForPolicy(loopPolicy, 'healthy')
+    : actionClassForPolicy(loopPolicy, 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
   verdict = {
     ...verdict,

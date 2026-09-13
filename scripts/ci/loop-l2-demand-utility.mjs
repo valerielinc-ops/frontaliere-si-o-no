@@ -8,6 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
@@ -298,16 +299,17 @@ export async function runL2({
   } catch (error) {
     verdict = baseVerdict({ sourcePath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
-  const actionClass = verdict.candidates.length ? 'candidate+issue' : 'issue';
+  const actionClass = actionClassForPolicy(loopPolicy, verdict.candidates.length ? 'withCandidates' : 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
   const candidatePolicy = verdict.candidates.length
-    ? validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate')
+    ? validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClassForPolicy(loopPolicy, 'candidate'))
     : null;
+  const candidateActionClass = candidatePolicy ? actionClassForPolicy(loopPolicy, 'candidate') : null;
   verdict = {
     ...verdict,
     candidates: verdict.candidates.map((candidate) => ({
       ...candidate,
-      actionClass: 'candidate',
+      actionClass: candidateActionClass,
       autonomy: candidatePolicy?.requiredAutonomy || null,
     })),
     snapshot: {
@@ -389,7 +391,7 @@ export async function runL2({
       generatedAt: now.toISOString(),
       reversible: true,
       candidates: verdict.candidates,
-      actionClass: 'candidate',
+      actionClass: candidateActionClass,
       autonomy: candidatePolicy.requiredAutonomy,
     }, null, 2)}\n`);
     candidatesWritten = true;
