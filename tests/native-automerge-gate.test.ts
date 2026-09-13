@@ -210,11 +210,13 @@ describe('native auto-merge workflow wiring (#8512)', () => {
   it('evaluates review and workflow-run events, while opening remains a guarded observation', () => {
     expect(workflow).toContain('types: [opened, reopened, ready_for_review, synchronize]');
     expect(workflow).toContain('pull_request_review:');
-    expect(workflow).toContain('types: [submitted]');
+    expect(workflow).toContain('types: [submitted, edited, dismissed]');
     expect(workflow).toContain('workflow_run:');
     expect(workflow).toContain('workflows: [tests]');
     expect(workflow).toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY=false');
+    expect(workflow).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
     expect(workflow).toContain('node --check "$gate_tmp"');
+    expect(workflow).not.toContain('native-automerge-gate.mjs.tmp');
     expect(workflow).toContain("if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'");
     expect(workflow).toContain('native-automerge-gate.mjs');
     expect(workflow).not.toContain('gh pr merge "$PR_NUMBER"');
@@ -224,6 +226,9 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(retry).toContain('native-automerge-gate.mjs');
     expect(retry).toContain('MAX_PR_SCAN: \'100\'');
     expect(retry).toContain('sort_by(.createdAt) | reverse | .[].number');
+    expect(retry).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
+    expect(retry).toContain('node --check "$gate_tmp"');
+    expect(retry).not.toContain('native-automerge-gate.mjs.tmp');
     expect(retry).not.toContain('.[:$max][]');
     expect(retry).not.toContain("jq -e '.autoMergeRequest != null'");
     expect(retry).not.toContain('gh pr merge');
