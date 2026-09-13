@@ -462,6 +462,13 @@ const translations: Record<string, string> = {
  'results.salaryAlert.error': "Non siamo riusciti a creare l'alert. Riprova.",
  'results.salaryAlert.successTitle': 'Alert attivato ✓',
  'results.salaryAlert.successBody': 'Ti scriviamo appena escono offerte in Ticino con netto ≥ {amount}.',
+ 'results.salaryAlert.capture.title': 'Salva questo alert in pochi secondi',
+ 'results.salaryAlert.capture.body': 'Accedi con Google o LinkedIn, oppure ricevi un link sicuro via email. L’alert si attiva dopo l’accesso.',
+ 'results.salaryAlert.capture.or': 'oppure email',
+ 'results.salaryAlert.capture.emailLabel': 'Il tuo indirizzo email',
+ 'results.salaryAlert.capture.emailCta': 'Ricevi il link di accesso',
+ 'results.salaryAlert.capture.checkEmailTitle': 'Controlla la tua email',
+ 'results.salaryAlert.capture.checkEmailBody': 'Ti abbiamo inviato il link. Aprilo per accedere e attivare automaticamente l’alert per questo netto.',
 
  // Multi-canton net comparison (#4471)
  'results.cantonCompare.title': 'Lo stesso lavoro in altri cantoni',

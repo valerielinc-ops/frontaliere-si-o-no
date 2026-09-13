@@ -5212,6 +5212,33 @@ const JobBoard: React.FC<JobBoardProps> = ({
  Analytics.trackSearch(deferredSearchQuery.trim(), { resultsCount: filteredJobs.length, searchSource: 'job-board' });
  }, [deferredSearchQuery, searchSlugFilter, filteredJobs.length]);
 
+ // A free-text URL such as `?q=nurse` starts from the static landing HTML,
+ // whose title contains the all-board count. Once the authoritative filtered
+ // set is ready, expose the count that actually answers the query in the
+ // document title as well. Keep the original title so clearing the query or
+ // leaving the search view restores the build-time listing metadata.
+ const activeSearchHeadingQuery = searchHeadingQuery || deferredSearchQuery.trim();
+ const originalListingTitleRef = useRef<string | null>(null);
+ useEffect(() => {
+  const isListingSearch = Boolean(activeSearchHeadingQuery)
+   && !selectedJob
+   && !companySlugFilter
+   && !locationSlugFilter
+   && !editorialLandingDescriptor;
+  if (!isListingSearch) {
+   if (!activeSearchHeadingQuery && originalListingTitleRef.current !== null) {
+    document.title = originalListingTitleRef.current;
+    originalListingTitleRef.current = null;
+   }
+   return;
+  }
+  if (originalListingTitleRef.current === null) originalListingTitleRef.current = document.title;
+  const baseTitle = t('jobBoard.searchPageTitle', { query: activeSearchHeadingQuery });
+  document.title = resultsResolving
+   ? baseTitle
+   : `${baseTitle} — ${t('jobBoard.resultsCount', { count: String(filteredJobs.length) })}`;
+ }, [activeSearchHeadingQuery, selectedJob, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, resultsResolving, filteredJobs.length, t]);
+
  const totalPages = Math.max(1, Math.ceil(filteredJobs.length / pageSize));
  const currentPage = Math.min(page, totalPages);
 
@@ -6953,11 +6980,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ? t('jobBoard.companyPageTitle', { company: companyDisplayName, ...cantonI18n })
  : locationDisplayName
  ? t('jobBoard.locationPageTitle', { location: locationDisplayName, ...cantonI18n })
- : searchHeadingQuery
- ? t('jobBoard.searchPageTitle', { query: searchHeadingQuery })
+ : activeSearchHeadingQuery
+ ? t('jobBoard.searchPageTitle', { query: activeSearchHeadingQuery })
  : t('jobBoard.title', cantonI18n)}
  </h1>
  <p className="text-sm sm:text-base text-subtle max-w-2xl mx-auto">{t('jobBoard.subtitle', cantonI18n)}</p>
+ {activeSearchHeadingQuery && !resultsResolving && (
+ <p data-testid="job-board-search-result-summary" className="text-sm font-semibold text-accent" aria-live="polite">
+ {t('jobBoard.resultsCount', { count: String(filteredJobs.length) })}
+ </p>
+ )}
  </div>
  );
 

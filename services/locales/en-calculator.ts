@@ -450,6 +450,13 @@ const enCalculator: Record<string, string> = {
  'results.salaryAlert.error': "We couldn't create the alert. Please try again.",
  'results.salaryAlert.successTitle': 'Alert active ✓',
  'results.salaryAlert.successBody': "We'll email you as soon as Ticino jobs with net pay ≥ {amount} appear.",
+ 'results.salaryAlert.capture.title': 'Save this alert in a few seconds',
+ 'results.salaryAlert.capture.body': 'Continue with Google or LinkedIn, or get a secure sign-in link by email. The alert activates after you sign in.',
+ 'results.salaryAlert.capture.or': 'or email',
+ 'results.salaryAlert.capture.emailLabel': 'Your email address',
+ 'results.salaryAlert.capture.emailCta': 'Send me the sign-in link',
+ 'results.salaryAlert.capture.checkEmailTitle': 'Check your email',
+ 'results.salaryAlert.capture.checkEmailBody': 'We sent you a link. Open it to sign in and automatically activate this salary alert.',
 
  // Multi-canton net comparison (#4471)
  'results.cantonCompare.title': 'The same job in other cantons',
