@@ -3,12 +3,23 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({
+  authUser: null as {
+    uid: string;
+    email: string;
+    providerData: Array<{ providerId: string }>;
+  } | null,
   upsertNewsletterSubscriber: vi.fn(),
   requestConfirmationEmail: vi.fn(),
   signStabioDossoPetition: vi.fn(),
   trackPageView: vi.fn(),
   trackUIInteraction: vi.fn(),
 }));
+
+const AUTH_USER = {
+  uid: 'auth-user-1',
+  email: 'worker@example.com',
+  providerData: [{ providerId: 'google.com' }],
+};
 
 vi.mock('@/services/analyticsProxy', () => ({
   Analytics: {
@@ -24,11 +35,7 @@ vi.mock('@/components/shared/EmailInput', () => ({
 }));
 vi.mock('@/services/authService', () => ({
   useAuth: () => ({
-    user: {
-      uid: 'auth-user-1',
-      email: 'worker@example.com',
-      providerData: [{ providerId: 'google.com' }],
-    },
+    user: mocks.authUser,
     loading: false,
   }),
   getAuthEmail: (user: { email?: string } | null) => user?.email || '',
@@ -68,9 +75,16 @@ vi.mock('@/services/i18n', () => ({
       'petition.form.signedAs': 'Accesso effettuato come',
       'petition.form.signCta': 'Invia la mia firma',
       'petition.form.signing': 'Registrazione della firma…',
+      'petition.form.emailLabel': 'Email',
+      'petition.form.emailHint': 'Riceverai un link.',
+      'petition.form.emailCta': 'Invia il link',
+      'petition.form.or': 'oppure',
+      'petition.form.socialTitle': 'Accedi',
+      'petition.form.socialIntro': 'Usa un provider.',
       'petition.form.checkEmailTitle': 'Controlla la tua posta',
       'petition.form.checkEmailBody': 'Apri il link e torna qui per firmare.',
       'petition.form.checkEmailReturn': 'Poi torna qui.',
+      'petition.form.backToForm': 'Torna al modulo',
       'petition.form.successTitle': 'Firma registrata',
       'petition.form.successBody': 'La firma è stata registrata.',
       'petition.form.already': 'Avevi già firmato.',
@@ -86,6 +100,7 @@ import { StabioDossoPetitionPage } from '@/components/pages/StabioDossoPetitionP
 describe('Stabio-Gaggiolo petition signing flow', () => {
   beforeEach(() => {
     localStorage.clear();
+    mocks.authUser = AUTH_USER;
     mocks.upsertNewsletterSubscriber.mockReset();
     mocks.requestConfirmationEmail.mockReset();
     mocks.signStabioDossoPetition.mockReset();
@@ -112,6 +127,26 @@ describe('Stabio-Gaggiolo petition signing flow', () => {
     const [, input] = mocks.upsertNewsletterSubscriber.mock.calls[0] as [unknown, Record<string, unknown>];
     expect(input.reconsent).toBe(true);
     expect(mocks.signStabioDossoPetition).not.toHaveBeenCalled();
+    expect(await screen.findByText('Controlla la tua posta')).toBeInTheDocument();
+  });
+
+  it('keeps the email DOI path open when a pending re-consent still reports an opt-out', async () => {
+    mocks.authUser = null;
+    mocks.upsertNewsletterSubscriber.mockResolvedValue({
+      existed: true,
+      id: 'worker@example.com',
+      status: 'pending',
+      optedOut: true,
+      hadConfirmationProof: true,
+    });
+
+    render(<StabioDossoPetitionPage />);
+    fireEvent.change(screen.getByLabelText('Email'), { target: { value: 'worker@example.com' } });
+    fireEvent.click(screen.getByRole('checkbox'));
+    fireEvent.click(screen.getByRole('button', { name: 'Invia il link' }));
+
+    await waitFor(() => expect(mocks.upsertNewsletterSubscriber).toHaveBeenCalledTimes(1));
+    expect(mocks.requestConfirmationEmail).not.toHaveBeenCalled();
     expect(await screen.findByText('Controlla la tua posta')).toBeInTheDocument();
   });
 

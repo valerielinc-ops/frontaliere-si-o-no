@@ -198,7 +198,9 @@ export function StabioDossoPetitionPage() {
         consentGiven: true,
         consentPurpose: 'stabioPetition',
       });
-      if (capture.optedOut) throw new Error('newsletter-opted-out');
+      // A deliberate re-consent may still report the historical opt-out while
+      // the fresh DOI is pending. Only a non-pending opt-out is a hard stop.
+      if (capture.optedOut && capture.status !== 'pending') throw new Error('newsletter-opted-out');
 
       // A new pending address receives the DOI message from the upsert; that
       // confirmation link also returns a Firebase custom-auth session. An
@@ -278,7 +280,9 @@ export function StabioDossoPetitionPage() {
         consentGiven: true,
         consentPurpose: 'stabioPetition',
       });
-      if (capture.optedOut) throw new Error('newsletter-opted-out');
+      // A deliberate re-consent may still report the historical opt-out while
+      // the fresh DOI is pending. Only a non-pending opt-out is a hard stop.
+      if (capture.optedOut && capture.status !== 'pending') throw new Error('newsletter-opted-out');
       if (capture.status !== 'confirmed' && capture.status !== 'subscribed') {
         setStatus('email-sent');
         Analytics.trackUIInteraction('stabio_petition', 'form', 'newsletter_reconsent_requested', 'newsletter_gate');
