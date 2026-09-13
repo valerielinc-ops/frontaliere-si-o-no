@@ -2145,6 +2145,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dazi-usa-seco-commercio': { it: 'dazi-usa-seco-commercio', en: 'us-tariffs-seco-trade', de: 'usa-zoelle-seco-handel', fr: 'tarifs-usa-seco-commerce' },
  'furto-apparecchiature-mediche-roma': { it: 'furto-apparecchiature-mediche-roma', en: 'theft-medical-equipment-roma', de: 'diebstahl-medizinische-geraete-rom', fr: 'vol-equipement-medical-rome' },
  'allarme-medici-frontalieri-ticino': { it: 'allarme-medici-frontalieri-ticino', en: 'alarm-cross-border-doctors-ticino', de: 'alarm-grenzgaenger-aerzte-tessin', fr: 'alerte-medecins-frontaliers-tessin' },
+ 'settimana-contro-lo-spreco-alimentare-svizzera': { it: 'settimana-contro-lo-spreco-alimentare-svizzera', en: 'food-waste-reduction-week-switzerland', de: 'woche-gegen-lebensmittelverschwendung-schweiz', fr: 'semaine-contre-le-gaspillage-alimentaire-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
