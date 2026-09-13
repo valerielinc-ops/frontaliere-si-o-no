@@ -1,27 +1,28 @@
 {
   "key": "gmo",
   "label": "gmo",
-  "generatedAt": "2026-09-11T23:06:37.973Z",
-  "total": 9,
+  "generatedAt": "2026-09-13T13:54:26.741Z",
+  "total": 8,
   "discovered": 8,
   "parsed": 8,
   "lastFetchOutcome": null,
-  "written": 9,
+  "written": 8,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 19410,
-  "avgDurationMs": 19410,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 17536,
+  "avgDurationMs": 17536,
   "durationHistory": [
-    19410
+    17536
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "gmo-ebda8fb668fb",
-      "slug": "assistant-e-medical-e-gmo-ch-3",
+      "slug": "assistant-e-medical-e-gmo-1023-crissier-ebda8fb6",
+      "slugDisambiguator": "ebda8fb6",
       "company": "gmo",
       "companyKey": "gmo",
       "companyDomain": "arsante.ch",
@@ -31,7 +32,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:06:26.398Z",
+      "crawledAt": "2026-09-13T13:54:17.196Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -46,19 +47,19 @@
       "featured": false,
       "postedDate": "2026-09-11",
       "applyUrl": "https://www.arsante.ch/emploi/assistant-e-medical-e-102",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-11T13:35:53.884Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "gmo-8e31a9f82f8a",
-      "slug": "specialiste-en-medecine-interne-generale-fmh-gmo-ch",
+      "slug": "specialiste-en-medecine-interne-generale-fmh-gmo-1212-grand-lancy-8e31a9f8",
+      "slugDisambiguator": "8e31a9f8",
       "company": "gmo",
       "companyKey": "gmo",
       "companyDomain": "arsante.ch",
@@ -68,7 +69,7 @@
       "url": "https://www.arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:06:26.403Z",
+      "crawledAt": "2026-09-13T13:54:17.205Z",
       "addressLocality": "Grand-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -94,7 +95,8 @@
     },
     {
       "id": "gmo-88ab010d0f39",
-      "slug": "assistant-e-medical-e-gmo-ch",
+      "slug": "assistant-e-medical-e-gmo-1201-geneve-88ab010d",
+      "slugDisambiguator": "88ab010d",
       "company": "gmo",
       "companyKey": "gmo",
       "companyDomain": "arsante.ch",
@@ -104,7 +106,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-100",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:06:26.406Z",
+      "crawledAt": "2026-09-13T13:54:17.213Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -119,7 +121,6 @@
       "featured": false,
       "postedDate": "2026-09-05",
       "applyUrl": "https://www.arsante.ch/emploi/assistant-e-medical-e-100",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-05T22:49:34.246Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -131,7 +132,8 @@
     },
     {
       "id": "gmo-91ba1140d26f",
-      "slug": "coordinateur-rice-gmo-ch",
+      "slug": "coordinateur-rice-gmo-1217-meyrin-91ba1140",
+      "slugDisambiguator": "91ba1140",
       "company": "gmo",
       "companyKey": "gmo",
       "companyDomain": "arsante.ch",
@@ -141,7 +143,7 @@
       "url": "https://www.arsante.ch/emploi/coordinateur-rice-99",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:06:26.408Z",
+      "crawledAt": "2026-09-13T13:54:17.227Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -168,7 +170,8 @@
     },
     {
       "id": "gmo-2d73a3ff1c4a",
-      "slug": "assistant-e-medical-e-gmo-ch",
+      "slug": "assistant-e-medical-e-gmo-1213-onex-2d73a3ff",
+      "slugDisambiguator": "2d73a3ff",
       "company": "gmo",
       "companyKey": "gmo",
       "companyDomain": "arsante.ch",
@@ -178,7 +181,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:06:26.409Z",
+      "crawledAt": "2026-09-13T13:54:17.232Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -205,7 +208,8 @@
     },
     {
       "id": "gmo-f1bf9caf6800",
-      "slug": "conducteur-rice-de-travaux-junior-gmo-ch",
+      "slug": "conducteur-rice-de-travaux-junior-gmo-1213-onex-f1bf9caf",
+      "slugDisambiguator": "f1bf9caf",
       "company": "gmo",
       "companyKey": "gmo",
       "companyDomain": "arsante.ch",
@@ -215,7 +219,7 @@
       "url": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:06:26.410Z",
+      "crawledAt": "2026-09-13T13:54:17.234Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -242,7 +246,8 @@
     },
     {
       "id": "gmo-576ebe7aaad6",
-      "slug": "infirmier-ere-pediatrique-gmo-ch",
+      "slug": "infirmier-ere-pediatrique-gmo-1213-onex-576ebe7a",
+      "slugDisambiguator": "576ebe7a",
       "company": "gmo",
       "companyKey": "gmo",
       "companyDomain": "arsante.ch",
@@ -252,7 +257,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:06:26.411Z",
+      "crawledAt": "2026-09-13T13:54:17.239Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -279,7 +284,8 @@
     },
     {
       "id": "gmo-4b5a5ae3e4b8",
-      "slug": "experts-medicaux-gmo-ch",
+      "slug": "experts-medicaux-gmo-1213-petit-lancy-4b5a5ae3",
+      "slugDisambiguator": "4b5a5ae3",
       "company": "gmo",
       "companyKey": "gmo",
       "companyDomain": "arsante.ch",
@@ -289,7 +295,7 @@
       "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-11T23:06:26.412Z",
+      "crawledAt": "2026-09-13T13:54:17.241Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -315,8 +321,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gmo-69ead8a8b120",
       "slug": "farmaceutici-gmo-lugano",
@@ -358,5 +363,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
