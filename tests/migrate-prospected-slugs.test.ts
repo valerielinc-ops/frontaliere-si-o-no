@@ -5,7 +5,9 @@ import { describe, expect, it } from 'vitest';
 
 import {
   applyProspectedSlugMigration,
+  buildProspectedSlugOwnerMap,
   LOCALES,
+  needsProspectedSlugMigration,
   planProspectedSlugMigration,
   TARGET_CRAWLERS,
   validateProspectedSlugPlans,
@@ -68,6 +70,21 @@ describe('migrate-prospected-slugs', () => {
     expect(job.slug).toBe('ruolo-acme-lugano');
   });
 
+  it('migrates a stale master route even when the Italian locale slug already matches', () => {
+    const job = fixture();
+    const firstPlan = planProspectedSlugMigration(job);
+    job.slugByLocale.it = firstPlan.nextSlugByLocale.it;
+    job.slug = 'stale-master-route';
+    job.slugDisambiguator = firstPlan.slugDisambiguator;
+
+    const plan = planProspectedSlugMigration(job);
+    expect(needsProspectedSlugMigration(job, plan)).toBe(true);
+
+    applyProspectedSlugMigration(job, plan);
+    expect(job.slug).toBe(plan.nextSlugByLocale.it);
+    expect(job.previousSlugsByLocale.it).toContain('stale-master-route');
+  });
+
   it('rejects a canonical collision before any slice can be written', () => {
     const first = fixture();
     const second = { ...fixture(), id: 'fixture-2' };
@@ -77,6 +94,33 @@ describe('migrate-prospected-slugs', () => {
     ];
 
     expect(() => validateProspectedSlugPlans(entries)).toThrow(/claimed by/);
+  });
+
+  it('rejects a planned route already active in another crawler slice', () => {
+    const target = fixture('https://example.test/jobs/target');
+    const plan = planProspectedSlugMigration(target);
+    const external = {
+      id: 'external-live-job',
+      slug: plan.nextSlugByLocale.it,
+      slugByLocale: {
+        it: plan.nextSlugByLocale.it,
+        en: 'external-en',
+        de: 'external-de',
+        fr: 'external-fr',
+      },
+    };
+    const activeOwners = buildProspectedSlugOwnerMap([
+      { job: external, owner: 'job:external-live-job' },
+    ]);
+
+    expect(() => validateProspectedSlugPlans([
+      {
+        crawlerKey: 'accor',
+        job: target,
+        plan,
+        owner: 'job:target',
+      },
+    ], activeOwners)).toThrow(/it:.*claimed by/);
   });
 
   it('can migrate every checked-in target job in memory without writing cron data', () => {

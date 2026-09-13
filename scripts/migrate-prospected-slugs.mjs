@@ -17,7 +17,10 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
   addPreviousSlugForLocale,
   cleanPreviousSlugsPerLocale,
+  fingerprintJob,
+  loadSlugRegistry,
 } from './lib/dedicated-crawler-common.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { buildSlug } from './lib/regenerate-slugs-helpers.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -129,25 +132,124 @@ export function applyProspectedSlugMigration(job, plan = planProspectedSlugMigra
   };
 }
 
+function addSlugOwner(ownerMap, key, owner) {
+  const owners = ownerMap.get(key) || new Set();
+  owners.add(owner);
+  ownerMap.set(key, owners);
+}
+
+function cloneSlugOwnerMap(ownerMap) {
+  const copy = new Map();
+  for (const [key, owners] of ownerMap) {
+    copy.set(key, owners instanceof Set ? new Set(owners) : new Set([owners]));
+  }
+  return copy;
+}
+
+function activeJobOwner(job, fallback) {
+  const id = String(job?.id || '').trim();
+  return id ? 'job:' + id : fallback;
+}
+
+function registryOwner(job) {
+  const fingerprint = typeof job?.url === 'string' && job.url.trim()
+    ? fingerprintJob(job)
+    : '';
+  return fingerprint ? 'registry:' + fingerprint : '';
+}
+
+function activeSlugsByLocale(job, locale) {
+  const values = locale === 'it'
+    ? [job?.slug, job?.slugByLocale?.it]
+    : [job?.slugByLocale?.[locale]];
+  return values
+    .map((slug) => String(slug || '').trim())
+    .filter(Boolean);
+}
+
+/**
+ * Build the active `(locale, slug) -> owner` map used by the migration
+ * preflight. Keeping this pure makes the cross-slice collision rule directly
+ * testable without writing cron data.
+ */
+export function buildProspectedSlugOwnerMap(records) {
+  const owners = new Map();
+  for (const record of records) {
+    const job = record.job || record;
+    const owner = record.owner || activeJobOwner(job, record.fallbackOwner || 'active:<unknown>');
+    for (const locale of LOCALES) {
+      for (const slug of activeSlugsByLocale(job, locale)) {
+        addSlugOwner(owners, locale + ':' + slug, owner);
+      }
+    }
+  }
+  return owners;
+}
+
+function readActiveSlugOwners() {
+  const activeRecords = [];
+  for (const fileName of listSliceFileNames(SLICES_DIR)) {
+    const filePath = path.join(SLICES_DIR, fileName);
+    const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    if (!payload || !Array.isArray(payload.jobs)) {
+      throw new Error('Invalid active crawler slice: ' + filePath);
+    }
+    const crawlerKey = fileName.replace(/\.json$/, '');
+    payload.jobs.forEach((job, index) => {
+      activeRecords.push({
+        job,
+        owner: activeJobOwner(job, crawlerKey + ':index:' + index),
+      });
+    });
+  }
+
+  const owners = buildProspectedSlugOwnerMap(activeRecords);
+  const registry = loadSlugRegistry();
+  for (const [fingerprint, entry] of Object.entries(registry)) {
+    if (!entry || typeof entry !== 'object') continue;
+    const owner = 'registry:' + fingerprint;
+    const slugByLocale = entry.slugByLocale && typeof entry.slugByLocale === 'object'
+      ? entry.slugByLocale
+      : {};
+    for (const locale of LOCALES) {
+      const slugs = locale === 'it'
+        ? [slugByLocale.it, entry.canonicalSlug]
+        : [slugByLocale[locale]];
+      for (const slug of slugs.map((value) => String(value || '').trim()).filter(Boolean)) {
+        addSlugOwner(owners, locale + ':' + slug, owner);
+      }
+    }
+  }
+  return owners;
+}
+
+function entryOwners(entry) {
+  return new Set([
+    entry.owner || activeJobOwner(entry.job, entry.crawlerKey + ':' + entry.plan.jobId),
+    entry.registryOwner || registryOwner(entry.job),
+  ].filter(Boolean));
+}
+
 /**
  * Reject collisions before any slice is written. A route is identified by
  * locale plus slug because each locale has its own public URL prefix.
  */
-export function validateProspectedSlugPlans(entries) {
-  const seen = new Map();
+export function validateProspectedSlugPlans(entries, activeSlugOwners = new Map()) {
+  const seen = cloneSlugOwnerMap(activeSlugOwners);
   for (const entry of entries) {
-    const owner = entry.crawlerKey + ':' + entry.plan.jobId;
+    const owners = entryOwners(entry);
     for (const locale of LOCALES) {
       const slug = entry.plan.nextSlugByLocale[locale];
       const key = locale + ':' + slug;
-      const previousOwner = seen.get(key);
-      if (previousOwner && previousOwner !== owner) {
+      const previousOwners = seen.get(key) || new Set();
+      const previousOwner = [...previousOwners].find((owner) => !owners.has(owner));
+      if (previousOwner) {
         throw new Error(
           'Refusing prospected slug migration: ' + key + ' is claimed by '
-          + previousOwner + ' and ' + owner,
+          + previousOwner + ' and ' + [...owners].find((owner) => owner !== previousOwner),
         );
       }
-      seen.set(key, owner);
+      addSlugOwner(seen, key, [...owners][0]);
     }
   }
   return entries;
@@ -171,18 +273,25 @@ function readEntries() {
         payload,
         job,
         plan: planProspectedSlugMigration(job),
+        owner: activeJobOwner(job, crawlerKey + ':index:' + entries.length),
+        registryOwner: registryOwner(job),
       });
     }
   }
-  return validateProspectedSlugPlans(entries);
+  return validateProspectedSlugPlans(entries, readActiveSlugOwners());
+}
+
+export function needsProspectedSlugMigration(job, plan) {
+  return (
+    plan.slugDisambiguator !== String(job.slugDisambiguator || '').trim()
+    || plan.masterSlug !== plan.nextSlugByLocale.it
+    || LOCALES.some((locale) => plan.oldSlugByLocale[locale] !== plan.nextSlugByLocale[locale])
+  );
 }
 
 export function main({ apply = process.argv.includes('--apply') } = {}) {
   const entries = readEntries();
-  const changed = entries.filter((entry) => (
-    entry.plan.slugDisambiguator !== String(entry.job.slugDisambiguator || '').trim()
-    || LOCALES.some((locale) => entry.plan.oldSlugByLocale[locale] !== entry.plan.nextSlugByLocale[locale])
-  ));
+  const changed = entries.filter((entry) => needsProspectedSlugMigration(entry.job, entry.plan));
 
   if (apply) {
     const changedFiles = new Set();
