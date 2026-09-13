@@ -1,6 +1,6 @@
 name: Follow-up drainer (queue → agent:fix, no-Claude)
 
-# Drena la coda dei follow-up `agent:fix-queued` riempiendo fino a 5 slot per
+# Drena la coda dei follow-up `agent:fix-queued` riempiendo fino a 7 slot per
 # issue diverse. La chiave per-issue di `issue-fix.yml` serializza solo gli
 # eventi dello stesso numero, quindi le run distinte non si sfrattano a vicenda.
 # Rescue+park degli agent:fix orfani (run morta, nessuna PR) per terminazione
@@ -189,9 +189,10 @@ jobs:
           # l'App slug è allowlistato in #2881). Senza token → exit warning (inerte).
           GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          # Cinque issue diverse in parallelo: il workflow issue-fix è per-issue
-          # e il cap resta bounded per non contendere la flotta locale/quota Codex.
-          FOLLOWUP_MAX_INFLIGHT_FIX: '5'
+          # Sette issue diverse in parallelo: il workflow issue-fix è per-issue
+          # e il cap resta bounded; claim e quota Codex evitano collisioni con
+          # la flotta locale. Il default del modulo resta 5 per run manuali.
+          FOLLOWUP_MAX_INFLIGHT_FIX: '7'
           # Fairness di quota (2026-08-21): la quota Claude è condivisa coi run
           # del corpus, e il beacon peer è a senso unico (il corpus cede al
           # sito). Misurato: il sito consuma ogni finestra di reset e il corpus
