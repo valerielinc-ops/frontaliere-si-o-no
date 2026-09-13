@@ -492,7 +492,7 @@ function renderPage(
     ${renderRelatedLinks(copy)}
   `;
 
-  const bodyHtml = `<main class="fh-main">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</main>`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({
@@ -577,6 +577,7 @@ function renderPage(
     hreflangHtml: alternates,
     jsonLdScripts: [breadcrumbLd, faqLd, articleLd],
     bodyHtml,
+    seoMainClass: 'seo-static-content fh-main',
     distDir,
     hubChrome: {
       hubKey: 'guida',
@@ -956,7 +957,7 @@ function renderEntryPage(
   `;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="fh-main">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
 
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -1030,6 +1031,7 @@ function renderEntryPage(
     hreflangHtml: alternates,
     jsonLdScripts: [breadcrumbLd, faqLd, articleLd],
     bodyHtml,
+    seoMainClass: 'seo-static-content fh-main',
     distDir,
     hubChrome: {
       hubKey: 'guida',
