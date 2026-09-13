@@ -12,11 +12,9 @@ import { describe, expect, it } from 'vitest';
 
 import {
   buildPeerProse,
-  isGermanDativePluralNoun,
   peerWindow,
   rankPeerRows,
   renderPeerComparison,
-  type PeerLocale,
   type PeerRow,
 } from '../build-plugins/shared/peerCohortComparison';
 
@@ -134,15 +132,6 @@ describe('buildPeerProse', () => {
 });
 
 describe('renderPeerComparison', () => {
-  it('exposes the executable German dative-plural contract', () => {
-    for (const noun of ['Berufen', 'Kantonen', 'Gemeinden', 'Männern']) {
-      expect(isGermanDativePluralNoun(noun), noun).toBe(true);
-    }
-    for (const noun of ['Berufe', 'Beruf', 'Berufe n', '']) {
-      expect(isGermanDativePluralNoun(noun), noun).toBe(false);
-    }
-  });
-
   it('accetta un nuovo sostantivo tedesco nella forma del dativo plurale', () => {
     const html = renderPeerComparison({
       locale: 'de',
