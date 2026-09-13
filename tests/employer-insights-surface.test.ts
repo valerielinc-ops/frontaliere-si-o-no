@@ -46,6 +46,12 @@ const missingSnapshot = (id: string) => ({
 });
 
 describe('employer insights surface semantics', () => {
+  it('keeps overview tiles evenly inset from the card edges', () => {
+    expect(employerPage).toContain('flex min-w-0 flex-col px-4 py-5 sm:px-5');
+    expect(employerPage).not.toContain('first:pl-0');
+    expect(employerPage).not.toContain('last:pr-0');
+  });
+
   it('does not present proxy metrics as candidates, published ads, or lost applications', () => {
     expect(employerPage).toContain('Click per candidarsi');
     expect(employerPage).toContain('Candidature inviate');
