@@ -6316,6 +6316,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.banda-larga-regioni-periferiche-berna.title': 'Haut débit dans les régions périphériques : 365 millions de Berne',
     'blog.article.banda-larga-regioni-periferiche-berna.excerpt': 'L\'initiative cantonale tessinoise devient une proposition de loi fédérale pour l\'ultra haut débit sur l\'ensemble du territoire national.',
     'blog.article.banda-larga-regioni-periferiche-berna.imageAlt': 'Palais fédéral à Berne où les propositions de loi sur le haut débit sont discutées',
+    'blog.article.condanne-banche-svizzera-corruzione.title': 'Condamnations contre les banques en Suisse pour corruption',
+    'blog.article.condanne-banche-svizzera-corruzione.excerpt': 'Six banques suisses ont récemment été condamnées par la justice fédérale pour des affaires de corruption ou de blanchiment. Analysons la tendance avec des experts.',
+    'blog.article.condanne-banche-svizzera-corruzione.imageAlt': 'Bâtiments de banques suisses en Suisse',
 };
 
 export default blogMetaChFr;

@@ -81998,6 +81998,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-condanne-banche-svizzera-corruzione': {
+    title: 'Condanne contro le banche in Svizzera per corruzione',
+    description: 'Sei banche svizzere condannate dalla giustizia federale per corruzione e riciclaggio. Analisi della tendenza e impatto sul settore finanziario. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, condanne, contro, banche, corruzione',
+    ogTitle: 'Crescono le condanne contro le banche in Svizzera',
+    ogDescription: 'Analisi approfondita sulle recenti condanne emesse dalla giustizia federale contro sei banche svizzere per casi di corruzione e riciclaggio di denaro.',
+    canonicalPath: '/articoli-svizzera/condanne-banche-svizzera-corruzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Condanne contro le banche in Svizzera per corruzione",
+      "description": "Sei banche svizzere condannate dalla giustizia federale per corruzione e riciclaggio. Analisi della tendenza e impatto sul settore finanziario. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/condanne-banche-svizzera-corruzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici di banche svizzere in Svizzera"
+      },
+      "datePublished": "2026-09-13T00:20:13+00:00",
+      "dateModified": "2026-09-13T00:20:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/condanne-banche-svizzera-corruzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

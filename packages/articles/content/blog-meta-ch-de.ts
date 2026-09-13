@@ -6316,6 +6316,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.banda-larga-regioni-periferiche-berna.title': 'Breitband in Randregionen: 365 Millionen aus Bern',
     'blog.article.banda-larga-regioni-periferiche-berna.excerpt': 'Die Tessiner Kantonsinitiative wird zu einem bundesweiten Vorschlag für ein Ultrabreitbandgesetz.',
     'blog.article.banda-larga-regioni-periferiche-berna.imageAlt': 'Bundeshaus in Bern, wo Gesetzesvorschläge zur Breitbandversorgung diskutiert werden',
+    'blog.article.condanne-banche-svizzera-corruzione.title': 'Verurteilungen von Banken in der Schweiz wegen Bestechung',
+    'blog.article.condanne-banche-svizzera-corruzione.excerpt': 'Sechs Schweizer Banken wurden kürzlich von der Bundesjustiz wegen Korruption oder Geldwäsche verurteilt. Lassen Sie uns den Trend mit den Experten besprechen.',
+    'blog.article.condanne-banche-svizzera-corruzione.imageAlt': 'Schweizer Bankgebäude in der Schweiz',
 };
 
 export default blogMetaChDe;
