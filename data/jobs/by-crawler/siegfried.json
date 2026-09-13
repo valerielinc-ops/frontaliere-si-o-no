@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-09-12T13:21:20.428Z",
+  "assembledAt": "2026-09-13T14:15:47.490Z",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:15.839Z",
+      "crawledAt": "2026-09-13T14:15:42.401Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -53,11 +53,13 @@
       "previousSlugs": [
         "operateur-de-production-4-8-siegfried-ch",
         "wechseltechniker-3-8-siegfried-evionnaz",
-        "operateur-de-production-4-8-siegfried-evionnaz"
+        "operateur-de-production-4-8-siegfried-evionnaz",
+        "operatore-di-produzione-4-8-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-de-production-4-8-siegfried-ch"
+          "operateur-de-production-4-8-siegfried-ch",
+          "operatore-di-produzione-4-8-siegfried-evionnaz"
         ],
         "fr": [
           "operateur-de-production-4-8-siegfried-evionnaz"
@@ -110,7 +112,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:15.172Z",
+      "crawledAt": "2026-09-13T14:15:41.760Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -152,11 +154,13 @@
         "technicien-de-laboratoire-ad-siegfried-evionnaz",
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
-        "tecnico-di-cambio-3-8-siegfried-evionnaz"
+        "tecnico-di-cambio-3-8-siegfried-evionnaz",
+        "tecnico-di-laboratorio-ad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-ad-siegfried-ch"
+          "lab-technician-ad-siegfried-ch",
+          "tecnico-di-laboratorio-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -166,6 +170,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -212,7 +217,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:14.615Z",
+      "crawledAt": "2026-09-13T14:15:41.113Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -230,17 +235,20 @@
       "jobReqId": "R26_104",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "senior-lab-technician-analytics-siegfried-ch"
+        "senior-lab-technician-analytics-siegfried-ch",
+        "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lab-technician-analytics-siegfried-ch"
+          "senior-lab-technician-analytics-siegfried-ch",
+          "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
         ],
         "fr": [
           "senior-lab-technician-analytics-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -287,7 +295,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:14.056Z",
+      "crawledAt": "2026-09-13T14:15:40.474Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -307,13 +315,15 @@
       "previousSlugs": [
         "laborant-in-efz-chemie-siegfried-ch",
         "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-        "laborant-in-cfc-chemie-siegfried-zofingen"
+        "laborant-in-cfc-chemie-siegfried-zofingen",
+        "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-in-efz-chemie-siegfried-ch",
           "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-          "laborant-in-cfc-chemie-siegfried-zofingen"
+          "laborant-in-cfc-chemie-siegfried-zofingen",
+          "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
         ],
         "en": [
           "laborant-in-efz-chemie-siegfried-ch"
@@ -323,6 +333,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:57.746Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -369,7 +380,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:13.493Z",
+      "crawledAt": "2026-09-13T14:15:39.763Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -388,12 +399,14 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-        "technicien-de-maintenance-electricite-siegfried-ch"
+        "technicien-de-maintenance-electricite-siegfried-ch",
+        "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-          "technicien-de-maintenance-electricite-siegfried-ch"
+          "technicien-de-maintenance-electricite-siegfried-ch",
+          "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
         ],
         "en": [
           "technicien-de-maintenance-electricite-siegfried-ch"
@@ -403,6 +416,7 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:11:19.489Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -449,7 +463,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T13:21:12.942Z",
+      "crawledAt": "2026-09-13T14:15:39.056Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -467,11 +481,13 @@
       "jobReqId": "R26_511",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "intern-commercial-excellence-siegfried-ch"
+        "intern-commercial-excellence-siegfried-ch",
+        "tirocinante-commercial-excellence-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-commercial-excellence-siegfried-ch"
+          "intern-commercial-excellence-siegfried-ch",
+          "tirocinante-commercial-excellence-siegfried-zofingen"
         ],
         "de": [
           "intern-commercial-excellence-siegfried-ch"
@@ -481,6 +497,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:18:10.178Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -513,21 +530,21 @@
         "it": "Progettista CAD",
         "en": "CAD Designer",
         "de": "CAD-Designer",
-        "fr": "Designer CAO"
+        "fr": "CAD Designer"
       },
       "description": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nVotre mission\n\nAu sein du département Maintenance & Engineering, vous êtes le garant de la qualité, de la fiabilité et de la gouvernance de la documentation technique du site industriel.\n\nVous assurez la gestion des plans techniques et des P&ID tout au long de leur cycle de vie, pilotez leur mise à jour après les modifications d'installations et contribuez à la digitalisation du patrimoine documentaire. Véritable référent CAO, vous définissez les standards du site et veillez à leur application afin de garantir une documentation fiable au service des équipes Engineering, Maintenance, Production et HSE.\n\nSelon la charge d'activité, vous apportez également votre expertise sur de petits projets d'investissement liés aux infrastructures et aux utilités.\n\nVos responsabilités\nGarantir la qualité, la cohérence et la mise à jour de la documentation technique du site (plans, P&ID, DWG et plans \"as-built\").\nDéfinir et faire respecter les standards CAO ainsi que les règles de gestion documentaire (versioning, archivage, traçabilité).\nAssurer la cohérence entre les plans, les P&ID, les équipements et la codification technique.\nPiloter la migration des plans historiques vers le format DWG et coordonner les prestataires externes si nécessaire.\nÊtre le référent de la numérotation technique et maintenir les référentiels associés.\nParticiper au déploiement des outils CAO/BIM et contribuer à la digitalisation du patrimoine documentaire.\nApporter un support documentaire aux projets d'ingénierie et, selon les besoins, prendre en charge de petits projets d'infrastructure (CAPEX/OPEX).\n Your Profile:\n\n• Formation technique (CFC de dessinateur, Technicien ES ou Ingénieur) avec une spécialisation en CAO.\n\n• Expérience confirmée (5 ans minimum) dans une fonction similaire en environnement industriel, idéalement en chimie fine/pharmaceutique (GMP).\n\n• Maîtrise d'AutoCAD ou d'un logiciel CAO équivalent (DWG).\n\n• Bonne compréhension des P&ID, des utilités industrielles et des principes de gestion documentaire.\n\n• Connaissances en codification technique et en gestion de petits projets, un atout.\n\nYour Benefits:\n\n• Parking gratuit\n\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n\n• Plan d’achat d’actions généreux et personnalisable\n\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n\n• Possibilités de formation continue individuelles\n\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n\n• Caisse de pension d’entreprise attrayante\n\n• Cours de sport sur site et nombreux événements d'entreprises\n\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
         "it": "Descrizione \"Spetta di crescere\" personalmente e professionalmente: A Siegfried offriamo sfide emozionanti e molte opportunità per mostrare i tuoi talenti. Come partner di fiducia e come industria farmaceutica rispettata, rispettiamo i più alti standard di sicurezza, qualità e sostenibilità, coltivando una cultura che ti permette di prosperare. Entra in un'azienda in crescita globale, dove prospettive ed esperienze diverse si incontrano in un ambiente collaborativo.\n\nQui troverete un posto di lavoro che valorizza il successo collettivo tanto quanto i vostri contributi individuali.offrendo opportunità a lungo termine di evolvere e avere un impatto.\n\nLocalità All'interno del reparto Manutenzione & Ingegneria, sei il garante della qualità, affidabilità e governance della documentazione tecnica del sito industriale.\n\nGestisce piani tecnici e P&ID durante tutto il loro ciclo di vita, pilota il loro aggiornamento dopo le modifiche dell'installazione e contribuisce alla digitalizzazione del patrimonio documentario. Vero riferimento CAD, hai stabilito gli standard del sito e garantire la loro applicazione per garantire una documentazione affidabile per i team di Ingegneria, Manutenzione, Produzione e HSE.\n\nA seconda del carico di lavoro, si porta anche la vostra esperienza su piccoli progetti di investimento relativi a infrastrutture e servizi.\n\n- Garantire la qualità, la coerenza e l'aggiornamento della documentazione tecnica del sito (piani, P&ID, DWG e piani \"as-'t\"). - Definire e applicare gli standard CAD e le norme di gestione dei documenti (versione, archiving, tracciabilità). - Garantire la coerenza tra i piani, i P&ID, le apparecchiature e la codificazione tecnica. - Gestire la migrazione dei piani storici al formato DWG e coordinare i fornitori esterni, se necessario. - Siate il riferimento della numerazione tecnica e mantenere il riferimento associato.\n\n- partecipare alla realizzazione degli strumenti CAD/BIM e contribuire alla digitalizzazione del patrimonio documentario; - fornire supporto documentario ai progetti di ingegneria e, se del caso, sostenere i piccoli progetti infrastrutturali (CAPEX/OPEX).\n\nProfilo ricercato - Formazione tecnica (CFC di draftsman, ES TechNICan o Engineer) con specializzazione in CAD. - Esperienza confermata (minimo 5 anni) in una funzione simile in ambiente industriale, idealmente in chimica fine/farmaceutica (GMP). - Laurea magistrale in AutoCAD o software CAD equivalente (DWG). - Buona comprensione dei P&ID, utilities industriali e principi di gestione documentaria. - Conoscenza della codificazione tecnica e della gestione di piccoli progetti, un bene.\n\nCosa offriamo - Parcheggio gratuito - Assicurazione sanitaria: fino al 10% di sconto sull'assicurazione integrativa con i nostri partner - Plan d'achat d'actions generose et customisable - Indennità per i bambini: Siegfried AG aumenta del 10% l'indennità legale di 133nale e paga inoltre CHF 100 al mese - Possibilità di formazione continua individuale - Reka Cheques: Siegfried AG concede ai propri dipendenti uno sconto del 20% - Fondo pensione aziendale attraente - Corsi sportivi in loco e numerosi eventi aziendali - Accesso alla piattaforma dei benefici\n\ndipendenti Swibeco - 5 settimane di vacanza e possibilità di riacquisto fino a 2 settimane\n\nL'azienda Fondata nel 1873 a Zofi, in Svizzera, Siegfried è diventata una rete globale di 16 siti distribuiti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici su scala industriale e produciamo medicinali sicuri per i pazienti di tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni che ora possono garantire lo sviluppo e la produzione di principi attivi (API) e forme galeniche finite sotto un unico tetto.\n\nQuesta combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO (Contract Development & Manufacturing Organization) con sede a Zofingen, Svizzera. L'azienda Arrivare in fondo al mercato si basa su quanto segue:",
         "en": "Description \"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and many opportunities to showcase your talents. As a trusted partner and respected pharmaceutical industry, we meet the highest standards of safety, quality and sustainability, while cultivating a culture that allows you to thrive. Join a growing global company, where diverse perspectives and experiences come together in a collaborative environment.\n\nHere you will find a workplace that values collective success as much as your individual contributions—offering long-term opportunities to evolve and have an impact.\n\nLocations Within the Maintenance & Engineering department, you are the guarantor of the quality, reliability and governance of the technical documentation of the industrial site.\n\nYou manage technical plans and P&IDs throughout their life cycle, pilot their update after installation changes and contribute to the digitization of documentary heritage. True CAD reference, you set site standards and ensure their application to ensure reliable documentation for the Engineering, Maintenance, Production and HSE teams.\n\nDepending on the workload, you also bring your expertise on small investment projects related to infrastructure and utilities.\n\n- Ensure quality, consistency and updating of the technical documentation of the site (plans, P&ID, DWG and plans \"as-'t'). - Define and enforce CAD standards and document management rules (versioning, archiving, traceability). - Ensure consistency between plans, P&IDs, equipment and technical codification. - Manage migration of historical plans to DWG format and coordinate external providers if necessary. - Be the reference of technical numbering and maintain associated reference.\n\n- To participate in the deployment of CAD/BIM tools and contribute to the digitization of documentary heritage. - To provide documentary support to engineering projects and, as appropriate, to support small infrastructure projects (CAPEX/OPEX).\n\nProfile sought - Technical training (CFC of draftsman, ES Technician or Engineer) with a specialization in CAD. - Experience confirmed (minimum 5 years) in a similar function in industrial environment, ideally in fine/pharmaceutical chemistry (GMP). - Master's degree in AutoCAD or equivalent CAD software (DWG). - Good understanding of P&IDs, industrial utilities and documentary management principles. - Knowledge of technical codification and small project management, an asset.\n\nWhat we offer - Free parking - Health insurance: up to 10% discount on supplementary insurance with our partners - Plan d'achat d'actions generouse et customisable - Allowance for children: Siegfried AG increases the cantonal legal allowance by 10% and pays in addition CHF 100 per month - Individual continuing education opportunities - Reka Cheques: Siegfried AG grants its employees a 20% discount - Attractive company pension fund - On-site sports courses and numerous company events - Access to the benefits platform\n\nSwibeco employees - 5 weeks of vacation and possibility of buy-back up to 2 weeks\n\nAbout the company Founded in 1873 in Zofingue, Switzerland, Siegfried has become a global network of 16 sites spread across three continents. With a team of more than 4,200 highly qualified professionals, we carry the innovations of our pharmaceutical customers to the industrial scale and manufacture safe medicines for patients around the world. As a fully integrated CDMO, Siegfried is one of the few organizations that can now ensure the development and production of active ingredients (APIs) and finished galenic forms under one roof.\n\nThis unique combination of know-how and experience makes us the most reliable partner in the pharmaceutical industry.\n\nSiegfried is a top CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company Getting to the bottom of the market is based on the following:",
         "de": "Beschreibung \"Erwarten, dass wir wachsen\", persönlich und professionell: Bei Siegfried bieten wir spannende Herausforderungen und viele Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger Partner und angesehene Pharmaindustrie erfüllen wir höchste Standards in Sicherheit, Qualität und Nachhaltigkeit und pflegen eine Kultur, die es Ihnen ermöglicht, zu gedeihen.\n\nHier finden Sie einen Arbeitsplatz, der den kollektiven Erfolg genauso schätzt wie Ihre individuellen Beiträge – und langfristige Möglichkeiten bietet, sich zu entwickeln und Wirkung zu entfalten.\n\nStandorte Innerhalb der Abteilung Wartung & Engineering sind Sie Garant für Qualität, Zuverlässigkeit und Governance der technischen Dokumentation des Industriestandortes.\n\nSie verwalten technische Pläne und P&IDs während ihres gesamten Lebenszyklus, steuern ihr Update nach Installationsänderungen und tragen zur Digitalisierung des dokumentarischen Erbes bei. Wahre CAD-Referenz, Sie setzen Standortstandards und stellen ihre Anwendung sicher, um eine zuverlässige Dokumentation für die Engineering, Maintenance, Production und HSE-Teams zu gewährleisten.\n\nJe nach Arbeitsbelastung bringen Sie auch Ihr Know-how in kleinen Investitionsprojekten im Zusammenhang mit Infrastruktur und Versorgungsunternehmen mit.\n\n- Qualität, Konsistenz und Aktualisierung der technischen Dokumentation der Website (Pläne, P&ID, DWG und Pläne \"as-'t\") gewährleisten. - Festlegung und Durchsetzung von CAD-Standards und Dokumentenmanagementregeln (Versionierung, Archivierung, Rückverfolgbarkeit). - Gewährleistung der Kohärenz zwischen Plänen, P&IDs, Geräten und technischer Kodifizierung. - Migration historischer Pläne in das DWG-Format verwalten und gegebenenfalls externe Anbieter koordinieren. - Referenz der technischen Nummerierung sein und zugehörige Referenz beibehalten.\n\n- Teilnahme an der Einführung von CAD/BIM-Tools und Beitrag zur Digitalisierung des dokumentarischen Erbes. - dokumentarische Unterstützung von Ingenieurprojekten und gegebenenfalls Unterstützung kleiner Infrastrukturprojekte (CAPEX/OPEX).\n\n- Erfahrung bestätigt (mindestens 5 Jahre) in einer ähnlichen Funktion in industriellem Umfeld, idealerweise in der Fein- und Pharmazeutischen Chemie (GMP). - Master in AutoCAD oder gleichwertiger CAD-Software (DWG). - gutes Verständnis von P&IDs, industriellen Versorgungsunternehmen und Dokumentationsmanagementprinzipien. - Kenntnisse der technischen Kodifizierung und des kleinen Projektmanagements, ein Vermögenswert.\n\nWas wir bieten - Kostenlose Parkplätze - Krankenversicherung: bis zu 10% Rabatt auf Zusatzversicherung bei unseren Partnern - Plan d'achat d'actions grandize et individualisable - Kindergeld: Siegfried AG erhöht die kantonale gesetzliche Zulage um 10% und zahlt zusätzlich CHF 100 pro Monat - Individuelle Weiterbildungsmöglichkeiten - Reka Cheques: Siegfried AG gewährt ihren Mitarbeitern 20% Rabatt - Attraktive Pensionskasse - Vor-Ort-Sportkurse und zahlreiche Firmenveranstaltungen - Zugang zur Leistungsplattform\n\nSwibeco Mitarbeiter - 5 Wochen Urlaub und Möglichkeit des Rückkaufs bis zu 2 Wochen\n\nÜber das Unternehmen Siegfried wurde 1873 in Zofingue, Schweiz gegründet und ist ein weltweites Netzwerk von 16 Standorten auf drei Kontinenten. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften führen wir die Innovationen unserer Pharmakunden in industriellem Maßstab und fertigen sichere Medikamente für Patienten auf der ganzen Welt. Siegfried ist als voll integriertes CDMO eine der wenigen Organisationen, die nun die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Galenikformen unter einem Dach sicherstellen können.\n\nDiese einzigartige Kombination aus Know-how und Erfahrung macht uns zum verlässlichsten Partner in der Pharmaindustrie.\n\nSiegfried ist ein Top-CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen Auf den Grund des Marktes zu gehen basiert auf:",
-        "fr": "Description\n\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nMissions\nAu sein du département Maintenance & Engineering, vous êtes le garant de la qualité, de la fiabilité et de la gouvernance de la documentation technique du site industriel.\n\nVous assurez la gestion des plans techniques et des P&ID tout au long de leur cycle de vie, pilotez leur mise à jour après les modifications d'installations et contribuez à la digitalisation du patrimoine documentaire. Véritable référent CAO, vous définissez les standards du site et veillez à leur application afin de garantir une documentation fiable au service des équipes Engineering, Maintenance, Production et HSE.\n\nSelon la charge d'activité, vous apportez également votre expertise sur de petits projets d'investissement liés aux infrastructures et aux utilités.\n\n- Garantir la qualité, la cohérence et la mise à jour de la documentation technique du site (plans, P&ID, DWG et plans \"as-built\").\n- Définir et faire respecter les standards CAO ainsi que les règles de gestion documentaire (versioning, archivage, traçabilité).\n- Assurer la cohérence entre les plans, les P&ID, les équipements et la codification technique.\n- Piloter la migration des plans historiques vers le format DWG et coordonner les prestataires externes si nécessaire.\n- Être le référent de la numérotation technique et maintenir les référentiels associés.\n- Participer au déploiement des outils CAO/BIM et contribuer à la digitalisation du patrimoine documentaire.\n- Apporter un support documentaire aux projets d'ingénierie et, selon les besoins, prendre en charge de petits projets d'infrastructure (CAPEX/OPEX).\n\nProfil recherché\n- Formation technique (CFC de dessinateur, Technicien ES ou Ingénieur) avec une spécialisation en CAO.\n- Expérience confirmée (5 ans minimum) dans une fonction similaire en environnement industriel, idéalement en chimie fine/pharmaceutique (GMP).\n- Maîtrise d'AutoCAD ou d'un logiciel CAO équivalent (DWG).\n- Bonne compréhension des P&ID, des utilités industrielles et des principes de gestion documentaire.\n- Connaissances en codification technique et en gestion de petits projets, un atout.\n\nCe que nous offrons\n- Parking gratuit\n- Assurances maladie : jusqu'à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n- Plan d'achat d'actions généreux et personnalisable\n- Allocation pour enfants : Siegfried AG augmente l'allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n- Possibilités de formation continue individuelles\n- Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n- Caisse de pension d'entreprise attrayante\n- Cours de sport sur site et nombreux événements d'entreprises\n- Accès à la plateforme d'avantages collaborateurs Swibeco\n- 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines\n\nÀ propos de l'entreprise\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l'une des rares organisations capables aujourd'hui d'assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
+        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nVotre mission\n\nAu sein du département Maintenance & Engineering, vous êtes le garant de la qualité, de la fiabilité et de la gouvernance de la documentation technique du site industriel.\n\nVous assurez la gestion des plans techniques et des P&ID tout au long de leur cycle de vie, pilotez leur mise à jour après les modifications d'installations et contribuez à la digitalisation du patrimoine documentaire. Véritable référent CAO, vous définissez les standards du site et veillez à leur application afin de garantir une documentation fiable au service des équipes Engineering, Maintenance, Production et HSE.\n\nSelon la charge d'activité, vous apportez également votre expertise sur de petits projets d'investissement liés aux infrastructures et aux utilités.\n\nVos responsabilités\nGarantir la qualité, la cohérence et la mise à jour de la documentation technique du site (plans, P&ID, DWG et plans \"as-built\").\nDéfinir et faire respecter les standards CAO ainsi que les règles de gestion documentaire (versioning, archivage, traçabilité).\nAssurer la cohérence entre les plans, les P&ID, les équipements et la codification technique.\nPiloter la migration des plans historiques vers le format DWG et coordonner les prestataires externes si nécessaire.\nÊtre le référent de la numérotation technique et maintenir les référentiels associés.\nParticiper au déploiement des outils CAO/BIM et contribuer à la digitalisation du patrimoine documentaire.\nApporter un support documentaire aux projets d'ingénierie et, selon les besoins, prendre en charge de petits projets d'infrastructure (CAPEX/OPEX).\nYour Profile:\n\n• Formation technique (CFC de dessinateur, Technicien ES ou Ingénieur) avec une spécialisation en CAO.\n\n• Expérience confirmée (5 ans minimum) dans une fonction similaire en environnement industriel, idéalement en chimie fine/pharmaceutique (GMP).\n\n• Maîtrise d'AutoCAD ou d'un logiciel CAO équivalent (DWG).\n\n• Bonne compréhension des P&ID, des utilités industrielles et des principes de gestion documentaire.\n\n• Connaissances en codification technique et en gestion de petits projets, un atout.\n\nYour Benefits:\n\n• Parking gratuit\n\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n\n• Plan d’achat d’actions généreux et personnalisable\n\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n\n• Possibilités de formation continue individuelles\n\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n\n• Caisse de pension d’entreprise attrayante\n\n• Cours de sport sur site et nombreux événements d'entreprises\n\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
       },
       "location": "Evionnaz",
       "canton": "VS",
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:12.398Z",
+      "crawledAt": "2026-09-13T14:15:38.442Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -545,14 +562,17 @@
       "jobReqId": "R26_592",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "cad-designer-siegfried-ch"
+        "cad-designer-siegfried-ch",
+        "designer-cad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cad-designer-siegfried-ch"
+          "cad-designer-siegfried-ch",
+          "designer-cad-siegfried-evionnaz"
         ]
       },
       "firstSeenAt": "2026-07-13T22:10:27.704Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -599,7 +619,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker-in--a-_R26_620",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:11.849Z",
+      "crawledAt": "2026-09-13T14:15:37.764Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -621,7 +641,8 @@
         "mecanicien-m-f-d-siegfried-zofingen",
         "meccanico-m-f-d-siegfried-zofingen",
         "mechanic-m-f-d-siegfried-zofingen",
-        "mechaniker-m-w-d-siegfried-ch"
+        "mechaniker-m-w-d-siegfried-ch",
+        "meccanico-a-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -629,7 +650,8 @@
           "mecanicien-m-f-d-siegfried-zofingen",
           "meccanico-m-f-d-siegfried-zofingen",
           "mechanic-m-f-d-siegfried-zofingen",
-          "mechaniker-m-w-d-siegfried-ch"
+          "mechaniker-m-w-d-siegfried-ch",
+          "meccanico-a-siegfried-zofingen"
         ],
         "en": [
           "mechaniker-in-a-siegfried-ch"
@@ -639,6 +661,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:13:20.607Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -669,7 +692,7 @@
       "title": "Lab technician QC",
       "titleByLocale": {
         "it": "Tecnico di laboratorio QC",
-        "en": "Lab technical QC",
+        "en": "Lab technician QC",
         "de": "Lab Techniker QC",
         "fr": "Lab Technicien QC"
       },
@@ -685,7 +708,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-technician-QC_R26_657",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:11.288Z",
+      "crawledAt": "2026-09-13T14:15:37.126Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -714,7 +737,8 @@
         "laboratorio-tecnico-r-d-siegfried-evionnaz",
         "lab-technician-r-d-siegfried-evionnaz",
         "lab-techniker-r-d-siegfried-evionnaz",
-        "lab-technician-r-d-siegfried-ch"
+        "lab-technician-r-d-siegfried-ch",
+        "tecnico-di-laboratorio-qc-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -729,7 +753,8 @@
           "laboratorio-tecnico-r-d-siegfried-evionnaz",
           "lab-technician-r-d-siegfried-evionnaz",
           "lab-techniker-r-d-siegfried-evionnaz",
-          "lab-technician-r-d-siegfried-ch"
+          "lab-technician-r-d-siegfried-ch",
+          "tecnico-di-laboratorio-qc-siegfried-evionnaz"
         ],
         "en": [
           "quality-control-laboratory-supervisor-siegfried-evionnaz",
@@ -746,6 +771,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:33:49.045Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -792,7 +818,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:10.728Z",
+      "crawledAt": "2026-09-13T14:15:36.493Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -810,11 +836,13 @@
       "jobReqId": "R26_661",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch"
+        "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch",
+        "internship-processi-di-digitalizzazione-nell-ambiente-pharma-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch"
+          "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch",
+          "internship-processi-di-digitalizzazione-nell-ambiente-pharma-siegfried-evionnaz"
         ],
         "en": [
           "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch"
@@ -870,7 +898,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Ingnieur-en-chimie---Expertise-QC_R26_679",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:10.173Z",
+      "crawledAt": "2026-09-13T14:15:35.864Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -888,11 +916,13 @@
       "jobReqId": "R26_679",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "ingenieur-en-chimie-expertise-qc-siegfried-ch"
+        "ingenieur-en-chimie-expertise-qc-siegfried-ch",
+        "ingegnere-di-chimica-esperto-qc-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-en-chimie-expertise-qc-siegfried-ch"
+          "ingenieur-en-chimie-expertise-qc-siegfried-ch",
+          "ingegnere-di-chimica-esperto-qc-siegfried-evionnaz"
         ],
         "en": [
           "ingenieur-en-chimie-expertise-qc-siegfried-ch"
@@ -924,31 +954,31 @@
         "it": "piombo-payroll-siegfried-zofingen",
         "en": "payroll-lead-siegfried-zofingen",
         "de": "payroll-lead-siegfried-ch",
-        "fr": "responsable-de-la-paie-siegfried-zofingen"
+        "fr": "payroll-lead-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
       "companyDomain": "siegfried.ch",
       "title": "Payroll Lead",
       "titleByLocale": {
-        "it": "Responsabile Payroll",
+        "de": "Payroll Lead",
         "en": "Payroll Lead",
-        "de": "Lohnbuchführung",
-        "fr": "Responsable Paie"
+        "it": "Payroll Lead",
+        "fr": "Payroll Lead"
       },
       "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nFür unser HR-Team in Zofingen suchen wir eine:n aufgestellte:n Teamplayer:in als Payroll Lead. In dieser Funktion stellst du eine reibungslose, fehlerfreie und termingerechte Lohnverarbeitung (ca. 1'300 Abrechnungen) für unsere Standorte in Zofingen und Evionnaz sicher und bist fachverantwortlich für zwei Kolleginnen. Du verantwortest die Payroll-Prozesse, Systeme und Dienstleister und bietest fundierte Expertise zu Lohnabrechnung, gesetzlichen Vorgaben und Best Practices. Du arbeitest eng mit den HR-Kolleginnen und Finance zusammen und treibst kontinuierliche Verbesserungen zur Steigerung von Effizienz, Compliance und Mitarbeitererlebnis voran.\n\nZu deinen Hauptaufgaben gehören:\n\n• Koordination und fachliche Leitung der Payroll-Funktion, um qualitativ hochwertige, korrekte und termingerechte Payroll-Services sicherzustellen\n\n• Ansprechpartner und Fachexperte für Payroll-Prozesse, Systeme und Compliance-Themen\n\n• Verantwortung für die vollständige Lohnverarbeitung (End-to-End Payroll) für die Siegfried Standorte in der Schweiz inkl. Geschäftsleitung und Verwaltungsrat\n\n• Vorbereitung der Lohnabrechnungen für den Siegfried Standort in UK in Zusammenarbeit mit unserem Provider vor Ort\n\n• Sicherstellung der Einhaltung lokaler arbeits-, steuer- und sozialversicherungsrechtlicher Vorgaben sowie interner Richtlinien\n\n• Durchführung und Begleitung von Payroll-Audits, Bearbeitung von Anfragen sowie Umsetzung notwendiger Korrekturmassnahmen\n\n• Verwaltung und Optimierung der Payroll-Systeme sowie deren Schnittstellen zu HR- und Finanzsystemen\n\n• Sicherstellung der Datenqualität aller HR-Stammdaten mit Auswirkungen auf die Lohnabrechnung\n\n• Unterstützung von Reporting- und Analyseanforderungen für HR, Finance und Compliance\n\n• Verwaltung der Firmenkreditkarten\n Your Profile:\n\n• 10+ Jahre Berufserfahrung in einer ähnlichen Funktion, idealerweise in einem börsenkotierten Unternehmen mit Mitarbeiteraktien\n\n• Weiterbildungen im Bereich Payroll und Sozialversicherungen\n\n• Sehr gute Kenntnisse der Schweizer Sozialversicherungen: AHV/IV/EO, ALV, BVG, UVG sowie Familienzulagen\n\n• Fundierte Kenntnisse der Quellensteuer, inkl. kantonaler Besonderheiten\n\n• Sicherer Umgang mit Lohnbuchhaltung, Jahresendprozessen und Lohnausweisen\n\n• Kenntnisse der relevanten arbeits-, sozialversicherungs- und lohnsteuerrechtlichen Vorgaben\n\n• Erfahrung mit Payroll-Systemen, idealerweise SwissSalary\n\n• Erfahrung mit Swissdec/ELM und Meldungen an Behörden/Versicherungen\n\n• Sehr gute Excel-/MS-Office-Kenntnisse\n\n• Erfahrung mit Payroll-Accounting bzw. Abstimmungen zwischen Payroll und Finance\n\n• Stil- und Verhandlungssicher in Deutsch und Englisch, Französisch ist von Vorteil\n\nDeine persönlichen Eigenschaften:\n\n• Sehr präzise Arbeitsweise und Verantwortungsbewusstsein\n\n• Diskretion und hohe Serviceorientierung\n\n• Analytisches und strukturiertes Denken\n\n• Hohe Belastbarkeit und Ruhe, auch bei hohem Arbeitsaufkommen oder kurzfristigen Änderungen\n\n• Führungs- und Coaching-Kompetenz\n\n• Du hinterfragst bestehende Prozesse und suchst aktiv nach Möglichkeiten zur Automatisierung und Effizienzsteigerung\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Parken kannst du bei uns vergünstigt\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonal gesetzlichen Ansatz und bezahlt dir monatlich CHF 100 dazu\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n​Hast du Spass an der Leitung von Optimierungsinitiativen zur Steigerung von Effizienz und Qualität der Payroll-Prozesse? Bringst du Erfahrung in der Einführung von Automatisierungs- und Digitalisierungslösungen zur Reduzierung manueller Tätigkeiten mit? Dann würden wir uns über deine Bewerbung freuen! Wir sind ein aufgestelltes und kollegiales HR-Team von acht Personen.\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
-        "it": "Informazioni su Siegfried\n\nFondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale con 16 sedi in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, stiamo portando le innovazioni dei nostri clienti farmaceutici nella produzione industriale e nella produzione di medicinali sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche aziende che oggi possono combinare lo sviluppo e la produzione di principi attivi (API) e finito forme farmaceutiche sotto un unico tetto.\n\nQuesta combinazione unica di know-how ed esperienza ci rende il partner più affidabile dell'industria farmaceutica.\n\nSiegfried è un CDMO di approfondimento (Contract Development & Manufacturing Organization) presso l'Università di Zofingen, Svizzera. L'azienda opera a Evionnaz (Valais), Zofingen (Argovia), e Schlieren (Zurich).\n\nPerché Siegfried\n\n\"Espect to grow,\" personale e professionale: Siegfried vi offrirà sfide emozionanti e numerose opportunità per dimostrare i vostri talenti. Come partner fidato e rispettato dell'industria farmaceutica, rispettiamo i più alti standard in materia di sicurezza, qualità e sostenibilità. promuovendo una cultura che vi permetterà di avere successo. Fate parte di un'azienda globale in rapida crescita dove prospettive ed esperienze diverse si incontrano in un ambiente cooperativo.\n\nQui troverete un posto di lavoro che valorizza sia il successo collettivo che i vostri contributi individuali. e vi offre opportunità a lungo termine di sviluppare e fare la differenza.\n\nIl tuo ruolo\n\nPer il nostro team HR di Zofingen stiamo cercando un:n:n Team Player:in come Payroll Lead. In questa funzione si assicura un'elaborazione dei salari fluida, senza errori e tempestiva (circa 1.300 fatture) per le nostre sedi a Zofingen ed Evionnaz e si è responsabili per due colleghi. Siete responsabili per i processi di paga, sistemi e fornitori di servizi e offrono una solida esperienza in contabilità dei salari, requisiti legali e best-practice.\n\nLavorate a stretto contatto con i colleghi HR e fate avanzare continui miglioramenti per aumentare l'efficienza, la conformità e l'esperienza dei dipendenti.\n\nI tuoi compiti principali includono:\n\n- Coordinamento e gestione tecnica della funzione Payroll per garantire servizi di Payroll di alta qualità, corretti e tempestivi - Contatto ed esperto per i processi Payroll, i sistemi e gli argomenti di compliance - Responsabilità per l'elaborazione completa dei payroll (payroll end-to-end) per le sedi Siegfried in Svizzera incl.\n\nGestione e Consiglio di Amministrazione - Preparazione di dichiarazioni salariali per la sede di Siegfried nel Regno Unito in collaborazione con il nostro fornitore locale - Garantire il rispetto delle norme locali in materia di lavoro, imposte e assicurazioni sociali nonché delle linee guida interne - Attuazione e monitoraggio delle audioteche dei salari, elaborazione delle richieste e attuazione delle necessarie misure correttive - Gestione e ottimizzazione dei sistemi di buste paga e delle loro interfacce con le risorse umane e finanziarie - Garantire la qualità dei dati di tutti i dati master HR con effetti sul libro paga\n\n- Supporto dei requisiti di segnalazione e analisi per HR, finanza e conformità - Gestione delle carte di credito aziendali\n\nRequisiti\n\n- 10 anni di esperienza professionale in una funzione simile, idealmente in una società quotata con azioni dei dipendenti - Formazione nel campo dei salari e della previdenza sociale - Conoscenza molto buona dei fondi previdenziali svizzeri: AHV/IV/EO, Alva, BVG, UVG e assegni familiari - Conoscenza fondata della ritenuta alla fonte, incl.\n\nCaratteristiche cantonali - Gestione sicura della contabilità dei salari, dei processi di fine anno e delle carte dei salari - Conoscenza del lavoro, delle assicurazioni sociali e delle norme fiscali - Esperienza con i sistemi di salari, idealmente SwissSalary - Esperienza con la Svizzera Dec/ELM e rapporti alle autorità/assicurazioni - Ottima competenza in sede Excel/MS - Esperienza con la contabilità dei salari o coordinamento tra salari e finanza - Elegante e negoziato in tedesco e inglese, il francese è vantaggioso\n\nLe vostre caratteristiche personali\n\n- Metodi di lavoro e responsabilità molto precisi - discrezione e orientamento al servizio elevato - pensiero analitico e strutturato - elevata resilienza e calma, anche con elevati volumi di lavoro o cambiamenti a breve termine - competenza di gestione e coaching - si sta dietro la questione dei processi esistenti e attivamente alla ricerca di opportunità per l'automazione e l'aumento dell'efficienza\n\nOffriamo\n\n- Orari di lavoro flessibili permettono la conciliazione tra famiglia, tempo libero e lavoro - Il parcheggio può essere scontato con noi - Assicurazione sanitaria: sconti fino al 10% sull'assicurazione aggiuntiva con i nostri partner - Il piano di acquisto di azioni è generoso e progettato individualmente - Assegno per i bambini: Siegfried AG aumenta l'assegno per i bambini del 10% rispetto all'approccio legale del numero di voti e paga CHF 100 al mese - Possibilità di formazione individuale dopo accordo - Paid znünipage, il benessere dei nostri dipendenti è a nostro cuore - Reka-Money: Siegfried AG concesso\n\ndipendenti 20% sconto - fondo pensione: Il nostro fondo pensione è attraente e contributi individualmente progettabile - ristorante personale: ristorazione a condizioni preferenziali - Situato in posizione centrale: vicino alla stazione ferroviaria con ottimi collegamenti con i trasporti pubblici - accesso a esclusive serviles aziendali e sconti per i nostri dipendenti\n\nApplicazione\n\nTi stai divertendo a gestire iniziative di ottimizzazione per aumentare l'efficienza e la qualità dei processi di pagamento? Hai esperienza nell'introduzione di soluzioni di automazione e digitalizzazione per ridurre le attività manuali? Allora saremo lieti di ricevere la tua applicazione! Siamo un team HR consolidato e di un totale di circa 556 persone.",
-        "en": "About Siegfried\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network with 16 locations on three continents. With a team of over 4,200 highly qualified professionals, we are bringing the innovations of our pharmaceutical customers into industrial production and manufacturing safe medicines for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few companies that today can combine the development and manufacture of active ingredients (APIs) and finished pharmaceutical forms under one roof.\n\nThis unique combination of know-how and experience makes us the most trusted partner of the pharmaceutical industry.\n\nSiegfried is a-in-depth CDMO (Contract Development & Manufacturing Organization) at the University of Zofingen, Switzerland. The company operates in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).\n\nWhy Siegfried\n\n\"Expect to grow\", personal and professional: Siegfried will provide you with exciting challenges and numerous opportunities to demonstrate your talents. As a trusted and respected partner of the pharmaceutical industry, we comply with the highest standards in the areas of safety, quality and sustainability – while promoting a culture that will enable you to succeed. Become part of a fast-growing global company where diverse perspectives and experiences come together in a cooperative environment.\n\nHere you will find a workplace that values both collective success and your individual contributions – and offers you long-term opportunities to develop and make a difference.\n\nYour role\n\nFor our HR team in Zofingen we are looking for a:n:n Team Player:in as Payroll Lead. In this function you ensure smooth, error-free and timely payroll processing (approx. 1,300 billings) for our locations in Zofingen and Evionnaz and you are responsible for two colleagues. You are responsible for payroll processes, systems and service providers and offer sound expertise in payroll accounting, legal requirements and best-practices.\n\nYou work closely with HR colleagues and drive forward continuous improvements to increase efficiency, compliance and employee experience.\n\nYour main tasks include:\n\n- Coordination and technical management of the Payroll function to ensure high-quality, correct and timely Payroll-Services - Contact and expert for Payroll processes, systems and compliance topics - Responsibility for complete payroll processing (end-to-end payroll) for Siegfried locations in Switzerland incl.\n\nManagement and Board of Directors - Preparation of wage statements for Siegfried's location in the UK in cooperation with our local provider - Ensure compliance with local labour, tax and social insurance regulations as well as internal guidelines - Implementation and monitoring of payroll audiots, processing of requests and implementation of necessary corrective measures - Management and optimisation of payroll systems and their interfaces to HR and financial systems - Ensure the data quality of all HR master data with effects on payroll\n\n- Support of reporting and analysis requirements for HR, finance and compliance - Management of company credit cards\n\nRequirements\n\n- 10+ years of professional experience in a similar function, ideally in a listed company with employee shares - Training in the field of payroll and social security - Very good knowledge of Swiss social security funds: AHV/IV/EO, Alva, BVG, UVG and family allowances - Well-founded knowledge of withholding tax, incl.\n\nCantonal features - Safe handling of payroll accounting, year-end processes and payroll cards - Knowledge of relevant labour, social insurance and wage tax regulations - Experience with payroll systems, ideally SwissSalary - Experience with Swiss Dec/ELM and reports to authorities/insurances - Very good Excel/MS office skills - Experience with payroll accounting or coordination between payroll and finance - Stylish and negotiated in German and English, French is advantageous\n\nYour Personal Characteristics\n\n- Very precise working methods and responsibility - discretion and high service orientation - Analytical and structured thinking - High resilience and calmness, even with high work volumes or short-term changes - Management and coaching competence - You are behind the question of existing processes and actively looking for opportunities for automation and efficiency increase\n\nWe offer\n\n- Flexible working hours enable the reconciliation of family, leisure and work - Parking can be discounted with us - Health insurance: discounts up to 10% on additional insurance with our partners - Share purchase plan is generous and individually designed - Children's allowance: Siegfried AG increases the child allowance by 10% compared to the cantonal legal approach and pays you CHF 100 per month - Individual training opportunities after agreement - Paid znünipage, the well-being of our employees is at our heart - Reka-Money: Siegfried AG granted\n\nemployees 20% discount - pension fund: Our own pension fund is attractive and contributions individually designable - Staff restaurant: catering at preferential conditions - Centrally located: close to the railway station with very good public transport connections - access to exclusive corporate serviles and discounts for our employees\n\nApplication\n\nAre you having fun managing optimization initiatives to increase the efficiency and quality of payroll processes? Do you have experience in introducing automation and digitalization solutions to reduce manual activities? Then we would be happy to receive your application! We are an established and collegial HR team of eight people.",
-        "de": "Über Siegfried\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).\n\nWarum Siegfried\n\n\"Expect to grow\", persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nDeine Rolle\n\nFür unser HR-Team in Zofingen suchen wir eine:n aufgestellte:n Teamplayer:in als Payroll Lead. In dieser Funktion stellst du eine reibungslose, fehlerfreie und termingerechte Lohnverarbeitung (ca. 1'300 Abrechnungen) für unsere Standorte in Zofingen und Evionnaz sicher und bist fachverantwortlich für zwei Kolleginnen. Du verantwortest die Payroll-Prozesse, Systeme und Dienstleister und bietest fundierte Expertise zu Lohnabrechnung, gesetzlichen Vorgaben und Best Practices. Du arbeitest eng mit den HR-Kolleginnen und Finance zusammen und treibst kontinuierliche Verbesserungen zur Steigerung von Effizienz, Compliance und Mitarbeitererlebnis voran.\n\nZu deinen Hauptaufgaben gehören\n\n- Koordination und fachliche Leitung der Payroll-Funktion, um qualitativ hochwertige, korrekte und termingerechte Payroll-Services sicherzustellen\n- Ansprechpartner und Fachexperte für Payroll-Prozesse, Systeme und Compliance-Themen\n- Verantwortung für die vollständige Lohnverarbeitung (End-to-End Payroll) für die Siegfried Standorte in der Schweiz inkl. Geschäftsleitung und Verwaltungsrat\n- Vorbereitung der Lohnabrechnungen für den Siegfried Standort in UK in Zusammenarbeit mit unserem Provider vor Ort\n- Sicherstellung der Einhaltung lokaler arbeits-, steuer- und sozialversicherungsrechtlicher Vorgaben sowie interner Richtlinien\n- Durchführung und Begleitung von Payroll-Audits, Bearbeitung von Anfragen sowie Umsetzung notwendiger Korrekturmassnahmen\n- Verwaltung und Optimierung der Payroll-Systeme sowie deren Schnittstellen zu HR- und Finanzsystemen\n- Sicherstellung der Datenqualität aller HR-Stammdaten mit Auswirkungen auf die Lohnabrechnung\n- Unterstützung von Reporting- und Analyseanforderungen für HR, Finance und Compliance\n- Verwaltung der Firmenkreditkarten\n\nAnforderungen\n\n- 10+ Jahre Berufserfahrung in einer ähnlichen Funktion, idealerweise in einem börsenkotierten Unternehmen mit Mitarbeiteraktien\n- Weiterbildungen im Bereich Payroll und Sozialversicherungen\n- Sehr gute Kenntnisse der Schweizer Sozialversicherungen: AHV/IV/EO, ALV, BVG, UVG sowie Familienzulagen\n- Fundierte Kenntnisse der Quellensteuer, inkl. kantonaler Besonderheiten\n- Sicherer Umgang mit Lohnbuchhaltung, Jahresendprozessen und Lohnausweisen\n- Kenntnisse der relevanten arbeits-, sozialversicherungs- und lohnsteuerrechtlichen Vorgaben\n- Erfahrung mit Payroll-Systemen, idealerweise SwissSalary\n- Erfahrung mit Swissdec/ELM und Meldungen an Behörden/Versicherungen\n- Sehr gute Excel-/MS-Office-Kenntnisse\n- Erfahrung mit Payroll-Accounting bzw. Abstimmungen zwischen Payroll und Finance\n- Stil- und Verhandlungssicher in Deutsch und Englisch, Französisch ist von Vorteil\n\nDeine persönlichen Eigenschaften\n\n- Sehr präzise Arbeitsweise und Verantwortungsbewusstsein\n- Diskretion und hohe Serviceorientierung\n- Analytisches und strukturiertes Denken\n- Hohe Belastbarkeit und Ruhe, auch bei hohem Arbeitsaufkommen oder kurzfristigen Änderungen\n- Führungs- und Coaching-Kompetenz\n- Du hinterfragst bestehende Prozesse und suchst aktiv nach Möglichkeiten zur Automatisierung und Effizienzsteigerung\n\nWir bieten\n\n- Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n- Parken kannst du bei uns vergünstigt\n- Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n- Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n- Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonal gesetzlichen Ansatz und bezahlt dir monatlich CHF 100 dazu\n- Individuelle Weiterbildungsmöglichkeiten nach Absprache\n- Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n- Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n- Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n- Personalrestaurant: Verpflegung zu Vorzugskonditionen\n- Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n- Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nBewerbung\n\nHast du Spass an der Leitung von Optimierungsinitiativen zur Steigerung von Effizienz und Qualität der Payroll-Prozesse? Bringst du Erfahrung in der Einführung von Automatisierungs- und Digitalisierungslösungen zur Reduzierung manueller Tätigkeiten mit? Dann würden wir uns über deine Bewerbung freuen! Wir sind ein aufgestelltes und kollegiales HR-Team von acht Personen.",
-        "fr": "A propos de Sieg Fried\n\nFondée en 1873 à Zofingen, en Suisse, Siegfried est devenue un réseau mondial de 16 sites sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques dans la production industrielle et la fabrication de médicaments sûrs pour les patients dans le monde entier. En tant que CDMO pleinement intégré, Siegfried est l'une des rares entreprises qui peuvent aujourd'hui combiner le développement et la fabrication de principes actifs (API) et de formes pharmaceutiques finies sous un même toit.\n\nCette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est un CDMO (Contract Development & Manufacturing Organization) de l'Université de Zofingen, en Suisse. L'entreprise opère à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich).\n\nPourquoi Sieg a-t-il aimé\n\n« Attendre de grandir », personnel et professionnel : Siegfried vous offrira des défis passionnants et de nombreuses occasions de démontrer vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées dans les domaines de la sécurité, de la qualité et de la durabilité, tout en promouvant une culture qui vous permettra de réussir.\n\nIci, vous trouverez un milieu de travail qui valorise la réussite collective et vos contributions individuelles – et vous offre des occasions à long terme de développer et de faire la différence.\n\nVotre rôle\n\nPour notre équipe RH à Zofingen, nous recherchons un:n:n Team Player:in as Payroll Lead. Dans cette fonction, vous assurez un traitement de la paie en douceur, sans erreur et en temps opportun (prox. 1300 factures) pour nos emplacements à Zofingen et Evionnaz et vous êtes responsable de deux collègues.\n\nVous travaillez en étroite collaboration avec vos collègues RH et vous procédez à des améliorations continues pour accroître l'efficacité, la conformité et l'expérience des employés.\n\nVos principales tâches comprennent :\n\n- Coordination et gestion technique de la fonction de paie pour assurer la qualité, l'exactitude et le respect des délais des services de paye - Contact et expert pour les processus de paye, les systèmes et les sujets de conformité - Responsabilité pour le traitement complet des états de paie (de bout en bout) pour les lieux Siegfried en Suisse incl.\n\nGestion et Conseil d'administration - Préparation des états de salaire pour Siegfried en collaboration avec notre fournisseur local - Assurer le respect des réglementations locales en matière de travail, de fiscalité et d'assurance sociale ainsi que des lignes directrices internes - Mise en œuvre et suivi des audiots de paie, traitement des demandes et mise en œuvre des mesures correctives nécessaires - Gestion et optimisation des systèmes de paie et de leurs interfaces avec les systèmes RH et financiers - Assurer la qualité des données de toutes les données de référence RH ayant des effets sur les salaires\n\n- Soutien aux exigences en matière de rapports et d'analyses en matière de ressources humaines, de finances et de conformité - Gestion des cartes de crédit d'entreprise\n\nBesoins\n\n- 10 ans et plus d'expérience professionnelle dans une fonction similaire, idéalement dans une société cotée avec des parts de salariés - Formation dans le domaine de la paie et de la sécurité sociale - Très bonne connaissance des caisses suisses de sécurité sociale: AHV/IV/EO, Alva, BVG, UVG et allocations familiales - Connaissance fondée de la retenue à la source, y compris\n\nCaractéristiques cantonales - Gestion sûre de la comptabilité de la paie, des processus de fin d'année et des cartes de paie - Connaissance des réglementations pertinentes en matière de travail, d'assurance sociale et de fiscalité salariale - Expérience des systèmes de paie, idéalement SwissSalary - Expérience avec les autorités/assurances suisses - Très bonne compétence en Excel/MS - Expérience en comptabilité de la paie ou en coordination entre la paie et les finances - Élégant et négocié en allemand et en anglais, le français est avantageux\n\nVos caractéristiques personnelles\n\n- Méthodes et responsabilités de travail très précises - discrétion et orientation vers un service élevé - Pensée analytique et structurée - Haute résilience et calme, même avec des volumes de travail élevés ou des changements à court terme - Compétences en gestion et en coaching - Vous êtes derrière la question des processus existants et vous cherchez activement des opportunités d'automatisation et d'efficacité augmenter\n\nNous offrons\n\n- Des horaires flexibles permettent de concilier vie familiale, loisirs et travail - Le stationnement peut être réduit avec nous - Assurance maladie : rabais jusqu'à 10% sur l'assurance complémentaire avec nos partenaires - Plan d'achat de partage est généreux et conçu individuellement - Allocation pour enfants : Siegfried AG augmente l'allocation enfant de 10% par rapport à l'approche cantonale et vous paie CHF 100 par mois - Possibilités de formation individuelle après accord - Payé znünipage, le bien-être de nos collaborateurs est à notre cœur - Reka-Money : Siegfried AG accordé\n\nsalariés 20% de réduction - fonds de pension: Notre propre fonds de pension est attrayant et contributions individuellement designables - Restaurant du personnel: restauration à des conditions préférentielles - Idéalement situé: proche de la gare avec très bonnes connexions de transport public - accès à l'entreprise exclusive serviles et réductions pour nos employés\n\nDemande\n\nVous avez de l'amusement à gérer des initiatives d'optimisation pour augmenter l'efficacité et la qualité des processus de paie? Avez-vous de l'expérience dans l'introduction de solutions d'automatisation et de numérisation pour réduire les activités manuelles? Ensuite, nous serions heureux de recevoir votre demande!"
+        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nFür unser HR-Team in Zofingen suchen wir eine:n aufgestellte:n Teamplayer:in als Payroll Lead. In dieser Funktion stellst du eine reibungslose, fehlerfreie und termingerechte Lohnverarbeitung (ca. 1'300 Abrechnungen) für unsere Standorte in Zofingen und Evionnaz sicher und bist fachverantwortlich für zwei Kolleginnen. Du verantwortest die Payroll-Prozesse, Systeme und Dienstleister und bietest fundierte Expertise zu Lohnabrechnung, gesetzlichen Vorgaben und Best Practices. Du arbeitest eng mit den HR-Kolleginnen und Finance zusammen und treibst kontinuierliche Verbesserungen zur Steigerung von Effizienz, Compliance und Mitarbeitererlebnis voran.\n\nZu deinen Hauptaufgaben gehören:\n\n• Koordination und fachliche Leitung der Payroll-Funktion, um qualitativ hochwertige, korrekte und termingerechte Payroll-Services sicherzustellen\n\n• Ansprechpartner und Fachexperte für Payroll-Prozesse, Systeme und Compliance-Themen\n\n• Verantwortung für die vollständige Lohnverarbeitung (End-to-End Payroll) für die Siegfried Standorte in der Schweiz inkl. Geschäftsleitung und Verwaltungsrat\n\n• Vorbereitung der Lohnabrechnungen für den Siegfried Standort in UK in Zusammenarbeit mit unserem Provider vor Ort\n\n• Sicherstellung der Einhaltung lokaler arbeits-, steuer- und sozialversicherungsrechtlicher Vorgaben sowie interner Richtlinien\n\n• Durchführung und Begleitung von Payroll-Audits, Bearbeitung von Anfragen sowie Umsetzung notwendiger Korrekturmassnahmen\n\n• Verwaltung und Optimierung der Payroll-Systeme sowie deren Schnittstellen zu HR- und Finanzsystemen\n\n• Sicherstellung der Datenqualität aller HR-Stammdaten mit Auswirkungen auf die Lohnabrechnung\n\n• Unterstützung von Reporting- und Analyseanforderungen für HR, Finance und Compliance\n\n• Verwaltung der Firmenkreditkarten\nYour Profile:\n\n• 10+ Jahre Berufserfahrung in einer ähnlichen Funktion, idealerweise in einem börsenkotierten Unternehmen mit Mitarbeiteraktien\n\n• Weiterbildungen im Bereich Payroll und Sozialversicherungen\n\n• Sehr gute Kenntnisse der Schweizer Sozialversicherungen: AHV/IV/EO, ALV, BVG, UVG sowie Familienzulagen\n\n• Fundierte Kenntnisse der Quellensteuer, inkl. kantonaler Besonderheiten\n\n• Sicherer Umgang mit Lohnbuchhaltung, Jahresendprozessen und Lohnausweisen\n\n• Kenntnisse der relevanten arbeits-, sozialversicherungs- und lohnsteuerrechtlichen Vorgaben\n\n• Erfahrung mit Payroll-Systemen, idealerweise SwissSalary\n\n• Erfahrung mit Swissdec/ELM und Meldungen an Behörden/Versicherungen\n\n• Sehr gute Excel-/MS-Office-Kenntnisse\n\n• Erfahrung mit Payroll-Accounting bzw. Abstimmungen zwischen Payroll und Finance\n\n• Stil- und Verhandlungssicher in Deutsch und Englisch, Französisch ist von Vorteil\n\nDeine persönlichen Eigenschaften:\n\n• Sehr präzise Arbeitsweise und Verantwortungsbewusstsein\n\n• Diskretion und hohe Serviceorientierung\n\n• Analytisches und strukturiertes Denken\n\n• Hohe Belastbarkeit und Ruhe, auch bei hohem Arbeitsaufkommen oder kurzfristigen Änderungen\n\n• Führungs- und Coaching-Kompetenz\n\n• Du hinterfragst bestehende Prozesse und suchst aktiv nach Möglichkeiten zur Automatisierung und Effizienzsteigerung\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Parken kannst du bei uns vergünstigt\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonal gesetzlichen Ansatz und bezahlt dir monatlich CHF 100 dazu\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n​Hast du Spass an der Leitung von Optimierungsinitiativen zur Steigerung von Effizienz und Qualität der Payroll-Prozesse? Bringst du Erfahrung in der Einführung von Automatisierungs- und Digitalisierungslösungen zur Reduzierung manueller Tätigkeiten mit? Dann würden wir uns über deine Bewerbung freuen! Wir sind ein aufgestelltes und kollegiales HR-Team von acht Personen.\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "it": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nFür unser HR-Team in Zofingen suchen wir eine:n aufgestellte:n Teamplayer:in als Payroll Lead. In dieser Funktion stellst du eine reibungslose, fehlerfreie und termingerechte Lohnverarbeitung (ca. 1'300 Abrechnungen) für unsere Standorte in Zofingen und Evionnaz sicher und bist fachverantwortlich für zwei Kolleginnen. Du verantwortest die Payroll-Prozesse, Systeme und Dienstleister und bietest fundierte Expertise zu Lohnabrechnung, gesetzlichen Vorgaben und Best Practices. Du arbeitest eng mit den HR-Kolleginnen und Finance zusammen und treibst kontinuierliche Verbesserungen zur Steigerung von Effizienz, Compliance und Mitarbeitererlebnis voran.\n\nZu deinen Hauptaufgaben gehören:\n\n• Koordination und fachliche Leitung der Payroll-Funktion, um qualitativ hochwertige, korrekte und termingerechte Payroll-Services sicherzustellen\n\n• Ansprechpartner und Fachexperte für Payroll-Prozesse, Systeme und Compliance-Themen\n\n• Verantwortung für die vollständige Lohnverarbeitung (End-to-End Payroll) für die Siegfried Standorte in der Schweiz inkl. Geschäftsleitung und Verwaltungsrat\n\n• Vorbereitung der Lohnabrechnungen für den Siegfried Standort in UK in Zusammenarbeit mit unserem Provider vor Ort\n\n• Sicherstellung der Einhaltung lokaler arbeits-, steuer- und sozialversicherungsrechtlicher Vorgaben sowie interner Richtlinien\n\n• Durchführung und Begleitung von Payroll-Audits, Bearbeitung von Anfragen sowie Umsetzung notwendiger Korrekturmassnahmen\n\n• Verwaltung und Optimierung der Payroll-Systeme sowie deren Schnittstellen zu HR- und Finanzsystemen\n\n• Sicherstellung der Datenqualität aller HR-Stammdaten mit Auswirkungen auf die Lohnabrechnung\n\n• Unterstützung von Reporting- und Analyseanforderungen für HR, Finance und Compliance\n\n• Verwaltung der Firmenkreditkarten\n Your Profile:\n\n• 10+ Jahre Berufserfahrung in einer ähnlichen Funktion, idealerweise in einem börsenkotierten Unternehmen mit Mitarbeiteraktien\n\n• Weiterbildungen im Bereich Payroll und Sozialversicherungen\n\n• Sehr gute Kenntnisse der Schweizer Sozialversicherungen: AHV/IV/EO, ALV, BVG, UVG sowie Familienzulagen\n\n• Fundierte Kenntnisse der Quellensteuer, inkl. kantonaler Besonderheiten\n\n• Sicherer Umgang mit Lohnbuchhaltung, Jahresendprozessen und Lohnausweisen\n\n• Kenntnisse der relevanten arbeits-, sozialversicherungs- und lohnsteuerrechtlichen Vorgaben\n\n• Erfahrung mit Payroll-Systemen, idealerweise SwissSalary\n\n• Erfahrung mit Swissdec/ELM und Meldungen an Behörden/Versicherungen\n\n• Sehr gute Excel-/MS-Office-Kenntnisse\n\n• Erfahrung mit Payroll-Accounting bzw. Abstimmungen zwischen Payroll und Finance\n\n• Stil- und Verhandlungssicher in Deutsch und Englisch, Französisch ist von Vorteil\n\nDeine persönlichen Eigenschaften:\n\n• Sehr präzise Arbeitsweise und Verantwortungsbewusstsein\n\n• Diskretion und hohe Serviceorientierung\n\n• Analytisches und strukturiertes Denken\n\n• Hohe Belastbarkeit und Ruhe, auch bei hohem Arbeitsaufkommen oder kurzfristigen Änderungen\n\n• Führungs- und Coaching-Kompetenz\n\n• Du hinterfragst bestehende Prozesse und suchst aktiv nach Möglichkeiten zur Automatisierung und Effizienzsteigerung\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Parken kannst du bei uns vergünstigt\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonal gesetzlichen Ansatz und bezahlt dir monatlich CHF 100 dazu\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n​Hast du Spass an der Leitung von Optimierungsinitiativen zur Steigerung von Effizienz und Qualität der Payroll-Prozesse? Bringst du Erfahrung in der Einführung von Automatisierungs- und Digitalisierungslösungen zur Reduzierung manueller Tätigkeiten mit? Dann würden wir uns über deine Bewerbung freuen! Wir sind ein aufgestelltes und kollegiales HR-Team von acht Personen.\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "en": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nFür unser HR-Team in Zofingen suchen wir eine:n aufgestellte:n Teamplayer:in als Payroll Lead. In dieser Funktion stellst du eine reibungslose, fehlerfreie und termingerechte Lohnverarbeitung (ca. 1'300 Abrechnungen) für unsere Standorte in Zofingen und Evionnaz sicher und bist fachverantwortlich für zwei Kolleginnen. Du verantwortest die Payroll-Prozesse, Systeme und Dienstleister und bietest fundierte Expertise zu Lohnabrechnung, gesetzlichen Vorgaben und Best Practices. Du arbeitest eng mit den HR-Kolleginnen und Finance zusammen und treibst kontinuierliche Verbesserungen zur Steigerung von Effizienz, Compliance und Mitarbeitererlebnis voran.\n\nZu deinen Hauptaufgaben gehören:\n\n• Koordination und fachliche Leitung der Payroll-Funktion, um qualitativ hochwertige, korrekte und termingerechte Payroll-Services sicherzustellen\n\n• Ansprechpartner und Fachexperte für Payroll-Prozesse, Systeme und Compliance-Themen\n\n• Verantwortung für die vollständige Lohnverarbeitung (End-to-End Payroll) für die Siegfried Standorte in der Schweiz inkl. Geschäftsleitung und Verwaltungsrat\n\n• Vorbereitung der Lohnabrechnungen für den Siegfried Standort in UK in Zusammenarbeit mit unserem Provider vor Ort\n\n• Sicherstellung der Einhaltung lokaler arbeits-, steuer- und sozialversicherungsrechtlicher Vorgaben sowie interner Richtlinien\n\n• Durchführung und Begleitung von Payroll-Audits, Bearbeitung von Anfragen sowie Umsetzung notwendiger Korrekturmassnahmen\n\n• Verwaltung und Optimierung der Payroll-Systeme sowie deren Schnittstellen zu HR- und Finanzsystemen\n\n• Sicherstellung der Datenqualität aller HR-Stammdaten mit Auswirkungen auf die Lohnabrechnung\n\n• Unterstützung von Reporting- und Analyseanforderungen für HR, Finance und Compliance\n\n• Verwaltung der Firmenkreditkarten\n Your Profile:\n\n• 10+ Jahre Berufserfahrung in einer ähnlichen Funktion, idealerweise in einem börsenkotierten Unternehmen mit Mitarbeiteraktien\n\n• Weiterbildungen im Bereich Payroll und Sozialversicherungen\n\n• Sehr gute Kenntnisse der Schweizer Sozialversicherungen: AHV/IV/EO, ALV, BVG, UVG sowie Familienzulagen\n\n• Fundierte Kenntnisse der Quellensteuer, inkl. kantonaler Besonderheiten\n\n• Sicherer Umgang mit Lohnbuchhaltung, Jahresendprozessen und Lohnausweisen\n\n• Kenntnisse der relevanten arbeits-, sozialversicherungs- und lohnsteuerrechtlichen Vorgaben\n\n• Erfahrung mit Payroll-Systemen, idealerweise SwissSalary\n\n• Erfahrung mit Swissdec/ELM und Meldungen an Behörden/Versicherungen\n\n• Sehr gute Excel-/MS-Office-Kenntnisse\n\n• Erfahrung mit Payroll-Accounting bzw. Abstimmungen zwischen Payroll und Finance\n\n• Stil- und Verhandlungssicher in Deutsch und Englisch, Französisch ist von Vorteil\n\nDeine persönlichen Eigenschaften:\n\n• Sehr präzise Arbeitsweise und Verantwortungsbewusstsein\n\n• Diskretion und hohe Serviceorientierung\n\n• Analytisches und strukturiertes Denken\n\n• Hohe Belastbarkeit und Ruhe, auch bei hohem Arbeitsaufkommen oder kurzfristigen Änderungen\n\n• Führungs- und Coaching-Kompetenz\n\n• Du hinterfragst bestehende Prozesse und suchst aktiv nach Möglichkeiten zur Automatisierung und Effizienzsteigerung\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Parken kannst du bei uns vergünstigt\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonal gesetzlichen Ansatz und bezahlt dir monatlich CHF 100 dazu\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n​Hast du Spass an der Leitung von Optimierungsinitiativen zur Steigerung von Effizienz und Qualität der Payroll-Prozesse? Bringst du Erfahrung in der Einführung von Automatisierungs- und Digitalisierungslösungen zur Reduzierung manueller Tätigkeiten mit? Dann würden wir uns über deine Bewerbung freuen! Wir sind ein aufgestelltes und kollegiales HR-Team von acht Personen.\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nFür unser HR-Team in Zofingen suchen wir eine:n aufgestellte:n Teamplayer:in als Payroll Lead. In dieser Funktion stellst du eine reibungslose, fehlerfreie und termingerechte Lohnverarbeitung (ca. 1'300 Abrechnungen) für unsere Standorte in Zofingen und Evionnaz sicher und bist fachverantwortlich für zwei Kolleginnen. Du verantwortest die Payroll-Prozesse, Systeme und Dienstleister und bietest fundierte Expertise zu Lohnabrechnung, gesetzlichen Vorgaben und Best Practices. Du arbeitest eng mit den HR-Kolleginnen und Finance zusammen und treibst kontinuierliche Verbesserungen zur Steigerung von Effizienz, Compliance und Mitarbeitererlebnis voran.\n\nZu deinen Hauptaufgaben gehören:\n\n• Koordination und fachliche Leitung der Payroll-Funktion, um qualitativ hochwertige, korrekte und termingerechte Payroll-Services sicherzustellen\n\n• Ansprechpartner und Fachexperte für Payroll-Prozesse, Systeme und Compliance-Themen\n\n• Verantwortung für die vollständige Lohnverarbeitung (End-to-End Payroll) für die Siegfried Standorte in der Schweiz inkl. Geschäftsleitung und Verwaltungsrat\n\n• Vorbereitung der Lohnabrechnungen für den Siegfried Standort in UK in Zusammenarbeit mit unserem Provider vor Ort\n\n• Sicherstellung der Einhaltung lokaler arbeits-, steuer- und sozialversicherungsrechtlicher Vorgaben sowie interner Richtlinien\n\n• Durchführung und Begleitung von Payroll-Audits, Bearbeitung von Anfragen sowie Umsetzung notwendiger Korrekturmassnahmen\n\n• Verwaltung und Optimierung der Payroll-Systeme sowie deren Schnittstellen zu HR- und Finanzsystemen\n\n• Sicherstellung der Datenqualität aller HR-Stammdaten mit Auswirkungen auf die Lohnabrechnung\n\n• Unterstützung von Reporting- und Analyseanforderungen für HR, Finance und Compliance\n\n• Verwaltung der Firmenkreditkarten\n Your Profile:\n\n• 10+ Jahre Berufserfahrung in einer ähnlichen Funktion, idealerweise in einem börsenkotierten Unternehmen mit Mitarbeiteraktien\n\n• Weiterbildungen im Bereich Payroll und Sozialversicherungen\n\n• Sehr gute Kenntnisse der Schweizer Sozialversicherungen: AHV/IV/EO, ALV, BVG, UVG sowie Familienzulagen\n\n• Fundierte Kenntnisse der Quellensteuer, inkl. kantonaler Besonderheiten\n\n• Sicherer Umgang mit Lohnbuchhaltung, Jahresendprozessen und Lohnausweisen\n\n• Kenntnisse der relevanten arbeits-, sozialversicherungs- und lohnsteuerrechtlichen Vorgaben\n\n• Erfahrung mit Payroll-Systemen, idealerweise SwissSalary\n\n• Erfahrung mit Swissdec/ELM und Meldungen an Behörden/Versicherungen\n\n• Sehr gute Excel-/MS-Office-Kenntnisse\n\n• Erfahrung mit Payroll-Accounting bzw. Abstimmungen zwischen Payroll und Finance\n\n• Stil- und Verhandlungssicher in Deutsch und Englisch, Französisch ist von Vorteil\n\nDeine persönlichen Eigenschaften:\n\n• Sehr präzise Arbeitsweise und Verantwortungsbewusstsein\n\n• Diskretion und hohe Serviceorientierung\n\n• Analytisches und strukturiertes Denken\n\n• Hohe Belastbarkeit und Ruhe, auch bei hohem Arbeitsaufkommen oder kurzfristigen Änderungen\n\n• Führungs- und Coaching-Kompetenz\n\n• Du hinterfragst bestehende Prozesse und suchst aktiv nach Möglichkeiten zur Automatisierung und Effizienzsteigerung\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Parken kannst du bei uns vergünstigt\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonal gesetzlichen Ansatz und bezahlt dir monatlich CHF 100 dazu\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n​Hast du Spass an der Leitung von Optimierungsinitiativen zur Steigerung von Effizienz und Qualität der Payroll-Prozesse? Bringst du Erfahrung in der Einführung von Automatisierungs- und Digitalisierungslösungen zur Reduzierung manueller Tätigkeiten mit? Dann würden wir uns über deine Bewerbung freuen! Wir sind ein aufgestelltes und kollegiales HR-Team von acht Personen.\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
       },
       "location": "Zofingen",
       "canton": "AG",
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Payroll-Expert_R26_664",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:09.624Z",
+      "crawledAt": "2026-09-13T14:15:35.128Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -965,18 +995,22 @@
       "requirementsByLocale": {},
       "jobReqId": "R26_664",
       "hiringOrganization": "Siegfried AG",
+      "needsRetranslation": true,
       "previousSlugs": [
-        "payroll-lead-siegfried-ch"
+        "payroll-lead-siegfried-ch",
+        "responsable-de-la-paie-siegfried-zofingen",
+        "piombo-payroll-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "payroll-lead-siegfried-ch"
+          "payroll-lead-siegfried-ch",
+          "piombo-payroll-siegfried-zofingen"
         ],
         "fr": [
-          "payroll-lead-siegfried-ch"
+          "payroll-lead-siegfried-ch",
+          "responsable-de-la-paie-siegfried-zofingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:33:43.597Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -991,8 +1025,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG",
-      "retranslationAttempts": 1
+      "addressRegion": "AG"
     },
     {
       "id": "siegfried-694086a02eda",
@@ -1025,7 +1058,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Rohrschlosser-in_R26_675",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:09.056Z",
+      "crawledAt": "2026-09-13T14:15:34.491Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1045,12 +1078,14 @@
       "previousSlugs": [
         "rohrschlosser-in-instandhaltung-chemie-siegfried-ch",
         "fabbri-in-chimica-di-manutenzione-siegfried-zofingen",
-        "tube-locksmiths-in-maintenance-chemistry-siegfried-zofingen"
+        "tube-locksmiths-in-maintenance-chemistry-siegfried-zofingen",
+        "chiusure-per-tubi-chimica-di-manutenzione-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rohrschlosser-in-instandhaltung-chemie-siegfried-ch",
-          "fabbri-in-chimica-di-manutenzione-siegfried-zofingen"
+          "fabbri-in-chimica-di-manutenzione-siegfried-zofingen",
+          "chiusure-per-tubi-chimica-di-manutenzione-siegfried-zofingen"
         ],
         "en": [
           "rohrschlosser-in-instandhaltung-chemie-siegfried-ch",
@@ -1093,7 +1128,7 @@
         "it": "Costruzione CAD (m/f/d)",
         "en": "CAD constructor (m/f/d)",
         "de": "CAD Konstrukteur/in (m/w/d)",
-        "fr": "CAO designer (h/f/d)"
+        "fr": "CAD Konstrukteur/in (m/w/d)"
       },
       "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls CAD Konstrukteur/in sind Sie verantwortlich für die Erstellung, Pflege und Weiterentwicklung der technischen Anlagendokumentation am Standort Zofingen. Sie unterstützen Investitionsprojekte durch die Erstellung von CAD-Dokumentationen und 3D-Modellen und leisten damit einen wichtigen Beitrag zur Sicherstellung einer aktuellen und GMP-konformen Anlagendokumentation.\n Your Profile:\n Deine Rolle\n\n• Erstellen und Pflegen von Rohrleitungs- und Instrumentenfliessschemata (R&I) für Bestandsanlagen und Investitionsprojekte im CAD-System\n\n• Erstellen und Aktualisieren von 3D-Modellen für Neu- und Umbauprojekte\n\n• Verantwortlich für die Versionierung und Verwaltung von CAD-Masterdokumenten\n\n• Erstellen und Pflegen von Gebäudeplänen, Grundrissen, Schnitten und Ansichten für den Standort Zofingen\n\n• Pflege und Aktualisierung von Arealplänen sowie Versorgungs- und Entsorgungsnetzplänen (z. B. Wasser-, Dampf-, Stickstoff- und Abwassernetze)\n\n• Erstellen und Aktualisieren von Reinraum-, Ex-Zonen-, Brandschutz- und Fluchtwegplänen\n\n• Erstellen und Pflegen von Apparate- und Anlagenlayouts\n\n• Unterstützen von Investitionsprojekten durch die Erstellung technischer Projektdokumentationen\n\n• Sicherstellen einer aktuellen, vollständigen und nachvollziehbaren Anlagendokumentation\n\n• Zusammenarbeit mit internen Fachbereichen und externen Partnern zur Sicherstellung einer korrekten Dokumentation\n\nDein Profil\n Fachkenntnisse\n\n• Abgeschlossene Ausbildung als CAD-Konstrukteur/in, Zeichner/in Fachrichtung Ingenieurbau, Maschinenbau oder vergleichbare technische Qualifikation\n\n• Mehrjährige Erfahrung in der Erstellung technischer Dokumentationen und CAD-Plänen, idealerweise im Industrieumfeld\n\n• Gute Kenntnisse in CAD-Systemen sowie im Umgang mit technischen Dokumentationen\n\n• Verständnis für Prozessanlagen, Rohrleitungsplanung und technische Infrastrukturen von Vorteil\n\nPersönliche Stärken\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohes Qualitäts- und Verantwortungsbewusstsein\n\n• Analytisches Denkvermögen und technisches Verständnis\n\n• Teamfähigkeit und ausgeprägte Kommunikationsfähigkeit\n\n• Hohe Dienstleistungsorientierung und Flexibilität\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
@@ -1107,7 +1142,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:08.491Z",
+      "crawledAt": "2026-09-13T14:15:33.780Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1126,18 +1161,21 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "cad-konstrukteur-m-w-d-siegfried-ch",
-        "cad-konstrukteur-in-m-w-d-siegfried-ch"
+        "cad-konstrukteur-in-m-w-d-siegfried-ch",
+        "costruzione-cad-m-f-d-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cad-konstrukteur-m-w-d-siegfried-ch",
-          "cad-konstrukteur-in-m-w-d-siegfried-ch"
+          "cad-konstrukteur-in-m-w-d-siegfried-ch",
+          "costruzione-cad-m-f-d-siegfried-zofingen"
         ],
         "en": [
           "cad-konstrukteur-m-w-d-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-07-27T22:13:20.003Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1167,16 +1205,16 @@
       "companyDomain": "siegfried.ch",
       "title": "Asset Reliability Engineer (a)",
       "titleByLocale": {
-        "it": "Ingegnere di Affidabilità Patrimoniale (a)",
+        "de": "Asset Reliability Ingenieur (a)",
         "en": "Asset Reliability Engineer (a)",
-        "de": "Ingenieur für Zuverlässigkeit von Vermögenswerten (a)",
-        "fr": "Ingénieur de Fiabilité Patrimoniale (a)"
+        "it": "Asset Reliability Ingegnere (a)",
+        "fr": "Asset Reliability Ingénieur (a)"
       },
       "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls Asset Reliability Engineer stellen Sie sicher, dass die Leistung, Verfügbarkeit und Zuverlässigkeit unserer Anlagen nachhaltig verbessert werden. Durch strukturierte Analysen, wirksame Instandhaltungsstrategien und technische Verbesserungsmassnahmen leisten Sie einen wesentlichen Beitrag zur langfristigen Sicherstellung einer zuverlässigen und wirtschaftlichen Produktion.\n Your Profile:\n Ihre Rolle\n\n• Analysieren von Ausfällen, Instandhaltungskosten, Anlageneffektivität und Risiken sowie Identifizieren kritischer Schwachstellen und wiederkehrender Störquellen\n\n• Entwickeln und Optimieren von Instandhaltungsstrategien auf Basis von Reliability-Daten, Ursachenanalysen und Anlagenkritikalitäten, zur Sicherstellung eines optimalen Verhältnisses zwischen präventiver, prädiktiver und korrektiver Instandhaltung\n\n• Leiten und Unterstützen von Reliability-Initiativen unter Anwendung von Ursachen-, Fehlermöglichkeits- und Einflussanalysen sowie weiteren Reliability-Methoden\n\n• Überwachen der Umsetzung und Wirksamkeit von Verbesserungsmassnahmen anhand relevanter Reliability-Kennzahlen (z. B. MTBF - Mittlere Zeit zwischen Ausfällen, MTTR - Mittlere Reparaturzeit)\n\n• Sicherstellen der Datenqualität im CMMS sowie Ableiten von Handlungsempfehlungen für Instandhaltung, Planung und Investitionsprojekte\n\n• Weiterentwickeln der Reliability-Kultur durch Fördern von Best Practices, Condition-Monitoring-Strategien und standardisierten Arbeitsweisen\n\nIhr Profil\n Fachkenntnisse\n\n• Mehrjährige Berufserfahrung in Reliability Engineering, Instandhaltung, Asset Management oder Engineering in einem industriellen Umfeld\n\n• Fundierte Kenntnisse in Reliability-Methoden wie RCA, FMEA, Risk Based Maintenance (RBM), Reliability Centered Maintenance (RCM) sowie Condition Monitoring\n\n• Erfahrung im Umgang mit CMMS-Systemen (idealerweise SAP PM) sowie in der Analyse von Instandhaltungs- und Betriebsdaten\n\n• Kenntnisse von KPI-Systemen wie MTBF, MTTR, OEE und Verfügbarkeitsanalysen\n\nPersönliche Stärken\n\n• Ausgeprägte analytische Fähigkeiten, hohe Problemlösungskompetenz und ein sehr gutes technisches Verständnis\n\n• Fähigkeit, interdisziplinäre Teams zu moderieren und Verbesserungsinitiativen voranzutreiben\n\n• Ausgeprägte Kommunikations- und Überzeugungsfähigkeit\n\n• Selbstständige, proaktive und ergebnisorientierte Arbeitsweise\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
         "it": "Informazioni sulla posizione\n\n\"Expct to grow,\" personale e professionale: Siegfried vi offre sfide emozionanti e numerose opportunità per dimostrare i vostri talenti. Come partner fidato e rispettato dell'industria farmaceutica, rispettiamo i più alti standard in materia di sicurezza, qualità e sostenibilità. promuovendo una cultura che vi permetta di avere successo. Fate parte di un'azienda globale in rapida crescita dove prospettive ed esperienze diverse si incontrano in un ambiente cooperativo.\n\nQui troverete un posto di lavoro che valorizza sia il successo collettivo che i vostri contributi individuali. e vi offre opportunità a lungo termine di sviluppare e fare la differenza.\n\nCome ingegnere dell'affidabilità dei beni, vi assicurerete che le prestazioni, la disponibilità e l'affidabilità dei nostri impianti siano migliorate in modo sostenibile. Analisi strutturate, strategie di manutenzione efficaci e misure tecniche di miglioramento contribuiranno in modo significativo a garantire una produzione affidabile ed economica a lungo termine.\n\nI tuoi compiti\n\n- Analisi dei guasti, dei costi di manutenzione, dell'efficacia e dei rischi dell'impianto, identificazione delle vulnerabilità critiche e delle fonti ricorrenti di disturbo - Sviluppo e ottimizzazione delle strategie di manutenzione basate su dati di affidabilità, analisi delle cause e critiche degli impianti, garanzia di un rapporto ottimale tra manutenzione preventiva, predittiva e correttiva - guida e supporto alle iniziative di affidabilità utilizzando analisi di causa, difetto e influenza e altri metodi di affidabilità - monitoraggio dell'implementazione\n\ne l'efficacia delle misure di miglioramento basate su indicatori di affidabilità pertinenti (ad esempio.\n\nB. MTF - A medio termine tra fallimenti, MTTR - A medio termine) - Garanzia della qualità dei dati nel CMS e orientamento per progetti di manutenzione, pianificazione e investimento - Ulteriore sviluppo della cultura dell'affidabilità attraverso il finanziamento delle migliori pratiche, strategie di monitoraggio statale e metodi di lavoro standardizzati\n\nRequisiti\n\nCompetenza\n\n- Esperienza pluriennale in ingegneria dell'affidabilità, manutenzione, gestione degli asset o ingegneria in un ambiente industriale - Conoscenze fondate in metodi di affidabilità come RCA, FMEA, manutenzione basata sul rischio (RBM), manutenzione centralizzata dell'affidabilità (RCM) e monitoraggio delle condizioni - esperienza nella gestione dei sistemi CMMS (idealmente SAP PM) nonché nell'analisi dei dati di manutenzione e di funzionamento - conoscenza dei sistemi KPI come MTTR, MTF, OEE e analisi della disponibilità\n\nPunti di forza personali\n\n- La realizzazione di elevate competenze analitiche, elevate capacità di risolvere problemi e una comprensione tecnica molto buona - La capacità di moderare i gruppi interdisciplinari e di guidare iniziative di miglioramento - Una forte comunicazione e persuasione - Metodi di lavoro autonomi, proattivi e orientati ai risultati\n\nOffriamo\n\n- Orario di lavoro flessibile permettono la conciliazione di famiglia, tempo libero e lavoro - Sia con una macchina o senza - Si beneficia: sia parcheggiare a un prezzo ridotto o CHF 60. Supplemento di mobilità al mese - Assicurazione sanitaria: sconti fino al 10% sull'assicurazione aggiuntiva con i nostri partner - Share piano di acquisto è generoso e individualmente progettato - Assegno per bambini: Siegfried AG aumenta l'assegno per bambini del 10% rispetto all'approccio legale del numero di voti - Possibilità di formazione individuali su accordo - Paid Znünipreuse, il benessere dei nostri dipendenti è al nostro cuore\n\n- Reka money: Siegfried AG concede ai dipendenti 20% di sconto - Fondo pensione: Il nostro fondo pensione è attraente e contributi individuali possono essere progettati - Staff ristorante / cafeteria: ristorazione a condizioni preferenziali - Posizione centrale: vicino alla stazione ferroviaria con ottimi collegamenti con i trasporti pubblici - accesso a servizi esclusivi aziendali e vantaggi per i nostri dipendenti\n\nInformazioni su Siegfried\n\nFondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale con 16 sedi in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, stiamo portando le innovazioni dei nostri clienti farmaceutici nella produzione industriale e nella produzione di medicinali sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche aziende che oggi possono combinare lo sviluppo e la produzione di principi attivi (API) e finito forme farmaceutiche sotto un unico tetto.\n\nQuesta combinazione unica di know-how ed esperienza ci rende il partner più affidabile dell'industria farmaceutica.\n\nSiegfried è un CDMO di approfondimento (Contract Development & Manufacturing Organization) presso l'Università di Zofingen, Svizzera. L'azienda opera a Evionnaz (Valais), Zofingen (Argovia), e Schlieren (Zurich).",
         "en": "About the position\n\n\"Expct to grow\", personal and professional: Siegfried offers you exciting challenges and numerous opportunities to demonstrate your talents. As a trusted and respected partner of the pharmaceutical industry, we comply with the highest standards in the areas of safety, quality and sustainability – while promoting a culture that enables you to succeed. Become part of a rapidly growing global company where diverse perspectives and experiences come together in a cooperative environment.\n\nHere you will find a workplace that values both collective success and your individual contributions – and offers you long-term opportunities to develop and make a difference.\n\nAs an asset reliability engineer, you will ensure that the performance, availability and reliability of our plants are sustainably improved. Structured analyses, effective maintenance strategies and technical improvement measures will make a significant contribution to ensuring reliable and economical production in the long term.\n\nYour tasks\n\n- Analyzing failures, maintenance costs, plant effectiveness and risks, as well as identifying critical vulnerabilities and recurring sources of disturbance - Developing and optimizing maintenance strategies based on reliability data, cause analyses and plant criticisms, ensuring an optimal relationship between preventive, predictive and corrective maintenance - guiding and supporting reliability initiatives using cause, fault option and influence analyses and other reliability methods - monitoring implementation\n\nand effectiveness of improvement measures based on relevant reliability indicators (e.g.\n\nB. MTF - Mid-term between failures, MTTR - Mid-term repair) - Data quality assurance in the CMMS and guidance for maintenance, planning and investment projects - Further development of the reliability culture by funding best practice, state monitoring strategies and standardized working methods\n\nRequirements\n\nExpertise\n\n- Multi-year experience in reliability engineering, maintenance, asset management or engineering in an industrial environment - Well-founded knowledge in reliability methods such as RCA, FMEA, risk Based maintenance (RBM), Reliability Centered maintenance (RCM) and Condition Monitoring - experience in handling of CMMS systems (ideally SAP PM) as well as in the analysis of maintenance and operational data - knowledge of KPI systems such as MTTR, MTF, OEE and availability analyses\n\nPersonal strengths\n\n- Achievement of high analytical skills, high problem solving skills and a very good technical understanding - Ability to moderate interdisciplinary teams and drive improvement initiatives - A strong communication and persuasion - Self-employed, proactive and result-oriented working methods\n\nWe offer\n\n- Flexible working hours enable the reconciliation of family, leisure and work - Whether with a car or without - You benefit: Either park at a reduced price or CHF 60.– Mobility supplement per month - Health insurance: discounts up to 10% on additional insurance with our partners - Share purchase plan is generous and individually designable - Child allowance: Siegfried AG increases the child allowance by 10% compared to the cantonal legal approach - Individual training opportunities by arrangement - Paid Znünipreuse, the well-being of our employees is at our heart\n\n- Reka money: Siegfried AG grants employees 20% discount - Pension fund: Our own pension fund is attractive and individual contributions can be designed - Staff restaurant / cafeteria: catering at preferential conditions - Central location: close to the railway station with very good public transport connections - access to exclusive corporate serv ice and benefits for our employees\n\nAbout Siegfried\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network with 16 locations on three continents. With a team of over 4,200 highly qualified professionals, we are bringing the innovations of our pharmaceutical customers into industrial production and manufacturing safe medicines for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few companies that today can combine the development and manufacture of active ingredients (APIs) and finished pharmaceutical forms under one roof.\n\nThis unique combination of know-how and experience makes us the most trusted partner of the pharmaceutical industry.\n\nSiegfried is a-in-depth CDMO (Contract Development & Manufacturing Organization) at the University of Zofingen, Switzerland. The company operates in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "Über die Position\n\n\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nAls Asset Reliability Engineer stellen Sie sicher, dass die Leistung, Verfügbarkeit und Zuverlässigkeit unserer Anlagen nachhaltig verbessert werden. Durch strukturierte Analysen, wirksame Instandhaltungsstrategien und technische Verbesserungsmassnahmen leisten Sie einen wesentlichen Beitrag zur langfristigen Sicherstellung einer zuverlässigen und wirtschaftlichen Produktion.\n\nIhre Aufgaben\n\n- Analysieren von Ausfällen, Instandhaltungskosten, Anlageneffektivität und Risiken sowie Identifizieren kritischer Schwachstellen und wiederkehrender Störquellen\n- Entwickeln und Optimieren von Instandhaltungsstrategien auf Basis von Reliability-Daten, Ursachenanalysen und Anlagenkritikalitäten, zur Sicherstellung eines optimalen Verhältnisses zwischen präventiver, prädiktiver und korrektiver Instandhaltung\n- Leiten und Unterstützen von Reliability-Initiativen unter Anwendung von Ursachen-, Fehlermöglichkeits- und Einflussanalysen sowie weiteren Reliability-Methoden\n- Überwachen der Umsetzung und Wirksamkeit von Verbesserungsmassnahmen anhand relevanter Reliability-Kennzahlen (z. B. MTBF - Mittlere Zeit zwischen Ausfällen, MTTR - Mittlere Reparaturzeit)\n- Sicherstellen der Datenqualität im CMMS sowie Ableiten von Handlungsempfehlungen für Instandhaltung, Planung und Investitionsprojekte\n- Weiterentwickeln der Reliability-Kultur durch Fördern von Best Practices, Condition-Monitoring-Strategien und standardisierten Arbeitsweisen\n\nAnforderungen\n\nFachkenntnisse\n\n- Mehrjährige Berufserfahrung in Reliability Engineering, Instandhaltung, Asset Management oder Engineering in einem industriellen Umfeld\n- Fundierte Kenntnisse in Reliability-Methoden wie RCA, FMEA, Risk Based Maintenance (RBM), Reliability Centered Maintenance (RCM) sowie Condition Monitoring\n- Erfahrung im Umgang mit CMMS-Systemen (idealerweise SAP PM) sowie in der Analyse von Instandhaltungs- und Betriebsdaten\n- Kenntnisse von KPI-Systemen wie MTBF, MTTR, OEE und Verfügbarkeitsanalysen\n\nPersönliche Stärken\n\n- Ausgeprägte analytische Fähigkeiten, hohe Problemlösungskompetenz und ein sehr gutes technisches Verständnis\n- Fähigkeit, interdisziplinäre Teams zu moderieren und Verbesserungsinitiativen voranzutreiben\n- Ausgeprägte Kommunikations- und Überzeugungsfähigkeit\n- Selbstständige, proaktive und ergebnisorientierte Arbeitsweise\n\nWir bieten\n\n- Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n- Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n- Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n- Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n- Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n- Individuelle Weiterbildungsmöglichkeiten nach Absprache\n- Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n- Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n- Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n- Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n- Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n- Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nÜber Siegfried\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls Asset Reliability Engineer stellen Sie sicher, dass die Leistung, Verfügbarkeit und Zuverlässigkeit unserer Anlagen nachhaltig verbessert werden. Durch strukturierte Analysen, wirksame Instandhaltungsstrategien und technische Verbesserungsmassnahmen leisten Sie einen wesentlichen Beitrag zur langfristigen Sicherstellung einer zuverlässigen und wirtschaftlichen Produktion.\nYour Profile:\nIhre Rolle\n\n• Analysieren von Ausfällen, Instandhaltungskosten, Anlageneffektivität und Risiken sowie Identifizieren kritischer Schwachstellen und wiederkehrender Störquellen\n\n• Entwickeln und Optimieren von Instandhaltungsstrategien auf Basis von Reliability-Daten, Ursachenanalysen und Anlagenkritikalitäten, zur Sicherstellung eines optimalen Verhältnisses zwischen präventiver, prädiktiver und korrektiver Instandhaltung\n\n• Leiten und Unterstützen von Reliability-Initiativen unter Anwendung von Ursachen-, Fehlermöglichkeits- und Einflussanalysen sowie weiteren Reliability-Methoden\n\n• Überwachen der Umsetzung und Wirksamkeit von Verbesserungsmassnahmen anhand relevanter Reliability-Kennzahlen (z. B. MTBF - Mittlere Zeit zwischen Ausfällen, MTTR - Mittlere Reparaturzeit)\n\n• Sicherstellen der Datenqualität im CMMS sowie Ableiten von Handlungsempfehlungen für Instandhaltung, Planung und Investitionsprojekte\n\n• Weiterentwickeln der Reliability-Kultur durch Fördern von Best Practices, Condition-Monitoring-Strategien und standardisierten Arbeitsweisen\n\nIhr Profil\nFachkenntnisse\n\n• Mehrjährige Berufserfahrung in Reliability Engineering, Instandhaltung, Asset Management oder Engineering in einem industriellen Umfeld\n\n• Fundierte Kenntnisse in Reliability-Methoden wie RCA, FMEA, Risk Based Maintenance (RBM), Reliability Centered Maintenance (RCM) sowie Condition Monitoring\n\n• Erfahrung im Umgang mit CMMS-Systemen (idealerweise SAP PM) sowie in der Analyse von Instandhaltungs- und Betriebsdaten\n\n• Kenntnisse von KPI-Systemen wie MTBF, MTTR, OEE und Verfügbarkeitsanalysen\n\nPersönliche Stärken\n\n• Ausgeprägte analytische Fähigkeiten, hohe Problemlösungskompetenz und ein sehr gutes technisches Verständnis\n\n• Fähigkeit, interdisziplinäre Teams zu moderieren und Verbesserungsinitiativen voranzutreiben\n\n• Ausgeprägte Kommunikations- und Überzeugungsfähigkeit\n\n• Selbstständige, proaktive und ergebnisorientierte Arbeitsweise\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
         "fr": "Sur la position\n\n« Expect to grimp » : Siegfried vous propose des défis passionnants et de nombreuses opportunités pour démontrer vos talents. Partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en promouvant une culture qui vous permet de réussir.\n\nIci, vous trouverez un milieu de travail qui valorise la réussite collective et vos contributions individuelles – et vous offre des occasions à long terme de développer et de faire la différence.\n\nEn tant qu'ingénieur en fiabilité des actifs, vous veillerez à ce que la performance, la disponibilité et la fiabilité de nos installations soient améliorées de façon durable.\n\nVos tâches\n\n- Analyser les défaillances, les coûts d'entretien, l'efficacité et les risques des installations, et identifier les vulnérabilités critiques et les sources récurrentes de perturbation - Élaborer et optimiser des stratégies d'entretien fondées sur des données de fiabilité, des analyses de causes et des critiques des installations, assurer une relation optimale entre l'entretien préventif, prédictif et correctif - guider et appuyer les initiatives de fiabilité en utilisant des analyses de cause, d'option de défaillance et d'influence et d'autres méthodes de fiabilité - surveiller la mise en oeuvre\n\net l'efficacité des mesures d'amélioration fondées sur des indicateurs de fiabilité pertinents (par exemple,\n\nB. MTF - Mi-parcours entre défaillances, MTTR - Réparation à mi-parcours) - Assurance de la qualité des données dans le SMCM et orientations pour les projets de maintenance, de planification et d'investissement - Poursuite du développement de la culture de la fiabilité en finançant les meilleures pratiques, les stratégies de suivi de l'État et les méthodes de travail normalisées\n\nBesoins\n\nExpertise\n\n- Expérience pluriannuelle en ingénierie de la fiabilité, maintenance, gestion des actifs ou ingénierie dans un environnement industriel - Connaissances solides en méthodes de fiabilité telles que RCA, FMEA, maintenance basée sur les risques (RMM), maintenance centrée sur la fiabilité (RCM) et surveillance de l'état - Expérience dans la manipulation des systèmes CMMS (idéalement SAP PM) ainsi que dans l'analyse des données de maintenance et d'exploitation - Connaissance des systèmes KPI tels que MTTR, MTF, OEE et analyses de disponibilité\n\nPoints forts personnels\n\n- Acquis de compétences analytiques élevées, de compétences élevées en résolution de problèmes et d'une très bonne compréhension technique - Capacité de modérer les équipes interdisciplinaires et de mener des initiatives d'amélioration - Une communication et une persuasion fortes - Méthodes de travail autonomes, proactives et axées sur les résultats\n\nNous offrons\n\n- Des horaires flexibles permettent de concilier vie familiale, loisirs et travail - Que ce soit en voiture ou en dehors - Vous bénéficiez : soit d'un stationnement à prix réduit soit de CHF 60.– Supplément mobilité par mois - Assurance maladie : rabais jusqu'à 10% sur l'assurance complémentaire avec nos partenaires - Plan d'achat de partage généreux et individuellement concevable - Allocation enfantine : Siegfried AG augmente l'allocation enfant de 10% par rapport à l'approche légale cantonale - Possibilités de formation individuelle par arrangement - Payé Znünipreuse, le bien-être de nos collaborateurs est à notre cœur\n\n- Reka money: Siegfried AG subventionne les salariés 20% discount - Pension fund: Notre fonds de pension est attrayant et les cotisations individuelles peuvent être conçues - Staff restaurant / cafétéria: traiteur dans des conditions préférentielles - Central position: proche de la gare avec très bonnes connexions de transport public - accès à la serv ice et avantages exclusifs pour nos salariés\n\nA propos de Sieg Fried\n\nFondée en 1873 à Zofingen, en Suisse, Siegfried est devenue un réseau mondial de 16 sites sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques dans la production industrielle et la fabrication de médicaments sûrs pour les patients dans le monde entier. En tant que CDMO pleinement intégré, Siegfried est l'une des rares entreprises qui peuvent aujourd'hui combiner le développement et la fabrication de principes actifs (API) et de formes pharmaceutiques finies sous un même toit.\n\nCette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est un CDMO (Contract Development & Manufacturing Organization) de l'Université de Zofingen, en Suisse. L'entreprise opère à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
       },
       "location": "Zofingen",
@@ -1184,7 +1222,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:07.931Z",
+      "crawledAt": "2026-09-13T14:15:33.066Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1201,12 +1239,15 @@
       "requirementsByLocale": {},
       "jobReqId": "R26_713",
       "hiringOrganization": "Siegfried AG",
+      "needsRetranslation": true,
       "previousSlugs": [
-        "asset-reliability-engineer-a-siegfried-ch"
+        "asset-reliability-engineer-a-siegfried-ch",
+        "asset-reliability-ingegnere-a-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "asset-reliability-engineer-a-siegfried-ch"
+          "asset-reliability-engineer-a-siegfried-ch",
+          "asset-reliability-ingegnere-a-siegfried-zofingen"
         ],
         "fr": [
           "asset-reliability-engineer-a-siegfried-ch"
@@ -1242,7 +1283,7 @@
       "companyDomain": "siegfried.ch",
       "title": "Analytical Data Reviewer",
       "titleByLocale": {
-        "it": "Revisore dei dati analitico",
+        "it": "Analytical Data Reviewer",
         "en": "Analytical Data Reviewer",
         "de": "Analytical Data Reviewer",
         "fr": "Analyseur de données analytiques"
@@ -1259,7 +1300,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:07.181Z",
+      "crawledAt": "2026-09-13T14:15:32.360Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1278,12 +1319,14 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "analytical-data-reviewer-siegfried-ch",
-        "analytical-data-reviewer-siegfried-zofingen"
+        "analytical-data-reviewer-siegfried-zofingen",
+        "recensione-dati-analitica-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "analytical-data-reviewer-siegfried-ch",
-          "analytical-data-reviewer-siegfried-zofingen"
+          "analytical-data-reviewer-siegfried-zofingen",
+          "recensione-dati-analitica-siegfried-zofingen"
         ],
         "fr": [
           "analytical-data-reviewer-siegfried-ch"
@@ -1337,7 +1380,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Analytical-Project-Leader_R26_737",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:06.612Z",
+      "crawledAt": "2026-09-13T14:15:31.625Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1355,11 +1398,13 @@
       "jobReqId": "R26_737",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "analytical-project-leader-siegfried-ch"
+        "analytical-project-leader-siegfried-ch",
+        "leader-del-progetto-analitico-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analytical-project-leader-siegfried-ch"
+          "analytical-project-leader-siegfried-ch",
+          "leader-del-progetto-analitico-siegfried-evionnaz"
         ],
         "de": [
           "analytical-project-leader-siegfried-ch"
@@ -1413,7 +1458,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Expert-Lab-Technician-Drug-Product-R-D_R26_716",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:06.046Z",
+      "crawledAt": "2026-09-13T14:15:30.921Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1454,7 +1499,7 @@
         "it": "manutenzione-testa-siegfried-zofingen",
         "en": "head-maintenance-siegfried-zofingen",
         "de": "head-maintenance-siegfried-ch",
-        "fr": "entretien-de-la-tete-siegfried-zofingen"
+        "fr": "directeur-de-la-maintenance-de-la-production-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1478,7 +1523,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:05.481Z",
+      "crawledAt": "2026-09-13T14:15:30.216Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1497,19 +1542,25 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugsByLocale": {
         "de": [
-          "production-maintenance-manager-siegfried-ch"
+          "production-maintenance-manager-siegfried-ch",
+          "head-maintenance-siegfried-ch"
         ],
         "it": [
-          "production-maintenance-manager-siegfried-ch"
+          "production-maintenance-manager-siegfried-ch",
+          "manutenzione-testa-siegfried-zofingen"
         ],
         "fr": [
           "production-maintenance-manager-siegfried-zofingen",
+          "entretien-de-la-tete-siegfried-zofingen",
           "directeur-de-la-maintenance-de-la-production-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
         "production-maintenance-manager-siegfried-ch",
         "production-maintenance-manager-siegfried-zofingen",
+        "entretien-de-la-tete-siegfried-zofingen",
+        "head-maintenance-siegfried-ch",
+        "manutenzione-testa-siegfried-zofingen",
         "directeur-de-la-maintenance-de-la-production-siegfried-zofingen"
       ],
       "needsRetranslation": true,
@@ -1560,7 +1611,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Site-OPEX-Lead_R26_732",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T13:21:04.916Z",
+      "crawledAt": "2026-09-13T14:15:29.504Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1578,11 +1629,13 @@
       "jobReqId": "R26_732",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "site-opex-lead-siegfried-ch"
+        "site-opex-lead-siegfried-ch",
+        "guida-opex-del-sito-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "site-opex-lead-siegfried-ch"
+          "site-opex-lead-siegfried-ch",
+          "guida-opex-del-sito-siegfried-zofingen"
         ],
         "de": [
           "site-opex-lead-siegfried-ch"
@@ -1635,7 +1688,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Accountant_R26_739",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:21:04.370Z",
+      "crawledAt": "2026-09-13T14:15:28.811Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1653,11 +1706,13 @@
       "jobReqId": "R26_739",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "accountant-siegfried-ch"
+        "accountant-siegfried-ch",
+        "contabile-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "accountant-siegfried-ch"
+          "accountant-siegfried-ch",
+          "contabile-siegfried-evionnaz"
         ],
         "de": [
           "accountant-siegfried-ch"
@@ -1695,7 +1750,7 @@
       "title": "Betriebselektriker*in",
       "titleByLocale": {
         "it": "Elettricista aziendale*",
-        "en": "Business electricians",
+        "en": "Betriebselektriker*in",
         "de": "Betriebselektriker*in",
         "fr": "Électricien d'affaires*"
       },
@@ -1711,7 +1766,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R26_616",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-12T13:21:03.806Z",
+      "crawledAt": "2026-09-13T14:15:28.109Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1731,12 +1786,14 @@
       "previousSlugs": [
         "betriebselektriker-in-siegfried-ch",
         "betriebselektriker-in-siegfried-zofingen",
-        "business-electrician-siegfried-zofingen"
+        "business-electrician-siegfried-zofingen",
+        "elettricista-aziendale-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-siegfried-ch",
-          "betriebselektriker-in-siegfried-zofingen"
+          "betriebselektriker-in-siegfried-zofingen",
+          "elettricista-aziendale-siegfried-zofingen"
         ],
         "en": [
           "business-electrician-siegfried-zofingen"
@@ -1746,6 +1803,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:19:28.317Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
