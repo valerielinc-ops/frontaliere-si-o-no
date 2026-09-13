@@ -70,6 +70,11 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toMatch(/issues:\s*write|contents:\s*write|pull-requests:\s*write/u);
   });
 
+  it('keeps the detached typecheck PID alive until its status is published', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'tests.yml'), 'utf8');
+    expect(source).toContain('setsid --wait bash "$script"');
+  });
+
   it('persists only through a reviewed branch and PR', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
     expect(source).toContain('workflow_run:');
