@@ -1218,10 +1218,40 @@ async function inspectCorpusRecoveryBatch(
   return results;
 }
 
+const OBSERVATION_DIAGNOSTIC_FIELDS = [
+  'authoritativeEmpty',
+  'lastFetchOutcome',
+  'earlyExit',
+  'exitCode',
+  'detailDrop',
+];
+
+/**
+ * Keep the winning observation's freshness and counts, while carrying forward
+ * diagnostic evidence that the winning producer did not publish. A newer
+ * slice must never inherit an older count, but losing a diagnostic such as an
+ * exit code would turn an observed bail-out into `unknown`.
+ */
+function mergeMissingObservationDiagnostics(winner, loser) {
+  let merged = winner;
+  for (const field of OBSERVATION_DIAGNOSTIC_FIELDS) {
+    if (merged?.[field] !== null && merged?.[field] !== undefined) continue;
+    const fallback = loser?.[field];
+    if (fallback === null || fallback === undefined) continue;
+    // `false` is the absence of positive evidence for these boolean fields;
+    // copying it into a legacy observation would only create a needless clone.
+    if (fallback === false) continue;
+    if (merged === winner) merged = { ...winner };
+    merged[field] = fallback;
+  }
+  return merged;
+}
+
 /**
  * Prefer recovery evidence only when it is strictly newer than the canonical
  * site observation. Counts are deliberately not part of the choice: a newer
- * corpus zero is a real empty run and must remain visible.
+ * corpus zero is a real empty run and must remain visible. Missing diagnostic
+ * fields are filled from the other observation after the winner is chosen.
  */
 function selectNewestCrawlerObservation(
   siteObservation,
@@ -1236,8 +1266,11 @@ function selectNewestCrawlerObservation(
   // indefinitely. Five minutes tolerates ordinary clock skew without trusting
   // an impossible observation.
   if (corpusAt > nowMs + 5 * 60 * 1000) return siteObservation;
-  if (Number.isFinite(siteAt) && siteAt >= corpusAt) return siteObservation;
-  return corpusObservation;
+  const winner = Number.isFinite(siteAt) && siteAt >= corpusAt
+    ? siteObservation
+    : corpusObservation;
+  const loser = winner === siteObservation ? corpusObservation : siteObservation;
+  return mergeMissingObservationDiagnostics(winner, loser);
 }
 
 /**
