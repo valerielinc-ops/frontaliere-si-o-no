@@ -11710,6 +11710,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inaugurazione-campus-smartt-valley.title': 'Daverio: the new smartt VAlley campus has been inaugurated',
     'blog.article.inaugurazione-campus-smartt-valley.excerpt': 'The 5000 sqm campus dedicated to training and innovation is open at Daverio. Investment of 4.5 million euros to bridge the gap between school and factory.',
     'blog.article.inaugurazione-campus-smartt-valley.imageAlt': 'SMARTT VAlley campus in Daverio',
+    'blog.article.savoia-avanti-ticino-lavoro.title': 'Savoy candidate with Avanti Ticino e Lavoro',
+    'blog.article.savoia-avanti-ticino-lavoro.excerpt': 'Sergio Savoia\'s political candidacy for the Avanti con Ticino e Lavoro list in Lugano generates online debate, controversy and clarification.',
+    'blog.article.savoia-avanti-ticino-lavoro.imageAlt': 'Political candidacy of Sergio Savoia for Avanti con Ticino e Lavoro in Lugano',
 };
 
 export default blogMetaEn;

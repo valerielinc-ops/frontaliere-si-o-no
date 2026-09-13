@@ -11709,6 +11709,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.inaugurazione-campus-smartt-valley.title': 'Daverio: Neuer Smartt VAlley Campus eingeweiht',
     'blog.article.inaugurazione-campus-smartt-valley.excerpt': 'Der 5000 m ² große Campus, der der Ausbildung und Innovation gewidmet ist, wurde in Daverio eröffnet. Investition von 4,5 Millionen Euro, um die Lücke zwischen Schule und Fabrik zu schließen.',
     'blog.article.inaugurazione-campus-smartt-valley.imageAlt': 'SMARTT VAlley Campus in Daverio',
+    'blog.article.savoia-avanti-ticino-lavoro.title': 'Savoyen Kandidat mit Avanti Ticino und Lavoro',
+    'blog.article.savoia-avanti-ticino-lavoro.excerpt': 'Die politische Kandidatur von Sergio Savoia für die Liste Avanti con Ticino e Lavoro in Lugano führt zu Online-Debatten, Kontroversen und Klärungen.',
+    'blog.article.savoia-avanti-ticino-lavoro.imageAlt': 'Politische Kandidatur von Sergio Savoia für Avanti con Ticino e Lavoro in Lugano',
 };
 
 export default blogMetaDe;
