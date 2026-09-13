@@ -209,6 +209,7 @@ describe('SEO health live runner', () => {
 
   it('persists the observation streak and makes a repeated defect actionable', async () => {
     const root = mkdtempSync(join(tmpdir(), 'seo-health-loop-'));
+    const previousRunId = process.env.GITHUB_RUN_ID;
     const sitemap = `${ORIGIN}/sitemap.xml`;
     const bodies = new Map<string, string>([
       [`${ORIGIN}/robots.txt`, `Sitemap: ${sitemap}`],
@@ -226,6 +227,7 @@ describe('SEO health live runner', () => {
       statePath: join(root, 'state.json'),
       historyPath: join(root, 'history.jsonl'),
     };
+    delete process.env.GITHUB_RUN_ID;
     try {
       const first = await runSeoHealthLoop({ options, fetchImpl, collectAnalytics: false, root, now: new Date('2026-09-13T00:00:00Z') });
       expect(first.findings.actionable).toHaveLength(0);
@@ -235,6 +237,8 @@ describe('SEO health live runner', () => {
       ]));
       expect(readFileSync(join(root, 'history.jsonl'), 'utf8').trim().split('\n')).toHaveLength(2);
     } finally {
+      if (previousRunId === undefined) delete process.env.GITHUB_RUN_ID;
+      else process.env.GITHUB_RUN_ID = previousRunId;
       rmSync(root, { recursive: true, force: true });
     }
   });
