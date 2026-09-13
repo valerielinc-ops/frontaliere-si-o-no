@@ -16,9 +16,12 @@ describe('company profile router follow-up (#8140)', () => {
 
   it('keeps /aziende/<slug>/ static after the pharmacy parser branch', () => {
     const { route } = parsePath('/aziende/Acme/');
+    const { route: localizedRoute } = parsePath('/en/aziende/Acme/');
 
     expect(route.staticOverlay).toBe(true);
+    expect(localizedRoute.staticOverlay).toBe(true);
     expect(staticCompanyPathForLocale('/aziende/Acme/', 'en')).toBe('/en/aziende/acme/');
+    expect(staticCompanyPathForLocale('/en/aziende/Acme/', 'fr')).toBe('/fr/aziende/acme/');
   });
 
   it('updatePathForLocale invokes the company sibling path and normalizes its slug', () => {
