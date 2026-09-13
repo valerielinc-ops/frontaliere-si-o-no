@@ -213,12 +213,14 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
         reconsent: true,
         ...consentProof('communicationsOptIn', 'email_submit', alertLocale),
       });
-      // New addresses receive DOI; existing confirmed addresses receive the
-      // passwordless access link. The pending alert remains parked until the
-      // link returns with a verified Firebase session.
-      if (upsert.status !== 'pending' || upsert.hadConfirmationProof) {
-        await requestConfirmationEmail(trimmed, 'login');
-      }
+      // The upsert's confirmation request is the newsletter DOI (or the
+      // re-consent DOI); it is not the authentication contract the parked
+      // calculator intent needs. Request a separate passwordless access link
+      // for every capture result, including a brand-new pending address, so
+      // the alert can replay as soon as the visitor proves possession of the
+      // email. The two messages have different purposes and the server keeps
+      // the login link outside the DOI attempt cap.
+      await requestConfirmationEmail(trimmed, 'login');
       Analytics.trackFunnelStep('salary_alert_email_sent', {
         funnel: 'salary_alert',
         capture_surface: 'calculator_results',

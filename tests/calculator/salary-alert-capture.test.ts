@@ -15,6 +15,12 @@ describe('calculator salary-alert capture', () => {
     expect(source).not.toContain("window.location.assign('/lavoro/')");
   });
 
+  it('sends a separate passwordless link for every email capture, including new DOI rows', () => {
+    const source = read('components/calculator/SalaryAlertCTA.tsx');
+    expect(source).toContain("await requestConfirmationEmail(trimmed, 'login');");
+    expect(source).not.toContain("upsert.status !== 'pending' || upsert.hadConfirmationProof");
+  });
+
   it('renders the alert immediately after the result banner and before the ad slot', () => {
     const source = read('components/calculator/ResultsView.tsx');
     const alert = source.indexOf('SalaryAlertCTA netMonthlyCHF');
