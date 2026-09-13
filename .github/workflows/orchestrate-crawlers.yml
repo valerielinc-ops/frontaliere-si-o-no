@@ -199,6 +199,8 @@ jobs:
 
       - name: Dispatch crawler generation wave
         id: generation_wave
+        # ready is the authoritative transport decision. reasons and warnings
+        # are diagnostics and may be non-blocking; never gate on their length.
         if: steps.generation_preflight.outputs.ready == 'true'
         env:
           GITHUB_API_URL: ${{ github.api_url }}

@@ -8,12 +8,14 @@
  *   - fetchAllRecruitingapp2649Jobs()  — Fetch and parse all jobs
  *   - isRecruitingapp2649Job()         — Match jobs belonging to this company
  *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *   - stripHtml()                — Re-exported from crawler-template.mjs
+ *   - buildSlug()                — Shared canonical slug base and disambiguator
  */
 import { createHash } from 'node:crypto';
 import { fetch as undiciFetch } from 'undici';
 import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { stripHtml } from './crawler-template.mjs';
+import { buildSlug } from './regenerate-slugs-helpers.mjs';
 import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import {
   resolveDetailOrListingSwissGeography,
@@ -300,7 +302,10 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
     const sourceLang = detectLang(descriptionText || title, 'de');
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const slugDisambiguator = urlHash.slice(0, 8);
-    const jobSlug = appendSlugDisambiguator(slugify(`${title} recruitingapp-2649 ch`), slugDisambiguator);
+    const jobSlug = appendSlugDisambiguator(
+      buildSlug(title, RECRUITINGAPP_2649_COMPANY_NAME, location),
+      slugDisambiguator,
+    );
 
     const job = {
       // ── Required fields ──

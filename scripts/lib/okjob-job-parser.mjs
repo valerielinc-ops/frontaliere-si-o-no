@@ -8,12 +8,14 @@
  *   - fetchAllOkjobJobs()  — Fetch and parse all jobs
  *   - isOkjobJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *   - stripHtml()                — Re-exported from crawler-template.mjs
+ *   - buildSlug()                — Shared canonical slug base and disambiguator
  */
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { stripHtml } from './crawler-template.mjs';
+import { buildSlug } from './regenerate-slugs-helpers.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
@@ -215,7 +217,10 @@ export async function fetchAllOkjobJobs(runtime = {}) {
     const sourceLang = detectLang(descriptionText || title, 'fr');
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const slugDisambiguator = urlHash.slice(0, 8);
-    const jobSlug = appendSlugDisambiguator(slugify(`${title} okjob ch`), slugDisambiguator);
+    const jobSlug = appendSlugDisambiguator(
+      buildSlug(title, OKJOB_COMPANY_NAME, location),
+      slugDisambiguator,
+    );
 
     const job = {
       // ── Required fields ──

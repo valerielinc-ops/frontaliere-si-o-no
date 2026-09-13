@@ -22,9 +22,11 @@ describe('dedicated parser slug identity (#8016)', () => {
     for (const file of PARSER_FILES) {
       const source = fs.readFileSync(path.join(process.cwd(), 'scripts', 'lib', file), 'utf8');
       expect(source, file).toContain('appendSlugDisambiguator');
+      expect(source, file).toContain('buildSlug(');
       expect(source, file).toContain('slugDisambiguator');
       expect(source, file).toMatch(/const urlHash = createHash\('sha1'\)/);
       expect(source, file).toContain('slug: jobSlug');
+      expect(source, file).not.toMatch(/publicUrl\s*=\s*[^;]*\|\|\s*CAREER_URL/);
     }
   });
 

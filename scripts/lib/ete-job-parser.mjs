@@ -8,12 +8,14 @@
  *   - fetchAllEteJobs()  — Fetch and parse all jobs
  *   - isEteJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *   - stripHtml()                — Re-exported from crawler-template.mjs
+ *   - buildSlug()                — Shared canonical slug base and disambiguator
  */
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { stripHtml } from './crawler-template.mjs';
+import { buildSlug } from './regenerate-slugs-helpers.mjs';
 import {
   extractDetailFields,
   isSufficientVacancyDescription,
@@ -220,7 +222,10 @@ export async function fetchAllEteJobs(runtime = {}) {
     // pins already-published records to their existing slugs.
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const slugDisambiguator = urlHash.slice(0, 8);
-    const jobSlug = appendSlugDisambiguator(slugify(`${title} ete ch ${location}`), slugDisambiguator);
+    const jobSlug = appendSlugDisambiguator(
+      buildSlug(title, ETE_COMPANY_NAME, location),
+      slugDisambiguator,
+    );
 
     const job = {
       // ── Required fields ──
