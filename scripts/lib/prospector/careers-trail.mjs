@@ -112,8 +112,12 @@ export function joinAnchorParts(text = '', attr = '') {
 export function extractLinks(html = '', baseUrl = '', options = {}) {
   const out = [];
   const seen = new Set();
+  let baseUrlObject = null;
   let baseOrigin = '';
-  try { baseOrigin = new URL(baseUrl).origin; } catch { /* absolute hrefs may still be usable */ }
+  try {
+    baseUrlObject = new URL(baseUrl);
+    baseOrigin = baseUrlObject.origin;
+  } catch { /* absolute hrefs may still be usable */ }
   const sameOriginOnly = options.sameOriginOnly ?? true;
   const rx = /<a\b([^>]*)>/gi;
   let m;
@@ -129,7 +133,14 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
     let parsed;
     try { parsed = new URL(href, baseUrl); } catch { continue; }
     if (!/^https?:$/i.test(parsed.protocol)) continue;
-    if (sameOriginOnly && baseOrigin && parsed.origin !== baseOrigin) continue;
+    // Umantis and other ATS pages sometimes emit absolute HTTP links from an
+    // HTTPS listing page. Keep the ownership boundary strict on host and port,
+    // while treating the scheme as transport detail; a different host still
+    // requires the caller to opt out of same-origin filtering explicitly.
+    const sameHostAndPort = baseUrlObject
+      && parsed.hostname === baseUrlObject.hostname
+      && parsed.port === baseUrlObject.port;
+    if (sameOriginOnly && baseOrigin && parsed.origin !== baseOrigin && !sameHostAndPort) continue;
     const abs = parsed.toString();
     const key = abs.split('#')[0];
     if (seen.has(key)) continue;
