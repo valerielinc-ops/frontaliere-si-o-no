@@ -34,7 +34,14 @@
  * follow-up.
  */
 
-import { paginatedPath } from '../seoHubsData';
+import {
+  PAGINATION_INDEX_THRESHOLD,
+  paginationIndexCount,
+  paginationIndexLabel,
+  paginationIndexPath,
+  paginationIndexRange,
+  paginatedPath,
+} from '../seoHubsData';
 import type { HubLocale as ArchiveHubLocale } from '../seoHubsData';
 import { cantonFaqMedianAnnual } from './cantonSalaryIndex';
 
@@ -70,6 +77,8 @@ export interface CantonHubEditorialOpts {
   totalPages: number;
   /** Base path for the paginated archive, e.g. '/cerca-lavoro-zurigo/tutti/'. */
   archiveBaseHref: string;
+  /** Number of archive pages actually emitted for this locale/canton. */
+  archiveNavigablePages?: number;
 }
 
 // Local escape helper. Matches the staticPagesPlugin / jobsSeoPages
@@ -89,7 +98,16 @@ const esc = (s: string) =>
  * leaves them untouched.
  */
 export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] {
-  const { canton, locale, display, jobsCount, totalPages, archiveBaseHref } = opts;
+  const {
+    canton,
+    locale,
+    display,
+    jobsCount,
+    totalPages,
+    archiveBaseHref,
+    archiveNavigablePages,
+  } = opts;
+  const navigablePages = Math.max(1, Math.floor(archiveNavigablePages ?? totalPages));
   const isTi = canton === 'TI';
   const out: string[] = [];
 
@@ -127,38 +145,36 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   // navigator anchors resolve correctly. TI keeps the navigator via its
   // master `emitHub` which always emits full page-N HTML.
   //
-  // Page-weight guard: for very long archives (e.g. TI with ~400 pages)
-  // emitting one anchor per page-N pushed the IT root over the 200 KB
-  // audit:page-weight budget (~93 KB just for this nav). Crawler reach
-  // is preserved by the sequential prev/next/first/last links emitted on
-  // every `/tutti/page-N/` page itself, so we only need head+tail anchors
-  // here. We render pages 1..PAGINATOR_HEAD + last PAGINATOR_TAIL pages
-  // with a non-link ellipsis between them. For small archives
-  // (totalPages <= PAGINATOR_HEAD + PAGINATOR_TAIL) we still emit every
-  // page — byte-identical to the legacy output for cathedral cantons
-  // (which all have small page counts).
-  if (totalPages > 1) {
+  // Page-weight guard: for long archives, a flat page-1 ladder grows with
+  // every archive page and can dominate the canton landing. The parent now
+  // links to a bounded set of page-range indexes; each index links one
+  // sqrt-sized range of archive pages. This keeps the parent → index → page
+  // graph shallow enough for job leaves while making the page-1 payload
+  // O(sqrt(totalPages)). Small archives retain the direct ladder.
+  if (navigablePages > 1) {
     const jobsNavLabel = locale === 'it' ? 'Sfoglia tutto l\'archivio offerte per pagina'
       : locale === 'en' ? 'Browse the full job archive by page'
       : locale === 'de' ? 'Vollständiges Stellenarchiv nach Seite durchsuchen'
       : 'Parcourir toutes les offres par page';
     const jobsPageWord = locale === 'it' ? 'Pagina' : locale === 'en' ? 'Page' : locale === 'de' ? 'Seite' : 'Page';
-    const PAGINATOR_HEAD = 20;
-    const PAGINATOR_TAIL = 5;
     const anchorFor = (p: number): string => {
       const href = paginatedPath(archiveBaseHref, p);
       return `<a class="s-040ZNE" href="${href}">${jobsPageWord}&nbsp;${p}</a>`;
     };
     const jobsAnchors: string[] = [];
-    if (totalPages <= PAGINATOR_HEAD + PAGINATOR_TAIL) {
-      for (let p = 1; p <= totalPages; p++) jobsAnchors.push(anchorFor(p));
+    if (navigablePages <= PAGINATION_INDEX_THRESHOLD) {
+      for (let p = 1; p <= navigablePages; p++) jobsAnchors.push(anchorFor(p));
     } else {
-      for (let p = 1; p <= PAGINATOR_HEAD; p++) jobsAnchors.push(anchorFor(p));
-      jobsAnchors.push('<span class="s-NG7ZI_" aria-hidden="true">…</span>');
-      for (let p = totalPages - PAGINATOR_TAIL + 1; p <= totalPages; p++) jobsAnchors.push(anchorFor(p));
+      jobsAnchors.push(anchorFor(1));
+      for (let indexPage = 1; indexPage <= paginationIndexCount(navigablePages); indexPage++) {
+        const range = paginationIndexRange(navigablePages, indexPage);
+        jobsAnchors.push(
+          `<a class="s-040ZNE" href="${paginationIndexPath(archiveBaseHref, indexPage)}">${esc(paginationIndexLabel(locale, range.start, range.end))}</a>`,
+        );
+      }
     }
     out.push(
-      `<details class="s-01GpQM"><summary class="s-hQKogV">${esc(jobsNavLabel)} (${totalPages} pagine)</summary><nav class="s-SMVope" aria-label="${esc(jobsNavLabel)}">${jobsAnchors.join('')}</nav></details>`,
+      `<details class="s-01GpQM"><summary class="s-hQKogV">${esc(jobsNavLabel)} (${navigablePages} pagine)</summary><nav class="s-SMVope" aria-label="${esc(jobsNavLabel)}">${jobsAnchors.join('')}</nav></details>`,
     );
   }
 

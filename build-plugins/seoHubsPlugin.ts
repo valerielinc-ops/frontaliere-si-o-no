@@ -27,6 +27,7 @@ import { railGutters } from './shared/railGutters';
 import type npT from 'node:path';
 import { ADSENSE_SNIPPET, BASE_URL, buildCanonicalBridgePage, CDN_PRECONNECT_HINT, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
+import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
   ARTICLES_PAGE_SIZE,
   COMPANIES_PAGE_SIZE,
@@ -34,7 +35,12 @@ import {
   HUB_SECTORS,
   HUB_SLUGS,
   JOBS_PAGE_SIZE,
+  PAGINATION_INDEX_THRESHOLD,
   hubSlugFor,
+  paginationIndexCount,
+  paginationIndexLabel,
+  paginationIndexPath,
+  paginationIndexRange,
   paginatedPath,
   svizzeraArticlesArchiveBasePaths,
   type HubLocale,
@@ -1119,7 +1125,9 @@ function buildHtml(args: BuildHtmlArgs): string {
   });
 
   // Pagination chrome: prev / page-numbers / next
-  const pagination = totalPages > 1 ? renderPagination(locale, basePath, page, totalPages) : '';
+  const pagination = totalPages > 1
+    ? renderPagination(locale, basePath, page, totalPages, { indexPages: hubKey !== 'articles' })
+    : '';
 
   // Items list — four layouts:
   //   • company items (`logo` defined) → entity-card with logo + job count
@@ -1263,9 +1271,44 @@ function updatedLabel(locale: HubLocale): string {
   return { it: 'Aggiornato', en: 'Updated', de: 'Aktualisiert', fr: 'Mis à jour' }[locale];
 }
 
-export function renderPagination(locale: HubLocale, basePath: string, current: number, total: number): string {
-  // Compact pagination (visible): prev, 1, current-1, current, current+1, last, next.
-  // Plus a FLAT crawler-facing navigator inside a collapsed <details> linking
+interface PaginationRenderOptions {
+  /** Article archives keep their legacy flat ladder until they gain indexes. */
+  readonly indexPages?: boolean;
+}
+
+function renderFlatPaginationLadder(locale: HubLocale, basePath: string, current: number, total: number): string {
+  const flatLabel = {
+    it: "Sfoglia tutto l'archivio per pagina",
+    en: 'Browse the full archive by page',
+    de: 'Vollständiges Archiv nach Seite durchsuchen',
+    fr: 'Parcourir toutes les archives par page',
+  }[locale];
+  const flatAnchors: string[] = [];
+  for (let p = 1; p <= total; p++) {
+    const href = paginatedPath(basePath, p);
+    if (p === current) {
+      flatAnchors.push(`<strong aria-current="page">${p}</strong>`);
+    } else {
+      flatAnchors.push(`<a href="${href}">${p}</a>`);
+    }
+  }
+  return `<nav class="s-4nYHgH" aria-label="${flatLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${flatLabel} (${total})</summary><div class="s-6_t7LY hpl">${flatAnchors.join('')}</div></details></nav>`;
+}
+
+export function renderPagination(
+  locale: HubLocale,
+  basePath: string,
+  current: number,
+  total: number,
+  options: PaginationRenderOptions = {},
+): string {
+  // Compact pagination (visible): prev, 1, current-1, current, current+1,
+  // last, next. Long job archives add a bounded page-range index on page 1;
+  // each index links a complete sqrt-sized range of archive pages, so the
+  // parent → index → page → job path stays within the crawl-depth budget
+  // without a linear page-1 payload.
+  // Legacy flat-ladder context below remains for article archives that have
+  // not yet gained emitted index pages.
   // every page-N (BFS-depth closure 2026-05-12 run 25753701178 — without
   // every page-N anchor on every page, leaves on page-3..N regress past BFS
   // depth 4 since the compact nav only links 1, n-1, n+1, last from any
@@ -1311,81 +1354,228 @@ export function renderPagination(locale: HubLocale, basePath: string, current: n
   }
   const compactNav = `<nav class="s-ppmVTz" aria-label="Pagination">${parts.join('')}</nav>`;
 
-  // Flat ladder — every page-N anchor, collapsed for mobile.
-  // Skip when totalPages ≤ 1 (no pagination needed) or ≤ 5 (compact nav
-  // already shows all pages, ladder would be redundant).
-  //
-  // ALSO skip on every page but page-1 (issue #7662). The ladder is O(total)
-  // bytes; emitting it on all `total` pages made the archive O(total²) HTML,
-  // and at ~3 300 TI pages that put 885 `/tutti/page-N/` files at 282-284 KB
-  // against the 260 KB audit:page-weight budget — a treadmill that already
-  // burned three byte-shaves and two budget raises (200 → 215 → 260 KB, see
-  // the header of scripts/audit-page-weight.mjs).
-  // BFS-depth is unchanged BY CONSTRUCTION: `depthOf` is a shortest-path map,
-  // and page-1 (`basePath`) is the only entry point the parent hubs link, so
-  // every page-N already gets its minimum depth `depth(page-1) + 1` from
-  // page-1's ladder alone. A ladder on page-K (K > 1) can only ever offer
-  // `depth(page-K) + 1 ≥ depth(page-1) + 2`, i.e. it never lowered any depth
-  // and removing it never raises one. Leaves stay at `depth(page-1) + 2`.
-  // The compact nav above still carries prev/1/current±1/last/next on every
-  // page, so human navigation and the prev/next chain are untouched.
+  // Keep compact-only navigation on deep pages. Small archives and article
+  // archives without emitted index pages retain the legacy flat ladder. Long
+  // job archives use a bounded page-range index so the page-1 bridge is
+  // O(sqrt(total)) while every archive page remains one hop away from an
+  // index page.
   if (total <= 5 || current > 1) return compactNav;
-  const flatLabel = {
-    it: "Sfoglia tutto l'archivio per pagina",
-    en: 'Browse the full archive by page',
-    de: 'Vollständiges Archiv nach Seite durchsuchen',
-    fr: 'Parcourir toutes les archives par page',
-  }[locale];
-  // Use CSS classes instead of per-anchor inline styles. With totalPages
-  // ≥ 100 (master jobs hub) the inline-style variant ballooned to ~250 B
-  // per anchor × ~400 anchors = ~100 KB, pushing the last-page HTML past
-  // the 200 KB `audit:page-weight` budget (2026-05-18 regression on
-  // /cerca-lavoro-ticino/tutti/page-387/). Class names are short (.hp, .hc);
-  // their rules now live in public/assets/seo-static.css (already linked on
-  // these pages) instead of a per-page inline <style> block.
-  //
-  // Hrefs are root-relative (paginatedPath returns `/…/page-N/`), matching
-  // the compact nav above and the `class="thp"` ladder in buildHubHtml.
-  // The absolute `${BASE_URL}` prefix (28 B × every page anchor) was pure
-  // dead weight here — crawlers resolve root-relative links identically and
-  // every anchor is preserved — and with cantons now at ~1500 archive pages
-  // it alone pushed /fr/trouver-emploi-tessin/tous/ past the 215 KB budget
-  // (run 28090796553, ~42 KB of prefix). rel=prev/next <link> head hints
-  // stay absolute (canonical convention).
-  //
-  // Bare page number as the visible/anchor text (was `${pageWord}&nbsp;${p}`).
-  // The full ladder MUST keep every page-N anchor for BFS-depth closure (see
-  // header comment) — that link set is load-bearing and unchanged here — but
-  // the repeated per-anchor word prefix ("Pagina&nbsp;" / "Seite&nbsp;" /
-  // "Page&nbsp;", ~10-12 B each) is not: at ~2 200 archive pages it added
-  // ~24 KB that pushed /cerca-lavoro-ticino/tutti/ and its page-N back over
-  // the 215 KB audit:page-weight budget (post-deploy run 29330607996, 130
-  // offenders 223-228 KB). The compact nav above already renders bare `${p}`
-  // links, and the `<details><summary>` + `<nav aria-label>` supply the
-  // "browse by page" context, so the numbers stay understandable. Same
-  // byte-shave class as the prior inline-style→class and BASE_URL-prefix drops
-  // on this exact ladder; every anchor is preserved so BFS depth is unchanged.
-  //
-  // Per-anchor `class="hp"` / `class="hc"` dropped in favour of the container
-  // rule `.hpl a` / `.hpl strong` (public/assets/seo-static.css). Same
-  // byte-shave lineage as the inline-style→class, BASE_URL-prefix and word-
-  // prefix drops above, and the largest one left: 13 B × every anchor is
-  // ~43 KB on the 3 300-page TI ladder, paid once per page instead of once
-  // per anchor. Now that the ladder only ships on page-1 (see above) that
-  // page carries the whole O(total) cost alone, so the shave is what keeps it
-  // inside the 260 KB budget instead of ~10 KB over it.
-  const flatAnchors: string[] = [];
-  for (let p = 1; p <= total; p++) {
-    const href = paginatedPath(basePath, p);
-    if (p === current) {
-      flatAnchors.push(`<strong aria-current="page">${p}</strong>`);
-    } else {
-      flatAnchors.push(`<a href="${href}">${p}</a>`);
-    }
+  if (options.indexPages === false || total <= PAGINATION_INDEX_THRESHOLD) {
+    return `${compactNav}${renderFlatPaginationLadder(locale, basePath, current, total)}`;
   }
-  const flatNav = `<nav class="s-4nYHgH" aria-label="${flatLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${flatLabel} (${total})</summary><div class="s-6_t7LY hpl">${flatAnchors.join('')}</div></details></nav>`;
 
-  return `${compactNav}${flatNav}`;
+  const indexLabel = {
+    it: "Sfoglia gli indici dell'archivio",
+    en: 'Browse archive page indexes',
+    de: 'Seitenindizes des Archivs durchsuchen',
+    fr: "Parcourir les index de l'archive",
+  }[locale];
+  const indexAnchors = Array.from({ length: paginationIndexCount(total) }, (_, offset) => {
+    const indexPage = offset + 1;
+    const range = paginationIndexRange(total, indexPage);
+    return `<a href="${paginationIndexPath(basePath, indexPage)}">${esc(paginationIndexLabel(locale, range.start, range.end))}</a>`;
+  });
+  const indexNav = `<nav class="s-4nYHgH" aria-label="${indexLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${indexLabel} (${total} pagine)</summary><div class="s-6_t7LY hpl">${indexAnchors.join('')}</div></details></nav>`;
+
+  return `${compactNav}${indexNav}`;
+}
+
+interface PaginationIndexPageArgs {
+  locale: HubLocale;
+  basePath: string;
+  indexPage: number;
+  totalPages: number;
+  totalItems: number;
+  archiveTitle: string;
+  archiveDescription: string;
+  parentPath: string;
+  parentLabel: string;
+  dateStamp: string;
+  distDir?: string;
+  alternateBasePaths?: Partial<Record<HubLocale, string>>;
+}
+
+/**
+ * Render one bounded page-range index. The page itself is indexable and
+ * contains a complete, sqrt-sized slice of the archive links, so the parent
+ * landing and the archive root never need to materialize an O(total) ladder.
+ */
+export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string {
+  const {
+    locale,
+    basePath,
+    indexPage,
+    totalPages,
+    totalItems,
+    archiveTitle,
+    archiveDescription,
+    parentPath,
+    parentLabel,
+    dateStamp,
+    distDir,
+    alternateBasePaths,
+  } = args;
+  const range = paginationIndexRange(totalPages, indexPage);
+  const canonicalPath = paginationIndexPath(basePath, indexPage);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const rangeLabel = paginationIndexLabel(locale, range.start, range.end);
+  const copy = {
+    it: {
+      title: `${archiveTitle} — ${rangeLabel}`,
+      intro: `Questo indice raccoglie i collegamenti alle pagine ${range.start}–${range.end} dell'archivio, su ${totalPages} pagine complessive e ${totalItems.toLocaleString('it')} contenuti aggiornati. Apri una pagina per consultare le offerte, i settori o le aziende della fascia corrispondente senza scorrere un elenco unico troppo pesante.`,
+      listHeading: 'Pagine incluse in questo indice',
+      indexHeading: "Altri indici dell'archivio",
+      archiveLink: "Torna all'archivio completo",
+      parentLink: `Torna a ${parentLabel}`,
+      support: "Gli intervalli sono calcolati automaticamente in base al numero reale di pagine emesse. La suddivisione mantiene il percorso di navigazione breve per utenti e crawler, conserva i collegamenti canonici con slash finale e lascia ogni pagina dell'archivio raggiungibile da un indice stabile.",
+    },
+    en: {
+      title: `${archiveTitle} — ${rangeLabel}`,
+      intro: `This index links to archive pages ${range.start}–${range.end}, within ${totalPages} pages and ${totalItems.toLocaleString('en')} updated entries in total. Open a page to browse the matching jobs, sectors, or companies without loading one oversized list of every archive page.`,
+      listHeading: 'Pages in this index',
+      indexHeading: 'Other archive indexes',
+      archiveLink: 'Return to the complete archive',
+      parentLink: `Back to ${parentLabel}`,
+      support: 'Ranges are calculated from the pages actually emitted for this archive. This split keeps the navigation path short for users and crawlers, preserves canonical trailing-slash URLs, and makes every archive page reachable from a stable index.',
+    },
+    de: {
+      title: `${archiveTitle} — ${rangeLabel}`,
+      intro: `Dieser Index verlinkt die Archivseiten ${range.start}–${range.end} innerhalb von insgesamt ${totalPages} Seiten und ${totalItems.toLocaleString('de')} aktualisierten Einträgen. Öffnen Sie eine Seite, um die passenden Stellen, Branchen oder Unternehmen zu sehen, ohne eine übergroße Gesamtliste zu laden.`,
+      listHeading: 'Seiten in diesem Index',
+      indexHeading: 'Weitere Archivindizes',
+      archiveLink: 'Zum vollständigen Archiv',
+      parentLink: `Zurück zu ${parentLabel}`,
+      support: 'Die Bereiche werden aus den tatsächlich ausgegebenen Archivseiten berechnet. Diese Aufteilung hält den Navigationsweg für Nutzer und Crawler kurz, bewahrt kanonische URLs mit abschließendem Slash und macht jede Archivseite über einen stabilen Index erreichbar.',
+    },
+    fr: {
+      title: `${archiveTitle} — ${rangeLabel}`,
+      intro: `Cet index relie les pages d’archive ${range.start}–${range.end}, parmi ${totalPages} pages et ${totalItems.toLocaleString('fr')} contenus mis à jour au total. Ouvrez une page pour consulter les offres, secteurs ou entreprises correspondants sans charger une liste unique trop lourde.`,
+      listHeading: 'Pages incluses dans cet index',
+      indexHeading: 'Autres index de l’archive',
+      archiveLink: 'Retour à l’archive complète',
+      parentLink: `Retour à ${parentLabel}`,
+      support: 'Les intervalles sont calculés à partir des pages réellement émises pour cette archive. Cette répartition garde un parcours court pour les utilisateurs et les robots, conserve les URL canoniques avec slash final et rend chaque page accessible depuis un index stable.',
+    },
+  }[locale];
+
+  const pageLinks = Array.from({ length: range.end - range.start + 1 }, (_, offset) => {
+    const page = range.start + offset;
+    return `<li><a class="s-7DS5hj" href="${paginatedPath(basePath, page)}">${esc(pageLabel(locale, page))}</a></li>`;
+  }).join('');
+  const indexCount = paginationIndexCount(totalPages);
+  const indexLinks = Array.from({ length: indexCount }, (_, offset) => {
+    const index = offset + 1;
+    const indexRange = paginationIndexRange(totalPages, index);
+    const label = paginationIndexLabel(locale, indexRange.start, indexRange.end);
+    return index === indexPage
+      ? `<strong aria-current="page">${esc(label)}</strong>`
+      : `<a href="${paginationIndexPath(basePath, index)}">${esc(label)}</a>`;
+  }).join('');
+
+  const alternateLinks = alternateBasePaths
+    ? HUB_LOCALES
+        .filter((loc) => alternateBasePaths[loc])
+        .map((loc) => `    <link rel="alternate" hreflang="${loc}" href="${BASE_URL}${paginationIndexPath(alternateBasePaths[loc]!, indexPage)}">`)
+        .join('\n')
+    : '';
+  const xDefault = alternateBasePaths?.it
+    ? `\n    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${paginationIndexPath(alternateBasePaths.it, indexPage)}">`
+    : '';
+  const extraHeadHtml = [
+    indexPage > 1
+      ? `    <link rel="prev" href="${BASE_URL}${paginationIndexPath(basePath, indexPage - 1)}">`
+      : '',
+    indexPage < indexCount
+      ? `    <link rel="next" href="${BASE_URL}${paginationIndexPath(basePath, indexPage + 1)}">`
+      : '',
+  ].filter(Boolean).join('\n');
+
+  const breadcrumbLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: parentLabel, item: `${BASE_URL}${parentPath}` },
+      { '@type': 'ListItem', position: 3, name: archiveTitle, item: `${BASE_URL}${basePath}` },
+      { '@type': 'ListItem', position: 4, name: rangeLabel, item: canonicalUrl },
+    ],
+  });
+  const collectionLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: copy.title,
+    description: copy.intro,
+    url: canonicalUrl,
+    inLanguage: locale,
+    isPartOf: { '@type': 'CollectionPage', name: archiveTitle, url: `${BASE_URL}${basePath}` },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: range.end - range.start + 1,
+      itemListElement: Array.from({ length: range.end - range.start + 1 }, (_, offset) => {
+        const page = range.start + offset;
+        return {
+          '@type': 'ListItem',
+          position: offset + 1,
+          name: pageLabel(locale, page),
+          url: `${BASE_URL}${paginatedPath(basePath, page)}`,
+        };
+      }),
+    },
+  });
+
+  const bodyHtml = `
+    <nav class="s-AxRVCF" aria-label="Breadcrumb">
+      <a class="s-wfUMYx" href="/">Home</a>
+      <span> / </span>
+      <a class="s-wfUMYx" href="${esc(parentPath)}">${esc(parentLabel)}</a>
+      <span> / </span>
+      <a class="s-wfUMYx" href="${esc(basePath)}">${esc(archiveTitle)}</a>
+      <span> / </span>
+      <span>${esc(rangeLabel)}</span>
+    </nav>
+    <header class="s-S1RSUf">
+      <h1 class="s-e3gkVi">${esc(copy.title)}</h1>
+      <p class="s-OPPwy-">${esc(copy.intro)}</p>
+      <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${esc(dateStamp)}</p>
+    </header>
+    <section>
+      <h2 class="s-o3IET6">${esc(copy.listHeading)}</h2>
+      <ul class="s-N93mPe">${pageLinks}</ul>
+    </section>
+    <nav class="s-ay7Grc" aria-label="${esc(copy.indexHeading)}">
+      <p><a class="s-cta" href="${esc(basePath)}">${esc(copy.archiveLink)}</a></p>
+      ${indexCount > 1 ? `<div class="s-6_t7LY hpl">${indexLinks}</div>` : ''}
+      <p><a class="s-wfUMYx" href="${esc(parentPath)}">${esc(copy.parentLink)}</a></p>
+    </nav>
+    <p class="s-L9sOKI">${esc(copy.support)}</p>`;
+
+  return buildSeoPageHtml({
+    locale,
+    title: copy.title,
+    description: archiveDescription,
+    canonicalUrl,
+    hreflangHtml: `${alternateLinks}${xDefault}`,
+    extraHeadHtml,
+    jsonLdScripts: [breadcrumbLd, collectionLd],
+    bodyHtml,
+    distDir,
+    hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
+  });
+}
+
+interface PaginationIndexEmitArgs extends PaginationIndexPageArgs {
+  write: (canonicalPath: string, html: string) => void;
+}
+
+function emitPaginationIndexPages(args: PaginationIndexEmitArgs): Array<{ indexPage: number; canonicalPath: string }> {
+  const indexCount = paginationIndexCount(args.totalPages);
+  const emitted: Array<{ indexPage: number; canonicalPath: string }> = [];
+  for (let indexPage = 1; indexPage <= indexCount; indexPage++) {
+    const canonicalPath = paginationIndexPath(args.basePath, indexPage);
+    args.write(canonicalPath, buildPaginationIndexHtml({ ...args, indexPage }));
+    emitted.push({ indexPage, canonicalPath });
+  }
+  return emitted;
 }
 
 interface EmitArgs {
@@ -1694,35 +1884,38 @@ export function buildThinCantonHubHtml(args: {
   const pageTitle = `${CANTON_HUB_LABELS[locale][hub]} ${cantonLabel}${pageSuffix} | Frontaliere`;
 
   // BFS-depth closure: page 1 is the shallow bridge for the `tutti` archive.
-  // Linking every page-N from page 1 keeps each linked job leaf within the
-  // audit's four-hop budget (home → canton → tutti/page-N → job). The full
-  // ladder is emitted on page 1 only; page-N > 1 keeps the compact navigator
-  // so the archive is O(totalPages), not O(totalPages²).
-  //
-  // The permanent O(√totalPages) redistribution is tracked separately in
-  // #7803/#4209. Until that depth redesign also changes the parent hub and
-  // sitemap contracts, removing page-1's bridge would bury middle-page job
-  // leaves beyond the enforced BFS depth.
-  //
-  // Page numbers use the compact, bare-anchor form already used by the
-  // master-hub renderer. Keep the measurement/revert decision in the PR
-  // evidence rather than relying on an unmeasured per-page estimate here.
+  // Long archives use the same page-range indexes as the parent canton
+  // landing, so a job leaf is reached through parent → index → page → job
+  // without putting every page-N URL on the page-1 HTML. Small archives keep
+  // their direct, readable ladder; page-N > 1 always keeps the compact
+  // navigator and its sequential rel=prev/next links.
   let paginationHtml = '';
   if (totalPages > 1) {
     const paginationLabel = locale === 'en' ? 'Browse all pages'
       : locale === 'de' ? 'Alle Seiten durchsuchen'
       : locale === 'fr' ? 'Parcourir toutes les pages'
       : 'Sfoglia tutte le pagine';
-    // Bare page number (was `${pageWord}&nbsp;${p}`). The full page-1 ladder
-    // is the load-bearing BFS bridge; page-N > 1 uses the first, last and
-    // adjacent pages. The `<details><summary>` + `<nav aria-label>` retain
-    // the browse context and the prev/next chain remains explicit.
+    // Bare page number (was `${pageWord}&nbsp;${p}`). The page-1 bridge is a
+    // direct ladder for small archives and a page-range index list for long
+    // archives. Page-N > 1 uses the first, last and adjacent pages. The
+    // `<details><summary>` + `<nav aria-label>` retain the browse context and
+    // the prev/next chain remains explicit.
     const anchors: string[] = [];
     if (page === 1) {
-      for (let p = 1; p <= totalPages; p++) {
-        const href = p === 1 ? basePath : paginatedPath(basePath, p);
-        if (p === page) anchors.push(`<strong>${p}</strong>`);
-        else anchors.push(`<a href="${href}">${p}</a>`);
+      if (totalPages <= PAGINATION_INDEX_THRESHOLD) {
+        for (let p = 1; p <= totalPages; p++) {
+          const href = p === 1 ? basePath : paginatedPath(basePath, p);
+          if (p === page) anchors.push(`<strong>${p}</strong>`);
+          else anchors.push(`<a href="${href}">${p}</a>`);
+        }
+      } else {
+        anchors.push(`<strong>${page}</strong>`);
+        for (let indexPage = 1; indexPage <= paginationIndexCount(totalPages); indexPage++) {
+          const range = paginationIndexRange(totalPages, indexPage);
+          anchors.push(
+            `<a href="${paginationIndexPath(basePath, indexPage)}">${esc(paginationIndexLabel(locale, range.start, range.end))}</a>`,
+          );
+        }
       }
     } else {
       const windowPages = new Set<number>([1, totalPages, page - 1, page, page + 1]);
@@ -2100,7 +2293,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
       const localePrefix = locale === 'it' ? '' : `/${locale}`;
       const sectionRoot = `${localePrefix}/${section}`;
 
-      // ── tutti (all jobs) — full pagination ladder, MINIMAL body for page>1 ──
+      // ── tutti (all jobs) — bounded page indexes, MINIMAL body for page>1 ──
       // Re-emit page-N>1 as static HTML for non-TI cantons (2026-05-13) to
       // close the BFS-depth regression on sitemap-jobs.xml introduced by
       // PR #148's "page-1 only" cap. Per-canton job leaves were at depth 5
@@ -2162,6 +2355,34 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
           const pageCanonical = pageNum === 1 ? basePath : paginatedPath(basePath, pageNum);
           qw(np.join(distDir, pageCanonical.slice(1), 'index.html'), html);
           onPageEmitted();
+        }
+        const archiveBases = Object.fromEntries(
+          HUB_LOCALES.map((alt) => [alt, hubSlugFor(canton, alt, 'tutti')]),
+        ) as Record<HubLocale, string>;
+        const indexPages = emitPaginationIndexPages({
+          locale,
+          basePath,
+          totalPages: tuttiTotalPages,
+          totalItems: total,
+          archiveTitle: `${CANTON_HUB_LABELS[locale].tutti} · ${cantonLabel}`,
+          archiveDescription: cantonHubIntro(locale, 'tutti', cantonLabel),
+          parentPath: `${sectionRoot}/`,
+          parentLabel: cantonLabel,
+          dateStamp,
+          distDir,
+          alternateBasePaths: archiveBases,
+          write: (canonicalPath, html) => {
+            qw(np.join(distDir, canonicalPath.slice(1), 'index.html'), html);
+            onPageEmitted();
+          },
+        });
+        for (const { indexPage, canonicalPath } of indexPages) {
+          const altLinks = HUB_LOCALES.map((alt) =>
+            `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${paginationIndexPath(archiveBases[alt], indexPage)}" />`,
+          ).join('\n');
+          sitemapEntries.push(
+            `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.4</priority>\n  </url>`,
+          );
         }
         if (locale === 'it') {
           const url = `${BASE_URL}${basePath}`;
@@ -2529,6 +2750,34 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       sitemapEntries.push(
         `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
       );
+    }
+    // Long non-article hubs keep all their archive pages static for IT, so
+    // emit the matching page-range indexes after the archive pages. Article
+    // archives deliberately retain their legacy flat ladder until a separate
+    // article-index emitter exists; buildHtml disables index links for them.
+    if (locale === 'it' && hubKey !== 'articles') {
+      const parentPath = basePath.replace(/[^/]+\/$/, '');
+      const parentLabel = hubKey === 'companies'
+        ? SECTION_LABEL[locale].companies
+        : SECTION_LABEL[locale].jobBoard;
+      const indexPages = emitPaginationIndexPages({
+        locale,
+        basePath,
+        totalPages,
+        totalItems: total,
+        archiveTitle: HUB_TITLES[locale][hubKey],
+        archiveDescription: HUB_DESCRIPTIONS[locale][hubKey],
+        parentPath,
+        parentLabel,
+        dateStamp,
+        distDir,
+        write: (canonicalPath, html) => writeFile(canonicalPath, html),
+      });
+      for (const { canonicalPath } of indexPages) {
+        sitemapEntries.push(
+          `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${hubKey === 'jobs' ? 'daily' : 'weekly'}</changefreq>\n    <priority>0.4</priority>\n  </url>`,
+        );
+      }
     }
   }
 }

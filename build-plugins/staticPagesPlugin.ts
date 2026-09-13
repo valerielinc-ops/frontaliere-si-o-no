@@ -4021,6 +4021,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // value is irrelevant for TI byte-identity.
  jobsCount: jobsTotalPages * JOBS_PAGE_SIZE,
  totalPages: jobsTotalPages,
+ archiveNavigablePages: locale === 'it' ? jobsTotalPages : 1,
  archiveBaseHref: HUB_SLUGS[locale as ArchiveHubLocale]?.jobsAll ?? '/cerca-lavoro-ticino/tutti/',
  });
  // Push leading entries up to and including the archive navigator. With

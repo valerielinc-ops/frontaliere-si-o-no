@@ -161,6 +161,49 @@ export function paginatedPath(basePath: string, page: number): string {
   return `${trimmed}/page-${page}/`;
 }
 
+/**
+ * Archives above this size use a two-level page navigator. Keeping the small
+ * archive path unchanged avoids adding an intermediate URL where the existing
+ * flat ladder is already bounded and readable.
+ */
+export const PAGINATION_INDEX_THRESHOLD = 25;
+
+/** Number of archive pages assigned to one pagination index page. */
+export function paginationIndexPageSize(totalPages: number): number {
+  return Math.max(1, Math.ceil(Math.sqrt(Math.max(1, Math.floor(totalPages)))));
+}
+
+/** Number of intermediate index pages needed for an archive. */
+export function paginationIndexCount(totalPages: number): number {
+  const normalizedTotal = Math.max(1, Math.floor(totalPages));
+  if (normalizedTotal <= PAGINATION_INDEX_THRESHOLD) return 0;
+  return Math.ceil(normalizedTotal / paginationIndexPageSize(normalizedTotal));
+}
+
+/** Inclusive archive-page range represented by one intermediate index page. */
+export function paginationIndexRange(totalPages: number, indexPage: number): { start: number; end: number } {
+  const normalizedTotal = Math.max(1, Math.floor(totalPages));
+  const indexCount = paginationIndexCount(normalizedTotal);
+  if (indexCount === 0) return { start: 1, end: normalizedTotal };
+  const normalizedIndex = Math.min(indexCount, Math.max(1, Math.floor(indexPage)));
+  const pageSize = paginationIndexPageSize(normalizedTotal);
+  const start = (normalizedIndex - 1) * pageSize + 1;
+  return { start, end: Math.min(normalizedIndex * pageSize, normalizedTotal) };
+}
+
+/** Canonical URL for an intermediate page-range index. */
+export function paginationIndexPath(basePath: string, indexPage: number): string {
+  const trimmed = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
+  return `${trimmed}/page-index-${Math.max(1, Math.floor(indexPage))}/`;
+}
+
+/** Localized visible label for a page-range index link. */
+export function paginationIndexLabel(locale: HubLocale, start: number, end: number): string {
+  const word = { it: 'Pagina', en: 'Page', de: 'Seite', fr: 'Page' }[locale];
+  const plural = { it: 'Pagine', en: 'Pages', de: 'Seiten', fr: 'Pages' }[locale];
+  return start === end ? `${word} ${start}` : `${plural} ${start}–${end}`;
+}
+
 /** All canonical hub paths (page-1 only) used by router for staticOverlay match. */
 export function hubBasePaths(): readonly string[] {
   const out: string[] = [];
@@ -213,7 +256,7 @@ export function isSeoHubPath(pathname: string): boolean {
     for (const base of [s.jobsAll, s.sectorsAll, s.companiesAll, s.articlesAll, svizzeraArchive[loc]]) {
       if (norm === base) return true;
       const trimmed = base.endsWith('/') ? base.slice(0, -1) : base;
-      if (new RegExp(`^${trimmed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/page-\\d+/?$`).test(norm)) {
+      if (new RegExp(`^${trimmed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/(?:page-\\d+|page-index-\\d+)/?$`).test(norm)) {
         return true;
       }
     }
