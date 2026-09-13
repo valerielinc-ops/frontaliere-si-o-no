@@ -66,6 +66,7 @@ import { parseSlugRegistry } from '../scripts/lib/article-slug-registry.mjs';
 // buried and its 103 entries sat at BFS depth 5 (issue #5428).
 import { buildFaqHubPath } from '../data/faq-hub/routes';
 import { PHARMACY_HUB_PATH } from '../services/pharmacies/types';
+import { COMMUNICATIONS_PAGE_PATH } from '../services/communicationChannels';
 // Same story, same rail, the other eleven pills: the guide/fisco hrefs below
 // were hand-copied literals that had drifted from `services/routeSlugs.data.ts`
 // on EN and DE. Derived now from SLUG_TABLES, one module for the four copies
@@ -1034,6 +1035,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/correzioni/', label: 'Correzioni' },
  { href: '/metodologia/', label: 'Metodologia' },
  { href: '/contattaci/', label: 'Contattaci' },
+ { href: COMMUNICATIONS_PAGE_PATH.it, label: 'Comunicazioni' },
  { href: '/privacy/', label: 'Privacy' },
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
@@ -1052,6 +1054,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/en/site-map/', label: 'Site Map' },
  { href: '/about/', label: 'About Us' },
  { href: '/contact/', label: 'Contact Us' },
+ { href: COMMUNICATIONS_PAGE_PATH.en, label: 'Communications' },
  { href: '/privacy-policy/', label: 'Privacy Policy' },
  ]),
  de: Object.freeze([
@@ -1067,6 +1070,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/de/seitenplan/', label: 'Seitenplan' },
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
+ { href: COMMUNICATIONS_PAGE_PATH.de, label: 'Mitteilungen' },
  { href: '/privacy-policy/', label: 'Privacy Policy' },
  ]),
  fr: Object.freeze([
@@ -1082,6 +1086,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/fr/plan-du-site/', label: 'Plan du Site' },
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
+ { href: COMMUNICATIONS_PAGE_PATH.fr, label: 'Communications' },
  { href: '/privacy-policy/', label: 'Privacy Policy' },
  ]),
 };
