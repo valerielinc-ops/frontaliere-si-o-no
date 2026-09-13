@@ -164,6 +164,8 @@ export interface PeerComparisonLabels {
    * dative. The nominative reads as broken grammar on every page of the
    * family, and it does so silently — this line is the contract, the two
    * callers of the module diverged on it once (#7596).
+   * `renderPeerComparison()` validates it before its fail-closed early return,
+   * so an invalid German caller cannot be silently accepted as an empty block.
    */
   peerNoun: string;
 }
@@ -340,6 +342,9 @@ export function renderPeerComparison(params: {
   sourceNote?: string;
 }): string {
   const { locale, currentKey, rows, labels, formatValue, higherIsBetter = true, windowSize = 2, sourceNote } = params;
+  // Validate at the public boundary, before a short/missing cohort can return
+  // an empty string and silently skip the German dative contract.
+  assertPeerNounContract(locale, labels.peerNoun);
   const ranked = rankPeerRows(rows, higherIsBetter);
   if (ranked.length < 3 || !ranked.some((row) => row.key === currentKey)) return '';
 

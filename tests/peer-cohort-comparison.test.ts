@@ -195,6 +195,16 @@ describe('renderPeerComparison', () => {
     })).toThrow(/dativo plurale/i);
   });
 
+  it('verifica il dativo DE prima del fail-closed per una coorte troppo corta', () => {
+    expect(() => renderPeerComparison({
+      locale: 'de',
+      currentKey: 'a',
+      rows: rows.slice(0, 2),
+      labels: { ...labels, peerNoun: 'Berufe' },
+      formatValue: fmt,
+    })).toThrow(/dativo plurale/i);
+  });
+
   it('emits the block with links to the peers', () => {
     const html = renderPeerComparison({ locale: 'it', currentKey: 'c', rows, labels, formatValue: fmt });
     expect(html).toContain('data-peer-comparison="1"');
