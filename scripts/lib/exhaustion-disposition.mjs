@@ -179,8 +179,8 @@ export function inputCapVetoSummary(err) {
     echoHiddenInBuckets: vote.echoHiddenInBuckets,
     marginAttribution: vote.marginAttribution,
     // Il numero a SINISTRA del confronto che ha chiuso il voto, dopo il
-    // margine. Riportato grezzo, anche quando e' negativo, perche' e'
-    // letteralmente cio' che `wins()` ha visto.
+    // margine. Su un'attribuzione incoerente il confronto non avviene: il
+    // valore resta limitato alla capienza del bucket, mai negativo.
     votedTransient: vote.votedTransient,
     votedPersistent: vote.votedPersistent,
   };
@@ -709,6 +709,16 @@ function transientMajorityVerdict(breakdown, options = {}) {
   const echoHiddenInBuckets = totalPresent
     ? Math.max(0, echoUnattributed - ambiguousMass)
     : 0;
+  // Gli echi non attribuiti vengono addebitati al solo secchio scelto dal
+  // consumatore. Se eccedono la massa netta di quel secchio, l'attribuzione e'
+  // incoerente: non si puo' trasformare un dato che dichiara 60 transitori,
+  // 40 persistenti e 100 echi in un voto persistente negativo. Il clamp vale
+  // solo per la diagnostica; il verdetto sotto chiude comunque il caso.
+  const attributionCapacity = marginAttribution === 'persistent'
+    ? buckets.netPersistent
+    : buckets.netTransient;
+  const attributionCoherent = echoHiddenInBuckets <= attributionCapacity;
+  const attributableHidden = Math.min(echoHiddenInBuckets, attributionCapacity);
   // Il guardrail conta le righe DI QUESTO voto: gli echi DICHIARATI contro
   // quelli rimasti nei due secchi. Il denominatore sono i due secchi netti —
   // non `providerCooldownSkips > total` del tally, che porterebbe dentro il
@@ -754,9 +764,9 @@ function transientMajorityVerdict(breakdown, options = {}) {
   );
   const netEvidence = buckets.netTransient + buckets.netPersistent;
   const votedTransient = buckets.netTransient
-    - (marginAttribution === 'transient' ? echoHiddenInBuckets : 0);
+    - (marginAttribution === 'transient' ? attributableHidden : 0);
   const votedPersistent = buckets.netPersistent
-    - (marginAttribution === 'persistent' ? echoHiddenInBuckets : 0);
+    - (marginAttribution === 'persistent' ? attributableHidden : 0);
   const base = {
     netTransient: buckets.netTransient,
     netPersistent: buckets.netPersistent,
@@ -770,6 +780,9 @@ function transientMajorityVerdict(breakdown, options = {}) {
     // l'affidabilita' della sottrazione, non il ramo percorso.
     echoDominated: echoRemoved > netEvidence,
   };
+  if (!attributionCoherent) {
+    return { ...base, verdict: false, decidedBy: 'margin' };
+  }
   // Pavimento: niente prove indipendenti, niente maggioranza (vedi 1 sopra).
   if (netEvidence <= 0) return { ...base, verdict: false, decidedBy: 'floor' };
   if (!wins(buckets.netTransient, buckets.netPersistent)) {

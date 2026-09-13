@@ -42,6 +42,7 @@ import {
   QUOTA_DEFERRAL_MIN_TRANSIENT_SHARE,
   isInputCapDeferralVeto,
   inputCapVetoSummary,
+  isTransientMajority,
   providerCooldownEchoOnlySummary,
   isLegitimateQuotaDeferral,
   quotaDeferralShare,
@@ -175,6 +176,28 @@ describe('isInputCapDeferralVeto — il pareggio non differisce piu\'', () => {
       };
       expect(providerCooldownEchoOnlySummary(err)).toBeNull();
     }
+  });
+
+  it('veta il replay quando gli echi non possono stare nel bucket persistente', () => {
+    const breakdown = {
+      transient: 60,
+      persistent: 40,
+      total: 100,
+      providerCooldownSkips: { total: 100 },
+    };
+    const err: any = cascata({ transient: 60, persistent: 40, total: 100, capCount: 1 });
+    err.exhaustionBreakdown = breakdown;
+
+    expect(isTransientMajority(breakdown, {
+      tie: 'persistent',
+      marginAttribution: 'persistent',
+    })).toBe(false);
+    expect(isInputCapDeferralVeto(err)).toBe(true);
+    expect(inputCapVetoSummary(err)).toMatchObject({
+      decidedBy: 'margin',
+      echoHiddenInBuckets: 100,
+      votedPersistent: 0,
+    });
   });
 });
 
