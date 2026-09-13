@@ -6349,7 +6349,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.attacco-hacker-salt-dati-clienti.title': 'Salt : attaque informatique et vol de données clients mobiles',
     'blog.article.attacco-hacker-salt-dati-clienti.excerpt': 'L\'opérateur téléphonique Salt victime d\'une cyberattaque. Soustractions de données personnelles de certains clients mobiles en Suisse. Averti le Préposé fédéral.',
     'blog.article.attacco-hacker-salt-dati-clienti.imageAlt': 'Siège d\'un opérateur de téléphonie mobile en Suisse impliqué dans une cyberattaque',
-    'blog.article.dazi-usa-seco-commercio.title': 'Dazî USA e accordi SECO per le aziende svizzere',
+    'blog.article.dazi-usa-seco-commercio.title': 'Nouveaux droits de douane américains et accords du SECO pour les entreprises suisses',
     'blog.article.dazi-usa-seco-commercio.excerpt': 'Les États-Unis introduisent des droits supplémentaires allant jusqu\'à 12,5 % sur les marchandises suisses. Le SECO surveille les impacts et l\'évolution des chaînes de production.',
     'blog.article.dazi-usa-seco-commercio.imageAlt': 'Siege du SECO en Suisse',
     'blog.article.furto-apparecchiature-mediche-roma.title': 'Entreprise suisse volée à Rome : l\'instrumentation retrouvée',
