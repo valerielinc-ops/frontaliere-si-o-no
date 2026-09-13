@@ -1,7 +1,7 @@
 {
   "key": "bucher-suter",
   "label": "Bucher + Suter AG",
-  "generatedAt": "2026-09-12T13:08:27.837Z",
+  "generatedAt": "2026-09-13T14:06:24.597Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -10,12 +10,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5557,
-  "avgDurationMs": 5557,
+  "durationMs": 7034,
+  "avgDurationMs": 7034,
   "durationHistory": [
-    5557
+    7034
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://www.bucher-suter.com/jobs/salesforce-business-consultant-agentforce-contact-center-service-cloud-ch/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-12T13:08:22.169Z",
+      "crawledAt": "2026-09-13T14:06:18.919Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -58,48 +58,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "bucher-suter-e0ead8bbd6a9",
-      "slug": "capo-squadra-operations-people-process-business-applications-bucher-suter-ag-bern",
-      "company": "Bucher + Suter AG",
-      "companyKey": "bucher-suter",
-      "companyDomain": "bucher-suter.com",
-      "title": "Team Leader Operations – People, Process, Business Applications",
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.bucher-suter.com/jobs/team-leader-operations-people-process-business-applications/",
-      "source": "Bucher + Suter AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-10T23:22:55.104Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3048",
-      "streetAddress": "Lindenhofstrasse 1",
-      "category": "Operations",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / Contact Center Solutions",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "applyUrl": "https://www.bucher-suter.com/jobs/team-leader-operations-people-process-business-applications/",
-      "firstSeenAt": "2026-07-06T13:11:59.507Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
