@@ -433,10 +433,34 @@ function uniqueSlug(base, used) {
   return slug;
 }
 
-export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElements = [], datasetUrl = ITALY_PHARMACY_DATASET_PAGE }) {
-  const usedSlugs = new Set();
-  const usedOsmElementKeys = new Set();
-  const records = [];
+function isStableSlug(value) {
+  return typeof value === 'string' && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
+}
+
+function italianUrlAliasKey(alias) {
+  return `${text(alias.country)}|${text(alias.province).toUpperCase()}|${normalizeText(alias.city)}|${text(alias.slug)}`;
+}
+
+function addItalianUrlAlias(aliases, alias, current) {
+  if (!alias || alias.country !== 'IT' || !text(alias.province) || !text(alias.city) || !isStableSlug(alias.slug)) return;
+  const normalized = {
+    country: 'IT',
+    province: text(alias.province).toUpperCase(),
+    city: text(alias.city),
+    slug: alias.slug,
+  };
+  if (normalized.province === current.province && normalizeText(normalized.city) === normalizeText(current.city) && normalized.slug === current.slug) return;
+  const key = italianUrlAliasKey(normalized);
+  if (!aliases.some((candidate) => italianUrlAliasKey(candidate) === key)) aliases.push(normalized);
+}
+
+export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElements = [], datasetUrl = ITALY_PHARMACY_DATASET_PAGE, previous = [] }) {
+  const previousByMinistryId = new Map(
+    (previous || [])
+      .filter((record) => record?.country === 'IT' && text(record.ministryId))
+      .map((record) => [text(record.ministryId), record]),
+  );
+  const candidates = [];
   for (const raw of rawRecords || []) {
     const province = text(raw.sigla_provincia).toUpperCase();
     if (!ITALY_BORDER_PROVINCES.includes(province)) continue;
@@ -447,12 +471,66 @@ export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElem
     const name = text(raw.descrizione_farmacia);
     const city = displayName(raw.comune);
     const ministryId = text(raw.cod_farmacia);
-    const baseSlug = slugifyPharmacy(`${name.slice(0, 90)} ${city} ${ministryId}`);
+    candidates.push({
+      raw,
+      province,
+      name,
+      city,
+      ministryId,
+      baseSlug: slugifyPharmacy(`${name.slice(0, 90)} ${city} ${ministryId}`),
+      previousRecord: previousByMinistryId.get(ministryId),
+    });
+  }
+
+  // Reserve every previous canonical slug before allocating a slug to a new
+  // ministry record. That way a new pharmacy cannot take a still-live slug
+  // before the record that owns it gets its stable URL back.
+  const reservedSlugs = new Set(
+    candidates
+      .map(({ previousRecord }) => previousRecord?.slug)
+      .filter(isStableSlug),
+  );
+  const previousSlugOwners = new Map();
+  for (const candidate of candidates) {
+    const previousSlug = candidate.previousRecord?.slug;
+    if (isStableSlug(previousSlug) && !previousSlugOwners.has(previousSlug)) {
+      previousSlugOwners.set(previousSlug, candidate.ministryId);
+    }
+  }
+
+  const usedSlugs = new Set();
+  const usedOsmElementKeys = new Set();
+  const records = [];
+  for (const candidate of candidates) {
+    const { raw, province, name, city, ministryId, baseSlug, previousRecord } = candidate;
+    const previousSlug = previousRecord?.slug;
+    const stableSlug = isStableSlug(previousSlug) && previousSlugOwners.get(previousSlug) === ministryId
+      ? previousSlug
+      : undefined;
+    let slug;
+    if (stableSlug && !usedSlugs.has(stableSlug)) {
+      usedSlugs.add(stableSlug);
+      slug = stableSlug;
+    } else {
+      let uniqueBase = baseSlug || 'farmacia';
+      let suffix = 2;
+      while (usedSlugs.has(uniqueBase) || reservedSlugs.has(uniqueBase)) uniqueBase = `${baseSlug || 'farmacia'}-${suffix++}`;
+      usedSlugs.add(uniqueBase);
+      slug = uniqueBase;
+    }
+    const urlAliases = [];
+    for (const alias of previousRecord?.urlAliases || []) addItalianUrlAlias(urlAliases, alias, { province, city, slug });
+    addItalianUrlAlias(urlAliases, {
+      country: 'IT',
+      province: previousRecord?.province,
+      city: previousRecord?.city,
+      slug: previousSlug,
+    }, { province, city, slug });
     const record = {
       id: `it-msal-${ministryId}`,
       ministryId,
       name,
-      slug: uniqueSlug(baseSlug, usedSlugs),
+      slug,
       address: text(raw.indirizzo),
       postalCode: text(raw.cap),
       city,
@@ -465,6 +543,7 @@ export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElem
       sourceType: 'official',
       lastVerifiedAt: fetchedAt,
       dataAvailability: {},
+      ...(urlAliases.length ? { urlAliases } : {}),
     };
     applyOsmEnrichment(record, osmElements, fetchedAt, usedOsmElementKeys);
     record.dataAvailability = availability(record, true);

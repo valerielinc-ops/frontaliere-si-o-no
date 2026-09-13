@@ -5,7 +5,7 @@ import duties from '../data/pharmacy-duties-ticino.json';
 import sources from '../data/pharmacy-border-sources.json';
 import { validateBorderSources, validateBorderSnapshot } from '../scripts/check-pharmacy-border-data.mjs';
 import { validatePharmacyList } from '../services/pharmacies/types';
-import { parseOsmOpeningHours } from '../scripts/lib/pharmacy-border-parser.mjs';
+import { buildItalianBorderRecords, parseOsmOpeningHours } from '../scripts/lib/pharmacy-border-parser.mjs';
 
 const swiss = ticino.pharmacies;
 const italian = italy.pharmacies;
@@ -55,5 +55,45 @@ describe('cross-border pharmacy datasets', () => {
       { dayOfWeek: 'monday', opens: '18:00', closes: '24:00' },
       { dayOfWeek: 'tuesday', opens: '00:00', closes: '02:00' },
     ]);
+  });
+
+  it('keeps an Italian Ministry id on its old slug and records a moved-city alias', () => {
+    const [record] = buildItalianBorderRecords([
+      {
+        cod_farmacia: '42',
+        descrizione_farmacia: 'Farmacia Nuova',
+        indirizzo: 'Via Roma 1',
+        cap: '22012',
+        comune: 'Cernobbio',
+        sigla_provincia: 'CO',
+        regione: 'Lombardia',
+        latitudine: '',
+        longitudine: '',
+        data_inizio_validita: '01/01/2020',
+        data_fine_validita: '-',
+      },
+    ], {
+      fetchedAt: '2026-09-13T00:00:00.000Z',
+      asOf: '2026-09-13',
+      previous: [{
+        id: 'it-msal-42',
+        ministryId: '42',
+        name: 'Farmacia Vecchia',
+        slug: 'farmacia-vecchia-como-42',
+        address: 'Via Roma 1',
+        postalCode: '22100',
+        city: 'Como',
+        country: 'IT',
+        province: 'CO',
+      }],
+    });
+
+    expect(record.slug).toBe('farmacia-vecchia-como-42');
+    expect(record.urlAliases).toEqual([{
+      country: 'IT',
+      province: 'CO',
+      city: 'Como',
+      slug: 'farmacia-vecchia-como-42',
+    }]);
   });
 });

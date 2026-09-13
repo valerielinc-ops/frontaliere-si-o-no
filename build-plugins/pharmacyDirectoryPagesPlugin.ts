@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
-import { BASE_URL, BUILD_DATE_STAMP, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { BASE_URL, BUILD_DATE_STAMP, MIN_INDEXABLE_WORDS, SPA_ACTION_REDIRECT_SCRIPT, buildCanonicalBridgePage, countHtmlBodyWords } from './constants';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
@@ -22,7 +22,7 @@ import {
 import { buildPharmacyPath, type PharmacyPageKind, type PharmacyPath } from '../services/pharmacies/paths';
 import { publicDutiesForRegion } from '../services/pharmacies/duties';
 import type { Locale } from '../services/i18n';
-import { safePharmacyUrl, type Pharmacy, type PharmacyDuty, type PharmacyDutiesDataset, type PharmacyFieldSource } from '../services/pharmacies/types';
+import { safePharmacyUrl, type Pharmacy, type PharmacyDuty, type PharmacyDutiesDataset, type PharmacyFieldSource, type PharmacyUrlAlias } from '../services/pharmacies/types';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 
@@ -113,6 +113,77 @@ function pharmacyPath(pharmacy: Pharmacy, locale: Locale): PharmacyPath {
     return { kind: 'pharmacy', locale, country: 'IT', areaSlug, citySlug: pharmacyCitySlug(pharmacy.city), pharmacySlug: pharmacy.slug };
   }
   return { kind: 'pharmacy', locale, country: 'CH', citySlug: pharmacyCitySlug(pharmacy.city), pharmacySlug: pharmacy.slug };
+}
+
+function pharmacyAliasPath(alias: PharmacyUrlAlias, locale: Locale): PharmacyPath | null {
+  if (alias.country !== 'IT') return null;
+  const areaSlug = ITALY_BORDER_PROVINCES.find((area) => area.code === alias.province)?.slug;
+  if (!areaSlug || !alias.city || !alias.slug) return null;
+  return { kind: 'pharmacy', locale, country: 'IT', areaSlug, citySlug: pharmacyCitySlug(alias.city), pharmacySlug: alias.slug };
+}
+
+export interface PharmacyUrlAliasDescriptor {
+  pharmacy: Pharmacy;
+  alias: PharmacyUrlAlias;
+  locale: Locale;
+  from: string;
+  to: string;
+}
+
+/**
+ * Return every old Italian detail URL retained by the importer. The old
+ * province/city are part of the alias because a Ministry correction can move
+ * a record between localities as well as changing its display name.
+ */
+export function pharmacyUrlAliasDescriptors(): PharmacyUrlAliasDescriptor[] {
+  const canonicalPaths = new Set<string>();
+  for (const pharmacy of BORDER_PHARMACIES) {
+    for (const locale of LOCALES) canonicalPaths.add(buildPharmacyPath(pharmacyPath(pharmacy, locale), locale));
+  }
+  const seen = new Map<string, string>();
+  const descriptors: PharmacyUrlAliasDescriptor[] = [];
+  for (const pharmacy of ITALY_BORDER_PHARMACIES) {
+    for (const alias of pharmacy.urlAliases || []) {
+      for (const locale of LOCALES) {
+        const oldPath = pharmacyAliasPath(alias, locale);
+        if (!oldPath) continue;
+        const from = buildPharmacyPath(oldPath, locale);
+        const to = buildPharmacyPath(pharmacyPath(pharmacy, locale), locale);
+        if (from === to || canonicalPaths.has(from)) continue;
+        const previousTarget = seen.get(from);
+        if (previousTarget && previousTarget !== to) {
+          throw new Error(`Conflicting pharmacy URL aliases for ${from}: ${previousTarget} and ${to}`);
+        }
+        if (previousTarget) continue;
+        seen.set(from, to);
+        descriptors.push({ pharmacy, alias, locale, from, to });
+      }
+    }
+  }
+  return descriptors;
+}
+
+const ALIAS_COPY: Record<Locale, { title: string; description: string; body: string; cta: string }> = {
+  it: { title: 'Scheda farmacia aggiornata | Frontaliere Ticino', description: 'Questa scheda ha un URL canonico aggiornato.', body: 'La scheda della farmacia è stata aggiornata. Ti portiamo alla pagina canonica.', cta: 'Apri la scheda aggiornata' },
+  en: { title: 'Updated pharmacy page | Frontaliere Ticino', description: 'This pharmacy page has an updated canonical URL.', body: 'This pharmacy page was updated. We are taking you to its canonical page.', cta: 'Open the updated page' },
+  de: { title: 'Aktualisierte Apothekenseite | Frontaliere Ticino', description: 'Diese Apothekenseite hat eine aktualisierte kanonische URL.', body: 'Diese Apothekenseite wurde aktualisiert. Wir führen Sie zur kanonischen Seite.', cta: 'Aktualisierte Seite öffnen' },
+  fr: { title: 'Page pharmacie mise à jour | Frontaliere Ticino', description: 'Cette page pharmacie possède une URL canonique mise à jour.', body: 'Cette page pharmacie a été mise à jour. Nous vous dirigeons vers la page canonique.', cta: 'Ouvrir la page mise à jour' },
+};
+
+export function buildPharmacyAliasBridge(descriptor: PharmacyUrlAliasDescriptor): string {
+  const copy = ALIAS_COPY[descriptor.locale];
+  const targetUrl = `${BASE_URL}${descriptor.to}`;
+  return buildCanonicalBridgePage({
+    canonicalUrl: targetUrl,
+    pathLabel: descriptor.to,
+    title: copy.title,
+    description: copy.description,
+    body: copy.body,
+    ctaLabel: copy.cta,
+    lang: descriptor.locale,
+    noindex: true,
+  }).replace('</head>', ` <meta http-equiv="refresh" content="0; url=${targetUrl}">
+ </head>`);
 }
 
 function cityPath(country: Pharmacy['country'], locale: Locale, citySlug: string, areaSlug?: string): PharmacyPath {
@@ -445,6 +516,19 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
       const dateStamp = BUILD_DATE_STAMP;
       const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${BASE_URL}${url}</loc><lastmod>${dateStamp}</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>\n`).join('')}</urlset>\n`;
       const written = await collector.flush();
+      let aliasRedirects = 0;
+      for (const alias of pharmacyUrlAliasDescriptors()) {
+        const relativePath = alias.from.replace(/^\/+/, '').replace(/\/+$/, '');
+        const outDir = path.join(distDir, relativePath);
+        const indexFile = path.join(outDir, 'index.html');
+        if (fs.existsSync(indexFile)) continue;
+        fs.mkdirSync(outDir, { recursive: true });
+        const html = buildPharmacyAliasBridge(alias);
+        fs.writeFileSync(indexFile, html, 'utf8');
+        const flatFile = path.join(distDir, `${relativePath}.html`);
+        if (!fs.existsSync(flatFile)) fs.writeFileSync(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''), 'utf8');
+        aliasRedirects += 1;
+      }
       if (shouldEmitLocale('it')) fs.writeFileSync(path.join(distDir, 'sitemap-farmacie.xml'), sitemap, 'utf8');
       const master = path.join(distDir, 'sitemap.xml');
       if (fs.existsSync(master)) {
@@ -452,7 +536,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
         if (!xml.includes('sitemap-farmacie.xml')) xml = xml.replace('</sitemapindex>', `  <sitemap><loc>${BASE_URL}/sitemap-farmacie.xml</loc><lastmod>${dateStamp}</lastmod></sitemap>\n</sitemapindex>`);
         fs.writeFileSync(master, xml, 'utf8');
       }
-      console.log(`\x1b[36m[pharmacy-directory-pages]\x1b[0m Emitted ${written} pages and ${urls.length} sitemap URLs (${excludedNoindexRoutes} noindex routes excluded from sitemap)`);
+      console.log(`\x1b[36m[pharmacy-directory-pages]\x1b[0m Emitted ${written} pages, ${aliasRedirects} pharmacy URL redirects and ${urls.length} sitemap URLs (${excludedNoindexRoutes} noindex routes excluded from sitemap)`);
     },
   };
 }

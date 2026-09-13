@@ -168,6 +168,14 @@ async function readPrevious() {
   };
 }
 
+async function readPreviousItaly() {
+  try {
+    return await readJsonFile(ITALY_OUTPUT_PATH);
+  } catch {
+    return { pharmacies: [] };
+  }
+}
+
 async function readDutyPharmacyIds() {
   try {
     const dataset = await readJsonFile(DUTIES_PATH);
@@ -201,11 +209,12 @@ function assertBorderRecords(records) {
 }
 
 async function main() {
-  const [italy, osm, ticinoInput, previous, dutyPharmacyIds] = await Promise.all([
+  const [italy, osm, ticinoInput, previous, previousItaly, dutyPharmacyIds] = await Promise.all([
     readItalyInput(),
     readOsmInput(),
     readTicinoPdfText(),
     readPrevious(),
+    readPreviousItaly(),
     readDutyPharmacyIds(),
   ]);
 
@@ -233,6 +242,7 @@ async function main() {
     asOf,
     osmElements: osm.elements,
     datasetUrl: ITALY_PHARMACY_DATASET_PAGE,
+    previous: previousItaly.pharmacies || [],
   });
   if (italianPharmacies.length < 400) {
     throw new Error(`Italian border filter produced only ${italianPharmacies.length} records; refusing to publish a truncated dataset`);

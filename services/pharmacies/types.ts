@@ -38,6 +38,19 @@ export interface PharmacyDataAvailability {
   services?: PharmacyFieldStatus;
 }
 
+/**
+ * A previously published detail URL that must keep resolving after an
+ * official identity/locality correction. The importer records the old
+ * province, city and slug so the build can emit a locale-aware redirect to
+ * the current canonical page.
+ */
+export interface PharmacyUrlAlias {
+  country: PharmacyCountry;
+  province?: string;
+  city: string;
+  slug: string;
+}
+
 export interface Pharmacy {
   id: string;
   name: string;
@@ -64,6 +77,8 @@ export interface Pharmacy {
   /** Provenance for optional fields enriched from a second public source. */
   fieldSources?: Partial<Record<'address' | 'phone' | 'website' | 'coordinates' | 'openingHours' | 'services', PharmacyFieldSource>>;
   dataAvailability?: PharmacyDataAvailability;
+  /** Historical detail URLs retained by the data pipeline for redirects. */
+  urlAliases?: PharmacyUrlAlias[];
 }
 
 export type PharmacyDutyCoverageType = 'city' | 'district' | 'region' | 'canton';
@@ -260,6 +275,18 @@ export function validatePharmacy(index: number | string, entry: unknown): string
 
   if (e.website !== undefined && !safePharmacyUrl(e.website)) {
     errors.push(`pharmacy[${index}]: invalid optional "website" (expected an absolute HTTPS URL)`);
+  }
+
+  if (e.urlAliases !== undefined && (!Array.isArray(e.urlAliases) || e.urlAliases.some((alias) => {
+    if (typeof alias !== 'object' || alias === null || Array.isArray(alias)) return true;
+    const candidate = alias as Record<string, unknown>;
+    return !['CH', 'IT'].includes(String(candidate.country))
+      || typeof candidate.city !== 'string'
+      || !candidate.city.trim()
+      || typeof candidate.slug !== 'string'
+      || !candidate.slug.trim();
+  }))) {
+    errors.push(`pharmacy[${index}]: invalid optional "urlAliases"`);
   }
 
   return errors;

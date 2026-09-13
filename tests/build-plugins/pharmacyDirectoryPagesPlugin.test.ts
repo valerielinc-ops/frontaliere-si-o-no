@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
-import { buildPharmacyDirectoryPage, pharmacyPageDescriptors } from '../../build-plugins/pharmacyDirectoryPagesPlugin';
+import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, pharmacyPageDescriptors } from '../../build-plugins/pharmacyDirectoryPagesPlugin';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
 
@@ -35,5 +35,18 @@ describe('pharmacy directory page matrix', () => {
     expect(page.indexable).toBe(false);
     expect(page.html).toContain('noindex,follow');
     expect(page.html).not.toContain('CollectionPage');
+  });
+
+  it('emits a noindex canonical bridge for a historical Italian detail path', () => {
+    const bridge = buildPharmacyAliasBridge({
+      pharmacy: pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'pharmacy' && descriptor.country === 'IT')!.pharmacy!,
+      alias: { country: 'IT', province: 'CO', city: 'Como', slug: 'farmacia-vecchia-como-42' },
+      locale: 'it',
+      from: '/farmacie/italia/como/como/farmacia-vecchia-como-42/',
+      to: '/farmacie/italia/como/como/farmacia-corrente-42/',
+    });
+    expect(bridge).toContain('noindex,follow');
+    expect(bridge).toContain('rel="canonical" href="https://frontaliereticino.ch/farmacie/italia/como/como/farmacia-corrente-42/"');
+    expect(bridge).toContain('http-equiv="refresh"');
   });
 });
