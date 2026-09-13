@@ -34932,6 +34932,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'teleriscaldamento-varese-porte-aperte',
+ category: 'novita',
+ date: '2026-09-13T01:12:30.783Z',
+ image: '/images/blog/teleriscaldamento-varese-porte-aperte.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

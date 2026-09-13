@@ -90045,6 +90045,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-teleriscaldamento-varese-porte-aperte': {
+    title: 'Teleriscaldamento Varese: porte aperte alla centrale',
+    description: 'Scopri la centrale di teleriscaldamento di Varese di Acinque. Porte aperte sabato 19 settembre con prenotazione obbligatoria su Eventbrite. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, teleriscaldamento, varese, porte, aperte',
+    ogTitle: 'Teleriscaldamento di Varese: prenotazioni aperte per visitare la centrale',
+    ogDescription: 'Torna Impianti Aperti con il Gruppo Acinque. Sabato 19 settembre visite guidate alla centrale di teleriscaldamento di Varese in via Ottorino Rossi. Prenotazione obbligatoria su Eventbrite.',
+    canonicalPath: '/articoli-frontaliere/teleriscaldamento-varese-porte-aperte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Teleriscaldamento Varese: porte aperte alla centrale",
+      "description": "Scopri la centrale di teleriscaldamento di Varese di Acinque. Porte aperte sabato 19 settembre con prenotazione obbligatoria su Eventbrite. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/teleriscaldamento-varese-porte-aperte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centrale di teleriscaldamento a Varese"
+      },
+      "datePublished": "2026-09-13T01:12:30+00:00",
+      "dateModified": "2026-09-13T01:12:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/teleriscaldamento-varese-porte-aperte/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

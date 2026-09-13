@@ -11705,6 +11705,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.title': 'Speedaf in Svizzera: 50’000 pacchi al giorno',
     'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.excerpt': 'Speedaf, filiale svizzera fondata ad aprile, punta a gestire fino a 50’000 invii al giorno con centri a Zurigo, Berna e Losanna e sede a Friburgo.',
     'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.imageAlt': 'Immagine editoriale relativa a: Speedaf in Svizzera: 50’000 pacchi al giorno',
+    'blog.article.teleriscaldamento-varese-porte-aperte.title': 'Teleriscaldamento Varese: porte aperte alla centrale',
+    'blog.article.teleriscaldamento-varese-porte-aperte.excerpt': 'Giornata porte aperte alla centrale di teleriscaldamento di Varese sabato 19 settembre. Prenotazioni obbligatorie su Eventbrite.',
+    'blog.article.teleriscaldamento-varese-porte-aperte.imageAlt': 'Centrale di teleriscaldamento a Varese',
 };
 
 export default blogMetaIt;
