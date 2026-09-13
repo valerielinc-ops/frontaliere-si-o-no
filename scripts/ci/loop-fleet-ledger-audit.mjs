@@ -6,8 +6,10 @@
  * The ledger bridge already validates a source artifact before opening a PR.
  * This report answers a different operational question: which loops have at
  * least one complete durable run, which lifecycle events are actually
- * present, and whether the configured/live artifact retention can be observed.
- * It only reads repository files and an optional read-only Actions API dump.
+ * present, whether the configured/live artifact retention can be observed,
+ * and what the ledger's observable recording latency, duplicates and
+ * execution cardinality are. It only reads repository files and an optional
+ * read-only Actions API dump.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -85,6 +87,32 @@ function recordTime(record) {
   return iso(record?.recordedAt || record?.occurredAt || record?.execution?.recordedAt);
 }
 
+function percentile(values, quantile) {
+  if (!values.length) return null;
+  const sorted = [...values].sort((left, right) => left - right);
+  const index = Math.min(sorted.length - 1, Math.max(0, Math.ceil(sorted.length * quantile) - 1));
+  return sorted[index];
+}
+
+function summarizeLatency(values) {
+  if (!values.length) {
+    return {
+      measuredExecutionCount: 0,
+      min: null,
+      p50: null,
+      p95: null,
+      max: null,
+    };
+  }
+  return {
+    measuredExecutionCount: values.length,
+    min: Math.min(...values),
+    p50: percentile(values, 0.5),
+    p95: percentile(values, 0.95),
+    max: Math.max(...values),
+  };
+}
+
 function validateRecord(registry, type, record, line) {
   const errors = [];
   const expectedType = RECORD_TYPES[type];
@@ -131,6 +159,18 @@ function emptyLoop(loopId) {
     latestCompleteRun: null,
     latestRecordAt: null,
     independentOutcomeCount: 0,
+    metrics: {
+      validRecordCount: 0,
+      uniqueRecordIdCount: 0,
+      duplicateRecordCount: 0,
+      conflictingDuplicateRecordCount: 0,
+      duplicateExecutionTypeCount: 0,
+      executionCount: 0,
+      completeExecutionCount: 0,
+      coverageRate: 0,
+      recordsPerExecution: null,
+      recordingLatencyMs: summarizeLatency([]),
+    },
     lifecycle: {
       eventCount: 0,
       candidateCount: 0,
@@ -183,6 +223,8 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
   const lifecycleEvents = Object.fromEntries(validatedRegistry.loops.map((loop) => [loop.loopId, []]));
   const errors = [];
   const seenIds = Object.fromEntries(Object.keys(LEDGER_FILES).map((type) => [type, new Map()]));
+  const uniqueRecordIds = Object.fromEntries(validatedRegistry.loops.map((loop) => [loop.loopId, new Set()]));
+  const recordingLatencyValues = [];
 
   for (const [type, fileName] of Object.entries(LEDGER_FILES)) {
     const parsed = readJsonl(path.join(ledgerDir, fileName), `canonical ${fileName}`);
@@ -195,14 +237,18 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
       if (recordId) {
         const previous = seenIds[type].get(recordId);
         const serialized = JSON.stringify(record);
-        if (previous) errors.push(`canonical ${fileName}: duplicate ${recordId} at line ${line}${previous.serialized === serialized ? '' : ' with conflicting content'}`);
-        else seenIds[type].set(recordId, { serialized, line });
+        if (previous) {
+          if (row) row.metrics.duplicateRecordCount += 1;
+          if (previous.serialized !== serialized && row) row.metrics.conflictingDuplicateRecordCount += 1;
+          errors.push(`canonical ${fileName}: duplicate ${recordId} at line ${line}${previous.serialized === serialized ? '' : ' with conflicting content'}`);
+        } else seenIds[type].set(recordId, { serialized, line });
       }
 
       const recordErrors = validateRecord(validatedRegistry, type, record, line);
       errors.push(...recordErrors);
       if (recordErrors.length || !row) continue;
       row.validRecordCounts[type] += 1;
+      if (recordId) uniqueRecordIds[loopId].add(recordId);
       const timestamp = recordTime(record);
       if (!row.latestRecordAt || Date.parse(timestamp) > Date.parse(row.latestRecordAt)) row.latestRecordAt = timestamp;
       if (type === 'lifecycle') {
@@ -216,11 +262,15 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
           runId: String(record.execution.runId),
           sha: String(record.execution.sha).toLowerCase(),
           types: new Set(),
+          typeCounts: new Map(),
           recordedAt: timestamp,
+          timestamps: [],
         });
       }
       const group = runGroups[loopId].get(key);
       group.types.add(type);
+      group.typeCounts.set(type, (group.typeCounts.get(type) || 0) + 1);
+      if (timestamp) group.timestamps.push(Date.parse(timestamp));
       if (timestamp && (!group.recordedAt || Date.parse(timestamp) > Date.parse(group.recordedAt))) group.recordedAt = timestamp;
       if (type === 'health' && record.outcome?.independent === true
           && ['observed', 'zero'].includes(record.outcome.status)
@@ -237,6 +287,28 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
     row.missingRecordTypes = BASE_LEDGER_TYPES.filter((type) => row.validRecordCounts[type] === 0);
     row.completeRunCount = completeRuns.length;
     row.coverageState = completeRuns.length ? 'complete' : (groups.length ? 'partial' : 'missing');
+    const latencyValues = groups
+      .map((group) => {
+        const timestamps = group.timestamps.filter(Number.isFinite);
+        return timestamps.length >= 2 ? Math.max(...timestamps) - Math.min(...timestamps) : null;
+      })
+      .filter((value) => value !== null);
+    const duplicateExecutionTypeCount = groups.reduce((sum, group) => sum + [...group.typeCounts.values()]
+      .reduce((inner, count) => inner + Math.max(0, count - 1), 0), 0);
+    const validRecordCount = Object.values(row.validRecordCounts).reduce((sum, count) => sum + count, 0);
+    row.metrics = {
+      validRecordCount,
+      uniqueRecordIdCount: uniqueRecordIds[loop.loopId].size,
+      duplicateRecordCount: row.metrics.duplicateRecordCount,
+      conflictingDuplicateRecordCount: row.metrics.conflictingDuplicateRecordCount,
+      duplicateExecutionTypeCount,
+      executionCount: groups.length,
+      completeExecutionCount: completeRuns.length,
+      coverageRate: groups.length ? completeRuns.length / groups.length : 0,
+      recordsPerExecution: groups.length ? validRecordCount / groups.length : null,
+      recordingLatencyMs: summarizeLatency(latencyValues),
+    };
+    recordingLatencyValues.push(...latencyValues);
     const latest = [...completeRuns].sort((left, right) => Date.parse(left.recordedAt) - Date.parse(right.recordedAt)).at(-1);
     row.latestCompleteRun = latest
       ? { runId: latest.runId, sha: latest.sha, recordedAt: latest.recordedAt }
@@ -247,6 +319,23 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
   const loopRows = Object.values(rows);
   const completeLoopCount = loopRows.filter((row) => row.coverageState === 'complete').length;
   const independentOutcomeLoopCount = loopRows.filter((row) => row.independentOutcomeCount > 0).length;
+  const metricTotals = loopRows.reduce((totals, row) => ({
+    validRecordCount: totals.validRecordCount + row.metrics.validRecordCount,
+    uniqueRecordIdCount: totals.uniqueRecordIdCount + row.metrics.uniqueRecordIdCount,
+    duplicateRecordCount: totals.duplicateRecordCount + row.metrics.duplicateRecordCount,
+    conflictingDuplicateRecordCount: totals.conflictingDuplicateRecordCount + row.metrics.conflictingDuplicateRecordCount,
+    duplicateExecutionTypeCount: totals.duplicateExecutionTypeCount + row.metrics.duplicateExecutionTypeCount,
+    executionCount: totals.executionCount + row.metrics.executionCount,
+    completeExecutionCount: totals.completeExecutionCount + row.metrics.completeExecutionCount,
+  }), {
+    validRecordCount: 0,
+    uniqueRecordIdCount: 0,
+    duplicateRecordCount: 0,
+    conflictingDuplicateRecordCount: 0,
+    duplicateExecutionTypeCount: 0,
+    executionCount: 0,
+    completeExecutionCount: 0,
+  });
   const status = errors.length
     ? 'error'
     : (completeLoopCount === validatedRegistry.loops.length ? 'observed' : (completeLoopCount ? 'partial' : 'unmeasurable'));
@@ -264,6 +353,13 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
       lifecycleCandidateCount: loopRows.reduce((sum, row) => sum + row.lifecycle.candidateCount, 0),
       lifecycleCompleteCandidateCount: loopRows.reduce((sum, row) => sum + row.lifecycle.completeCandidateCount, 0),
       totalRecords: loopRows.reduce((sum, row) => sum + Object.values(row.recordCounts).reduce((inner, count) => inner + count, 0), 0),
+      metrics: {
+        ...metricTotals,
+        completeExecutionRate: metricTotals.executionCount
+          ? metricTotals.completeExecutionCount / metricTotals.executionCount
+          : 0,
+        recordingLatencyMs: summarizeLatency(recordingLatencyValues),
+      },
     },
   };
 }
@@ -280,6 +376,7 @@ function sourceWorkflowRows({ workflowDir, sourceLoops, expectedRetentionDays })
         retentionDays: [],
         uploadsEvidence: false,
         uploadsLifecycle: false,
+        uploadsOutcome: false,
         artifactNaming: false,
         status: 'missing',
         issues: ['workflow file is missing'],
@@ -290,11 +387,13 @@ function sourceWorkflowRows({ workflowDir, sourceLoops, expectedRetentionDays })
     const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
     const uploadsEvidence = uploadsWholeDirectory || source.includes('loop-fleet-evidence.json');
     const uploadsLifecycle = uploadsWholeDirectory || source.includes('lifecycle-events.jsonl');
+    const uploadsOutcome = uploadsWholeDirectory || source.includes('loop-fleet-outcome.json');
     const artifactNaming = source.includes(`${definition.artifactPrefix}-`) && /\$\{\{\s*github\.run_id\s*\}\}/u.test(source);
     if (!retentionDays.length) issues.push('artifact retention-days is missing');
     if (retentionDays.some((days) => days !== expectedRetentionDays)) issues.push(`retention-days is not uniformly ${expectedRetentionDays}`);
     if (!uploadsEvidence) issues.push('canonical loop-fleet-evidence.json is not uploaded');
     if (!uploadsLifecycle) issues.push('lifecycle-events.jsonl is not uploaded');
+    if (!uploadsOutcome) issues.push('canonical loop-fleet-outcome.json is not uploaded');
     if (!artifactNaming) issues.push('artifact name/run identity is not recognizable');
     return {
       ...definition,
@@ -303,6 +402,7 @@ function sourceWorkflowRows({ workflowDir, sourceLoops, expectedRetentionDays })
       retentionDays,
       uploadsEvidence,
       uploadsLifecycle,
+      uploadsOutcome,
       artifactNaming,
       status: issues.length ? 'incomplete' : 'ok',
       issues,
@@ -472,6 +572,8 @@ export function auditLoopFleet({ registryPath, ledgerDir, workflowDir, artifacts
 }
 
 export function renderMarkdown(report) {
+  const metrics = report.ledger.summary.metrics || {};
+  const latency = metrics.recordingLatencyMs || {};
   const lines = [
     '## Loop fleet ledger audit',
     '',
@@ -480,9 +582,11 @@ export function renderMarkdown(report) {
     `- Outcome indipendente osservato nel ledger: ${report.ledger.summary.independentOutcomeLoopCount}/${report.ledger.summary.loopCount} loop`,
     `- Retention configurata conforme: ${report.workflows.summary.compliantCount}/${report.workflows.summary.loopCount} loop`,
     `- Retention live misurata: ${report.artifacts.summary.measuredLoopCount}/${report.artifacts.loops.length} loop`,
+    `- Metriche ledger read-only: ${metrics.validRecordCount ?? 0} record validi, ${metrics.executionCount ?? 0} esecuzioni, ${metrics.duplicateRecordCount ?? 0} duplicati di record, cardinalità media ${metrics.executionCount ? (metrics.validRecordCount / metrics.executionCount).toFixed(2) : 'n/d'} record/esecuzione`,
+    `- Latenza di registrazione osservata: p50 ${latency.p50 ?? 'n/d'} ms, p95 ${latency.p95 ?? 'n/d'} ms (${latency.measuredExecutionCount ?? 0} esecuzioni misurate)`,
     '',
-    '| Loop | Ledger | Run completi | Ultimo run completo | Lifecycle | Outcome indipendente | Retention configurata | Retention live |',
-    '| --- | --- | ---: | --- | --- | ---: | --- | --- |',
+    '| Loop | Ledger | Run completi | Ultimo run completo | Lifecycle | Outcome indipendente | Outcome artifact | Retention configurata | Retention live |',
+    '| --- | --- | ---: | --- | --- | ---: | --- | --- | --- |',
   ];
   const artifactByLoop = new Map(report.artifacts.loops.map((row) => [row.loopId, row]));
   const workflowByLoop = new Map(report.workflows.loops.map((row) => [row.loopId, row]));
@@ -490,7 +594,7 @@ export function renderMarkdown(report) {
     const artifact = artifactByLoop.get(row.loopId);
     const workflow = workflowByLoop.get(row.loopId);
     const latest = row.latestCompleteRun ? `${row.latestCompleteRun.runId} @ ${row.latestCompleteRun.recordedAt}` : 'n/d';
-    lines.push(`| ${row.loopId} | ${row.coverageState} | ${row.completeRunCount} | ${latest} | ${row.lifecycle.state} (${row.lifecycle.eventCount}) | ${row.independentOutcomeCount} | ${workflow?.status || 'n/d'} | ${artifact?.status || 'unmeasurable'} (${artifact?.artifactCount || 0}) |`);
+    lines.push(`| ${row.loopId} | ${row.coverageState} | ${row.completeRunCount} | ${latest} | ${row.lifecycle.state} (${row.lifecycle.eventCount}) | ${row.independentOutcomeCount} | ${workflow?.uploadsOutcome ? 'yes' : 'no'} | ${workflow?.status || 'n/d'} | ${artifact?.status || 'unmeasurable'} (${artifact?.artifactCount || 0}) |`);
   }
   if (report.errors.length) {
     lines.push('', '### Errori strutturali', '', ...report.errors.map((error) => `- ${error}`));

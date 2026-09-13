@@ -44,6 +44,14 @@ function outcomes(overrides: Record<string, unknown> = {}) {
     returningUsers7d: 20,
     duplicateSends: 0,
     consentViolations: 0,
+    export: {
+      consentChecked: true,
+      deduplicationChecked: true,
+      quietHoursChecked: true,
+      quietHoursEvidence: 'test sender schedule',
+      externalDeliveryUntouched: true,
+      unattributedDeliveries: 0,
+    },
     ...overrides,
   };
 }
@@ -81,6 +89,26 @@ describe('L4 Alert → Return', () => {
     expect(verdict.ok).toBe(false);
     expect(verdict.issues.join(' ')).toContain('openedAlerts exceeds');
     expect(verdict.issues.join(' ')).toContain('consentViolations');
+  });
+
+  it('keeps an incomplete exporter fail-closed', () => {
+    const verdict = validateAlertReturn({
+      config: config(),
+      snoozes: snoozes(),
+      outcomes: outcomes({
+        export: {
+          consentChecked: false,
+          deduplicationChecked: false,
+          quietHoursChecked: true,
+          quietHoursEvidence: 'test sender schedule',
+          externalDeliveryUntouched: true,
+          unattributedDeliveries: 1,
+        },
+      }),
+    }, { now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('outcomes.export.deduplicationChecked');
+    expect(verdict.issues.join(' ')).toContain('unattributedDeliveries');
   });
 
   it('marks stale outcomes and keeps a future timestamp from starting the window', async () => {

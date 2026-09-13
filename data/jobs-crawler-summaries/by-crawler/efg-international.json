@@ -1,19 +1,75 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-09-11T23:05:00.373Z",
-  "total": 29,
+  "generatedAt": "2026-09-13T13:51:34.630Z",
+  "total": 28,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 29,
-  "durationMs": 14603,
-  "avgDurationMs": 14603,
+  "unchangedCount": 27,
+  "durationMs": 12491,
+  "avgDurationMs": 12491,
   "durationHistory": [
-    14603
+    12491
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "efg-5984",
+      "slug": "operatore-di-commutazione-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Switchboard operator",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-08-25T09:44:22.596Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-10",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-10T10:26:15.024Z",
+      "salarySource": "estimated",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -99,7 +155,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-11T23:04:53.171Z",
+      "crawledAt": "2026-09-13T13:51:30.829Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14",
@@ -109,7 +165,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-08-14T21:27:59.827Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -152,7 +207,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-11T23:04:53.168Z",
+      "crawledAt": "2026-09-13T13:51:30.828Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13",
@@ -162,7 +217,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-08-13T21:53:02.806Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -271,7 +325,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-11T23:04:53.164Z",
+      "crawledAt": "2026-09-13T13:51:30.827Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-20",
@@ -282,7 +336,6 @@
       "country": "CH",
       "firstSeenAt": "2026-07-20T22:01:00.554Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -436,7 +489,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-11T23:04:53.163Z",
+      "crawledAt": "2026-09-13T13:51:30.826Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -448,7 +501,6 @@
       "country": "CH",
       "firstSeenAt": "2026-06-25T22:13:58.906Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -559,7 +611,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-11T23:04:53.158Z",
+      "crawledAt": "2026-09-13T13:51:30.824Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-21",
@@ -570,7 +622,6 @@
       "country": "CH",
       "firstSeenAt": "2026-07-21T11:19:19.247Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -667,7 +718,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-11T23:04:53.156Z",
+      "crawledAt": "2026-09-13T13:51:30.823Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
@@ -678,7 +729,6 @@
       "country": "CH",
       "firstSeenAt": "2026-07-23T11:24:34.310Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -796,7 +846,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-11T23:04:53.154Z",
+      "crawledAt": "2026-09-13T13:51:30.822Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -809,7 +859,6 @@
       "firstSeenAt": "2026-05-10T21:30:00.902Z",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -852,7 +901,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-11T23:04:53.151Z",
+      "crawledAt": "2026-09-13T13:51:30.821Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -977,7 +1026,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-11T23:04:53.148Z",
+      "crawledAt": "2026-09-13T13:51:30.820Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -990,7 +1039,6 @@
       "firstSeenAt": "2026-05-10T21:30:00.895Z",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1033,7 +1081,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-11T23:04:53.137Z",
+      "crawledAt": "2026-09-13T13:51:30.819Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1046,7 +1094,6 @@
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1162,7 +1209,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-11T23:04:53.117Z",
+      "crawledAt": "2026-09-13T13:51:30.807Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1176,7 +1223,6 @@
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1283,7 +1329,6 @@
       "country": "CH",
       "firstSeenAt": "2026-06-03T13:26:59.347Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1757,69 +1802,12 @@
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "id": "efg-5984",
-      "slug": "switchboard-operator-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Switchboard operator",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-08-25T09:44:22.596Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-10",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-10T10:26:15.024Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
       }
     },
     {
@@ -1869,7 +1857,6 @@
       "firstSeenAt": "2026-05-10T21:30:00.892Z",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1990,7 +1977,6 @@
       "country": "CH",
       "firstSeenAt": "2026-07-02T11:04:59.203Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2284,7 +2270,6 @@
       "firstSeenAt": "2026-05-10T21:30:00.894Z",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2452,7 +2437,6 @@
       "firstSeenAt": "2026-05-10T21:30:00.890Z",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2569,7 +2553,6 @@
       "country": "CH",
       "firstSeenAt": "2026-06-23T22:12:49.483Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2657,100 +2640,6 @@
       "firstSeenAt": "2026-05-18T12:15:53.907Z",
       "country": "CH",
       "salarySource": "reported",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6235",
-      "slug": "cis-specialista-onboarding-periodic-reviews-compliance-officer-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "CIS Specialist Onboarding & Periodic Reviews Compliance Officer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6235",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<span>You will be joining an international, dynamic and highly skilled team of 20 colleagues based either in Zürich, Geneva or Lugano with a variety of backgrounds, languages and experience. We offer exciting opportunities to develop your compliance skill-set in a high-stakes and visible role with extensive Front Office contact.</span>",
-              "<span><strong>Main responsibilities</strong></span>",
-              "<span><strong>Skills and experience</strong></span>"
-            ],
-            "responsibilities": [
-              "<span>Client onboarding performing standard and enhanced AML/TF due due diligence for Client onboarding and Russian/Commonwealth of Independent States (CIS) markets analysis, with likely more complex reviews than standards</span>",
-              "<span>Periodic review process: performing enhanced AML/TF due diligence for High Risk/Special High Risk/PEP cases as well as complex cases and CIS analysis</span>",
-              "<span>Provide advice and support to the Front Office on all matters relating to KYC/AML (incl. CIS)</span>",
-              "<span>Presentation of HRC/PEP/SHRC cases to the Client Acceptance Committee providing relevant risk assessments and succinct compliance recommendations</span>",
-              "<span>5+ years prior experience in compliance roles, spanning KYC AML/TF, Transaction monitoring CDB/FATCA in Swiss Private Bank</span>",
-              "<span>Proven CIS markets knowledge and experience is a must.</span>",
-              "<span>Principled, self-driven and acting with integrity</span>",
-              "<span>Superior attention to detail in order to identify and correct risky practices, while not losing sight of the big picture</span>",
-              "<span>Must be a strong communicator, resolve conflict and capable of expressing oneself clearly both speaking and in writing</span>",
-              "<span>Possess a collaborative personality and be open to suggestions from team members</span>",
-              "<span>Demonstrate strong knowledge of industry protocols and best practices</span>",
-              "<span>Strong time management and organizational skills and able to meet tight deadlines on Compliance remediation programs</span>",
-              "<span>Ability to work under pressure and flexibility to deal with unexpected problems and tasks effectively</span>",
-              "<span>Excellent communication skills in English are a must. <u>Russian and/or any CIS languages preferred</u> but can be substituted by <u>proven market knowledge</u>. German, French and/or Italian a plus</span>",
-              "<span>Dedication to fostering an inclusive culture and value diverse perspectives</span>",
-              "<span>Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement</span>"
-            ],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "<span>Client onboarding performing standard and enhanced AML/TF due due diligence for Client onboarding and Russian/Commonwealth of Independent States (CIS) markets analysis, with likely more complex reviews than standards</span>",
-              "<span>Periodic review process: performing enhanced AML/TF due diligence for High Risk/Special High Risk/PEP cases as well as complex cases and CIS analysis</span>",
-              "<span>Provide advice and support to the Front Office on all matters relating to KYC/AML (incl. CIS)</span>"
-            ],
-            "keywords": [
-              "<span>Client onboarding performing standard and enhanced AML/TF due due diligence for Client onboarding and Russian/Commonwealth of Independent States (CIS) markets analysis",
-              "<span>Periodic review process",
-              "<span>Provide advice and support to the Front Office on all matters relating to KYC/AML (incl. CIS)</span>",
-              "<span>Presentation of HRC/PEP/SHRC cases to the Client Acceptance Committee providing relevant risk assessments and succinct compliance recommendations</span>"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company</strong><br> </p><p>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. <br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.<br> </p><p><strong>Our Purpose and Mission",
-                "paragraphs": [
-                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-07-13T21:58:16.922Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-05-08",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.879Z",
-      "country": "CH",
-      "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,

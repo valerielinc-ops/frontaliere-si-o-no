@@ -72,6 +72,53 @@ describe('loop-fleet-ledger-audit', () => {
     expect(audit.summary.status).toBe('error');
   });
 
+  it('reports observe-only coverage, recording latency, duplicates and cardinality', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-audit-metrics-'));
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const observation = seedRecord('observation', '100');
+    const decision = {
+      ...seedRecord('decision', '100'),
+      recordedAt: '2026-09-13T11:02:00.000Z',
+      execution: { ...seedRecord('decision', '100').execution, recordedAt: '2026-09-13T11:02:00.000Z' },
+    };
+    const health = {
+      ...seedRecord('health', '100'),
+      recordedAt: '2026-09-13T11:05:00.000Z',
+      execution: { ...seedRecord('health', '100').execution, recordedAt: '2026-09-13T11:05:00.000Z' },
+    };
+    writeJsonl(ledgerDir, 'loop-observations.jsonl', [observation]);
+    writeJsonl(ledgerDir, 'loop-decisions.jsonl', [decision]);
+    writeJsonl(ledgerDir, 'loop-health-history.jsonl', [health, health]);
+    const audit = auditLedger({ ledgerDir, registry, now: NOW });
+    const row = audit.loops.find((candidate: any) => candidate.loopId === 'L0') as any;
+    expect(row.metrics).toMatchObject({
+      validRecordCount: 4,
+      uniqueRecordIdCount: 3,
+      duplicateRecordCount: 1,
+      conflictingDuplicateRecordCount: 0,
+      duplicateExecutionTypeCount: 1,
+      executionCount: 1,
+      completeExecutionCount: 1,
+      coverageRate: 1,
+      recordsPerExecution: 4,
+      recordingLatencyMs: {
+        measuredExecutionCount: 1,
+        min: 300000,
+        p50: 300000,
+        p95: 300000,
+        max: 300000,
+      },
+    });
+    expect(audit.summary.metrics).toMatchObject({
+      validRecordCount: 4,
+      executionCount: 1,
+      completeExecutionCount: 1,
+      completeExecutionRate: 1,
+      recordingLatencyMs: { p95: 300000 },
+    });
+  });
+
   it('checks every source workflow for 90-day artifacts and lifecycle transport', () => {
     const audit = auditWorkflowRetention({ workflowDir: '.github/workflows' });
     expect(audit.summary).toMatchObject({ loopCount: 12, compliantCount: 12, noncompliantCount: 0 });
@@ -114,5 +161,6 @@ describe('loop-fleet-ledger-audit', () => {
     });
     expect(markdown).toContain('read-only');
     expect(markdown).toContain('Copertura ledger completa: 1/12');
+    expect(markdown).toContain('Metriche ledger read-only');
   });
 });

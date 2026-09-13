@@ -25,7 +25,7 @@ const TESTS_YML = readFileSync(resolve(ROOT, '.github/workflows/tests.yml'), 'ut
 const REVIEW_GATE = REVIEW_GATE_STEP_NAME;
 const PR_BODY_GATE = 'PR-body completeness + multi-issue Closes (no checkout, all events)';
 const SUMMARY_STEP = 'Explain the job verdict in the run summary';
-const BACKGROUND_JOIN = 'Wait for background gates and independent vitest';
+const INDEPENDENT_GATES = 'Collect independent source gates';
 
 const step = (name: string, conclusion: string) => ({ name, conclusion });
 
@@ -76,12 +76,12 @@ describe('classifyJobFailure — di che cosa è fatto il rosso', () => {
     expect(verdict?.headline).toContain('non è determinabile');
   });
 
-  it('join dei gate in background: ambiguo per costruzione, non assolve i test in blocco', () => {
+  it('collector dei gate indipendenti: ambiguo per costruzione, non assolve i test in blocco', () => {
     const verdict = classifyJobFailure([
       step(TEST_STEP_NAME, 'success'),
-      step(BACKGROUND_JOIN, 'failure'),
+      step(INDEPENDENT_GATES, 'failure'),
     ]);
-    expect(verdict?.category).toBe('background-join');
+    expect(verdict?.category).toBe('independent-gates');
     // La prova positiva che ESISTE non si butta via, ma vale solo per il run
     // related: il join copre anche il gruppo vitest indipendente.
     expect(verdict?.testsVerdict).toBe('partial');
@@ -89,8 +89,8 @@ describe('classifyJobFailure — di che cosa è fatto il rosso', () => {
     expect(verdict?.headline).toContain('gruppo indipendente');
   });
 
-  it('join rosso e run related non concluso: nessuna affermazione sui test', () => {
-    const verdict = classifyJobFailure([step(BACKGROUND_JOIN, 'failure')]);
+  it('collector rosso e run related non concluso: nessuna affermazione sui test', () => {
+    const verdict = classifyJobFailure([step(INDEPENDENT_GATES, 'failure')]);
     expect(verdict?.testsVerdict).toBe('unknown');
     expect(verdict?.headline).not.toContain('I test sono passati');
   });

@@ -13,6 +13,7 @@ on:
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/affiliateRevenue.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l8-revenue-attribution.yml'
   pull_request:
@@ -24,6 +25,7 @@ on:
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/affiliateRevenue.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/loop-l8-revenue-attribution.yml'
   workflow_dispatch:
@@ -59,6 +61,7 @@ jobs:
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/affiliateRevenue.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l8-revenue-attribution.yml
           sparse-checkout-cone-mode: false
@@ -89,8 +92,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
-      - name: Record canonical L8 evidence
+      - name: Validate runner-local L8 outcome export
+        id: validate_l8_outcome
         if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l8
+        run: |
+          test -s "$REPORT_DIR/l8-outcome.json"
+          jq -e '(.loopId == "L8" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .autoAdsUntouched == true and .externalCommercialStateUntouched == true and .publishedDataUntouched == true and .partnerStateUntouched == true and .pricesUntouched == true and .recipientsUntouched == true)' "$REPORT_DIR/l8-outcome.json" >/dev/null
+      - name: Record canonical L8 evidence
+        if: ${{ always() && steps.validate_l8_outcome.outcome == 'success' }}
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l8
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L8 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json

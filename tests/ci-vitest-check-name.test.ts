@@ -507,17 +507,20 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   });
 
   it('ogni famiglia sopravvive al rosso di un’altra (`!cancelled()`)', () => {
-    // Con quattro job paralleli un `contract` rosso non impediva a `vitest` di
-    // girare. Con gli step la proprietà si perde a meno di dirla esplicitamente.
+    // Le famiglie indipendenti sono orchestrate da due step: il primo attende
+    // i source guard, il secondo raccoglie i gate detached. Entrambi devono
+    // partire anche se un gate precedente ha fallito; il body contract resta
+    // invece una precondizione esplicita per non eseguire codice dopo un body
+    // PR non valido.
     for (const first of [
-      'PR-body completeness + multi-issue Closes',
-      'tsc --noEmit (baseline + ratchet)',
-      'Audit no merge conflict markers',
+      'Run source guards in parallel',
+      'Start independent source gates',
     ]) {
-      const re = new RegExp(`- (?:&[A-Za-z0-9_-]+\\s+)?name: ${first.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^\\n]*\\n(?:\\s*#[^\\n]*\\n)*\\s*if:\\s*(.+?)\\s*$`, 'm');
-      const m = re.exec(vitestBody);
-      expect(m, `step \`${first}\` senza \`if:\``).toBeTruthy();
-      expect(m![1], `\`${first}\` non ha \`!cancelled()\`: un cancello rosso a monte lo spegne`)
+      const step = (YAML.parse(TESTS_YML) as any).jobs.vitest.steps.find(
+        (candidate: any) => candidate?.name === first,
+      );
+      expect(step, `step \`${first}\` senza \`if:\``).toBeTruthy();
+      expect(step.if, `\`${first}\` non ha \`!cancelled()\`: un cancello rosso a monte lo spegne`)
         .toContain('!cancelled()');
     }
   });
@@ -590,11 +593,14 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
   });
 
   it('il gate Number gira su ogni percorso che può portare codice su main', () => {
-    const m = TESTS_YML.match(/- name: Forbid the NaN-producing env fallback inside Number\(\)\n([\s\S]*?)(?=\n\s+- name:)/);
-    expect(m, 'gate Number(process.env) non trovato').toBeTruthy();
-    expect(m![1]).toContain("github.event_name == 'push'");
-    expect(m![1]).toContain("github.event_name == 'merge_group'");
-    expect(m![1]).toContain("github.event_name == 'pull_request'");
-    expect(m![1]).not.toMatch(/continue-on-error:\s*true/);
+    const start = TESTS_YML.indexOf('- name: Run source guards in parallel');
+    const end = TESTS_YML.indexOf('\n      - name:', start + 1);
+    const step = TESTS_YML.slice(start, end < 0 ? undefined : end);
+    expect(start, 'source guard orchestrator non trovato').toBeGreaterThanOrEqual(0);
+    expect(step).toContain('check-number-env-fallback.mjs');
+    expect(step).toContain("github.event_name == 'push'");
+    expect(step).toContain("github.event_name == 'merge_group'");
+    expect(step).toContain("github.event_name == 'pull_request'");
+    expect(step).toContain('continue-on-error: true');
   });
 });

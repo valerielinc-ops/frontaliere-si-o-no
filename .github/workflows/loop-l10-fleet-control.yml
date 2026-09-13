@@ -13,6 +13,7 @@ on:
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/technical-operations-supervisor.yml'
       - '.github/workflows/loop-l10-fleet-control.yml'
@@ -25,6 +26,7 @@ on:
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/technical-operations-supervisor.yml'
       - '.github/workflows/loop-l10-fleet-control.yml'
@@ -60,6 +62,7 @@ jobs:
             /scripts/ci/loop-l10-fleet-control.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l10-fleet-control.yml
           sparse-checkout-cone-mode: false
@@ -90,8 +93,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
-      - name: Record canonical L10 evidence
+      - name: Validate runner-local L10 outcome export
+        id: validate_l10_outcome
         if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l10
+        run: |
+          test -s "$REPORT_DIR/l10-outcome.json"
+          jq -e '(.loopId == "L10" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .oneWriterPerArtifact == true and .boundedRetries == true and .ledgerWriteMode == "serialized-atomic" and .gateBypass == false and .supervisorL11Separate == true and .publishedDataUntouched == true)' "$REPORT_DIR/l10-outcome.json" >/dev/null
+      - name: Record canonical L10 evidence
+        if: ${{ always() && steps.validate_l10_outcome.outcome == 'success' }}
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l10
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L10 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json

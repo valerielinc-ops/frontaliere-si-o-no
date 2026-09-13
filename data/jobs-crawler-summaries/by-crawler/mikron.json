@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-09-12T13:07:50.823Z",
+  "generatedAt": "2026-09-13T14:05:32.199Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18538,
-  "avgDurationMs": 18538,
+  "durationMs": 17508,
+  "avgDurationMs": 17508,
   "durationHistory": [
-    18538
+    17508
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -207,6 +207,7 @@
         "canton": "TI",
         "location": "Agno"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:22:19.475Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
@@ -241,6 +242,7 @@
         "canton": "TI",
         "location": "Agno"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:22:19.475Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",

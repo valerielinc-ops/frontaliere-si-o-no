@@ -8,11 +8,11 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   buildDecision,
-  buildOutcome,
   buildObservation,
   loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
+import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 
 export const LOOP_ID = 'L6';
 export const DEFAULT_HISTORY_PATH = path.join('data', 'quality-alerts-history.jsonl');
@@ -343,7 +343,7 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
-function buildContentFactualityOutcome({ source, verdict, policy, now }) {
+function buildContentFactualityOutcome({ source, verdict, policy, registry, now }) {
   const outcomeSnapshot = verdict.snapshot?.outcomes || {};
   const generatedAt = finiteDate(outcomeSnapshot.generatedAt);
   const reviewedArticles = integer(outcomeSnapshot.reviewedArticles) ? outcomeSnapshot.reviewedArticles : null;
@@ -357,26 +357,18 @@ function buildContentFactualityOutcome({ source, verdict, policy, now }) {
   const status = measurable
     ? 'observed'
     : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
-  const requiredFieldsPresent = measurable
-    ? policy.outcome.requiredFields.slice()
-    : (generatedAt ? ['generatedAt'] : []);
-  const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
-  const outcome = buildOutcome({
-    outcomeId: policy.outcome.outcomeId,
-    status,
+  const outcome = buildValidatedLoopOutcome({
+    registry,
+    loopId: LOOP_ID,
+    quality: status,
     independent: measurable,
-    sourceRefs: policy.outcome.sourceRefs,
-    primaryMetric: policy.primaryMetric,
-    numerator: measurable ? confirmedDefects : null,
-    denominator: measurable ? reviewedArticles : null,
-    requiredFieldsPresent,
-    missingFields,
+    numerator: confirmedDefects,
+    denominator: reviewedArticles,
+    observedAt: generatedAt?.toISOString() || null,
     reason: measurable
       ? 'explicit independent source verdict with reviewed article and confirmed-defect counts'
       : `content factuality outcome is ${status}; published content remains unchanged`,
-    observedAt: generatedAt?.toISOString() || null,
-    allowNumeratorExceedDenominator: false,
-    recordedAt: now.toISOString(),
+    now,
   });
   return {
     ...outcome,
@@ -397,7 +389,7 @@ function buildContentFactualityOutcome({ source, verdict, policy, now }) {
       sourcePath: outcomeSnapshot.path,
       sourceRefs: policy.outcome.sourceRefs,
     },
-    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (measurable ? 'verified' : 'unverified'),
+    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
     sourcePath: outcomeSnapshot.path,
     generatorIsNotOracle: true,
     publishedContentUntouched: true,
@@ -564,7 +556,7 @@ export async function runL6({
       },
     },
   };
-  const outcome = buildContentFactualityOutcome({ source: sourceOutcomes, verdict, policy: loopPolicy, now });
+  const outcome = buildContentFactualityOutcome({ source: sourceOutcomes, verdict, policy: loopPolicy, registry: loopRegistry, now });
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
     ? generatedAt.toISOString()

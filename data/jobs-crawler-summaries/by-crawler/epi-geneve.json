@@ -1,21 +1,21 @@
 {
   "key": "epi-geneve",
   "label": "Établissements publics pour l'intégration",
-  "generatedAt": "2026-09-12T12:54:55.175Z",
-  "total": 8,
+  "generatedAt": "2026-09-13T13:53:44.485Z",
+  "total": 7,
   "discovered": null,
   "parsed": 7,
   "lastFetchOutcome": null,
-  "written": 8,
+  "written": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7135,
-  "avgDurationMs": 7135,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6763,
+  "avgDurationMs": 6763,
   "durationHistory": [
-    7135
+    6763
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000148248824-un-e-maitre-sse-d-hotel-assistant-e-socioprofessionnel-le-restauration-horaires-continus-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T12:54:44.883Z",
+      "crawledAt": "2026-09-13T13:53:34.670Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance",
@@ -69,7 +69,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000147877299-un-e-assistant-e-socioprofessionnel-le-planification-de-process-d-industrie-legere-atelier-conditionnement-80-a-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T12:54:44.924Z",
+      "crawledAt": "2026-09-13T13:53:34.698Z",
       "addressLocality": "Meinier",
       "addressRegion": "GE",
       "streetAddress": "Chemin de la Pallanterie 10",
@@ -107,7 +107,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000147155044-un-e-assistant-e-socioprofessionnel-le-cuisinier-iere-a-100-service-restauration-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T12:54:44.951Z",
+      "crawledAt": "2026-09-13T13:53:34.726Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -146,7 +146,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000143292499-un-e-agent-e-technico-commercial-e-services-socioprofessionnels-secteur-commercial-80-a-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T12:54:44.914Z",
+      "crawledAt": "2026-09-13T13:53:34.706Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Champ-des-Filles 4A",
@@ -184,7 +184,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T12:54:44.932Z",
+      "crawledAt": "2026-09-13T13:53:34.712Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de Chêne 48",
@@ -222,7 +222,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133017305--un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T12:54:44.957Z",
+      "crawledAt": "2026-09-13T13:53:34.731Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance",
@@ -260,7 +260,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000110722240-un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T12:54:44.963Z",
+      "crawledAt": "2026-09-13T13:53:34.738Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -287,8 +287,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "epi-geneve-1cf40f9451b3",
       "slug": "un-assistente-socio-educativo-ametista-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive-ge",
@@ -332,5 +331,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
