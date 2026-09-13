@@ -23,6 +23,7 @@
  * contro l'orologio reale è un test che cambia risposta a seconda di quando gira.
  */
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { selectParkedPrs, DEFAULT_PARKED_HOURS } from '../scripts/ci/parked-pr-detector.mjs';
 
 const NOW = Date.parse('2026-08-08T12:00:00Z');
@@ -105,11 +106,22 @@ describe('selectParkedPrs', () => {
 
   it('sceglie solo le parcheggiate da un elenco misto', () => {
     const prs = [
-      { number: 30, isDraft: false, updatedAt: hoursAgo(500), labels: [] },                    // non-draft
-      { number: 31, isDraft: true, updatedAt: hoursAgo(2), labels: [] },                       // recente
-      { number: 32, isDraft: true, updatedAt: hoursAgo(96), labels: [{ name: 'needs-human' }] }, // già etichettata
-      { number: 33, isDraft: true, updatedAt: hoursAgo(96), labels: [] },                      // ← questa
+      { number: 30, isDraft: false, updatedAt: hoursAgo(500), labels: [] },
+      { number: 31, isDraft: true, updatedAt: hoursAgo(2), labels: [] },
+      { number: 32, isDraft: true, updatedAt: hoursAgo(96), labels: [{ name: 'needs-human' }] },
+      { number: 33, isDraft: true, updatedAt: hoursAgo(96), labels: [] },
     ];
     expect(nums(selectParkedPrs(prs, NOW))).toEqual([33]);
+  });
+});
+
+describe('parked-pr-detector input', () => {
+  it('usa la lista REST paginata invece del limite silenzioso di gh pr list', () => {
+    const source = readFileSync(new URL('../scripts/ci/parked-pr-detector.mjs', import.meta.url), 'utf8');
+    expect(source).toContain('paginatedJsonLines');
+    expect(source).toMatch(/\['api', `repos\/\$\{REPO\}\/pulls\?state=open&per_page=100`/);
+    expect(source).toContain('--paginate');
+    expect(source).not.toContain("['pr', 'list'");
+    expect(source).toMatch(/split\(\/\\r\?\\n\//);
   });
 });
