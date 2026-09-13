@@ -104,6 +104,7 @@ jobs:
             ${{ runner.temp }}/loop-observations.jsonl
             ${{ runner.temp }}/loop-decisions.jsonl
             ${{ runner.temp }}/loop-health-history.jsonl
+            ${{ runner.temp }}/lifecycle-events.jsonl
             ${{ runner.temp }}/loop-fleet-evidence.json
           retention-days: 90
           if-no-files-found: error
