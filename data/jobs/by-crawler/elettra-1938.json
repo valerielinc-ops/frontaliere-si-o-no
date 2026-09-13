@@ -1,6 +1,6 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-09-12T13:05:44.481Z",
+  "assembledAt": "2026-09-13T14:03:53.742Z",
   "jobs": [
     {
       "id": "elettra-1938-73b81e3ccbae",
@@ -17,7 +17,7 @@
       "title": "CUSTOMER QUALITY ENGINEER",
       "titleByLocale": {
         "it": "CUSTOMER QUALITY Ingegnere",
-        "en": "CUSTOMER QUALITY ENGINE",
+        "en": "CUSTOMER QUALITY ENGINEER",
         "de": "CUSTOMER Qualität Ingenieur",
         "fr": "CUSTOMER Qualité Ingénieur"
       },
@@ -33,7 +33,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-724414/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-12T13:05:37.107Z",
+      "crawledAt": "2026-09-13T14:03:45.049Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -59,6 +59,7 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:49:57.238Z",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
