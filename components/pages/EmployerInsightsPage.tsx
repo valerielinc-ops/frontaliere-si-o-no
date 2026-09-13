@@ -275,7 +275,7 @@ function CompanyLogo({ companyName, companyKey, alt }: { companyName: string; co
 }
 
 function MetricTile({ icon, label, value, description, state }: { icon: React.ReactNode; label: string; value: string; description: string; state?: string }): React.ReactElement {
-  return <div className="flex min-w-0 flex-col px-4 py-5 first:pl-0 last:pr-0 sm:px-5"><span className="order-1 mb-3 inline-flex text-accent" aria-hidden="true">{icon}</span><dt className="order-3 mt-1 text-sm font-semibold text-body">{label}</dt><dd className="order-2 m-0 font-display text-2xl font-semibold tabular-nums text-strong sm:text-3xl">{value}</dd><dd className="order-4 mt-2 text-xs leading-relaxed text-muted">{description}</dd>{state && <dd className="order-5 mt-2 text-xs font-medium text-warning-strong">{state}</dd>}</div>;
+  return <div className="flex min-w-0 flex-col px-4 py-5 sm:px-5"><span className="order-1 mb-3 inline-flex text-accent" aria-hidden="true">{icon}</span><dt className="order-3 mt-1 text-sm font-semibold text-body">{label}</dt><dd className="order-2 m-0 font-display text-2xl font-semibold tabular-nums text-strong sm:text-3xl">{value}</dd><dd className="order-4 mt-2 text-xs leading-relaxed text-muted">{description}</dd>{state && <dd className="order-5 mt-2 text-xs font-medium text-warning-strong">{state}</dd>}</div>;
 }
 
 function formatRate(clicks: MetricValue, views: MetricValue, locale: Locale): string {
