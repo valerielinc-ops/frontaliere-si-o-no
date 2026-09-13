@@ -687,6 +687,21 @@ describe('gender-form repair cohort — la misura del dopo (#7991)', () => {
     expect(measured.genderFormSampleProcessed).toBe(1);
     expect(measured.genderFormSampleResidual).toBe(0);
     expect(genderFormTargetResidual(after)).toBe(false);
+
+    const changedSourceLanguage = summarizeJobs([{
+      ...after,
+      sourceLang: 'it',
+      titleByLocale: {
+        it: 'Falegname con esperienza versatile',
+        de: SOURCE,
+        en: 'Carpenter with versatile experience',
+        fr: 'Charpentier avec expérience polyvalente',
+      },
+    }], {
+      previouslyGenderFormSample: new Map(actualSample.map((record) => [record.id, record])),
+    });
+    expect(changedSourceLanguage.genderFormSampleProcessed).toBe(0);
+    expect(genderFormTargetResidual({ ...after, sourceLang: 'it' })).toBe(false);
   });
 
   it('non chiama misurato un campione parzialmente drenato', () => {
@@ -723,7 +738,7 @@ describe('gender-form repair cohort — la misura del dopo (#7991)', () => {
       residual: 3,
       residualRate: 3 / 120,
     });
-    expect(formatReport(entry).join('\\n')).toContain('Gender-form after:');
-    expect(formatReport(entry).join('\\n')).toContain('3/120 (2.5%)');
+    expect(formatReport(entry).join('\n')).toContain('Gender-form after:');
+    expect(formatReport(entry).join('\n')).toContain('3/120 (2.5%)');
   });
 });

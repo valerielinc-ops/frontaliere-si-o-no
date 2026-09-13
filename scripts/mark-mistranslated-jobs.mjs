@@ -203,6 +203,7 @@ export function genderFormOffence(job) {
  */
 export function genderFormTargetResidual(job) {
   const sourceLang = String(job?.sourceLang || '').toLowerCase();
+  if (!sourceLang.startsWith('de')) return false;
   const sourceLocale = sourceLang.split('-')[0];
   const titles = job?.titleByLocale && typeof job.titleByLocale === 'object'
     ? job.titleByLocale

@@ -127,7 +127,7 @@ function sourceTitleHash(job) {
  * a sampling method: a crawler rename or directory sort change would silently
  * replace the cohort between the before and after passes.
  *
- * @param {Array<{id:string, beforeSourceTitleHash:string}>} records
+ * @param {Array<{id:string, beforeSourceTitleHash:string, beforeSourceLang?:string}>} records
  * @param {{seed?:number, size?:number}} [options]
  * @returns {Array<{id:string, beforeSourceTitleHash:string}>}
  */
@@ -142,8 +142,11 @@ export function selectGenderFormSample(
     const beforeSourceTitleHash = typeof record?.beforeSourceTitleHash === 'string'
       ? record.beforeSourceTitleHash
       : '';
+    const beforeSourceLang = typeof record?.beforeSourceLang === 'string'
+      ? record.beforeSourceLang.trim().toLowerCase()
+      : '';
     if (!id || !beforeSourceTitleHash || unique.has(id)) continue;
-    unique.set(id, { id, beforeSourceTitleHash });
+    unique.set(id, { id, beforeSourceTitleHash, beforeSourceLang });
   }
   return [...unique.values()]
     .sort((left, right) => {
@@ -447,6 +450,7 @@ export function summarizeJobs(
             c.genderFormCohortCandidates.push({
               id,
               beforeSourceTitleHash: sourceTitleHash(job),
+              beforeSourceLang: String(job.sourceLang || '').trim().toLowerCase(),
             });
           }
         }
@@ -459,7 +463,10 @@ export function summarizeJobs(
     if (previouslyGenderFormSample && id) {
       const sampleRecord = previouslyGenderFormSample.get(id);
       const sameSourceTitle = sampleRecord?.beforeSourceTitleHash === sourceTitleHash(job);
-      if (sampleRecord && sameSourceTitle && !incomplete && !flagged) {
+      const sourceLang = String(job.sourceLang || '').trim().toLowerCase();
+      const sameGermanSource = sampleRecord?.beforeSourceLang === sourceLang &&
+        sourceLang.startsWith('de');
+      if (sampleRecord && sameSourceTitle && sameGermanSource && !incomplete && !flagged) {
         c.genderFormSampleProcessed++;
         if (genderFormTargetResidual(job)) c.genderFormSampleResidual++;
       }
@@ -760,7 +767,8 @@ function readCohortState() {
 
   const records = sample.records.filter((record) =>
     typeof record?.id === 'string' && record.id.trim() &&
-    typeof record?.beforeSourceTitleHash === 'string' && record.beforeSourceTitleHash,
+    typeof record?.beforeSourceTitleHash === 'string' && record.beforeSourceTitleHash &&
+    typeof record?.beforeSourceLang === 'string' && record.beforeSourceLang.trim().toLowerCase().startsWith('de'),
   );
   return {
     incompleteIds: raw.incompleteIds,
