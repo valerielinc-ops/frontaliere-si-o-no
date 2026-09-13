@@ -723,7 +723,7 @@ describe('gender-form repair cohort — la misura del dopo (#7991)', () => {
       residual: 3,
       residualRate: 3 / 120,
     });
-    expect(formatReport(entry).join('\n')).toContain('Gender-form after:');
-    expect(formatReport(entry).join('\n')).toContain('3/120 (2.5%)');
+    expect(formatReport(entry).join('\\n')).toContain('Gender-form after:');
+    expect(formatReport(entry).join('\\n')).toContain('3/120 (2.5%)');
   });
 });

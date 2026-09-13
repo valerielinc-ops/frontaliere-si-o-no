@@ -173,11 +173,13 @@ import {
 } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
 export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
 export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+export { assertFeedEndpointHost };
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -758,6 +760,12 @@ export function exitCrawlerOnError(err, label = 'crawler') {
     );
     process.exit(0);
   }
+  if (err?.feedEndpointUnavailable) {
+    console.log(
+      `\n⚠️ ${label}: ${err?.message || err}. Keeping existing jobs (no de-index).`,
+    );
+    process.exit(0);
+  }
   console.error(`❌ ${label} crawler failed: ${err?.message || err}`);
   process.exit(1);
 }
@@ -953,7 +961,8 @@ export async function runStandardCrawlerPipeline(config) {
   // `written === 0`) and check-crawler-health calls a broken crawler healthy.
   // `counts.lastFetchOutcome` (issue #7897) is the run's own verdict on WHY it
   // ended up empty, when its parser can tell: `ok`, `anti_bot_block`,
-  // `selector_miss`, `filtered_empty`. `discovered`/`parsed` let the monitor
+  // `selector_miss`, `filtered_empty`, `connection_error` or
+  // `feed_endpoint_unavailable`. `discovered`/`parsed` let the monitor
   // INFER a cause by comparing counts; this reports one observed at the
   // fetch/parse boundary, which is the only place an anti-bot block and a dead
   // selector are distinguishable at all. It rides the same `counts` object so
@@ -996,8 +1005,16 @@ export async function runStandardCrawlerPipeline(config) {
     // fallback before re-throwing a connection-level error here, so this is the
     // last-resort guard after the proxy could not help either.
     if (isConnectionLevelFetchError(err)) {
+      counts.lastFetchOutcome = 'connection_error';
       console.log(
         `\n⚠️ ${companyLabel}: connection-level fetch failure after retries + proxy fallback (${err.message}). Keeping existing jobs.`,
+      );
+      return;
+    }
+    if (err?.feedEndpointUnavailable) {
+      counts.lastFetchOutcome = 'feed_endpoint_unavailable';
+      console.log(
+        `\n⚠️ ${companyLabel}: ${err.message}. Keeping existing jobs.`,
       );
       return;
     }

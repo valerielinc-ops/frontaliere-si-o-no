@@ -107,6 +107,7 @@ import {
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
 import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
+import { readEmbeddedBuildId } from './buildInfo';
 
 export interface AnalyticsPageViewIdentity {
  jobSlug?: string;
@@ -1276,6 +1277,7 @@ export const Analytics = {
  active_section: deriveActiveSection(),
  locale: document.documentElement.lang || navigator.language || 'unknown',
  browser_info: parseBrowserInfo(navigator.userAgent || ''),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  clarity_session_id: getClaritySessionId() || '',
  session_error_sequence: sessionErrorCount,
  user_agent: truncate(navigator.userAgent || '', 150),
@@ -1321,6 +1323,7 @@ export const Analytics = {
  error_fingerprint: errorDigest || '',
  referrer_path: truncate(previousScreen || '/', 180),
  user_agent: truncate(navigator.userAgent || '', 150),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  connection_type: truncate(
  (navigator as any).connection?.effectiveType || 'unknown',
  20
@@ -1517,6 +1520,7 @@ export const Analytics = {
  screen_width: window.innerWidth || 0,
  screen_height: window.innerHeight || 0,
  timestamp: new Date().toISOString(),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  });
  },
 
@@ -1550,6 +1554,7 @@ export const Analytics = {
  connection_type: truncate((navigator as any).connection?.effectiveType || 'unknown', 20),
  screen_width: window.innerWidth || 0,
  timestamp: new Date().toISOString(),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  });
  },
 
@@ -1593,6 +1598,7 @@ export const Analytics = {
  connection_type: truncate((navigator as any).connection?.effectiveType || 'unknown', 20),
  screen_width: window.innerWidth || 0,
  timestamp: new Date().toISOString(),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  });
  },
 
@@ -1616,6 +1622,7 @@ export const Analytics = {
  user_agent: truncate(navigator.userAgent || '', 150),
  connection_type: truncate((navigator as any).connection?.effectiveType || 'unknown', 20),
  timestamp: new Date().toISOString(),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  });
  },
 

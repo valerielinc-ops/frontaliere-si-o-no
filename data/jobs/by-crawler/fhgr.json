@@ -81,21 +81,16 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "bauingenieur-in-fhgr-ch",
-          "bauingenieur-in-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ],
         "it": [
-          "bauingenieur-in-fhgr-ch",
-          "ingegnere-civile-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ]
       },
       "previousSlugs": [
-        "bauingenieur-in-fhgr-ch",
-        "bauingenieur-in-fachhochschule-graubunden-chur",
-        "ingegnere-civile-fachhochschule-graubunden-chur"
+        "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
-      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -162,13 +157,11 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
-          "projektleiter-in-verwaltungsdirektion-fhgr-ch"
+          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
         ],
         "it": [
           "projektleiter-in-verwaltungsdirektion-fhgr-ch",
-          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
-          "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur"
+          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
@@ -179,8 +172,7 @@
       },
       "previousSlugs": [
         "projektleiter-in-verwaltungsdirektion-fhgr-ch",
-        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
-        "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur"
+        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
       ],
       "firstSeenAt": "2026-08-28T05:26:57.952Z",
       "salaryMin": 73000,
@@ -249,12 +241,10 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "hr-assistent-in-fachhochschule-graubunden-chur",
-          "hr-assistent-in-fhgr-ch"
+          "hr-assistent-in-fachhochschule-graubunden-chur"
         ],
         "it": [
-          "hr-assistent-in-fhgr-ch",
-          "assistente-hr-fachhochschule-graubunden-chur"
+          "hr-assistent-in-fhgr-ch"
         ],
         "en": [
           "hr-assistent-in-fhgr-ch"
@@ -265,11 +255,9 @@
       },
       "previousSlugs": [
         "hr-assistent-in-fhgr-ch",
-        "hr-assistent-in-fachhochschule-graubunden-chur",
-        "assistente-hr-fachhochschule-graubunden-chur"
+        "hr-assistent-in-fachhochschule-graubunden-chur"
       ],
       "firstSeenAt": "2026-09-08T23:31:09.494Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -287,9 +275,9 @@
     },
     {
       "id": "fhgr-30b6daabed80",
-      "slug": "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich",
+      "slug": "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
       "slugByLocale": {
-        "it": "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich",
+        "it": "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
         "en": "study-operations-coordinator-fachhochschule-graubunden-zurich",
         "de": "studienbetriebskoordinator-in-fhgr-ch",
         "fr": "coordonnateur-des-operations-d-etude-fachhochschule-graubunden-zurich"
@@ -299,7 +287,7 @@
       "companyDomain": "fhgr.ch",
       "title": "Studienbetriebskoordinator/-in",
       "titleByLocale": {
-        "it": "Studienbetriebskoordinator/-in",
+        "it": "Coordinatore delle operazioni di studio",
         "en": "Study Operations Coordinator",
         "de": "Studienbetriebskoordinator/-in",
         "fr": "Coordonnateur des opérations d'étude"
@@ -336,13 +324,11 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "studienbetriebskoordinator-in-fhgr-ch",
-        "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
         "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studienbetriebskoordinator-in-fhgr-ch",
-          "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
           "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich"
         ],
         "en": [
@@ -353,7 +339,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:41:07.210Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",

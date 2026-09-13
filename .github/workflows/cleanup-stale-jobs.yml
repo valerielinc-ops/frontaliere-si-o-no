@@ -1,9 +1,9 @@
 name: Cleanup Stale Job Listings
 
-# Phase 1 (per-slice expired-job pruning) runs daily at 06:00 UTC inside
-# translate-pending.yml.  This workflow adds Phase 2 (cross-crawler dedup
-# writeback) on a weekly cadence so persistent duplicates are removed from
-# the slice files and not re-detected on every deploy.
+# Phase 1 (per-slice expired-job pruning and URL validation) runs daily at
+# 06:00 UTC inside translate-pending.yml. This weekly workflow only repeats the
+# bounded age/dedup pass before Phase 2: URL validation is deliberately not
+# duplicated here because it is the 90%-of-runtime hotspot on large slices.
 on:
   schedule:
     - cron: '0 5 * * 0'  # Weekly: Sunday 05:00 UTC (before translate-pending daily run)
@@ -11,14 +11,6 @@ on:
     inputs:
       stale_days:
         description: 'Remove jobs older than N days (default: 60)'
-        required: false
-        type: string
-      concurrency:
-        description: 'Max concurrent URL checks (1-20, default: 5)'
-        required: false
-        type: string
-      timeout_ms:
-        description: 'URL check timeout in ms (2000-15000, default: 5000)'
         required: false
         type: string
 
@@ -71,16 +63,22 @@ jobs:
       - name: Cleanup each per-crawler slice
         env:
           JOBS_STALE_DAYS: ${{ github.event.inputs.stale_days || '' }}
-          JOBS_HOUSEKEEPING_CONCURRENCY: ${{ github.event.inputs.concurrency || '' }}
-          JOBS_HOUSEKEEPING_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          # URL validation is owned by the daily translate-pending pass. The
+          # weekly pass must stay bounded by local JSON work, not remote URL
+          # latency on every job in every slice.
+          JOBS_SKIP_URL_VALIDATION: '1'
         run: |
-          # Iterate over all per-crawler slice files and clean each one
+          set -euo pipefail
+          # Iterate over all per-crawler slice files. A malformed slice is a
+          # hard failure: do not commit a partial cleanup as if it succeeded.
+          slices=0
           for slice in data/jobs/by-crawler/*.json; do
             [ -f "$slice" ] || continue
             echo "──── Cleaning: $slice ────"
-            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true
+            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs
+            slices=$((slices + 1))
           done
-          echo "✅ Per-slice cleanup complete"
+          echo "✅ Bounded per-slice cleanup complete: $slices slice(s), URL validation delegated to translate-pending"
 
       - name: Commit Phase 1 (per-slice expired jobs)
         id: phase1_commit
