@@ -154,4 +154,31 @@ describe('migrate-prospected-slugs', () => {
       }
     }
   });
+
+  it('wires the migration into a guarded manual bot-direct workflow', () => {
+    const workflow = fs.readFileSync(
+      path.join(process.cwd(), '.github', 'workflows', 'migrate-prospected-slugs.yml'),
+      'utf8',
+    );
+
+    expect(workflow).toContain('workflow_dispatch:');
+    expect(workflow).not.toContain('schedule:');
+    expect(workflow).toContain('ref: main');
+    expect(workflow).toMatch(/if \[ "\$\{GITHUB_REF:-\}" != "refs\/heads\/main" \]; then/);
+    const refGuard = workflow.indexOf('Require main dispatch ref');
+    expect(refGuard).toBeGreaterThanOrEqual(0);
+    expect(refGuard).toBeLessThan(workflow.indexOf('name: Checkout'));
+    expect(refGuard).toBeLessThan(workflow.indexOf('Prepare Firebase credentials'));
+    expect(workflow).toContain('group: jobs-data-pipeline');
+    expect(workflow).toContain('contents: write');
+    expect(workflow).toContain('node scripts/migrate-prospected-slugs.mjs --apply');
+    expect(workflow).toContain('Dry run prospected slug migration: 0 of');
+    expect(workflow).toContain('run: npm test');
+    expect(workflow).toContain('git diff --cached --name-only');
+    expect(workflow).toContain('scripts/lib/git-push-with-retry.sh');
+    expect(workflow).toContain('--regenerate-cmd');
+    for (const crawlerKey of TARGET_CRAWLERS) {
+      expect(workflow).toContain(`data/jobs/by-crawler/${crawlerKey}.json`);
+    }
+  });
 });
