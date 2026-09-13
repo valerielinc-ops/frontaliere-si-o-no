@@ -10,6 +10,7 @@ import {
   AUTONOMY_ORDER,
   actionAutonomy,
   buildDecision,
+  buildOutcome,
   buildObservation,
   loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
@@ -250,7 +251,31 @@ function validateDuties(duties, { now, maxAgeHours, issues }) {
 function validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, outcomePath }) {
   if (!outcomes || typeof outcomes !== 'object' || Array.isArray(outcomes)) {
     issues.push('decision-moment outcome export is missing');
-    return { quality: 'partial', snapshot: { path: outcomePath, generatedAt: null, eligibleDecisionSessions: null, nextUsefulActions: null } };
+    return {
+      quality: 'partial',
+      snapshot: {
+        path: outcomePath,
+        missing: true,
+        independent: false,
+        evidence: null,
+        generatedAt: null,
+        eligibleDecisionSessions: null,
+        nextUsefulActions: null,
+        quality: 'partial',
+      },
+    };
+  }
+  const evidence = outcomes.evidence || outcomes.provenance;
+  if (outcomes.independent !== true) {
+    issues.push('outcomes.independent must be explicitly true for a measured decision-moment export');
+  }
+  if (!evidence || typeof evidence !== 'object' || Array.isArray(evidence)) {
+    issues.push('outcomes.evidence is missing or not an object');
+  } else {
+    if (!text(evidence.source)) issues.push('outcomes.evidence.source is missing');
+    if (!Array.isArray(evidence.sourceRefs) || evidence.sourceRefs.length === 0 || evidence.sourceRefs.some((sourceRef) => !text(sourceRef))) {
+      issues.push('outcomes.evidence.sourceRefs must be a non-empty array of text');
+    }
   }
   const generated = checkFreshness(outcomes.generatedAt || outcomes._meta?.generatedAt, 'outcomes.generatedAt', { now, maxAgeHours, issues });
   const eligibleDecisionSessions = outcomes.eligibleDecisionSessions ?? outcomes.metrics?.eligibleDecisionSessions;
@@ -261,6 +286,14 @@ function validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, o
   if (integer(eligibleDecisionSessions) && eligibleDecisionSessions < minimumSample) issues.push(`eligibleDecisionSessions is below minimum sample (${eligibleDecisionSessions} < ${minimumSample})`);
   const snapshot = {
     path: outcomePath,
+    missing: false,
+    independent: outcomes.independent === true,
+    evidence: evidence && typeof evidence === 'object' && !Array.isArray(evidence)
+      ? {
+        source: text(evidence.source) ? evidence.source.trim() : null,
+        sourceRefs: Array.isArray(evidence.sourceRefs) ? evidence.sourceRefs.filter(text).map((sourceRef) => sourceRef.trim()) : [],
+      }
+      : null,
     generatedAt: generated?.iso || null,
     ageHours: generated?.ageHours ?? null,
     eligibleDecisionSessions: integer(eligibleDecisionSessions) ? eligibleDecisionSessions : null,
@@ -271,6 +304,7 @@ function validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, o
   else if ((generated.ageHours ?? 0) < -0.0834 || (generated.ageHours ?? 0) > maxAgeHours) quality = 'stale';
   else if (eligibleDecisionSessions === 0) quality = 'zero';
   else if (eligibleDecisionSessions < minimumSample) quality = 'partial';
+  snapshot.quality = quality;
   return { quality, snapshot };
 }
 
@@ -357,6 +391,70 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
+function buildDecisionMomentOutcome({ source, verdict, policy, now }) {
+  const outcomeSnapshot = verdict.snapshot?.outcomes || {};
+  const generatedAt = finiteDate(outcomeSnapshot.generatedAt);
+  const eligibleDecisionSessions = integer(outcomeSnapshot.eligibleDecisionSessions)
+    ? outcomeSnapshot.eligibleDecisionSessions
+    : null;
+  const nextUsefulActions = integer(outcomeSnapshot.nextUsefulActions)
+    ? outcomeSnapshot.nextUsefulActions
+    : null;
+  const explicitIndependent = source?.independent === true;
+  const outcomeQuality = outcomeSnapshot.quality || 'partial';
+  const measured = outcomeQuality === 'observed'
+    && explicitIndependent
+    && eligibleDecisionSessions !== null
+    && nextUsefulActions !== null;
+  const status = measured
+    ? 'observed'
+    : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
+  const requiredFieldsPresent = measured
+    ? policy.outcome.requiredFields.slice()
+    : (generatedAt ? ['generatedAt'] : []);
+  const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
+  const outcome = buildOutcome({
+    outcomeId: policy.outcome.outcomeId,
+    status,
+    independent: measured,
+    sourceRefs: policy.outcome.sourceRefs,
+    primaryMetric: policy.primaryMetric,
+    numerator: measured ? nextUsefulActions : null,
+    denominator: measured ? eligibleDecisionSessions : null,
+    requiredFieldsPresent,
+    missingFields,
+    reason: measured
+      ? 'explicit independent decision-surface export with eligible sessions and next useful actions'
+      : `decision-moment outcome is ${status}; no bridge or freshness claim is authorized`,
+    observedAt: generatedAt?.toISOString() || null,
+    allowNumeratorExceedDenominator: false,
+    recordedAt: now.toISOString(),
+  });
+  return {
+    ...outcome,
+    loopId: LOOP_ID,
+    generatedAt: generatedAt?.toISOString() || null,
+    eligibleDecisionSessions,
+    nextUsefulActions,
+    metrics: {
+      eligibleDecisionSessions,
+      nextUsefulActions,
+    },
+    evidence: outcomeSnapshot.evidence || {
+      status: 'missing',
+      sourcePath: outcomeSnapshot.path,
+      sourceRefs: policy.outcome.sourceRefs,
+    },
+    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (measured ? 'verified' : 'unverified'),
+    sourcePath: outcomeSnapshot.path,
+    safeToAct: false,
+    publishedDataUntouched: true,
+    noDarkPatterns: true,
+    noUnsupportedTimingPromise: true,
+    noInvasivePersonalization: true,
+  };
+}
+
 function writeReports(reportDir, verdict, observation, decision) {
   if (!reportDir) return [];
   const dir = path.resolve(reportDir);
@@ -364,6 +462,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   const files = [
     ['l5-observation.json', observation],
     ['l5-decision.json', decision],
+    ['l5-outcome.json', observation.outcome],
     ['l5-report.md', reportMarkdown(verdict, observation, decision)],
   ];
   for (const [name, content] of files) fs.writeFileSync(path.join(dir, name), typeof content === 'string' ? content : `${JSON.stringify(content, null, 2)}\n`);
@@ -395,10 +494,10 @@ function writeActions(reportDir, verdict, now, loopRegistry) {
   return file;
 }
 
-function writeResult(reportDir, { verdict, issued, actionsWritten }) {
+function writeResult(reportDir, { verdict, issued, actionsWritten, outcome }) {
   if (!reportDir) return null;
   const file = path.join(path.resolve(reportDir), 'l5-result.json');
-  fs.writeFileSync(file, `${JSON.stringify({ loopId: LOOP_ID, ok: verdict.ok, quality: verdict.quality, issueCount: verdict.issues.length, warningCount: verdict.warnings.length, issued, actionsWritten }, null, 2)}\n`);
+  fs.writeFileSync(file, `${JSON.stringify({ loopId: LOOP_ID, ok: verdict.ok, quality: verdict.quality, issueCount: verdict.issues.length, warningCount: verdict.warnings.length, issued, actionsWritten, outcome }, null, 2)}\n`);
   return file;
 }
 
@@ -440,13 +539,15 @@ export async function runL5({
     minimumSample: policyMinimumSample,
   } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
   let verdict;
+  let sourceOutcomes = null;
   try {
+    sourceOutcomes = readOptionalJson(outcomePath);
     verdict = validateDecisionMoments({
       fuel: readJson(fuelPath, 'fuel source'),
       border: readJson(borderPath, 'border source'),
       pharmacies: readJson(pharmacyPath, 'pharmacy source'),
       duties: readJson(dutyPath, 'pharmacy duty source'),
-      outcomes: readOptionalJson(outcomePath),
+      outcomes: sourceOutcomes,
     }, {
       now,
       maxAgeHours,
@@ -475,6 +576,7 @@ export async function runL5({
     },
   };
   const measurable = verdict.quality === 'observed';
+  const outcome = buildDecisionMomentOutcome({ source: sourceOutcomes, verdict, policy: loopPolicy, now });
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime() ? generatedAt.toISOString() : now.toISOString();
   const observation = buildObservation({
@@ -495,6 +597,7 @@ export async function runL5({
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
+  observation.outcome = outcome;
   const decision = buildDecision({
     loopId: LOOP_ID,
     goal: loopPolicy.goal,
@@ -532,10 +635,10 @@ export async function runL5({
     }
     issued = true;
   }
-  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten });
+  const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);
   logger.log(`[L5] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
-  return { verdict, observation, decision, files, issued, actionsWritten };
+  return { verdict, observation, decision, outcome, files, issued, actionsWritten };
 }
 
 function parseArgs(argv) {
@@ -558,7 +661,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
   const options = parseArgs(argv);
   const runLogger = options.json ? { ...logger, log: () => {} } : logger;
   const result = await runL5({ ...options, issue: options.issue && !options.dryRun, logger: runLogger });
-  if (options.json) logger.log(JSON.stringify({ verdict: result.verdict, observation: result.observation, decision: result.decision, issued: result.issued, actionsWritten: result.actionsWritten }, null, 2));
+  if (options.json) logger.log(JSON.stringify({ verdict: result.verdict, observation: result.observation, decision: result.decision, outcome: result.outcome, issued: result.issued, actionsWritten: result.actionsWritten }, null, 2));
   if (options.strict && !result.verdict.ok) process.exitCode = 2;
   return result;
 }

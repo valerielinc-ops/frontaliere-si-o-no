@@ -95,6 +95,13 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
+      - name: Validate runner-local L5 outcome export
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l5
+        run: |
+          test -s "$REPORT_DIR/l5-outcome.json"
+          jq -e '(.loopId == "L5" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .publishedDataUntouched == true)' "$REPORT_DIR/l5-outcome.json" >/dev/null
       - name: Record canonical L5 evidence
         if: always()
         env:
