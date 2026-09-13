@@ -209,7 +209,7 @@ export function detectAnagraficaConflicts(key, doc) {
     // chiave degenere — un `duplicate-identity` che nessuna correzione al dato
     // può togliere, cioè il monitor rosso senza via d'uscita. Componente vuoto
     // dopo la normalizzazione → nessuna chiave di identità per quel record.
-    // Verificato sulle 119 farmacie reali di `data/pharmacies-ticino.json`:
+    // Verificato sullo snapshot completo di `data/pharmacies-ticino-complete.json`:
     // zero conflitti, il monitor nasce verde (test di regressione in
     // `tests/pharmacy-data-health.test.ts`).
     const identity = [p?.name, p?.postalCode, p?.address].map(normalizeIdentityField);
@@ -266,11 +266,11 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
   // Un'anagrafica stale è una violazione REALE dello SLA dichiarato dalla policy,
   // non un falso allarme da sopprimere — ma il percorso di rientro va nominato,
   // altrimenti l'issue resta aperta senza dire cosa la chiude: oggi l'import è
-  // one-shot e lo scheduler è #6752, e appena quello gira `_fetchedAt` si
-  // aggiorna e il monitor si richiude da solo.
+  // automatico è `sync-pharmacies-border.yml`; appena quello gira `_fetchedAt`
+  // si aggiorna e il monitor si richiude da solo.
   for (const f of freshness.entries) {
     if (!f.stale) continue;
-    const hint = f.kind === 'anagrafica' ? ' — l\'import è ancora one-shot, lo scheduler è #6752' : '';
+    const hint = f.kind === 'anagrafica' ? ' — verificare il workflow sync-pharmacies-border' : '';
     problems.push(`dataset ${f.kind} ${f.key} stale: ${f.reason}${hint}`);
   }
   for (const e of fetchErrors) problems.push(`${e.count} errore/i di fetch nel dataset ${e.kind} ${e.key}`);
@@ -284,7 +284,7 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
     conflicts,
     dutiesPipeline: coverage.cantonsWithDuties > 0
       ? { available: true }
-      : { available: false, reason: 'pipeline turni non ancora costruita (#6750): assenza attesa, non un guasto' },
+      : { available: false, reason: 'dataset turni non disponibile per la fonte attiva' },
     problems,
     healthy: problems.length === 0,
   };
@@ -329,14 +329,16 @@ function readJson(relPath) {
 
 /**
  * I dataset per-cantone seguono la convenzione `data/pharmacies-<key>.json` e
- * `data/pharmacy-duties-<key>.json`, con `<key>` la chiave del registry: così
- * un cantone nuovo entra nella dashboard senza toccare questo file.
+ * `data/pharmacy-duties-<key>.json`, con `<key>` la chiave del registry. Se
+ * una fonte separa l'anagrafica dai turni, `anagraficaPath` nel registry indica
+ * il snapshot canonico e la convenzione resta il fallback di compatibilità.
  */
 export function loadDatasets(registry) {
   const datasets = {};
   const duties = {};
-  for (const key of Object.keys(registry?.sources ?? {})) {
-    const a = readJson(`data/pharmacies-${key}.json`);
+  for (const [key, entry] of Object.entries(registry?.sources ?? {})) {
+    const configuredPath = typeof entry?.anagraficaPath === 'string' ? entry.anagraficaPath : null;
+    const a = (configuredPath && readJson(configuredPath)) || readJson(`data/pharmacies-${key}.json`);
     if (a) datasets[key] = a;
     const d = readJson(`data/pharmacy-duties-${key}.json`);
     if (d) duties[key] = d;

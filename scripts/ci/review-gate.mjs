@@ -206,7 +206,7 @@ function parseImportantFindings(body, extractCitations) {
       markerIndex > index
       && markerIndex < end
       && !isFindingStart(markerLine, marker, extractCitations));
-    const citations = extractCitations(text);
+    const citations = extractFindingCitations(text, extractCitations);
     const precisePaths = new Set(
       citations.filter(citation => citation.line !== null).map(citation => citation.path),
     );
@@ -1333,6 +1333,19 @@ const isDirectRun = (() => {
     return false;
   }
 })();
+
+/**
+ * A review can confirm earlier findings in the same paragraph as a new
+ * finding. Those `Fix di ...: ok.` lines are resolution evidence, not new
+ * anchors for the finding currently being classified.
+ */
+function extractFindingCitations(text, extractCitations) {
+  const findingText = normalizeReviewBody(text)
+    .split(/\r?\n/u)
+    .filter((line) => !FIX_CONFIRMATION_RE.test(line))
+    .join('\n');
+  return extractCitations(findingText);
+}
 
 if (isDirectRun) {
   try {
