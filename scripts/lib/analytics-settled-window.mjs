@@ -18,8 +18,59 @@
 /** Giorni di ritardo di elaborazione oltre i quali il dato è considerato assestato. */
 export const ANALYTICS_PROCESSING_LAG_DAYS = 2;
 
+const MS_PER_UTC_DAY = 24 * 60 * 60 * 1000;
+
 /** `YYYY-MM-DD` in UTC (stesso output di `toISOString().slice(0, 10)`). */
 export const fmtUtcDate = (d) => d.toISOString().slice(0, 10);
+
+function parseUtcDate(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+  const date = new Date(`${value}T00:00:00.000Z`);
+  return fmtUtcDate(date) === value ? date : null;
+}
+
+/**
+ * Count calendar days in an inclusive UTC date range.
+ *
+ * Returning null for malformed or reversed ranges keeps callers from
+ * silently scaling a threshold from an invalid API response.
+ * @param {string} startDate `YYYY-MM-DD`
+ * @param {string} endDate `YYYY-MM-DD`
+ * @returns {number|null}
+ */
+export function countInclusiveUtcDays(startDate, endDate) {
+  const start = parseUtcDate(startDate);
+  const end = parseUtcDate(endDate);
+  if (!start || !end || end < start) return null;
+  return Math.floor((end.getTime() - start.getTime()) / MS_PER_UTC_DAY) + 1;
+}
+
+/**
+ * Scale a session-count threshold to the actual duration of a queried window.
+ *
+ * Positive thresholds stay at least 1, and invalid window metadata falls back
+ * to the configured base threshold rather than weakening the filter.
+ * @param {number} baseThreshold
+ * @param {number|null} referenceDays
+ * @param {number|null} actualDays
+ * @returns {number}
+ */
+export function scaleSessionThreshold(baseThreshold, referenceDays, actualDays) {
+  const base = Number(baseThreshold);
+  const fallback = Number.isFinite(base) ? Math.max(0, Math.ceil(base)) : 0;
+  const reference = Number(referenceDays);
+  const actual = Number(actualDays);
+  if (
+    !Number.isFinite(base)
+    || !Number.isFinite(reference)
+    || reference <= 0
+    || !Number.isFinite(actual)
+    || actual <= 0
+  ) {
+    return fallback;
+  }
+  return Math.max(base > 0 ? 1 : 0, Math.ceil(base * actual / reference));
+}
 
 /**
  * `date` spostata indietro di `days` giornate sul calendario UTC.

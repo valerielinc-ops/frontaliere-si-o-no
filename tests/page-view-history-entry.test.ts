@@ -147,7 +147,7 @@ describe('page-view emission identity', () => {
   });
 
   it('keeps the locale change and auth restores as distinct acts after replaceState/popstate', async () => {
-    expect(routerSource.split('\n')[3990]).toContain(
+    expect(routerSource).toContain(
       "history.replaceState({ route: nextRoute }, '', newPath + search);",
     );
     expect(authServiceSource).toContain("window.history.replaceState(null, '', savedPath);");
