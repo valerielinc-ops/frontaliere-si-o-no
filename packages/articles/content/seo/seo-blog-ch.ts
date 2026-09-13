@@ -82388,6 +82388,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-attacco-hacker-salt-dati-clienti': {
+    title: 'Salt: attacco informatico e furto dati clienti mobili',
+    description: 'L\'operatore Salt vittima di un attacco informatico in Svizzera. Sottratti dati personali di alcuni clienti mobili. Nessuna password o dato bancario compromesso.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salt, attacco, informatico, furto',
+    ogTitle: 'Salt: attacco informatico e furto dati clienti mobili',
+    ogDescription: 'L\'operatore telefonico Salt è stato vittima di un attacco informatico in Svizzera che ha comportato il furto di dati personali di alcuni clienti mobili. Avvisato l\'Incaricato federale per la protezione dei dati.',
+    canonicalPath: '/articoli-svizzera/attacco-hacker-salt-dati-clienti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salt: attacco informatico e furto dati clienti mobili",
+      "description": "L'operatore Salt vittima di un attacco informatico in Svizzera. Sottratti dati personali di alcuni clienti mobili. Nessuna password o dato bancario compromesso.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/attacco-hacker-salt-dati-clienti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede di un operatore di telefonia mobile in Svizzera coinvolto in un attacco informatico"
+      },
+      "datePublished": "2026-09-13T07:05:29+00:00",
+      "dateModified": "2026-09-13T07:05:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attacco-hacker-salt-dati-clienti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

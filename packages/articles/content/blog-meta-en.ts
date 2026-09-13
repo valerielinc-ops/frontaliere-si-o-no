@@ -11719,6 +11719,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stadler-rail-investimenti-kazakistan.title': 'Stadler Rail focuses on Kazakhstan: 53 million investments',
     'blog.article.stadler-rail-investimenti-kazakistan.excerpt': 'The Turgovian manufacturer Stadler Rail invests 25 million francs in the Astana plant to start the production of aluminium crates.',
     'blog.article.stadler-rail-investimenti-kazakistan.imageAlt': 'Stadler Rail railway manufacturing plant with advanced machinery',
+    'blog.article.inaugurazione-campus-smart-valley-daverio.title': 'Smart Valley campus for businesses inaugurated in Daverio',
+    'blog.article.inaugurazione-campus-smart-valley-daverio.excerpt': 'The Smart Valley campus was inaugurated at Daverio, a space of five thousand square meters for specialized training and the connection between young people and companies.',
+    'blog.article.inaugurazione-campus-smart-valley-daverio.imageAlt': 'Smart Valley campus inaugurated in the industrial area of Daverio',
 };
 
 export default blogMetaEn;

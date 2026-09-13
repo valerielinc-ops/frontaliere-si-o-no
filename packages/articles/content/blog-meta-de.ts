@@ -11718,6 +11718,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stadler-rail-investimenti-kazakistan.title': 'Stadler Rail setzt auf Kasachstan: 53 Millionen Investitionen',
     'blog.article.stadler-rail-investimenti-kazakistan.excerpt': 'Der Thurgauer Hersteller Stadler Rail investiert 25 Millionen Franken in das Werk Astana, um mit der Produktion von Aluminiumgehäusen zu beginnen.',
     'blog.article.stadler-rail-investimenti-kazakistan.imageAlt': 'Stadler Rail Bahnproduktionsanlage mit modernen Maschinen',
+    'blog.article.inaugurazione-campus-smart-valley-daverio.title': 'Smart Valley Campus für Unternehmen in Daverio eingeweiht',
+    'blog.article.inaugurazione-campus-smart-valley-daverio.excerpt': 'In Daverio wurde der Smart Valley-Campus eingeweiht, ein fünftausend Quadratmeter großer Raum für die Fachausbildung und die Verbindung zwischen jungen Menschen und Unternehmen.',
+    'blog.article.inaugurazione-campus-smart-valley-daverio.imageAlt': 'Smart Valley Campus im Industriegebiet von Daverio eingeweiht',
 };
 
 export default blogMetaDe;
