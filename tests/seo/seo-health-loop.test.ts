@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import {
+  absoluteHttpUrl,
   advanceFindingStreaks,
   actionableStreaks,
   comparableUrl,
@@ -16,7 +17,7 @@ import {
   parseSitemapUrlSet,
   sourceResult,
 } from '../../scripts/lib/seo-health-contract.mjs';
-import { loadSitemapGraph, runSeoHealthLoop } from '../../scripts/seo/seo-health-loop.mjs';
+import { fetchWithRetry, loadSitemapGraph, runSeoHealthLoop } from '../../scripts/seo/seo-health-loop.mjs';
 
 const ORIGIN = 'https://fixture.test';
 const NOSLASH_SOURCE = readFileSync(new URL('../../scripts/refresh-noslash-keep.mjs', import.meta.url), 'utf8');
@@ -33,6 +34,8 @@ function response(url: string, status: number, body = '') {
 
 describe('SEO health contract', () => {
   it('preserves slash shape while ignoring only URL noise', () => {
+    expect(absoluteHttpUrl('')).toBeNull();
+    expect(absoluteHttpUrl('   ')).toBeNull();
     expect(comparableUrl('https://fixture.test/jobs/?utm_source=test#top')).toBe('https://fixture.test/jobs/?utm_source=test');
     expect(isSameUrl('https://fixture.test/jobs/', 'https://fixture.test/jobs')).toBe(false);
     expect(isAssetUrl('https://fixture.test/assets/app.js')).toBe(true);
@@ -105,6 +108,8 @@ describe('SEO health contract', () => {
     expect(WORKFLOW_SOURCE).not.toContain("--in-place-resolver-cmd 'node scripts/lib/resolve-404-compat-conflict.mjs && git add -A'");
     expect(WORKFLOW_SOURCE).toContain('actions/upload-artifact@v6');
     expect(WORKFLOW_SOURCE).toContain('EXPECTED_SHA=');
+    expect(WORKFLOW_SOURCE).toContain('No deploy token available');
+    expect(WORKFLOW_SOURCE).toContain("dispatch_sent=true");
     expect(WORKFLOW_SOURCE).not.toMatch(/purge/i);
   });
 
@@ -168,6 +173,38 @@ describe('SEO health live runner', () => {
       'source-unavailable',
     ]));
     expect(report.findings.actionable).toHaveLength(0);
+    expect(report.issue).toMatchObject({ skipped: 'dry-run' });
+  });
+
+  it('surfaces a sitemap graph truncated exactly at the configured cap', async () => {
+    const sitemap = `${ORIGIN}/sitemap.xml`;
+    const children = ['one', 'two', 'three'].map((name) => `${ORIGIN}/sitemap-${name}.xml`);
+    const bodies = new Map<string, string>([
+      [`${ORIGIN}/robots.txt`, `Sitemap: ${sitemap}`],
+      [sitemap, `<sitemapindex>${children.map((url) => `<sitemap><loc>${url}</loc></sitemap>`).join('')}</sitemapindex>`],
+      [children[0], '<urlset><url><loc>https://fixture.test/one/</loc></url></urlset>'],
+    ]);
+    const fetchImpl = async (url: string) => response(url, bodies.has(url) ? 200 : 404, bodies.get(url) || '');
+    const graph = await loadSitemapGraph({ origin: ORIGIN, sitemap, fetchImpl, maxSitemaps: 2, timeoutMs: 1000 });
+    expect(graph.files).toHaveLength(2);
+    expect(graph.findings).toEqual(expect.arrayContaining([
+      expect.objectContaining({ code: 'sitemap-graph-truncated' }),
+    ]));
+  });
+
+  it('bounds a response body that never resolves', async () => {
+    const result = await fetchWithRetry('https://fixture.test/slow', {
+      timeoutMs: 10,
+      attempts: 1,
+      fetchImpl: async (url: string) => ({
+        status: 200,
+        url,
+        headers: { get: () => null },
+        text: () => new Promise<string>(() => {}),
+      }),
+    });
+    expect(result.status).toBe(0);
+    expect(result.error).toContain('response body timeout');
   });
 
   it('persists the observation streak and makes a repeated defect actionable', async () => {
@@ -198,6 +235,37 @@ describe('SEO health live runner', () => {
       ]));
       expect(readFileSync(join(root, 'history.jsonl'), 'utf8').trim().split('\n')).toHaveLength(2);
     } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('does not duplicate history when a GitHub run is retried', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'seo-health-history-'));
+    const previousRunId = process.env.GITHUB_RUN_ID;
+    const sitemap = `${ORIGIN}/sitemap.xml`;
+    const bodies = new Map<string, string>([
+      [`${ORIGIN}/robots.txt`, `Sitemap: ${sitemap}`],
+      [sitemap, '<urlset><url><loc>https://fixture.test/</loc></url></urlset>'],
+      [`${ORIGIN}/`, '<title>Home</title><link rel="canonical" href="https://fixture.test/">'],
+    ]);
+    const fetchImpl = async (url: string) => response(url, bodies.has(url) ? 200 : 404, bodies.get(url) || '');
+    const options = {
+      origin: ORIGIN,
+      sitemap,
+      sample: 2,
+      jobSample: 1,
+      reportDir: join(root, 'reports'),
+      statePath: join(root, 'state.json'),
+      historyPath: join(root, 'history.jsonl'),
+    };
+    process.env.GITHUB_RUN_ID = 'retryable-run-8539';
+    try {
+      await runSeoHealthLoop({ options, fetchImpl, collectAnalytics: false, root, now: new Date('2026-09-13T00:00:00Z') });
+      await runSeoHealthLoop({ options, fetchImpl, collectAnalytics: false, root, now: new Date('2026-09-13T00:05:00Z') });
+      expect(readFileSync(join(root, 'history.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
+    } finally {
+      if (previousRunId === undefined) delete process.env.GITHUB_RUN_ID;
+      else process.env.GITHUB_RUN_ID = previousRunId;
       rmSync(root, { recursive: true, force: true });
     }
   });

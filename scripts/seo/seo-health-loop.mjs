@@ -140,6 +140,22 @@ function responseHeader(response, name) {
   }
 }
 
+async function responseTextWithTimeout(response, timeoutMs) {
+  if (typeof response?.text !== 'function') return '';
+  const limit = Math.max(1, Number(timeoutMs) || DEFAULT_TIMEOUT_MS);
+  let timer;
+  try {
+    return await Promise.race([
+      Promise.resolve().then(() => response.text()),
+      new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Error(`response body timeout after ${limit}ms`)), limit);
+      }),
+    ]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /** GET a live resource, retrying only network/5xx failures. */
 export async function fetchWithRetry(url, {
   fetchImpl = fetch,
@@ -170,7 +186,7 @@ export async function fetchWithRetry(url, {
       if (!retryable || attempt >= Math.max(1, attempts)) {
         let body = '';
         if (status >= 200 && status < 300 && typeof response.text === 'function') {
-          body = await response.text();
+          body = await responseTextWithTimeout(response, timeoutMs);
         }
         return {
           status,
@@ -288,12 +304,28 @@ export async function loadSitemapGraph({
     findings.push({ code: 'robots-unavailable', url: `${origin}/robots.txt`, status: robotsResponse.status, detail: robotsResponse.error || null });
   }
 
-  const queue = [absoluteHttpUrl(sitemap, origin), ...(robots?.advertisedSitemaps || [])].filter(Boolean);
-  const queued = new Set();
-  while (queue.length > 0 && queued.size < maxSitemaps) {
+  const queue = [];
+  const scheduled = new Set();
+  const fetched = new Set();
+  let graphTruncated = false;
+  const schedule = (candidate) => {
+    const sitemapUrl = absoluteHttpUrl(candidate, origin);
+    const key = sitemapUrl && comparableUrl(sitemapUrl);
+    if (!key || scheduled.has(key)) return;
+    if (scheduled.size >= maxSitemaps) {
+      graphTruncated = true;
+      return;
+    }
+    scheduled.add(key);
+    queue.push(sitemapUrl);
+  };
+  schedule(sitemap);
+  for (const advertised of robots?.advertisedSitemaps || []) schedule(advertised);
+
+  while (queue.length > 0) {
     const sitemapUrl = queue.shift();
-    if (!sitemapUrl || queued.has(comparableUrl(sitemapUrl))) continue;
-    queued.add(comparableUrl(sitemapUrl));
+    if (!sitemapUrl || fetched.has(comparableUrl(sitemapUrl))) continue;
+    fetched.add(comparableUrl(sitemapUrl));
     const response = await fetchWithRetry(sitemapUrl, { fetchImpl, timeoutMs, headers: { accept: 'application/xml,text/xml;q=0.9,*/*;q=0.1' } });
     const file = {
       url: sitemapUrl,
@@ -309,9 +341,7 @@ export async function loadSitemapGraph({
       continue;
     }
     if (/<sitemapindex\b/i.test(response.body)) {
-      for (const child of parseSitemapIndex(response.body, origin)) {
-        if (!queued.has(comparableUrl(child)) && queue.length + queued.size < maxSitemaps) queue.push(child);
-      }
+      for (const child of parseSitemapIndex(response.body, origin)) schedule(child);
       continue;
     }
     const parsedEntries = parseSitemapUrlSet(response.body, origin);
@@ -327,7 +357,7 @@ export async function loadSitemapGraph({
       findings.push({ code: 'news-sitemap-invalid', url: sitemapUrl, detail: news.invalidFields.join(', ') });
     }
   }
-  if (queue.length > 0) {
+  if (graphTruncated || queue.length > 0) {
     findings.push({ code: 'sitemap-graph-truncated', url: sitemap, detail: `max ${maxSitemaps} sitemap files` });
   }
   for (const entry of entriesByUrl.values()) {
@@ -416,6 +446,10 @@ async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOU
       source: sourceResult({ name: 'cloudflare-analytics', startedAt, finishedAt: new Date().toISOString(), skipped: true, error: 'CF_API_TOKEN missing' }),
       available: false,
       total5xx: null,
+      sampledPath5xx: null,
+      transient5xx: null,
+      unverified5xx: null,
+      unprobed5xx: null,
       diagnostics: [],
       paths: [],
       confirmedPersistent: [],
@@ -427,6 +461,8 @@ async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOU
       fetchErrorDiagnostics(process.env.CF_API_TOKEN, zoneId, { hours: 23 }),
       fetchErrorPaths(process.env.CF_API_TOKEN, zoneId, { hours: 23, minStatus: 500, limit: 10_000 }),
     ]);
+    const total5xx = diagnostics.reduce((sum, row) => sum + Number(row.count || 0), 0);
+    const path5xx = paths.reduce((sum, row) => sum + Number(row.count || 0), 0);
     const topPaths = [...paths].sort((a, b) => Number(b.count || 0) - Number(a.count || 0)).slice(0, finitePositive(errorSample, DEFAULT_ERROR_SAMPLE));
     const probes = await mapConcurrent(topPaths, 4, async (row) => {
       const host = row.host || SITE_HOST;
@@ -436,6 +472,15 @@ async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOU
       return { ...row, url, probeStatus: response.status, probeError: response.error || null, attempts: response.attempts };
     });
     const confirmedPersistent = probes.filter((row) => Number(row.probeStatus) >= 500);
+    // A path is transient only when its own live probe recovered.  Counts for
+    // unprobed paths and failed probes remain explicit instead of becoming a
+    // false green remainder of the aggregate total.
+    const transient5xx = probes
+      .filter((row) => Number(row.probeStatus) > 0 && Number(row.probeStatus) < 500)
+      .reduce((sum, row) => sum + Number(row.count || 0), 0);
+    const unverified5xx = probes
+      .filter((row) => Number(row.probeStatus) === 0)
+      .reduce((sum, row) => sum + Number(row.count || 0), 0);
     const bySurface = {};
     for (const row of paths) {
       const surface = classifySurface({ host: row.host, path: row.path });
@@ -447,8 +492,12 @@ async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOU
     return {
       source: sourceResult({ name: 'cloudflare-analytics', startedAt, finishedAt, rows: diagnostics.length + paths.length }),
       available: true,
-      total5xx: diagnostics.reduce((sum, row) => sum + Number(row.count || 0), 0),
+      total5xx,
       synthesized5xx: diagnostics.filter(isSynthesizedByEdge).reduce((sum, row) => sum + Number(row.count || 0), 0),
+      sampledPath5xx: topPaths.reduce((sum, row) => sum + Number(row.count || 0), 0),
+      transient5xx,
+      unverified5xx,
+      unprobed5xx: Math.max(0, total5xx - path5xx),
       bySurface,
       diagnostics,
       paths: paths.slice(0, 100),
@@ -460,6 +509,10 @@ async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOU
       source: sourceResult({ name: 'cloudflare-analytics', startedAt, finishedAt: new Date().toISOString(), error: safeError(error) }),
       available: false,
       total5xx: null,
+      sampledPath5xx: null,
+      transient5xx: null,
+      unverified5xx: null,
+      unprobed5xx: null,
       diagnostics: [],
       paths: [],
       confirmedPersistent: [],
@@ -693,7 +746,7 @@ export async function runSeoHealthLoop({
     demandPhase.observed = demandOpportunityCount;
   }
   const resiliencePhase = phaseStatus(allFindings, ['cloudflare-5xx-persistent', 'news-sitemap-invalid', 'source-unavailable'], actionableKeys, (finding) => finding.code !== 'source-unavailable' || finding.url === 'source:cloudflare-analytics');
-  const transient5xxCount = Number(cloudflare.total5xx || 0) - Number(cloudflare.confirmedPersistent?.reduce((sum, row) => sum + Number(row.count || 0), 0) || 0);
+  const transient5xxCount = Number(cloudflare.transient5xx || 0);
   if (resiliencePhase.status === 'pass' && Number(cloudflare.total5xx || 0) > 0) {
     resiliencePhase.status = 'degraded';
     resiliencePhase.observed = Number(cloudflare.total5xx || 0);
@@ -707,6 +760,7 @@ export async function runSeoHealthLoop({
       sample: opts.sample,
       jobSample: opts.jobSample,
       findingThreshold: opts.findingThreshold,
+      dryRun: Boolean(opts.dryRun),
       strictSources: Boolean(opts.strictSources),
       openIssue: Boolean(opts.openIssue),
       autoCorrection: Boolean(opts.autoCorrection),
@@ -743,7 +797,10 @@ export async function runSeoHealthLoop({
       cloudflare: {
         total5xx: cloudflare.total5xx,
         synthesized5xx: cloudflare.synthesized5xx ?? null,
+        sampledPath5xx: cloudflare.sampledPath5xx ?? null,
         transient5xx: transient5xxCount > 0 ? transient5xxCount : 0,
+        unverified5xx: cloudflare.unverified5xx ?? null,
+        unprobed5xx: cloudflare.unprobed5xx ?? null,
         bySurface: cloudflare.bySurface || {},
         topPaths: cloudflare.paths || [],
         confirmedPersistent: cloudflare.confirmedPersistent || [],
@@ -772,26 +829,44 @@ export async function runSeoHealthLoop({
     state: nextState,
   };
   report.reportPath = path.join(reportDir, 'latest.json');
-  report.issue = await reportIssueIfNeeded(report);
+  report.issue = opts.dryRun
+    ? { attempted: false, persisted: false, skipped: 'dry-run' }
+    : await reportIssueIfNeeded(report);
   report.exitCode = actionable.length ? 1 : 0;
 
   if (!opts.dryRun) {
     writeJsonAtomic(report.reportPath, report);
     writeJsonAtomic(statePath, nextState);
     fs.mkdirSync(path.dirname(historyPath), { recursive: true });
-    const historyLine = `${JSON.stringify({
+    const historyEntry = {
+      historyKey: process.env.GITHUB_RUN_ID ? `run:${process.env.GITHUB_RUN_ID}` : `generated:${generatedAt}`,
       generatedAt,
+      runId: process.env.GITHUB_RUN_ID || null,
+      runAttempt: process.env.GITHUB_RUN_ATTEMPT || null,
       phaseStatuses: Object.fromEntries(Object.entries(report.phases).map(([name, value]) => [name, value.status])),
       sources: Object.fromEntries(Object.entries(sources).map(([name, value]) => [name, value.available])),
       observed: allFindings.length,
       actionable: actionable.length,
       cfTotal5xx: cloudflare.total5xx ?? null,
       ga4LowEngagement: ga4.lowEngagement?.length || 0,
-    })}\n`;
-    fs.appendFileSync(historyPath, historyLine, 'utf8');
-    const historyLines = fs.readFileSync(historyPath, 'utf8').trimEnd().split('\n').filter(Boolean);
+    };
+    const historyLines = fs.existsSync(historyPath)
+      ? fs.readFileSync(historyPath, 'utf8').split(/\r?\n/).filter(Boolean)
+      : [];
+    const alreadyRecorded = historyLines.some((line) => {
+      try {
+        return JSON.parse(line).historyKey === historyEntry.historyKey;
+      } catch {
+        return false;
+      }
+    });
+    if (!alreadyRecorded) {
+      historyLines.push(JSON.stringify(historyEntry));
+    }
     if (historyLines.length > MAX_HISTORY_LINES) {
       fs.writeFileSync(historyPath, `${historyLines.slice(-MAX_HISTORY_LINES).join('\n')}\n`, 'utf8');
+    } else if (!alreadyRecorded) {
+      fs.appendFileSync(historyPath, `${JSON.stringify(historyEntry)}\n`, 'utf8');
     }
   }
   return report;

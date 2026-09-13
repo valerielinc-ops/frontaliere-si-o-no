@@ -39,8 +39,10 @@ function decodeXmlEntities(value) {
  * Invalid values return null rather than being allowed into a fetch queue.
  */
 export function absoluteHttpUrl(value, base = SITE_ORIGIN) {
+  const raw = String(value ?? '').trim();
+  if (!raw) return null;
   try {
-    const parsed = new URL(String(value ?? '').trim(), base);
+    const parsed = new URL(raw, base);
     if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null;
     return parsed.toString();
   } catch {
