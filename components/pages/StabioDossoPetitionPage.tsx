@@ -206,7 +206,10 @@ export function StabioDossoPetitionPage() {
       // so explicitly request the passwordless login link before showing the
       // "check your email" state. Without this branch the visitor could be
       // left waiting for an email that never enables the signing session.
-      if (capture.existed || capture.hadConfirmationProof) {
+      if (
+        (capture.status === 'confirmed' || capture.status === 'subscribed')
+        && (capture.existed || capture.hadConfirmationProof)
+      ) {
         await requestConfirmationEmail(normalizedEmail, 'login');
       }
 
@@ -261,6 +264,10 @@ export function StabioDossoPetitionPage() {
         preferences: { traffic: true, general: true },
         status: 'confirmed',
         isActive: true,
+        // A checked box is an explicit request to re-enter the DOI flow for
+        // addresses that previously opted out. The confirmation link must
+        // lift that opt-out before the petition can be signed.
+        reconsent: true,
         ...consentProof(
           providerId === 'google.com' || providerId === 'linkedin.com'
             ? 'communicationsSignIn'
@@ -273,7 +280,9 @@ export function StabioDossoPetitionPage() {
       });
       if (capture.optedOut) throw new Error('newsletter-opted-out');
       if (capture.status !== 'confirmed' && capture.status !== 'subscribed') {
-        throw new Error('newsletter_required');
+        setStatus('email-sent');
+        Analytics.trackUIInteraction('stabio_petition', 'form', 'newsletter_reconsent_requested', 'newsletter_gate');
+        return;
       }
 
       const result = await signStabioDossoPetition(user, locale);
