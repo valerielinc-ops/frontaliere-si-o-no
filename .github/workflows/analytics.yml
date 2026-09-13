@@ -25,8 +25,12 @@ on:
           - bing
           - clarity
 
+concurrency:
+  group: analytics-report
+  cancel-in-progress: false
+
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 jobs:
@@ -126,6 +130,33 @@ jobs:
           echo "📊 Running analytics report ($SECTION, last $DAYS days)..."
           node scripts/analytics-report.mjs $FLAGS
         continue-on-error: true
+
+      - name: Commit AI channel history
+        # The report is intentionally allowed to finish with partial data, but
+        # the history write must not disappear with the runner workspace.
+        if: always()
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -- data/ai-channel-history.jsonl
+          if git diff --cached --quiet -- data/ai-channel-history.jsonl; then
+            echo "No AI channel history changes to commit"
+            exit 0
+          fi
+
+          staged_paths="$(git diff --cached --name-only)"
+          if [ "$staged_paths" != "data/ai-channel-history.jsonl" ]; then
+            echo "::error::AI channel history step staged an unexpected path"
+            git diff --cached --name-only
+            exit 1
+          fi
+
+          git commit -m "chore(analytics): persist AI channel history [skip ci]"
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$GITHUB_REF_NAME" \
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -- data/ai-channel-history.jsonl"
 
       - name: Sync app_error issues to backlog
         # Turns the errorHealth.appErrors block just computed above into

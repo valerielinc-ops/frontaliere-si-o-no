@@ -17,10 +17,13 @@ import {
   actionAutonomy,
   appendJsonl,
   buildDecision,
+  buildOutcome,
   buildObservation,
   findLoopPolicy,
+  OUTCOME_STATES,
   validateActionClassAgainstPolicy,
   validateDecisionLifecycle,
+  validateOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -60,8 +63,9 @@ function relativePath(file) {
   return relative || path.basename(file);
 }
 
-function runContext(now) {
+function runContext(loopId, now) {
   return {
+    loopId,
     repository: text(process.env.GITHUB_REPOSITORY),
     workflow: text(process.env.GITHUB_WORKFLOW),
     event: text(process.env.GITHUB_EVENT_NAME),
@@ -99,7 +103,12 @@ function appendUnique(file, record) {
       } catch (error) {
         throw new Error(`ledger ${file} contains invalid JSON: ${error.message}`);
       }
-      if (existing.recordId === record.recordId) return false;
+      if (existing.recordId === record.recordId) {
+        if (JSON.stringify(existing) !== JSON.stringify(record)) {
+          throw new Error(`ledger ${file} contains conflicting duplicate ${record.recordId}`);
+        }
+        return false;
+      }
     }
   }
   appendJsonl(absolute, record);
@@ -200,6 +209,126 @@ function numberOrNull(...values) {
   return values.find((value) => integer(value)) ?? null;
 }
 
+function object(value) {
+  return Boolean(value && typeof value === 'object' && !Array.isArray(value));
+}
+
+function finiteNumber(...values) {
+  return values.find((value) => typeof value === 'number' && Number.isFinite(value)) ?? null;
+}
+
+function validIso(...values) {
+  for (const value of values) {
+    if (typeof value === 'string' && Number.isFinite(Date.parse(value))) return new Date(value).toISOString();
+  }
+  return null;
+}
+
+function hasValue(value) {
+  return value !== undefined && value !== null && value !== '';
+}
+
+function findSourceTimestamp(value, depth = 0, seen = new Set()) {
+  if (!object(value) || depth > 4 || seen.has(value)) return null;
+  seen.add(value);
+  const direct = validIso(value.generatedAt, value.latestAt);
+  if (direct) return direct;
+  for (const child of Object.values(value)) {
+    const nested = findSourceTimestamp(child, depth + 1, seen);
+    if (nested) return nested;
+  }
+  return null;
+}
+
+function fieldIsPresent(field, { candidate, payload, sourceSnapshot, numerator, denominator }) {
+  if (field === 'generatedAt') {
+    return Boolean(findSourceTimestamp(candidate) || findSourceTimestamp(payload) || findSourceTimestamp(sourceSnapshot));
+  }
+  if (field === 'numerator') return numerator !== null;
+  if (field === 'denominator') return denominator !== null;
+  return [candidate, payload, sourceSnapshot].some((value) => object(value) && hasValue(value[field]));
+}
+
+function outcomeFromEvidence({ policy, observation, result, now }) {
+  const sourceSnapshot = object(observation?.sourceSnapshot) ? observation.sourceSnapshot : null;
+  const candidate = object(observation?.outcome)
+    ? observation.outcome
+    : (object(result?.outcome) ? result.outcome : null);
+  const payload = candidate
+    || (object(sourceSnapshot?.outcome)
+      ? sourceSnapshot.outcome
+      : (object(sourceSnapshot?.outcomes) ? sourceSnapshot.outcomes : sourceSnapshot));
+  const quality = [result?.quality, observation?.quality].find((value) => typeof value === 'string') || 'unmeasurable';
+  let status = policy.outcome && typeof candidate?.status === 'string' && OUTCOME_STATES.includes(candidate.status)
+    ? candidate.status
+    : (OUTCOME_STATES.includes(quality) ? quality : 'unmeasurable');
+  const numerator = finiteNumber(candidate?.numerator, candidate?.metrics?.numerator, observation?.numerator);
+  const denominator = finiteNumber(candidate?.denominator, candidate?.metrics?.denominator, observation?.denominator);
+  const requiredFieldsPresent = policy.outcome.requiredFields.filter((field) => fieldIsPresent(field, {
+    candidate,
+    payload,
+    sourceSnapshot,
+    numerator,
+    denominator,
+  }));
+  const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
+  const explicitIndependent = typeof candidate?.independent === 'boolean' ? candidate.independent : null;
+  if ((status === 'observed' || status === 'zero') && (missingFields.length || explicitIndependent !== true)) {
+    status = 'partial';
+  }
+  const independent = explicitIndependent === true
+    && (status === 'observed' || status === 'zero')
+    && missingFields.length === 0;
+  const measuredNumerator = status === 'observed' || status === 'zero' ? numerator : null;
+  const measuredDenominator = status === 'observed' || status === 'zero' ? denominator : null;
+  const generatedAt = validIso(candidate?.observedAt) || findSourceTimestamp(candidate)
+    || findSourceTimestamp(payload) || findSourceTimestamp(sourceSnapshot);
+  const reason = text(candidate?.reason)
+    || (status === 'observed' || status === 'zero'
+      ? 'independent outcome is present and satisfies the declared field contract'
+      : `independent outcome is ${status}${missingFields.length ? `; missing ${missingFields.join(', ')}` : ''}`);
+  return buildOutcome({
+    outcomeId: policy.outcome.outcomeId,
+    status,
+    independent,
+    sourceRefs: policy.outcome.sourceRefs,
+    primaryMetric: policy.primaryMetric,
+    numerator: measuredNumerator,
+    denominator: measuredDenominator,
+    requiredFieldsPresent,
+    missingFields,
+    reason,
+    observedAt: generatedAt,
+    allowNumeratorExceedDenominator: policy.outcome.allowNumeratorExceedDenominator,
+    recordedAt: now.toISOString(),
+  });
+}
+
+function buildCanonicalOutcome({ registry, policy, observation, result, now }) {
+  try {
+    const outcome = outcomeFromEvidence({ policy, observation, result, now });
+    const checked = validateOutcomeAgainstPolicy(registry, policy.loopId, outcome);
+    return { outcome: checked.outcome, errors: [] };
+  } catch (error) {
+    const fallback = buildOutcome({
+      outcomeId: policy.outcome.outcomeId,
+      status: 'unmeasurable',
+      independent: false,
+      sourceRefs: policy.outcome.sourceRefs,
+      primaryMetric: policy.primaryMetric,
+      numerator: null,
+      denominator: null,
+      requiredFieldsPresent: [],
+      missingFields: [...policy.outcome.requiredFields],
+      reason: `outcome contract rejected: ${error.message}`,
+      observedAt: null,
+      allowNumeratorExceedDenominator: policy.outcome.allowNumeratorExceedDenominator,
+      recordedAt: now.toISOString(),
+    });
+    return { outcome: fallback, errors: [error.message] };
+  }
+}
+
 export function recordLoopEvidence({
   loopId,
   reportDir,
@@ -213,7 +342,7 @@ export function recordLoopEvidence({
   fs.mkdirSync(dir, { recursive: true });
   const registry = validateLoopRegistry(readJson(registryPath, 'loop registry'));
   const policy = findLoopPolicy(registry, loopId);
-  const context = runContext(now);
+  const context = runContext(loopId, now);
   const prefix = String(loopId).toLowerCase();
   const resolvedReportPath = reportPath || path.join(dir, 'technical-operations-audit.json');
 
@@ -248,8 +377,17 @@ export function recordLoopEvidence({
     evidenceError = `missing ${prefix}-observation.json or ${prefix}-decision.json`;
   }
 
-  const observed = evidenceComplete && !evidenceError ? withExecution(observation, 'observation', loopId, context) : null;
-  const decided = evidenceComplete && !evidenceError ? withExecution(decision, 'decision', loopId, context) : null;
+  const rawObserved = evidenceComplete && !evidenceError ? observation : null;
+  const rawDecided = evidenceComplete && !evidenceError ? decision : null;
+  const { outcome, errors: outcomeErrors } = buildCanonicalOutcome({
+    registry,
+    policy,
+    observation: rawObserved,
+    result,
+    now,
+  });
+  const observed = rawObserved ? { ...withExecution(rawObserved, 'observation', loopId, context), outcome } : null;
+  const decided = rawDecided ? { ...withExecution(rawDecided, 'decision', loopId, context), outcome } : null;
   const observationPolicy = observed ? policyCheck(registry, loopId, observed) : { ok: false, error: evidenceError };
   const decisionPolicy = decided ? policyCheck(registry, loopId, decided) : { ok: false, error: evidenceError };
   const decisionLifecycle = decided ? lifecycleCheck(registry, loopId, decided) : { ok: false, error: evidenceError };
@@ -262,6 +400,9 @@ export function recordLoopEvidence({
   const autonomy = (() => {
     try { return actionAutonomy(actionClass, registry.actionAutonomy); } catch { return null; }
   })();
+  const outcomeMeasured = (outcome.status === 'observed' || outcome.status === 'zero')
+    && outcome.independent
+    && outcome.missingFields.length === 0;
   const health = {
     recordType: 'health',
     schemaVersion: 1,
@@ -270,13 +411,16 @@ export function recordLoopEvidence({
     execution: context,
     recordedAt: now.toISOString(),
     quality,
-    ok: Boolean(result?.ok ?? (quality === 'observed')) && evidenceComplete && policyCompliant,
+    ok: Boolean(result?.ok ?? (quality === 'observed')) && evidenceComplete && policyCompliant && outcomeMeasured,
     evidenceComplete,
     policyCompliant,
     lifecycleCompliant: decisionLifecycle.ok,
     lifecycle: policy.lifecycle,
     sourceRefs: policy.sourceRefs,
     policyErrors,
+    outcome,
+    outcomePolicyCompliant: outcomeErrors.length === 0,
+    outcomeErrors,
     decision: decided?.decision || null,
     actionClass,
     requiredAutonomy: autonomy,
@@ -295,7 +439,11 @@ export function recordLoopEvidence({
     },
   };
 
-  const ledgerDir = dir;
+  // Scheduled workflows intentionally leave this unset: their ledgers live in
+  // the immutable run artifact. A caller that owns a reviewed durable target
+  // may opt in explicitly; the recorder never guesses a repository path.
+  const configuredLedgerDir = text(process.env.LOOP_FLEET_LEDGER_DIR);
+  const ledgerDir = configuredLedgerDir ? path.resolve(configuredLedgerDir) : dir;
   const written = {
     observation: observed ? appendUnique(path.join(ledgerDir, 'loop-observations.jsonl'), observed) : false,
     decision: decided ? appendUnique(path.join(ledgerDir, 'loop-decisions.jsonl'), decided) : false,
@@ -316,6 +464,10 @@ export function recordLoopEvidence({
     lifecycle: policy.lifecycle,
     lifecycleCompliant: decisionLifecycle.ok,
     sourceRefs: policy.sourceRefs,
+    outcome,
+    outcomePolicyCompliant: outcomeErrors.length === 0,
+    outcomeErrors,
+    ledgerScope: configuredLedgerDir ? 'configured-durable-ledger' : 'run-artifact',
     ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl'],
     written,
   };
