@@ -4,6 +4,7 @@ import {
   evaluateNativeAutoMerge,
   latestBotReviewOnHead,
   requiredVitestDecision,
+  revalidateNativeAutoMerge,
   reviewHasLgtm,
   reviewHasZeroFindings,
 } from '../scripts/ci/native-automerge-gate.mjs';
@@ -112,6 +113,27 @@ describe('native auto-merge gate (#8512)', () => {
       checkRuns: [],
     })).toMatchObject({ allow: false, reason: 'native auto-merge già abilitato' });
   });
+
+  it('marks a persisted native opt-in for revocation when the current HEAD lacks a fresh verdict', () => {
+    const result = revalidateNativeAutoMerge({
+      pr: pr({ autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' } }),
+      reviews: [review(CLEAN_BODY, OLD_HEAD)],
+      checkRuns: [vitest()],
+    });
+
+    expect(result).toMatchObject({ allow: false, action: 'revoke' });
+    expect(result.reason).toMatch(/exact-head/i);
+  });
+
+  it('retains a persisted native opt-in only after revalidating the current HEAD', () => {
+    const result = revalidateNativeAutoMerge({
+      pr: pr({ autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' } }),
+      reviews: [review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    });
+
+    expect(result).toMatchObject({ allow: true, action: 'retain' });
+  });
 });
 
 describe('native auto-merge workflow wiring (#8512)', () => {
@@ -124,13 +146,19 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(workflow).toContain('types: [submitted]');
     expect(workflow).toContain('workflow_run:');
     expect(workflow).toContain('workflows: [tests]');
+    expect(workflow).toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY=false');
+    expect(workflow).toContain('node --check "$gate_tmp"');
+    expect(workflow).toContain("if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'");
     expect(workflow).toContain('native-automerge-gate.mjs');
     expect(workflow).not.toContain('gh pr merge "$PR_NUMBER"');
   });
 
   it('routes the scheduled retry through the same guard and never bypasses it', () => {
     expect(retry).toContain('native-automerge-gate.mjs');
-    expect(retry).toContain('MAX_PR_RETRIES: \'10\'');
+    expect(retry).toContain('MAX_PR_SCAN: \'100\'');
+    expect(retry).toContain('sort_by(.createdAt) | reverse | .[].number');
+    expect(retry).not.toContain('.[:$max][]');
+    expect(retry).not.toContain("jq -e '.autoMergeRequest != null'");
     expect(retry).not.toContain('gh pr merge');
   });
 });

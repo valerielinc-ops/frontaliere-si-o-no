@@ -76,8 +76,10 @@ describe('review → autorebase ordering', () => {
     expect(nativeAutoMerge).toContain('workflow_run:');
     expect(nativeAutoMergeRetry).toContain("cron: '*/20 * * * *'");
     expect(nativeAutoMergeRetry).toContain('gh pr list');
-    expect(nativeAutoMergeRetry).toContain('MAX_PR_RETRIES: \'10\'');
-    expect(nativeAutoMergeRetry).toContain('jq -e \'.autoMergeRequest != null\'');
+    expect(nativeAutoMergeRetry).toContain('MAX_PR_SCAN: \'100\'');
+    expect(nativeAutoMergeRetry).toContain('sort_by(.createdAt) | reverse | .[].number');
+    expect(nativeAutoMergeRetry).not.toContain('.[:$max][]');
+    expect(nativeAutoMergeRetry).not.toContain("jq -e '.autoMergeRequest != null'");
     expect(nativeAutoMerge).not.toContain('auto-merge-eval.mjs');
   });
 

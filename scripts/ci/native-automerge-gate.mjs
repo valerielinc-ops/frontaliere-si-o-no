@@ -121,6 +121,38 @@ export function evaluateNativeAutoMerge({ pr, reviews, checkRuns } = {}) {
   };
 }
 
+/**
+ * Revalidate the current review/check pair even when GitHub already has an
+ * auto-merge request. Native auto-merge survives `synchronize`, so the
+ * persisted opt-in is not evidence that the new HEAD was reviewed or tested.
+ *
+ * `action` is deliberately explicit for the side-effecting CLI:
+ *   - `enable`: no request exists and the exact-head gate passed;
+ *   - `retain`: a request exists and the exact-head gate passed again;
+ *   - `revoke`: a request exists but the fresh gate failed;
+ *   - `skip`: no request exists and the gate is not yet satisfied.
+ */
+export function revalidateNativeAutoMerge({ pr, reviews, checkRuns } = {}) {
+  if (!pr || !Object.hasOwn(pr, 'autoMergeRequest')) {
+    return { allow: false, action: 'skip', reason: 'stato auto-merge non verificabile' };
+  }
+  const decision = evaluateNativeAutoMerge({
+    pr: { ...pr, autoMergeRequest: null },
+    reviews,
+    checkRuns,
+  });
+  if (pr.autoMergeRequest !== null) {
+    return {
+      ...decision,
+      action: decision.allow ? 'retain' : 'revoke',
+    };
+  }
+  return {
+    ...decision,
+    action: decision.allow ? 'enable' : 'skip',
+  };
+}
+
 function ghJson(args) {
   return JSON.parse(execFileSync('gh', args, {
     encoding: 'utf8',
@@ -143,6 +175,35 @@ function loadCheckRuns(repo, head) {
     .flatMap((page) => Array.isArray(page?.check_runs) ? page.check_runs : []);
 }
 
+const DISABLE_AUTO_MERGE_MUTATION =
+  'mutation($pullRequestId:ID!){disablePullRequestAutoMerge(input:{pullRequestId:$pullRequestId}){pullRequest{number autoMergeRequest{enabledAt}}}}';
+
+function disableNativeAutoMerge(repo, pr) {
+  if (!pr?.id) throw new Error('node ID della PR mancante');
+  const response = ghJson([
+    'api', 'graphql',
+    '-f', `query=${DISABLE_AUTO_MERGE_MUTATION}`,
+    '-F', `pullRequestId=${pr.id}`,
+  ]);
+  if (Array.isArray(response?.errors) && response.errors.length > 0) {
+    throw new Error(response.errors.map((error) => error.message || String(error)).join('; '));
+  }
+  const request = response?.data?.disablePullRequestAutoMerge?.pullRequest;
+  if (!request || request.autoMergeRequest !== null) {
+    throw new Error('GitHub non ha confermato la revoca dell’auto-merge');
+  }
+}
+
+function revokeExistingAutoMerge(repo, pr, reason) {
+  try {
+    disableNativeAutoMerge(repo, pr);
+    console.log(`Native auto-merge guard: opt-in revocato per PR #${pr.number} — ${reason}`);
+  } catch (error) {
+    console.error(`::error::native auto-merge guard: revoca opt-in fallita per PR #${pr.number}: ${String(error).slice(0, 240)}`);
+    process.exitCode = 1;
+  }
+}
+
 function skip(reason) {
   console.log(`Native auto-merge guard: ${reason} — nessun merge.`);
 }
@@ -157,7 +218,7 @@ function main() {
   let pr;
   try {
     pr = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
-      'number,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
+      'number,id,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
   } catch (error) {
     console.error(`::error::native auto-merge guard: impossibile leggere PR #${prNumber}: ${String(error).slice(0, 240)}`);
     process.exitCode = 1;
@@ -166,7 +227,7 @@ function main() {
   if (pr.state !== 'OPEN' || pr.isDraft !== false || pr.baseRefName !== 'main') {
     return skip('PR non aperta, draft o non basata su main');
   }
-  if (pr.autoMergeRequest !== null) return skip('native auto-merge già abilitato');
+  const hadAutoMerge = pr.autoMergeRequest !== null;
 
   let reviews;
   let checkRuns;
@@ -174,13 +235,21 @@ function main() {
     reviews = loadReviews(repo, prNumber);
     checkRuns = loadCheckRuns(repo, pr.headRefOid);
   } catch (error) {
+    if (hadAutoMerge) {
+      revokeExistingAutoMerge(repo, pr, 'review/check exact-head non leggibili');
+      return;
+    }
     console.error(`::error::native auto-merge guard: lettura review/check fallita: ${String(error).slice(0, 240)}`);
     process.exitCode = 1;
     return;
   }
 
-  const decision = evaluateNativeAutoMerge({ pr, reviews, checkRuns });
+  const decision = revalidateNativeAutoMerge({ pr, reviews, checkRuns });
   console.log(`Native auto-merge guard PR #${prNumber} HEAD=${pr.headRefOid}: ${decision.reason}`);
+  if (decision.action === 'revoke') {
+    revokeExistingAutoMerge(repo, pr, `fresh gate fallito: ${decision.reason}`);
+    return;
+  }
   if (!decision.allow) return;
 
   // Close the head race between the reads and the native opt-in. A new HEAD
@@ -188,17 +257,25 @@ function main() {
   let current;
   try {
     current = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
-      'state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
+      'number,id,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
   } catch (error) {
     console.error(`::error::native auto-merge guard: conferma HEAD fallita: ${String(error).slice(0, 240)}`);
     process.exitCode = 1;
     return;
   }
-  if (current.state !== 'OPEN' || current.isDraft !== false || current.baseRefName !== 'main'
-    || current.headRefOid !== pr.headRefOid) {
+  const currentStateChanged = current.state !== 'OPEN'
+    || current.isDraft !== false
+    || current.baseRefName !== 'main'
+    || current.headRefOid !== pr.headRefOid;
+  if (currentStateChanged) {
+    if (current.state === 'OPEN' && current.autoMergeRequest !== null) {
+      revokeExistingAutoMerge(repo, current, 'HEAD o stato cambiato dopo il gate');
+    }
     return skip('HEAD/stato cambiato dopo i gate; serve una nuova review exact-head');
   }
-  if (current.autoMergeRequest !== null) return skip('native auto-merge già abilitato durante la verifica');
+  if (current.autoMergeRequest !== null) {
+    return skip('native auto-merge già abilitato e rivalidato sulla HEAD corrente');
+  }
 
   try {
     execFileSync('gh', [
