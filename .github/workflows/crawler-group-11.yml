@@ -2466,7 +2466,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::rehab-basel: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -2520,7 +2520,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::luks: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -2574,7 +2574,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::swiss-re: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -2628,7 +2628,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::spitex-ch: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -2682,7 +2682,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::pictet: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -2736,7 +2736,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::nord-anglia: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -2790,7 +2790,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::spital-thurgau: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -2844,7 +2844,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::klinik-siloah: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -2898,7 +2898,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::tecan: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -2952,7 +2952,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::tsmg: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3006,7 +3006,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::novelis: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3060,7 +3060,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::hornbach: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3114,7 +3114,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::michel-gruppe: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3168,7 +3168,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::tpl-lugano: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3222,7 +3222,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::jysk: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3276,7 +3276,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::hess-carrosserie: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3330,7 +3330,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::hilcona: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3384,7 +3384,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::msc-cargo: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3438,7 +3438,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::crr-suva-sion: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3492,7 +3492,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::clienia-ag: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3546,7 +3546,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::cnp: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3600,7 +3600,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::igs-bern: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3654,7 +3654,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::axpo: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3708,7 +3708,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::ardentis: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3762,7 +3762,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::amag: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3816,7 +3816,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::a-plus-plus-group: invalid detached crawler PID: $pid"
                 exit 1
               fi
@@ -3870,7 +3870,7 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[0-9]+$ ]]; then
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
                 echo "::error::stellenpartner: invalid detached crawler PID: $pid"
                 exit 1
               fi
