@@ -11704,6 +11704,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.title': 'Speedaf in Switzerland: 50,000 packages per day',
     'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.excerpt': 'Speedaf, a Swiss subsidiary founded in April, aims to handle up to 50,000 shipments per day with centres in Zurich, Bern and Lausanne and headquarters in Freiburg.',
     'blog.article.speedaf-in-svizzera-50-000-pacchi-al-giorno.imageAlt': 'Editorial image related to: Speedaf in Svizzera: 50’000 pacchi al giorno',
+    'blog.article.teleriscaldamento-varese-porte-aperte.title': 'Varese district heating: doors open to the power plant',
+    'blog.article.teleriscaldamento-varese-porte-aperte.excerpt': 'Open day at the Varese district heating plant on Saturday 19 September. Required reservations on Eventbrite.',
+    'blog.article.teleriscaldamento-varese-porte-aperte.imageAlt': 'District heating plant in Varese',
 };
 
 export default blogMetaEn;
