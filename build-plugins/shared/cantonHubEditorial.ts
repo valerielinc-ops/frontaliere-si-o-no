@@ -157,6 +157,7 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
       : locale === 'de' ? 'Vollständiges Stellenarchiv nach Seite durchsuchen'
       : 'Parcourir toutes les offres par page';
     const jobsPageWord = locale === 'it' ? 'Pagina' : locale === 'en' ? 'Page' : locale === 'de' ? 'Seite' : 'Page';
+    const jobsPagesWord = { it: 'pagine', en: 'pages', de: 'Seiten', fr: 'pages' }[locale];
     const anchorFor = (p: number): string => {
       const href = paginatedPath(archiveBaseHref, p);
       return `<a class="s-040ZNE" href="${href}">${jobsPageWord}&nbsp;${p}</a>`;
@@ -174,7 +175,7 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
       }
     }
     out.push(
-      `<details class="s-01GpQM"><summary class="s-hQKogV">${esc(jobsNavLabel)} (${navigablePages} pagine)</summary><nav class="s-SMVope" aria-label="${esc(jobsNavLabel)}">${jobsAnchors.join('')}</nav></details>`,
+      `<details class="s-01GpQM"><summary class="s-hQKogV">${esc(jobsNavLabel)} (${navigablePages} ${jobsPagesWord})</summary><nav class="s-SMVope" aria-label="${esc(jobsNavLabel)}">${jobsAnchors.join('')}</nav></details>`,
     );
   }
 

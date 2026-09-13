@@ -67,7 +67,8 @@ export const JOBS_PAGE_SIZE = 100;
 // for IT/EN/DE/FR `companies/all/page-1`, blocking deploys on the
 // post-deploy validation gate. Doubling the page count (more page-N
 // URLs) is harmless — the BFS-depth audit allows up to depth 4 and
-// the hub navigator already links every page-N directly.
+// the long-archive navigator now links page ranges through bounded index
+// pages rather than placing every page-N URL on the parent HTML.
 export const COMPANIES_PAGE_SIZE = 100;
 export const ARTICLES_PAGE_SIZE = 100;
 
@@ -250,13 +251,18 @@ export function isSeoHubPath(pathname: string): boolean {
   for (const loc of HUB_LOCALES) {
     const s = HUB_SLUGS[loc];
     // Frontaliere hubs (jobs/sectors/companies/articles) + the svizzera
-    // article archive share the same base-or-/page-N/ matcher. The bare
-    // svizzera hub and individual articles are intentionally excluded — they
-    // route via the SPA blog tab, not as staticOverlay hub HTML.
+    // article archive share the same base-or-/page-N/ matcher. Page-range
+    // indexes are emitted only for non-article archives; keeping that
+    // distinction here prevents a route for an index file that cannot exist.
+    // The bare svizzera hub and individual articles are intentionally
+    // excluded — they route via the SPA blog tab, not as staticOverlay hub
+    // HTML.
     for (const base of [s.jobsAll, s.sectorsAll, s.companiesAll, s.articlesAll, svizzeraArchive[loc]]) {
       if (norm === base) return true;
       const trimmed = base.endsWith('/') ? base.slice(0, -1) : base;
-      if (new RegExp(`^${trimmed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/(?:page-\\d+|page-index-\\d+)/?$`).test(norm)) {
+      const isArticleArchive = base === s.articlesAll || base === svizzeraArchive[loc];
+      const pagePattern = isArticleArchive ? 'page-\\d+' : '(?:page-\\d+|page-index-\\d+)';
+      if (new RegExp(`^${trimmed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/${pagePattern}/?$`).test(norm)) {
         return true;
       }
     }

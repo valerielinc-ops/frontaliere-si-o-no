@@ -63,6 +63,18 @@ describe('per-canton static-overlay slugs', () => {
     expect(parsed.route.staticOverlay).toBe(true);
   });
 
+  it('/cerca-lavoro-basilea/tutti/page-index-1/ → staticOverlay (range index)', () => {
+    const parsed = parsePath('/cerca-lavoro-basilea/tutti/page-index-1/');
+    expect(parsed.route.staticOverlay).toBe(true);
+    expect(parsed.route.jobSlug).toBeUndefined();
+  });
+
+  it('/en/find-jobs-zurich/all/page-index-3/ → staticOverlay (range index)', () => {
+    const parsed = parsePath('/en/find-jobs-zurich/all/page-index-3/');
+    expect(parsed.route.staticOverlay).toBe(true);
+    expect(parsed.route.jobSlug).toBeUndefined();
+  });
+
   it('/cerca-lavoro-basilea/azienda-universitatsspital-basel/ → staticOverlay', () => {
     const parsed = parsePath('/cerca-lavoro-basilea/azienda-universitatsspital-basel/');
     expect(parsed.route.staticOverlay).toBe(true);

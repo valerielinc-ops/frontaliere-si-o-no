@@ -1307,21 +1307,12 @@ export function renderPagination(
   // each index links a complete sqrt-sized range of archive pages, so the
   // parent → index → page → job path stays within the crawl-depth budget
   // without a linear page-1 payload.
-  // Legacy flat-ladder context below remains for article archives that have
-  // not yet gained emitted index pages.
-  // every page-N (BFS-depth closure 2026-05-12 run 25753701178 — without
-  // every page-N anchor on every page, leaves on page-3..N regress past BFS
-  // depth 4 since the compact nav only links 1, n-1, n+1, last from any
-  // given page — page-2 ↔ page-3 is a single hop, but page-1 → page-50 is a
-  // chain of length ~25 via the compact ladder, pushing leaves on page-25+
-  // to BFS depth > 4). The flat ladder collapses every page-N to a single
-  // hop from any other page-N, so every job leaf sits at depth 4 from `/`:
-  //   /  → /cerca-lavoro-ticino/tutti/   (page 1, depth 1)
-  //      → /cerca-lavoro-ticino/tutti/page-N/ (depth 2 via flat nav)
-  //      → /cerca-lavoro-{canton}/{slug}/  (depth 3, anchor on page-N)
-  // The <details> stays collapsed by default — mobile fold is preserved
-  // (CLAUDE.md #15/#16), and the BFS walker / crawlers parse every `<a>`
-  // inside `<details>` regardless of `open` state.
+  // Article archives without emitted index pages retain the legacy flat
+  // ladder below. Long job archives use the bounded index list instead: each
+  // index exposes one complete range, keeping archive pages and their job
+  // leaves within the existing crawl-depth budget without a linear parent
+  // payload. The <details> stays collapsed by default, and crawlers parse
+  // anchors inside it regardless of the open state.
   const pages = new Set<number>();
   pages.add(1);
   pages.add(total);
@@ -1370,12 +1361,13 @@ export function renderPagination(
     de: 'Seitenindizes des Archivs durchsuchen',
     fr: "Parcourir les index de l'archive",
   }[locale];
+  const indexPagesWord = { it: 'pagine', en: 'pages', de: 'Seiten', fr: 'pages' }[locale];
   const indexAnchors = Array.from({ length: paginationIndexCount(total) }, (_, offset) => {
     const indexPage = offset + 1;
     const range = paginationIndexRange(total, indexPage);
     return `<a href="${paginationIndexPath(basePath, indexPage)}">${esc(paginationIndexLabel(locale, range.start, range.end))}</a>`;
   });
-  const indexNav = `<nav class="s-4nYHgH" aria-label="${indexLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${indexLabel} (${total} pagine)</summary><div class="s-6_t7LY hpl">${indexAnchors.join('')}</div></details></nav>`;
+  const indexNav = `<nav class="s-4nYHgH" aria-label="${indexLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${indexLabel} (${total} ${indexPagesWord})</summary><div class="s-6_t7LY hpl">${indexAnchors.join('')}</div></details></nav>`;
 
   return `${compactNav}${indexNav}`;
 }
@@ -1563,7 +1555,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
   });
 }
 
-interface PaginationIndexEmitArgs extends PaginationIndexPageArgs {
+interface PaginationIndexEmitArgs extends Omit<PaginationIndexPageArgs, 'indexPage'> {
   write: (canonicalPath: string, html: string) => void;
 }
 
@@ -2751,34 +2743,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
         `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
       );
     }
-    // Long non-article hubs keep all their archive pages static for IT, so
-    // emit the matching page-range indexes after the archive pages. Article
-    // archives deliberately retain their legacy flat ladder until a separate
-    // article-index emitter exists; buildHtml disables index links for them.
-    if (locale === 'it' && hubKey !== 'articles') {
-      const parentPath = basePath.replace(/[^/]+\/$/, '');
-      const parentLabel = hubKey === 'companies'
-        ? SECTION_LABEL[locale].companies
-        : SECTION_LABEL[locale].jobBoard;
-      const indexPages = emitPaginationIndexPages({
-        locale,
-        basePath,
-        totalPages,
-        totalItems: total,
-        archiveTitle: HUB_TITLES[locale][hubKey],
-        archiveDescription: HUB_DESCRIPTIONS[locale][hubKey],
-        parentPath,
-        parentLabel,
-        dateStamp,
-        distDir,
-        write: (canonicalPath, html) => writeFile(canonicalPath, html),
-      });
-      for (const { canonicalPath } of indexPages) {
-        sitemapEntries.push(
-          `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${hubKey === 'jobs' ? 'daily' : 'weekly'}</changefreq>\n    <priority>0.4</priority>\n  </url>`,
-        );
-      }
-    }
+
   }
 }
 
@@ -2908,7 +2873,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     // `xhtml:link` alternates (would 404 otherwise) — page-1 keeps the
     // full 4-locale alternate set.
     const emitNonItPageN = false;
-    // Pagination chrome (compact nav + flat ladder + <link rel="next">) is
+    // Pagination chrome (compact nav + bounded index links + <link rel="next">) is
     // built from this value, NOT from `totalPages` above — passing the real
     // ~400-page count to non-IT locales rendered dead `page-2..page-N`
     // anchors on their own (never-emitted-beyond-1) page-1, which crawlers
@@ -2953,6 +2918,34 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       sitemapEntries.push(
         `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
       );
+    }
+
+    // Long non-article hubs keep all their archive pages static for IT, so
+    // emit the matching page-range indexes after the archive pages. Article
+    // archives use a separate core and never reach this function.
+    if (locale === 'it' && totalPages > PAGINATION_INDEX_THRESHOLD) {
+      const parentPath = basePath.replace(/[^/]+\/$/, '');
+      const parentLabel = hubKey === 'companies'
+        ? SECTION_LABEL[locale].companies
+        : SECTION_LABEL[locale].jobBoard;
+      const indexPages = emitPaginationIndexPages({
+        locale,
+        basePath,
+        totalPages,
+        totalItems: total,
+        archiveTitle: HUB_TITLES[locale][hubKey],
+        archiveDescription: HUB_DESCRIPTIONS[locale][hubKey],
+        parentPath,
+        parentLabel,
+        dateStamp,
+        distDir,
+        write: (canonicalPath, html) => writeFile(canonicalPath, html),
+      });
+      for (const { canonicalPath } of indexPages) {
+        sitemapEntries.push(
+          `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${hubKey === 'jobs' ? 'daily' : 'weekly'}</changefreq>\n    <priority>0.4</priority>\n  </url>`,
+        );
+      }
     }
   }
 
