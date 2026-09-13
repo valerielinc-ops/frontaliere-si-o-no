@@ -929,7 +929,7 @@ export function buildCrawlerResultShellBody(crawler, groupIndex) {
     '  fi',
     '  if [ -s "$pid_file" ]; then',
     '    pid="$(cat "$pid_file" 2>/dev/null || true)"',
-    '    if ! [[ "$pid" =~ ^[0-9]+$ ]]; then',
+    '    if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then',
     `      echo "::error::${slug}: invalid detached crawler PID: $pid"`,
     '      exit 1',
     '    fi',

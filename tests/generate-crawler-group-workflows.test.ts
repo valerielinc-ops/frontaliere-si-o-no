@@ -1824,6 +1824,7 @@ describe('cross-repo crawler execution artifacts', () => {
         );
         expect(result.run).toContain('if [ "$launch_outcome" != "success" ]; then');
         expect(result.run).toContain('if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then');
+        expect(result.run).toContain('if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then');
         expect(result.run).toContain('invalid detached crawler PID');
         expect(result.run).not.toContain("steps['crawler-launch-vf'].outcome");
         expect(result.run).not.toContain("steps['crawler-launch-guess'].outcome");
