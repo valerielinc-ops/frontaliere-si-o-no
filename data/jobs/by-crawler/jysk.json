@@ -3641,7 +3641,9 @@
       "addressRegion": "AG",
       "salarySource": "estimated",
       "salaryMin": 37200,
-      "salaryMax": 56400
+      "salaryMax": 56400,
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "company-3vx5m8",
