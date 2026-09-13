@@ -73,6 +73,9 @@ describe('loop fleet workflow contract', () => {
   it('keeps the detached typecheck PID alive until its status is published', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'tests.yml'), 'utf8');
     expect(source).toContain('setsid --wait bash "$script"');
+    expect(source).toContain('gate_wait_limit=300');
+    expect(source).toContain('launcher_gone_reported=0');
+    expect(source).not.toContain('for retry in 1 2 3 4 5');
   });
 
   it('persists only through a reviewed branch and PR', () => {
