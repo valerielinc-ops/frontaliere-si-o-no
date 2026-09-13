@@ -123,6 +123,14 @@ describe('citedFiles', () => {
     expect(citedFiles(body, (path) => path === target)).toEqual([target]);
   });
 
+  it('resolves plain paths before sentence periods and closing Markdown brackets', () => {
+    const target = 'scripts/ci/verify-crawler-contract-provenance.mjs';
+    for (const suffix of ['.', ']']) {
+      const body = `- Suggested action: update ${target}${suffix}`;
+      expect(citedFiles(body, (path) => path === target)).toEqual([target]);
+    }
+  });
+
   it('does not treat an incidental prose path as a cited file without Suggested action', () => {
     const body = 'Rationale: the already-fixed twin is documented in `scripts/ci/foo.mjs`.';
     expect(citedFiles(body, fileExists)).toEqual([]);

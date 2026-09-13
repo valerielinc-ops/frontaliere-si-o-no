@@ -200,7 +200,7 @@ export function mostSpecificToken(tokens) {
 }
 
 const BACKTICKED_FILE_REFERENCE_RE = /`([\w./-]+\.[a-z]{2,5})(?::L?\d+(?:-L?\d+)?)?`/gi;
-const FILE_REFERENCE_RE = /(?:^|[\s(`'":=])([\w./-]+\/[\w./-]+\.[a-z]{2,5})(?::L?\d+(?:-L?\d+)?)?(?=$|[\s`'":,;)])/gim;
+const FILE_REFERENCE_RE = /(?:^|[\s(`'":=])([\w./-]+\/[\w./-]+\.[a-z]{2,5})(?::L?\d+(?:-L?\d+)?)?(?=$|[\s`'":,;.)\]}])/gim;
 
 function addExistingFileReference(out, candidate, fileExists) {
   const path = String(candidate || '');
