@@ -70,7 +70,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
-import { intFromEnv } from '../lib/int-from-env.mjs';
+import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 import {
   acquireQuotaFloorLease,
   quotaFloorLeaseDecision,
@@ -156,7 +156,7 @@ export function quotaFloorLeaseAdmission({
   owner: requestedOwner = process.env.QUOTA_FLOOR_OWNER || '',
   runId = process.env.GITHUB_RUN_ID || 'manual',
   attempt = process.env.GITHUB_RUN_ATTEMPT || '1',
-  ttlSec = Number(process.env.QUOTA_FLOOR_LEASE_TTL_SEC || QUOTA_FLOOR_LEASE_TTL_SEC),
+  ttlSec = positiveIntFromEnv('QUOTA_FLOOR_LEASE_TTL_SEC', QUOTA_FLOOR_LEASE_TTL_SEC),
   dryRun = DRY_RUN,
   runJson = floorRunJson,
   runCommand = floorRunCommand,

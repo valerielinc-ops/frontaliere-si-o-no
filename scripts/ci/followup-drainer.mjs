@@ -78,7 +78,7 @@ import {
 } from './quota-floor-lease.mjs';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { runBudgetFromEnv } from './lib/run-budget.mjs';
-import { intFromEnv } from '../lib/int-from-env.mjs';
+import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 import {
   bucketState,
   dailyKeyFromBucketBody,
@@ -203,7 +203,7 @@ const REPO = process.env.GITHUB_REPOSITORY || '';
 // reason to starve the queue when the primary provider can still make one try.
 const CODEX_FALLBACK_MODE = process.env.FOLLOWUP_CODEX_FALLBACK_MODE === '1';
 const QUOTA_FLOOR_LEDGER = process.env.QUOTA_FLOOR_LEDGER_ISSUE || QUOTA_FLOOR_LEDGER_ISSUE;
-const QUOTA_FLOOR_TTL_SEC = Number(process.env.QUOTA_FLOOR_LEASE_TTL_SEC || QUOTA_FLOOR_LEASE_TTL_SEC);
+const QUOTA_FLOOR_TTL_SEC = positiveIntFromEnv('QUOTA_FLOOR_LEASE_TTL_SEC', QUOTA_FLOOR_LEASE_TTL_SEC);
 // Exported (#5524 item 3) so a test can tie this number to the `fu-attempt:N`
 // labels that actually exist in the repo (`ROUTING_LABELS` in
 // triage-sweep.mjs) instead of the two constants drifting apart in silence —
