@@ -6355,6 +6355,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.furto-apparecchiature-mediche-roma.title': 'Entreprise suisse volée à Rome : l\'instrumentation retrouvée',
     'blog.article.furto-apparecchiature-mediche-roma.excerpt': 'Retrouvez à Rome les équipements médicaux d\'une entreprise suisse volés jeudi matin. L\'instrumentation a été récupérée par la police locale.',
     'blog.article.furto-apparecchiature-mediche-roma.imageAlt': 'Matériel médical d\'une entreprise suisse retrouvé à Rome',
+    'blog.article.allarme-medici-frontalieri-ticino.title': 'Tessin, alarmes médicales : Denti demande des limites aux frontaliers',
+    'blog.article.allarme-medici-frontalieri-ticino.excerpt': 'Le président de l\'Ordre des médecins tessinois Franco Denti prévient : le Tessin a un médecin pour 900 habitants, à Como un pour 2000. Il faut une réflexion éthique.',
+    'blog.article.allarme-medici-frontalieri-ticino.imageAlt': 'Vue d\'un centre médical au Tessin avec une architecture moderne',
 };
 
 export default blogMetaChFr;

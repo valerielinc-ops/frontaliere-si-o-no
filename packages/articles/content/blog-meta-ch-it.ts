@@ -6355,6 +6355,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.furto-apparecchiature-mediche-roma.title': 'Azienda svizzera derubata a Roma: ritrovata la strumentazione',
     'blog.article.furto-apparecchiature-mediche-roma.excerpt': 'Ritrovate a Roma le apparecchiature mediche di un\'azienda svizzera rubate giovedì mattina. La strumentazione è stata recuperata dalla polizia locale.',
     'blog.article.furto-apparecchiature-mediche-roma.imageAlt': 'Apparecchiature mediche di un\'azienda svizzera ritrovate a Roma',
+    'blog.article.allarme-medici-frontalieri-ticino.title': 'Ticino, allarme medici: Denti chiede limiti ai frontalieri',
+    'blog.article.allarme-medici-frontalieri-ticino.excerpt': 'Il presidente dell\'Ordine dei medici ticinesi Franco Denti avverte: il Ticino ha un medico ogni 900 abitanti, a Como uno ogni 2.000. Serve una riflessione etica.',
+    'blog.article.allarme-medici-frontalieri-ticino.imageAlt': 'Veduta di un centro medico nel Ticino con architettura moderna',
 };
 
 export default blogMetaChIt;
