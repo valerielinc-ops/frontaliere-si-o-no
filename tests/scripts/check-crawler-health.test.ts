@@ -1273,6 +1273,7 @@ describe('nextCrawlerState — self-reported fetch outcome (#7897)', () => {
 
   it.each([
     ['connection_error', /crawler egress\/transport/],
+    ['exhausted_retry', /source transport/],
     ['feed_endpoint_unavailable', /vendor endpoint/],
   ])('flags %s immediately with layer-specific triage', (outcome, expectedReason) => {
     const { status, reason, state } = nextCrawlerState(

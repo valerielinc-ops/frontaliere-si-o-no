@@ -971,8 +971,8 @@ export async function runStandardCrawlerPipeline(config) {
   // `written === 0`) and check-crawler-health calls a broken crawler healthy.
   // `counts.lastFetchOutcome` (issue #7897) is the run's own verdict on WHY it
   // ended up empty, when its parser can tell: `ok`, `anti_bot_block`,
-  // `selector_miss`, `filtered_empty`, `connection_error` or
-  // `feed_endpoint_unavailable`. `discovered`/`parsed` let the monitor
+  // `selector_miss`, `filtered_empty`, `connection_error`, `exhausted_retry`
+  // or `feed_endpoint_unavailable`. `discovered`/`parsed` let the monitor
   // INFER a cause by comparing counts; this reports one observed at the
   // fetch/parse boundary, which is the only place an anti-bot block and a dead
   // selector are distinguishable at all. It rides the same `counts` object so
@@ -1022,6 +1022,7 @@ export async function runStandardCrawlerPipeline(config) {
       return;
     }
     if (isRetryBudgetExhaustedError(err)) {
+      counts.lastFetchOutcome = 'exhausted_retry';
       console.log(
         `\n⚠️ ${companyLabel}: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs.`,
       );
