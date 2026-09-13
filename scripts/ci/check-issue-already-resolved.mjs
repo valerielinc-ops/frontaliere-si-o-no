@@ -213,8 +213,13 @@ function isBoldTitleLead(rest, lines = [], start = 0) {
 /**
  * Aggregate follow-up: never short-circuit on one match (one item resolved ≠ all). Three
  * detectors, OR'd: explicit title count, keyword fallback, body enumeration.
+ *
+ * The pre-flight gate treats aggregate keywords in the body as live evidence. Analytics
+ * deliberately opts out of that one signal: its historical contract counted `batch` /
+ * `sweep` / `bulk` only in the title, while still sharing the count and enumeration
+ * detectors. This prevents ordinary body prose from hiding a single-item burn metric.
  */
-export function isAggregate(title, body) {
+function isAggregateWithKeywordScope(title, body, { includeBodyKeywords = true } = {}) {
   const titleText = maskInlineCodeSpans(stripFencedBlocks(title));
   // Daily buckets are aggregates even when their current count is one. Keep
   // this shared predicate aligned with the issue-fix closing-ref generator so
@@ -232,8 +237,18 @@ export function isAggregate(title, body) {
   // (#3378).
   if (m) return Number(m[1]) >= 2;
   const bodyText = maskInlineCodeSpans(stripFencedBlocks(body));
-  if (AGGREGATE_KEYWORD_RE.test(`${titleText}\n${bodyText}`)) return true;
+  const keywordText = includeBodyKeywords ? `${titleText}\n${bodyText}` : titleText;
+  if (AGGREGATE_KEYWORD_RE.test(keywordText)) return true;
   return hasEnumeratedItems(body);
+}
+
+export function isAggregate(title, body) {
+  return isAggregateWithKeywordScope(title, body);
+}
+
+/** Aggregate classifier for analytics, preserving its title-only keyword contract. */
+export function isAggregateForAnalytics(title, body) {
+  return isAggregateWithKeywordScope(title, body, { includeBodyKeywords: false });
 }
 
 function main() {

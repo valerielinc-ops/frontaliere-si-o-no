@@ -27,7 +27,7 @@ import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import { REVIEWER_BOT_LOGIN_RE } from './lib/constants.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
-import { isAggregate } from './check-issue-already-resolved.mjs';
+import { isAggregateForAnalytics } from './check-issue-already-resolved.mjs';
 
 const WINDOW_DAYS = intFromEnv('WINDOW_DAYS', 14);
 const THRESHOLD = intFromEnv('THRESHOLD', 3);
@@ -527,10 +527,10 @@ function isBoldTitleLead(rest, lines = [], start = 0) {
 export function isAvoidableAlreadyFixed(title, labels, body = '') {
   const names = Array.isArray(labels) ? labels : [];
   if (!names.includes('follow-up')) return false; // out of the gate's scope
-  // Keep analytics aligned with the pre-flight aggregate decision. A daily
-  // bucket is aggregate even with one current item; it is processed item by
-  // item and must not be counted as avoidable burn.
-  if (isAggregate(title, body)) return false;
+  // Keep analytics aligned with the pre-flight aggregate grammar while preserving
+  // its title-only keyword contract. A daily bucket is aggregate even with one
+  // current item; it is processed item by item and must not be counted as burn.
+  if (isAggregateForAnalytics(title, body)) return false;
   return true; // single-item follow-up → the gate's real target → countable
 }
 
@@ -629,9 +629,9 @@ export function isAvoidableMaxTurns(title, labels, delivery = false, body = '') 
   // (2) drainer already parked it as structurally non-fixable → expected death.
   if (names.includes('needs-human')) return false;
   // (1) aggregate multi-item/daily bucket → over-budget by construction
-  // (circuit-breaker target), not a fixable loop. Reuse the same predicate as
-  // the pre-flight so a grammar change cannot split analytics from routing.
-  if (isAggregate(title, body)) return false;
+  // (circuit-breaker target), not a fixable loop. Reuse the shared predicate;
+  // its explicit analytics mode keeps ordinary body prose from changing burn.
+  if (isAggregateForAnalytics(title, body)) return false;
   return true; // single-item, still-routable → fixable loop → countable
 }
 
