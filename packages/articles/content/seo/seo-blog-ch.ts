@@ -82193,6 +82193,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-hormuz-petrolio-200-dollari': {
+    title: 'Petrolio a 200 dollari: rischi per l\'economia e la Svizzera',
+    description: 'Rischio petrolio a 200 dollari se Hormuz resta chiuso: scenari globali, impatti sull\'economia elvetica e analisi dell\'economista UBS Alessandro Bee.',
+    keywords: 'frontalieri, ticino, svizzera, italia, petrolio, dollari, rischi, economia',
+    ogTitle: 'Petrolio a 200 dollari e mercati: l\'analisi UBS per la Svizzera',
+    ogDescription: 'Approfondimento economico sui rischi legati alla chiusura dello Stretto di Hormuz, le previsioni sul petrolio fino a 200 dollari e i segnali di ripresa per l\'economia svizzera secondo UBS.',
+    canonicalPath: '/articoli-svizzera/hormuz-petrolio-200-dollari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Petrolio a 200 dollari: rischi per l'economia e la Svizzera",
+      "description": "Rischio petrolio a 200 dollari se Hormuz resta chiuso: scenari globali, impatti sull'economia elvetica e analisi dell'economista UBS Alessandro Bee.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/hormuz-petrolio-200-dollari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Analista finanziario esamina i grafici del petrolio e dei mercati globali"
+      },
+      "datePublished": "2026-09-13T06:00:40+00:00",
+      "dateModified": "2026-09-13T06:00:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/hormuz-petrolio-200-dollari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

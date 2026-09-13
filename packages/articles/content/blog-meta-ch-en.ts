@@ -6331,6 +6331,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.difesa-droni-infrastrutture-berna.title': 'Drone defense in Switzerland: the exercise in Bern kicks off',
     'blog.article.difesa-droni-infrastrutture-berna.excerpt': 'A four-day joint exercise starts in the Canton of Bern dedicated to the protection of critical infrastructure and power plants from unmanned aircraft.',
     'blog.article.difesa-droni-infrastrutture-berna.imageAlt': 'Transmission tower on the Bantiger in Canton Bern during a security exercise',
+    'blog.article.hormuz-petrolio-200-dollari.title': 'Oil at 200 dollars: risks for the economy and Switzerland',
+    'blog.article.hormuz-petrolio-200-dollari.excerpt': 'Risk of global economic collapse and oil up to $200 if the Strait of Hormuz remains closed. UBS analysis and signals for Switzerland.',
+    'blog.article.hormuz-petrolio-200-dollari.imageAlt': 'Financial analyst examining oil and global market charts',
 };
 
 export default blogMetaChEn;

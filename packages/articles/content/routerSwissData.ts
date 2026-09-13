@@ -2136,6 +2136,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mercato-lavoro-seco-luglio-2026': { it: 'mercato-lavoro-seco-luglio-2026', en: 'seco-labour-market-july-2026', de: 'seco-arbeitsmarkt-juli-2026', fr: 'marche-travail-seco-juillet-2026' },
  'esercito-polizia-berna-droni': { it: 'esercito-polizia-berna-droni', en: 'army-police-bern-drones', de: 'armee-polizei-bern-drohnen', fr: 'armee-police-berne-drones' },
  'difesa-droni-infrastrutture-berna': { it: 'difesa-droni-infrastrutture-berna', en: 'drone-defense-infrastructure-bern', de: 'drohnenabwehr-infrastruktur-bern', fr: 'defense-drones-infrastructure-berne' },
+ 'hormuz-petrolio-200-dollari': { it: 'hormuz-petrolio-200-dollari', en: 'hormuz-oil-200-dollars', de: 'hormuz-oel-200-dollar', fr: 'hormuz-petrole-200-dollars' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

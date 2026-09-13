@@ -6331,6 +6331,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.difesa-droni-infrastrutture-berna.title': 'Drohnenabwehr in der Schweiz: Die Übung in Bern startet',
     'blog.article.difesa-droni-infrastrutture-berna.excerpt': 'Start einer viertägigen gemeinsamen Übung im Kanton Bern zum Schutz kritischer Infrastrukturen und Energieanlagen vor unbemannten Flugzeugen.',
     'blog.article.difesa-droni-infrastrutture-berna.imageAlt': 'Sendeturm auf dem Bantiger im Kanton Bern während einer Sicherheitsübung',
+    'blog.article.hormuz-petrolio-200-dollari.title': '200-Dollar-Öl: Risiken für die Wirtschaft und die Schweiz',
+    'blog.article.hormuz-petrolio-200-dollari.excerpt': 'Weltweite Konjunkturkollapsgefahr und Öl bis zu 200 Dollar, wenn die Straße von Hormus geschlossen bleibt. Die Analyse der UBS und die Signale für die Schweiz.',
+    'blog.article.hormuz-petrolio-200-dollari.imageAlt': 'Finanzanalyst untersucht Öl- und globale Marktdiagramme',
 };
 
 export default blogMetaChDe;
