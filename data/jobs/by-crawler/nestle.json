@@ -1179,7 +1179,7 @@
       "slugByLocale": {
         "it": "responsabile-dello-sviluppo-della-categoria-nestle-la-tour-de-peilz-ch",
         "en": "category-development-manager-nestle-ch",
-        "de": "category-development-manager-nestle-ch",
+        "de": "kategorie-entwicklungsmanager-nestle-la-tour-de-peilz",
         "fr": "gestionnaire-de-la-categorie-developpement-nestle-la-tour-de-peilz-ch"
       },
       "company": "Nestlé",
@@ -1227,6 +1227,9 @@
           "category-development-manager-nestle-ch"
         ],
         "fr": [
+          "category-development-manager-nestle-ch"
+        ],
+        "de": [
           "category-development-manager-nestle-ch"
         ]
       },
@@ -1324,7 +1327,7 @@
       "slugByLocale": {
         "it": "piombo-di-segmento-di-marca-nestle-la-tour-de-peilz",
         "en": "brand-segment-lead-nestle-ch",
-        "de": "brand-segment-lead-nestle-ch",
+        "de": "markensegment-fuhrend-nestle-la-tour-de-peilz",
         "fr": "segment-de-marque-plomb-nestle-la-tour-de-peilz"
       },
       "company": "Nestlé",
@@ -1373,6 +1376,9 @@
         ],
         "fr": [
           "brand-segment-lead-nestle-ch"
+        ],
+        "de": [
+          "brand-segment-lead-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-08-20T09:57:55.563Z",
@@ -1397,7 +1403,7 @@
       "slugByLocale": {
         "it": "gestione-account-chiave-nestle-la-tour-de-peilz-ch",
         "en": "key-account-manager-nestle-ch",
-        "de": "key-account-manager-nestle-ch",
+        "de": "schlusselkontoverwaltung-nestle-la-tour-de-peilz",
         "fr": "gestionnaire-de-comptes-cles-nestle-la-tour-de-peilz-ch"
       },
       "company": "Nestlé",
@@ -1453,7 +1459,8 @@
           "gestionnaire-principal-de-comptes-cles-nestle-la-tour-de-peilz-ch"
         ],
         "de": [
-          "key-account-manager-horeca-premium-vending-nestle-ch"
+          "key-account-manager-horeca-premium-vending-nestle-ch",
+          "key-account-manager-nestle-ch"
         ],
         "fr": [
           "key-account-manager-nestle-ch",
@@ -2268,9 +2275,9 @@
     },
     {
       "id": "nestle-1426929633",
-      "slug": "global-marketing-lead-inflammatory-bowel-diseases-modulen-brand-lead-nestle-ch",
+      "slug": "global-marketing-lead-malattie-infiammatorie-dell-intestino-e-il-piombo-del-marchio-dei-moduli-nestle-vevey",
       "slugByLocale": {
-        "it": "global-marketing-lead-inflammatory-bowel-diseases-modulen-brand-lead-nestle-ch",
+        "it": "global-marketing-lead-malattie-infiammatorie-dell-intestino-e-il-piombo-del-marchio-dei-moduli-nestle-vevey",
         "en": "global-marketing-lead-inflammatory-bowel-diseases-modulen-brand-lead-nestle-ch",
         "de": "global-marketing-lead-entzundliche-darmerkrankungen-modulen-brand-lead-nestle-vevey",
         "fr": "commercialisation-mondiale-lead-inflammatory-bowel-diseases-modulen-brand-lead-nestle-vevey"
@@ -2326,7 +2333,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-marketing-lead-inflammatory-bowel-diseases-modulen-brand-lead-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-marketing-lead-inflammatory-bowel-diseases-modulen-brand-lead-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1424424033",
@@ -2334,7 +2349,7 @@
       "slugByLocale": {
         "it": "piombo-di-comunicazione-medica-globale-nestle-vevey-ch",
         "en": "global-medical-communication-lead-nestle-ch",
-        "de": "global-medical-communication-lead-nestle-ch",
+        "de": "globale-medizinische-kommunikationsfuhrung-nestle-vevey",
         "fr": "responsable-mondial-de-la-communication-medicale-nestle-vevey-ch"
       },
       "company": "Nestlé",
@@ -2382,6 +2397,9 @@
           "global-medical-communication-lead-nestle-ch"
         ],
         "fr": [
+          "global-medical-communication-lead-nestle-ch"
+        ],
+        "de": [
           "global-medical-communication-lead-nestle-ch"
         ]
       },
@@ -3292,7 +3310,7 @@
       "slugByLocale": {
         "it": "avvocato-del-brevetto-di-piombo-digital-ai-nestle-lausanne",
         "en": "lead-patent-counsel-digital-ai-nestle-ch",
-        "de": "lead-patent-counsel-digital-ai-nestle-ch",
+        "de": "fuhrende-patentberatung-digital-ai-nestle-lausanne",
         "fr": "conseiller-principal-en-brevets-digital-ai-nestle-lausanne"
       },
       "company": "Nestlé",
@@ -3341,6 +3359,9 @@
         ],
         "fr": [
           "lead-patent-counsel-digital-ai-nestle-ch"
+        ],
+        "de": [
+          "lead-patent-counsel-digital-ai-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-08-25T21:55:48.971Z",
@@ -3361,11 +3382,11 @@
     },
     {
       "id": "nestle-1431907233",
-      "slug": "corporate-paralegal-nestle-ch",
+      "slug": "paralegale-aziendale-nestle-vevey",
       "slugByLocale": {
-        "it": "corporate-paralegal-nestle-ch",
+        "it": "paralegale-aziendale-nestle-vevey",
         "en": "corporate-paralegal-nestle-ch",
-        "de": "corporate-paralegal-nestle-ch",
+        "de": "rechtswidrige-handlungen-nestle-vevey",
         "fr": "societe-parajuridique-nestle-vevey"
       },
       "company": "Nestlé",
@@ -3406,11 +3427,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "corporate-paralegal-nestle-vevey"
+        "corporate-paralegal-nestle-vevey",
+        "corporate-paralegal-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "corporate-paralegal-nestle-vevey"
+        ],
+        "it": [
+          "corporate-paralegal-nestle-ch"
+        ],
+        "de": [
+          "corporate-paralegal-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-08-31T17:20:00.826Z",
@@ -3807,7 +3835,7 @@
       "slugByLocale": {
         "it": "chef-nestle-lausanne-ch",
         "en": "sous-chef-nestle-ch",
-        "de": "sous-chef-nestle-ch",
+        "de": "sous-chee-nestle-lausanne",
         "fr": "sous-chef-nestle-ch"
       },
       "company": "Nestlé",
@@ -3857,6 +3885,9 @@
         ],
         "en": [
           "sous-chef-nestle-lausanne-ch"
+        ],
+        "de": [
+          "sous-chef-nestle-ch"
         ]
       },
       "needsRetranslation": true,
