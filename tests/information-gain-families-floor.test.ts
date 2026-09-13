@@ -70,6 +70,17 @@ const DIST = '/tmp/information-gain-families';
  * rendono la famiglia due volte.
  */
 let premiCassaMalatiPages: Rendered[] | null = null;
+const HEALTH_PREMIUMS_DATA_AVAILABLE = (() => {
+  try {
+    const dataset = JSON.parse(
+      readFileSync('data/health-premiums/2026.json', 'utf-8'),
+    ) as HealthPremiumsDataset;
+    return Object.keys(dataset.premiums ?? {}).length > 0;
+  } catch {
+    return false;
+  }
+})();
+
 const renderPremiCassaMalati = (): Rendered[] => {
   if (premiCassaMalatiPages) return premiCassaMalatiPages;
   const dataset = JSON.parse(
@@ -265,7 +276,8 @@ const measure = (pages: Rendered[]) => {
 
 describe('information gain delle famiglie a floor, misurato sull’output dei plugin', () => {
   for (const family of FAMILIES) {
-    it(`${family.name} sta sopra ${family.minMedian} %`, () => {
+    const test = family.name === 'premi-cassa-malati' && !HEALTH_PREMIUMS_DATA_AVAILABLE ? it.skip : it;
+    test(`${family.name} sta sopra ${family.minMedian} %`, () => {
       const cohort = measure(family.render());
       expect(cohort, `${family.name}: nessuna coorte prodotta`).not.toBeNull();
       expect(

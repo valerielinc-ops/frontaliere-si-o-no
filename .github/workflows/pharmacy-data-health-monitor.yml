@@ -9,10 +9,10 @@ name: pharmacy-data-health-monitor
 # venivano riletti da nulla, e un'anagrafica ferma oltre lo SLA mensile sarebbe
 # rimasta pubblicata su /farmacie/ senza segnale.
 #
-# Cadenza settimanale: l'anagrafica è a bassa volatilità (SLA mensile) e la
-# pipeline turni non esiste ancora (#6750) — un cron più stretto sarebbe rumore.
-# Quando i turni arriveranno, lo SLA giornaliero del registry è già letto dallo
-# script e questa cadenza andrà stretta di conseguenza.
+# Cadenza settimanale: l'anagrafica è a bassa volatilità (SLA mensile), mentre
+# il feed dei turni ha già il suo workflow giornaliero dedicato. Il monitor
+# osserva entrambi e applica lo SLA dichiarato dal registry senza duplicare il
+# fetch.
 
 on:
   schedule:
