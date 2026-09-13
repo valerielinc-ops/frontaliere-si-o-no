@@ -202,7 +202,8 @@ jobs:
           # timings and failures files (silent gate failure).
           spawn_capped() {
             local name=$1
-            local logfile=/tmp/$(echo "$name" | tr ':/' '__').log
+            local logfile
+            logfile="/tmp/$(echo "$name" | tr ':/' '__').log"
             wait_slot
             (
               set +e

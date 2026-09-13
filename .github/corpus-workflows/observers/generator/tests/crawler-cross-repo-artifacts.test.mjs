@@ -41,14 +41,12 @@ function crawlerIdsFromArtifact(text) {
     }
 
     let crawlerId = '';
-    let background = false;
     for (const line of fields) {
       if (!line.startsWith(fieldIndent) || line.startsWith(`${fieldIndent}  `)) continue;
-      const id = /^\s*id:\s*crawler-([a-z0-9-]+)\s*$/.exec(line);
+      const id = /^\s*id:\s*crawler-launch-([a-z0-9-]+)\s*$/.exec(line);
       if (id) crawlerId = id[1];
-      if (/^\s*background:\s*true\s*$/.test(line)) background = true;
     }
-    if (crawlerId && background) crawlerIds.push(crawlerId);
+    if (crawlerId) crawlerIds.push(crawlerId);
   }
 
   return crawlerIds;
@@ -60,34 +58,32 @@ function expectedCrawlerEntriesFromArtifact(text) {
   return JSON.parse(match[1]);
 }
 
-test('il parser del roster tollera field-order e ignora wait o campi annidati non-background', () => {
+test('il parser del roster tollera field-order e ignora risultati o campi annidati', () => {
   const workflow = [
+    '      - name: Launch coop',
+    '        id: crawler-launch-coop',
+    '        if: success()',
+    '        run: echo coop',
     '      - name: Run coop',
     '        id: crawler-coop',
-    '        if: success()',
-    '        background: true',
-    '        run: echo coop',
-    '      - name: Run alfa',
-    '        background: true',
+    '        if: always()',
+    '        run: echo result',
+    '      - name: Launch alfa',
     '        continue-on-error: false',
-    '        id: crawler-alfa',
+    '        id: crawler-launch-alfa',
     '        run: echo alfa',
     '      - name: Ignore nested shell text',
     '        run: |-',
     '          id: crawler-fake',
-    '          background: true',
-    '      - name: Wait',
-    '        id: crawler-generation-wait',
-    '        wait-all: true',
+    '          id: crawler-launch-fake',
   ].join('\n');
   assert.deepEqual(crawlerIdsFromArtifact(workflow), ['coop', 'alfa']);
 });
 
 test('il parser del roster conserva il formato corrente minimale', () => {
   const workflow = [
-    '      - name: Run coop',
-    '        id: crawler-coop',
-    '        background: true',
+    '      - name: Launch coop',
+    '        id: crawler-launch-coop',
   ].join('\n');
   assert.deepEqual(crawlerIdsFromArtifact(workflow), ['coop']);
 });
@@ -262,7 +258,7 @@ test('il retry e limitato al checkout sparse pre-logica, con backoff', () => {
 
     const checkoutRetryAt = text.indexOf('id: site_checkout_retry');
     const checkoutReadyAt = text.indexOf('id: checkout');
-    const firstCrawlerAt = text.search(/^\s+background: true$/m);
+    const firstCrawlerAt = text.search(/^\s+id: crawler-launch-/m);
     const firstTranslatePhaseAt = text.search(/^\s+- name: (?:"?Phase|Check if housekeeping)/m);
     const firstLogicAt = firstCrawlerAt >= 0 ? firstCrawlerAt : firstTranslatePhaseAt;
     assert.ok(
@@ -297,7 +293,7 @@ test('il reporter diagnostico usa identita e workflow standalone corpus richiudi
     assert.doesNotMatch(text, /workflow-file: .*logic\.yml/);
     assert.doesNotMatch(text, /repo: valerielinc-ops\/frontaliere-si-o-no/);
     const reporterAt = text.indexOf('uses: ./.github/actions/report-failure');
-    const firstCrawlerAt = text.indexOf('background: true');
+    const firstCrawlerAt = text.indexOf('id: crawler-launch-');
     if (artifact.members.length > 0) {
       assert.ok(reporterAt < firstCrawlerAt, `${artifact.file}: reporter setup dopo la logica crawler`);
       assert.match(text, /name: Report shared setup failure to GitHub Issues/);
@@ -319,7 +315,7 @@ test('nessun artifact usa codeload/reusable cross-repo o replica la logica dopo 
     const crawlerIds = crawlerIdsFromArtifact(text);
     assert.deepEqual(crawlerIds, artifact.members, `${artifact.file}: roster diverso dal contratto`);
     assert.equal(new Set(crawlerIds).size, crawlerIds.length, `${artifact.file}: crawler duplicato`);
-    assert.equal(occurrences(text, /^\s+background: true$/gm), artifact.members.length);
+    assert.equal(occurrences(text, /^\s+id: crawler-launch-[a-z0-9-]+$/gm), artifact.members.length);
 
     // Un solo job runnable: il secondo tentativo e un secondo checkout nello
     // stesso job, non un job `_retry` che rilancia crawl/push gia avvenuti.

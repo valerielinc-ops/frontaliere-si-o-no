@@ -341,11 +341,11 @@ jobs:
           set -euo pipefail
           shard="articoli$INPUT_SECTION"
           owner="$(jq -r --arg s "$shard" '.[$s] // "valerielinc-ops"' scripts/lib/section-shard-owners.json)"
-          upper="$(printf '%s' "$shard" | tr a-z A-Z)"
+          upper="$(printf '%s' "$shard" | LC_ALL=C tr '[:lower:]' '[:upper:]')"
 
           fail=0
           for loc in it en de fr; do
-            locupper="$(printf '%s' "$loc" | tr a-z A-Z)"
+            locupper="$(printf '%s' "$loc" | LC_ALL=C tr '[:lower:]' '[:upper:]')"
             var="SHARD_${upper}_${locupper}_DEPLOY_KEY"
             key="${!var:-}"
             if [ -z "$key" ]; then

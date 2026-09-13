@@ -30,7 +30,6 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
 export const DEFAULT_ISSUE_TITLE = 'Technical operations audit: workflow/data contract regressions';
-const WAIT_STEP_KEYS = new Set(['name', 'wait-all']);
 export const PERMISSION_KEYS = new Set([
   'actions', 'attestations', 'checks', 'contents', 'deployments', 'discussions',
   'id-token', 'issues', 'models', 'packages', 'pages', 'pull-requests',
@@ -439,10 +438,19 @@ function validateWorkflowLevel(workflow, file, source, findings) {
   }
   if (isRecord(workflow.concurrency)) {
     for (const key of Object.keys(workflow.concurrency)) {
-      const queueExtension = key === 'queue' && workflow.concurrency[key] === 'max';
-      if (!['group', 'cancel-in-progress'].includes(key) && !queueExtension) {
+      if (!['group', 'cancel-in-progress', 'queue'].includes(key)) {
         findings.push(finding(file, 'workflow.concurrency-key', 'error', `chiave concurrency non supportata: ${key}`, lineFor(source, key)));
       }
+    }
+    if (Object.hasOwn(workflow.concurrency, 'queue')
+      && !['single', 'max'].includes(workflow.concurrency.queue)) {
+      findings.push(finding(
+        file,
+        'workflow.concurrency-value',
+        'error',
+        `valore concurrency.queue non supportato: ${String(workflow.concurrency.queue)}`,
+        lineFor(source, 'queue:'),
+      ));
     }
   }
 }
@@ -453,15 +461,10 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
   const inputNames = inputDefinitions(normalizeTriggers(workflow.on));
   const jobContexts = new Map();
   const jobOutputMap = new Map();
-  const backgroundByJob = new Map();
-  const waitByJob = new Map();
-
   for (const [jobName, rawJob] of Object.entries(jobs)) {
     const job = isRecord(rawJob) ? rawJob : {};
     const idsForJob = new Set();
     const outputsForJob = new Map();
-    const backgroundIndexes = [];
-    const waitIndexes = [];
     const reusable = typeof job.uses === 'string';
     const localReusable = reusable ? localReusableWorkflowPath(job.uses) : null;
     jobOutputMap.set(jobName, isRecord(job.outputs)
@@ -510,55 +513,53 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
         return;
       }
       const keys = Object.keys(rawStep);
-      const isWait = Object.prototype.hasOwnProperty.call(rawStep, 'wait-all');
       const hasRun = typeof rawStep.run === 'string';
       const hasUses = typeof rawStep.uses === 'string';
       const checkoutPath = hasUses ? checkoutPathFromStep(rawStep) : null;
       if (checkoutPath) checkoutPaths.add(checkoutPath);
-      if (isWait) {
-        waitIndexes.push(index);
-        if (rawStep['wait-all'] !== true) findings.push(finding(file, 'workflow.wait-all-value', 'error', '`wait-all` deve essere true letterale', stepLine));
-        const extras = keys.filter((key) => !WAIT_STEP_KEYS.has(key));
-        if (extras.length > 0) findings.push(finding(file, 'workflow.wait-all-keys', 'error', `step wait-all con chiavi extra: ${extras.join(', ')}`, stepLine));
-      } else {
-        if (hasRun === hasUses) findings.push(finding(file, 'workflow.step-executor', 'error', `step ${jobName}#${index + 1} deve avere esattamente uno tra run e uses`, stepLine));
-        if (Object.prototype.hasOwnProperty.call(rawStep, 'background')) {
-          backgroundIndexes.push(index);
-          if (rawStep.background !== true) findings.push(finding(file, 'workflow.background-value', 'error', '`background` deve essere true letterale', stepLine));
-          if (!hasRun || hasUses) findings.push(finding(file, 'workflow.background-executor', 'error', '`background` è ammesso solo su uno step run', stepLine));
+      for (const unsupportedKey of ['background', 'wait-all']) {
+        if (Object.prototype.hasOwnProperty.call(rawStep, unsupportedKey)) {
+          findings.push(finding(
+            file,
+            'workflow.unsupported-step-key',
+            'error',
+            `chiave step non supportata da GitHub Actions: ${unsupportedKey}`,
+            stepLine,
+          ));
         }
-        if (hasUses && rawStep.uses.startsWith('./') && !localReferenceExists(root, rawStep.uses, '.', exists)) {
-          findings.push(finding(file, 'workflow.local-action', 'error', `local action non trovata: ${rawStep.uses}`, stepLine));
+      }
+      if (hasRun === hasUses) findings.push(finding(file, 'workflow.step-executor', 'error', `step ${jobName}#${index + 1} deve avere esattamente uno tra run e uses`, stepLine));
+      if (hasUses && rawStep.uses.startsWith('./') && !localReferenceExists(root, rawStep.uses, '.', exists)) {
+        findings.push(finding(file, 'workflow.local-action', 'error', `local action non trovata: ${rawStep.uses}`, stepLine));
+      }
+      if (hasRun) {
+        const workingRoot = staticWorkingDirectory(root, rawStep['working-directory']);
+        const dynamicDirectory = workingRoot === null
+          || /\b(?:cd|pushd)\s+["']?\$(?:\{)?[A-Za-z_][A-Za-z0-9_]*(?:\})?|\bgit\s+clone\b/i.test(rawStep.run);
+        const runtimeCheckout = checkoutPathForWorkingDirectory(root, workingRoot, checkoutPaths);
+        for (const candidate of extractCommandPaths(rawStep.run)) {
+          const inWorkingDirectory = workingRoot !== null && exists(path.resolve(workingRoot, candidate));
+          if (!inWorkingDirectory) {
+            const runtimeOnly = dynamicDirectory || runtimeCheckout;
+            findings.push(finding(
+              file,
+              'workflow.script-reference',
+              runtimeOnly ? 'warning' : 'error',
+              runtimeOnly
+                ? runtimeCheckout
+                  ? `script referenziato in una directory popolata da actions/checkout (${runtimeCheckout}), non verificabile dal checkout statico: ${candidate}`
+                  : `script referenziato in una directory dinamica, non verificabile dal checkout statico: ${candidate}`
+                : `script referenziato ma non trovato: ${candidate}`,
+              stepLine,
+              rawStep.run.trim().slice(0, 300),
+            ));
+          }
         }
-        if (hasRun) {
-          const workingRoot = staticWorkingDirectory(root, rawStep['working-directory']);
-          const dynamicDirectory = workingRoot === null
-            || /\b(?:cd|pushd)\s+["']?\$(?:\{)?[A-Za-z_][A-Za-z0-9_]*(?:\})?|\bgit\s+clone\b/i.test(rawStep.run);
-          const runtimeCheckout = checkoutPathForWorkingDirectory(root, workingRoot, checkoutPaths);
-          for (const candidate of extractCommandPaths(rawStep.run)) {
-            const inWorkingDirectory = workingRoot !== null && exists(path.resolve(workingRoot, candidate));
-            if (!inWorkingDirectory) {
-              const runtimeOnly = dynamicDirectory || runtimeCheckout;
-              findings.push(finding(
-                file,
-                'workflow.script-reference',
-                runtimeOnly ? 'warning' : 'error',
-                runtimeOnly
-                  ? runtimeCheckout
-                    ? `script referenziato in una directory popolata da actions/checkout (${runtimeCheckout}), non verificabile dal checkout statico: ${candidate}`
-                    : `script referenziato in una directory dinamica, non verificabile dal checkout statico: ${candidate}`
-                  : `script referenziato ma non trovato: ${candidate}`,
-                stepLine,
-                rawStep.run.trim().slice(0, 300),
-              ));
-            }
-          }
-          const dataPaths = extractDataPaths(rawStep.run);
-          const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*["']?(?:data|public\/data)\//i.test(rawStep.run);
-          const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(rawStep.run);
-          if (writesData && dataPaths.length > 0 && !hasValidation) {
-            for (const dataPath of dataPaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));
-          }
+        const dataPaths = extractDataPaths(rawStep.run);
+        const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*["']?(?:data|public\/data)\//i.test(rawStep.run);
+        const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(rawStep.run);
+        if (writesData && dataPaths.length > 0 && !hasValidation) {
+          for (const dataPath of dataPaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));
         }
       }
 
@@ -575,17 +576,6 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
         }
       }
     });
-    backgroundByJob.set(jobName, backgroundIndexes);
-    waitByJob.set(jobName, waitIndexes);
-  }
-
-  for (const [jobName, backgroundIndexes] of backgroundByJob) {
-    const waits = waitByJob.get(jobName) || [];
-    for (const index of backgroundIndexes) {
-      if (!waits.some((waitIndex) => waitIndex > index)) {
-        findings.push(finding(file, 'workflow.background-without-wait', 'error', `background nel job ${jobName} senza wait-all successivo`, lineFor(source, 'background:')));
-      }
-    }
   }
 
   const workflowCall = normalizeTriggers(workflow.on).workflow_call;
