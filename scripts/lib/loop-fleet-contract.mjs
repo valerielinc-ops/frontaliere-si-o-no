@@ -30,6 +30,10 @@ export const QUALITY_STATES = Object.freeze([
   'unmeasurable',
 ]);
 
+// Outcome status deliberately mirrors quality status. A healthy-looking run
+// without an independently joined outcome is still not a measured outcome.
+export const OUTCOME_STATES = Object.freeze([...QUALITY_STATES]);
+
 export const AUTONOMY_LEVELS = Object.freeze(['A0', 'A1', 'A2', 'A3', 'A4']);
 
 export const AUTONOMY_ORDER = Object.freeze({ A0: 0, A1: 1, A2: 2, A3: 3, A4: 4 });
@@ -47,6 +51,7 @@ const REQUIRED_LOOP_FIELDS = [
   'actionClasses',
   'guardrails',
   'sourceRefs',
+  'outcome',
   'lifecycle',
 ];
 
@@ -93,6 +98,31 @@ function requireTextArray(value, name) {
     seen.add(text);
   }
   return value;
+}
+
+function requireTextArrayAllowEmpty(value, name) {
+  if (!Array.isArray(value)) fail(`${name} must be an array`);
+  const seen = new Set();
+  for (const item of value) {
+    const text = requireText(item, `${name} item`);
+    if (seen.has(text)) fail(`${name} contains duplicate ${text}`);
+    seen.add(text);
+  }
+  return value;
+}
+
+function requireOutcomeContract(value, name) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) fail(`${name} must be an object`);
+  if (value.allowNumeratorExceedDenominator !== undefined
+      && typeof value.allowNumeratorExceedDenominator !== 'boolean') {
+    fail(`${name}.allowNumeratorExceedDenominator must be boolean`);
+  }
+  return {
+    outcomeId: requireText(value.outcomeId, `${name}.outcomeId`),
+    sourceRefs: [...requireTextArray(value.sourceRefs, `${name}.sourceRefs`)],
+    requiredFields: [...requireTextArray(value.requiredFields, `${name}.requiredFields`)],
+    allowNumeratorExceedDenominator: value.allowNumeratorExceedDenominator === true,
+  };
 }
 
 function requireLifecycle(value, name) {
@@ -144,6 +174,7 @@ export function validateLoopRegistry(registry) {
   const loops = requireArray(registry.loops, 'registry loops');
   const normalizedLoops = [];
   const ids = new Set();
+  const outcomeIds = new Set();
   const declaredActionClasses = new Set();
   for (const loop of loops) {
     if (!loop || typeof loop !== 'object') fail('each loop must be an object');
@@ -166,13 +197,20 @@ export function validateLoopRegistry(registry) {
     for (const sourceRef of loop.sourceRefs) {
       if (!Object.hasOwn(sourceCatalog, sourceRef)) fail(`${id}.sourceRefs references undeclared ${sourceRef}`);
     }
+    const outcome = requireOutcomeContract(loop.outcome, `${id}.outcome`);
+    if (outcomeIds.has(outcome.outcomeId)) fail(`duplicate outcomeId ${outcome.outcomeId}`);
+    outcomeIds.add(outcome.outcomeId);
+    for (const sourceRef of outcome.sourceRefs) {
+      if (!Object.hasOwn(sourceCatalog, sourceRef)) fail(`${id}.outcome.sourceRefs references undeclared ${sourceRef}`);
+      if (!loop.sourceRefs.includes(sourceRef)) fail(`${id}.outcome.sourceRefs is not declared by ${id}.sourceRefs: ${sourceRef}`);
+    }
     const lifecycle = requireLifecycle(loop.lifecycle, `${id}.lifecycle`);
     for (const actionClass of loop.actionClasses) {
       for (const part of actionClass.split('+').map((value) => value.trim()).filter(Boolean)) {
         declaredActionClasses.add(part);
       }
     }
-    normalizedLoops.push({ ...loop, sourceRefs: [...loop.sourceRefs], lifecycle });
+    normalizedLoops.push({ ...loop, sourceRefs: [...loop.sourceRefs], outcome, lifecycle });
   }
   const actionAutonomyMap = registry.actionAutonomy;
   if (!actionAutonomyMap || typeof actionAutonomyMap !== 'object' || Array.isArray(actionAutonomyMap)) {
@@ -280,6 +318,43 @@ export function validateActionClassAgainstPolicy(registry, loopId, actionClass) 
   };
 }
 
+export function validateOutcomeAgainstPolicy(registry, loopId, outcome) {
+  const policy = findLoopPolicy(registry, loopId);
+  if (!outcome || typeof outcome !== 'object' || Array.isArray(outcome)) {
+    fail(`${loopId}.outcome must be an object`);
+  }
+  const normalized = buildOutcome(outcome);
+  if (normalized.outcomeId !== policy.outcome.outcomeId) {
+    fail(`${loopId}.outcomeId ${normalized.outcomeId} does not match ${policy.outcome.outcomeId}`);
+  }
+  if (normalized.primaryMetric !== policy.primaryMetric) {
+    fail(`${loopId}.outcome primaryMetric ${normalized.primaryMetric} does not match ${policy.primaryMetric}`);
+  }
+  if (normalized.allowNumeratorExceedDenominator !== policy.outcome.allowNumeratorExceedDenominator) {
+    fail(`${loopId}.outcome denominator policy does not match the registry`);
+  }
+  const missingSourceRefs = policy.outcome.sourceRefs.filter((sourceRef) => !normalized.sourceRefs.includes(sourceRef));
+  const extraSourceRefs = normalized.sourceRefs.filter((sourceRef) => !policy.outcome.sourceRefs.includes(sourceRef));
+  if (missingSourceRefs.length || extraSourceRefs.length) {
+    fail(`${loopId}.outcome.sourceRefs must exactly match the registry declaration`);
+  }
+  const undeclaredPresentFields = normalized.requiredFieldsPresent
+    .filter((field) => !policy.outcome.requiredFields.includes(field));
+  const undeclaredMissingFields = normalized.missingFields
+    .filter((field) => !policy.outcome.requiredFields.includes(field));
+  if (undeclaredPresentFields.length || undeclaredMissingFields.length) {
+    fail(`${loopId}.outcome field status contains an undeclared field`);
+  }
+  const missingRequiredFields = policy.outcome.requiredFields.filter((field) => !normalized.requiredFieldsPresent.includes(field));
+  if ((normalized.status === 'observed' || normalized.status === 'zero') && missingRequiredFields.length) {
+    fail(`${loopId}.outcome is missing required fields: ${missingRequiredFields.join(', ')}`);
+  }
+  if ((normalized.status === 'observed' || normalized.status === 'zero') && !normalized.independent) {
+    fail(`${loopId}.measured outcome must be independent`);
+  }
+  return { loopId, policy, outcome: normalized, missingRequiredFields };
+}
+
 export function validateDecisionLifecycle(registry, loopId, decision) {
   const policy = findLoopPolicy(registry, loopId);
   if (!decision || typeof decision !== 'object') fail('decision must be an object');
@@ -375,6 +450,70 @@ export function buildObservation({
     minimumSample,
     actionClass: requireText(actionClass, 'actionClass'),
     quality,
+    recordedAt,
+  };
+}
+
+export function buildOutcome({
+  outcomeId,
+  status = 'unmeasurable',
+  independent = false,
+  sourceRefs,
+  primaryMetric,
+  numerator = null,
+  denominator = null,
+  requiredFieldsPresent = [],
+  missingFields = [],
+  reason,
+  observedAt = null,
+  allowNumeratorExceedDenominator = false,
+  recordedAt = new Date().toISOString(),
+}) {
+  requireText(outcomeId, 'outcomeId');
+  if (!OUTCOME_STATES.includes(status)) fail(`unknown outcome status ${status}`);
+  if (typeof independent !== 'boolean') fail('outcome independent must be boolean');
+  requireTextArray(sourceRefs, 'outcome sourceRefs');
+  requireText(primaryMetric, 'outcome primaryMetric');
+  requireTextArrayAllowEmpty(requiredFieldsPresent, 'outcome requiredFieldsPresent');
+  requireTextArrayAllowEmpty(missingFields, 'outcome missingFields');
+  requireText(reason, 'outcome reason');
+  if (typeof allowNumeratorExceedDenominator !== 'boolean') {
+    fail('outcome allowNumeratorExceedDenominator must be boolean');
+  }
+  if (observedAt !== null) requireIso(observedAt, 'outcome observedAt');
+  requireIso(recordedAt, 'outcome recordedAt');
+  finiteOrNull(numerator, 'outcome numerator');
+  finiteOrNull(denominator, 'outcome denominator');
+  if (NON_MEASURABLE_QUALITY.has(status) && (numerator !== null || denominator !== null)) {
+    fail(`${status} outcomes must use null numerator and denominator`);
+  }
+  if ((status === 'observed' || status === 'zero') && (numerator === null || denominator === null)) {
+    fail(`${status} outcomes require numerator and denominator`);
+  }
+  if (denominator !== null && denominator < 0) fail('outcome denominator cannot be negative');
+  if (numerator !== null && numerator < 0) fail('outcome numerator cannot be negative');
+  if (!allowNumeratorExceedDenominator
+      && denominator !== null && numerator !== null && numerator > denominator) {
+    fail('outcome numerator cannot exceed denominator');
+  }
+  if (status === 'observed' && missingFields.length) {
+    fail('observed outcomes cannot have missing fields');
+  }
+  return {
+    recordType: 'outcome',
+    schemaVersion: 1,
+    outcomeId: outcomeId.trim(),
+    status,
+    independent,
+    sourceRefs: [...sourceRefs],
+    primaryMetric: primaryMetric.trim(),
+    numerator,
+    denominator,
+    requiredFieldsPresent: [...requiredFieldsPresent],
+    missingFields: [...missingFields],
+    reason: reason.trim(),
+    observedAt,
+    allowNumeratorExceedDenominator,
     recordedAt,
   };
 }

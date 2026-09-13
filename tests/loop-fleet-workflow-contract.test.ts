@@ -37,4 +37,15 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('inputs.strict');
     expect(source).not.toMatch(/issues:\s*write|contents:\s*write|pull-requests:\s*write/u);
   });
+
+  it('persists only through a reviewed branch and PR', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('workflow_run:');
+    expect(source).toContain('merge-loop-fleet-ledger.mjs');
+    expect(source).toContain('--ledger-dir data/loop-fleet/ledger');
+    expect(source).toContain('git checkout -b "$branch"');
+    expect(source).toContain('gh pr create');
+    expect(source).not.toMatch(/contents:\s*write/u);
+    expect(source).toContain('Direct writes to main');
+  });
 });
