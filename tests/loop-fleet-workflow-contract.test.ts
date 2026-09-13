@@ -70,6 +70,14 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toMatch(/issues:\s*write|contents:\s*write|pull-requests:\s*write/u);
   });
 
+  it('creates the ledger-audit report directory before tee writes its log', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger-audit.yml'), 'utf8');
+    const directorySetup = source.indexOf('mkdir -p "$REPORT_DIR"');
+    const stdoutPipe = source.indexOf('tee "$REPORT_DIR/stdout.txt"');
+    expect(directorySetup).toBeGreaterThanOrEqual(0);
+    expect(stdoutPipe).toBeGreaterThan(directorySetup);
+  });
+
   it('keeps the detached typecheck PID alive until its status is published', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'tests.yml'), 'utf8');
     expect(source).toContain('setsid --wait bash "$script"');
