@@ -1124,6 +1124,10 @@ function nonEmptySlug(value) {
   return slug || '';
 }
 
+function hasStableJobIdentity(job) {
+  return hasUsableJobId(job) || Boolean(extractStableJobId(job?.url));
+}
+
 /**
  * Compare two job records without falling back to a colliding slug.
  *
@@ -1153,7 +1157,9 @@ function jobIdentityRelation(left, right) {
  *
  * Identity wins over the legacy slug fallback, and any duplicate/contradictory
  * strong identity is rejected. The fallback requires a non-empty slug and a
- * unique candidate, so missing locale fields can never match every sibling.
+ * unique candidate, and is allowed only when neither the update nor any slice
+ * candidate exposes a stable identity. If a stable identity exists but cannot
+ * be joined, return null rather than assigning history to an unverified sibling.
  * This makes the write invariant under slice order and safe to repeat.
  *
  * @param {Array<object>} sliceJobs
@@ -1167,6 +1173,7 @@ export function findMatchingSliceJob(sliceJobs, updatedJob) {
   const strongMatches = sliceJobs.filter((_, index) => relations[index] === 'match');
   if (strongMatches.length > 0) return strongMatches.length === 1 ? strongMatches[0] : null;
   if (relations.some((relation) => relation === 'conflict')) return null;
+  if (hasStableJobIdentity(updatedJob) || sliceJobs.some(hasStableJobIdentity)) return null;
 
   const slug = nonEmptySlug(updatedJob.slug);
   const italianSlug = nonEmptySlug(updatedJob.slugByLocale?.it);

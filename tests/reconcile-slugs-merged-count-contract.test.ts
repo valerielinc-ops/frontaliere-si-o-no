@@ -63,6 +63,27 @@ describe('reconcile slug writer — stable ownership before slug fallback (#7920
     expect(findMatchingSliceJob(siblings, { slug: 'shared-current-slug' })).toBeNull();
     expect(findMatchingSliceJob(siblings, {})).toBeNull();
   });
+
+  it('fails closed when a stable update identity meets an identity-less legacy candidate', () => {
+    const legacyCandidate = { slug: 'legacy-only-slug' };
+
+    expect(findMatchingSliceJob([legacyCandidate], {
+      id: 'assembled-stable-id',
+      slug: legacyCandidate.slug,
+    })).toBeNull();
+    expect(findMatchingSliceJob([legacyCandidate], {
+      url: 'https://example.invalid/jobs/assembled-stable-url',
+      slug: legacyCandidate.slug,
+    })).toBeNull();
+  });
+
+  it('allows a unique legacy slug only when both sides lack stable identity', () => {
+    const legacyCandidate = { slug: 'legacy-only-slug' };
+
+    expect(findMatchingSliceJob([legacyCandidate], {
+      slug: legacyCandidate.slug,
+    })).toBe(legacyCandidate);
+  });
 });
 
 // The early-return path (above) and the main-loop path return distinct object
