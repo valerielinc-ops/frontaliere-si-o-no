@@ -40,7 +40,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
@@ -157,23 +157,44 @@ const BASE_FRANCHISE_BY_AGE_CLASS = {
 const COMMUNE_DETAIL_CANTONS = ['TI', 'GR', 'VS'];
 
 // ── CSV parser (no dependencies) ──
-function parseCSV(text, separator) {
-  const lines = text.split('\n');
-  // Remove BOM if present
-  if (lines[0].charCodeAt(0) === 0xFEFF) lines[0] = lines[0].slice(1);
+export const PREMIUM_CSV_REQUIRED_HEADERS = [
+  'Altersklasse',
+  'Unfalleinschluss',
+  'Hoheitsgebiet',
+  'Kanton',
+  'Region',
+  'Versicherer',
+  'Tariftyp',
+  'Franchise',
+  'Prämie',
+  'Geschäftsjahr',
+];
+
+export function validatePremiumsCsvShape(text, separator) {
+  const lines = String(text ?? '').split(/\r?\n/);
+  const headerLineIndex = lines.findIndex((line) => line.trim().length > 0);
+  if (headerLineIndex === -1) throw new Error('BAG premiums CSV response is empty');
+
+  const headerLine = lines[headerLineIndex].replace(/^\uFEFF/, '');
   // Auto-detect separator: 2026 CSV uses comma, 2025 archive uses semicolon.
-  if (!separator) {
-    const header = lines[0];
-    const commaCount = (header.match(/,/g) || []).length;
-    const semiCount = (header.match(/;/g) || []).length;
-    separator = semiCount > commaCount ? ';' : ',';
+  const resolvedSeparator = separator || ((headerLine.match(/,/g) || []).length >= (headerLine.match(/;/g) || []).length ? ',' : ';');
+  const headers = headerLine.split(resolvedSeparator).map((header) => header.trim().replace(/^"|"$/g, ''));
+  const missingHeaders = PREMIUM_CSV_REQUIRED_HEADERS.filter((required) => !headers.includes(required));
+  if (missingHeaders.length) {
+    throw new Error(`BAG premiums CSV has unexpected shape: missing required columns: ${missingHeaders.join(', ')}`);
   }
-  const headers = lines[0].split(separator).map(h => h.trim().replace(/^"|"$/g, ''));
+  return { separator: resolvedSeparator, headers, headerLineIndex };
+}
+
+export function parseCSV(text, separator) {
+  const source = String(text ?? '');
+  const { separator: resolvedSeparator, headers, headerLineIndex } = validatePremiumsCsvShape(source, separator);
+  const lines = source.split(/\r?\n/);
   const rows = [];
-  for (let i = 1; i < lines.length; i++) {
+  for (let i = headerLineIndex + 1; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) continue;
-    const values = line.split(separator).map(v => v.trim().replace(/^"|"$/g, ''));
+    const values = line.split(resolvedSeparator).map(v => v.trim().replace(/^"|"$/g, ''));
     const row = {};
     for (let j = 0; j < headers.length; j++) {
       row[headers[j]] = values[j] || '';
@@ -265,6 +286,7 @@ async function fetchPremiumsCsv(targetYear) {
   if (!targetYear || targetYear === CURRENT_YEAR) {
     const res = await download(PREMIUMS_CURRENT_URL, `Prämien_CH.csv (current year ${CURRENT_YEAR})`);
     const csvText = await res.text();
+    validatePremiumsCsvShape(csvText);
     return { csvText, sourceUrl: PREMIUMS_CURRENT_URL };
   }
   // Historical year → Archiv_Praemien_{year}.zip → extract Prämien_CH.csv.
@@ -343,6 +365,7 @@ async function fetchPremiumsCsv(targetYear) {
   const csvText = looksUtf8
     ? rawBuf.toString('utf-8')
     : new TextDecoder('windows-1252').decode(rawBuf);
+  validatePremiumsCsvShape(csvText);
   return { csvText, sourceUrl: `${archiveUrl}#${csvEntry.entryName}` };
 }
 
@@ -653,14 +676,7 @@ async function main() {
   // or an upstream outage can otherwise produce zero insurers and zero
   // premiums while the process still exits 0; the update workflow would then
   // commit four empty mirrors and the comparator would silently lose its data.
-  const premiumEntryCount = Object.keys(output.premiums).length;
-  if (relevantPremiums.length === 0 || output.insurers.length < 10 || premiumEntryCount === 0 || communeRankings.length === 0) {
-    throw new Error(
-      `Refusing to write incomplete health-premiums dataset: ` +
-      `relevant rows=${relevantPremiums.length}, insurers=${output.insurers.length}, ` +
-      `premium entries=${premiumEntryCount}, ranked communes=${communeRankings.length}`,
-    );
-  }
+  assertHealthPremiumsOutput({ relevantPremiums, output, communeRankings });
 
   // 8. Write output — canonical multi-year storage under data/health-premiums/.
   //    Resolve the final year from the dataset itself (CSV "Geschäftsjahr"
@@ -714,7 +730,26 @@ async function main() {
   console.log(`   Risk-class coverage: KIN ${pct(kinPairs)}% · JUG ${pct(jugPairs)}% · ERW ${pct(erwPairs)}% (of ${totalPairs} insurer×location pairs)`);
 }
 
-main().catch(err => {
-  console.error('❌ Fatal error:', err.message);
-  process.exit(1);
-});
+export function assertHealthPremiumsOutput({ relevantPremiums, output, communeRankings }) {
+  const relevantRowCount = Array.isArray(relevantPremiums) ? relevantPremiums.length : 0;
+  const insurerCount = Array.isArray(output?.insurers) ? output.insurers.length : 0;
+  const premiumEntryCount = output?.premiums && typeof output.premiums === 'object' && !Array.isArray(output.premiums)
+    ? Object.keys(output.premiums).length
+    : 0;
+  const rankedCommuneCount = Array.isArray(communeRankings) ? communeRankings.length : 0;
+  if (relevantRowCount === 0 || insurerCount < 10 || premiumEntryCount === 0 || rankedCommuneCount === 0) {
+    throw new Error(
+      `Refusing to write incomplete health-premiums dataset: ` +
+      `relevant rows=${relevantRowCount}, insurers=${insurerCount}, ` +
+      `premium entries=${premiumEntryCount}, ranked communes=${rankedCommuneCount}`,
+    );
+  }
+  return output;
+}
+
+if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+  main().catch(err => {
+    console.error('❌ Fatal error:', err.message);
+    process.exit(1);
+  });
+}

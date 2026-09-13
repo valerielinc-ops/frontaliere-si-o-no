@@ -57,6 +57,12 @@ function object(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
 
+function outcomeLedgerStatus(outcomesSnapshot) {
+  if (!object(outcomesSnapshot) || outcomesSnapshot.missing) return 'missing';
+  if (outcomesSnapshot.quality === 'observed' && outcomesSnapshot.independent === true) return 'verified';
+  return 'unverified';
+}
+
 function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], warnings = [], snapshot = null, candidates = [] }) {
   return { loopId: LOOP_ID, sourcePath, checkedAt: now.toISOString(), ok, quality, reason, issues, warnings, snapshot, candidates };
 }
@@ -67,7 +73,7 @@ function summarizeIssues(issues, quality) {
   return issues.length > 12 ? `${visible}; (+${issues.length - 12} further findings in the report)` : visible;
 }
 
-function buildAllocationPlan({ registry, policy, now }) {
+function buildAllocationPlan({ registry, policy, now, ledgerStatus = 'missing' }) {
   const candidateIds = (Array.isArray(registry?.candidates) ? registry.candidates : [])
     .map((candidate) => text(candidate?.id) ? candidate.id.trim() : null)
     .filter(Boolean)
@@ -75,13 +81,21 @@ function buildAllocationPlan({ registry, policy, now }) {
   const basis = [LOOP_ID, registry?.generatedAt || 'missing-generated-at', ...candidateIds].join('|');
   const seed = crypto.createHash('sha256').update(basis).digest('hex').slice(0, 24);
   const expiresAt = new Date(now.getTime() + (policy.lifecycle?.candidateTtlHours || 168) * 3_600_000).toISOString();
+  const ledgerVerified = ledgerStatus === 'verified';
   return {
     schemaVersion: 1,
     assignmentMethod: DEFAULT_ASSIGNMENT_METHOD,
     assignmentKey: DEFAULT_ASSIGNMENT_KEY,
     seed,
     candidateIds,
-    persistent: true,
+    persistent: ledgerVerified,
+    ledgerStatus,
+    persistenceSupported: ledgerVerified,
+    evidenceSupport: {
+      assignmentLedger: ledgerStatus,
+      guardrails: ledgerStatus,
+      duration: ledgerStatus,
+    },
     boundedCanary: {
       enabled: false,
       maxExposure: 0,
@@ -483,6 +497,7 @@ function buildExperimentOutcome({ source, verdict, policy, registry, plan, now }
     contaminatedAssignments: integer(outcomeSnapshot.contaminatedAssignments) ? outcomeSnapshot.contaminatedAssignments : null,
   };
   const explicitIndependent = source?.independent === true;
+  const ledgerStatus = outcomeLedgerStatus(outcomeSnapshot);
   const metadataComplete = Boolean(
     outcomeSnapshot.preRegistration
       && outcomeSnapshot.assignmentLedger
@@ -492,6 +507,9 @@ function buildExperimentOutcome({ source, verdict, policy, registry, plan, now }
     && explicitIndependent
     && metadataComplete
     && Object.values(values).every((value) => value !== null);
+  const reportedValues = measured
+    ? values
+    : Object.fromEntries(Object.keys(values).map((name) => [name, null]));
   const status = measured
     ? 'observed'
     : (outcomeSnapshot.quality === 'stale'
@@ -502,8 +520,8 @@ function buildExperimentOutcome({ source, verdict, policy, registry, plan, now }
     loopId: LOOP_ID,
     quality: status,
     independent: measured,
-    numerator: values.primaryOutcomes,
-    denominator: values.eligibleCohort,
+    numerator: reportedValues.primaryOutcomes,
+    denominator: reportedValues.eligibleCohort,
     observedAt: generatedAt?.toISOString() || null,
     reason: measured
       ? 'explicit independent experiment ledger with persistent assignment, guardrails and expiry'
@@ -514,28 +532,30 @@ function buildExperimentOutcome({ source, verdict, policy, registry, plan, now }
     ...outcome,
     loopId: LOOP_ID,
     generatedAt: generatedAt?.toISOString() || null,
-    eligibleCohort: values.eligibleCohort,
-    assignments: values.assignments,
-    exposures: values.exposures,
-    primaryOutcomes: values.primaryOutcomes,
-    guardrailBreaches: values.guardrailBreaches,
-    persistentAssignments: values.persistentAssignments,
-    contaminatedAssignments: values.contaminatedAssignments,
-    metrics: values,
+    eligibleCohort: reportedValues.eligibleCohort,
+    assignments: reportedValues.assignments,
+    exposures: reportedValues.exposures,
+    primaryOutcomes: reportedValues.primaryOutcomes,
+    guardrailBreaches: reportedValues.guardrailBreaches,
+    persistentAssignments: reportedValues.persistentAssignments,
+    contaminatedAssignments: reportedValues.contaminatedAssignments,
+    metrics: reportedValues,
     evidence: outcomeSnapshot.evidence || {
       status: 'missing',
       sourcePath: outcomeSnapshot.path,
       sourceRefs: policy.outcome.sourceRefs,
     },
-    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
+    evidenceStatus: ledgerStatus,
     sourcePath: outcomeSnapshot.path,
-    preRegistration: outcomeSnapshot.preRegistration || plan.preRegistration,
-    assignmentLedger: outcomeSnapshot.assignmentLedger || {
-      persistent: plan.persistent,
-      method: plan.assignmentMethod,
-      key: plan.assignmentKey,
+    preRegistration: measured ? outcomeSnapshot.preRegistration : null,
+    assignmentLedger: measured ? outcomeSnapshot.assignmentLedger : null,
+    contaminationPolicy: measured ? outcomeSnapshot.contaminationPolicy : null,
+    ledger: {
+      status: measured ? 'verified' : ledgerStatus,
+      persistent: measured,
+      guardrails: measured,
+      duration: measured,
     },
-    contaminationPolicy: outcomeSnapshot.contaminationPolicy || plan.contaminationPolicy,
     allocationPlan: plan,
     safeToAct: false,
     appliesToTraffic: false,
@@ -675,7 +695,12 @@ export async function runL7({
       },
     },
   };
-  const allocationPlan = buildAllocationPlan({ registry: sourceRegistry, policy: loopPolicy, now });
+  const allocationPlan = buildAllocationPlan({
+    registry: sourceRegistry,
+    policy: loopPolicy,
+    now,
+    ledgerStatus: outcomeLedgerStatus(verdict.snapshot?.outcomes),
+  });
   const outcome = buildExperimentOutcome({ source: sourceOutcomes, verdict, policy: loopPolicy, registry: loopRegistry, plan: allocationPlan, now });
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
