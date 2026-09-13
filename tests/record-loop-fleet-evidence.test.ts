@@ -135,6 +135,24 @@ describe('record-loop-fleet-evidence', () => {
     })).toThrow(/must be independent/);
   });
 
+  it('does not infer independence when measured evidence omits the explicit assertion', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-independent-'));
+    writeL1Evidence(dir);
+    const observation = JSON.parse(fs.readFileSync(path.join(dir, 'l1-observation.json'), 'utf8'));
+    observation.outcome = {
+      status: 'observed',
+      numerator: 95,
+      denominator: 100,
+      generatedAt: NOW.toISOString(),
+    };
+    fs.writeFileSync(path.join(dir, 'l1-observation.json'), `${JSON.stringify(observation, null, 2)}\n`);
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary.outcome).toMatchObject({ status: 'partial', independent: false, missingFields: [] });
+    expect(result.health.ok).toBe(false);
+  });
+
   it('uses a durable ledger only when the caller explicitly opts in', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-durable-'));
     const durableDir = path.join(dir, 'durable');

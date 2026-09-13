@@ -63,8 +63,9 @@ function relativePath(file) {
   return relative || path.basename(file);
 }
 
-function runContext(now) {
+function runContext(loopId, now) {
   return {
+    loopId,
     repository: text(process.env.GITHUB_REPOSITORY),
     workflow: text(process.env.GITHUB_WORKFLOW),
     event: text(process.env.GITHUB_EVENT_NAME),
@@ -272,10 +273,12 @@ function outcomeFromEvidence({ policy, observation, result, now }) {
   }));
   const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
   const explicitIndependent = typeof candidate?.independent === 'boolean' ? candidate.independent : null;
-  if ((status === 'observed' || status === 'zero') && (missingFields.length || explicitIndependent === false)) {
+  if ((status === 'observed' || status === 'zero') && (missingFields.length || explicitIndependent !== true)) {
     status = 'partial';
   }
-  const independent = explicitIndependent ?? ((status === 'observed' || status === 'zero') && missingFields.length === 0);
+  const independent = explicitIndependent === true
+    && (status === 'observed' || status === 'zero')
+    && missingFields.length === 0;
   const measuredNumerator = status === 'observed' || status === 'zero' ? numerator : null;
   const measuredDenominator = status === 'observed' || status === 'zero' ? denominator : null;
   const generatedAt = validIso(candidate?.observedAt) || findSourceTimestamp(candidate)
@@ -339,7 +342,7 @@ export function recordLoopEvidence({
   fs.mkdirSync(dir, { recursive: true });
   const registry = validateLoopRegistry(readJson(registryPath, 'loop registry'));
   const policy = findLoopPolicy(registry, loopId);
-  const context = runContext(now);
+  const context = runContext(loopId, now);
   const prefix = String(loopId).toLowerCase();
   const resolvedReportPath = reportPath || path.join(dir, 'technical-operations-audit.json');
 

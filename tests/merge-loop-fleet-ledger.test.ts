@@ -121,4 +121,51 @@ describe('merge-loop-fleet-ledger', () => {
       ledgerDir: path.join(root, 'ledger'),
     })).toThrow('evidence summary runId does not match');
   });
+
+  it('rejects a record whose execution loop does not match the requested source', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-loop-identity-'));
+    const inputDir = path.join(root, 'input');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(inputDir);
+    writeL1Evidence(inputDir);
+
+    const previous = {
+      GITHUB_REPOSITORY: process.env.GITHUB_REPOSITORY,
+      GITHUB_WORKFLOW: process.env.GITHUB_WORKFLOW,
+      GITHUB_EVENT_NAME: process.env.GITHUB_EVENT_NAME,
+      GITHUB_REF: process.env.GITHUB_REF,
+      GITHUB_SHA: process.env.GITHUB_SHA,
+      GITHUB_RUN_ID: process.env.GITHUB_RUN_ID,
+      GITHUB_RUN_ATTEMPT: process.env.GITHUB_RUN_ATTEMPT,
+    };
+    Object.assign(process.env, {
+      GITHUB_REPOSITORY: 'example/frontaliere',
+      GITHUB_WORKFLOW: 'Loop L1 reliability',
+      GITHUB_EVENT_NAME: 'schedule',
+      GITHUB_REF: 'refs/heads/main',
+      GITHUB_SHA: SHA,
+      GITHUB_RUN_ID: '12345',
+      GITHUB_RUN_ATTEMPT: '1',
+    });
+    try {
+      recordEvidence({ loopId: 'L1', reportDir: inputDir, now: NOW });
+      const observationFile = path.join(inputDir, 'loop-observations.jsonl');
+      const observation = JSON.parse(fs.readFileSync(observationFile, 'utf8'));
+      observation.execution.loopId = 'L2';
+      fs.writeFileSync(observationFile, `${JSON.stringify(observation)}\n`);
+
+      expect(() => mergeLedger({
+        loopId: 'L1',
+        runId: '12345',
+        sha: SHA,
+        inputDir,
+        ledgerDir,
+      })).toThrow(/execution loop L2/);
+    } finally {
+      for (const [key, value] of Object.entries(previous)) {
+        if (value === undefined) delete process.env[key];
+        else process.env[key] = value;
+      }
+    }
+  });
 });

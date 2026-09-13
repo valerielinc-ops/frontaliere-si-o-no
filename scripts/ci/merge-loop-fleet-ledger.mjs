@@ -82,6 +82,9 @@ function readJsonl(file, label, { required = false } = {}) {
 function assertExecution(record, expected) {
   const execution = record.execution;
   if (!object(execution)) throw new Error(`${record.recordType} ${record.recordId || 'unknown'} has no execution identity`);
+  if (String(execution.loopId || '') !== String(expected.loopId)) {
+    throw new Error(`${record.recordType} ${record.recordId || 'unknown'} belongs to execution loop ${execution.loopId || 'unknown'}, expected ${expected.loopId}`);
+  }
   if (String(execution.runId || '') !== String(expected.runId)) {
     throw new Error(`${record.recordType} ${record.recordId || 'unknown'} belongs to run ${execution.runId || 'unknown'}, expected ${expected.runId}`);
   }
@@ -111,7 +114,7 @@ function validateHistoricalRecord(registry, loopId, type, record) {
   if (record.recordType !== type) throw new Error(`historical ${type} recordType is ${record.recordType || 'missing'}`);
   if (record.loopId !== loopId) throw new Error(`historical ${type} record belongs to ${record.loopId || 'unknown'}, expected ${loopId}`);
   if (!text(record.recordId)) throw new Error(`historical ${type} record has no recordId`);
-  if (!object(record.execution) || !text(record.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(record.execution.sha || ''))) {
+  if (!object(record.execution) || record.execution.loopId !== loopId || !text(record.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(record.execution.sha || ''))) {
     throw new Error(`historical ${type} ${record.recordId} has no durable execution identity`);
   }
   try {
