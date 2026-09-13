@@ -121,13 +121,15 @@ function setOutput(blocked, resetsAt, codexFallback = false, floor = {}) {
   const floorReason = String(floor.reason || (FLOOR_REQUIRED ? '' : 'not-required')).replace(/[\r\n]/gu, ' ');
   const floorOwner = String(floor.owner || '').replace(/[\r\n]/gu, ' ');
   const floorAcquired = floor.acquired === true;
+  const floorOwned = floor.owned === true;
+  const floorReused = floor.reused === true;
   console.log(`quota_blocked=${blocked} codex_fallback=${codexFallback} resets_at=${resetsAt || ''}`);
-  console.log(`quota_floor_admit=${floorAdmit} quota_floor_lease_acquired=${floorAcquired} quota_floor_lease_owner=${floorOwner} quota_floor_reason=${floorReason}`);
+  console.log(`quota_floor_admit=${floorAdmit} quota_floor_lease_acquired=${floorAcquired} quota_floor_lease_owned=${floorOwned} quota_floor_lease_reused=${floorReused} quota_floor_lease_owner=${floorOwner} quota_floor_reason=${floorReason}`);
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(
       process.env.GITHUB_OUTPUT,
       `quota_blocked=${blocked}\ncodex_fallback=${codexFallback}\nresets_at=${resetsAt || ''}\n`
-      + `quota_floor_admit=${floorAdmit}\nquota_floor_lease_acquired=${floorAcquired}\nquota_floor_lease_owner=${floorOwner}\nquota_floor_reason=${floorReason}\n`,
+      + `quota_floor_admit=${floorAdmit}\nquota_floor_lease_acquired=${floorAcquired}\nquota_floor_lease_owned=${floorOwned}\nquota_floor_lease_reused=${floorReused}\nquota_floor_lease_owner=${floorOwner}\nquota_floor_reason=${floorReason}\n`,
     );
   }
 }
@@ -161,7 +163,7 @@ export function quotaFloorLeaseAdmission({
   runJson = floorRunJson,
   runCommand = floorRunCommand,
 } = {}) {
-  if (!required) return { admit: true, acquired: false, reason: 'not-required' };
+  if (!required) return { admit: true, acquired: false, owned: false, reused: false, reason: 'not-required' };
   if (!repo || !subject) return { admit: false, reason: 'quota floor context missing' };
 
   const ledger = readQuotaFloorLedger({
@@ -175,10 +177,20 @@ export function quotaFloorLeaseAdmission({
   const decision = quotaFloorLeaseDecision(ledger, { kind, subject });
   if (!decision.admit) return { admit: false, reason: decision.reason };
 
+  const currentOwner = quotaFloorLeaseOwner({
+    kind,
+    subject,
+    runId,
+    attempt,
+  });
+
   if (action === 'release') {
     const releaseOwner = String(requestedOwner || '').trim();
     if (decision.existing && !releaseOwner) {
       return { admit: false, reason: 'quota floor release owner missing' };
+    }
+    if (decision.existing && releaseOwner !== currentOwner) {
+      return { admit: false, reason: 'quota floor release owner mismatch' };
     }
     if (decision.existing && releaseOwner !== decision.existing.owner) {
       return { admit: false, reason: 'quota floor release owner mismatch' };
@@ -198,26 +210,38 @@ export function quotaFloorLeaseAdmission({
     return { admit: true, acquired: false, owner: owners[0] || '', reason: owners.length ? 'lease released' : 'no active subject lease' };
   }
 
-  const owner = decision.existing?.owner || quotaFloorLeaseOwner({
-    kind,
-    subject,
-    runId,
-    attempt,
-  });
-  if (decision.existing || dryRun) {
-    return { admit: true, acquired: true, owner, reason: decision.existing ? 'existing lease reused' : 'dry-run lease preview' };
+  if (decision.existing) {
+    const owned = decision.existing.owner === currentOwner;
+    return {
+      admit: true,
+      acquired: false,
+      owned,
+      reused: !owned,
+      owner: decision.existing.owner,
+      reason: owned ? 'existing lease owned by current run' : 'existing lease reused; owner unchanged',
+    };
+  }
+  if (dryRun) {
+    return {
+      admit: true,
+      acquired: false,
+      owned: false,
+      reused: false,
+      owner: currentOwner,
+      reason: 'dry-run lease preview',
+    };
   }
   const acquired = acquireQuotaFloorLease({
     repo,
     ledgerIssue,
     kind,
     subject,
-    owner,
+    owner: currentOwner,
     expiresAt: quotaFloorLeaseExpiry(nowSec, ttlSec),
     runCommand,
   });
   return acquired.ok
-    ? { admit: true, acquired: true, owner, reason: 'new lease acquired' }
+    ? { admit: true, acquired: true, owned: true, reused: false, owner: currentOwner, reason: 'new lease acquired' }
     : { admit: false, reason: acquired.reason };
 }
 

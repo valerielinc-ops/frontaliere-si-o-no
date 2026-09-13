@@ -225,6 +225,7 @@ describe('provider-neutral action wiring', () => {
     expect(ISSUE_FIX.indexOf('Enforce shared quota-floor lease (fail-closed)'))
       .toBeLessThan(ISSUE_FIX.indexOf('- name: Install dependencies'));
     expect(ISSUE_FIX).toContain("if: steps.quota.outputs.quota_floor_admit == 'true'");
+    expect(ISSUE_FIX).toContain("if: always() && steps.quota.outputs.quota_floor_lease_owned == 'true'");
     expect(ISSUE_FIX).toContain(
       'claude_args: "--effort medium --max-turns ${{ steps.tier.outputs.max_turns }}',
     );

@@ -1364,7 +1364,9 @@ jobs:
         run: node scripts/ci/claim-issue-in-flight.mjs
 
       - name: Release issue-fix quota-floor lease (zero-Claude)
-        if: always()
+        # A contending run may reuse a reservation owned by another run. Only
+        # release a lease that this run actually acquired or already owns.
+        if: always() && steps.quota.outputs.quota_floor_lease_owned == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}

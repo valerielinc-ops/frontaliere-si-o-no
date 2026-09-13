@@ -104,9 +104,9 @@ describe('shared quota-floor lease ledger', () => {
     expect(commands[1].join(' ')).toContain('QUOTA_FLOOR_RELEASE');
   });
 
-  it('gates the check-quota adapter before provider work and releases only its owner', () => {
-    const owner = quotaFloorLeaseOwner({ kind: 'issue-fix', subject: 'issue-123', runId: 'run-1', attempt: '1' });
-    const marker = quotaFloorLeaseMarker({ kind: 'issue-fix', subject: 'issue-123', owner, expiresAt: 2_000 });
+  it('does not release a reservation reused from another run', () => {
+    const winnerOwner = quotaFloorLeaseOwner({ kind: 'issue-fix', subject: 'issue-123', runId: 'winner', attempt: '1' });
+    const marker = quotaFloorLeaseMarker({ kind: 'issue-fix', subject: 'issue-123', owner: winnerOwner, expiresAt: 2_000 });
     const commands: string[][] = [];
     const runJson = () => [{ id: 1, body: marker }];
 
@@ -117,12 +117,47 @@ describe('shared quota-floor lease ledger', () => {
       repo: 'owner/repo',
       subject: 'issue-123',
       nowSec: 1_000,
-      runId: 'run-1',
+      runId: 'loser',
       attempt: '1',
       runJson,
       runCommand: (args) => { commands.push(args); },
-    })).toMatchObject({ admit: true, acquired: true, owner });
+    })).toMatchObject({ admit: true, acquired: false, owned: false, reused: true, owner: winnerOwner });
     expect(commands).toHaveLength(0);
+
+    expect(quotaFloorLeaseAdmission({
+      required: true,
+      action: 'release',
+      kind: 'issue-fix',
+      repo: 'owner/repo',
+      subject: 'issue-123',
+      owner: winnerOwner,
+      nowSec: 1_000,
+      runId: 'loser',
+      attempt: '1',
+      runJson,
+      runCommand: (args) => { commands.push(args); },
+    })).toMatchObject({ admit: false, reason: 'quota floor release owner mismatch' });
+    expect(commands).toHaveLength(0);
+  });
+
+  it('gates provider work and releases only a lease acquired by the current run', () => {
+    const owner = quotaFloorLeaseOwner({ kind: 'issue-fix', subject: 'issue-123', runId: 'run-1', attempt: '1' });
+    const marker = quotaFloorLeaseMarker({ kind: 'issue-fix', subject: 'issue-123', owner, expiresAt: 2_000 });
+    const commands: string[][] = [];
+
+    expect(quotaFloorLeaseAdmission({
+      required: true,
+      action: 'acquire',
+      kind: 'issue-fix',
+      repo: 'owner/repo',
+      subject: 'issue-123',
+      nowSec: 1_000,
+      runId: 'run-1',
+      attempt: '1',
+      runJson: () => [],
+      runCommand: (args) => { commands.push(args); },
+    })).toMatchObject({ admit: true, acquired: true, owned: true, reused: false, owner });
+    expect(commands).toHaveLength(1);
 
     expect(quotaFloorLeaseAdmission({
       required: true,
@@ -132,11 +167,13 @@ describe('shared quota-floor lease ledger', () => {
       subject: 'issue-123',
       owner,
       nowSec: 1_000,
-      runJson,
+      runId: 'run-1',
+      attempt: '1',
+      runJson: () => [{ id: 1, body: marker }],
       runCommand: (args) => { commands.push(args); },
     })).toMatchObject({ admit: true, reason: 'lease released' });
-    expect(commands).toHaveLength(1);
-    expect(commands[0].join(' ')).toContain('QUOTA_FLOOR_RELEASE');
+    expect(commands).toHaveLength(2);
+    expect(commands[1].join(' ')).toContain('QUOTA_FLOOR_RELEASE');
 
     expect(quotaFloorLeaseAdmission({
       required: true,
@@ -146,7 +183,7 @@ describe('shared quota-floor lease ledger', () => {
       subject: 'issue-123',
       owner: 'issue-fix:issue-123:other:1',
       nowSec: 1_000,
-      runJson,
+      runJson: () => [{ id: 1, body: marker }],
     })).toMatchObject({ admit: false, reason: 'quota floor release owner mismatch' });
   });
 });
