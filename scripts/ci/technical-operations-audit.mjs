@@ -48,6 +48,7 @@ const OUTPUT_ACTIONS_FILE_RE = /\bappendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']
 const LOCAL_MODULE_RE = /\b(?:from\s*|import\s*\(\s*|require\s*\(\s*)["'](\.{1,2}\/[^"']+)["']/g;
 const INVOKED_COMMAND_RE = /\b(?:node|bash|sh|tsx|bun|deno)\s+["']?((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
 const SCRIPT_DIR_COMMAND_RE = /\b(?:bash|sh|source|\.)\s+["']?\$\{SCRIPT_DIR\}\/([^"'\s]+)/g;
+const FILE_EXISTENCE_PATH_RE = /^(?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml)$/;
 const MAX_OUTPUT_REFERENCE_FILES = 16;
 
 function isRecord(value) {
@@ -193,12 +194,43 @@ function localReusableWorkflowPath(value) {
   return value.split('@', 1)[0].slice(2);
 }
 
+function isShellComment(source, offset) {
+  const raw = String(source || '');
+  const lineStart = raw.lastIndexOf('\n', offset) + 1;
+  let quote = null;
+  let escaped = false;
+  for (let index = lineStart; index < offset; index += 1) {
+    const char = raw[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (quote === '"' && char === '\\') {
+      escaped = true;
+      continue;
+    }
+    if (quote) {
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '\'' || char === '"') {
+      quote = char;
+      continue;
+    }
+    if (char === '#') {
+      const previous = index === lineStart ? '' : raw[index - 1];
+      if (previous === '' || /\s/u.test(previous) || ';|&(){}<>'.includes(previous)) return true;
+    }
+  }
+  return false;
+}
+
 function extractCommandPaths(run) {
   const paths = [];
   const source = String(run || '');
   for (const match of source.matchAll(PATH_RE)) {
     const candidate = match[1].replace(/[),;:'"`]+$/g, '');
-    if (!candidate.includes('${{')) paths.push(candidate);
+    if (!candidate.includes('${{') && !isShellComment(source, match.index ?? 0)) paths.push(candidate);
   }
   return [...new Set(paths)];
 }
@@ -207,8 +239,15 @@ function extractLocalModulePaths(source) {
   return [...new Set([...String(source || '').matchAll(LOCAL_MODULE_RE)].map((match) => match[1]))];
 }
 
+function extractInvokedCommandReferences(source) {
+  return [...String(source || '').matchAll(INVOKED_COMMAND_RE)].map((match) => ({
+    path: match[1].replace(/[),;:'"`]+$/g, ''),
+    index: match.index ?? 0,
+  }));
+}
+
 function extractInvokedCommandPaths(source) {
-  return [...new Set([...String(source || '').matchAll(INVOKED_COMMAND_RE)].map((match) => match[1]))];
+  return [...new Set(extractInvokedCommandReferences(source).map((match) => match.path))];
 }
 
 function extractScriptDirCommands(source) {
@@ -217,6 +256,247 @@ function extractScriptDirCommands(source) {
 
 function extractDataPaths(run) {
   return [...new Set([...String(run || '').matchAll(DATA_PATH_RE)].map((match) => match[1]))];
+}
+
+const SHELL_KEYWORDS = new Set(['case', 'do', 'done', 'elif', 'else', 'esac', 'fi', 'for', 'if', 'in', 'then', 'until', 'while']);
+const SHELL_COMMENT_PRECEDERS = new Set([';', '&', '|', '(', ')', '{', '}', '<', '>']);
+const SHELL_OPERATORS = [';&', ';;&', '||', '&&', '|&', ';;', '>>', '<<', '>&', '<&', '>|', ';', '|', '&', '(', ')', '{', '}', '<', '>'];
+
+function shellTokens(source) {
+  const raw = String(source || '');
+  const tokens = [];
+  let value = '';
+  let start = -1;
+  let unquoted = false;
+  let quote = null;
+  let escaped = false;
+  let comment = false;
+
+  const append = (char, isUnquoted, index) => {
+    if (start < 0) start = index;
+    value += char;
+    if (isUnquoted) unquoted = true;
+  };
+  const flush = (end) => {
+    if (start < 0) return;
+    tokens.push({
+      type: 'word',
+      value,
+      start,
+      end,
+      quotedOnly: !unquoted,
+    });
+    value = '';
+    start = -1;
+    unquoted = false;
+  };
+  const operatorAt = (index) => SHELL_OPERATORS.find((operator) => raw.startsWith(operator, index)) || null;
+
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    if (comment) {
+      if (char === '\n') comment = false;
+      continue;
+    }
+    if (quote) {
+      if (quote === '"' && escaped) {
+        append(char, false, index);
+        escaped = false;
+        continue;
+      }
+      if (quote === '"' && char === '\\') {
+        append(char, false, index);
+        escaped = true;
+        continue;
+      }
+      if (char === quote) {
+        quote = null;
+        continue;
+      }
+      append(char, false, index);
+      continue;
+    }
+    if (escaped) {
+      if (char !== '\n') append(char, true, index);
+      escaped = false;
+      continue;
+    }
+    if (char === '\\') {
+      if (start < 0) start = index;
+      escaped = true;
+      unquoted = true;
+      continue;
+    }
+    if (char === '\'' || char === '"') {
+      if (start < 0) start = index;
+      quote = char;
+      continue;
+    }
+    if (char === '#'
+      && start < 0
+      && (index === 0 || /\s/u.test(raw[index - 1]) || SHELL_COMMENT_PRECEDERS.has(raw[index - 1]))) {
+      comment = true;
+      continue;
+    }
+    if (char === '\n') {
+      flush(index);
+      tokens.push({ type: 'operator', value: '\n', start: index, end: index + 1 });
+      continue;
+    }
+    if (/\s/u.test(char)) {
+      flush(index);
+      continue;
+    }
+    const operator = operatorAt(index);
+    if (operator) {
+      flush(index);
+      tokens.push({ type: 'operator', value: operator, start: index, end: index + operator.length });
+      index += operator.length - 1;
+      continue;
+    }
+    append(char, true, index);
+  }
+  if (escaped) append('\\', true, raw.length - 1);
+  flush(raw.length);
+  return tokens;
+}
+
+function parseShellCommands(source) {
+  const tokens = shellTokens(source);
+  const commands = [];
+  const keywordTokens = [];
+  let segment = [];
+  let operatorBefore = null;
+
+  const flush = (operatorAfter = null) => {
+    if (segment.length === 0) return;
+    const prefixKeywords = [];
+    let commandIndex = -1;
+    for (let index = 0; index < segment.length; index += 1) {
+      const token = segment[index];
+      if (commandIndex < 0 && token.type === 'word' && !token.quotedOnly && SHELL_KEYWORDS.has(token.value)) {
+        prefixKeywords.push(token.value);
+        keywordTokens.push(token);
+        continue;
+      }
+      if (commandIndex < 0 && token.type === 'word') {
+        commandIndex = index;
+      }
+    }
+    if (commandIndex >= 0) {
+      const commandToken = segment[commandIndex];
+      commands.push({
+        name: commandToken.value,
+        nameToken: commandToken,
+        args: segment.slice(commandIndex + 1),
+        start: commandToken.start,
+        end: segment.at(-1).end,
+        operatorBefore,
+        operatorAfter,
+        prefixKeywords,
+      });
+    }
+    segment = [];
+    operatorBefore = operatorAfter;
+  };
+
+  for (const token of tokens) {
+    if (token.type === 'operator') flush(token.value);
+    else segment.push(token);
+  }
+  flush();
+  return { tokens, commands, keywordTokens };
+}
+
+function shellConditionalBranches(parsed) {
+  const branches = [];
+  const stack = [];
+  for (const token of parsed.keywordTokens) {
+    if (token.value === 'if') {
+      const branch = { conditionStart: token, then: null, bodyEnd: null };
+      stack.push({ branches: [branch], current: branch });
+      branches.push(branch);
+    } else if (token.value === 'elif') {
+      const block = stack.at(-1);
+      if (!block) continue;
+      if (block.current.then && !block.current.bodyEnd) block.current.bodyEnd = token;
+      const branch = { conditionStart: token, then: null, bodyEnd: null };
+      block.branches.push(branch);
+      block.current = branch;
+      branches.push(branch);
+    } else if (token.value === 'then') {
+      const block = stack.at(-1);
+      if (block && !block.current.then) block.current.then = token;
+    } else if (token.value === 'else') {
+      const block = stack.at(-1);
+      if (block && block.current.then && !block.current.bodyEnd) block.current.bodyEnd = token;
+    } else if (token.value === 'fi') {
+      const block = stack.pop();
+      if (block && block.current.then && !block.current.bodyEnd) block.current.bodyEnd = token;
+    }
+  }
+  return branches.filter((branch) => branch.then && branch.bodyEnd);
+}
+
+function fileExistencePath(command) {
+  if (command.nameToken.quotedOnly) return null;
+  const values = command.args.map((token) => token.value);
+  const path = command.name === 'test' && values.length === 2 && values[0] === '-f'
+    ? values[1]
+    : command.name === '[' && values.length === 3 && values[0] === '-f' && values[2] === ']'
+      ? values[1]
+      : null;
+  return path && FILE_EXISTENCE_PATH_RE.test(path) ? path : null;
+}
+
+function hasShellOperator(parsed, start, end, value) {
+  return parsed.tokens.some((token) => token.type === 'operator'
+    && token.value === value
+    && token.start >= start
+    && token.end <= end);
+}
+
+/**
+ * Return literal files checked by the same shell step before it invokes a
+ * command. A dynamic checkout is not statically inspectable from the control
+ * checkout, but an explicit runtime `test -f` is a real, fail-closed proof of
+ * the file that the following command will execute. Variable-based checks are
+ * deliberately not accepted: the audit must not turn an unbounded loop into a
+ * claim about a particular script.
+ */
+function extractFileExistenceAssertions(run) {
+  const parsed = parseShellCommands(run);
+  const branches = shellConditionalBranches(parsed);
+  const assertions = new Map();
+  const addAssertion = (path, assertion) => {
+    const current = assertions.get(path) || [];
+    current.push(assertion);
+    assertions.set(path, current);
+  };
+  for (const command of parsed.commands) {
+    const path = fileExistencePath(command);
+    if (!path || command.prefixKeywords.includes('!')) continue;
+    const conditionBranch = branches
+      .filter((branch) => command.start > branch.conditionStart.end
+        && command.end <= branch.then.start)
+      .sort((left, right) => right.conditionStart.start - left.conditionStart.start)[0];
+    if (conditionBranch) {
+      if (hasShellOperator(parsed, command.end, conditionBranch.then.start, '||')) continue;
+      addAssertion(path, {
+        index: command.start,
+        scope: { start: conditionBranch.then.end, end: conditionBranch.bodyEnd.start },
+      });
+      continue;
+    }
+    // GitHub's default bash shell is fail-fast. Only a complete command
+    // followed by a command-list boundary is accepted here; constructs such
+    // as `test -f file || true` are intentionally not proof of execution.
+    if (command.prefixKeywords.length === 0
+      && (command.operatorAfter === null || ['\n', ';', ')', '}'].includes(command.operatorAfter))) {
+      addAssertion(path, { index: command.start, scope: null });
+    }
+  }
+  return assertions;
 }
 
 /**
@@ -1021,9 +1301,19 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
           readFile,
           followReferences: !dynamicDirectory && !runtimeCheckout,
         });
+        const runtimeFileAssertions = extractFileExistenceAssertions(rawStep.run);
+        const invokedCommandReferences = extractInvokedCommandReferences(rawStep.run);
         for (const candidate of extractCommandPaths(rawStep.run)) {
           const inWorkingDirectory = workingRoot !== null && exists(path.resolve(workingRoot, candidate));
-          if (!inWorkingDirectory) {
+          const invocations = invokedCommandReferences.filter((reference) => reference.path === candidate);
+          const assertions = runtimeFileAssertions.get(candidate) || [];
+          const verifiedAtRuntime = assertions.length > 0
+            && (invocations.length === 0 || invocations.every((invocation) => assertions.some((assertion) => {
+              if (assertion.index >= invocation.index) return false;
+              return assertion.scope === null
+                || (invocation.index > assertion.scope.start && invocation.index < assertion.scope.end);
+            })));
+          if (!inWorkingDirectory && !verifiedAtRuntime) {
             const runtimeOnly = dynamicDirectory || runtimeCheckout;
             findings.push(finding(
               file,

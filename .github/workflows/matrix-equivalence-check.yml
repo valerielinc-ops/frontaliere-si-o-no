@@ -106,13 +106,25 @@ jobs:
           fi
       - name: Load secrets from Remote Config
         working-directory: build
-        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+        run: |
+          if test -f scripts/load-rc-env.mjs; then
+            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+          else
+            echo "⚠️ load-rc-env.mjs is absent in the requested BUILD commit (non-fatal)"
+          fi
       - name: Reproduce the deploy data snapshot (deterministic from committed slices)
         working-directory: build
         env:
           JOBS_SKIP_URL_VALIDATION: '1'
         run: |
           set -eo pipefail
+          test -f scripts/assemble-jobs-dataset.mjs
+          test -f scripts/cleanup-jobs.mjs
+          test -f scripts/refresh-weekly-employers-top-pairs.mjs
+          test -f scripts/mine-all-job-slugs.mjs
+          test -f scripts/migrate-all-known-job-slugs-canton-aware.mjs
+          test -f scripts/generate-image-thumbnails.mjs
+          test -f scripts/cleanup-news-sitemap.mjs
           node scripts/assemble-jobs-dataset.mjs --stats
           node scripts/cleanup-jobs.mjs
           node scripts/refresh-weekly-employers-top-pairs.mjs
@@ -215,7 +227,9 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-        run: bash scripts/lib/rehydrate-section-shards.sh
+        run: |
+          test -f scripts/lib/rehydrate-section-shards.sh
+          bash scripts/lib/rehydrate-section-shards.sh
       - name: Manifest the live monolith it+shared
         run: node tooling/scripts/ci/dist-hash-manifest.mjs tooling/dist /tmp/live-it.txt --deploy-artifact-perimeter
       - name: Compare matrix it-shard ≡ live monolith it+shared

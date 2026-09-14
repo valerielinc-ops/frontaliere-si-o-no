@@ -85,7 +85,9 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
-        run: node scripts/load-rc-env.mjs
+        run: |
+          test -f scripts/load-rc-env.mjs
+          node scripts/load-rc-env.mjs
 
       - name: Crawl tio.ch agenda
         id: crawl-tio
@@ -262,7 +264,12 @@ jobs:
         # Non-fatal like every other caller: without R2_* the push script
         # reports the miss, prunes the manifest back and the images are
         # re-mirrored next run. Nothing is committed that claims otherwise.
-        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+        run: |
+          if test -f scripts/load-rc-env.mjs; then
+            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+          else
+            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
+          fi
 
       - name: Push this run's mirrored event images to the CDN
         run: node scripts/push-mirrored-event-images-cdn.mjs
