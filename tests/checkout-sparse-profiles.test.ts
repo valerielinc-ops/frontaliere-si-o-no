@@ -122,6 +122,12 @@ describe('profili di sparse-checkout', () => {
     expect(isExcludedBy(excluded, 'scripts/lib/x.mjs')).toBe(false);
   });
 
+  it('rispetta una reinclusione sparse dopo una negazione', () => {
+    const patterns = ['!/data/', '/data/loop-fleet/'];
+    expect(isExcludedBy(patterns, 'data/other.json')).toBe(true);
+    expect(isExcludedBy(patterns, 'data/loop-fleet/loop-registry.json')).toBe(false);
+  });
+
   it('estrae i percorsi letterali anche dentro un array', () => {
     // La forma che l'analizzatore aveva mancato: due percorsi in un array
     // letterale, dove la normalizzazione delle forme spezzate li fondeva.
