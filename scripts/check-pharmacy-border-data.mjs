@@ -11,12 +11,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { BORDER_MINIMUMS } from './import-pharmacies-border.mjs';
+import { BORDER_MINIMUMS, verifyPharmacyReleaseContract } from './import-pharmacies-border.mjs';
+import { validatePharmacyReleaseContract } from '../services/pharmacies/release-contract-validator.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TICINO_PATH = path.join(ROOT, 'data', 'pharmacies-ticino-complete.json');
 const ITALY_PATH = path.join(ROOT, 'data', 'pharmacies-italy-border.json');
 const DUTIES_PATH = path.join(ROOT, 'data', 'pharmacy-duties-ticino.json');
+const DUTIES_STATUS_PATH = path.join(ROOT, 'data', 'pharmacy-duties-ticino-status.json');
 const SOURCES_PATH = path.join(ROOT, 'data', 'pharmacy-border-sources.json');
 const PROVINCES = new Set(['CO', 'VA', 'VB']);
 const COUNTRIES = new Set(['CH', 'IT']);
@@ -55,8 +57,18 @@ export function validateBorderSources(registry) {
   return errors;
 }
 
-export function validateBorderSnapshot({ ticino, italy, duties }) {
+export function validateBorderSnapshot({ ticino, italy, duties, status, verifyRelease = false }) {
   const errors = [];
+  if (verifyRelease) {
+    for (const [label, snapshot] of [['catalogue', ticino], ['duties', duties], ['duty status', status]]) {
+      errors.push(...validatePharmacyReleaseContract(snapshot?._release).map((error) => `${label}: ${error}`));
+    }
+    errors.push(...verifyPharmacyReleaseContract({ catalogue: ticino, duties, status }));
+  }
+  if (verifyRelease && status !== undefined) {
+    if (!status?._release?.releaseId) errors.push('duty status release metadata is missing');
+    else if (status._release.releaseId !== ticino?._release?.releaseId) errors.push('duty status releaseId differs from the catalogue releaseId');
+  }
   const all = [...(ticino?.pharmacies || []), ...(italy?.pharmacies || [])];
   const ids = new Set();
   const slugs = new Set();
@@ -134,6 +146,8 @@ export function main() {
         ticino: readJson(TICINO_PATH),
         italy: readJson(ITALY_PATH),
         duties: readJson(DUTIES_PATH),
+        status: readJson(DUTIES_STATUS_PATH),
+        verifyRelease: true,
       }),
     ];
     assert(errors.length === 0, errors.join('\n'));

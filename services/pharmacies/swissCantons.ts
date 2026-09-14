@@ -43,4 +43,3 @@ export const SWISS_CANTONS: readonly SwissCanton[] = Object.freeze([
   { code: 'ZG', key: 'zug', names: { it: 'Zugo', en: 'Zug', de: 'Zug', fr: 'Zoug' } },
   { code: 'ZH', key: 'zurich', names: { it: 'Zurigo', en: 'Zurich', de: 'Zürich', fr: 'Zurich' } },
 ] as const);
-

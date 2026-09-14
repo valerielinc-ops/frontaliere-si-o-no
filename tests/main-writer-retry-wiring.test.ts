@@ -41,9 +41,19 @@ describe('main data writers use the shared retry contract', () => {
   });
 
   it('keeps the data-specific replay contracts', () => {
-    expect(read('.github/workflows/sync-pharmacies-border.yml')).toContain(
-      '--regenerate-cmd "npm run pharmacies:import && npm run pharmacies:check',
-    );
+    const pharmacyWorkflow = read('.github/workflows/sync-pharmacies-border.yml');
+    const dutyFetch = pharmacyWorkflow.indexOf('node scripts/sync-pharmacy-duties.mjs || duty_exit=$?');
+    const finalizer = pharmacyWorkflow.indexOf('npm run pharmacies:import', dutyFetch);
+    const checker = pharmacyWorkflow.indexOf('npm run pharmacies:check', finalizer);
+    expect(pharmacyWorkflow).toContain("--regenerate-cmd '");
+    expect(pharmacyWorkflow).toContain('case "$duty_exit" in');
+    expect(pharmacyWorkflow).toContain('0|1|2)');
+    expect(pharmacyWorkflow).toContain('duty fetch diagnostic exit=$duty_exit; continuing to atomic finalizer');
+    expect(pharmacyWorkflow).toContain('atomic finalizer completed after duty diagnostic exit=$duty_exit');
+    expect(pharmacyWorkflow).toContain('git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json');
+    expect(dutyFetch).toBeGreaterThan(-1);
+    expect(finalizer).toBeGreaterThan(dutyFetch);
+    expect(checker).toBeGreaterThan(finalizer);
     expect(read('.github/workflows/crawler-health-monitor.yml')).toContain(
       'node scripts/check-crawler-health.mjs || true; git add data/crawler-health.json',
     );

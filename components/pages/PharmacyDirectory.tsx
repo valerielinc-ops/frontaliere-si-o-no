@@ -25,9 +25,11 @@ import {
   provinceSlugForPharmacy,
 } from '@/services/pharmacies/data';
 import { buildPharmacyPath, type PharmacyPath } from '@/services/pharmacies/paths';
-import { currentDutyForRegion, isDutyCurrentlyActive } from '@/services/pharmacies/duties';
+import { currentDutyForRegion, isDutyCurrentlyActive, publicDutiesForRegion } from '@/services/pharmacies/duties';
 import type { Locale } from '@/services/i18n';
-import { safePharmacyUrl,
+import {
+  safePharmacyUrl,
+  type PharmacyCatalogueDataset,
   type Pharmacy,
   type PharmacyCountry,
   type PharmacyDuty,
@@ -131,7 +133,21 @@ function scopeForPage(page: PharmacyPath): Pharmacy[] {
   return BORDER_PHARMACIES;
 }
 
-function dutyFor(pharmacy: Pharmacy, now: Date): PharmacyDuty | undefined { return DUTIES.duties.find((candidate) => candidate.pharmacyId === pharmacy.id && isDutyCurrentlyActive(candidate, now)); }
+export function publicDutiesForPharmacy(
+  dataset: PharmacyDutiesDataset,
+  pharmacyId: string,
+  coverageName: string | undefined,
+  now: Date,
+  catalogue?: PharmacyCatalogueDataset,
+): PharmacyDuty[] {
+  if (!coverageName) return [];
+  return publicDutiesForRegion(dataset, coverageName, now, catalogue).filter((duty) => duty.pharmacyId === pharmacyId);
+}
+
+function dutyFor(pharmacy: Pharmacy, now: Date): PharmacyDuty | undefined {
+  return publicDutiesForPharmacy(DUTIES, pharmacy.id, DUTY_COVERAGE_BY_PHARMACY.get(pharmacy.id), now)
+    .find((duty) => isDutyCurrentlyActive(duty, now));
+}
 function dayLabel(day: string, locale: Locale): string { const index = DAY_NAMES.indexOf(day as typeof DAY_NAMES[number]); if (index < 0) return day; return new Intl.DateTimeFormat(locale, { weekday: 'long', timeZone: 'UTC' }).format(new Date(Date.UTC(2024, 0, index + 1))); }
 function fieldStatusLabel(status: string | undefined, copy: Copy): string { if (status === 'not_published') return copy.notPublished; if (status === 'not_checked') return copy.notChecked; return copy.unavailable; }
 
@@ -169,7 +185,7 @@ function DutyCard({ duty, locale, now }: { duty?: PharmacyDuty; locale: Locale; 
 }
 
 function DetailPage({ pharmacy, locale, now }: { pharmacy: Pharmacy; locale: Locale; now: Date }) {
-  const copy = COPY[locale]; const duty = dutyFor(pharmacy, now); const duties = DUTIES.duties.filter((candidate) => candidate.pharmacyId === pharmacy.id && candidate.status === 'verified' && Date.parse(candidate.endsAt) > now.getTime()).sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt)); const locationUrl = mapUrl(pharmacy); const website = safePharmacyUrl(pharmacy.website);
+  const copy = COPY[locale]; const publicDuties = publicDutiesForPharmacy(DUTIES, pharmacy.id, DUTY_COVERAGE_BY_PHARMACY.get(pharmacy.id), now); const duty = publicDuties.find((candidate) => isDutyCurrentlyActive(candidate, now)); const duties = publicDuties; const locationUrl = mapUrl(pharmacy); const website = safePharmacyUrl(pharmacy.website);
   return <div className="mx-auto max-w-5xl space-y-8"><header className="space-y-3"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">{pharmacy.country === 'CH' ? copy.swiss : `${copy.italy} · ${provinceFor(pharmacy)?.name || pharmacy.province}`}</p><h1 className="font-display text-3xl font-bold tracking-tight text-heading sm:text-4xl">{pharmacy.name}</h1><p className="max-w-3xl text-base leading-7 text-muted">{copy.city}: {pharmacy.city}. {copy.checked} {formatDate(pharmacy.lastVerifiedAt, locale, pharmacy.country)}.</p></header><div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.8fr)]"><section className="space-y-6" aria-labelledby="pharmacy-contact-heading"><div className="rounded-2xl border border-edge bg-surface p-5 shadow-sm"><h2 id="pharmacy-contact-heading" className="font-display text-xl font-bold text-heading">{copy.address}</h2><address className="mt-3 not-italic leading-7 text-body">{pharmacy.address}<br />{pharmacy.postalCode} {pharmacy.city}</address><div className="mt-4 flex flex-wrap gap-3">{pharmacy.phone && <a className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={`tel:${pharmacy.phone}`}><Phone aria-hidden="true" className="h-4 w-4" />{copy.phone}</a>}{pharmacy.website && <a className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-semibold text-link hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={pharmacy.website} rel="nofollow noopener">{copy.website}<ExternalLink aria-hidden="true" className="h-4 w-4" /></a>}{locationUrl && <a className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-semibold text-link hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={locationUrl} rel="nofollow noopener"><MapPin aria-hidden="true" className="h-4 w-4" />{copy.openMap}</a>}</div></div><section className="rounded-2xl border border-edge bg-surface p-5 shadow-sm" aria-labelledby="pharmacy-hours-heading"><h2 id="pharmacy-hours-heading" className="font-display text-xl font-bold text-heading">{copy.hours}</h2><div className="mt-3"><Hours pharmacy={pharmacy} locale={locale} /></div></section><section className="rounded-2xl border border-edge bg-surface p-5 shadow-sm" aria-labelledby="pharmacy-services-heading"><h2 id="pharmacy-services-heading" className="font-display text-xl font-bold text-heading">{copy.services}</h2>{pharmacy.services?.length ? <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-body">{pharmacy.services.map((service) => <li key={service}>{service}</li>)}</ul> : <p className="mt-3 text-sm text-muted">{copy.noServices}</p>}</section>{duties.length > 0 && <section className="space-y-4" aria-labelledby="pharmacy-duty-heading"><h2 id="pharmacy-duty-heading" className="font-display text-xl font-bold text-heading">{copy.duty}</h2>{duty && <p className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950">{copy.currentDuty}: {duty.coverageName}</p>}<div className="grid gap-4 sm:grid-cols-2">{duties.slice(0, 4).map((candidate) => <DutyCard key={candidate.id} duty={candidate} locale={locale} now={now} />)}</div></section>}</section><aside className="space-y-6"><section aria-labelledby="pharmacy-map-heading"><h2 id="pharmacy-map-heading" className="mb-3 font-display text-xl font-bold text-heading">{copy.map}</h2><PharmacyMap pharmacies={[pharmacy]} getHref={(candidate) => href(detailPath(candidate, locale))} openLabel={copy.details} noLocationLabel={copy.noMap} /></section><section className="rounded-2xl border border-edge bg-surface p-5 shadow-sm" aria-labelledby="pharmacy-sources-heading"><h2 id="pharmacy-sources-heading" className="font-display text-xl font-bold text-heading">{copy.sources}</h2><div className="mt-3"><SourceLine pharmacy={pharmacy} locale={locale} /></div><p className="mt-4 text-xs leading-5 text-muted">{pharmacy.dataAvailability?.openingHours !== 'verified' && `${copy.hours}: ${fieldStatusLabel(pharmacy.dataAvailability?.openingHours, copy)}. `}{pharmacy.dataAvailability?.services !== 'verified' && `${copy.services}: ${fieldStatusLabel(pharmacy.dataAvailability?.services, copy)}.`}</p></section></aside></div><aside className="rounded-2xl border border-accent/30 bg-accent-subtle p-5 text-sm leading-6 text-body"><strong className="text-heading">{copy.verifyHeading}</strong><p className="mt-2 text-muted">{copy.verify}</p></aside></div>;
 }
 

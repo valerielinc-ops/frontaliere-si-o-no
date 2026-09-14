@@ -79,17 +79,13 @@ describe('pharmacy directory page matrix', () => {
     const sample = dutiesJson.duties.find((duty) => duty.status === 'verified');
     expect(descriptor).toBeDefined();
     expect(sample).toBeDefined();
-    const dataset = {
-      ...dutiesJson,
-      duties: [{ ...sample!, startsAt: '2026-09-14T10:00:00.000Z', endsAt: '2026-09-14T12:00:00.000Z' }],
-    } as unknown as PharmacyDutiesDataset;
-
-    const before = buildPharmacyDirectoryPage(descriptor!, 'it', '', dataset, new Date('2026-09-14T11:00:00.000Z'));
-    const after = buildPharmacyDirectoryPage(descriptor!, 'it', '', dataset, new Date('2026-09-14T12:00:00.000Z'));
-    expect(before.html.toLocaleLowerCase()).not.toContain('nessun turno verificato');
+    const before = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, new Date(Date.parse(sample!.endsAt) - 1));
+    const after = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, new Date(Date.parse(sample!.endsAt)));
+    const sampleInterval = `${new Intl.DateTimeFormat('it-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(sample!.startsAt))} – ${new Intl.DateTimeFormat('it-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(sample!.endsAt))}`;
+    expect(before.html).toContain(sampleInterval);
     expect(before.html).toMatch(/<article\b/);
-    expect(after.html.toLocaleLowerCase()).toContain('nessun turno verificato');
-    expect(after.html).not.toMatch(/<article\b/);
+    expect(after.html).not.toContain(sampleInterval);
+    expect(after.html).toMatch(/<article\b/);
   });
 
   it('keeps every indexable directory page above the text-html ratio floor', () => {

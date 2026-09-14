@@ -1,37 +1,45 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { parse } from 'yaml';
 
 const WORKFLOW = readFileSync(
   resolve(import.meta.dirname, '../.github/workflows/sync-pharmacy-duties.yml'),
   'utf8',
 );
+const BORDER_WORKFLOW = readFileSync(
+  resolve(import.meta.dirname, '../.github/workflows/sync-pharmacies-border.yml'),
+  'utf8',
+);
 
 describe('sync-pharmacy-duties workflow', () => {
-  it('runs daily plus expiry refreshes, keeps failures visible and commits only the two snapshots', () => {
-    expect(WORKFLOW).toContain("cron: '17 4 * * *'");
+  it('delegates manual and cadence duty triggers to the atomic border writer', () => {
+    expect(WORKFLOW).toContain('workflow_dispatch: {}');
     expect(WORKFLOW).toContain("cron: '*/15 * * * *'");
-    expect(WORKFLOW).toContain('run: node scripts/sync-pharmacy-duties.mjs');
-    expect(WORKFLOW).toContain('run: node scripts/refresh-pharmacy-duty-expiry.mjs');
-    expect(WORKFLOW).toContain('github.event.schedule');
-    expect(WORKFLOW).not.toContain('sync-pharmacy-duties.mjs || true');
-    expect(WORKFLOW).toContain('git diff --quiet -- data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json');
-    expect(WORKFLOW).toContain('git add data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json');
+    expect(WORKFLOW).toContain('uses: ./.github/workflows/sync-pharmacies-border.yml');
+    expect(WORKFLOW).toContain('permissions:\n      contents: write\n    uses: ./.github/workflows/sync-pharmacies-border.yml');
+    expect(WORKFLOW).not.toContain('git push');
+    expect(WORKFLOW).not.toContain('node scripts/sync-pharmacy-duties.mjs');
   });
 
-  it('uses the shared rebase-retry path for concurrent main writers', () => {
-    expect(WORKFLOW).toContain('bash scripts/lib/git-push-with-retry.sh');
-    expect(WORKFLOW).toContain('--regenerate-cmd');
-    expect(WORKFLOW).toContain('node scripts/sync-pharmacy-duties.mjs');
-    expect(WORKFLOW).toContain('node scripts/refresh-pharmacy-duty-expiry.mjs');
-    expect(WORKFLOW).toContain('git add data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json');
-    expect(WORKFLOW).not.toContain('git push origin HEAD:main');
+  it('keeps the scheduled cadence as a reusable workflow call without writer steps', () => {
+    const parsed = parse(WORKFLOW) as {
+      on?: { schedule?: Array<{ cron?: string }> };
+      jobs?: { sync?: { uses?: string; steps?: unknown[] } };
+    };
+
+    expect(parsed.on?.schedule).toEqual([{ cron: '*/15 * * * *' }]);
+    expect(parsed.jobs?.sync?.uses).toBe('./.github/workflows/sync-pharmacies-border.yml');
+    expect(parsed.jobs?.sync?.steps).toBeUndefined();
   });
 
-  it('loads the ruleset-bypass credentials before invoking the helper', () => {
-    const credentials = WORKFLOW.indexOf('node scripts/load-rc-env.mjs');
-    const pushHelper = WORKFLOW.indexOf('bash scripts/lib/git-push-with-retry.sh');
+  it('keeps retry and ruleset-bypass auth in the called writer', () => {
+    const credentials = BORDER_WORKFLOW.indexOf('node scripts/load-rc-env.mjs');
+    const pushHelper = BORDER_WORKFLOW.indexOf('bash scripts/lib/git-push-with-retry.sh');
     expect(credentials).toBeGreaterThan(-1);
     expect(pushHelper).toBeGreaterThan(credentials);
+    expect(BORDER_WORKFLOW).toContain('--regenerate-cmd');
+    expect(BORDER_WORKFLOW).toContain('node scripts/sync-pharmacy-duties.mjs');
+    expect(BORDER_WORKFLOW).toContain('git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json');
   });
 });

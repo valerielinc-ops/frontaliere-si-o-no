@@ -9,6 +9,76 @@
     "biasca-e-valli"
   ],
   "_preservedRegions": [],
+  "_release": {
+    "version": 1,
+    "releaseId": "pharmacy-v1-181bbb8c14d0452f4dd5d3bccd395c79d630097730d0bb551ae5e5ca33e16a08",
+    "scope": {
+      "country": "CH",
+      "canton": "Ticino",
+      "regions": [
+        "mendrisiotto",
+        "luganese",
+        "bellinzonese",
+        "biasca-e-valli"
+      ]
+    },
+    "timezone": "Europe/Zurich",
+    "state": "fresh",
+    "snapshots": {
+      "catalogue": {
+        "path": "data/pharmacies-ticino-complete.json",
+        "sha256": "a4736357d77210acc91ca0a62d9ac424275d86208669402fd16e29c5e9f3b402",
+        "fetchedAt": "2026-09-14T10:03:57.824Z"
+      },
+      "duties": {
+        "path": "data/pharmacy-duties-ticino.json",
+        "sha256": "50abee0813810079321bfda7dc7b41d2aba46d3cf25e0c8d877d402fc2ec6137",
+        "fetchedAt": "2026-09-14T18:16:05.788Z"
+      }
+    },
+    "regions": {
+      "mendrisiotto": {
+        "name": "Mendrisiotto",
+        "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
+        "dutyCount": 14,
+        "fetchedAt": "2026-09-14T18:16:05.788Z",
+        "freshness": "fresh",
+        "coverage": "covered",
+        "state": "fresh",
+        "preserved": false
+      },
+      "luganese": {
+        "name": "Luganese",
+        "sourceUrl": "https://www.ofct.ch/luganese/",
+        "dutyCount": 9,
+        "fetchedAt": "2026-09-14T18:16:05.788Z",
+        "freshness": "fresh",
+        "coverage": "covered",
+        "state": "fresh",
+        "preserved": false
+      },
+      "bellinzonese": {
+        "name": "Bellinzonese",
+        "sourceUrl": "https://www.ofct.ch/bellinzonese/",
+        "dutyCount": 14,
+        "fetchedAt": "2026-09-14T18:16:05.788Z",
+        "freshness": "fresh",
+        "coverage": "covered",
+        "state": "fresh",
+        "preserved": false
+      },
+      "biasca-e-valli": {
+        "name": "Biasca e Valli",
+        "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
+        "dutyCount": 9,
+        "fetchedAt": "2026-09-14T18:16:05.788Z",
+        "freshness": "fresh",
+        "coverage": "covered",
+        "state": "fresh",
+        "preserved": false
+      }
+    }
+  },
   "_errors": [],
   "_warnings": [
     "mendrisiotto: last source row retained as boundary-only and not published",

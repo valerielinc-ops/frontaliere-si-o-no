@@ -6,6 +6,10 @@
  * stored in the registry itself, only source configuration (#6397).
  */
 
+import { validatePharmacyReleaseContract } from './release-contract-validator.mjs';
+
+export { validatePharmacyReleaseContract };
+
 export interface OpeningHours {
   dayOfWeek: 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
   opens: string;
@@ -17,6 +21,66 @@ export interface OpeningHours {
 export type PharmacySourceType = 'official' | 'association' | 'pharmacy' | 'verified_partner' | 'directory';
 
 export type PharmacyCountry = 'CH' | 'IT';
+
+export const PHARMACY_RELEASE_CONTRACT_VERSION = 1 as const;
+export const PHARMACY_RELEASE_TIMEZONE = 'Europe/Zurich' as const;
+/** The release scope is deliberately limited to the four OFCT regions we verify. */
+export const PHARMACY_RELEASE_REGION_KEYS = [
+  'mendrisiotto',
+  'luganese',
+  'bellinzonese',
+  'biasca-e-valli',
+] as const;
+
+export type PharmacyRegionKey = typeof PHARMACY_RELEASE_REGION_KEYS[number];
+export type PharmacyReleaseState =
+  | 'unknown'
+  | 'fresh'
+  | 'stale'
+  | 'partial'
+  | 'conflicting'
+  | 'expired'
+  | 'not_published';
+export type PharmacyReleaseFreshness = 'fresh' | 'stale' | 'unknown';
+export type PharmacyReleaseCoverage = 'covered' | 'partial' | 'not_published' | 'unknown';
+
+export interface PharmacyReleaseSnapshot {
+  path: string;
+  sha256: string;
+  /** Copied from the snapshot's own `_fetchedAt`; null means no timestamp was published. */
+  fetchedAt: string | null;
+}
+
+export interface PharmacyReleaseScope {
+  country: 'CH';
+  canton: 'Ticino';
+  regions: PharmacyRegionKey[];
+}
+
+export interface PharmacyRegionReleaseStatus {
+  name: string;
+  sourceUrl: string;
+  /** Coverage describes only duty intervals; catalogue identities are not region-attributed. */
+  dutyCount: number;
+  fetchedAt: string | null;
+  freshness: PharmacyReleaseFreshness;
+  coverage: PharmacyReleaseCoverage;
+  state: PharmacyReleaseState;
+  preserved: boolean;
+}
+
+export interface PharmacyReleaseContract {
+  version: typeof PHARMACY_RELEASE_CONTRACT_VERSION;
+  releaseId: string;
+  scope: PharmacyReleaseScope;
+  timezone: typeof PHARMACY_RELEASE_TIMEZONE;
+  state: PharmacyReleaseState;
+  snapshots: {
+    catalogue: PharmacyReleaseSnapshot;
+    duties: PharmacyReleaseSnapshot;
+  };
+  regions: Record<PharmacyRegionKey, PharmacyRegionReleaseStatus>;
+}
 
 /** Status is field-level: an absent value is never rendered as if it were verified. */
 export type PharmacyFieldStatus = 'verified' | 'not_published' | 'not_checked';
@@ -101,6 +165,19 @@ export interface PharmacyDuty {
   verifiedAt?: string;
 }
 
+export interface PharmacyCatalogueDataset {
+  _source: string;
+  _sourceRegions?: string[];
+  _fetchedAt: string | null;
+  _pharmacyCount?: number;
+  _errors: string[];
+  _warnings?: string[];
+  /** True when the last suspicious refresh preserved this catalogue payload. */
+  _preserved?: boolean;
+  _release: PharmacyReleaseContract;
+  pharmacies: Pharmacy[];
+}
+
 export interface PharmacyDutiesDataset {
   _source: string;
   _sourceRegions: string[];
@@ -109,6 +186,8 @@ export interface PharmacyDutiesDataset {
   _errors: string[];
   _warnings: string[];
   _preservedRegions?: string[];
+  _successfulRegions?: string[];
+  _release: PharmacyReleaseContract;
   duties: PharmacyDuty[];
 }
 
@@ -432,6 +511,8 @@ export function validatePharmacyDutiesDataset(dataset: unknown, now: Date = new 
   }
   const d = dataset as Record<string, unknown>;
   const errors: string[] = [];
+  // Runner-temporary duty artifacts are intentionally release-less; the
+  // atomic border finalizer adds `_release` before any public snapshot write.
   for (const field of ['_source', '_sourceRegions', '_fetchedAt', '_errors', '_warnings', 'duties'] as const) {
     if (!(field in d)) errors.push(`dataset: missing "${field}"`);
   }
@@ -449,6 +530,10 @@ export function validatePharmacyDutiesDataset(dataset: unknown, now: Date = new 
   }
   if (!Array.isArray(d._errors)) errors.push('dataset: "_errors" must be an array');
   if (!Array.isArray(d._warnings)) errors.push('dataset: "_warnings" must be an array');
+  if ('_release' in d) errors.push(...validatePharmacyReleaseContract(d._release));
+  if (d._successfulRegions !== undefined && (!Array.isArray(d._successfulRegions) || d._successfulRegions.some((region) => typeof region !== 'string'))) {
+    errors.push('dataset: "_successfulRegions" must be an array of strings');
+  }
   if (d._preservedRegions !== undefined
     && (!Array.isArray(d._preservedRegions) || d._preservedRegions.some((region) => typeof region !== 'string' || !region.trim()))) {
     errors.push('dataset: invalid optional "_preservedRegions"');
