@@ -26,6 +26,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
+import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -322,9 +323,10 @@ export async function fetchAllConstelliumJobs() {
     // canton rescue: a real Swiss city named in the description, falling
     // back to Constellium's documented main Swiss site (Sierre) rather
     // than dropping a listing the API itself already confirmed is Swiss.
-    const city = normalizeSpace(detail.addressLocality || parseWorkdayLocation(listing.locationText) || '')
-      || rescueSwissCityFromText(stripHtml(detail.descriptionHtml || ''))
-      || 'Sierre';
+    const cityFromSource = normalizeSpace(detail.addressLocality || parseWorkdayLocation(listing.locationText) || '');
+    const cityFromVacancyText = cityFromSource
+      ? '' : rescueSwissCityFromText(stripHtml(detail.descriptionHtml || ''));
+    const city = cityFromSource || cityFromVacancyText || 'Sierre';
 
     const canton = inferCanton(`${city} ${detail.addressRegion || ''}`);
     // Detail-page description can also be j2w page chrome (same widget bleed
@@ -375,6 +377,7 @@ export async function fetchAllConstelliumJobs() {
       crawledAt: new Date().toISOString(),
     };
 
+    if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300));
   }

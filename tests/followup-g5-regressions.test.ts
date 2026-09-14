@@ -67,6 +67,11 @@ describe('G5 — follow-up detector regressions', () => {
     expect(reconcileHasEnumeratedItems(valid)).toBe(true);
   });
 
+  it('usa una sola implementazione condivisa del detector', () => {
+    expect(preflightHasEnumeratedItems).toBe(harvestHasEnumeratedItems);
+    expect(preflightHasEnumeratedItems).toBe(reconcileHasEnumeratedItems);
+  });
+
   it('allinea i titoli markdown Item al conteggio del drainer', () => {
     const headings = '### Item 1 — Primo item\n### 2 — Secondo item';
 

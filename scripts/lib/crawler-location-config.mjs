@@ -922,3 +922,26 @@ export function getCantonForLocation(rawLocation = '') {
   }
   return '';
 }
+
+// ─── LOCATION PROVENANCE ────────────────────────────────────────────────────
+
+/**
+ * Field a parser stamps when the published locality was rescued from the
+ * vacancy's own free text. The audit must not use that same description as
+ * independent corroboration: it would pass both the right and wrong value.
+ */
+export const LOCATION_PROVENANCE_FIELD = 'locationDerivedFrom';
+export const LOCATION_FROM_VACANCY_TEXT = 'vacancy-text';
+
+/** Declare text-derived locality provenance at the point where it is known. */
+export function markLocationDerivedFromVacancyText(job) {
+  if (job && typeof job === 'object') {
+    job[LOCATION_PROVENANCE_FIELD] = LOCATION_FROM_VACANCY_TEXT;
+  }
+  return job;
+}
+
+/** Whether a job declares a locality derived from its own vacancy text. */
+export function isLocationDerivedFromVacancyText(job) {
+  return job?.[LOCATION_PROVENANCE_FIELD] === LOCATION_FROM_VACANCY_TEXT;
+}
