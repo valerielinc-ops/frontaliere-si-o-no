@@ -11742,6 +11742,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crisi-bally-caslano-licenziamenti.title': 'Bally crisis in Caslano: another 25 dismissed in Ticino',
     'blog.article.crisi-bally-caslano-licenziamenti.excerpt': 'New collective dismissal procedure for Bally in Caslano: another 25 administrative staff at risk. Financial data and the Transliq AG moratorium.',
     'blog.article.crisi-bally-caslano-licenziamenti.imageAlt': 'Bally manufacturing plant in crisis in Caslano Ticino',
+    'blog.article.vivere-brenta-lavorare-ticino.title': 'Living in Brenta and working in Ticino: the guide',
+    'blog.article.vivere-brenta-lavorare-ticino.excerpt': 'Discover the pros and cons of living at Brenta and working in Ticino. Journey times, costs, advantages and taxation for border workers.',
+    'blog.article.vivere-brenta-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano and surrounding mountains in Ticino.',
 };
 
 export default blogMetaEn;

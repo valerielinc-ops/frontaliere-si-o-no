@@ -11741,6 +11741,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crisi-bally-caslano-licenziamenti.title': 'Bally-Krise in Caslano: weitere 25 Entlassungen im Tessin',
     'blog.article.crisi-bally-caslano-licenziamenti.excerpt': 'Neues Massenentlassungsverfahren für Bally in Caslano: weitere 25 Verwaltungsangestellte in Gefahr. Die Finanzdaten und das Moratorium der Transliq AG.',
     'blog.article.crisi-bally-caslano-licenziamenti.imageAlt': 'Bally Produktionsstatte in der Krise in Caslano Tessin',
+    'blog.article.vivere-brenta-lavorare-ticino.title': 'Leben in Brenta und Arbeiten im Tessin: Der Reiseführer',
+    'blog.article.vivere-brenta-lavorare-ticino.excerpt': 'Entdecken Sie die Vor- und Nachteile des Lebens in Brenta und der Arbeit im Tessin. Reisezeiten, Kosten, Vorteile und Steuern für Grenzgänger.',
+    'blog.article.vivere-brenta-lavorare-ticino.imageAlt': 'Panoramablick auf den Luganersee und die umliegenden Berge im Tessin.',
 };
 
 export default blogMetaDe;

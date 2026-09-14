@@ -11743,6 +11743,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crisi-bally-caslano-licenziamenti.title': 'Crisi Bally a Caslano: altri 25 licenziati in Ticino',
     'blog.article.crisi-bally-caslano-licenziamenti.excerpt': 'Nuova procedura di licenziamento collettivo per Bally a Caslano: altri 25 amministrativi a rischio. I dati finanziari e la moratoria Transliq AG.',
     'blog.article.crisi-bally-caslano-licenziamenti.imageAlt': 'Stabilimento Bally in crisi a Caslano nel Canton Ticino',
+    'blog.article.vivere-brenta-lavorare-ticino.title': 'Vivere a Brenta e lavorare in Ticino: la guida',
+    'blog.article.vivere-brenta-lavorare-ticino.excerpt': 'Scopri i pro e contro di vivere a Brenta e lavorare in Ticino. Tempi di percorrenza, costi, vantaggi e fiscalità per i frontalieri.',
+    'blog.article.vivere-brenta-lavorare-ticino.imageAlt': 'Vista panoramica del Lago di Lugano e delle montagne circostanti in Ticino.',
 };
 
 export default blogMetaIt;
