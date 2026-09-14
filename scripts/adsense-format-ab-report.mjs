@@ -6,9 +6,9 @@
  * services/adsenseSlots.ts (INFEED_AD_AB_TEST_SUPPRESSED_CANTONS): on the
  * job-search listings, the treatment pages have the manual In-page in-feed
  * slot (JOBLIST_INFEED_DESKTOP/MOBILE) removed while Auto Ads remain active.
- * Two independent comparisons are monitored:
- *   - Basilea control vs Lucerna treatment (started 2026-08-25);
- *   - Svizzera control vs Ticino treatment (owner-requested 2026-09-01).
+ * The active comparison is Svizzera control vs Ticino treatment (owner-
+ * requested 2026-09-01). The low-volume Basilea/Lucerna series remains in
+ * the append-only history as a closed experiment, but is no longer queried.
  * See docs/ADSENSE-INFEED-AB-TEST.md for scope, URL-level attribution and
  * interpretation rules.
  *
@@ -19,8 +19,8 @@
  * spots read while wiring the A/B test itself):
  *
  * 1. AdSense (the test's primary metric — RPM/coverage/earnings-per-pageview,
- *    via URL channels for the legacy low-volume pair and exact PAGE_URL for
- *    the high-volume Svizzera/Ticino pair, so sub-URLs are not aggregated).
+ *    via exact PAGE_URL rows for the active Svizzera/Ticino pair, so sub-URLs
+ *    are not aggregated).
  * 2. GA4 engagement guardrail (`averageSessionDuration`, `engagementRate`,
  *    `bounceRate`, `screenPageViewsPerSession`, property 524485296) — the
  *    hypothesis under test is that removing the in-page ad must NOT make
@@ -123,35 +123,21 @@ export const URL_SURFACE_DESIGN = Object.freeze({
 });
 
 /**
- * One configuration per independent experiment. The legacy comparison keeps
- * URL_CHANNEL_NAME so its existing history remains comparable. The new
- * high-volume comparison deliberately uses PAGE_URL with canonical full URLs:
- * the corresponding URL-channel patterns also match sub-URLs and therefore
- * cannot measure the two hub pages alone.
+ * The active comparison deliberately uses PAGE_URL with canonical full URLs:
+ * URL-channel patterns would also match sub-URLs and therefore cannot measure
+ * the two hub pages alone. Closed legacy history is still readable by its
+ * explicit experimentId, but has no active configuration.
  */
 export const EXPERIMENTS = Object.freeze([
-  Object.freeze({
-    ...URL_SURFACE_DESIGN,
-    id: 'basilea-lucerna',
-    firstFullTreatmentDate: '2026-08-26',
-    adsenseDimension: 'URL_CHANNEL_NAME',
-    control: Object.freeze({
-      label: 'Basilea',
-      adsenseValue: 'frontaliereticino.ch/cerca-lavoro-basilea',
-      path: '/cerca-lavoro-basilea/',
-    }),
-    treatment: Object.freeze({
-      label: 'Lucerna',
-      adsenseValue: 'frontaliereticino.ch/cerca-lavoro-lucerna',
-      path: '/cerca-lavoro-lucerna/',
-    }),
-  }),
   Object.freeze({
     ...URL_SURFACE_DESIGN,
     id: 'svizzera-ticino',
     // Conservative clean-window boundary: the deployment may complete after
     // midnight on 2026-09-02, so the first unquestionably full day is Sep 3.
     firstFullTreatmentDate: '2026-09-03',
+    // Do not publish descriptive tables until both sides have this cumulative
+    // post-treatment volume; the collection and append-only history continue.
+    targetPageviewsPerSide: 4000,
     adsenseDimension: 'PAGE_URL',
     control: Object.freeze({
       label: 'Svizzera',
@@ -231,9 +217,8 @@ export function parseCoveragePct(v) {
 
 /**
  * Fetch the selected AdSense dimension for the last 7 full days and pick the
- * control + treatment rows client-side. PAGE_URL experiments therefore match
- * full canonical hub URLs, while the legacy experiment retains its historical
- * URL_CHANNEL_NAME series.
+ * control + treatment rows client-side. The active PAGE_URL experiment matches
+ * full canonical hub URLs, so sub-URLs are excluded from both sides.
  */
 export async function fetchChannelReport(token, experiment = DEFAULT_EXPERIMENT) {
   const { start, end } = last7Days();
@@ -580,6 +565,14 @@ export async function fetchCruxRecord(url, apiKey) {
  */
 export const SMALL_SAMPLE_PAGEVIEWS = 500;
 
+function isBelowCumulativeTarget(experiment, history) {
+  const target = experiment.targetPageviewsPerSide;
+  if (!Number.isFinite(target)) return false;
+  const control = Number(history?.cumulativePageViews?.control ?? 0);
+  const treatment = Number(history?.cumulativePageViews?.treatment ?? 0);
+  return control < target || treatment < target;
+}
+
 export function buildMarkdown(report, history) {
   const { window, control, treatment, deltas, engagement, engagementDeltas, cwv, warnings } = report;
   const experiment = report.experiment || DEFAULT_EXPERIMENT;
@@ -590,6 +583,28 @@ export function buildMarkdown(report, history) {
   const measurement = report.measurement || buildMeasurementMetadata(experiment, currencyCode);
   const primaryDelta = report.primaryDeltas?.earningsPerThousandPageviewsPct ?? computePrimaryDeltas(control, treatment);
   const lines = [];
+
+  if (isBelowCumulativeTarget(experiment, history)) {
+    const target = experiment.targetPageviewsPerSide;
+    const controlCumulative = Number(history?.cumulativePageViews?.control ?? 0);
+    const treatmentCumulative = Number(history?.cumulativePageViews?.treatment ?? 0);
+    lines.push(`# AdSense format A/B: ${controlLabel} (controllo) vs ${treatmentLabel} (trattamento)`);
+    lines.push('');
+    lines.push(`**Finestra:** ${window.start} → ${window.end}`);
+    lines.push('');
+    lines.push(`campione ${controlCumulative}/${target} controllo · ${treatmentCumulative}/${target} trattamento — nessuna lettura`);
+    if (!control || !treatment) {
+      lines.push('');
+      lines.push('⚠️ Dati AdSense mancanti o incompleti per questa finestra — vedi warning sotto. Nessuna riga aggiunta allo storico.');
+    }
+    if (warnings && warnings.length) {
+      lines.push('');
+      lines.push('## Warning');
+      for (const w of warnings) lines.push(`- ⚠️ ${w}`);
+    }
+    return lines.join('\n');
+  }
+
   lines.push(`# AdSense format A/B: ${controlLabel} (controllo) vs ${treatmentLabel} (trattamento)`);
   lines.push('');
   lines.push(`**Finestra:** ${window.start} → ${window.end} (ultimi 7 giorni pieni)`);
@@ -827,18 +842,22 @@ export function buildHistoryEntry(report) {
   };
 }
 
-/** Reads one experiment's history only; legacy untagged lines belong to the original pair. */
-function readHistorySummary(experiment = DEFAULT_EXPERIMENT) {
-  if (!existsSync(HISTORY_FILE)) return { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } };
-  const lines = readFileSync(HISTORY_FILE, 'utf8').split('\n').filter(Boolean);
+/** Reads one experiment's history only; untagged lines are never attributed. */
+export function readHistorySummary(experiment = DEFAULT_EXPERIMENT, historyFile = HISTORY_FILE) {
+  if (!existsSync(historyFile)) return { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } };
+  const lines = readFileSync(historyFile, 'utf8').split('\n').filter(Boolean);
   let weeksWithData = 0;
   let controlPv = 0;
   let treatmentPv = 0;
   for (const line of lines) {
     try {
       const entry = JSON.parse(line);
-      const entryExperimentId = entry?.experimentId || DEFAULT_EXPERIMENT.id;
+      const entryExperimentId = entry?.experimentId;
+      if (!entryExperimentId) continue;
       if (entryExperimentId !== experiment.id) continue;
+      // The publication target is post-treatment volume only. Do not infer a
+      // phase from dates here: every appended row carries the explicit phase.
+      if (entry?.windowPhase !== 'post-treatment') continue;
       if (entry?.control?.pageViews != null && entry?.treatment?.pageViews != null) {
         weeksWithData++;
         controlPv += Number(entry.control.pageViews) || 0;

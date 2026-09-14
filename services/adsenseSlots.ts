@@ -296,29 +296,12 @@ export const JOBLIST_AD_MAX_PER_LIST = 12;
  *  (Anchor/Vignette/in-page automatic — never gated, AGENTS.md Non-Negotiable
  *  #7) fill that placement instead.
  *
- *  A/B test opened 2026-08-25 (owner request), scoped ONLY to the canton
- *  job-search listing (`/cerca-lavoro-{canton}/`, both the SPA `JobBoard`
- *  main list and the static build-time canton index — see the two
- *  `shouldPlaceInfeedAd(pos, { canton })` call sites). AdSense Reporting
- *  API v2 (queried 2026-08-25) showed In-page format RPM stuck at
- *  €0.21-0.29/1k impressions on these pages (88% of the site's impression
- *  volume) versus €2.74-8/1k for Auto Ads on the same clean traffic —
- *  echoing the 2026-04-20 prune above (14 low-earner slots removed,
- *  Auto Ads covered the placement better). `LU` (Lucerna) is the
- *  TREATMENT canton; `BASILEA` (Basilea, the merged BS+BL group key) is
- *  the CONTROL, deliberately left OUT of this set — chosen as the
- *  closest-matched AdSense URL-channel pair found across the whole IT
- *  canton set (July: Basilea €0.44 earnings / 1498 impr / 15% coverage vs
- *  Lucerna €0.43 / 1536 impr / 18% coverage). Weekly control-vs-treatment
- *  comparison: `scripts/adsense-format-ab-report.mjs` (history in
- *  `data/adsense-format-ab-history.jsonl`).
- *
- *  A second owner-requested comparison starts with the deployment of the
- *  2026-09-01 change: `TI` (Ticino) is the TREATMENT and the national
+ *  Active comparison (owner request, first full treatment day 2026-09-03):
+ *  `TI` (Ticino) is the TREATMENT and the national
  *  `/cerca-lavoro-svizzera/` listing is the CONTROL. The national page has no
- *  canton key, so it deliberately stays on the unchanged cadence while TI is
- *  suppressed through the same opt-in path as LU. Monitoring and the exact
- *  URL-vs-channel distinction are documented in
+ *  canton key, so it stays on the unchanged cadence while TI is suppressed.
+ *  The retired Basilea/Lucerna pair remains in append-only history only.
+ *  Monitoring and the exact URL-vs-channel distinction are documented in
  *  `docs/ADSENSE-INFEED-AB-TEST.md`.
  *
  *  Treatment membership is centralized in `services/adExperiment.ts`; extend

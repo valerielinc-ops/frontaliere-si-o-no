@@ -10237,11 +10237,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const pos = idx + 1;
  // One in-feed ad after every Nth card (shared `shouldPlaceInfeedAd`
  // cadence: 3, 6, 9, …), never after the last loaded card.
- // `initialFilterCanton` is the URL-driven canton this page landed on
- // (e.g. 'LU' for /cerca-lavoro-lucerna/) — passed through so the
- // Lucerna in-feed A/B test (services/adsenseSlots.ts
- // INFEED_AD_AB_TEST_SUPPRESSED_CANTONS) can suppress the manual slot
- // on this specific canton listing without touching any other list.
+ // `initialFilterCanton` is the URL-driven canton this page landed on. It is
+ // passed through so the active Ticino treatment (services/adsenseSlots.ts
+ // INFEED_AD_AB_TEST_SUPPRESSED_CANTONS) can suppress the manual slot on that
+ // specific canton listing without touching any other list.
  const showAd = shouldPlaceInfeedAd(pos, {
    canton: initialFilterCanton,
    adExperimentActive,

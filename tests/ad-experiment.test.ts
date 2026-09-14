@@ -18,21 +18,23 @@ import { infeedAdGridBlockHtml } from '@/build-plugins/lib/adSlotHtml';
 
 describe('G5 in-feed ad experiment', () => {
   it('keeps the treatment set centralized and resolves URL-surface variants', () => {
-    expect([...INFEED_AD_TREATMENT_CANTONS]).toEqual(['LU', 'TI']);
-    expect([...INFEED_AD_EXPERIMENT_SURFACE_CANTONS]).toEqual(['BASILEA', 'LU', 'TI']);
+    expect([...INFEED_AD_TREATMENT_CANTONS]).toEqual(['TI']);
+    expect([...INFEED_AD_EXPERIMENT_SURFACE_CANTONS]).toEqual(['TI']);
     expect(INFEED_AD_AB_TEST_SUPPRESSED_CANTONS).toBe(INFEED_AD_TREATMENT_CANTONS);
-    expect(resolveInfeedAdVariant('lu')).toBe(INFEED_AD_VARIANTS.treatment);
+    expect(resolveInfeedAdVariant('lu')).toBe(INFEED_AD_VARIANTS.control);
     expect(resolveInfeedAdVariant(' TI ')).toBe(INFEED_AD_VARIANTS.treatment);
     expect(resolveInfeedAdVariant('BASILEA')).toBe(INFEED_AD_VARIANTS.control);
     expect(resolveInfeedAdVariant(null)).toBe(INFEED_AD_VARIANTS.control);
     expect(isInfeedAdExperimentSurface('ZH')).toBe(false);
+    expect(isInfeedAdExperimentSurface('LU')).toBe(false);
   });
 
   it('rolls back only the treatment to the manual in-feed control', () => {
-    expect(shouldSuppressManualInfeedAd('LU')).toBe(true);
-    expect(shouldSuppressManualInfeedAd('LU', { active: false })).toBe(false);
-    expect(shouldPlaceInfeedAd(3, { canton: 'LU' })).toBe(false);
-    expect(shouldPlaceInfeedAd(3, { canton: 'LU', adExperimentActive: false })).toBe(true);
+    expect(shouldSuppressManualInfeedAd('TI')).toBe(true);
+    expect(shouldSuppressManualInfeedAd('TI', { active: false })).toBe(false);
+    expect(shouldPlaceInfeedAd(3, { canton: 'LU' })).toBe(true);
+    expect(shouldPlaceInfeedAd(3, { canton: 'TI' })).toBe(false);
+    expect(shouldPlaceInfeedAd(3, { canton: 'TI', adExperimentActive: false })).toBe(true);
     expect(shouldPlaceInfeedAd(3, { canton: 'BASILEA', adExperimentActive: false })).toBe(true);
   });
 

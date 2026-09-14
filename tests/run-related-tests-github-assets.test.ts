@@ -128,6 +128,7 @@ function createRunnerVariant(source: string) {
   for (const file of [
     'orphan-fallback.mjs',
     'select-max-workers.mjs',
+    'typecheck-sparse.mjs',
     'related-graph-scope.mjs',
     'typecheck-sparse.mjs',
   ]) {
