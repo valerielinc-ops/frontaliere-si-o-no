@@ -18,7 +18,7 @@
 # Env:
 #   HISTORY_COMMIT_MSG  messaggio di commit (obbligatorio)
 #   HISTORY_LABEL       prefisso dei log diagnostici (default: build-history)
-set -uo pipefail
+set -euo pipefail
 
 row="$(cat)"
 label="${HISTORY_LABEL:-build-history}"
@@ -34,21 +34,4 @@ git config user.name "build-history-bot"
 git config user.email "build-history-bot@frontaliereticino.ch"
 git add data/build-history/memory-peaks.jsonl
 git commit -m "$HISTORY_COMMIT_MSG"
-bash scripts/lib/configure-main-push-auth.sh
-for i in 1 2 3 4 5; do
-  if git -c rebase.autoStash=true -c rebase.backend=merge \
-      pull --rebase origin main \
-      && git push origin HEAD:main; then
-    echo "[$label] pushed on attempt $i"
-    exit 0
-  fi
-  git rebase --abort 2>/dev/null || true
-  case "$i" in
-    1) sleep 5 ;;
-    2) sleep 10 ;;
-    3) sleep 15 ;;
-    4) sleep 25 ;;
-    5) sleep 40 ;;
-  esac
-done
-echo "::warning::[$label] push failed after 5 attempts — this row will not be in history"
+bash scripts/lib/git-push-with-retry.sh --max-attempts 5 --stash-dirty

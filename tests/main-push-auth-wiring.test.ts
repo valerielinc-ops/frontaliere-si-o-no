@@ -155,13 +155,14 @@ describe('this-repo main writers have a ruleset-bypass credential path before th
     expect(missing, missing.join('\n')).toEqual([]);
   });
 
-  it('prospector-loop.yml loads RC and configures auth before the bare git push, not only before the promotion PR', () => {
+  it('prospector-loop.yml delegates its state push to the shared helper on the checked-out ref', () => {
     const src = readFileSync(resolve(WORKFLOWS_DIR, 'prospector-loop.yml'), 'utf8');
-    const pushLine = src.split('\n').findIndex((l) => /if git push;/.test(l));
+    const pushLine = src.split('\n').findIndex((l) => /git-push-with-retry\.sh/.test(l));
     expect(pushLine).toBeGreaterThan(0);
     const before = codeBefore(src, pushLine);
     expect(before).toContain('load-rc-env.mjs');
-    expect(before).toContain('configure-main-push-auth.sh');
+    expect(src).toContain('--branch "$GITHUB_REF_NAME"');
+    expect(src).not.toMatch(/if git push;/);
     const mintLine = src.split('\n').findIndex((l) => l.includes('mint-app-token.mjs'));
     expect(mintLine).toBeGreaterThan(pushLine);
   });
