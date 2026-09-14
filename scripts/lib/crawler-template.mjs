@@ -1051,6 +1051,8 @@ export async function runStandardCrawlerPipeline(config) {
     // existing slice, no de-index, no "Crawler Failure" issue every run. A
     // persistent outage is still caught by the crawler-health monitor.
     if (err?.antiBotExhausted) {
+      counts.lastFetchOutcome = 'connection_error';
+      counts.abortKind = 'connection-level-fetch';
       console.log(
         `\n⚠️ ${companyLabel}: anti-bot fence exhausted (UA + Jina + Playwright) for ${err.message}. Keeping existing jobs.`,
       );
