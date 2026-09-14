@@ -8,8 +8,9 @@
  * every locale, and it never fabricates duty-schedule content.
  */
 import { describe, it, expect } from 'vitest';
-import { buildPharmacyHubPage } from '../../build-plugins/pharmacyHubPlugin';
+import { buildPharmacyHubPage, getPharmacyHubCantonCards } from '../../build-plugins/pharmacyHubPlugin';
 import { PHARMACY_HUB_PATH } from '../../services/pharmacies/types';
+import { SWISS_CANTONS } from '../../services/pharmacies/swissCantons';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -30,6 +31,22 @@ describe('pharmacyHubPlugin — buildPharmacyHubPage', () => {
     // status/source link, not a fabricated on-duty listing.
     expect(html).toContain('Ticino');
     expect(html).not.toMatch(/farmacia\s+[A-Z][a-zà-ü]+\s+è\s+di\s+turno/i);
+  });
+
+  it('represents all 26 Swiss cantons without fabricating missing source links', () => {
+    expect(SWISS_CANTONS).toHaveLength(26);
+    const cards = getPharmacyHubCantonCards();
+    expect(cards).toHaveLength(26);
+    expect(cards.find((card) => card.canton.code === 'TI')?.source?.officialSourceUrl)
+      .toBe('https://www.ofct.ch/farmacieturno/');
+    expect(cards.find((card) => card.canton.code === 'AG')?.source).toBeUndefined();
+
+    const { html } = buildPharmacyHubPage('it');
+    for (const canton of SWISS_CANTONS) expect(html).toContain(canton.names.it);
+    expect(html).toContain('Corridoio italiano di confine');
+    expect(html).toContain('/farmacie/italia/');
+    expect(html).toContain('https://www.dati.salute.gov.it/it/dataset/farmacie/');
+    expect(html).not.toContain('href="https://www.ar.ch/');
   });
 
   it('robots is index,follow once the body clears MIN_INDEXABLE_WORDS', () => {
