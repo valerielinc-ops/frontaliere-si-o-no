@@ -175,7 +175,7 @@ function repoFlag() {
   return process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
 }
 
-function ensureLabelsExist(labels) {
+export function ensureLabelsExist(labels) {
   // Best-effort: try to create each label. `gh label create` errors if it
   // exists, which is fine — we proceed.
   for (const name of labels) {
