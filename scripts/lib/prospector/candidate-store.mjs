@@ -52,7 +52,103 @@ function hash(s) {
   return h;
 }
 
-const EMPTY = { version: 1, updatedAt: null, candidates: {} };
+const STORE_VERSION = 2;
+
+/**
+ * Rejected candidates are terminal verdicts, so their full diagnostic record
+ * may age out without making the same key eligible again. The inventory is
+ * deliberately capped: it is a dedupe guard, not a second diagnostic store.
+ */
+export const MAX_REJECTED_TOMBSTONES = 10_000;
+
+const EMPTY = { version: STORE_VERSION, updatedAt: null, candidates: {}, rejectedTombstones: {} };
+const TOMBSTONE_COUNTS = new WeakMap();
+
+/** @param {unknown} value */
+function isObjectMap(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+/** @param {ReturnType<typeof loadCandidates>} store */
+function tombstonesFor(store) {
+  if (!isObjectMap(store.rejectedTombstones)) {
+    store.rejectedTombstones = {};
+    TOMBSTONE_COUNTS.set(store.rejectedTombstones, 0);
+  }
+  return store.rejectedTombstones;
+}
+
+/** @param {Record<string, any>} tombstones */
+function tombstoneCount(tombstones) {
+  const known = TOMBSTONE_COUNTS.get(tombstones);
+  if (known !== undefined) return known;
+  const count = Object.keys(tombstones).length;
+  TOMBSTONE_COUNTS.set(tombstones, count);
+  return count;
+}
+
+/** @param {Record<string, any>} candidate */
+function rejectionDate(candidate) {
+  return String(candidate.rejectedAt || candidate.updatedAt || candidate.firstSeenAt || new Date().toISOString());
+}
+
+/** @param {ReturnType<typeof loadCandidates>} store */
+function boundTombstones(store) {
+  const tombstones = tombstonesFor(store);
+  if (tombstoneCount(tombstones) <= MAX_REJECTED_TOMBSTONES) return;
+  const keep = Object.entries(tombstones)
+    .sort(([keyA, a], [keyB, b]) => String(b.rejectedAt).localeCompare(String(a.rejectedAt)) || keyA.localeCompare(keyB))
+    .slice(0, MAX_REJECTED_TOMBSTONES)
+    .map(([key]) => key);
+  const keepSet = new Set(keep);
+  for (const key of Object.keys(tombstones)) if (!keepSet.has(key)) delete tombstones[key];
+  TOMBSTONE_COUNTS.set(tombstones, keep.length);
+}
+
+/**
+ * Keep only the key and its first useful timestamp. Reasons, histories and
+ * source payloads belong to the candidate record/ledger, not this guard.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {Record<string, any>} candidate
+ */
+function rememberRejected(store, candidate) {
+  const key = String(candidate?.key || '').trim();
+  if (!key) return;
+  const tombstones = tombstonesFor(store);
+  const rejectedAt = rejectionDate(candidate);
+  const hasKey = Object.prototype.hasOwnProperty.call(tombstones, key);
+  const countBefore = tombstoneCount(tombstones);
+  const current = tombstones[key];
+  if (!current || String(current.rejectedAt).localeCompare(rejectedAt) < 0) {
+    tombstones[key] = { rejectedAt };
+  }
+  if (!hasKey) TOMBSTONE_COUNTS.set(tombstones, countBefore + 1);
+  boundTombstones(store);
+}
+
+/**
+ * @param {Record<string, any>} raw
+ * @returns {ReturnType<typeof loadCandidates>}
+ */
+function normalizeStore(raw) {
+  const store = {
+    ...raw,
+    version: Math.max(Number(raw.version) || 1, STORE_VERSION),
+    rejectedTombstones: {},
+  };
+  if (isObjectMap(raw.rejectedTombstones)) {
+    for (const [key, value] of Object.entries(raw.rejectedTombstones)) {
+      const rejectedAt = typeof value === 'string' ? value : value?.rejectedAt;
+      if (key && rejectedAt) store.rejectedTombstones[key] = { rejectedAt: String(rejectedAt) };
+    }
+  }
+  // Backfill the compact index for stores written before tombstones existed.
+  for (const candidate of Object.values(store.candidates)) {
+    if (candidate?.status === 'rejected') rememberRejected(store, candidate);
+  }
+  return store;
+}
 
 /**
  * @param {string} [file]
@@ -61,7 +157,7 @@ export function loadCandidates(file = CANDIDATES_PATH) {
   try {
     const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
     if (!raw?.candidates) return structuredClone(EMPTY);
-    return raw;
+    return normalizeStore(raw);
   } catch {
     return structuredClone(EMPTY);
   }
@@ -72,6 +168,11 @@ export function loadCandidates(file = CANDIDATES_PATH) {
  * @param {string} [file]
  */
 export function saveCandidates(store, file = CANDIDATES_PATH) {
+  for (const candidate of Object.values(store.candidates || {})) {
+    if (candidate?.status === 'rejected') rememberRejected(store, candidate);
+  }
+  boundTombstones(store);
+  store.version = Math.max(Number(store.version) || 1, STORE_VERSION);
   store.updatedAt = new Date().toISOString();
   fs.mkdirSync(path.dirname(file), { recursive: true });
   const tmp = `${file}.tmp`;
@@ -94,6 +195,13 @@ export function upsertCandidate(store, incoming, source) {
   const key = incoming.key || candidateKey(incoming);
   const now = new Date().toISOString();
   const existing = store.candidates[key];
+  if (!existing && tombstonesFor(store)[key]) return { key, created: false };
+  // A repeated sighting must not refresh a rejected record's retention clock
+  // or merge new diagnostic payload into a verdict that is already terminal.
+  if (existing?.status === 'rejected') {
+    rememberRejected(store, existing);
+    return { key, created: false };
+  }
   if (!existing) {
     store.candidates[key] = {
       key,
@@ -129,6 +237,14 @@ export function setStatus(store, key, status, patch = {}, ledgerFile = LEDGER_PA
   const c = store.candidates[key];
   if (!c) return null;
   const prev = c.status;
+  // A rejected verdict is terminal. Reopening it would make the compact
+  // tombstone ineffective; a future policy can add an explicit reopen API
+  // that removes the tombstone instead of treating an ordinary transition as
+  // permission to retry.
+  if (prev === 'rejected' && status !== 'rejected') {
+    rememberRejected(store, c);
+    return c;
+  }
   // `dead` and `rejected` are terminal verdicts a later stage may legitimately
   // set; everything else only moves forward, so a re-run cannot rewind a
   // candidate that already reached production.
@@ -136,6 +252,8 @@ export function setStatus(store, key, status, patch = {}, ledgerFile = LEDGER_PA
     || ORDER.indexOf(status) >= ORDER.indexOf(prev);
   if (forward) c.status = status;
   Object.assign(c, patch, { updatedAt: new Date().toISOString() });
+  if (c.status === 'rejected' && !c.rejectedAt) c.rejectedAt = c.updatedAt;
+  if (prev === 'rejected' || c.status === 'rejected') rememberRejected(store, c);
   if (prev !== c.status) appendLedger({ key, from: prev, to: c.status, at: c.updatedAt, reason: patch.reason }, ledgerFile);
   return c;
 }
@@ -158,10 +276,10 @@ export function appendLedger(entry, file = LEDGER_PATH) {
  * Drop terminal candidates older than `maxAgeDays`.
  *
  * The queue is committed on every remote run, so it must not grow without
- * bound: `dead` and `rejected` entries are the loop's scar tissue — useful for
- * a few months so a re-run does not re-probe the same unreachable site, useless
- * for ever. Everything else is kept regardless of age, because a promoted or
- * traced candidate IS the coverage.
+ * bound: `dead` entries are transient scar tissue and may be rediscovered after
+ * the window. A `rejected` record is compacted to a bounded tombstone instead:
+ * the explicit verdict survives the diagnostic retention window without
+ * keeping its full history and source payload.
  *
  * @param {ReturnType<typeof loadCandidates>} store
  * @param {number} [maxAgeDays]
@@ -171,10 +289,14 @@ export function pruneTerminal(store, maxAgeDays = 90) {
   const cutoff = Date.now() - maxAgeDays * 86400000;
   let dropped = 0;
   for (const [key, c] of Object.entries(store.candidates)) {
-    if (c.status !== 'dead' && c.status !== 'rejected') continue;
-    const seen = Date.parse(c.updatedAt || c.firstSeenAt || '');
+    if (c.status === 'rejected') rememberRejected(store, c);
+    else if (c.status !== 'dead') continue;
+    const seen = Date.parse(c.status === 'rejected'
+      ? (c.rejectedAt || c.updatedAt || c.firstSeenAt || '')
+      : (c.updatedAt || c.firstSeenAt || ''));
     if (Number.isFinite(seen) && seen < cutoff) { delete store.candidates[key]; dropped++; }
   }
+  boundTombstones(store);
   return dropped;
 }
 
