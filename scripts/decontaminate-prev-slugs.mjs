@@ -36,6 +36,7 @@ import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { pruneEmptyPreviousSlugLocaleBuckets } from './lib/dedicated-crawler-common.mjs';
 import { addPreviousSlugForLocale, promotePreviousSlugToLegacy } from './lib/dedicated-crawler-common.mjs';
@@ -301,15 +302,6 @@ function main() {
   if (!APPLY && result.affected.length > 0) console.log('Re-run with --apply to write.');
 }
 
-const isMain = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`
-      || import.meta.url === new URL(`file://${process.argv[1]}`).href;
-  } catch {
-    return false;
-  }
-})();
-
-if (isMain) {
+if (isInvokedDirectly(import.meta.url)) {
   main();
 }

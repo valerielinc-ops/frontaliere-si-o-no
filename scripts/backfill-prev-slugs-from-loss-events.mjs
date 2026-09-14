@@ -29,6 +29,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
@@ -461,16 +462,7 @@ async function main() {
   console.log(`  jobs missing in current:     ${stats.jobsMissing}`);
 }
 
-const isMain = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`
-      || import.meta.url === new URL(`file://${process.argv[1]}`).href;
-  } catch {
-    return false;
-  }
-})();
-
-if (isMain) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     console.error(err);
     process.exit(1);

@@ -3,6 +3,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   printPublishedJobUrls,
@@ -403,17 +404,8 @@ async function main() {
 }
 
 // Only run main() when invoked as a script, not when imported by tests. Same
-// guard as update-fust-jobs.mjs: without it this runner had no unit-test
-// surface at all, which is why the slice resurrection above shipped unseen.
-const isInvokedDirectly = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`;
-  } catch {
-    return false;
-  }
-})();
-
-if (isInvokedDirectly) {
+// guard as the other dedicated runners.
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => exitCrawlerOnError(error, 'Artisa Group'));
 }
 

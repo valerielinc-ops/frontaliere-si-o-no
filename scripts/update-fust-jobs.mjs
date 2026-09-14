@@ -36,6 +36,7 @@ import { execFileSync } from 'node:child_process';
 import { exitCrawlerOnError, slugify } from './lib/crawler-template.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -1292,14 +1293,6 @@ async function main() {
 }
 
 // Only run main() when invoked as a script, not when imported by tests.
-const isInvokedDirectly = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`;
-  } catch {
-    return false;
-  }
-})();
-
-if (isInvokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => exitCrawlerOnError(err, 'Fust'));
 }

@@ -74,6 +74,8 @@ const LISTING_URL =
 const JOB_DETAIL_HREF_RE =
   /^\/(it|de|fr|en)\/(le-nostre-imprese|unsere-unternehmen|nos-entreprises|our-companies)\/job\/[^/]+\/[^/]+\/[a-f0-9-]{36}$/;
 
+const MIGROS_LOCALE_PRIORITY = { it: 0, de: 1 };
+
 // ──────────────────────────────────────────────────────────────
 // Helpers
 // ──────────────────────────────────────────────────────────────
@@ -125,6 +127,26 @@ function isTrustedMigrosDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+function migrosLocalePriority(rawUrl) {
+  try {
+    const locale = new URL(rawUrl).pathname.split('/')[1]?.toLowerCase();
+    return MIGROS_LOCALE_PRIORITY[locale] ?? 2;
+  } catch {
+    return 2;
+  }
+}
+
+/**
+ * Prefer the historical Italian route when the same posting is emitted in
+ * more than one locale. Keep the previous lexical tie-breaker for all other
+ * locales so discovery remains deterministic without preferring German over
+ * Italian by accident.
+ */
+export function compareMigrosDetailUrls(left, right) {
+  const priorityDelta = migrosLocalePriority(left) - migrosLocalePriority(right);
+  return priorityDelta || String(left).localeCompare(String(right));
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -315,12 +337,14 @@ export function finalizeMigrosDiscovery(rawPaths, options = {}) {
     }
     if (byIdentity.has(identity)) {
       duplicateIdentity += 1;
-      if (url.localeCompare(byIdentity.get(identity)) < 0) byIdentity.set(identity, url);
+      if (compareMigrosDetailUrls(url, byIdentity.get(identity)) < 0) {
+        byIdentity.set(identity, url);
+      }
     } else {
       byIdentity.set(identity, url);
     }
   }
-  const absoluteUrls = [...byIdentity.values()].sort((a, b) => a.localeCompare(b));
+  const absoluteUrls = [...byIdentity.values()].sort(compareMigrosDetailUrls);
   const excludedDedicated = rawPaths.length - absoluteCandidates.length;
   if (absoluteUrls.length + duplicateIdentity + excludedDedicated !== rawPaths.length) {
     throw new Error(`Migros discovery accounting failed: raw=${rawPaths.length}, canonical=${absoluteUrls.length}, duplicates=${duplicateIdentity}, dedicated=${excludedDedicated}.`);

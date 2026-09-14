@@ -19,6 +19,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -720,14 +721,6 @@ async function main() {
 }
 
 // Only run main() when invoked as a script, not when imported by tests.
-const isCscInvokedDirectly = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`;
-  } catch {
-    return false;
-  }
-})();
-
-if (isCscInvokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => exitCrawlerOnError(err, 'CSC Costruzioni'));
 }

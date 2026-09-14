@@ -23,6 +23,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
@@ -866,15 +867,6 @@ function main() {
   }
 }
 
-const isMain = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`
-      || import.meta.url === new URL(`file://${process.argv[1]}`).href;
-  } catch {
-    return false;
-  }
-})();
-
-if (isMain) {
+if (isInvokedDirectly(import.meta.url)) {
   main();
 }

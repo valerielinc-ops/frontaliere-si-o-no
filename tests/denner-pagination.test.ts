@@ -8,7 +8,7 @@ vi.mock('../scripts/lib/ensure-chromium.mjs', () => ({
 
 import { fetchDennerJobUrls, main as runDennerCrawler } from '../scripts/update-denner-jobs.mjs';
 import { fetchMigrolinoListingHrefs } from '../scripts/lib/migrolino-job-parser.mjs';
-import { fetchMigrosJobDetailUrls } from '../scripts/update-migros-jobs.mjs';
+import { fetchMigrosJobDetailUrls, finalizeMigrosDiscovery } from '../scripts/update-migros-jobs.mjs';
 import { crawlerScratchPathFor } from '../scripts/lib/crawler-scratch-path.mjs';
 
 afterEach(() => {
@@ -203,5 +203,22 @@ describe('Denner Playwright pagination', () => {
       expect.stringContaining('000000000002'),
     ]));
     expect(page.waitForLoadState).toHaveBeenCalledWith('networkidle', { timeout: 1 });
+  });
+});
+
+describe('Migros URL identity preference', () => {
+  it('prefers the Italian route over the German route for one posting', () => {
+    const id = '00000000-0000-4000-8000-000000000001';
+    const itPath = `/it/le-nostre-imprese/job/migros-ticino/vendita/${id}`;
+    const dePath = `/de/unsere-unternehmen/job/migros-ticino/verkauf/${id}`;
+
+    const result = finalizeMigrosDiscovery([dePath, itPath], {
+      termination: 'next-disabled',
+      pagesFetched: 1,
+      maxPages: 1000,
+    });
+
+    expect(result.urls).toEqual([`https://jobs.migros.ch${itPath}`]);
+    expect(result.duplicateIdentity).toBe(1);
   });
 });

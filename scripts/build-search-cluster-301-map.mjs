@@ -54,6 +54,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { RELATED_SEARCH_JUNK_TERMS } from '../services/relatedSearchJunkTerms.mjs';
 import {
   stripSearchQueryBoilerplate,
@@ -508,15 +509,7 @@ async function main() {
 // which needs its exported OUT/LOCALES/LOCALE_CONFIG/sectionRoot/
 // fetchLiveClusterSet/loadLiveFromFile building blocks) must NOT trigger the
 // live sitemap fetch or overwrite the committed map.
-const invokedDirectly = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]);
-  } catch {
-    return false;
-  }
-})();
-
-if (invokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     console.error('[build-search-cluster-301-map] fatal:', err.message);
     process.exitCode = 1;

@@ -18,6 +18,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -568,14 +569,6 @@ async function main() {
 }
 
 // Only run main() when invoked as a script, not when imported by tests.
-const isInvokedDirectly = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`;
-  } catch {
-    return false;
-  }
-})();
-
-if (isInvokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => exitCrawlerOnError(error, 'AXA'));
 }

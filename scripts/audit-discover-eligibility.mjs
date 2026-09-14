@@ -47,6 +47,7 @@
 
 import { readFile, stat } from 'node:fs/promises';
 import { relative } from 'node:path';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 import {
   walkHtmlFiles,
@@ -350,15 +351,7 @@ async function standalone() {
   process.exit(strict && result.totalFailing > 0 ? 1 : 0);
 }
 
-const invokedDirectly = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]);
-  } catch {
-    return false;
-  }
-})();
-
-if (invokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   standalone().catch((err) => {
     console.error('[audit-discover-eligibility] fatal', err);
     process.exit(2);

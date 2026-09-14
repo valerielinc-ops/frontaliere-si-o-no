@@ -93,6 +93,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { isSliceFile } from './lib/crawler-slice-files.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 import {
@@ -1797,16 +1798,7 @@ export function buildHealthScheda(issue) {
   });
 }
 
-const isMain = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}` ||
-      import.meta.url.endsWith(path.basename(process.argv[1] || ''));
-  } catch {
-    return false;
-  }
-})();
-
-if (isMain) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     console.error('[health] Fatal error:', err);
     process.exit(2);
