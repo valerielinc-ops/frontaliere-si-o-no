@@ -44,6 +44,7 @@
 import { describe, it, expect } from 'vitest';
 
 import {
+  injectHomepageSeoContent,
   injectLocaleMainNav,
   NAV_LABELS,
   renderLocaleRootShell,
@@ -116,6 +117,19 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
   it.each(['it', ...NON_IT_LOCALES] as const)('%s static navigation emits its plate-auction hub href', (locale) => {
     const html = locale === 'it' ? injectLocaleMainNav(SHELL, locale) : renderLocaleRoot(locale);
     expect(html).toContain(`href="${buildPlateAuctionPath({ locale, view: 'hub' })}"`);
+  });
+
+  it('the IT homepage exposes the pharmacy hub and every locale plate-auction hub from the static root', () => {
+    const html = injectHomepageSeoContent(SHELL, 'it');
+    expect(html).toContain('id="hp-directory-hubs"');
+    expect(html).toContain(`href="${PHARMACY_HUB_PATH.it}"`);
+    for (const locale of ['it', ...NON_IT_LOCALES] as const) {
+      expect(html).toContain(`href="${buildPlateAuctionPath({ locale, view: 'hub' })}"`);
+    }
+  });
+
+  it.each(NON_IT_LOCALES)('does not add the cross-locale directory rail to /%s/', (locale) => {
+    expect(injectHomepageSeoContent(SHELL, locale)).not.toContain('id="hp-directory-hubs"');
   });
 
   it.each(NON_IT_LOCALES)('/%s/ emits a static anchor to its communications page', (locale) => {

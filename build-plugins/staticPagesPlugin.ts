@@ -634,7 +634,7 @@ function buildHomepageBreadcrumbJsonLd(locale: HpSeoLocale): string {
  });
 }
 
-function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
+export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  // Inject only once: skip if already present.
  if (html.includes('id="hp-seo-block"')) return html;
  const block = collapsifySeoBlock(HOMEPAGE_SEO_BLOCK_HTML[locale] ?? HOMEPAGE_SEO_BLOCK_HTML.it);
@@ -650,6 +650,7 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  // 81-anchor bridge here; the canton hubs remain reachable at depth 2
  // via the language switcher → locale home → canton hub.
  const relatedGuides = buildHomepageRelatedGuidesBlock(locale);
+ const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
  // tests/seo/breadcrumb-coverage.test.ts requires every non-noindex dist/
  // page to carry a BreadcrumbList JSON-LD block. The locale-root mirrors
  // (/en/, /de/, /fr/) are NOT in that test's exempt list (only bare
@@ -661,7 +662,7 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  const breadcrumbScript = html.includes('id="hp-breadcrumb-ld"')
   ? ''
   : `<script type="application/ld+json" id="hp-breadcrumb-ld">${buildHomepageBreadcrumbJsonLd(locale)}</script>\n`;
- return html.replace('</body>', `${block}\n${breadcrumbScript}${langSwitch}\n${relatedGuides}\n${cantonNav}\n</body>`);
+ return html.replace('</body>', `${block}\n${breadcrumbScript}${langSwitch}\n${relatedGuides}\n${directoryHubs}\n${cantonNav}\n</body>`);
 }
 
 /**
@@ -999,6 +1000,27 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
    : 'Guide approfondite';
  const anchors = renderPillAnchors(links, 500);
  return `<aside class="s-Q1eQm9" id="hp-related-guides" aria-labelledby="hpRelatedGuidesTitle"><h2 class="s-WrrqHM" id="hpRelatedGuidesTitle">${heading}</h2><nav class="s-G8-GwP" aria-label="${heading}">${anchors}</nav></aside>`;
+}
+
+// The IT root is the crawl entry point for the static BFS audit. Locale roots
+// already receive their own locale main nav below, but the root homepage used
+// to receive only the editorial rail: pharmacy and plate-auction hubs were
+// therefore absent from the first static hop even though NAV_LABELS declared
+// them. Keep this small, visible directory rail separate from the editorial
+// guides so the root-to-hub links cannot disappear when guide content changes.
+const HOMEPAGE_DIRECTORY_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: PHARMACY_HUB_PATH.it, label: 'Farmacie e turni' },
+ { href: buildPlateAuctionPath({ locale: 'it', view: 'hub' }), label: 'Aste targhe' },
+ { href: buildPlateAuctionPath({ locale: 'en', view: 'hub' }), label: 'Plate auctions' },
+ { href: buildPlateAuctionPath({ locale: 'de', view: 'hub' }), label: 'Kontrollschildauktionen' },
+ { href: buildPlateAuctionPath({ locale: 'fr', view: 'hub' }), label: 'Enchères de plaques' },
+];
+
+function buildHomepageDirectoryHubsBlock(locale: HpSeoLocale): string {
+ if (locale !== 'it') return '';
+ const heading = 'Farmacie e dati utili';
+ const anchors = renderPillAnchors(HOMEPAGE_DIRECTORY_LINKS, 500);
+ return `<aside class="s-Q1eQm9" id="hp-directory-hubs" aria-labelledby="hpDirectoryHubsTitle"><h2 class="s-WrrqHM" id="hpDirectoryHubsTitle">${heading}</h2><nav class="s-G8-GwP" aria-label="${heading}">${anchors}</nav></aside>`;
 }
 
 // ── Locale main nav (crawlable) ─────────────────────────────────────
