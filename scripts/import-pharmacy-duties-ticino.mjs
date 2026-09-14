@@ -15,6 +15,8 @@ const REPO_ROOT = resolve(dirname(__filename), '..');
 const DATA_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-ticino.json');
 const PHARMACY_PATH = resolve(REPO_ROOT, 'data/pharmacies-ticino-complete.json');
 const STATUS_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-ticino-status.json');
+const DUTY_SOURCE = 'https://www.ofct.ch/farmacieturno/';
+const DUTY_SOURCE_REGIONS = Object.freeze(OFCT_REGIONS.map((region) => region.url));
 const USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const CRAWL_DELAY_MS = 10_000;
 const timeoutMs = 15_000;
@@ -39,6 +41,65 @@ export function reclassifyPreservedDuties(duties, now = new Date()) {
     if (!duty || duty.status !== 'verified' || !Number.isFinite(endsAtMs) || endsAtMs > nowMs) return duty;
     return { ...duty, status: 'expired' };
   });
+}
+
+function previousFetchedAt(previous) {
+  return typeof previous?._fetchedAt === 'string'
+    ? previous._fetchedAt
+    : (typeof previous?._lastSuccessfulFetchAt === 'string' ? previous._lastSuccessfulFetchAt : null);
+}
+
+/**
+ * Build the status sidecar with the same source/fetch metadata as the duty
+ * dataset. On an all-region failure `_fetchedAt` remains the last dataset
+ * timestamp; `_attemptedAt` records the failed attempt separately.
+ */
+export function buildPharmacyDutyStatus({
+  attemptedAt,
+  previous = {},
+  previousStatus = {},
+  successfulRegions = [],
+  preservedRegions = [],
+  errors = [],
+  warnings = [],
+}) {
+  const hasSuccessfulRegion = successfulRegions.length > 0;
+  return {
+    _source: DUTY_SOURCE,
+    _sourceRegions: [...DUTY_SOURCE_REGIONS],
+    _fetchedAt: hasSuccessfulRegion ? attemptedAt : previousFetchedAt(previous),
+    _attemptedAt: attemptedAt,
+    _lastSuccessfulFetchAt: hasSuccessfulRegion
+      ? attemptedAt
+      : (previous?._lastSuccessfulFetchAt || previousFetchedAt(previous)),
+    _lastStaticRefreshAt: hasSuccessfulRegion
+      ? attemptedAt
+      : (previousStatus?._lastStaticRefreshAt || null),
+    _successfulRegions: successfulRegions,
+    _preservedRegions: preservedRegions,
+    _errors: errors,
+    _warnings: warnings,
+  };
+}
+
+/** Build the validator-shaped duty snapshot for a successful/partial fetch. */
+export function buildPharmacyDutiesDataset({
+  attemptedAt,
+  duties = [],
+  errors = [],
+  warnings = [],
+  preservedRegions = [],
+}) {
+  return {
+    _source: DUTY_SOURCE,
+    _sourceRegions: [...DUTY_SOURCE_REGIONS],
+    _fetchedAt: attemptedAt,
+    _lastSuccessfulFetchAt: attemptedAt,
+    _errors: errors,
+    _warnings: warnings,
+    _preservedRegions: preservedRegions,
+    duties,
+  };
 }
 
 async function fetchHtml(url) {
@@ -110,16 +171,15 @@ async function main() {
     }
   }
 
-  const status = {
-    _source: 'https://www.ofct.ch/farmacieturno/',
-    _attemptedAt: attemptedAt,
-    _lastSuccessfulFetchAt: successfulRegions.length > 0 ? attemptedAt : (previous._lastSuccessfulFetchAt || null),
-    _lastStaticRefreshAt: successfulRegions.length > 0 ? attemptedAt : (previousStatus?._lastStaticRefreshAt || null),
-    _successfulRegions: successfulRegions,
-    _preservedRegions: preservedRegions,
-    _errors: errors,
-    _warnings: warnings,
-  };
+  const status = buildPharmacyDutyStatus({
+    attemptedAt,
+    previous,
+    previousStatus,
+    successfulRegions,
+    preservedRegions,
+    errors,
+    warnings,
+  });
 
   if (successfulRegions.length === 0) {
     await mkdir(dirname(STATUS_PATH), { recursive: true });
@@ -129,16 +189,13 @@ async function main() {
     return;
   }
 
-  const output = {
-    _source: 'https://www.ofct.ch/farmacieturno/',
-    _sourceRegions: OFCT_REGIONS.map((region) => region.url),
-    _fetchedAt: attemptedAt,
-    _lastSuccessfulFetchAt: attemptedAt,
-    _errors: errors,
-    _warnings: warnings,
-    _preservedRegions: preservedRegions,
+  const output = buildPharmacyDutiesDataset({
+    attemptedAt,
     duties,
-  };
+    errors,
+    warnings,
+    preservedRegions,
+  });
   if (!dryRun) {
     await mkdir(dirname(DATA_PATH), { recursive: true });
     await writeFile(DATA_PATH, `${JSON.stringify(output, null, 2)}\n`, 'utf8');

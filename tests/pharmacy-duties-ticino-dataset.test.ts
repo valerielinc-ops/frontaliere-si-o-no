@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import dataset from '../data/pharmacy-duties-ticino.json';
 import pharmacies from '../data/pharmacies-ticino-complete.json';
-import { reclassifyPreservedDuties } from '../scripts/import-pharmacy-duties-ticino.mjs';
+import {
+  buildPharmacyDutiesDataset,
+  buildPharmacyDutyStatus,
+  reclassifyPreservedDuties,
+} from '../scripts/import-pharmacy-duties-ticino.mjs';
 import { getRuntimeDutyState, publicDutiesForRegion } from '../services/pharmacies/duties';
 import { validatePharmacyDuty, validatePharmacyDutyList, validatePharmacyDutiesDataset, type PharmacyDutiesDataset } from '../services/pharmacies/types';
 
@@ -47,6 +51,36 @@ describe('Ticino duty dataset', () => {
     expect(reclassified.map((duty) => duty.status)).toEqual(['expired', 'verified', 'pending_review']);
     expect(preserved[0].status).toBe('verified');
     expect(validatePharmacyDutyList(reclassified, now)).not.toContain(expect.stringContaining('verified duty must not be expired'));
+  });
+
+  it('keeps validator metadata on partial and blocked importer paths', () => {
+    const attemptedAt = '2026-09-14T12:00:00.000Z';
+    const partial = buildPharmacyDutiesDataset({
+      attemptedAt,
+      duties: [],
+      errors: ['luganese: timeout'],
+      warnings: ['luganese: preserved 1 previous interval(s); fetchedAt not renewed'],
+      preservedRegions: ['luganese'],
+    });
+    expect(validatePharmacyDutiesDataset(partial, new Date(attemptedAt))).toEqual([]);
+
+    const blocked = buildPharmacyDutyStatus({
+      attemptedAt,
+      previous: {
+        _fetchedAt: '2026-09-13T12:00:00.000Z',
+        _lastSuccessfulFetchAt: '2026-09-13T12:00:00.000Z',
+      },
+      successfulRegions: [],
+      preservedRegions: ['luganese'],
+      errors: ['all region fetches failed'],
+      warnings: [],
+    });
+    expect(blocked).toMatchObject({
+      _source: 'https://www.ofct.ch/farmacieturno/',
+      _fetchedAt: '2026-09-13T12:00:00.000Z',
+      _attemptedAt: attemptedAt,
+    });
+    expect(blocked._sourceRegions).toEqual(partial._sourceRegions);
   });
 
   it('requires overlapping same-area intervals to be explicitly conflicting', () => {
