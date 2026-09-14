@@ -589,44 +589,64 @@ function ga4EventNameFilter(eventNames) {
   return { filter: { fieldName: 'eventName', inListFilter: { values: eventNames } } };
 }
 
-/** GA4 filter shared by the alert funnel's two event totals. */
-export function buildAlertFunnelGa4Filter(eventNames = ALERT_FUNNEL_EVENT_NAMES) {
+function ga4AndFilter(...expressions) {
+  return { andGroup: { expressions } };
+}
+
+function ga4CtaSurfaceFilter() {
   return {
-    andGroup: {
-      expressions: [
-        ga4EventNameFilter(eventNames),
-        {
-          filter: {
-            fieldName: ALERT_CTA_SURFACE_DIMENSION,
-            inListFilter: { values: ALERT_CTA_SURFACES },
-          },
-        },
-      ],
+    filter: {
+      fieldName: ALERT_CTA_SURFACE_DIMENSION,
+      inListFilter: { values: ALERT_CTA_SURFACES },
     },
   };
 }
 
-/** Reduce a custom-dimension report to the coverage evidence used by #7764. */
-export function inspectAlertCtaSurfaceReport(data) {
-  let totalUsers = 0;
-  let notSetUsers = 0;
-  let allowlistedUsers = 0;
+function ga4CtaSurfaceExactFilter(surface) {
+  return {
+    filter: {
+      fieldName: ALERT_CTA_SURFACE_DIMENSION,
+      stringFilter: { value: surface, matchType: 'EXACT' },
+    },
+  };
+}
+
+/** GA4 filter shared by the alert funnel's two event totals. */
+export function buildAlertFunnelGa4Filter(eventNames = ALERT_FUNNEL_EVENT_NAMES) {
+  return ga4AndFilter(ga4EventNameFilter(eventNames), ga4CtaSurfaceFilter());
+}
+
+function readDistinctUsers(data) {
+  const users = Number(data?.rows?.[0]?.metricValues?.[0]?.value || 0);
+  return Number.isFinite(users) && users >= 0 ? users : 0;
+}
+
+/** Reduce the probe plus non-overlapping user reports to #7764 evidence. */
+export function inspectAlertCtaSurfaceReport({
+  dimensionReport,
+  totalUsers = 0,
+  notSetUsers = 0,
+  allowlistedUsers = 0,
+} = {}) {
   const rows = [];
-  for (const row of data?.rows || []) {
+  for (const row of dimensionReport?.rows || []) {
     const surface = row.dimensionValues?.[0]?.value || ALERT_CTA_SURFACE_NOT_SET;
     const users = Number(row.metricValues?.[0]?.value || 0);
     if (!Number.isFinite(users) || users < 0) continue;
-    totalUsers += users;
-    if (surface === ALERT_CTA_SURFACE_NOT_SET) notSetUsers += users;
-    if (ALERT_CTA_SURFACES.includes(surface)) allowlistedUsers += users;
     rows.push({ surface, users });
   }
+  const total = Number(totalUsers);
+  const notSet = Number(notSetUsers);
+  const allowlisted = Number(allowlistedUsers);
+  const safeTotalUsers = Number.isFinite(total) && total >= 0 ? total : 0;
+  const safeNotSetUsers = Number.isFinite(notSet) && notSet >= 0 ? notSet : 0;
+  const safeAllowlistedUsers = Number.isFinite(allowlisted) && allowlisted >= 0 ? allowlisted : 0;
   return {
     rows,
-    totalUsers,
-    notSetUsers,
-    allowlistedUsers,
-    notSetShare: totalUsers > 0 ? notSetUsers / totalUsers : null,
+    totalUsers: safeTotalUsers,
+    notSetUsers: safeNotSetUsers,
+    allowlistedUsers: safeAllowlistedUsers,
+    notSetShare: safeTotalUsers > 0 ? safeNotSetUsers / safeTotalUsers : null,
   };
 }
 
@@ -641,14 +661,38 @@ export async function checkAlertCtaSurfaceDimension(
   windowDays = 14,
   { runReportImpl = ga4RunReport, logImpl = console.log } = {},
 ) {
-  let data;
+  let dimensionReport;
+  let totalUsers;
+  let notSetUsers;
+  let allowlistedUsers;
   try {
-    data = await runReportImpl(token, {
+    // This dimension report is the registration/population probe. Its rows
+    // are intentionally not summed: GA4 totalUsers can repeat one user in
+    // multiple cta_surface values.
+    dimensionReport = await runReportImpl(token, {
       dimensions: [{ name: ALERT_CTA_SURFACE_DIMENSION }],
       metrics: ['totalUsers'],
       dimensionFilter: ga4EventNameFilter(ALERT_FUNNEL_EVENT_NAMES),
       windowDays,
     });
+
+    // Each report has no surface dimension, so totalUsers is a distinct,
+    // non-overlapping population for that filter. This keeps (not set)/total
+    // from being diluted by users present in multiple surface rows.
+    [totalUsers, notSetUsers, allowlistedUsers] = await Promise.all([
+      ga4DistinctUsersForEvents(token, ALERT_FUNNEL_EVENT_NAMES, windowDays, { runReportImpl }),
+      ga4DistinctUsersForEvents(token, ALERT_FUNNEL_EVENT_NAMES, windowDays, {
+        dimensionFilter: ga4AndFilter(
+          ga4EventNameFilter(ALERT_FUNNEL_EVENT_NAMES),
+          ga4CtaSurfaceExactFilter(ALERT_CTA_SURFACE_NOT_SET),
+        ),
+        runReportImpl,
+      }),
+      ga4DistinctUsersForEvents(token, ALERT_FUNNEL_EVENT_NAMES, windowDays, {
+        dimensionFilter: buildAlertFunnelGa4Filter(),
+        runReportImpl,
+      }),
+    ]);
   } catch (error) {
     if (error?.status !== 400 && !/^GA4 400:/.test(error?.message || '')) throw error;
     const reason = `custom dimension \`cta_surface\` non registrata / non popolata: ${error.message}`;
@@ -656,7 +700,7 @@ export async function checkAlertCtaSurfaceDimension(
     return { ready: false, reason, notSetShare: null };
   }
 
-  const coverage = inspectAlertCtaSurfaceReport(data);
+  const coverage = inspectAlertCtaSurfaceReport({ dimensionReport, totalUsers, notSetUsers, allowlistedUsers });
   const shareText = fmtPct(coverage.notSetShare);
   logImpl(
     `[campaign-goal-check] alert funnel preflight: cta_surface (not set) `
@@ -707,14 +751,19 @@ async function ga4EventCountByName(
 /** Distinct users touching ANY of the given events, aggregated with no
  * per-event breakdown dimension so a user firing two of the events is
  * counted once — the error-rate GA4 fallback needs a person-level ratio. */
-async function ga4DistinctUsersForEvents(token, eventNames, windowDays) {
-  const data = await ga4RunReport(token, {
+async function ga4DistinctUsersForEvents(
+  token,
+  eventNames,
+  windowDays,
+  { dimensionFilter = ga4EventNameFilter(eventNames), runReportImpl = ga4RunReport } = {},
+) {
+  const data = await runReportImpl(token, {
     dimensions: [],
     metrics: ['totalUsers'],
-    dimensionFilter: ga4EventNameFilter(eventNames),
+    dimensionFilter,
     windowDays,
   });
-  return Number(data.rows?.[0]?.metricValues?.[0]?.value || 0);
+  return readDistinctUsers(data);
 }
 
 // #4299 — sessions via GA4's built-in "Email" channel group, 90d, target >= 7,350.

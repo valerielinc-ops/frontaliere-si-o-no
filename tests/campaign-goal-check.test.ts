@@ -10,6 +10,7 @@ import {
   ALERT_CTA_SURFACES,
   ALERT_FUNNEL_EVENT_NAMES,
   ALERT_CTA_SURFACE_DIMENSION,
+  ALERT_CTA_SURFACE_NOT_SET,
   ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE,
   buildAlertFunnelHogqlQuery,
   buildAlertFunnelGa4Filter,
@@ -435,15 +436,19 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
   });
 
   it('fails closed on an all-(not set) report and never computes a rate', async () => {
-    const runReportImpl = vi.fn().mockResolvedValue({
-      rows: [{ dimensionValues: [{ value: '(not set)' }], metricValues: [{ value: '100' }] }],
-    });
+    const runReportImpl = vi.fn()
+      .mockResolvedValueOnce({
+        rows: [{ dimensionValues: [{ value: '(not set)' }], metricValues: [{ value: '100' }] }],
+      })
+      .mockResolvedValueOnce({ rows: [{ metricValues: [{ value: '100' }] }] })
+      .mockResolvedValueOnce({ rows: [{ metricValues: [{ value: '100' }] }] })
+      .mockResolvedValueOnce({ rows: [{ metricValues: [{ value: '0' }] }] });
     const logImpl = vi.fn();
     const result = await evalAlertFunnelConversionGa4({ token: 'token', runReportImpl, logImpl });
 
     expect(result.unmeasurable).toBe(true);
     expect(result.note).toContain('custom dimension `cta_surface` non registrata / non popolata');
-    expect(runReportImpl).toHaveBeenCalledTimes(1);
+    expect(runReportImpl).toHaveBeenCalledTimes(4);
     expect(logImpl).toHaveBeenCalledWith(expect.stringContaining('(not set)'));
   });
 
@@ -451,9 +456,19 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
     const runReportImpl = vi.fn()
       .mockResolvedValueOnce({
         rows: [
-          { dimensionValues: [{ value: 'inline_card' }], metricValues: [{ value: '95' }] },
+          { dimensionValues: [{ value: 'inline_card' }], metricValues: [{ value: '80' }] },
+          { dimensionValues: [{ value: 'job_detail_button' }], metricValues: [{ value: '80' }] },
           { dimensionValues: [{ value: '(not set)' }], metricValues: [{ value: '5' }] },
         ],
+      })
+      .mockResolvedValueOnce({
+        rows: [{ metricValues: [{ value: '100' }] }],
+      })
+      .mockResolvedValueOnce({
+        rows: [{ metricValues: [{ value: '5' }] }],
+      })
+      .mockResolvedValueOnce({
+        rows: [{ metricValues: [{ value: '95' }] }],
       })
       .mockResolvedValueOnce({
         rows: [
@@ -468,14 +483,48 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
     expect(result.value).toMatchObject({ created: 10, shown: 100, rate: 0.1, ctaSurfaceNotSetShare: ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE });
     expect(result.detail).toContain('cta_surface (not set) 5.00%');
     expect(logImpl).toHaveBeenCalledWith(expect.stringContaining('5/100'));
-    expect(runReportImpl).toHaveBeenCalledTimes(2);
+    expect(runReportImpl).toHaveBeenCalledTimes(5);
     expect(runReportImpl.mock.calls[1][1]).toMatchObject({
+      dimensions: [],
+      metrics: ['totalUsers'],
+      dimensionFilter: {
+        filter: { fieldName: 'eventName', inListFilter: { values: ALERT_FUNNEL_EVENT_NAMES } },
+      },
+      windowDays: 14,
+    });
+    expect(runReportImpl.mock.calls[2][1]).toMatchObject({
+      dimensions: [],
+      metrics: ['totalUsers'],
+      dimensionFilter: {
+        andGroup: {
+          expressions: [
+            {
+              filter: { fieldName: 'eventName', inListFilter: { values: ALERT_FUNNEL_EVENT_NAMES } },
+            },
+            {
+              filter: {
+                fieldName: ALERT_CTA_SURFACE_DIMENSION,
+                stringFilter: { value: ALERT_CTA_SURFACE_NOT_SET, matchType: 'EXACT' },
+              },
+            },
+          ],
+        },
+      },
+      windowDays: 14,
+    });
+    expect(runReportImpl.mock.calls[3][1]).toMatchObject({
+      dimensions: [],
+      metrics: ['totalUsers'],
+      dimensionFilter: buildAlertFunnelGa4Filter(),
+      windowDays: 14,
+    });
+    expect(runReportImpl.mock.calls[4][1]).toMatchObject({
       dimensions: [{ name: 'eventName' }],
       metrics: ['totalUsers'],
       dimensionFilter: buildAlertFunnelGa4Filter(),
       windowDays: 14,
     });
-    expect(runReportImpl.mock.calls[1][1].dimensionFilter).not.toEqual({
+    expect(runReportImpl.mock.calls[4][1].dimensionFilter).not.toEqual({
       filter: { fieldName: 'eventName', inListFilter: { values: ALERT_FUNNEL_EVENT_NAMES } },
     });
   });
