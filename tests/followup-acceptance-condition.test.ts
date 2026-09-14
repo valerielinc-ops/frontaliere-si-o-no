@@ -22,7 +22,11 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { hasFalsifiableAcceptance, ACCEPTANCE_CONDITION } from '../scripts/ci/followup-resolution-match.mjs';
+import {
+  commandReferent,
+  hasFalsifiableAcceptance,
+  ACCEPTANCE_CONDITION,
+} from '../scripts/ci/followup-resolution-match.mjs';
 import {
   aggregateCloseGate,
   isCurrentUnclassifiable,
@@ -263,6 +267,12 @@ describe('condizione di accettazione — la scheda con COMANDO (D1/D2/D3)', () =
   it('D2: il referente NON deve esistere ancora — lo crea la PR di fix', () => {
     const item = scheda('npx vitest run tests/questo-file-non-esiste-ancora.test.ts');
     expect(hasFalsifiableAcceptance(item)).toBe(true);
+  });
+
+  it('D2: un referente directory o file senza estensione è risolvibile', () => {
+    expect(commandReferent('find data/all-known-job-slugs/')).toBe('data/all-known-job-slugs/');
+    expect(commandReferent('node scripts/ci/followup-check')).toBe('scripts/ci/followup-check');
+    expect(hasFalsifiableAcceptance(scheda('find data/all-known-job-slugs/'))).toBe(true);
   });
 
   it('D2: metrica gia\' al bersaglio (`prima=N atteso=N`) → RIFIUTATA, e\' irrobustimento travestito', () => {
