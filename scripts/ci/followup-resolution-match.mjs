@@ -449,7 +449,8 @@ export function schedaCommand(itemText) {
 
 /**
  * Il referente nominato da un comando: il primo path di repository che il comando
- * cita (con almeno una `/` e un'estensione). È la metà VERIFICABILE della scheda —
+ * cita (con almeno una `/`; può essere un file con o senza estensione oppure una
+ * directory terminata da `/`). È la metà VERIFICABILE della scheda —
  * un nome si scrive, un referente si risolve.
  *
  * Il vincolo della `/` è lo stesso di `citedFiles()`, e per la stessa ragione: un
@@ -461,7 +462,7 @@ export function schedaCommand(itemText) {
  */
 export function commandReferent(command) {
   const m = String(command || '').match(
-    /(?:^|[\s`'":=(])([\w.-]+(?:\/[\w.-]+)+\.[a-z]{2,5})(?=$|[\s`'":,)])/i,
+    /(?:^|[\s`'":=(])((?:[\w.-]+\/)+[\w.-]+\/?)(?=$|[\s`'":,)])/i,
   );
   return m ? m[1] : null;
 }
