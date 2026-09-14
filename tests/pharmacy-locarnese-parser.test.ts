@@ -90,7 +90,7 @@ describe('Locarnese pharmacy duty parser', () => {
       dutyType: 'day',
       status: 'verified',
       sourceUrl: LOCARNESE_REGION.url,
-      sourceType: 'official',
+      sourceType: 'association',
       startsAt: localDateTimeToIso(sourceDate(1), '08:00'),
       endsAt: localDateTimeToIso(sourceDate(4), '18:30'),
       fetchedAt: NOW.toISOString(),
@@ -147,6 +147,11 @@ describe('Locarnese pharmacy duty parser', () => {
       city: 'Losone',
     };
     expect(resolveLocarnesePharmacyIdentity(row, LOCARNESE_CATALOGUE)).toBeNull();
+    expect(resolveLocarnesePharmacyIdentity(row, [{
+      id: 'incomplete',
+      name: 'Farmacia Mistero',
+      city: 'Losone',
+    }])).toBeNull();
 
     const html = `
       <table>
@@ -183,5 +188,36 @@ describe('Locarnese pharmacy duty parser', () => {
         candidateIds: ['ti-centro-a', 'ti-centro-b'],
       }),
     ]);
+  });
+
+  it('fails closed for an invalid fetch timestamp', () => {
+    const result = buildLocarnesePharmacyDuties(
+      LIVE_SHAPE_HTML,
+      LOCARNESE_REGION,
+      'not-a-timestamp',
+      LOCARNESE_CATALOGUE,
+    );
+    expect(result.duties).toEqual([]);
+    expect(result.warnings).toContain('invalid fetchedAt; no Locarnese duty intervals emitted');
+  });
+
+  it('rejects a non-chronological source instead of crossing an uncertain boundary', () => {
+    const html = `
+      <table>
+        <thead><tr><th>Data</th><th>Ora</th><th>Farmacia</th><th>Località</th></tr></thead>
+        <tbody>
+          <tr><td>${sourceDate(4)}</td><td>18:30</td><td>Soldati</td><td>Locarno</td></tr>
+          <tr><td>${sourceDate(1)}</td><td>08:00</td><td>Amavita Centro</td><td>Ascona</td></tr>
+          <tr><td>${sourceDate(8)}</td><td>08:00</td><td>Stella d&#039; Oro</td><td>Tenero</td></tr>
+        </tbody>
+      </table>`;
+    const result = buildLocarnesePharmacyDuties(
+      html,
+      LOCARNESE_REGION,
+      NOW.toISOString(),
+      LOCARNESE_CATALOGUE,
+    );
+    expect(result.duties).toEqual([]);
+    expect(result.warnings).toContain('locarnese: source rows are not chronological; no duty intervals emitted');
   });
 });

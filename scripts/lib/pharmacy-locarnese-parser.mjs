@@ -183,8 +183,8 @@ function catalogueCandidates(row, catalogue) {
     if (!pharmacy || typeof pharmacy !== 'object') return false;
     if (typeof pharmacy.id !== 'string' || !pharmacy.id.trim()) return false;
     if (typeof pharmacy.name !== 'string' || typeof pharmacy.city !== 'string') return false;
-    if (pharmacy.country !== undefined && pharmacy.country !== 'CH') return false;
-    if (pharmacy.canton !== undefined && normalizedTokens(pharmacy.canton).join(' ') !== 'ticino') return false;
+    if (pharmacy.country !== 'CH') return false;
+    if (typeof pharmacy.canton !== 'string' || normalizedTokens(pharmacy.canton).join(' ') !== 'ticino') return false;
     return sameCatalogueCity(row.city, pharmacy.city)
       && sameCatalogueName(row.name, pharmacy.name, pharmacy.city);
   });
@@ -241,14 +241,22 @@ export function buildLocarnesePharmacyDuties(
     return { duties, unresolved, skipped: parsed.skipped, warnings };
   }
 
-  const rowsWithMatches = [...parsed.rows]
-    .sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt))
-    .map((row) => {
-      const candidates = catalogueCandidates(row, catalogue);
-      const pharmacy = candidates.length === 1 ? candidates[0] : null;
-      if (!pharmacy) unresolved.push(unresolvedIdentity(row, region, candidates));
-      return { row, pharmacy, candidates };
-    });
+  const rowsWithMatches = parsed.rows.map((row) => {
+    const candidates = catalogueCandidates(row, catalogue);
+    const pharmacy = candidates.length === 1 ? candidates[0] : null;
+    if (!pharmacy) unresolved.push(unresolvedIdentity(row, region, candidates));
+    return { row, pharmacy, candidates };
+  });
+
+  // Boundary markers are attached in source order. An out-of-order source
+  // would make a later sort pair rows across an unknown gap, so reject the
+  // complete sequence instead of manufacturing a plausible interval.
+  const nonChronological = rowsWithMatches.some((entry, index) => index > 0
+    && Date.parse(entry.row.startsAt) <= Date.parse(rowsWithMatches[index - 1].row.startsAt));
+  if (nonChronological) {
+    warnings.push(`${region.key}: source rows are not chronological; no duty intervals emitted`);
+    return { duties, unresolved, skipped: parsed.skipped, warnings };
+  }
 
   for (let index = 0; index < rowsWithMatches.length - 1; index += 1) {
     const current = rowsWithMatches[index];
@@ -278,7 +286,7 @@ export function buildLocarnesePharmacyDuties(
       dutyType: 'day',
       status: expired ? 'expired' : 'verified',
       sourceUrl: region.url,
-      sourceType: 'official',
+      sourceType: 'association',
       fetchedAt,
       verifiedAt: expired ? undefined : fetchedAt,
     });
