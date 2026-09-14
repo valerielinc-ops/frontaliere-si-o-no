@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, emitPharmacyAliasBridge, pharmacyPageDescriptors } from '../../build-plugins/pharmacyDirectoryPagesPlugin';
+import { buildPharmacyPath } from '../../services/pharmacies/paths';
 import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
@@ -75,6 +76,33 @@ describe('pharmacy directory page matrix', () => {
     const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage');
     expect(collection.mainEntity.numberOfItems).toBe(749);
     expect(collection.mainEntity.itemListElement).toHaveLength(10);
+  });
+
+  it.each(locales)('keeps Italian country hubs compact and indexable (%s)', (locale) => {
+    const country = pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'country' && descriptor.country === 'IT');
+    expect(country).toBeDefined();
+    const page = buildPharmacyDirectoryPage(country!, locale, '/tmp/pharmacy-dist');
+    const nav = page.html.match(/<nav\b[^>]*>[\s\S]*?<\/nav>/)?.[0] || '';
+
+    expect(page.indexable).toBe(true);
+    expect(Buffer.byteLength(page.html, 'utf8')).toBeLessThan(260 * 1024);
+    expect(nav.match(/<li\b/g) || []).toHaveLength(3);
+    for (const [areaSlug, count] of [['como', 193], ['varese', 266], ['verbano-cusio-ossola', 83] ] as const) {
+      const areaPath = buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug, locale }, locale);
+      expect(nav).toContain(`href="${areaPath}"`);
+      expect(nav).toContain(String(count));
+    }
+    expect(page.html.match(/<article\b/g) || []).toHaveLength(0);
+    const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+    const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage');
+    expect(collection.mainEntity.numberOfItems).toBe(3);
+    expect(collection.mainEntity.itemListElement).toHaveLength(3);
+    expect(collection.mainEntity.itemListElement.map((item: { url: string }) => item.url)).toEqual(expect.arrayContaining([
+      `https://frontaliereticino.ch${buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug: 'como', locale }, locale)}`,
+      `https://frontaliereticino.ch${buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug: 'varese', locale }, locale)}`,
+      `https://frontaliereticino.ch${buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug: 'verbano-cusio-ossola', locale }, locale)}`,
+    ]));
+    expect(page.html).toContain('"@type":"BreadcrumbList"');
   });
 
   it('emits a noindex canonical bridge for a historical Italian detail path', () => {
