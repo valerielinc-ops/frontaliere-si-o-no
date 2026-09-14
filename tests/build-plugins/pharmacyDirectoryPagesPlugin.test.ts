@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, emitPharmacyAliasBridge, pharmacyPageDescriptors } from '../../build-plugins/pharmacyDirectoryPagesPlugin';
+import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
 const tempRoots: string[] = [];
@@ -43,6 +44,27 @@ describe('pharmacy directory page matrix', () => {
     expect(page.indexable).toBe(false);
     expect(page.html).toContain('noindex,follow');
     expect(page.html).not.toContain('CollectionPage');
+  });
+
+  it('keeps every indexable directory page above the text-html ratio floor', () => {
+    for (const locale of locales) {
+      for (const descriptor of pharmacyPageDescriptors()) {
+        const page = buildPharmacyDirectoryPage(descriptor, locale, '/tmp/pharmacy-dist');
+        if (!page.indexable) continue;
+        const htmlBytes = Buffer.byteLength(page.html, 'utf8');
+        const textBytes = Buffer.byteLength(extractVisibleText(page.html), 'utf8');
+        expect((textBytes / htmlBytes) * 100, `${locale} ${page.path}`).toBeGreaterThan(10);
+      }
+    }
+  });
+
+  it('samples large collection schema lists without duplicating the full directory in HTML', () => {
+    const hub = pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'hub');
+    const page = buildPharmacyDirectoryPage(hub!, 'it', '/tmp/pharmacy-dist');
+    const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+    const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage');
+    expect(collection.mainEntity.numberOfItems).toBe(749);
+    expect(collection.mainEntity.itemListElement).toHaveLength(10);
   });
 
   it('emits a noindex canonical bridge for a historical Italian detail path', () => {
