@@ -35031,6 +35031,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'crisi-bally-caslano-licenziamenti',
+ category: 'novita',
+ date: '2026-09-14T00:20:14.774Z',
+ image: '/images/blog/crisi-bally-caslano-licenziamenti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

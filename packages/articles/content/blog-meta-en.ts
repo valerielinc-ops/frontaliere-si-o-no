@@ -11739,6 +11739,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-veniano-lavorare-ticino.title': 'Living in Veniano and working in Ticino as a border worker',
     'blog.article.vivere-veniano-lavorare-ticino.excerpt': 'Practical guide for those who live in Veniano and work in Canton Ticino: connections, tax at source, social security and aspects of the transfer.',
     'blog.article.vivere-veniano-lavorare-ticino.imageAlt': 'View of Veniano near the Swiss border',
+    'blog.article.crisi-bally-caslano-licenziamenti.title': 'Bally crisis in Caslano: another 25 dismissed in Ticino',
+    'blog.article.crisi-bally-caslano-licenziamenti.excerpt': 'New collective dismissal procedure for Bally in Caslano: another 25 administrative staff at risk. Financial data and the Transliq AG moratorium.',
+    'blog.article.crisi-bally-caslano-licenziamenti.imageAlt': 'Bally manufacturing plant in crisis in Caslano Ticino',
 };
 
 export default blogMetaEn;

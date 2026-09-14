@@ -11740,6 +11740,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-veniano-lavorare-ticino.title': 'Vivere a Veniano e lavorare in Ticino da frontaliere',
     'blog.article.vivere-veniano-lavorare-ticino.excerpt': 'Guida pratica per chi vive a Veniano e lavora in Canton Ticino: collegamenti, imposta alla fonte, previdenza e aspetti del trasferimento.',
     'blog.article.vivere-veniano-lavorare-ticino.imageAlt': 'Panorama di Veniano vicino al confine con la Svizzera',
+    'blog.article.crisi-bally-caslano-licenziamenti.title': 'Crisi Bally a Caslano: altri 25 licenziati in Ticino',
+    'blog.article.crisi-bally-caslano-licenziamenti.excerpt': 'Nuova procedura di licenziamento collettivo per Bally a Caslano: altri 25 amministrativi a rischio. I dati finanziari e la moratoria Transliq AG.',
+    'blog.article.crisi-bally-caslano-licenziamenti.imageAlt': 'Stabilimento Bally in crisi a Caslano nel Canton Ticino',
 };
 
 export default blogMetaIt;

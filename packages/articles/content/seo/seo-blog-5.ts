@@ -90475,6 +90475,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crisi-bally-caslano-licenziamenti': {
+    title: 'Crisi Bally a Caslano: altri 25 licenziati in Ticino',
+    description: 'Crisi Bally in Ticino: blocco a Caslano, altri 25 licenziati amministrativi da Transliq AG. I dati finanziari e la moratoria concordataria. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, bally, caslano, altri',
+    ogTitle: 'Crisi Bally: 25 nuovi licenziati a Caslano in Ticino',
+    ogDescription: 'La crisi dello storico marchio di lusso Bally colpisce il Ticino: blocco delle attività a Caslano, 25 nuovi licenziamenti amministrativi e conti in rosso milionario gestiti da Transliq AG.',
+    canonicalPath: '/articoli-frontaliere/crisi-bally-caslano-licenziamenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crisi Bally a Caslano: altri 25 licenziati in Ticino",
+      "description": "Crisi Bally in Ticino: blocco a Caslano, altri 25 licenziati amministrativi da Transliq AG. I dati finanziari e la moratoria concordataria. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/crisi-bally-caslano-licenziamenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento Bally in crisi a Caslano nel Canton Ticino"
+      },
+      "datePublished": "2026-09-14T00:20:14+00:00",
+      "dateModified": "2026-09-14T00:20:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-bally-caslano-licenziamenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
