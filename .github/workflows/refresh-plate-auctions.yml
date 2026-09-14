@@ -46,6 +46,11 @@ jobs:
           fi
 
       - name: Refresh every active public catalogue
+        env:
+          # The SZ host rejects GitHub Actions egress intermittently. The
+          # connector may use the fresh Cloud Function API snapshot only after
+          # the official fetch fails and its source health/age checks pass.
+          PLATE_AUCTION_ENABLE_API_RELAY: "1"
         run: node scripts/plate-auctions/ingest.mjs
 
       - name: Fail closed on source health or snapshot drift
