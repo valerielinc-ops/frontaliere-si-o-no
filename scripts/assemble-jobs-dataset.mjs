@@ -68,6 +68,7 @@ import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpi
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
+import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -2055,6 +2056,27 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     jobs: finalJobs,
   };
   writeJson(slicePath, payload);
+  // A normal atomic write must run first so its anti-loss guard can preserve
+  // any history the fresh payload would otherwise drop. The ownership pass is
+  // intentionally second: removing a confirmed foreign route before that
+  // guard runs would make the guard recapture the same contamination onto the
+  // claimant. Include every existing slice in the owner index so the writer
+  // covers cross-file owners as well as the current payload's same-file ones.
+  // The fresh payload is the only source entry: unrelated claimant slices are
+  // not rewritten by every crawler run, while a target slice is written first
+  // by decontaminateEntries before the claimant's deliberate guard-off write.
+  const fleetEntries = listSliceFilePaths(JOBS_SLICES_DIR)
+    .filter((filePath) => filePath !== slicePath)
+    .map((filePath) => ({ filePath, slice: readJson(filePath, null) }))
+    .filter((entry) => Array.isArray(entry.slice?.jobs));
+  const currentEntry = { filePath: slicePath, slice: payload };
+  const ownership = decontaminateEntries(
+    [...fleetEntries, currentEntry],
+    { sourceEntries: [currentEntry], apply: true },
+  );
+  if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
+    console.log(`  🧭 prev-slug ownership: redirected ${ownership.moved} confirmed foreign route(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s)`);
+  }
   const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';
   console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${finalJobs.length} jobs${hardeningSuffix})`);
 }

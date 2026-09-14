@@ -4,6 +4,7 @@ import {
   FAULHABER_COMPANY_NAME,
   fetchAllFaulhaberJobs,
   fetchListingData,
+  validateDetailHtml,
   isFaulhaberJob,
   isTrustedDomain,
 } from '../scripts/lib/faulhaber-job-parser.mjs';
@@ -42,6 +43,15 @@ function httpError(status: number) {
 }
 
 describe('Faulhaber crawler parser', () => {
+  it('returns the already-parsed detail from the validation boundary', () => {
+    const detail = validateDetailHtml(DETAIL_HTML);
+
+    expect(detail).toMatchObject({
+      location: 'CH - Croglio',
+      description: expect.stringContaining('tecnico di misura'),
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(FAULHABER_KEY).toBe('faulhaber');
