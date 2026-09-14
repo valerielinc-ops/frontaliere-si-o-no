@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Mon, 14 Sep 2026 19:40:31 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 20:06:51 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,194 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Apotheke geöffnet oder Notdienst? Das Verzeichnis richtig lesen</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/apotheke-geoeffnet-notdienst-verzeichnis/</link>
+      <description><![CDATA[Der praktische Unterschied zwischen einem Verzeichniseintrag, veröffentlichten Öffnungszeiten und OFCT-Notdienstangaben. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; OFCT-Notdienst nur in den vier veröffentlichten Gebieten.]]></description>
+      <content:encoded><![CDATA[## Kurz erklärt
+- **Umfang**: Tessin und italienische Provinzen CO, VA und VB.
+- **Tessiner Verzeichnis**: 207 Einträge aus der offiziellen Liste.
+- **Italienisches Verzeichnis**: 542 auf die drei Grenzprovinzen gefilterte Einträge.
+- **Bestätigter Notdienst**: OFCT, nur Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+Der praktische Unterschied zwischen einem Verzeichniseintrag, veröffentlichten Öffnungszeiten und OFCT-Notdienstangaben.
+## Drei Fragen vor der Fahrt
+Erstens: Steht die Apotheke im Adressverzeichnis? Zweitens: veröffentlicht der Eintrag Öffnungszeiten? Drittens: gibt es für das Gebiet und das genannte Intervall einen bestätigten Notdienst? Nur die dritte Antwort betrifft den Notdienst; die anderen ersetzen ihn nicht.
+
+Den passenden Weg öffnen, Abrufzeitpunkt und Quelle des Snapshots prüfen und anschließend die Apotheke anrufen. Die Seite deutet einen Eintrag nicht automatisch als jetzt geöffnet und überträgt den Notdienst nicht auf italienische Provinzen.
+
+## Verzeichnis, Öffnungszeiten und Notdienst: drei verschiedene Angaben
+- **Verzeichnis**: Ein Eintrag bedeutet, dass die offizielle Liste die Apotheke führt; daraus folgt nicht, dass sie jetzt geöffnet ist.
+- **Öffnungszeiten**: Öffnungszeiten werden nur angezeigt, wenn die Seite oder Quelle sie veröffentlicht; sie werden nicht aus Verzeichnis oder Zeitstempel abgeleitet.
+- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
+## Geltungsbereich, Quellen und Zeitstempel
+Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen OFCT-Notdienst-Datensatz. Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
+
+- **Offizielle Apothekenliste des Tessins**: 207 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [offizielle Liste](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Offizieller italienischer Datensatz, gefiltert auf CO, VA und VB**: 542 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [Datensatz des Gesundheitsministeriums](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **OFCT-Seiten für regionale Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, abgerufen um 2026-09-14T18:16:05.788Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
+
+**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-14T18:16:05.788Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
+
+Dies ist keine landesweite Abdeckung: Der Umfang beschränkt sich auf das Tessin und die italienischen Provinzen CO, VA und VB.
+Das Locarnese ist noch nicht im Notdienst-Parser enthalten: Für dieses Gebiet wird kein OFCT-Notdienst abgeleitet oder dargestellt. Das begrenzt die Notdienst-Daten, sagt aber nichts über das kantonale Verzeichnis aus.
+Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis ist eine Adressliste und beweist weder Öffnung noch Notdienst.
+
+## Offizielle Quellen und nützliche Wege
+- [Apotheken-Hub](/de/apotheken/)
+- [Verzeichnis Tessin](/de/apotheken/ticino/)
+- [Verzeichnis italienische Provinzen](/de/apotheken/italien/)
+- [Notdienst-Apotheken](/de/notdienst-apotheken/)
+- **OFCT-Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lesen und die Apotheke kontaktieren: Ein statisches Verzeichnis ersetzt keine direkte Bestätigung.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:51 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/farmacia-aperta-turno-elenco</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/castelgrande.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Grenzapotheken: Como, Varese und Verbano</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/grenzapotheken-como-varese-verbano/</link>
+      <description><![CDATA[Wie das italienische Grenzapotheken-Verzeichnis zusammen mit dem Tessiner Verzeichnis genutzt wird, ohne einen Adresseneintrag als Öffnungszusage zu verstehen. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; OFCT-Notdienst nur in den vier veröffentlichten Gebieten.]]></description>
+      <content:encoded><![CDATA[## Kurz erklärt
+- **Umfang**: Tessin und italienische Provinzen CO, VA und VB.
+- **Tessiner Verzeichnis**: 207 Einträge aus der offiziellen Liste.
+- **Italienisches Verzeichnis**: 542 auf die drei Grenzprovinzen gefilterte Einträge.
+- **Bestätigter Notdienst**: OFCT, nur Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+Wie das italienische Grenzapotheken-Verzeichnis zusammen mit dem Tessiner Verzeichnis genutzt wird, ohne einen Adresseneintrag als Öffnungszusage zu verstehen.
+## Der italienische Katalogumfang
+Der italienische Datensatz ist auf die Provinzen CO, VA und VB gefiltert: Como, Varese und Verbano-Cusio-Ossola. Der aktuelle Snapshot enthält 542 Einträge. Er ist ein Verzeichnis veröffentlichter Standorte und Kontakte, keine landesweite italienische Abdeckung und keine Notdienstliste.
+
+Für den Vergleich beider Grenzseiten die Tessin- und Italien-Wege öffnen und die Quellen getrennt lesen. Öffnung oder Notdienst in Italien bei der Apotheke und den lokalen Stellen prüfen: Dieser Leitfaden erhebt keinen Anspruch auf italienischen Notdienst.
+
+## Verzeichnis, Öffnungszeiten und Notdienst: drei verschiedene Angaben
+- **Verzeichnis**: Ein Eintrag bedeutet, dass die offizielle Liste die Apotheke führt; daraus folgt nicht, dass sie jetzt geöffnet ist.
+- **Öffnungszeiten**: Öffnungszeiten werden nur angezeigt, wenn die Seite oder Quelle sie veröffentlicht; sie werden nicht aus Verzeichnis oder Zeitstempel abgeleitet.
+- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
+## Geltungsbereich, Quellen und Zeitstempel
+Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen OFCT-Notdienst-Datensatz. Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
+
+- **Offizielle Apothekenliste des Tessins**: 207 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [offizielle Liste](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Offizieller italienischer Datensatz, gefiltert auf CO, VA und VB**: 542 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [Datensatz des Gesundheitsministeriums](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **OFCT-Seiten für regionale Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, abgerufen um 2026-09-14T18:16:05.788Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
+
+**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-14T18:16:05.788Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
+
+Dies ist keine landesweite Abdeckung: Der Umfang beschränkt sich auf das Tessin und die italienischen Provinzen CO, VA und VB.
+Das Locarnese ist noch nicht im Notdienst-Parser enthalten: Für dieses Gebiet wird kein OFCT-Notdienst abgeleitet oder dargestellt. Das begrenzt die Notdienst-Daten, sagt aber nichts über das kantonale Verzeichnis aus.
+Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis ist eine Adressliste und beweist weder Öffnung noch Notdienst.
+
+## Offizielle Quellen und nützliche Wege
+- [Apotheken-Hub](/de/apotheken/)
+- [Verzeichnis Tessin](/de/apotheken/ticino/)
+- [Verzeichnis italienische Provinzen](/de/apotheken/italien/)
+- [Notdienst-Apotheken](/de/notdienst-apotheken/)
+- **OFCT-Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lesen und die Apotheke kontaktieren: Ein statisches Verzeichnis ersetzt keine direkte Bestätigung.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:50 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/farmacie-confine-italia-como-varese-verbano</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/mendrisio.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Notdienst-Apotheken im Tessin: Quellen und Abdeckung</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/notdienst-apotheken-tessin-leitfaden/</link>
+      <description><![CDATA[Dieser Leitfaden erklärt, wo der Tessiner Apotheken-Notdienst veröffentlicht wird und wie die regionale Abdeckung zu lesen ist. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; OFCT-Notdienst nur in den vier veröffentlichten Gebieten.]]></description>
+      <content:encoded><![CDATA[## Kurz erklärt
+- **Umfang**: Tessin und italienische Provinzen CO, VA und VB.
+- **Tessiner Verzeichnis**: 207 Einträge aus der offiziellen Liste.
+- **Italienisches Verzeichnis**: 542 auf die drei Grenzprovinzen gefilterte Einträge.
+- **Bestätigter Notdienst**: OFCT, nur Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+Dieser Leitfaden erklärt, wo der Tessiner Apotheken-Notdienst veröffentlicht wird und wie die regionale Abdeckung zu lesen ist.
+## Was „Notdienst“ hier bedeutet
+Die Notdienst-Daten stammen aus den offiziellen Seiten des Tessiner Apothekerverbands (OFCT). Der für diesen Leitfaden verwendete Snapshot umfasst nur Mendrisiotto, Luganese, Bellinzonese sowie Biasca e Valli. Das Locarnese ist noch nicht im Notdienst-Parser enthalten; für dieses Gebiet wird keine Abdeckung abgeleitet.
+
+Wenn eine jetzt geöffnete Apotheke gesucht wird, die Notdienstseite des Gebiets öffnen und das angegebene Intervall prüfen. Adressverzeichnis und normale Öffnungszeiten sind andere Daten als der bestätigte Notdienst.
+
+## Verzeichnis, Öffnungszeiten und Notdienst: drei verschiedene Angaben
+- **Verzeichnis**: Ein Eintrag bedeutet, dass die offizielle Liste die Apotheke führt; daraus folgt nicht, dass sie jetzt geöffnet ist.
+- **Öffnungszeiten**: Öffnungszeiten werden nur angezeigt, wenn die Seite oder Quelle sie veröffentlicht; sie werden nicht aus Verzeichnis oder Zeitstempel abgeleitet.
+- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
+## Geltungsbereich, Quellen und Zeitstempel
+Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen OFCT-Notdienst-Datensatz. Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
+
+- **Offizielle Apothekenliste des Tessins**: 207 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [offizielle Liste](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Offizieller italienischer Datensatz, gefiltert auf CO, VA und VB**: 542 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [Datensatz des Gesundheitsministeriums](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **OFCT-Seiten für regionale Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, abgerufen um 2026-09-14T18:16:05.788Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
+
+**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-14T18:16:05.788Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
+
+Dies ist keine landesweite Abdeckung: Der Umfang beschränkt sich auf das Tessin und die italienischen Provinzen CO, VA und VB.
+Das Locarnese ist noch nicht im Notdienst-Parser enthalten: Für dieses Gebiet wird kein OFCT-Notdienst abgeleitet oder dargestellt. Das begrenzt die Notdienst-Daten, sagt aber nichts über das kantonale Verzeichnis aus.
+Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis ist eine Adressliste und beweist weder Öffnung noch Notdienst.
+
+## Offizielle Quellen und nützliche Wege
+- [Apotheken-Hub](/de/apotheken/)
+- [Verzeichnis Tessin](/de/apotheken/ticino/)
+- [Verzeichnis italienische Provinzen](/de/apotheken/italien/)
+- [Notdienst-Apotheken](/de/notdienst-apotheken/)
+- **OFCT-Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lesen und die Apotheke kontaktieren: Ein statisches Verzeichnis ersetzt keine direkte Bestätigung.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/farmacie-turno-ticino-guida</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/bellinzona.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Apotheken im Tessin: Verzeichnis und Kontakte</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/apotheken-tessin-verzeichnis-kontakte/</link>
+      <description><![CDATA[Ein Ausgangspunkt für die Suche nach Apotheken im Tessiner Verzeichnis und für den Aufruf der verfügbaren lokalen Einträge. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; OFCT-Notdienst nur in den vier veröffentlichten Gebieten.]]></description>
+      <content:encoded><![CDATA[## Kurz erklärt
+- **Umfang**: Tessin und italienische Provinzen CO, VA und VB.
+- **Tessiner Verzeichnis**: 207 Einträge aus der offiziellen Liste.
+- **Italienisches Verzeichnis**: 542 auf die drei Grenzprovinzen gefilterte Einträge.
+- **Bestätigter Notdienst**: OFCT, nur Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+Ein Ausgangspunkt für die Suche nach Apotheken im Tessiner Verzeichnis und für den Aufruf der verfügbaren lokalen Einträge.
+## Was das Verzeichnis enthält
+Das Tessiner Verzeichnis basiert auf der offiziellen kantonalen Liste; der aktuelle Snapshot enthält 207 Einträge. Ein Eintrag hilft bei Namen, Adressen und veröffentlichten Kontakten, beweist aber keine aktuelle Öffnung und ersetzt keinen Anruf.
+
+Für die Suche zuerst den Tessin-Weg öffnen, den Apothekeneintrag lesen und die tatsächlich veröffentlichten Angaben prüfen. Für Notdienstinformationen zur OFCT-Seite wechseln: Das Verzeichnis ist kein Notdienst.
+
+## Verzeichnis, Öffnungszeiten und Notdienst: drei verschiedene Angaben
+- **Verzeichnis**: Ein Eintrag bedeutet, dass die offizielle Liste die Apotheke führt; daraus folgt nicht, dass sie jetzt geöffnet ist.
+- **Öffnungszeiten**: Öffnungszeiten werden nur angezeigt, wenn die Seite oder Quelle sie veröffentlicht; sie werden nicht aus Verzeichnis oder Zeitstempel abgeleitet.
+- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
+## Geltungsbereich, Quellen und Zeitstempel
+Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen OFCT-Notdienst-Datensatz. Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
+
+- **Offizielle Apothekenliste des Tessins**: 207 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [offizielle Liste](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Offizieller italienischer Datensatz, gefiltert auf CO, VA und VB**: 542 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [Datensatz des Gesundheitsministeriums](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **OFCT-Seiten für regionale Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, abgerufen um 2026-09-14T18:16:05.788Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
+
+**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-14T18:16:05.788Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
+
+Dies ist keine landesweite Abdeckung: Der Umfang beschränkt sich auf das Tessin und die italienischen Provinzen CO, VA und VB.
+Das Locarnese ist noch nicht im Notdienst-Parser enthalten: Für dieses Gebiet wird kein OFCT-Notdienst abgeleitet oder dargestellt. Das begrenzt die Notdienst-Daten, sagt aber nichts über das kantonale Verzeichnis aus.
+Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis ist eine Adressliste und beweist weder Öffnung noch Notdienst.
+
+## Offizielle Quellen und nützliche Wege
+- [Apotheken-Hub](/de/apotheken/)
+- [Verzeichnis Tessin](/de/apotheken/ticino/)
+- [Verzeichnis italienische Provinzen](/de/apotheken/italien/)
+- [Notdienst-Apotheken](/de/notdienst-apotheken/)
+- **OFCT-Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lesen und die Apotheke kontaktieren: Ein statisches Verzeichnis ersetzt keine direkte Bestätigung.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/farmacie-ticino-elenco-contatti</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/lugano-view.webp" medium="image"/>
+    </item>
     <item>
       <title>Warum die Zinsen in der Schweiz niedrig bleiben</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/warum-die-zinsen-in-der-schweiz-niedrig-bleiben/</link>
@@ -2287,218 +2475,6 @@ Praktischer 💡 Tipp: Kombinieren Sie hohe Franchise + Alternativmodell + Kanto
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/premi-cassa-malati-canton-giura-riduzioni</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/premi-cassa-malati-canton-giura-riduzioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Lonza investiert in den USA: neue pharmazeutische Anlage in Oregon</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/schweizer-investition-usa-lonza/</link>
-      <description><![CDATA[Der Schweizer Pharmariese Lonza wird in Bend, Oregon, eine neue Produktionsstätte errichten, deren Fertigstellung bis 2029 geplant ist.]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- Lonza baut eine neue Anlage in Bend, Oregon
-- Fertigstellung der Anlage bis 2029 geplant
-- Anfängliche Schaffung von über 80 neuen Arbeitsplätzen
-- Investition von der Pharmagruppe als signifikant eingestuft
-
-## Eckdaten
-- **Was**: Bau einer neuen kommerziellen Produktionsanlage
-- Wann: Fertigstellung bis 2029 erwartet
-- Wo: Bend, Oregon, Vereinigte Staaten
-- Wer: Lonza
-- Betrag: Noch nicht genannter Betrag
-
-Die Schweizer Pharmaindustrie stärkt ihre Präsenz und ihre Investitionen in den Vereinigten Staaten weiter. Die Lonza-Gruppe hat offiziell den Bau einer neuen Anlage in Bend im Bundesstaat Oregon angekündigt. Die Einrichtung wird der kommerziellen Herstellung von Spray-Dried-Dispersions-Wirkstoffen gewidmet sein. Nach Angaben des Schweizer Pharmaunternehmens wird die Fertigstellung des Werks im Laufe des Jahres 2029 erwartet. Die Finanztransaktion wurde von der Unternehmensführung als bedeutende Investition bezeichnet, obwohl der genaue Geldbetrag in der offiziellen Mitteilung des Unternehmens nicht bekannt gegeben wurde.
-
-### Details zur Pharmatechnologie
-
-Das Industrieprojekt konzentriert sich auf eine fortschrittliche Technologie, die in der Lage ist, die Löslichkeit und folglich die Bioverfügbarkeit von schwer löslichen Wirkstoffen deutlich zu verbessern. Aus Sicht des globalen Pharmamarktes verzeichnet die Nachfrage nach diesen speziellen Produktionsprozessen ein stetiges Wachstum, angetrieben durch die zunehmende Komplexität bei der Entwicklung moderner Medikamente. Die neue Einrichtung in Oregon wird es Lonza ermöglichen, zeitnah auf diese wachsende Nachfrage zu reagieren und ihre technologische Positionierung im Sektor der fortgeschrittenen Pharmaproduktion auf internationaler Ebene zu festigen.
-### Auswirkungen auf Beschäftigung und Lieferketten
-
-Der Start dieses wichtigen Industrieprojekts in den USA wird zunächst zur Schaffung von über achtzig neuen hochspezialisierten Arbeitsplätzen in der Region Bend führen. Die strategische Entscheidung, die Produktionskapazität in Übersee zu erweitern, folgt einer präzisen Logik der operativen Nähe zu wichtigen Kunden und der Stärkung der Widerstandsfähigkeit regionaler Lieferketten. Durch die Annäherung der Produktion an die wichtigsten Absatzmärkte kann das Unternehmen die mit der internationalen Logistik verbundenen Risiken reduzieren und die Lieferzeiten für die lokale Pharmaindustrie optimieren.
-
-### Unternehmensstrategie und Führung
-
-Geschäftsführer Wolfgang Wienand betonte die strategische Bedeutung der Transaktion für die Zukunft des Schweizer Konzerns. Die Investition in den Standort Bend spiegelt die feste Überzeugung wider, dass die USA eine führende Quelle für pharmazeutische Innovationen und ein Schlüsselmarkt für Lonza bleiben werden. Dieser Schritt fügt sich perfekt in die Unternehmensstrategie namens One Lonza ein, die darauf abzielt, Investitionen dort zu konzentrieren, wo es möglich ist, den maximalen wirtschaftlichen Wert für die Kunden und letztendlich für die Patienten zu generieren. Der vierundfünfzigjährige deutsche Manager mit einer Vergangenheit als Spitzensieger leitet das rheinische Unternehmen seit Juli 2024.
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).
-### Profil und Geschichte der Lonza-Gruppe
-
-Lonza wurde 1897 gegründet und blickt auf eine lange, in der Schweiz verwurzelte Industriegeschichte zurück. Das Unternehmen entstand ursprünglich in Gampel im Kanton Wallis am Ufer der Lonza, die einen Nebenfluss der Rhone darstellt. Im Laufe des 20. Jahrhunderts, genauer gesagt 1909, wurde der Sitz nach Visp, ebenfalls im Kanton Wallis, verlegt. Später, 1974, trat das Unternehmen in den Orbit von Alusuisse ein, um dann 1999 aus dem Orbit auszutreten und die offizielle Börsennotierung zu erhalten. 2002 wurde die Hauptniederlassung des Konzerns nach Basel verlegt.
-
-### Position an den Schweizer Finanzmärkten
-
-Heute stellt Lonza eine der wichtigsten industriellen Realitäten des Bundes dar und kann auf eine globale Belegschaft von zwanzigtausend Mitarbeitern zählen. Im Geschäftsjahr 2025 erwirtschaftete das Unternehmen einen Gesamtumsatz von CHF 6,5 Milliarden. Dank dieser Konjunkturdaten und seiner Solidität ist das Unternehmen Teil des SMI, dem Aktienindex, der die zwanzig wichtigsten Wertpapiere des Schweizer Finanzmarktes zusammenfasst. Weitere Informationen zu Corporate Finance Management, Steuern und Investitionen in der Schweiz finden Sie im [calcolatore stipendio e imposte](nav:calculator).
-
-Entdecken Sie [Stellenangebote im Tessin](nav:jobs) — täglich aktualisiert: über 4.000 Stellen von Schweizer Unternehmen.
-
-*Quelle: [swissinfo.ch](https://www.swissinfo.ch/ita/nuovo-investimento-svizzero-in-usa%2c-lonza-costruir%c3%a0-nuova-fabbrica/92037653)*]]></content:encoded>
-      <pubDate>Fri, 11 Sep 2026 00:33:25 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/investimento-svizzero-usa-lonza</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/investimento-svizzero-usa-lonza.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Kantonale Steuern Jura: Steuersätze, Staffeln und Abzüge 2024</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/jura-kantonssteuer-saetze-abzuege/</link>
-      <description><![CDATA[Praktischer Leitfaden zum Steuersystem des Kantons Jura: dreistufige Struktur, kommunale Multiplikatoren, zulässige Abzüge und offizielles Deklarationsportal.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Il Cantone Giura applica imposte su tre livelli: federale, cantonale e comunale
-- Le aliquote cantonali sono progressive; i comuni applicano un moltiplicatore sull'imposta cantonale
-- Le deduzioni seguono principi federali con integrazioni cantonali specifiche
-- La dichiarazione si presenta online tramite il portale dell'amministrazione fiscale giurassiana
-
-## Fatti chiave
-- **Cosa**: Imposte cantonali e comunali nel Cantone Giura
-- Quando: Scadenza dichiarazione ordinaria 31 marzo (proroghe possibili)
-- Dove: Cantone Giura, Svizzera
-- Chi: Amministrazione fiscale cantonale del Giura (Service des contributions)
-- Importo: Aliquote progressive per scaglioni di reddito e sostanza; moltiplicatori comunali variabili
-
-Il sistema fiscale svizzero si articola su tre livelli: l'imposta federale diretta (IFD) gestita dall'AFC/ESTV, l'imposta cantonale e l'imposta comunale, entrambe di competenza delle amministrazioni cantonali. Nel Cantone Giura, come in tutti i cantoni, la legge fiscale cantonale definisce gli scaglioni di reddito e di sostanza, le aliquote base e le deduzioni ammesse. I comuni giurassiani applicano poi un moltiplicatore (coefficiente) sull'imposta cantonale netta per determinare l'imposta comunale dovuta.
-
-### Struttura a tre livelli e competenze
-L'IFD è identica per tutti i contribuenti svizzeri e viene calcolata sull'imponibile federale. L'imposta cantonale del Giura segue una tariffa progressiva per scaglioni: all'aumentare del reddito imponibile (o della sostanza imponibile) si applicano aliquote marginali crescenti. L'imposta comunale non ha tariffa propria: è il risultato dell'imposta cantonale moltiplicata per il coefficiente comunale, che ogni comune fissa annualmente. Questa architettura rende il carico fiscale finale diverso da comune a comune pur restando all'interno dello stesso cantone.
-
-La distinzione di competenze è rigida: AFC/ESTV gestisce IFD e IVA; le amministrazioni cantonali (nel Giura il Service des contributions) gestiscono imposte cantonali e comunali; UFAS/BSV si occupa di previdenza sociale (AVS/AI/LPP) e non fissa imposte; UST/BFS produce statistiche e non fissa aliquote.
-### Aliquote, scaglioni e moltiplicatori comunali
-Le aliquote cantonali del Giura sono pubblicate ogni anno nel tariffario ufficiale e si applicano per scaglioni di reddito netto imponibile (dopo deduzioni) e di sostanza netta imponibile. Non esiste un'aliquota unica: il sistema è progressivo a scaglioni, quindi la prima tranche di reddito è tassata all'aliquota più bassa, la tranche successiva all'aliquota superiore, e così via. L'imposta cantonale lorda che ne risulta viene poi ridotta degli eventuali abbuoni o crediti d'imposta cantonali per arrivare all'imposta cantonale netta.
-
-Su questa base netta si applica il moltiplicatore comunale. Ogni comune del Giura delibera annualmente il proprio coefficiente (es. 1,45; 1,60; 1,30 ecc.). L'imposta comunale = imposta cantonale netta × moltiplicatore comunale. La somma di imposta cantonale netta + imposta comunale costituisce l'imposta cantonale/comunale complessiva. A questa si aggiunge l'IFD per ottenere l'imposta totale dovuta.
-
-### Deduzioni ammesse: principi federali e specificità cantonali
-Le deduzioni seguono in larga misura i principi del diritto federale armonizzato (LIFD), ma il Cantone Giura può prevedere deduzioni supplementari o parametri propri (es. deduzioni per figli, per spese di guadagno, per premi LAMal/KVG, per versamenti nel pilastro 3a, per interessi passivi, per spese mediche eccedenti una franchigia). L'elenco preciso e gli importi massimi deducibili per l'anno d'imposta in corso sono indicati nelle istruzioni ufficiali della dichiarazione d'imposta giurassiana e sul portale dell'amministrazione fiscale.
-
-Un aspetto pratico rilevante: i contributi sociali trattenuti alla fonte (AVS/AI/IPG 5,3% a carico dipendente, AD/AC 1,1%, LAINF/LAA secondo settore, LPP sul salario coordinato con aliquote per fasce d'età) riducono il reddito lordo per determinare il reddito netto imponibile. I premi LAMal/KVG non sono contributi salariali né tasse, ma sono deducibili entro i limiti cantonali.
-
-## Nützliche Tools für Ihren Fall
-Um Ihr Steuer-Szenario innerhalb/außerhalb von 20 km zu prüfen, nutzen Sie den [Nettolohnrechner](nav:calculator) und den [Leitfaden zur Steuererklärung](nav:tax-return).
-### Termine, Ablauf und Online-Portal
-Die ordentliche Steuererklärung muss bis zum 31. März des auf das Steuerjahr folgenden Jahres eingereicht werden (mit Ausnahme von Verlängerungen, die auf Anfrage bei der Steuerverwaltung gewährt werden). Der Kanton Jura stellt das offizielle Portal für die elektronische Steuererklärung (E-Tax / Online-Erklärung) zur Verfügung, das den Steuerzahler Schritt für Schritt anleitet: Import der vorausgefüllten Daten (Lohnausweise, Bankausweise usw.), manuelle Eingabe der fehlenden Einträge, automatische Berechnung der Bemessungsgrundlage und der geschätzten Steuer, digital signierter Versand.
-
-Wer die vorausgefüllte Erklärung nicht erhält oder Papier bevorzugt, kann die Formulare bei der Steuerverwaltung anfordern. Nach Absendung erlässt das Amt die definitive Veranlagung mit der Veranlagungsverfügung ( décision de taxation). Gegen diese kann innerhalb von 30 Tagen Beschwerde bei der zuständigen Beschwerdestelle eingelegt werden.
-
-### Nützliche Tools für den Steuerzahler
-Um die Auswirkungen von Einkommen, Abzügen, Wohnort und familiärer Situation zu simulieren, ermöglicht der Lohn-/Steuerrechner der Website den Vergleich von Szenarien. Wer DFI, Kanton/Gemeinde und Vorsorge (AHV/BVG/Säule 3a) koordinieren muss, findet im Lohnabrechner einen Überblick. Für die eigentliche Aussage ist der direkte Link zum Jura-e-Tax-Portal der schnellste Kanal.
-
-[Calcola la tua imposta stimata in Giura](nav:calculator)]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 22:13:44 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/imposte-cantonali-giura-aliquote-deduzioni</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/imposte-cantonali-giura-aliquote-deduzioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Stefan Leist zum Vizedir. Eidg.Finanzverwaltung ernannt</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/stefan-leist-vizedirektor-efv-2026/</link>
-      <description><![CDATA[Karin Keller-Sutter ernennt Stefan Leist per 1. Oktober 2026 zum stellvertretenden Direktor EFV. Bereits seit dem 1. März 2026 an der Spitze der Division Finanzpolitik.]]></description>
-      <content:encoded><![CDATA[## Kurzfassung
-- Karin Keller‑Sutter ernennt Stefan Leist zum stellvertretenden Direktor des Bundesamtes für Finanzen (AFF) ab dem 1. Oktober 2026
-- Der Bundesrat wurde in der Sitzung vom 9. September 2026 informiert
-- Leist leitet seit dem 1. März 2026 die Abteilung Finanzpolitik und Ausgleich
-
-## Schlüsselfakten
-- **Was**: Ernennung zum stellvertretenden Direktor des Bundesamtes für Finanzen
-- Wann: Amtsantritt am 1. Oktober 2026, Entscheidung am 9. September 2026
-- Wo: Bundesamt für Finanzen, Bern
-- Wer: Stefan Leist, 45 Jahre, Doktor der Politischen Ökonomie
-- Wichtig: Schlüsselrolle für Finanzpolitik und kantonalen Ausgleich
-
-Die Bundesrätin Karin Keller‑Sutter, Leiterin des Eidgenössischen Finanzdepartements, hat Stefan Leist zum stellvertretenden Direktor des Bundesamtes für Finanzen (AFF) mit Wirkung zum 1. Oktober 2026 ernannt. Die Entscheidung wurde dem Bundesrat in der Sitzung vom 9. September 2026 mitgeteilt.
-
-### Beruflicher Werdegang und Kompetenzen
-Stefan Leist, 45 Jahre, verfügt über langjährige Erfahrung im Bundesamt. Seit dem 1. März 2026 ist er bereits stellvertretender Direktor des AFF und Leiter der Abteilung Finanzpolitik, Finanzausgleich und Finanzstatistik. Er hat Politische Ökonomie an der Universität Bern studiert und 2012 promoviert, im selben Jahr trat er in den Staatssekretariat für Wirtschaft (SECO) ein. Bevor er zum AFF kam, leitete er den Bereich Arbeitsmarktanalyse und Sozialpolitik beim SECO und war stellvertretender Leiter der Direktion Wirtschaftspolitik.
-
-### Die Rolle des AFF im Bundesystem
-Das Bundesamt für Finanzen ist die zentrale Einheit für die Verwaltung der Finanzen der Eidgenossenschaft. Zu seinen Hauptaufgaben gehören die Aufstellung des Bundeshaushalts, das Management der öffentlichen Schulden, die Finanzpolitik und der Finanzausgleich zwischen Bund und Kantonen. Die von Leist geleitete Abteilung ist genau für diese strategischen Dossiers zuständig, einschließlich der Finanzstatistik, die die Entscheidungen der nationalen Steuerpolitik unterstützt.
-### Auswirkungen auf die schweizerische Finanzpolitik
-Die Ernennung von Leist erfolgt zu einem Zeitpunkt, an dem die Bundesfinanzpolitik sich mit strukturellen Herausforderungen auseinandersetzen muss: der Schuldenbremsung, der Finanzgleichstellung zwischen den Kantonen und der Weiterentwicklung der direkten Bundessteuer. Die Abteilung Finanzpolitik, Finanzgleichstellung und Finanzstatistik, die er leitet, ist der analytische Motor hinter den Vorschlägen, die der Bundesrat dem Parlament für den Haushaltsplan und die Jahresrechnung vorlegt.
-
-### Kontinuität und Signale von innen
-Die Tatsache, dass Leist bereits seit dem 1. März 2026 stellvertretender Direktor des AFF war, signalisiert eine operative Kontinuität: Die Beförderung zum stellvertretenden Direktor formalisierte eine Rolle, die er de facto seit sechs Monaten ausübt. Sein Werdegang bei SECO, wo er Kompetenzen im Arbeitsmarkt und in der Wirtschaftspolitik erworben hat, bringt eine bereichsübergreifende Sichtweise in das AFF ein, die Bundessteuereinnahmen, Sozialausgaben und Beschäftigungsdynamiken miteinander verknüpft. Dieses hybride Profil ist an der Spitze der Finanzverwaltung selten und könnte die Koordination zwischen dem Bundesamt für Finanzen und dem Bundesamt für Wirtschaft, Bildung und Forschung stärken.
-
-### Finanzgleichstellung: das heiße Dossier
-Zu den sensibelsten Dossiers, die die Abteilung von Leist bearbeitet, gehört die Finanzgleichstellung 2028‑2035, die sich derzeit in der Vorbereitungsphase befindet. Der Mechanismus verteilt Ressourcen zwischen der Eidgenossenschaft und den Kantonen sowie zwischen reichen Kantonen und Kantonen mit geringerer Steuerkraft neu. Jede Anpassung der Parameter — Steuerkraft, Belastungsindizes, Kompensation von Härtefällen — hat direkte Auswirkungen auf die kantonalen Haushalte und damit indirekt auf die kantonalen und kommunalen Steuern, die Bürger und Unternehmen zahlen. Die von Leist gewährleistete Kontinuität, da er die statistischen Modelle UST/BFS, die den Berechnungen zugrunde liegen, kennt, reduziert das Risiko technischer Diskontinuitäten im nächsten Zyklus.
-
-## Empfohlene Tools
-Für eine aktuelle Schätzung nutzen Sie den [Nettolohnrechner](nav:calculator) und den [CHF-EUR-Wechselvergleich](nav:exchange).
-# ## Was ändert sich für diejenigen, die in der Schweiz leben und arbeiten
-Durch die Ernennung werden Steuersätze oder Fristen für Steuerpflichtige nicht direkt geändert. Die Stabilität an der Spitze der EFV ist jedoch eine notwendige Voraussetzung dafür, dass die Prozesse der Offerte, der Abschlussrechnung und des Ausgleichs die verfassungsrechtlichen Fristen einhalten. Verzögerungen oder Unsicherheiten in diesen Prozessen wirken sich auf die kantonalen Kostenvoranschläge und letztendlich auf die Steuern aus, die die Bewohner — einschließlich der Grenzgänger — auf kantonaler und kommunaler Ebene zahlen.
-
-### So verfolgen Sie die Arbeiten der EFV
-Die finanzpolitischen Dokumente, die Ausgleichsberichte und die Finanzstatistik werden auf der Website der EFV und des BfS veröffentlicht. Wer die Auswirkungen von Bundesbeschlüssen auf den eigenen Kanton überwachen will, kann die kantonalen Offerten einsehen, die in der Regel zwischen November und Dezember für das Folgejahr verabschiedet werden. Um die Auswirkungen der direkten Bundessteuer und der kantonalen/kommunalen Steuern auf Ihr Einkommen abzuschätzen, ist es sinnvoll, die aktualisierten kommunalen Multiplikatoren zu vergleichen.
-
-### Nächste Schritte
-- Überprüfen Sie den Kostenvoranschlag 2027 Ihres Kantons (Veröffentlichung Herbst 2026)
-- Konsultieren Sie die BfS/BfS-Finanzstatistik, um die Steuerfähigkeit Ihrer Gemeinde zu vergleichen
-- Verwenden Sie den Lohn-/Steuerrechner, um die Gesamtsteuerbelastung zu simulieren
-
-[Calcola il tuo onere fiscale stimato](nav:calculator)
-
-*Quelle: [admin.ch](https://www.admin.ch/it/newnsb/sggEkCiBadFx)*]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 05:17:54 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/stefan-leist-vicedirettore-aff-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/stefan-leist-vicedirettore-aff-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>F-35: Amherd haftet für Mehrkosten</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/f-35-amherd-verjaehrung-verantwortung/</link>
-      <description><![CDATA[CDG stellt fest, dass Amherd die Kostenrisiken F-35 Monate zuvor kannte. Dreijährige Verjährung fällig, Wyssmann bittet um Unterbrechung.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Die Geschäftsprüfungskommission (GPK) hat festgestellt, dass Amherd Monate vor der Information des Bundesrats von den Risiken zusätzlicher Kosten für die F-35 wusste
-- Ein definitiver Preis für den Kauf der 36 Jets wurde nie festgelegt
-- Der SVP-Nationalrat Wyssmann fordert, die Verjährung für mögliche Haftungsklagen zu stoppen
-- Die dreijährige Frist für rechtliche Schritte könnte bald ablaufen
-
-## Schlüsseltatsachen
-- **Was**: Untersuchung der Geschäftsprüfungskommission des Nationalrats zum Kauf der F-35
-- Wann: Bericht kürzlich veröffentlicht; dreijährige Verjährungsfrist läuft
-- Wo: Bern, Bundesebene
-- Wer: Ex-Bundesrätin Viola Amherd, GPK, Nationalrat Rémy Wyssmann (SVP), Bundesrat
-- Betrag: Möglicher Schaden noch nicht spezifiziert; früherer Fall Bischof 112'500 Franken
-- Rechtsgrundlage: Art. 5 Abs. 3 Verordnung zum Haftpflichtgesetz
-
-### Die Untersuchung der GPK und ihre Ergebnisse
-Die Geschäftsprüfungskommission des Nationalrats (GPK) hat ihre Ermittlungen zu den Modalitäten des Kaufs der 36 F-35-Jets abgeschlossen. Laut dem Bericht war die ehemalige Bundesrätin Viola Amherd bereits Monate, bevor sie den Bundesrat informierte, über das Risiko zusätzlicher Kosten informiert. Ausserdem wurde für den Auftrag nie ein endgültiger Preis festgelegt. Amherd, die sich derzeit in Oslo zu den Beerdigungen des norwegischen Königs Harald V. aufhält, hat bisher Schweigen bewahrt und den Anfragen der Journalisten nicht entsprochen.
-
-### Die Debatte über die persönliche Haftung
-In Bern steht das Thema der persönlichen Haftung im Zentrum der politischen Debatte. Der SVP-Nationalrat Rémy Wyssmann hatte vor einem Jahr gefordert, der Bundesrat solle «alle Massnahmen» ergreifen, damit mögliche zivilrechtliche Haftungsansprüche gegen Amherd und die beteiligten Beamten nicht verjähren. Damals hatte der Bundesrat empfohlen, die Motion abzulehnen, da es «keine hinreichenden konkreten Anzeichen für einen Schaden oder ein rechtswidriges Verhalten» gebe. Er hatte jedoch zugesichert, dass die zuständigen Behörden rechtliche Schritte prüfen würden, falls solche Anzeichen auftauchen sollten.
-
-### Zuständigkeiten und Präzedenzfälle
-Gemäss Artikel 5, Absatz 3, der Verordnung zum Haftpflichtgesetz liegt die Zuständigkeit für mögliche rechtliche Schritte gegen Amherd beim gesamten Bundesrat; für die beteiligten Beamten liegt die Haftung beim Departement für Verteidigung, Bevölkerungsschutz und Sport (VBS). Ein historischer Präzedenzfall ist der Fall des ehemaligen Ständerats Pirmin Bischof (Mitte), der in den 90er-Jahren persönlich für den Bankrott der Kantonalbank Solothurn verantwortlich gemacht und 112'500 Franken zahlte. Der ehemalige SP-Nationalrat Pierre-Alain Fridez hält die Untersuchung für unzureichend und fordert die Einsetzung einer parlamentarischen Untersuchungskommission, die auch die Wahl des F-35-Modells vertiefen soll.
-
-[Erfahren Sie, wie die Berechnung der direkten Bundessteuer funktioniert](nav:calculator)
-### Implicazioni per la gestione dei grandi appalti federali
-Le conclusioni della CdG sollevano interrogativi strutturali sulla gestione degli appalti miliardari a livello federale. Wyssmann ha criticato aspramente la prassi: «Ancora una volta i contratti non vengono letti, ma i responsabili continuano a incassare oltre 400'000 franchi di stipendio». Il riferimento è allo stipendio annuo lordo di un consigliere federale. Il parlamentare solettese estende il timore ai futuri contratti importanti, come quelli con l'UE: «Anche questi non sono stati letti? L'amministrazione federale ormai firma i contratti come altre persone firmano abbonamenti in palestra».
-
-### Il nodo della prescrizione e i tempi stretti
-L'avvocato Wyssmann spiega che l'obbligo di prescrizione relativa di tre anni inizia dal momento in cui si viene a conoscenza per la prima volta che potrebbe essere stato causato un danno. Questo termine viene spesso posticipato dai tribunali, ma «i tre anni potrebbero quindi scadere in qualsiasi momento». La procedura per interrompere la prescrizione sarebbe semplice: «Basterebbe una telefonata di cinque minuti con Amherd, in cui lei acconsente per iscritto a rinunciare all'eccezione di prescrizione – senza alcuna ammissione di colpa». Finora, però, non risulta che il Consiglio federale abbia avviato questo passo.
-
-### Cosa significa per le finanze pubbliche e i contribuenti
-Se e in quale misura sia derivato dall'acquisto un danno giuridicamente rilevante è ancora da stabilire. Wyssmann precisa che questo potrà essere accertato solo una volta concluso l'acquisto stesso. «Poi dovranno essere individuati tutti i corresponsabili in solido e le rispettive quote di responsabilità. Non solo Amherd. Tutti i coinvolti», sottolinea. La vicenda tocca direttamente la gestione delle risorse pubbliche: un eventuale danno ricadrebbe sulle casse federali, alimentate dall'imposta federale diretta e dall'IVA versate da cittadini e imprese. La trasparenza sui costi definitivi degli F-35, che ammontano a diversi miliardi di franchi, diventa quindi un tema di interesse fiscale nazionale.
-
-[Confronta il costo della vita tra i cantoni](nav:cost-of-living)
-
-## Nützliche Tools für Ihren Fall
-Um Ihr Steuer-Szenario innerhalb/außerhalb von 20 km zu prüfen, nutzen Sie den [Nettolohnrechner](nav:calculator) und den [Leitfaden zur Steuererklärung](nav:tax-return).
-### Nächste Verfahrensschritte und mögliche Szenarien
-Der Bundesrat muss nun entscheiden, ob er die Verjährung gegenüber Amherd und den Funktionären des Departements für Verteidigung, Bevölkerungsschutz und Zivilschutz (VBS) unterbricht. Die Zuständigkeit für die ehemalige Bundesrätin liegt beim Gesamtbundesrat, während die Zuständigkeit für die Mitarbeitenden beim Departement liegt, das derzeit von Viola Amherd (bis zu ihrem Rücktritt) und ihrem Nachfolger geleitet wird. Wenn der Bundesrat nicht rechtzeitig handelt, besteht die Gefahr, dass die dreijährige Verjährungsfrist abläuft und jede Rückforderung unmöglich wird. Parallel dazu müsste für Friders Antrag auf eine parlamentarische Untersuchungskommission (PUK) eine Entscheidung der Bundesversammlung fallen: Eine PUK verfügt über weitergehende Untersuchungsbefugnisse als die Geschäftsprüfungskommission (GPK), einschließlich der Befugnis, Durchsuchungen und Beschlagnahmen anzuordnen.
-
-### Wie Sie die Entwicklung verfolgen und Ihre Interessen wahren
-Für Bürger, die den Fall beobachten möchten, sind die offiziellen Kanäle die Website des Parlaments (parlament.ch) für die Akten der GPK und allfällige Motionen sowie die Website des Bundesverwaltungsgerichts bzw. der Bundesverwaltung (admin.ch) für die Stellungnahmen des Bundesrats. Wer den Einfluss der Militärausgaben auf die Bundesbesteuerung verstehen möchte, kann die vom Eidgenössischen Finanzdepartement (EFD) veröffentlichten Bundesrechnungen konsultieren. Die Transparenz über die endgültigen Kosten der F-35 wird entscheidend sein, um zu beurteilen, ob ein Schaden für die Staatskasse entstanden ist.
-
-### Werkzeuge zur Orientierung in der Schweizer öffentlichen Finanzpolitik
-Die Verwaltung grosser Bundesaufträge wirkt sich auf die Bundesrechnung und damit auf die steuerliche Belastung auf nationaler Ebene aus. Um einen konkreten Einblick zu erhalten, wie die Entscheidungen in Bern die Geldbeutel der Steuerzahler beeinflussen, können Sie unseren Rechner nutzen, um die Auswirkung der direkten Bundessteuer auf Ihr Einkommen zu schätzen. Das Tool berücksichtigt die neuesten Steuertarife und die zulässigen Abzüge.
-
-[Rechnen Sie Ihre direkte Bundessteuer aus](nav:calculator)
-
-*Quelle: [tio.ch](https://www.tio.ch/svizzera/politica/1949060/federale-essere-amherd-consiglio-prescrizione-consigliera-viola-chiede-acquisto-f-35)*]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 02:33:16 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/f-35-amherd-prescrizione-responsabilita</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/f-35-amherd-prescrizione-responsabilita.webp" medium="image"/>
     </item>
   </channel>
 </rss>

@@ -463,3 +463,39 @@ describe('affiliate partner rows carry their position', () => {
     }
   });
 });
+
+describe('legacy newsletter partner descriptions survive unknown locales', () => {
+  const ITALIAN_DESCRIPTIONS = [
+    'Tasso di cambio reale, commissioni trasparenti',
+    'Codice AA8381747 — bonus 50€',
+    'Buono Amazon 50€ con invito',
+  ];
+  const buildLegacyNewsletter = async (locale: unknown) => {
+    const { buildNewsletter } = await import('../scripts/newsletter-template.mjs');
+    return buildNewsletter({
+      aiBriefing: '<p>Test.</p>',
+      exchangeRate: SAMPLE_EXCHANGE,
+      weeklyFact: SAMPLE_FACT,
+      locale,
+      unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+      resubscribeUrl: 'https://frontaliereticino.ch/?action=resubscribe&email=test@example.com',
+    });
+  };
+
+  it('keeps the Italian description when the raw renderer receives an unknown locale', async () => {
+    const { renderAffiliatePartners } = await import('../scripts/newsletter-template.mjs');
+    for (const locale of ['es', 'es-ES', null, undefined]) {
+      const html = renderAffiliatePartners({ campaign: 'weekly_2026-01-01', locale });
+      for (const description of ITALIAN_DESCRIPTIONS) expect(html).toContain(description);
+      expect(html).not.toContain('undefined');
+    }
+  });
+
+  it('keeps the fallback descriptions in the complete email body', async () => {
+    for (const locale of ['es', 'es-ES', null, undefined]) {
+      const html = await buildLegacyNewsletter(locale);
+      for (const description of ITALIAN_DESCRIPTIONS) expect(html).toContain(description);
+      expect(html).not.toContain('undefined');
+    }
+  });
+});
