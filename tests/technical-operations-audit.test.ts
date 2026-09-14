@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — il supervisore è uno script ESM zero-dependency applicativo
 import {
@@ -521,6 +523,13 @@ describe('technical operations audit', () => {
       '        run: echo "${{ steps.generated.outputs.ready }}"',
     ].join('\n');
     const findings = auditWorkflowText('.github/workflows/heredoc-output-reversed.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('riconosce gli output digest sempre emessi dal preflight shadow reale', () => {
+    const file = '.github/workflows/translate-pending-logic.yml';
+    const source = fs.readFileSync(path.resolve(file), 'utf8');
+    const findings = auditWorkflowText(file, source, { root: process.cwd() });
     expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
   });
 
