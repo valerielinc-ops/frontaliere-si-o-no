@@ -1,83 +1,5 @@
 [
   {
-    "timestamp": "2026-08-25T23:34:05.299Z",
-    "label": "before",
-    "total": 30756,
-    "needsRetranslation": 19673,
-    "suppressed": 49,
-    "incomplete": 16297,
-    "complete": 14459,
-    "slotsPresent": 14459,
-    "flaggedAmongSlotsPresent": 4678,
-    "verifiedTranslated": 9781,
-    "sourceCopyExcused": 683,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 4031,
-      "en": 3784,
-      "de": 3591,
-      "fr": 3836
-    },
-    "queueAge": {
-      "count": 19673,
-      "withTimestamp": 19673,
-      "oldestAgeDays": 134.6,
-      "p50AgeDays": 22.4,
-      "p90AgeDays": 78.5,
-      "buckets": {
-        "0-7d": 5601,
-        "7-30d": 7096,
-        "30-90d": 5440,
-        "90-180d": 1536,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3068
-      },
-      {
-        "company": "Marché Restaurants Schweiz AG",
-        "pending": 1924
-      },
-      {
-        "company": "Roche",
-        "pending": 550
-      },
-      {
-        "company": "Société coopérative Migros Vaud",
-        "pending": 438
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 312
-      },
-      {
-        "company": "TRAVECO Transporte AG",
-        "pending": 307
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 272
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 262
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 246
-      },
-      {
-        "company": "BKW",
-        "pending": 230
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-26T00:26:31.835Z",
     "label": "after",
     "total": 30756,
@@ -17388,6 +17310,89 @@
       {
         "company": "Stadt Zürich",
         "pending": 72
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-14T19:57:37.247Z",
+    "label": "before",
+    "total": 32587,
+    "needsRetranslation": 5658,
+    "suppressed": 164,
+    "incomplete": 5368,
+    "complete": 27219,
+    "slotsPresent": 27219,
+    "flaggedAmongSlotsPresent": 765,
+    "verifiedTranslated": 26454,
+    "sourceCopyExcused": 423,
+    "slotsPresentByLength": 32466,
+    "languageVerified": 28076,
+    "missingByLocale": {
+      "it": 71,
+      "en": 59,
+      "de": 67,
+      "fr": 76
+    },
+    "queueAge": {
+      "count": 5658,
+      "withTimestamp": 5658,
+      "oldestAgeDays": 154.4,
+      "p50AgeDays": 14.1,
+      "p90AgeDays": 72.4,
+      "buckets": {
+        "0-1d": 13,
+        "1-2d": 17,
+        "2-7d": 1780,
+        "0-7d": 1810,
+        "7-30d": 1825,
+        "30-90d": 1618,
+        "90-180d": 405,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "topPending": [
+      {
+        "company": "STA Personal AG",
+        "pending": 1192
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 467
+      },
+      {
+        "company": "Roche",
+        "pending": 450
+      },
+      {
+        "company": "Sulzer",
+        "pending": 162
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 131
+      },
+      {
+        "company": "PEMSA",
+        "pending": 129
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 104
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 87
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 72
+      },
+      {
+        "company": "JUMBO",
+        "pending": 65
       }
     ]
   }
