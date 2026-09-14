@@ -982,8 +982,8 @@ describe('careers trail', () => {
     const careers = '<html><title>Hotel careers</title><body><h1>Lavora con noi</h1><a href="https://partner.example/">Partner</a><a href="https://tenant.real-ats.example/openings"></a></body></html>';
     expect(isDistinctCareerSurface(home, careers, 'https://hotel.example/jobs')).toBe(true);
 
-    const homeLinks = extractLinks(home, 'https://hotel.example/');
-    const pageLinks = extractLinks(careers, 'https://hotel.example/jobs');
+    const homeLinks = extractLinks(home, 'https://hotel.example/', { sameOriginOnly: false });
+    const pageLinks = extractLinks(careers, 'https://hotel.example/jobs', { sameOriginOnly: false });
     expect(externalAtsLinks(pageLinks, 'hotel.example', { relaxed: true, globalLinks: homeLinks }))
       .toEqual([{ host: 'tenant.real-ats.example', url: 'https://tenant.real-ats.example/openings', text: '' }]);
   });
@@ -1008,6 +1008,11 @@ describe('careers trail', () => {
     // absolute URL and mask the two pages as identical.
     const home = '<html><title>Hotel</title><body><a href="../jobs.html">Jobs</a><main>Benvenuti</main></body></html>';
     const careers = '<html><title>Hotel</title><body><a href="../jobs.html">Jobs</a><main>Informazioni per il team</main></body></html>';
+    const homeLinks = extractLinks(home, 'https://hotel.example/about/sub/index.html');
+    const careersLinks = extractLinks(careers, 'https://hotel.example/careers/sub/index.html');
+    expect(homeLinks[0].url).toBe('https://hotel.example/about/jobs.html');
+    expect(careersLinks[0].url).toBe('https://hotel.example/careers/jobs.html');
+    expect(homeLinks[0].url).not.toBe(careersLinks[0].url);
     expect(isDistinctCareerSurface(
       home,
       careers,
