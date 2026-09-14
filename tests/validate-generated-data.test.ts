@@ -120,4 +120,40 @@ describe('validate-generated-data', () => {
       byFeature: { blog: { scanned: 2, offenders: 3, ratePct: 150 } },
     }).join('\n')).toMatch(/mode|totalOffenders|ratePct/);
   });
+
+  it('rejects rates that do not derive from their stored counts', () => {
+    const inconsistent = {
+      mode: 'rate',
+      generated: NOW,
+      tolerance: { relPct: 20, absPp: 1, minAbsDelta: 5, maxDeltaPp: 3 },
+      threshold: 66,
+      scanned: 100,
+      totalOffenders: 2,
+      totalRatePct: 100,
+      byFeature: { blog: { scanned: 100, offenders: 2, ratePct: 100 } },
+    };
+    const errors = validateGeneratedData('title-length', inconsistent).join('\n');
+    expect(errors).toContain('totalRatePct');
+    expect(errors).toContain('byFeature.blog.ratePct');
+
+    expect(validateGeneratedData('bfs-depth', {
+      version: 2,
+      mode: 'rate',
+      generatedAt: NOW,
+      maxDepth: 4,
+      tolerance: inconsistent.tolerance,
+      perSitemap: { 'sitemap-blog.xml': { total: 10, reached: 9, atDepthGtMax: 1, ratePct: 100, deepest: 5 } },
+    }).join('\n')).toContain('perSitemap.sitemap-blog.xml.ratePct');
+
+    expect(validateGeneratedData('orphan-pages', {
+      version: 2,
+      mode: 'rate',
+      generatedAt: NOW,
+      scanMode: 'html',
+      totalSitemapUrls: 10,
+      totalOrphans: 1,
+      tolerance: inconsistent.tolerance,
+      perSitemap: { 'sitemap-blog.xml': { total: 10, orphans: 1, ratePct: 100, examples: [] } },
+    }).join('\n')).toContain('perSitemap.sitemap-blog.xml.ratePct');
+  });
 });

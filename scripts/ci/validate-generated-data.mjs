@@ -283,6 +283,26 @@ function validateRate(value, path, errors) {
   }
 }
 
+// The writers persist percentages rounded to four decimal places. Keep the
+// tolerance explicit so a baseline cannot claim a clean scan while storing a
+// rate unrelated to its offender/scanned counts.
+const RATE_ROUNDING_TOLERANCE_PCT = 0.0001;
+
+function validateDerivedRate(value, path, offenders, scanned, errors) {
+  validateRate(value, path, errors);
+  if (!isFiniteNumber(value)
+    || !Number.isInteger(offenders)
+    || !Number.isInteger(scanned)
+    || offenders < 0
+    || scanned < 0
+    || offenders > scanned) return;
+
+  const expected = scanned > 0 ? (offenders / scanned) * 100 : 0;
+  if (Math.abs(value - expected) > RATE_ROUNDING_TOLERANCE_PCT) {
+    add(errors, path, `deve coincidere con ${offenders}/${scanned} (${expected.toFixed(4)}%)`);
+  }
+}
+
 function validateRateTolerance(value, errors) {
   if (!isObject(value)) {
     add(errors, 'tolerance', 'oggetto richiesto');
@@ -304,7 +324,7 @@ function validateRateAggregate(value, errors) {
   } else if (Number.isInteger(value.scanned) && value.totalOffenders > value.scanned) {
     add(errors, 'totalOffenders', 'non può superare scanned');
   }
-  validateRate(value.totalRatePct, 'totalRatePct', errors);
+  validateDerivedRate(value.totalRatePct, 'totalRatePct', value.totalOffenders, value.scanned, errors);
 }
 
 function validateRateBuckets(value, errors) {
@@ -323,7 +343,7 @@ function validateRateBuckets(value, errors) {
       } else if (Number.isInteger(bucket.scanned) && bucket.offenders > bucket.scanned) {
         add(errors, `${base}.offenders`, 'non può superare scanned');
       }
-      validateRate(bucket.ratePct, `${base}.ratePct`, errors);
+      validateDerivedRate(bucket.ratePct, `${base}.ratePct`, bucket.offenders, bucket.scanned, errors);
     }
   }
   if (value.byLocale !== undefined) {
@@ -357,7 +377,7 @@ function validateBfsSitemaps(value, errors) {
     if (Number.isInteger(entry.total) && Number.isInteger(entry.atDepthGtMax) && entry.atDepthGtMax > entry.total) {
       add(errors, `${base}.atDepthGtMax`, 'non può superare total');
     }
-    validateRate(entry.ratePct, `${base}.ratePct`, errors);
+    validateDerivedRate(entry.ratePct, `${base}.ratePct`, entry.atDepthGtMax, entry.total, errors);
   }
 }
 
@@ -378,7 +398,7 @@ function validateOrphanSitemaps(value, errors) {
     } else if (Number.isInteger(entry.total) && entry.orphans > entry.total) {
       add(errors, `${base}.orphans`, 'non può superare total');
     }
-    validateRate(entry.ratePct, `${base}.ratePct`, errors);
+    validateDerivedRate(entry.ratePct, `${base}.ratePct`, entry.orphans, entry.total, errors);
     if (entry.examples !== undefined && (!Array.isArray(entry.examples) || entry.examples.some((url) => !isUrl(url)))) {
       add(errors, `${base}.examples`, 'array di URL http(s) richiesto');
     }
