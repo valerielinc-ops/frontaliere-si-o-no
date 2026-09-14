@@ -17,6 +17,7 @@ import {
   renderComunePage,
   renderDigestPage,
   renderOtherEventsPage,
+  renderOverflowLadderPage,
   DIGESTS,
   assignEventSlugs,
   changedEventSlugMigrations,
@@ -66,6 +67,31 @@ describe('pathForEventDetail', () => {
     expect(pathForEventDetail('en', 'Lugano', slug)).toBe(`/en/events/ticino/lugano/${slug}/`);
     expect(pathForEventDetail('de', 'Lugano', slug)).toBe(`/de/veranstaltungen/tessin/lugano/${slug}/`);
     expect(pathForEventDetail('fr', 'Lugano', slug)).toBe(`/fr/evenements/tessin/lugano/${slug}/`);
+  });
+});
+
+describe('event overflow ladder SEO metadata', () => {
+  it('keeps the ladder H1 distinct from its page title', () => {
+    const events = Array.from({ length: 52 }, (_, index) => ({
+      ...EVENT,
+      id: `tio-agenda:ladder-${index}`,
+      title: `${EVENT.title} ${index}`,
+    }));
+    const page = renderOverflowLadderPage({
+      locale: 'it',
+      canton: 'TI',
+      comune: 'Lugano',
+      events: events as never,
+      cap: 1,
+      page: 2,
+      dateStamp: '2026-09-14',
+      distDir: '',
+      detailHref: (event) => `/event/${event.id}`,
+    });
+    const title = page.html.match(/<title>([^<]*)<\/title>/)?.[1] || '';
+    const h1 = page.html.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1] || '';
+    expect(h1).toContain('(guida frontaliere)');
+    expect(h1).not.toBe(title);
   });
 });
 
