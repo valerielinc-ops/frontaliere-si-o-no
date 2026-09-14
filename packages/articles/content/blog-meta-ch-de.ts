@@ -6376,6 +6376,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-c-nidvaldo-requisiti.title': 'C-Genehmigung Kanton Nidwalden: Voraussetzungen und Antrag',
     'blog.article.permesso-c-nidvaldo-requisiti.excerpt': 'Vollständiger Leitfaden zur Niederlassungsbewilligung C im Kanton Nidwalden: Aufenthaltsjahre, Integrationskriterien und Verfahren.',
     'blog.article.permesso-c-nidvaldo-requisiti.imageAlt': 'Verwaltungsgebäude im Kanton Nidwalden',
+    'blog.article.benzina-oggi-costo-confronto.title': 'Benzin kostet heute weniger als in den 80er Jahren',
+    'blog.article.benzina-oggi-costo-confronto.excerpt': 'Der Benzinpreis liegt mit rund 2 CHF/Liter unter dem kaufkraftbereinigten Wert der 1980er Jahre (3,50 CHF) und ist günstiger als in vielen anderen Ländern.',
+    'blog.article.benzina-oggi-costo-confronto.imageAlt': 'Schweizer Tankstelle mit Benzinpreis von etwa 2 CHF pro Liter',
 };
 
 export default blogMetaChDe;

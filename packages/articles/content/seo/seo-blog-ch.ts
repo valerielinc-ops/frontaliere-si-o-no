@@ -82778,6 +82778,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benzina-oggi-costo-confronto': {
+    title: 'La benzina oggi costa meno che negli anni ‘80 | Frontaliere Ticino',
+    description: 'Analisi del prezzo della benzina in Svizzera: oggi attorno a 2 CHF/litro, inferiore al valore degli anni ’80 corretto per potere d’acquisto e più vantaggioso',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, oggi, costa, meno',
+    ogTitle: 'La benzina oggi costa meno che negli anni ‘80',
+    ogDescription: 'Il costo della benzina svizzera, pur superando la soglia dei due franchi al litro, risulta inferiore al passato quando si considera il potere d’acquisto e più vantaggioso rispetto a molti paesi esteri. L’articolo confronta i valori nominali, quelli',
+    canonicalPath: '/articoli-svizzera/benzina-oggi-costo-confronto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La benzina oggi costa meno che negli anni ‘80",
+      "description": "Analisi del prezzo della benzina in Svizzera: oggi attorno a 2 CHF/litro, inferiore al valore degli anni ’80 corretto per potere d’acquisto e più vantaggioso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/benzina-oggi-costo-confronto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio svizzera con prezzo benzina intorno a 2 CHF/litro"
+      },
+      "datePublished": "2026-09-14T00:56:30+00:00",
+      "dateModified": "2026-09-14T00:56:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/benzina-oggi-costo-confronto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

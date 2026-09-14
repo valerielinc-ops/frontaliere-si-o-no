@@ -6376,6 +6376,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-c-nidvaldo-requisiti.title': 'Permit C Canton Nidvaldo: requirements and application',
     'blog.article.permesso-c-nidvaldo-requisiti.excerpt': 'Complete guide to residence permit C in the Canton of Nidvaldo: years of residence, integration criteria and procedure.',
     'blog.article.permesso-c-nidvaldo-requisiti.imageAlt': 'Administrative building in Canton Nidwalden',
+    'blog.article.benzina-oggi-costo-confronto.title': 'Petrol today costs less than in the 1980s',
+    'blog.article.benzina-oggi-costo-confronto.excerpt': 'The price of petrol is around CHF 2/litre, lower than the value of the 1980s adjusted for purchasing power (CHF 3.50) and more advantageous than in many foreign countries.',
+    'blog.article.benzina-oggi-costo-confronto.imageAlt': 'Swiss fuel station with gasoline price around 2 CHF per liter',
 };
 
 export default blogMetaChEn;
