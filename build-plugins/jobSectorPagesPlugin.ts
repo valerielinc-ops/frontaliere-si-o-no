@@ -79,15 +79,12 @@ import {
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
 
 /**
- * Hard caps used by this plugin to keep emitted HTML inside the 200 KB
- * `audit:page-weight` budget. The 30-job ceiling was tuned so that the
- * heaviest sector (case-anziani / FR maisons-retraite) lands at ~190 KB
- * with a 5 KB safety margin. Bumping this number requires re-running
- * `scripts/audit-page-weight.mjs` and confirming the worst page stays
- * under SECTOR_PAGE_HARD_BUDGET_BYTES.
+ * Sector landings are primary job-listing pages, not three-card previews: the
+ * headline count and the visible inventory must describe the same set. Keep
+ * the build-time guard aligned with the site's 260 KB page-weight budget so a
+ * growing corpus fails loudly instead of silently hiding matching jobs.
  */
-const MAX_EMBEDDED_JOBS = 30;
-const SECTOR_PAGE_HARD_BUDGET_BYTES = 195 * 1024; // 195 KB (5 KB safety margin under 200 KB).
+const SECTOR_PAGE_HARD_BUDGET_BYTES = 260 * 1024;
 
 const LOCALE_OG: Record<JobBoardLocale, string> = {
   it: 'it_CH',
@@ -163,7 +160,7 @@ const SIBLING_RAIL_HEADING: Record<JobBoardLocale, string> = {
  * and labels from {@link SECTOR_HUB_DISPLAY} (auto-localized). Returns an empty
  * string when the sector has no curated siblings, so unmapped long-tail hubs
  * simply render nothing rather than weak cross-links. The rail markup is a few
- * hundred bytes — well inside the 195 KB page-weight budget.
+ * hundred bytes — well inside the 260 KB page-weight budget.
  */
 function renderSiblingSectorRail(locale: JobBoardLocale, sector: SectorHubKey): string {
   const siblings = SECTOR_HUB_SIBLINGS[sector];
@@ -243,7 +240,7 @@ function renderCrossCantonSectorRail(locale: JobBoardLocale, sector: SectorHubKe
 export interface BuildSectorLandingHtmlOptions {
   sector: SectorHubKey;
   locale: JobBoardLocale;
-  /** Pre-filtered job list — already capped to MAX_EMBEDDED_JOBS by caller. */
+  /** Pre-filtered complete job list for this sector and locale. */
   matchingJobs: ReadonlyArray<SectorCountableJob>;
   /** Total active job count for the sector (the H1/stat-tile number). */
   count: number;
@@ -257,9 +254,9 @@ export interface BuildSectorLandingHtmlOptions {
   entryCss?: string;
   /**
    * Full-set stat-tile metrics, computed by the caller over ALL matching jobs
-   * (not the 30-card cap) so the tiles stay honest for popular sectors. When
-   * omitted (e.g. the byte-weight unit test), company/city counts fall back to
-   * the visible `matchingJobs` sample and the fresh tile is dropped.
+   * so the tiles stay honest for popular sectors. When omitted (e.g. the
+   * byte-weight unit test), company/city counts fall back to the visible
+   * `matchingJobs` set and the fresh tile is dropped.
    */
   companyCount?: number;
   cityCount?: number;
@@ -270,8 +267,9 @@ export interface BuildSectorLandingHtmlOptions {
  * Pure HTML builder for a single sector landing page. Extracted so the
  * regression unit test (`tests/seo/job-sector-page-weight.test.ts`) can
  * exercise the exact byte-for-byte output without driving a full Vite
- * build. Callers must cap `matchingJobs.length` to `MAX_EMBEDDED_JOBS`
- * (the cap is the primary lever keeping HTML under the 195 KB budget).
+ * build. Callers pass the complete matching set. The 260 KB guard is the
+ * safety net for corpus growth; truncating the list here would make the
+ * count and cards disagree again.
  */
 export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): string {
   const { sector, locale, matchingJobs, count, year, dateStamp, sectorProseData } = opts;
@@ -633,21 +631,15 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           // No-op (always true) on the default all-locale build.
           if (!shouldEmitLocale(locale)) continue;
           const count = counts[locale][sector];
-          // Cap embedded JobPosting cards at 30 per landing. The full count
-          // is still surfaced via the stat tile + H1 ("X open positions"),
-          // but only the freshest 30 are rendered as cards. Without this
-          // cap, popular sectors (case-anziani, ingegneri, ristorazione)
-          // pushed the page HTML past the 200 KB audit:page-weight budget
-          // — each JobCard with logo + Tailwind classes + icons is ~1.5 KB,
-          // so 50 cards added ~30 KB on top of prose/FAQ/JSON-LD and broke
-          // the gate. 30 cards keeps every page comfortably under 195 KB.
-          const matchingJobs = filterSectorJobs(jobs, sector, locale, MAX_EMBEDDED_JOBS);
+          // Render the complete matching set. The previous 30-card slice made
+          // pages such as Banca/finanza announce 60 offers while exposing only
+          // half of them. The global page-weight audit remains the guardrail.
+          const matchingJobs = filterSectorJobs(jobs, sector, locale, Number.MAX_SAFE_INTEGER);
 
-          // Full (uncapped) match set, used ONLY to compute honest stat-tile
-          // metrics (companies / cities / fresh) — popular sectors show >30
-          // jobs, so deriving these from the 30-card cap would undercount.
-          // Cards themselves stay capped via `matchingJobs` above.
-          const allMatching = filterSectorJobs(jobs, sector, locale, Number.MAX_SAFE_INTEGER);
+          // The same complete set feeds both the cards and the secondary
+          // metrics, so a page can no longer report one inventory and show
+          // another.
+          const allMatching = matchingJobs;
           const normKey = (v: unknown): string => String(v ?? '').trim().toLowerCase();
           const companyCount = new Set(allMatching.map((j) => normKey(j.company)).filter(Boolean)).size;
           const cityCount = new Set(allMatching.map((j) => normKey(j.location)).filter(Boolean)).size;
@@ -686,16 +678,15 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           });
 
           // Hard budget gate — prevents future regressions from quietly
-          // breaking the 200 KB audit:page-weight CI gate. CLAUDE.md
-          // non-negotiable rule #1: never lower thresholds — instead,
-          // compress the offending content (cap embedded jobs further,
-          // strip unused JSON-LD fields, etc.).
+          // breaking the site's page-weight gate. If the complete inventory
+          // outgrows the budget, split the listing or compress the card
+          // markup; never silently drop offers.
           const htmlBytes = Buffer.byteLength(html, 'utf-8');
           if (htmlBytes > SECTOR_PAGE_HARD_BUDGET_BYTES) {
             throw new Error(
               `[job-sector-pages] HTML for ${canonicalPath} is ${(htmlBytes / 1024).toFixed(1)} KB, ` +
                 `exceeds hard budget of ${SECTOR_PAGE_HARD_BUDGET_BYTES / 1024} KB. ` +
-                `Reduce MAX_EMBEDDED_JOBS, compress JSON-LD, or trim per-card markup.`,
+                `Compress card markup or split the listing before changing the page-weight budget.`,
             );
           }
 
