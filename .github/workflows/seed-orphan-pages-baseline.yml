@@ -210,6 +210,9 @@ jobs:
       - name: Generate orphan-pages baseline (rate v2)
         run: |
           node scripts/audit-orphan-pages-in-sitemaps.mjs --rebaseline
+          node scripts/ci/validate-generated-data.mjs \
+            --kind orphan-pages \
+            --file data/orphan-pages-baseline.json
           echo ""
           echo "==== baseline preview (head) ===="
           head -40 data/orphan-pages-baseline.json

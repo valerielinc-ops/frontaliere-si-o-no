@@ -113,7 +113,7 @@ jobs:
           if [ -z "$pr_number" ] && [ -n "${WORKFLOW_HEAD_SHA:-}" ]; then
             pr_number=$(GH_TOKEN="$GITHUB_PAT" gh api \
               "repos/$REPOSITORY/commits/$WORKFLOW_HEAD_SHA/pulls" --paginate --slurp \
-              --jq '[add[] | select(.state == "open" and .base.ref == "main") | .number] | .[0] // empty')
+              | jq -r '[add[] | select(.state == "open" and .base.ref == "main") | .number] | .[0] // empty')
           fi
           if [ -z "$pr_number" ]; then
             echo 'Native auto-merge guard: no open main PR found for this event; no merge.'
