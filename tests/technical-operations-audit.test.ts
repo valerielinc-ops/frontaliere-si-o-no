@@ -120,6 +120,157 @@ describe('technical operations audit', () => {
     ]));
   });
 
+  it('non classifica una ricetta stampata come scrittura dati reale', () => {
+    const source = [
+      'name: recipe',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  baseline:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: instructions',
+      '        # A comment may mention a quoted command without executing it.',
+      '        run: echo "Download the artifact, then git add data/result.json and git commit"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/recipe.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toEqual([]);
+  });
+
+  it('maschera una ricetta tra apici singoli prima di valutare una scrittura reale', () => {
+    const source = [
+      'name: quoted-recipe-before-write',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: write',
+      "        run: echo 'validate data/result.json before publishing' && git add data/result.json && git commit -m result",
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/quoted-recipe-before-write.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
+  it('mantiene il finding per una scrittura reale con path quotato', () => {
+    const source = [
+      'name: quoted-write',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: commit',
+      '        run: git add "data/result.json" && git commit -m result',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/quoted-write.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
+  it('rileva una redirezione verso un path dati quotato', () => {
+    const source = [
+      'name: redirected-write',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: write',
+      '        run: printf payload > "data/result.json"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/redirected-write.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
+  it('rileva anche il path quotato in una scrittura mista', () => {
+    const source = [
+      'name: mixed-write',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: write',
+      '        run: git add data/first.json "data/second.json" && git commit -m result',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/mixed-write.yml', source, { root: '/repo' });
+    const writes = findings.filter((item: any) => item.rule === 'workflow.data-write-without-check');
+    expect(writes).toHaveLength(2);
+    expect(writes.map((item: any) => item.message)).toEqual(expect.arrayContaining([
+      expect.stringContaining('data/first.json'),
+      expect.stringContaining('data/second.json'),
+    ]));
+  });
+
+  it('mantiene il contesto di git add dopo una line-continuation', () => {
+    const source = [
+      'name: continued-add',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: commit',
+      '        run: |',
+      '          git add \\',
+      '            "data/result.json" && git commit -m result',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/continued-add.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
+  it('mantiene il contesto di git add dopo continuazioni consecutive', () => {
+    const source = [
+      'name: continued-add-twice',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: commit',
+      '        run: |',
+      '          git add \\',
+      '            \\',
+      '            "data/result.json" && git commit -m result',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/continued-add-twice.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
+  it('mantiene il contesto di redirezione dopo una line-continuation', () => {
+    const source = [
+      'name: continued-redirect',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: write',
+      '        run: |',
+      '          printf payload > \\',
+      '            "data/result.json"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/continued-redirect.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
+  it('rileva una redirezione dopo continuazioni consecutive', () => {
+    const source = [
+      'name: continued-redirect-twice',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: write',
+      '        run: |',
+      '          printf payload > \\',
+      '            \\',
+      '            "data/result.json"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/continued-redirect-twice.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
   it('accetta queue:max come estensione supportata da GitHub Actions', () => {
     const source = [
       'name: queue-extension',
