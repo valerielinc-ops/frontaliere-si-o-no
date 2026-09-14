@@ -857,6 +857,56 @@ export function summarize(report) {
   return summary;
 }
 
+/**
+ * Keep the L11 issue route proportional to the evidence actually observed.
+ *
+ * Errors are deterministic defects that the bounded issue-fix path may inspect
+ * and propose through a PR. Warnings are intentionally ambiguous signals: they
+ * remain visible and durable, but must not consume fixer quota or be presented
+ * as an approved remediation candidate. The separate review label also makes a
+ * warning-only recurrence distinguishable from a fixable one without using the
+ * `needs-human` label, which has its own rescue/sweep semantics.
+ */
+export function auditIssueRouting(summary) {
+  const provenError = Number(summary?.error || 0) > 0;
+  return {
+    labels: [
+      'operations-audit',
+      provenError ? 'agent:fix-queued' : 'operations-audit-review',
+      'agent:no-age-out',
+    ],
+    add: provenError ? 'agent:fix-queued' : 'operations-audit-review',
+    remove: provenError ? 'operations-audit-review' : 'agent:fix-queued',
+    route: provenError ? 'bounded-fix-queue' : 'review-only',
+  };
+}
+
+/**
+ * Synchronise routing labels on both a newly-created issue and a deduplicated
+ * recurrence. `createGithubIssue` applies labels on creation, but intentionally
+ * does not mutate arbitrary labels on an existing twin; without this explicit
+ * reconciliation, a warning-only tracker could remain stuck in `agent:fix-queued`
+ * forever after the audit became warning-only.
+ */
+function syncAuditIssueRouting(issueNumber, summary) {
+  if (!issueNumber) return;
+  const routing = auditIssueRouting(summary);
+  try {
+    execFileSync('gh', [
+      'issue', 'edit', String(issueNumber),
+      '--add-label', routing.add,
+      '--remove-label', routing.remove,
+      ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
+    ], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    console.log(`Issue audit #${issueNumber}: routing=${routing.route}`);
+  } catch (error) {
+    // The issue itself is already persisted by createGithubIssue. A label-sync
+    // failure must stay visible, but must not turn a successful evidence write
+    // into a false audit failure; the next recurrence retries idempotently.
+    console.error(`Impossibile sincronizzare il routing dell'issue audit #${issueNumber}: ${error.message}`);
+  }
+}
+
 function compactFindings(findings) {
   const groups = new Map();
   for (const item of findings) {
@@ -928,16 +978,17 @@ async function main() {
       '### Azione del supervisore',
       '',
       '- Questo report è stato prodotto senza modificare workflow o dati.',
-      '- Gli errori provati sono candidati a issue-fix/PR; i warning restano da confermare con una prova runtime.',
+      `- Routing: **${auditIssueRouting(summary).route}** — gli errori provati possono entrare nell’issue-fix bounded; i warning restano da confermare con una prova runtime.`,
       '- Un dato non osservabile resta `unmeasurable`, non viene trasformato in zero.',
       runUrl ? `- Run: ${runUrl}` : '',
     ].filter(Boolean).join('\n');
+    const routing = auditIssueRouting(summary);
     try {
       const result = await createGithubIssue({
         title: DEFAULT_ISSUE_TITLE,
         description,
         priority: summary.error > 0 ? 2 : 3,
-        labels: ['operations-audit', 'agent:fix-queued', 'agent:no-age-out'],
+        labels: routing.labels,
         workflow: 'technical-operations-supervisor',
         signals: {
           comando: 'node scripts/ci/technical-operations-audit.mjs --issue --strict',
@@ -945,6 +996,7 @@ async function main() {
         },
       });
       issuePersisted = Boolean(result?.persisted);
+      if (issuePersisted) syncAuditIssueRouting(result.number, summary);
       console.log(issuePersisted ? `Issue audit persistita: #${result.number || '?'}\n` : 'Issue audit non persistita.\n');
     } catch (error) {
       console.error(`Impossibile persistere l'issue audit: ${error.message}`);

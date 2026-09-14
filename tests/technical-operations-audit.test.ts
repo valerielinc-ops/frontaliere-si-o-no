@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   auditWorkflowFiles,
   auditWorkflowText,
+  auditIssueRouting,
   cronError,
   normalizeTriggers,
   renderMarkdown,
@@ -21,6 +22,21 @@ describe('technical operations audit', () => {
     expect(cronError('0 5 * *')).toMatch(/5 campi/);
     expect(cronError('60 5 * * *')).toMatch(/fuori intervallo/);
     expect(cronError('0 5 ? * *')).toMatch(/non valido/);
+  });
+
+  it('instrada solo gli errori provati verso il fixer bounded', () => {
+    expect(auditIssueRouting({ error: 1, warning: 4 })).toEqual({
+      labels: ['operations-audit', 'agent:fix-queued', 'agent:no-age-out'],
+      add: 'agent:fix-queued',
+      remove: 'operations-audit-review',
+      route: 'bounded-fix-queue',
+    });
+    expect(auditIssueRouting({ error: 0, warning: 26 })).toEqual({
+      labels: ['operations-audit', 'operations-audit-review', 'agent:no-age-out'],
+      add: 'operations-audit-review',
+      remove: 'agent:fix-queued',
+      route: 'review-only',
+    });
   });
 
   it('rifiuta chiavi step non supportate da GitHub Actions', () => {
