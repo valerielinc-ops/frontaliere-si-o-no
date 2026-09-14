@@ -1347,6 +1347,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   });
   steps.push(codexAuthBrokerCleanupStep());
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
+  steps.push(liveRunLeaseReleaseStep(groupName));
 
   return {
     name: `Crawler Group ${String(groupIndex).padStart(2, '0')} (${group.members.length} crawlers)`,
@@ -1541,6 +1542,15 @@ function liveRunGuardStep(groupName) {
   };
 }
 
+function liveRunLeaseReleaseStep(groupName) {
+  return {
+    name: 'Release cross-entry crawler live-run lease',
+    if: "always() && env.CRAWLER_GROUP_LIVE_LEASE_OWNED == '1'",
+    'continue-on-error': true,
+    run: `node scripts/check-crawler-group-live-run.mjs ${groupName}.yml --release`,
+  };
+}
+
 function logicLiveRunGuardStep(groupName) {
   return {
     name: 'Guard: refuse a concurrent run of the other entry point',
@@ -1720,6 +1730,16 @@ function normalizedContractStep(step, side, fileName, members) {
       throw new Error(`${fileName}: ${side} live-run guard drifted from its complete allowed form`);
     }
     return { name: copy.name };
+  }
+
+  if (copy?.name === 'Release cross-entry crawler live-run lease') {
+    const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
+    const groupName = `crawler-group-${nn}`;
+    const expected = liveRunLeaseReleaseStep(groupName);
+    if (!nn || JSON.stringify(copy) !== JSON.stringify(expected)) {
+      throw new Error(`${fileName}: ${side} live-run lease release drifted from its complete allowed form`);
+    }
+    return copy;
   }
 
   const composite = /^valerielinc-ops\/frontaliere-si-o-no\/(\.github\/actions\/[^@]+)@main$/.exec(copy?.uses ?? '');
