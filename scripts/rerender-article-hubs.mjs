@@ -62,6 +62,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { spawn } from 'node:child_process';
 
 import {
@@ -476,15 +477,7 @@ async function main() {
 // Standalone only when invoked directly (repo idiom — see
 // scripts/rerender-article-corpus.mjs), so a plain `import` of this module
 // cannot execute a whole side-effecting run.
-const invokedDirectly = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]);
-  } catch {
-    return false;
-  }
-})();
-
-if (invokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     console.error(`${LOG} fatal error:`, err);
     process.exit(1);

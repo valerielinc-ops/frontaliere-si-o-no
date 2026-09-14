@@ -23,6 +23,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
@@ -748,14 +749,6 @@ async function main() {
 }
 
 // Only run main() when invoked as a script, not when imported by tests.
-const isInvokedDirectly = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`;
-  } catch {
-    return false;
-  }
-})();
-
-if (isInvokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => exitCrawlerOnError(err, 'Swisscom'));
 }
