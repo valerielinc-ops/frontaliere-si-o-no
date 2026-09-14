@@ -470,3 +470,30 @@ jobs:
       contents: write   # sync previous-slug winners (git push)
       actions: read     # cross-run download small artifacts (sitemaps, winners)
       issues: write     # github-issue-creator on publish failure
+
+  # `workflow_run` is the preferred trigger for the watchdog, but GitHub can
+  # omit a chained workflow_run event when this workflow was itself started by
+  # workflow_run. Dispatch explicitly after the publish tail so a successful
+  # Pages/live cycle always gets an immediate runtime check. The watchdog's
+  # schedule and manual trigger remain independent backstops.
+  runtime-watchdog:
+    needs: [deploy, validate-dist, validate-live, publish]
+    if: >-
+      ${{ always() &&
+          needs.deploy.result == 'success' &&
+          needs.validate-live.result == 'success' &&
+          (needs.publish.result == 'success' ||
+           needs.publish.result == 'failure' ||
+           needs.publish.result == 'skipped') }}
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write  # workflow_dispatch is the explicit chained trigger
+      contents: read
+    steps:
+      - name: Dispatch runtime reliability watchdog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run runtime-reliability-watch.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main
