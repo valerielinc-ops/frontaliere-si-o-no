@@ -11738,6 +11738,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-veleso-lavorare-ticino.title': 'Vivre à Veleso et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-veleso-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui souhaitent résider à Veleso et se rendre au Tessin : fiscalité, permis et gestion du coût de la vie.',
     'blog.article.vivere-veleso-lavorare-ticino.imageAlt': 'Vue d\'un village résidentiel près de la frontière suisse',
+    'blog.article.vivere-veniano-lavorare-ticino.title': 'Vivre à Veniano et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-veniano-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui vivent à Veniano et travaillent dans le canton du Tessin : liens, impôt à la source, prévoyance et aspects du transfert.',
+    'blog.article.vivere-veniano-lavorare-ticino.imageAlt': 'Vue de Veniano près de la frontière suisse',
 };
 
 export default blogMetaFr;
